@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: 7a944b87192236ba7401fe62d52275bea8be5076
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769792"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898079"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -209,7 +209,7 @@ Starten van het foutopsporingsprogramma VS Code kan soms leiden tot deze fout.
 Het foutopsporingsprogramma VS Code wordt uitgevoerd, rapporteert de fout: `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Reden
-U hebt niet de VS Code-extensie voor C# geïnstalleerd op uw ontwikkelcomputer. De C#-extensie bevat foutopsporing ondersteuning voor .net Core (CoreCLR).
+U hebt niet de VS Code-extensie voor C# geïnstalleerd op uw ontwikkelcomputer. De C# -extensie bevat ondersteuning voor .NET Core (CoreCLR) voor foutopsporing.
 
 ### <a name="try"></a>Probeer:
 Installeer de [VS Code-extensie voor C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).

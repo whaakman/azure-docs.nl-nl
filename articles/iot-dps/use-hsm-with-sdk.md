@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 4ab558b680a0d00d1b9bdfbcb1529219f6c37b37
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: af59ccc6d14dce49d06e178aac3ecafc29bd982c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728706"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990740"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Verschillende attestation-mechanismen gebruiken met de SDK van de Device Provisioning Service-client voor C
 
-In dit artikel wordt beschreven hoe u verschillende [attestation-mechanismen](concepts-security.md#attestation-mechanism) gebruikt met de SDK van de Device Provisioning Service-client voor C. U kunt een fysiek apparaat of een simulator gebruiken. De inrichtingsservice ondersteunt twee typen attestation-mechanismen: X **.** 509 en vertrouwd Platform Module (TPM).
+In dit artikel wordt beschreven hoe u verschillende [attestation-mechanismen](concepts-security.md#attestation-mechanism) gebruikt met de SDK van de Device Provisioning Service-client voor C. U kunt een fysiek apparaat of een simulator gebruiken. De inrichtingsservice ondersteunt twee typen attestation-mechanismen: X.509- en Trusted Platform Module (TPM).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -98,14 +98,14 @@ Bouw de SDK voordat u een apparaatregistratie maakt.
 
 ### <a name="windows"></a>Windows
 - Als u de SDK in Windows wilt bouwen, voer dan de volgende stappen uit om projectbestanden te genereren:
-    - Open een 'Opdrachtprompt voor ontwikkelaars voor VS2015'
-    - Voer de volgende CMake-opdrachten uit vanuit de hoofdmap van de opslagplaats:
-      ```
-      cd azure-iot-sdk-c
-      mkdir cmake
-      cd cmake
-      cmake -G "Visual Studio 14 2015" ..
-      ```
+  - Open een 'Opdrachtprompt voor ontwikkelaars voor VS2015'
+  - Voer de volgende CMake-opdrachten uit vanuit de hoofdmap van de opslagplaats:
+    ```
+    cd azure-iot-sdk-c
+    mkdir cmake
+    cd cmake
+    cmake -G "Visual Studio 14 2015" ..
+    ```
     Met deze opdracht bouwt u x86-bibliotheken. Wijzig het argument van de cmake-generator als u x64-bibliotheken wilt bouwen: 
     ```
     cmake .. -G "Visual Studio 14 2015 Win64"

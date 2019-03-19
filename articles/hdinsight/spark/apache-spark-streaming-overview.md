@@ -3,18 +3,18 @@ title: Spark-Streaming in Azure HDInsight
 description: Het gebruik van Spark Streaming-toepassingen op HDInsight Spark-clusters.
 services: hdinsight
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.openlocfilehash: d44dc7e7a7b3c63012518c3e854270555f469247
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 03/11/2019
+ms.openlocfilehash: 3ecabd683ed4303a7ff54780299ed0e83aa14c26
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873709"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892076"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Overzicht van Apache Spark-Streaming
 
@@ -55,86 +55,103 @@ Deze definitie statisch is en er zijn geen gegevens worden verwerkt totdat u de 
 
 #### <a name="create-a-streamingcontext"></a>Een StreamingContext maken
 
-Maak een StreamingContext van de SparkContext die naar het cluster verwijst. Bij het maken van een StreamingContext, u de grootte van de batch in seconden, bijvoorbeeld:
+Maak een StreamingContext van de SparkContext die naar het cluster verwijst. Bij het maken van een StreamingContext, u de grootte van de batch in seconden, bijvoorbeeld:  
 
-    val ssc = new StreamingContext(spark, Seconds(1))
+```
+import org.apache.spark._
+import org.apache.spark.streaming._
+
+val ssc = new StreamingContext(sc, Seconds(1))
+```
 
 #### <a name="create-a-dstream"></a>Een DStream maken
 
 Met het exemplaar StreamingContext maken een invoer DStream voor uw invoerbron. In dit geval wordt de toepassing bekijken voor de weergave van nieuwe bestanden in de standaardopslag die is gekoppeld aan het HDInsight-cluster.
 
-    val lines = ssc.textFileStream("/uploads/2017/01/")
+```
+val lines = ssc.textFileStream("/uploads/Test/")
+```
 
 #### <a name="apply-transformations"></a>Transformaties toepassen
 
 U implementeren de verwerking door het toepassen van transformaties op de DStream. Deze toepassing een regel tekst op een tijdstip ontvangt van het bestand, splitst elke regel in woorden en vervolgens een map-reduce-patroon gebruikt voor het tellen van het aantal keer dat die elk woord wordt weergegeven.
 
-    val words = lines.flatMap(_.split(" "))
-    val pairs = words.map(word => (word, 1))
-    val wordCounts = pairs.reduceByKey(_ + _)
+```
+val words = lines.flatMap(_.split(" "))
+val pairs = words.map(word => (word, 1))
+val wordCounts = pairs.reduceByKey(_ + _)
+```
 
 #### <a name="output-results"></a>Resultaten van de uitvoer
 
 Resultaten van de transformatie van push naar de doelsystemen door toe te passen van uitvoer-bewerkingen. In dit geval wordt het resultaat van elke uitvoering door de berekening in de console-uitvoer.
 
-    wordCounts.print()
+```
+wordCounts.print()
+```
 
 ### <a name="run-the-application"></a>De toepassing uitvoeren
 
 De streaming-toepassing te starten en uitvoeren totdat er een afsluitingssignaal is ontvangen.
 
-    ssc.start()            
-    ssc.awaitTermination()
+```
+ssc.start()
+ssc.awaitTermination()
+```
 
 Zie voor meer informatie over de Spark Stream-API, samen met de bronnen van gebeurtenissen, transformaties en uitvoer-bewerkingen ondersteund [Apache Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
 
 Het volgende voorbeeld van toepassing is ingesloten, zodat u kunt uitvoeren in een [Jupyter-Notebook](apache-spark-jupyter-notebook-kernels.md). In dit voorbeeld maakt een mock-gegevensbron in de klasse DummySource die de waarde van een item en de huidige tijd in milliseconden om de vijf seconden uitvoert. Een nieuwe StreamingContext-object heeft een batch-interval van 30 seconden. Telkens wanneer een batch is gemaakt, de streaming toepassing onderzoekt de RDD geproduceerd de RDD converteert naar een Spark-gegevensframe en een tijdelijke tabel wordt gemaakt via het DataFrame.
 
-    class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
+```
+class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 
-        /** Start the thread that simulates receiving data */
-        def onStart() {
-            new Thread("Dummy Source") { override def run() { receive() } }.start()
-        }
-
-        def onStop() {  }
-
-        /** Periodically generate a random number from 0 to 9, and the timestamp */
-        private def receive() {
-            var counter = 0  
-            while(!isStopped()) {
-                store(Iterator((counter, System.currentTimeMillis)))
-                counter += 1
-                Thread.sleep(5000)
-            }
-        }
+    /** Start the thread that simulates receiving data */
+    def onStart() {
+        new Thread("Dummy Source") { override def run() { receive() } }.start()
     }
 
-    // A batch is created every 30 seconds
-    val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
+    def onStop() {  }
 
-    // Set the active SQLContext so that we can access it statically within the foreachRDD
-    org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
+    /** Periodically generate a random number from 0 to 9, and the timestamp */
+    private def receive() {
+        var counter = 0  
+        while(!isStopped()) {
+            store(Iterator((counter, System.currentTimeMillis)))
+            counter += 1
+            Thread.sleep(5000)
+        }
+    }
+}
 
-    // Create the stream
-    val stream = ssc.receiverStream(new DummySource())
+// A batch is created every 30 seconds
+val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
 
-    // Process RDDs in the batch
-    stream.foreachRDD { rdd =>
+// Set the active SQLContext so that we can access it statically within the foreachRDD
+org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
 
-        // Access the SQLContext and create a table called demo_numbers we can query
-        val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
-        _sqlContext.createDataFrame(rdd).toDF("value", "time")
-            .registerTempTable("demo_numbers")
-    } 
+// Create the stream
+val stream = ssc.receiverStream(new DummySource())
 
-    // Start the stream processing
-    ssc.start()
+// Process RDDs in the batch
+stream.foreachRDD { rdd =>
 
-U kunt vervolgens een query de DataFrame regelmatig om te zien van de huidige set waarden aanwezig zijn in de batch, bijvoorbeeld met behulp van deze SQL-query:
+    // Access the SQLContext and create a table called demo_numbers we can query
+    val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
+    _sqlContext.createDataFrame(rdd).toDF("value", "time")
+        .registerTempTable("demo_numbers")
+} 
 
-    %%sql
-    SELECT * FROM demo_numbers
+// Start the stream processing
+ssc.start()
+```
+
+Wacht ongeveer 30 seconden na het starten van de bovenstaande toepassing.  Vervolgens kunt u kunt een query de DataFrame regelmatig om te zien van de huidige set waarden aanwezig zijn in de batch, bijvoorbeeld met behulp van deze SQL-query:
+
+```sql
+%%sql
+SELECT * FROM demo_numbers
+```
 
 De resulterende uitvoer ziet er als volgt uit:
 
@@ -161,26 +178,48 @@ Windows Verschuivend kan overlappen, bijvoorbeeld, kunt u een venster met een le
 
 Het volgende voorbeeld werkt de code die gebruikmaakt van de DummySource voor het verzamelen van de partijen in een venster met een duur van één minuut en een dia één minuut.
 
-    // A batch is created every 30 seconds
-    val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
+```
+class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 
-    // Set the active SQLContext so that we can access it statically within the foreachRDD
-    org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
+    /** Start the thread that simulates receiving data */
+    def onStart() {
+        new Thread("Dummy Source") { override def run() { receive() } }.start()
+    }
 
-    // Create the stream
-    val stream = ssc.receiverStream(new DummySource())
+    def onStop() {  }
 
-    // Process batches in 1 minute windows
-    stream.window(org.apache.spark.streaming.Minutes(1)).foreachRDD { rdd =>
+    /** Periodically generate a random number from 0 to 9, and the timestamp */
+    private def receive() {
+        var counter = 0  
+        while(!isStopped()) {
+            store(Iterator((counter, System.currentTimeMillis)))
+            counter += 1
+            Thread.sleep(5000)
+        }
+    }
+}
 
-        // Access the SQLContext and create a table called demo_numbers we can query
-        val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
-        _sqlContext.createDataFrame(rdd).toDF("value", "time")
-        .registerTempTable("demo_numbers")
-    } 
+// A batch is created every 30 seconds
+val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
 
-    // Start the stream processing
-    ssc.start()
+// Set the active SQLContext so that we can access it statically within the foreachRDD
+org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
+
+// Create the stream
+val stream = ssc.receiverStream(new DummySource())
+
+// Process batches in 1 minute windows
+stream.window(org.apache.spark.streaming.Minutes(1)).foreachRDD { rdd =>
+
+    // Access the SQLContext and create a table called demo_numbers we can query
+    val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
+    _sqlContext.createDataFrame(rdd).toDF("value", "time")
+    .registerTempTable("demo_numbers")
+} 
+
+// Start the stream processing
+ssc.start()
+```
 
 Na de eerste minuut zijn er 12 vermeldingen - zes vermeldingen van elk van de twee batches die worden verzameld in het venster.
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e71e4ea56bfe467e03be59d6a855272baafc4235
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822728"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107726"
 ---
 # <a name="backup-and-restore"></a>Back-ups en herstellen
 
@@ -47,7 +47,7 @@ SAP HANA op Azure (grote instanties) biedt twee opties voor back-up en herstel:
 
 - Infrastructuur voor back-up en herstellen van functionaliteit. U kunt ook gebruik van de back-up en herstellen van de functionaliteit die de onderliggende infrastructuur van SAP HANA op Azure (grote instanties) biedt. Deze optie wordt voldaan aan de noodzaak van back-ups en snelle herstelbewerkingen. De rest van deze sectie wordt de functionaliteit voor back-up en herstellen die wordt aangeboden met HANA grote instanties. In deze sectie bevat ook informatie over de relatie back-up en herstel heeft tot de disaster recovery-functionaliteit die worden aangeboden door HANA grote instanties.
 
->   [!NOTE]
+> [!NOTE]
 >   SAP HANA-momentopnamen is afhankelijk van de momentopnametechnologie die wordt gebruikt door de onderliggende infrastructuur van HANA grote instanties. SAP HANA-momentopnamen werken op dit moment niet in combinatie met meerdere tenants van containers voor SAP HANA-multitenant-database. Als er slechts één tenant is geïmplementeerd, SAP HANA-momentopnamen werken en deze methode kan worden gebruikt.
 
 ## <a name="using-storage-snapshots-of-sap-hana-on-azure-large-instances"></a>Met behulp van storage-momentopnamen van SAP HANA op Azure (grote instanties)
@@ -641,44 +641,44 @@ Het volgende laat zien hoe u om voor te bereiden voor de aanvraag:
 
 1. Sluit de HANA-instantie.
 
- ![De HANA-exemplaar afsluiten](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
+   ![De HANA-exemplaar afsluiten](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
 
 1. Ontkoppel de gegevensvolumes op elk knooppunt van HANA-database. Als de gegevensvolumes zijn nog steeds gekoppeld aan het besturingssysteem, de herstelbewerking van de momentopname is mislukt.
- ![Ontkoppel de gegevensvolumes op elk knooppunt van HANA-database](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
+   ![Ontkoppel de gegevensvolumes op elk knooppunt van HANA-database](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
 1. Een Azure-ondersteuningsaanvraag openen en instructies over het terugzetten van een momentopname van een specifieke bevatten.
 
- - Tijdens het terugzetten: SAP HANA op Azure Service Management mogelijk gevraagd om bij te wonen een telefonische vergadering om ervoor te zorgen coördinatie, verificatie en bevestiging dat de juiste opslag-momentopname is teruggezet. 
+   - Tijdens het terugzetten: SAP HANA op Azure Service Management mogelijk gevraagd om bij te wonen een telefonische vergadering om ervoor te zorgen coördinatie, verificatie en bevestiging dat de juiste opslag-momentopname is teruggezet. 
 
- - Na het herstel: SAP HANA op Azure Service Management waarschuwt u als de opslag-momentopname is teruggezet.
+   - Na het herstel: SAP HANA op Azure Service Management waarschuwt u als de opslag-momentopname is teruggezet.
 
 1. Nadat het herstelproces voltooid is, koppelen de gegevensvolumes.
 
- ![Alle gegevensvolumes koppelen](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
+   ![Alle gegevensvolumes koppelen](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
 
 1. Selecteer de opties voor herstel van SAP HANA Studio, als ze niet automatisch afkomstig zijn van wanneer u opnieuw verbinding met HANA DB via SAP HANA Studio maken. Het volgende voorbeeld ziet een herstelbewerking op de laatste HANA-momentopname. Een momentopname van een storage integreert één HANA-momentopname. Als u naar de meest recente momentopname van de opslag, moet de meest recente HANA-momentopname. (Als u naar een momentopname van een oudere opslag herstellen, moet u zoekt de HANA-momentopname op basis van de tijd die de storage-momentopname is gemaakt.)
 
- ![Selecteer opties voor herstellen in SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
+   ![Selecteer opties voor herstellen in SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
 
 1. Selecteer **herstel de database naar een momentopname van een specifieke gegevens back-up of opslag**.
 
- ![Het venster hersteltype opgeven](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
+   ![Het venster hersteltype opgeven](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
 
 1. Selecteer **Geef back-up zonder catalogus**.
 
- ![Het venster van de locatie van back-up opgeven](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
+   ![Het venster van de locatie van back-up opgeven](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
 
 1. In de **doeltype** in de lijst met **momentopname**.
 
- ![Geef op de back-up te herstellen venster](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
+   ![Geef op de back-up te herstellen venster](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
 
 1. Selecteer **voltooien** om het herstelproces te starten.
 
- ![Selecteer 'Voltooid' om het herstelproces te starten](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
+    ![Selecteer 'Voltooid' om het herstelproces te starten](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
 1. De HANA-database is hersteld en hersteld naar de HANA-momentopname die opgenomen in de storage-momentopname.
 
- ![HANA-database is hersteld en hersteld naar de HANA-momentopname](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
+    ![HANA-database is hersteld en hersteld naar de HANA-momentopname](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
 
 ### <a name="recover-to-the-most-recent-state"></a>Herstellen naar de meest recente status
 
@@ -691,23 +691,23 @@ Het volgende proces worden hersteld door de HANA-momentopname die is opgenomen i
 
 1. Selecteer **herstel de database naar de meest recente status**.
 
- ![Selecteer 'Herstel de database naar de meest recente status'](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
+   ![Selecteer 'Herstel de database naar de meest recente status'](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
 1. Geef de locatie van de meest recente HANA logboekback-ups. De locatie moet bevatten van alle de HANA transactielogboekback-ups van de HANA-momentopname naar de meest recente status.
 
- ![Geef de locatie van de meest recente HANA logboekback-ups](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
+   ![Geef de locatie van de meest recente HANA logboekback-ups](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
 
 1. Selecteer een back-up als een basis van waaruit de database herstellen. In dit voorbeeld is de HANA-momentopname in de schermafbeelding de HANA-momentopname die is opgenomen in de storage-momentopname. 
 
- ![Selecteer een back-up als een basis van waaruit de database herstellen](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
+   ![Selecteer een back-up als een basis van waaruit de database herstellen](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
 
 1. Schakel de **Delta-back-ups gebruik** selectievakje in als delta's nog niet bestaan tussen de tijd van de HANA-momentopname en de meest recente status.
 
- ![Schakel het selectievakje 'Gebruik Delta-back-ups' uit als er geen delta's bestaan](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
+   ![Schakel het selectievakje 'Gebruik Delta-back-ups' uit als er geen delta's bestaan](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
 
 1. Selecteer op het scherm Samenvatting **voltooien** om te beginnen met de procedure voor herstel.
 
- ![Klik op 'Voltooid' op het scherm Samenvatting](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
+   ![Klik op 'Voltooid' op het scherm Samenvatting](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
 ### <a name="recover-to-another-point-in-time"></a>Herstellen naar een ander punt in tijd
 Als u wilt herstellen naar een punt in tijd tussen de HANA-momentopname (opgenomen in de storage-momentopname) en één die later is dan het herstel van HANA momentopname point-in-time, moet u de volgende stappen uitvoeren:

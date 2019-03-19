@@ -1,6 +1,6 @@
 ---
 title: Een gesimuleerd TPM-apparaat met Java inrichten voor Azure IoT Hub | Microsoft Docs
-description: 'Azure-quickstart: een gesimuleerd TPM-apparaat met de SDK voor Java maken en inrichten voor Azure IoT Hub Device Provisioning Service. In deze quickstart wordt gebruikgemaakt van afzonderlijke registraties.'
+description: 'Azure-quickstart: een gesimuleerd TPM-apparaat met de SDK voor Java maken en inrichten voor Azure IoT Hub Device Provisioning Service. In deze snelstart wordt gebruikgemaakt van afzonderlijke inschrijvingen.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: c1426ebb5a64a1e0552cc35a736186fda60a5af1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: a83f027cbfcf84beb43ceeb79971807366f22626
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415148"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102295"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Een gesimuleerd TPM-apparaat met de SDK voor Java maken en inrichten voor Azure IoT Hub Device Provisioning Service
 
@@ -25,9 +25,9 @@ In deze stappen wordt getoond hoe u een gesimuleerd apparaat maakt op een ontwik
 
 Als u niet bekend bent met het proces van automatisch inrichten, bekijk dan ook de [Concepten voor automatische inrichting](concepts-auto-provisioning.md). Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat. 
 
-Azure IoT Device Provisioning Service ondersteunt twee typen registraties:
-- [Registratiegroepen](concepts-service.md#enrollment-group): voor het registreren van meerdere gerelateerde apparaten.
-- [Afzonderlijke registraties](concepts-service.md#individual-enrollment): voor het registreren van een enkel apparaat.
+Azure IoT Device Provisioning Service ondersteunt twee typen inschrijvingen:
+- [Inschrijvingsgroepen](concepts-service.md#enrollment-group): Wordt gebruikt om meerdere gerelateerde apparaten in te schrijven.
+- [Afzonderlijke inschrijvingen](concepts-service.md#individual-enrollment): Wordt gebruikt om één apparaat in te schrijven.
 
 In dit artikel worden afzonderlijke registraties gedemonstreerd.
 
@@ -100,14 +100,14 @@ In dit artikel worden afzonderlijke registraties gedemonstreerd.
 1. Selecteer **Manage enrollments** in de overzichtsblade van Device Provisioning Service. Selecteer het tabblad **Afzonderlijke registraties** en klik vervolgens op de knop **Afzonderlijke inschrijving toevoegen** bovenaan. 
 
 1. Voer onder **Inschrijving toevoegen** de volgende gegevens in:
-    - Selecteer **TPM** als *mechanisme* voor identiteitscontrole.
-    - Voer de *registratie-id* en *goedkeuringssleutel* voor het TPM-apparaat in, zoals eerder genoteerd. 
-    - Selecteer een IoT-hub die is gekoppeld aan uw inrichtingsservice.
-    - Voer een unieke apparaat-id in. Vermijd gevoelige gegevens bij het benoemen van uw apparaat.
-    - Werk de **initiële status van de apparaatdubbel** bij met de gewenste beginconfiguratie voor het apparaat.
-    - Klik op de knop **Save** als u klaar bent. 
+   - Selecteer **TPM** als *mechanisme* voor identiteitscontrole.
+   - Voer de *registratie-id* en *goedkeuringssleutel* voor het TPM-apparaat in, zoals eerder genoteerd. 
+   - Selecteer een IoT-hub die is gekoppeld aan uw inrichtingsservice.
+   - Voer een unieke apparaat-id in. Vermijd gevoelige gegevens bij het benoemen van uw apparaat.
+   - Werk de **initiële status van de apparaatdubbel** bij met de gewenste beginconfiguratie voor het apparaat.
+   - Klik op de knop **Save** als u klaar bent. 
 
-    ![Gegevens van apparaatinschrijving invoeren in de portalblade](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
+     ![Gegevens van apparaatinschrijving invoeren in de portalblade](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    Als het apparaat is ingeschreven, wordt de *registratie-id* ervan weergegeven in de lijst onder het tabblad *Individuele inschrijvingen*. 
 

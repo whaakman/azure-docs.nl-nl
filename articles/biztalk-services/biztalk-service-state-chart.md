@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: bbe1288a42db307001ac778394ac410206f1df21
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 71463b523f0afdf63a7c89ff2b3137ae8d091b3b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228195"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086697"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Wat u wel en niet met behulp van de BizTalk Service-status
 
@@ -35,7 +35,7 @@ Bijvoorbeeld, inricht u een nieuwe BizTalk service. Wanneer deze voltooid is, wo
 
 De volgende tabellen worden de bewerkingen of bewerkingen die kunnen worden uitgevoerd wanneer de BizTalk-Service in een specifieke status is. Een ✔ betekent dat de bewerking is toegestaan in deze staat. Een lege waarde betekent dat de bewerking kan niet worden uitgevoerd in deze staat.
 
-| Servicestatus | Starten | Stoppen | Opnieuw starten | Tijdelijk intrekken | Hervatten | Verwijderen | Schalen | Update <br/> Configuratie | Backup |
+| Servicestatus | Starten | Stoppen | Opnieuw starten | Onderbreken | Hervatten | Verwijderen | Schalen | Update <br/> Configuratie | Backup |
 | --- | --- | --- | --- | --- | --- | --- |--- | --- | --- |
 | Actief |  | ✔ | ✔ | ✔ |  | ✔ |✔ |✔ |✔ |
 | Uitgeschakeld |  |  |  |  |  | ✔ | |  |  | 
@@ -48,7 +48,7 @@ De volgende tabellen worden de bewerkingen of bewerkingen die kunnen worden uitg
 | SuspendedFailed <br/> ResumeFailed|  |  |  | ✔ | ✔ | ✔ | |  |  | 
 | CreatedFailed <br/> RestoreFailed |  |  |  |  |  | ✔ | |  |  | 
 | ConfigUpdateFailed  |  |  | ✔ |  |  | ✔ | |✔ | |
-| ScaleFailed |  |  |  |  |  | ✔ |✔ | |  |  | 
+| ScaleFailed |  |  |  |  |  | ✔ |✔ | |  |
 
 
 

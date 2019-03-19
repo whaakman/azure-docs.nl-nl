@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: aa3f2bc23b731f1e2c02d84edd6079debfbae134
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 249ed7b1be2731fc8165ca7f205ba1d94066818e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727260"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088040"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
 
@@ -158,12 +158,12 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 
 * U kunt Storage Explorer nu gebruiken voor toegang tot uw Blob-gegevens via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Als u bent aangemeld en Storage Explorer kan niet worden opgehaald van de sleutels voor uw Storage-account is, wordt een OAuth-token worden gebruikt om te verifiëren bij interactie met uw gegevens.
 * Storage Explorer biedt nu ondersteuning voor opslagaccounts van ADLS Gen2. Wanneer u Storage Explorer detecteert die hiërarchische naamruimte is ingeschakeld voor een opslagaccount, wordt u Zie '(ADLS Gen2 Preview)' naast de naam van uw opslagaccount. Storage Explorer kan detecteren of er hiërarchische naamruimte is ingeschakeld wanneer u bent aangemeld, of als u uw Storage-Account met de naam en sleutel hebt gekoppeld. U kunt Storage Explorer om te gebruiken voor ADLS Gen2 Storage-accounts:
-    * Maken en verwijderen van containers
-    * Eigenschappen van de container en machtigingen (linkerkant) beheren
-    * Weergeven en gegevens binnen containers gaan
-    * Nieuwe mappen maken
-    * Uploaden, downloaden, wijzigen en verwijderen van bestanden en mappen
-    * Eigenschappen van bestanden en mappen en machtigingen (rechterkant) beheren.
+  * Maken en verwijderen van containers
+  * Eigenschappen van de container en machtigingen (linkerkant) beheren
+  * Weergeven en gegevens binnen containers gaan
+  * Nieuwe mappen maken
+  * Uploaden, downloaden, wijzigen en verwijderen van bestanden en mappen
+  * Eigenschappen van bestanden en mappen en machtigingen (rechterkant) beheren.
     
     Andere standaard Blob-functies, zoals voorlopig verwijderen en momentopnamen, zijn momenteel niet beschikbaar. Beheer van machtigingen is ook alleen beschikbaar wanneer is aangemeld. Bovendien, als u werkt in een ADLS Gen2 Storage-account, wordt Storage Explorer AzCopy gebruiken voor alle uploads, downloads en maken standaard gebruik van de naam en sleutel referenties voor alle bewerkingen, indien beschikbaar.
 * Na sterke gebruikersfeedback, kan de lease break opnieuw leases in één keer op meerdere blobs verbreken worden gebruikt.
@@ -227,12 +227,12 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 
 * U kunt Storage Explorer nu gebruiken voor toegang tot uw Blob-gegevens via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Als u bent aangemeld en Storage Explorer kan niet worden opgehaald van de sleutels voor uw Storage-account is, wordt een OAuth-token worden gebruikt om te verifiëren bij interactie met uw gegevens.
 * Storage Explorer biedt nu ondersteuning voor opslagaccounts van ADLS Gen2. Wanneer u Storage Explorer detecteert die hiërarchische naamruimte is ingeschakeld voor een opslagaccount, wordt u Zie '(ADLS Gen2 Preview)' naast de naam van uw opslagaccount. Storage Explorer kan detecteren of er hiërarchische naamruimte is ingeschakeld wanneer u bent aangemeld, of als u uw Storage-Account met de naam en sleutel hebt gekoppeld. U kunt Storage Explorer om te gebruiken voor ADLS Gen2 Storage-accounts:
-    * Maken en verwijderen van containers
-    * Eigenschappen van de container en machtigingen (linkerkant) beheren
-    * Weergeven en gegevens binnen containers gaan
-    * Nieuwe mappen maken
-    * Uploaden, downloaden, wijzigen en verwijderen van bestanden en mappen
-    * Eigenschappen van bestanden en mappen en machtigingen (rechterkant) beheren.
+  * Maken en verwijderen van containers
+  * Eigenschappen van de container en machtigingen (linkerkant) beheren
+  * Weergeven en gegevens binnen containers gaan
+  * Nieuwe mappen maken
+  * Uploaden, downloaden, wijzigen en verwijderen van bestanden en mappen
+  * Eigenschappen van bestanden en mappen en machtigingen (rechterkant) beheren.
     
     Andere standaard Blob-functies, zoals voorlopig verwijderen en momentopnamen, zijn momenteel niet beschikbaar. Beheer van machtigingen is ook alleen beschikbaar wanneer is aangemeld. Bovendien, als u werkt in een ADLS Gen2 Storage-account, wordt Storage Explorer AzCopy gebruiken voor alle uploads, downloads en maken standaard gebruik van de naam en sleutel referenties voor alle bewerkingen, indien beschikbaar.
 * Na sterke gebruikersfeedback, kan de lease break opnieuw leases in één keer op meerdere blobs verbreken worden gebruikt.
@@ -282,12 +282,12 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 
 * U kunt Storage Explorer nu gebruiken voor toegang tot uw Blob-gegevens via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Als u bent aangemeld en Storage Explorer kan niet worden opgehaald van de sleutels voor uw Storage-account is, wordt een OAuth-token worden gebruikt om te verifiëren bij interactie met uw gegevens.
 * Storage Explorer biedt nu ondersteuning voor opslagaccounts van ADLS Gen2. Wanneer u Storage Explorer detecteert die hiërarchische naamruimte is ingeschakeld voor een opslagaccount, wordt u Zie '(ADLS Gen2 Preview)' naast de naam van uw opslagaccount. Storage Explorer kan detecteren of er hiërarchische naamruimte is ingeschakeld wanneer u bent aangemeld, of als u uw Storage-Account met de naam en sleutel hebt gekoppeld. U kunt Storage Explorer om te gebruiken voor ADLS Gen2 Storage-accounts:
-    * Maken en verwijderen van containers
-    * Eigenschappen van de container en machtigingen (linkerkant) beheren
-    * Weergeven en gegevens binnen containers gaan
-    * Nieuwe mappen maken
-    * Uploaden, downloaden, wijzigen en verwijderen van bestanden en mappen
-    * Eigenschappen van bestanden en mappen en machtigingen (rechterkant) beheren.
+  * Maken en verwijderen van containers
+  * Eigenschappen van de container en machtigingen (linkerkant) beheren
+  * Weergeven en gegevens binnen containers gaan
+  * Nieuwe mappen maken
+  * Uploaden, downloaden, wijzigen en verwijderen van bestanden en mappen
+  * Eigenschappen van bestanden en mappen en machtigingen (rechterkant) beheren.
     
     Andere standaard Blob-functies, zoals voorlopig verwijderen en momentopnamen, zijn momenteel niet beschikbaar. Beheer van machtigingen is ook alleen beschikbaar wanneer is aangemeld. Bovendien, als u werkt in een ADLS Gen2 Storage-account, wordt Storage Explorer AzCopy gebruiken voor alle uploads, downloads en maken standaard gebruik van de naam en sleutel referenties voor alle bewerkingen, indien beschikbaar.
 * Na sterke gebruikersfeedback, kan de lease break opnieuw leases in één keer op meerdere blobs verbreken worden gebruikt.

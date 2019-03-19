@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: cc5f3f729acca1f7aa23a7714300c1b581c6f7f8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 90e119949ccc070761aaec593a128b15c9f8d623
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993891"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880950"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Advertenties invoeren op de client
 In dit artikel bevat informatie over het invoegen van verschillende typen advertenties op de client.
@@ -51,7 +51,7 @@ Elk speler framework werkt anders en elk in een eigen artikel worden behandeld. 
 Een ENORME bestand wordt aangegeven welke ad of advertenties om weer te geven. De volgende XML-bestand is een voorbeeld van een groot bestand voor een lineaire ad:
 
 ```xml
-    <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
+    <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="115571748">
         <InLine>
           <AdSystem version="2.0 alpha">Atlas</AdSystem>
@@ -99,7 +99,7 @@ De lineaire ad wordt beschreven door de <**lineair**> element. Hiermee geeft u a
 Lineaire advertenties kunnen worden weergegeven in een opgegeven volgorde. Om dit te doen, voegt u extra <Ad> elementen op de VAST bestand en de volgorde die met behulp van de sequence-kenmerk opgeven. Het volgende voorbeeld wordt deze:
 
 ```xml
-    <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
+    <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="1" sequence="0">
         <InLine>
           <AdSystem version="2.0 alpha">Atlas</AdSystem>
@@ -180,7 +180,7 @@ Een bestand VMAP kunt u opgeven wanneer ad onderbrekingen optreden, hoe lang elk
       <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
         <vmap:AdSource allowMultipleAds="true" followRedirects="true" id="1">
           <vmap:VASTData>
-            <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
+            <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
               <Ad id="115571748">
                 <InLine>
                   <AdSystem version="2.0 alpha">Atlas</AdSystem>
@@ -188,7 +188,7 @@ Een bestand VMAP kunt u opgeven wanneer ad onderbrekingen optreden, hoe lang elk
                   <Description>Unknown</Description>
                   <Survey></Survey>
                   <Error></Error>
-                  <Impression id="Atlas"><![CDATA[http://view.atdmt.com/000/sview/115571748/direct;ai.201582527;vt.2/01/634364885739970673]]></Impression>
+                  <Impression id="Atlas"><![CDATA[https://view.atdmt.com/000/sview/115571748/direct;ai.201582527;vt.2/01/634364885739970673]]></Impression>
                   <Creatives>
                     <Creative id="video" sequence="0" AdID="">
                       <Linear>
@@ -282,7 +282,7 @@ Voor meer informatie over het <**TrackingEvents**>-element en alle onderliggende
 Een bestand b kunt u opgeven triggers die bepalen wanneer een AD-tenant wordt weergegeven. Hier volgt een voorbeeld van de b-bestand met triggers voor een pre-album Active Directory, een halverwege rollen-ad en een na implementatie van de Active Directory.
 
 ```xml
-    <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
       <triggers>
         <trigger id="preroll" description="preroll every item"  >
           <startConditions>
@@ -405,7 +405,7 @@ In dit voorbeeld maakt gebruik van de AdSchedulerPlugin om te definiëren wannee
     </mmppf:MediaPlayer>
 ```
 
-Zie voor meer informatie over de AdSchedulerPlugin [reclame in het kader van de speler op Windows 8 en Windows Phone 8](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
+Zie voor meer informatie over de AdSchedulerPlugin [reclame in het kader van de speler op Windows 8 en Windows Phone 8](https://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
 
 ### <a name="adschedulingpage"></a>AdSchedulingPage
 In dit voorbeeld gebruikt ook de AdSchedulerPlugin. Hiermee plant u drie advertenties, een implementatie van de pre-ad, een halverwege rollen-ad en een na implementatie van de Active Directory. De URI moet het VAST voor elke ad is opgegeven in een <RemoteAdSource> element.
@@ -595,7 +595,7 @@ Het volgende voorbeeld ziet u hoe om te plannen met behulp van een bestand VMAP 
     // How to schedule an Ad using VMAP.
     //First download the VMAP manifest
 
-    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVMAP.xml"]])
+    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVMAP.xml"]])
             {
                 [self logFrameworkError];
             }
@@ -619,7 +619,7 @@ Het volgende voorbeeld laat zien hoe een latere binding grote Active Directory p
     adLinearTime.startTime = 13;
     adLinearTime.duration = 0;
     // Specify the URI of the VAST file
-    NSString *vastAd1=@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml";
+    NSString *vastAd1=@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml";
     // Create an AdInfo object
      AdInfo *vastAdInfo1 = [[[AdInfo alloc] init] autorelease];
     // set URL to VAST file
@@ -645,7 +645,7 @@ Het volgende voorbeeld laat zien hoe een latere binding grote Active Directory p
 ```csharp
     //Example:4 Schedule an early binding VAST ad
     //Download the VAST file
-    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]])
+    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]])
     {
         [self logFrameworkError];
     }

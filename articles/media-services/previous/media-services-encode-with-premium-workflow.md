@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 7b91f63057fa8b781fdfab17e0837a9f5547c1eb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d28d6836189bb9cca3eefb328310405550c4f94c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988031"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120156"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Geavanceerde codering met Media Encoder Premium Workflow
 > [!NOTE]
@@ -62,12 +62,12 @@ De volgende stappen worden uitgevoerd:
     In de meeste gevallen de configuratietekenreeks voor de taak is leeg (zoals in het volgende voorbeeld). Er zijn enkele geavanceerde scenario's (waarvoor u de eigenschappen van de runtime dynamisch ingesteld) in dat geval u een XML-tekenreeks voor de coderingstaak wilt opgeven. Voorbeelden van dergelijke scenario's zijn: het maken van een overlay, parallelle en sequentiële media samenvoegen, subtitling.
 5. Twee invoer elementen toevoegen aan de taak.
 
-    1. 1e: de werkstroom-asset.
-    2. 2e: de video-asset.
+   1. 1e: de werkstroom-asset.
+   2. 2e: de video-asset.
 
-    >[!NOTE]
-    >De asset werkstroom moet worden toegevoegd aan de taak voor de media-asset.
-   De configuratietekenreeks voor deze taak mag niet leeg zijn.
+      >[!NOTE]
+      >De asset werkstroom moet worden toegevoegd aan de taak voor de media-asset.
+      De configuratietekenreeks voor deze taak mag niet leeg zijn.
    
 6. De coderingstaak indienen.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8897651c963b0036bc2ac3d8cdb06a52d6f52ba1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7e9795be75fe80d83104101a5a41f96c46269bbd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863641"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>Preview:  Versiegeschiedenis van Azure AD wachtwoord Protection agent
 
@@ -24,6 +24,24 @@ ms.locfileid: "56188032"
 | --- |
 | Beveiliging van Azure AD-wachtwoord is een openbare preview-functie van Azure Active Directory. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="121160"></a>1.2.116.0
+
+Uitgebracht op: 3/13/2019
+
+* De Get-AzureADPasswordProtectionProxy en Get-AzureADPasswordProtectionDCAgent cmdlets nu softwareversie rapport en de huidige Azure-met de volgende beperkingen tenant:
+  * Softwareversie en Azure-tenant-gegevens zijn alleen beschikbaar voor de DC-agents en proxy's versie 1.2.116.0 of hoger.
+  * Azure-tenant-gegevens kunnen niet worden gerapporteerd totdat een vernieuwde registratie (of een verlenging) van de proxy of forest is opgetreden.
+* De Proxy-service is nu vereist dat .NET 4.7 is geïnstalleerd.
+  * .NET 4.7 moet al zijn geïnstalleerd op een volledig bijgewerkte Windows-Server. Als dit niet het geval is, downloaden en uitvoeren van het installatieprogramma gevonden op [het .NET Framework 4.7 offline-installatieprogramma voor Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  * Op de Server Core-systemen is het mogelijk nodig om door te geven van de vlag /q aan het installatieprogramma uit .NET 4.7 om deze te voltooien.
+* De Proxy-service biedt nu ondersteuning voor automatisch bijwerken. Automatische upgrade maakt gebruik van de Microsoft Azure AD Connect-Agent Updater-service die is geïnstalleerd side-by-side met de Proxy-service. Automatische upgrade is standaard ingeschakeld.
+* Automatische upgrade kan worden ingeschakeld of uitgeschakeld met behulp van de cmdlet Set-AzureADPasswordProtectionProxyConfiguration. De huidige instelling kan worden opgevraagd met de cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
+* De binaire service voor de DC-agent-service is gewijzigd in AzureADPasswordProtectionDCAgent.exe.
+* De binaire service voor de Proxy-service is gewijzigd in AzureADPasswordProtectionProxy.exe. Firewall-regels moet mogelijk dienovereenkomstig worden aangepast als een firewall van derden in gebruik is.
+  * Opmerking: als een HTTP-proxy-configuratiebestand wordt gebruikt in een vorige Proxy installeert, moet deze worden gewijzigd (van *proxyservice.exe.config* naar *AzureADPasswordProtectionProxy.exe.config*) na deze een upgrade uitvoeren.
+* Alle functionaliteit van de tijdslimiet controles zijn verwijderd uit de DC-agent.
+* Oplossingen van kleine bugs opgelost en verbeteringen van logboekregistratie.
 
 ## <a name="12650"></a>1.2.65.0
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7fcf08c36d8babd0a318ed5b912823c344f4ce64
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9e1dde57dc1903e87704bd55fb0b942b7cc349e5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549949"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010585"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Gegevens kopiëren van Amazon Redshift met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -126,7 +126,7 @@ Om gegevens te kopiëren van Amazon Redshift, stelt u het brontype in de kopieer
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **AmazonRedshiftSource** | Ja |
-| query |De aangepaste query gebruiken om gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: Selecteer * uit MyTable. |Nee (als de 'tableName' in de gegevensset is opgegeven) |
+| query |De aangepaste query gebruiken om gegevens te lezen. Bijvoorbeeld: Selecteer * uit MyTable. |Nee (als de 'tableName' in de gegevensset is opgegeven) |
 | redshiftUnloadSettings | Eigenschappengroep bij het verwijderen van Amazon Redshift gebruik. | Nee |
 | s3LinkedServiceName | Verwijst naar een Amazon S3 naar-worden gebruikt als een tijdelijke opslag door de naam van een gekoppelde service van het type 'Amazon S3' op te geven. | Ja, als uit het geheugen laden |
 | bucketName | Geven de S3-bucket voor het opslaan van de tussentijdse gegevens. Als niet is opgegeven, Data Factory-service wordt automatisch gegenereerd.  | Ja, als uit het geheugen laden |

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: 0a0f7cc8e3810a28fdbec914a9f37808c33ab878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880584"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Zelfstudie: Een Jenkins-omgeving configureren om CI/CD in te schakelen voor een Java-toepassing voor Service Fabric
 
@@ -72,15 +72,15 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
     * Nadat u zich voor de eerste keer hebt aangemeld, kunt u uw eigen gebruikersaccount maken of het beheerdersaccount gebruiken.
 
 1. Stel GitHub in voor Jenkins door de stappen uit te voeren die genoemd zijn in [Een nieuwe SSH-sleutel genereren en toevoegen aan de SSH-agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/). Omdat de opdrachten worden uitgevoerd vanuit de Docker-container, volgt u de instructies voor de Linux-omgeving.
-    * Gebruik de instructies van GitHub om de SSH-sleutel te genereren. Voeg vervolgens de SSH-sleutel aan het GitHub-account toe dat als host voor de opslagplaats fungeert.
-    * Voer de opdrachten die in de vorige koppeling zijn genoemd, uit in de Jenkins Docker-shell (en niet op uw host).
-    * Gebruik de volgende opdrachten om u vanaf uw host aan te melden bij de Jenkins-shell:
+   * Gebruik de instructies van GitHub om de SSH-sleutel te genereren. Voeg vervolgens de SSH-sleutel aan het GitHub-account toe dat als host voor de opslagplaats fungeert.
+   * Voer de opdrachten die in de vorige koppeling zijn genoemd, uit in de Jenkins Docker-shell (en niet op uw host).
+   * Gebruik de volgende opdrachten om u vanaf uw host aan te melden bij de Jenkins-shell:
 
-    ```sh
-    docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
-    ```
+     ```sh
+     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+     ```
 
-    Zorg ervoor dat het cluster waarin of de computer waarop de installatiekopie van de Jenkins-container wordt gehost, een openbaar IP-adres heeft. Met een openbaar IP-adres kan de instantie van Jenkins meldingen ontvangen uit GitHub.
+     Zorg ervoor dat het cluster waarin of de computer waarop de installatiekopie van de Jenkins-container wordt gehost, een openbaar IP-adres heeft. Met een openbaar IP-adres kan de instantie van Jenkins meldingen ontvangen uit GitHub.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Een Jenkins-taak maken en configureren
 
@@ -146,7 +146,7 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
-    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
+    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
       <Description>Voting Application</Description>
       <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="2.0.0"/>

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 5687075b8b63755b8b04f8c8fd0d0706ec8e27bc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5141cd083469d51a067bbc993f598393768fe99f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774520"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000184"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -59,11 +59,12 @@ Elk virtueel netwerk, ongeacht of het gekoppeld is aan een ander virtueel netwer
 
 Wanneer beide opties voor interconnectiviteit tussen virtuele netwerken zijn geconfigureerd, loopt het verkeer tussen de virtuele netwerken via de peering-configuratie (dat wil zeggen, via de Azure-backbone).
 
-Wanneer virtuele netwerken zijn gekoppeld in dezelfde regio, kunt u ook de gateway in het gekoppelde virtuele netwerk configureren als een doorvoerpunt naar een on-premises netwerk. Het virtuele netwerk dat gebruikmaakt van een externe gateway kan in dit geval niet een eigen gateway hebben. Een virtueel netwerk kan slechts één gateway hebben. De gateway kan een lokale of een externe gateway zijn (in het gekoppelde virtuele netwerk), zoals wordt weergegeven op de volgende afbeelding:
+Wanneer virtuele netwerken gelijkwaardig zijn gemaakt, kunt u ook de gateway in het gelijkwaardige virtuele netwerk configureren als een doorvoerpunt naar een on-premises netwerk. Het virtuele netwerk dat gebruikmaakt van een externe gateway kan in dit geval niet een eigen gateway hebben. Een virtueel netwerk kan slechts één gateway hebben. De gateway kan een lokale of een externe gateway zijn (in het gekoppelde virtuele netwerk), zoals wordt weergegeven op de volgende afbeelding:
 
 ![doorvoer bij peering van virtuele netwerken](./media/virtual-networks-peering-overview/figure04.png)
 
-Gateway-doorvoer wordt niet ondersteund in de peeringrelatie tussen virtuele netwerken die in verschillende regio’s zijn gemaakt. Beide virtuele netwerken in de peeringrelatie moeten zich in dezelfde regio bevinden om ervoor te zorgen dat de doorvoer via een gateway werkt. Gateway-doorvoer tussen virtuele netwerken die zijn gemaakt via verschillende implementatiemodellen (Resource Manager en classic) wordt alleen ondersteund als de gateway (VPN of ExpressRoute) zich in het virtuele netwerk (Resource Manager) bevindt. Zie voor meer informatie over het gebruik van een gateway voor de doorvoer, [Een VPN-gateway configureren voor de doorvoer in een virtueel netwerkpeering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Gatewayovergang wordt voor VNet-Peering en wereldwijde VNet-Peering (preview) ondersteund. U kunt externe gateways gebruiken of gatewayoverdracht toestaan in wereldwijd gekoppelde virtuele netwerken in de Preview-versie. De Preview-versie is beschikbaar in alle Azure-regio's, China-cloud-regio's en Government cloud-regio's. Er is geen opname in de whitelist is vereist. U kunt in de Preview-versie via de CLI, PowerShell, sjablonen of API testen. Portal wordt niet ondersteund in de Preview-versie.
+Gateway-doorvoer tussen virtuele netwerken die zijn gemaakt via verschillende implementatiemodellen (Resource Manager en klassiek) wordt alleen ondersteund als de gateway zich in het virtuele netwerk (Resource Manager). Zie voor meer informatie over het gebruik van een gateway voor de doorvoer, [Een VPN-gateway configureren voor de doorvoer in een virtueel netwerkpeering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Wanneer virtuele netwerken die één Azure ExpressRoute-verbinding delen, worden gekoppeld, gaat het verkeer tussen de twee netwerken via de peering-relatie (dat wil zeggen, via het backbone-netwerk van Azure). U kunt nog steeds in elk virtueel netwerk lokale gateways gebruiken om verbinding te maken met het on-premises circuit. U kunt ook een gedeelde gateway gebruiken en de doorvoer voor on-premises connectiviteit configureren.
 
@@ -78,8 +79,8 @@ U kunt ook de [Probleemoplosser voor virtueel netwerk peering problemen](https:/
 ## <a name="requirements-and-constraints"></a>Vereisten en beperkingen
 
 De volgende beperkingen zijn alleen van toepassing wanneer virtuele netwerken wereldwijd zijn gekoppeld:
-- Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een algemene interne load balancer in een wereldwijd gekoppelde virtuele netwerk. Ondersteuning voor de basisversie van Load Balancer bestaat alleen binnen dezelfde regio. Ondersteuning voor de standaardversie van Load Balancer bestaat voor beide, wereldwijde VNet-Peering en VNet-Peering. 
-- U kunt geen externe gateways gebruiken of gatewayoverdracht toestaan. Als u externe gateways wilt gebruiken of gatewayoverdracht wilt toestaan, moeten gekoppelde virtuele netwerken zich in dezelfde regio bevinden.
+- Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een algemene interne load balancer in een wereldwijd gekoppelde virtuele netwerk. Ondersteuning voor de basisversie van Load Balancer bestaat alleen binnen dezelfde regio. Ondersteuning voor de standaardversie van Load Balancer bestaat voor wereldwijde VNet-Peering.  -Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een algemene interne load balancer in een wereldwijd gekoppelde virtuele netwerk. Ondersteuning voor de basisversie van Load Balancer bestaat alleen binnen dezelfde regio. Ondersteuning voor de standaardversie van Load Balancer bestaat voor zowel, VNet-Peering en wereldwijde VNet-Peering.
+- U kunt externe gateways gebruiken of gatewayoverdracht toestaan in wereldwijd gekoppelde virtuele netwerken in de Preview-versie. De Preview-versie is beschikbaar in alle Azure-regio's, China-cloud-regio's en Government cloud-regio's. Er is geen opname in de whitelist is vereist. U kunt in de Preview-versie via de CLI, PowerShell, sjablonen of API testen. Portal wordt niet ondersteund in de Preview-versie.
 
 Zie [Vereisten en beperkingen voor peering op een virtueel netwerk](virtual-network-manage-peering.md#requirements-and-constraints) voor meer informatie over vereisten en beperkingen. Zie [Azure-netwerklimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie over de limieten voor het aantal peerings dat u kunt maken voor een virtueel netwerk. 
 

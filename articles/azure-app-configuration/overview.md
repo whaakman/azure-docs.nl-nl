@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 11dd91039bb352e86800982d0a294f82622a56fe
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 3e96a1af4746c6344f9565d0f0de8ab2b2b8d8bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885017"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009397"
 ---
 # <a name="what-is-azure-app-configuration"></a>Wat is Azure App Configuration
 
 Azure App Configuration is een service voor het centraal beheren van toepassingsinstellingen. Moderne programma's, met name die in een cloud worden uitgevoerd, hebben doorgaans veel onderdelen die zijn gedistribueerd. Het verspreiden van configuratie-instellingen over deze onderdelen kan leiden tot moeilijk oplosbare fouten tijdens de implementatie van een toepassing. Met App Configuration kunt u alle instellingen voor uw toepassing opslaan en de toegang ertoe beveiligen op één plek.
+
+App Configuration-service is momenteel in **preview**. Het is gratis te gebruiken in deze previewperiode. Hoewel er geen speciale goedkeuringsproces voor toegang tot de service, [registreren](https://aka.ms/azconfig/register) met ons zodat wij u van elke belangrijke wijziging vooraf kan informeren.
 
 ## <a name="why-use-app-configuration"></a>De voordelen van App Configuration
 
@@ -44,6 +46,12 @@ App Configuration biedt de volgende voordelen:
 * Verbeterde beveiliging met door Azure beheerde identiteiten.
 * Complete gegevensversleuteling, bij inactiviteit en tijdens overdracht.
 * Systeemeigen integratie met populaire frameworks.
+
+App-configuratie is een aanvulling op [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) gebruikt voor het opslaan van toepassingsgeheimen. App-configuratie wordt het eenvoudiger voor het implementeren van de volgende scenario's:
+
+* Gecentraliseerd beheer en distributie van hiërarchische configuratiegegevens voor verschillende omgevingen en regio's.
+* Wijzigingen in de dynamische configuratie zonder opnieuw te implementeren of een toepassing opnieuw te starten.
+* Beheer van de functie.
 
 ## <a name="how-to-use-app-configuration"></a>App Configuration gebruiken
 

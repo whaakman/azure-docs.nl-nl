@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a1e5643c9d5f6fc2492dd52ccd07606a47d21b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190514"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124064"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Bekende problemen en oplossingen met SCIM 2.0-protocol naleving van de Azure AD-gebruiker Provisioning-service
 
@@ -59,36 +59,36 @@ Ja. Als u al een exemplaar van deze toepassing voor eenmalige aanmelding gebruik
  
 1. Meld u aan bij Azure portal op https://portal.azure.com.
 2. In de **Azure Active Directory > bedrijfstoepassingen** sectie van de Azure-portal, zoek en selecteer uw bestaande SCIM-toepassing.
-3.  In de **eigenschappen** sectie van uw bestaande SCIM-app, Kopieer de **Object-ID**.
-4.  Ga in een nieuw browservenster naar https://developer.microsoft.com/graph/graph-explorer en meld u aan als beheerder voor de Azure AD-tenant waar uw app wordt toegevoegd.
+3. In de **eigenschappen** sectie van uw bestaande SCIM-app, Kopieer de **Object-ID**.
+4. Ga in een nieuw browservenster naar https://developer.microsoft.com/graph/graph-explorer en meld u aan als beheerder voor de Azure AD-tenant waar uw app wordt toegevoegd.
 5. Voer de volgende opdracht te vinden van de ID van uw taak in Grafiekverkenner. "[Object-id]" vervangen door de service principal-ID (object-ID) van de derde stap gekopieerd.
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
- ![Taken ophalen](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "taken ophalen") 
+   ![Taken ophalen](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "taken ophalen") 
 
 
 6. Kopieer de volledige 'ID'-tekenreeks die met "customappsso" of "scim begint" in de resultaten.
 7. Voer de volgende opdracht om op te halen van de configuratie van de kenmerk-koppeling, zodat u een back-up kunt maken. Gebruik dezelfde [object-id] als voordat en [taak-id] vervangen door de inrichting taak-ID in de vorige stap hebt gekopieerd.
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
- ![Schema ophalen](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Schema ophalen") 
+   ![Schema ophalen](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Schema ophalen") 
 
 8. Kopieer de JSON-uitvoer van de laatste stap en sla deze op een tekstbestand. Hierin worden eventuele aangepaste kenmerk-toewijzingen aan uw oude app toegevoegd en moet ongeveer enkele duizenden regels van JSON.
 9. Voer de volgende opdracht om het inrichtingsproces taak te verwijderen:
  
- `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
+   `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
 
 10. Voer de volgende opdracht om een nieuwe inrichting taak met de meest recente service-oplossingen te maken.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
- `{   templateId: "scim"   } `
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
+    `{   templateId: "scim"   } `
    
 11. Kopieer de volledige 'ID'-tekenreeks die met 'scim begint' in de resultaten van de laatste stap. Opnieuw toepassen (optioneel) uw oude kenmerktoewijzingen met de opdracht hieronder en vervang [nieuwe-taak-id] met de nieuwe taak-ID die u zojuist hebt gekopieerd en het invoeren van die de JSON-uitvoer van stap #7 als hoofdtekst van de aanvraag.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
- `{   <your-schema-json-here>   }`
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
+    `{   <your-schema-json-here>   }`
 
 12. Ga terug naar het browservenster en selecteer de **Provisioning** tabblad voor uw toepassing.
 13. Controleer de configuratie en start de taak. 
@@ -97,15 +97,15 @@ Ja. Als u al een exemplaar van deze toepassing voor eenmalige aanmelding gebruik
 
 Ja. Als u de oude gedrag die bestonden voordat de oplossingen en moet een nieuw exemplaar van het implementeren van een toepassing had gecodeerd, volgt u de onderstaande procedure. Deze procedure wordt beschreven hoe u de Microsoft Graph API en de API van Microsoft Graph explorer gebruiken om u te maken van een SCIM de taak die de oude gedrag vertoont.
  
-1.  Meld u aan bij Azure portal op https://portal.azure.com.
+1. Meld u aan bij Azure portal op https://portal.azure.com.
 2. in de **Azure Active Directory > bedrijfstoepassingen >-toepassing maken** sectie van de Azure-portal, maakt u een nieuw **niet in de galerij** toepassing.
-3.  In de **eigenschappen** sectie van de nieuwe aangepaste app kopiëren de **Object-ID**.
-4.  Ga in een nieuw browservenster naar https://developer.microsoft.com/graph/graph-explorer en meld u aan als beheerder voor de Azure AD-tenant waar uw app wordt toegevoegd.
+3. In de **eigenschappen** sectie van de nieuwe aangepaste app kopiëren de **Object-ID**.
+4. Ga in een nieuw browservenster naar https://developer.microsoft.com/graph/graph-explorer en meld u aan als beheerder voor de Azure AD-tenant waar uw app wordt toegevoegd.
 5. Voer de volgende opdracht om te initialiseren van de inrichtingsconfiguratie voor uw app in Grafiekverkenner.
-"[Object-id]" vervangen door de service principal-ID (object-ID) van de derde stap gekopieerd.
+   "[Object-id]" vervangen door de service principal-ID (object-ID) van de derde stap gekopieerd.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
- `{   templateId: "customappsso"   }`
+   `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+   `{   templateId: "customappsso"   }`
  
 6. Ga terug naar het browservenster en selecteer de **Provisioning** tabblad voor uw toepassing.
 7. Voltooi de gebruikersinrichting configureren zoals u gewend bent.

@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van de invoegtoepassing Azure slave met Hudson continue integratie | Microsoft Docs
-description: Beschrijft hoe u de invoegtoepassing Azure slave met Hudson continue integratie.
+title: De ondergeschikte Azure-Plugin gebruiken met Hudson CI | Microsoft Docs
+description: Beschrijft hoe u Azure slave-invoegtoepassing gebruiken met Hudson CI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: rmcmurray
@@ -14,36 +14,36 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
-ms.locfileid: "27704802"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999793"
 ---
-# <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Het gebruik van de invoegtoepassing Azure slave met Hudson continue integratie
-De invoegtoepassing voor Hudson Azure slave kunt u knooppunten van de slave op Azure inrichten bij het uitvoeren van gedistribueerde bouwt.
+# <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>De ondergeschikte Azure-Plugin gebruiken met Hudson CI
+Invoegtoepassing voor Hudson slave Azure kunt u de ondergeschikte knooppunten op Azure in te richten bij het uitvoeren van gedistribueerde bouwt.
 
-## <a name="install-the-azure-slave-plug-in"></a>De Azure-Slave invoegtoepassing installeren
+## <a name="install-the-azure-slave-plug-in"></a>De Azure Slave-invoegtoepassing installeren
 1. Klik in het dashboard Hudson **Hudson beheren**.
-2. In de **beheren Hudson** pagina, klikt u op **invoegtoepassingen beheren**.
+2. In de **beheren Hudson** pagina, klikt u op **Plug-ins beheren**.
 3. Klik op de **beschikbaar** tabblad.
-4. Klik op **Search** en het type **Azure** te beperken van de lijst om de relevante invoegtoepassingen.
+4. Klik op **zoeken** en het type **Azure** om te beperken van de lijst om te relevante invoegtoepassingen.
    
-    Als u ervoor kiezen om te bladeren door de lijst met beschikbare invoegtoepassingen, vindt u de Azure slave invoegtoepassing onder de **Clusterbeheer en gedistribueerd bouwen** sectie het **anderen** tabblad.
-5. Schakel het selectievakje voor **Azure Slave invoegtoepassing**.
+    Als u ervoor kiezen om te bladeren door de lijst met beschikbare invoegtoepassingen, vindt u de Azure slave invoegtoepassing onder de **Clusterbeheer en gedistribueerde bouwen** sectie de **anderen** tabblad.
+5. Schakel het selectievakje voor **Azure Slave Plugin**.
 6. Klik op **Install**.
 7. Opnieuw opstarten Hudson.
 
-Nu dat de invoegtoepassing is geïnstalleerd, worden de volgende stappen voor het configureren van de invoegtoepassing met het profiel van uw Azure-abonnement en een sjabloon die wordt gebruikt bij het maken van de virtuele machine voor het knooppunt slave maken.
+Nu dat de invoegtoepassing is geïnstalleerd, worden de volgende stappen uit het configureren van de invoegtoepassing met uw Azure-abonnementsprofiel en een sjabloon te maken die wordt gebruikt bij het maken van de virtuele machine voor de slave-knooppunt.
 
-## <a name="configure-the-azure-slave-plug-in-with-your-subscription-profile"></a>De Azure-Slave invoegtoepassing configureren met het profiel van uw abonnement
-Een abonnement-profiel, ook bekend als de publicatie-instellingen, is een XML-bestand met beveiligde referenties en wat extra informatie die u wilt werken met Azure in uw ontwikkelomgeving. Voor het configureren van de invoegtoepassing Azure slave, hebt u het volgende nodig:
+## <a name="configure-the-azure-slave-plug-in-with-your-subscription-profile"></a>De Azure Slave-invoegtoepassing configureren met uw abonnementsprofiel
+Een abonnementsprofiel, ook wel aangeduid als de publicatie-instellingen, is een XML-bestand met beveiligde referenties en aanvullende informatie, moet u werken met Azure in uw ontwikkelingsomgeving. Voor het configureren van de Azure slave-invoegtoepassing, hebt u het volgende nodig:
 
 * Uw abonnements-id
 * Een beheercertificaat voor uw abonnement
 
-Deze vindt u in uw [abonnement profiel]. Hieronder volgt een voorbeeld van een profiel voor een abonnement.
+Deze kunnen worden gevonden in uw [abonnementsprofiel]. Hieronder volgt een voorbeeld van een abonnementsprofiel.
 
     <?xml version="1.0" encoding="utf-8"?>
 
@@ -64,55 +64,55 @@ Deze vindt u in uw [abonnement profiel]. Hieronder volgt een voorbeeld van een p
 
     </PublishData>
 
-Zodra u het profiel van uw abonnement hebt, volg deze stappen voor het configureren van de invoegtoepassing Azure slave.
+Nadat u het abonnementsprofiel van uw hebt, volgt u deze stappen voor het configureren van de Azure slave-invoegtoepassing.
 
 1. Klik in het dashboard Hudson **Hudson beheren**.
 2. Klik op **systeem configureren**.
-3. Schuif omlaag in de pagina naar de **Cloud** sectie.
+3. Schuif omlaag in de pagina en zoek de **Cloud** sectie.
 4. Klik op **toevoegen van nieuwe cloud > Microsoft Azure**.
    
-    ![toevoegen van nieuwe cloud][add new cloud]
+    ![nieuwe cloud toevoegen][add new cloud]
    
-    Hier ziet de velden waarop u moet uw abonnementsgegevens invoeren.
+    Hiermee wordt de velden weergegeven waarin u wilt invoeren van gegevens van uw abonnement.
    
     ![profiel configureren][configure profile]
-5. Het abonnement-id en het beheer certificaat uit het profiel van uw abonnement Kopieer en plak deze in de juiste velden.
+5. De abonnement-id en beheercertificaat van uw abonnementsprofiel voor het Kopieer en plak deze in de juiste velden.
    
-    Bij het kopiëren van het abonnement-id en de management-certificaat **niet** de aanhalingstekens die plaatst u de waarden.
-6. Klik op **controleren configuratie**.
+    Bij het kopiëren van de abonnement-id en beheercertificaat, **niet** inclusief de aanhalingstekens die de waarden.
+6. Klik op **Verify configuration**.
 7. Wanneer de configuratie is geverifieerd, klikt u op **opslaan**.
 
-## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Een virtuele machine-sjabloon instellen voor de Azure-Slave invoegtoepassing
-Een VM-sjabloon definieert de parameters die de invoegtoepassing wordt gebruikt voor het maken van een knooppunt slave op Azure. In de volgende stappen maakt we sjabloon voor een Ubuntu VM.
+## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Een virtuele-machinesjabloon instellen voor de Azure-Slave plug-in
+Een virtuele-machinesjabloon definieert de parameters die de invoegtoepassing wordt gebruikt om u te maken van een knooppunt slave op Azure. In de volgende stappen maakt we sjabloon voor een Ubuntu-VM.
 
 1. Klik in het dashboard Hudson **Hudson beheren**.
 2. Klik op **systeem configureren**.
-3. Schuif omlaag in de pagina naar de **Cloud** sectie.
-4. Binnen de **Cloud** sectie, zoeken **Azure virtuele Machine-sjabloon toevoegen** en klik op de **toevoegen** knop.
+3. Schuif omlaag in de pagina en zoek de **Cloud** sectie.
+4. Binnen de **Cloud** sectie, zoeken **Azure VM-sjabloon toevoegen** en klikt u op de **toevoegen** knop.
    
     ![vm-sjabloon toevoegen][add vm template]
-5. Geef de naam van een cloudservice in de **naam** veld. Als de opgegeven naam naar een bestaande cloudservice verwijst, dat de virtuele machine wordt ingericht in die service. Azure wordt anders maakt u een nieuwe.
-6. In de **beschrijving** en voer de tekst die beschrijft de sjabloon die u maakt. Deze informatie wordt alleen gebruikt voor administratieve doeleinden en wordt niet gebruikt in een VM-inrichting.
-7. In de **Labels** veld **linux**. Dit label wordt gebruikt voor het identificeren van de sjabloon die u maakt en vervolgens worden gebruikt om te verwijzen naar de sjabloon bij het maken van een taak Hudson.
+5. Geef de naam van een cloudservice in de **naam** veld. Als de opgegeven naam naar een bestaande cloudservice verwijst, wordt de virtuele machine worden ingericht in die service. Azure wordt anders maakt u een nieuwe.
+6. In de **beschrijving** veld, typ een beschrijving van de sjabloon die u maakt. Deze informatie is uitsluitend bestemd voor administratieve doeleinden, en wordt niet gebruikt in een virtuele machine wordt ingericht.
+7. In de **Labels** veld **linux**. Dit label wordt gebruikt voor het identificeren van de sjabloon die u maakt en vervolgens wordt gebruikt om te verwijzen naar de sjabloon bij het maken van een taak Hudson.
 8. Selecteer een regio waar de virtuele machine wordt gemaakt.
-9. Selecteer de relevante VM-grootte.
-10. Geef een opslagaccount waar de virtuele machine wordt gemaakt. Zorg ervoor dat deze zich in dezelfde regio bevinden als de cloudservice die u wilt gebruiken. Als u wilt dat nieuwe opslag worden gemaakt, kunt u dit veld leeg laten.
-11. Bewaartijd geeft het aantal minuten voordat Hudson wordt een niet-actieve slave verwijderd. Dit laat de standaardwaarde van 60.
-12. In **gebruik**, selecteert u de juiste voorwaarde wanneer dit knooppunt slave wordt gebruikt. Selecteer nu **gebruikmaken van dit knooppunt zo veel mogelijk**.
+9. Selecteer de juiste VM-grootte.
+10. Geef een opslagaccount waar de virtuele machine wordt gemaakt. Zorg ervoor dat deze zich in dezelfde regio als de cloudservice die u wilt gebruiken. Als u wilt dat nieuwe opslag moet worden gemaakt, kunt u dit veld leeg laten.
+11. Bewaartijd Hiermee geeft u het aantal minuten voordat Hudson een niet-actieve ondergeschikte server wordt verwijderd. Laat dit op de standaardwaarde van 60.
+12. In **gebruik**, selecteert u de juiste voorwaarde wanneer dit knooppunt ondergeschikte server wordt gebruikt. Selecteer nu **gebruikmaken van dit knooppunt zo veel mogelijk**.
     
-     Op dit moment eruit uw formulier enigszins vergelijkbaar met het volgende:
+     Op dit moment zou uw formulier er enigszins ongeveer als volgt:
     
-     ![De sjabloonconfiguratie][template config]
-13. In **installatiekopie familie-Id of** u moet opgeven welke installatiekopie wordt geïnstalleerd op de virtuele machine. U kunt selecteren in een lijst van families van de afbeelding of geef een aangepaste installatiekopie.
+     ![sjabloonconfiguratie][template config]
+13. In **installatiekopie familie of Id** u moet opgeven welke installatiekopie wordt geïnstalleerd op de virtuele machine. U kunt selecteren uit een lijst van families van de installatiekopie of een aangepaste installatiekopie opgeven.
     
-     Als u selecteren in een lijst van families van de installatiekopie wilt, voert u het eerste teken (hoofdlettergevoelig) van de naam van de installatiekopie-serie. Voor het exemplaar typen **U** verschijnt nu een lijst met Ubuntu Server families. Wanneer u in de lijst selecteert, wordt Jenkins de nieuwste versie van deze installatiekopie van die familie gebruiken bij het inrichten van uw virtuele machine.
+     Als u kiezen uit een lijst met afbeelding families wilt, voert u het eerste teken (hoofdlettergevoelig) van de naam van de installatiekopie-familie. Bijvoorbeeld: typen **U** verschijnt nu een lijst met Ubuntu-Server-families. Wanneer u in de lijst selecteert, wordt Jenkins de nieuwste versie van die installatiekopie van die familie gebruiken bij het inrichten van uw virtuele machine.
     
-     ![Lijst met familie van besturingssystemen][OS family list]
+     ![OS-familie lijst][OS family list]
     
-     Als u een aangepaste installatiekopie die u wilt gebruiken in plaats daarvan hebt, voer de naam van de aangepaste installatiekopie. Afbeelding van aangepaste namen worden niet weergegeven in een lijst zodat u ervoor te zorgen dat de naam correct worden ingevoerd.    
+     Als u een aangepaste installatiekopie die u wilt gebruiken in plaats daarvan hebt, voer de naam van die aangepaste installatiekopie. Namen van aangepaste installatiekopieën worden niet weergegeven in een lijst, zodat u ervoor te zorgen dat de naam correct is opgegeven.    
     
-     Typ voor deze zelfstudie **U** online zetten van een lijst met afbeeldingen Ubuntu en selecteer **Ubuntu Server 14.04 TNS**.
-14. Voor **methode starten**, selecteer **SSH**.
+     Voor deze zelfstudie, typt u **U** een lijst met Ubuntu-installatiekopieën en selecteer **Ubuntu Server 14.04 TNS**.
+14. Voor **Launch method**, selecteer **SSH**.
 15. Het onderstaande script kopiëren en plakken in de **Init script** veld.
     
          # Install Java
@@ -137,22 +137,22 @@ Een VM-sjabloon definieert de parameters die de invoegtoepassing wordt gebruikt 
     
          sudo apt-get install -y ant
     
-     De **Init script** worden uitgevoerd nadat de virtuele machine is gemaakt. In dit voorbeeld installeert het script Java, git en ant.
-16. In de **gebruikersnaam** en **wachtwoord** velden, voert u de gewenste waarden voor de administrator-account dat wordt gemaakt op de virtuele machine.
-17. Klik op **sjabloon controleren** om te controleren of de parameters die u hebt opgegeven ongeldig zijn.
+     De **Init script** wordt uitgevoerd nadat de virtuele machine is gemaakt. In dit voorbeeld wordt het script geïnstalleerd Java, git en ant.
+16. In de **gebruikersnaam** en **wachtwoord** velden, voert u de gewenste waarden voor de administrator-account die wordt gemaakt op de virtuele machine.
+17. Klik op **Verify Template** om te controleren of de opgegeven parameters geldig zijn.
 18. Klik op **Opslaan**.
 
-## <a name="create-a-hudson-job-that-runs-on-a-slave-node-on-azure"></a>Een taak Hudson die wordt uitgevoerd op een lager niveau bevindende-knooppunt in Azure maken
-In deze sectie maakt u een Hudson-taak die wordt uitgevoerd op een knooppunt slave op Azure.
+## <a name="create-a-hudson-job-that-runs-on-a-slave-node-on-azure"></a>Maak een Hudson-taak die wordt uitgevoerd op een knooppunt ondergeschikte server op Azure
+In deze sectie maakt u een Hudson-taak die wordt uitgevoerd op een knooppunt ondergeschikte server op Azure.
 
 1. Klik in het dashboard Hudson **nieuwe taak**.
 2. Voer een naam voor de taak die u maakt.
-3. Selecteer voor het taaktype **bouwen van een taak vrije-stijl software**.
+3. Selecteer voor het taaktype **bouwen van een taak free-style software**.
 4. Klik op **OK**.
 5. Selecteer in de configuratiepagina van de taak **beperken waar dit project kan worden uitgevoerd**.
-6. Selecteer **knooppunt en label menu** en selecteer **linux** (we opgegeven dit label bij het maken van de virtuele machine-sjabloon in de vorige sectie).
-7. In de **bouwen** sectie, klikt u op **toevoegen build stap** en selecteer **shell uitvoeren**.
-8. Bewerken van het volgende script, vervangen **{uw github-accountnaam}**, **{projectnaam van uw}**, en **{uw projectmap}** met waarden nodig en plak het bewerkte het script in het tekstgebied die wordt weergegeven.
+6. Selecteer **knooppunt en het label menu** en selecteer **linux** (We hebben opgegeven dit label bij het maken van de virtuele-machinesjabloon in de vorige sectie).
+7. In de **bouwen** sectie, klikt u op **build-stap toevoegen** en selecteer **shell uitvoeren**.
+8. Bewerken van het volgende script, vervangen **{uw github-account-name}**, **{naam van uw project}**, en **{uw projectmap}** met waarden van toepassing en plak het bewerkte script in het tekstvak dat wordt weergegeven.
    
         # Clone from git repo
    
@@ -178,9 +178,9 @@ In deze sectie maakt u een Hudson-taak die wordt uitgevoerd op een knooppunt sla
    
         ant
 9. Klik op **Opslaan**.
-10. Zoek in het dashboard Hudson de taak die u zojuist hebt gemaakt en klik op de **plannen van een build** pictogram.
+10. In het dashboard Hudson vindt u de taak die u zojuist hebt gemaakt en klik op de **plannen van een build** pictogram.
 
-Hudson vervolgens maakt u een lager niveau bevindende knooppunt met behulp van de sjabloon in de vorige sectie hebt gemaakt en voer het script dat u hebt opgegeven in de stap build voor deze taak.
+Hudson wordt vervolgens maakt u een ondergeschikte server-knooppunt met behulp van de sjabloon in de vorige sectie hebt gemaakt en voert u het script dat u hebt opgegeven in de build-stap voor deze taak.
 
 ## <a name="next-steps"></a>Volgende stappen
 In het [Azure Java Developer Center] vindt u meer informatie over het gebruik van Azure met Java.
@@ -188,7 +188,7 @@ In het [Azure Java Developer Center] vindt u meer informatie over het gebruik va
 <!-- URL List -->
 
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[abonnement profiel]: http://go.microsoft.com/fwlink/?LinkID=396395
+[abonnementsprofiel]: https://go.microsoft.com/fwlink/?LinkID=396395
 
 <!-- IMG List -->
 

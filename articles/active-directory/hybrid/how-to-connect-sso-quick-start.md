@@ -16,12 +16,12 @@ ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f2539674668a9738d03e9af9c4fb88327cb1933
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865056"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086816"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: Snel starten
 
@@ -74,8 +74,9 @@ Als u al een installatie van Azure AD Connect hebt, selecteert u de **aanmelden 
 ![Azure AD Connect: De aanmelding voor gebruiker wijzigen](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Ga door met de wizard totdat u de **eenmalige aanmelding inschakelen** pagina. Geef referenties voor de domeinbeheerder voor elk Active Directory-forest:
-    * U synchroniseren met Azure AD via Azure AD Connect.
-    * Gebruikers die u wilt inschakelen voor naadloze eenmalige aanmelding bevat.
+
+* U synchroniseren met Azure AD via Azure AD Connect.
+* Gebruikers die u wilt inschakelen voor naadloze eenmalige aanmelding bevat.
 
 Naadloze eenmalige aanmelding is na voltooiing van de wizard wordt ingeschakeld op uw tenant.
 
@@ -126,11 +127,11 @@ Er zijn twee manieren om gebruikers Intranet zone-instellingen te wijzigen:
    - **Waardenaam**: De Azure AD-URL waar de Kerberos-tickets worden doorgestuurd.
    - **Waarde** (gegevens): **1** geeft aan dat de intranetzone.
 
-    Het resultaat ziet er zo uit:
+     Het resultaat ziet er zo uit:
 
-    Waardenaam: `https://autologon.microsoftazuread-sso.com`
+     Waardenaam: `https://autologon.microsoftazuread-sso.com`
   
-    Waarde (gegevens): 1
+     Waarde (gegevens): 1
 
    >[!NOTE]
    > Als u weigeren van sommige gebruikers met een naadloze eenmalige aanmelding wilt (bijvoorbeeld, als deze gebruikers zich aanmelden op gedeelde kiosken), de bovenstaande waarden ingesteld op **4**. Deze actie wordt de URL van de Azure AD toegevoegd aan de zone met beperkte toegang en naadloze eenmalige aanmelding voortdurend mislukt.
@@ -162,9 +163,9 @@ Er zijn twee manieren om gebruikers Intranet zone-instellingen te wijzigen:
    - **Waardetype**: ***REG_DWORD***.
    - **Waardegegevens**: ***00000001***.
  
-    ![Eenmalige aanmelding](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Eenmalige aanmelding](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![Eenmalige aanmelding](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Eenmalige aanmelding](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>Overwegingen voor browser
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6d86d4c03a41834322c98438958c0b9e87e6025c
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 9faa38a23b2039902366e5b885ab73c68a2a3d80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076017"
 ---
 # <a name="azure-application-offer"></a>Aanbieding voor Azure-toepassing
 
@@ -58,15 +58,15 @@ Het volgende diagram toont het proces op hoog niveau voor het publiceren van een
 
 De stappen op hoog niveau voor het publiceren van een aanbieding van Azure-toepassing zijn:
 
-0. Voldoen aan de [vereisten](./cpp-prerequisites.md) - (niet weergegeven) Controleer of dat u voldoet aan de zakelijke en technische vereisten voor het publiceren van een Azure-app naar de Azure Marketplace. 
+1. Voldoen aan de [vereisten](./cpp-prerequisites.md) - (niet weergegeven) Controleer of dat u voldoet aan de zakelijke en technische vereisten voor het publiceren van een Azure-app naar de Azure Marketplace. 
 
 1. [Maken van de aanbieding](./cpp-create-offer.md) -bieden gedetailleerde informatie over de aanbieding. Deze informatie omvat: de beschrijving van de aanbieding, marketingmaterialen, informatie over ondersteuning en assetspecificaties.
 
-2. [Maken of bestaande zakelijke en technische zaken verzamelen](./cpp-create-technical-assets.md) -maken van de bedrijfsmiddelen (juridische documenten en marketingmaterialen) en de technische activa voor de gekoppelde oplossing.
+1. [Maken of bestaande zakelijke en technische zaken verzamelen](./cpp-create-technical-assets.md) -maken van de bedrijfsmiddelen (juridische documenten en marketingmaterialen) en de technische activa voor de gekoppelde oplossing.
 
-3. [Maken van de SKU](./cpp-skus-tab.md) -maken van de SKU('s) die zijn gekoppeld aan de aanbieding. Een unieke SKU is vereist voor elke afbeelding die u van plan bent om te publiceren.
+1. [Maken van de SKU](./cpp-skus-tab.md) -maken van de SKU('s) die zijn gekoppeld aan de aanbieding. Een unieke SKU is vereist voor elke afbeelding die u van plan bent om te publiceren.
 
-4. Certificeren en [de aanbieding publiceren](./cpp-publish-offer.md) -nadat de aanbieding en de technische activa zijn voltooid, kunt u de aanbieding indienen. Deze verzending van het publicatieproces te starten. Tijdens dit proces wordt is de oplossing getest, gevalideerd, gecertificeerd, klikt u vervolgens "meteen live' op Azure Marketplace.
+1. Certificeren en [de aanbieding publiceren](./cpp-publish-offer.md) -nadat de aanbieding en de technische activa zijn voltooid, kunt u de aanbieding indienen. Deze verzending van het publicatieproces te starten. Tijdens dit proces wordt is de oplossing getest, gevalideerd, gecertificeerd, klikt u vervolgens "meteen live' op Azure Marketplace.
 
 ## <a name="next-steps"></a>Volgende stappen
 

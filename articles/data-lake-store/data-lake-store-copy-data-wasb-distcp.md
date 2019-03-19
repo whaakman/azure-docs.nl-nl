@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9740de34fe7cf7d06af1803cc6d77d7e89bbb73f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5c3f393278d3d51dd3a53cd19335cd242c15c6d8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391518"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168704"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Distcp gebruiken om gegevens tussen Azure Storage-Blobs en Azure Data Lake Storage Gen1 te kopiëren
 > [!div class="op_single_selector"]
@@ -33,9 +33,6 @@ Als u een HDInsight-cluster met toegang voor Azure Data Lake Storage Gen1 hebt, 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Een account met Azure Data Lake Storage Gen1**. Zie voor instructies over het maken van een [aan de slag met Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight-cluster** met toegang tot een Gen1 van Data Lake Storage-account. Zie [een HDInsight-cluster maken met Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
-
-## <a name="do-you-learn-fast-with-videos"></a>Leert u snel met video's?
-[Bekijk deze video](https://mix.office.com/watch/1liuojvdx6sie) over het kopiëren van gegevens tussen Azure Storage-Blobs en Data Lake Storage Gen1 DistCp gebruiken.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Distcp gebruiken vanuit een HDInsight Linux-cluster
 
@@ -79,7 +76,7 @@ Omdat de laagste granulariteit van DistCp een enkel bestand is, is instellen van
 
 Hier volgen een aantal richtlijnen.
 
-* **Stap 1: Bepaal de totale hoeveelheid geheugen voor YARN** -de eerste stap is om te bepalen van de YARN-geheugen beschikbaar is voor het cluster waarop u de taak DistCp uitvoert. Deze informatie is beschikbaar in de Ambari-portal die zijn gekoppeld aan het cluster. Navigeer naar YARN en weergeven van het tabblad configuraties om te zien van de YARN-geheugen. Als u het totale geheugen van de YARN, vermenigvuldigt u de YARN-geheugen per knooppunt met het aantal knooppunten dat u hebt in uw cluster.
+* **Stap 1: Bepalen van de totale hoeveelheid geheugen voor YARN** -de eerste stap is om te bepalen van de YARN-geheugen beschikbaar is voor het cluster waarop u de taak DistCp uitvoert. Deze informatie is beschikbaar in de Ambari-portal die zijn gekoppeld aan het cluster. Navigeer naar YARN en weergeven van het tabblad configuraties om te zien van de YARN-geheugen. Als u het totale geheugen van de YARN, vermenigvuldigt u de YARN-geheugen per knooppunt met het aantal knooppunten dat u hebt in uw cluster.
 
 * **Stap 2: Bereken het aantal mappers** -de waarde van **m** is gelijk aan het quotiënt van de totale hoeveelheid geheugen voor YARN gedeeld door de grootte van de YARN-container. Informatie over de grootte van de YARN-container is beschikbaar in de Ambari-portal. Navigeer naar YARN en weergeven van het tabblad configuraties. De grootte van de YARN-container wordt weergegeven in dit venster. De vergelijking om naar het aantal mappers (**m**) is
 

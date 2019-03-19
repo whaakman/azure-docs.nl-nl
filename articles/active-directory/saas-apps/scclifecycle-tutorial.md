@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8f682e0795f8f732805e817e4498cc486bbb2c6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6376a479d2e6969505310de0e8e73e74738a04c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178461"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881318"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Zelfstudie: Azure Active Directory-integratie met SCC levenscyclus
 
@@ -117,6 +117,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<sub-domain>.scc.com/ic7/welcome/customer/PICTtest.aspx`
 
     b. In het tekstvak **Id** typt u een URL met het volgende patroon:
+    
     | |
     |--|--|
     | `https://bs1.scc.com/<entity>`|
@@ -135,8 +136,8 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Het configureren van eenmalige aanmelding op **SCC LifeCycle** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [SCC LifeCycle-ondersteuningsteam](mailto:lifecycle.support@scc.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-  >[!NOTE]
-  >Eenmalige aanmelding heeft worden ingeschakeld door het ondersteuningsteam van de levenscyclus van SCC.
+   >[!NOTE]
+   >Eenmalige aanmelding heeft worden ingeschakeld door het ondersteuningsteam van de levenscyclus van SCC.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -180,7 +181,7 @@ Om in te schakelen in Azure AD-gebruikers zich aanmelden bij de levenscyclus van
 Wanneer een toegewezen gebruiker probeert aan te melden bij de levenscyclus van SCC, wordt automatisch een account van de levenscyclus van SCC gemaakt, indien nodig.
 
 > [!NOTE]
-> De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt.
+> De houder van het Azure Active Directory-account ontvangt een e-mail en volgt een koppeling om het account te bevestigen voordat het actief wordt.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
@@ -221,7 +222,7 @@ Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

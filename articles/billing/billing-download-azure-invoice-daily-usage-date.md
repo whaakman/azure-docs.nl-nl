@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b03b787e245129e5e51304a2bcc8740ebf3f6196
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 59d63efbf261813c8519b03d3e1630cf24d868d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406138"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835923"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Downloaden of uw Azure-factuur en de dagelijkse gebruiksgegevens weergeven
 
@@ -30,13 +30,13 @@ Als u een EA-klant bent of een [Microsoft KLANTOVEREENKOMST](#check-access-to-a-
 
 Alleen bepaalde functies zijn gemachtigd te factuurgegevens ophalen factuur- en gebruiksgegevens, zoals de accountbeheerder of Enterprise-beheerder. Zie [Toegang tot factureringsgegevens voor Azure beheren](billing-manage-access.md) voor meer informatie over het verkrijgen van toegang tot factureringsgegevens.
 
-Als u hebt een [Microsoft KLANTOVEREENKOMST](#Check-your-access-to-a-Microsoft-Customer-Agreement), u moet een factureringsprofiel eigenaar, Inzender, lezer, of factuur manager om gegevens over facturering en gebruik weer te geven. Zie voor meer informatie over facturering rollen voor Microsoft-klant-overeenkomsten, [facturering profiel rollen en taken](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Als u een KLANTOVEREENKOMST van Microsoft hebt, moet u een factureringsprofiel eigenaar, Inzender, lezer, of factuur manager om gegevens over facturering en gebruik weer te geven. Zie voor meer informatie over facturering rollen voor Microsoft-klant-overeenkomsten, [facturering profiel rollen en taken](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="download-your-azure-invoices-pdf"></a>Uw Azure-facturen (PDF) downloaden
 
-Voor de meeste abonnementen, kunt u uw factuur downloaden vanuit de Azure-portal. Als u een KLANTOVEREENKOMST van Microsoft hebt, raadpleegt u [downloaden van facturen voor een profiel voor facturering](#download-invoices-for-a-billing-profile).
+Voor de meeste abonnementen, kunt u uw factuur downloaden vanuit de Azure-portal. Als u een KLANTOVEREENKOMST van Microsoft hebt, raadpleegt u downloaden van facturen voor een profiel voor facturering.
 
 ### <a name="download-invoices-for-an-individual-subscription"></a>Downloaden van facturen voor een afzonderlijk abonnement
 
@@ -80,7 +80,7 @@ Er kunnen verschillende redenen voor zijn dat u geen factuur ziet:
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Uw factuur in e-mailbericht (PDF) niet ophalen
 
-U kunt ervoor kiezen en configureren van extra ontvangers voor het ontvangen van uw Azure facturen in een e-mailbericht. Deze functie mogelijk niet beschikbaar voor bepaalde abonnementen, zoals ondersteuning biedt, Enterprise Agreements of Azure in Open. Als u een overeenkomst met Microsoft Customer hebt, raadpleegt u [uw facturen profiel ophalen in e-mailbericht](#get-your-billing-profile-invoices-in-email).
+U kunt ervoor kiezen en configureren van extra ontvangers voor het ontvangen van uw Azure facturen in een e-mailbericht. Deze functie mogelijk niet beschikbaar voor bepaalde abonnementen, zoals ondersteuning biedt, Enterprise Agreements of Azure in Open. Als u een overeenkomst voor Microsoft Customer hebt, raadpleegt u uw factureringsprofiel in e-mailbericht facturen ophalen.
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>Ophalen van uw abonnement facturen in e-mailbericht
 
@@ -189,7 +189,7 @@ U kunt het gebruik van de maand tot heden ook downloaden voor de huidige facture
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Contact opnemen
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 1af6214833109ad89e8b5f27eefc0c99cdaf2496
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: 2eb57268aece081423b6b0beaa314a244b6fdd8f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984183"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456003"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Snelstart: Een Azure Data Lake Storage Gen2-opslagaccount maken
 
@@ -76,7 +76,7 @@ Als u een resourcegroep wilt maken in Azure Portal, volgt u deze stappen:
 5. Kies de locatie voor de resourcegroep.
 6. Klik op de knop **Maken**.  
 
-   ![Schermopname van het maken van de resourcegroep in Azure Portal](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
+   ![Schermafbeelding van de resource is gemaakt in Azure portal](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Een v2-opslagaccount voor algemeen gebruik maken
 
@@ -96,7 +96,7 @@ Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, 
 9. In de sectie **Data Lake Storage Gen2** stelt u **Hiërarchische naamruimte** in op **Ingeschakeld**.
 10. Klik op **Beoordelen en maken** om het opslagaccount te maken.
 
-    ![Schermopname van het maken van het opslagaccount in Azure Portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
+    ![Schermafbeelding van de opslagaccount is gemaakt in Azure portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
 
 Uw opslagaccount is nu gemaakt via de portal.
 

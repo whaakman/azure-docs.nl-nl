@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: a8897288e19a7628dbd1cc2c022de4db2a111393
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d0d725a57c27fe30215d77a596f6fb3b8c8720d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248041"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098005"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Een Service Fabric-cluster in Azure Stack implementeren
 
@@ -37,17 +37,17 @@ Het volgende is vereist om de Service Fabric-cluster te implementeren:
    Dit is het X.509-servercertificaat dat u aan Key Vault toevoegen bij het implementeren van Service Fabric. 
    - De **CN** op dit certificaat als moet overeenkomen met de volledig domein naam (Fully Qualified Domain Name) van de Service Fabric-cluster dat u hebt gemaakt. 
    - Opmaak van het certificaat moet PFX, als de openbare en persoonlijke sleutels vereist zijn. 
-   Zie [vereisten](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) voor het maken van deze server-side-certificaat.
+     Zie [vereisten](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) voor het maken van deze server-side-certificaat.
 
-    > [!NOTE]  
-    > Voor testdoeleinden kunt u een directe zelf-ondertekend certificaat van het x.509-servercertificaat. Zelfondertekende certificaten hoeven niet overeenkomt met de FQDN-naam van het cluster.
+     > [!NOTE]  
+     > Voor testdoeleinden kunt u een directe zelf-ondertekend certificaat van het x.509-servercertificaat. Zelfondertekende certificaten hoeven niet overeenkomt met de FQDN-naam van het cluster.
 
-1.  **Beheerder clientcertificaat** dit is het certificaat dat de client wordt gebruikt voor verificatie bij de Service Fabric-cluster zelf kan worden ondertekend. Zie [vereisten](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) voor het maken van dit clientcertificaat.
+1. **Beheerder clientcertificaat** dit is het certificaat dat de client wordt gebruikt voor verificatie bij de Service Fabric-cluster zelf kan worden ondertekend. Zie [vereisten](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) voor het maken van dit clientcertificaat.
 
-1.  **De volgende items moeten beschikbaar zijn in de Azure Stack Marketplace:**
-     - **Windows Server 2016** – de sjabloon maakt gebruik van de installatiekopie van het Windows Server 2016 om het cluster te maken.  
-     - **Voor Klantenscripts** -extensie van de virtuele Machine van Microsoft.  
-     - **PowerShell Desired Configuration fase** -extensie van de virtuele Machine van Microsoft.
+1. **De volgende items moeten beschikbaar zijn in de Azure Stack Marketplace:**
+    - **Windows Server 2016** – de sjabloon maakt gebruik van de installatiekopie van het Windows Server 2016 om het cluster te maken.  
+    - **Voor Klantenscripts** -extensie van de virtuele Machine van Microsoft.  
+    - **PowerShell Desired Configuration fase** -extensie van de virtuele Machine van Microsoft.
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Een geheim toevoegen aan Key Vault

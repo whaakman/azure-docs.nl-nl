@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 4d47192ea69047b0b12deffc41776a87c16ca6ab
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009923"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -340,6 +340,7 @@ Nee, Traffic Manager kunt u geen om adressering typen in een profiel, met uitzon
 Wanneer een query wordt ontvangen op basis van een profiel, wordt het eindpunt dat moet worden geretourneerd aan de hand van de routeringsmethode die is opgegeven en de status van de eindpunten eerst Traffic Manager gevonden. Deze vervolgens kijkt naar het recordtype die is opgegeven in de binnenkomende query en het recordtype die zijn gekoppeld aan het eindpunt voordat een antwoord op basis van de onderstaande tabel wordt geretourneerd.
 
 Voor profielen met de routeringsmethode die dan met meerdere waarden:
+
 |Binnenkomende queryaanvraag|    Eindpunttype|  Respons|
 |--|--|--|
 |ALLE |  A / AAAA / CNAME |  Doel-eindpunt| 
@@ -350,6 +351,7 @@ Voor profielen met de routeringsmethode die dan met meerdere waarden:
 |CNAME |    CNAME | Doel-eindpunt|
 |CNAME  |A / AAAA | NODATA |
 |
+
 Voor profielen met routeringsmethode ingesteld op meerdere waarden:
 
 |Binnenkomende queryaanvraag|    Eindpunttype | Respons|

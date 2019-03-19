@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 9f82ed280d18be304129bf8b7807213a75110df2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 186d0bb9161d70d9e458d25dc1b9cbe518bb790e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660983"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082730"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Een toepassingsgateway maken met de interne omleiding met de Azure CLI
 
-U kunt de Azure CLI gebruiken om te configureren [web verkeer omleiden](application-gateway-multi-site-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie maakt u een back endpool met behulp van een schaalset voor virtuele machines. Configureert u listeners en regels op basis van domeinnamen waarvan u eigenaar bent om ervoor te zorgen dat webverkeer aankomt op de juiste groep. Deze zelfstudie wordt ervan uitgegaan dat u voorbeelden van meerdere domeinen en maakt gebruik van de eigenaar bent *www.contoso.com* en *www.contoso.org*.
+U kunt de Azure CLI gebruiken om te configureren [web verkeer omleiden](application-gateway-multi-site-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie maakt u een back endpool met behulp van een schaalset voor virtuele machines. Configureert u listeners en regels op basis van domeinnamen waarvan u eigenaar bent om ervoor te zorgen dat webverkeer aankomt op de juiste groep. Deze zelfstudie wordt ervan uitgegaan dat u voorbeelden van meerdere domeinen en maakt gebruik van de eigenaar bent *www\.contoso.com* en *www\.contoso.org*.
 
 In dit artikel leert u het volgende:
 
@@ -101,7 +101,7 @@ Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt. Nadat de 
 
 ## <a name="add-listeners-and-rules"></a>Listeners en regels toevoegen 
 
-Als u de toepassingsgateway wilt inschakelen om het verkeer op de juiste manier naar de back-endpool te routeren, is een listener vereist. In deze zelfstudie maakt u twee listeners voor de twee domeinen. In dit voorbeeld listeners zijn gemaakt voor de domeinen van *www.contoso.com* en *www.contoso.org*.
+Als u de toepassingsgateway wilt inschakelen om het verkeer op de juiste manier naar de back-endpool te routeren, is een listener vereist. In deze zelfstudie maakt u twee listeners voor de twee domeinen. In dit voorbeeld listeners zijn gemaakt voor de domeinen van *www\.contoso.com* en *www\.contoso.org*.
 
 Voeg de back-endlisteners, die voor het omleiden van verkeer nodig zijn, toe met [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>De configuratie van omleiding toevoegen
 
-Toevoegen van de configuratie van de omleiding waarmee verkeer van verzonden *www.consoto.org* voor de listener voor *www.contoso.com* in de application gateway met [az network application-gateway Omleidings-config maken](/cli/azure/network/application-gateway/redirect-config).
+Toevoegen van de configuratie van de omleiding waarmee verkeer van verzonden *www\.consoto.org* voor de listener voor *www\.contoso.com* in de application gateway met behulp van [az network application-gateway redirect-config maken](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -213,7 +213,7 @@ Voer uw domeinnaam in de adresbalk van de browser in. Bijvoorbeeld http://www.co
 
 ![Contoso-site testen in toepassingsgateway](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Wijzig het adres naar het andere domein, bijvoorbeeld http://www.contoso.org en u ziet dat het verkeer is omgeleid naar de listener voor www.contoso.com.
+Wijzig het adres naar het andere domein, bijvoorbeeld http://www.contoso.org en u ziet dat het verkeer is omgeleid naar de listener voor de www\.contoso.com.
 
 ## <a name="next-steps"></a>Volgende stappen
 

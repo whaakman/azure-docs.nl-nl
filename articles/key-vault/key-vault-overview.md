@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 474148289bb03088bbf92eeadc4049ce19625e3e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 06f1a2b33b177cf667fc2d3c5932f7ff117d2bdc
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115943"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195469"
 ---
 # <a name="what-is-azure-key-vault"></a>Wat is Azure Sleutelkluis?
 
@@ -55,7 +55,7 @@ Nadat u enkele sleutelkluizen hebt gemaakt, kunt u controleren hoe en wanneer er
 
 - Archiveren naar een opslagaccount.
 - Streamen naar een Event Hub.
-- De logboeken verzenden naar Log Analytics.
+- De logboeken verzenden naar Azure Monitor-Logboeken.
 
 U hebt de controle over uw logboeken en kunt ze beveiligen door de toegang te beperken. Bovendien kunt u logboeken verwijderen die u niet meer nodig hebt.
 

@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd109637379f1fd2cdb108fbbb6c6c47224e00a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431764"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840869"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>De ervaring van aanmelding met Azure multi-factor Authentication
 > [!NOTE]
@@ -34,7 +34,7 @@ Uw aanmeldingsprocedure is afhankelijk van wat u wilt gebruiken als de tweede fa
 | [Met een telefonische oproep naar mijn telefoon mobile- of office](#signing-in-with-a-phone-call) |
 | [Met een tekst naar mijn mobiele telefoon](#signing-in-with-a-text-message)
 | [Dankzij de meldingen van de Microsoft Authenticator-app](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
-| [Met verificatiecodes uit de Microsoft Authenticator-app](#to-sign-in-using-a-verification-with-the-microsoft-authenticator-app) |
+| Met verificatiecodes uit de Microsoft Authenticator-app |
 | [Met een alternatieve methode, omdat ik mijn voorkeursmethode nu niet kan gebruiken](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>Aanmelden met een telefonische oproep
@@ -58,7 +58,7 @@ De volgende informatie beschrijft de ervaring van het gebruik van de Microsoft A
 1. Aanmelden bij een toepassing of service zoals Office 365 met uw gebruikersnaam en wachtwoord.
 2. Microsoft stuurt een melding naar de Microsoft Authenticator-app op uw apparaat.
 
-  ![Microsoft stuurt melding](./media/multi-factor-authentication-end-user-signin/notify.png)
+   ![Microsoft stuurt melding](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. Open de melding op uw telefoon en selecteer de **controleren** sleutel. Als uw bedrijf een PINCODE is vereist, moet u deze hier opgeven.
 4. U moet nu worden aangemeld.
@@ -70,7 +70,7 @@ Als u de Microsoft Authenticator-app gebruikt om op te halen verificatiecodes, k
 1. Aanmelden bij een toepassing of service zoals Office 365 met uw gebruikersnaam en wachtwoord.
 2. Microsoft vraagt u om een verificatiecode.
 
-  ![Verificatiecode invoeren](./media/multi-factor-authentication-end-user-signin/verify3.png)
+   ![Verificatiecode invoeren](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Open de Microsoft Authenticator-app op uw telefoon en voer de code in het vak waar u zich aanmeldt.
 
@@ -81,7 +81,7 @@ Soms hebt u niet de telefoon of het apparaat die u hebt ingesteld als uw contact
 2. Selecteer **gebruiken een andere verificatieoptie**. Ziet u verschillende verificatie-opties op basis van hoeveel u ingesteld hebt.
 3. Kies een alternatieve methode en meld u aan.
 
-  ![Alternatieve methode gebruiken](./media/multi-factor-authentication-end-user-signin/alt.png)
+   ![Alternatieve methode gebruiken](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 - Als u problemen met aanmelden met verificatie in twee stappen hebt, u meer informatie op [problemen hebt met Azure multi-factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).

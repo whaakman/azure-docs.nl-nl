@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 3b158e0743a811f0d8f478c15b64c2b8b99a748a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: a01da3218b07307faa8e94acab1473c82bd86c41
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155997"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546922"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Quickstart: Azure Data Box Disk implementeren met behulp van de Azure-portal
 
-In deze quickstart wordt beschreven hoe u de Azure Data Box Disk implementeert met de Azure-portal. De stappen omvatten hoe u snel een order maakt, schijven ontvangt, uitpakt en verbindt, en gegevens naar schijven kopieert zodat ze naar Azure worden geüpload. 
+In deze quickstart wordt beschreven hoe u de Azure Data Box Disk implementeert met de Azure-portal. De stappen omvatten hoe u snel een order maakt, schijven ontvangt, uitpakt en verbindt, en gegevens naar schijven kopieert zodat ze naar Azure worden geüpload.
 
 Ga voor gedetailleerde stapsgewijze instructies voor implementatie en tracering naar [Zelfstudie: Azure Data Box Disk bestellen](data-box-disk-deploy-ordered.md). 
 
@@ -32,7 +32,7 @@ Voordat u begint:
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij de Azure Portal op [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
+Meld u aan bij de Azure Portal op [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="order"></a>Bestellen
 
@@ -41,9 +41,9 @@ Deze stap neemt ongeveer 5 minuten in beslag.
 1. Maak een nieuwe Azure Data Box-resource in de Azure-portal. 
 2. Selecteer een abonnement dat is ingeschakeld voor deze service, en kies **Importeren** als overdrachtstype. Geef het **Bronland** op waar de gegevens zijn opgeslagen, en geef de **Azure-doelregio** voor de gegevensoverdracht op.
 3. Selecteer **Data Box Disk**. De maximale oplossingscapaciteit is 35 TB, en voor grotere hoeveelheden gegevens kunt u meerdere schijforders maken.  
-4. Voer de order- en verzendgegevens in. Als de service beschikbaar is in uw regio, geeft u e-mailadressen voor meldingen op, controleert u de samenvatting en maakt u vervolgens de order. 
+4. Voer de order- en verzendgegevens in. Als de service beschikbaar is in uw regio, geeft u e-mailadressen voor meldingen op, controleert u de samenvatting en maakt u vervolgens de order.
 
-Zodra de order is gemaakt, worden de schijven voorbereid voor verzending. 
+Zodra de order is gemaakt, worden de schijven voorbereid voor verzending.
 
 ## <a name="unpack"></a>Uitpakken
 
@@ -52,7 +52,7 @@ Deze stap neemt ongeveer 5 minuten in beslag.
 De Data Box Disks worden verzonden in een UPS Express Box. Open de doos en controleer of deze het volgende bevat:
 
 - Eén tot vijf USB-schijven in bubbeltjesplastic.
-- Eén verbindingskabel per schijf. 
+- Eén verbindingskabel per schijf.
 - Een verzendlabel voor retourzending.
 
 ## <a name="connect-and-unlock"></a>Verbinden en ontgrendelen
@@ -69,18 +69,20 @@ Deze stap neemt ongeveer 5 minuten in beslag.
 
 ## <a name="copy-data-and-validate"></a>Gegevens kopiëren en valideren
 
-De duur van deze bewerking hangt af van de hoeveelheid gegevens. 
+De duur van deze bewerking hangt af van de hoeveelheid gegevens.
 
-1. Het station bevat de mappen *PageBlob*, *BlockBlob* en *DataBoxDiskImport*. De gegevens die als blok-blobs moeten worden geïmporteerd in de *BlockBlob*-map, kunt u slepen en neerzetten om ze te kopiëren. Kopieer op dezelfde manier VHD-/VHDX-gegevens naar de *PageBlob*-map.
+1. Het station bevat *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk*, en *DataBoxDiskImport* mappen. De gegevens die als blok-blobs moeten worden geïmporteerd in de *BlockBlob*-map, kunt u slepen en neerzetten om ze te kopiëren. Op deze manier slepen en neerzetten van gegevens, zoals VHD-/ VHDX op *PageBlob* map en de juiste gegevens *AzureFile*. Kopieer de VHD's die u wilt uploaden als beheerde schijven naar een map onder *ManagedDisk*.
 
-    Er wordt voor elke submap onder de *BlockBlob*- en *PageBlob*-map een container gemaakt in het Azure-opslagaccount. Alle bestanden onder de mappen *BlockBlob* en *PageBlob* worden naar een standaardcontainer `$root` onder het Azure-opslagaccount gekopieerd.
+    Er wordt voor elke submap onder de *BlockBlob*- en *PageBlob*-map een container gemaakt in het Azure-opslagaccount. Een bestandsshare is gemaakt voor een submap onder *AzureFile*.
 
-    > [!NOTE] 
-    > - Alle containers en blobs moeten voldoen aan de [Azure-naamgevingsregels](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Als u zich niet aan deze regels houdt, mislukt de gegevensupload naar Azure.
-    > - Zorg ervoor dat de bestanden de ~4,75 TiB voor blok-blobs en ~8 TiB voor pagina-blobs niet overschrijden.
+    Alle bestanden onder de mappen *BlockBlob* en *PageBlob* worden naar een standaardcontainer `$root` onder het Azure-opslagaccount gekopieerd. Kopieer bestanden naar een map in *AzureFile*. Alle bestanden gekopieerd rechtstreeks naar de *AzureFile* map mislukken en worden geüpload als blok-blobs.
 
-2. (Optioneel) Zodra het kopiëren is voltooid, is het raadzaam om de `DataBoxDiskValidation.cmd` in de map *DataBoxDiskImport* uit te voeren om controlesommen te genereren voor validatie. Afhankelijk van de gegevensgrootte kan deze stap enige tijd in beslag nemen. 
-3. Ontkoppel de schijf. 
+    > [!NOTE]
+    > - Alle containers, blobs en -bestanden moeten voldoen aan [Azure naamgevingsregels](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Als u zich niet aan deze regels houdt, mislukt de gegevensupload naar Azure.
+    > - Zorg ervoor dat bestanden niet groter zijn dan ~4.75 TiB voor blok-blobs, ~ 8 TiB voor pagina-blobs en ~ 1 TiB voor Azure Files.
+
+2. **(Optioneel maar aanbevolen)**  Nadat de kopie voltooid is, wordt aangeraden ten minste uit te voeren de `DataBoxDiskValidation.cmd` opgegeven in de *DataBoxDiskImport* map en selecteer optie 1 tot en met de bestanden te valideren. We raden ook aan dat u voldoende tijd hebt, u optie 2 gebruiken voor het genereren van controlesommen voor validatie ook (tijd kan duren, afhankelijk van de grootte van de gegevens). Deze stappen beperken de kans op fouten bij het uploaden van de gegevens naar Azure.
+3. Veilig verwijderen van het station.
 
 ## <a name="ship-to-azure"></a>Verzenden naar Azure
 
@@ -95,8 +97,8 @@ De Data Box Disk-service verzendt een melding via e-mail en werkt de orderstatus
 
 De duur van deze bewerking hangt af van de hoeveelheid gegevens.
 
-1. Wanneer de Data Box Disk met het datacenternetwerk van Azure is verbonden, wordt de gegevensupload naar Azure automatisch gestart. 
-2. De Azure Data Box-service laat u weten dat het kopiëren van de gegevens is voltooid via de Azure-portal. 
+1. Wanneer de Data Box Disk met het datacenternetwerk van Azure is verbonden, wordt de gegevensupload naar Azure automatisch gestart.
+2. De Azure Data Box-service laat u weten dat het kopiëren van de gegevens is voltooid via de Azure-portal.
     
     1. Controleer foutenlogboeken op eventuele fouten en onderneem toepasselijke acties.
     2. Controleer of uw gegevens zich in de opslagaccount(s) bevinden voordat u deze uit de bron verwijdert.
@@ -107,17 +109,17 @@ Deze stap neemt 2 tot 3 minuten in beslag.
 
 Als u wilt opschonen, kunt u de Data Box-order annuleren en vervolgens verwijderen.
 
-- U kunt de Data Box-order in de Azure-portal annuleren voordat de order wordt verwerkt. Zodra de order is verwerkt, kan deze niet meer worden geannuleerd. De order doorloopt verwerkingsfasen totdat deze is voltooid. 
+- U kunt de Data Box-order in de Azure-portal annuleren voordat de order wordt verwerkt. Zodra de order is verwerkt, kan deze niet meer worden geannuleerd. De order doorloopt verwerkingsfasen totdat deze is voltooid.
 
     Als u de order wilt annuleren, gaat u naar **Overzicht** en klikt u in de opdrachtbalk op **Annuleren**.  
 
-- U kunt de order verwijderen zodra de status als **Voltooid** of **Geannuleerd** wordt weergegeven in de Azure-portal. 
+- U kunt de order verwijderen zodra de status als **Voltooid** of **Geannuleerd** wordt weergegeven in de Azure-portal.
 
     Als u de order wilt verwijderen, gaat u naar **Overzicht** en klikt u in de opdrachtbalk op **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u Azure Data Box Disk geïmplementeerd om u te helpen uw gegevens in Azure te importeren. Ga verder naar de volgende zelfstudie voor meer informatie over Azure Data Box Disk-beheer: 
+In deze quickstart hebt u Azure Data Box Disk geïmplementeerd om u te helpen uw gegevens in Azure te importeren. Ga verder naar de volgende zelfstudie voor meer informatie over Azure Data Box Disk-beheer:
 
 > [!div class="nextstepaction"]
 > [De Azure-portal gebruiken om Data Box Disk te beheren](data-box-portal-ui-admin.md)

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: c0dc67ddf0f1de9ca72fd14a9113219209a6bda0
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5b49db8d7e8360837dc209e98123eeccd5542769
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674207"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837742"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Veelgestelde vragen over Azure Media Services v3
 
@@ -53,8 +53,8 @@ U kunt een [on-premises coderingsprogramma live](recommended-on-premises-live-en
 1. Voor de productie moet u een beveiligde Token Services (STS) (webservice) geeft JWT-token van een HTTPS-aanvraag hebt. Voor testen, kunt u de code die wordt weergegeven **GetTokenAsync** methode die is gedefinieerd [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 2. Player moet een aanvraag maken nadat een gebruiker is geverifieerd, naar de STS voor dergelijke een token en wijs deze toe aan de waarde van het token. U kunt de [API van Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
 
-* Zie voor een voorbeeld van het uitvoeren van de STS, symmetrische en asymmetrische sleutel [ http://aka.ms/jwt ](https://aka.ms/jwt). 
-* Zie voor een voorbeeld van een-op basis van Azure Media Player met behulp van dergelijke JWT-token speler [ http://aka.ms/amtest ](https://aka.ms/amtest) ('player_settings' koppeling om te zien van de token invoer uitvouwen).
+* Zie voor een voorbeeld van het uitvoeren van de STS, symmetrische en asymmetrische sleutel [ https://aka.ms/jwt ](https://aka.ms/jwt). 
+* Zie voor een voorbeeld van een-op basis van Azure Media Player met behulp van dergelijke JWT-token speler [ https://aka.ms/amtest ](https://aka.ms/amtest) ('player_settings' koppeling om te zien van de token invoer uitvouwen).
 
 ### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>Hoe autoriseert u aanvragen voor stream-video's met AES-versleuteling
 

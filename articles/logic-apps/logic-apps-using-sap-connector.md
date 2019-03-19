@@ -10,18 +10,18 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391280"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887082"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Verbinding maken met SAP-systemen in Azure Logic Apps
 
-Dit artikel wordt beschreven hoe u kunt toegang tot uw on-premises SAP-bronnen uit in een logische app met behulp van de connector SAP ERP centraal onderdeel (ECC). De connector SAP ECC biedt ondersteuning voor integratie van bericht of gegevens naar en van SAP Netweaver-systemen via tussenliggende Document (IDoc) of Business Application Programming Interface (BAPI) of externe functie aanroepen (RFC).
+Dit artikel wordt beschreven hoe u kunt toegang tot uw on-premises SAP-bronnen uit in een logische app met behulp van de connector SAP ERP centraal onderdeel (ECC). De connector werkt met ECC- en s/4 HANA-systemen on-premises. De connector SAP ECC biedt ondersteuning voor integratie van bericht of gegevens naar en van SAP Netweaver-systemen via tussenliggende Document (IDoc) of Business Application Programming Interface (BAPI) of externe functie aanroepen (RFC).
 
-De connector SAP ECC gebruikt de <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .net Connector (NCo)-bibliotheek</a> en biedt deze bewerkingen of acties:
+De connector SAP ECC gebruikt de <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .NET Connector (NCo)-bibliotheek</a> en biedt deze bewerkingen of acties:
 
 - **Verzenden naar SAP**: IDoc verzenden of BAPI functies aanroepen via tRFC in SAP-systemen.
 - **Ontvangen van SAP**: IDoc of BAPI functieaanroepen ontvangen via tRFC van SAP-systemen.

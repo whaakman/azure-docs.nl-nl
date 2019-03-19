@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 8d6d2d83e24b5e42af5f4322021eebfe9bf09494
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2eb395b4f3d922aa116e01c5de080a54d81e10ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551236"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118643"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Algemene scenario's met Service Fabric onderzoeken
 
@@ -111,15 +111,15 @@ In de dezelfde weergave met alle grafieken ziet u enkele tegels weergegeven voor
 
 3. Klik op gegevens > Windows-prestatiemeteritems (gegevens > Linux-prestatiemeteritems voor Linux-machines) om te beginnen met het verzamelen van specifieke prestatiemeteritems van uw knooppunten via de Log Analytics-agent. Hier volgen enkele voorbeelden van de indeling voor items om toe te voegen
 
-    * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
-    * `Processor(_Total)\\% Processor Time`
+   * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
+   * `Processor(_Total)\\% Processor Time`
 
-    In de Quick Start, VotingData en VotingWeb zijn de procesnamen die worden gebruikt, dus deze items bijhouden zou er als volgt uitzien
+     In de Quick Start, VotingData en VotingWeb zijn de procesnamen die worden gebruikt, dus deze items bijhouden zou er als volgt uitzien
 
-    * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
-    * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-    ![Log Analytics-prestatiemeteritems](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
+     ![Log Analytics-prestatiemeteritems](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
 4. Dit wordt kunt u zien hoe uw infrastructuur voor uw workloads verwerkt en relevante waarschuwingen op basis van Resourcegebruik kunt instellen. U wilt bijvoorbeeld – Stel in een waarschuwing als het totale processorgebruik meer dan 90% of minder dan 5 is %. De Tellernaam van de die u voor dit gebruiken zou is "% processortijd." U kunt dit doen door het maken van een waarschuwingsregel voor de volgende query uit:
 

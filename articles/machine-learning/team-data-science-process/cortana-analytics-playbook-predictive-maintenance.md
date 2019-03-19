@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 046d00eec9fd5a406a1e8bf78e48d4dd913b83fd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437565"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57870143"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-handleiding voor oplossingen voor Voorspellend onderhoud
 
@@ -401,13 +401,13 @@ Het bovenstaande proces wordt vermeld op veel manieren in academische en documen
 
 Zoals eerder gezegd, wijkt model uitoefening voor PdM af van de peers. Scenario's met betrekking tot detectie van afwijkingen en foutdetectie doorgaans implementeren _online scoren_ (ook wel genoemd _realtime scoren_). Hier, het model _scores_ elke binnenkomende record en retourneert een voorspelling. Voor detectie van afwijkingen, de voorspelling wordt aangegeven dat er een anomalie is opgetreden (voorbeeld: One-class SVM). Foutdetectie is het type of de klasse van de fout.
 
-Daarentegen PdM omvat _batchscore_. Om te voldoen aan de handtekening van het model, moeten de functies in de nieuwe gegevens op dezelfde manier als de trainingsgegevens worden ontworpen. Voor de grote gegevenssets die wordt gebruikt voor nieuwe gegevens, worden de functies samengevoegd tijdens een bepaalde tijdvensters en beoordeeld in batch. Batch scoren gewoonlijk wordt uitgevoerd in gedistribueerde systemen, zoals [Spark](http://spark.apache.org/) of [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Er zijn een aantal alternatieven - beide suboptimale:
+Daarentegen PdM omvat _batchscore_. Om te voldoen aan de handtekening van het model, moeten de functies in de nieuwe gegevens op dezelfde manier als de trainingsgegevens worden ontworpen. Voor de grote gegevenssets die wordt gebruikt voor nieuwe gegevens, worden de functies samengevoegd tijdens een bepaalde tijdvensters en beoordeeld in batch. Batch scoren gewoonlijk wordt uitgevoerd in gedistribueerde systemen, zoals [Spark](https://spark.apache.org/) of [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Er zijn een aantal alternatieven - beide suboptimale:
 - Streaming gegevensengines ondersteunt aggregatie in windows in het geheugen. Zo kan worden aangevoerd dat deze ondersteuning bieden voor online scoren. Maar deze systemen zijn geschikt voor compacte gegevens in smalle windows van tijd, of sparse-elementen via breder windows. Ze kunnen niet schalen voor de compacte gegevens op bredere tijdvensters, zoals te zien is in PdM scenario's.
 - Als het batch scoring niet beschikbaar is, wordt de oplossing is om aan te passen online scoring voor het afhandelen van nieuwe gegevens in batches van kleine tegelijk.
 
 ## <a name="solution-templates-for-predictive-maintenance"></a>Sjablonen voor oplossingen voor Voorspellend onderhoud
 
-Het laatste gedeelte van deze handleiding bevat een lijst van PdM oplossingssjablonen, zelfstudies en experimenten die zijn geïmplementeerd in Azure. Deze toepassingen PdM kunnen worden geïmplementeerd in een Azure-abonnement binnen enkele minuten in sommige gevallen. Ze kunnen worden gebruikt als proof of concept demo's, sandboxes om te experimenteren met alternatieven of accelerators voor daadwerkelijke productie-implementaties. Deze sjablonen bevinden zich in de [Azure AI Gallery](http://gallery.azure.ai) of [Azure GitHub](https://github.com/Azure). Deze verschillende voorbeelden zal worden opgenomen in deze oplossingssjabloon na verloop van tijd.
+Het laatste gedeelte van deze handleiding bevat een lijst van PdM oplossingssjablonen, zelfstudies en experimenten die zijn geïmplementeerd in Azure. Deze toepassingen PdM kunnen worden geïmplementeerd in een Azure-abonnement binnen enkele minuten in sommige gevallen. Ze kunnen worden gebruikt als proof of concept demo's, sandboxes om te experimenteren met alternatieven of accelerators voor daadwerkelijke productie-implementaties. Deze sjablonen bevinden zich in de [Azure AI Gallery](https://gallery.azure.ai) of [Azure GitHub](https://github.com/Azure). Deze verschillende voorbeelden zal worden opgenomen in deze oplossingssjabloon na verloop van tijd.
 
 | # | Titel | Description |
 |--:|:------|-------------|
@@ -431,9 +431,9 @@ Microsoft Azure biedt leertrajecten voor de basisconcepten achter PdM technieken
 | [AI-ontwikkelaar op Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
 | [Microsoft AI-School](https://aischool.microsoft.com/learning-paths) | Public |
 | [Azure AI-training vanuit GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
-| [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
+| [LinkedIn Learning](https://www.linkedin.com/learning) | Public |
 | [Microsoft AI-YouTube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
-| [Microsoft AI-Show](http://channel9.msdn.com/Shows/AI-Show) | Public |
+| [Microsoft AI-Show](https://channel9.msdn.com/Shows/AI-Show) | Public |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partners |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Partners |
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 53ddea5426d2adfa7b0ddfcbda3375efae8d0859
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250803"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845185"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Een Deep Learning virtuele Machine op Azure inrichten 
 
@@ -49,10 +49,10 @@ Hier volgen de stappen voor het maken van een exemplaar van de Deep Learning Vir
 > [!NOTE]
 > De DLVM biedt ondersteuning voor alle NC- en ND-serie GPU VM-exemplaren. Bij het inrichten van de DLVM, moet u een van de locaties in Azure met GPU's kiezen. Controleer de [Azure-producten per regio pagina](https://azure.microsoft.com/regions/services/) pagina voor de beschikbare locaties en zoek naar **NC-serie**, **NCv2-serie**, **uit de NCv3-serie** , of **ND-serie** onder **Compute**. 
 
-   2. **Instellingen voor**: Selecteer een van de NC-serie (NC, NCv2, NCv3) of de ND-serie GPU VM-grootten die voldoet aan de vereisten van het functionele en kostenbeperkingen. Maak een opslagaccount voor uw virtuele machine.  ![dlvm-instellingen](./media/dlvm-provision-step-2.PNG)
+1. **Instellingen voor**: Selecteer een van de NC-serie (NC, NCv2, NCv3) of de ND-serie GPU VM-grootten die voldoet aan de vereisten van het functionele en kostenbeperkingen. Maak een opslagaccount voor uw virtuele machine.  ![dlvm-instellingen](./media/dlvm-provision-step-2.PNG)
    
-   3. **Samenvatting**: Controleer of alle informatie die u hebt ingevoerd juist is.
-   5. **Kopen**: Klik op **kopen** om te beginnen met het inrichten. Er wordt een koppeling gegeven naar de voorwaarden van de transactie. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap. 
+1. **Summary**: Controleer of alle informatie die u hebt ingevoerd juist is.
+1. **Kopen**: Klik op **kopen** om te beginnen met het inrichten. Er wordt een koppeling gegeven naar de voorwaarden van de transactie. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap. 
 
 > [!NOTE]
 > De inrichting duurt ongeveer 10-20 minuten. De status van de inrichting wordt weergegeven op de Azure-portal.
@@ -66,7 +66,7 @@ Nadat de virtuele machine is gemaakt, kunt u extern bureaublad in met behulp van
 
 ### <a name="linux-edition"></a>Linux-editie
 
-Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van SSH. Gebruik de accountreferenties op die u hebt gemaakt in de **basisbeginselen** sectie van stap 3 voor de tekst shell-interface. Op de client aWindows, kunt u een SSH-clienthulpprogramma, zoals downloaden [Putty](http://www.putty.org). Als u liever een grafische desktop (X Windows-systeem), kunt u X11 doorsturen op Putty gebruiken of de X2Go-client installeren.
+Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van SSH. Gebruik de accountreferenties op die u hebt gemaakt in de **basisbeginselen** sectie van stap 3 voor de tekst shell-interface. Op de client aWindows, kunt u een SSH-clienthulpprogramma, zoals downloaden [Putty](https://www.putty.org). Als u liever een grafische desktop (X Windows-systeem), kunt u X11 doorsturen op Putty gebruiken of de X2Go-client installeren.
 
 > [!NOTE]
 > De client X2Go beter dan X11 doorsturen bij onze tests uitgevoerd. Het is raadzaam om met behulp van de client X2Go voor een grafische interface voor het bureaublad.
@@ -76,7 +76,7 @@ Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van S
 #### <a name="installing-and-configuring-x2go-client"></a>Installeren en configureren van X2Go client
 De Linux DLVM is al ingericht met X2Go-server en gereed voor clientverbindingen accepteren. Voor verbinding met het bureaublad van de Linux-VM-grafische, voer de volgende procedure op de client:
 
-1. Download en installeer de client X2Go voor uw clientplatform van [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Download en installeer de client X2Go voor uw clientplatform van [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. De X2Go-client wordt uitgevoerd, en selecteer **nieuwe sessie**. Er verschijnt een configuratievenster met meerdere tabbladen. Voer de volgende configuratieparameters:
    * **Tabblad sessie**:
      * **Host**: De hostnaam of IP-adres van uw Linux Data Science VM.

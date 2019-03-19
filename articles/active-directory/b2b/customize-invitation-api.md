@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbeffd012d2d2445d4a9a927981728e1bbe43e97
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670567"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111307"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B-samenwerking API en aanpassingen
 
@@ -44,7 +44,7 @@ De API biedt de volgende mogelijkheden:
     "sendInvitationMessage": true
     ```
 
-  met een bericht naar de ontvanger die u kunt aanpassen
+   met een bericht naar de ontvanger die u kunt aanpassen
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
@@ -58,7 +58,7 @@ De API biedt de volgende mogelijkheden:
     "sendInvitationMessage": false
     ```
 
-  In dit geval ontvangt u weer een URL voor inschrijving van de API die u in een e-mailsjabloon IM, of een andere methode voor het distribueren van uw keuze insluiten kunt.
+   In dit geval ontvangt u weer een URL voor inschrijving van de API die u in een e-mailsjabloon IM, of een andere methode voor het distribueren van uw keuze insluiten kunt.
 
 6. Ten slotte, als u een beheerder bent, kunt u de gebruiker als lid uitnodigen.
 

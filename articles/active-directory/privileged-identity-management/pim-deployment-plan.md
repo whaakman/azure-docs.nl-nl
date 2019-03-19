@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb675778d899d6f4cec22de8a1c81fdae76ba17e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 804000b781ca1fc8d9f8834e3a8c0f0a78c52c11
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879761"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878479"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD Privileged Identity Management (PIM) implementeren
 
@@ -179,10 +179,10 @@ Het is belangrijk om te prioriteren beveiligen van Azure AD-rollen die het hoogs
 
 1. Globale beheerder
 1. Beveiligingsbeheerder
-1. Beheerder van gebruikersaccounts
+1. Gebruikersbeheerder
 1. Exchange-beheerder
 1. SharePoint-beheerder
-1. Intune-servicebeheerder
+1. Intune-beheerder
 1. Beveiligingslezer
 1. Servicebeheerder
 1. Factureringsbeheerder
@@ -259,13 +259,13 @@ De volgende tabel beschrijft elke van de instellingen.
 | Instelling | Description |
 | --- | --- |
 | Rol | Naam van de rol die u definieert de instellingen voor. |
-| MFA vereisen | De in aanmerking komende gebruiker moet of MFA uitvoeren voordat u de rol activeert.<br/><br/>:heavy_check_mark: **Microsoft raadt aan** u MFA afdwingen voor alle beheerdersrollen, met name als de rollen gastgebruikers ook kunnen hebben. |
+| MFA vereisen | De in aanmerking komende gebruiker moet of MFA uitvoeren voordat u de rol activeert.<br/><br/> :heavy_check_mark: **Microsoft raadt aan** u MFA afdwingen voor alle beheerdersrollen, met name als de rollen gastgebruikers ook kunnen hebben. |
 | Melding | Indien ingesteld op true, globale beheerder, beheerder met bevoorrechte rol en Beveiligingsbeheerder in de organisatie een e-mailmelding ontvangt wanneer een in aanmerking komende gebruiker de rol activeert.<br/><br/>**Opmerking:** Sommige organisaties geen een e-mailadres dat is gekoppeld aan de administrator-accounts, naar deze e-mailmeldingen hebt, moet u gaat u een alternatieve e-mailadres instellen, zodat beheerders deze e-mailberichten ontvangen. |
-| Incident ticket | De in aanmerking komende gebruiker moet of om vast te leggen van een incident Ticketnummer bij het activeren van hun rol. Deze instelling kan een organisatie die bij elke activering met een interne incident nummer om ongewenste activeringen identificeren.<br/><br/>:heavy_check_mark: **Microsoft raadt aan** profiteren van een incident ticket getallen PIM verbinden met uw interne systeem. Dit is vooral handig voor het goedkeurders die context voor de activering nodig hebben. |
-| Goedkeuring vereisen | Of moet de in aanmerking komende gebruiker om goedkeuring om de rol te activeren.<br/><br/>:heavy_check_mark: **Microsoft raadt aan** u goedkeuring voor rollen met machtiging voor de meeste instellen. Op basis van patronen in het gebruik van alle PIM-klanten, zijn globale beheerder, beheerder van de gebruiker, Exchange-beheerder, Beveiligingsbeheerder en wachtwoordbeheerder de meest voorkomende rollen met de installatie van de goedkeuring. |
-| Goedkeurder | Als goedkeuring vereist voor het activeren van de in aanmerking komende rol, lijst van de mensen die de aanvraag goedkeuren is moet. PIM wordt standaard de fiatteur naar alle gebruikers die een beheerder met bevoorrechte rol zowel permanente als in aanmerking komende worden ingesteld.<br/><br/>**Opmerking:** Als een gebruiker zowel in aanmerking voor een Azure AD-rol en een goedkeurder van de rol is, is ze niet mogelijk om goed te keuren zelf.<br/><br/>:heavy_check_mark: **Microsoft raadt aan** goedkeurders zijn personen die het meest bekend over de specifieke rol en de frequente gebruikers in plaats van een globale beheerder bent te kiezen. |
+| Incident ticket | De in aanmerking komende gebruiker moet of om vast te leggen van een incident Ticketnummer bij het activeren van hun rol. Deze instelling kan een organisatie die bij elke activering met een interne incident nummer om ongewenste activeringen identificeren.<br/><br/> :heavy_check_mark: **Microsoft raadt aan** profiteren van een incident ticket getallen PIM verbinden met uw interne systeem. Dit is vooral handig voor het goedkeurders die context voor de activering nodig hebben. |
+| Goedkeuring vereisen | Of moet de in aanmerking komende gebruiker om goedkeuring om de rol te activeren.<br/><br/> :heavy_check_mark: **Microsoft raadt aan** u goedkeuring voor rollen met machtiging voor de meeste instellen. Op basis van patronen in het gebruik van alle PIM-klanten, zijn globale beheerder, beheerder van de gebruiker, Exchange-beheerder, Beveiligingsbeheerder en wachtwoordbeheerder de meest voorkomende rollen met de installatie van de goedkeuring. |
+| Goedkeurder | Als goedkeuring vereist voor het activeren van de in aanmerking komende rol, lijst van de mensen die de aanvraag goedkeuren is moet. PIM wordt standaard de fiatteur naar alle gebruikers die een beheerder met bevoorrechte rol zowel permanente als in aanmerking komende worden ingesteld.<br/><br/>**Opmerking:** Als een gebruiker zowel in aanmerking voor een Azure AD-rol en een goedkeurder van de rol is, is ze niet mogelijk om goed te keuren zelf.<br/><br/> :heavy_check_mark: **Microsoft raadt aan** goedkeurders zijn personen die het meest bekend over de specifieke rol en de frequente gebruikers in plaats van een globale beheerder bent te kiezen. |
 | Duur van rolactivering | De hoeveelheid tijd die een gebruiker worden geactiveerd in de rol voordat deze verloopt. |
-| Permanent beheerder | Lijst met gebruikers die een permanente beheerder is voor de rol (nooit meer hoeft te activeren).<br/><br/>:heavy_check_mark: **Microsoft raadt aan** u hebt geen permanente beheerder voor alle rollen, met uitzondering van globale beheerders. Lees meer over in de die moeten worden aangebracht in aanmerking komende en die permanent actief sectie van dit plan moet zijn. |
+| Permanent beheerder | Lijst met gebruikers die een permanente beheerder is voor de rol (nooit meer hoeft te activeren).<br/><br/> :heavy_check_mark: **Microsoft raadt aan** u hebt geen permanente beheerder voor alle rollen, met uitzondering van globale beheerders. Lees meer over in de die moeten worden aangebracht in aanmerking komende en die permanent actief sectie van dit plan moet zijn. |
 | Actieve beheerder | Actieve beheerder is voor Azure-resources, de lijst met gebruikers die nooit meer hoeft wordt te activeren voor het gebruik van de rol. Dit wordt niet genoemd, zoals in Azure AD-rollen permanente beheerder omdat u een verlooptijd voor de gebruiker wanneer deze rol verliest kunt instellen. |
 | Actieve verlopen | Een actieve roltoewijzing voor Azure-resourcerollen verloopt na deze periode geconfigureerd. U kunt kiezen uit 15 dagen, 1 maand, drie maanden, 6 maanden, 1 jaar of permanent actief. |
 | In aanmerking komende verlopen | Een in aanmerking komende roltoewijzing voor Azure-resourcerollen verloopt na deze periode geconfigureerd. U kunt kiezen uit 15 dagen, 1 maand, drie maanden, 6 maanden, 1 jaar permanent in aanmerking komen. |

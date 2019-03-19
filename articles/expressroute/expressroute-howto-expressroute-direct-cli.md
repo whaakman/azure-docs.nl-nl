@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: e918a8624d637e44a4bb1122b58d5bd5dac67690
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c4998712d77771a5600c06183a76254548289372
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816671"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080079"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Direct voor ExpressRoute configureren met behulp van de Azure CLI
 
@@ -23,32 +23,32 @@ U kunt Azure ExpressRoute Direct rechtstreeks verbinding maken met het wereldwij
 
 1. Aanmelden bij Azure en selecteer het abonnement met ExpressRoute. De resource Direct van ExpressRoute en uw ExpressRoute-circuits moeten zich in hetzelfde abonnement. Voer de volgende opdrachten in de Azure-CLI:
 
-  ```azurecli
-  az login
-  ```
+   ```azurecli
+   az login
+   ```
 
-  Controleer de abonnementen voor het account: 
+   Controleer de abonnementen voor het account: 
 
-  ```azurecli
-  az account list 
-  ```
+   ```azurecli
+   az account list 
+   ```
 
-  Selecteer het abonnement waarvoor u wenst te maken van een ExpressRoute-circuit:
+   Selecteer het abonnement waarvoor u wenst te maken van een ExpressRoute-circuit:
 
-  ```azurecli
-  az account set --subscription "<subscription ID>"
-  ```
+   ```azurecli
+   az account set --subscription "<subscription ID>"
+   ```
 
 2. Een overzicht van alle locaties waar ExpressRoute Direct wordt ondersteund:
     
-  ```azurecli
-  az network express-route port location list
-  ```
+   ```azurecli
+   az network express-route port location list
+   ```
 
-  **Voorbeeld van uitvoer**
+   **Voorbeeld van uitvoer**
   
-  ```azurecli
-  [
+   ```azurecli
+   [
    {
     "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
     "availableBandwidths": [],
@@ -104,64 +104,64 @@ U kunt Azure ExpressRoute Direct rechtstreeks verbinding maken met het wereldwij
     "tags": null,
     "type": "Microsoft.Network/expressRoutePortsLocations"
    }
-  ]
-  ```
+   ]
+   ```
 3. Bepalen of een van de locaties die worden vermeld in de vorige stap beschikbare bandbreedte heeft:
 
-  ```azurecli
-  az network express-route port location show -l "Equinix-Ashburn-DC2"
-  ```
+   ```azurecli
+   az network express-route port location show -l "Equinix-Ashburn-DC2"
+   ```
 
-  **Voorbeeld van uitvoer**
+   **Voorbeeld van uitvoer**
 
-  ```azurecli
-  {
-  "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
-  "availableBandwidths": [
+   ```azurecli
+   {
+   "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
+   "availableBandwidths": [
     {
       "offerName": "100 Gbps",
       "valueInGbps": 100
     }
-  ],
-  "contact": "support@equinix.com",
-  "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-DC2",
-  "location": null,
-  "name": "Equinix-Ashburn-DC2",
-  "provisioningState": "Succeeded",
-  "tags": null,
-  "type": "Microsoft.Network/expressRoutePortsLocations"
-  }
-  ```
+   ],
+   "contact": "support@equinix.com",
+   "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-DC2",
+   "location": null,
+   "name": "Equinix-Ashburn-DC2",
+   "provisioningState": "Succeeded",
+   "tags": null,
+   "type": "Microsoft.Network/expressRoutePortsLocations"
+   }
+   ```
 4. Maak een ExpressRoute-Direct-resource die gebaseerd op de locatie die u hebt gekozen in de voorgaande stappen.
 
-  ExpressRoute Direct biedt ondersteuning voor zowel QinQ en Dot1Q inkapseling. Als u QinQ selecteert, wordt elk ExpressRoute-circuit wordt dynamisch toegewezen een S-Tag en is uniek zijn in de resource ExpressRoute Direct. Elke C-code op het circuit moet uniek zijn voor het circuit, maar ook niet voor de resource ExpressRoute Direct.  
+   ExpressRoute Direct biedt ondersteuning voor zowel QinQ en Dot1Q inkapseling. Als u QinQ selecteert, wordt elk ExpressRoute-circuit wordt dynamisch toegewezen een S-Tag en is uniek zijn in de resource ExpressRoute Direct. Elke C-code op het circuit moet uniek zijn voor het circuit, maar ook niet voor de resource ExpressRoute Direct.  
 
-  Als u Dot1Q inkapseling selecteert, moet u uniekheid van de C-code (VLAN) in de hele ExpressRoute Direct-resourcegroepen beheren.  
+   Als u Dot1Q inkapseling selecteert, moet u uniekheid van de C-code (VLAN) in de hele ExpressRoute Direct-resourcegroepen beheren.  
 
-  > [!IMPORTANT]
-  > ExpressRoute Direct kan slechts één encapsulation-type zijn. U kunt het type encapsulation niet wijzigen nadat u de resource ExpressRoute Direct hebt gemaakt.
-  > 
+   > [!IMPORTANT]
+   > ExpressRoute Direct kan slechts één encapsulation-type zijn. U kunt het type encapsulation niet wijzigen nadat u de resource ExpressRoute Direct hebt gemaakt.
+   > 
  
-  ```azurecli
-  az network express-route port create -n $name -g $RGName --bandwidth 100 gbps  --encapsulation QinQ | Dot1Q --peering-location $PeeringLocationName -l $AzureRegion 
-  ```
+   ```azurecli
+   az network express-route port create -n $name -g $RGName --bandwidth 100 gbps  --encapsulation QinQ | Dot1Q --peering-location $PeeringLocationName -l $AzureRegion 
+   ```
 
-  > [!NOTE]
-  > U kunt ook instellen de **inkapseling** kenmerk **Dot1Q**. 
-  >
+   > [!NOTE]
+   > U kunt ook instellen de **inkapseling** kenmerk **Dot1Q**. 
+   >
 
-  **Voorbeeld van uitvoer**
+   **Voorbeeld van uitvoer**
 
-  ```azurecli
-  {
-  "allocationDate": "Wednesday, October 17, 2018",
-  "bandwidthInGbps": 100,
-  "circuits": null,
-  "encapsulation": "Dot1Q",
-  "etag": "W/\"<etagnumber>\"",
-  "etherType": "0x8100",
-  "id": "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct",
-  "links": [
+   ```azurecli
+   {
+   "allocationDate": "Wednesday, October 17, 2018",
+   "bandwidthInGbps": 100,
+   "circuits": null,
+   "encapsulation": "Dot1Q",
+   "etag": "W/\"<etagnumber>\"",
+   "etherType": "0x8100",
+   "id": "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct",
+   "links": [
     {
       "adminState": "Disabled",
       "connectorType": "LC",
@@ -190,19 +190,19 @@ U kunt Azure ExpressRoute Direct rechtstreeks verbinding maken met het wereldwij
       "routerName": "tst-09xgmr-cis-2",
       "type": "Microsoft.Network/expressRoutePorts/links"
     }
-  ],
-  "location": "westus",
-  "mtu": "1500",
-  "name": "Contoso-Direct",
-  "peeringLocation": "Equinix-Ashburn-DC2",
-  "provisionedBandwidthInGbps": 0.0,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "Contoso-Direct-rg",
-  "resourceGuid": "02ee21fe-4223-4942-a6bc-8d81daabc94f",
-  "tags": null,
-  "type": "Microsoft.Network/expressRoutePorts"
-  }  
-  ```
+   ],
+   "location": "westus",
+   "mtu": "1500",
+   "name": "Contoso-Direct",
+   "peeringLocation": "Equinix-Ashburn-DC2",
+   "provisionedBandwidthInGbps": 0.0,
+   "provisioningState": "Succeeded",
+   "resourceGroup": "Contoso-Direct-rg",
+   "resourceGuid": "02ee21fe-4223-4942-a6bc-8d81daabc94f",
+   "tags": null,
+   "type": "Microsoft.Network/expressRoutePorts"
+   }  
+   ```
 
 ## <a name="state"></a>Wijziging AdminState voor koppelingen
 
@@ -210,26 +210,26 @@ Dit proces gebruiken voor het uitvoeren van een laag 1-test. Zorg ervoor dat elk
 
 1. Koppelingen ingesteld op **ingeschakeld**. Herhaal deze stap voor elke koppeling ingesteld op **ingeschakeld**.
 
-  Koppelingen [0] is de primaire-poort en koppelingen [1] is de secundaire-poort.
+   Koppelingen [0] is de primaire-poort en koppelingen [1] is de secundaire-poort.
 
-  ```azurecli
-  az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[0].adminState="Enabled"
-  ```
-  ```azurecli
-  az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
-  ```
-  **Voorbeeld van uitvoer**
+   ```azurecli
+   az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[0].adminState="Enabled"
+   ```
+   ```azurecli
+   az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
+   ```
+   **Voorbeeld van uitvoer**
 
-  ```azurecli
-  {
-  "allocationDate": "Wednesday, October 17, 2018",
-  "bandwidthInGbps": 100,
-  "circuits": null,
-  "encapsulation": "Dot1Q",
-  "etag": "W/\"<etagnumber>\"",
-  "etherType": "0x8100",
-  "id": "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct",
-  "links": [
+   ```azurecli
+   {
+   "allocationDate": "Wednesday, October 17, 2018",
+   "bandwidthInGbps": 100,
+   "circuits": null,
+   "encapsulation": "Dot1Q",
+   "etag": "W/\"<etagnumber>\"",
+   "etherType": "0x8100",
+   "id": "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct",
+   "links": [
     {
       "adminState": "Enabled",
       "connectorType": "LC",
@@ -258,21 +258,21 @@ Dit proces gebruiken voor het uitvoeren van een laag 1-test. Zorg ervoor dat elk
       "routerName": "tst-09xgmr-cis-2",
       "type": "Microsoft.Network/expressRoutePorts/links"
     }
-  ],
-  "location": "westus",
-  "mtu": "1500",
-  "name": "Contoso-Direct",
-  "peeringLocation": "Equinix-Ashburn-DC2",
-  "provisionedBandwidthInGbps": 0.0,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "Contoso-Direct-rg",
-  "resourceGuid": "<resourceGUID>",
-  "tags": null,
-  "type": "Microsoft.Network/expressRoutePorts"
-  }
-  ```
+   ],
+   "location": "westus",
+   "mtu": "1500",
+   "name": "Contoso-Direct",
+   "peeringLocation": "Equinix-Ashburn-DC2",
+   "provisionedBandwidthInGbps": 0.0,
+   "provisioningState": "Succeeded",
+   "resourceGroup": "Contoso-Direct-rg",
+   "resourceGuid": "<resourceGUID>",
+   "tags": null,
+   "type": "Microsoft.Network/expressRoutePorts"
+   }
+   ```
 
-  Gebruik dezelfde procedure en de poorten met behulp van `AdminState = “Disabled”`.
+   Gebruik dezelfde procedure en de poorten met behulp van `AdminState = “Disabled”`.
 
 ## <a name="circuit"></a>Een circuit maken
 

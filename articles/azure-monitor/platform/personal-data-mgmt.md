@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 6254a32349a0f7c743c3fb4993080ca3437c8276
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810267"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121346"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Richtlijnen voor persoonlijke gegevens die zijn opgeslagen in Log Analytics en Application Insights
 
@@ -53,7 +53,7 @@ Log Analytics is een flexibele opslag, die tijdens het voorschrijven van een sch
     ```
     search "[username goes here]"
     ```
-Houd er rekening mee om te zoeken, niet alleen voor mensen leesbare gebruikersnamen, maar ook GUID's die kunnen rechtstreeks worden gerelateerd aan een bepaalde gebruiker!
+  Houd er rekening mee om te zoeken, niet alleen voor mensen leesbare gebruikersnamen, maar ook GUID's die kunnen rechtstreeks worden gerelateerd aan een bepaalde gebruiker!
 * *Apparaat-id's*: Als gebruikers-id's, apparaat-id's worden soms beschouwd als 'persoonlijke'. Zoals hierboven vermeld voor de gebruikers-id's dezelfde benadering gebruiken om te identificeren van tabellen wanneer dit wordt mogelijk een probleem. 
 * *Aangepaste gegevens*: Log Analytics kunt u de verzameling in een aantal methoden: aangepaste logboeken en aangepaste velden, de [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) , en aangepaste gegevens worden verzameld als onderdeel van gebeurtenislogboeken van systeem. Al deze waarden zijn vatbaar voor die persoonlijke gegevens bevatten en moet worden onderzocht om te controleren of er dergelijke gegevens bestaat.
 * *Oplossing vastgelegde gegevens*: Omdat het mechanisme voor oplossing een open is, wordt u aangeraden alle tabellen die zijn gegenereerd door oplossingen om de naleving controleren.

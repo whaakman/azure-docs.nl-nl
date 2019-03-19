@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 5856d8747cfdb61af247ff90bec84461cdc431f2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7db50007dd32c84a360eaec25bf860709272437b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438505"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999079"
 ---
 # <a name="deploy-okd-in-azure"></a>OKD in Azure implementeren
 
@@ -47,7 +47,7 @@ Hier volgt een voorbeeld van een parameterbestand met de naam azuredeploy.parame
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "masterVmSize": {

@@ -1,5 +1,5 @@
 ---
-title: Een resource-dashboard gebruiken voor het uitvoeren van een toegangscontrole - Azure | Microsoft Docs
+title: Een resource-dashboard gebruiken voor een toegangscontrole uitvoeren in PIM - Azure | Microsoft Docs
 description: Hierin wordt beschreven hoe u een resource-dashboard met een toegangscontrole uitvoeren in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30cfafec770aec72faf01563018fbd478e73ab2f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 89abf15731bd125737e7c18ab45782820a856b38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202589"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012667"
 ---
-# <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Een resource-dashboard gebruiken voor een toegangscontrole uitvoeren
+# <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Een resource-dashboard gebruiken voor een toegangscontrole uitvoeren in PIM
 
 Een resource-dashboard kunt u een toegangscontrole uitvoeren in Privileged Identity Management (PIM) voor Azure-resources. Het dashboard Beheerdersweergave heeft drie primaire onderdelen:
 

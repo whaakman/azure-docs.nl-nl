@@ -1,6 +1,6 @@
 ---
-title: StorSimple lokaal vastgemaakte volumes Veelgestelde vragen | Microsoft Docs
-description: Vindt u antwoorden op veelgestelde vragen over StorSimple lokaal vastgemaakte volumes.
+title: StorSimple lokaal vastgemaakt volumes Veelgestelde vragen over | Microsoft Docs
+description: Vindt u antwoorden op veelgestelde vragen over StorSimple lokaal vastgemaakt volumes.
 services: storsimple
 documentationcenter: NA
 author: manuaery
@@ -14,191 +14,192 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
-ms.openlocfilehash: 857647e89b7ac5d9bc72bc4b2ace0ea7279353f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa69d8b07d31b5cf0386e34c113475cbf4191891
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013798"
 ---
-# <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple lokaal vastgemaakte volumes: veelgestelde vragen (FAQ)
+# <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple lokaal vastgemaakt volumes: veelgestelde vragen (FAQ)
 ## <a name="overview"></a>Overzicht
-Hieronder vindt u vragen en antwoorden die u hebben wellicht wanneer u een StorSimple lokaal vastgemaakt volume maakt, converteren van een gelaagd volume naar een lokaal vastgemaakt volume (en omgekeerd), of back-up en herstellen van een lokaal vastgemaakt volume.
+Hier volgen vragen en antwoorden die u hebben wellicht wanneer u een StorSimple lokaal vastgemaakt volume maakt, converteert van een gelaagd volume naar een lokaal vastgemaakt volume (en omgekeerd), of back-up en herstellen van een lokaal vastgemaakt volume.
 
-Vragen en antwoorden worden gerangschikt in de volgende categorieën
+Vragen en antwoorden zijn gerangschikt in de volgende categorieën
 
-* Een lokaal vastgemaakt volume maken
+* Het maken van een lokaal vastgemaakt volume
 * Back-ups van een lokaal vastgemaakt
 * Een gelaagd volume converteren naar een lokaal vastgemaakt volume
-* Herstellen van een lokaal vastgemaakt volume
-* Mislukte via een lokaal vastgemaakt volume
+* Een lokaal vastgemaakt volume herstellen
+* Failover wordt uitgevoerd een lokaal vastgemaakt volume
 
 ## <a name="questions-about-creating-a-locally-pinned-volume"></a>Vragen over het maken van een lokaal vastgemaakt volume
-**V:** Wat is de maximale grootte van een lokaal vastgemaakt volume dat ik op de apparaten uit de 8000 serie maken kunt?
+**V:** Wat is de maximale grootte van een lokaal vastgemaakt volume dat ik op de 8000-serie-apparaten kunt maken?
 
-**Een** op apparaten waarop StorSimple 8000 Series Update 3.0 wordt uitgevoerd, kunt u lokaal vastgemaakte volumes inrichten tot 8.5 TB en gelaagde volumes tot 200 TB op het 8100-apparaat. Op een groter 8600-apparaat kunt u lokaal vastgemaakte volumes inrichten tot 22,5 TB en gelaagde volumes tot maximaal 500 TB.
+**Een** op apparaten waarop StorSimple 8000 serie Update 3.0 wordt uitgevoerd, kunt u lokaal vastgemaakte volumes inrichten tot maximaal 8,5 TB en gelaagde volumes op het 8100-apparaat tot 200 TB. Op een groter 8600-apparaat kunt u lokaal vastgemaakte volumes inrichten tot 22,5 TB en gelaagde volumes tot maximaal 500 TB.
 
-**V:** Ik mijn 8100-apparaat onlangs hebt bijgewerkt naar Update 3.0 en wanneer ik wil een lokaal vastgemaakt volume maakt, de maximale grootte van de beschikbare alleen 6 TB en niet 8.5 TB. Waarom niet kan ik een volume 8.5 TB maken?
+**V:** Kan ik mijn 8100-apparaat naar Update 3.0 onlangs hebt bijgewerkt en wanneer ik wil een lokaal vastgemaakt volume maakt, de maximale grootte beschikbaar is alleen 6 TB opslagruimte en niet 8,5 TB. Waarom niet kan ik een volume van 8,5 TB maken?
 
-**Een** als het apparaat kan update 3.0 wordt uitgevoerd, kunt u lokaal vastgemaakte volumes tot 8.5 inrichten TB en gelaagde volumes tot 200 TB op het 8100-apparaat. Als het apparaat reeds volumes, gelaagde wordt de beschikbare schijfruimte voor het maken van een lokaal vastgemaakt volume proportioneel lager is dan deze limiet. Bijvoorbeeld als 106 TB van gelaagde volumes al op uw 8100-apparaat (dit is de helft van de capaciteit voor gelaagde) zijn ingericht, wordt klikt u vervolgens de maximale grootte van een lokaal volume dat kan worden gemaakt op het 8100-apparaat navenant verkleind tot 4 TB (ongeveer helft van de lokaal vastgemaakt volumecapaciteit).
+**Een** als update 3.0 op uw apparaat wordt uitgevoerd, kunt u inrichten lokaal vastgemaakte volumes tot maximaal 8,5 TB en gelaagde volumes op het 8100-apparaat tot 200 TB. Als uw apparaat reeds volumes, gelaagde wordt de beschikbare schijfruimte voor het maken van een lokaal vastgemaakt volume proportioneel lager is dan de maximale limiet. Bijvoorbeeld, als van gelaagde volumes van circa 106 TB al op uw 8100-apparaat (dit is de helft van de gelaagde capaciteit) zijn ingericht, vervolgens de maximale grootte van een lokaal volume dat u op het 8100-apparaat maken kunt echter navenant beperkt tot 4 TB (ongeveer de helft van de maximale lokaal vastgemaakt volumecapaciteit).
 
-Aangezien lokale ruimte op het apparaat wordt gebruikt voor het hosten van de werkset van gelaagde volumes, is de beschikbare ruimte voor het maken van een lokaal vastgemaakt volume als het apparaat volumes gelaagde verminderd. Als u daarentegen vermindert de beschikbare ruimte voor gelaagde volumes maken van een lokaal vastgemaakt volume proportioneel. De volgende tabellen geeft een overzicht van de beschikbare gelaagde capaciteit op het 8100 en 8600-apparaten wanneer lokaal vastgemaakte volumes worden gemaakt.
+Aangezien lokale ruimte op het apparaat wordt gebruikt voor het hosten van de werkset van gelaagde volumes, wordt de beschikbare ruimte voor het maken van een lokaal vastgemaakt volume als het apparaat volumes gelaagde verminderd. Daarentegen evenredig met het maken van een lokaal vastgemaakt volume, wordt de beschikbare ruimte voor gelaagde volumes verminderd. De volgende tabel geeft een overzicht van de beschikbare gelaagde capaciteit op het 8100- en 8600-apparaten wanneer lokaal vastgemaakte volumes worden gemaakt.
 
-#### <a name="update-30"></a>3.0 bijwerken 
-| Lokaal vastgemaakte volumes ingerichte capaciteit | Beschikbare capaciteit worden ingericht voor gelaagde volumes - 8100 | Beschikbare capaciteit worden ingericht voor gelaagde volumes - 8600 |
+#### <a name="update-30"></a>Update 3.0 
+
+| Ingerichte capaciteit van lokaal vastgemaakte volumes | Beschikbare capaciteit in te richten voor gelaagde volumes - 8100 | Beschikbare capaciteit in te richten voor gelaagde volumes - 8600 |
 | --- | --- | --- |
 | 0 |200 TB |500 TB |
 | 1 TB |176,5 TB |477.8 TB |
 | 4 TB |105.9 TB |411.1 TB |
-| 8.5 TB |0 TB |311.1 TB |
+| 8,5 TB |0 TB |311.1 TB |
 | 10 TB |N.v.t. |277.8 TB |
 | 15 TB |N.v.t. |166.7 TB |
 | 22.5 TB |N.v.t. |0 TB |
 
 **V:** Waarom is een langdurige bewerking lokaal vastgemaakt volume maken?
 
-**A:** Lokaal vastgemaakte volumes compact ingericht. Om ruimte te maken op de lokale lagen van het apparaat, kunnen sommige gegevens van bestaande gelaagde volumes worden gepusht naar de cloud tijdens het inrichtingsproces. En omdat dit is afhankelijk van de grootte van het volume wordt ingericht, de bestaande gegevens op uw apparaat en de beschikbare bandbreedte voor de cloud, duurt het maken van een lokaal volume kan enkele uren.
+**A:** Lokaal vastgemaakte volumes worden compact ingericht. Om ruimte te maken op de lokale lagen van het apparaat, mogelijk bepaalde gegevens van bestaande gelaagde volumes naar de cloud worden doorgegeven tijdens het inrichtingsproces. En omdat dit is de grootte van het volume wordt ingericht, de bestaande gegevens op uw apparaat en de beschikbare bandbreedte naar de cloud, afhankelijk van de gebruikte tijd voor het maken van een lokaal volume mogelijk enkele uren.
 
-**V:** Hoe lang duurt het maken van een lokaal vastgemaakt volume?
+**V:** Hoe lang duurt het een lokaal vastgemaakt volume maakt?
 
-**A:** Omdat lokaal vastgemaakte volumes compact ingericht zijn, kunnen sommige bestaande gegevens van gelaagde volumes worden verplaatst naar de cloud tijdens het inrichtingsproces. De tijd voor het maken van een lokaal vastgemaakt volume is daarom afhankelijk van meerdere factoren, onder andere de grootte van het volume, de gegevens op uw apparaat en de beschikbare bandbreedte. Op een geheel nieuw geïnstalleerde apparaat dat geen volumes heeft, is de tijd voor het maken van een lokaal vastgemaakt volume ongeveer tien minuten per terabyte van gegevens. Maken van lokale volumes duurt echter enkele uren op basis van de factoren die hierboven worden uitgelegd op een apparaat dat wordt gebruikt.
+**A:** Omdat de lokaal vastgemaakte volumes worden compact ingericht, kunnen sommige bestaande gegevens van gelaagde volumes naar de cloud worden gepusht tijdens het inrichtingsproces. De gebruikte tijd voor het maken van een lokaal vastgemaakt volume is daarom afhankelijk van meerdere factoren, onder andere de grootte van het volume, worden de gegevens op uw apparaat en de beschikbare bandbreedte. Op het apparaat van een opnieuw worden geïnstalleerd dat geen volumes heeft, is de tijd voor het maken van een lokaal vastgemaakt volume ongeveer tien minuten per terabyte aan gegevens. Het maken van lokale volumes duurt maar enkele uren op basis van de factoren die hierboven is uitgelegd op een apparaat dat wordt gebruikt.
 
-**V:** Ik wil een lokaal vastgemaakt volume maakt. Zijn er aanbevolen procedures die ik moet rekening houden met?
+**V:** Ik wil een lokaal vastgemaakt volume maakt. Zijn er best practices moet ik rekening houden met?
 
-**A:** Lokaal vastgemaakte volumes zijn geschikt voor werkbelastingen waarvoor lokale garanties van gegevens te allen tijde vereisen en in de cloud latentie gevoelig zijn. Tijdens het gebruik van lokale volumes voor een van de werkbelasting van uw overweegt, zorg rekening met het volgende:
+**A:** Lokaal vastgemaakte volumes zijn geschikt voor workloads waarvoor lokale garanties van gegevens te allen tijde is vereist en zijn gevoelig voor latentie in de cloud. Tijdens het gebruik van de lokale volumes voor elk van uw workloads overweegt, houd rekening met het volgende:
 
-* Lokaal vastgemaakte volumes zijn compact ingericht en maken van lokale volumes heeft impact op de beschikbare ruimte voor gelaagde volumes. We raden daarom u beginnen met kleiner volumes en omhoog schalen als uw opslag vereiste toeneemt.
-* Het inrichten van lokale volumes is een langdurige bewerking waarbij bestaande gegevens van gelaagde volumes pushen naar de cloud mogelijk. Als gevolg hiervan kunnen optreden verminderde prestaties op deze volumes.
-* Het inrichten van lokale volumes is een tijdrovende bewerking. De werkelijke tijd die zijn betrokken, is afhankelijk van meerdere factoren: de grootte van het volume wordt ingericht, de gegevens op het apparaat en de beschikbare bandbreedte. Als uw bestaande volumes niet naar de cloud ondersteund, zijn maken van volumes is langzamer. We raden dat u momentopnamen cloud van uw bestaande volumes voordat u een lokaal volume inricht.
-* U kunt bestaande gelaagde volumes converteren naar lokaal vastgemaakte volumes en deze conversie omvat het inrichten van ruimte op het apparaat voor het resulterende lokaal vastgemaakt volume (naast het meebrengen omlaag gelaagde gegevens, indien aanwezig, uit de cloud). Dit is ook een langdurige bewerking die is afhankelijk van factoren besproken hierboven hebt. Het is raadzaam om de back-up van uw bestaande volumes voordat conversie omdat het proces nog langer duren als er bestaande volumes zijn niet een back-up. Uw apparaat tegenkomen verminderde prestaties tijdens dit proces ook.
+* Lokaal vastgemaakte volumes worden compact ingericht en het maken van lokale volumes heeft gevolgen voor de beschikbare ruimte voor gelaagde volumes. Daarom stellen we voor u begint met volumes kleiner en omhoog schalen wanneer uw opslag vereiste toeneemt.
+* Inrichting van de lokale volumes is een langdurige bewerking die kan betrekking hebben op de bestaande gegevens pushen van gelaagde volumes naar de cloud. Als gevolg hiervan kan optreden verminderde prestaties op deze volumes.
+* Inrichting van de lokale volumes is een tijdrovende bewerking. De werkelijke tijd voor het afhankelijk is van meerdere factoren: de grootte van het volume wordt ingericht, de gegevens op uw apparaat en de beschikbare bandbreedte. Als u hebt geen back-ups uw bestaande volumes op de cloud, zijn het maken van volume is trager. We raden dat u cloudmomentopnamen van uw bestaande volumes uitvoeren voordat u een lokaal volume inricht.
+* U kunt bestaande gelaagde volumes converteren naar lokaal vastgemaakte volumes en deze conversie een hoeveelheid omvat het inrichten van ruimte op het apparaat voor de resulterende lokaal vastgemaakt volume (naast het gedeactiveerd gelaagde gegevens, indien van toepassing, vanuit de cloud). Dit is ook een langdurige bewerking die is afhankelijk van factoren die hebben we eerder hebben besproken. Het is raadzaam om de back-up van uw bestaande volumes voordat u conversie als het proces wordt ook langer duren als er bestaande volumes worden niet ondersteund. Verminderde prestaties tijdens dit proces kan ook optreden door uw apparaat.
 
 Meer informatie over het [een lokaal vastgemaakt volume maken](storsimple-8000-manage-volumes-u2.md#add-a-volume)
 
-**V:** Kan ik meerdere lokaal vastgemaakte volumes tegelijkertijd maken?
+**V:** Kan ik meerdere lokaal vastgemaakte volumes op hetzelfde moment maken?
 
-**A:** Ja, maar geen lokaal vastgemaakt volume maken en uitbreiding van de taken worden opeenvolgend verwerkt.
+**A:** Ja, maar een lokaal vastgemaakt volume maken en uitbreiding taken sequentieel worden verwerkt.
 
-Lokaal vastgemaakte volumes zijn compact ingericht en hiervoor maken van lokale ruimte op het apparaat (dit kan leiden tot bestaande gegevens van gelaagde volumes moet tijdens het inrichtingsproces worden gepusht naar de cloud). Dus als een taak uitgevoerd wordt, andere taken voor het maken van lokaal volume wordt in de wachtrij gezet tot deze taak is voltooid.
+Lokaal vastgemaakte volumes worden compact ingericht en hiervoor wordt het maken van lokale ruimte op het apparaat (dit kan leiden tot bestaande gegevens van gelaagde volumes naar de cloud worden gepusht tijdens het inrichtingsproces). Dus als een taak uitgevoerd wordt, andere taken voor het maken van het lokale volume wordt in de wachtrij geplaatst totdat deze taak is voltooid.
 
-Op dezelfde manier als een bestaand lokaal volume wordt uitgebreid of een gelaagd volume wordt omgezet naar een lokaal vastgemaakt volume, klikt u vervolgens het maken van een nieuw lokaal vastgemaakt volume is in de wachtrij totdat de vorige taak is voltooid. De grootte van een lokaal vastgemaakt volume uitbreiden, moet u de uitbreiding van de bestaande lokale ruimte die voor dat volume. Conversie van een gelaagde naar een lokaal vastgemaakt volume ook betrekking heeft op het maken van lokale ruimte voor de resulterende lokaal volume vastgemaakt. In beide deze bewerkingen, maken of uitbreiding van de lokale ruimte wordt een long uitgevoerd taak.
+Op dezelfde manier als een bestaande lokale volume wordt uitgebreid of als een gelaagd volume wordt geconverteerd naar een lokaal vastgemaakt volume, klikt u vervolgens het maken van een nieuw lokaal vastgemaakt volume is in de wachtrij geplaatst totdat de vorige taak is voltooid. De grootte van een lokaal vastgemaakt volume uitbreiden, moet u de uitbreiding van de bestaande lokale ruimte die voor dat volume. De conversie van een gelaagde naar een lokaal vastgemaakt volume omvat ook het maken van lokale ruimte voor de resulterende lokaal volume vastgemaakt. In beide van deze bewerkingen, maken of uitbreiding van de lokale ruimte is een lange uitgevoerd taak.
 
-U vindt deze taken in de **taken** blade van de service Manager voor StorSimple-apparaat. De taak die actief wordt verwerkt, wordt steeds bijgewerkt om de voortgang van de inrichting ruimte weer te geven. De resterende taken van lokaal vastgemaakt volume zijn gemarkeerd als actief, maar hun progressie tot stilstand is gekomen en ze worden opgenomen in de volgorde waarin dat ze zijn in de wachtrij.
+U vindt deze taken in de **taken** blade van de StorSimple Device Manager-service. De taak die actief wordt verwerkt, wordt voortdurend bijgewerkt om de voortgang van het inrichten van ruimte weer te geven. De resterende taken in de lokaal vastgemaakte volume zijn gemarkeerd als die wordt uitgevoerd, maar de voortgang is vastgelopen en ze zijn opgenomen in de volgorde waarin dat ze zijn in de wachtrij geplaatst.
 
-**V:** Ik heb verwijderd een lokaal vastgemaakt volume. Waarom zie ik niet de geregenereerde ruimte in de beschikbare ruimte wordt weergegeven wanneer ik probeer om een nieuw volume te maken?
+**V:** Ik heb een lokaal vastgemaakt volume verwijderd. Waarom zie ik niet de geregenereerde ruimte in de beschikbare ruimte wordt weergegeven wanneer ik wil een nieuw volume maken?
 
-**A:** Als u een lokaal vastgemaakt volume verwijdert, worden de beschikbare schijfruimte voor de nieuwe volumes mogelijk niet meteen bijgewerkt. De StorSimple-apparaat Manager-Service-updates de lokale ruimte beschikbaar ongeveer om het uur. We raden dat u wachten tot een uur voordat u probeert te maken van het nieuwe volume.
+**A:** Als u een lokaal vastgemaakt volume verwijdert, worden de beschikbare schijfruimte voor nieuwe volumes mogelijk niet meteen bijgewerkt. De StorSimple Device Manager-Service-updates de lokale ruimte die beschikbaar ongeveer elk uur. We raden dat u wachten tot een uur voordat u probeert te maken van het nieuwe volume.
 
-**V:** Ondersteunt het toestel cloud lokaal vastgemaakte volumes?
+**V:** Worden lokaal vastgemaakte volumes op het cloudapparaat ondersteund?
 
-**A:** Lokaal vastgemaakte volumes worden niet ondersteund op het cloud-toestel (8010 en 8020 apparaten voorheen bekend als het virtuele StorSimple-apparaat).
+**A:** Lokaal vastgemaakte volumes worden niet ondersteund op het cloudapparaat (8010 en 8020-apparaten voorheen aangeduid als het virtuele StorSimple-apparaat).
 
 **V:** Kan ik de Azure PowerShell-cmdlets gebruiken om te maken en beheren van lokaal vastgemaakte volumes?
 
-**A:** Nee, u lokaal vastgemaakte volumes via Azure PowerShell-cmdlets (alle volumes die u via Azure PowerShell maakt is gelaagd) niet maken. We raden ook gebruiken de Azure PowerShell-cmdlets niet alle eigenschappen van een lokaal vastgemaakt volume wijzigen omdat het het ongewenst effect van het wijzigen van het volumetype zal hebben tot gelaagde.
+**A:** Nee, u lokaal vastgemaakte volumes via Azure PowerShell-cmdlets (alle volumes die u via Azure PowerShell maakt is gelaagd) niet maken. Ook het is raadzaam gebruik de Azure PowerShell-cmdlets niet te wijzigen van de eigenschappen van een lokaal vastgemaakt volume, omdat het de ongewenst effect van het wijzigen van het volumetype zal hebben tot gelaagde.
 
-## <a name="questions-about-backing-up-a-locally-pinned-volume"></a>Vragen over het back-ups van een lokaal vastgemaakt volume
-**V:** Zijn lokale momentopnamen van lokaal vastgemaakte volumes ondersteund?
+## <a name="questions-about-backing-up-a-locally-pinned-volume"></a>Vragen over back-ups van een lokaal vastgemaakt volume
+**V:** Zijn lokale momentopnamen van lokaal vastgemaakte volumes die worden ondersteund?
 
-**A:** Ja, u kunt momentopnamen lokale van uw lokaal vastgemaakte volumes. Echter het beste regelmatig back-up van uw lokaal vastgemaakte volumes met cloudmomentopnamen om ervoor te zorgen dat uw gegevens in de deze van een noodgeval zijn beveiligd.
+**A:** Ja, u kunt uitvoeren op lokale momentopnamen van uw lokaal vastgemaakte volumes. Echter ten zeerste het is raadzaam dat u regelmatig back-up van uw lokaal vastgemaakte volumes met behulp van cloudmomentopnamen om ervoor te zorgen dat uw gegevens in de deze na een noodgeval worden beschermd.
 
-, Ziet u dat lokale momentopnamen van lokaal vastgemaakte volumes kunnen ook trapsgewijs uit naar de cloud en om te blijven in de lokale laag van het apparaat niet worden gegarandeerd.
+Houd er rekening mee dat lokale momentopnamen van lokaal vastgemaakte volumes ook onderverdelen in uit naar de cloud lagen kunnen en zijn niet noodzakelijkerwijs blijven in de lokale laag van het apparaat.
 
 **V:** Zijn er richtlijnen voor het beheren van lokale momentopnamen voor lokaal vastgemaakte volumes?
 
-**A:** Veelvuldig lokale momentopnamen samen met een hoge frequentie van gegevensverloop in de lokaal vastgemaakt volume mogelijk lokale ruimte op het apparaat te snel worden verbruikt, en er gegevens van gelaagde volumes worden gepusht naar de cloud. We raden daarom minimaliseert u het nummer van lokale momentopnamen.
+**A:** Regelmatig lokale momentopnamen samen met een hoge frequentie van het gegevensverloop op de lokaal vastgemaakte volume kunnen leiden tot lokale ruimte op het apparaat snel wordt verbruikt en leiden tot gegevens van gelaagde volumes naar de cloud worden gepusht. Daarom stellen we voor dat u het nummer van de lokale momentopnamen minimaliseren.
 
-**V:** Ik krijg een waarschuwing met de mededeling dat mijn lokale momentopnamen van lokaal vastgemaakte volumes mogelijk ongeldig worden gemaakt. Wanneer kan dit gebeuren
+**V:** Ik heb ontvangen een bericht waarin staat dat mijn lokale momentopnamen van lokaal vastgemaakte volumes mogelijk ongeldig worden gemaakt. Wanneer kan dit gebeuren?
 
-**A:** Veelvuldig lokale momentopnamen samen met een hoge frequentie van gegevensverloop in de lokaal vastgemaakt volume mogelijk lokale ruimte op het apparaat te snel worden verbruikt. Als de lokale lagen van het apparaat intensief gebruikt wordt, een uitgebreide cloud storing kan leiden tot het apparaat vol raken en binnenkomende schrijven naar het volume kunnen leiden tot ongeldig te maken van de momentopnamen (zoals geen ruimte beschikbaar is voor het bijwerken van de momentopnamen voor het verwijzen naar de oudere blokken met gegevens die zijn overschreven). In een dergelijke situatie blijven het schrijven naar het volume worden geleverd, maar de lokale momentopnamen is mogelijk ongeldig. Er zijn geen gevolgen voor uw bestaande cloudmomentopnamen.
+**A:** Regelmatig lokale momentopnamen samen met een hoge frequentie van het gegevensverloop op de lokaal vastgemaakte volume kunnen leiden tot lokale ruimte op het apparaat snel wordt verbruikt. Als de lokale lagen van het apparaat intensief worden gebruikt, een uitgebreide cloud storing kan leiden tot het apparaat is vol en binnenkomende schrijven naar het volume kunnen leiden tot die van de momentopnamen (als er geen ruimte beschikbaar is voor het bijwerken van de momentopnamen om te verwijzen naar de oudere blokken van gegevens die zijn overschreven). In dit geval blijven de schrijfbewerkingen naar het volume worden geleverd, maar de lokale momentopnamen is mogelijk ongeldig. Er zijn geen gevolgen voor uw bestaande cloudmomentopnamen.
 
-De waarschuwing waarschuwing is om u te waarschuwen dat een dergelijke situatie kan ontstaan en zorg ervoor dat u hetzelfde adres tijdig dat door uw lokale momentopnamen planningen om minder frequente lokale momentopnamen te bekijken of verwijderen van oudere lokale momentopnamen die niet langer vereist zijn.
+De waarschuwing waarschuwing is om u te waarschuwen dat een dergelijke situatie kan zich voordoen en zorg ervoor dat u hetzelfde adres tijdig dat door uw lokale momentopnamen schema's om minder frequente lokale momentopnamen te controleren of het verwijderen van oudere lokale momentopnamen die niet langer vereist zijn.
 
-Als de lokale momentopnamen ongeldig worden gemaakt, ontvangt u een informatiemelding om u te informeren dat de lokale momentopnamen voor de specifieke back-upbeleid zijn ongeldig gemaakt naast de lijst met tijdstempels van de lokale momentopnamen die ongeldig zijn gemaakt. Deze momentopnamen worden automatisch verwijderd en u niet langer kunnen worden weer te geven in de **back-up catalogussen** blade in de Azure portal.
+Als de lokale momentopnamen ongeldig gemaakt zijn, ontvangt u een informatiemelding om te informeren dat de lokale momentopnamen voor de specifieke back-upbeleid zijn ongeldig verklaard naast de lijst met tijdstempels van de lokale momentopnamen die ongeldig zijn gemaakt. Deze momentopnamen worden automatisch verwijderd en u niet langer kunnen deze bekijken in de **back-up catalogi** blade in Azure portal.
 
 ## <a name="questions-about-converting-a-tiered-volume-to-a-locally-pinned-volume"></a>Vragen over het converteren van een gelaagd volume naar een lokaal vastgemaakt volume
-**V:** Ik ben sommige traagheid op het apparaat tijdens het converteren van een gelaagd volume naar een lokaal vastgemaakt volume observeren. Waarom is dit gebeurt?
+**V:** Ik ben sommige traagheid op het apparaat uitgevoerd tijdens het converteren van een gelaagd volume naar een lokaal vastgemaakt volume. Waarom is het probleem aanhoudt?
 
 **A:** Het conversieproces bestaat uit twee stappen:
 
-1. Het inrichten van ruimte op het apparaat voor het snel-naar-worden-geconverteerd lokaal vastgemaakt volume.
-2. Downloaden van een gelaagde gegevens vanuit de cloud om ervoor te zorgen lokale gegarandeerd.
+1. Inrichting van ruimte op het apparaat voor het snel-naar--geconverteerd lokaal vastgemaakt volume.
+2. Alle gelaagde gegevens downloaden vanuit de cloud om ervoor te zorgen lokale garanties.
 
-Beide stappen zijn lang met bewerkingen die afhankelijk van de grootte van het volume dat wordt geconverteerd zijn, gegevens op het apparaat en de beschikbare bandbreedte. Als sommige gegevens van bestaande gelaagde volumes mogelijk naar de cloud worden gelekt als onderdeel van het inrichtingsproces, kan uw apparaat verminderde prestaties tijdens deze periode optreden. Bovendien het conversieproces duurt mogelijk langer als:
+Beide van deze stappen zijn lang bewerkingen die afhankelijk van de grootte van het volume wordt geconverteerd zijn, gegevens op het apparaat en de beschikbare bandbreedte. Als u bepaalde gegevens van bestaande gelaagde volumes kunnen worden gelekt naar de cloud als onderdeel van het inrichtingsproces, kan uw apparaat verminderde prestaties tijdens deze periode optreden. Bovendien worden tijdens de conversie kan langzamer als:
 
-* Bestaande volumes zijn geen back-ups naar de cloud; zodat het is raadzaam om de dat back-up van uw volumes voordat u een conversie te starten.
-* Bandbreedte, snelheidsbeperking beleidsregels zijn toegepast, die de beschikbare bandbreedte naar de cloud; kan beperken Daarom raden we aan dat u hebt een speciale 40 Mbps of meer verbinding naar de cloud.
-* Het conversieproces kan enkele uren vanwege het meerdere factoren uiteengezet; duren Daarom is het raadzaam dat u deze bewerking niet pieken op tijdstippen of op een weekend om te voorkomen dat de gevolgen voor consumenten end uitvoert.
+* Bestaande volumes zijn niet back-in de cloud. dus het is raadzaam om de dat back-up van uw volumes voordat u een conversie wordt gestart.
+* Beleidsregels voor beperking van bandbreedte zijn toegepast, kan dit de beschikbare bandbreedte naar de cloud; beperken Daarom raden wij aan dat u hebt een speciale 40 Mbps of meer verbindingen naar de cloud.
+* Tijdens de conversie kan enkele uren vanwege het meerdere factoren uiteengezet; duren Daarom is het raadzaam dat u deze bewerking niet pieken op tijdstippen of op een weekend om te voorkomen dat de impact op end consumenten uitvoeren.
 
 Meer informatie over het [een gelaagd volume converteren naar een lokaal vastgemaakt volume](storsimple-8000-manage-volumes-u2.md#change-the-volume-type)
 
 **V:** Kan ik de conversiebewerking volume annuleren?
 
-**A:** Nee, u kunt niet de annuleren de conversiebewerking eenmaal is gestart. Zoals beschreven in de vorige vragen, u zich van de mogelijke prestatieproblemen die u mogelijk bij het proces stuit en volg de aanbevolen procedures die hierboven worden genoemd als u van plan uw conversie bent.
+**A:** Nee, u kunt niet de annuleren de conversiebewerking eenmaal is gestart. Zoals beschreven in de vorige vraag, houd er rekening houden met de mogelijke prestatieproblemen die u mogelijk bij het proces stuit en volg de aanbevolen procedures die hierboven wordt weergegeven wanneer u van plan uw conversie bent.
 
 **V:** Wat gebeurt er met mijn volume als de conversiebewerking mislukt?
 
-**A:** Volumeconversie kan mislukken door problemen met de netwerkverbinding van de cloud. Het apparaat niet meer het conversieproces uiteindelijk na een bepaald aantal mislukte pogingen om de gelaagde gegevens vanuit de cloud. In een dergelijk scenario het volumetype blijft het brontype volume vóór-conversie en:
+**A:** Volumeconversie kan mislukken vanwege verbindingsproblemen met een cloud. Het apparaat niet meer het conversieproces uiteindelijk na een bepaald aantal mislukte pogingen om de gelaagde gegevens vanuit de cloud. In zo'n geval moet het volumetype blijft het volume brontype vóór de conversie, en:
 
-* Er verschijnt een kritieke waarschuwing voor zullen u informeren over de fout bij het converteren van het volume. Meer informatie over [waarschuwingen die zijn gerelateerd aan lokaal vastgemaakte volumes](storsimple-8000-manage-alerts.md#locally-pinned-volume-alerts)
-* Als u een gelaagde naar een lokaal vastgemaakt volume converteren wilt, blijft het volume eigenschappen van een gelaagd volume vertonen, zoals gegevens nog steeds zich in de cloud bevinden mogelijk. We raden u los de problemen met de netwerkverbinding en probeer het opnieuw conversie.
-* Op dezelfde manier als de conversie van een lokaal vastgemaakt naar een gelaagd volume uitvalt, hoewel het volume wordt gemarkeerd als een lokaal vastgemaakt volume, werkt als een gelaagd volume (omdat de gegevens kan terechtgekomen naar de cloud). Het blijft echter ruimte op de lokale lagen van het apparaat in beslag nemen. Deze ruimte worden niet beschikbaar voor andere lokaal vastgemaakte volumes. Het is raadzaam dat u het opnieuw om ervoor te zorgen dat de volumeconversie voltooid is en de lokale ruimte op het apparaat kan worden vrijgemaakt.
+* Er verschijnt een kritieke waarschuwing voor een melding van de fout bij het converteren van het volume. Meer informatie over [waarschuwingen met betrekking tot de lokaal vastgemaakte volumes](storsimple-8000-manage-alerts.md#locally-pinned-volume-alerts)
+* Als u een gelaagde naar een lokaal vastgemaakt volume converteren wilt, blijft het volume eigenschappen van een gelaagd volume vertonen gegevens mogelijk nog steeds bevindt zich op de cloud. Het is raadzaam dat u kunt oplossen door de problemen met de netwerkverbinding en voer vervolgens de conversiebewerking opnieuw uit.
+* Op dezelfde manier als de conversie van een lokaal vastgemaakt naar een gelaagd volume is mislukt, hoewel het volume worden gemarkeerd als een lokaal vastgemaakt volume, werkt als een gelaagd volume (omdat de gegevens kan terechtgekomen naar de cloud). Deze blijft echter ruimte op de lokale lagen van het apparaat in beslag nemen. Deze ruimte is niet beschikbaar voor andere lokaal vastgemaakte volumes. Het is raadzaam om deze bewerking om ervoor te zorgen dat de volumeconversie voltooid is en de lokale ruimte op het apparaat kan worden vrijgemaakt opnieuw te proberen.
 
 ## <a name="questions-about-restoring-a-locally-pinned-volume"></a>Vragen over het herstellen van een lokaal vastgemaakt volume
-**V:** Lokaal vastgemaakte volumes hersteld onmiddellijk?
+**V:** Lokaal vastgemaakte volumes hersteld direct?
 
-**A:** Ja, lokaal vastgemaakte volumes zijn direct hersteld. Zodra de informatie over de metagegevens voor het volume is opgehaald uit de cloud als onderdeel van de herstelbewerking, wordt het volume online is gebracht en toegankelijk zijn voor de host. Lokale garanties met betrekking tot het volume gegevens niet meer aanwezig totdat alle gegevens die is gedownload vanuit de cloud en treden verminderd echter op de prestaties van deze volumes voor de duur van het terugzetten.
+**A:** Ja, lokaal vastgemaakte volumes worden meteen teruggezet. Als de informatie over de metagegevens voor het volume wordt opgehaald uit de cloud als onderdeel van de herstelbewerking, wordt het volume online is geplaatst en kan worden geopend door de host. Echter lager lokale garanties met betrekking tot het volume gegevens niet meer aanwezig totdat alle gegevens vanuit de cloud is gedownload en mogelijk is uw prestaties uitvallen op deze volumes voor de duur van het herstel.
 
-**V:** Hoe lang duurt het herstellen van een lokaal vastgemaakt volume?
+**V:** Hoe lang duurt het een lokaal vastgemaakt volume herstellen?
 
-**A:** Lokaal vastgemaakte volumes zijn onmiddellijk teruggezet en online wordt gebracht zodra de volumegegevens voor metagegevens worden opgehaald uit de cloud terwijl de volumegegevens wordt voortgezet op de achtergrond worden gedownload. Dit laatste deel van de herstelbewerking--om terug te zetten van de lokale garanties voor de volumegegevens--het is een langdurige bewerking en duurt enkele uren voor alle gegevens voor lokale opnieuw worden gemaakt. De tijd voltooien hetzelfde is afhankelijk van meerdere factoren, zoals de grootte van het volume wordt hersteld en de beschikbare bandbreedte. Als het oorspronkelijke volume dat wordt hersteld, is verwijderd, worden extra tijd gaat maken van de lokale ruimte op het apparaat als onderdeel van de herstelbewerking opnieuw.
+**A:** Lokaal vastgemaakte volumes worden meteen teruggezet en online wordt gebracht zodra de volumegegevens voor metagegevens wordt opgehaald uit de cloud, terwijl de gegevens op het volume wordt voortgezet op de achtergrond worden gedownload. Dit laatste deel van de herstelbewerking--ophalen terug van de lokale garanties voor gegevens op het volume, is een langdurige bewerking en duurt enkele uren voor de gegevens naar het lokale opnieuw worden gemaakt. De tijd om uit te voeren hetzelfde is afhankelijk van meerdere factoren, zoals de grootte van het volume wordt hersteld en de beschikbare bandbreedte. Als het oorspronkelijke volume dat wordt hersteld, is verwijderd, worden extra tijd om te maken van de lokale ruimte op het apparaat als onderdeel van de herstelbewerking opnieuw worden uitgevoerd.
 
-**V:** Ik wil mijn bestaande lokaal vastgemaakt volume herstellen naar een momentopname van een oudere (uitgevoerd wanneer het volume is gelaagd). Het volume worden hersteld als lagen in dit geval?
+**V:** Ik wil mijn bestaande lokaal vastgemaakt volume herstellen naar een momentopname van een oudere (uitgevoerd wanneer het volume is gelaagd). Het volume worden hersteld als in dit geval lagen?
 
-**A:** Nee, wordt het volume worden hersteld als een lokaal vastgemaakt volume. Hoewel de datums van de momentopname aan de tijd wanneer het volume is gelaagd, tijdens het herstellen van bestaande volumes StorSimple altijd maakt gebruik van het type volume op de schijf omdat deze momenteel bestaat.
+**A:** Nee, wordt het volume worden hersteld als een lokaal vastgemaakt volume. Hoewel de datums momentopname van de tijd waarop het volume is gelaagd, bij het terugzetten van bestaande volumes, StorSimple altijd maakt gebruik van het type van het volume op de schijf zoals dit zich op dit moment.
 
-**V:** Ik mijn lokaal vastgemaakt volume onlangs hebt uitgebreid, maar ik wil nu de gegevens herstellen naar een tijd waarop het volume kleiner is. Wordt terugzetten van de grootte van het huidige volume en moet ik de grootte van het volume uitbreiden nadat het herstel is voltooid?
+**V:** Kan ik mijn lokaal vastgemaakt volume onlangs hebt uitgebreid, maar ik wil nu de gegevens te herstellen naar een tijdstip waarop het volume kleiner dan de grootte is. Wordt herstel de grootte van het huidige volume en wordt die ik wil de grootte van het volume uitbreiden als het herstellen is voltooid?
 
-**A:** Ja, de herstelbewerking wordt de grootte van het volume en moet u de grootte van het volume uitbreiden nadat het herstel is voltooid.
+**A:** Ja, het herstellen wordt de grootte van het volume, en moet u de grootte van het volume uitbreiden nadat het herstel is voltooid.
 
-**V:** Kan ik tijdens het terugzetten van het type van een volume wijzigen?
+**V:** Kan ik het type van een volume wijzigen tijdens het terugzetten?
 
-**A.** Nee, u het volumetype niet wijzigen tijdens het terugzetten.
+**A:** U kunt het volumetype Nee, niet wijzigen tijdens het terugzetten.
 
-* Volumes die zijn verwijderd zijn als het type dat is opgeslagen in de momentopname hersteld.
-* Bestaande volumes zijn hersteld op basis van hun huidige type, ongeacht het type dat is opgeslagen in de momentopname (Zie de vorige twee vragen).
+* Volumes die zijn verwijderd zijn als het type die zijn opgeslagen in de momentopname hersteld.
+* Bestaande volumes worden teruggezet op basis van hun huidige type, ongeacht het type die zijn opgeslagen in de momentopname (Zie de vorige twee vragen).
 
-**V:** Ik wil mijn lokaal vastgemaakt volume te herstellen, maar ik heb een onjuist punt in tijd momentopname. Kan ik de huidige herstelbewerking annuleren?
+**V:** Ik wil mijn lokaal vastgemaakt volume herstellen, maar ik een onjuiste punt in tijd momentopname opgehaald. Kan ik de huidige herstelbewerking annuleren?
 
-**A:** Ja, kunt u een herstelbewerking continu annuleren. De status van het volume wordt teruggedraaid naar de status aan het begin van het terugzetten. Er geen schrijfbewerkingen die zijn aangebracht aan het volume, terwijl de herstelbewerking werd uitgevoerd is verloren gegaan.
+**A:** Ja, kunt u een continue restore-bewerking annuleren. De status van het volume wordt teruggedraaid naar de status aan het begin van het herstel. Alle schrijfbewerkingen die zijn aangebracht aan het volume, terwijl het terugzetten werd uitgevoerd, gaan echter verloren.
 
-**V:** Ik een restore-bewerking op een van mijn lokaal vastgemaakte volumes gestart en wordt nu een momentopname wordt weergegeven in de catalogus van mijn achterstand die ik niet nu maken. Wat wordt dit gebruikt?
+**V:** Kan ik een herstelbewerking uit op een van mijn lokaal vastgemaakte volumes aan de slag en nu zie ik een momentopname in mijn achterstand catalogus die ik niet nu maken. Wat is dit gebruikt voor?
 
-**A:** Dit is de tijdelijke momentopname die vóór de herstelbewerking is gemaakt en wordt gebruikt voor ongedaan maken als het herstel is geannuleerd of mislukt. Deze momentopname; niet verwijderen Deze worden automatisch verwijderd wanneer het herstel voltooid is. Dit kan gebeuren als de hersteltaak alleen lokaal volumes of een combinatie van lokaal vastgemaakte en gelaagde volumes vastgemaakte is. De hersteltaak bevat alleen gelaagde volumes, wordt vervolgens dit gedrag niet uitgevoerd als.
+**A:** Dit is de tijdelijke momentopname die is gemaakt voordat de herstelbewerking en wordt gebruikt voor ongedaan maken als de terugzetbewerking is geannuleerd of mislukt. Deze momentopname; niet verwijderen Deze worden automatisch verwijderd wanneer het herstel voltooid is. Dit probleem kan optreden als de hersteltaak alleen lokaal volumes of een combinatie van lokaal vastgemaakte en gelaagde volumes vastgemaakte is. Als de hersteltaak alleen gelaagde volumes bevat, wordt klikt u vervolgens dit gedrag niet uitgevoerd.
 
-**V:** Kan ik een lokaal vastgemaakt volume kloon?
+**V:** Kan ik een lokaal vastgemaakt volume klonen?
 
-**A:** Ja, kunt u. Lokaal vastgemaakt volume wordt echter als een gelaagd volume standaard worden gekloond. Meer informatie over het [een lokaal vastgemaakt volume klonen](storsimple-8000-clone-volume-u2.md)
+**A:** Ja, dat is mogelijk. Het lokaal vastgemaakte volume wordt echter als een gelaagd volume standaard worden gekloond. Meer informatie over het [een lokaal vastgemaakt volume klonen](storsimple-8000-clone-volume-u2.md)
 
-## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Vragen over mislukte via een lokaal vastgemaakt volume
-**V:** Ik wil mijn apparaat aan een ander fysiek apparaat failover. Mijn lokaal vastgemaakte volumes mislukken dan lokaal vastgemaakt of gelaagde?
+## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Vragen over de failover wordt uitgevoerd een lokaal vastgemaakt volume
+**V:** Ik wil mijn apparaat naar een ander fysiek apparaat een failover. Wordt mijn lokaal vastgemaakte volumes worden kan niet meer dan lokaal vastgemaakt of lagen?
 
-**A:** Lokaal vastgemaakte volumes wordt een failover uitgevoerd als lokaal vastgemaakt als het doelapparaat StorSimple 8000 serie update 3 of hoger wordt uitgevoerd.
+**A:** De lokaal vastgemaakte volumes failover is uitgevoerd als lokaal vastgemaakt als het doelapparaat StorSimple 8000 serie update 3 of hoger wordt uitgevoerd.
 
-Meer informatie over [failover en DR van lokaal vastgemaakte volumes op versies van](storsimple-8000-device-failover-disaster-recovery.md#device-failover-across-software-versions)
+Meer informatie over [failover en herstel na Noodgevallen van lokaal vastgemaakt volumes tussen versies](storsimple-8000-device-failover-disaster-recovery.md#device-failover-across-software-versions)
 
-**V:** Lokaal vastgemaakte volumes direct herstellen tijdens herstel na noodgeval (DR)?
+**V:** Worden lokaal vastgemaakte volumes meteen teruggezet tijdens herstel na noodgeval (DR)?
 
-**A:** Ja, lokaal vastgemaakte volumes zijn hersteld onmiddellijk tijdens failover. Zodra de informatie over de metagegevens voor het volume is opgehaald uit de cloud als onderdeel van de failoverbewerking, wordt het volume online brengen op het doelapparaat en toegankelijk zijn voor de host. Ondertussen blijft de volumegegevens downloaden op de achtergrond en verminderde prestaties op deze volumes voor de duur van de failover kunnen optreden.
+**A:** Ja, lokaal vastgemaakte volumes worden teruggezet direct tijdens de failover. Als de informatie over de metagegevens voor het volume wordt opgehaald uit de cloud als onderdeel van de failoverbewerking, wordt het volume online is geplaatst op het doelapparaat en kan worden geopend door de host. Ondertussen blijft de volumegegevens downloaden op de achtergrond en verminderde prestaties op deze volumes voor de duur van de failover kan optreden.
 
-**V:** Zie ik de failover-taak is voltooid, hoe kan ik de voortgang van een lokaal vastgemaakt volume dat wordt hersteld bijhouden op het doelapparaat?
+**V:** Ik zie de failovertaak is voltooid, hoe kan ik de voortgang van lokaal vastgemaakte volume dat wordt hersteld volgen op het doelapparaat?
 
-**A:** Tijdens een failoverbewerking worden de failover-taak is gemarkeerd als voltooid eenmaal alle volumes in de set met failover zijn onmiddellijk teruggezet en online brengen op het doelapparaat. Dit omvat alle lokaal vastgemaakte volumes die mogelijk zijn via; is mislukt echter, lokale garanties van de gegevens worden pas beschikbaar wanneer de gegevens voor het volume is gedownload. U kunt deze voortgang voor elk lokaal vastgemaakt volume dat is mislukt door de bewaking van de bijbehorende hersteltaken die zijn gemaakt als onderdeel van de failover volgen. Deze het herstellen van afzonderlijke taken wordt alleen gemaakt voor lokaal vastgemaakte volumes.
+**A:** Tijdens een failoverbewerking, worden de failover-taak is gemarkeerd als voltooid nadat alle volumes in de failoverset met zijn direct teruggezet en online worden gebracht op het doelapparaat. Dit omvat alle lokaal vastgemaakte volumes die mogelijk een failover zijn; lokale garanties van de gegevens wordt alleen zijn echter beschikbaar wanneer de gegevens voor het volume is gedownload. Deze wordt uitgevoerd voor elk lokaal vastgemaakt volume dat door de bewaking van de bijbehorende hersteltaken die zijn gemaakt als onderdeel van de failover is mislukt, kunt u bijhouden. Deze taken aparte herstelbewerking wordt alleen voor lokaal vastgemaakte volumes worden gemaakt.
 
 **V:** Kan ik het type van een volume wijzigen tijdens de failover?
 
-**A:** Nee, kunt u het volumetype niet wijzigen tijdens een failover. Als u zich niet via een ander fysiek apparaat met StorSimple 8000 series update 3, de volumes wordt een failover uitgevoerd op basis van het volumetype dat is opgeslagen in de momentopname.
+**A:** U kunt het volumetype Nee, niet wijzigen tijdens een failover. Als u mislukken over naar een ander fysiek apparaat met StorSimple 8000 serie update 3, de volumes failover is uitgevoerd op basis van het volumetype dat is opgeslagen in de momentopname.
 
-**V:** Kan ik een volumecontainer met lokaal vastgemaakte volumes op het toestel cloud failover?
+**V:** Kan ik een volumecontainer met lokaal vastgemaakte volumes met het cloudapparaat failover?
 
-**A:** Ja, kunt u. Lokaal vastgemaakte volumes wordt als gelaagde volumes failover worden uitgevoerd. Meer informatie over [failover en DR van lokaal vastgemaakte volumes op versies van](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
+**A:** Ja, dat is mogelijk. De lokaal vastgemaakte volumes failover wordt als gelaagde volumes. Meer informatie over [failover en herstel na Noodgevallen van lokaal vastgemaakt volumes tussen versies](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
 

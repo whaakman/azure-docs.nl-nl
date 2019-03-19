@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 731b87d7958bb461466b16f2ff724ea33f234ba8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439805"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083178"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Prestaties van shard Azure SQL-database met meerdere tenants in een multitenant SaaS-app controleren en beheren
 
@@ -28,7 +28,7 @@ De app Wingtip Tickets SaaS multitenant-Database maakt gebruik van een model met
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-
+> 
 > * Gebruik op een shard multitenant-database door het uitvoeren van een geleverde load-generator simuleren
 > * Bewaken van de database terwijl er wordt gereageerd op de toename in load
 > * Schalen van de database in reactie op de verhoogde databaseload

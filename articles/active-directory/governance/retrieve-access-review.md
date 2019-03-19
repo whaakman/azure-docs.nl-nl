@@ -16,16 +16,16 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5a422f619c4ef63da59516ff2748683eb0f7f70
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726684"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839641"
 ---
 # <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Ophalen van de resultaten van de toegangsbeoordeling voor groepen of toepassingen in Azure AD-Toegangsbeoordelingen
 
-Beheerders kunnen Azure Active Directory (Azure AD) gebruiken om een [toegangsbeoordeling](create-access-review.md) te maken voor groepsleden of gebruikers die zijn toegewezen aan een toepassing.  Een gebruiker met de rol **Globale beheerder**, **Gebruikersaccountbeheerder**, **Beveiligingsbeheerder** of **Beveiligingslezer** kan de resultaten van een toegangsbeoordeling ook lezen.  Om gebruikers toe te wijzen aan een van deze rollen, kan een Beheerder met bevoorrechte rol Azure AD PIM gebruiken om een ​​gebruiker in aanmerking te laten komen voor het activeren van de rol, of kan een Globale beheerder [een gebruiker permanent toewijzen aan de rol](../fundamentals/active-directory-users-assign-role-azure-portal.md).
+Beheerders kunnen Azure Active Directory (Azure AD) gebruiken om een [toegangsbeoordeling](create-access-review.md) te maken voor groepsleden of gebruikers die zijn toegewezen aan een toepassing.  Een gebruiker die zich in de **hoofdbeheerder**, **Gebruikerbeheerder**, **beveiligingsbeheerder** of **beveiligingslezer** rol kan ook Lees de resultaten van een toegangscontrole.  U gebruikers toewijzen aan een van deze rollen, kan een beheerder met bevoorrechte rol Azure AD PIM gebruiken zodat een gebruiker in aanmerking voor het activeren van de rol of globale beheerder permanent kunt [een gebruiker toewijzen aan de rol](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

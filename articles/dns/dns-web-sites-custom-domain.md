@@ -5,18 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 2/19/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9ed0c8763835add485d6c60a43f4e4113ecde12e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 43df80e060ff698537f7fd65075006e6dfffe6c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429278"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117146"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Zelfstudie: DNS-records voor een web-app in een aangepast domein maken 
 
-U kunt Azure DNS configureren voor het hosten van een aangepast domein voor uw web-apps. U kunt bijvoorbeeld een web-app in Azure maken en uw gebruikers toegang geven via www.contoso.com of contoso.com als een volledig gekwalificeerde domeinnaam (FQDN).
+U kunt Azure DNS configureren voor het hosten van een aangepast domein voor uw web-apps. U kunt bijvoorbeeld een Azure-web-app maken en uw gebruikerstoegang hebben met behulp van een van beide www\.contoso.com of contoso.com als een volledig gekwalificeerde domeinnaam (FQDN).
 
 > [!NOTE]
 > Contoso.com wordt in de hele zelfstudie als voorbeeld gebruikt. Vervang uw eigen domeinnaam door contoso.com.
@@ -47,12 +47,13 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- [Maak een App Service-app](../app-service/app-service-web-get-started-html.md), of gebruik een app die u hebt gemaakt voor een andere zelfstudie.
+* U kunt een beschikbaar om mee te testen die u in Azure DNS hosten kunt-domeinnaam moet hebben. U moet het volledige beheer over dit domein hebben. Volledig beheer betekent ook de mogelijkheid om naamserverrecords (NS) voor het domein in te stellen.
+* [Maak een App Service-app](../app-service/app-service-web-get-started-html.md), of gebruik een app die u hebt gemaakt voor een andere zelfstudie.
 
-- Maak een DNS-zone in Azure DNS en delegeer de zone in uw registrar naar Azure DNS.
+* Maak een DNS-zone in Azure DNS en delegeer de zone in uw registrar naar Azure DNS.
 
    1. Volg de stappen in [Een DNS-zone maken](dns-getstarted-create-dnszone.md) om een DNS-zone te maken.
-   2. Volg de stappen in [DNS domain delegation](dns-domain-delegation.md) (Delegering van DNS-domeinen) om uw zone naar Azure DNS te delegeren.
+   2. Volg de stappen in [DNS domain delegation](dns-delegate-domain-azure-dns.md) (Delegering van DNS-domeinen) om uw zone naar Azure DNS te delegeren.
 
 Nadat u een zone hebt gemaakt en deze naar Azure DNS hebt gedelegeerd, kunt u records voor uw aangepaste domein maken.
 
@@ -72,7 +73,7 @@ Op de pagina **Aangepaste domeinen** kopieert u het IPv4-adres van de app:
 
 ### <a name="create-the-a-record"></a>Een A-record maken
 
-```powershell
+```azurepowershell
 New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
  -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<your web app IP address>")
@@ -82,7 +83,10 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 
 App Services gebruikt dit record alleen tijdens de configuratie, om te controleren of u de eigenaar bent van het aangepaste domein. Nadat uw aangepaste domein is gevalideerd en geconfigureerd in App Service, kunt u dit TXT-record verwijderen.
 
-```powershell
+> [!NOTE]
+> Als u wilt controleren of de domeinnaam, maar niet productieverkeer gerouteerd naar de web-app, moet u alleen de TXT-record voor de verificatiestap opgeven.  Verificatie is niet vereist voor een A of CNAME-record naast de TXT-record.
+
+```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
  -Name "@" -RecordType "txt" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -Value  "contoso.azurewebsites.net")
@@ -96,7 +100,7 @@ Open Azure PowerShell en maak een nieuw CNAME-record. In dit voorbeeld wordt een
 
 ### <a name="create-the-record"></a>Een record maken
 
-```powershell
+```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
  -Name "www" -RecordType "CNAME" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -cname "contoso.azurewebsites.net")
@@ -158,7 +162,7 @@ contoso.com text =
 
 U kunt nu de aangepaste hostnamen aan uw web-app toevoegen:
 
-```powershell
+```azurepowershell
 set-AzWebApp `
  -Name contoso `
  -ResourceGroupName MyAzureResourceGroup `

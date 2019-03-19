@@ -14,12 +14,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855cf81dbf24b0662048f69061ca85b72ff5f670
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 12e36c49d8c4db60302d4b72dfa81ea4aceec77b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107386"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>De toepassingsproxy en Qlik Sense 
 Azure Active Directory-toepassingsproxy en Qlik Sense zijn een partnerschap aangegaan samen om te controleren of dat u zich eenvoudig kunt toepassingsproxy gebruiken voor externe toegang voor uw implementatie Qlik Sense.  
@@ -41,13 +41,13 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer gedetailleerd ov
 2. Selecteer **Azure Active Directory** > **bedrijfstoepassingen**. 
 3. Selecteer **toevoegen** aan de bovenkant van de blade. 
 4. Selecteer **On-premises toepassing**. 
-5.       Vul de vereiste velden met informatie over de nieuwe app. Gebruik de volgende richtlijnen voor de instellingen: 
-    - **Interne URL**: Deze toepassing moet een interne URL de URL is QlikSense zelf hebben. Bijvoorbeeld, **https&#58;//demo.qlikemm.com:4244** 
-    - **Methode voor verificatie vooraf**: Azure Active Directory (aanbevolen maar niet vereist) 
-1.       Selecteer **toevoegen** aan de onderkant van de blade. Uw toepassing wordt toegevoegd en het menu Snel starten wordt geopend. 
-2.       Selecteer in het menu snelle start **een gebruiker toewijzen voor het testen van**, en ten minste één gebruiker toevoegen aan de toepassing. Zorg ervoor dat deze testaccount toegang heeft tot de on-premises toepassing. 
-3.       Selecteer **toewijzen** om op te slaan van de toewijzing van de gebruiker testen. 
-4.       (Optioneel) Selecteer op de blade app-beheer van eenmalige aanmelding. Kies **beperkte Kerberos-delegering** uit de vervolgkeuzelijst en vul de vereiste velden in op basis van uw configuratie Qlik. Selecteer **Opslaan**. 
+5. Vul de vereiste velden met informatie over de nieuwe app. Gebruik de volgende richtlijnen voor de instellingen: 
+   - **Interne URL**: Deze toepassing moet een interne URL de URL is QlikSense zelf hebben. Bijvoorbeeld, **https&#58;//demo.qlikemm.com:4244** 
+   - **Methode voor verificatie vooraf**: Azure Active Directory (aanbevolen maar niet vereist) 
+1. Selecteer **toevoegen** aan de onderkant van de blade. Uw toepassing wordt toegevoegd en het menu Snel starten wordt geopend. 
+2. Selecteer in het menu snelle start **een gebruiker toewijzen voor het testen van**, en ten minste één gebruiker toevoegen aan de toepassing. Zorg ervoor dat deze testaccount toegang heeft tot de on-premises toepassing. 
+3. Selecteer **toewijzen** om op te slaan van de toewijzing van de gebruiker testen. 
+4. (Optioneel) Selecteer op de blade app-beheer van eenmalige aanmelding. Kies **beperkte Kerberos-delegering** uit de vervolgkeuzelijst en vul de vereiste velden in op basis van uw configuratie Qlik. Selecteer **Opslaan**. 
 
 ### <a name="application-2"></a>Toepassing #2: 
 Volg dezelfde stappen als voor de toepassing #1, met de volgende uitzonderingen: 

@@ -8,12 +8,12 @@ ms.workload: storage-backup-recovery
 ms.date: 3/3/2019
 ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: cf5b994146d84d92cae4591c042ed1cfbb042dee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437612"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002879"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Schijven uitsluiten van replicatie van virtuele VMware-machines naar Azure
 
@@ -80,7 +80,7 @@ De schijven op de virtuele bronmachine zijn de volgende:
 DB-Disk0-OS | DISK0 | C:\ | Besturingssysteemschijf
 DB-Disk1| Disk1 | D:\ | SQL-systeemdatabase en gebruikersdatabase1
 DB-Disk2 (de schijf is uitgesloten van beveiliging) | Disk2 | E:\ | Tijdelijke bestanden
-DB-Disk3 (de schijf is uitgesloten van beveiliging) | Disk3 | F:\ | SQL-tempdb-database (mappad (F:\MSSQL\Data\) </br /> </br />Noteer het mappad voordat de failover wordt uitgevoerd.
+DB-Disk3 (de schijf is uitgesloten van beveiliging) | Disk3 | F:\ | SQL-tempdb-database (mappad (F:\MSSQL\Data\) <br /> <br />Noteer het mappad voordat de failover.
 DB-Disk4 | Disk4 |G:\ |Gebruikersdatabase2
 
 Omdat het gegevensverloop op twee schijven van de virtuele machine tijdelijk is, sluit u Disk2 en Disk3 uit van replicatie terwijl u de virtuele SalesDB-machine beveiligt. Azure Site Recovery repliceert deze schijven niet. Bij een failover zijn deze schijven niet aanwezig op de virtuele failover-machine in Azure.
@@ -90,7 +90,7 @@ De schijven op de virtuele Azure-machine na de failover zijn de volgende:
 **Gastbesturingssysteemschijf#** | **Stationsletter** | **Gegevenstype op de schijf**
 --- | --- | ---
 DISK0 | C:\ | Besturingssysteemschijf
-Disk1 | E:\ | Tijdelijke opslag</br /> </br />Azure voegt deze schijf toe en wijst de eerste beschikbare stationsletter toe.
+Disk1 | E:\ | Tijdelijke opslag<br /> <br />Azure voegt deze schijf en wijst de eerste beschikbare stationsletter toe.
 Disk2 | D:\ | SQL-systeemdatabase en gebruikersdatabase1
 Disk3 | G:\ | Gebruikersdatabase2
 
@@ -154,7 +154,7 @@ De configuratie van de Azure-VM-schijven in het vorige voorbeeld:
 **Gastbesturingssysteemschijf#** | **Stationsletter** | **Gegevenstype op de schijf**
 --- | --- | ---
 DISK0 | C:\ | Besturingssysteemschijf
-Disk1 | E:\ | Tijdelijke opslag</br /> </br />Azure voegt deze schijf toe en wijst de eerste beschikbare stationsletter toe.
+Disk1 | E:\ | Tijdelijke opslag<br /> <br />Azure voegt deze schijf en wijst de eerste beschikbare stationsletter toe.
 Disk2 | D:\ | SQL-systeemdatabase en gebruikersdatabase1
 Disk3 | G:\ | Gebruikersdatabase2
 
@@ -193,7 +193,7 @@ Schijven op de virtuele Azure-machine na een failover van de virtuele machine va
 **Schijfnaam** | **Gastbesturingssysteemschijf#** | **Stationsletter** | **Gegevenstype op de schijf**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | Besturingssysteemschijf
-DB-Disk1 | Disk1 | D:\ | Tijdelijke opslag</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Tijdelijke opslag<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Gebruikersgegevens 1
 DB-Disk3 | Disk3 | F:\ | Gebruikersgegevens 2
 
@@ -220,10 +220,10 @@ Dit zijn de instellingen voor het wisselbestand op de on-premises virtuele machi
 
 Schijven op de virtuele Azure-machine na een failover van de virtuele machine van VMware naar Azure:
 
-**Schijfnaam**| **Gastbesturingssysteemschijf#**| **Stationsletter** | **Gegevenstype op de schijf**
+**Schijfnaam** | **Gastbesturingssysteemschijf#** | **Stationsletter** | **Gegevenstype op de schijf**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |Besturingssysteemschijf
-DB-Disk1 | Disk1 | D:\ | Tijdelijke opslag</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Tijdelijke opslag<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Gebruikersgegevens 1
 DB-Disk3 | Disk3 | F:\ | Gebruikersgegevens 2
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0e38e921121f9b44356a33641bea4c2666412cca
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5f98cf51b618686e3c608535667993e9d5f9e939
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456190"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852914"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Resources in uw datacentrum en de cloud automatiseren met behulp van Hybrid Runbook Worker
 
@@ -149,11 +149,8 @@ De volgende adressen worden boven op de standard-adressen en poorten die vereist
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
-## <a name="troubleshoot"></a>Problemen oplossen
-
-Zie voor informatie over het oplossen van de Hybrid Runbook Workers, [probleemoplossing Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#general)
-
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor informatie over het configureren van uw runbooks om processen in uw on-premises datacenter of andere cloudomgeving te automatiseren, [runbooks uitvoeren op een Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+* Zie voor informatie over het configureren van uw runbooks om processen in uw on-premises datacenter of andere cloudomgeving te automatiseren, [runbooks uitvoeren op een Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+* Zie voor informatie over het oplossen van de Hybrid Runbook Workers, [probleemoplossing Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#general)
 

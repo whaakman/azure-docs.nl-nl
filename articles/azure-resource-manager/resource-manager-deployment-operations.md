@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9bb6491565f685e8ca3d7a6271747a5df3629e81
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9ff6388c72c631dad870a4f52f86749bfd744d85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269073"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085615"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Implementatiebewerkingen bekijken met Azure Resource Manager
 
@@ -58,118 +58,118 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
 ## <a name="powershell"></a>PowerShell
 1. Als u de algemene status van een implementatie, gebruikt de **Get-AzResourceGroupDeployment** opdracht. 
 
-  ```powershell
-  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
-  ```
+   ```powershell
+   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
+   ```
 
    Of u kunt de resultaten filteren voor alleen deze implementaties die zijn mislukt.
 
-  ```powershell
-  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
-  ```
+   ```powershell
+   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+   ```
    
 2. Voor de correlatie-ID, gebruikt u:
 
-  ```powershell
-  (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
-  ```
+   ```powershell
+   (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+   ```
 
 3. Elke implementatie bevat meerdere bewerkingen. Elke bewerking vertegenwoordigt een stap in het implementatieproces. Voor het detecteren van wat is een fout opgetreden bij een implementatie, moet u doorgaans informatie over de implementaties. U ziet de status van de bewerkingen met **Get-AzResourceGroupDeploymentOperation**.
 
-  ```powershell 
-  Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
-  ```
+   ```powershell 
+   Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
+   ```
 
     Deze retourneert meerdere bewerkingen met elkaar in de volgende indeling:
 
-  ```powershell
-  Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
-  OperationId    : A3EB2DA598E0A780
-  Properties     : @{provisioningOperation=Create; provisioningState=Succeeded; timestamp=2016-06-14T21:55:15.0156208Z;
+   ```powershell
+   Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
+   OperationId    : A3EB2DA598E0A780
+   Properties     : @{provisioningOperation=Create; provisioningState=Succeeded; timestamp=2016-06-14T21:55:15.0156208Z;
                    duration=PT23.0227078S; trackingId=11d376e8-5d6d-4da8-847e-6f23c6443fbf;
                    serviceRequestId=0196828d-8559-4bf6-b6b8-8b9057cb0e23; statusCode=OK; targetResource=}
-  PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
+   PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
-  ```
+   ```
 
 4. Meer informatie over mislukte bewerkingen ophalen van de eigenschappen voor bewerkingen met **mislukt** staat.
 
-  ```powershell
-  (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
-  ```
+   ```powershell
+   (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+   ```
    
     Deze retourneert alle mislukte bewerkingen met elkaar in de volgende indeling:
 
-  ```powershell
-  provisioningOperation : Create
-  provisioningState     : Failed
-  timestamp             : 2016-06-14T21:54:55.1468068Z
-  duration              : PT3.1449887S
-  trackingId            : f4ed72f8-4203-43dc-958a-15d041e8c233
-  serviceRequestId      : a426f689-5d5a-448d-a2f0-9784d14c900a
-  statusCode            : BadRequest
-  statusMessage         : @{error=}
-  targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
+   ```powershell
+   provisioningOperation : Create
+   provisioningState     : Failed
+   timestamp             : 2016-06-14T21:54:55.1468068Z
+   duration              : PT3.1449887S
+   trackingId            : f4ed72f8-4203-43dc-958a-15d041e8c233
+   serviceRequestId      : a426f689-5d5a-448d-a2f0-9784d14c900a
+   statusCode            : BadRequest
+   statusMessage         : @{error=}
+   targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
                           Microsoft.Network/publicIPAddresses/myPublicIP;
                           resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
-  ```
+   ```
 
     Houd er rekening mee de serviceRequestId en de trackingId voor de bewerking. De serviceRequestId kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie. U gebruikt de trackingId in de volgende stap om zich te richten op een bepaalde bewerking.
 5. Als u het statusbericht van een bepaalde bewerking is mislukt, gebruikt u de volgende opdracht uit:
 
-  ```powershell
-  ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
-  ```
+   ```powershell
+   ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+   ```
 
     Dat geeft als resultaat:
 
-  ```powershell
-  code           message                                                                        details
-  ----           -------                                                                        -------
-  DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
-  ```
+   ```powershell
+   code           message                                                                        details
+   ----           -------                                                                        -------
+   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
+   ```
 6. Elke implementatiebewerking in Azure bevat inhoud voor aanvragen en reacties. De aanvraaginhoud is wat u hebt verzonden naar Azure tijdens de implementatie (bijvoorbeeld een virtuele machine, maken de schijf met besturingssysteem en andere resources). De inhoud van de reactie is wat Azure van uw implementatieaanvraag teruggestuurd. Tijdens de implementatie, kunt u **DeploymentDebugLogLevel** parameter om op te geven dat de aanvraag en/of het antwoord worden bewaard in het logboek. 
 
-  U die gegevens ophalen uit het logboek en sla het lokaal met behulp van de volgende PowerShell-opdrachten:
+   U die gegevens ophalen uit het logboek en sla het lokaal met behulp van de volgende PowerShell-opdrachten:
 
-  ```powershell
-  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+   ```powershell
+   (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 
-  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
-  ```
+   (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+   ```
 
 ## <a name="azure-cli"></a>Azure-CLI
 
 1. Ophalen van de algehele status van een implementatie met de **azure group deployment show** opdracht.
 
-  ```azurecli
-  az group deployment show -g ExampleGroup -n ExampleDeployment
-  ```
+   ```azurecli
+   az group deployment show -g ExampleGroup -n ExampleDeployment
+   ```
   
 2. Een van de geretourneerde waarden is de **correlationId**. Deze waarde wordt gebruikt voor het bijhouden van gerelateerde gebeurtenissen en kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie.
 
-  ```azurecli
-  az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
-  ```
+   ```azurecli
+   az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
+   ```
 
 3. Als de bewerkingen voor een implementatie wilt weergeven, gebruikt u het:
 
-  ```azurecli
-  az group deployment operation list -g ExampleGroup -n ExampleDeployment
-  ```
+   ```azurecli
+   az group deployment operation list -g ExampleGroup -n ExampleDeployment
+   ```
 
 ## <a name="rest"></a>REST
 
 1. Informatie ophalen over een implementatie met de [informatie over de sjabloonimplementatie van een](https://docs.microsoft.com/rest/api/resources/deployments) bewerking.
 
-  ```http
-  GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
-  ```
+   ```http
+   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
+   ```
 
     Let met name in het antwoord op de **provisioningState**, **correlationId**, en **fout** elementen. De **correlationId** wordt gebruikt voor het bijhouden van gerelateerde gebeurtenissen en kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie.
 
-  ```json
-  { 
+   ```json
+   { 
     ...
     "properties": {
       "provisioningState":"Failed",
@@ -180,19 +180,19 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
         "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
       }  
     }
-  }
-  ```
+   }
+   ```
 
 2. Informatie over implementaties met [lijst van alle implementatiebewerkingen voor sjabloon](https://docs.microsoft.com/rest/api/resources/deployments). 
 
-  ```http
-  GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
-  ```
+   ```http
+   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
+   ```
    
     Het antwoord bevat aanvraag en/of antwoord informatie op basis van wat u hebt opgegeven in de **debugSetting** eigenschap tijdens de implementatie.
 
-  ```json
-  {
+   ```json
+   {
     ...
     "properties": 
     {
@@ -213,8 +213,8 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
         }
       }
     }
-  }
-  ```
+   }
+   ```
 
 
 ## <a name="next-steps"></a>Volgende stappen

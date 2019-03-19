@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bee16ed8205453546702946628c98c73b0f34b15
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191722"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103805"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Quickstart: Een toepassing bijwerken in Azure Active Directory
 
@@ -60,24 +60,24 @@ Voordat een client toegang krijgt tot een web-API die beschikbaar is gemaakt doo
    ![De registratie van een toepassing bijwerken](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
 4. U gaat naar de hoofdregistratiepagina van de toepassing, die de pagina **Instellingen** voor de toepassing bevat. Ga als volgt te werk om een referentie voor uw webtoepassing toe te voegen:
-  1. Selecteer de sectie **Sleutels** op de pagina **Instellingen**.
-  2. Ga als volgt te werk om een certificaat toe te voegen:
-    - Selecteer **Openbare sleutel uploaden**.
-    - Selecteer het bestand dat u wilt uploaden. Dit moet een van de volgende bestandstypen zijn: .cer, .pem, .crt.
-  - Ga als volgt te werk om een wachtwoord toe te voegen:
-    - Voeg een beschrijving voor uw sleutel toe.
-    - Selecteer een duur.
-    - Selecteer **Opslaan**. De meest rechtse kolom bevat de waarde van de sleutel, nadat u de wijzigingen in de configuratie hebt opgeslagen. **Vergeet niet de sleutel te kopiëren** voor gebruik in de code van uw clienttoepassing. Deze is namelijk niet meer toegankelijk wanneer u deze pagina verlaat.
+   1. Selecteer de sectie **Sleutels** op de pagina **Instellingen**.
+   1. Ga als volgt te werk om een certificaat toe te voegen:
+      - Selecteer **Openbare sleutel uploaden**.
+      - Selecteer het bestand dat u wilt uploaden. Dit moet een van de volgende bestandstypen zijn: .cer, .pem, .crt.
+   1. Ga als volgt te werk om een wachtwoord toe te voegen:
+      - Voeg een beschrijving voor uw sleutel toe.
+      - Selecteer een duur.
+      - Selecteer **Opslaan**. De meest rechtse kolom bevat de waarde van de sleutel, nadat u de wijzigingen in de configuratie hebt opgeslagen. **Vergeet niet de sleutel te kopiëren** voor gebruik in de code van uw clienttoepassing. Deze is namelijk niet meer toegankelijk wanneer u deze pagina verlaat.
 
 5. Machtiging(en) voor toegang tot resource-API's van uw client toevoegen
-  1. Selecteer de sectie **Vereiste machtigingen** op de pagina **Instellingen** en selecteer vervolgens **Toevoegen**.
-  1. Selecteer **Een API selecteren** om het type resources te selecteren waaruit u een keuze wilt maken.
-  1. Blader door de lijst met beschikbare API's of gebruik het zoekvak om een selectie te maken uit de beschikbare resourcetoepassingen in uw directory die een web-API beschikbaar maken. Selecteer de resource waarin u geïnteresseerd bent in en klik vervolgens op **Selecteren**.
-  1. Selecteer op de pagina **Toegang inschakelen** de toepassingsmachtigingen en/of gedelegeerde machtigingen die uw toepassing nodig heeft bij het openen van de API.
+   1. Selecteer de sectie **Vereiste machtigingen** op de pagina **Instellingen** en selecteer vervolgens **Toevoegen**.
+   1. Selecteer **Een API selecteren** om het type resources te selecteren waaruit u een keuze wilt maken.
+   1. Blader door de lijst met beschikbare API's of gebruik het zoekvak om een selectie te maken uit de beschikbare resourcetoepassingen in uw directory die een web-API beschikbaar maken. Selecteer de resource waarin u geïnteresseerd bent in en klik vervolgens op **Selecteren**.
+   1. Selecteer op de pagina **Toegang inschakelen** de toepassingsmachtigingen en/of gedelegeerde machtigingen die uw toepassing nodig heeft bij het openen van de API.
    
-  ![De registratie van een toepassing bijwerken - machtigings-API](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
+   ![De registratie van een toepassing bijwerken - machtigings-API](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
 
-  ![De registratie van een toepassing bijwerken - machtigings-perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
+   ![De registratie van een toepassing bijwerken - machtigings-perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. Selecteer wanneer u klaar bent de knop **Selecteren** op de pagina **Toegang inschakelen** en vervolgens de knop **Gereed** op de pagina **API-toegang toevoegen**. U keert terug naar de pagina **Vereiste machtigingen**, waar de nieuwe resource aan de lijst met API's is toegevoegd.
 
@@ -98,8 +98,8 @@ In de volgende sectie leest u hoe u toegangsbereiken weergeeft door het wijzigen
 4. U gaat naar de hoofdregistratiepagina van de toepassing, waarmee de pagina **Instellingen** voor de toepassing wordt geopend. Schakel over naar de pagina **Manifest bewerken** door te klikken op **Manifest** op de registratiepagina van de toepassing. Er wordt een webgebaseerde manifesteditor geopend, zodat u het manifest binnen de portal kunt **bewerken**. Klik desgewenst op **Downloaden** en bewerk het manifest lokaal. Gebruik daarna **Uploaden** om het opnieuw toe te passen op uw toepassing.
 5. In dit voorbeeld geven we een nieuw bereik met de naam `Employees.Read.All` weer in onze resource/API door het volgende JSON-element aan de verzameling `oauth2Permissions` toe te voegen. Het bestaande `user_impersonation`-bereik wordt standaard opgegeven tijdens de registratie. `user_impersonation` stelt een clienttoepassing in staat om toestemming te vragen voor toegang tot de resource, onder de identiteit van de aangemelde gebruiker. Zorg ervoor dat u de komma toevoegt na het bestaande `user_impersonation`-bereikelement en wijzig de waarden van de eigenschappen in overeenstemming met de behoeften van uw resource. 
 
-  ```json
-  {
+   ```json
+   {
     "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
     "adminConsentDisplayName": "Read-only access to Employee records",
     "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
@@ -108,17 +108,17 @@ In de volgende sectie leest u hoe u toegangsbereiken weergeeft door het wijzigen
     "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
     "userConsentDisplayName": "Read-only access to your Employee records",
     "value": "Employees.Read.All"
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE]
-  > De waarde `id` moet worden gegenereerd via een programma of met behulp van een hulpprogramma voor het genereren van een GUID zoals [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). De `id` staat voor een unieke id voor het bereik zoals het wordt weergegeven door de web-API. Nadat een client op de juiste wijze is geconfigureerd met machtigingen voor toegang tot uw web-API, wordt er een OAuth 2.0-toegangstoken voor uitgegeven door Azure Active Directory. Wanneer de client de web-API aanroept, presenteert deze het toegangstoken waarvan de bereikclaim (scp is) is ingesteld op de machtigingen die zijn aangevraagd in de registratie van de toepassing.
-  >
-  > U kunt aanvullende bereiken indien nodig later weergeven. Houd er rekening mee dat uw web-API mogelijk meerdere bereiken weergeeft die zijn gekoppeld aan een verscheidenheid van verschillende functies. Uw resource kan toegang tot de web-API tijdens runtime beheren, door de bereikclaim(s) (`scp`) te evalueren in het ontvangen OAuth 2.0-toegangstoken.
+   > [!NOTE]
+   > De waarde `id` moet worden gegenereerd via een programma of met behulp van een hulpprogramma voor het genereren van een GUID zoals [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). De `id` staat voor een unieke id voor het bereik zoals het wordt weergegeven door de web-API. Nadat een client op de juiste wijze is geconfigureerd met machtigingen voor toegang tot uw web-API, wordt er een OAuth 2.0-toegangstoken voor uitgegeven door Azure Active Directory. Wanneer de client de web-API aanroept, presenteert deze het toegangstoken waarvan de bereikclaim (scp is) is ingesteld op de machtigingen die zijn aangevraagd in de registratie van de toepassing.
+   >
+   > U kunt aanvullende bereiken indien nodig later weergeven. Houd er rekening mee dat uw web-API mogelijk meerdere bereiken weergeeft die zijn gekoppeld aan een verscheidenheid van verschillende functies. Uw resource kan toegang tot de web-API tijdens runtime beheren, door de bereikclaim(s) (`scp`) te evalueren in het ontvangen OAuth 2.0-toegangstoken.
 
 6. Klik op **Opslaan** als u klaar bent. Uw web-API is nu geconfigureerd voor gebruik door andere toepassingen in uw directory.
 
-  ![De registratie van een toepassing bijwerken](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
+   ![De registratie van een toepassing bijwerken](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
 
 ### <a name="verify-the-web-api-is-exposed-to-other-applications-in-your-tenant"></a>Controleren of de web-API beschikbaar wordt gemaakt voor andere toepassingen in uw tenant
 
@@ -130,7 +130,7 @@ In de volgende sectie leest u hoe u toegangsbereiken weergeeft door het wijzigen
 
 3. Op de pagina **Toegang inschakelen** ziet u het nieuwe bereik, dat beschikbaar is voor machtigingsaanvragen voor clients.
 
-  ![Nieuwe machtigingen worden weergegeven](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
+   ![Nieuwe machtigingen worden weergegeven](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
 
 ### <a name="more-on-the-application-manifest"></a>Meer informatie over het toepassingsmanifest
 
@@ -211,9 +211,9 @@ Impliciete goedkeuring voor OAuth 2.0 is standaard uitgeschakeld voor toepassing
 3. Klik in het navigatiedeelvenster aan de linkerkant op de **Azure Active Directory**-service en klik op **App-registraties**. Zoek/selecteer vervolgens de toepassing die u wilt configureren. U gaat naar de hoofdregistratiepagina van de toepassing, waarmee de pagina **Instellingen** voor de toepassing wordt geopend.
 4. Schakel over naar de pagina **Manifest bewerken** door te klikken op **Manifest** op de registratiepagina van de toepassing. Er wordt een webgebaseerde manifesteditor geopend, zodat u het manifest binnen de portal kunt **bewerken**. Zoek de waarde 'oauth2AllowImplicitFlow' op en stel deze in op 'true'. Standaard is deze ingesteld op 'false'.
    
-  ```json
-  "oauth2AllowImplicitFlow": true,
-  ```
+   ```json
+   "oauth2AllowImplicitFlow": true,
+   ```
 5. Sla het bijgewerkte manifest op. Zodra het is opgeslagen, is uw web-API geconfigureerd voor het gebruik van impliciete goedkeuring voor OAuth 2.0 om gebruikers te verifiëren.
 
 ## <a name="next-steps"></a>Volgende stappen

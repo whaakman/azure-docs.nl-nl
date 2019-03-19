@@ -12,19 +12,28 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ba1c60d45fb53be158d9e302748366ddf417f23e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805474"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998404"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Lijst weigeren toewijzingen voor Azure-resources met behulp van de REST-API
 
-Op dit moment weigeren toewijzingen worden **alleen-lezen** en kan alleen worden ingesteld door Microsoft. U kunt geen eigen weigeringstoewijzingen maken, maar u kunt wel een lijst met weigeringstoewijzingen weergeven omdat deze invloed kunnen hebben op uw effectieve machtigingen. Dit artikel wordt beschreven hoe u om weer te geven met RBAC en de REST-API toewijzingen weigeren.
+[Toewijzingen weigeren](deny-assignments.md) blokkeren dat gebruikers kunnen uitvoeren van acties die specifieke Azure-resource, zelfs als een roltoewijzing deze toegang wordt verleend. In dit artikel wordt beschreven hoe u de REST-API aan lijst met toewijzingen weigeren.
+
+> [!NOTE]
+> Op dit moment de enige manier waarop u kunt toevoegen uw eigen weigeren toewijzingen met behulp van Azure blauwdrukken is. Zie voor meer informatie, [nieuwe resources beveiligen met blauwdrukken voor Azure-resourcevergrendelingen](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="prerequisites"></a>Vereisten
+
+Voor informatie over de toewijzing van een weigeren, moet u het volgende hebben:
+
+- `Microsoft.Authorization/denyAssignments/read` machtiging die is opgenomen in de meeste [ingebouwde rollen voor Azure-resources](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>Lijst met één opdracht weigeren
 

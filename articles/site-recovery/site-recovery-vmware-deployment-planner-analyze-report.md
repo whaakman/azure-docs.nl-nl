@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: 460bb6b9c7c5700d2c59dbe88d3089be64bb3a31
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: cd486fa504ac819684d8c547e7a0f740b3eed4e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216438"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109624"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Rapport van de Azure Site Recovery-Implementatieplanner voor VMware naar Azure een noodgeval analyseren
 
@@ -41,6 +41,9 @@ Het werkblad Samenvatting on-premises biedt een overzicht van de geprofileerde V
 **Waargenomen typisch gegevensverloop per dag (GB)**: Het gemiddelde gegevensverloop dat voor alle profileringsdagen is vastgesteld. Dit aantal wordt gebruikt als een van de invoerwaarden om het aantal configuratieservers en aanvullende processenservers te bepalen dat in de implementatie moet worden gebruikt.
 
 ## <a name="recommendations"></a>Aanbevelingen
+
+>[!Note]
+>Bij het repliceren van rechtstreeks naar beheerde schijven, negeert u de aanbeveling voor het aantal opslagaccounts.
 
 De aanbevelingen voor het eigenschappenvenster van de VMware naar Azure rapport heeft de volgende gegevens aan de hand van de geselecteerde gewenste RPO:
 
@@ -155,6 +158,9 @@ Het is mogelijk dat u om wat voor reden dan ook niet meer dan x Mbps bandbreedte
 ![Haalbare RPO voor 500 Mbps bandbreedte](media/site-recovery-vmware-deployment-planner-analyze-report/achievable-rpo-v2a.png)
 
 ## <a name="vm-storage-placement"></a>VM-opslagplaatsing
+
+>[!Note]
+>Bij het repliceren van rechtstreeks naar beheerde schijven, hoeft u geen zorgen te hoeven maken over het aantal opslagaccounts. Voor opslag, gebruikt u alleen de aanbeveling op type opslag (Standard of Premium). Hetzelfde type is van toepassing op beheerde schijven.
 
 ![VM-opslagplaatsing](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 

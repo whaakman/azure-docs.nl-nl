@@ -1,7 +1,7 @@
 ---
 title: 'Zelfstudie: Een akoestisch model maken met Speech Service'
 titlesuffix: Azure Cognitive Services
-description: Leer hoe u een akoestisch model maakt met de Speech Service in Azure Cognitive Services.
+description: Informatie over het maken van een akoestisch model met behulp van Speech Services op Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: b644d1d227b5dbd69af38cc32defffb8152b0cde
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: f2a111558fa3f515b797745dc51e32f625bbd91f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878116"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844021"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Zelfstudie: Een aangepast akoestisch model maken
 
@@ -33,9 +33,9 @@ Als u nog geen Azure Cognitive Services-account hebt, maakt u een [gratis accoun
 
 Zorg ervoor dat uw Cognitive Services-account is gekoppeld aan een abonnement door de pagina met [Cognitive Services-abonnementen](https://cris.ai/Subscriptions) te openen.
 
-U kunt verbinding maken met een in de Azure-portal gemaakt Speech Service-abonnement door **Connect existing subscription** (Verbinding maken met bestaand abonnement) te selecteren.
+U kunt verbinding maken met een Speech Services-abonnement dat is gemaakt in Azure portal door te selecteren **verbinding maken met bestaande abonnement**.
 
-Raadpleeg [Speech Service gratis uitproberen](get-started.md) voor informatie over het maken van een Speech Service-abonnement in de Azure-portal.
+Zie voor meer informatie over het maken van een abonnement Speech Services in Azure portal [de Speech Services gratis uitproberen](get-started.md).
 
 ## <a name="prepare-the-data"></a>De gegevens voorbereiden
 
@@ -69,7 +69,7 @@ Een set akoestische gegevens voor het aanpassen van het akoestisch model bestaat
 | Samplefrequentie | 8.000 Hz of 16.000 Hz |
 | Kanalen | 1 (mono) |
 | Sample-indeling | PCM, 16-bits gehele getallen |
-| Bestandsduur | 0,1 seconde < duur < 12 seconden | 
+| Bestandsduur | 0,1 seconde < duur < 12 seconden |
 | Stiltekraag | > 0,1 seconde |
 | Archiefindeling | .zip |
 | Maximale grootte archief | 2 GB |
@@ -96,19 +96,19 @@ De transcripties voor alle WAV-bestanden moeten worden opgenomen in één bestan
 
 De tekst van de transcripties wordt genormaliseerd zodat ze door het systeem kunnen worden verwerkt. Er zijn echter enkele belangrijke normalisaties die door de gebruiker moeten worden uitgevoerd _voordat_ de gegevens worden geüpload naar de Custom Speech Service. Zie [Transcriptierichtlijnen voor het gebruik van de Speech Service](prepare-transcription.md) voor de juiste taal die moet worden gebruikt bij het voorbereiden van uw transcripties.
 
-Volg de stappen in de volgende secties met behulp van de [Speech Service-portal](https://cris.ai).
+Volg de stappen in de volgende secties met behulp van de [spraakservices portal](https://cris.ai).
 
 ## <a name="import-the-acoustic-dataset"></a>De akoestische-gegevensset importeren
 
 Als u de audiobestanden en transcripties hebt voorbereid, zijn deze klaar om te worden geïmporteerd in de servicewebportal.
 
-Als u wilt gaan importeren, controleert u eerst of u bent aangemeld bij de [Speech Service-portal](https://cris.ai). Vervolgens selecteert u in de vervolgkeuzelijst **Custom Speech** op het lint de optie **Adaptation Data**. Als dit de eerste keer is dat u gegevens uploadt naar de Custom Speech Service, ziet u een lege tabel met de naam **Datasets**. 
+Als u wilt importeren, controleert u eerst of u bent aangemeld bij de [spraakservices portal](https://cris.ai). Vervolgens selecteert u in de vervolgkeuzelijst **Custom Speech** op het lint de optie **Adaptation Data**. Als dit de eerste keer is dat u gegevens uploadt naar de Custom Speech Service, ziet u een lege tabel met de naam **Datasets**.
 
 Selecteer in de rij **Acoustic Datasets** de knop **Import**. Op de site ziet u nu een pagina voor het uploaden van een nieuwe gegevensset.
 
 ![De pagina Import Acoustic Data](media/stt/speech-acoustic-datasets-import.png)
 
-Geef de gewenste gegevens op voor **Name** en **Description**. Gebruikersvriendelijke beschrijvingen zijn handig voor het bijhouden van de verschillende gegevenssets die u uploadt. 
+Geef de gewenste gegevens op voor **Name** en **Description**. Gebruikersvriendelijke beschrijvingen zijn handig voor het bijhouden van de verschillende gegevenssets die u uploadt.
 
 Selecteer **Browse** in de vakken **Transcriptions file (.txt)** en **Audio files (.zip)**, en selecteer vervolgens het transcriptiebestand met tekst zonder opmaak en het zip-archief met WAV-bestanden. Wanneer de voorbereiding is voltooid, selecteert u **Import** om uw gegevens te uploaden. Uw gegevens worden geüpload. Bij grotere gegevenssets kan het importproces enkele minuten duren.
 
@@ -126,11 +126,11 @@ Als u de naam of beschrijving van de gegevensset wilt wijzigen, selecteert u de 
 
 Wanneer de status van de akoestische-gegevensset *Complete* is, kunt u de set gebruiken om een aangepast akoestisch model te maken. Selecteer hiervoor **Acoustic Models** in de vervolgkeuzelijst **Custom Speech**. In een tabel met het label **Your models** ziet u een lijst van al uw aangepaste akoestische modellen. De tabel is leeg als u de functie nog niet eerder hebt gebruikt. De titel van de tabel bevat de huidige landinstelling. Op dit moment kunt u alleen akoestische modellen maken voor Amerikaans-Engels.
 
-Als u een nieuw model wilt maken, selecteert u **Create New** onder de titel van de tabel. Voer zoals eerder een naam en omschrijving in om u te helpen dit model te identificeren. In het veld **Description** kunt u bijvoorbeeld noteren welk startmodel en welke akoestische-gegevensset zijn gebruikt om het model te maken. 
+Als u een nieuw model wilt maken, selecteert u **Create New** onder de titel van de tabel. Voer zoals eerder een naam en omschrijving in om u te helpen dit model te identificeren. In het veld **Description** kunt u bijvoorbeeld noteren welk startmodel en welke akoestische-gegevensset zijn gebruikt om het model te maken.
 
 Selecteer vervolgens in de vervolgkeuzelijst **Base Acoustic Model** een basismodel. Dit basismodel is het startpunt voor uw aanpassing. Er zijn twee akoestische basismodellen waaruit u kunt kiezen:
-* Het model **Microsoft Search and Dictation AM** is geschikt voor spraak gericht op een toepassing, zoals opdrachten, zoekquery's of dicteren. 
-* Het **Microsoft Conversational Model** is geschikt voor het herkennen van spraak die wordt gehanteerd in een conversatiestijl. Dit type spraak is doorgaans gericht op een andere persoon en vindt plaats in callcenters of vergaderingen. 
+* Het model **Microsoft Search and Dictation AM** is geschikt voor spraak gericht op een toepassing, zoals opdrachten, zoekquery's of dicteren.
+* Het **Microsoft Conversational Model** is geschikt voor het herkennen van spraak die wordt gehanteerd in een conversatiestijl. Dit type spraak is doorgaans gericht op een andere persoon en vindt plaats in callcenters of vergaderingen.
 
 Latentie voor gedeeltelijke resultaten in Conversational-modellen is hoger dan in Search and Dictation-modellen.
 
@@ -153,6 +153,6 @@ De tabel Acoustic Models bevat een nieuwe vermelding die overeenkomt met dit nie
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Uw proefabonnement voor Speech Service ophalen](https://azure.microsoft.com/try/cognitive-services/)
+- [Uw proefabonnement voor Speech Services ophalen](https://azure.microsoft.com/try/cognitive-services/)
 - [Spraak herkennen in C#](quickstart-csharp-dotnet-windows.md)
 - [Git-voorbeeldgegevens](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

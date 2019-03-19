@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a97e03f3c195b9fbd0ee7a09950414b7a940c7c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 694eb49244afb6761ce274572f15273ccef6cbb5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217476"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195027"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Quickstart: Gebruikers aanmelden en een toegangstoken verkrijgen van een JavaScript-toepassing
 
@@ -74,14 +74,15 @@ U kunt een van deze opties kiezen die geschikt is voor uw ontwikkelomgeving.
 * [Download het Visual Studio-project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 Pak het ZIP-bestand uit in een lokale map, bijvoorbeeld **C:\Azure-Samples**.
+Gebruiken voor het openen de bestanden in de map, een editor zoals [Visual Studio Code](https://code.visualstudio.com/).
 
 #### <a name="step-3-configure-your-javascript-app"></a>Stap 3: Configureer de JavaScript-app
 
 > [!div renderon="docs"]
-> Bewerk `index.html` en stel de waarden `clientID` en `authority` in onder `applicationConfig`.
+> Onder de map *JavaScriptSPA*, bewerken `index.html` en stel de `clientID` en `authority` waarden onder `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Bewerk `index.html` en vervang `applicationConfig` door:
+> Onder de map *JavaScriptSPA*, bewerken `index.html` en vervang `applicationConfig` met:
 
 ```javascript
 var applicationConfig = {
@@ -103,13 +104,9 @@ var applicationConfig = {
 > > [!TIP]
 > > Om de waarden van **Toepassings-id (client-id)**, **Map-id (tenant-id)** en **Ondersteunde accounttypen** te achterhalen, gaat u naar de **Overzichtspagina** van de app in de Azure-portal.
 
-> [!NOTE]
-> De server is geconfigureerd om te luisteren op poort 30662 in het *server.js*-bestand in het project [Node.js](https://nodejs.org/en/download/) en het *.csproj*-bestand in het project [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
->
-
 #### <a name="step-4-run-the-project"></a>Stap 4: Het project uitvoeren
 
-* Als u Node.js gebruikt:
+* Als u [Node.js](https://nodejs.org/en/download/):
 
     1. Voer de volgende opdracht uit vanuit de projectmap om de server te starten:
 
@@ -122,7 +119,7 @@ var applicationConfig = {
     1. Klik op de knop **Aanmelden** om het aanmelden te starten en roep vervolgens de Microsoft Graph API aan.
 
 
-* Als u Visual Studio gebruikt, moet u de projectoplossing selecteren en vervolgens op **F5** drukken om het project uit te voeren.
+* Als u [Visual Studio](https://visualstudio.microsoft.com/downloads/), zorg ervoor dat u selecteert de project-oplossing en druk vervolgens op **F5** om uit te voeren van uw project.
 
 ## <a name="more-information"></a>Meer informatie
 
@@ -217,9 +214,9 @@ Probeer onze JavaScript-zelfstudie hieronder voor een meer gedetailleerde stapsg
 ### <a name="learn-the-steps-to-create-the-application-for-this-quickstart"></a>Leer de stappen voor het maken van de toepassing die wordt gebruikt in deze quickstart
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor het aanroepen van Graph API](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
+> [Zelfstudie voor het aanmelden en aanroepen van MS Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
 
 ### <a name="browse-the-msal-repo-for-documentation-faq-issues-and-more"></a>Verken de MSAL-opslagplaats voor documentatie, veelgestelde vragen, problemen, en meer
 
 > [!div class="nextstepaction"]
-> [msal.js GitHub-opslagplaats](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)

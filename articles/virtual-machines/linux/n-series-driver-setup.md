@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df78852e309054bb5c27a779b37bb2310d9f7a01
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: cb597edc676fbb7b63c6a07849551cc21f69b354
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015014"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>NVIDIA GPU-stuurprogramma's installeren op N-serie VM's waarop Linux wordt uitgevoerd
 
@@ -38,7 +38,7 @@ Zie voor een N-serie VM-specificaties, opslagcapaciteit en details over de schij
 Hier vindt u instructies voor het installeren van CUDA-stuurprogramma's uit de werkset NVIDIA CUDA op N-serie VM's. 
 
 
-C en C++-ontwikkelaars kunnen de volledige Toolkit om GPU-versnelde toepassingen te bouwen (optioneel) installeren. Zie voor meer informatie de [CUDA-installatiehandleiding](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+C en C++-ontwikkelaars kunnen de volledige Toolkit om GPU-versnelde toepassingen te bouwen (optioneel) installeren. Zie voor meer informatie de [CUDA-installatiehandleiding](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 Voor het installeren van stuurprogramma's voor CUDA, maakt u een SSH-verbinding met elke virtuele machine. Als u wilt controleren of het systeem heeft een CUDA-compatibele GPU, voer de volgende opdracht:
 
@@ -54,30 +54,30 @@ Vervolgens uitvoeren installatieopdrachten die specifiek zijn voor uw distributi
 ### <a name="ubuntu"></a>Ubuntu 
 
 1. Download en installeer de CUDA-stuurprogramma's van de NVIDIA-website. Bijvoorbeeld: voor Ubuntu 16.04 LTS:
-  ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
+   ```bash
+   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
-  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
-  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+   sudo dpkg -i /tmp/${CUDA_REPO_PKG}
 
-  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+   sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
 
-  rm -f /tmp/${CUDA_REPO_PKG}
+   rm -f /tmp/${CUDA_REPO_PKG}
 
-  sudo apt-get update
+   sudo apt-get update
 
-  sudo apt-get install cuda-drivers
+   sudo apt-get install cuda-drivers
 
-  ```
+   ```
 
-  De installatie kan enkele minuten duren.
+   De installatie kan enkele minuten duren.
 
 2. Als u wilt installeren (optioneel) de volledige CUDA-toolkit, typt u:
 
-  ```bash
-  sudo apt-get install cuda
-  ```
+   ```bash
+   sudo apt-get install cuda
+   ```
 
 3. Start de VM opnieuw op en gaat u verder met de installatie controleren.
 
@@ -101,50 +101,50 @@ sudo reboot
 
 1. Bijwerken de kernel (aanbevolen). Als u ervoor kiest om niet bij te werken van de kernel, zorg ervoor dat de versies van `kernel-devel` en `dkms` geschikt zijn voor de kernel.
 
-  ```
-  sudo yum install kernel kernel-tools kernel-headers kernel-devel
+   ```
+   sudo yum install kernel kernel-tools kernel-headers kernel-devel
   
-  sudo reboot
+   sudo reboot
 
 2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
 
-  ```bash
-  wget https://aka.ms/lis
+   ```bash
+   wget https://aka.ms/lis
  
-  tar xvzf lis
+   tar xvzf lis
  
-  cd LISISO
+   cd LISISO
  
-  sudo ./install.sh
+   sudo ./install.sh
  
-  sudo reboot
-  ```
+   sudo reboot
+   ```
  
 3. Opnieuw verbinding maken met de virtuele machine en doorgaan met installatie met de volgende opdrachten:
 
-  ```bash
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   ```bash
+   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
-  sudo yum install dkms
+   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
+   CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
 
-  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
-  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+   sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
 
-  rm -f /tmp/${CUDA_REPO_PKG}
+   rm -f /tmp/${CUDA_REPO_PKG}
 
-  sudo yum install cuda-drivers
-  ```
+   sudo yum install cuda-drivers
+   ```
 
-  De installatie kan enkele minuten duren. 
+   De installatie kan enkele minuten duren. 
 
 4. Als u wilt installeren (optioneel) de volledige CUDA-toolkit, typt u:
 
-  ```bash
-  sudo yum install cuda
-  ```
+   ```bash
+   sudo yum install cuda
+   ```
 
 5. Start de VM opnieuw op en gaat u verder met de installatie controleren.
 
@@ -180,53 +180,53 @@ Een SSH-verbinding maken met elke virtuele machine voor het installeren van stuu
 
 2. Updates installeren.
 
-  ```bash
-  sudo apt-get update
+   ```bash
+   sudo apt-get update
 
-  sudo apt-get upgrade -y
+   sudo apt-get upgrade -y
 
-  sudo apt-get dist-upgrade -y
+   sudo apt-get dist-upgrade -y
 
-  sudo apt-get install build-essential ubuntu-desktop -y
-  ```
+   sudo apt-get install build-essential ubuntu-desktop -y
+   ```
 3. Het uitschakelen van het stuurprogramma van de kernel Nouveau, dit incompatibel met het NVIDIA-stuurprogramma is. (Gebruik alleen het NVIDIA-stuurprogramma op NV of NVv2 VM's.) Om dit te doen, maakt u een bestand in `/etc/modprobe.d `met de naam `nouveau.conf` met de volgende inhoud:
 
-  ```
-  blacklist nouveau
+   ```
+   blacklist nouveau
 
-  blacklist lbm-nouveau
-  ```
+   blacklist lbm-nouveau
+   ```
 
 
 4. Opnieuw opstarten van de virtuele machine en maak opnieuw verbinding. Afsluiten X-server:
 
-  ```bash
-  sudo systemctl stop lightdm.service
-  ```
+   ```bash
+   sudo systemctl stop lightdm.service
+   ```
 
 5. Download en installeer het stuurprogramma GRID:
 
-  ```bash
-  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
+   ```bash
+   wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
 
-  chmod +x NVIDIA-Linux-x86_64-grid.run
+   chmod +x NVIDIA-Linux-x86_64-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-grid.run
-  ``` 
+   sudo ./NVIDIA-Linux-x86_64-grid.run
+   ``` 
 
 6. Wanneer u wordt gevraagd of u wilt uitvoeren van het hulpprogramma nvidia-xconfig selecteren om bij te werken uw configuratiebestand X **Ja**.
 
 7. Nadat de installatie is voltooid, /etc/nvidia/gridd.conf.template naar een nieuw bestand gridd.conf op locatie/etc/nvidia/kopiëren
 
-  ```bash
-  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
-  ```
+   ```bash
+   sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+   ```
 
 8. Het volgende toevoegen aan `/etc/nvidia/gridd.conf`:
  
-  ```
-  IgnoreSP=FALSE
-  ```
+   ```
+   IgnoreSP=FALSE
+   ```
 9. Start de VM opnieuw op en gaat u verder met de installatie controleren.
 
 
@@ -234,63 +234,63 @@ Een SSH-verbinding maken met elke virtuele machine voor het installeren van stuu
 
 1. Werk de kernel en DKMS (aanbevolen). Als u ervoor kiest om niet bij te werken van de kernel, zorg ervoor dat de versies van `kernel-devel` en `dkms` geschikt zijn voor de kernel.
  
-  ```bash  
-  sudo yum update
+   ```bash  
+   sudo yum update
  
-  sudo yum install kernel-devel
+   sudo yum install kernel-devel
  
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
  
-  sudo yum install dkms
-  ```
+   sudo yum install dkms
+   ```
 
 2. Het uitschakelen van het stuurprogramma van de kernel Nouveau, dit incompatibel met het NVIDIA-stuurprogramma is. (Gebruik alleen het NVIDIA-stuurprogramma op NV of NV2 VM's.) Om dit te doen, maakt u een bestand in `/etc/modprobe.d `met de naam `nouveau.conf` met de volgende inhoud:
 
-  ```
-  blacklist nouveau
+   ```
+   blacklist nouveau
 
-  blacklist lbm-nouveau
-  ```
+   blacklist lbm-nouveau
+   ```
  
 3. De virtuele machine opnieuw opstarten, opnieuw verbinding maken en installeer de meest recente [Linux Integration Services for Hyper-V en Azure](https://www.microsoft.com/download/details.aspx?id=55106).
  
-  ```bash
-  wget https://aka.ms/lis
+   ```bash
+   wget https://aka.ms/lis
 
-  tar xvzf lis
+   tar xvzf lis
 
-  cd LISISO
+   cd LISISO
 
-  sudo ./install.sh
+   sudo ./install.sh
 
-  sudo reboot
+   sudo reboot
 
-  ```
+   ```
  
 4. Opnieuw verbinding maken met de VM en voer de `lspci` opdracht. Controleer of de NVIDIA M60-kaart of kaarten zichtbaar als PCI-apparaten zijn.
  
 5. Download en installeer het stuurprogramma GRID:
 
-  ```bash
-  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
+   ```bash
+   wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
 
-  chmod +x NVIDIA-Linux-x86_64-grid.run
+   chmod +x NVIDIA-Linux-x86_64-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-grid.run
-  ``` 
+   sudo ./NVIDIA-Linux-x86_64-grid.run
+   ``` 
 6. Wanneer u wordt gevraagd of u wilt uitvoeren van het hulpprogramma nvidia-xconfig selecteren om bij te werken uw configuratiebestand X **Ja**.
 
 7. Nadat de installatie is voltooid, /etc/nvidia/gridd.conf.template naar een nieuw bestand gridd.conf op locatie/etc/nvidia/kopiëren
   
-  ```bash
-  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
-  ```
+   ```bash
+   sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+   ```
   
 8. Het volgende toevoegen aan `/etc/nvidia/gridd.conf`:
  
-  ```
-  IgnoreSP=FALSE
-  ```
+   ```
+   IgnoreSP=FALSE
+   ```
 9. Start de VM opnieuw op en gaat u verder met de installatie controleren.
 
 ### <a name="verify-driver-installation"></a>Controleer of de installatie van stuurprogramma

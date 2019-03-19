@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: eb0fd7e4feb28d60173b638a15dbce598f78e6bf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 26520e3ff8f5bb97866015d3148b4c8b8813b319
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182949"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168567"
 ---
 # <a name="get-started-with-reliable-services"></a>Aan de slag met Reliable Services
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Start Visual Studio 2015 of Visual Studio 2017 als beheerder en maak een nieuw S
 
 ![Gebruik van het dialoogvenster Nieuw Project te maken van een nieuwe Service Fabric-toepassing](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Maak vervolgens een stateless service-project met **.Net Core 2.0** met de naam *HelloWorldStateless*:
+Maak vervolgens een stateless service-project met **.NET Core 2.0** met de naam *HelloWorldStateless*:
 
 ![Klik in het dialoogvenster tweede een stateless serviceproject maken](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -127,7 +127,7 @@ In dezelfde *HelloWorld* toepassing, kunt u een nieuwe service toevoegen met de 
 
 ![Een service toevoegen aan uw Service Fabric-toepassing](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Selecteer **.Net Core 2.0 -> Stateful Service** en noem het *HelloWorldStateful*. Klik op **OK**.
+Selecteer **.NET Core 2.0 -> Stateful Service** en noem het *HelloWorldStateful*. Klik op **OK**.
 
 ![Gebruik van het dialoogvenster Nieuw Project te maken van een nieuwe Service Fabric stateful service](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 

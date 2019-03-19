@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a434453d6164dbb9fed7aebc3b3636b45daafa21
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d0a32f45326eb307bc31d10f4efb842d811a38c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313239"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842495"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Een Windows Hybrid Runbook Worker implementeren
 
@@ -138,14 +138,9 @@ Omdat het primaire doel van de functie Hybrid Runbook Worker is om lokale resour
 
 Modules die zijn geïnstalleerd moeten zich op een locatie waarnaar wordt verwezen door de **PSModulePath** omgevingsvariabele zodat ze automatisch van de hybrid worker importeren kan. Zie voor meer informatie, [wijzigen van het installatiepad PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 
-## <a name="troubleshoot"></a>Problemen oplossen
-
-Zie voor informatie over het oplossen van de Hybrid Runbook Workers, [probleemoplossing Windows Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#windows)
-
-Zie voor aanvullende stappen over het oplossen van problemen met updatebeheer [updatebeheer: probleemoplossing](troubleshoot/update-management.md).
-
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor informatie over het configureren van uw runbooks om processen in uw on-premises datacenter of andere cloudomgeving te automatiseren, [runbooks uitvoeren op een Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 * Zie voor instructies over het verwijderen van Hybrid Runbook Workers [verwijderen Azure Automation Hybrid Runbook Workers](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
-
+* Zie voor informatie over het oplossen van de Hybrid Runbook Workers, [probleemoplossing Windows Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#windows)
+* Zie voor aanvullende stappen over het oplossen van problemen met updatebeheer [updatebeheer: probleemoplossing](troubleshoot/update-management.md).

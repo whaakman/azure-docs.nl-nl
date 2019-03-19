@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 252aacfeb85f23699c6a2e2ac1f457f9e2b59b0e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c00e62e237fe263f54926c8e74fb6211a2e5a4e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997180"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993056"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>De Remote Monitoring solution accelerator lokaal - Docker implementeren
 
@@ -96,7 +96,7 @@ Volg deze stappen voor het starten van de Stream Analytics-taak:
 
 ### <a name="connect-to-the-dashboard"></a>Verbinding maken met het dashboard
 
-Voor toegang tot het oplossingsdashboard voor externe controle, gaat u naar [ http://localhost:8080 ](http://localhost:8080) in uw browser. U kunt nu de Web-UI en de lokale microservices.
+Voor toegang tot het oplossingsdashboard voor externe controle, gaat u naar `http://localhost:8080` in uw browser. U kunt nu de Web-UI en de lokale microservices.
 
 ## <a name="clean-up"></a>Opruimen
 

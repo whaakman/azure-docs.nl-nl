@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5899b2b667df4800bf98aa6ed7b70f2f8ba4f931
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 7d56f01aabe77680ed78927848668457344a0f2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337101"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080292"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Snelstart: Een gesimuleerd apparaat inrichten met symmetrische sleutels
 
@@ -114,15 +114,15 @@ De SDK bevat de voorbeeldcode voor een gesimuleerd apparaat. Dit gesimuleerde ap
 
 3. Voer bij **Registratie toevoegen** de volgende gegevens in en klik op de knop **Opslaan**.
 
-    - **Mechanisme**: selecteer **Symmetrische sleutel** als *mechanisme* voor identiteitscontrole.
+   - **Mechanisme**: selecteer **Symmetrische sleutel** als *mechanisme* voor identiteitscontrole.
 
-    - **Sleutels automatisch genereren**: schakel dit selectievakje in.
+   - **Sleutels automatisch genereren**: schakel dit selectievakje in.
 
-    - **Registratie-id**: voer een registratie-id in voor het identificeren van de inschrijving. Gebruik alleen kleine alfanumerieke tekens en streepjes ('-'). Bijvoorbeeld `symm-key-device-007`.
+   - **Registratie-id**: voer een registratie-id in voor het identificeren van de inschrijving. Gebruik alleen kleine alfanumerieke tekens en streepjes ('-'). Bijvoorbeeld `symm-key-device-007`.
 
-    - **Apparaat-id van IoT Hub:** voer een apparaat-id in. Bijvoorbeeld, **apparaat-007**.
+   - **Apparaat-id van IoT Hub:** voer een apparaat-id in. Bijvoorbeeld, **apparaat-007**.
 
-    ![Afzonderlijke inschrijving toevoegen voor attestation met symmetrische sleutel in de portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
+     ![Afzonderlijke inschrijving toevoegen voor attestation met symmetrische sleutel in de portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
 4. Zodra u uw inschrijving hebt opgeslagen, worden de **primaire sleutel** en **secundaire sleutel** gegenereerd en aan de inschrijvingsvermelding toegevoegd. De inschrijving met symmetrische sleutel van uw apparaat wordt weergegeven als **symm-key-device-007** in de kolom *Registratie-ID* op het tabblad *Afzonderlijke registraties*. 
 

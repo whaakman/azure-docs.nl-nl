@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 23582215654ff2d5003fe611c7149ad760d72bc5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111834"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Hoe voordeur aansluit bij aanvragen voor een regel voor doorsturen
 
@@ -29,7 +29,7 @@ Een voordeur routeringsconfiguratie regel uit twee hoofdonderdelen bestaat: een 
 De volgende eigenschappen te bepalen of de inkomende aanvraag overeenkomt met de regel voor doorsturen (of de linkerkant):
 
 * **HTTP-protocollen** (HTTP/HTTPS)
-* **Hosts** (bijvoorbeeld www.foo.com \*. bar.com)
+* **Hosts** (bijvoorbeeld, www\.foo.com, \*. bar.com)
 * **Paden** (bijvoorbeeld /\*, /gebruikers/\*, /file.gif)
 
 Deze eigenschappen zijn intern uit uitgebreid zodat elke combinatie van Protocol/Hostpad een mogelijke overeenkomst-set is.
@@ -48,30 +48,30 @@ Wanneer die overeenkomt met een front-hosts, gebruiken we de logica zoals hieron
 
 Voor een uitleg van dit proces verder, laten we bekijken een van de voorbeeldconfiguratie van voordeur routes (alleen linkerkant):
 
-| Routeringsregel | Frontend-hosts | Pad |
+| Routeringsregel | Front-endhosts | Pad |
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
 | B | foo.contoso.com | /gebruikers/\* |
-| C | www.Fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
+| C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
 
 Als de volgende binnenkomende aanvragen naar de voordeur zijn verzonden, zouden ze overeenkomen met op basis van de volgende regels voor doorsturen van bovenstaande:
 
 | Binnenkomende frontend-host | Overeenkomende routering (s) |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
-| www.Fabrikam.com | C |
-| images.Fabrikam.com | Fout 400: Ongeldige aanvraag |
+| www\.fabrikam.com | C |
+| images.fabrikam.com | Fout 400: Onjuiste aanvraag |
 | foo.adventure-works.com | C |
-| contoso.com | Fout 400: Ongeldige aanvraag |
-| www.Adventure-Works.com | Fout 400: Ongeldige aanvraag |
-| www.northwindtraders.com | Fout 400: Ongeldige aanvraag |
+| contoso.com | Fout 400: Onjuiste aanvraag |
+| www\.adventure works.com | Fout 400: Onjuiste aanvraag |
+| www\.northwindtraders.com | Fout 400: Onjuiste aanvraag |
 
 ### <a name="path-matching"></a>Overeenkomende pad
 Na bepaling van de specifieke front-host en mogelijke routeringsregels om alleen de routes met die host frontend te filteren, filtert de voordeur vervolgens de routeringsregels toe op basis van het Aanvraagpad. We gebruiken een soortgelijke logica als front-hosts:
 
 1. Zoek naar een regel met een exacte overeenkomst in het pad voor het doorsturen
 2. Als er geen exacte overeenkomst paden, zoekt u naar routeringsregels met een jokerteken pad die overeenkomt met
-3. Als er geen regels voor doorsturen worden gevonden met een overeenkomende pad, de aanvraag weigeren en retourneren een 400: fout met ongeldige aanvraag HTTP-antwoord.
+3. Als er geen regels voor doorsturen worden gevonden met een overeenkomende pad, de aanvraag weigeren en een 400 geretourneerd: Ongeldige aanvraag fout HTTP-antwoord.
 
 >[!NOTE]
 > Alle paden zonder een jokerteken worden beschouwd als exacte overeenkomst paden. Zelfs als het pad op een slash eindigt, wordt nog steeds exacte overeenkomst beschouwd.
@@ -80,32 +80,32 @@ Voor een nadere uitleg, kunt u een andere set voorbeelden laten we kijken:
 
 | Routeringsregel | Frontend-host    | Pad     |
 |-------|---------|----------|
-| A     | www.contoso.com | /        |
-| B     | www.contoso.com | /\*      |
-| C     | www.contoso.com | / AB      |
-| D     | www.contoso.com | /ABC     |
-| E     | www.contoso.com | /ABC/    |
-| F     | www.contoso.com | /ABC/\*  |
-| G     | www.contoso.com | / abc/def |
-| H     | www.contoso.com | /Path/   |
+| A     | www\.contoso.com | /        |
+| B     | www\.contoso.com | /\*      |
+| C     | www\.contoso.com | /ab      |
+| D     | www\.contoso.com | /abc     |
+| E     | www\.contoso.com | /ABC/    |
+| F     | www\.contoso.com | /ABC/\*  |
+| G     | www\.contoso.com | /abc/def |
+| H     | www\.contoso.com | /Path/   |
 
 Opgegeven dat de configuratie, het volgende voorbeeld van de overeenkomende tabel, is het resultaat:
 
 | Inkomende aanvraag    | Overeenkomende Route |
 |---------------------|---------------|
-| www.contoso.com/            | A             |
-| www.contoso.com/a           | B             |
-| www.contoso.com/AB          | C             |
-| www.contoso.com/ABC         | D             |
-| www.contoso.com/abzzz       | B             |
-| www.contoso.com/ABC/        | E             |
-| www.contoso.com/ABC/d       | F             |
-| www.contoso.com/ABC/DEF     | G             |
-| www.contoso.com/ABC/defzzz  | F             |
-| www.contoso.com/ABC/DEF/GHI | F             |
-| www.contoso.com/Path        | B             |
-| www.contoso.com/Path/       | H             |
-| www.contoso.com/Path/zzz    | B             |
+| www\.contoso.com/            | A             |
+| www\.contoso.com/a           | B             |
+| www\.contoso.com/ab          | C             |
+| www\.contoso.com/abc         | D             |
+| www\.contoso.com/abzzz       | B             |
+| www\.contoso.com/abc/        | E             |
+| www\.contoso.com/abc/d       | F             |
+| www\.contoso.com/abc/def     | G             |
+| www\.contoso.com/abc/defzzz  | F             |
+| www\.contoso.com/abc/def/ghi | F             |
+| www\.contoso.com/path        | B             |
+| www\.contoso.com/path/       | H             |
+| www\.contoso.com/path/zzz    | B             |
 
 >[!WARNING]
 > </br> Als er geen regels voor doorsturen voor een exacte overeenkomst frontend-host met een catch-all routeren pad (`/*`), wordt er niet overeenkomen met een regel voor doorsturen.
@@ -114,18 +114,18 @@ Opgegeven dat de configuratie, het volgende voorbeeld van de overeenkomende tabe
 >
 > | Route | Host             | Pad    |
 > |-------|------------------|---------|
-> | A     | Profile.contoso.com | /API/\* |
+> | A     | profile.contoso.com | /API/\* |
 >
 > Overeenkomende tabel:
 >
 > | Inkomende aanvraag       | Overeenkomende Route |
 > |------------------------|---------------|
-> | Profile.domain.com/Other | Geen. Fout 400: Ongeldige aanvraag |
+> | profile.domain.com/other | Geen. Fout 400: Onjuiste aanvraag |
 
 ### <a name="routing-decision"></a>Routering besluit
 Zodra we aan een regel voor het doorsturen van voordeur één hebt gekoppeld, moeten we vervolgens kiezen hoe u de aanvraag niet verwerken. Als voor de overeenkomende routeringsregel voordeur een antwoord in de cache beschikbaar heeft opgehaald terug naar de client hetzelfde zijn geleverd. Anders wordt het volgende wat die wordt geëvalueerd, is of u hebt geconfigureerd [herschrijven van URL's (aangepaste doorsturen via het pad)](front-door-url-rewrite.md) regel voor de overeenkomende routering of niet. Als er geen een aangepaste doorsturen pad dat is gedefinieerd, wordt de aanvraag doorgestuurd naar de juiste back-end in de geconfigureerde back endpool is. Anders het Aanvraagpad wordt bijgewerkt volgens de [aangepaste doorsturen pad](front-door-url-rewrite.md) gedefinieerd en vervolgens doorsturen naar de back-end.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [maken van een voordeur](quickstart-create-front-door.md).
-- Informatie over [de werking van de voordeur](front-door-routing-architecture.md).
+- Lees hoe u [een Front Door maakt](quickstart-create-front-door.md).
+- Lees [hoe Front Door werkt](front-door-routing-architecture.md).

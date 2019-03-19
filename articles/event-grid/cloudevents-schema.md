@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: c9c0fd8bf7dc893ce07a6e3ce9cb392fc652a560
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1eab0be59de90ad68cbf9601b7e2200e640875f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178064"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Gebruik een CloudEvents-schema met Event Grid
 
@@ -24,6 +24,8 @@ Een CloudEvents vereenvoudigt interoperabiliteit door te geven van een gemeensch
 Een CloudEvents wordt opgebouwd door verschillende [samenwerkers](https://github.com/cloudevents/spec/blob/master/community/contributors.md), waaronder Microsoft, via de [Cloud Native Computing Foundation](https://www.cncf.io/). Het is momenteel beschikbaar als versie 0.1.
 
 In dit artikel wordt beschreven hoe u een CloudEvents-schema met Event Grid gebruiken.
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="install-preview-feature"></a>Preview-functie installeren
 

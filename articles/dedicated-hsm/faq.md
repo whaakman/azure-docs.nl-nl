@@ -2,7 +2,7 @@
 title: Veelgestelde vragen - Azure toegewezen HSM | Microsoft Docs
 description: Veelgestelde vragen over die betrekking hebben op andere onderwerpen over Azure toegewezen HSM
 services: dedicated-hsm
-author: barclayn
+author: johndaw
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: mvc
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 3/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 2c77f5abac69a1bade523d2a4b6793c2a9df8cf2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447860"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846885"
 ---
 # <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
 
@@ -166,17 +166,17 @@ Ja. U kunt Logboeken van de HSM-apparaat verzenden naar een syslog-server
 
 Ja. Hoge beschikbaarheid, configuratie en installatie uitgevoerd binnen de HSM-clientsoftware die is geleverd door Gemalto. HSM's in hetzelfde VNET of andere VNETs in dezelfde regio of tussen regio's, of on-premises HSM's die zijn verbonden met een VNET maken via site-naar-site of point-to-point VPN kan worden toegevoegd aan dezelfde configuratie voor hoge beschikbaarheid.
 
-### <a name="can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Kan ik HSM's van mijn on-premises netwerk aan een groep met hoge beschikbaarheid met Azure toegewezen HSM toevoegen?
+### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>V: Kan ik HSM's van mijn on-premises netwerk aan een groep met hoge beschikbaarheid met Azure toegewezen HSM toevoegen?
 
 Ja. Ze moeten voldoen aan de vereisten voor hoge beschikbaarheid voor 7 SafeNet Luna netwerk-HSM.
 
-### <a name="can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Kan ik Luna 5/6 HSM's van on-premises netwerken toevoegen aan een groep met hoge beschikbaarheid met Azure toegewezen HSM?
+### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>V: Kan ik Luna 5/6 HSM's van on-premises netwerken toevoegen aan een groep met hoge beschikbaarheid met Azure toegewezen HSM?
 
 Nee.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>V: Hoeveel HSM's kan ik toevoegen aan de dezelfde configuratie voor hoge beschikbaarheid van één enkele toepassing?
 
-16.
+16\.
 
 ## <a name="support"></a>Ondersteuning
 
@@ -246,7 +246,7 @@ Ja. Toegewezen HSM-service bepalingen SafeNet netwerk-HSM-7-apparaten die gebrui
 
 De toegewezen HSM-service inricht SafeNet Luna netwerk-HSM 7-apparaten. Deze apparaten gebruik FIPS 140-2 Level 3 gevalideerde HSM's. De standaardconfiguratie geïmplementeerd, het besturingssysteem en de firmware zijn ook FIPS-gevalideerde modules. U hoeft niet te doen voor FIPS 140-2 Level 3-compatibiliteit.
 
-### <a name="how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>Hoe garandeert een klant dat het sleutelmateriaal uit gewist wanneer de inrichting van een HSM is beëindigd?
+### <a name="q-how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>V: Hoe garandeert een klant dat het sleutelmateriaal uit gewist wanneer de inrichting van een HSM is beëindigd?
 
 Voordat u aanvraagt ongedaan maken van inrichting, moet de HSM Gemalto opgegeven HSM clienthulpprogramma's gebruiken op een klant hebt zeroized.
 

@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: d0d5ee18e37436562f1e9e15571dc39fb0e00129
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875024"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117741"
 ---
 # <a name="what-is-azure-data-box"></a>Wat is Azure Data Box?
 
@@ -44,11 +44,11 @@ Data Box is ontworpen om grote aantallen gegevens naar Azure te verplaatsen met 
 - **Snelheid** : Data Box maakt gebruik van netwerkinterfaces van 1 Gbps of 10 Gbps om maximaal 80 TB aan gegevens in Azure te verplaatsen.
 
 - **Beveiligd**: Data Box heeft ingebouwde beveiliging voor het apparaat, de gegevens en de service.
-    - Het apparaat heeft een robuuste behuizing die is beveiligd met fraudebestendige schroeven en verzegelde stickers. 
-    - De gegevens op het apparaat zijn altijd beveiligd met AES 256-bitsversleuteling.
-    - Het apparaat kan alleen worden ontgrendeld met een wachtwoord dat via Azure Portal wordt doorgegeven.
-    - De service wordt beschermd door beveiligingsfuncties van Azure.
-    - Nadat uw gegevens zijn geüpload naar Azure, worden alle schijven in het apparaat gewist overeenkomstig NIST 800-88r1-standaarden.
+  - Het apparaat heeft een robuuste behuizing die is beveiligd met fraudebestendige schroeven en verzegelde stickers. 
+  - De gegevens op het apparaat zijn altijd beveiligd met AES 256-bitsversleuteling.
+  - Het apparaat kan alleen worden ontgrendeld met een wachtwoord dat via Azure Portal wordt doorgegeven.
+  - De service wordt beschermd door beveiligingsfuncties van Azure.
+  - Nadat uw gegevens zijn geüpload naar Azure, worden alle schijven in het apparaat gewist overeenkomstig NIST 800-88r1-standaarden.
     
     Ga naar [Azure Data Box-beveiliging en -gegevensbescherming](data-box-security.md) voor meer informatie.
 
@@ -56,7 +56,7 @@ Data Box is ontworpen om grote aantallen gegevens naar Azure te verplaatsen met 
 
 Het Data Box-apparaat biedt de volgende functies in deze versie.
 
-| Specificaties                                          | Beschrijving              |
+| Specificaties                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Gewicht                                                  | < 50 pond.                |
 | Dimensies                                              | Apparaat - Breedte: 309,0 mm Hoogte: 430,4 mm Diepte: 502,0 mm |            

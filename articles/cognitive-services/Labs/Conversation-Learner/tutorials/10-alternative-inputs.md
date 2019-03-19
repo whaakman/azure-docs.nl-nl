@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c60dc2ca93547b93ce2ee457393570479069c899
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 10335f9c74b9033b303c960a77af136cc80d75bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216265"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094361"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Het gebruik van andere invoer
 
@@ -48,6 +48,8 @@ Alternatieve invoer zijn alternatieve, dezelfde gebruiker uitingen die de gebrui
 3. Typ 'plaats' voor "Naam van de entiteit."
 4. Klik op de knop 'Maken'.
 
+![](../media/T10_actions.png)
+
 Nu gaan we drie acties te maken.
 
 ### <a name="create-the-first-action"></a>De eerste actie maken
@@ -58,11 +60,15 @@ Nu gaan we drie acties te maken.
 4. Typ in het veld 'Diskwalificeren voorziet', 'plaats'.
 5. Klik op de knop 'Maken'.
 
+![](../media/T10_action_create_1.png)
+
 ### <a name="create-the-second-action"></a>De tweede actie maken
 
 1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
 2. In de 'van de Bot response...' veld, typt u "het weer in $city is waarschijnlijk zonnige."
 3. Klik op de knop 'Maken'.
+
+![](../media/T10_action_create_2.png)
 
 ### <a name="create-the-third-action"></a>De derde actie maken
 
@@ -71,7 +77,11 @@ Nu gaan we drie acties te maken.
 3. Typ in het veld 'Diskwalificeren voorziet', 'plaats'.
 4. Klik op de knop 'Maken'.
 
+![](../media/T10_action_create_3.png)
+
 U hebt nu de drie acties.
+
+![](../media/T10_actions.png)
 
 ### <a name="train-the-model"></a>Het Model te trainen
 
@@ -82,7 +92,9 @@ U hebt nu de drie acties.
 5. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Denver"
 6. Klik op de knop 'Acties Score'.
 7. Selecteer het antwoord, "het weer in Denver is waarschijnlijk zonnige."
-8. Klik op de knop 'Opslaan'.
+8. Klik op de knop 'Wijzigingen verzenden'.
+
+![](../media/T10_training_1.png)
 
 Laten we trainen het model door het maken van een ander dialoogvenster van de trein meer.
 
@@ -96,7 +108,9 @@ Laten we trainen het model door het maken van een ander dialoogvenster van de tr
 6. Klik op "Seattle" en klik vervolgens op 'plaats' uit de lijst met entiteiten.
 7. Klik op de knop 'Acties Score'.
 8. Selecteer het antwoord, "het weer in Seattle is waarschijnlijk zonnige."
-9. Klik op de knop 'Opslaan'.
+9. Klik op de knop 'Wijzigingen verzenden'.
+
+![](../media/T10_training_2.png)
 
 ### <a name="third-model-train-dialog-using-alternative-input"></a>Derde Model trainen dialoogvenster met behulp van alternatieve invoer
 
@@ -106,27 +120,29 @@ Laten we trainen het model door het maken van een ander dialoogvenster van de tr
     - Het Model is niet bekend met de beste optie, zodat deze de hoogste percentiel standaard kiest.
 4. Klik op de knop 'Onderwijs afbreken' en klik vervolgens op "Confirm" knop.
 
-![](../media/tutorial8_closescores.png)
+![](../media/T10_training_3.png)
 
 Laten we het systeem met behulp van alternatieve invoergegevens beter afstemmen. U kunt alternatieve invoer toevoegen tijdens het onderwijs of hoger.
 
-5. In het linkerdeelvenster klikt u op 'Train-dialoogvensters' en selecteer vervolgens "Kunt u doen?" in de lijst van de trein-dialoogvensters.
-6. Klik op de 'kunt u doen?" utterance in het deelvenster chat.
-7. In de ' alternatieve invoer toevoegen...' enter veld, type 'help' en druk op.
-8. Klik op de knop 'Wijzigingen opslaan'.
+1. In het linkerdeelvenster klikt u op 'Train-dialoogvensters' en selecteer vervolgens "Kunt u doen?" in de lijst van de trein-dialoogvensters.
+1. Klik op de 'kunt u doen?" utterance in het deelvenster chat.
+1. In de ' alternatieve invoer toevoegen...' enter veld, type 'help' en druk op.
+1. Klik op de knop 'Wijzigingen opslaan'.
 
-![](../media/tutorial8_helpalternates.png)
+![](../media/T10_training_4.png)
 
 Laten we een andere alternatieve invoer voor het afhandelen van Houston toevoegen.
 
-9. Klik op de 'Wat is het weer in Seattle?' utterance in het deelvenster chat.
-10. In het veld 'Toevoegen... alternatieve invoer' type 'Prognose voor Houston' en druk op enter.
-    - De fout bericht hoogtepunten de feitelijke alternatieve invoer moeten semantisch gelijk en bevatten de dezelfde entiteiten als de oorspronkelijke utterance; niet alleen de dezelfde waarden van entiteiten. De aanwezigheid van dezelfde entiteiten is vereist.
-11. Klik op 'Houston' en 'city' selecteert in de lijst met entiteiten.
-12. In het veld 'Toevoegen... alternatieve invoer' type 'Prognose voor Seattle"en druk op enter.
-13. Klik op "Seattle" en selecteer 'plaats' in de lijst met entiteiten.
-14. Klik op de knop 'Wijzigingen opslaan'.
-15. Klik op de knop 'Opslaan bewerken'.
+1. Klik op de 'Wat is het weer in Seattle?' utterance in het deelvenster chat.
+1. In het veld 'Toevoegen... alternatieve invoer' type 'Prognose voor Houston' en druk op enter.
+   - De fout bericht hoogtepunten de feitelijke alternatieve invoer moeten semantisch gelijk en bevatten de dezelfde entiteiten als de oorspronkelijke utterance; niet alleen de dezelfde waarden van entiteiten. De aanwezigheid van dezelfde entiteiten is vereist.
+1. Klik op 'Houston' en 'city' selecteert in de lijst met entiteiten.
+1. In het veld 'Toevoegen... alternatieve invoer' type 'Prognose voor Seattle"en druk op enter.
+1. Klik op "Seattle" en selecteer 'plaats' in de lijst met entiteiten.
+1. Klik op de knop 'Wijzigingen opslaan'.
+1. Klik op de knop 'Opslaan bewerken'.
+
+![](../media/T10_training_5.png)
 
 ### <a name="testing-the-model"></a>Het Model testen
 
@@ -134,7 +150,7 @@ Laten we een andere alternatieve invoer voor het afhandelen van Houston toevoege
 2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u in 'help mij'
 3. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'forecast voor Denver'
 
-![](../media/tutorial8_altcities.png)
+![](../media/T10_logdialog.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

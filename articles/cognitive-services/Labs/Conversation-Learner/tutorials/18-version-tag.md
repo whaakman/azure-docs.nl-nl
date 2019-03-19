@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 99b4712373423d30dc83408cc80eccc93b342c10
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5073d3ab967c4c4e1b90636c247839875a6aa0d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55205997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086306"
 ---
 # <a name="how-to-use-version-tagging"></a>Het gebruik van versie Tagging
 
@@ -67,9 +67,9 @@ We maken één actie voor versie 1.
 
 Nu u we dit markeren als 'versie 1"van het Model.
 
-4. In het linkerdeelvenster klikt u op 'instellingen' en klik op de ![](../media/tutorial18_version_tags.PNG)"Versie Tags"-pictogram om weer te geven de `New Tag` knop waarop u moet klikken.
+1. In het linkerdeelvenster klikt u op 'instellingen' en klik op de ![](../media/tutorial18_version_tags.PNG)"Versie Tags"-pictogram om weer te geven de `New Tag` knop waarop u moet klikken.
     - Geef het de naam "Versie 1"
-4. In de 'Live code' vervolgkeuzelijst selecteren ' versie 1".  
+1. In de 'Live code' vervolgkeuzelijst selecteren ' versie 1".  
     - Kanalen met behulp van deze Bot wordt nu 'versie 1"van het Model gebruiken.
     - De entiteiten, acties en Train-dialoogvensters van deze versie 1-Model kunnen niet meer worden gewijzigd.
     - Als u 'Versie 1' als 'Bewerken van code' selecteert kunt u zich alleen het Model weergeven en deze niet bewerken.

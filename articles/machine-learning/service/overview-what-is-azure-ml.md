@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: fd6ecb6cb45aef399a137c9eac2c8c6f845b610b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: f8f3da82d5c8747398882fd589e3ff91aaaa9739
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872485"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849207"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Wat is de Azure Machine Learning-service?
 
@@ -32,10 +32,10 @@ Prognoses of voorspellingen op basis van machine learning kunnen apps en apparat
 
 Azure Machine Learning Service biedt een omgeving in de cloud die u kunt gebruiken om machine learning-modellen te trainen, testen, implementeren, beheren en volgen en er gegevens voor voor te bereiden.
 
-[![Azure Machine Learning Service-workflow](./media/overview-what-is-azure-ml/aml.png)] (./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Azure Machine Learning-service-werkstroom](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning Service biedt volledige ondersteuning voor open-sourcetechnologieën. U kunt tienduizenden open source Python-pakketten met elementen van machine learning gebruiken. Voorbeelden zijn PyTorch, TensorFlow en scikit-learn.
-Dankzij de ondersteuning voor uitgebreide programma’s kunt u eenvoudig interactief gegevens verkennen en voorbereiden en vervolgens modellen ontwikkelen en testen. Voorbeelden zijn [Jupyter-notebooks](http://jupyter.org) of de extensie [Azure Machine Learning voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
+Dankzij de ondersteuning voor uitgebreide programma’s kunt u eenvoudig interactief gegevens verkennen en voorbereiden en vervolgens modellen ontwikkelen en testen. Voorbeelden zijn [Jupyter-notebooks](https://jupyter.org) of de extensie [Azure Machine Learning voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
 Azure Machine Learning-service omvat ook functies die [modelgeneratie automatiseren en afstemmen](tutorial-auto-train-models.md)om u te helpen met gemak, efficiënt en nauwkeurig modellen te maken.
 
 Met Azure Machine Learning Service kunt u op uw lokale machine beginnen met trainen en dan opschalen naar de cloud. Dankzij de vele beschikbare [rekendoelen](how-to-set-up-training-targets.md) zoals Azure Machine Learning Compute en [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), en [geavanceerde afstemmingsservices van hyperparameters](how-to-tune-hyperparameters.md), kunt u sneller betere modellen bouwen, met de kracht van de cloud.
@@ -56,7 +56,7 @@ U kunt kiezen uit veel machine learning-onderdelen die beschikbaar zijn in open-
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
-- <a href="http://mxnet.io" target="_blank">MXNet</a>
+- <a href="https://mxnet.io" target="_blank">MXNet</a>
 
 Met Azure Machine Learning Service kunt u ook een model automatisch trainen en op uw behoeften laten afstemmen.
 Zie bijvoorbeeld [Een regressiemodel trainen met geautomatiseerde machine learning](tutorial-auto-train-models.md).
@@ -81,7 +81,7 @@ Gebruik Machine Learning-service als u werkt in een Python-omgeving, u meer cont
 
 ## <a name="free-trial"></a>Gratis proefversie
 
-Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning-service](http://aka.ms/AMLFree).
+Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning-service](https://aka.ms/AMLFree).
 
 U ontvangt tegoed wat u kunt uitgeven aan Azure-services. Als uw tegoed op is, kunt u het account behouden en de [gratis Azure-services](https://azure.microsoft.com/free/) gebruiken. Er worden nooit kosten in rekening gebracht bij uw creditcard tenzij u de instellingen expliciet wijzigt en aangeeft dat u wilt betalen. U kunt ook [de voordelen voor MSDN-abonnees activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), waardoor u maandelijks tegoeden krijgt die u kunt gebruiken voor betaalde Azure-services.
 
@@ -92,7 +92,7 @@ U ontvangt tegoed wat u kunt uitgeven aan Azure-services. Als uw tegoed op is, k
 - Volg de volledige zelfstudies: 
   + [Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md) 
   + [Gegevens voorbereiden en geautomatiseerde machine learning gebruiken om een regressiemodel automatisch te trainen](tutorial-data-prep.md)
-  
+
 - Gebruik de [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) om uw gegevens voor te bereiden.
 
 - Leer meer over [Machine Learning-pijplijnen](/azure/machine-learning/service/concept-ml-pipelines) om uw Machine Learning-scenario’s te bouwen, te optimaliseren en te beheren.

@@ -2,19 +2,19 @@
 title: De Azure Terraform Visual Studio Code-extensie installeren en gebruiken
 description: Lees hoe u de Azure Terraform-extensie in Visual Studio Code installeert en gebruikt.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, azure, devops, visual studio code, extensie
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: 137a57638207a05f797692b25a5d5a31bd66ce3d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: b1102649e48af8cb36a64f1142c078bf9ebc0d99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074577"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006184"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>De Azure Terraform Visual Studio Code-extensie installeren en gebruiken
 
@@ -59,7 +59,7 @@ Als u Terraform in Cloud Shell wilt gebruiken, moet u [Node.js](https://nodejs.o
 
 ### <a name="install-graphviz"></a>GraphViz installeren
 
-Als u de visualisatiefunctie van Terraform wilt gebruiken, moet u [GraphViz installeren](http://graphviz.org/).
+Als u de visualisatiefunctie van Terraform wilt gebruiken, moet u [GraphViz installeren](https://graphviz.org/).
 
 >[!NOTE]
 >U kunt controleren of GraphViz is geïnstalleerd door een terminalvenster te openen en `dot -V` in te voeren.
@@ -128,7 +128,7 @@ In deze oefening gaat u een basisconfiguratiebestand van Terraform maken en uitv
     ![Opslaan als main.tf](media/terraform-vscode-extension/tf-save-as-main.png)
 
 1. Selecteer **Opslaan**.
-- In de menubalk selecteert u **Bestand > Map openen**. Navigeer naar de nieuwe map die u hebt gemaakt en selecteer deze map.
+1. In de menubalk selecteert u **Bestand > Map openen**. Navigeer naar de nieuwe map die u hebt gemaakt en selecteer deze map.
 
 ### <a name="run-terraform-init-command"></a>De Terraform-opdracht *init* uitvoeren
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 962c1cff91a5ac3f52dc67c30bd2c7a4e2e22b9d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 8ec6a6a24629f72199d5f5afa86200acf53aba01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631835"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136543"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Voorbeelden van Lucene-querysyntaxis voor het bouwen van geavanceerde query's in Azure Search
 Bij het maken van query's voor Azure Search, kunt u de standaard vervangen [de eenvoudige queryparser](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) met de uitgebreider [Lucene-Queryparser in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) naar gespecialiseerde en geavanceerde query formuleren definities. 
@@ -172,7 +172,7 @@ Houd rekening met een scoringprofiel die de loyaliteit zoals in een bepaald veld
 Bij het instellen van het niveau van de multi-factor Authentication, hoe hoger de boost-factor, meer relevante de term is ten opzichte van andere zoektermen. Standaard is de factor boost 1. Hoewel de factor boost moet positief zijn, kan deze minder dan 1 (bijvoorbeeld 0.2) worden.
 
 
-## <a name="example-6-regex"></a>Voorbeeld 6: reguliere expressie
+## <a name="example-6-regex"></a>Voorbeeld 6: Regex
 
 Een zoekopdracht reguliere expressie zoekt een overeenkomst op basis van de inhoud tussen forward slashes bevatten '/', zoals beschreven in de [klasse RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
@@ -206,7 +206,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Probeer de Lucene-Queryparser in uw code op te geven. De volgende koppelingen wordt uitgelegd hoe het instellen van zoekquery's voor .NET en de REST-API. De koppelingen gebruikt u de standaard eenvoudige syntaxis, daarom u moet om toe te passen wat u hebt geleerd in dit artikel om op te geven de **queryType**.
 
 * [Query uitvoeren op uw Azure Search-Index met de .NET SDK](search-query-dotnet.md)
-* [Query uitvoeren op uw Azure Search-Index met behulp van de REST-API](search-query-rest-api.md)
+* [Query uitvoeren op uw Azure Search-Index met behulp van de REST-API](search-create-index-rest-api.md)
 
 Naslaginformatie over aanvullende syntaxis voor query-architectuur en voorbeelden vindt u in de volgende koppelingen:
 

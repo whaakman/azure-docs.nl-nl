@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: c7019eac4edc530de5ef64ba9eb32e8e4994e75b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 20f9655e1c3e7cce652802957f5eef1f333870e9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176494"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Schaalopties voor toepassingen in Azure Kubernetes Service (AKS)
 
@@ -51,7 +51,7 @@ Mogelijk moet u deze waarden afkoeltijd af te stemmen. De standaardwaarden van d
 
 ## <a name="cluster-autoscaler"></a>Automatisch schalen van cluster
 
-Kubernetes is om te reageren op veranderende vraag pod, een cluster automatisch schalen die Hiermee past u het aantal knooppunten op basis van de aangevraagde compute-resources in de knooppuntgroep. Het cluster automatisch schalen gebruikt opstartparameters voor zaken zoals tijdsintervallen tussen schaalgebeurtenissen en resourcedrempelwaarden voor de. Als de cluster voor automatisch schalen wordt vastgesteld dat er een wijziging vereist is, het aantal knooppunten in uw AKS-cluster- of afneemt dienovereenkomstig. AKS-clusters die gebruikmaken van het cluster automatisch schalen worden uitgevoerd op virtuele-machineschaalsets beheren van de schaal omhoog en omlaag gebeurtenissen van de AKS-knooppunten schalen.
+Kubernetes is om te reageren op veranderende vraag pod, een cluster automatisch schalen (momenteel in preview in AKS) die het aantal knooppunten op basis van de aangevraagde compute-resources in de knooppuntgroep wordt aangepast. Standaard controleert het cluster automatisch schalen de API-server elke tien seconden totdat de vereiste wijzigingen in het aantal knooppunten. Als de cluster voor automatisch schalen wordt vastgesteld dat er een wijziging vereist is, het aantal knooppunten in uw AKS-cluster- of afneemt dienovereenkomstig. Het cluster automatisch schalen werkt met AKS RBAC-functionaliteit clusters met Kubernetes 1.10.x of hoger.
 
 ![Kubernetes-cluster automatisch schalen](media/concepts-scale/cluster-autoscaler.png)
 
@@ -81,7 +81,7 @@ Als u wilt snel uw AKS-cluster schalen, kunt u met Azure Container Instances (AC
 
 ![Kubernetes-burst schalen naar ACI](media/concepts-scale/burst-scaling.png)
 
-ACI kunt u snel containerinstanties zonder de overhead van het aanvullende infrastructuur te implementeren. Wanneer u verbinding met AKS maakt, wordt ACI een beveiligde, logische verlengstuk van uw AKS-cluster. De Virtual Kubelet-onderdeel wordt geïnstalleerd in uw AKS-cluster met daarin ACI als een virtuele Kubernetes-knooppunt. Kubernetes kunt vervolgens schillen die worden uitgevoerd als virtuele knooppunten ACI-instanties, niet als schillen op VM-knooppunten rechtstreeks in uw AKS-cluster plannen.
+ACI kunt u snel containerinstanties zonder de overhead van het aanvullende infrastructuur te implementeren. Wanneer u verbinding met AKS maakt, wordt ACI een beveiligde, logische verlengstuk van uw AKS-cluster. De Virtual Kubelet-onderdeel wordt geïnstalleerd in uw AKS-cluster met daarin ACI als een virtuele Kubernetes-knooppunt. Kubernetes kunt vervolgens schillen die worden uitgevoerd als virtuele knooppunten ACI-instanties, niet als schillen op VM-knooppunten rechtstreeks in uw AKS-cluster plannen. Virtuele knooppunten zijn momenteel in preview in AKS.
 
 Uw toepassing vereist geen wijzigingen aan de virtuele-knooppunten gebruiken. Implementaties kunnen schalen via AKS en ACI en zonder vertraging als cluster met automatisch schalen nieuwe knooppunten in uw AKS-cluster implementeert.
 

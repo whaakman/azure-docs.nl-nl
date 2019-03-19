@@ -3,18 +3,18 @@ title: Interactief zoeken in kaarten met Azure Maps | Microsoft Docs
 description: 'Azure-quickstart: Een demo maken voor interactief zoeken in kaarten met Azure Maps'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/02/2018
+ms.date: 03/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 681a76de02d91b39ee74d1e4fa764c06d79ff3ab
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: be6d9ab0011e3d6b5d8ae1da489fc60c316e2867
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065134"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095463"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Een interactief doorzoekbare kaart maken met Azure Maps
 
@@ -34,20 +34,20 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Voer **Maps** in in het vak **Marketplace doorzoeken**.
 3. Selecteer **Toewijzingen** in de **Resultaten**. Selecteer de knop **Maken** die onder de kaart wordt weergegeven.
 4. Voer de volgende waarden in op de pagina **Azure Maps-account maken**:
-    - De **Naam** van uw nieuwe account.
-    - Het **Abonnement** dat u wilt gebruiken voor dit account.
-    - De **Resourcegroep** voor dit account. U kunt kiezen of u een **Nieuwe** of **Bestaande** resourcegroep wilt gebruiken.
-    - Selecteer de gewenste **prijscategorie**.
-    - Lees de **Licentie** en **Privacyverklaring**. Schakel het selectievakje in om de voorwaarden te accepteren.
-    - Selecteer tot slot de knop **Maken**.
+   - De **Naam** van uw nieuwe account.
+   - Het **Abonnement** dat u wilt gebruiken voor dit account.
+   - De **Resourcegroep** voor dit account. U kunt kiezen of u een **Nieuwe** of **Bestaande** resourcegroep wilt gebruiken.
+   - Selecteer de gewenste **prijscategorie**.
+   - Lees de **Licentie** en **Privacyverklaring**. Schakel het selectievakje in om de voorwaarden te accepteren.
+   - Selecteer tot slot de knop **Maken**.
 
-    ![Een Azure Maps-account maken in de portal](./media/quick-demo-map-app/create-account.png)
+     ![Een Azure Maps-account maken in de portal](./media/quick-demo-map-app/create-account.png)
 
 5. Nadat uw account is gemaakt, opent u het account en zoekt u de sectie Instellingen van het accountmenu. Selecteer **Sleutels** om de primaire en secundaire sleutel voor uw Azure Maps-account weer te geven. Kopieer de waarde van de **Primaire sleutel** naar uw lokale klembord voor gebruik in de volgende sectie.
 
 ## <a name="download-the-application"></a>De toepassing downloaden
 
-1. Download of kopieer de inhoud van het bestand [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html).
+1. Download of kopieer de inhoud van het bestand [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
 2. Sla de inhoud van dit bestand lokaal op als **AzureMapDemo.html**. Open het in een teksteditor.
 3. Zoek naar de tekenreeks `<insert-key>`. Vervang deze door de waarde van de **primaire sleutel** uit de voorgaande sectie.
 

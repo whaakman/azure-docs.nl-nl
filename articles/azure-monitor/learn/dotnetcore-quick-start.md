@@ -1,6 +1,6 @@
 ---
 title: Quickstart met Azure Application Insights | Microsoft Docs
-description: Biedt instructies om snel een ASP.NET Core-web-app in te stellen om te controleren met Application Insights
+description: Vindt u instructies voor het snel een ASP.NET Core Web-App instellen voor de bewaking met Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 14295bca12e64174d03cfd1c2bd8d214d801e8e5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: fe986d24df8dce6a390d21a262056f7ab857070c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261057"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886725"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Beginnen met controleren van de ASP.NET Core-webtoepassing
 
 Met Azure Application Insights kunt u eenvoudig de beschikbaarheid, de prestaties en het gebruik van een webtoepassing controleren. U kunt ook snel fouten in de toepassing identificeren en er een diagnose voor uitvoeren, zonder dat u hoeft te wachten totdat een gebruiker ze heeft gerapporteerd. 
 
-Deze snelstartgids helpt u de Application Insights SDK toe te voegen aan een bestaande ASP.Net Core-webtoepassing. 
+Deze snelstartgids helpt u de Application Insights SDK toe te voegen aan een bestaande ASP.NET Core-webtoepassing. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,7 +33,7 @@ Dit zijn de vereisten voor het voltooien van deze snelstart:
 - [.NET Core 2.0 SDK installeren](https://www.microsoft.com/net/core)
 - U hebt een Azure-abonnement en een bestaande .NET Core-webtoepassing nodig.
 
-Als u geen ASP.NET Core-webtoepassing hebt, kunt u onze stapsgewijze handleiding gebruiken om [een ASP.NET Core-app te maken en Application Insights toe te voegen](../../azure-monitor/app/asp-net-core.md).
+Als u een ASP.NET Core web-App niet hebt, kunt u onze stapsgewijze handleiding voor het [een ASP.NET Core-app maken en toevoegen van Application Insights.](../../azure-monitor/app/asp-net-core.md)
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 

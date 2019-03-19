@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191442"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082939"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Open-source technologieën Veelgestelde vragen over de Web-Apps in Azure
 
@@ -44,10 +44,10 @@ PHP-logboekregistratie inschakelen:
 9. Selecteer **Opslaan**.
 10. Selecteer het potloodpictogram naast **wp-config.php**.
 11. Wijzig de tekst in de volgende code:
-   ```php
-   //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
-   ```
+    ```php
+    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
+    //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
+    ```
 12. Start opnieuw op met uw web-app in Azure portal, in het webmenu-app.
 
 Zie voor meer informatie, [inschakelen WordPress-foutenlogboeken](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
@@ -59,31 +59,31 @@ Zie voor meer informatie, [inschakelen WordPress-foutenlogboeken](https://blogs.
 
 Als u wilt de versie van de Node.js-toepassing wijzigen, kunt u een van de volgende opties gebruiken:
 
-*   In de Azure-portal, gebruikt u **App-instellingen**.
-    1. In de Azure-portal, gaat u naar uw web-app.
-    2. Op de **instellingen** Selecteer **toepassingsinstellingen**.
-    3. In **App-instellingen**, kunt u WEBSITE_NODE_DEFAULT_VERSION opnemen als de sleutel en de versie van Node.js die u wilt gebruiken als de waarde.
-    4. Ga naar uw [Kudu-console](https://*yourwebsitename*.scm.azurewebsites.net).
-    5. Om te controleren of de Node.js-versie, voer de volgende opdracht:  
-   ```
-   node -v
-   ```
-*   Het bestand iisnode.yml wijzigen. Wijzigen van de Node.js-versie in het bestand iisnode.yml alleen Hiermee stelt u de runtime-omgeving waarnaar iisnode wordt gebruikt. De Kudu-cmd en andere nog steeds gebruikmaken van de Node.js-versie die is ingesteld in **App-instellingen** in Azure portal.
+* In de Azure-portal, gebruikt u **App-instellingen**.
+  1. In de Azure-portal, gaat u naar uw web-app.
+  2. Op de **instellingen** Selecteer **toepassingsinstellingen**.
+  3. In **App-instellingen**, kunt u WEBSITE_NODE_DEFAULT_VERSION opnemen als de sleutel en de versie van Node.js die u wilt gebruiken als de waarde.
+  4. Ga naar uw [Kudu-console](https://*yourwebsitename*.scm.azurewebsites.net).
+  5. Om te controleren of de Node.js-versie, voer de volgende opdracht:  
+     ```
+     node -v
+     ```
+* Het bestand iisnode.yml wijzigen. Wijzigen van de Node.js-versie in het bestand iisnode.yml alleen Hiermee stelt u de runtime-omgeving waarnaar iisnode wordt gebruikt. De Kudu-cmd en andere nog steeds gebruikmaken van de Node.js-versie die is ingesteld in **App-instellingen** in Azure portal.
 
-    Als u wilt de iisnode.yml handmatig instellen, maakt u een iisnode.yml-bestand in de hoofdmap van uw app. In het bestand, zijn onder andere de volgende regel:
-   ```yml
-   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-   ```
+  Als u wilt de iisnode.yml handmatig instellen, maakt u een iisnode.yml-bestand in de hoofdmap van uw app. In het bestand, zijn onder andere de volgende regel:
+  ```yml
+  nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+  ```
    
-*   Het bestand iisnode.yml instellen met behulp van package.json tijdens de implementatie van de bron-besturingselement.
-    Het implementatieproces van de Azure-bron-besturingselement omvat de volgende stappen uit:
-    1. Inhoud verplaatst naar de Azure-web-app.
-    2. Hiermee maakt u een implementatiescript standaard als er geen een (deploy.cmd, .deployment-bestanden) in de hoofdmap van de web-app.
-    3. Wordt uitgevoerd een implementatiescript waarin deze een iisnode.yml bestand maakt als u de Node.js-versie in het bestand package.json vermeld > engine `"engines": {"node": "5.9.1","npm": "3.7.3"}`
-    4. Het bestand iisnode.yml heeft de volgende coderegel:
-        ```yml
-        nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-        ```
+* Het bestand iisnode.yml instellen met behulp van package.json tijdens de implementatie van de bron-besturingselement.
+  Het implementatieproces van de Azure-bron-besturingselement omvat de volgende stappen uit:
+  1. Inhoud verplaatst naar de Azure-web-app.
+  2. Hiermee maakt u een implementatiescript standaard als er geen een (deploy.cmd, .deployment-bestanden) in de hoofdmap van de web-app.
+  3. Wordt uitgevoerd een implementatiescript waarin deze een iisnode.yml bestand maakt als u de Node.js-versie in het bestand package.json vermeld > engine `"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  4. Het bestand iisnode.yml heeft de volgende coderegel:
+      ```yml
+      nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+      ```
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>Ik zie het bericht 'Fout bij het maken van een databaseverbinding' in mijn WordPress-app die wordt gehost in App Service. Hoe kan ik dit oplossen?
 
@@ -114,12 +114,12 @@ Zie voor meer informatie over het installeren van Django [een Django-app impleme
 
 Voor Azure Marketplace en aangepaste implementaties:
 
-* Locatie van map: D:\home\site\wwwroot\bin\apache-Tomcat-8.0.33\logs
+* Locatie van map: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
 * Bestanden van belang:
     * catalina.*yyyy-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
-    * localhost. *jjjj-mm-dd*.log
-    * Manager. *jjjj-mm-dd*.log
+    * localhost.*yyyy-mm-dd*.log
+    * manager.*yyyy-mm-dd*.log
     * site_access_log.*yyyy-mm-dd*.log
 
 
@@ -129,8 +129,8 @@ Voor portal **App-instellingen** implementaties:
 * Bestanden van belang:
     * catalina.*yyyy-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
-    * localhost. *jjjj-mm-dd*.log
-    * Manager. *jjjj-mm-dd*.log
+    * localhost.*yyyy-mm-dd*.log
+    * manager.*yyyy-mm-dd*.log
     * site_access_log.*yyyy-mm-dd*.log
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Hoe kan ik JDBC-stuurprogramma-verbindingsfouten oplossen?
@@ -204,7 +204,7 @@ Als u zelf WordPress vergrendeld na de installatie van een invoegtoepassing onla
 
 U hebt meerdere opties voor het migreren van de MySQL-database die verbonden met uw WordPress-website:
 
-* Ontwikkelaars: Gebruik de [-opdrachtprompt of PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
+* : Gebruik de [-opdrachtprompt of PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
 * Niet-ontwikkelaars: Gebruik [WordPress vriend +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Hoe u helpen u WordPress beter te beveiligen?

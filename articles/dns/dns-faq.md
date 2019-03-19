@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: b8240f69649e9bcb9a705f2c9fcbb819cf119356
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761409"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098090"
 ---
 # <a name="azure-dns-faq"></a>Veelgestelde vragen over Azure DNS
 
@@ -42,7 +42,7 @@ Zie voor meer informatie de [Azure DNS-SLA-pagina](https://azure.microsoft.com/s
 
 Een domein is een unieke naam in het domain name system. Bijvoorbeeld: contoso.com.
 
-Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten. Het domein contoso.com kan bijvoorbeeld verschillende DNS-records bevatten. De records advies inwinnen mail.contoso.com voor een e-mailserver en www.contoso.com voor een website. Deze records worden gehost in de DNS-zone contoso.com.
+Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten. Het domein contoso.com kan bijvoorbeeld verschillende DNS-records bevatten. De records advies inwinnen bij mail.contoso.com voor een e-mailserver en een www\.contoso.com voor een website. Deze records worden gehost in de DNS-zone contoso.com.
 
 De domeinnaam van een is *alleen een naam*. Een DNS-zone is een Gegevensresource die de DNS-records voor een domeinnaam bevat. Met Azure DNS kunt u een DNS-zone hosten en de DNS-records voor een domein in Azure beheren. Het biedt ook DNS-naamservers om te reageren op DNS-query's via Internet.
 

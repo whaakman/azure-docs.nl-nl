@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rimman
-ms.openlocfilehash: 3d05da5f62a076dc168bef029cd0babc3946ee6b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: d37f373e98835846c2d29130781706c400086c0e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077238"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Beveiliging in Azure Cosmos DB - overzicht
 
@@ -57,7 +57,7 @@ Laten we kijken weer de voorgaande lijst - hoeveel van de beveiligingsvereisten 
 Laten we even stilstaan bij elkaar in detail.
 
 |Beveiligingsvereiste|Aanpak van Azure Cosmos-DB-beveiliging|
-|---|---|---|
+|---|---|
 |Netwerkbeveiliging|Met behulp van een IP-firewall, is de eerste laag van beveiliging voor het beveiligen van uw database. Azure Cosmos DB ondersteunt basis van IP-gebaseerd toegangsbeheer voor firewallondersteuning van de inkomende-beleid. De besturingselementen voor toegang op basis van IP zijn vergelijkbaar met de firewall-regels die door traditionele databasesystemen gebruikt, maar ze zijn uitgevouwen, zodat een Azure Cosmos DB-databaseaccount alleen toegankelijk is vanaf een goedgekeurde set machines of cloudservices is. <br><br>Azure Cosmos DB kunt u mogelijk om een specifiek IP-adres (168.61.48.0), een IP-adresbereik (168.61.48.0/8) en combinaties van IP-adressen en -bereiken. <br><br>Alle aanvragen die afkomstig zijn van computers buiten deze toegestane lijst geblokkeerd door Azure Cosmos DB. Aanvragen van goedgekeurde machines en cloudservices vervolgens vult het verificatieproces uit als u wilt toegang krijgen tot de resources.<br><br>Meer informatie in [firewallondersteuning van Azure Cosmos DB](firewall-support.md).|
 |Autorisatie|Azure Cosmos DB maakt gebruik van hash-gebaseerde bericht verificatiecode op te geven (HMAC) voor autorisatie. <br><br>Elke aanvraag wordt opgedeeld met behulp van de geheime sleutel en de volgende base-64 gecodeerde hash wordt verzonden met elke aanroep naar Azure Cosmos DB. Voor het valideren van de aanvraag, de Azure Cosmos DB-service maakt gebruik van de juiste geheime sleutel en de eigenschappen voor het genereren van een hash en vervolgens de waarde met de in de aanvraag worden vergeleken. Als de twee waarden overeenkomen met de bewerking is geautoriseerd en de aanvraag wordt verwerkt, anders wordt er is een Autorisatiefout en de aanvraag wordt afgewezen.<br><br>U kunt ofwel een [hoofdsleutel](secure-access-to-data.md#master-keys), of een [resourcetoken](secure-access-to-data.md#resource-tokens) fijnmazige toegang tot een resource, zoals een document toe te staan.<br><br>Meer informatie in [toegang tot Azure Cosmos DB-resources beveiligen](secure-access-to-data.md).|
 |Gebruikers en machtigingen|Met behulp van de hoofdsleutel voor het account, kunt u Gebruikersresources en machtiging resources per database maken. Een resourcetoken is gekoppeld aan een machtiging in een database en bepaalt of de gebruiker heeft toegang (lezen / schrijven, alleen-lezen, of geen toegang) tot de bron van een toepassing in de database. Toepassingsresources omvatten container, documenten, bijlagen, opgeslagen procedures, triggers en UDF's. De resourcetoken wordt vervolgens gebruikt tijdens de verificatie om te geven of weigeren van toegang tot de resource.<br><br>Meer informatie in [toegang tot Azure Cosmos DB-resources beveiligen](secure-access-to-data.md).|

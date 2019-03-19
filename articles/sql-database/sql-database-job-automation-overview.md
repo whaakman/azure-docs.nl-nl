@@ -3,7 +3,6 @@ title: Azure SQL-taakautomatisering | Microsoft Docs
 description: Gebruik Taakautomatisering voor het uitvoeren van Transact-SQL-scripts (T-SQL) in een set van een of meer Azure SQL-databases
 services: sql-database
 ms.service: sql-database
-ms.subservice: database-features
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
@@ -12,18 +11,20 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457204"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901964"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Beheertaken automatiseren met behulp van databasetaken
 
 Met behulp van Azure SQL Database kunt u taken die regelmatig kunnen worden uitgevoerd op een of meer databases maken en plannen om T-SQL-query's en onderhoudstaken uit te voeren. Door elke taak wordt de uitvoeringsstatus in een logboek vastgelegd en wordt ook geprobeerd de bewerkingen opnieuw uit te voeren als er een fout optreedt.
 U kunt een doeldatabase of groepen Azure SQL-databases definiëren waarin de taak wordt uitgevoerd, en ook schema's voor het uitvoeren van een taak definiëren.
 Een taak handelt het aanmelden bij de doeldatabase af. Ook definieert, onderhoudt en handhaaft u Transact-SQL-scripts die in een groep van Azure SQL-databases moeten worden uitgevoerd.
+
+## <a name="when-to-use-automated-jobs"></a>Wanneer u geautomatiseerde taken
 
 Er zijn verschillende scenario's waarin u taakautomatisering kunt gebruiken:
 
@@ -36,8 +37,10 @@ Er zijn verschillende scenario's waarin u taakautomatisering kunt gebruiken:
   - Verzamel gegevens uit een verzameling Azure SQL-databases in één doeltabel.
   - Voer langer durende gegevensverwerkingsquery's uit voor een groot aantal databases, zoals het verzamelen van klanttelemetrie. Resultaten worden in één doeltabel verzameld voor verdere analyse.
 - Gegevensverplaatsingen
- - Taken maken waarmee wijzigingen die zijn aangebracht in uw databases naar andere databases worden gerepliceerd of updates verzamelen die zijn uitgevoerd in externe databases en wijzigingen doorvoeren in de database.
- - Taken maken waarmee gegevens vanuit of naar uw databases worden geladen met behulp van SQL Server Integration Services (SSIS).
+  - Taken maken waarmee wijzigingen die zijn aangebracht in uw databases naar andere databases worden gerepliceerd of updates verzamelen die zijn uitgevoerd in externe databases en wijzigingen doorvoeren in de database.
+  - Taken maken waarmee gegevens vanuit of naar uw databases worden geladen met behulp van SQL Server Integration Services (SSIS).
+
+## <a name="overview"></a>Overzicht
 
 De volgende technologieën voor het plannen van taken zijn beschikbaar in Azure SQL Database:
 
@@ -158,9 +161,9 @@ Enkele van de SQL Agent-functies die beschikbaar zijn in SQL Server worden niet 
 - SQL Agent-instellingen zijn alleen-lezen. Procedure `sp_set_agent_properties` wordt niet ondersteund in het beheerde exemplaar.
 - Het in-/uitschakelen van de Agent wordt momenteel niet ondersteund in het beheerde exemplaar. SQL Agent wordt altijd uitgevoerd.
 - Meldingen worden gedeeltelijk ondersteund
- - Pager wordt niet ondersteund.
- - NetSend wordt niet ondersteund.
- - Waarschuwingen worden nog niet ondersteund.
+  - Pager wordt niet ondersteund.
+  - NetSend wordt niet ondersteund.
+  - Waarschuwingen worden nog niet ondersteund.
 - Proxy's worden niet ondersteund.
 - Gebeurtenislogboek wordt niet ondersteund.
 

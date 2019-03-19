@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: d5fdae09055f922fe9783f6eb074457af12c60df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413240"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880412"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Een Cognitive Services-resource met een set vaardigheden in Azure Search koppelen 
 
@@ -60,21 +60,7 @@ U betaalt alleen voor de vaardigheden die de Cognitive Services-API's aanroepen.
 
 1. Voor **nieuwe Cognitive Services-resource maken**, er wordt een nieuw tabblad geopend zodat u van de resource maken kunt. De resource een unieke naam geven.
 
-1. Kies dezelfde locatie als de Azure Search. Cognitieve vaardigheden indexeren wordt momenteel ondersteund in deze regio's:
-
-  * US - west-centraal
-  * US - zuid-centraal
-  * US - oost
-  * US - oost 2
-  * US - west 2
-  * Canada - midden
-  * Europa -west
-  * Verenigd Koninkrijk Zuid
-  * Europa - noord
-  * Brazilië - zuid
-  * Azië - zuidoost
-  * India - centraal
-  * Australië - oost
+1. Als u een nieuwe Cognitive Services-resource maakt **kiest u de dezelfde regio** als uw Azure Search-resource.
 
 1. Kies de prijscategorie All-in-one, **S0**. Deze laag biedt de visie en taal-functies die de vooraf gedefinieerde vaardigheden in cognitief zoeken back-ups maken.
 

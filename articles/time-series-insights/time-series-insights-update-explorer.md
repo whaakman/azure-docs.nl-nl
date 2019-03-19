@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: d5c18521f39b1b57b5f94a54bb3131e05abba745
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: ed8a829bd73a53dc94bf8b08648b3d6684f718f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556642"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109760"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Gegevens visualiseren in de Preview-versie van de Verkenner
 
@@ -141,7 +141,7 @@ Als u met Time Series Insights Preview werkt, selecteert u eerst een tijdsduur. 
 
 1. **Datumbereik naar en van het webbesturingselement voor**: Met dit webbesturingselement kunt u eenvoudig op en selecteer de gewenste datum en tijd bereiken. U kunt ook het besturingselement gebruiken om over te schakelen tussen de verschillende tijdzones. Nadat de wijzigingen zijn aangebracht, toe te passen op de huidige werkruimte, selecteert u **opslaan**.
 
-  ![Verkenner-13][13]
+   ![Verkenner-13][13]
 
 ## <a name="time-series-insights-preview-navigation-panel"></a>Navigatiepaneel van Time Series Insights-Preview
 

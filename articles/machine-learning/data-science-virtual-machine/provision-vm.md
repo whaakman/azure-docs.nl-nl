@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 8ee424412c9c54dadef7391084e3ab976da9ad7f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417445"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896259"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Een Windows Data Science Virtual Machine op Azure inrichten
 
@@ -44,7 +44,7 @@ De volgende hulpprogramma's zijn opgenomen in een DSVM:
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) - een snelle machine learning-systeem die ondersteuning biedt voor technieken zoals online hashing, allreduce, kortingen, learning2search en actieve en interactieve training
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/) -een hulpprogramma waarmee u snel en nauwkeurige boosted structuur implementatie
   * [Rattle](https://togaware.com/rattle/) -het analytische R-hulpprogramma dat u aan de slag met gegevensanalyse en machine learning in R. Het bevat GUI-gebaseerde gegevens verkennen en modelleren met automatische generatie van R-code.
-  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) -visual gegevensanalyse en machine learning-software in Java
+  * [Weka](https://www.cs.waikato.ac.nz/ml/weka/) -visual gegevensanalyse en machine learning-software in Java
   * [Apache Drill](https://drill.apache.org/) -een schemavrije SQL query-engine voor Apache Hadoop-, NoSQL- en opslag in de cloud. ODBC- en JDBC-interfaces worden ondersteund voor het uitvoeren van query's NoSQL en bestanden van standard BI-hulpprogramma's zoals Power BI, Microsoft Excel en Tableau.
 * Bibliotheken in R en Python voor gebruik in Azure Machine Learning en andere Azure-services
 * GIT, met inbegrip van Git Bash, om te werken met broncodeopslagplaatsen, zoals GitHub en DevOps met Azure. GIT biedt verschillende populaire Linux-opdrachtregelprogramma's die toegankelijk zijn zowel op Git Bash en een opdrachtprompt. Voorbeelden zijn awk, sed, perl, grep, zoeken, wget en curl.
@@ -71,7 +71,7 @@ Er zijn geen kosten voor software voor deze data science VM-installatiekopie. U 
 
 ## <a name="prerequisite"></a>Vereiste
 
-Voor het maken van een Microsoft Data Science Virtual Machine, moet u een Azure-abonnement hebben. Zie [Gratis proefversie van Azure ophalen](http://azure.com/free).
+Voor het maken van een Microsoft Data Science Virtual Machine, moet u een Azure-abonnement hebben. Zie [Gratis proefversie van Azure ophalen](https://azure.com/free).
 
 ## <a name="create-your-dsvm"></a>Uw DSVM maken
 
@@ -96,7 +96,7 @@ Een exemplaar van de DSVM maken:
    1. **Instellingen voor**:  
       * **Beheerde schijven gebruiken**. Kies **beheerde** als u wilt dat Azure voor het beheren van de schijven voor de virtuele machine. Als dat niet het geval is, moet u een nieuwe of bestaande storage-account opgeven.  
       * **Andere parameters**. U kunt de standaardwaarden gebruiken. Als u gebruiken niet-standaard waarden wilt, Beweeg de muisaanwijzer over de informatieve koppeling voor meer informatie over de specifieke velden.
-   1. **Samenvatting**: Controleer of alle informatie die u hebt ingevoerd juist is. Selecteer **Maken**.
+   1. **Summary**: Controleer of alle informatie die u hebt ingevoerd juist is. Selecteer **Maken**.
 
 > [!NOTE]
 > * De virtuele machine niet op een extra kosten buiten de compute-kosten voor de servergrootte van de die u hebt gekozen in de **grootte** stap.
@@ -229,4 +229,4 @@ U kunt de [Microsoft Web Platform Installer](https://www.microsoft.com/web/downl
 * Navigeer in Windows Verkenner naar **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** voor voorbeelden die gebruikmaken van de bibliotheek RevoScaleR in R die ondersteuning biedt voor gegevensanalyse op de grote schaal.  
 * Lees het artikel [tien dingen die u in de Data science Virtual Machine doen kunt](https://aka.ms/dsvmtenthings).
 * Informatie over het bouwen van analytische oplossingen voor end-to-end systematisch met behulp van de [Team Data Science Process](../team-data-science-process/index.yml).
-* Ga naar de [Azure AI Gallery](http://gallery.cortanaintelligence.com) services voor machine learning en data analytics-voorbeelden die gebruikmaken van Azure Machine Learning en gerelateerde gegevens in Azure. We hebben ook een pictogram voor deze galerie beschikbaar op de **Start** menu en het bureaublad van de virtuele machine.
+* Ga naar de [Azure AI Gallery](https://gallery.cortanaintelligence.com) services voor machine learning en data analytics-voorbeelden die gebruikmaken van Azure Machine Learning en gerelateerde gegevens in Azure. We hebben ook een pictogram voor deze galerie beschikbaar op de **Start** menu en het bureaublad van de virtuele machine.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 897bcae65cd0115f3e224ec4a65e3736089bf97f
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 08f84a3e037301837da984b0891d978027dc2e11
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242493"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083161"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Zelfstudie: Detectie van bedreigingen met Azure Sentinel Preview
 
@@ -42,11 +42,11 @@ Voor het onderzoeken van aanvragen, moet u eerst detectieregels maken. Detectier
 
 1. Selecteer in de Azure-portal onder Azure Sentinel **Analytics**.
 
-  ![Analyse](./media/tutorial-detect-threats/alert-rules.png)
+   ![Analyse](./media/tutorial-detect-threats/alert-rules.png)
 
 2. Klik in de bovenste menubalk op **+ toevoegen**.  
 
-  ![Waarschuwingsregel maken](./media/tutorial-detect-threats/create-alert-rule.png)
+   ![Waarschuwingsregel maken](./media/tutorial-detect-threats/create-alert-rule.png)
 
 3. Onder **waarschuwingsregel maken**, Geef een beschrijvende naam en stel de **ernst** indien nodig. 
 

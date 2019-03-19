@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: d09f03aed8a739eaaaf8c60c379a746551d3b6f8
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009882"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118796"
 ---
 # <a name="reset-a-vpn-gateway"></a>Een VPN-gateway opnieuw instellen
 
@@ -47,7 +47,7 @@ U kunt een Resource Manager-VPN-gateway met behulp van de Azure portal opnieuw. 
 1. Open de [Azure-portal](https://portal.azure.com) en navigeer naar de virtuele netwerkgateway van Resource Manager die u wilt instellen.
 2. Klik op 'Herstellen' op de blade voor de virtuele netwerkgateway.
 
-  ![VPN-Gateway-blade opnieuw instellen](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
+   ![VPN-Gateway-blade opnieuw instellen](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. Klik op de blade opnieuw instellen op de **opnieuw** knop.
 
 ## <a name="ps"></a>PowerShell

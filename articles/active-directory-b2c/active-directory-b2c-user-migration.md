@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e19e21ab31fcee87aac6e7e8a0e1d0fbd0a7452c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0ca35c5d7a882a67bdce5e006b94d1f16daf9130
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409904"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893201"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Gebruikersmigratie
 Wanneer u uw id-provider migreert naar Azure Active Directory B2C (Azure AD B2C), moet u mogelijk ook het gebruikersaccount te migreren. In dit artikel wordt uitgelegd hoe u bestaande gebruikersaccounts migreren van een id-provider naar Azure AD B2C. Het artikel is niet bedoeld om te worden duidelijk, maar in plaats daarvan worden enkele scenario's beschreven. De ontwikkelaar is verantwoordelijk voor de geschiktheid van elke methode.
@@ -63,7 +63,7 @@ Uw migratietoepassing eerst registreren in Azure AD. Vervolgens een Toepassingss
 1. Maak een nieuwe toepassing door de volgende te doen:
    - Voor **naam**, gebruikt u **B2CUserMigration** of een andere naam die u wilt.
    - Voor **toepassingstype**, gebruikt u **Web-app/API**.
-   - Voor **aanmeldings-URL**, gebruikt u **https://localhost** (zoals dit niet relevant zijn voor deze toepassing is).
+   - Voor **aanmeldings-URL**, gebruikt u `https://localhost` (zoals dit niet relevant zijn voor deze toepassing is).
    - Selecteer **Maken**.
    
 1. Nadat de toepassing is gemaakt, in de **toepassingen** , selecteert u het zojuist gemaakte **B2CUserMigration** toepassing.
@@ -94,7 +94,7 @@ U hebt nu een toepassing met machtigingen voor het maken, lezen en bijwerken van
 Lezen en schrijven gegevens mapmachtigingen doen *niet* omvatten het recht om gebruikers te verwijderen. Om te geven van uw toepassing de mogelijkheid om gebruikers (voor het opschonen van uw omgeving) te verwijderen, moet u een extra stap die wordt uitgevoerd van PowerShell om in te stellen van de beheerder van gebruikersaccounts machtigingen uitvoeren. Anders kunt u doorgaan met de volgende sectie.
 
 > [!IMPORTANT]
-> Moet u een B2C-tenant administrator-account dat is *lokale* voor de B2C-tenant. De syntaxis van de naam van het account is *admin@contosob2c.onmicrosoft.com*.
+> Moet u een B2C-tenant administrator-account dat is *lokale* voor de B2C-tenant. De syntaxis van de naam van het account is *admin\@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
 > De volgende PowerShell-script vereist [Azure Active Directory PowerShell versie 2][AD-Powershell].

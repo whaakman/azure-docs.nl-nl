@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 28b28dc15809aa5d37eb9347ff3bc7eecccc9a20
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452705"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099049"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installeren van een Linux-hoofddoelserver voor failback
 Nadat u uw virtuele machines naar Azure failover, kunt u de virtuele machines om de on-premises site weer failover. Als u wilt uitvoeren van een failback, moet u opnieuw beveiligen van de virtuele machine van Azure naar de on-premises site. Voor dit proces moet u een on-premises hoofddoelserver om het verkeer te ontvangen. 
@@ -168,15 +168,15 @@ Ophalen van de ID voor elke harde SCSI-schijf in een virtuele Linux-machine, de 
 
 5. Zie of een rij met **schijf. EnableUUID** bestaat al.
 
-    - Als de waarde bestaat en is ingesteld op **False**, wijzig de waarde in **waar**. (De waarden zijn niet hoofdlettergevoelig).
+   - Als de waarde bestaat en is ingesteld op **False**, wijzig de waarde in **waar**. (De waarden zijn niet hoofdlettergevoelig).
 
-    - Als de waarde bestaat en is ingesteld op **waar**, selecteer **annuleren**.
+   - Als de waarde bestaat en is ingesteld op **waar**, selecteer **annuleren**.
 
-    - Als de waarde niet bestaat, selecteert u **rij toevoegen**.
+   - Als de waarde niet bestaat, selecteert u **rij toevoegen**.
 
-    - Voeg in de naamkolom **schijf. EnableUUID**, en stel de waarde in op **waar**.
+   - Voeg in de naamkolom **schijf. EnableUUID**, en stel de waarde in op **waar**.
 
-    ![Controleren of schijf. Er bestaat al een EnableUUID](./media/vmware-azure-install-linux-master-target/image25.png)
+     ![Controleren of schijf. Er bestaat al een EnableUUID](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Kernel-upgrades uitschakelen
 

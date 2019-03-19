@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6cb9e839b1fffd29ce1d78e82fb4ab054b92efc6
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 44b9e592d60c541e6b1e7f0e8c639b641af414e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959119"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118354"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Zelfstudie: Port Forwarding configureren in Azure Load Balancer met behulp van de portal
 
@@ -45,13 +45,13 @@ Voor alle stappen in deze zelfstudie moet u zich aanmelden bij Azure Portal op [
 Maak eerst een standaardversie van een openbare load balancer die verkeersbelasting over virtuele machines kan verdelen. Een standaardversie van een load balancer biedt alleen ondersteuning voor een standaard, openbaar IP-adres. Wanneer u een standaardversie van een load balancer maakt, moet u ook een nieuw, standaard, openbaar IP-adres maken dat als de front-end load balancer wordt geconfigureerd en standaard **LoadBalancerFrontend** wordt genoemd. 
 
 1. Klik linksboven in het scherm op **Een resource maken** > **Netwerken** > **Load balancer**.
-2. Voer op het tabblad **Basis** van de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Controleren + maken**:
+2. Voer op het tabblad **Basis** van de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer vervolgens **Controleren + maken**:
 
-    | Instelling                 | Waarde                                              |
+    | Instelling                 | Value                                              |
     | ---                     | ---                                                |
     | Abonnement               | Selecteer uw abonnement.    |    
     | Resourcegroep         | Selecteer **Nieuwe maken** en typ *MyResourceGroupLB* in het tekstvak.|
-    | Naam                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Regio         | Selecteer **Europa - west**.                                        |
     | Type          | Selecteer **Openbaar**.                                        |
     | SKU           | selecteer **Standaard**.                          |
@@ -220,7 +220,7 @@ De load balancer-regel met de naam **myLoadBalancerRuleWeb** luistert op poort 8
    
 1. Selecteer **OK**.
    
-  ![Load balancer-regel toevoegen](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
+   ![Load balancer-regel toevoegen](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
 
 ## <a name="create-an-inbound-nat-port-forwarding-rule"></a>Inkomende NAT Port Forwarding-regel maken
 

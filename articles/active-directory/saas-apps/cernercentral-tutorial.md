@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62888afb29c3b721da978c7180b36d62d6a575a8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c097fb045db1afe65a84a2a96dc202c57e8a449e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200561"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975539"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Zelfstudie: Azure Active Directory-integratie met Cerner Central
 
@@ -119,6 +119,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
     
     b. In de **antwoord-URL** tekstvak, een URL met behulp van de volgende patronen:
+    
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
@@ -210,7 +211,7 @@ Wanneer u op de tegel Cerner centraal in het toegangsvenster, u moet u automatis
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 * [Inrichten van gebruikers configureren](cernercentral-provisioning-tutorial.md)
 

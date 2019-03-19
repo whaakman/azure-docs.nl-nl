@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088006"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Over het bouwen van een classificatie met Custom Vision
 
@@ -100,7 +100,7 @@ Voor het uploaden van een andere set van installatiekopieën, Ga terug naar de b
 
 > [!NOTE]
 > De Custom Vision Service biedt ondersteuning voor de verwerking van sommige automatische negatieve afbeeldingen. Bijvoorbeeld, als u een gedeeltelijk versus bananen classificatie bouwen en verzenden van een installatiekopie van een schoen voor voorspelling, moet de classificatie die installatiekopie als dicht bij 0% score voor gedeeltelijk en bananen.
-
+> 
 > In gevallen waar de negatieve afbeeldingen slechts een variant van de afbeeldingen in training gebruikt zijn, is het aan de andere kant waarschijnlijk dat het model wordt het classificeren van de installatiekopieën van het negatieve als een gelabelde klasse vanwege de grote overeenkomsten. Bijvoorbeeld, als u een oranje versus pompelmoezen en pomelo's classificatie hebt en u in een afbeelding van een clementine feed, kan het beoordelen de clementine als een oranje omdat veel functies van de clementine lijken op die van de appels. Als uw negatieve installatiekopieën van deze aard zijn, het beste maken van een of meer extra labels (zoals **andere**) en de negatieve afbeeldingen met dit label te labelen tijdens de training om toe te staan van het model beter onderscheid maken tussen deze klassen .
 
 ## <a name="train-the-classifier"></a>De classificatie trainen

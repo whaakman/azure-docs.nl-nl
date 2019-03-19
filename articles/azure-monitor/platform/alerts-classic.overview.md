@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 596b7eb53d82f8eee7da439314994fd0951c7e64
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661714"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993026"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Wat zijn klassieke waarschuwingen in Microsoft Azure?
 
@@ -80,10 +80,10 @@ De oudere metrische waarschuwingen wordt actiegroepen echter niet gebruiken. In 
 - Een webhook, waarmee u start automation extra acties kunt aanroepen.
 
 Webhooks maakt het mogelijk om automatisering en herstel, bijvoorbeeld:
-    - Azure Automation Runbook
-    - Azure Functions
-    - Azure Logic App
-    - Een service van derden
+- Azure Automation Runbook
+- Azure Functions
+- Azure Logic App
+- Een service van derden
 
 ## <a name="next-steps"></a>Volgende stappen
 Informatie ophalen over de regels voor waarschuwingen en ze te configureren met behulp van:

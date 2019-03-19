@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d7888fd52495f7d2a195b729fae6d0411cfbd64c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 8e75a6344e517fb0343343f557cb7211f49cfed8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587953"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838309"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Beheer de toegang tot Azure-resources met behulp van RBAC en Azure CLI
 
-[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop dat u de toegang tot Azure-resources beheren. Dit artikel wordt beschreven hoe u de toegang voor gebruikers, groepen en toepassingen die gebruikmaken van RBAC en Azure CLI beheren.
+[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot Azure-resources beheert. Dit artikel wordt beschreven hoe u de toegang voor gebruikers, groepen en toepassingen die gebruikmaken van RBAC en Azure CLI beheren.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -194,7 +194,7 @@ az role assignment list --assignee <assignee>
 
 Standaard wordt alleen toewijzingen binnen het bereik van abonnement worden weergegeven. Als u wilt weergeven toewijzingen ingedeeld per resource of groep, gebruikt u `--all`.
 
-Het volgende voorbeeld worden de roltoewijzingen die zijn toegewezen rechtstreeks naar de *patlong@contoso.com* gebruiker:
+Het volgende voorbeeld worden de roltoewijzingen die zijn toegewezen rechtstreeks naar de *patlong\@contoso.com* gebruiker:
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -252,7 +252,7 @@ Gebruik voor het maken van een roltoewijzing voor een gebruiker op de resource-g
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
 ```
 
-In het volgende voorbeeld wordt de *Inzender voor virtuele machines* rol *patlong@contoso.com* gebruiker op de *pharma-verkoop-projectforecast* groepsbereik van de resource:
+In het volgende voorbeeld wordt de *Inzender voor virtuele machines* rol *patlong\@contoso.com* gebruiker op de *pharma-verkoop-projectforecast* Groepsbereik van de resource:
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
@@ -300,7 +300,7 @@ In RBAC, als u wilt verwijderen van toegang, verwijdert u een roltoewijzing met 
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-Het volgende voorbeeld verwijdert u de *Inzender voor virtuele machines* roltoewijzing van de *patlong@contoso.com* gebruiker op de *pharma-verkoop-projectforecast* resource groep:
+Het volgende voorbeeld verwijdert u de *Inzender voor virtuele machines* roltoewijzing van de *patlong\@contoso.com* gebruiker op de *pharma-verkoop-projectforecast* resourcegroep:
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast

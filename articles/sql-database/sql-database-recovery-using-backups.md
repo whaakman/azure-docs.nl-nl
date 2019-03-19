@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: f54e715f555f01a265ed89ac633f207546a73904
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: ff3f1e405dc7a1e69c3b1d1d20936ca78b97fcda
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576358"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855092"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database met behulp van geautomatiseerde databaseback-ups herstellen
 
@@ -114,9 +114,6 @@ Om te herstellen van een verwijderde database met behulp van de Azure portal tij
 
 U kunt een SQL-database op elke server in een Azure-regio van de meest recente geo-replicatie back-ups herstellen. Geo-herstel een geografisch redundante back-up gebruikt als de bron- en kan worden gebruikt om een database herstellen, zelfs als de database of het datacenter niet toegankelijk als gevolg van een storing is.
 
-> [!Note]
-> Geo-restore is niet beschikbaar in het beheerde exemplaar.
-
 Geo-restore is de standaardoptie voor herstel wanneer de database is niet beschikbaar vanwege een incident in de regio waar de database wordt gehost. Als een grootschalige incident in een regio, resulteert in niet-beschikbaarheid van uw databasetoepassing, kunt u een database herstellen vanuit back-ups via geo-replicatie naar een server in een andere regio. Er is een vertraging tussen wanneer een back-up is gemaakt en wanneer het zich geo-replicatie naar een Azure blob in een andere regio. Deze vertraging mag maximaal een uur, dus als er zich een noodgeval voordoet, kan er van één uur gegevens verloren gaan. De volgende afbeelding ziet het herstellen van de database van de laatste beschikbare back-up in een andere regio.
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
@@ -133,6 +130,9 @@ Point-in-time terugzetten op een secundaire geo-server is momenteel niet onderst
 
 Voor geo-restore a database tijdens de [bewaarperiode op basis van DTU-model](sql-database-service-tiers-dtu.md) of [bewaarperiode op vCore gebaseerde model](sql-database-service-tiers-vcore.md) met behulp van de Azure-portal, open de pagina SQL-Databases en klik vervolgens op **toevoegen** . In de **bron selecteren** in het tekstvak, selecteer **back-up**. Geef de back-up van waaruit het herstel wilt uitvoeren in de regio en op de server van uw keuze.
 
+> [!Note]
+> Geo-herstellen met behulp van de Azure-portal is niet beschikbaar in het beheerde exemplaar. Gebruik in plaats daarvan PowerShell.
+
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Herstel met behulp van geautomatiseerde back-ups uitvoeren via een programma
 
 Zoals eerder is besproken, naast de Azure portal, kan databaseherstel worden uitgevoerd via een programma met behulp van Azure PowerShell of de REST-API. De volgende tabellen beschrijven de reeks opdrachten die beschikbaar zijn.
@@ -140,6 +140,8 @@ Zoals eerder is besproken, naast de Azure portal, kan databaseherstel worden uit
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 - Als u een zelfstandige of gegroepeerde-database herstellen, Zie [terugzetten AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
@@ -173,7 +175,7 @@ Een enkele of gegroepeerde om database te herstellen met behulp van de REST-API:
 ### <a name="azure-cli"></a>Azure-CLI
 
 - Zie voor het herstellen van een enkele of gegroepeerde database met behulp van Azure CLI, [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
-- Zie voor het herstellen van een beheerd exemplaar met behulp van Azure CLI, [az sql DEELB herstellen](/cli/azure/sql/db#az-sql-midb-restore)
+- Zie voor het herstellen van een beheerd exemplaar met behulp van Azure CLI, [az sql DEELB herstellen](/cli/azure/sql/db)
 
 ## <a name="summary"></a>Samenvatting
 

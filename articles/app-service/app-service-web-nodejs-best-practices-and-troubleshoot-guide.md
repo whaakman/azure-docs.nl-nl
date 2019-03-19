@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 6a22600f7d6653da64256d7ec63ba26f272b2184
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888267"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898853"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Aanbevolen procedures en gids voor probleemoplossing voor knooppunttoepassingen in Azure App Service-Windows
 
@@ -118,7 +118,7 @@ De standaardwaarde is false. Ingesteld op true, iisnode weergegeven wanneer de H
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (niet inschakelen op live-productiesite)
 
-Deze instelling bepaalt u de functie voor foutopsporing. Iisnode is geïntegreerd met node-inspector. Als u deze instelling inschakelt, kunt u inschakelen foutopsporing van uw knooppunttoepassing. Bij deze instelling is ingeschakeld, maakt iisnode node-inspector bestanden in de map 'debuggerVirtualDir' op de eerste aanvraag voor foutopsporing voor uw knooppunttoepassing. U kunt de node-inspector laden door het verzenden van een aanvraag voor http://yoursite/server.js/debug. U kunt de URL-segment voor foutopsporing beheren met de instelling 'debuggerPathSegment'. Standaard debuggerPathSegment = 'debug'. U kunt instellen `debuggerPathSegment` naar een GUID, dus deze is bijvoorbeeld moeilijker te vinden zijn door anderen.
+Deze instelling bepaalt u de functie voor foutopsporing. Iisnode is geïntegreerd met node-inspector. Als u deze instelling inschakelt, kunt u inschakelen foutopsporing van uw knooppunttoepassing. Bij deze instelling is ingeschakeld, maakt iisnode node-inspector bestanden in de map 'debuggerVirtualDir' op de eerste aanvraag voor foutopsporing voor uw knooppunttoepassing. U kunt de node-inspector laden door het verzenden van een aanvraag voor `http://yoursite/server.js/debug`. U kunt de URL-segment voor foutopsporing beheren met de instelling 'debuggerPathSegment'. Standaard debuggerPathSegment = 'debug'. U kunt instellen `debuggerPathSegment` naar een GUID, dus deze is bijvoorbeeld moeilijker te vinden zijn door anderen.
 
 Lezen [fouten opsporen in node.js-toepassingen op Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) voor meer informatie over het opsporen van fouten.
 
@@ -133,7 +133,7 @@ De module agentkeepalive zorgt ervoor dat sockets worden hergebruikt voor uw Azu
 Voorbeeld [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) configuratie:
 
 ```nodejs
-var keepaliveAgent = new Agent({
+let keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
     timeout: 60000,
@@ -155,9 +155,9 @@ Als u denkt dat uw toepassing worden te veel CPU verbruikt en u kunt geen reden,
 Stel dat u hebt een hello world-app die u wilt profileren als volgt:
 
 ```nodejs
-var http = require('http');
+const http = require('http');
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Ga naar de Console voor foutopsporing https://yoursite.scm.azurewebsites.net/DebugConsole
+Ga naar de Console voor foutopsporing `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Ga naar de map site/wwwroot. Zoals wordt weergegeven in het volgende voorbeeld ziet u een opdrachtprompt:
 
@@ -185,12 +185,12 @@ Met deze opdracht installeert de v8-profiler onder het knooppunt\_modules map en
 Nu uw server.js wilt profileren van uw toepassing bewerken.
 
 ```nodejs
-var http = require('http');
-var profiler = require('v8-profiler');
-var fs = require('fs');
+const http = require('http');
+const profiler = require('v8-profiler');
+const fs = require('fs');
 
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }

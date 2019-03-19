@@ -11,18 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 282a20beb11172aa3a1d2c7326dc38ce8a7acfcf
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: fe348daa4613e0b515244686e48ed63a41991d81
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062652"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009384"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Time Series Insights-resources met behulp van Azure Resource Manager-sjablonen maken
 
 In dit artikel wordt beschreven hoe u maken en implementeren van Time Series Insights-resources met behulp van Azure Resource Manager-sjablonen, PowerShell en de Time Series Insights-resourceprovider.
 
 Time Series Insights ondersteunt de volgende bronnen:
+
    | Resource | Description |
    | --- | --- |
    | Omgeving | Een Time Series Insights-omgeving is een logische groepering van gebeurtenissen die worden gelezen uit de gebeurtenis-brokers, opgeslagen en beschikbaar gesteld voor de query. Zie voor meer informatie [uw Azure Time Series Insights-omgeving plannen](time-series-insights-environment-planning.md) |
@@ -34,7 +35,7 @@ Resource Manager-sjabloon is een JSON-bestand dat de infrastructuur en configura
 
 - [Overzicht van Azure Resource Manager - sjabloon implementeren](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-- [Microsoft.TimeSeriesInsights resourcetypen](/azure/templates/microsoft.timeseriesinsights/allversions)
+- [Microsoft.TimeSeriesInsights resource types](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 De [201-timeseriesinsights-omgeving-met-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart-sjabloon is gepubliceerd op GitHub. Deze sjabloon maakt u een Time Series Insights-omgeving, een onderliggende gebeurtenisbron geconfigureerd voor het gebruiken van gebeurtenissen van een Event Hub en toegangsbeleid die toegang tot gegevens van de omgeving verlenen. Als een bestaande Event Hub is niet opgegeven, wordt een gemaakt met de implementatie.
 
@@ -65,7 +66,7 @@ Voor het maken van een parameterbestand, Kopieer de [201-timeseriesinsights-omge
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "eventHubNamespaceName": {
@@ -94,7 +95,7 @@ Voor het maken van een parameterbestand, Kopieer de [201-timeseriesinsights-omge
    | eventHubNamespaceName | De naamruimte van de bron event hub. |
    | eventHubName | De naam van de bron event hub. |
    | consumerGroupName | De naam van de consumergroep die de Time Series Insights-service wordt gebruikt om te lezen van de gegevens van de event hub. **OPMERKING:** Om bronconflicten te voorkomen, moet deze consumentengroep worden toegewezen aan de Time Series Insights-service en niet wordt gedeeld met andere lezers. |
-   | EnvironmentName | De naam van de omgeving. De naam kan niet bevatten: ' <', ' >', '%', '&', ': ','\\','?', '/' en alle stuurcodes. Alle andere tekens zijn toegestaan.|
+   | environmentName | De naam van de omgeving. De naam kan niet bevatten: ' <', ' >', '%', '&', ': ','\\','?', '/' en alle stuurcodes. Alle andere tekens zijn toegestaan.|
    | eventSourceName | De naam van de onderliggende bron van gebeurtenis bron. De naam kan niet bevatten: ' <', ' >', '%', '&', ': ','\\','?', '/' en alle stuurcodes. Alle andere tekens zijn toegestaan. |
 
 #### <a name="optional-parameters"></a>Optionele Parameters
@@ -116,7 +117,7 @@ Als een voorbeeld zou de volgende parameterbestand worden gebruikt om een omgevi
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "eventHubNamespaceName": {
@@ -268,7 +269,7 @@ Outputs                 :
 De startpagina van de quickstart-sjabloon op GitHub bevat ook een **implementeren in Azure** knop. Erop te klikken, opent een aangepaste implementatie-pagina in Azure portal. Op deze pagina kunt u opgeven of waarden selecteren voor elk van de parameters van de [vereiste parameters](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) of [optionele parameters](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters) tabellen. Na het invullen van de instellingen, te klikken op de **aankoop** knop de sjabloonimplementatie worden gestart.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -14,12 +14,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a7dc5152bb1ede5f7311e74815a6d58782d32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199320"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112752"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Gebruikersprivacy en Azure AD Connect Health 
 
@@ -62,17 +62,17 @@ Zie [hoe u een server verwijderen uit Azure AD Connect Health](how-to-connect-he
 Azure AD Connect Health biedt ook de optie voor het verzamelen van gegevens van stoppen **alle** services geregistreerd in de tenant. U wordt aangeraden een zorgvuldige afweging en volledige geeft u aan dat alle globale beheerders voordat de actie wordt ondernomen. Zodra het proces wordt gestart, worden de Connect Health-service wordt gestopt ontvangen, verwerkt en rapporteert geen gegevens van alle services. Bestaande gegevens in Connect Health-service wordt niet meer dan 30 dagen worden bewaard.
 Als u verzamelen van gegevens van specifieke server stoppen wilt, volgt u de stappen bij het verwijderen van specifieke servers. Als u wilt stoppen tenant-wise gegevensverzameling, volgt u de volgende stappen uit voor het verzamelen van gegevens stoppen en verwijderen van alle services van de tenant.
 
-1.  Klik op **algemene instellingen** onder configuratie in de hoofdblade. 
-2.  Klik op **gegevensverzameling stoppen** knop boven aan de blade. De andere opties van de tenant-instellingen worden, uitgeschakeld nadat het proces wordt gestart.  
+1. Klik op **algemene instellingen** onder configuratie in de hoofdblade. 
+2. Klik op **gegevensverzameling stoppen** knop boven aan de blade. De andere opties van de tenant-instellingen worden, uitgeschakeld nadat het proces wordt gestart.  
  
- ![Stop het verzamelen van gegevens](./media/reference-connect-health-user-privacy/gdpr4.png)
+   ![Stop het verzamelen van gegevens](./media/reference-connect-health-user-privacy/gdpr4.png)
   
-3.  Zorg ervoor dat de lijst met onboarding-services die worden beïnvloed door het verzamelen van gegevens gestopt. 
-4.  Voer de naam van de exacte tenant om in te schakelen de **verwijderen** actieknop
-5.  Klik op **verwijderen** voor het activeren van het verwijderen van alle services. Verbinding maken met Health stopt ontvangen, verwerken, rapporteert geen gegevens verzonden vanuit uw onboarding-services. Het hele proces van kan tot 24 uur duren. U ziet deze stap is niet ongedaan worden gemaakt. 
-6.  Nadat het proces is voltooid, wordt u geen geregistreerde services in Connect Health meer ziet. 
+3. Zorg ervoor dat de lijst met onboarding-services die worden beïnvloed door het verzamelen van gegevens gestopt. 
+4. Voer de naam van de exacte tenant om in te schakelen de **verwijderen** actieknop
+5. Klik op **verwijderen** voor het activeren van het verwijderen van alle services. Verbinding maken met Health stopt ontvangen, verwerken, rapporteert geen gegevens verzonden vanuit uw onboarding-services. Het hele proces van kan tot 24 uur duren. U ziet deze stap is niet ongedaan worden gemaakt. 
+6. Nadat het proces is voltooid, wordt u geen geregistreerde services in Connect Health meer ziet. 
 
- ![Nadat het verzamelen van gegevens gestopt](./media/reference-connect-health-user-privacy/gdpr5.png)
+   ![Nadat het verzamelen van gegevens gestopt](./media/reference-connect-health-user-privacy/gdpr5.png)
 
 ## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Opnieuw inschakelen van gegevensverzameling en -bewaking in Azure AD Connect Health
 Als u wilt opnieuw inschakelen bewaking in Azure AD Connect Health voor een eerder verwijderde bewaakte service, moet u eerst verwijderen en [opnieuw installeren van de health-agent](how-to-connect-health-agent-install.md) op alle servers.
@@ -85,14 +85,14 @@ Tenant-Wise gegevensverzameling kan worden hervat in Azure AD Connect Health. U 
 > De volgende stappen zijn beschikbaar na 24 uur van de actie uitschakelen.
 > Na het inschakelen van verzamelen van gegevens, worden het gepresenteerde inzicht en bewakingsgegevens in Connect Health niet weergegeven verouderde gegevens die worden verzameld voordat. 
 
-1.  Klik op **algemene instellingen** onder configuratie in de hoofdblade. 
-2.  Klik op **gegevensverzameling inschakelen** knop boven aan de blade. 
+1. Klik op **algemene instellingen** onder configuratie in de hoofdblade. 
+2. Klik op **gegevensverzameling inschakelen** knop boven aan de blade. 
  
- ![Gegevensverzameling inschakelen](./media/reference-connect-health-user-privacy/gdpr6.png)
+   ![Gegevensverzameling inschakelen](./media/reference-connect-health-user-privacy/gdpr6.png)
  
-3.  Voer de naam van de exacte tenant activeren de **inschakelen** knop.
-4.  Klik op **inschakelen** knop toestemming van de gegevensverzameling in Connect Health-service te verlenen. De wijziging wordt over enkele ogenblikken worden toegepast. 
-5.  Ga als volgt de [installatieproces](how-to-connect-health-agent-install.md) opnieuw installeren van de agent op de servers moeten worden bewaakt en de services aanwezig zijn in de portal.  
+3. Voer de naam van de exacte tenant activeren de **inschakelen** knop.
+4. Klik op **inschakelen** knop toestemming van de gegevensverzameling in Connect Health-service te verlenen. De wijziging wordt over enkele ogenblikken worden toegepast. 
+5. Ga als volgt de [installatieproces](how-to-connect-health-agent-install.md) opnieuw installeren van de agent op de servers moeten worden bewaakt en de services aanwezig zijn in de portal.  
 
 
 ## <a name="next-steps"></a>Volgende stappen

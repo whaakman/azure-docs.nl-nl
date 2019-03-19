@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabb47d4c4f39d30d8e19e8d8f41b5b84c57fd42
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c7c05c9a7db7f8e8c6e84232009780988d77aa14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217595"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088329"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Het werkt als volgt: Azure Multi-Factor Authentication
 
@@ -26,7 +26,9 @@ De beveiliging van verificatie in twee stappen ligt in de gelaagde benadering. V
 * Iets dat u hebt (een vertrouwd apparaat dat is niet eenvoudig worden gedupliceerd, zoals een telefoon)
 * Iets dat u bent (biometrie)
 
-<center>![Afbeelding van algemene verificatie methoden](./media/concept-mfa-howitworks/methods.png)</center>
+<center>
+
+![Afbeelding van algemene verificatie methoden](./media/concept-mfa-howitworks/methods.png)</center>
 
 Azure multi-factor Authentication (MFA) helpt beveiligen de toegang tot gegevens en toepassingen behoud van eenvoud voor gebruikers. Het biedt extra beveiliging doordat een tweede vorm van verificatie en biedt een robuuste verificatie met een scala aan gebruiksvriendelijke [verificatiemethoden](concept-authentication-methods.md). Gebruikers kunnen of kunnen niet worden gecontroleerd voor MFA op basis van de configuratie van de beslissingen die een beheerder maakt.
 

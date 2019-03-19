@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fad3d77d15d78ffdaf1afca3675a82242b844778
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 03174e6336589f8aa49a7fc7197da1301ff54400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730378"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009776"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Het bijwerken van Azure PowerShell-modules in Azure Automation
 
@@ -58,27 +58,27 @@ Hier volgen enkele overwegingen rekening moet houden bij het gebruik van dit pro
 
 1. Op de pagina Modules van uw Automation-account, wordt de optie **Update Azure-Modules**. Het altijd ingeschakeld.<br><br> ![De optie Azure-Modules in Modules pagina bijwerken](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-  > [!NOTE]
-  > Voordat u bijwerkt van uw Azure-modules die het wordt aanbevolen dat u werkt ze bij in een test Automation-Account om ervoor te zorgen dat werken uw bestaande scripts zoals verwacht voordat het bijwerken van uw Azure-modules.
-  >
-  > De **Update Azure-Modules** knop is alleen beschikbaar in de openbare cloud. het is niet beschikbaar in de [soevereine regio's](https://azure.microsoft.com/global-infrastructure/). Gebruik de **Update AutomationAzureModulesForAccount** runbook aan uw Azure-modules bijwerken. U kunt dit ook downloaden via de [Update Azure-modules runbook opslagplaats](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Zie voor meer informatie over het gebruik van de open-source-runbook, [Update Azure-Modules met open-source runbook](#open-source).
+   > [!NOTE]
+   > Voordat u bijwerkt van uw Azure-modules die het wordt aanbevolen dat u werkt ze bij in een test Automation-Account om ervoor te zorgen dat werken uw bestaande scripts zoals verwacht voordat het bijwerken van uw Azure-modules.
+   >
+   > De **Update Azure-Modules** knop is alleen beschikbaar in de openbare cloud. het is niet beschikbaar in de [soevereine regio's](https://azure.microsoft.com/global-infrastructure/). Gebruik de **Update AutomationAzureModulesForAccount** runbook aan uw Azure-modules bijwerken. U kunt dit ook downloaden via de [Update Azure-modules runbook opslagplaats](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Zie voor meer informatie over het gebruik van de open-source-runbook, [Update Azure-Modules met open-source runbook](#open-source).
 
 2. Klik op **Update Azure-Modules**, ter bevestiging een melding wordt weergegeven dat wordt gevraagd of u wilt doorgaan.<br><br> ![Melding van Azure-Modules bijwerken](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
 3. Klik op **Ja** en begint met het updateproces voor de module. Het updateproces duurt ongeveer 15-20 minuten om bij te werken van de volgende modules:
 
-  * Azure
-  * Azure.Storage
-  * AzureRm.Automation
-  * AzureRm.Compute
-  * AzureRm.Profile
-  * AzureRm.Resources
-  * AzureRm.Sql
-  * AzureRm.Storage
+   * Azure
+   * Azure.Storage
+   * AzureRm.Automation
+   * AzureRm.Compute
+   * AzureRm.Profile
+   * AzureRm.Resources
+   * AzureRm.Sql
+   * AzureRm.Storage
 
-    Als de modules al bijgewerkt zijn, klikt u vervolgens het proces is voltooid binnen een paar seconden. Wanneer de update is voltooid, krijgt u een melding.<br><br> ![Updatestatus van de Azure-Modules bijwerken](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+     Als de modules al bijgewerkt zijn, klikt u vervolgens het proces is voltooid binnen een paar seconden. Wanneer de update is voltooid, krijgt u een melding.<br><br> ![Updatestatus van de Azure-Modules bijwerken](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
-    De .NET core AzureRm-modules (AzureRm.*. Core) worden niet ondersteund in Azure Automation en kan niet worden geïmporteerd.
+     De .NET core AzureRm-modules (AzureRm.*. Core) worden niet ondersteund in Azure Automation en kan niet worden geïmporteerd.
 
 > [!NOTE]
 > Azure Automation maakt gebruik van de meest recente modules in uw Automation-account wanneer een nieuwe geplande taak wordt uitgevoerd.  

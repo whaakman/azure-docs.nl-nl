@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 634b175ec0b5771e3ff2fa061532106eb124ea4e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994865"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Een Azure Blueprint definiëren en toewijzen met REST API
 
@@ -70,6 +70,9 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
 
 - Vervang `{YourMG}` door de ID van uw beheergroep
 - Vervang `{subscriptionId}` door uw abonnements-ID
+
+> [!NOTE]
+> Blauwdrukken kunnen ook worden gemaakt op abonnementsniveau. Zie voor een voorbeeld [blauwdruk maken abonnement voorbeeld](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. Maak het eerste _blauwdruk_object. De **Aanvraagbody** bevat eigenschappen van de blauwdruk, te maken resourcegroepen en alle parameters op blauwdrukniveau. De parameters worden tijdens het toewijzen ingesteld en gebruikt door de artefacten die in latere stappen worden toegevoegd.
 
@@ -262,7 +265,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
                      "tags": {
                         "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
                      },
-                     "location": "[resourceGroup().location]",
+                     "location": "[resourceGroups('storageRG').location]",
                      "sku": {
                          "name": "[parameters('storageAccountTypeFromBP')]"
                      },
@@ -335,7 +338,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
 - Vervang `{YourMG}` door de ID van uw beheergroep
 - Vervang `{subscriptionId}` door uw abonnements-ID
 
-1. Geef in de Azure Blueprint-service-principal de rol **Eigenaar** op in het doelabonnement. De AppId is statisch (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), maar de service-principal-ID verschilt per tenant. U kunt voor uw tenant details aanvragen met de volgende REST API. Deze gebruikt [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md), die een andere autorisatie heeft.
+1. Geef in de Azure Blueprint-service-principal de rol **Eigenaar** op in het doelabonnement. De AppId statisch is (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), maar de service-principal-ID is afhankelijk van de tenant. U kunt voor uw tenant details aanvragen met de volgende REST API. Deze gebruikt [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md), die een andere autorisatie heeft.
 
    - REST API-URI
 
@@ -435,9 +438,9 @@ Als u de blauwdruk zelf wilt verwijderen, gebruikt u de volgende REST API-bewerk
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [levenscyclus van een blauwdruk](./concepts/lifecycle.md)
-- Informatie over hoe u [statische en dynamische parameters](./concepts/parameters.md) gebruikt
-- Meer informatie over hoe u de [blauwdrukvolgorde](./concepts/sequencing-order.md) aanpast
-- Ontdek hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](./concepts/resource-locking.md)
-- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](./how-to/update-existing-assignments.md)
-- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](./troubleshoot/general.md)
+- Meer informatie over de [blauwdruk levenscyclus](./concepts/lifecycle.md).
+- Meer informatie over het gebruik van [statische en dynamische parameters](./concepts/parameters.md).
+- Meer informatie over het aanpassen van de [blauwdruk volgorde](./concepts/sequencing-order.md).
+- Ontdek hoe u het gebruik van [blauwdruk resource vergrendelen](./concepts/resource-locking.md).
+- Meer informatie over het [bijwerken, bestaande toewijzingen](./how-to/update-existing-assignments.md).
+- Problemen oplossen bij het toewijzen van een blauwdruk met [algemene probleemoplossing](./troubleshoot/general.md).

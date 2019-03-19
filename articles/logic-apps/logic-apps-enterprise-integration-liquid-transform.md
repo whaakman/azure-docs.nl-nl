@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
 ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: d607c75bc451774e6bf269eb658236d93a85021f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104162"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Geavanceerde JSON-transformaties met Liquid-sjablonen in Azure Logic Apps uitvoeren
 
@@ -35,8 +34,7 @@ Dus voordat u een Liquid transformatie in uw logische app uitvoeren kunt, defini
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Liquid sjabloon of de kaart voor uw integratie-account maken
 
-1. In dit voorbeeld maakt de voorbeeldsjabloon vloeistof die worden beschreven in deze stap.
-Als u geen filters gebruiken in uw Liquid sjabloon wilt, zorg er dan voor dat deze filters beginnen met hoofdletters. Meer informatie over [vloeistof filters](https://shopify.github.io/liquid/basics/introduction/#filters), welke gebruik [DotLiquid](https://dotliquidmarkup.org/) en C# naamconventies.
+1. In dit voorbeeld maakt de voorbeeldsjabloon vloeistof die worden beschreven in deze stap. In de Liquid sjabloon, kunt u [vloeistof filters](https://shopify.github.io/liquid/basics/introduction/#filters), welke gebruik [DotLiquid](https://dotliquidmarkup.org/) en C# naamconventies. Zorg ervoor dat u *filterfunctie namen beginnen met hoofdletters*, geen kleine letters. 
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -82,7 +80,8 @@ Als u geen filters gebruiken in uw Liquid sjabloon wilt, zorg er dan voor dat de
 
 2. In de Logic App Designer voegen de [aanvraagtrigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) aan uw logische app.
 
-3. Kies onder de trigger **nieuwe stap**. Typ 'vloeistof' als filter in het zoekvak en selecteer deze actie: **JSON transformeren naar JSON - vloeistof**
+3. Kies onder de trigger **nieuwe stap**. 
+   Typ 'vloeistof' als filter in het zoekvak en selecteer deze actie: **JSON transformeren naar JSON - vloeistof**
 
    ![Zoek en selecteer Liquid actie](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -101,7 +100,7 @@ Als u geen filters gebruiken in uw Liquid sjabloon wilt, zorg er dan voor dat de
 
    2. Uit de **selecteert u een integratieaccount** lijst, selecteert u uw integratieaccount en kies **opslaan**.
 
-     ![Logica-app voor het integratieaccount koppelen](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+      ![Logica-app voor het integratieaccount koppelen](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## <a name="test-your-logic-app"></a>Uw logische app testen
 

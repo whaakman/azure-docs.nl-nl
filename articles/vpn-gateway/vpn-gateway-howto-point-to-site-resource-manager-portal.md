@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4e8a28634e554ee75eea79e69c0b73e8adec3447
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fa406ac2f1e0b89a1161660a49f2a4cb6f6d6c32
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700533"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117316"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Een punt-naar-Site-verbinding met een VNet met behulp van systeemeigen Azure certificaatverificatie configureren: Azure Portal
 
@@ -94,17 +94,17 @@ De clientadrespool bestaat uit een privé-IP-adresbereik dat u opgeeft. De clien
 
 1. Nadat de virtuele netwerkgateway is gemaakt, gaat u naar de sectie **Instellingen** van de pagina van de virtuele netwerkgateway. Klik in het gedeelte **Instellingen** op **Punt-naar-site-configuratie**.
 
-  ![De pagina Punt-naar-site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
+   ![De pagina Punt-naar-site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
 2. Klik op **Nu configureren** om de configuratiepagina te openen.
 
-  ![Nu configureren](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
+   ![Nu configureren](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
 3. Op de pagina **Punt-naar-site-configuratie** kunt u in het vak **Adresgroep** het bereik met privé-IP-adressen toevoegen dat u wilt gebruiken. VPN-clients ontvangen dynamisch een IP-adres uit het bereik dat u opgeeft. Klik op **Opslaan** om de instelling te valideren en op te slaan.
 
-  ![Clientadresgroep](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+   ![Clientadresgroep](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
-  >[!NOTE]
-  >Als u Tunneltype of Verificatietype niet ziet in de portal op deze pagina, gebruikt uw gateway de basis-SKU. De basis-SKU biedt geen ondersteuning voor IKEv2- of RADIUS-verificatie.
-  >
+   >[!NOTE]
+   >Als u Tunneltype of Verificatietype niet ziet in de portal op deze pagina, gebruikt uw gateway de basis-SKU. De basis-SKU biedt geen ondersteuning voor IKEv2- of RADIUS-verificatie.
+   >
 
 ## <a name="tunneltype"></a>7. Tunneltype configureren
 
@@ -126,13 +126,13 @@ U kunt aanvullende vertrouwde basiscertificaatbestanden uploaden (maximaal 20). 
 2. Zorg ervoor dat u het basiscertificaat hebt geëxporteerd als een Base-64 encoded X.509 (.cer)-bestand. U moet het certificaat in deze indeling exporteren, zodat u het certificaat met een teksteditor kunt openen.
 3. Open het certificaat met een teksteditor zoals Kladblok. Zorg er bij het kopiëren van de certificaatgegevens voor dat u de tekst als één ononderbroken regel kopieert zonder regelterugloop of regelinvoer. Mogelijk moet u de weergave in de teksteditor wijzigen naar Symbool weergeven/Alle tekens weergeven om de regelterugloop en regelinvoer te zien. Kopieer alleen het volgende gedeelte als één ononderbroken regel:
 
-  ![Certificaatgegevens](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
+   ![Certificaatgegevens](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
 4. Plak de certificaatgegevens in het veld **Gegevens van openbaar certificaat**. Geef een **naam** aan het certificaat en klik vervolgens op **Opslaan**. U kunt maximaal 20 vertrouwde basiscertificaten toevoegen.
 
-  ![Certificaat uploaden](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
+   ![Certificaat uploaden](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
 5. Klik op **Opslaan** bovenaan de pagina om alle configuratie-instellingen op te slaan.
 
-  ![Opslaan](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
+   ![Opslaan](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
 
 ## <a name="installclientcert"></a>10. Een geëxporteerd clientcertificaat installeren
 
@@ -159,10 +159,10 @@ De configuratiebestanden van de VPN-clients bevatten de instellingen voor het co
 
 2. Klik op de pagina **Verbindingsstatus** op **Verbinden** om de verbinding te starten. Als het scherm **Certificaat selecteren** wordt geopend, controleert u of het weergegeven clientcertificaat het certificaat is dat u voor de verbinding wilt gebruiken. Als dat niet het geval is, gebruikt u de pijl-omlaag om het juiste certificaat te selecteren en klikt u op **OK**.
 
-  ![VPN-client maakt verbinding met Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
+   ![VPN-client maakt verbinding met Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
 3. De verbinding is tot stand gebracht.
 
-  ![Verbinding tot stand gebracht](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
+   ![Verbinding tot stand gebracht](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
 #### <a name="troubleshoot-windows-p2s-connections"></a>Problemen met Windows-P2S-verbindingen oplossen
 
@@ -183,8 +183,8 @@ Deze instructies zijn van toepassing op Windows-clients.
 1. Als u wilt controleren of uw VPN-verbinding actief is, opent u een opdrachtprompt met verhoogde bevoegdheid en voert u *ipconfig/all* in.
 2. Bekijk de resultaten. Het IP-adres dat u hebt ontvangen is een van de adressen binnen het adresbereik van de punt-naar-site-VPN-clientadresgroep die u hebt opgegeven in uw configuratie. De resultaten zijn vergelijkbaar met het volgende voorbeeld:
 
-  ```
-  PPP adapter VNet1:
+   ```
+   PPP adapter VNet1:
       Connection-specific DNS Suffix .:
       Description.....................: VNet1
       Physical Address................:
@@ -194,7 +194,7 @@ Deze instructies zijn van toepassing op Windows-clients.
       Subnet Mask.....................: 255.255.255.255
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 ## <a name="connectVM"></a>Verbinding maken met een virtuele machine
 

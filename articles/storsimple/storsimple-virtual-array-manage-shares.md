@@ -1,6 +1,6 @@
 ---
-title: Virtuele StorSimple-matrix shares kunt beheren | Microsoft Docs
-description: Worden Apparaatbeheer StorSimple beschreven en wordt uitgelegd hoe u deze voor het beheren van shares op uw virtuele StorSimple-matrix.
+title: StorSimple Virtual Array shares beheren | Microsoft Docs
+description: Beschrijving van de StorSimple Device Manager en wordt uitgelegd hoe u deze gebruiken voor het beheren van shares op uw StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23876269"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092426"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>De service Manager voor StorSimple-apparaat gebruiken voor het beheren van shares op de virtuele StorSimple-matrix
+# <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>De StorSimple Device Manager-service gebruiken voor het beheren van shares op de StorSimple Virtual Array
 
 ## <a name="overview"></a>Overzicht
 
-Deze zelfstudie wordt uitgelegd hoe u met de service Manager voor StorSimple-apparaat maken en beheren van shares op uw virtuele StorSimple-matrix.
+In deze zelfstudie wordt uitgelegd hoe u de service StorSimple Device Manager maken en beheren van shares op uw StorSimple Virtual Array gebruiken.
 
-De service Manager voor StorSimple-apparaat is een uitbreiding in de Azure portal waarmee u uw StorSimple-oplossing beheren via een enkel webinterface. Naast het beheren van bestandsshares en volumes, kunt u de service Manager voor StorSimple-apparaat om te bekijken en beheren van apparaten, waarschuwingen weergeven back-upbeleid beheren en de back-catalogus beheren.
+De StorSimple Device Manager-service is een uitbreiding in de Azure-portal waarmee u uw StorSimple-oplossing beheren via één webinterface. Naast het beheren van bestandsshares en volumes, kunt u de service StorSimple Device Manager kunt gebruiken om te bekijken en beheren van apparaten, waarschuwingen bekijken, back-upbeleid beheren en de back-upcatalogus beheren.
 
 ## <a name="share-types"></a>Typen delen
 
-StorSimple-shares zijn:
+StorSimple-bestandsshares kunnen worden:
 
-* **Lokaal vastgemaakt**: gegevens in deze shares blijft op de matrix te allen tijde en komt niet in de cloud worden gelekt.
-* **Gelaagde**: gegevens in deze shares kunnen worden gelekt naar de cloud. Bij het maken van een gelaagde share ongeveer 10% van de ruimte is ingericht op de lokale laag en 90% van de ruimte in de cloud is ingericht. Bijvoorbeeld: als u een share 1 TB ingericht, 100 GB zou bevinden zich in de lokale ruimte en 900 GB in de cloud moet worden gebruikt wanneer de gegevenslagen. Dit wordt op zijn beurt betekent dat als u buiten de lokale ruimte op het apparaat uitvoeren, u kunt geen een gelaagde share inrichten (omdat de 10% vereist op de lokale laag niet meer beschikbaar).
+* **Lokaal vastgemaakt**: Gegevens in deze shares blijft op de matrix te allen tijde en wordt niet naar de cloud worden gelekt.
+* **Gelaagde**: Gegevens in deze shares kunnen worden gelekt naar de cloud. Wanneer u een gelaagde share maakt, wordt ongeveer 10% van de ruimte is ingericht op de lokale laag en 90% van de ruimte in de cloud is ingericht. Bijvoorbeeld, als u een share 1 TB hebt ingericht, 100 GB zou bevinden zich in de lokale ruimte en 900 GB zou in de cloud worden gebruikt wanneer de gegevenslagen. Dit wordt op zijn beurt betekent dat als u van de lokale ruimte op het apparaat uitvoert, u kunt geen een gelaagde share inrichten (omdat de 10% vereist op de lokale laag niet meer beschikbaar).
 
 ### <a name="provisioned-capacity"></a>Ingerichte capaciteit
 
-Raadpleeg de volgende tabel voor maximale ingerichte capaciteit voor elk sharetype.
+Raadpleeg de volgende tabel voor maximale ingerichte capaciteit voor elk type delen.
 
 | **Limiet-ID** | **Limiet** |
 | --- | --- |
@@ -49,99 +49,99 @@ Raadpleeg de volgende tabel voor maximale ingerichte capaciteit voor elk sharety
 
 ## <a name="the-shares-blade"></a>De blade Shares
 
-De **Shares** menu op de blade voor een overzicht van het StorSimple-service geeft een lijst met storage-shares op een gegeven StorSimple-matrix en kunt u ze kunt beheren.
+De **Shares** menu op de overzichtsblade van uw StorSimple-service geeft de lijst van storage-shares op een opgegeven StorSimple-matrix en kunt u ze kunt beheren.
 
-![Blade shares](./media/storsimple-virtual-array-manage-shares/shares-blade.png)
+![Shares-blade](./media/storsimple-virtual-array-manage-shares/shares-blade.png)
 
-Een share bestaat uit een reeks van kenmerken:
+Een share bestaat uit een reeks kenmerken:
 
-* **Sharenaam** – een beschrijvende naam die moet uniek en kunt u de share te identificeren.
-* **Status** – online of offline kan zijn. Als een share offline is, wordt gebruikers van de share niet mogelijk om deze te openen.
-* **Type** – Hiermee wordt aangegeven of de share **tiers verdeelde** (de standaardinstelling) of **lokaal vastgemaakt**.
-* **Capaciteit** – geeft de hoeveelheid gegevens die worden gebruikt in vergelijking met de totale hoeveelheid gegevens die kunnen worden opgeslagen op de share.
-* **Beschrijving** : een optionele instelling waarmee de share te beschrijven.
-* **Machtigingen** -het NTFS-machtigingen voor de share die kunnen worden beheerd via de Windows Verkenner.
-* **Back-** – voor het geval van de virtuele StorSimple-matrix, alle shares automatisch ingeschakeld voor back-up.
+* **Sharenaam** : een beschrijvende naam moet uniek zijn en helpt bij het identificeren van de share.
+* **Status** – online of offline kan zijn. Als een share offline is, kunnen gebruikers van de share zich niet openen.
+* **Type** – geeft aan of de share **gelaagd** (de standaardinstelling) of **lokaal vastgemaakt**.
+* **Capaciteit** – Hiermee geeft u de hoeveelheid gegevens die worden gebruikt in vergelijking met de totale hoeveelheid gegevens die kunnen worden opgeslagen op de share.
+* **Beschrijving** : een optionele instelling waarmee de share wordt beschreven.
+* **Machtigingen** -de NTFS-machtigingen voor de share die kunnen worden beheerd via Windows Explorer.
+* **Back-up** : In het geval van de StorSimple Virtual Array automatisch alle shares zijn ingeschakeld voor back-up.
 
-![Shares details](./media/storsimple-virtual-array-manage-shares/share-details.png)
+![Details van shares](./media/storsimple-virtual-array-manage-shares/share-details.png)
 
-Volg de instructies in deze zelfstudie aan de volgende taken uitvoeren:
+Volg de instructies in deze zelfstudie de volgende taken uitvoeren:
 
-* Share toevoegen
-* Een share wijzigen
-* Een share offline zetten
+* Een share toevoegen
+* Wijzigen van een share
+* Een share offline halen
 * Een share verwijderen
 
-## <a name="add-a-share"></a>Share toevoegen
+## <a name="add-a-share"></a>Een share toevoegen
 
-1. Klik op de StorSimple-service samenvatting blade **+ bestandsshare toevoegen** uit de opdrachtbalk. Hiermee opent u de **toevoegen share** blade.
+1. Uit de StorSimple overzichtsblade service, klikt u op **+ bestandsshare toevoegen** vanuit de opdrachtbalk. Hiermee opent u de **toevoegen share** blade.
 
     ![Share toevoegen](./media/storsimple-virtual-array-manage-shares/add-share.png)
 
-2. In de **toevoegen share** blade het volgende doen:
+2. In de **toevoegen share** blade, doet u het volgende:
    
-    1. In de **sharenaam** en voer een unieke naam voor de share. De naam moet een tekenreeks met 3 tot en met 127 tekens.
+   1. In de **sharenaam** veld, voer een unieke naam voor de share. De naam moet een tekenreeks met 3 tot en met 127 tekens.
 
-    2. Een optionele **beschrijving** voor de share. De beschrijving kunt identificeren de eigenaren van de bestandsshare.
+   2. Een optionele **beschrijving** voor de share. De beschrijving kunt identificeren de eigenaren van de share.
 
-    3. In de **Type** dropdown lijst, opgeven of maken van een **tiers verdeelde** of **lokaal vastgemaakt** delen. Selecteer voor workloads waarvoor lokale garanties, lage latenties en betere prestaties, **lokaal vastgemaakt share**. Voor alle overige gegevens selecteert **tiers verdeelde** delen.
+   3. In de **Type** vervolgkeuzelijst lijst, Geef op of maak een **gelaagd** of **lokaal vastgemaakt** delen. Voor workloads waarvoor lokale garanties, lage latenties en betere prestaties, selecteert u **lokaal vastgemaakt share**. Voor alle andere gegevens, selecteert u **gelaagd** delen.
 
-    4. In de **capaciteit** veld, geeft u de grootte van de share. Een gelaagde share moet tussen 500 GB en 20 TB en een lokaal vastgemaakt share moet tussen 50 GB en 2 TB.
+   4. In de **capaciteit** veld, geeft u de grootte van de share. Een gelaagde share moet tussen 500 GB en 20 TB en een lokaal vastgemaakt share moet tussen de 50 GB en 2 TB.
 
-    5. In de **standaard volledige machtigingen ingesteld op** veld, machtigingen toewijzen aan de gebruiker of de groep die toegang heeft tot deze share. Geef de naam van de gebruiker of de gebruikersgroep in  _john@contoso.com_  indeling. Het is raadzaam dat u een gebruikersgroep (in plaats van een enkele gebruiker) om toe te staan beheerdersbevoegdheden voor toegang tot deze shares. Nadat u hier de machtigingen hebt toegewezen, kunt u Windows Verkenner vervolgens gebruiken om deze machtigingen te wijzigen.
-3. Wanneer u klaar bent met het configureren van de share, klikt u op **maken**. Een share met de opgegeven instellingen wordt gemaakt en u ziet een melding. Standaard wordt de back-up worden ingeschakeld voor de share.
-4. Om te bevestigen dat de share is gemaakt, gaat u naar de **Shares** blade. Hier ziet u de share die wordt vermeld.
+   5. In de **standaard volledige machtigingen ingesteld op** veld, de machtigingen toewijzen aan de gebruiker of de groep die toegang heeft tot deze share. Geef de naam van de gebruiker of de gebruikersgroep in _john@contoso.com_ indeling. U wordt aangeraden dat u een gebruikersgroep (in plaats van één gebruiker) gebruiken om toe te staan van beheerdersbevoegdheden voor toegang tot deze shares. Als u de bevoegdheden hier hebt toegewezen, kunt u Verkenner gebruiken om de bevoegdheden te wijzigen.
+3. Wanneer u klaar bent met het configureren van uw bestandsshare, klikt u op **maken**. Een share wordt gemaakt met de opgegeven instellingen en u ziet een melding. Standaard wordt de back-up worden ingeschakeld voor de share.
+4. Om te bevestigen of de share is gemaakt, gaat u naar de **Shares** blade. Hier ziet u de share die worden vermeld.
    
-    ![Share maken geslaagd](./media/storsimple-virtual-array-manage-shares/share-success.png)
+    ![Bestandsshare maken geslaagd](./media/storsimple-virtual-array-manage-shares/share-success.png)
 
-## <a name="modify-a-share"></a>Een share wijzigen
+## <a name="modify-a-share"></a>Wijzigen van een share
 
-Een share wijzigen als u wilt wijzigen, de beschrijving van de share. Er zijn geen andere eigenschappen van de share kunnen worden gewijzigd zodra de share is gemaakt.
+Wijzigen van een share wanneer u nodig hebt om te wijzigen van de beschrijving van de share. Er zijn geen andere eigenschappen van de share kunnen worden gewijzigd nadat de share is gemaakt.
 
 #### <a name="to-modify-a-share"></a>Wijzigen van een share
 
-1. Van de **Shares** instellen op de blade van StorSimple-service-samenvatting, de virtuele matrix selecteren waarop de share die u wenst te maken van zich bevindt.
+1. Uit de **Shares** instellen op de overzichtsblade van de StorSimple-service, selecteert u de virtuele matrix waarop de share die u wenst dat u wilt wijzigen zich bevindt.
 2. **Selecteer** de share bij de huidige beschrijving bekijken en wijzigen.
 3. Sla de wijzigingen door te klikken op de **opslaan** opdrachtbalk. De opgegeven instellingen worden toegepast en u ziet een melding.
    
     ![ Share bewerken](./media/storsimple-virtual-array-manage-shares/share-edit.png)
 
-## <a name="take-a-share-offline"></a>Een share offline zetten
+## <a name="take-a-share-offline"></a>Een share offline halen
 
-Mogelijk moet u een share offline zetten wanneer u van plan bent om te wijzigen of verwijderen. Als een share offline is, is het niet beschikbaar voor lees-/ schrijftoegang. U moet de share offline nemen op de host, evenals op het apparaat.
+Mogelijk moet u een share offline halen als u van plan bent om te wijzigen of te verwijderen. Als een share offline is, is het niet beschikbaar voor lees-/ schrijftoegang. U moet de share offline nemen op de host, maar ook op het apparaat.
 
-#### <a name="to-take-a-share-offline"></a>Offline te nemen een share
+#### <a name="to-take-a-share-offline"></a>Op een share offline halen
 
-1. Zorg ervoor dat de betreffende share niet gebruikt wordt voordat deze offline wordt gezet.
-2. De share op de matrix offline nemen door de volgende stappen uit te voeren:
+1. Zorg ervoor dat de share in kwestie zich niet in gebruik voordat deze offline te zetten.
+2. De share op de matrix offline nemen door de volgende stappen uit:
    
-    1. Van de **Shares** instellen op de blade van StorSimple-service-samenvatting, de virtuele matrix selecteren waarop de share die u wenst dat u offline te halen zich bevindt.
+    1. Uit de **Shares** instellen op de overzichtsblade van de StorSimple-service, selecteert u de virtuele matrix waarop de share die u wenst dat u offline zetten zich bevindt.
 
     2. **Selecteer** de share en klik op **...**  (u kunt ook met de rechtermuisknop op in deze rij) en selecteer in het contextmenu **offline zetten**.
      
-        ![Offline share](./media/storsimple-virtual-array-manage-shares/shares-offline.png)
+        ![Offline delen](./media/storsimple-virtual-array-manage-shares/shares-offline.png)
 
-    3. Lees de informatie in de **offline zetten** blade en de bevestiging van de bewerking te bevestigen. Klik op **offline zetten** offline te nemen de share. U ziet een melding van de bewerking wordt uitgevoerd.
+    3. Lees de informatie in de **offline zetten** blade en controleer of de acceptatie van de bewerking. Klik op **offline zetten** offline te nemen de share. U ziet een melding van de bewerking wordt uitgevoerd.
 
     4. Om te bevestigen dat de share is offline is gehaald, gaat u naar de **Shares** blade. U ziet de status van de share als offline.
 
 ## <a name="delete-a-share"></a>Een share verwijderen
 
 > [!IMPORTANT]
-> U kunt een share alleen verwijderen als deze offline is.
+> U kunt een bestandsshare alleen verwijderen als deze offline is.
 
 
-De volgende stappen voor het verwijderen van een share.
+De volgende stappen als u wilt verwijderen van een share.
 
-#### <a name="to-delete-a-share"></a>Verwijderen van een share
+#### <a name="to-delete-a-share"></a>Een share verwijderen
 
-1. Van de **Shares** instellen op de blade van StorSimple-service-samenvatting, de virtuele matrix selecteren waarop de share die u wilt verwijderen zich bevindt.
+1. Uit de **Shares** instellen op de overzichtsblade van de StorSimple-service, selecteert u de virtuele matrix waarop de share die u wilt verwijderen zich bevindt.
 2. **Selecteer** de share en klik op **...**  (u kunt ook met de rechtermuisknop op in deze rij) en selecteer in het contextmenu **verwijderen**.
    
     ![Share verwijderen](./media/storsimple-virtual-array-manage-shares/share-delete.png)
-3. Controleer de status van de share die u wilt verwijderen. Als de share die u wilt verwijderen niet offline is, het offline halen eerst. Volg de stappen in [offline zetten van een share](#take-a-share-offline).
-4. Als u wordt gevraagd om bevestiging in de **verwijderen** blade, accepteer de bevestiging en klik op **verwijderen**. De share wordt nu verwijderd en de **Shares** blade ziet u de bijgewerkte lijst met shares binnen de virtuele-matrix.
+3. Controleer de status van de share die u wilt verwijderen. Als de share die u wilt verwijderen niet offline is, het offline halen eerst. Volg de stappen in [een share offline halen](#take-a-share-offline).
+4. Wanneer u wordt gevraagd om bevestiging in de **verwijderen** blade, accepteer de bevestiging en klik op **verwijderen**. De share wordt nu verwijderd en de **Shares** blade ziet u de bijgewerkte lijst met shares binnen de virtuele matrix.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over hoe [klonen van een StorSimple-share](storsimple-virtual-array-clone.md).
+Meer informatie over het [klonen van een StorSimple-share](storsimple-virtual-array-clone.md).
 

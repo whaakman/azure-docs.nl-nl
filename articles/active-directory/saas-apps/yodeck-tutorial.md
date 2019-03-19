@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 071054e2ec5fead3ce6181925b3c5f4e99a26736
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7564710b282c7e2ac586980896a28c00bcb2fe80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872599"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Zelfstudie: Azure Active Directory-integratie met Yodeck
 
@@ -192,7 +192,7 @@ In het geval van Yodeck is inrichten een handmatige taak.
 
     ![Werknemer toevoegen](./media/yodeck-tutorial/user2.png)
 
-1. Op de **Gebruikersdetails** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Voer in het dialoogvenster **User Details** de volgende stappen uit:
 
     ![Werknemer toevoegen](./media/yodeck-tutorial/user3.png)
 
@@ -200,7 +200,7 @@ In het geval van Yodeck is inrichten een handmatige taak.
 
     b. Typ in het tekstvak **Achternaam** de achternaam van de gebruiker in, bijvoorbeeld **Simon**.
 
-    c. In de **e** tekstvak, typ het e-mailadres van gebruiker, zoals **brittasimon@contoso.com**.
+    c. In de **e** tekstvak, typ het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
 
     d. Selecteer het geschikte **accountmachtigingen** optie aan de hand van uw organisatie nodig.
     
@@ -245,7 +245,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

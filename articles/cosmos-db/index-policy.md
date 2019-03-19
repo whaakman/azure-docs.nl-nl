@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 3/1/2019
 ms.author: mjbrown
-ms.openlocfilehash: 2b46638a7e0fa3dc80fa4d2fa23d49b37b8885ec
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 0ba5cdd4f92390634d6d2bea8add8309cb1f4d3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193144"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014487"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Index-beleid in Azure Cosmos DB
 
@@ -37,9 +37,6 @@ Azure Cosmos DB ondersteunt twee modi voor indexering die u voor een Azure Cosmo
   > De modus voor indexering configureren als een geen heeft een neveneffect van het verwijderen van alle bestaande indexen. U moet deze optie gebruiken als uw patronen voor databasetoegang ID vereisen of self link alleen.
 
 Query-consistentieniveaus worden die vergelijkbaar is met de reguliere leesbewerkingen bijgehouden. Azure Cosmos-database, wordt er een fout geretourneerd als u een query uitvoeren op de container met een geen modus te indexeren. U kunt de query's uitvoeren als scans via de expliciete **x-ms-documentdb-enable-scan** -header in de REST-API of de **EnableScanInQuery** optie vragen via de .NET SDK. Sommige query functies, zoals ORDER BY worden momenteel niet ondersteund met **EnableScanInQuery**, omdat ze een bijbehorende index verplichten.
-
-> [!NOTE]
-> Azure Cosmos DB heeft een derde, vertraagde indexering modus. Maar dit wordt opgeheven benadrukte omdat de queryprestaties en kosten kunnen onvoorspelbaar zijn. Het is raadzaam om met behulp van consistente indexering modus.
 
 ## <a name="modifying-the-indexing-policy"></a>Wijzigen van het indexeringsbeleid
 

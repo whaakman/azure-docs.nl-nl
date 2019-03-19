@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 6ebf1abe6f3b115a254201184f47e6aad2febb2a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088924"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar een secundaire site
 
@@ -68,7 +68,7 @@ Gast-VM Windows/Linux - statisch IP-adres | Ja
 Gast-VM - Multi-NIC | Ja
 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 
 ### <a name="host-storage"></a>Opslag van de host
 
@@ -110,10 +110,10 @@ Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen (binnen of tussen
 
 De Mobility-service coördineert de replicatie tussen on-premises VMware-servers of fysieke servers en de secundaire site. Bij het instellen van replicatie, moet u ervoor zorgen dat u hebt de nieuwste versie van de Mobility-service, en andere onderdelen.
 
-**Update** | **Details** 
---- | --- 
-Scout-updates | [Meer informatie over en download](vmware-physical-secondary-disaster-recovery.md#updates) de meest recente updates voor Scout | Scout-updates zijn cumulatief.
-Updates van onderdelen | Scout-updates bevatten updates voor alle onderdelen, waaronder de RX-server, configuratieserver, proces en hoofddoelservers, vContinuum-servers en bronservers die u wilt beveiligen.<br/><br/> [Meer informatie](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
+| **Update** | **Details** |
+| --- | --- |
+|Scout-updates | Scout-updates zijn cumulatief. <br/><br/> [Meer informatie over en download](vmware-physical-secondary-disaster-recovery.md#updates) de meest recente updates voor Scout |
+|Updates van onderdelen | Scout-updates bevatten updates voor alle onderdelen, waaronder de RX-server, configuratieserver, proces en hoofddoelservers, vContinuum-servers en bronservers die u wilt beveiligen.<br/><br/> [Meer informatie](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
 ## <a name="next-steps"></a>Volgende stappen

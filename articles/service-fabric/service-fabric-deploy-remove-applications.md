@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: d38ec87fb634e1809959b85f0382935e8a78bf3b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: dbfbbd38a24d4f82ef7fd09ce57b87fb5e5327dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697161"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880803"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implementeren en verwijderen van toepassingen met behulp van PowerShell
 > [!div class="op_single_selector"]
@@ -303,7 +303,7 @@ Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\Se
 De ImageStoreConnectionString is gevonden in het clustermanifest:
 
 ```xml
-<ClusterManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ClusterManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
     [...]
 
@@ -317,14 +317,14 @@ De ImageStoreConnectionString is gevonden in het clustermanifest:
 Zie [inzicht in de verbindingsreeks van de installatiekopie-store](service-fabric-image-store-connection-string.md) verbindingsreeks voor aanvullende informatie over de installatiekopieopslag en de installatiekopie te slaan.
 
 ### <a name="deploy-large-application-package"></a>Grote toepassingspakket implementeren
-Probleem: [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) er is een time-out opgetreden voor een grote toepassing-pakket (volgorde van GB).
+Probleem: [Kopiëren-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) er is een time-out opgetreden voor een grote toepassing-pakket (volgorde van GB).
 Probeer:
 - Geef een hogere time-out voor [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) opdracht met `TimeoutSec` parameter. De time-out is standaard 30 minuten.
 - Controleer de netwerkverbinding tussen de broncomputer en de cluster. Als de verbinding langzaam is, kunt u overwegen een machine met een betere netwerkverbinding.
 Als de client-computer in een andere regio dan het cluster, kunt u met behulp van een client-computer in een dichter of dezelfde regio als het cluster.
 - Controleer als u externe beperking worden bereikt. Wanneer de installatiekopieopslag is geconfigureerd voor gebruik van azure-opslag, kunnen uploaden bijvoorbeeld kan worden beperkt.
 
-Probleem: Upload-pakket is voltooid, maar [registreren ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) een time-out optreedt. Probeer:
+Probleem: Uploaden van pakket is voltooid, maar [registreren ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) een time-out optreedt. Probeer:
 - [Comprimeren van het pakket](service-fabric-package-apps.md#compress-a-package) voordat u kopieert naar de installatiekopieopslag.
 De compressie vermindert de grootte en het aantal bestanden, die op zijn beurt wordt de hoeveelheid netwerkverkeer en werken die Service Fabric moet uitvoeren. De uploadbewerking mogelijk langzamer (met name als u de tijd compressie opnemen), maar het register en het toepassingstype opheffen van de registratie sneller zijn.
 - Geef een hogere time-out voor [registreren ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) met `TimeoutSec` parameter.
@@ -340,7 +340,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ### <a name="deploy-application-package-with-many-files"></a>Toepassingspakket implementeren met veel bestanden
-Probleem: [registreren ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) time-out optreedt voor een toepassingspakket met veel bestanden (volgorde van duizenden).
+Probleem: [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) time-out optreedt voor een toepassingspakket met veel bestanden (volgorde van duizenden).
 Probeer:
 - [Comprimeren van het pakket](service-fabric-package-apps.md#compress-a-package) voordat u kopieert naar de installatiekopieopslag. De compressie vermindert het aantal bestanden.
 - Geef een hogere time-out voor [registreren ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) met `TimeoutSec` parameter.

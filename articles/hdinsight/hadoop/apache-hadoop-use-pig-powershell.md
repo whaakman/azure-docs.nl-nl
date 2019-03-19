@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 84780d7c432e818153f964522063f29d8540e0ec
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 69a45a0c2c21ffafde8a4b366e1f3e90b7c8f59a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434304"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012616"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>Azure PowerShell gebruiken voor het uitvoeren van Apache Pig-taken met HDInsight
 
@@ -41,9 +41,9 @@ Azure PowerShell biedt *cmdlets* waarmee u op afstand Pig-taken uitvoeren op HDI
 De volgende cmdlets worden gebruikt bij het uitvoeren van Pig-taken op een extern HDInsight-cluster:
 
 * **Connect-AzureRmAccount**: Azure PowerShell gebruiken om uw Azure-abonnement te worden geverifieerd.
-* **Nieuwe AzureRmHDInsightPigJobDefinition**: Hiermee maakt u een *taak definitie* met behulp van de opgegeven Pig Latin-instructies.
+* **New-AzureRmHDInsightPigJobDefinition**: Hiermee maakt u een *taak definitie* met behulp van de opgegeven Pig Latin-instructies.
 * **Start-AzureRmHDInsightJob**: De taakdefinitie verzendt naar HDInsight en wordt de taak wordt gestart. Een *taak* object wordt geretourneerd.
-* **Wacht AzureRmHDInsightJob**: Maakt gebruik van het taakobject om de status van de taak te controleren. Wacht totdat de taak is voltooid of de wachttijd is overschreden.
+* **Wait-AzureRmHDInsightJob**: Maakt gebruik van het taakobject om de status van de taak te controleren. Wacht totdat de taak is voltooid of de wachttijd is overschreden.
 * **Get-AzureRmHDInsightJobOutput**: Gebruikt voor het ophalen van de uitvoer van de taak.
 
 De volgende stappen laten zien hoe u deze cmdlets gebruiken om een taak uitvoeren op uw HDInsight-cluster.

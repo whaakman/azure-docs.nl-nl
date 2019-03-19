@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: a45d6a6064173cea7ed15065ab3464718cc8578e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: afd8e6b47fb86985acde062af1fb38ec3af4e902
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998499"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Installeren en configureren van MongoDB op een Windows-VM in Azure
-[MongoDB](http://www.mongodb.org) is een populaire open-source, hoogwaardige NoSQL-database. In dit artikel begeleidt u bij het installeren en configureren van MongoDB op een Windows Server 2016 virtuele machine (VM) in Azure. U kunt ook [MongoDB op een Linux-VM in Azure installeert](../linux/install-mongodb.md).
+[MongoDB](https://www.mongodb.org) is een populaire open-source, hoogwaardige NoSQL-database. In dit artikel begeleidt u bij het installeren en configureren van MongoDB op een Windows Server 2016 virtuele machine (VM) in Azure. U kunt ook [MongoDB op een Linux-VM in Azure installeert](../linux/install-mongodb.md).
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u installeren en configureren van MongoDB, moet u een virtuele machine maken en in het ideale geval een gegevensschijf toevoegen aan deze. Zie de volgende artikelen voor een virtuele machine maken en een gegevensschijf toevoegen:
@@ -34,7 +34,7 @@ Om te beginnen met MongoDB installeren en configureren, [Meld u aan bij uw Windo
 
 ## <a name="install-mongodb"></a>MongoDB installeren
 > [!IMPORTANT]
-> MongoDB-beveiligingsfuncties, zoals een verificatie- en IP-adresbinding worden niet standaard ingeschakeld. Beveiligingsfuncties die moeten worden ingeschakeld voordat u MongoDB in een productieomgeving implementeert. Zie voor meer informatie, [MongoDB beveiligings- en Authenticatieservices](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
+> MongoDB-beveiligingsfuncties, zoals een verificatie- en IP-adresbinding worden niet standaard ingeschakeld. Beveiligingsfuncties die moeten worden ingeschakeld voordat u MongoDB in een productieomgeving implementeert. Zie voor meer informatie, [MongoDB beveiligings- en Authenticatieservices](https://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
 
 1. Nadat u uw virtuele machine via Extern bureaublad verbinding hebt gemaakt, opent u Internet Explorer uit vanaf de taakbalk.
@@ -46,7 +46,7 @@ Om te beginnen met MongoDB installeren en configureren, [Meld u aan bij uw Windo
    * Klik op de **Sites** knop. Voeg *https://\*. mongodb.com* aan de lijst met vertrouwde sites hebben en sluit het dialoogvenster.
      
      ![Instellingen van Internet Explorer configureren](./media/install-mongodb/configure-internet-explorer-security.png)
-4. Blader naar de [MongoDB - Downloads](http://www.mongodb.com/downloads) pagina (http://www.mongodb.com/downloads).
+4. Blader naar de [MongoDB - Downloads](https://www.mongodb.com/downloads) pagina (https://www.mongodb.com/downloads).
 5. Selecteer, indien nodig de **Community Server** edition en selecteer vervolgens de meest recente huidige stabiele release voor*Windows Server 2008 R2 64-bits en hoger*. Als u wilt het installatieprogramma hebt gedownload, klikt u op **downloaden (msi)**.
    
     ![MongoDB-installatieprogramma downloaden](./media/install-mongodb/download-mongodb.png)

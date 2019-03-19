@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 36350f8f359c6ad5cc5637ce0ce38838698cd68b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7da57c01b6717b505ea09fa9e6197bab4d4976fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177441"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873822"
 ---
 # <a name="media-services-development-with-net"></a>Media Services ontwikkelen met .NET 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -45,7 +45,7 @@ U kunt ook de meest recente materialen voor Media Services .NET SDK ophalen van 
 2. Bouw de oplossing.
 3. Gebruik **NuGet** installeren en toevoegen **Azure Media Services .NET SDK Extensions** (**windowsazure.mediaservices.extensions**). Als u dit pakket installeert, wordt ook de **Media Services .NET SDK** geïnstalleerd en worden alle andere vereiste afhankelijkheden toegevoegd.
    
-    Zorg ervoor dat u de nieuwste versie van NuGet geïnstalleerd hebt. Zie voor meer informatie en installatie-instructies, [NuGet](http://nuget.codeplex.com/).
+    Zorg ervoor dat u de nieuwste versie van NuGet geïnstalleerd hebt. Zie voor meer informatie en installatie-instructies, [NuGet](https://nuget.codeplex.com/).
 
     1. Klik in Solution Explorer met de rechtermuisknop op de naam van het project en kies **NuGet-pakketten beheren**.
 
@@ -54,7 +54,7 @@ U kunt ook de meest recente materialen voor Media Services .NET SDK ophalen van 
     3. Kies in de Online galerie, zoekt u MediaServices-extensies van Azure, **Azure Media Services .NET SDK Extensions** (**windowsazure.mediaservices.extensions**), en klik vervolgens op de  **Installeer** knop.
    
     4. Het project wordt gewijzigd en verwijzingen naar de Media Services .NET SDK Extensions, Media Services .NET SDK en andere afhankelijke assembly's worden toegevoegd.
-4. Als u wilt promoveren van een schoner ontwikkelomgeving, houd rekening met NuGet-pakket herstellen inschakelen. Zie voor meer informatie, [NuGet-pakket herstellen '](http://docs.nuget.org/consume/package-restore).
+4. Als u wilt promoveren van een schoner ontwikkelomgeving, houd rekening met NuGet-pakket herstellen inschakelen. Zie voor meer informatie, [NuGet-pakket herstellen '](https://docs.nuget.org/consume/package-restore).
 5. Voeg een verwijzing naar **System.Configuration** assembly. Deze assembly bevat de System.Configuration. **ConfigurationManager** klasse die wordt gebruikt voor toegang tot de configuratiebestanden (bijvoorbeeld App.config).
    
     1. Als u wilt toevoegen van referenties met behulp van het dialoogvenster referenties beheren, met de rechtermuisknop op de naam van het project in Solution Explorer. Klik vervolgens op **toevoegen**, klikt u vervolgens op **verwijzing...** .

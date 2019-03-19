@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8581510f16896df74f814e501648374d984945e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039330"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848946"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimaliseer de prestaties en betrouwbaarheid van Azure Functions
 
@@ -84,7 +84,7 @@ Functies in een functie-app resources delen. Bijvoorbeeld, wordt het geheugen ge
 
 Zorg ervoor dat u in uw productie-functie-apps laden. Geheugen is een gemiddelde van elke functie in de app.
 
-Als u een gedeelde assembly waarnaar wordt verwezen in meerdere .net-functies hebt, kunt u deze in een algemene gedeelde map geplaatst. Verwijzen naar de assembly met een instructie die vergelijkbaar is met het volgende voorbeeld als met behulp van C#-Scripts (.csx): 
+Als u een gedeelde assembly waarnaar wordt verwezen in meerdere .NET-functies hebt, kunt u deze in een algemene gedeelde map geplaatst. Verwijzen naar de assembly met een instructie die vergelijkbaar is met het volgende voorbeeld als met behulp van C#-Scripts (.csx): 
 
     #r "..\Shared\MyAssembly.dll". 
 

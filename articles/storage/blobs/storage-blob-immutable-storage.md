@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: e9ef73bbed83587f635492553f3e467922481ede
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 76d2794d45e9cd73ae8faf203ba29c4dbba64eae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309669"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004624"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store kritieke zakelijke gegevens in Azure Blob-opslag
 
@@ -86,7 +86,7 @@ Er is geen extra kosten voor het gebruik van deze functie. De prijs is onverande
 
 ## <a name="getting-started"></a>Aan de slag
 
-De meest recente versies van de [Azure-portal](http://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), en [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) onveranderbare storage ondersteuning voor Azure Blob-opslag. [Bibliotheek clientondersteuning](#client-libraries) is ook beschikbaar.
+De meest recente versies van de [Azure-portal](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), en [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) onveranderbare storage ondersteuning voor Azure Blob-opslag. [Bibliotheek clientondersteuning](#client-libraries) is ook beschikbaar.
 
 > [!NOTE]
 >

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6266ec1f01a50756f745c3e8185c9fe34e102b4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2e25848359de91d67925f49901c6c170978ea592
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196192"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078700"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Quickstart: Bouw een Xamarin-app die Microsoft-aanmelding integreert
 
@@ -59,11 +59,12 @@ Als u de app wilt instellen voor het ophalen van tokens, moet u de app eerst reg
 3. Selecteer **Alle services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
 4. Klik op **App-registraties** en selecteer vervolgens **Toevoegen**.
 5. Volg de aanwijzingen voor het maken van een nieuwe **systeemeigen clienttoepassing**.
-  * **Naam** beschrijft de app voor gebruikers.
-  * **Omleidings-URI** is een combinatie van een schema en een tekenreeks die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een waarde in, bijvoorbeeld http://DirectorySearcher).
+   * **Naam** beschrijft de app voor gebruikers.
+   * **Omleidings-URI** is een combinatie van een schema en een tekenreeks die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een waarde (bijvoorbeeld `http://DirectorySearcher`).
 6. Wanneer de registratie is voltooid, wijst Azure AD een unieke toepassings-id toe aan uw app. Kopieer de waarde vanaf het tabblad **Toepassing**, omdat u die later nodig hebt.
 7. Selecteer op de pagina **Instellingen** de **Vereiste machtigingen** en selecteer vervolgens **Toevoegen**.
-8. Selecteer **Microsoft Graph** als API. Voeg onder **Gedelegeerde machtigingen** de machtiging **Mapgegevens lezen** toe. Hierdoor kan de app de Graph API voor gebruikers doorzoeken.
+8. Selecteer **Microsoft Graph** als API. Voeg onder **Gedelegeerde machtigingen** de machtiging **Mapgegevens lezen** toe. 
+   Hierdoor kan de app de Graph API voor gebruikers doorzoeken.
 
 ## <a name="step-3-install-and-configure-adal"></a>Stap 3: ADAL installeren en configureren
 
@@ -95,9 +96,9 @@ Nu u een toepassing hebt in Azure AD, kunt u ADAL installeren en uw aan identite
 2. Open DirectorySearcher.cs in het project DirectorySearcherLib.
 3. Vervang de waarden van de klasseleden door de waarden die u hebt ingevoerd in de Azure-portal. Uw code verwijst naar deze waarden wanneer deze gebruikmaakt van ADAL.
 
-  * De *tenant* is het domein van uw Azure AD-tenant, bijvoorbeeld contoso.onmicrosoft.com.
-  * De *clientId* is de client-id van de app, die u vanuit de portal hebt gekopieerd.
-  * De *returnUri* is de omleidings-URI die u in de portal hebt ingevoerd, bijvoorbeeld http://DirectorySearcher).
+   * De *tenant* is het domein van uw Azure AD-tenant, bijvoorbeeld contoso.onmicrosoft.com.
+   * De *clientId* is de client-id van de app, die u vanuit de portal hebt gekopieerd.
+   * De *returnUri* is de omleidings-URI die u hebt ingevoerd in de portal (bijvoorbeeld `http://DirectorySearcher`).
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Stap 4: ADAL gebruiken om tokens op te halen uit Azure AD
 

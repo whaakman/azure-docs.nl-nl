@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d050cbfbe3def0e6475b807f88102f3edfe4f7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3bae4012f20d5f655dba014a0e71616101bc42a2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204658"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092052"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Zelfstudie: Een door het Linux-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Data Lake Store
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u toegang krijgt tot Cosmos DB met een door het systeem toegewezen beheerde identiteit voor een virtuele Linux-machine (VM). In deze zelfstudie leert u procedures om het volgende te doen: 
+Deze zelfstudie leert u hoe u een beheerde identiteit voor het systeem toegewezen voor een Linux-machine (VM) gebruikt voor toegang tot Azure Data Lake Store. In deze zelfstudie leert u procedures om het volgende te doen: 
 
 In deze zelfstudie leert u het volgende:
 
@@ -71,7 +71,7 @@ U hebt een SSH-client nodig om deze stappen uit te voeren. Als u Windows gebruik
 
 1. Blader in de portal naar uw Linux-VM. Selecteer **Verbinden** in **Overzicht**.  
 2. Maak verbinding met de VM met behulp van de SSH-client van uw keuze. 
-3. Dien in het terminalvenster met behulp van cURL een aanvraag in bij het lokale eindpunt van beheerde identiteiten voor Azure-resources om een toegangstoken voor het Data Lake Storage-bestandssysteem op te halen. De resource-id voor Data Lake Storage is ‘https://datalake.azure.net/’.  Het is belangrijk om de afsluitende slash in de resource-id op te nemen.
+3. Dien in het terminalvenster met behulp van cURL een aanvraag in bij het lokale eindpunt van beheerde identiteiten voor Azure-resources om een toegangstoken voor het Data Lake Storage-bestandssysteem op te halen. De resource-id voor Data Lake Store is `https://datalake.azure.net/`.  Het is belangrijk om de afsluitende slash in de resource-id op te nemen.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

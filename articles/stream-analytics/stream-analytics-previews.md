@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: 6cd1d917be67d21e3e6dfe54ed5dec77b92509e9
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e4037e79812f0cf548ddfcc277c1b66332e0f1f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821452"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902872"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics preview-functies
 
@@ -61,7 +61,7 @@ U kunt nu uw realtime pijplijnen met beheerde identiteiten voor Azure-resources 
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code for Azure Stream Analytics
 
-De functies van Azure Stream Analytics-taken kunnen worden geschreven in Visual Studio Code. Voor toegang tot de hulpprogramma's private preview-functies, contact op met aan *ASAToolsfeedback@microsoft.com*.
+De functies van Azure Stream Analytics-taken kunnen worden geschreven in Visual Studio Code. Voor toegang tot de hulpprogramma's private preview-functies, contact op met aan *ASAToolsfeedback\@microsoft.com*.
 
 ## <a name="next-steps"></a>Volgende stappen
 

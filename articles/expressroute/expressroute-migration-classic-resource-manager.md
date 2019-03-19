@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5fab6c6d6af7b0f7c61fcff269a214aff96c7a1e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2e33454ac0ee97385386043706f4b8b73090f57a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407320"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112548"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute-gekoppelde virtuele netwerken migreren van klassiek naar Resource Manager
 
@@ -63,24 +63,24 @@ In deze sectie beschrijft de stappen worden gevolgd voor het migreren van een vi
 2. Zorg ervoor dat het virtuele netwerk is voorbereid op de juiste wijze voor de migratie.
 3. Registreer uw abonnement voor de Resourcemigratie. Gebruik de volgende PowerShell-codefragment voor het registreren van uw abonnement voor de Resourcemigratie:
 
-  ```powershell 
-  Select-AzSubscription -SubscriptionName <Your Subscription Name>
-  Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  ```
+   ```powershell 
+   Select-AzSubscription -SubscriptionName <Your Subscription Name>
+   Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+   Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+   ```
 4. Valideren, voorbereiden en migreren. Gebruik de volgende PowerShell-codefragment voor het verplaatsen van het virtuele netwerk:
 
-  ```powershell
-  Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
-  Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
-  Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
-  ```
+   ```powershell
+   Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+   Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+   Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
+   ```
 
-  U kunt ook de migratie afbreken door het uitvoeren van de volgende PowerShell-cmdlet:
+   U kunt ook de migratie afbreken door het uitvoeren van de volgende PowerShell-cmdlet:
 
-  ```powershell
-  Move-AzureVirtualNetwork -Abort $vnetName
-  ```
+   ```powershell
+   Move-AzureVirtualNetwork -Abort $vnetName
+   ```
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Platform ondersteunde migratie van IaaS-resources van klassiek naar Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)

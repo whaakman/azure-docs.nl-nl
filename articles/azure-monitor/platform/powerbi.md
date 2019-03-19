@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 623968467da775c55adf006a84a16ba46bd21d1d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 53e24a6874a1e43b0de07893a6ace3a44b81d373
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887451"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110168"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure Monitor log-gegevens importeren in Power BI
 
@@ -60,11 +60,11 @@ Power BI Desktop is een bureaubladtoepassing die u kunt gegevenssets en rapporte
 ## <a name="publish-to-power-bi"></a>Publiceren naar Power BI
 Wanneer u naar Power BI publiceert, wordt een gegevensset en een rapport worden gemaakt.  Als u een rapport in Power BI Desktop maakt, zal klikt u vervolgens dit worden gepubliceerd met uw gegevens.  Als dat niet het geval is, klikt u vervolgens een leeg rapport wordt gemaakt.  U kunt het rapport in Power BI wijzigen of een nieuwe maken op basis van de gegevensset.
 
-8. Een rapport op basis van uw gegevens maken.  Gebruik [Power BI Desktop-documentatie](https://docs.microsoft.com/power-bi/desktop-report-view) als u niet bekend met het bent.  Wanneer u klaar bent om dit te verzenden naar Power BI, klikt u op **publiceren**.  Wanneer u hierom wordt gevraagd, moet u een doel selecteren in uw Power BI-account.  Tenzij u een specifieke bestemming in gedachten hebt, gebruikt u **mijn werkruimte**.
+1. Een rapport op basis van uw gegevens maken.  Gebruik [Power BI Desktop-documentatie](https://docs.microsoft.com/power-bi/desktop-report-view) als u niet bekend met het bent.  Wanneer u klaar bent om dit te verzenden naar Power BI, klikt u op **publiceren**.  Wanneer u hierom wordt gevraagd, moet u een doel selecteren in uw Power BI-account.  Tenzij u een specifieke bestemming in gedachten hebt, gebruikt u **mijn werkruimte**.
 
     ![Power BI Desktop publiceren](media/powerbi/desktop-publish.png)
 
-3. Wanneer het publiceren is voltooid, klikt u op **openen in Power BI** Power BI openen met uw nieuwe gegevensset.
+1. Wanneer het publiceren is voltooid, klikt u op **openen in Power BI** Power BI openen met uw nieuwe gegevensset.
 
 
 ### <a name="configure-scheduled-refresh"></a>Geplande vernieuwing configureren

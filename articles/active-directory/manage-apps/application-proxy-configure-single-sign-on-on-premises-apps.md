@@ -16,16 +16,16 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6f385cae99e5bb605b75f84e642e17e01d0f54
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: ef5679ba2a6a62955f5402e8bfaa4f1884df722d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792883"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840593"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML eenmalige aanmelding voor on-premises toepassingen met Application Proxy (Preview)
 
-U kunt eenmalige aanmelding (SSO) bieden voor on-premises toepassingen worden gepubliceerd via toepassingsproxy die zijn beveiligd met SAML-verificatie. Met SAML eenmalige aanmelding verifieert Azure Active Directory (Azure AD) met behulp van Azure AD-account van de gebruiker naar de toepassing. Azure AD communiceert de informatie aanmelding voor de toepassing via een verbindingsprotocol. Met SAML gebaseerde eenmalige aanmelding, kunt u gebruikers toewijzen aan de rollen van de specifieke toepassing is op basis van regels die u in de SAML-claims definieert.
+U kunt eenmalige aanmelding (SSO) opgeven voor on-premises toepassingen die zijn beveiligd met SAML-verificatie en externe toegang tot deze toepassingen via Application Proxy. Met SAML eenmalige aanmelding verifieert Azure Active Directory (Azure AD) met behulp van Azure AD-account van de gebruiker naar de toepassing. Azure AD communiceert de informatie aanmelding voor de toepassing via een verbindingsprotocol. U kunt gebruikers ook toewijzen aan de rollen van de specifieke toepassing is op basis van regels die u in de SAML-claims definieert. Doordat de toepassingsproxy naast de SAML SSO hebben uw gebruikers externe toegang tot de toepassing en een naadloze ervaring voor eenmalige aanmelding.
 
 De toepassingen worden gebruikt, gebruiken de SAML-tokens die zijn uitgegeven door **Azure Active Directory**. Deze configuratie is niet van toepassing op toepassingen die gebruikmaken van een on-premises id-provider. Voor deze scenario's het beste controleren [Resources voor het migreren van toepassingen naar Azure AD](migration-resources.md).
 
@@ -50,12 +50,12 @@ Houd rekening met het volgende wanneer u de zelfstudie gaan:
 1. Selecteer **SAML** als de methode voor eenmalige aanmelding.
 1. In de **instellen van eenmalige aanmelding met SAML** pagina, bewerken de **SAML-basisconfiguratie** gegevens en volg de stappen in [Enter basisconfiguratie SAML](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) configureren op basis van SAML verificatie voor de toepassing.
 
-    * Zorg ervoor dat de **antwoord-URL** root komt overeen met of een pad is onder de **externe URL** voor de on-premises toepassing die u hebt toegevoegd voor externe toegang via Application Proxy in Azure AD.
+   * Zorg ervoor dat de **antwoord-URL** root komt overeen met of een pad is onder de **externe URL** voor de on-premises toepassing die u hebt toegevoegd voor externe toegang via Application Proxy in Azure AD.
 
-    ![Voer basisgegevens voor SAML-configuratie](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
+     ![Voer basisgegevens voor SAML-configuratie](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
-    > [!NOTE]
-    > Als de back-endtoepassing wordt verwacht dat de **antwoord-URL** als de interne URL, moet u de Apps in mijn beveiligde aanmelding-extensie installeren op apparaten van gebruikers. Deze extensie worden automatisch omgeleid naar de juiste Application Proxy-Service. Zie voor het installeren van de extensie [mijn Apps van beveiligde aanmelding extensie](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+     > [!NOTE]
+     > Als de back-endtoepassing wordt verwacht dat de **antwoord-URL** als de interne URL, moet u de Apps in mijn beveiligde aanmelding-extensie installeren op apparaten van gebruikers. Deze extensie worden automatisch omgeleid naar de juiste Application Proxy-Service. Zie voor het installeren van de extensie [mijn Apps van beveiligde aanmelding extensie](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
 
 ## <a name="test-your-app"></a>Uw app testen
 

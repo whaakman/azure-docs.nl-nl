@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 498dc3f81968b60deb4f6f70466938026ac48f6a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9ce236748c1ca4f5e166fe1d7574f6a635d6204b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855883"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Veelgestelde vragen - Hyper-V naar Azure-noodherstel
 
@@ -65,10 +65,9 @@ Ja, zowel versleuteling-in-transit en [versleuteling in Azure](https://docs.micr
 ### <a name="what-do-i-need-on-premises"></a>Wat kan ik on-premises nodig?
 
 U moet een of meer virtuele machines wordt uitgevoerd op een of meer zelfstandige of geclusterde Hyper-V-hosts. U kunt ook virtuele machines die worden uitgevoerd op hosts die worden beheerd door System Center Virtual Machine Manager (VMM) repliceren.
-    - Als u bent VMM, niet wordt uitgevoerd tijdens de implementatie van Site Recovery, deelt u Hyper-V-hosts en clusters in Hyper-V-sites. U installeert de Site Recovery-agents (Azure Site Recovery Provider en Recovery Services agent) op elke Hyper-V-host.
-    - Als Hyper-V-hosts zich in een VMM-cloud bevinden, kunt u replicatie in VMM indelen. U kunt de Site Recovery Provider installeren op de VMM-server en de Recovery Services-agent op elke Hyper-V-host. U toewijzen tussen VMM logische/VM-netwerken en Azure VNets.
-    - 
-[Meer informatie](hyper-v-azure-architecture.md) over Hyper-V naar Azure-architectuur.
+- Als u bent VMM, niet wordt uitgevoerd tijdens de implementatie van Site Recovery, deelt u Hyper-V-hosts en clusters in Hyper-V-sites. U installeert de Site Recovery-agents (Azure Site Recovery Provider en Recovery Services agent) op elke Hyper-V-host.
+- Als Hyper-V-hosts zich in een VMM-cloud bevinden, kunt u replicatie in VMM indelen. U kunt de Site Recovery Provider installeren op de VMM-server en de Recovery Services-agent op elke Hyper-V-host. U toewijzen tussen VMM logische/VM-netwerken en Azure VNets.
+- [Meer informatie](hyper-v-azure-architecture.md) over Hyper-V naar Azure-architectuur.
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>Kan ik repliceren van virtuele machines die zich op een Hyper-V-cluster?
 
@@ -139,11 +138,11 @@ Voor replicatie, moet een ondersteund besturingssysteem op een Hyper-V-virtuele 
 
 Hyper-V-machines kunnen elke 30 seconden (met uitzondering van premium storage), 5 minuten of 15 minuten worden gerepliceerd.
 
-###<a name="can-i-extend-replication"></a>Kan ik replicatie verlengen?
-Uitgebreide of gekoppelde replicatie wordt niet ondersteund. Deze functie in aanvragen [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+### <a name="can-i-extend-replication"></a>Kan ik replicatie verlengen?
+Uitgebreide of gekoppelde replicatie wordt niet ondersteund. Deze functie in aanvragen [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Kan ik een offline initiële replicatie?
-Nee, dit wordt niet ondersteund. Aanvragen van deze functie in de [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Nee, dit wordt niet ondersteund. Aanvragen van deze functie in de [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Kan ik schijven uitsluiten?
 Ja, kunt u schijven uitsluiten van replicatie. 

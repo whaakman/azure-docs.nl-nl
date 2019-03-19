@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8438bfa567c207e543ed716a2940bce991cc19
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 78b069e6534d8394de1f9a9fcdf51b871441c386
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Zelfstudie: Azure Active Directory-integratie met Questetra BPM Suite
 
@@ -210,9 +210,9 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
    
     ![Testgebruiker maken][300] 
    
-    a. In de **naam** tekstvak, type **naam** van de gebruiker **britta.simon@contoso.com**.
+    a. In de **naam** tekstvak, type **naam** van de gebruiker **britta.simon\@contoso.com**.
    
-    b. In de **e** tekstvak, type **e** van de gebruiker **britta.simon@contoso.com**
+    b. In de **e** tekstvak, type **e** van de gebruiker **britta.simon\@contoso.com**
    
     c. In de **wachtwoord** tekstvak, typ een **wachtwoord** van de gebruiker.
     
@@ -257,7 +257,7 @@ Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be95a75e7cdcaa11ef3e90093ef52c5615608eac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4d74b122f3b5567e8291ec5f3ff4e1dda7ff68f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458020"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835013"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Functies maken voor gegevens in een Hadoop-cluster met behulp van Hive-query 's
 Dit document wordt beschreven hoe u functies maken voor gegevens die zijn opgeslagen in een Azure HDInsight Hadoop-cluster met behulp van Hive-query's. Deze Hive-query's gebruikt ingesloten Hive User-Defined-functies (UDF's), de scripts die worden geleverd.
 
 De bewerkingen die nodig zijn voor het maken van de functies kunnen geheugenintensief zijn. De prestaties van Hive-query's wordt meer kritieke in dergelijke gevallen en kan worden verbeterd door het afstemmen van bepaalde parameters. Het afstemmen van deze parameters wordt in de laatste sectie besproken.
 
-Voorbeelden van de query's die worden gepresenteerd zijn specifiek voor de [NYC Taxi reisgegevens](http://chriswhong.com/open-data/foil_nyc_taxi/) scenario's zijn ook beschikbaar [GitHub-opslagplaats](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Deze query's al hebben gegevensschema opgegeven en kunnen worden verzonden om uit te voeren. Parameters die gebruikers stemmen kunnen, zodat de prestaties van Hive-query's kan worden verbeterd worden ook beschreven in de laatste sectie.
+Voorbeelden van de query's die worden gepresenteerd zijn specifiek voor de [NYC Taxi reisgegevens](https://chriswhong.com/open-data/foil_nyc_taxi/) scenario's zijn ook beschikbaar [GitHub-opslagplaats](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Deze query's al hebben gegevensschema opgegeven en kunnen worden verzonden om uit te voeren. Parameters die gebruikers stemmen kunnen, zodat de prestaties van Hive-query's kan worden verbeterd worden ook beschreven in de laatste sectie.
 
 Deze taak is een stap in de [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
@@ -130,7 +130,7 @@ De velden die worden gebruikt in deze query worden de GPS-coördinaten van ophal
         and dropoff_latitude between 30 and 90
         limit 10;
 
-De vergelijkingen die het berekenen van de afstand tussen de twee GPS-coördinaten te vinden in de <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">roerende Type Scripts</a> Peter Lapisu bijdragne-site. In deze Javascript, de functie `toRad()` gewoon *lat_or_lon*pi/180 *, die converteert graden naar radialen. Hier *lat_or_lon* is de breedtegraad of lengtegraad. Aangezien Hive de functie biedt `atan2`, maar biedt de functie `atan`, wordt de `atan2` functie wordt geïmplementeerd door `atan` functie in de bovenstaande Hive-query met behulp van de definitie van de opgegeven in <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+De vergelijkingen die het berekenen van de afstand tussen de twee GPS-coördinaten te vinden in de <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">roerende Type Scripts</a> Peter Lapisu bijdragne-site. In deze Javascript, de functie `toRad()` gewoon *lat_or_lon*pi/180, die graden naar radialen converteert. Hier *lat_or_lon* is de breedtegraad of lengtegraad. Aangezien Hive de functie biedt `atan2`, maar biedt de functie `atan`, wordt de `atan2` functie wordt geïmplementeerd door `atan` functie in de bovenstaande Hive-query met behulp van de definitie van de opgegeven in <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Werkruimte maken](./media/create-features-hive/atan2new.png)
 
@@ -161,11 +161,11 @@ De standaardinstellingen voor de parameter van Hive-cluster is mogelijk niet ges
    
     Normaal gesproken de standaardwaarde van:
     
-    - *mapred.min.split.Size* is ingesteld op 0 van
-    - *mapred.Max.split.Size* is **Long.MAX** en die van 
-    - *DFS.Block.Size* is 64 MB.
+   - *mapred.min.split.Size* is ingesteld op 0 van
+   - *mapred.Max.split.Size* is **Long.MAX** en die van 
+   - *DFS.Block.Size* is 64 MB.
 
-    Zoals we kunt zien, krijgt de gegevensgrootte afstemmen van deze parameters door "instelling" ze kunnen we om af te stemmen van het aantal mappers gebruikt.
+     Zoals we kunt zien, krijgt de gegevensgrootte afstemmen van deze parameters door "instelling" ze kunnen we om af te stemmen van het aantal mappers gebruikt.
 
 4. Hier volgen enkele andere meer **geavanceerde opties** voor Hive-prestaties optimaliseren. Dit kunnen u instellen van het geheugen toegewezen als u wilt toewijzen en het aantal taken te verkleinen en kunnen nuttig zijn bij het afstemmen van prestaties. Houd er rekening mee dat de *mapreduce.reduce.memory.mb* mag niet groter zijn dan de fysieke geheugengrootte van elk werkrolknooppunt in het Hadoop-cluster.
    

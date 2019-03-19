@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 68ae01b814de08098c0ba6b5713f420cfebc3d97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302466"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001252"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry op Azure
 
@@ -48,7 +48,7 @@ Microsoft biedt ondersteuning voor het best-effort voor OSS CF via de volgende c
 
 Pivotal Cloud Foundry omvat het dezelfde kernplatform als het OSS-distributie, samen met een set eigen beheerhulpprogramma's en enterprise-ondersteuning. PCF uitvoeren op Azure, moet u een licentie van Pivotal. De aanbieding PCF in Azure marketplace bevat een 90-daagse Evaluatielicentie.
 
-De hulpprogramma's omvatten [Pivotal Operations Manager](http://docs.pivotal.io/pivotalcf/customizing/), een webtoepassing die vereenvoudigt de implementatie en beheer van een Cloud Foundry foundation en [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), een webtoepassing voor het beheren van gebruikers en toepassingen.
+De hulpprogramma's omvatten [Pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/), een webtoepassing die vereenvoudigt de implementatie en beheer van een Cloud Foundry foundation en [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), een webtoepassing voor het beheren van gebruikers en toepassingen.
 
 Naast de ondersteuningskanalen voor OSS CF hierboven vermeld, kunt een licentie PCF u contact op met Pivotal voor ondersteuning. Microsoft en Pivotal is ook voorzien van ondersteuning voor werkstromen waarmee u kunt voor hulp contact op met beide partijen en hebben uw aanvraag op de juiste wijze worden doorgestuurd, afhankelijk van waar het probleem wordt veroorzaakt.
 
@@ -58,7 +58,7 @@ Cloud Foundry moedigt het ['12-factor app'](https://12factor.net/) methodologie 
 
 Als u van Pivotal Cloud Foundry gebruikmaakt, de service broker is ook [beschikbaar als een tegel](https://docs.pivotal.io/azure-sb/installing.html) vanaf het centrale netwerk.
 
-## <a name="related-resources"></a>Verwante resources
+## <a name="related-resources"></a>Gerelateerde resources
 
 ### <a name="azure-devops-services-plugin"></a>Azure DevOps-Services-invoegtoepassing
 

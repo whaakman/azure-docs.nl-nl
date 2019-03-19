@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: b-juche
-ms.openlocfilehash: dc24165d3a5ee4d72c259753edd4028752828dce
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 86c016a5dbcc0d78378e59bc6b3606ddf2c54f64
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772288"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122332"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registreren voor Azure NetApp Files
 Voordat u Azure NetApp Files kunt gebruiken, moet u een registratieaanvraag voor de service Azure NetApp Files indienen.  Nadat uw aanvraag is goedgekeurd, kunt u zich registreren om de service te gebruiken.
@@ -61,7 +61,7 @@ Voor het gebruik van de service moet u de Azure-resourceprovider registreren voo
     
         az provider show --namespace Microsoft.NetApp
 
-  De uitvoer van de opdracht ziet er als volgt uit:
+   De uitvoer van de opdracht ziet er als volgt uit:
    
         {
         "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",

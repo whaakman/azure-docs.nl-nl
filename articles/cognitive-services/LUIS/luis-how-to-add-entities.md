@@ -1,7 +1,7 @@
 ---
 title: Entiteiten toevoegen
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Entiteiten (belangrijke gegevens in het domein van uw toepassing) in Language Understanding (LUIS)-apps toevoegen.
+description: Sleutel om gegevens te extraheren uit gebruiker uitingen in Language Understanding (LUIS)-apps-entiteiten maken.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,26 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: d98896ab86c1dbbc988d44e3c8cf6545ba5d5d3c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 784fe19d1ae40a7cdff3cc853726d4c62265e0f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859790"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106930"
 ---
 # <a name="create-entities-without-utterances"></a>Entiteiten zonder uitingen maken
 
-De entiteit vertegenwoordigt een woord of zinsdeel in de utterance die u wilt dat opgehaald. Een utterance kan bevatten veel entiteiten of geen helemaal. Een entiteit vertegenwoordigt een klasse met inbegrip van een verzameling van soortgelijke objecten (plaatsen, dingen, personen, gebeurtenissen en concepten). Entiteiten informatie die relevant zijn voor de bedoeling beschrijven en soms ze zijn essentieel voor uw app de taak uit te voeren. 
-
-U kunt entiteiten maken vóór of naast het maken van intents.
+De entiteit vertegenwoordigt een woord of zinsdeel in de utterance die u wilt dat opgehaald. Een entiteit vertegenwoordigt een klasse met inbegrip van een verzameling van soortgelijke objecten (plaatsen, dingen, personen, gebeurtenissen en concepten). Entiteiten informatie die relevant zijn voor de bedoeling beschrijven en soms ze zijn essentieel voor uw app de taak uit te voeren. U kunt entiteiten maken wanneer u een utterance opzet of elkaar uit toevoegen (vóór of na) een utterance toe te voegen aan een doel.
 
 U kunt toevoegen, bewerken of verwijderen van entiteiten in uw LUIS-app via de **entiteitenlijst** op de **entiteiten** pagina. LUIS biedt twee typen entiteiten: [vooraf gemaakte entiteiten](luis-reference-prebuilt-entities.md), en uw eigen [aangepaste entiteiten](luis-concept-entity-types.md#types-of-entities).
 
-Zodra een entiteit is gemaakt, kan deze worden gelabeld in utterance van voorbeeld van een doel van de **bedoeling** pagina met details. 
+Zodra een entiteit hebt geleerd van een machine is gemaakt, moet u die entiteit in de voorbeeld-utterance van alle intents die deel uitmaakt van markeren.
 
-## <a name="add-prebuilt-entity"></a>Vooraf gedefinieerde entiteit toevoegen
+<a name="add-prebuilt-entity"></a>
+
+## <a name="add-a-prebuilt-entity-to-your-app"></a>Een vooraf gedefinieerde entiteit toevoegen aan uw app
 
 Algemene vooraf gemaakte entiteiten die zijn toegevoegd aan een toepassing worden *getal* en *datetimeV2*. 
 
@@ -40,7 +40,9 @@ Algemene vooraf gemaakte entiteiten die zijn toegevoegd aan een toepassing worde
 
     ![Dialoogvenster voor vooraf gedefinieerde entiteit schermopname toevoegen](./media/add-entities/list-of-prebuilt-entities.png)
 
-## <a name="add-simple-entities"></a>Eenvoudige entiteiten toevoegen
+<a name="add-simple-entities"></a>
+
+## <a name="add-simple-entities-for-single-concepts"></a>Eenvoudige entiteiten voor enkele concepten toevoegen
 
 Een enkele entiteit beschrijft een enkele concept. De volgende procedure gebruiken om te maken van een entiteit die namen van de afdeling bedrijven zoals extraheert *Human resources* of *Operations*.   
 
@@ -52,7 +54,9 @@ Een enkele entiteit beschrijft een enkele concept. De volgende procedure gebruik
 
     Een [woordgroepenlijst](luis-concept-feature.md) wordt meestal gebruikt om het signaal van een enkele entiteit te verbeteren.
 
-## <a name="add-regular-expression-entities"></a>Reguliere expressie entiteiten toevoegen
+<a name="add-regular-expression-entities"></a>
+
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Reguliere expressie entiteiten voor sterk gestructureerde concepten toevoegen
 
 Een entiteit reguliere expressie wordt gebruikt voor het ophalen van gegevens uit de utterance op basis van een reguliere expressie die u opgeeft. 
 
@@ -60,7 +64,7 @@ Een entiteit reguliere expressie wordt gebruikt voor het ophalen van gegevens ui
 
 1. Voer in het pop-updialoogvenster `Human resources form name` in de **entiteitnaam** Schakel **reguliere expressie** uit de **entiteitstype** , voert u de reguliere expressie `hrf-[0-9]{6}`, en selecteer vervolgens **gedaan**. 
 
-    Deze reguliere expressie letterlijke tekens `hrf-`, klikt u vervolgens 6 cijfers om weer te geven van een formulier nummer voor een formulier Human resources.
+    Deze reguliere expressie komt overeen met letterlijke tekens `hrf-`, klikt u vervolgens 6 cijfers om weer te geven van een formulier nummer voor een formulier Human resources.
 
 ## <a name="add-hierarchical-entities"></a>Hiërarchische entiteiten toevoegen
 
@@ -85,7 +89,9 @@ Hiërarchische entiteiten toevoegen, voert u de volgende stappen uit:
 
     Zodra deze entiteit is gemaakt, gaat u naar alle intents waarvoor de voorbeeld-uitingen die de entiteit bevatten. Selecteer de tekst in het voorbeeld utterance en de tekst markeren als de entiteit. 
 
-## <a name="add-composite-entities"></a>Samengestelde entiteiten toevoegen
+<a name="add-composite-entities"></a>
+
+## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Samengestelde entiteiten te groeperen in een bovenliggende / onderliggende relatie toevoegen
 
 U kunt de relaties tussen entiteiten van verschillende typen door het maken van een samengestelde entiteit definiëren. In het volgende voorbeeld wordt bevat de entiteit een reguliere expressie en een vooraf gedefinieerde entiteit met naam.  
 
@@ -107,7 +113,9 @@ In de utterance `Send hrf-123456 to John Smith`, de tekst `hrf-123456` wordt ver
 
 1. Selecteer **Done**.
 
-## <a name="add-patternany-entities"></a>Pattern.any entiteiten toevoegen
+<a name="add-pattern-any-entities"></a>
+
+## <a name="add-patternany-entities-to-capture-free-form-entities"></a>Pattern.any entiteiten om vast te leggen vrije entiteiten toevoegen
 
 [Pattern.ANY](luis-concept-entity-types.md) entiteiten zijn alleen geldig in [patronen](luis-how-to-model-intent-pattern.md), niet intents. Dit type entiteit kunt LUIS vinden het einde van de entiteiten met verschillende lengte en word keuze. Omdat deze entiteit wordt gebruikt in een patroon, LUIS u weet waar het einde van de entiteit zich bevindt in de sjabloon utterance.
 
@@ -123,7 +131,9 @@ In de utterance `Where is Request relocation from employee new to the company on
 
     Als u merkt dat het patroon, wanneer dit een Pattern.any bevat, entiteiten onjuist extraheert, gebruikt u een [expliciete lijst](luis-concept-patterns.md#explicit-lists) om dit probleem te verhelpen. 
 
-## <a name="add-a-role-to-pattern-based-entity"></a>Rol toevoegen aan de entiteit op basis van het patroon
+<a name="add-a-role-to-pattern-based-entity"></a>
+
+## <a name="add-a-role-to-distinguish-different-contexts"></a>Een rol om u te onderscheiden van de verschillende contexten toevoegen
 
 Een rol is een benoemde subtype van een entiteit op basis van context. Het is vergelijkbaar met een [hiërarchische](#add-hierarchical-entities) entiteit, maar functies worden alleen gebruikt [patronen](luis-how-to-model-intent-pattern.md). 
 
@@ -141,7 +151,9 @@ De syntaxis voor een rol is **{Entityname:Rolename}** waar de naam van de entite
 
     ![Schermafbeelding van de oorsprong rol toe te voegen aan de entiteit locatie](./media/add-entities/roles-enter-role-name-text.png)
 
-## <a name="add-list-entities"></a>Lijst met entiteiten toevoegen
+<a name="add-list-entities"></a>
+
+## <a name="add-list-entities-for-exact-matches"></a>Lijst met entiteiten voor exacte overeenkomsten toevoegen
 
 Lijst met entiteiten vertegenwoordigen een vaste en gesloten set verwante woorden. 
 
@@ -184,12 +196,15 @@ U kunt een lijst met alle afdelingen, samen met eventuele synoniemen voor de afd
     ]  
     ```
 
+<a name="change-entity-type"></a>
 
-## <a name="change-entity-type"></a>Entiteitstype wijzigen
+## <a name="do-not-change-entity-type"></a>Entiteitstype niet wijzigen
 
 LUIS staat niet toe dat u het type van de entiteit niet wijzigen omdat het niet weet wat u moet toevoegen of verwijderen om te bouwen die entiteit. Als u wilt wijzigen, is het beter om een nieuwe entiteit van het juiste type maken met een iets andere naam. Nadat de entiteit is gemaakt, in elke utterance, verwijdert u de oude naam van de gelabelde entiteit en de naam van de nieuwe entiteit toevoegen. Zodra alle uitingen hebben is relabeled, de oude entiteit niet verwijderen. 
 
-## <a name="create-a-pattern-from-an-utterance"></a>Maken van een patroon van een utterance
+<a name="create-a-pattern-from-an-utterance"></a>
+
+## <a name="create-a-pattern-from-an-example-utterance"></a>Maken van een patroon van een voorbeeld-utterance
 
 Zie [toevoegen patroon uit bestaande utterance op de pagina kunt u lezen wat of entiteit](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 

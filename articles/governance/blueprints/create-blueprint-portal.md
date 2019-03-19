@@ -4,17 +4,17 @@ description: Gebruik Azure Blueprints om artefacten te maken, te definiëren en 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7aeb3cf2d56dbe20c85adca2243f5830575693e3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818660"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004920"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Een Azure Blueprint definiëren en toewijzen in de portal
 
@@ -42,7 +42,7 @@ De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaa
 
    ![Blauwdruk maken](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Geef een **Blauwdruknaam** voor de blauwdruk op, bijvoorbeeld 'MyBlueprint' (letters en cijfers, maximaal 48 tekens, maar geen spaties of speciale tekens), maar laat **Beschrijving van blauwdruk** voorlopig leeg.  Klik in het vak **Definitielocatie** op het beletselteken aan de rechterkant, selecteer de [beheergroep](../management-groups/overview.md) of het abonnement waarin u de blauwdruk wilt opslaan en klik op **Selecteren**.
+1. Geef een **Blauwdruknaam** voor de blauwdruk op, bijvoorbeeld 'MyBlueprint' (letters en cijfers, maximaal 48 tekens, maar geen spaties of speciale tekens), maar laat **Beschrijving van blauwdruk** voorlopig leeg. Klik in het vak **Definitielocatie** op het beletselteken aan de rechterkant, selecteer de [beheergroep](../management-groups/overview.md) of het abonnement waarin u de blauwdruk wilt opslaan en klik op **Selecteren**.
 
 1. Controleer of de gegevens correct zijn (de velden **Blauwdruknaam** en **Definitielocatie** kunnen later niet meer worden gewijzigd) en klik op **Volgende: artefacten** onderaan de pagina of op het tabblad **Artefacten** bovenaan de pagina.
 
@@ -84,7 +84,7 @@ De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaa
            },
            "location": {
                "type": "string",
-               "defaultValue": "[resourceGroup().location]",
+               "defaultValue": "[resourceGroups('ResourceGroup').location]",
                "metadata": {
                    "description": "Location for all resources."
                }
@@ -129,7 +129,7 @@ In [Een blauwdruk maken](#create-a-blueprint) hebt u geen beschrijving opgegeven
 
 1. Klik in de lijst met blauwdrukken met de rechtermuisknop op de blauwdruk die u eerder hebt gemaakt en kies **Blauwdruk bewerken**.
 
-1. Geef in **Beschrijving van blauwdruk** informatie op over de blauwdruk en de artefacten waaruit deze bestaat.  Voer in dit geval iets als het volgende in: 'Met deze blauwdruk worden het tagbeleid en de roltoewijzing op abonnement ingesteld, wordt er een resourcegroup gemaakt en worden een resourcesjabloon en roltoewijzing geïmplementeerd voor die resourcegroep.'
+1. Geef in **Beschrijving van blauwdruk** informatie op over de blauwdruk en de artefacten waaruit deze bestaat. Voer in dit geval iets als het volgende in: 'Met deze blauwdruk worden het tagbeleid en de roltoewijzing op abonnement ingesteld, wordt er een resourcegroup gemaakt en worden een resourcesjabloon en roltoewijzing geïmplementeerd voor die resourcegroep.'
 
 1. Klik op **Volgende: artefacten** onderaan de pagina of op het tabblad **Artefacten** bovenaan de pagina.
 
@@ -186,13 +186,17 @@ Wanneer een blauwdruk is gepubliceerd, kan deze worden toegewezen aan een abonne
    > [!NOTE]
    > Er wordt voor elk abonnement dat u hebt geselecteerd een toewijzing gemaakt, zodat één abonnementtoewijzing later kan worden gewijzigd zonder dat de overige geselecteerde abonnementen ook worden gewijzigd.
 
-1. Geef voor **Naam van toegewezen abonnement** een unieke naam op voor deze toewijzing.
+1. Voor **opdrachtnaam**, Geef een unieke naam voor deze toewijzing.
 
-1. Selecteer in **Locatie** een regio waarin u de beheerde identiteit wilt maken. Azure Blueprint gebruikt deze beheerde identiteit om alle artefacten in de toegewezen blauwdruk te implementeren. Zie [Beheerde identiteiten voor Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md) voor meer informatie.
+1. In **locatie**, selecteer een regio voor het beheerde identiteits- en abonnement implementatieobject moeten worden gemaakt. Azure Blueprint gebruikt deze beheerde identiteit om alle artefacten in de toegewezen blauwdruk te implementeren. Zie [Beheerde identiteiten voor Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md) voor meer informatie.
 
-1. Laat de vervolgkeuzelijst **Blauwdrukdefinitieversies** van **Gepubliceerde** versies staan op de vermelding 'v1' (standaard de meest recente **gepubliceerd** versie).
+1. Laat de **blauwdruk definitieversies** vervolgkeuzelijst van **gepubliceerd** versies op de vermelding 'v1' (standaard is de meest recente **gepubliceerd** versie).
 
 1. Laat **Toewijzing vergrendelen** staan op de standaardwaarde **Niet vergrendelen**. Zie voor meer informatie [Vergrendeling van blauwdrukresources](./concepts/resource-locking.md).
+
+   ![Toewijzing - vergrendelen en beheerde identiteiten](./media/create-blueprint-portal/assignment-locking-mi.png)
+
+1. Onder **beheerde identiteit**, laat de standaardwaarde **systeem toegewezen**.
 
 1. Voor roltoewijzing op abonnementsniveau **[naam gebruikersgroep of toepassing]: inzender** zoekt u naar en selecteert u een gebruiker, app of groep.
 
@@ -245,9 +249,9 @@ Als u een blauwdruktoewijzing niet langer nodig hebt, kunt u deze uit een abonne
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [levenscyclus van een blauwdruk](./concepts/lifecycle.md)
-- Informatie over hoe u [statische en dynamische parameters](./concepts/parameters.md) gebruikt
-- Meer informatie over hoe u de [blauwdrukvolgorde](./concepts/sequencing-order.md) aanpast
-- Ontdek hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](./concepts/resource-locking.md)
-- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](./how-to/update-existing-assignments.md)
-- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](./troubleshoot/general.md)
+- Meer informatie over de [blauwdruk levenscyclus](./concepts/lifecycle.md).
+- Meer informatie over het gebruik van [statische en dynamische parameters](./concepts/parameters.md).
+- Meer informatie over het aanpassen van de [blauwdruk volgorde](./concepts/sequencing-order.md).
+- Ontdek hoe u het gebruik van [blauwdruk resource vergrendelen](./concepts/resource-locking.md).
+- Meer informatie over het [bijwerken, bestaande toewijzingen](./how-to/update-existing-assignments.md).
+- Problemen oplossen bij het toewijzen van een blauwdruk met [algemene probleemoplossing](./troubleshoot/general.md).

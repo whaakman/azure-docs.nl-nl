@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c09df2a15fbd0bdfdd1478fad587e6a18695002c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2c40a25cd2baebaaeedc012e8e9faff91b297f57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207497"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082497"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificeren en oplossen van problemen toewijzing voor een groep in Azure Active Directory
 
@@ -33,19 +33,19 @@ Wanneer u op basis van een groep licenties, wordt de dezelfde fouten kunnen optr
 ## <a name="how-to-find-license-assignment-errors"></a>Over het vinden van licentie fouten bij licentietoewijzing
 **Licentie vinden fouten bij licentietoewijzing**
 
-   1. Als u gebruikers in een foutstatus in een specifieke groep zoekt, opent u het deelvenster voor de groep. Onder **licenties**, een melding wordt weergegeven als er geen gebruikers in een foutstatus.
+1. Als u gebruikers in een foutstatus in een specifieke groep zoekt, opent u het deelvenster voor de groep. Onder **licenties**, een melding wordt weergegeven als er geen gebruikers in een foutstatus.
 
    ![Groep foutmelding](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-   2. Selecteer de melding om een lijst van alle betrokken gebruikers te openen. U kunt elke gebruiker afzonderlijk voor meer informatie.
+2. Selecteer de melding om een lijst van alle betrokken gebruikers te openen. U kunt elke gebruiker afzonderlijk voor meer informatie.
 
    ![Groep lijst met gebruikers in de foutstatus](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-   3. Alle groepen met ten minste één fout op de **Azure Active Directory** blade selecteren **licenties**, en selecteer vervolgens **overzicht**. Een vak met informatie wordt weergegeven als groepen uw aandacht vereisen.
+3. Alle groepen met ten minste één fout op de **Azure Active Directory** blade selecteren **licenties**, en selecteer vervolgens **overzicht**. Een vak met informatie wordt weergegeven als groepen uw aandacht vereisen.
 
    ![Overzicht van informatie over groepen in de foutstatus](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-   4. Selecteer het selectievakje voor een overzicht van alle groepen met fouten. U kunt elke groep voor meer informatie.
+4. Selecteer het selectievakje voor een overzicht van alle groepen met fouten. U kunt elke groep voor meer informatie.
 
    ![Overzicht van lijst met groepen met fouten](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
@@ -104,9 +104,9 @@ Als u Exchange Online gebruikt, kunnen sommige gebruikers in uw tenant niet corr
 
 > [!TIP]
 > Om te zien of er een dubbele proxy-adres, voert u de volgende PowerShell-cmdlet voor Exchange Online:
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
+> ```
+> Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> ```
 > Zie voor meer informatie over dit probleem [foutbericht 'Proxy-adres is al in gebruik' in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Het artikel bevat ook informatie over [verbinding maken met Exchange Online met behulp van externe PowerShell](https://technet.microsoft.com/library/jj984289.aspx). In dit artikel voor meer informatie Zie [op hoe het kenmerk proxyAddresses wordt gevuld in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 Nadat u eventuele problemen proxy-adres voor de betrokken gebruikers oplossen, zorg er dan voor dat forceren licentie-verwerking op de groep om ervoor te zorgen dat de licenties die nu kunnen worden toegepast.

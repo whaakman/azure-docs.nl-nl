@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6194ed8ffa5732c9f187679e934aad306293d46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186366"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878190"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Veelgestelde vragen over wachtwoordbeheer
 
@@ -98,12 +98,10 @@ Deze Veelgestelde vragen is opgesplitst in de volgende secties:
 * **V:  Hoe lang moet ik wachten om te ontvangen van een e-mail, SMS of telefonische oproep van wachtwoord opnieuw instellen?**
 
   > **A:** E-mails, SMS-berichten en telefoongesprekken moet binnenkomen minder dan een minuut. De normale case is 5 tot en met 20 seconden.
-    >Als u deze melding niet binnen dit tijdsbestek ontvangt:
-        > * Controleer de map Ongewenste e-mail.
-        > * Controleer of het aantal bestanden of e-mailadres waarmee contact wordt opgenomen die u verwacht.
-        > * Controleer of de verificatiegegevens in de map juist is opgemaakt, bijvoorbeeld: + 1 4255551234 of *user@contoso.com*. 
-  >
-  >
+  > Als u deze melding niet binnen dit tijdsbestek ontvangt:
+  > * Controleer de map Ongewenste e-mail.
+  > * Controleer of het aantal bestanden of e-mailadres waarmee contact wordt opgenomen die u verwacht.
+  > * Controleer of de verificatiegegevens in de map juist is opgemaakt, bijvoorbeeld: + 1 4255551234 of *gebruiker\@contoso.com*. 
 * **V:  Welke talen worden ondersteund door het wachtwoord opnieuw instellen?**
 
   > **A:** Het wachtwoord opnieuw instellen-gebruikersinterface SMS-berichten en gesprekken in de dezelfde talen die worden ondersteund in Office 365 worden gelokaliseerd.

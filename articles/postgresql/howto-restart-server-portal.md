@@ -1,19 +1,19 @@
 ---
 title: Opnieuw opstarten van Azure Database for PostgreSQL-server met behulp van Azure portal
-description: Dit artikel wordt beschreven hoe u een Azure Database for PostgreSQL-server met behulp van de Azure-Portal opnieuw kunt starten.
+description: Dit artikel wordt beschreven hoe u een Azure Database for PostgreSQL-server met behulp van de Azure portal opnieuw kunt starten.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 2/7/2019
-ms.openlocfilehash: cc5957da97d9a8801583564bdf51f0483ab8e004
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 3/18/2019
+ms.openlocfilehash: 83947571ed835c53c6cf8da6e73deb8dceabdd62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865787"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168772"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-azure-portal"></a>Opnieuw opstarten van Azure Database for PostgreSQL-server met behulp van Azure portal
+# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Opnieuw opstarten van Azure Database for PostgreSQL-server met behulp van de Azure portal
 In dit onderwerp wordt beschreven hoe u een Azure Database for PostgreSQL-server opnieuw kunt starten. Mogelijk moet u de server voor onderhoudsredenen, waardoor een korte onderbreking als de server de bewerking voert opnieuw.
 
 De server opnieuw opstarten wordt geblokkeerd als de service bezet is. De service kan bijvoorbeeld een eerder gevraagde bewerking, zoals schalen vCores verwerkt.
@@ -28,7 +28,7 @@ Voor deze handleiding, hebt u het volgende nodig:
 
 De PostgreSQL-server start opnieuw op de volgende stappen uit:
 
-1. Selecteer uw Azure Database for PostgreSQL-server in de Azure-portal.
+1. In de [Azure-portal](https://portal.azure.com/), selecteer uw Azure Database for PostgreSQL-server.
 
 2. Op de werkbalk van de server **overzicht** pagina, klikt u op **opnieuw**.
 
@@ -48,4 +48,4 @@ De PostgreSQL-server start opnieuw op de volgende stappen uit:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Snelstart: Azure Database for PostgreSQL-server met behulp van Azure portal maken](./quickstart-create-server-database-portal.md)
+Meer informatie over [hoe u parameters instelt in Azure Database for PostgreSQL](howto-configure-server-parameters-using-portal.md)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 41f3fd55be02364b4028642db9db1d3f47043afa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 93c70e038589667ae97acb86663a6179dcc81637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245083"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877323"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Over het maken van Dynamics 365 voor bewerkingen via Cloud Partner-portal bieden
 
@@ -31,7 +31,7 @@ Voordat een aanbieding kan worden gepubliceerd namens een publisher-account, een
 
 Als alle vereisten wordt voldaan, bent u klaar om te beginnen met het ontwerpen van uw Dynamics 365 for Operations-aanbieding.
 
-1. Aanmelden bij de [Cloud Partner-Portal](http://cloudpartner.azure.com/).
+1. Aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/).
 2. Klik in de linker navigatiebalk op \"+ nieuwe aanbieding\" en selecteer \"Dynamics 365 voor bewerkingen\".
 3. Een nieuwe aanbieding \"Editor\" weergave wordt nu voor u geopend en we zijn klaar om door te gaan ontwerpen.
 4. De \"formulieren\" die moeten worden ingevuld zijn zichtbaar aan de linkerkant binnen de \"Editor\" weergeven. Elke \"formulier\" bestaat uit een set velden die moeten worden ingevuld. Vereiste velden zijn gemarkeerd met een rood sterretje (\*).
@@ -51,13 +51,13 @@ Het formulier van de instellingen voor aanbieding is een eenvoudige methode om d
 
 Dit is een unieke id voor de aanbieding binnen een publisher-profiel. Deze ID zijn in URL's voor product zichtbaar. De id kan alleen bestaan uit alfanumerieke tekens in kleine letters en streepjes (-). De ID kan mag niet eindigen met een streepje en een maximum van 50 tekens. Dit veld is vergrendeld zodra een aanbieding live meteen.
 
-bijvoorbeeld, als een publisher contoso publisher een aanbieding met maakt aanbiedings-ID *voorbeeld-dynamics365 voor bewerkingen*, wordt het weergegeven in AppSource als \"https://appsource.microsoft.com/marketplace/apps/**contoso**.*voorbeeld-dynamics 365 voor bewerkingen* ? tab = overzicht\"
+bijvoorbeeld, als een publisher contoso publisher een aanbieding met maakt aanbiedings-ID *voorbeeld-dynamics365 voor bewerkingen*, wordt het weergegeven in AppSource als `https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics365 for operations*?tab=Overview\`.
 
 ### <a name="publisher-id"></a>Uitgevers-ID
 
 Deze vervolgkeuzelijst kunt u de uitgeverprofiel dat u wilt publiceren, deze aanbieding onder kiezen. Dit veld is vergrendeld zodra een aanbieding live meteen.
 
-Naam
+Name
 
 Dit is de weergavenaam voor uw aanbieding. Dit is de naam die wordt weergegeven in de [AppSource](https://appsource.microsoft.com). De naam mag maximaal 50 tekens bevatten.
 

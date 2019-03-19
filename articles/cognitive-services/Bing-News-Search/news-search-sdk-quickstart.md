@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 39c2416bb692c9b97571eebbcb590c955744cac6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 51de0397e246d3b9e7d4878fd2c8050af1f0ce6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857087"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090046"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Snelstartgids: Nieuws zoeken met de Bing News Search-SDK voor C#
 
@@ -26,7 +26,7 @@ Gebruik deze quickstart om aan de slag te gaan met de Bing Nieuws zoeken-API voo
 
 * Elke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * Het [Json.NET](https://www.newtonsoft.com/json)-framework, beschikbaar als NuGet-pakket.
-* Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](http://www.mono-project.com/).
+* Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
 
 * Het [NuGet-pakket voor de Bing Nieuws zoeken SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0). Als u dit pakket installeert, worden ook de volgende onderdelen geïnstalleerd:
     * Microsoft.Rest.ClientRuntime
@@ -91,4 +91,4 @@ Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.mic
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-[Een web-app met één pagina maken](tutorial-bing-news-search-single-page-app.md)
+> [Een web-app met één pagina maken](tutorial-bing-news-search-single-page-app.md)

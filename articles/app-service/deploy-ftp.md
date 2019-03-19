@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: f1d64170c3f9622169dd1218e4c63652c9f94b9b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820668"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858874"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uw app implementeren in Azure App Service met behulp van FTP/S
 
@@ -44,6 +44,14 @@ Klik in het dashboard FTP **kopie** om te kopiëren van de FTPS en de app-refere
 
 Het wordt aanbevolen dat u **App referenties** implementeert in uw app omdat het is uniek voor elke app. Echter, als u klikt op **gebruikersreferenties**, kunt u op gebruikersniveau referenties die u voor FTP/S Meld u aan bij alle apps in App Service in uw abonnement gebruiken kunt instellen.
 
+> [!NOTE]
+> Verificatie bij een FTP-/ FTPS-eindpunt met behulp van de referenties op gebruikersniveau requirers een gebruikersnaam in de volgende indeling: 
+>
+>`<app-name>\<user-name>`
+>
+> Omdat op gebruikersniveau referenties zijn gekoppeld aan de gebruiker en niet op een specifieke bron, wordt de gebruikersnaam moet in deze indeling om te leiden van de actie aanmelden op de juiste app-eindpunt.
+>
+
 ## <a name="deploy-files-to-azure"></a>Bestanden in Azure implementeren
 
 1. Van uw FTP-client (bijvoorbeeld [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), of [WinSCP](https://winscp.net/index.php)), de verbindingsgegevens die u hebt verzameld om verbinding met uw app te gebruiken.
@@ -58,7 +66,6 @@ Het wordt aanbevolen dat u **App referenties** implementeert in uw app omdat het
 > - het genereren van web.config (dit is een [Node.js-voorbeeld](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
 > Deze vereiste bestanden handmatig op uw lokale computer genereren, en vervolgens samen met uw app te implementeren.
->
 >
 
 ## <a name="enforce-ftps"></a>FTPS afdwingen

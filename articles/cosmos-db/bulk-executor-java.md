@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 8254e3221fee3d76e2d27715f76c26397c309f08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 65023fbf96dc3e1276413f8c40ecb262d60c1454
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862714"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863352"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulksgewijs executor Java-clientbibliotheek gebruiken om te bulksgewijs bewerkingen uitvoeren op Azure Cosmos DB-gegevens
 
 In deze zelfstudie vindt u instructies over het gebruik van de Azure Cosmos DB bulksgewijs executor Java-bibliotheek voor het importeren en bijwerken van Azure Cosmos DB-documenten. Zie voor meer informatie over het bulksgewijs executor-bibliotheek en hoe Hiermee kunt u gebruikmaken van de enorme doorvoer en opslag, [bulk-overzicht van de bibliotheek executor](bulk-executor-overview.md) artikel. In deze zelfstudie, u een Java-toepassing die wordt gegenereerd willekeurige documenten maken en ze zijn bulksgewijs geïmporteerd in een Azure Cosmos DB-container. Na het importeren wordt u bulksgewijs sommige eigenschappen van een document bij te werken. 
 
-Bulksgewijs executor-bibliotheek wordt momenteel ondersteund door Azure Cosmos DB SQL API en Gremlin-API-accounts. In dit artikel wordt beschreven hoe u bulksgewijs executor .net-clientbibliotheek gebruiken met SQL API-accounts. Zie voor meer informatie over het gebruik van grote hoeveelheden executor .NET-bibliotheek met Gremlin-API, [bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
+Bulksgewijs executor-bibliotheek wordt momenteel ondersteund door Azure Cosmos DB SQL API en Gremlin-API-accounts. In dit artikel wordt beschreven hoe u bulksgewijs executor .NET-clientbibliotheek gebruiken met SQL API-accounts. Zie voor meer informatie over het gebruik van grote hoeveelheden executor .NET-bibliotheek met Gremlin-API, [bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -86,13 +86,13 @@ De gekloonde opslagplaats bevat twee voorbeelden "bulkimport" en "bulkupdate" te
    // Set retries to 0 to pass complete control to bulk executor
    client.getConnectionPolicy().getRetryOptions().setMaxRetryWaitTimeInSeconds(0);
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
-```
+   ```
 
 4. Roep de importAll API waarmee willekeurige documenten om te importeren in een Azure Cosmos DB-container bulksgewijs worden gegenereerd. U kunt de opdrachtregel-configuraties in het bestand CmdLineConfiguration.java configureren.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
-```
+   ```
    De bulksgewijs importeren API accepteert een verzameling documenten JSON-geserialiseerd en heeft de volgende syntaxis, voor meer informatie, Zie de [API-documentatie](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java

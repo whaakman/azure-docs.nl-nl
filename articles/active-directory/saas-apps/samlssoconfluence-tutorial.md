@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 6b47d483-d3a3-442d-b123-171e3f0f7486
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6cb9de466410ee2f8bf311183f389c5c86148a8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: b6d948542cfac8624d70dd37d37fa967f72f22bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873199"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842200"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Zelfstudie: Azure Active Directory-integratie met SAML SSO for Confluence by resolution GmbH
 
@@ -53,7 +53,7 @@ Als u de integratie van SAML SSO for Confluence by resolution GmbH met Azure AD 
 
 **Voer de volgende stappen uit om SAML SSO for Confluence by resolution GmbH toe te voegen vanuit de galerie:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -174,7 +174,7 @@ Als u Azure AD-eenmalige aanmelding wilt integreren met SAML SSO for Confluence 
     
     c. Voeg de **omschrijving** van de id-provider toe (bijvoorbeeld Azure AD).
     
-    d. Klik op **Volgende**.
+    d. Klik op **volgende**.
     
 12. Op de pagina voor het **configureren van de id-provider** klikt u op de knop **Volgende**.
 
@@ -204,7 +204,7 @@ Als u Azure AD-eenmalige aanmelding wilt integreren met SAML SSO for Confluence 
     
     ![Eenmalige aanmelding configureren](./media/samlssoconfluence-tutorial/addon6b.png)
     
-17. Er verschijnt een dialoogvenster met de melding wat **het overslaan van de test betekent**. Hierin klikt u op **OK**.
+17. In de appearing dialoogvenster lezen **overslaan van de test-middelen...** , klikt u op **OK**.
     
     ![Eenmalige aanmelding configureren](./media/samlssoconfluence-tutorial/addon6c.png)
 
@@ -226,7 +226,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -290,7 +290,7 @@ Inrichten is een handmatige taak in SAML SSO for Confluence by resolution GmbH.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Als u in het toegangsvenster op de tegel SAML SSO for Confluence by resolution GmbH klikt, moet u automatisch worden aangemeld bij de SAML SSO for Confluence by resolution GmbH waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

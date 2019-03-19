@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9967893e855770b693f0d581a07fe2910df4a3cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 117d58f6f56fe1b24539c7bfe950f1a23d6de51a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186940"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003596"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Toegang tot Azure AD B2C-auditlogboeken
 
@@ -26,6 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) verzendt auditlogboeken dat activiteit
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Overzicht van activiteiten in de B2C-categorie van de auditlogboeken beschikbaar
 De **B2C** categorie in auditlogboeken bevat de volgende soorten activiteiten:
+
 |Type activiteit |Description  |
 |---------|---------|
 |Autorisatie |Activiteiten met betrekking tot de autorisatie van een gebruiker voor toegang tot B2C resources (bijvoorbeeld een beheerder toegang tot een lijst met B2C-beleid)         |
@@ -33,7 +34,7 @@ De **B2C** categorie in auditlogboeken bevat de volgende soorten activiteiten:
 |Toepassing | CRUD-bewerkingen op B2C-toepassingen |
 |Sleutel |CRUD-bewerkingen voor sleutels die zijn opgeslagen in de B2C-sleutelcontainer |
 |Resource |CRUD-bewerkingen op B2C-resources (bijvoorbeeld beleidsregels en id-providers)
-|Verificatie |Validatie van referenties van gebruiker en token-uitgifte|
+|Authentication |Validatie van referenties van gebruiker en token-uitgifte|
 
 > [!NOTE]
 > Voor gebruikersactiviteiten object CRUD, raadpleegt u de **hoofddirectory** categorie.

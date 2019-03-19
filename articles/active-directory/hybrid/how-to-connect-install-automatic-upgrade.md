@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b044edbc24a83aeb98ff603a43f160a6c88d940f
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193344"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003913"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatische upgrade
 Deze functie is ingevoerd met build [1.1.105.0 (uitgebracht februari 2016)](reference-connect-version-history.md#111050).  Deze functie is bijgewerkt in [1.1.561 bouwen](reference-connect-version-history.md#115610) en biedt nu ondersteuning voor aanvullende scenario's die niet eerder werden ondersteund.
@@ -89,16 +89,16 @@ Hier volgt een lijst van de meest voorkomende berichten die u wilt zoeken. Deze 
 | UpgradeAbortedSyncExeInUse |De [synchronization servicemanager UI](how-to-connect-sync-service-manager-ui.md) is geopend op de server. |
 | UpgradeAbortedSyncOrConfigurationInProgress |De installatiewizard wordt uitgevoerd of een synchronisatie buiten de planner is gepland. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | U kunt AD FS hebt geselecteerd als de methode aanmelden. | 
+| UpgradeNotSupportedAdfsSignInMethod | U kunt AD FS hebt geselecteerd als de methode aanmelden. |
 | UpgradeNotSupportedCustomizedSyncRules |U kunt uw eigen aangepaste regels hebt toegevoegd aan de configuratie. |
 | UpgradeNotSupportedDeviceWritebackEnabled |U hebt ingeschakeld de [Write-back van apparaat](how-to-connect-device-writeback.md) functie. |
 | UpgradeNotSupportedGroupWritebackEnabled |U hebt ingeschakeld de [Write-back van groep](how-to-connect-preview.md#group-writeback) functie. |
 | UpgradeNotSupportedInvalidPersistedState |De installatie is niet een Express-instellingen of een upgrade van DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |U hebt meer dan 100.000 objecten in de metaverse. |
 | UpgradeNotSupportedMultiForestSetup |U verbinding maakt met meer dan één forest. Snelle installatie maakt alleen verbinding met één forest. |
-| UpgradeNotSupportedNonLocalDbInstall |U maakt geen gebruik van een SQL Server Express LocalDB-database. |d
+| UpgradeNotSupportedNonLocalDbInstall |U maakt geen gebruik van een SQL Server Express LocalDB-database. |
 | UpgradeNotSupportedNonMsolAccount |De [Connector voor AD DS-account](reference-connect-accounts-permissions.md#ad-ds-connector-account) is niet het standaardaccount voor MSOL_ meer. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | Bij het instellen van AAD Connect, u hebt gekozen *niet configureert* bij het selecteren van de methode voor eenmalige aanmelding. | 
+| UpgradeNotSupportedNotConfiguredSignInMethod | Bij het instellen van AAD Connect, u hebt gekozen *niet configureert* bij het selecteren van de methode voor eenmalige aanmelding. |
 | UpgradeNotSupportedPtaSignInMethod | U kunt Pass through-verificatie hebt geselecteerd als de methode aanmelden. |
 | UpgradeNotSupportedStagingModeEnabled |De server is ingesteld in [faseringsmodus](how-to-connect-sync-staging-server.md). |
 | UpgradeNotSupportedUserWritebackEnabled |U hebt ingeschakeld de [Write-back van gebruiker](how-to-connect-preview.md#user-writeback) functie. |

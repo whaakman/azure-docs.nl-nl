@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: f56b4f07b7155d9f465a6ce492b4718d4a66e76e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959320"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013310"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Waarschuwen en bewaken van data factory's met behulp van Azure Monitor
 Cloud-Apps zijn complexe met veel bewegende onderdelen bevatten. Monitoring biedt gegevens om ervoor te zorgen dat uw toepassing actief en wordt uitgevoerd in een foutloze toestand bevindt. Ook kunt u potentiële problemen voorkomen of oplossen van het verleden zijn. Bovendien kunt u bewakingsgegevens diep om inzicht te krijgen over uw toepassing. Deze kennis kan u helpen te verbeteren van de prestaties van de toepassing of onderhoud, of Automatiseer acties die anders handmatig worden opgelost moeten zouden.
@@ -277,7 +277,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Niveau |String | Niveau van de diagnostische logboeken. Niveau 4 is altijd het geval is bij Logboeken voor de uitvoering van activiteiten. | `4`  |
 | correlationId |String | Unieke ID voor het bijhouden van een bepaalde aanvraag end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Tijd van de gebeurtenis in timespan UTC-notatie | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Tijd van de gebeurtenis in timespan UTC-notatie `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| String| ID van de activiteit die wordt uitgevoerd | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| String| ID van de pijplijnuitvoering | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| String | Gekoppelde resource-ID voor de data factory-resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -288,7 +288,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |activityName| String | Naam van de activiteit | `MyActivity` |
 |start| String | Begin van de activiteit in UTC-notatie timespan uitvoeren | `2017-06-26T20:55:29.5007959Z`|
 |einde| String | Einde van de activiteit in UTC-notatie timespan uitvoeren. Als de activiteit is niet beëindigd, maar (diagnostische logboeken voor het starten van een activiteit), een standaardwaarde van `1601-01-01T00:00:00Z` is ingesteld.  | `2017-06-26T20:55:29.5007959Z` |
-
 
 ### <a name="pipeline-run-logs-attributes"></a>Uitvoering van de pijplijn registreert kenmerken
 
@@ -324,7 +323,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Niveau |String | Niveau van de diagnostische logboeken. Niveau 4 is het geval is bij Logboeken voor de uitvoering van activiteiten. | `4`  |
 | correlationId |String | Unieke ID voor het bijhouden van een bepaalde aanvraag end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Tijd van de gebeurtenis in timespan UTC-notatie | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Tijd van de gebeurtenis in timespan UTC-notatie `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| String| ID van de pijplijnuitvoering | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| String | Gekoppelde resource-ID voor de data factory-resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| String | De categorie van diagnostische logboeken. Deze eigenschap instellen op "PipelineRuns" | `PipelineRuns` |
@@ -334,7 +333,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| String | Begin van de activiteit in UTC-notatie timespan uitvoeren | `2017-06-26T20:55:29.5007959Z`|
 |einde| String | Einde van de activiteit in UTC-notatie timespan wordt uitgevoerd. Als de activiteit is niet beëindigd, maar (diagnostische logboeken voor het starten van een activiteit), een standaardwaarde van `1601-01-01T00:00:00Z` is ingesteld.  | `2017-06-26T20:55:29.5007959Z` |
 |status| String | De definitieve status van de pijplijnuitvoering (geslaagd of mislukt) | `Succeeded`|
-
 
 ### <a name="trigger-run-logs-attributes"></a>Triggeruitvoering registreert kenmerken
 
@@ -369,7 +367,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Niveau |String | Niveau van de diagnostische logboeken. Ingesteld op niveau 4 voor logboeken voor de uitvoering van activiteiten. | `4`  |
 | correlationId |String | Unieke ID voor het bijhouden van een bepaalde aanvraag end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Tijd van de gebeurtenis in timespan UTC-notatie | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Tijd van de gebeurtenis in timespan UTC-notatie `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| String| ID van de trigger uitvoeren | `08587023010602533858661257311` |
 |resourceId| String | Gekoppelde resource-ID voor de data factory-resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| String | De categorie van diagnostische logboeken. Deze eigenschap instellen op "PipelineRuns" | `PipelineRuns` |

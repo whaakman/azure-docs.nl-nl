@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: 4dd9634d5d5e6ce749a4ee563903b07e22bc45ee
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: ddcde2956da774e687c1e587649e65b79003bf3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652329"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448982"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Zelfstudie: Gegevens laden en query's uitvoeren in een Apache Spark-cluster in Azure HDInsight
 
@@ -83,7 +83,7 @@ Zodra de tabel is gemaakt, kunt u een interactieve query uitvoeren op de gegeven
 
 10. Klik in het menu **File** van het notitieblok op **Save and Checkpoint**. 
 
-11. Als u direct verdergaat met de [volgende zelfstudie](apache-spark-use-bi-tools.md), laat u het notebook open. Anders sluit u het notebook om de clusterresources vrij te geven. Kies hiervoor **Close and Halt** on het menu **File** van het notebook.
+11. Als u direct verdergaat met de [volgende zelfstudie](apache-spark-use-bi-tools.md), laat u het notebook open. Als dit niet het geval is, sluit het notitieblok om de clusterresources vrij te geven: van de **bestand** menu in de notebook te selecteren **sluiten en stoppen**.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

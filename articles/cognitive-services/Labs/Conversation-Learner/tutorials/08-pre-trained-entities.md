@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: afa927009e684fa7f8c6217c91dcb589b331b5f5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f5b3234c45a9ee80bc5a2c2afe67046896270802
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224170"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163783"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Pre-trained entiteiten toevoegen
 In deze zelfstudie laat zien hoe Pre-Trained entiteiten toevoegen aan uw Model van de cursist conversatie.
@@ -25,7 +25,7 @@ In deze zelfstudie laat zien hoe Pre-Trained entiteiten toevoegen aan uw Model v
 [![Vooraf getrainde entiteiten zelfstudie Preview](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities_Preview)](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities)
 
 ## <a name="requirements"></a>Vereisten
-In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
+In deze zelfstudie is vereist dat de algemene zelfstudie Bot wordt uitgevoerd
 
     npm run tutorial-general
 
@@ -35,50 +35,49 @@ Vooraf getrainde entiteiten herkennen algemene typen entiteiten, zoals getallen,
 
 ## <a name="steps"></a>Stappen
 
+Start op de startpagina in de Web-UI.
+
 ### <a name="create-the-model"></a>Het Model maken
 
-1. In de Web-gebruikersinterface, klikt u op "Nieuwe Model."
-2. Typ in het veld 'Name', 'PretrainedEntities' en druk op enter.
-3. Klik op de knop 'Maken'.
+1. Selecteer **nieuw Model**.
+2. Voer **PretrainedEntities** voor **naam**.
+3. Selecteer **Maken**.
 
 ### <a name="entity-creation"></a>Entiteit maken
 
-1. In het linkerdeelvenster klikt u op "Entiteiten" en vervolgens de knop 'Nieuwe entiteit'.
-2. Selecteer 'Pre-Trained/datetimeV2' voor het "entiteitstype'.
-3. Het selectievakje 'Meerdere waarden'.
-    - Entiteiten van meerdere waarden worden verzameld van een of meer waarden in de entiteit.
-    - Negatable eigenschappen zijn uitgeschakeld voor Pre-Trained entiteiten.
-4. Klik op de knop 'Maken'.
+1. Selecteer **entiteiten** in het linker deelvenster, klikt u vervolgens **nieuwe entiteit**.
+2. Selecteer **Pre-Trained/datetimeV2** voor **entiteitstype**.
+3. Controleer **meerdere waarden** om in te schakelen door de entiteit een of meer waarden worden verzameld. Houd er rekening mee, mag niet Pre-Trained entiteiten negatable.
+4. Selecteer **Maken**.
 
-![](../media/tutorial7_entities_a.PNG)
+![](../media/T08_entity_create.png)
 
-### <a name="create-the-first-action"></a>De eerste actie maken
+1. Selecteer **acties** in het linker deelvenster, klikt u vervolgens **nieuwe actie**.
+2. Voer **de datum is $builtin-datetimev2** voor **van Bot-antwoord...** .
+3. Selecteer **Maken**.
 
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-2. In de 'van de Bot response...' veld, typt u ' de datum is $builtin-datetimev2 "
-3. Klik op de knop 'Maken'.
-
-![](../media/tutorial7_actions_a.PNG)
+![](../media/T08_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>De tweede actie maken
 
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-2. In de 'van de Bot response...' veld, typt u 'Wat is de datum?'
-    - Vooraf getrainde entiteiten kunnen vereiste entiteiten niet als ze worden herkend die standaard voor alle uitingen van de gebruiker.
-3. Typ in het veld "Diskwalificeren voorziet", "builtin-datetimev2."
-4. Klik op de knop 'Maken'.
+1. Selecteer **acties** in het linker deelvenster, klikt u vervolgens **nieuwe actie**.
+2. Voer **wat is de datum?** voor **van Bot-antwoord...** . Vooraf getrainde entiteiten kunnen niet worden **vereist entiteiten** zoals deze standaard voor alle uitingen worden herkend.
+3. Voer **builtin datetimev2** voor **diskwalificeren voorziet**.
+4. Selecteer **Maken**.
 
-![](../media/tutorial7_actions2_a.PNG)
+![](../media/T08_action_create_2.png)
 
 ### <a name="train-the-model"></a>Het Model te trainen
 
-1. In het linkerdeelvenster klikt u op "Train-dialoogvensters" en vervolgens de knop 'Nieuwe Train dialoogvenster'.
-2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Hallo".
-3. Klik op de knop 'Acties Score'.
-4. Selecteer het antwoord, 'Wat is de datum?'
-5. In het deelvenster chat, waar de status "Type uw bericht …", typt u 'nu'
-    - De vandaag utterance wordt automatisch herkend door vooraf getrainde modellen in LUIS.
+1. Selecteer **Train-dialoogvensters** in het linker deelvenster, klikt u vervolgens **nieuwe dialoogvenster van de trein**.
+2. Voer **hello** voor utterance van de gebruiker in het deelvenster links chat.
+3. Selecteer **Score acties**.
+4. Selecteer **wat is de datum?** uit de lijst met acties
+5. Voer **vandaag** voor utterance van de gebruiker in het deelvenster links chat.
+    - De **vandaag** utterance wordt automatisch herkend door vooraf getrainde modellen in LUIS.
     - Waarden van Pre-Trained entiteiten aanwijzen, ziet u aanvullende gegevens van LUIS.
+
+![](../media/T08_training.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

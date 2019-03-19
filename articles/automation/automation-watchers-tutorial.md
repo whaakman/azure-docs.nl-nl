@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 7870aca696ec61e707c5c774fd43e6d64c0cab82
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7d7ebc7493ff8e272e35abafeedd8fbc52b986ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436753"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002152"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Maak een Azure Automation-watcher-taken voor het bijhouden van wijzigingen in bestanden op een lokale computer
 
@@ -89,8 +89,8 @@ De watcher-taak bestaat uit twee delen. De watcher- en de actie. De watcher word
 1. Selecteer **actie configureren** en selecteer "Proces-NewFile" runbook.
 1. Voer de volgende waarden voor parameters:
 
-   ***EVENTDATA** -leeg laten. Gegevens worden doorgegeven van het watcher-runbook.  
-   ***Uitvoeringsinstellingen** -laat Azure terwijl dit runbook wordt uitgevoerd in de Automation-service.
+   * **EVENTDATA** -leeg laten. Gegevens worden doorgegeven van het watcher-runbook.  
+   * **Uitvoeringsinstellingen** -laat Azure terwijl dit runbook wordt uitgevoerd in de Automation-service.
 
 1. Klik op **OK**, en selecteer vervolgens om terug te keren naar de watcher-pagina.
 1. Klik op **OK** te maken van de watcher-taak.

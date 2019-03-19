@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 610ac10e757ef422ce130c0cfe8253af6ba4b7b9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 994612f390cb6c6dcb3b4c2acaaec839ef461d2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542468"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999564"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Veelgestelde vragen over schaalsets voor virtuele Azure-machine
 
@@ -234,7 +234,7 @@ Wanneer u een Linux-VM maakt, kunt u openbare SSH-sleutels als tekst zonder opma
 ```
 
 de naam van de linuxConfiguration-element | Vereist | Type | Description
---- | --- | --- | --- |  ---
+--- | --- | --- | --- 
 SSH | Nee | Verzameling | Hiermee geeft u de SSH-sleutel-configuratie voor een Linux-besturingssysteem
 pad | Ja | Reeks | Hiermee geeft u de Linux-bestandspad waarin de SSH-sleutels of het certificaat moet zich bevinden
 keyData | Ja | Reeks | Hiermee geeft u een met base64 gecodeerde openbare SSH-sleutel
@@ -309,7 +309,7 @@ De Azure Key Vault-documentatie wordt aangegeven dat de ophalen-geheim REST-API 
 
 Methode | URL
 --- | ---
-GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
 
 Vervang {*geheime naam*} met de naam en vervang {*geheime versie*} met de versie van de geheime sleutel die u wilt ophalen. De geheime versie kan worden uitgesloten. In dat geval wordt is de huidige versie opgehaald.
 
@@ -535,7 +535,7 @@ Zie voor het implementeren van een virtuele-machineschaalset met een bestaande A
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Hoe kan ik het IP-adres van de eerste virtuele machine in een virtuele-machineschaalset aan de uitvoer van een sjabloon toevoegen
 
-Zie voor informatie over het toevoegen van het IP-adres van de eerste virtuele machine in een virtuele-machineschaalset aan de uitvoer van een sjabloon [Azure Resource Manager: Virtuele machine schaalsets privé-IP's](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Zie voor informatie over het toevoegen van het IP-adres van de eerste virtuele machine in een virtuele-machineschaalset aan de uitvoer van een sjabloon [Azure Resource Manager: Virtuele machine schaalsets privé-IP's](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Kan ik scale sets met versnelde netwerken gebruiken?
 
@@ -721,3 +721,26 @@ Het belangrijkste verschil tussen een virtuele machine in een virtuele-machinesc
 - Wilt u sneller dan de schaal van een virtuele-machineschaalset starten van een set van virtuele machines.
   - Met betrekking tot dit scenario, u mogelijk hebt gemaakt een eigen engine voor automatisch schalen en wilt een snellere end-to-end-schaal.
 - U hebt een virtuele-machineschaalset die ongelijkmatig verdeeld is over domeinen met fouten of update-domeinen. Dit kan zijn omdat u selectief virtuele machines verwijderd, of omdat virtuele machines zijn verwijderd na het piekmomenten. Met `stop deallocate` gevolgd door `start` op de virtuele machine schaalset gelijkmatig verdeeld over de virtuele machines domeinen met fouten of update-domeinen.
+
+### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>Hoe ik een momentopname van een VMSS-instantie?
+Een momentopname maken van een exemplaar van een VMSS.
+
+```azurepowershell-interactive
+$rgname = "myResourceGroup"
+$vmssname = "myVMScaleSet"
+$Id = 0
+$location = "East US"
+ 
+$vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
+$snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
+New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
+``` 
+ 
+Een beheerde schijf maken op basis van de momentopname.
+
+```azurepowershell-interactive
+$snapshotName = "myShapshot"
+$snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
+$diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+```

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 3f064769728d5d081c4a110e6c981c4b36aad384
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: bc5c4648a5efe53e3aa645bf1d6b121008eb86dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300581"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854922"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Over het gebruik van beheerde identiteiten voor App Service en Azure Functions
 
@@ -38,9 +38,9 @@ Het maken van een app met een door het systeem toegewezen identiteit, moet een e
 
 ### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
 
-Als u een beheerde identiteit in de portal instelt, wordt u eerst maken van een toepassing als normale en schakel vervolgens de functie.
+Als u een beheerde identiteit in de portal instelt, moet u eerst een toepassing als normaal aanmaken en vervolgens de functie inschakelen.
 
-1. Zoals u gewend bent, kunt u een app maken in de portal. Navigeren in de portal.
+1. Zoals u gewend bent, kunt u een app maken in de portal. Navigeer ernaar in de portal.
 
 2. Als u een functie-app gebruikt, gaat u naar **platformfuncties**. Voor andere typen, schuif omlaag naar de **instellingen** groep in het linkernavigatievenster.
 
@@ -173,7 +173,7 @@ U moet eerst een resource door de gebruiker toegewezen identiteit maken.
 
 1. Maak een beheerde identiteit gebruiker toegewezen resource volgens [deze instructies](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
-2. Zoals u gewend bent, kunt u een app maken in de portal. Navigeren in de portal.
+2. Zoals u gewend bent, kunt u een app maken in de portal. Navigeer ernaar in de portal.
 
 3. Als u een functie-app gebruikt, gaat u naar **platformfuncties**. Voor andere typen, schuif omlaag naar de **instellingen** groep in het linkernavigatievenster.
 
@@ -350,7 +350,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
-    var options = {
+    let options = {
         uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,
         headers: {
             'Secret': process.env["MSI_SECRET"]

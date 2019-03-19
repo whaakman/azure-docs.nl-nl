@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6f8fadc42d1c725002f2552a3fc1fc98e8564437
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105549"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098769"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Identiteit en toegang bewaken in Azure Security Center (Preview)
 In dit artikel leest u hoe u Azure Security Center kunt gebruiken om de identiteit en toegangsactiviteiten van gebruikers te bewaken.
@@ -68,11 +68,11 @@ Onder **overzicht**, er is een lijst met aanbevelingen. De eerste kolom bevat de
 
 1. Selecteer een aanbeveling. Venster van de aanbeveling wordt geopend en wordt weergegeven:
 
-  - Beschrijving van de aanbeveling
-  - Lijst met abonnementen niet in orde en in orde is
-  - Lijst met resources die niet-gescande vanwege een mislukte evaluatie zijn of de resource is in een abonnement op de gratis laag en wordt niet beoordeeld
+   - Beschrijving van de aanbeveling
+   - Lijst met abonnementen niet in orde en in orde is
+   - Lijst met resources die niet-gescande vanwege een mislukte evaluatie zijn of de resource is in een abonnement op de gratis laag en wordt niet beoordeeld
 
-  ![De aanbeveling venster][3]
+   ![De aanbeveling venster][3]
 
 1. Selecteer een abonnement in de lijst voor meer informatie.
 
@@ -81,27 +81,27 @@ Onder **abonnementen**, er is een lijst met abonnementen. De eerste kolom bevat 
 
 ![Tabblad van het abonnement][4]
 
-1.  Selecteer een abonnement. Een overzicht wordt geopend met drie tabbladen:
+1. Selecteer een abonnement. Een overzicht wordt geopend met drie tabbladen:
 
-  - **Aanbevelingen**: op basis van beoordelingen die door Security Center die niet zijn uitgevoerd.
-  - **Evaluaties doorgegeven**: lijst met beoordelingen uitgevoerd door Security Center die doorgegeven.
-  - **Niet-beschikbare evaluaties**: lijst met beoordelingen die kan niet worden uitgevoerd vanwege een fout of omdat het abonnement meer dan 600 accounts heeft.
+   - **Aanbevelingen**: op basis van beoordelingen die door Security Center die niet zijn uitgevoerd.
+   - **Evaluaties doorgegeven**: lijst met beoordelingen uitgevoerd door Security Center die doorgegeven.
+   - **Niet-beschikbare evaluaties**: lijst met beoordelingen die kan niet worden uitgevoerd vanwege een fout of omdat het abonnement meer dan 600 accounts heeft.
 
-  Onder **aanbevelingen** is een lijst met aanbevelingen voor het geselecteerde abonnement en de ernst van elke aanbeveling.
+   Onder **aanbevelingen** is een lijst met aanbevelingen voor het geselecteerde abonnement en de ernst van elke aanbeveling.
 
-  ![Aanbevelingen voor het abonnement selecteren][5]
+   ![Aanbevelingen voor het abonnement selecteren][5]
 
 1. Selecteer een aanbeveling voor een beschrijving van de aanbeveling, een lijst met abonnementen niet in orde en in orde is en een lijst met niet-gescande resources.
 
-  ![Beschrijving van de aanbeveling][6]
+   ![Beschrijving van de aanbeveling][6]
 
-  Onder **evaluaties doorgegeven** is een lijst van geslaagde evaluaties.  Ernst van deze beoordeling is altijd groen.
+   Onder **evaluaties doorgegeven** is een lijst van geslaagde evaluaties.  Ernst van deze beoordeling is altijd groen.
 
-  ![Geslaagde evaluaties][7]
+   ![Geslaagde evaluaties][7]
 
 1. Selecteer een evaluatie van de doorgegeven in de lijst voor een beschrijving van de evaluatie en een lijst met abonnementen in orde. Er is een tabblad voor niet in orde abonnementen met een lijst met alle abonnementen die niet zijn geslaagd.
 
-  ![Geslaagde evaluaties][8]
+   ![Geslaagde evaluaties][8]
 
 ## <a name="recommendations"></a>Aanbevelingen
 Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare Identity & Access aanbevelingen en wat elke doet als u deze toepast.

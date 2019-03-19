@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: nitinme
-ms.openlocfilehash: 5c6d9bbfe5cf3632b21f374c23bf5df728478ce0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f0bfa407705f4c9535e6dddc9a27a4f7130931d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761052"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113827"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Wat is Azure Cognitive Services?
 
@@ -46,7 +46,7 @@ Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars int
 |[Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "spellingcontrole voor Bing")|Bing spellingcontrole, kunt u voor het uitvoeren van contextuele grammatica en spellingcontrole.|
 |[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|Language Understanding service (LUIS) kunt uw toepassing om te begrijpen wat een persoon wil in hun eigen woorden.|
 |[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Text Analytics")|Text Analytics biedt via onbewerkte tekst voor sentimentanalyse, sleuteltermextractie en taaldetectie verwerking van natuurlijke taal.|
-|[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator tekst")|Translator tekst biedt voor op basis van machine tekstomzetting in bijna-realtime.||
+|[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator tekst")|Translator tekst biedt voor op basis van machine tekstomzetting in bijna-realtime.|
 
 ## <a name="search-apis"></a>Zoek-API's
 

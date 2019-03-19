@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3a295a5c8a202b2f3186e696bb281002090fcad4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024566"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112599"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP-adrestypen en toewijzingsmethoden (klassiek) in Azure
 U kunt IP-adressen toewijzen aan Azure-resources om te communiceren met andere Azure-resources, uw on-premises netwerk en internet. Er zijn twee soorten IP-adressen die u in Azure gebruiken kunt: openbare en privéclouds.
@@ -27,7 +27,7 @@ Openbare IP-adressen worden gebruikt voor communicatie met Internet, met inbegri
 Privé-IP-adressen worden gebruikt voor communicatie in een Azure-netwerk (VNet), een service in de cloud en uw on-premises netwerk wanneer u een VPN-gateway of ExpressRoute-circuit met uw netwerk uitbreiden naar Azure.
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources:  [Resource Manager en klassieke](../resource-manager-deployment-model.md).  Dit artikel gaat over het gebruik van het klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties Resource Manager gebruiken. Meer informatie over IP-adressen in Resource Manager met het lezen van de [IP-adressen](virtual-network-ip-addresses-overview-arm.md) artikel.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources:  [Resource Manager en het klassieke model](../resource-manager-deployment-model.md).  Dit artikel gaat over het gebruik van het klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties Resource Manager gebruiken. Meer informatie over IP-adressen in Resource Manager met het lezen van de [IP-adressen](virtual-network-ip-addresses-overview-arm.md) artikel.
 
 ## <a name="public-ip-addresses"></a>Openbare IP-adressen
 Openbare IP-adressen gebruikt om Azure-resources om te communiceren met Internet en Azure openbare services zoals [Azure Cache voor Redis](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL-databases](../sql-database/sql-database-technical-overview.md), en [Azure storage](../storage/common/storage-introduction.md).
@@ -165,13 +165,13 @@ Hieronder volgt een vergelijking van de IP-adressering functies in Resource Mana
 |  | Resource | Klassiek | Resource Manager |
 | --- | --- | --- | --- |
 | **Openbare IP-adres** |***VM*** |Aangeduid als een ILPIP (alleen dynamisch) |Aangeduid als een openbaar IP-adres (dynamisch of statisch) |
-|  ||Toegewezen aan een IaaS-VM of een PaaS-rolinstantie |Dat is gekoppeld aan van de VM NIC | |
-|  |***Internetgerichte load balancer*** |Wel VIP (dynamische) of gereserveerd IP-adres (statisch) |Aangeduid als een openbaar IP-adres (dynamisch of statisch) | |
-|  ||Toegewezen aan een cloudservice |Dat is gekoppeld aan de load balancer-front-end-configuratie | |
+|  ||Toegewezen aan een IaaS-VM of een PaaS-rolinstantie |Dat is gekoppeld aan van de VM NIC |
+|  |***Internetgerichte load balancer*** |Wel VIP (dynamische) of gereserveerd IP-adres (statisch) |Aangeduid als een openbaar IP-adres (dynamisch of statisch) |
+|  ||Toegewezen aan een cloudservice |Dat is gekoppeld aan de load balancer-front-end-configuratie |
 |  | | | |
 | **Privé-IP-adres** |***VM*** |Aangeduid als een DIP |Aangeduid als een privé IP-adres |
-|  ||Toegewezen aan een IaaS-VM of een PaaS-rolinstantie |Toegewezen aan van de VM NIC | |
-|  |***Interne load balancer (ILB)*** |Toegewezen aan de ILB (dynamisch of statisch) |Toegewezen aan van de ILB-front-end-configuratie (dynamisch of statisch) | |
+|  ||Toegewezen aan een IaaS-VM of een PaaS-rolinstantie |Toegewezen aan van de VM NIC |
+|  |***Interne load balancer (ILB)*** |Toegewezen aan de ILB (dynamisch of statisch) |Toegewezen aan van de ILB-front-end-configuratie (dynamisch of statisch) |
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Een VM implementeren met een statisch privé IP-adres](virtual-networks-static-private-ip-classic-pportal.md) met behulp van de Azure portal.

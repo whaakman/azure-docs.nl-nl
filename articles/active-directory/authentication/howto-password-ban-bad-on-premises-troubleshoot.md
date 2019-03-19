@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63fdd60c4c462626cc43a7a453bddc0b020b92cf
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409887"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006950"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Preview: Azure AD-wachtwoordbeveiliging oplossen
 
@@ -37,7 +37,7 @@ De gebruikelijke oorzaak van dit probleem is dat een proxy nog niet is geregistr
 
 De belangrijkste symptoom van dit probleem is 30018 gebeurtenissen in het gebeurtenislogboek van DC-agent-beheerder. Dit kan verschillende oorzaken hebben:
 
-1. De DC-agent bevindt zich in een geïsoleerde gedeelte van het netwerk waarmee de netwerkverbinding met de geregistreerde proxy(s) niet toelaat. Dit probleem mogelijk daarom expected\benign, zolang andere DC-agents met de proxy(s) communiceren kunnen om te downloaden van beleid voor wachtwoorden van Azure, die vervolgens worden verkregen door de geïsoleerde DC via replicatie van de bestanden in de sysvol-share.
+1. De DC-agent bevindt zich in een geïsoleerde-gedeelte van het netwerk dat de netwerkverbinding met de geregistreerde proxy(s) niet toelaat. Dit probleem mogelijk daarom expected\benign, zolang andere DC-agents met de proxy(s) communiceren kunnen om te downloaden van beleid voor wachtwoorden van Azure, die vervolgens worden verkregen door de geïsoleerde DC via replicatie van de bestanden in de sysvol-share.
 
 1. De proxy-hostmachine blokkeert de toegang tot het hulpprogramma voor het toewijzen van de RPC-eindpunt (poort 135)
 
@@ -63,13 +63,13 @@ Als de startmodus van de KDS-service is geconfigureerd op uitgeschakeld, kan dez
 
 Een eenvoudige test voor dit probleem is de KDS-service, via de Service management MMC-console handmatig te starten of met behulp van andere hulpprogramma's voor service management (bijvoorbeeld 'net start kdssvc' vanaf een opdrachtprompt-console worden uitgevoerd). De KDS-service wordt gestart en blijven altijd werken verwacht.
 
-De meest voorkomende oorzaak is dat de Active Directory domain controller object bevindt zich buiten de standaard-domeincontrollers. Deze configuratie wordt niet ondersteund door de KDS-service en is niet beperkt tot die zijn opgelegd door Azure AD-wachtwoord beveiliging. De oplossing voor dit probleem is de domain controller object verplaatsen naar een locatie in de standaard-domeincontrollers.
+De meest voorkomende oorzaak voor de KDS-service wordt kan niet worden gestart, is dat de Active Directory domain controller object bevindt zich buiten de standaard-domeincontrollers. Deze configuratie wordt niet ondersteund door de KDS-service en is niet beperkt tot die zijn opgelegd door Azure AD-wachtwoord beveiliging. De oplossing voor dit probleem is de domain controller object verplaatsen naar een locatie in de standaard-domeincontrollers.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Zwakke wachtwoorden worden geaccepteerd, maar mag niet zijn
 
 Dit probleem kan verschillende oorzaken hebben.
 
-1. De DC-agent (s) een beleid kan niet worden gedownload of kan niet ontsleutelen van bestaande beleidsregels. Controleren op mogelijke oorzaken in de bovenstaande onderwerpen.
+1. Uw DC-agent (s) kan een beleid niet downloaden of kan niet ontsleutelen van bestaande beleidsregels. Controleren op mogelijke oorzaken in de bovenstaande onderwerpen.
 
 1. De modus wachtwoord beleid afdwingen is nog steeds ingesteld op Audit. Als deze configuratie van kracht is, deze opnieuw configureren op afdwingen met behulp van de portal van de beveiliging van Azure AD-wachtwoord. Zie [inschakelen wachtwoordbeveiliging](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 

@@ -1,17 +1,17 @@
 ---
 title: Typen van de index in Azure Cosmos DB
 description: Overzicht van de typen index in Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/5/2018
-ms.author: rimman
-ms.openlocfilehash: f45663fd0f63537f87ee4466ad5f17cce0bed6a3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.date: 3/13/2019
+ms.author: mjbrown
+ms.openlocfilehash: 56c0fcb24ac5d255c6a36bcffd327df76f459963
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961717"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990558"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Typen van de index in Azure Cosmos DB
 
@@ -19,30 +19,24 @@ Er zijn meerdere opties waar u het indexeringsbeleid voor een pad configureren. 
 
 - **Gegevenstype:** Tekenreeks, getal, punt, Polygon of LineString (kan slechts één vermelding per gegevenstype per pad bevatten).
 
-- **Index-type:** Hash (gelijkheid query's), bereik (gelijkheid, bereik of ORDER BY-query's) of Spatial (ruimtelijke query's).
+- **Index-type:** Bereik (gelijkheid, bereik of ORDER BY-query's), of Spatial (ruimtelijke query's).
 
-- **Precisie:** Dit varieert van 1 tot en met 8 voor tekenreeksen en cijfers voor een hashindex en de standaardwaarde is 3. Voor de index van een bereik is de maximale precisiewaarde -1. Dit kan verschillen tussen 1 en 100 (maximumprecisie) voor de tekenreeks of numerieke waarden.
+- **Precisie:** Voor de index van een bereik is de maximale precisiewaarde -1, dit is de standaardinstelling.
 
 ## <a name="index-kind"></a>Index-type
 
-Azure Cosmos DB biedt ondersteuning voor Hash-index en bereik index voor elk pad die kan worden geconfigureerd voor tekenreeks of getal gegevenstypen, of beide.
+Azure Cosmos DB ondersteunt bereik index voor elk pad die kan worden geconfigureerd voor tekenreeks of getal gegevenstypen, of beide.
 
-- **Hash-index** biedt ondersteuning voor efficiënte gelijkheid en JOIN-query's. Voor de meeste gevallen nodig geen Hash-indexen een grotere precisie dan de standaardwaarde van 3 bytes. Het gegevenstype mag tekenreeks of getal.
-
-  > [!NOTE]
-  > Azure Cosmos-containers ondersteunen een nieuwe indexindeling die gebruikmaakt van het type van de index Hash niet meer. Als u een index hash-type op het indexeringsbeleid opgeeft, wordt de CRUD-aanvragen voor de container wordt op de achtergrond genegeerd, het type index en het antwoord van de container bevat alleen het type van de index bereik. Alle nieuwe Cosmos-containers maken standaard gebruik van de nieuwe indexindeling. 
-  
-- **Bereik index** biedt ondersteuning voor efficiënte gelijkheid query's, bereik-query's (met behulp van >, <>, =, < =,! =), en ORDER BY-query's. ORDER By-query's standaard vereist ook maximale index precisie (-1). Het gegevenstype mag tekenreeks of getal.
+- **Bereik index** ondersteunt gelijkheid efficiënt query's, de JOIN-query's, de bereik-query's (met behulp van >, <>, =, < =,! =), en ORDER BY-query's. ORDER By-query's standaard vereist ook maximale index precisie (-1). Het gegevenstype mag tekenreeks of getal.
 
 - **Ruimtelijke index** ondersteunt efficiënte ruimtelijke (binnen en afstand) query's. Het gegevenstype mag punt, Polygon of LineString. Azure Cosmos DB ondersteunt ook het type van de ruimtelijke index voor elk pad dat kan worden opgegeven voor de gegevenstypen punt, Polygon of LineString. De waarde in het opgegeven pad moet een geldige GeoJSON-fragment, zoals {"type": "Point", "coordinates": [0.0, 10.0]}. Azure Cosmos DB biedt ondersteuning voor automatische indexering van punt veelhoek en LineString gegevenstypen.
 
-Hier volgen enkele voorbeelden van query's die Hash, bereik en ruimtelijke indexen kunnen worden gebruikt voor het bieden van:
+Hier volgen enkele voorbeelden van query's die variëren en ruimtelijke indexen kunnen worden gebruikt voor het bieden van:
 
 | **Index-type** | **Beschrijving/use-case** |
 | ---------- | ---------------- |
-| Hash  | Hash-via/prop /? (of /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer uit verzameling c waar c.prop = "waarde"<br><br>Hash voor/eigenschappen / [] /? (of / of/eigenschappen /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer taggen van verzameling c JOIN-tag IN c.props waar tag = 5  |
-| Bereik  | Bereik via/prop /? (of /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer uit verzameling c waar c.prop = "waarde"<br><br>Selecteer uit verzameling c waar c.prop > 5<br><br>Selecteer uit verzameling c ORDER BY c.prop   |
-| Ruimtelijk     | Bereik via/prop /? (of /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer uit de verzameling-c<br><br>WAAR ST_DISTANCE (c.prop, {"type": 'Point', "coördinaten": [0.0, 10.0]}) < 40<br><br>Selecteer in de verzameling c waar ST_WITHIN(c.prop, {"type": 'Point',...}) --met het indexeren van punten ingeschakeld<br><br>Selecteer in de verzameling c waar ST_WITHIN({"type": "Veelhoek',...}, c.prop)--met indexering voor veelhoeken ingeschakeld.     |
+| Bereik      | Bereik via/prop /? (of /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer uit verzameling c waar c.prop = "waarde"<br><br>Selecteer uit verzameling c waar c.prop > 5<br><br>Selecteer uit verzameling c ORDER BY c.prop<br><br>Bereik via/Eigenschappen / [] /? (of / of/eigenschappen /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer taggen van verzameling c JOIN-tag IN c.props waar tag = 5  |
+| Ruimtelijk    | Bereik via/prop /? (of /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer in de verzameling c waar ST_DISTANCE(c.prop, {"type": 'Point', "coördinaten": [0.0, 10.0]}) < 40<br><br>Selecteer in de verzameling c waar ST_WITHIN(c.prop, {"type": 'Point',...}) --met het indexeren van punten ingeschakeld<br><br>Selecteer in de verzameling c waar ST_WITHIN({"type": "Veelhoek',...}, c.prop)--met indexering voor veelhoeken ingeschakeld. |
 
 ## <a name="default-behavior-of-index-kinds"></a>Standaardgedrag index soorten
 

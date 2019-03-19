@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: d6e60e1bbd31eb9f18da32cf6d2e67c9f690db87
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 923931eec2a7deaa8cf92bec61bc623615c9420d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727175"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847056"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -44,20 +44,45 @@ Regio's                                        | Beschikbaarheid?               
 [Azure China](https://www.azure.cn/)                                                           | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 [Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 [Openbare West-Centraal VS](https://azure.microsoft.com/regions/)     | Algemeen verkrijgbaar   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+
 Deze tabel wordt bijgewerkt wanneer er service-updates beschikbaar zijn en of nieuwe ondersteunde versies zijn beschikbaar.
 
 > [!NOTE]
 > 2018-01-10 wordt momenteel ophalen geïmplementeerd en is beschikbaar in andere regio's over enkele ogenblikken. Deze tabel wordt bijgewerkt wanneer er service-updates beschikbaar zijn en of nieuwe ondersteunde versies zijn beschikbaar
 
-Als u wilt de Instance Metadata Service uitproberen, maakt u een VM op basis van [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) of de [Azure-portal](http://portal.azure.com) in de bovenstaande regio's en volg de onderstaande voorbeelden.
+Als u wilt de Instance Metadata Service uitproberen, maakt u een VM op basis van [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) of de [Azure-portal](https://portal.azure.com) in de bovenstaande regio's en volg de onderstaande voorbeelden.
 
 ## <a name="usage"></a>Gebruik
 
 ### <a name="versioning"></a>Versiebeheer
 
-De Instance Metadata Service is samengesteld. Versies zijn verplicht en de huidige versie op algemene Azure `2018-04-02`. Huidige ondersteunde versies zijn (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 10-01-2018).
+De Instance Metadata Service is samengesteld. Versies zijn verplicht en de huidige versie op algemene Azure `2018-10-01`. Huidige ondersteunde versies zijn (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 10-01-2018).
 
 Als nieuwe versies worden toegevoegd, oudere versies nog steeds toegankelijk voor compatibiliteit als uw scripts afhankelijk van de opmaak van bepaalde gegevens zijn.
+
+Als er geen versie wordt opgegeven, wordt een fout geretourneerd met een lijst met de nieuwste ondersteunde versies.
+
+> [!NOTE] 
+> Het antwoord is een JSON-tekenreeks. Het volgende voorbeeldantwoord is pretty afgedrukt voor de leesbaarheid.
+
+**Aanvraag**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance"
+```
+
+**Antwoord**
+
+```json
+{
+    "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
+    "newest-versions": [
+        "2018-10-01",
+        "2018-04-02",
+        "2018-02-01"
+    ]
+}
+```
 
 ### <a name="using-headers"></a>Met behulp van headers
 
@@ -165,7 +190,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Aanvraag**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"
 ```
 
 **Antwoord**
@@ -176,22 +201,30 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 ```json
 {
   "compute": {
-    "location": "westus",
-    "name": "avset2",
-    "offer": "UbuntuServer",
+    "azEnvironment": "AZUREPUBLICCLOUD",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
     "osType": "Linux",
     "placementGroupId": "",
-    "platformFaultDomain": "1",
-    "platformUpdateDomain": "1",
-    "publisher": "Canonical",
+    "plan": {
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
+    },
+    "platformFaultDomain": "0",
+    "platformUpdateDomain": "0",
+    "provider": "Microsoft.Compute",
+    "publicKeys": [],
+    "publisher": "bitnami",
     "resourceGroupName": "myrg",
-    "sku": "16.04-LTS",
+    "sku": "5-6",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "",
-    "version": "16.04.201708030",
+    "version": "7.1.1902271506",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
-    "vmSize": "Standard_D1",
+    "vmSize": "Standard_A1_v2",
     "zone": "1"
   },
   "network": {
@@ -228,13 +261,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 Metagegevens van het exemplaar in Windows kan worden opgehaald via de PowerShell-hulpprogramma `curl`: 
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2018-10-01 | select -ExpandProperty Content
 ```
 
 Of via de `Invoke-RestMethod` cmdlet:
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2018-10-01 -Method get 
 ```
 
 **Antwoord**
@@ -245,17 +278,31 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "location": "westus",
-    "name": "SQLTest",
-    "offer": "SQL2016SP1-WS2016",
-    "osType": "Windows",
+    "azEnvironment": "AZUREPUBLICCLOUD",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
+    "osType": "Linux",
+    "placementGroupId": "",
+    "plan": {
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
+    },
     "platformFaultDomain": "0",
     "platformUpdateDomain": "0",
-    "publisher": "MicrosoftSQLServer",
-    "sku": "Enterprise",
-    "version": "13.0.400110",
-    "vmId": "453945c8-3923-4366-b2d3-ea4c80e9b70e",
-    "vmSize": "Standard_DS2"
+    "provider": "Microsoft.Compute",
+    "publicKeys": [],
+    "publisher": "bitnami",
+    "resourceGroupName": "myrg",
+    "sku": "5-6",
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "",
+    "version": "7.1.1902271506",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
+    "vmScaleSetName": "",
+    "vmSize": "Standard_A1_v2",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -290,6 +337,7 @@ De volgende gegevenscategorieën zijn beschikbaar via de Instance Metadata Servi
 
 Gegevens | Description | Versie geïntroduceerd
 -----|-------------|-----------------------
+azEnvironment | Azure-omgeving waarop de virtuele machine wordt uitgevoerd in | 10-01-2018
 location | Azure-regio de virtuele machine wordt uitgevoerd in | 2017-04-02
 naam | Naam van de virtuele machine | 2017-04-02
 aanbieding | Biedt informatie over de VM-installatiekopie. Deze waarde is alleen aanwezig zijn voor installatiekopieën die zijn geïmplementeerd vanuit de galerie met installatiekopieën van Azure. | 2017-04-02
@@ -305,7 +353,8 @@ subscriptionId | Azure-abonnement voor de virtuele Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) voor uw virtuele Machine  | 2017-08-01
 resourceGroupName | [Resourcegroep](../../azure-resource-manager/resource-group-overview.md) voor uw virtuele Machine | 2017-08-01
 placementGroupId | [Plaatsingsgroep](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) instellen van uw virtuele-machineschaalset | 2017-08-01
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) voor een virtuele machine in het is een Azure Marketplace-installatiekopie, bevat de naam, product en uitgever | 2018-04-02
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) voor een virtuele machine in de een Azure Marketplace-installatiekopie, bevat de naam, product en uitgever | 2018-04-02
+provider | Provider van de virtuele machine | 10-01-2018
 publicKeys | Verzameling van openbare sleutels [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] toegewezen aan de virtuele machine en de paden | 2018-04-02
 vmScaleSetName | [Naam van de virtuele Machine ScaleSet](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) instellen van uw virtuele-machineschaalset | 2017-12-01
 zone | [Binnen een Beschikbaarheidszone](../../availability-zones/az-overview.md) van uw virtuele machine | 2017-12-01
@@ -327,10 +376,12 @@ Metagegevens van het exemplaar reageert op http-eindpunt op 169.254.169.254. Ond
 
  > [!NOTE]
 > Alle API-antwoorden zijn JSON-tekenreeksen. Het volgende voorbeeldantwoorden zijn pretty afgedrukt voor de leesbaarheid.
+
  **Aanvraag**
 
+
  ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2010-10-01&nonce=1234567890"
+curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
 
 ```
 
@@ -351,7 +402,9 @@ Nonce is een optionele 10 cijfers tekenreeks opgegeven. Nonce kan worden gebruik
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>Bij het ophalen van blijkt metagegevens in Windows virtuele Machine
 
- **Aanvraag** metagegevens van het exemplaar in Windows kan worden opgehaald via de PowerShell-hulpprogramma `curl`:
+ **Aanvraag**
+
+Metagegevens van het exemplaar in Windows kan worden opgehaald via de PowerShell-hulpprogramma `curl`:
 
  ```bash
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
@@ -367,6 +420,7 @@ API-versie is een verplicht veld zijn en de versie die wordt ondersteund voor bl
 Nonce is een optionele 10 cijfers tekenreeks opgegeven. Nonce kan worden gebruikt voor het bijhouden van de aanvraag en indien niet opgegeven, in antwoord gecodeerde tekenreeks, de huidige UTC tijdstempel wordt geretourneerd.
 
  **Antwoord**
+
 > [!NOTE]
 > Het antwoord is een JSON-tekenreeks. Het volgende voorbeeldantwoord is pretty afgedrukt voor de leesbaarheid.
 
@@ -453,27 +507,11 @@ Azure heeft verschillende onafhankelijke clouds, zoals [Azure Government](https:
 
 **Aanvraag**
 
-> [!NOTE]
-> Vereist jq moet worden geïnstalleerd.
+cURL Metadata:true -H "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 
-```bash
-  metadata=$(curl "http://169.254.169.254/metadata/instance/compute?api-version=2018-02-01" -H "Metadata:true")
-  endpoints=$(curl "https://management.azure.com/metadata/endpoints?api-version=2017-12-01")
-
-  location=$(echo $metadata | jq .location -r)
-
-  is_ww=$(echo $endpoints | jq '.cloudEndpoint.public.locations[]' -r | grep -w $location)
-  is_us=$(echo $endpoints | jq '.cloudEndpoint.usGovCloud.locations[]' -r | grep -w $location)
-  is_cn=$(echo $endpoints | jq '.cloudEndpoint.chinaCloud.locations[]' -r | grep -w $location)
-  is_de=$(echo $endpoints | jq '.cloudEndpoint.germanCloud.locations[]' -r | grep -w $location)
-
-  environment="Unknown"
-  if [ ! -z $is_ww ]; then environment="AzureCloud"; fi
-  if [ ! -z $is_us ]; then environment="AzureUSGovernment"; fi
-  if [ ! -z $is_cn ]; then environment="AzureChinaCloud"; fi
-  if [ ! -z $is_de ]; then environment="AzureGermanCloud"; fi
-
-  echo $environment
+**Antwoord**
+```
+AZUREPUBLICCLOUD
 ```
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>Valideren dat de virtuele machine wordt uitgevoerd in Azure
@@ -490,6 +528,8 @@ Azure heeft verschillende onafhankelijke clouds, zoals [Azure Government](https:
   base64 -d signature > decodedsignature
   #Get PKCS7 format
   openssl pkcs7 -in decodedsignature -inform DER -out sign.pk7
+  # Get Public key out of pkc7
+  openssl pkcs7 -in decodedsignature -inform DER  -print_certs -out signer.pem
   #Get the intermediate certificate
   wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
   openssl x509 -inform der -in intermediate.cer -out intermediate.pem
@@ -591,7 +631,7 @@ Network Destination        Netmask          Gateway       Interface  Metric
   255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
 ```
 
-3. Voer de volgende opdracht uit en gebruik het adres van de Interface voor doel-netwerk (`0.0.0.0`) die is (`10.0.1.10`) in dit voorbeeld.
+1. Voer de volgende opdracht uit en gebruik het adres van de Interface voor doel-netwerk (`0.0.0.0`) die is (`10.0.1.10`) in dit voorbeeld.
 
 ```bat
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
@@ -627,7 +667,7 @@ Puppet | https://github.com/keirans/azuremetadata
 5. Waarom krijg ik de fout `500 Internal Server Error`?
    * Probeer uw aanvraag op basis van exponentieel uitstel system. Neem contact op met ondersteuning van Azure als het probleem zich blijft voordoen.
 6. Waar kan ik delen als u meer vragen/opmerkingen?
-   * Stuur uw opmerkingen op http://feedback.azure.com.
+   * Stuur uw opmerkingen op https://feedback.azure.com.
 7. Werkt dit voor instellen-instantie van virtuele-Machineschaalset?
    * Ja is Metadata-service beschikbaar voor Schalingsinstanties instellen.
 8. Hoe krijg ik ondersteuning voor de service?
@@ -635,9 +675,9 @@ Puppet | https://github.com/keirans/azuremetadata
 9. Kan ik er is een time-out opgetreden voor de aanroep naar de service krijgen?
    * Metagegevens-aanroepen moeten worden gemaakt van het primaire IP-adres toegewezen aan de netwerkkaart van de virtuele machine, ook als u hebt gewijzigd uw routes er moeten een route voor 169.254.0.0/16 adres buiten uw netwerkkaart.
 10. Kan ik mijn labels in virtuele-machineschaalset bijgewerkt, maar ze niet weergegeven in de exemplaren in tegenstelling tot virtuele machines?
-   * Op dit moment voor ScaleSets weergegeven labels alleen op de virtuele machine op een opnieuw opstarten/terugzetten van een installatiekopie/of een schijf met het exemplaar wijzigen.
+    * Op dit moment voor ScaleSets weergegeven labels alleen op de virtuele machine op een opnieuw opstarten/terugzetten van een installatiekopie/of een schijf met het exemplaar wijzigen.
 
-   ![Ondersteuning voor Instance-Metagegevens](./media/instance-metadata-service/InstanceMetadata-support.png)
+    ![Ondersteuning voor Instance-Metagegevens](./media/instance-metadata-service/InstanceMetadata-support.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

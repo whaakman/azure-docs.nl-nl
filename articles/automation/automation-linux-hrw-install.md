@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 29ca8c4114d48fa0d3756930354660712b1b35b3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 3bdf642c37fe5f64b7d853da6a050ec8c2a7d44d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820413"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834656"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Een Linux Hybrid Runbook Worker implementeren
 
@@ -71,7 +71,7 @@ Voordat u doorgaat, houd er rekening mee de Log Analytics-werkruimte die aan uw 
 
 1. De Log Analytics-agent voor Linux installeren met de volgende opdracht. Vervang \<WorkspaceID\> en \<WorkspaceKey\> met de juiste waarden uit uw werkruimte.
 
-  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
    ```bash
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -111,12 +111,8 @@ De volgende runbooktypen werken niet op een Hybrid Worker in Linux:
 * Grafische
 * Grafische PowerShell-werkstroom
 
-## <a name="troubleshoot"></a>Problemen oplossen
-
-Zie voor informatie over het oplossen van de Hybrid Runbook Workers, [probleemoplossing Linux Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#linux)
-
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor informatie over het configureren van uw runbooks om processen in uw on-premises datacenter of andere cloudomgeving te automatiseren, [runbooks uitvoeren op een Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 * Zie voor instructies over het verwijderen van Hybrid Runbook Workers [verwijderen Azure Automation Hybrid Runbook Workers](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
-
+* Zie voor informatie over het oplossen van de Hybrid Runbook Workers, [probleemoplossing Linux Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#linux)

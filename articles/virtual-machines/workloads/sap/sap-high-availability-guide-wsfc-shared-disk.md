@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a72a4244e3cae081fe9a962bbb80d3ce19822d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000306"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -39,7 +39,7 @@ ms.locfileid: "39113219"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [ha-guide]:sap-high-availability-guide.md
@@ -221,19 +221,19 @@ Een SAP ASCS/SCS-exemplaar heeft de volgende onderdelen:
 
 * SAP central services:
     * Op twee manieren laden, een bericht en de server in de wachtrij plaatsen en < ASCS/SCS virtuele naam van een host >, die wordt gebruikt voor toegang tot deze twee processen.
-    * Structuur van het bestand: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<exemplaarnummer\>
+    * Bestandsstructuur: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<exemplaarnummer\>
 
 
 * SAP globale host-bestanden:
-    * Structuur van het bestand: S:\usr\sap\\&lt;SID&gt;\SYS\....
-    * De bestandsshare sapmnt, waarmee toegang tot deze globale S:\usr\sap\\&lt;SID&gt;\SYS\... bestanden met behulp van de volgende UNC-pad:
+  * Bestandsstructuur: S:\usr\sap\\&lt;SID&gt;\SYS\....
+  * De bestandsshare sapmnt, waarmee toegang tot deze globale S:\usr\sap\\&lt;SID&gt;\SYS\... bestanden met behulp van de volgende UNC-pad:
 
-     \\\\< naam van ASCS/SCS virtuele host > \sapmnt\\&lt;SID&gt;\SYS\....
+    \\\\< naam van ASCS/SCS virtuele host > \sapmnt\\&lt;SID&gt;\SYS\....
 
 
 ![Afbeelding 2: Processen, bestandsstructuur en globale host sapmnt bestandsshare van een SAP ASCS/SCS-exemplaar][sap-ha-guide-figure-8001]
 
-_**Afbeelding 2:** processen, bestandsstructuur en globale host sapmnt bestandsshare van een SAP ASCS/SCS-exemplaar_
+_**Afbeelding 2:** Processen, bestandsstructuur en globale host sapmnt bestandsshare van een SAP ASCS/SCS-exemplaar_
 
 In een hoge beschikbaarheid, moet u instanties van SAP ASCS/SCS clusteren. We gebruiken *geclusterde gedeelde schijven* (station S, in ons voorbeeld), plaatst u de SAP ASCS/SCS en SAP-global-bestanden hosten.
 
@@ -266,7 +266,7 @@ Een gedeelde schijfbron voor een cluster maken:
 
 Meer informatie krijgen over [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
 
-![Afbeelding 5: WindowsServer failover clustering-configuratie in Azure met SIOS DataKeeper][sap-ha-guide-figure-1002]
+![Afbeelding 5: Windows Server failover clustering-configuratie in Azure met SIOS DataKeeper][sap-ha-guide-figure-1002]
 
 _**Afbeelding 5:** Windows failover clustering-configuratie in Azure met SIOS DataKeeper_
 

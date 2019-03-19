@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fee91b857d9fd127839baaf7a70199c25cfab33
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e28a0e9b69a79311836afbd0ba29d0ca4428ad98
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191636"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57975454"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Zelfstudie: Azure Active Directory-integratie met SumoLogic
 
@@ -116,6 +116,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<tenantname>.SumoLogic.com`
 
     b. In het tekstvak **Id** typt u een URL met het volgende patroon:
+    
     | |
     |--|
     | `https://<tenantname>.us2.sumologic.com` |
@@ -218,7 +219,7 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij SumoLogic, moeten ze worde
 
 1. Meld u aan bij uw **SumoLogic** tenant.
 
-1. Ga naar **beheren \> gebruikers**.
+1. Ga naar **Beheren \> Gebruikers**.
    
     ![Gebruikers](./media/sumologic-tutorial/ic778561.png "Gebruikers")
 
@@ -280,7 +281,7 @@ Wanneer u op de tegel SumoLogic in het toegangsvenster, u moet u automatisch aan
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

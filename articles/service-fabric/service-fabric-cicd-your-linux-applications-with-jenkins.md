@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: 7abc15264a44c969f57071e84ffcedca30d326fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766313"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089893"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins gebruiken om te bouwen en implementeren van uw Linux-toepassingen
 Jenkins is een populair hulpprogramma voor doorlopende integratie en implementatie van uw apps. Hier leest u hoe u een Azure Service Fabric-toepassing maakt en implementeert met behulp van Jenkins.
@@ -253,24 +253,24 @@ De stappen in deze sectie laten zien hoe u een Jenkins-taak om te reageren op wi
       ```
    
    * **Voor Jenkins uitgevoerd buiten het cluster:** Volg deze stappen voor het clustercertificaat kopiëren naar de container:
-      1. Het certificaat moet zich in de PEM-indeling. Als u geen een PEM-bestand hebt, kunt u een van de certificaat-PFX-bestand kunt maken. Als uw PFX-bestand niet beveiligd met een wachtwoord is, voert u de volgende opdracht uit vanaf uw host:
+     1. Het certificaat moet zich in de PEM-indeling. Als u geen een PEM-bestand hebt, kunt u een van de certificaat-PFX-bestand kunt maken. Als uw PFX-bestand niet beveiligd met een wachtwoord is, voert u de volgende opdracht uit vanaf uw host:
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
+        ``` 
 
-      Als het PFX-bestand beveiligd met een wachtwoord is, voegt u het wachtwoord in de `-passin` parameter. Bijvoorbeeld:
+        Als het PFX-bestand beveiligd met een wachtwoord is, voegt u het wachtwoord in de `-passin` parameter. Bijvoorbeeld:
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
+        ``` 
 
-      1. Als u de container-ID voor uw Jenkins-container, uitgevoerd `docker ps` vanaf uw host.
-      1. Kopieer het PEM-bestand naar de container met de volgende Docker-opdracht:
+     1. Als u de container-ID voor uw Jenkins-container, uitgevoerd `docker ps` vanaf uw host.
+     1. Kopieer het PEM-bestand naar de container met de volgende Docker-opdracht:
     
-         ```sh
-         docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
-         ``` 
+        ```sh
+        docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
+        ``` 
 
 U bent bijna klaar! Houd de Jenkins-taak geopend. De enige resterende taak bestaat uit het configureren van de stappen na bouwen voor het implementeren van uw toepassing in uw Service Fabric-cluster:
 

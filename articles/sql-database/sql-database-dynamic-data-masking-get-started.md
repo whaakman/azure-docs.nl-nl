@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/04/2019
-ms.openlocfilehash: c174167268e95e55b0916d2340005538d3ae8add
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2be1f7bb6417834196da03b7cba22387744f8c19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336781"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876541"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Dynamische gegevensmaskering voor SQL-Database
 
@@ -55,7 +55,7 @@ Dynamische gegevensmaskering kan worden geconfigureerd door de beheerder van de 
 
 De recommendations-engine van DDM vlaggen bepaalde velden uit de database als potentieel gevoelige velden die zijn goede kandidaten voor maskeren. In de blade Dynamic Data Masking in de portal ziet u de aanbevolen kolommen voor uw database. U hoeft alleen is, klikt u op **masker toevoegen** voor een of meer kolommen en vervolgens **opslaan** om toe te passen een masker voor deze velden.
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Instellen van dynamische gegevensmaskering voor uw database met behulp van Powershell-cmdlets
+## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Instellen van dynamische gegevensmaskering voor uw database met behulp van PowerShell-cmdlets
 
 Zie [Azure SQL Database-Cmdlets](https://docs.microsoft.com/powershell/module/az.sql).
 

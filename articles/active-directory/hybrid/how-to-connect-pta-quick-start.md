@@ -16,12 +16,12 @@ ms.date: 02/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a282ef88a5112593d4d8b9e304ec6ad03f44787c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 51fc93f9508bada40885e41b39e8a87cf4e0bf3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101003"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory Pass through-verificatie: Snel starten
 
@@ -68,7 +68,7 @@ Zorg ervoor dat de volgende vereisten voldaan is.
      Als uw firewall-regels op basis van de oorspronkelijke gebruikers afgedwongen, opent u deze poorten voor verkeer via Windows-services die worden uitgevoerd als een netwerkservice.
    - Als u uw firewall of proxyserver kan DNS-whitelist, lijst met toegestane adressen verbindingen met  **\*. msappproxy.net** en  **\*. servicebus.windows.net**. Als dit niet het geval is, kunt u toegang tot de [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653), die elke week worden bijgewerkt.
    - De verificatie-Agents moeten toegang hebben tot **login.windows.net** en **login.microsoftonline.com** voor registratie. Open uw firewall voor ook deze URL's.
-   - Blokkering voor validatie van het servercertificaat, de volgende URL's: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, en  **www.Microsoft.com:80**. Aangezien deze URL's voor validatie van het servercertificaat met andere Microsoft-producten worden gebruikt mogelijk hebt u al deze URL's geblokkeerd.
+   - Blokkering voor validatie van het servercertificaat, de volgende URL's: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, en **www \.microsoft.com:80**. Aangezien deze URL's voor validatie van het servercertificaat met andere Microsoft-producten worden gebruikt mogelijk hebt u al deze URL's geblokkeerd.
 
 ## <a name="step-2-enable-the-feature"></a>Stap 2: De functie inschakelen
 

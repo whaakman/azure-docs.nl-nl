@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7a5a92635114be87e59fe8f779c36d4c401a1427
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075825"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087156"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Zelfstudie: Custom Vision Service gebruiken om afbeeldingsclassificatie uit te voeren aan de rand
 
@@ -22,13 +22,18 @@ Met Azure IoT Edge kunt uw IoT-oplossing efficiënter maken door werkbelastingen
 
 Zo kunt u met Custom Vision op een IoT Edge-apparaat bepalen of er op een snelweg meer of minder verkeer is dan normaal, en of er in een parkeergarage nog vrije plaatsen zijn in een rij. Deze inzichten kunnen worden gedeeld met een andere service om actie te ondernemen. 
 
-
 In deze zelfstudie leert u het volgende: 
 
 > [!div class="checklist"]
+>
 > * Een afbeeldingsclassificatie bouwen met Custom Vision.
 > * Een IoT Edge-module ontwikkelen die gegevens opvraagt van de Custom Vision-webserver op uw apparaat.
 > * De resultaten van de afbeeldingsclassificatie verzenden naar IoT Hub.
+
+<center>
+
+![Diagram - zelfstudie-architectuur, Faseren en classificatie implementeren](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+</center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +48,7 @@ Cloudresources:
 
 * Een standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure. 
 * Een containerregister. In deze zelfstudie wordt [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) gebruikt. 
-    * Zorg dat u de referenties kent voor het [beheerdersaccount](../container-registry/container-registry-authentication.md#admin-account) van uw containerregister.
+* Zorg dat u de referenties kent voor het [beheerdersaccount](../container-registry/container-registry-authentication.md#admin-account) van uw containerregister.
 
 Ontwikkelingsresources:
 
@@ -70,10 +75,10 @@ Wanneer de afbeeldingsclassificatie is gemaakt en getraind, kunt u deze als een 
 
 4. Maak uw project met de volgende waarden:
 
-   | Veld | Waarde |
+   | Veld | Value |
    | ----- | ----- |
-   | Naam | Geef een naam op voor uw project, bijvoorbeeld **EdgeTreeClassifier**. |
-   | Beschrijving | Optionele projectbeschrijving. |
+   | Name | Geef een naam op voor uw project, bijvoorbeeld **EdgeTreeClassifier**. |
+   | Description | Optionele projectbeschrijving. |
    | Resourcegroep | Accepteer de standaardwaarde van **Beperkte proefversie**. |
    | Projecttypen | **Classificatie** |
    | Classificatietypen | **Multiclass (één label per afbeelding)** | 
@@ -153,7 +158,7 @@ Een oplossing is een logische manier om meerdere modules voor één IoT Edge-imp
 
 4. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Geef in het opdrachtpalet de volgende informatie op om de oplossing te maken: 
 
-   | Veld | Waarde |
+   | Veld | Value |
    | ----- | ----- |
    | Map selecteren | Kies de locatie op uw ontwikkelcomputer waar VS Code de oplossingsbestanden moet maken. |
    | Een naam opgeven voor de oplossing | Voer een beschrijvende naam voor uw oplossing in, bijvoorbeeld **CustomVisionSolution**, of accepteer de standaardinstelling. |
@@ -203,7 +208,7 @@ In deze sectie voegt u een nieuwe module aan dezelfde CustomVisionSolution toe e
 
 1. In hetzelfde Visual Studio Code-venster gebruikt u het opdrachtenpalet om **Azure IoT Edge: Add IoT Edge Module** uit te voeren. Geef in het opdrachtenpalet de volgende informatie op voor uw nieuwe module: 
 
-   | Vraag | Waarde | 
+   | Vraag | Value | 
    | ------ | ----- |
    | Implementatiesjabloonbestand selecteren | Selecteer het bestand deployment.template.json in de map CustomVisionSolution. |
    | Modulesjabloon selecteren | Selecteer **Python-module** |

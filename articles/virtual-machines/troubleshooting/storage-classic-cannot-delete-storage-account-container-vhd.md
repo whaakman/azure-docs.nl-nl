@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330610"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078156"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Oplossen van fouten bij het verwijderen van het klassieke opslag-resource
 Dit artikel bevat richtlijnen voor probleemoplossing bij een van de volgende fouten optreedt bij het verwijderen van Azure klassieke storage-account, container of *.vhd pagina-blob-bestand. 
@@ -59,10 +59,10 @@ Met 'niet-gekoppelde' aan een virtuele machine (s)
 #### <a name="azure-powershell"></a>Azure PowerShell
 Gebruiker probeert te verwijderen van een storage-account, dat niet meer wordt gebruikt, met behulp van klassieke PowerShell-cmdlets. Gebruiker ziet het volgende bericht:
 
-><span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
-
-><span style="color:red">Remove-AzureStorageAccount : BadRequest: Storage-account myclassicaccount heeft een of meer actieve installatiekopieën en/of schijven, bijvoorbeeld  
-myclassicaccount. Zorg ervoor dat deze installatiekopieën en/of schijven worden verwijderd voordat u dit opslagaccount verwijdert.</span>
+> <span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
+> 
+> <span style="color:red">Remove-AzureStorageAccount : BadRequest: Storage-account myclassicaccount heeft een of meer actieve installatiekopieën en/of schijven, bijvoorbeeld  
+> myclassicaccount. Zorg ervoor dat deze installatiekopieën en/of schijven worden verwijderd voordat u dit opslagaccount verwijdert.</span>
 
 ## <a name="unable-to-delete-storage-container"></a>Kan niet worden verwijderd van de storage-container
 
@@ -77,9 +77,9 @@ Azure-portal wouldn't toestaan dat de gebruiker verwijderen van een container al
 #### <a name="azure-powershell"></a>Azure PowerShell
 Als de gebruiker ervoor kiest om te verwijderen met behulp van PowerShell, resulteert dit in de volgende fout. 
 
-><span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
-
-><span style="color:red">Remove-AzureStorageContainer : De externe server heeft een fout geretourneerd: (412) er is momenteel een lease voor de container en er is geen lease-ID is opgegeven in de aanvraag... HTTP-statuscode: 412 - HTTP-foutbericht: Er is momenteel een lease voor de container en er is geen lease-ID is opgegeven in de aanvraag.</span>
+> <span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
+> 
+> <span style="color:red">Remove-AzureStorageContainer : De externe server heeft een fout geretourneerd: (412) er is momenteel een lease voor de container en er is geen lease-ID is opgegeven in de aanvraag... HTTP-statuscode: 412 - HTTP-foutbericht: Er is momenteel een lease voor de container en er is geen lease-ID is opgegeven in de aanvraag.</span>
 
 ## <a name="unable-to-delete-a-vhd"></a>Kan niet worden verwijderd van een vhd 
 
@@ -99,9 +99,9 @@ In de portal, kunnen er twee ervaringen, afhankelijk van de lijst met blobs die 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Als de gebruiker ervoor kiest om te verwijderen met behulp van PowerShell, resulteert dit in de volgende fout. 
 
-><span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
-
-><span style="color:red">Remove-AzureStorageBlob : De externe server heeft een fout geretourneerd: (412) er is momenteel een lease op de blob en er is geen lease-ID is opgegeven in de aanvraag... HTTP-statuscode: 412 - HTTP-foutbericht: Er is momenteel een lease op de blob en er is geen lease-ID is opgegeven in de aanvraag.</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> 
+> <span style="color:red">Remove-AzureStorageBlob : De externe server heeft een fout geretourneerd: (412) er is momenteel een lease op de blob en er is geen lease-ID is opgegeven in de aanvraag... HTTP-statuscode: 412 - HTTP-foutbericht: Er is momenteel een lease op de blob en er is geen lease-ID is opgegeven in de aanvraag.</span>
 
 
 ## <a name="resolution-steps"></a>Oplossingen

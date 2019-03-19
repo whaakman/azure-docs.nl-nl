@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 679284783ac93662c1c96e813f9f028fffb434f0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f0bffdf439a192fb10fe695fbfa18e8c7abf8077
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173654"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846681"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Zelfstudie: Azure Active Directory-integratie met Spotinst
 
@@ -221,7 +221,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 
     * In de **volledige naam** tekstvak, voer de volledige naam van gebruiker, zoals **BrittaSimon**.
 
-    * In de **e** tekstvak, voer het e-mailadres van de gebruiker, zoals **brittasimon@contoso.com**.
+    * In de **e** tekstvak, voer het e-mailadres van de gebruiker, zoals **brittasimon\@contoso.com**.
 
     * Selecteer uw organisatie-specifieke details voor de **organisatie rol, Accountrol en Accounts**.
 
@@ -266,7 +266,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

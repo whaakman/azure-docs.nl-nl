@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b12328c8283c9a626a3dcfc45dfd682a5e628d07
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c4af55a5ddb05335f8acfdd23711df2290e217b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728842"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085691"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configureren en gebruiken van serviceaffiniteit in Service Fabric
 Affiniteit is een besturingselement die hoofdzakelijk is bedoeld om u te helpen bij de overgang van grotere monolithische toepassingen vereenvoudigen in de cloud en microservices wereld. Het wordt ook gebruikt als een optimalisatie voor het verbeteren van de prestaties van services, maar in dat geval kan neveneffecten.
@@ -59,6 +59,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 Affiniteit wordt weergegeven via een van verschillende schema's voor correlatie en heeft twee verschillende modi. De meest voorkomende modus van affiniteit is zogeheten NonAlignedAffinity. De replica's of exemplaren van de verschillende services in NonAlignedAffinity, worden geplaatst op de dezelfde knooppunten. De andere modus is AlignedAffinity. Uitgelijnde affiniteit is nuttig alleen met stateful services. Configureren van twee stateful services affiniteit zijn uitgelijnd, zorgt u ervoor dat de primaire van die services op de dezelfde knooppunten elkaar zijn geplaatst. Het is ook ervoor zorgt dat elk paar van de secundaire replica's voor de services die op de dezelfde knooppunten worden geplaatst. Het is ook mogelijk (hoewel minder algemeen) voor het configureren van NonAlignedAffinity voor stateful services. De andere replica's van de twee stateful services wordt uitgevoerd op de dezelfde knooppunten voor NonAlignedAffinity, maar hun primaire kunnen terechtkomen op verschillende knooppunten.
 
 <center>
+
 ![Affiniteit modi en de gevolgen ervan][Image1]
 </center>
 
@@ -69,6 +70,7 @@ Een affiniteitsrelatie is best-effort. Biedt niet de dezelfde garanties van CO-l
 Vandaag nog met Cluster Resource Manager kan geen tot model ketens van affiniteit relaties. Dit betekent dat een service die een onderliggend item in een affiniteitsrelatie mag niet een bovenliggend item in een andere affiniteitsrelatie. Als u dit type relatie model wilt, hebt u effectief als het model als een ster, in plaats van een keten. Voor het verplaatsen van een keten van een ster, de laagste onderliggende zou worden bovenliggend element van het eerste onderliggende bovenliggende in plaats daarvan. Mogelijk moet u doen dit meerdere malen, afhankelijk van de rangschikking van uw services. Als er geen natuurlijke bovenliggende service, is het wellicht een die als een tijdelijke aanduiding fungeert te maken. Afhankelijk van uw vereisten, u kunt ook kijken [toepassingsgroepen](service-fabric-cluster-resource-manager-application-groups.md).
 
 <center>
+
 ![Ketens vs. Sterren in de Context van affiniteit relaties][Image2]
 </center>
 

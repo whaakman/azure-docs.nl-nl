@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 893113b5383cfc2904a053b49edee19cb39f443c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e82dd76c456f463666bc17bfda9664cf24012eed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166237"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170204"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Zelfstudie: Azure Active Directory-integratie met InTime
 
@@ -169,7 +169,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     d. Klik op **Create**.
  
-### <a name="create-a-intime-test-user"></a>Maak een testgebruiker InTime
+### <a name="create-an-intime-test-user"></a>Maak een testgebruiker InTime
 
 In deze sectie maakt u een gebruiker met de naam van Britta Simon in InTime. Werken met [InTime ondersteuningsteam](mailto:hdollard@intimesoft.com) om toe te voegen de gebruikers in het InTime-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
@@ -211,7 +211,7 @@ Wanneer u klikt op de tegel InTime in het toegangsvenster, krijgt u de aanmeldin
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

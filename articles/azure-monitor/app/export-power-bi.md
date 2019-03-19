@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 13156b3419d961850c8e4e408a9cf565a5f957ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086391"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI-kanaal van Application Insights
 [Power BI](https://www.powerbi.com/) is een suite met hulpprogramma's voor business die helpt u bij het analyseren van gegevens en inzichten te delen. Uitgebreide dashboards zijn beschikbaar op elk apparaat. U kunt gegevens uit verschillende bronnen, met inbegrip van Analytics-query's uit combineren [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -96,7 +96,7 @@ Dit kan gebeuren als het vernieuwingstoken is niet bijgewerkt. Probeer de volgen
 1. Meld u aan bij de Azure-portal en controleer of dat u kunt toegang tot de resource.
 2. Probeer te vernieuwen van de referenties voor het dashboard.
 
- Als u toegang hebt en vernieuwen van de referenties niet werkt, opent u een ondersteuningsticket.
+   Als u toegang hebt en vernieuwen van de referenties niet werkt, opent u een ondersteuningsticket.
 
 ### <a name="bad-gateway-502"></a>Ongeldige Gateway (502)
 Dit wordt meestal veroorzaakt door een Analytics-query die te veel gegevens retourneert. Probeer een kleiner tijdsbereik voor de query te gebruiken. 

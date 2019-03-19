@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 7039df6dde25fd4ba9a8b9cb7670e72df7e68797
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f175360586428b57d1ff10e3529ae9e3283399e8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245813"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117048"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Azure Data Lake Storage Gen2 voor prestaties afstemmen
 
@@ -131,12 +131,12 @@ Afhankelijk van uw workload wordt altijd er een minimale YARN containergrootte d
 
 Naast de algemene richtlijnen die hierboven heeft elke toepassing andere parameters die beschikbaar zijn om af te stemmen voor de specifieke toepassing. De volgende tabel bevat enkele van de parameters en de koppelingen aan de slag met prestaties afstemmen voor elke toepassing.
 
-| Workload               | Parameter om taken te stellen                                                         |
-|--------------------|-------------------------------------------------------------------------------------|
-| [Spark in HDInsight](data-lake-storage-performance-tuning-spark.md)       | <ul><li>NUM Executor</li><li>Executor-geheugen</li><li>Executor-cores</li></ul> |
-| [Hive in HDInsight](data-lake-storage-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
-| [MapReduce in HDInsight](data-lake-storage-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.Memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
-| [Storm op HDInsight](data-lake-storage-performance-tuning-storm.md)|  | <ul><li>Aantal werkprocessen</li><li>Aantal spout executor-exemplaren</li><li>Aantal bolt executor-exemplaren </li><li>Aantal spout-taken</li><li>Bolt-taken</li></ul>|
+| Workload | Parameter om taken te stellen |
+|----------|------------------------|
+| [Spark in HDInsight](data-lake-storage-performance-tuning-spark.md) | <ul><li>NUM Executor</li><li>Executor-geheugen</li><li>Executor-cores</li></ul> |
+| [Hive in HDInsight](data-lake-storage-performance-tuning-hive.md) | <ul><li>hive.tez.container.size</li></ul> |
+| [MapReduce in HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.Memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
+| [Storm op HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Aantal werkprocessen</li><li>Aantal spout executor-exemplaren</li><li>Aantal bolt executor-exemplaren </li><li>Aantal spout-taken</li><li>Bolt-taken</li></ul>|
 
 ## <a name="see-also"></a>Zie ook
 * [Overzicht van Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

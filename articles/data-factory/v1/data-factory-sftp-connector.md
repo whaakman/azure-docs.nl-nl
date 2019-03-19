@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c29cf0604e651902474d85dbd6edd3208e6b5944
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 55a829f2ed32152d14ef637c8079f7af8c487bea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811293"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097641"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Gegevens verplaatsen van een SFTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens van een SFTP-br
 De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zijn voor de FTP-gekoppelde service.
 
 | Eigenschap | Description | Vereist |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | type | De eigenschap type moet worden ingesteld op `Sftp`. |Ja |
 | host | Naam of IP-adres van de SFTP-server. |Ja |
 | poort |De poort waarop de SFTP-server luistert. De standaardwaarde is: 21 |Nee |
@@ -65,7 +65,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 Als u wilt gebruikmaken van basisverificatie instellen `authenticationType` als `Basic`, en geeft u de volgende eigenschappen naast de algemene die zijn geïntroduceerd in de laatste sectie van de SFTP-connector:
 
 | Eigenschap | Description | Vereist |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | gebruikersnaam | De gebruiker die toegang tot de SFTP-server heeft. |Ja |
 | wachtwoord | Wachtwoord voor de gebruiker (gebruikersnaam). | Ja |
 
@@ -115,7 +115,7 @@ Als u wilt gebruikmaken van basisverificatie instellen `authenticationType` als 
 Voor het gebruik van SSH-verificatie voor openbare sleutel instellen `authenticationType` als `SshPublicKey`, en geeft u de volgende eigenschappen naast de algemene die zijn geïntroduceerd in de laatste sectie van de SFTP-connector:
 
 | Eigenschap | Description | Vereist |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | gebruikersnaam |Gebruikers die toegang tot de SFTP-server heeft |Ja |
 | privateKeyPath | Geef het absolute pad naar het persoonlijke sleutelbestand dat de gateway toegankelijk. | Opgeven of de `privateKeyPath` of `privateKeyContent`. <br><br> Gelden alleen wanneer het kopiëren van gegevens uit een on-premises SFTP-server. |
 | privateKeyContent | Een geserialiseerde tekenreeks van de inhoud van de persoonlijke sleutel. De Wizard kopiëren kunt lezen van het bestand met persoonlijke sleutel en de persoonlijke sleutel inhoud automatisch uit te pakken. Als u van andere hulpprogramma/SDK gebruikmaakt, in plaats daarvan de eigenschap privateKeyPath gebruiken. | Opgeven of de `privateKeyPath` of `privateKeyContent`. |

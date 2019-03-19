@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 78834f1f12d2c748cb885e437496f2acf11b69ee
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9b3a91399ddcae687a982527c02d23d31eec4289
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232756"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891481"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Een nieuw rapport maken van een gegevensset in Power BI-Werkruimteverzamelingen
 
@@ -209,4 +209,4 @@ var embedCreateConfiguration = {
 [Power BI Core NuGut-pakket](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [Power BI JavaScript-pakket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 
-Nog vragen? [Probeer de Power BI-community](http://community.powerbi.com/)
+Nog vragen? [Probeer de Power BI-community](https://community.powerbi.com/)

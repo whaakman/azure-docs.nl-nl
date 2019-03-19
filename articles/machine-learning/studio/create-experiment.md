@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453168"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105723"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Quickstart: Uw eerste gegevenswetenschappelijke experiment maken in Azure Machine Learning Studio
 
@@ -95,21 +95,21 @@ Eerst voegen we een module toe waarmee de kolom **normalized-losses** volledig w
 
 1. Klik op de module [Select Columns in Dataset][select-columns] en klik in het deelvenster **Properties** op **Launch column selector**.
 
-    - Klik links op **With rules**
-    - Klik onder **Begin With** op **All columns**. Deze regels zorgen ervoor dat [Select Columns in Dataset][select-columns] alle kolommen doorgeeft (met uitzondering van de kolommen die we dadelijk zullen uitsluiten).
-    - Selecteer in de vervolgkeuzelijsten **Exclude** en **column names** en klik in het tekstvak. Er wordt een lijst met kolommen weergegeven. Selecteer **normalized-losses** om dit aan het tekstvak toe te voegen.
-    - Klik rechtsonder op de knop met het vinkje (OK) om de kolomkiezer te sluiten.
+   - Klik links op **With rules**
+   - Klik onder **Begin With** op **All columns**. Deze regels zorgen ervoor dat [Select Columns in Dataset][select-columns] alle kolommen doorgeeft (met uitzondering van de kolommen die we dadelijk zullen uitsluiten).
+   - Selecteer in de vervolgkeuzelijsten **Exclude** en **column names** en klik in het tekstvak. Er wordt een lijst met kolommen weergegeven. Selecteer **normalized-losses** om dit aan het tekstvak toe te voegen.
+   - Klik rechtsonder op de knop met het vinkje (OK) om de kolomkiezer te sluiten.
 
-    ![De kolomkiezer starten en de kolom normalized-losses uitsluiten](./media/create-experiment/launch-column-selector.png)
+     ![De kolomkiezer starten en de kolom normalized-losses uitsluiten](./media/create-experiment/launch-column-selector.png)
 
-    Het deelvenster met eigenschappen van de module **Select Columns in Dataset** geeft nu aan dat alle kolommen uit de gegevensset worden doorgegeven, met uitzondering van **normalized-losses**.
+     Het deelvenster met eigenschappen van de module **Select Columns in Dataset** geeft nu aan dat alle kolommen uit de gegevensset worden doorgegeven, met uitzondering van **normalized-losses**.
 
-    ![Het deelvenster met eigenschappen geeft aan dat de kolom normalized-losses is uitgesloten](./media/create-experiment/showing-excluded-column.png)
+     ![Het deelvenster met eigenschappen geeft aan dat de kolom normalized-losses is uitgesloten](./media/create-experiment/showing-excluded-column.png)
 
-    > [!TIP] 
-    > U kunt een opmerking aan een module toevoegen door te dubbelklikken op de module en tekst in te voeren. Zodoende kunt u in één oogopslag zien wat de module in uw experiment doet. Dubbelklik in dit geval op de module [Select Columns in Dataset][select-columns] en typ de opmerking 'normalized-losses uitsluiten'.
+     > [!TIP] 
+     > U kunt een opmerking aan een module toevoegen door te dubbelklikken op de module en tekst in te voeren. Zodoende kunt u in één oogopslag zien wat de module in uw experiment doet. Dubbelklik in dit geval op de module [Select Columns in Dataset][select-columns] en typ de opmerking 'normalized-losses uitsluiten'.
 
-    ![Op een module dubbelklikken om een opmerking toe te voegen](./media/create-experiment/add-comment.png)
+     ![Op een module dubbelklikken om een opmerking toe te voegen](./media/create-experiment/add-comment.png)
 
 1. Sleep de module [Clean Missing Data][clean-missing-data] naar het canvas en verbindt deze met de module [Select Columns in Dataset][select-columns]. Selecteer in het deelvenster **Properties** de optie **Remove entire row** onder **Cleaning mode**. Deze opties zorgen ervoor dat de module [Clean Missing Data][clean-missing-data] de gegevens opschoont door rijen met ontbrekende waarden te verwijderen. Dubbelklik op de module en typ de opmerking 'Rijen met ontbrekende waarde verwijderen'.
 

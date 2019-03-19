@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: d3152eb4b2512e05cad60772f8c4c75dd929758a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535570"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975556"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Gebruik van RDMA of GPU-exemplaren in de Batch-pools
 
@@ -48,6 +48,7 @@ De RDMA of GPU-mogelijkheden van rekenintensieve grootten in Batch worden alleen
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, of<br/>Op basis van centOS HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Stuurprogramma's voor Linux RDMA | De communicatie tussen knooppunten inschakelen, uitschakelen van de uitvoering van gelijktijdige taken |
 | [NC, de NCv2, NCv3, NDv2-serie](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (verschilt per serie) | Ubuntu 16.04 LTS, of<br/>CentOS 7.3 of 7.4<br/>(Azure Marketplace) | Stuurprogramma's van NVIDIA CUDA of CUDA Toolkit | N/A | 
 | [NV, NVv2-serie](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS, of<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID-stuurprogramma 's | N/A |
+
 <sup>*</sup>RDMA-compatibele N-serie-grootten zijn ook NVIDIA Tesla GPU 's
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Pools van Windows - VM-configuratie
@@ -57,6 +58,7 @@ De RDMA of GPU-mogelijkheden van rekenintensieve grootten in Batch worden alleen
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | WindowsServer 2016, 2012 R2, of<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 of hoger, of<br/> Intel MPI 5<br/><br/>Windows RDMA-stuurprogramma 's | De communicatie tussen knooppunten inschakelen, uitschakelen van de uitvoering van gelijktijdige taken |
 | [NC, de NCv2, NCv3, ND, NDv2-serie](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (verschilt per serie) | WindowsServer 2016 of <br/>2012 R2 (Azure Marketplace) | Stuurprogramma's van NVIDIA CUDA of CUDA Toolkit| N/A | 
 | [NV, NVv2-serie](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | WindowsServer 2016 of<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID-stuurprogramma 's | N/A |
+
 <sup>*</sup>RDMA-compatibele N-serie-grootten zijn ook NVIDIA Tesla GPU 's
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows-pools - Cloud services-configuratie

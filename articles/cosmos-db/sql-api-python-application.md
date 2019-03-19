@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: a59de5fad7f457fffcc36ed55fd5862bc9329a1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 2830772dd69ac94c2b8373936665b9445f9f5f10
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037154"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431195"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Een Python Flask-webtoepassing bouwen met Azure Cosmos DB
 
@@ -36,7 +36,7 @@ In deze zelfstudie komen de volgende onderwerpen aan bod:
 
 In deze zelfstudie bouwt u een eenvoudige stemtoepassing waarmee u kunt stemmen.
 
-![Schermopname van de stemtoepassing die is gemaakt met deze databasezelfstudie](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+![Schermafbeelding van de stemtoepassing die zijn gemaakt door deze databasezelfstudie](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>Vereisten voor de databasezelfstudie
 Voordat u de instructies in dit artikel uitvoert, moet het volgende zijn geïnstalleerd:
@@ -52,7 +52,7 @@ Voordat u de instructies in dit artikel uitvoert, moet het volgende zijn geïnst
 > [!IMPORTANT]
 > Als u Python 2.7 voor het eerst installeert, moet u in het scherm Customize Python 2.7.13 (Python 2.7.13 aanpassen) de optie **Add python.exe to Path** (Python.exe aan het pad toevoegen) selecteren.
 > 
-> ![Schermopname van het scherm Customize Python 2.7.11 (Python 2.7.11 aanpassen), waarin u Add python.exe to Path (Python.exe aan het pad toevoegen) moet selecteren](./media/sql-api-python-application/cosmos-db-python-install.png)
+> ![Schermafbeelding van het scherm passen Python 2.7.11, waar moet u Add python.exe pad selecteren](./media/sql-api-python-application/cosmos-db-python-install.png)
 > 
 > 
 
@@ -75,13 +75,13 @@ U kunt nu zien hoe u een compleet nieuwe Python Flask-toepassing maakt.
    
     Als u nog niet bekend bent met Python Flask, dit is een ontwikkelframework voor webtoepassingen waarmee u sneller webtoepassingen in Python kunt maken.
    
-    ![Schermopname van het venster Nieuw project in Visual Studio met aan de linkerkant Python gemarkeerd, in het midden het geselecteerde Python Flask-webproject en de naam tutorial in het naamvak](./media/sql-api-python-application/image9.png)
+    ![Schermopname van het venster Nieuw Project in Visual Studio met Python gemarkeerd op de linker-, Python Flask-webproject is geselecteerd in het midden en de naam tutorial in het naamvak](./media/sql-api-python-application/image9.png)
 4. Klik in het venster **Python Tools for Visual Studio** (Python-hulpprogramma's voor Visual Studio) op **Install into a virtual environment** (Installeren in een virtuele omgeving). 
    
-    ![Schermopname van de databasezelfstudie - Venster met Python Tools for Visual Studio](./media/sql-api-python-application/python-install-virtual-environment.png)
+    ![Schermafbeelding van de databasezelfstudie - Python Tools for Visual Studio-venster](./media/sql-api-python-application/python-install-virtual-environment.png)
 5. Selecteer in het venster **Virtuele omgeving toevoegen** de optie Python 2.7 of Python 3.5 in het vak Een interpreter selecteren, accepteer de andere standaardinstellingen en klik op **Maken**. Hiermee stelt u de vereiste virtuele Python-omgeving voor uw project in.
    
-    ![Schermopname van de databasezelfstudie - Venster met Python Tools for Visual Studio](./media/sql-api-python-application/image10_A.png)
+    ![Schermafbeelding van de databasezelfstudie - Python Tools for Visual Studio-venster](./media/sql-api-python-application/image10_A.png)
    
     Wanneer de omgeving is geïnstalleerd, verschijnt de volgende tekst in het uitvoervenster: `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`.
 
@@ -105,7 +105,7 @@ Zodra het project is ingesteld, moet u de vereiste Flask-pakketten toevoegen aan
 2. Sla het bestand **requirements.txt** op. 
 3. Klik in Solution Explorer met de rechtermuisknop op **env** en klik op **Install from requirements.txt** (Installeren vanuit requirements.txt).
    
-    ![Schermopname waarin env (Python 2.7) is geselecteerd en de optie Install from requirements.txt (Installeren vanuit requirements.txt) in de lijst is gemarkeerd](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
+    ![Schermopname waarin env (Python 2.7) is geselecteerd met installeren vanuit requirements.txt gemarkeerd in de lijst](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
    
     Zodra de installatie is voltooid, wordt in het uitvoervenster het volgende weergegeven:
    
@@ -344,22 +344,22 @@ def vote():
     ```
 6. Zodra alle bestanden zijn toegevoegd, ziet Solution Explorer er als volgt uit:
    
-    ![Schermopname van het Solution Explorer-venster in Visual Studio](./media/sql-api-python-application/cosmos-db-python-solution-explorer.png)
+    ![Schermafbeelding van het Visual Studio Solution Explorer-venster](./media/sql-api-python-application/cosmos-db-python-solution-explorer.png)
 
 ## <a name="step-4-run-your-web-application-locally"></a>Stap 4: de webtoepassing lokaal uitvoeren
 1. Bouw de oplossing op door op **Ctrl**+**Shift**+**B** te drukken.
 2. Zodra de opbouwbewerking is voltooid, start u de website door op **F5** te drukken. Uw scherm ziet er nu als volgt uit:
    
-    ![Schermopname van de Python + Azure Cosmos DB-stemtoepassing in een webbrowser](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+    ![Schermafbeelding van de Python + Azure Cosmos DB-Stemtoepassing in een webbrowser](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 3. Klik op **Create/Clear the Voting Database** (De stemdatabase maken/wissen) om de database te genereren.
    
-    ![Schermopname van de Create Page (Pagina maken) maken van de webtoepassing – ontwikkelingsgegevens](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
+    ![Schermafbeelding van de pagina voor het maken van de webtoepassing – ontwikkelingsgegevens](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
 4. Klik vervolgens op **Vote** (Stemmen) en selecteer uw optie.
    
-    ![Schermopname van de webtoepassing met een vraag waarvoor kan worden gestemd](./media/sql-api-python-application/cosmos-db-vote.png)
+    ![Schermafbeelding van de web-App met een vraag waarvoor kan worden gestemd](./media/sql-api-python-application/cosmos-db-vote.png)
 5. Voor elke stem die u uitbrengt, wordt de desbetreffende teller verhoogd.
    
-    ![Schermopname van de pagina met stemresultaten](./media/sql-api-python-application/cosmos-db-voting-results.png)
+    ![Schermafbeelding van de resultaten van de pagina met stemresultaten](./media/sql-api-python-application/cosmos-db-voting-results.png)
 6. Stop de foutopsporing voor het project door op Shift + F5 te drukken.
 
 ## <a name="step-5-deploy-the-web-application-to-azure"></a>Stap 5: de webtoepassing implementeren in Azure
@@ -388,13 +388,13 @@ Nu de volledige toepassing correct werkt met Azure Cosmos DB, gaan we een web.co
 
 5. Sla de bestanden op en klik in Solution Explorer met de rechtermuisknop op het project (zorg ervoor dat de toepassing niet meer lokaal wordt uitgevoerd) en selecteer **Publiceren**.  
    
-     ![Schermopname van de geselecteerde zelfstudie in Solution Explorer met de optie Publiceren gemarkeerd](./media/sql-api-python-application/image20.png)
+     ![Schermafbeelding van de geselecteerde zelfstudie in Solution Explorer met de optie publiceren gemarkeerd](./media/sql-api-python-application/image20.png)
 6. Selecteer **Microsoft Azure App Service** in het dialoogvenster **Publiceren**, selecteer **Nieuwe maken** en klik vervolgens op **Publiceren**.
    
-    ![Schermopname van het venster Publish Web (Publiceren naar het web) waarbij Microsoft Azure App Service is gemarkeerd](./media/sql-api-python-application/cosmos-db-python-publish.png)
+    ![Schermafbeelding van het venster Publish Web met Microsoft Azure App Service is gemarkeerd](./media/sql-api-python-application/cosmos-db-python-publish.png)
 7. Voer in het dialoogvenster **App Service maken** de naam van uw web-app en het **abonnement**, de **resourcegroep** en het **App Service-abonnement** in en klik op **Maken**.
    
-    ![Schermopname van het venster Microsoft Azure Web Apps (Web-apps van Microsoft Azure)](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
+    ![Schermafbeelding van het venster Microsoft Azure Web Apps-venster](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
 8. Na een paar seconden kopieert Visual Studio uw bestanden naar de server en wordt 'De pagina kan niet worden weergegeven omdat er een interne serverfout is opgetreden' weergegeven. op de pagina `http://<your app service>.azurewebsites.net/`.
 
 9. Open in Azure Portal uw nieuwe App Service-account en schuif in het navigatiemenu omlaag naar de sectie **Ontwikkelprogramma's**, selecteer **Extensies** en klik vervolgens op **+ Toevoegen**.

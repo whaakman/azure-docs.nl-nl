@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434866"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901539"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integratie van broncodebeheer in Azure Automation - verouderd
 
@@ -66,22 +66,22 @@ Als u al hebt een GitHub-account en een opslagplaats die u wilt koppelen aan Azu
      | **Parameter** | **Waarde** |
      |:--- |:--- |
      | Name |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Type |Reeks |
-     | Waarde |{'Vertakking':\<*de naam van uw vertakking*>, "RunbookFolderPath":\<*pad naar de Runbookmap*>, "ProviderType":\<*heeft een waarde 1 voor GitHub*>, 'Opslagplaats':\<*naam van uw opslagplaats*>, 'Gebruikersnaam':\<*uw GitHub-gebruikersnaam*>} |
+     | Type |String |
+     | Value |{'Vertakking':\<*de naam van uw vertakking*>, "RunbookFolderPath":\<*pad naar de Runbookmap*>, "ProviderType":\<*heeft een waarde 1 voor GitHub*>, 'Opslagplaats':\<*naam van uw opslagplaats*>, 'Gebruikersnaam':\<*uw GitHub-gebruikersnaam*>} |
 
-    * De variabele **Microsoft.Azure.Automation.SourceControl.OAuthToken**, bevat de veilige versleutelde waarde van uw OAuthToken.  
+     * De variabele **Microsoft.Azure.Automation.SourceControl.OAuthToken**, bevat de veilige versleutelde waarde van uw OAuthToken.  
 
-    |**Parameter**            |**Waarde** |
-    |:---|:---|
-    | Name  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-    | Type | Unknown(Encrypted) |
-    | Waarde | <*Versleutelde OAuthToken*> |  
+     |**Parameter**            |**Waarde** |
+     |:---|:---|
+     | Name  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | Type | Unknown(Encrypted) |
+     | Value | <*Versleutelde OAuthToken*> |  
 
-    ![Variabelen](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
+     ![Variabelen](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **Automation-broncodebeheer** wordt toegevoegd als een gemachtigde toepassing naar uw GitHub-account. De toepassing weergeven: Vanuit uw GitHub-startpagina, navigeert u naar uw **profiel** > **instellingen** > **toepassingen**. Deze toepassing kunt Azure Automation om te synchroniseren van uw GitHub-opslagplaats aan een Automation-account.  
+     * **Automation-broncodebeheer** wordt toegevoegd als een gemachtigde toepassing naar uw GitHub-account. De toepassing weergeven: Vanuit uw GitHub-startpagina, navigeert u naar uw **profiel** > **instellingen** > **toepassingen**. Deze toepassing kunt Azure Automation om te synchroniseren van uw GitHub-opslagplaats aan een Automation-account.  
 
-    ![GIT-toepassing](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
+     ![GIT-toepassing](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
 
 ## <a name="using-source-control-in-automation"></a>Met behulp van broncodebeheer in Automation
@@ -124,10 +124,6 @@ De knop synchroniseren op de pagina Bibliotheeksynchronisatie kunt u voor het op
 
     > [!NOTE] 
     > Een synchronisatie vanuit broncodebeheer overschrijft de conceptversie van de runbooks die momenteel aanwezig zijn in uw Automation-account voor **alle** besturingselement voor runbooks die momenteel in de gegevensbron. De Git equivalente opdrachtregelprogramma instructies voor het synchroniseren is **git pull**
-
-
-## <a name="troubleshooting-source-control-problems"></a>Problemen oplossen van problemen met bron
-Als er eventuele fouten met een check-in- of sync-taak, de status van de taak moet worden onderbroken en vindt u meer informatie over de fout in de pagina van de taak.  De **alle logboeken** gedeelte ziet u alle PowerShell-gegevensstromen die zijn gekoppeld aan die taak. Dit biedt u de gegevens die nodig zijn om u te helpen u bij het oplossen van problemen met het selectievakje in of synchroniseren. Ook ziet u de volgorde van de acties die zijn opgetreden tijdens het synchroniseren van of een runbook incheckt.  
 
 ![Afbeelding van AllLogs](media/automation-source-control-integration-legacy/automation_13_AllLogs.png)
 

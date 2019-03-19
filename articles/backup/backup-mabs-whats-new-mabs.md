@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: 01709bf7bdf4812802ab983729cc628101810f43
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5718064994a80266c216ae6040746be29194adc9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869616"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108913"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Wat is er nieuw in Microsoft Azure Backup Server
 
@@ -54,7 +54,7 @@ Zoeken naar meer informatie over de installatie/upgrade stappen voor MABS [hier]
 
 
 > [!NOTE]
-
+> 
 > MABS heeft dezelfde codebasis als System Center Data Protection Manager. MABS v3 is gelijk aan Data Protection Manager 1807.
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.lastreviewed: 01/11/2019
+ms.date: 03/18/2019
+ms.lastreviewed: 03/18/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: ea8669189b5fc8d797fc03f579ea52e7c11a7078
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: a2f1321e5c6774c585353b9bd7602ecc1ccb8c5e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177497"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>De resourceprovider van SQL Server op Azure Stack implementeren
 
@@ -89,13 +89,13 @@ U kunt de volgende parameters vanaf de opdrachtregel opgeven. Als u dit niet doe
 | **AzCredential** | De referenties voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties die u gebruikt voor het implementeren van Azure Stack. | _Vereist_ |
 | **VMLocalCredential** | De referenties voor het lokale administrator-account van de SQL-resourceprovider VM. | _Vereist_ |
 | **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden. |  _Vereist_ |
-| **Azure-omgeving** | De Azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist voor Azure AD-implementaties. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een China Azure Active Directory gebruikt, **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | De Azure-omgeving van het serviceaccount van de beheerder gebruikt voor het implementeren van Azure Stack. Alleen vereist voor Azure AD-implementaties. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een China Azure Active Directory gebruikt, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Voor alleen geïntegreerde systemen, moet uw certificaat-pfx-bestand in deze map worden geplaatst. U kunt eventueel een pakket voor Windows Update MSU hier kopiëren. | _Optionele_ (_verplichte_ voor geïntegreerde systemen) |
 | **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ |
 | **MaxRetryCount** | Het aantal keren dat die u wilt dat elke bewerking wordt uitgevoerd als er een fout is.| 2 |
 | **RetryDuration** | De time-outinterval tussen nieuwe pogingen in seconden. | 120 |
 | **Verwijderen** | Hiermee verwijdert u de resourceprovider en alle bijbehorende resources (Zie de opmerkingen bij de volgende). | Nee |
-| **Fouten opsporen-modus** | Hiermee voorkomt u dat bij fout automatisch op te schonen. | Nee |
+| **DebugMode** | Hiermee voorkomt u dat bij fout automatisch op te schonen. | Nee |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Met behulp van een aangepast script SQL-resourceprovider implementeren
 
@@ -105,10 +105,7 @@ Wijzig de standaard-accountgegevens en -wachtwoorden voor uw Azure Stack-impleme
 
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
-Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.5.0
+# Install the Azure and Azure Stack PowerShell modules as described in the prerequisites section above before running these commands.
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5c2ff4304071267e0329f0c2baab45a554d41379
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 85fcd28b5964cbe0246a7c79fa6d24d756f7bd35
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759166"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086561"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Instellingen voor meldingen in Azure AD Domain Services
 
@@ -47,7 +47,6 @@ Het e-mailbericht Hiermee geeft u het beheerde domein die de waarschuwing is aan
 
 > [!WARNING]
 > Zorg ervoor dat altijd dat de e-mail afkomstig is van een geverifieerde afzender van Microsoft voordat u de koppelingen in uw e-mailberichten op. De e-mailberichten die altijd afkomstig zijn van het e-mailbericht azure-noreply@microsoft.com
->
 
 
 ## <a name="why-would-i-receive-email-notifications"></a>Waarom zou ik e-mailmeldingen ontvangen?

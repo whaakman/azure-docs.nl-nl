@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 655d65ebfbb0141acd829a64414d9ba20dd2c697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 850d8bbb525763e0e7d0c0441173180b7c469dd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633736"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085147"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integreer Azure Time Series Insights met Externe bewaking
 
@@ -57,7 +57,7 @@ Vervolgens Time Series Insights implementeren als een extra bron in uw oplossing
 
 1. Voor het maken van uw Time Series Insights-omgeving gebruikt u de waarden in de volgende tabel:
 
-    | Instelling | Waarde |
+    | Instelling | Value |
     | ------- | ----- |
     | Naam van de omgeving | De volgende schermafbeelding wordt gebruikt voor de naam van de **contorosrmtsi**. Kies uw eigen unieke naam wanneer u deze stap hebt voltooid. |
     | Abonnement | Selecteer uw Azure-abonnement in de vervolgkeuzelijst. |
@@ -86,17 +86,18 @@ Maak een nieuwe gebeurtenisbron verbinding maken met uw IoT-hub. Zorg ervoor dat
 
 1. Voor het configureren van uw IoT-hub als een nieuwe gebeurtenisbron, gebruikt u de waarden in de volgende tabel:
 
-    | Instelling | Waarde |
+    | Instelling | Value |
     | ------- | ----- |
-    | Naam van bron | De volgende schermafbeelding wordt gebruikt voor de naam van de **contosorm-iot-hub**. Gebruik uw eigen unieke naam wanneer u deze stap hebt voltooid. |
+    | Naam van gebeurtenisbron | De volgende schermafbeelding wordt gebruikt voor de naam van de **contosorm-iot-hub**. Gebruik uw eigen unieke naam wanneer u deze stap hebt voltooid. |
     | Bron | **IoT Hub** |
     | Importoptie | **IoT-Hub uit de beschikbare abonnementen gebruiken** |
     | Abonnements-id | Selecteer uw Azure-abonnement in de vervolgkeuzelijst. |
-    | De naam van de IOT-hub | **contosorma57a6**. Gebruik de naam van uw IoT-hub in uw oplossing voor externe controle. |
-    | Naam van IOT hub-beleid | **iothubowner** Zorg ervoor dat het beleid op waarmee een beleid voor de eigenaar van is. |
-    | Beleidssleutel voor IOT hub | Dit veld wordt automatisch gevuld. |
-    | IOT hub-consumentengroep | **timeseriesinsights** |
-    | Serialisatie-indeling voor gebeurtenissen | **JSON**     | Naam van de eigenschap timestamp | Leeg laten |
+    | Naam van IoT Hub | **contosorma57a6**. Gebruik de naam van uw IoT-hub in uw oplossing voor externe controle. |
+    | Naam van het IoT Hub-beleid | **iothubowner** Zorg ervoor dat het beleid op waarmee een beleid voor de eigenaar van is. |
+    | Sleutel voor het IoT Hub-beleid | Dit veld wordt automatisch gevuld. |
+    | Consumentengroep voor IoT Hub | **timeseriesinsights** |
+    | Serialisatie-indeling voor gebeurtenissen | **JSON**     | 
+    | Naam van de timestamp-eigenschap | Leeg laten |
 
     ![Gebeurtenisbron maken](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 

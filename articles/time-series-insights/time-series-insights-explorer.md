@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.custom: seodec18
-ms.openlocfilehash: d65ce83465f54a30b96bc1ee6644319e1b4fb020
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 301326f4ba858c7aef6c8bdec8f2cae3ed926847
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556591"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121040"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights explorer
 In dit artikel behandelt de verschillende functies en opties die beschikbaar zijn binnen de Time Series Insights explorer web-app. U gebruikt Verkenner van Time Series Insights in uw webbrowser om visualisaties van uw gegevens te maken.
@@ -71,11 +71,11 @@ U kunt binnen enkele minuten verbinding te maken met uw gebeurtenisbron aan uw T
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan NULL        |         |
          |IN     | String, Bool, Double, DateTime, TimeSpan NULL        |  Alle operands moeten zijn van hetzelfde type of NULL-constante.        |
-         |HEEFT     | Reeks        |  Alleen constante letterlijke tekenreeksen zijn toegestaan op de rechterkant. Lege tekenreeks en NULL zijn niet toegestaan.       |
+         |HAS     | String        |  Alleen constante letterlijke tekenreeksen zijn toegestaan op de rechterkant. Lege tekenreeks en NULL zijn niet toegestaan.       |
 
       - **Voorbeelden van query 's**
       
-         ![Voorbeelden van query 's](media/time-series-insights-explorer/explorer9.png)
+         ![Voorbeelden van query's](media/time-series-insights-explorer/explorer9.png)
 
 6. De **intervalgrootte** schuifregelaar kunt u om in te zoomen en afmelden bij intervallen via de dezelfde periode.  Dit biedt meer controle over verkeer tussen grote segmenten van de tijd die smooth trends op segmenten zo klein is als de milliseconde nauwkeurig, zodat u kunt om te zien met hoge resolutie, gedetailleerde delen van uw gegevens weergeven. Startpunt van de schuifregelaar-standaard is ingesteld als de meest optimale weergave van de gegevens van uw selectie. Netwerktaakverdeling resolutie, de snelheid van de query en de granulatie.
 
@@ -91,27 +91,27 @@ U kunt binnen enkele minuten verbinding te maken met uw gebeurtenisbron aan uw T
 
 10. De **grafiek** kunt u uw gegevens visueel verkennen. Grafiek-hulpprogramma's zijn onder andere:
 
-   - Selecteer/Klik, waarmee een selectie van een bepaalde periode of van een enkele gegevensreeks.  
-   - Binnen een periode span selectie, kunt u inzoomen of gebeurtenissen verkennen.  
-   - Binnen een gegevensreeks kunt u de reeks splitsen op een andere kolom, de reeks toevoegen als een nieuwe term, alleen de geselecteerde reeks weergeven, uitsluiten van de geselecteerde reeks, reeks pingen of gebeurtenissen van de geselecteerde reeks verkennen.
-   - In het gebied van het filter aan de linkerkant van de grafiek, kunt u alle weergegeven gegevens uit de serie bekijken en de volgorde wijzigen door de naam of waarde, alle gegevensreeks of specifiek vastgemaakte of losgemaakte reeksen weergeven.  U kunt ook één gegevensreeks selecteren en de reeks splitsen op een andere kolom, de reeks toevoegen als een nieuwe term, alleen de geselecteerde reeks weergeven, uitsluiten van de geselecteerde reeks, reeks vastmaken of gebeurtenissen van de geselecteerde reeks verkennen.
-   - Als u meerdere voorwaarden tegelijkertijd weergeeft, kunt u stack, niet meer stapelen, Zie aanvullende gegevens over een reeks en gebruiken van de dezelfde y-as voor alle voorwaarden met de knoppen in de rechterbovenhoek van de grafiek.
+    - Selecteer/Klik, waarmee een selectie van een bepaalde periode of van een enkele gegevensreeks.  
+    - Binnen een periode span selectie, kunt u inzoomen of gebeurtenissen verkennen.  
+    - Binnen een gegevensreeks kunt u de reeks splitsen op een andere kolom, de reeks toevoegen als een nieuwe term, alleen de geselecteerde reeks weergeven, uitsluiten van de geselecteerde reeks, reeks pingen of gebeurtenissen van de geselecteerde reeks verkennen.
+    - In het gebied van het filter aan de linkerkant van de grafiek, kunt u alle weergegeven gegevens uit de serie bekijken en de volgorde wijzigen door de naam of waarde, alle gegevensreeks of specifiek vastgemaakte of losgemaakte reeksen weergeven.  U kunt ook één gegevensreeks selecteren en de reeks splitsen op een andere kolom, de reeks toevoegen als een nieuwe term, alleen de geselecteerde reeks weergeven, uitsluiten van de geselecteerde reeks, reeks vastmaken of gebeurtenissen van de geselecteerde reeks verkennen.
+    - Als u meerdere voorwaarden tegelijkertijd weergeeft, kunt u stack, niet meer stapelen, Zie aanvullende gegevens over een reeks en gebruiken van de dezelfde y-as voor alle voorwaarden met de knoppen in de rechterbovenhoek van de grafiek.
  
-   ![Grafiek-hulpprogramma](media/time-series-insights-explorer/explorer5.png) 
+    ![Grafiek-hulpprogramma](media/time-series-insights-explorer/explorer5.png) 
 
 11. De **heatmap** unieke of afwijkende gegevensreeks in een bepaalde query om snel kan worden gebruikt. Slechts één zoekterm kan worden gevisualiseerd als een heatmap.    
 
-   ![Heatmap](media/time-series-insights-explorer/explorer6.png)
+    ![Heatmap](media/time-series-insights-explorer/explorer6.png)
 
 12. **Gebeurtenissen**:  Als u ervoor kiest gebeurtenissen bij het selecteren van verkennen of met de rechtermuisknop op hierboven, het deelvenster gebeurtenissen beschikbaar wordt gesteld.  Hier ziet u alle van de ruwe gebeurtenissen en de gebeurtenissen exporteren als JSON- of CSV-bestanden. Houd er rekening mee dat alle onbewerkte gegevens worden opgeslagen door Time Series Insights.
 
-   ![Gebeurtenissen](media/time-series-insights-explorer/explorer7.png)
+    ![Gebeurtenissen](media/time-series-insights-explorer/explorer7.png)
 
 13. Klik op de **statistieken** tabblad nadat u gebeurtenissen als patronen en kolomstatistieken beschikbaar wilt maken.  
 
-   - **Patronen**: deze functie proactief de meest statistisch significant patronen in een regio voor de geselecteerde gegevens. Dit neemt u niet hoeft te kijken naar duizenden gebeurtenissen om te begrijpen welke patronen meest garandeert u tijd en energie. Time Series Insights verder kunt u gaat u rechtstreeks naar deze statistisch significant patronen om door te gaan met het uitvoeren van een analyse. Deze functie is ook handig voor het onderzoeken van daarmee van historische gegevens. 
+    - **Patronen**: deze functie proactief de meest statistisch significant patronen in een regio voor de geselecteerde gegevens. Dit neemt u niet hoeft te kijken naar duizenden gebeurtenissen om te begrijpen welke patronen meest garandeert u tijd en energie. Time Series Insights verder kunt u gaat u rechtstreeks naar deze statistisch significant patronen om door te gaan met het uitvoeren van een analyse. Deze functie is ook handig voor het onderzoeken van daarmee van historische gegevens. 
 
-   - **Kolomstatistieken**:  Kolomstatistieken bieden voor grafieken en tabellen die gegevens uit een kolom van de geselecteerde gegevensreeks in de geselecteerde periode opdelen.  
+    - **Kolomstatistieken**:  Kolomstatistieken bieden voor grafieken en tabellen die gegevens uit een kolom van de geselecteerde gegevensreeks in de geselecteerde periode opdelen.  
  
       ![STATISTIEKEN](media/time-series-insights-explorer/explorer8.png) 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: szark
-ms.openlocfilehash: ce2b9811baffea85cfa9a542fb5f93652daf39c8
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 6ef0a9f6efbf5f8398ba242150b2eb6102875f7e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976447"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000319"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Een Debian VHD voor Azure voorbereiden
 ## <a name="prerequisites"></a>Vereisten
@@ -34,7 +34,7 @@ Deze sectie wordt ervan uitgegaan dat u hebt een Debian Linux-besturingssysteem 
 * Alle VHD's op Azure beschikken over een virtuele grootte die is afgestemd op 1MB. Bij het converteren van een onbewerkte schijf naar VHD, moet u ervoor zorgen dat de onbewerkte schijfgrootte een veelvoud van 1MB vóór de conversie is. Zie voor meer informatie, [opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes).
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Gebruik Azure beheren om te maken van Debian VHD 's
-Er zijn hulpprogramma's beschikbaar voor het genereren van Debian VHD's voor Azure, zoals de [azure-beheren](https://github.com/credativ/azure-manage) scripts via [Credativ](http://www.credativ.com/). Dit is de aanbevolen aanpak ten opzichte van het maken van een installatiekopie van een nieuwe. Bijvoorbeeld, het uitvoeren van een VHD voor Debian 8 de volgende maken-opdrachten voor het downloaden van de `azure-manage` hulpprogramma (en afhankelijkheden) en voer de `azure_build_image` script:
+Er zijn hulpprogramma's beschikbaar voor het genereren van Debian VHD's voor Azure, zoals de [azure-beheren](https://github.com/credativ/azure-manage) scripts via [Credativ](https://www.credativ.com/). Dit is de aanbevolen aanpak ten opzichte van het maken van een installatiekopie van een nieuwe. Bijvoorbeeld, het uitvoeren van een VHD voor Debian 8 de volgende maken-opdrachten voor het downloaden van de `azure-manage` hulpprogramma (en afhankelijkheden) en voer de `azure_build_image` script:
 
     # sudo apt-get update
     # sudo apt-get install git qemu-utils mbr kpartx debootstrap

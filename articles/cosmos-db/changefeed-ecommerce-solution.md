@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 90f9a13882e370d6d0c67826750b3edd27603ede
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 50ae4de8c9c1d10b0b17a9744ffa2340059fc298
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862289"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120513"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Gebruik Azure Cosmos DB-wijzigingenfeed voor het visualiseren van realtime gegevensanalyse
 
@@ -105,7 +105,7 @@ U maakt nu een verzameling voor het opslaan van gebeurtenissen voor e-commerce-s
 
 3. Maak vervolgens een andere verzameling met de naam **leases** voor change feed verwerken. De verzameling leases coördineert de verwerking van de feed over meerdere werknemers wijzigen. Een verzameling afzonderlijke wordt gebruikt voor het opslaan van de leases met één lease per partitie.  
 
-4.  Ga terug naar de **Data Explorer** deelvenster en selecteer **nieuwe verzameling** en vul het formulier met de volgende details:
+4. Ga terug naar de **Data Explorer** deelvenster en selecteer **nieuwe verzameling** en vul het formulier met de volgende details:
 
    * Voor de **Database-id** veld **gebruik bestaande**, voert u **changefeedlabdatabase**.  
    * Voor de **verzamelings-id** veld **leases**.  

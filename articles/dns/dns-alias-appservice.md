@@ -7,20 +7,20 @@ ms.service: dns
 ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
-ms.openlocfilehash: 2b14753237e118540da6306fa9f06816f3e58b71
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979732"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086323"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Met load balancing Azure-web-apps hosten in de apex van de zone
 
-Het DNS-protocol wordt voorkomen dat de toewijzing van iets anders dan een A of AAAA-record in de apex van de zone. Het toppunt van een voorbeeld van de zone is contoso.com. Deze beperking geeft een probleem voor toepassingseigenaren van een die beschikken over Netwerktaakverdeling toepassingen achter Traffic Manager. Het is niet mogelijk om te verwijzen naar de Traffic Manager-profiel van de zone apexrecord. Als gevolg hiervan moeten toepassingseigenaren een tijdelijke oplossing gebruiken. Een omleiding op het niveau van de toepassing moet van het toppunt van de zone omleiden naar een ander domein. Een voorbeeld is een omleiding van contoso.com naar www.contoso.com. Deze overeenkomst geeft een single point of failure voor de omleidingsfunctie.
+Het DNS-protocol wordt voorkomen dat de toewijzing van iets anders dan een A of AAAA-record in de apex van de zone. Het toppunt van een voorbeeld van de zone is contoso.com. Deze beperking geeft een probleem voor toepassingseigenaren van een die beschikken over Netwerktaakverdeling toepassingen achter Traffic Manager. Het is niet mogelijk om te verwijzen naar de Traffic Manager-profiel van de zone apexrecord. Als gevolg hiervan moeten toepassingseigenaren een tijdelijke oplossing gebruiken. Een omleiding op het niveau van de toepassing moet van het toppunt van de zone omleiden naar een ander domein. Een voorbeeld is een omleiding van contoso.com naar www\.contoso.com. Deze overeenkomst geeft een single point of failure voor de omleidingsfunctie.
 
 Dit probleem is met aliasrecords, niet meer bestaat. Toepassingseigenaren van kunnen nu hun apexrecord zone verwijzen naar een Traffic Manager-profiel met externe eindpunten. Toepassingseigenaren van de kunnen verwijzen naar dezelfde Traffic Manager-profiel dat wordt gebruikt voor andere domeinen in hun DNS-zone.
 
-Bijvoorbeeld: contoso.com en www.contoso.com kunnen verwijzen naar dezelfde Traffic Manager-profiel. Dit geldt zolang het Traffic Manager-profiel alleen externe eindpunten zijn geconfigureerd heeft.
+Bijvoorbeeld: contoso.com en een www\.contoso.com kan verwijzen naar dezelfde Traffic Manager-profiel. Dit geldt zolang het Traffic Manager-profiel alleen externe eindpunten zijn geconfigureerd heeft.
 
 In dit artikel leert u hoe u een alias-record voor het toppunt van uw domein maken en configureren van de eindpunten van uw Traffic Manager-profiel voor uw web-apps.
 
@@ -28,11 +28,11 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet een beschikbare domeinnaam hebben die u in Azure DNS kunt hosten om te testen. U moet volledig beheer van dit domein hebben. Volledig beheer biedt de mogelijkheid om in te stellen de naamserver (NS)-records voor het domein.
+U moet een beschikbare domeinnaam hebben die u in Azure DNS kunt hosten om te testen. U moet het volledige beheer over dit domein hebben. Volledig beheer betekent ook de mogelijkheid om naamserverrecords (NS) voor het domein in te stellen.
 
-Zie voor instructies voor het hosten van uw domein in Azure DNS [Zelfstudie: Uw domein in Azure DNS hosten](dns-delegate-domain-azure-dns.md).
+Zie voor instructies voor het hosten van uw domein in Azure DNS [zelfstudie: Uw domein hosten in Azure DNS](dns-delegate-domain-azure-dns.md) voor meer informatie.
 
-De voorbeelddomein dat wordt gebruikt voor deze zelfstudie contoso.com is, maar uw eigen domeinnaam gebruiken.
+Het voorbeelddomein dat wordt gebruikt voor deze zelfstudie is contoso.com, maar u moet uw eigen domeinnaam gebruiken.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -43,7 +43,7 @@ Maak een resourcegroep voor het opslaan van alle resources in dit artikel gebrui
 Maak twee Web App Service-plannen in de resourcegroep met behulp van de volgende tabel voor informatie over de configuratie. Zie voor meer informatie over het maken van een App Service-plan [beheren van een App Service-plan in Azure](../app-service/app-service-plan-manage.md).
 
 
-|Naam  |Besturingssysteem  |Locatie  |Prijscategorie  |
+|Name  |Besturingssysteem  |Locatie  |Prijscategorie  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|US - oost|Dev/Test D1 gedeeld|
 |ASP-02     |Windows|US - centraal|Dev/Test D1 gedeeld|
@@ -58,10 +58,10 @@ Maak twee web-apps, één in elke App Service-plan.
 4. Klik op **Create**.
 5. Accepteer de standaardinstellingen en gebruik de volgende tabel om te configureren van de twee web-apps:
 
-   |Naam<br>(moet uniek zijn binnen. azurewebsites.net)|Resourcegroep |App Service-Plan /-locatie
+   |Name<br>(moet uniek zijn binnen. azurewebsites.net)|Resourcegroep |App Service-Plan /-locatie
    |---------|---------|---------|
-   |App-01|Bestaande gebruiken<br>Selecteer de resourcegroep|ASP-01(East US)|
-   |App-02|Bestaande gebruiken<br>Selecteer de resourcegroep|ASP-02(Central US)|
+   |App-01|Bestaande gebruiken<br>Uw resourcegroep selecteren|ASP-01(East US)|
+   |App-02|Bestaande gebruiken<br>Uw resourcegroep selecteren|ASP-02(Central US)|
 
 ### <a name="gather-some-details"></a>Sommige gegevens verzamelen
 
@@ -76,7 +76,7 @@ Nu moet u Noteer de naam van de IP-adres en de hostnaam voor de apps.
 
 Een Traffic Manager-profiel maken in de resourcegroep. Gebruik de standaardinstellingen en typ een unieke naam binnen de naamruimte trafficmanager.net.
 
-Zie voor meer informatie over het maken van een Traffic Manager-profiel [Quickstart: maken van een Traffic Manager-profiel voor een maximaal beschikbare webtoepassing](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+Zie voor meer informatie over het maken van een Traffic Manager-profiel [Quick Start: Maken van een Traffic Manager-profiel voor een maximaal beschikbare webtoepassing](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 ### <a name="create-endpoints"></a>Eindpunten maken
 
@@ -87,14 +87,14 @@ U kunt nu de eindpunten voor de twee web-apps maken.
 3. Klik op **Add**.
 4. Gebruik de volgende tabel de eindpunten configureren:
 
-   |Type  |Naam  |Doel  |Locatie  |Aangepaste Header-instellingen|
+   |Type  |Name  |Doel  |Locatie  |Instellingen voor aangepaste headers|
    |---------|---------|---------|---------|---------|
    |Extern eindpunt     |End-01|IP-adres dat u hebt genoteerd voor App-01|US - oost|host:\<de URL die u hebt genoteerd voor App-01\><br>Voorbeeld: **host: de app-01.azurewebsites.net**|
    |Extern eindpunt     |End-02|U hebt genoteerd voor App-02 IP-adres|US - centraal|host:\<de URL die u hebt genoteerd voor App-02\><br>Voorbeeld: **host: de app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>DNS-zone maken
 
-U kunt een bestaande DNS-zone gebruiken voor het testen of u kunt een nieuwe zone maken. Als u wilt maken en delegeren van een nieuwe DNS-zone in Azure, Zie [zelfstudie: uw domein in Azure DNS hosten](dns-delegate-domain-azure-dns.md).
+U kunt een bestaande DNS-zone gebruiken voor het testen of u kunt een nieuwe zone maken. Als u wilt maken en delegeren van een nieuwe DNS-zone in Azure, Zie [zelfstudie: Uw domein hosten in Azure DNS](dns-delegate-domain-azure-dns.md) voor meer informatie.
 
 ### <a name="add-the-alias-record-set"></a>De alias-recordset toevoegen
 
@@ -104,7 +104,7 @@ Als uw DNS-zone klaar is, kunt u een alias-record voor het toppunt van de zone t
 2. Klik op **Recordset**.
 3. Toevoegen van de recordset met behulp van de volgende tabel:
 
-   |Naam  |Type  |De recordset alias  |Aliastype  |Azure-resource|
+   |Name  |Type  |De recordset alias  |Aliastype  |Azure-resource|
    |---------|---------|---------|---------|-----|
    |@     |A|Ja|Azure-resource|Traffic Manager - uw profiel|
 

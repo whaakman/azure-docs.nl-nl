@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73c921df493eeda25c50047e861d3d30e6dc52a8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456479"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897619"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor het automatisch inrichten van gebruikers configureren
 
@@ -257,13 +257,13 @@ In deze stap maakt u een integratie met onbeperkte of beperkte system security g
     ![Groep CreateSecurity](./media/workday-inbound-tutorial/wd_isu_03.png "CreateSecurity groep")
 2. Voltooi de **beveiligingsgroep maken** taak. 
 
-  * Er zijn twee soorten beveiligingsgroepen in Workday:
-    * **Een:** Alle leden van de beveiligingsgroep toegang tot alle gegevens beveiligd door de beveiligingsgroep.
-    * **Beperkte:** Alle leden van de beveiliging groep hebben contextuele toegang tot een subset van data-exemplaren (rijen) die toegang hebben tot de beveiligingsgroep.
-  * Neem contact op met uw Workday-integratie-partner om te selecteren van de juiste beveiligingsgroeptype voor de integratie.
-  * Als u welk groepstype weet, selecteert u **integratie Systeembeveiligingsgroep (onbeperkt)** of **integratie Systeembeveiligingsgroep (beperkt)** uit de **Type van de Tenants beveiligingsgroep**  vervolgkeuzelijst.
+   * Er zijn twee soorten beveiligingsgroepen in Workday:
+     * **Een:** Alle leden van de beveiligingsgroep toegang tot alle gegevens beveiligd door de beveiligingsgroep.
+     * **Beperkte:** Alle leden van de beveiliging groep hebben contextuele toegang tot een subset van data-exemplaren (rijen) die toegang hebben tot de beveiligingsgroep.
+   * Neem contact op met uw Workday-integratie-partner om te selecteren van de juiste beveiligingsgroeptype voor de integratie.
+   * Als u welk groepstype weet, selecteert u **integratie Systeembeveiligingsgroep (onbeperkt)** of **integratie Systeembeveiligingsgroep (beperkt)** uit de **Type van de Tenants beveiligingsgroep**  vervolgkeuzelijst.
 
-    ![Groep CreateSecurity](./media/workday-inbound-tutorial/wd_isu_04.png "CreateSecurity groep")
+     ![Groep CreateSecurity](./media/workday-inbound-tutorial/wd_isu_04.png "CreateSecurity groep")
 
 3. Nadat de beveiligingsgroep gemaakt is, ziet u een pagina waar u leden aan de beveiligingsgroep toewijzen kunt. De nieuwe integratie systeemgebruiker gemaakt in de vorige stap aan deze beveiligingsgroep toevoegen. Als u *beperkte* beveiligingsgroep, ook moet u de juiste Organisatiebereik selecteren.
 
@@ -286,11 +286,11 @@ In deze stap maakt u moet hiervoor toestemming 'domeinbeveiliging' beleid voor d
    * *Werknemersgegevens: Huidige bezetting informatie*
    * *Werknemersgegevens: Functie in werknemersprofiel*
 
-    ![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_07.png "Domain Security Policies")  
+     ![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_07.png "Domain Security Policies")  
 
-    ![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_08.png "Domain Security Policies") 
+     ![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_08.png "Domain Security Policies") 
 
-    Klik op **OK**.
+     Klik op **OK**.
 
 3. In het rapport dat weergegeven wordt, selecteer het weglatingsteken (...) die wordt weergegeven naast **extern Account inrichten** en klik op de menuoptie **domein-Beleidsmachtigingen Security bewerken >**
 
@@ -428,7 +428,7 @@ Wanneer u .NET 4.7.1+ hebt geïmplementeerd, kunt u downloaden de **[on-premises
 
 8. Voltooi de **beheerdersreferenties** sectie als volgt:
 
-   * **Admin Username** – Geef de gebruikersnaam van het systeemaccount van Workday-integratie met de naam van de tenant-domein toegevoegd. Het resultaat ziet er ongeveer als: **username@tenant_name**
+   * **Admin Username** – Geef de gebruikersnaam van het systeemaccount van Workday-integratie met de naam van de tenant-domein toegevoegd. Dit ziet er ongeveer als: **gebruikersnaam\@tenant_name**
 
    * **Beheerderswachtwoord –** voert u het wachtwoord van het systeem-account van de Workday-integratie
 
@@ -438,8 +438,8 @@ Wanneer u .NET 4.7.1+ hebt geïmplementeerd, kunt u downloaden de **[on-premises
 
    * **Active Directory-Container -** Voer de DN-naam van de container waarin de agent gebruikersaccounts standaard te maken.
         Voorbeeld: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
-> [!NOTE]
-> Deze instelling komt alleen aan de orde voor gebruiker-account maken als de *parentDistinguishedName* kenmerk is niet geconfigureerd in de kenmerktoewijzingen. Deze instelling niet wordt gebruikt voor de gebruiker zoeken of update bewerkingen. De volledige-sub-domeinstructuur valt binnen het bereik van de search-bewerking.
+     > [!NOTE]
+     > Deze instelling komt alleen aan de orde voor gebruiker-account maken als de *parentDistinguishedName* kenmerk is niet geconfigureerd in de kenmerktoewijzingen. Deze instelling niet wordt gebruikt voor de gebruiker zoeken of update bewerkingen. De volledige-sub-domeinstructuur valt binnen het bereik van de search-bewerking.
 
    * **E-mailmelding –** Voer uw e-mailadres in en schakel het selectievakje 'e-mail verzenden als een fout optreedt' in.
 
@@ -477,11 +477,11 @@ In deze sectie configureert u hoe gegevens stromen van Workday naar Active Direc
 > [!TIP]
 > Wanneer u de provisioning-app voor het eerst configureert, moet u testen en controleer of uw kenmerktoewijzingen en expressies om ervoor te zorgen dat deze is zodat u het gewenste resultaat. Microsoft raadt u aan met behulp van het bereik filters onder **bereik van het bronobject** voor het testen van uw toewijzingen met een paar testgebruikers van Workday. Nadat u hebt gecontroleerd dat de toewijzingen werken en vervolgens kunt u het filter verwijderen of geleidelijk uitvouwen om meer gebruikers te nemen.
 
-3. In de **acties voor doelobject** veld wereldwijd kunt u filteren welke acties worden uitgevoerd op Active Directory. **Maak** en **Update** komen het meest.
+1. In de **acties voor doelobject** veld wereldwijd kunt u filteren welke acties worden uitgevoerd op Active Directory. **Maak** en **Update** komen het meest.
 
-4. In de **kenmerktoewijzingen** sectie, kunt u definiëren hoe afzonderlijke Workday kenmerken toewijzen aan Active Directory-kenmerken.
+1. In de **kenmerktoewijzingen** sectie, kunt u definiëren hoe afzonderlijke Workday kenmerken toewijzen aan Active Directory-kenmerken.
 
-5. Klik op een bestaande kenmerktoewijzing bij te werken, of klik op **nieuwe toewijzing toevoegen** aan de onderkant van het scherm om toe te voegen nieuwe toewijzingen. Een afzonderlijke kenmerktoewijzing biedt ondersteuning voor deze eigenschappen:
+1. Klik op een bestaande kenmerktoewijzing bij te werken, of klik op **nieuwe toewijzing toevoegen** aan de onderkant van het scherm om toe te voegen nieuwe toewijzingen. Een afzonderlijke kenmerktoewijzing biedt ondersteuning voor deze eigenschappen:
 
       * **Toewijzingstype**
 
@@ -508,7 +508,7 @@ In deze sectie configureert u hoe gegevens stromen van Workday naar Active Direc
 
          * **Alleen tijdens het maken van** -deze toewijzing is van toepassing alleen op acties van het maken van de gebruiker
 
-6. Om uw toewijzingen hebt opgeslagen, klikt u op **opslaan** aan de bovenkant van de kenmerktoewijzing sectie.
+1. Om uw toewijzingen hebt opgeslagen, klikt u op **opslaan** aan de bovenkant van de kenmerktoewijzing sectie.
 
    ![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
 
@@ -524,8 +524,8 @@ In deze sectie configureert u hoe gegevens stromen van Workday naar Active Direc
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Ja** | Geschreven alleen bij het maken |
 | **PreferredNameData**    |  algemene naam    |   |   Geschreven alleen bij het maken |
-| **SelectUniqueValue (deelnemen aan ("@", deelnemen aan (".", \[FirstName\], \[LastName\]), 'contoso.com'), deelnemen aan ("@", deelnemen aan (".", Mid (\[FirstName\], 1, 1), \[LastName\]), 'contoso.com'), Join (' @ ', Join ('. ', Mid (\[FirstName\], 1, 2), \[LastName\]), 'contoso.com'))**   | userPrincipalName     |     | Geschreven alleen bij het maken 
-| **Vervang(Mid(Vervang(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Geschreven alleen bij het maken |
+| **SelectUniqueValue (deelnemen aan ("\@", deelnemen aan (".", \[FirstName\], \[LastName\]), 'contoso.com'), deelnemen aan ("\@", deelnemen aan (".", Mid (\[FirstName\], 1, 1 (), \[LastName\]), 'contoso.com'), Join ('\@", Join ('. ', Mid (\[FirstName\], 1, 2), \[LastName\]), 'contoso.com'))**   | userPrincipalName     |     | Geschreven alleen bij het maken 
+| **Vervang(Mid(Vervang(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Geschreven alleen bij het maken |
 | **Switch (\[Active\],, "0", "True", "1", "Onwaar")** |  accountDisabled      |     | Maken en bijwerken |
 | **Voornaam**   | givenName       |     |    Maken en bijwerken |
 | **LastName**   |   SN   |     |  Maken en bijwerken |
@@ -677,7 +677,7 @@ Volg deze instructies voor het configureren van Write-back van gebruiker e-maila
 
 8. Voltooi de **beheerdersreferenties** sectie als volgt:
 
-   * **Admin Username** – Geef de gebruikersnaam van het systeemaccount van Workday-integratie met de naam van de tenant-domein toegevoegd. Ziet er ongeveer als volgt: *username@contoso4*
+   * **Admin Username** – Geef de gebruikersnaam van het systeemaccount van Workday-integratie met de naam van de tenant-domein toegevoegd. Moet er ongeveer zo uitzien: *gebruikersnaam\@contoso4*
 
    * **Beheerderswachtwoord –** voert u het wachtwoord van het systeem-account van de Workday-integratie
 
@@ -1226,7 +1226,7 @@ Als u wilt deze wijziging doet, moet u [Workday Studio](https://community.workda
 
 7. Stel **bewerking** naar **Get_Workers**
 
-8.  Klik op de kleine **configureren** koppeling hieronder de deelvensters aanvraag/antwoord om in te stellen van uw Workday-referenties. Controleer **verificatie**, en voer de gebruikersnaam en het wachtwoord voor het systeem-account van uw Workday-integratie. Zorg ervoor dat u de naam van de gebruiker als indeling name@tenant, en laat de **WS-Security UsernameToken** optie is geselecteerd.
+8.  Klik op de kleine **configureren** koppeling hieronder de deelvensters aanvraag/antwoord om in te stellen van uw Workday-referenties. Controleer **verificatie**, en voer de gebruikersnaam en het wachtwoord voor het systeem-account van uw Workday-integratie. Zorg ervoor dat u de indeling van de naam van de gebruiker als de naam van\@tenant, en laat de **WS-Security UsernameToken** optie is geselecteerd.
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 

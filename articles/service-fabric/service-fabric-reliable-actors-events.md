@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: c228821383a1bfedf380f97e3411fdacc322a6f9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: fead1cf639a379fc288122e39629909786aa3f14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054475"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844797"
 ---
 # <a name="actor-events"></a>Actor-gebeurtenissen
 Actor-gebeurtenissen bieden een manier om de best-effort meldingen verzenden vanuit de actor aan de clients. Actor-gebeurtenissen zijn ontworpen voor de communicatie van de actor-naar-client en mag niet worden gebruikt voor communicatie van de actor-naar-actor.
@@ -114,4 +114,4 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 * [Actor-API-referentiedocumentatie](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Voorbeeld van C#-code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [C# .NET Core-voorbeeldcode](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
-* [Java-voorbeeldcode](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java-voorbeeldcode](https://github.com/Azure-Samples/service-fabric-java-getting-started)

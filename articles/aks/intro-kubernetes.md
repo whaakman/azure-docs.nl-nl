@@ -5,21 +5,23 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 09/26/2018
+ms.date: 03/05/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: db6a02db3a154193a9326e2957038e5daa2faae7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 46d667bc32c5c5f3ccb14cf4a43a3441efe94c31
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992367"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552211"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 Azure Kubernetes Service (AKS) maakt het eenvoudig om een ​​beheerd Kubernetes-cluster in Azure te implementeren. AKS verkleint de complexiteit en de operationele overhead die gepaard gaan met het beheer van Kubernetes door veel van deze taken naar Azure over te hevelen. Azure handelt als een gehoste Kubernetes-service cruciale taken voor u af zoals statuscontrole en onderhoud. De Kubernetes-modellen worden beheerd door Azure. U beheert en onderhoudt alleen de agentknooppunten. Als een beheerde Kubernetes-service is AKS gratis. U betaalt alleen voor de agentknooppunten binnen uw clusters, niet voor de masters.
 
 U kunt een AKS-cluster maken in de Azure Portal, met de Azure CLI, of met de sjabloongestuurde implementatieopties, zoals Resource Manager-sjablonen en Terraform. Wanneer u een AKS-cluster implementeert, worden de Kubernetes-master en alle knooppunten voor u geïmplementeerd en geconfigureerd. Extra functies zoals geavanceerd netwerken, Azure Active Directory-integratie en bewaking kunnen ook tijdens het implementatieproces worden geconfigureerd.
+
+Zie voor meer informatie over de basisbeginselen voor Kubernetes, [Kubernetes-concepten voor AKS core][concepts-clusters-workloads].
 
 Om aan de slag te gaan, voert u de AKS-snelstartgids uit [in de Azure Portal][aks-portal] of [met de Azure CLI][aks-cli].
 
@@ -30,6 +32,8 @@ Voor verbeterde beveiliging en verbeterd beheer kunt u AKS integreren met Azure 
 ### <a name="identity-and-security-management"></a>Identiteits- en beveiligingsbeheer
 
 Om de toegang tot clusterresources te beperken, ondersteunt AKS [op Kubernetes-rollen gebaseerd toegangsbeheer (RBAC)][kubernetes-rbac]. Met RBAC kunt u de toegang instellen tot Kubernetes-resources en -naamruimten en kunt u de machtigingen voor deze bronnen instellen. U kunt een AKS-cluster ook configureren om te worden geïntegreerd met Azure Active Directory (AD). Met Azure AD-integratie kan Kubernetes-toegang worden geconfigureerd op basis van bestaande identiteiten en groepslidmaatschap. Aan uw bestaande Azure AD-gebruikers en -groepen kan toegang tot AKS-resources worden verleend met een geïntegreerde ervaring voor eenmalige aanmelding.
+
+Zie voor meer informatie over identiteit [opties voor toegang en identiteit voor AKS][concepts-identity].
 
 Zie [Azure Active Directory integreren met AKS][aks-aad] voor informatie over het beveiligen van AKS-clusters.
 
@@ -65,13 +69,17 @@ Zie [GPU's gebruiken op AKS][aks-gpu] voor meer informatie.
 
 Ter ondersteuning van werkbelastingen kunt u opslagvolumes koppelen voor uw permanente gegevens. U kunt zowel statische als dynamische volumes gebruiken. Afhankelijk van het aantal verbonden pods waarmee de opslag moet worden gedeeld, kunt u opslag ondersteund door Azure Disks gebruiken voor toegang tot één pod, of opslag ondersteund door Azure Files voor toegang tot meerdere pods tegelijk.
 
-Aan de slag met dynamische permanente volumes met [Azure Disks][azure-disk] of [Azure Files][azure-files].
+Zie voor meer informatie, [opslagopties voor toepassingen in AKS][concepts-storage].
+
+Aan de slag met dynamische permanente volumes met behulp van [Azure Disks] [ azure-disk] of [Azure Files][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Virtual Networks en inkomend verkeer
 
 Een AKS-cluster kan worden geïmplementeerd in een bestaand virtueel netwerk. In deze configuratie krijgt elke pod in het cluster een IP-adres toegewezen in het virtueel netwerk. De pod kan direct communiceren met andere pods in het cluster en met andere knooppunten in het virtueel netwerk. Pods kunnen ook verbinding maken met andere services in een gekoppeld virtueel netwerk en met on-premises netwerken via ExpressRoute en S2S VPN-verbindingen (site-to-site).
 
-Bekijk het [AKS-netwerkoverzicht][aks-networking] voor meer informatie.
+Zie voor meer informatie de [netwerk concepten voor toepassingen in AKS][aks-networking].
+
+Zie [HTTP-toepassingsroutering][aks-http-routing] om aan de slag te gaan met inkomend verkeer.
 
 ### <a name="ingress-with-http-application-routing"></a>Ingress met HTTP-toepassingsroutering
 
@@ -112,10 +120,7 @@ Meer informatie over het implementeren en beheren van AKS vindt u in de snelstar
 
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine
-[draft]: https://github.com/Azure/draft
-[helm]: https://helm.sh/
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
-[kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
@@ -134,3 +139,7 @@ Meer informatie over het implementeren en beheren van AKS vindt u in de snelstar
 [container-health]: ../monitoring/monitoring-container-health.md
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
+[concepts-clusters-workloads]: concepts-clusters-workloads.md
+[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[concepts-identity]: concepts-identity.md
+[concepts-storage]: concepts-storage.md

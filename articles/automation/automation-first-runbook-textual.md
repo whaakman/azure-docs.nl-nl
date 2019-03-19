@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 137518aadaf2f1cd38dd18184992c8723a7da5c0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c2bc4d4034d63ed190f6964caa2bccf1ad8590a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57833812"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Mijn eerste PowerShell Workflow-runbook
 
@@ -33,7 +33,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Azure-abonnement. Als u nog geen abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of u aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation-account](automation-offering-get-started.md) om het runbook te bevatten en te verifiëren voor Azure-resources.  Dit account moet machtigingen hebben om de virtuele machine te starten en stoppen.
-* Een virtuele machine van Azure. u stopt en start deze machine, dus het mag geen productiemachine.
+* Een virtuele machine van Azure. U stoppen en starten deze machine, dus het mag niet een VM voor productie.
 
 ## <a name="step-1---create-new-runbook"></a>Stap 1: nieuw runbook maken
 
@@ -41,7 +41,7 @@ U begint met het maken van een eenvoudig runbook waarmee de tekst weergeeft *Hel
 
 1. Open uw Automation-account in Azure Portal.
 
-   Op de Automation-accountpagina vindt u een beknopte weergave van de resources in dit account. U hebt als het goed is al enkele assets. De meeste daarvan zijn de modules die automatisch zijn opgenomen in een nieuw Automation-account. Ook moet u de referentieasset hebben die wordt genoemd in de [vereisten](#prerequisites).
+   Op de Automation-accountpagina vindt u een beknopte weergave van de resources in dit account. U hebt als het goed is al enkele assets. De meeste van deze assets zijn de modules die automatisch zijn opgenomen in een nieuw Automation-account. Ook moet u de referentieasset hebben die wordt genoemd in de [vereisten](#prerequisites).
 
 1. Klik op **Runbooks** onder **procesautomatisering** om de lijst van runbooks te openen.
 1. Maak een nieuw runbook door te klikken op de **+ toevoegen van een runbook** knop en vervolgens **een nieuw runbook maken**.
@@ -77,10 +77,10 @@ U kunt de code rechtstreeks in het runbook typen of u kunt cmdlets, runbooks en 
 Voordat u het runbook publiceert om het beschikbaar te maken in productie, wilt u het testen om er zeker van te zijn dat het goed werkt. Wanneer u een runbook test, voert u de **concept**versie uit en geeft u de uitvoer interactief weer.
 
 1. Klik op **Testvenster** om het testvenster te openen.
-1. Klik op **Start** om de test te starten. Dit moet de enige ingeschakelde optie zijn.
+1. Klik op **Start** om de test te starten. Deze optie moet de enige ingeschakelde optie zijn.
 1. Een [runbooktaak](automation-runbook-execution.md) wordt gemaakt en de status ervan wordt weergegeven.
 
-   In eerste instantie is de taakstatus *In de wachtrij geplaatst*. Hiermee wordt aangegeven dat er wordt gewacht tot in de cloud een runbook-werkrol beschikbaar is. Wordt verplaatst naar *vanaf* wanneer een werkrol de taak claimt en daarna *met* wanneer het runbook daadwerkelijk wordt uitgevoerd.  
+   Status van de taak wordt gestart als *in de wachtrij geplaatst* waarmee wordt aangegeven dat er wordt gewacht tot een runbook worker in de cloud beschikbaar. Wordt verplaatst naar *vanaf* wanneer een werkrol de taak claimt en daarna *met* wanneer het runbook daadwerkelijk wordt uitgevoerd.  
 
 1. Wanneer de runbooktaak is voltooid, wordt de uitvoer ervan weergegeven. In het geval is, ziet u *Hello World*.
 
@@ -90,7 +90,7 @@ Voordat u het runbook publiceert om het beschikbaar te maken in productie, wilt 
 
 ## <a name="step-4---publish-and-start-the-runbook"></a>Stap 4: het runbook publiceren en starten
 
-Het runbook dat u hebt gemaakt, bevindt zich nog steeds in de modus Concept. U moet publiceren voordat u deze in productie kan uitvoeren. Wanneer u een runbook publiceert, overschrijft u de bestaande gepubliceerde versie met de conceptversie. In het geval hebt u nog geen geen gepubliceerde versie omdat u het runbook zojuist hebt gemaakt.
+Het runbook dat u hebt gemaakt, bevindt zich nog steeds in de modus Concept. Voordat u deze in productie kan uitvoeren, moet u deze publiceren. Wanneer u een runbook publiceert, overschrijft u de bestaande gepubliceerde versie met de conceptversie. In het geval hebt u nog geen geen gepubliceerde versie omdat u het runbook zojuist hebt gemaakt.
 
 1. Klik op **Publiceren** om het runbook te publiceren en klik vervolgens op **Ja** wanneer hierom wordt gevraagd.
 1. Als u naar links schuift om het runbook in weer te geven de **Runbooks** deelvenster, het wordt nu een **ontwerpstatus** van **gepubliceerd**.
@@ -110,20 +110,20 @@ Het runbook dat u hebt gemaakt, bevindt zich nog steeds in de modus Concept. U m
    ![Taakoverzicht](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
 
 1. Sluit het deelvenster Uitvoer.
-1. Klik op **Alle logboeken** om het deelvenster Streams voor de runbooktaak te openen. u ziet alleen *Hello World* in de uitvoerstroom, maar er kan weergegeven andere stromen voor een runbook-taak, zoals uitgebreid en fout als het runbook hiernaar wordt geschreven.
+1. Klik op **Alle logboeken** om het deelvenster Streams voor de runbooktaak te openen. u ziet alleen *Hello World* in de uitvoer van de stream, maar in deze weergave kan worden weergegeven andere stromen voor een runbook-taak, zoals uitgebreid en fout als het runbook hiernaar wordt geschreven.
 
    ![Taakoverzicht](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
-1. Sluit het deelvenster Streams en het deelvenster Taak om terug te gaan naar het deelvenster MyFirstRunbook.
-1. Klik op **Taken** om het deelvenster Taken voor dit runbook te openen. Hiermee worden alle taken weergegeven die met dit runbook zijn gemaakt. u ziet alleen één weergegeven omdat u de taak slechts één keer uitgevoerd taak.
+1. Sluit de pagina stromen en de pagina van de taak om terug te keren naar de pagina MyFirstRunbook.
+1. Klik op **taken** om de pagina met taken voor dit runbook te openen. Deze pagina geeft een lijst van alle taken die met dit runbook zijn gemaakt. u ziet alleen één weergegeven omdat u de taak slechts één keer uitgevoerd taak.
 
    ![Taken](media/automation-first-runbook-textual/runbook-control-job-tile.png)
 
-1. U kunt klikken op deze taak om de dezelfde taakdeelvenster dat u hebt bekeken toen u het runbook startten te openen. Hiermee kunt u teruggaan in de tijd en de details bekijken van elke taak die voor een bepaald runbook is gemaakt.
+1. U kunt klikken op deze taak om de dezelfde taak pagina die u hebt bekeken toen u het runbook startte te openen. Deze actie kunt u teruggaan in tijd en bekijk de details van elke taak die is gemaakt voor een bepaald runbook.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Stap 5: verificatie toevoegen voor het beheren van Azure-resources
 
-u hebt getest en gepubliceerd uw runbook, maar tot nu toe doet het nog niets nuttigs. wilt u deze Azure-resources beheren. Het is niet mogelijk om dat te doen maar tenzij u beschikt over het laten verifiëren met de referenties die wordt verwezen in de [vereisten](#prerequisites). doet u dat met de **Connect-AzureRmAccount** cmdlet.
+U hebt het runbook getest en gepubliceerd, maar tot nu toe doet het nog niets nuttigs. U wilt dat er Azure-resources mee worden beheerd. Deze niet kan echter, tenzij u hebt geverifieerd met de referenties waarmee wordt verwezen in de [vereisten](#prerequisites). doet u dat met de **Connect-AzureRmAccount** cmdlet.
 
 1. Open de teksteditor door te klikken op **Bewerken** in het deelvenster MyFirstRunbook-Workflow.
 2. u hoeft niet de **Write-Output** regel meer, dus gaan en deze verwijdert.
@@ -131,6 +131,9 @@ u hebt getest en gepubliceerd uw runbook, maar tot nu toe doet het nog niets nut
 4. Typ of kopieer en plak de volgende code waarmee de verificatie wordt uitgevoerd met uw Uitvoeren als-account voor Automation:
 
    ```powershell-interactive
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -145,19 +148,22 @@ u hebt getest en gepubliceerd uw runbook, maar tot nu toe doet het nog niets nut
 > U moet mogelijk [uw-modules bijwerken](automation-update-azure-modules.md) ondanks dat u net een nieuw automation-account hebt gemaakt.
 
 1. Klik op **testvenster** zodat u het runbook kan testen.
-1. Klik op **Start** om de test te starten. Zodra deze is voltooid, ontvangt u uitvoer zoals hieronder afgebeeld, waarin basisinformatie van uw account wordt weergegeven. Hiermee wordt bevestigd dat de referentie geldig is.
+1. Klik op **Start** om de test te starten. Zodra deze is voltooid, ontvangt u uitvoer zoals hieronder afgebeeld, waarin basisinformatie van uw account wordt weergegeven. Deze actie wordt bevestigd dat de referentie geldig is.
 
    ![Verifiëren](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Stap 6: code toevoegen om een virtuele machine te starten
 
-Nu dat uw runbook voor uw Azure-abonnement verifieert, kunt u resources kunt beheren. u toevoegen een opdracht voor het starten van een virtuele machine. U kunt een virtuele machine kiezen in uw Azure-abonnement en nu u hardcoderen in het runbook de naam zijn. Als u bij het beheren van resources voor meerdere abonnementen die u wilt gebruiken de **- AzureRmContext** parameter samen met [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
+Nu dat uw runbook voor uw Azure-abonnement verifieert, kunt u resources kunt beheren. u toevoegen een opdracht voor het starten van een virtuele machine. U kunt een virtuele machine kiezen in uw Azure-abonnement en nu bent u hardcoderen deze naam in het runbook. Als u resources voor meerdere abonnementen beheert, moet u de **- AzureRmContext** parameter samen met [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
 
 1. Na *Connect-AzureRmAccount*, type *Start-AzureRmVM-Name 'VMName' - ResourceGroupName 'NameofResourceGroup'* daarbij de naam en de resourcegroep de naam van de virtuele machine te starten.  
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
    {
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
@@ -183,6 +189,9 @@ uw runbook momenteel de virtuele machine gestart die u vastgelegd in het runbook
      [string]$VMName,
      [string]$ResourceGroupName
     )  
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
@@ -205,4 +214,3 @@ uw runbook momenteel de virtuele machine gestart die u vastgelegd in het runbook
 * Zie [Mijn eerste PowerShell-runbook](automation-first-runbook-textual-powershell.md) om aan de slag te gaan met PowerShell-runbooks
 * Zie [Azure Automation-runbooktypen](automation-runbook-types.md) voor meer informatie over runbooktypen, hun voordelen en beperkingen
 * Zie [Systeemeigen PowerShell-scriptondersteuning in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) voor meer informatie over de functie voor PowerShelll-scriptondersteuning
-

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: a46f2b4ed1bb3fc5fff65a627bd3d808ed85ffce
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4e32d2357636cb488d3a58b78b025860da3f74c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967279"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091355"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Een op CentOS gebaseerde virtuele Azure-machine voorbereiden
 
@@ -301,11 +301,11 @@ Een CentOS 7 virtuele machine voorbereiden voor Azure is heel vergelijkbaar met 
 
 10. Als het opbouwen van de installatiekopie van **VMware, VirtualBox of KVM:** Zorg ervoor dat de Hyper-V-stuurprogramma's zijn opgenomen in de initramfs:
 
-   Bewerken `/etc/dracut.conf`, Voeg inhoud toe:
+    Bewerken `/etc/dracut.conf`, Voeg inhoud toe:
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-   De initramfs opnieuw:
+    De initramfs opnieuw:
 
         # sudo dracut -f -v
 
@@ -316,7 +316,7 @@ Een CentOS 7 virtuele machine voorbereiden voor Azure is heel vergelijkbaar met 
 
 12. Maak geen wisselruimte op de besturingssysteemschijf.
 
-   De Azure Linux Agent kunt wisselruimte met behulp van de lokale resource-schijf die is gekoppeld aan de VM na het inrichten op Azure automatisch configureren. Houd er rekening mee dat de lokale bronschijf is een *tijdelijke* schijf en kan worden leeggemaakt wanneer de inrichting van de virtuele machine is beëindigd. Na de installatie van de Azure Linux Agent (Zie de vorige stap), wijzigen van de volgende parameters in `/etc/waagent.conf` op de juiste wijze:
+    De Azure Linux Agent kunt wisselruimte met behulp van de lokale resource-schijf die is gekoppeld aan de VM na het inrichten op Azure automatisch configureren. Houd er rekening mee dat de lokale bronschijf is een *tijdelijke* schijf en kan worden leeggemaakt wanneer de inrichting van de virtuele machine is beëindigd. Na de installatie van de Azure Linux Agent (Zie de vorige stap), wijzigen van de volgende parameters in `/etc/waagent.conf` op de juiste wijze:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

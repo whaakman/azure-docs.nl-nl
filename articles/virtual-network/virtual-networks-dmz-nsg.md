@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 68655ea03f53fe7100f67d111fcd3c8595bdf4c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052390"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109389"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Voorbeeld 1: een eenvoudige DMZ bouwen met nsg's met een Azure Resource Manager-sjabloon
 [Ga terug naar de grens Best Practices pagina][HOME]
@@ -97,14 +97,14 @@ Elke regel wordt als volgt in meer detail beschreven:
     ``` 
 
 2. De eerste regel in dit voorbeeld kunt DNS-verkeer tussen alle interne netwerken voor de DNS-server op de back endsubnet. De regel heeft enkele belangrijke parameters:
-  * "destinationAddressPrefix" - het voorvoegsel voor het doeladres is ingesteld op '10.0.2.4' zodat DNS-verkeer is toegestaan om de DNS-server te bereiken.
-  * 'Richting' geeft aan in welke richting van netwerkverkeer met deze regel wordt van kracht. De richting is vanuit het perspectief van het subnet of de virtuele Machine (afhankelijk van waar deze NSG is gekoppeld). Dus als richting is 'Inkomend' en verkeer het subnet binnenkomt, de regel toepassen wilt en uitgaand verkeer van het subnet kan niet worden beïnvloed door deze regel.
-  * 'Prioriteit' Hiermee stelt u de volgorde waarin netwerkverkeer wordt geëvalueerd. Des te lager het nummer hoe hoger de prioriteit. Wanneer een regel van toepassing aan een stroom specifiek verkeer is, worden er geen verdere regels worden verwerkt. Dus als een regel met prioriteit 1 verkeer staat, en een regel met prioriteit 2 verkeer weigert, en beide regels zijn van toepassing op het verkeer wordt het verkeer is toegestaan flow (omdat de regel 1 heeft een hogere prioriteit effect heeft geduurd en er geen verdere regels zijn toegepast).
-  * 'Toegang' geeft aan of verkeer dat is beïnvloed door deze regel is geblokkeerd ("Deny") of toegestane ('toestaan').
+   * "destinationAddressPrefix" - het voorvoegsel voor het doeladres is ingesteld op '10.0.2.4' zodat DNS-verkeer is toegestaan om de DNS-server te bereiken.
+   * 'Richting' geeft aan in welke richting van netwerkverkeer met deze regel wordt van kracht. De richting is vanuit het perspectief van het subnet of de virtuele Machine (afhankelijk van waar deze NSG is gekoppeld). Dus als richting is 'Inkomend' en verkeer het subnet binnenkomt, de regel toepassen wilt en uitgaand verkeer van het subnet kan niet worden beïnvloed door deze regel.
+   * 'Prioriteit' Hiermee stelt u de volgorde waarin netwerkverkeer wordt geëvalueerd. Des te lager het nummer hoe hoger de prioriteit. Wanneer een regel van toepassing aan een stroom specifiek verkeer is, worden er geen verdere regels worden verwerkt. Dus als een regel met prioriteit 1 verkeer staat, en een regel met prioriteit 2 verkeer weigert, en beide regels zijn van toepassing op het verkeer wordt het verkeer is toegestaan flow (omdat de regel 1 heeft een hogere prioriteit effect heeft geduurd en er geen verdere regels zijn toegepast).
+   * 'Toegang' geeft aan of verkeer dat is beïnvloed door deze regel is geblokkeerd ("Deny") of toegestane ('toestaan').
 
-    ```JSON
-    "properties": {
-    "securityRules": [
+     ```JSON
+     "properties": {
+     "securityRules": [
       {
         "name": "enable_dns_rule",
         "properties": {
@@ -119,7 +119,7 @@ Elke regel wordt als volgt in meer detail beschreven:
           "direction": "Inbound"
         }
       },
-    ```
+     ```
 
 3. Deze regel kunnen de RDP-verkeer van internet naar de RDP-poort op elke server in het subnet gebonden stromen. 
 
@@ -221,23 +221,23 @@ Elke regel wordt als volgt in meer detail beschreven:
 1. Een internet-gebruiker aanvragen een pagina http-van het openbare IP-adres van de NIC die is gekoppeld aan de NIC IIS01
 2. Het openbare IP-adres wordt verkeer naar het VNet naar IIS01 doorgegeven (de webserver)
 3. Front-endsubnet begint verwerking van inkomende regel:
-  1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
-  2. NSG regel 2 (RDP) niet van toepassing, verplaatsen naar de volgende regel
-  3. NSG-regel 3 (Internet aan IIS01) is van toepassing, verkeer is toegestaan, stop regelverwerking
+   1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
+   2. NSG regel 2 (RDP) niet van toepassing, verplaatsen naar de volgende regel
+   3. NSG-regel 3 (Internet aan IIS01) is van toepassing, verkeer is toegestaan, stop regelverwerking
 4. Verkeer komt binnen via het interne IP-adres van de webserver IIS01 (10.0.1.5)
 5. IIS01 luistert voor webverkeer te genereren, ontvangt deze aanvraag en begint met de verwerking van de aanvraag
 6. IIS01 vraagt de SQL-Server op AppVM01 voor meer informatie
 7. Er is geen uitgaande regels op de front-endsubnet, verkeer is toegestaan
 8. De back-end-subnet begint verwerking van inkomende regel:
-  1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
-  2. NSG regel 2 (RDP) niet van toepassing, verplaatsen naar de volgende regel
-  3. NSG-regel 3 (Internet aan Firewall) niet van toepassing, verplaatsen naar de volgende regel
-  4. NSG-regel 4 (IIS01 naar AppVM01) is van toepassing, verkeer is toegestaan, stopt u regelverwerking
+   1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
+   2. NSG regel 2 (RDP) niet van toepassing, verplaatsen naar de volgende regel
+   3. NSG-regel 3 (Internet aan Firewall) niet van toepassing, verplaatsen naar de volgende regel
+   4. NSG-regel 4 (IIS01 naar AppVM01) is van toepassing, verkeer is toegestaan, stopt u regelverwerking
 9. AppVM01 ontvangt van de SQL-Query en reageert
 10. Aangezien er geen regels voor uitgaand verkeer op de back-end-subnet, is het antwoord toegestaan
 11. Front-endsubnet begint verwerking van inkomende regel:
-  1. Er is geen NSG-regel voor binnenkomend verkeer van het back-end-subnet aan het Frontend-subnet, zodat geen van de NSG-regels toepassen
-  2. De standaardregel systeem voor het verkeer tussen subnetten zou dit verkeer toestaan, zodat het verkeer is toegestaan.
+    1. Er is geen NSG-regel voor binnenkomend verkeer van het back-end-subnet aan het Frontend-subnet, zodat geen van de NSG-regels toepassen
+    2. De standaardregel systeem voor het verkeer tussen subnetten zou dit verkeer toestaan, zodat het verkeer is toegestaan.
 12. De IIS-server, SQL-antwoord is ontvangen en het HTTP-antwoord is voltooid en verzendt naar de aanvrager
 13. Aangezien er geen regels voor uitgaand verkeer op de front-endsubnet, het antwoord is toegestaan en de Internet-gebruiker ontvangt de webpagina die is aangevraagd.
 
@@ -245,8 +245,8 @@ Elke regel wordt als volgt in meer detail beschreven:
 1. Een serverbeheerder op internet vraagt een RDP-sessie naar IIS01 op het openbare IP-adres van de NIC die is gekoppeld aan de IIS01 NIC (dit openbare IP-adres kan worden gevonden via de Portal of PowerShell)
 2. Het openbare IP-adres wordt verkeer naar het VNet naar IIS01 doorgegeven (de webserver)
 3. Front-endsubnet begint verwerking van inkomende regel:
-  1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
-  2. NSG regel 2 (RDP) is van toepassing, verkeer is toegestaan, stop regelverwerking
+   1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
+   2. NSG regel 2 (RDP) is van toepassing, verkeer is toegestaan, stop regelverwerking
 4. Er zijn geen regels voor uitgaand verkeer, standaardregels toepassen en retourverkeer is toegestaan
 5. RDP-sessie is ingeschakeld
 6. IIS01 wordt u gevraagd om de gebruikersnaam en wachtwoord
@@ -261,7 +261,7 @@ Elke regel wordt als volgt in meer detail beschreven:
 2. De netwerkconfiguratie voor de VNet-lijsten DNS01 (10.0.2.4 op de back-end-subnet) als de primaire DNS-server, IIS01 verzendt de DNS-aanvraag naar DNS01
 3. Er is geen uitgaande regels op de front-endsubnet, verkeer is toegestaan
 4. Back-end-subnet begint verwerking van inkomende regel:
-  * NSG regel 1 (DNS) is van toepassing, verkeer is toegestaan, stop regelverwerking
+   * NSG regel 1 (DNS) is van toepassing, verkeer is toegestaan, stop regelverwerking
 5. DNS-server ontvangt de aanvraag
 6. DNS-server beschikt niet over het adres in de cache opgeslagen en wordt u gevraagd een basis-DNS-server op het internet
 7. Er is geen uitgaande regels op back-end-subnet, verkeer is toegestaan
@@ -269,23 +269,23 @@ Elke regel wordt als volgt in meer detail beschreven:
 9. DNS-server plaatst het antwoord en reageert op de eerste aanvraag terug naar IIS01
 10. Er is geen uitgaande regels op back-end-subnet, verkeer is toegestaan
 11. Front-endsubnet begint verwerking van inkomende regel:
-  1. Er is geen NSG-regel voor binnenkomend verkeer van het back-end-subnet aan het Frontend-subnet, zodat geen van de NSG-regels toepassen
-  2. De standaardregel systeem voor het verkeer tussen subnetten zou dit verkeer toestaan, zodat het verkeer is toegestaan
+    1. Er is geen NSG-regel voor binnenkomend verkeer van het back-end-subnet aan het Frontend-subnet, zodat geen van de NSG-regels toepassen
+    2. De standaardregel systeem voor het verkeer tussen subnetten zou dit verkeer toestaan, zodat het verkeer is toegestaan
 12. IIS01-antwoord is ontvangen van DNS01
 
 #### <a name="allowed-web-server-access-file-on-appvm01"></a>(*Toegestane*) Web server-databasebestand op AppVM01
 1. IIS01 vraagt om een bestand op AppVM01
 2. Er is geen uitgaande regels op de front-endsubnet, verkeer is toegestaan
 3. De back-end-subnet begint verwerking van inkomende regel:
-  1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
-  2. NSG regel 2 (RDP) niet van toepassing, verplaatsen naar de volgende regel
-  3. NSG-regel 3 (Internet aan IIS01) niet van toepassing, verplaatsen naar de volgende regel
-  4. NSG-regel 4 (IIS01 naar AppVM01) is van toepassing, verkeer is toegestaan, stopt u regelverwerking
+   1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
+   2. NSG regel 2 (RDP) niet van toepassing, verplaatsen naar de volgende regel
+   3. NSG-regel 3 (Internet aan IIS01) niet van toepassing, verplaatsen naar de volgende regel
+   4. NSG-regel 4 (IIS01 naar AppVM01) is van toepassing, verkeer is toegestaan, stopt u regelverwerking
 4. AppVM01 ontvangt de aanvraag en reageert met een bestand (ervan uitgaande dat de toegang geautoriseerd)
 5. Aangezien er geen regels voor uitgaand verkeer op de back-end-subnet, is het antwoord toegestaan
 6. Front-endsubnet begint verwerking van inkomende regel:
-  1. Er is geen NSG-regel voor binnenkomend verkeer van het back-end-subnet aan het Frontend-subnet, zodat geen van de NSG-regels toepassen
-  2. De standaardregel systeem voor het verkeer tussen subnetten zou dit verkeer toestaan, zodat het verkeer is toegestaan.
+   1. Er is geen NSG-regel voor binnenkomend verkeer van het back-end-subnet aan het Frontend-subnet, zodat geen van de NSG-regels toepassen
+   2. De standaardregel systeem voor het verkeer tussen subnetten zou dit verkeer toestaan, zodat het verkeer is toegestaan.
 7. De IIS-server ontvangt het bestand
 
 #### <a name="denied-rdp-to-backend"></a>(*Geweigerd*) RDP naar back-end
@@ -312,9 +312,9 @@ Elke regel wordt als volgt in meer detail beschreven:
 1. Een internetgebruiker vraagt SQL-gegevens van IIS01
 2. Aangezien er geen openbare IP-adressen die zijn gekoppeld aan deze servers NIC, dit verkeer zouden nooit invoeren voor het VNet en wouldn't de server niet bereiken
 3. Als een openbaar IP-adres is ingeschakeld voor een of andere reden, begint het subnet Frontend verwerking van inkomende regel:
-  1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
-  2. NSG regel 2 (RDP) niet van toepassing, verplaatsen naar de volgende regel
-  3. NSG-regel 3 (Internet aan IIS01) is van toepassing, verkeer is toegestaan, stop regelverwerking
+   1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
+   2. NSG regel 2 (RDP) niet van toepassing, verplaatsen naar de volgende regel
+   3. NSG-regel 3 (Internet aan IIS01) is van toepassing, verkeer is toegestaan, stop regelverwerking
 4. Verkeer komt binnen via het interne IP-adres van de IIS01 (10.0.1.5)
 5. IIS01 is niet luisteren op poort 1433, dus geen antwoord op de aanvraag
 

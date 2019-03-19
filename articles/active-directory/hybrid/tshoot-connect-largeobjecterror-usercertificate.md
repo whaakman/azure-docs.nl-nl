@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776e3f7047e2f6b43063e085a8ae7a8d29835a75
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217350"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096670"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synchronisatie: Afhandeling van LargeObject-fouten die zijn veroorzaakt door userCertificate kenmerk
 
@@ -79,9 +79,9 @@ Zorg ervoor dat er geen synchronisatie vindt plaats wanneer u zich in het midden
 > [!Note]
 > De voorgaande stappen zijn alleen van toepassing zijn op nieuwere versies (1.1.xxx.x) van Azure AD Connect met behulp van ingebouwde scheduler. Als u oudere versies (1.0.xxx.x) van Azure AD Connect die gebruikmaakt van Windows Taakplanner gebruikt, of u uw eigen aangepaste scheduler (niet-algemene) gebruikt voor het activeren van periodieke synchronisatie, moet u deze dienovereenkomstig uitschakelen.
 
-3. Start de **Synchronization Service Manager** door te gaan naar de synchronisatieservice START →.
+1. Start de **Synchronization Service Manager** door te gaan naar de synchronisatieservice START →.
 
-4. Ga naar de **Operations** tabblad en controleer of er is geen bewerking met de status *'wordt uitgevoerd.'*
+1. Ga naar de **Operations** tabblad en controleer of er is geen bewerking met de status *'wordt uitgevoerd.'*
 
 ### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Stap 2. De bestaande synchronisatieregel voor uitgaande vinden voor het kenmerk userCertificate
 Er moet een bestaande regel voor synchroniseren die is ingeschakeld en geconfigureerd voor het kenmerk userCertificate voor gebruikersobjecten exporteren naar Azure AD. Zoek deze synchronisatieregel om erachter te komen de **prioriteit** en **bereikfilter** configuratie:

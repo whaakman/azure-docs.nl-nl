@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: a2ecc2b0b8bfcf65d2ba566b8524a0c37c89ab78
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079091"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(AFGESCHAFT) Volledige CI/CD-pijplijn voor het implementeren van een toepassing met meerdere containers in Azure Container Service met ACS-Engine en Docker Swarm-modus met behulp van Azure DevOps
 
@@ -163,21 +163,21 @@ U moet twee Docker-stappen voor elke afbeelding, een om de installatiekopie te b
 
    ![Azure DevOps - toevoegen opdrachtregel-taak](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-      1. Een opdrachtregeltaak die gebruikmaakt van een bash-script om te vervangen de *RegistryURL* exemplaar in de docker-compose.yml-bestand met de variabele RegistryURL. 
+   1. Een opdrachtregeltaak die gebruikmaakt van een bash-script om te vervangen de *RegistryURL* exemplaar in de docker-compose.yml-bestand met de variabele RegistryURL. 
     
-          ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
-          ![Azure DevOps - Update-Compose-bestand met de Register-URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+       ![Azure DevOps - Update-Compose-bestand met de Register-URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-      2. Een opdrachtregeltaak die gebruikmaakt van een bash-script om te vervangen de *AgentURL* exemplaar in de docker-compose.yml-bestand met de variabele AgentURL.
+   2. Een opdrachtregeltaak die gebruikmaakt van een bash-script om te vervangen de *AgentURL* exemplaar in de docker-compose.yml-bestand met de variabele AgentURL.
   
-          ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-     3. Een taak die het bijgewerkte opstellen-bestand als een build-artefact komt, zodat deze kan worden gebruikt in de release. Zie het volgende scherm voor meer informatie.
+      1. Een taak die het bijgewerkte opstellen-bestand als een build-artefact komt, zodat deze kan worden gebruikt in de release. Zie het volgende scherm voor meer informatie.
 
-         ![Azure DevOps - publiceren artefact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+      ![Azure DevOps - publiceren artefact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-         ![Publiceren van Azure DevOps - Compose-bestand](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+      ![Publiceren van Azure DevOps - Compose-bestand](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
 5. Klik op **opslaan en in de wachtrij** voor het testen van uw build-pijplijn.
 
@@ -187,7 +187,7 @@ U moet twee Docker-stappen voor elke afbeelding, een om de installatiekopie te b
 
 6. Als de **bouwen** juist is, moet u dit scherm ziet:
 
-  ![Azure DevOps - Build is voltooid](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
+   ![Azure DevOps - Build is voltooid](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
 ## <a name="step-3-create-the-release-pipeline"></a>Stap 3: De release-pijplijn maken
 
@@ -235,14 +235,14 @@ De release-werkstroom bestaat uit twee taken die u toevoegt.
 
     De opdracht uitgevoerd op de hoofddoelserver gebruikt de Docker CLI en de CLI Docker-Compose naar de volgende taken uitvoeren:
 
-    - Meld u aan bij Azure container registry (hierbij drie build-variabelen die zijn gedefinieerd in de **variabelen** tabblad)
-    - Definieer de **DOCKER_HOST** variabele om te werken met het Swarm-eindpunt (: 2375)
-    - Navigeer naar de *implementeren* map die is gemaakt met de vorige beveiligde kopie-taak en die de docker-compose.yml-bestand bevat 
-    - Voer `docker stack deploy` opdrachten die de nieuwe afbeeldingen ophalen en de containers te maken.
+   - Meld u aan bij Azure container registry (hierbij drie build-variabelen die zijn gedefinieerd in de **variabelen** tabblad)
+   - Definieer de **DOCKER_HOST** variabele om te werken met het Swarm-eindpunt (: 2375)
+   - Navigeer naar de *implementeren* map die is gemaakt met de vorige beveiligde kopie-taak en die de docker-compose.yml-bestand bevat 
+   - Voer `docker stack deploy` opdrachten die de nieuwe afbeeldingen ophalen en de containers te maken.
 
-    >[!IMPORTANT]
-    > Zoals in het vorige scherm wordt weergegeven, laat de **mislukken op STDERR** selectievakje uitgeschakeld. Deze instelling kan we de release voltooien vanwege `docker-compose` worden afgedrukt verschillende diagnostische berichten, zoals containers zijn moet worden gestopt of wordt verwijderd, klikt u op de standaardfout-uitvoer. Als u het selectievakje inschakelt, rapporteert Azure DevOps dat fouten zijn opgetreden tijdens de release, zelfs als het goed.
-    >
+     >[!IMPORTANT]
+     > Zoals in het vorige scherm wordt weergegeven, laat de **mislukken op STDERR** selectievakje uitgeschakeld. Deze instelling kan we de release voltooien vanwege `docker-compose` worden afgedrukt verschillende diagnostische berichten, zoals containers zijn moet worden gestopt of wordt verwijderd, klikt u op de standaardfout-uitvoer. Als u het selectievakje inschakelt, rapporteert Azure DevOps dat fouten zijn opgetreden tijdens de release, zelfs als het goed.
+     >
 3. Sla deze nieuwe release-pijplijn.
 
 ## <a name="step-4-test-the-cicd-pipeline"></a>Stap 4: De CI/CD-pijplijn testen

@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/7/2019
+ms.date: 03/14/2019
 ms.author: mayg
-ms.openlocfilehash: 3417a6cb4c9af8c315cc84718330b4ab5255ee6c
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 1aaf13f01c7e7197001f3099fabd4b8be8545f0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569260"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094698"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Problemen met replicatie voor virtuele VMware-machines en fysieke servers
 
@@ -63,13 +63,18 @@ Zorg ervoor dat de volgende services worden uitgevoerd op de PS-machine. Starten
 
 Zorg ervoor dat het StartType van alle services is ingesteld op **automatisch of automatisch (vertraagd starten)**. Microsoft Azure Recovery Services-Agent (obengine) service hoeft niet te hebben het StartType is ingesteld als hierboven.
 
-## <a name="initial-replication-issues"></a>Initiële replicatie oplossen
+## <a name="replication-issues"></a>Problemen met replicatie
 
-Initiële replicatiefouten worden vaak veroorzaakt door problemen met de netwerkverbinding tussen de bron- en de processerver of tussen de processerver en Azure. In de meeste gevallen kunt u deze problemen kunt oplossen door de stappen in de volgende secties te voltooien.
+Initiële en lopende replicatiefouten worden vaak veroorzaakt door problemen met de netwerkverbinding tussen de bron- en de processerver of tussen de processerver en Azure. In de meeste gevallen kunt u deze problemen kunt oplossen door de stappen in de volgende secties te voltooien.
 
-### <a name="check-the-source-machine"></a>Controleer de bron-VM
+>[!Note]
+>Zorg ervoor dat:
+>1. Het systeem is tijd voor het beveiligde item gesynchroniseerd.
+>2. Er is geen antivirussoftware wordt geblokkeerd door Azure Site Recovery. Informatie over [meer](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) op uitsluitingen die vereist zijn voor Azure Site Recovery.
 
-De volgende lijst toont manieren waarop u op de bronmachine controleren kunt:
+### <a name="check-the-source-machine-for-connectivity-issues"></a>De broncomputer voor problemen met de netwerkverbinding controleren
+
+De volgende lijst toont manieren waarop u op de bronmachine controleren kunt.
 
 *  Op de opdrachtregel op de bronserver, moet u Telnet gebruiken om te pingen van de processerver via de HTTPS-poort door de volgende opdracht uit. HTTPS-poort 9443 is de standaardinstelling gebruikt door de processerver voor het verzenden en ontvangen van replicatieverkeer. U kunt deze poort wijzigen op het moment van inschrijving. De volgende opdracht uit voor problemen met de netwerkverbinding en voor problemen dat blok de firewallpoort gecontroleerd.
 
@@ -94,7 +99,7 @@ De volgende lijst toont manieren waarop u op de bronmachine controleren kunt:
 
        C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
-### <a name="check-the-process-server"></a>Controleer de processerver
+### <a name="check-the-process-server-for-connectivity-issues"></a>De processerver voor problemen met de netwerkverbinding controleren
 
 De volgende lijst toont manieren waarop u op de processerver controleren kunt:
 
@@ -102,66 +107,66 @@ De volgende lijst toont manieren waarop u op de processerver controleren kunt:
 > Processerver moet een statische IPv4-adres en moet niet zijn NAT IP geconfigureerd op het.
 
 * **Controleer de verbinding tussen de bronmachines en de processerver**
-1. In het geval u kunt telnet vanaf broncomputer en nog de PS niet bereikbaar is vanuit de bron is, controleert u de end-to-end-verbinding met de cxprocessserver uit de bron-VM door cxpsclient hulpprogramma uitvoert op de bron-VM:
+* In het geval u kunt telnet vanaf broncomputer en nog de PS niet bereikbaar is vanuit de bron is, controleert u de end-to-end-verbinding met de cxprocessserver uit de bron-VM door cxpsclient hulpprogramma uitvoert op de bron-VM:
 
-       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+      <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
 
-    Controleer de gegenereerde logboeken op de PS in de volgende mappen voor meer informatie over de bijbehorende fouten:
+   Controleer de gegenereerde logboeken op de PS in de volgende mappen voor meer informatie over de bijbehorende fouten:
 
-       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
-       and
-       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
-2. Raadpleeg de volgende logboeken op de PS als er geen heartbeat van PS:
+      C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+      and
+      C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+* Raadpleeg de volgende logboeken op de PS als er geen heartbeat van PS uitvoeren. Dit wordt aangeduid met **foutcode 806** in de portal.
 
-       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-       and
-       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+      C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+      and
+      C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
-*  **Controleer of de processerver actief van gegevens naar Azure pushen is**.
+* **Controleer of de processerver actief van gegevens naar Azure pushen is**.
 
-   1. Open Taakbeheer (druk op Ctrl + Shift + Esc) op de processerver.
-   2. Selecteer de **prestaties** tabblad, en selecteer vervolgens de **Open Broncontrole** koppeling. 
-   3. Op de **Broncontrole** weergeeft, schakelt de **netwerk** tabblad. Onder **processen met Network Activity**, controleert u of **cbengine.exe** actief een grote hoeveelheid gegevens verzendt.
+  1. Open Taakbeheer (druk op Ctrl + Shift + Esc) op de processerver.
+  2. Selecteer de **prestaties** tabblad, en selecteer vervolgens de **Open Broncontrole** koppeling. 
+  3. Op de **Broncontrole** weergeeft, schakelt de **netwerk** tabblad. Onder **processen met Network Activity**, controleert u of **cbengine.exe** actief een grote hoeveelheid gegevens verzendt.
 
-        ![Schermafbeelding van de volumes onder processen met netwerkactiviteit](./media/vmware-azure-troubleshoot-replication/cbengine.png)
+       ![Schermafbeelding van de volumes onder processen met netwerkactiviteit](./media/vmware-azure-troubleshoot-replication/cbengine.png)
 
-   Als cbengine.exe is niet een grote hoeveelheid gegevens verzendt, voltooi de stappen in de volgende secties.
+  Als cbengine.exe is niet een grote hoeveelheid gegevens verzendt, voltooi de stappen in de volgende secties.
 
-*  **Controleer of de processerver verbinding met Azure Blob-opslag maken kunt**.
+* **Controleer of de processerver verbinding met Azure Blob-opslag maken kunt**.
 
-   Selecteer **cbengine.exe**. Onder **TCP-verbindingen**, controleert u of er naar de URL van de Blog van het Azure-opslag met van de processerver is.
+  Selecteer **cbengine.exe**. Onder **TCP-verbindingen**, controleert u of er naar de URL van de Blog van het Azure-opslag met van de processerver is.
 
-   ![Schermafbeelding van verbinding tussen cbengine.exe en de URL van de Azure Blob-opslag](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
+  ![Schermafbeelding van verbinding tussen cbengine.exe en de URL van de Azure Blob-opslag](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
-   Als er geen connectiviteit van de processerver op de Blog van het Azure storage-URL, in het Configuratiescherm is, selecteert u **Services**. Controleren of de volgende services worden uitgevoerd:
+  Als er geen connectiviteit van de processerver op de Blog van het Azure storage-URL, in het Configuratiescherm is, selecteert u **Services**. Controleren of de volgende services worden uitgevoerd:
 
-   *  cxprocessserver
-   *  InMage Scout VX Agent-Sentinel/Outpost
-   *  Microsoft Azure Recovery Services-agent
-   *  Microsoft Azure Site Recovery-service
-   *  tmansvc
+  *  cxprocessserver
+  *  InMage Scout VX Agent-Sentinel/Outpost
+  *  Microsoft Azure Recovery Services-agent
+  *  Microsoft Azure Site Recovery-service
+  *  tmansvc
 
-   Starten of opnieuw starten van een service die actief is. Controleer of het probleem nog steeds voordoet.
+  Starten of opnieuw starten van een service die actief is. Controleer of het probleem nog steeds voordoet.
 
-*  **Controleer of de processerver verbinding met Azure openbaar IP-adres maken kan via poort 443**.
+* **Controleer of de processerver verbinding met Azure openbaar IP-adres maken kan via poort 443**.
 
-   Open in %programfiles%\Microsoft Azure Recovery Services-Agent\Temp, de meest recente CBEngineCurr.errlog-bestand. Zoek in het bestand **443** of voor de tekenreeks **verbindingspoging is mislukt**.
+  Open in %programfiles%\Microsoft Azure Recovery Services-Agent\Temp, de meest recente CBEngineCurr.errlog-bestand. Zoek in het bestand **443** of voor de tekenreeks **verbindingspoging is mislukt**.
 
-   ![Schermafbeelding van de fout zich in de map Temp](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+  ![Schermafbeelding van de fout zich in de map Temp](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
-   Als er problemen worden weergegeven, klikt u op de opdrachtregel op de processerver, kunt u Telnet gebruiken om te pingen van uw Azure openbare IP-adres (het IP-adres wordt gemaskeerd in de vorige afbeelding). U kunt uw Azure openbare IP-adres vinden in het bestand CBEngineCurr.currLog via poort 443:
+  Als er problemen worden weergegeven, klikt u op de opdrachtregel op de processerver, kunt u Telnet gebruiken om te pingen van uw Azure openbare IP-adres (het IP-adres wordt gemaskeerd in de vorige afbeelding). U kunt uw Azure openbare IP-adres vinden in het bestand CBEngineCurr.currLog via poort 443:
 
-   `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
+  `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
 
-   Als u geen verbinding kunt maken, moet u controleren of het toegangsprobleem afkomstig vanwege een firewall of proxy-instellingen, is zoals beschreven in de volgende stap.
+  Als u geen verbinding kunt maken, moet u controleren of het toegangsprobleem afkomstig vanwege een firewall of proxy-instellingen, is zoals beschreven in de volgende stap.
 
-*  **Controleer of de IP-adressen gebaseerde firewall op de processerver blokkeert de toegang**.
+* **Controleer of de IP-adressen gebaseerde firewall op de processerver blokkeert de toegang**.
 
-   Als u IP-adressen gebaseerde firewallregels op de server gebruikt, downloadt u de volledige lijst van [Microsoft Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). De IP-adresbereiken toevoegen aan uw firewallconfiguratie om ervoor te zorgen dat de firewall naar Azure (en de standaard HTTPS-poort 443)-communicatie toestaat. IP-adresbereiken voor de Azure-regio van uw abonnement en de regio VS-Azure West (gebruikt voor toegangsbeheer en identiteitsbeheer) toestaan.
+  Als u IP-adressen gebaseerde firewallregels op de server gebruikt, downloadt u de volledige lijst van [Microsoft Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). De IP-adresbereiken toevoegen aan uw firewallconfiguratie om ervoor te zorgen dat de firewall naar Azure (en de standaard HTTPS-poort 443)-communicatie toestaat. IP-adresbereiken voor de Azure-regio van uw abonnement en de regio VS-Azure West (gebruikt voor toegangsbeheer en identiteitsbeheer) toestaan.
 
-*  **Controleer of een URL-gebaseerde firewall op de processerver blokkeert de toegang**.
+* **Controleer of een URL-gebaseerde firewall op de processerver blokkeert de toegang**.
 
-   Als u een URL-gebaseerde firewall-regel op de server gebruikt, voegt u de URL's die worden vermeld in de volgende tabel om de configuratie van de firewall:
+  Als u een URL-gebaseerde firewall-regel op de server gebruikt, voegt u de URL's die worden vermeld in de volgende tabel om de configuratie van de firewall:
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
@@ -178,6 +183,7 @@ De volgende lijst toont manieren waarop u op de processerver controleren kunt:
 *  **Controleer of de bandbreedte beperken op de processerver wordt beperkt**.
 
    De bandbreedte vergroten en controleer vervolgens of het probleem nog steeds voordoet.
+
 
 ## <a name="source-machine-isnt-listed-in-the-azure-portal"></a>Broncomputer niet wordt weergegeven in de Azure-portal
 
@@ -196,6 +202,96 @@ Wanneer u probeert om te selecteren van de bronmachine replicatie in te schakele
 ## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>Beveiligde virtuele machines uit grijs worden weergegeven in de portal
 
 Virtuele machines die worden gerepliceerd in Site Recovery niet beschikbaar zijn in de Azure-portal als er dubbele vermeldingen in het systeem. Raadpleeg voor meer informatie over het verwijderen van verouderde vermeldingen en los het probleem, [Azure Site Recovery van VMware naar Azure: Het opschonen van dubbele of verouderde vermeldingen](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
+
+## <a name="common-errors-and-recommended-steps-for-resolution"></a>Veelvoorkomende fouten en aanbevolen stappen voor het omzetten van
+
+### <a name="initial-replication-issues-error-78169"></a>Initiële replicatie oplossen [fout 78169]
+
+Via een bovenstaande ervoor zorgen dat er zijn geen connectiviteit, bandbreedte of tijd synchroniseren verwante problemen, zorg ervoor dat:
+
+- Er is geen antivirussoftware wordt geblokkeerd door Azure Site Recovery. Informatie over [meer](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) op uitsluitingen die vereist zijn voor Azure Site Recovery.
+
+### <a name="application-consistency-recovery-point-missing-error-78144"></a>Toepassing consistentiepunt voor herstellen [fout 78144] ontbreekt
+
+ Dit gebeurt vanwege problemen met Volume Shadow copy Service (VSS). U lost dit als volgt op: 
+ 
+- Controleer of de geïnstalleerde versie van de Azure Site Recovery-agent is ten minste 9.22.2. 
+- Controleren of de VSS-Provider is geïnstalleerd als een service in Windows-Services en Controleer ook of de MMC Component-Service om te controleren of Azure Site Recovery VSS Provider wordt weergegeven.
+- Als de VSS-Provider niet is geïnstalleerd, raadpleegt u de [installatiefout probleemoplossingsartikel](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
+
+- Als de VSS is uitgeschakeld,
+    - Controleren of het opstarttype van de VSS-Provider-service is ingesteld op **automatische**.
+    - Start opnieuw op de volgende services:
+        - VSS-service
+        - Azure Site Recovery VSS Provider
+        - VDS-service
+
+### <a name="high-churn-on-source-machine-error-78188"></a>Hoog verloop op de bronmachine [fout 78188]
+
+Mogelijke oorzaken:
+- De veranderingssnelheid van gegevens (geschreven bytes per seconde) op de vermelde schijven van de virtuele machine is meer dan de [Azure Site Recovery ondersteunde limieten](site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) voor opslagaccounttype voor de replicatie van doel.
+- Er is een onverwachte piek in het verloop vanwege die grote hoeveelheden gegevens is in behandeling voor het uploaden.
+
+Het probleem kunt oplossen:
+- Zorg ervoor dat het account opslagtype (Standard of Premium) volgens de vereisten voor het tarief van verloop bij de bron is ingericht.
+- Als het waargenomen verloop tijdelijk is, wacht u enkele uren voor het uploaden van de in behandeling gegevens voor meer informatie en om herstelpunten te maken.
+- Als het probleem zich voordoen blijft, gebruikt u de ASR [implementatieplanner](site-recovery-deployment-planner.md#overview) om u te helpen bij het plannen van replicatie.
+
+### <a name="no-heartbeat-from-source-machine-error-78174"></a>Geen Heartbeat van de bron-VM [fout 78174]
+
+Dit gebeurt wanneer de Azure Site Recovery Mobility-agent op de bronmachine niet communiceert met de configuratieserver (CS).
+
+Los het probleem, gebruikt u de volgende stappen uit om te controleren of de netwerkverbinding van de bron-VM naar de Config-Server:
+
+1. Controleren of de bronmachine wordt uitgevoerd.
+2. Aanmelden bij de bron-VM met een account dat beheerdersrechten heeft.
+3. Controleer of de volgende services worden uitgevoerd en als de services niet opnieuw te starten:
+   - Svagents (InMage Scout VX Agent)
+   - InMage Scout Application Service
+4. Controleer de logboeken op de locatie voor de details van fouten op de bronmachine:
+
+       C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+    
+### <a name="no-heartbeat-from-process-server-error-806"></a>Geen heartbeat van de processerver [fout 806]
+Als er is geen heartbeat van de proces-Server (PS), controleert u of:
+1. PS Virtuele machine actief is
+2. Controleer de volgende logboeken op de PS Foutdetails:
+
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+
+### <a name="no-heartbeat-from-master-target-error-78022"></a>Geen Heartbeat van de Masterdoelserver [fout 78022]
+
+Dit gebeurt wanneer de Azure Site Recovery Mobility-agent op de Hoofddoelserver communiceert niet met de configuratieserver.
+
+Gebruik de volgende stappen om te controleren of de status van het probleem op te lossen:
+
+1. Controleren of de hoofd-doel-VM wordt uitgevoerd.
+2. Meld u aan de hoofd-doel-VM met een account dat beheerdersrechten heeft.
+    - Controleren of de svagents-service wordt uitgevoerd. Als deze wordt uitgevoerd, start de service opnieuw.
+    - Raadpleeg de logboeken op de locatie voor de details van fout:
+        
+          C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+
+### <a name="process-server-is-not-reachable-from-the-source-machine-error-78186"></a>Processerver is niet bereikbaar is vanaf de broncomputer [fout 78186]
+
+Deze fout leidt tot een app en foutrapporten consistente punten niet wordt gegenereerd als deze niet wordt besproken. Los het probleem, volg de onderstaande koppelingen oplossen:
+1. Zorg ervoor dat [PS-Services worden uitgevoerd](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)
+2. [Problemen met de netwerkverbinding van de bron machine controleren](vmware-azure-troubleshoot-replication.md#check-the-source-machine-for-connectivity-issues)
+3. [Controleren op problemen met de netwerkverbinding van het proces server](vmware-azure-troubleshoot-replication.md#check-the-process-server-for-connectivity-issues) en volg de richtlijnen voor:
+    - De connectiviteit met de bron controleren
+    - Problemen met firewall en proxy
+
+### <a name="data-upload-blocked-from-source-machine-to-process-server-error-78028"></a>Gegevens uploaden geblokkeerd vanaf broncomputer naar processerver [fout 78028]
+
+Deze fout leidt tot een app en foutrapporten consistente punten niet wordt gegenereerd als deze niet wordt besproken. Los het probleem, volg de onderstaande koppelingen oplossen:
+
+1. Zorg ervoor dat [PS-Services worden uitgevoerd](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)
+2. [Problemen met de netwerkverbinding van de bron machine controleren](vmware-azure-troubleshoot-replication.md#check-the-source-machine-for-connectivity-issues)
+3. [Controleren op problemen met de netwerkverbinding van het proces server](vmware-azure-troubleshoot-replication.md#check-the-process-server-for-connectivity-issues) en volg de richtlijnen voor:
+    - De connectiviteit met de bron controleren
+    - Problemen met firewall en proxy
 
 ## <a name="next-steps"></a>Volgende stappen
 

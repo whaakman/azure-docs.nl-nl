@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 5a9638a18b8b5b046d66a6a95ef223220d05d550
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 320dd28ba22d7919e3f3afdcd8baa47780f363dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819340"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856108"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analyseren traject van de klant met behulp van Azure Machine Learning Studio
 ## <a name="overview"></a>Overzicht
@@ -25,7 +25,7 @@ In dit artikel geeft een referentie-implementatie van een klantverloop analysis-
 Dit experiment is ontwikkeld en getest door Serge Berger, Gegevenswetenschapper Principal bij Microsoft en Roger Barga, voorheen Product Manager voor Microsoft Azure Machine Learning Studio. De Azure-documentatieteam dank erkent hun ervaring en ze Bedankt voor het delen van deze whitepaper.
 
 > [!NOTE]
-> De gegevens die worden gebruikt voor dit experiment is niet openbaar beschikbaar. Zie voor een voorbeeld van het bouwen van een machine learning-model voor verloop analyse: [Detailhandel verloop model sjabloon](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Azure AI Gallery](http://gallery.azure.ai/)
+> De gegevens die worden gebruikt voor dit experiment is niet openbaar beschikbaar. Zie voor een voorbeeld van het bouwen van een machine learning-model voor verloop analyse: [Detailhandel verloop model sjabloon](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Azure AI Gallery](https://gallery.azure.ai/)
 > 
 > 
 
@@ -106,7 +106,7 @@ De volgende diagrammen ziet u de gegevens die is gebruikt.
  
 
 > Houd er rekening mee dat deze gegevens privé is; daarom het model en de gegevens kunnen niet worden gedeeld.
-> Zie, voor een vergelijkbaar model met behulp van de openbaar beschikbare gegevens, in dit voorbeeld een experiment uit in de [Azure AI Gallery](http://gallery.azure.ai/): [Telco Customer Churn](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Zie, voor een vergelijkbaar model met behulp van de openbaar beschikbare gegevens, in dit voorbeeld een experiment uit in de [Azure AI Gallery](https://gallery.azure.ai/): [Telco Customer Churn](https://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Voor meer informatie over hoe u een verloop Analytics-model met behulp van Cortana Intelligence Suite kunt implementeren, wordt ook aangeraden [in deze video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) door Senior Program Manager Westerse Hyong Tok. 
 > 
@@ -213,13 +213,13 @@ Dit document beschrijft een functionele aanpak voor het aanpakken van het algeme
 ## <a name="references"></a>Verwijzingen
 [1] predictive Analytics: Naast de voorspellingen W. McKnight Information Management, juli/augustus 2011 p.18-20.  
 
-[2] Wikipedia-artikel: [Nauwkeurigheid en precisie](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Wikipedia-artikel: [Nauwkeurigheid en precisie](https://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [CRISP-DM 1.0: Stapsgewijze datamining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [CRISP-DM 1.0: Stapsgewijze datamining Guide](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
 [4] [Big Data Marketing: Bied uw klanten effectiever en stimuleren van waarde](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco verloop model sjabloon](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) in [Azure AI Gallery](http://gallery.azure.ai/) 
+[5] [Telco verloop model sjabloon](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) in [Azure AI Gallery](https://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Bijlage

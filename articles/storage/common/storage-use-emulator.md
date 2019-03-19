@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b3b011d9789cbb3dcd8557eda1473b7fd2609075
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fa5dfabeae829d52475d2e3cd6ccb123d8308c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454280"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013574"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>De Azure-opslagemulator gebruiken voor ontwikkelen en testen
 
@@ -54,7 +54,7 @@ De eerste keer dat u de opslagemulator uitvoert is de lokale opslag-omgeving ge�
 De opslagemulator is standaard geïnstalleerd `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> U kunt de [Microsoft Azure Storage Explorer](http://storageexplorer.com) om te werken met resources voor lokale opslag-emulator. Zoek naar '(ontwikkeling)' onder 'Storage-Accounts' in de structuur van de resources Storage Explorer nadat u hebt geïnstalleerd en de opslagemulator is gestart.
+> U kunt de [Microsoft Azure Storage Explorer](https://storageexplorer.com) om te werken met resources voor lokale opslag-emulator. Zoek naar '(ontwikkeling)' onder 'Storage-Accounts' in de structuur van de resources Storage Explorer nadat u hebt geïnstalleerd en de opslagemulator is gestart.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Initialiseren van de opslagemulator voor het gebruik van een andere SQL-database
@@ -64,15 +64,15 @@ De storage emulator opdrachtregel-hulpprogramma kunt u de opslagemulator om te v
 1. Open in het consolevenster Opslagemulator zoals beschreven in de [begin- en initialisatie van de opslagemulator](#start-and-initialize-the-storage-emulator) sectie.
 1. Typ in het consolevenster de volgende opdracht, waarbij `<SQLServerInstance>` is de naam van de SQL Server-exemplaar. Geef voor het gebruik van LocalDB `(localdb)\MSSQLLocalDb` als de SQL Server-exemplaar.
 
-  `AzureStorageEmulator.exe init /server <SQLServerInstance>`
+   `AzureStorageEmulator.exe init /server <SQLServerInstance>`
 
-  U kunt ook de volgende opdracht, die ervoor zorgt de emulator dat gebruiken de standaard SQL Server-exemplaar gebruiken:
+   U kunt ook de volgende opdracht, die ervoor zorgt de emulator dat gebruiken de standaard SQL Server-exemplaar gebruiken:
 
-  `AzureStorageEmulator.exe init /server .`
+   `AzureStorageEmulator.exe init /server .`
 
-  Of u kunt de volgende opdracht uit, initialiseert de database op het standaardexemplaar van LocalDB opnieuw gebruiken:
+   Of u kunt de volgende opdracht uit, initialiseert de database op het standaardexemplaar van LocalDB opnieuw gebruiken:
 
-  `AzureStorageEmulator.exe init /forceCreate`
+   `AzureStorageEmulator.exe init /forceCreate`
 
 Zie voor meer informatie over deze opdrachten [naslaginformatie voor Storage emulator opdrachtregelprogramma](#storage-emulator-command-line-tool-reference).
 
@@ -91,7 +91,7 @@ Zie voor meer informatie over verbindingsreeksen [configureren van Azure Storage
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Sommige Azure storage-clientbibliotheken, zoals de Xamarin-clientbibliotheek is alleen ondersteuning voor verificatie met een token shared access signature (SAS). U kunt het SAS-token met behulp van een hulpprogramma zoals maken de [Opslagverkenner](http://storageexplorer.com/) of een andere toepassing die ondersteuning biedt voor verificatie met gedeelde sleutel.
+Sommige Azure storage-clientbibliotheken, zoals de Xamarin-clientbibliotheek is alleen ondersteuning voor verificatie met een token shared access signature (SAS). U kunt het SAS-token met behulp van een hulpprogramma zoals maken de [Opslagverkenner](https://storageexplorer.com/) of een andere toepassing die ondersteuning biedt voor verificatie met gedeelde sleutel.
 
 U kunt ook een SAS-token genereren met behulp van Azure PowerShell. Het volgende voorbeeld wordt een SAS-token met volledige machtigingen voor een blob-container gegenereerd:
 
@@ -281,4 +281,4 @@ Een bug opgelost waarbij de opslagemulator is retourneren de `DataServiceVersion
 
 * Evalueren van de platformoverschrijdende, de community onderhouden open source-opslagemulator [Azurite](https://github.com/arafato/azurite). 
 * [Azure Storage-voorbeelden met behulp van .NET](../storage-samples-dotnet.md) bevat koppelingen naar enkele voorbeelden van code kunt u bij het ontwikkelen van uw toepassing.
-* U kunt de [Microsoft Azure Storage Explorer](http://storageexplorer.com) om te werken met resources in uw cloud Storage-account en in de opslagemulator.
+* U kunt de [Microsoft Azure Storage Explorer](https://storageexplorer.com) om te werken met resources in uw cloud Storage-account en in de opslagemulator.

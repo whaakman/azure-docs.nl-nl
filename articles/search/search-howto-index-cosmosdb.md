@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9021bb2a030472d4e83d78c8fc6363db570c3554
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: dceabc799e187f3af56588d5a9008e5cdca517c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317999"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864453"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indexeren van Cosmos DB met behulp van een Azure Search-indexeerfunctie
 
@@ -23,7 +23,7 @@ Dit artikel leest u hoe het configureren van een Azure Cosmos DB [indexeerfuncti
 
 Omdat terminologie kan verwarrend zijn, is het vermelden waard dat [Azure Cosmos DB indexeren](https://docs.microsoft.com/azure/cosmos-db/index-overview) en [Azure Search indexeren](search-what-is-an-index.md) afzonderlijke bewerkingen, zijn uniek voor elke service. Voordat u begint met Azure Search moet indexeren, uw Azure Cosmos DB-database al bestaan en gegevens bevatten.
 
-U kunt de [portal](#cosmos-indexer-portal), [REST-API's](#cosmos-indexer-rest), of [.NET SDK](#cosmos-indexer-dotnet) om Cosmos-inhoud te indexeren. De Cosmos DB-indexeerfunctie in Azure Search kan worden verkend [Azure Cosmos-items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) toegankelijk is via deze protocollen:
+U kunt de [portal](#cosmos-indexer-portal), REST-API's of .NET SDK om Cosmos-inhoud te indexeren. De Cosmos DB-indexeerfunctie in Azure Search kan worden verkend [Azure Cosmos-items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) toegankelijk is via deze protocollen:
 
 * [SQL-API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
 * [MongoDB-API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (Azure Search-ondersteuning voor deze API is in openbare preview-versie)  

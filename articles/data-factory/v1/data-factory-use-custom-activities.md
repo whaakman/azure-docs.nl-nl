@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 6d7aeef415fcc53fda2f5d66d748dd38f6d644fb
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 1341a8fce95dff0499a698fcddf8d048f3628dba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576732"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108228"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -421,7 +421,7 @@ Hier volgen de stappen die u in deze sectie uitvoeren:
    2. Klik op **gegevens en analyses** in de **nieuw** blade.
    3. Klik op de blade **Gegevensanalyse** op **Gegevensfactory**.
 
-    ![Menu nieuwe Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
+      ![Menu nieuwe Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
 2. In de **nieuwe data factory** blade Voer **CustomActivityFactory** voor de naam. De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als de volgende foutmelding wordt weergegeven: **Naam gegevensfactory 'CustomActivityFactory' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld **yournameCustomActivityFactory**) en probeer het opnieuw.
 
     ![Nieuwe Azure Data Factory-blade](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)

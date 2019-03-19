@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd05913a982d88a1e4fe4ff72bca0387e280e230
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fc27e5cd6af19f06a5eab73e30d3034fada0ccc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211628"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838388"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Tolerantie voor synchronisatie- en duplicatiekenmerken identificeren
 Tolerantie van dubbele kenmerk is een functie in Azure Active Directory die wordt veroorzaakt door problemen elimineren **UserPrincipalName** en **ProxyAddress** veroorzaakt een conflict bij het uitvoeren van een van de Microsoft hulpprogramma's voor synchronisatie.
@@ -40,7 +40,7 @@ Als er een poging voor het inrichten van een nieuw object met een UPN of ProxyAd
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Probleem met de tolerantie van dubbel kenmerk
 In plaats van volledig mislukken in te richten of bijwerken van een object met een dubbel kenmerk, Azure Active Directory 'in quarantaine plaatst' de dubbel kenmerk die de beperking voor uniekheid schendt. Als dit kenmerk vereist is voor het inrichten, zoals UserPrincipalName, wordt een tijdelijke aanduiding door de service toegewezen. De indeling van deze tijdelijke waarden is  
-"***<OriginalPrefix>+ < 4DigitNumber > @<InitialTenantDomain>. onmicrosoft.com***'.  
+"***<OriginalPrefix>+ < 4DigitNumber >\@<InitialTenantDomain>. onmicrosoft.com***'.  
 Als het kenmerk niet vereist is, zoals een **ProxyAddress**, Azure Active Directory gewoon in quarantaine plaatst het conflict-kenmerk en wordt voortgezet met het maken van het object of de update.
 
 Bij het kenmerk in quarantaine plaatsen, wordt informatie over het conflict in de dezelfde fout rapport e-mail die wordt gebruikt in het oude gedrag verzonden. Deze informatie wordt alleen weergegeven in het foutenrapport één keer als de quarantaine gebeurt, het is niet blijven echter moeten worden vastgelegd in toekomstige e-mailberichten. Ook, omdat de uitvoer van dit object is geslaagd, de synchronisatieclient Meld u niet een fout en probeert niet opnieuw voor het maken / bijwerken van de bewerking op de volgende synchronisatiecycli.
@@ -144,9 +144,9 @@ Geen van deze bekende problemen zorgt ervoor dat gegevens verloren gaan of de se
 1. Objecten met een specifiek kenmerk configuraties blijven ontvangen ze foutberichten uitvoer in plaats van de dubbele kenmerken in quarantaine wordt geplaatst.  
    Bijvoorbeeld:
    
-    a. Nieuwe gebruiker wordt gemaakt in AD met een UPN van **Joe@contoso.com** en ProxyAddress **smtp:Joe@contoso.com**
+    a. Nieuwe gebruiker wordt gemaakt in AD met een UPN van **Jaap\@contoso.com** en ProxyAddress **smtp:Joe\@contoso.com**
    
-    b. De eigenschappen van dit object in strijd zijn met een bestaande groep, waarbij ProxyAddress is **SMTP:Joe@contoso.com**.
+    b. De eigenschappen van dit object in strijd zijn met een bestaande groep, waarbij ProxyAddress is **SMTP:Joe\@contoso.com**.
    
     c. Bij het exporteren, een **ProxyAddress conflict** fout wordt gegenereerd in plaats van de kenmerken van het conflict in quarantaine geplaatst. De bewerking wordt opnieuw geprobeerd bij elke volgende synchronisatiecyclus als zijn zou voordat de tolerantiefunctie is ingeschakeld.
 2. Als twee groepen zijn gemaakt van on-premises met hetzelfde SMTP-adres, een mislukt om in te richten op de eerste poging met een standard dubbele **ProxyAddress** fout. De dubbele waarde is echter goed in quarantaine op de volgende synchronisatiecyclus.
@@ -156,13 +156,13 @@ Geen van deze bekende problemen zorgt ervoor dat gegevens verloren gaan of de se
 1. Het gedetailleerde foutbericht voor twee objecten in een conflict UPN is hetzelfde. Hiermee wordt aangegeven dat ze hebben beide al hun UPN gewijzigd / in quarantaine geplaatst wanneer u in feite alleen een van deze waren voor alle gegevens zijn gewijzigd.
 2. Het gedetailleerde foutbericht voor een conflict UPN ziet u de verkeerde displayName voor een gebruiker die hun UPN gewijzigd heeft/in quarantaine geplaatst. Bijvoorbeeld:
    
-    a. **Gebruiker A** synchroniseert eerst met een **UPN = User@contoso.com** .
+    a. **Gebruiker A** synchronisaties eerst met een **UPN = gebruiker\@contoso.com**.
    
-    b. **Gebruiker B** wordt geprobeerd om te worden gesynchroniseerd volgende met **UPN = User@contoso.com** .
+    b. **Gebruiker B** wordt geprobeerd om te worden gesynchroniseerd volgende met **UPN = gebruiker\@contoso.com**.
    
-    c. **Gebruiker B** UPN is gewijzigd in **User1234@contoso.onmicrosoft.com** en **User@contoso.com** wordt toegevoegd aan **DirSyncProvisioningErrors**.
+    c. **Gebruiker B** UPN is gewijzigd in **User1234\@contoso.onmicrosoft.com** en **gebruiker\@contoso.com** wordt toegevoegd aan **DirSyncProvisioningErrors** .
    
-    d. Het foutbericht voor **gebruiker B** moet geven aan dat **gebruiker A** al **User@contoso.com** zoals weergegeven in een UPN, maar het **van gebruiker B** eigen displayName.
+    d. Het foutbericht voor **gebruiker B** moet geven aan dat **gebruiker A** al **gebruiker\@contoso.com** zoals weergegeven in een UPN, maar het **gebruiker B** eigen displayName.
 
 **Rapport over mappensynchronisatie fout identiteit**:
 

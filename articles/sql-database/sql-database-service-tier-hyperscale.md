@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7097c3852ad903e9d8f7c8786ea7fd616706f108
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4db013b51657bb327c36d616a3743c46731cd19a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903790"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Zeer grootschalige servicelaag (preview) voor maximaal 100 TB
 
@@ -112,7 +112,7 @@ Met de mogelijkheid om snel automatisch instellen/uitschakelen als u meer alleen
 
 ## <a name="create-a-hyperscale-database"></a>Maak een grootschalige-database
 
-Een grote database kan worden gemaakt met de [Azure-portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) of [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Zeer grootschalige databases zijn alleen beschikbaar is met de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
+Een grote database kan worden gemaakt met de [Azure-portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) of [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Zeer grootschalige databases zijn alleen beschikbaar is met de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 
 De volgende T-SQL-opdracht maakt een grootschalige-database. Moet u de editie en de service-doel in de `CREATE DATABASE` instructie.
 
@@ -124,7 +124,7 @@ GO
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Een bestaande Azure SQL-Database migreren naar de servicelaag grootschalige
 
-U kunt uw bestaande Azure SQL-databases verplaatsen naar grootschalige met behulp van de [Azure-portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) of [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Dit is een eenrichtingsvertrouwensrelatie migratie in openbare preview. U kunt databases van grootschalige niet verplaatsen naar een andere servicelaag. U wordt aangeraden een kopie van uw productiedatabases en migreren naar grootschalige voor het testen van concepten (Proefverzamelingen).
+U kunt uw bestaande Azure SQL-databases verplaatsen naar grootschalige met behulp van de [Azure-portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) of [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Dit is een eenrichtingsvertrouwensrelatie migratie in openbare preview. U kunt databases van grootschalige niet verplaatsen naar een andere servicelaag. U wordt aangeraden een kopie van uw productiedatabases en migreren naar grootschalige voor het testen van concepten (Proefverzamelingen).
 
 De volgende T-SQL-opdracht is een database verplaatst naar de grootschalige service tier. Moet u de editie en de service-doel in de `ALTER DATABASE` instructie.
 

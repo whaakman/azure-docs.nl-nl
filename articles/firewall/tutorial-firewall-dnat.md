@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e37d5b050c5ca957b59c1e0a60c88171c1fc4a23
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
-ms.translationtype: HT
+ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582238"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531161"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Zelfstudie: Binnenkomend verkeer filteren met Azure Firewall DNAT via de Azure-portal
 
@@ -37,7 +37,7 @@ In deze zelfstudie maakt u twee VNets die peer zijn van elkaar:
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-1. Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
+1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 2. Klik op de startpagina van de Azure-portal op **Resourcegroepen** en klik vervolgens op **Toevoegen**.
 3. Bij **Resourcegroepnaam** typt u **RG-DNAT-Test**.
 4. Bij **Abonnement** selecteert u uw abonnement.
@@ -150,11 +150,11 @@ Als de implementatie is voltooid, ziet u het privé IP-adres voor de virtuele ma
 
    |Instelling  |Waarde  |
    |---------|---------|
-   |Naam     |FW-DNAT-test|
+   |Name     |FW-DNAT-test|
    |Abonnement     |\<uw abonnement\>|
-   |Resourcegroep     |**Bestaande gebruiken**: RG-DNAT-Test |
+   |Resourcegroep     |**Gebruik bestaande**: RG-DNAT-Test |
    |Locatie     |Selecteer dezelfde locatie die u eerder hebt gebruikt|
-   |Een virtueel netwerk kiezen     |**Bestaande gebruiken**: VN-Hub|
+   |Een virtueel netwerk kiezen     |**Gebruik bestaande**: VN-Hub|
    |Openbaar IP-adres     |**Nieuwe maken**. Het openbare IP-adres moet van het type Standaard-SKU zijn.|
 
 5. Klik op **Controleren + maken**.

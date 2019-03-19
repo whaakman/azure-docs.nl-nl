@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: 0fa221721471772b066990ec2d33f0cedb960239
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 01c3e8072db81620764ccdd3ea99258de4649807
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453538"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858937"
 ---
 # <a name="manage-azure-vm-backups"></a>Back-ups van Azure-VM's beheren
 
@@ -33,7 +33,7 @@ U kunt back-ups beheren met behulp van het dashboard en verkrijgen van toegang t
 
 ## <a name="view-vms-on-the-dashboard"></a>Virtuele machines op het dashboard weergeven
 
-Virtuele machines op het kluisdashboard weergeven: 
+Virtuele machines op het kluisdashboard weergeven:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Selecteer in het menu Hub **Bladeren**. Typ in de lijst met resources **Recovery Services**. Terwijl u typt, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Recovery Services-kluizen**.
@@ -42,39 +42,43 @@ Virtuele machines op het kluisdashboard weergeven:
 
 3. Voor gebruiksgemak, met de rechtermuisknop op de kluis en selecteer **vastmaken aan dashboard**.
 4. Open het dashboard van de kluis.
+
     ![Open het dashboard van de kluis en de blade instellingen](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-4. Op de **back-Upitems** tegel, selecteer **Azure Virtual Machines**.
+5. Op de **back-Upitems** tegel, selecteer **Azure Virtual Machines**.
 
     ![Open de tegel back-Upitems](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-5. Op de **back-Upitems** blade ziet u de laatste back-uptaak voor elk item. In dit voorbeeld de kluis worden beveiligd door één virtuele machine: demovm markgal.  
+6. Op de **back-Upitems** blade vindt u de lijst van beveiligde VM's. In dit voorbeeld de kluis worden beveiligd door één virtuele machine: demobackup.  
 
     ![De blade back-Upitems weergeven](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-
-6. Uit de kluis-item-dashboard, kunt u maken of wijzigen van de back-upbeleid, herstelpunten weer een back-up stoppen op aanvraag uitvoeren of hervatten van de beveiliging van virtuele machines, herstelpunten verwijderen en een herstelbewerking worden uitgevoerd.
+7. In de kluis-item-dashboard wijzigen van de back-upbeleid, uitvoeren van een on-demand back-up stoppen of hervatten van de beveiliging van virtuele machines, back-upgegevens verwijderen, herstelpunten weergeven en uitvoeren van een herstelpunt.
 
     ![Het back-Upitems-dashboard en de blade instellingen](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-## <a name="manage-backup-policies"></a>Back-upbeleid beheren
+## <a name="manage-backup-policy-for-a-vm"></a>Back-upbeleid voor een virtuele machine beheren
 
 Een back-upbeleid beheren:
 
-1. Op de [item kluisdashboard](#view-vms-in-the-dashboard), selecteer **alle instellingen**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/). Open het dashboard van de kluis.
+2. Op de **back-Upitems** tegel, selecteer **Azure Virtual Machines**.
 
-    ![De instellingenoptie alle](./media/backup-azure-manage-vms/all-settings-button.png)
-2. In **instellingen**, selecteer **back-upbeleid**.
-3. Op de **back-upbeleid kiezen** menu:
+    ![Open de tegel back-Upitems](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+
+3. Op de **back-Upitems** blade kunt u de lijst van beveiligde virtuele machines en de status van laatste back-up met de meest recente punten hersteltijd weergeven.
+
+    ![De blade back-Upitems weergeven](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+
+4. U kunt een back-upbeleid selecteren in de kluis-item-dashboard.
 
    * Om te schakelen van beleid, selecteert u een ander beleid en selecteer vervolgens **opslaan**. Het nieuwe beleid wordt onmiddellijk op de kluis toegepast.
-   * Voor het maken van een beleid selecteert **nieuw**. Zie voor meer informatie, [configureren van een back-upbeleid](backup-azure-arm-vms-prepare.md#configure-a-backup-policy).
 
      ![Een back-upbeleid kiezen](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
-
 ## <a name="run-an-on-demand-backup"></a>Een on-demand back-up uitvoeren
-Nadat u de beveiliging hebt ingesteld, kunt u een on-demand back-up van een virtuele machine uitvoeren. Houd rekening met deze details: 
+Nadat u de beveiliging hebt ingesteld, kunt u een on-demand back-up van een virtuele machine uitvoeren. Houd rekening met deze details:
+
 - Als de eerste back-up in behandeling is, maakt back-up op aanvraag een volledige kopie van de virtuele machine in de Recovery Services-kluis.
 - Als de eerste back-up voltooid is, verzendt een on-demand back-up alleen wijzigingen van de vorige momentopname naar de Recovery Services-kluis. Dat wil zeggen, zijn latere back-ups altijd incrementeel.
 - De bewaartermijn voor een on-demand back-up is de waarde voor de bewaarperiode dat u opgeeft wanneer u de back-up activeren.
@@ -138,7 +142,7 @@ U kunt verwijderen van een virtuele machine back-upgegevens tijdens de **back-up
 Nadat u stoppen of uitschakelen van de back-uptaak van de virtuele machine, kunt u de back-upgegevens verwijderen:
 
 
-1. Op de [item kluisdashboard](#view-vms-in-the-dashboard), selecteer **back-up verwijderen**.
+1. Op de [item kluisdashboard](#view-vms-in-the-dashboard), selecteer **back-upgegevens verwijderen**.
 
     ![Back-up verwijderen selecteren](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 

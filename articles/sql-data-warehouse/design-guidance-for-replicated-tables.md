@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/23/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 93e1904862af7eaad395bf14b0d09555d9d1d2ab
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 9b205dea0d6de6469847e8008010a3a2c9d19956
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990132"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113127"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Ontwerprichtlijnen voor het gebruik van gerepliceerde tabellen in Azure SQL Data Warehouse
 In dit artikel biedt aanbevelingen voor het ontwerpen van gerepliceerde tabellen in uw SQL Data Warehouse-schema. Gebruik deze aanbevelingen om queryprestaties te verbeteren door minder gegevens verplaatsen en query complex.
@@ -32,22 +32,23 @@ Als onderdeel van het tabelontwerp, krijg inzicht in zo veel mogelijk over uw ge
 - Heb ik feiten- en dimensietabellen tabellen in een datawarehouse?   
 
 ## <a name="what-is-a-replicated-table"></a>Wat is een gerepliceerde tabel?
-Een gerepliceerde tabel heeft een volledige kopie van de tabel die toegankelijk is op elk knooppunt. Een tabel te repliceren Hiermee verwijdert u de noodzaak om over te dragen van gegevens tussen rekenknooppunten voordat een join of aggregatie. Omdat de tabel meerdere exemplaren heeft, gerepliceerde tabellen werken het beste wanneer de grootte van de tabel minder dan 2 GB gecomprimeerd is.
+Een gerepliceerde tabel heeft een volledige kopie van de tabel die toegankelijk is op elk knooppunt. Een tabel te repliceren Hiermee verwijdert u de noodzaak om over te dragen van gegevens tussen rekenknooppunten voordat een join of aggregatie. Omdat de tabel meerdere exemplaren heeft, gerepliceerde tabellen werken het beste wanneer de grootte van de tabel minder dan 2 GB gecomprimeerd is.  2 GB is niet een vaste limiet.  Als de gegevens statisch is en niet wordt gewijzigd, kunt u grotere tabellen kunt repliceren.
 
 Het volgende diagram toont een gerepliceerde tabel die toegankelijk is op elk knooppunt. In SQL Data Warehouse, wordt de gerepliceerde tabel volledig gekopieerd naar een distributiedatabase op elk knooppunt. 
 
 ![Gerepliceerde tabel](media/guidance-for-using-replicated-tables/replicated-table.png "gerepliceerde tabel")  
 
-Gerepliceerde tabellen werken goed voor kleine dimensietabellen in een stervormig schema. Dimensietabellen zijn meestal met een grootte die het mogelijk voor het opslaan en onderhouden van meerdere kopieën maakt. Dimensies beschrijvende worden gegevens opgeslagen die traag, zoals de naam van de klant en adres en productdetails wordt gewijzigd. De langzaam veranderende aard van de gegevens leidt tot minder opnieuw op te bouwen van de gerepliceerde tabel. 
+Gerepliceerde tabellen werken goed voor dimensietabellen in een stervormig schema. Dimensietabellen worden doorgaans gekoppeld aan de feitentabellen die anders dan de dimensietabel worden gedistribueerd.  Dimensies zijn meestal met een grootte die het mogelijk voor het opslaan en onderhouden van meerdere kopieën maakt. Dimensies beschrijvende worden gegevens opgeslagen die traag, zoals de naam van de klant en adres en productdetails wordt gewijzigd. De langzaam veranderende aard van de gegevens leidt tot minder onderhoud van de gerepliceerde tabel. 
 
 Overweeg het gebruik van een gerepliceerde tabel wanneer:
 
 - De grootte van de tabel op de schijf is minder dan 2 GB, ongeacht het aantal rijen. Als u de grootte van een tabel zoekt, kunt u de [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) opdracht: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - De tabel wordt gebruikt in joins die anders verplaatsing van gegevens vereist. Bij het samenvoegen van tabellen die niet worden gedistribueerd op dezelfde kolom, zoals een tabel met hash gedistribueerd naar een round robin-tabel worden verplaatsing van gegevens is vereist voor het voltooien van de query.  Als een van de tabellen klein is, kunt u overwegen een gerepliceerde tabel. U wordt aangeraden de gerepliceerde tabellen gebruiken in plaats van round robin-tabellen in de meeste gevallen. Voor bewerkingen voor gegevensverplaatsing in queryplannen bekijkt, gebruik [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  De BroadcastMoveOperation is de verplaatsing van gegevens die kan worden verwijderd met behulp van een gerepliceerde tabel.  
-  Gerepliceerde tabellen kunnen niet de beste queryprestaties opleveren wanneer:
+ 
+Gerepliceerde tabellen kunnen niet de beste queryprestaties opleveren wanneer:
 
 - De tabel is vaak invoegen, bijwerken en verwijderen van bewerkingen. Deze gegevens manipuleren taal (DML)-bewerkingen moeten samenstellen van de gerepliceerde tabel. Opnieuw opbouwen van vaak kan leiden tot tragere prestaties.
-- Het datawarehouse wordt vaak geschaald. Een datawarehouse schalen, wijzigt het aantal rekenknooppunten, die leidt een opnieuw is gebouwd tot.
+- Het datawarehouse wordt vaak geschaald. Een datawarehouse schalen, wijzigt het aantal rekenknooppunten, waarop worden in rekening gebracht opnieuw opbouwen van de gerepliceerde tabel.
 - De tabel heeft een groot aantal kolommen, maar gegevensbewerkingen hebben doorgaans toegang tot slechts een beperkt aantal kolommen. In dit scenario, in plaats van het repliceren van de volledige tabel, is het mogelijk beter om te distribueren in de tabel en vervolgens een index maken voor veelgebruikte kolommen. Wanneer een query is vereist voor verplaatsing van gegevens, worden in SQL Data Warehouse alleen gegevens voor de aangevraagde kolommen verplaatst. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Gerepliceerde tabellen gebruiken met eenvoudige query predicaten
@@ -102,7 +103,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 Een gerepliceerde tabel is een verplaatsing van gegevens niet vereist voor joins, omdat de hele tabel al aanwezig op elk knooppunt is. Als de dimensietabellen gedistribueerd middels round-robin, kopieert een join de dimensietabel volledig naar elk knooppunt. Het queryplan bevat voor het verplaatsen van de gegevens, een bewerking met de naam BroadcastMoveOperation. Dit type verplaatsing van gegevens wordt vertraagd prestaties van query's en verwijderd met behulp van gerepliceerde tabellen. Als u wilt weergeven querystappen plan, gebruiken de [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) catalogusweergave system. 
 
 Bijvoorbeeld, in de volgende query uit op basis van de AdventureWorks-schema, de ` FactInternetSales` tabel is hash worden verdeeld. De `DimDate` en `DimSalesTerritory` tabellen zijn kleiner dimensietabellen. Deze query retourneert de totale verkoop in Noord-Amerika voor boekjaar 2004:
- 
+ 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
 FROM dbo.FactInternetSales s
@@ -138,7 +139,7 @@ Het opnieuw bouwen niet is gebeurd onmiddellijk nadat de gegevens worden gewijzi
 
 ### <a name="use-indexes-conservatively"></a>Indexen dan gebruiken
 Standaardprocedures indexering van toepassing op gerepliceerde tabellen. SQL Data Warehouse wordt elke index gerepliceerde tabel als onderdeel van het opnieuw bouwen. Gebruik alleen indexen wanneer de prestatieverbetering belangrijker is dan de kosten van de indexen opnieuw samenstellen.  
- 
+ 
 ### <a name="batch-data-loads"></a>Laden van de batch-gegevens
 Bij het laden van gegevens in gerepliceerde tabellen, probeer het opnieuw op te bouwen door belastingen samen batchverwerking minimaliseren. Alle batch belastingen uitvoeren voordat u select-instructies uitvoert.
 
@@ -170,20 +171,20 @@ Deze query gebruikt de [sys.pdw_replicated_table_cache_state](/sql/relational-da
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
   FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
-    ON c.object_id = t.object_id 
-  JOIN sys.pdw_table_distribution_properties p 
-    ON p.object_id = t.object_id 
+  JOIN sys.pdw_replicated_table_cache_state c  
+    ON c.object_id = t.object_id 
+  JOIN sys.pdw_table_distribution_properties p 
+    ON p.object_id = t.object_id 
   WHERE c.[state] = 'NotReady'
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
- 
+ 
 Voer de volgende instructie voor elke tabel in de bovenstaande uitvoer voor het activeren van een opnieuw is gebouwd. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
- 
+ 
 ## <a name="next-steps"></a>Volgende stappen 
 Gebruik een van deze instructies voor het maken van een gerepliceerde tabel:
 

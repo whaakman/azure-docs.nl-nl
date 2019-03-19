@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7c29d1bfcc0737f76afc43cb8997d6a1d16c82b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: af36f38bf206da588d327dc319d2418460f79b13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731343"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165025"
 ---
 # <a name="access-data-from-your-datastores"></a>Toegang tot gegevens uit uw gegevensopslag
 
@@ -146,13 +146,16 @@ ds.download(target_path='your target path',
 
 <a name="train"></a>
 ## <a name="access-datastores-during-training"></a>Toegang tot gegevensopslag tijdens de training
-U hebt toegang tot een gegevensarchief tijdens een training uitgevoerd (bijvoorbeeld voor trainingen of validatie van gegevens) op een externe compute-doel via de Python-SDK met de [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) klasse.
 
-Er zijn verschillende manieren om uw gegevensopslag beschikbaar maken op de externe compute.
+Nadat u uw gegevensopslag beschikbaar op de externe compute maken, kunt u deze openen tijdens trainingsuitvoeringen (bijvoorbeeld training of validatie van gegevens) door gewoon het pad naar deze wordt doorgegeven als een parameter in uw trainingsscript.
+
+De volgende tabel bevat de algemene [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) methode(n) die gegevensopslag beschikbaar op de externe compute maken.
+
+##
 
 Manier|Methode|Description
 ----|-----|--------
-Koppelen| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Gebruik om te koppelen van een gegevensarchief in de berekening die externe.
+Koppelen| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Gebruik om te koppelen van een gegevensarchief in de berekening die externe. De standaardmodus voor gegevensopslag.
 Downloaden|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Gebruiken om gegevens te downloaden vanaf de locatie die is opgegeven door `path_on_compute` op uw gegevensopslag op de externe compute.
 Uploaden|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Gebruiken om gegevens te uploaden naar de hoofdmap van de gegevensopslag van de opgegeven locatie `path_on_compute`.
 
@@ -165,20 +168,22 @@ ds.as_download(path_on_compute='your path on compute')
 ds.as_upload(path_on_compute='yourfilename')
 ```  
 
-### <a name="reference-filesfolders"></a>Naslaginformatie over bestanden/mappen
 Als u wilt verwijzen naar een specifieke map of bestand op uw gegevensopslag, gebruik van het gegevensarchief [ `path()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) functie.
 
 ```Python
-#download the contents of the `./bar` directory from the datastore 
+#download the contents of the `./bar` directory from the datastore to the remote compute
 ds.path('./bar').as_download()
 ```
 
 
+
+> [!NOTE]
+> Alle `ds` of `ds.path` object wordt omgezet naar de naam van een omgevingsvariabele van de indeling `"$AZUREML_DATAREFERENCE_XXXX"` waarvan de waarde vertegenwoordigt het pad voor het koppelpunt/downloaden op de externe compute. Het pad van het gegevensarchief in de berekening die externe mogelijk niet hetzelfde als uitvoeringspad voor de van het trainingsscript.
+
 ### <a name="examples"></a>Voorbeelden 
 
-Alle `ds` of `ds.path` object wordt omgezet naar de naam van een omgevingsvariabele van de indeling `"$AZUREML_DATAREFERENCE_XXXX"` waarvan de waarde vertegenwoordigt het pad voor het koppelpunt/downloaden op de externe compute. Het pad van het gegevensarchief in de berekening die externe mogelijk niet hetzelfde als uitvoeringspad voor de van het script.
+De volgende illustratie van voorbeelden die specifiek zijn voor de [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klasse voor toegang tot uw gegevensopslag tijdens de training.
 
-Voor toegang tot uw gegevensopslag tijdens de training, geven u deze in uw trainingsscript als een opdrachtregelargument via `script_params` uit de [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klasse.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -192,12 +197,13 @@ est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py')
 ```
-`as_mount()` is de standaardmodus voor een gegevensopslag, zodat u kunt ook rechtstreeks doorgeven `ds` naar de `'--data_dir'` argument.
+
+Aangezien `as_mount()` is de standaardmodus voor een gegevensopslag, kunt u ook rechtstreeks doorgeven `ds` naar de `'--data_dir'` argument.
 
 Of doorgeven in een lijst van gegevensopslag aan de constructor Estimator `inputs` parameter om te koppelen of kopiëren naar/van uw elke gegevensopslag. Dit codevoorbeeld:
 * Downloadt de inhoud in het gegevensarchief `ds1` naar de externe compute voordat uw trainingsscript `train.py` wordt uitgevoerd
 * De map downloads `'./foo'` in het gegevensarchief `ds2` naar de externe compute voordat `train.py` wordt uitgevoerd
-* Het bestand wordt geüpload `'./bar.pkl'` van de externe compute tot het gegevensarchief `d3` nadat het script is uitgevoerd
+* Het bestand wordt geüpload `'./bar.pkl'` van de externe compute tot het gegevensarchief `ds3` nadat het script is uitgevoerd
 
 ```Python
 est = Estimator(source_directory='your code directory',

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: f4e537bb6aa3b9bc4555f7eefb3cac6acd579b64
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 51499b86aa44b89442f84a345cba6e9093f8c274
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233962"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57882791"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java bulksgewijs executor-bibliotheek: Informatie downloaden
 
@@ -36,7 +36,7 @@ ms.locfileid: "56233962"
 |**Beschrijving**|De bulksgewijs executor-bibliotheek kan clienttoepassingen bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB-accounts. bulksgewijs executor-bibliotheek biedt BulkImport, en BulkUpdate-naamruimten. De module kunt bulksgewijs BulkImport opnemen documenten in een geoptimaliseerde manier zodanig dat de ingerichte doorvoer voor een verzameling wordt gebruikt voor de maximale omvang. Bestaande gegevens in Azure Cosmos DB-containers de BulkUpdate module kunt bulksgewijs bijwerken als patches.|
 |**SDK downloaden**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**BulkExecutor-bibliotheek op GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
-| **API-documentatie**| [Documentatie voor .net API-verwijzing](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
+| **API-documentatie**| [.NET API-referentiedocumentatie](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Aan de slag**|[Aan de slag met de bibliotheek in bulk executor Java-SDK](bulk-executor-java.md)|
 |**Minimaal ondersteunde runtime**|[Java Development Kit (JDK 7 +)](https://aka.ms/azure-jdks)|
 

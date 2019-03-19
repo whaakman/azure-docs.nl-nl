@@ -10,22 +10,24 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/06/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 68199083369018cab1c9f83dd6781653a8cae37c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097587"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849292"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Zelfstudie: De verwijzing voor Azure Resource Manager-sjablonen gebruiken
 
 Meer informatie over het zoeken van de sjabloonschema-informatie en het gebruiken van deze informatie om Azure Resource Manager-sjablonen te maken.
 
 In deze zelfstudie gebruikt u een basissjabloon uit Azure-snelstartsjablonen. U past de sjabloon aan door middel van referentiemateriaal voor sjablonen om een versleuteld opslagaccount te maken.
+
+![Verwijzing naar het Resource Manager-sjabloon implementeren versleutelde storage-account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
 Deze zelfstudie bestaat uit de volgende taken:
 
@@ -76,9 +78,9 @@ Als u dit artikel wilt voltooien, hebt u het volgende nodig:
 
 ## <a name="find-the-template-reference"></a>De sjabloonverwijzing zoeken
 
-1. Browse naar [Azure-sjablonen](https://docs.microsoft.com/azure/templates/).
-2. Voer in **Filteren op titel** **opslagaccounts** in.
-3. Selecteer **Reference/Template reference/Storage/<Version>/Storage Accounts** zoals weergegeven in de volgende schermafbeelding:
+1. Blader naar [Azure sjabloonverwijzing](https://docs.microsoft.com/azure/templates/).
+2. In de **filteren op titel** Voer **opslagaccounts**.
+3. Selecteer **verwijzing/sjabloon verwijzing/opslag/&lt;versie > / Storage-Accounts** zoals wordt weergegeven in de volgende schermafbeelding:
 
     ![Resource Manager-sjabloon verwijzing opslagaccount](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
@@ -147,7 +149,7 @@ In de volgende schermafbeelding ziet u de CLI-opdracht voor het weergeven van he
 
 Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt, op door de resourcegroep te verwijderen.
 
-1. Selecteer **Resourcegroep** in het linkermenu van de Azure-portal.
+1. Selecteer **Resourcegroep** in het linkermenu van Azure Portal.
 2. Voer de naam van de resourcegroep in het veld **Filter by name** in.
 3. Selecteer de naam van de resourcegroep.  U ziet in totaal zes resources in de resourcegroep.
 4. Selecteer **Resourcegroep verwijderen** in het bovenste menu.

@@ -10,12 +10,12 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 7dddf7e48913aea9d84e0f8b66c2c9d29449ee6f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 5d66dcaccc6ca2e40fbd516f535ec56c1baf6b17
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825301"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195600"
 ---
 ### <a name="run-the-service"></a>De service uitvoeren
 
@@ -81,7 +81,7 @@ U hebt de introductiehandleiding voltooid! U hebt geleerd hoe u:
 > * Uw code op een productieve manier ontwikkelen en testen in een teamomgeving.
 > * Zorg voor een basislijn van de functionaliteit van Dev-spaties van om eenvoudig geïsoleerde wijzigingen te testen in de context van een grotere microservicetoepassing
 
-Nu u Azure Dev Spaces hebt verkend, kunt u [uw dev-ruimte delen met teamleden](../articles/dev-spaces/how-to/share-dev-spaces.md) en hen laten zien hoe eenvoudig het is om samen te werken.
+Nu dat u Azure Dev spaties, hebt verkend [de adresruimte van uw dev delen met een teamlid](../articles/dev-spaces/how-to/share-dev-spaces.md) en beginnen met het samenwerken.
 
 ## <a name="clean-up"></a>Opruimen
 Als u een exemplaar van Azure Dev Spaces in een cluster volledig wilt verwijderen, waaronder alle ontwikkelruimtes en de actieve services die erin worden uitgevoerd, gebruikt u de opdracht `az aks remove-dev-spaces`. Houd er rekening mee dat deze actie niet kan worden teruggedraaid. U kunt later opnieuw ondersteuning voor Azure Dev Spaces toevoegen aan het cluster, maar u moet dan helemaal opnieuw beginnen. Uw oude services en ruimtes worden niet hersteld.

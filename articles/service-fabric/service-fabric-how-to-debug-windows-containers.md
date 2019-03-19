@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo, mikhegn
-ms.openlocfilehash: 10a2c48023ff8377600a0fdcdf4990a453392e80
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 9fe66e40376d9098244a1268fe9884cd416a36c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805914"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113568"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Procedure: Fouten opsporen in Windows-containers in Azure Service Fabric met behulp van Visual Studio 2017
 
@@ -35,19 +35,19 @@ Met Visual Studio 2017 Update 7 (15,7), kunt u .NET-toepassingen in containers f
 1. Zorg ervoor dat de Docker voor Windows-service wordt uitgevoerd voordat u doorgaat met de volgende stap.
 
 1. Ter ondersteuning van DNS-omzetting tussen containers, wordt u voor het instellen van uw lokale ontwikkelcluster, hebben de computernaam. Deze stappen zijn ook nodig als u adresservices via de omgekeerde proxy wilt.
-    1. Open PowerShell als beheerder
-    2. Navigeer naar de installatiemap van de SDK-Cluster, doorgaans `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
-    3. Het script uitvoeren `DevClusterSetup.ps1`
+   1. Open PowerShell als beheerder
+   2. Navigeer naar de installatiemap van de SDK-Cluster, doorgaans `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
+   3. Het script uitvoeren `DevClusterSetup.ps1`
 
-       ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
-       ```
+      ``` PowerShell
+        C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
+      ```
 
-    > [!NOTE]
-    > U kunt de `-CreateOneNodeCluster` voor het instellen van een cluster met één knooppunt. Standaard wordt een lokaal cluster met vijf knooppunten maken.
-    >
+      > [!NOTE]
+      > U kunt de `-CreateOneNodeCluster` voor het instellen van een cluster met één knooppunt. Standaard wordt een lokaal cluster met vijf knooppunten maken.
+      >
 
-    Zie voor meer informatie over de DNS-Service in Service Fabric, [DNS-Service in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Zie voor meer informatie over het gebruik van Service Fabric omgekeerde proxy van de services die worden uitgevoerd in een container [omgekeerde proxy speciale handelingen voor services die worden uitgevoerd in containers](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
+      Zie voor meer informatie over de DNS-Service in Service Fabric, [DNS-Service in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Zie voor meer informatie over het gebruik van Service Fabric omgekeerde proxy van de services die worden uitgevoerd in een container [omgekeerde proxy speciale handelingen voor services die worden uitgevoerd in containers](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Bekende beperkingen bij het opsporen van fouten in containers in Service Fabric
 

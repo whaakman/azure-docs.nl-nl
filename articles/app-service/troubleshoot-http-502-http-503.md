@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5a4b8b2fd3e232d7b42b2f510075c3964ca50531
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652571"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899125"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>HTTP-fouten '502 Ongeldige gateway' en '503 service niet beschikbaar' in Azure App Service oplossen
 '502 Ongeldige gateway' en '503 service niet beschikbaar' zijn veelvoorkomende fouten in uw app die wordt gehost in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Dit artikel helpt bij het oplossen van deze fouten.
@@ -109,7 +109,7 @@ Bovendien kunt u uw toepassing uitvoeren op meer dan één exemplaar. Dit niet a
 U kunt instellen om het handmatig of automatisch worden geschaald.
 
 #### <a name="use-autoheal"></a>Gebruikmaken van AutoHeal
-AutoHeal wordt gerecycled het werkproces voor uw app op basis van de instellingen die u (zoals wijzigingen in de configuratie, aanvragen, de limieten voor geheugen of de tijd die nodig is kiest voor het uitvoeren van een aanvraag). De meeste van de tijd is recyclen van het proces de snelste manier om te herstellen van een probleem. Hoewel u altijd opnieuw de app rechtstreeks vanuit de Azure Portal start kunt, wordt AutoHeal het automatisch voor u doen. U hoeft alleen is bepaalde triggers toevoegen in de hoofdmap web.config voor uw app. Houd er rekening mee dat deze instellingen op dezelfde manier als werken zou, zelfs als uw toepassing niet een .net een is.
+AutoHeal wordt gerecycled het werkproces voor uw app op basis van de instellingen die u (zoals wijzigingen in de configuratie, aanvragen, de limieten voor geheugen of de tijd die nodig is kiest voor het uitvoeren van een aanvraag). De meeste van de tijd is recyclen van het proces de snelste manier om te herstellen van een probleem. Hoewel u altijd opnieuw de app rechtstreeks vanuit de Azure Portal start kunt, wordt AutoHeal het automatisch voor u doen. U hoeft alleen is bepaalde triggers toevoegen in de hoofdmap web.config voor uw app. Houd er rekening mee dat deze instellingen op dezelfde manier als werken zou, zelfs als uw toepassing niet een .NET een is.
 
 Zie voor meer informatie, [automatisch herstel Azure Web Sites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

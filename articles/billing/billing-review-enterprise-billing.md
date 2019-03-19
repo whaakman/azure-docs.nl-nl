@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: 5cb26b98f5969032bcff95e4408fcf685399d6da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9a0b536426ab024d5af7b257e44a2d5e20f14def
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114498"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898700"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Enterprise-inschrijving facturering met behulp van REST-API's bekijken
 
@@ -78,7 +78,7 @@ Statuscode 200 wordt (OK) geretourneerd voor een geslaagde respons, waarin een l
 }
 ```  
 
-In dit voorbeeld is afgekort; Zie [gebruiksdetails ophalen voor een factureringsaccount](/rest/api/consumption/usagedetails/listbybillingaccount) voor een volledige beschrijving van elk veld met de reactie en foutafhandeling.
+In dit voorbeeld is afgekort; Zie [gebruiksdetails ophalen voor een factureringsaccount](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist) voor een volledige beschrijving van elk veld met de reactie en foutafhandeling.
 
 ## <a name="department-billing"></a>Afdeling facturering 
 
@@ -134,7 +134,7 @@ Het volgende voorbeeld ziet de uitvoer van de REST-API voor afdeling `1234`.
 }
 ```  
 
-In dit voorbeeld is afgekort; Zie [gebruiksdetails ophalen voor een afdeling](/rest/api/consumption/usagedetails/listbydepartment) voor een volledige beschrijving van elk veld met de reactie en foutafhandeling.
+In dit voorbeeld is afgekort; Zie [gebruiksdetails ophalen voor een afdeling](/rest/api/consumption/usagedetails/list#departmentusagedetailslist) voor een volledige beschrijving van elk veld met de reactie en foutafhandeling.
 
 ## <a name="enrollment-account-billing"></a>Facturering voor inschrijving
 
@@ -187,7 +187,7 @@ Het volgende voorbeeld ziet de uitvoer van de REST-API voor enterprise-inschrijv
 }
 ``` 
 
-In dit voorbeeld is afgekort; Zie [gebruiksdetails ophalen voor een inschrijvingsaccount](/rest/api/consumption/usagedetails/listbyenrollmentaccount) voor een volledige beschrijving van elk veld met de reactie en foutafhandeling.
+In dit voorbeeld is afgekort; Zie [gebruiksdetails ophalen voor een inschrijvingsaccount](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist) voor een volledige beschrijving van elk veld met de reactie en foutafhandeling.
 
 ## <a name="next-steps"></a>Volgende stappen 
 - Beoordeling [Enterprise rapportageoverzicht](https://docs.microsoft.com/azure/billing/billing-enterprise-api)

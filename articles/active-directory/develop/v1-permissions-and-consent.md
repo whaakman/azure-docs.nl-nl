@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec7b2de1ae56e554013d9a5c574bb231164b80f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9ee58c2a3bed7544ff68e7d6ec756c35bee1d05b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207293"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103159"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Machtigingen en toestemming in het eindpunt van de Azure Active Directory v1.0
 
@@ -102,11 +102,11 @@ Toepassingen in Azure AD zijn afhankelijk van toestemming om toegang te krijgen 
 - Resources moeten `Read`- en `ReadWrite`-machtigingen expliciet en afzonderlijk definiëren.
 - Resources moeten alle machtigingen die toegang tot gegevens buiten de grenzen van gebruikers toestaan markeren als `Admin`-machtigingen.
 - Resources moeten het naamgevingspatroon `Subject.Permission[.Modifier]` volgen, waarbij:
-    - `Subject` komt overeen met het type gegevens dat beschikbaar is
-    - `Permission` komt overeen met de actie die een gebruiker van die gegevens kan duren
-    - `Modifier` (optioneel) wordt gebruikt om te beschrijven specialisaties van een andere machtiging
+  - `Subject` komt overeen met het type gegevens dat beschikbaar is
+  - `Permission` komt overeen met de actie die een gebruiker van die gegevens kan duren
+  - `Modifier` (optioneel) wordt gebruikt om te beschrijven specialisaties van een andere machtiging
     
     Bijvoorbeeld:
-    * Mail.Read - Staat gebruikers toe om e-mail te lezen.
-    * Mail.ReadWrite - Staat gebruikers toe om e-mail te lezen of te schrijven.
-    * Mail.ReadWrite.All - Staat een beheerder of gebruiker toe om toegang te krijgen tot alle e-mail in de organisatie.
+  - Mail.Read - Staat gebruikers toe om e-mail te lezen.
+  - Mail.ReadWrite - Staat gebruikers toe om e-mail te lezen of te schrijven.
+  - Mail.ReadWrite.All - Staat een beheerder of gebruiker toe om toegang te krijgen tot alle e-mail in de organisatie.

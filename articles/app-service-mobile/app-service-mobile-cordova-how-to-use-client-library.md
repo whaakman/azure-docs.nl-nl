@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: cddb3769cfc5a2ba002e19036d986f4165670dc1
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962448"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004220"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Het gebruik van Apache Cordova-clientbibliotheek voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -93,7 +93,7 @@ Verschillende typen Apache Cordova-toepassingen gebruiken een loopback-mogelijkh
 
 Volg deze instructies voor uw lokale instellingen toevoegen aan de configuratie:
 
-1. Meld u aan bij [Azure Portal].
+1. Meld u aan bij [Azure-portal].
 2. Selecteer **alle resources** of **App Services** klik vervolgens op de naam van uw mobiele App.
 3. Klik op **hulpprogramma's**
 4. Klik op **Resource explorer** Klik in het menu OBSERVE **gaat**.  Een nieuw venster of tabblad wordt geopend.
@@ -106,14 +106,14 @@ Volg deze instructies voor uw lokale instellingen toevoegen aan de configuratie:
              "https://localhost:3000"
          ],
 
-    De URL's vervangen door de URL's van uw service.  Voorbeelden zijn "http://localhost:3000' (voor de Node.js-voorbeeld-service), of 'http://localhost:4400' (voor de Ripple-service).  Deze URL's zijn echter voorbeelden - uw situatie, met inbegrip van de services die worden vermeld in de voorbeelden kunnen mogelijk verschillen.
+    De URL's vervangen door de URL's van uw service.  Voorbeelden zijn onder meer `http://localhost:3000` (voor de Node.js-voorbeeld-service), of `http://localhost:4400` (voor de Ripple-service).  Deze URL's zijn echter voorbeelden - uw situatie, met inbegrip van de services die worden vermeld in de voorbeelden kunnen mogelijk verschillen.
 8. Klik op de **lezen/schrijven** knop in de rechterbovenhoek van het scherm.
 9. Klik op de groene **plaatsen** knop.
 
 De instellingen worden op dit moment opgeslagen.  Het browservenster niet sluiten totdat de instellingen hebt opgeslagen.
 Ook deze loopback-URL's toevoegen aan de CORS-instellingen voor uw App Service:
 
-1. Meld u aan bij [Azure Portal].
+1. Meld u aan bij [Azure-portal].
 2. Selecteer **alle resources** of **App Services** klik vervolgens op de naam van uw mobiele App.
 3. De instellingen-blade wordt automatisch geopend.  Als dit niet zo is, klikt u op **alle instellingen**.
 4. Klik op **CORS** onder het menu van de API.
@@ -170,7 +170,7 @@ De Notification Hubs SDK gebruiken om pushmeldingen te verzenden van de server. 
 U vindt gedetailleerde API-details in onze [API-documentatie](https://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com
+[Azure-portal]: https://portal.azure.com
 [Azure Mobile Apps snel starten]: app-service-mobile-cordova-get-started.md
 [Aan de slag met verificatie]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md

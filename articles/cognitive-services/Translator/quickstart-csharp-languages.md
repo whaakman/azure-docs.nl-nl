@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: ae7408ac635b2825ab17f40786c3fd60b76d78ac
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: dea66cfe63f566afc1f0186f0386525f90564708
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892453"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175731"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Quickstart: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met C#
 
@@ -110,9 +110,17 @@ request.RequestUri = new Uri(host + route);
 // Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
-// Print the response
-Console.WriteLine(jsonResponse);
+// Pretty print the response
+Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
+```
+
+Toevoegen als u wilt afdrukken van het antwoord "vrij af te drukken' (opmaak voor het antwoord), deze functie aan de klasse Program:
+```
+static string PrettyPrint(string s)
+{
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
 ```
 
 ## <a name="put-it-all-together"></a>Alles samenvoegen
@@ -133,6 +141,8 @@ dotnet run
 ```
 
 ## <a name="sample-response"></a>Voorbeeldantwoord
+
+De afkorting van land/regio niet vinden in dit [lijst met talen](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 ```json
 {

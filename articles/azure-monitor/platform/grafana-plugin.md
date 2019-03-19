@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: f592cfdba940b95a9935c6b68f3294233d9fbf15
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 64a7a52d39fcac87bdc49b9d36e80d453557bc5b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888488"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002273"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Bewaken van uw Azure-services in Grafana
 U kunt nu Azure-services en toepassingen van bewaken [Grafana](https://grafana.com/) met behulp van de [Azure Monitor-gegevensbron invoegtoepassing](https://grafana.com/plugins/grafana-azure-monitor-datasource). De invoegtoepassing verzamelt prestatiegegevens van toepassingen die door Azure Monitor, met inbegrip van verschillende logboeken en metrische gegevens worden verzameld. U kunt deze gegevens vervolgens weergeven in het Grafana-dashboard.
@@ -77,9 +77,9 @@ Wanneer is aangemeld, ziet u de Azure Monitor data source-invoegtoepassing is al
 
         > [!NOTE]
         > Sommige velden van de gegevensbron zijn anders dan hun gecorreleerde Azure instellingen met de naam:
-        >     * Tenant-ID is de Azure-map-ID
-        >     * Client-ID is de Azure Active Directory toepassings-ID
-        >     * Clientgeheim is de waarde van de Azure Active Directory-toepassing
+        > * Tenant-ID is de Azure-map-ID
+        > * Client-ID is de Azure Active Directory toepassings-ID
+        > * Clientgeheim is de waarde van de Azure Active Directory-toepassing
 
 5. Als u Application Insights gebruikt, kunt u ook uw Application Insights-API en de toepassings-ID voor het verzamelen van Application Insights op basis van metrische gegevens opnemen. Zie voor meer informatie, [aan uw API-sleutel en de toepassings-ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
@@ -96,16 +96,16 @@ Wanneer is aangemeld, ziet u de Azure Monitor data source-invoegtoepassing is al
     ![Nieuwe grafiek Grafana](./media/grafana-plugin/grafana-new-graph-dark.png)
 
 4. Selecteer de Azure Monitor-gegevensbron die u hebt geconfigureerd.
-    * Verzamelen van Azure Monitor metrics - Selecteer **Azure Monitor** in de vervolgkeuzelijst voor de service. Een lijst met selectors wordt, waarin u de resources en metrische gegevens om te controleren in deze grafiek kunt selecteren. Voor het verzamelen van metrische gegevens van een virtuele machine, gebruikt u de naamruimte **Microsoft.Compute/VirtualMachines**. Nadat u VM's en metrische gegevens hebt geselecteerd, kunt u beginnen met het weergeven van hun gegevens in het dashboard.
-    ![Grafana graph-configuratie voor Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-    * Verzamelen van Azure Monitor logboekgegevens - Selecteer **Azure Log Analytics** in de vervolgkeuzelijst voor de service. Selecteer de werkruimte die u wilt opvragen en de querytekst instellen. U kunt hier elke logboekquery u al hebt of maak een nieuwe kopiëren. Terwijl u in uw query typt, wordt de IntelliSense weergegeven en de opties voor automatisch aanvullen voorstellen. Selecteer het visualisatietype **Time series** **tabel**, en voer de query uit.
+   * Verzamelen van Azure Monitor metrics - Selecteer **Azure Monitor** in de vervolgkeuzelijst voor de service. Een lijst met selectors wordt, waarin u de resources en metrische gegevens om te controleren in deze grafiek kunt selecteren. Voor het verzamelen van metrische gegevens van een virtuele machine, gebruikt u de naamruimte **Microsoft.Compute/VirtualMachines**. Nadat u VM's en metrische gegevens hebt geselecteerd, kunt u beginnen met het weergeven van hun gegevens in het dashboard.
+     ![Grafana graph-configuratie voor Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
+   * Verzamelen van Azure Monitor logboekgegevens - Selecteer **Azure Log Analytics** in de vervolgkeuzelijst voor de service. Selecteer de werkruimte die u wilt opvragen en de querytekst instellen. U kunt hier elke logboekquery u al hebt of maak een nieuwe kopiëren. Terwijl u in uw query typt, wordt de IntelliSense weergegeven en de opties voor automatisch aanvullen voorstellen. Selecteer het visualisatietype **Time series** **tabel**, en voer de query uit.
     
-    > [!NOTE]
-    >
-    > De standaard-query die is opgegeven met de invoegtoepassing maakt gebruik van twee macro's: "$__timeFilter() en $__interval. 
-    > Deze macro's toestaan Grafana het tijdsbereik en het tijdsinterval, dynamisch berekenen wanneer u op een deel van een diagram inzoomen. U kunt deze macro's verwijderen en gebruik een filter (standaardtijd), zoals *TimeGenerated > ago(1h)*, maar dat betekent dat de grafiek wordt geen ondersteuning voor het zoomniveau in functie.
+     > [!NOTE]
+     >
+     > De standaard-query die is opgegeven met de invoegtoepassing maakt gebruik van twee macro's: "$__timeFilter() en $__interval. 
+     > Deze macro's toestaan Grafana het tijdsbereik en het tijdsinterval, dynamisch berekenen wanneer u op een deel van een diagram inzoomen. U kunt deze macro's verwijderen en gebruik een filter (standaardtijd), zoals *TimeGenerated > ago(1h)*, maar dat betekent dat de grafiek wordt geen ondersteuning voor het zoomniveau in functie.
     
-    ![Grafana graph-configuratie voor Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
+     ![Grafana graph-configuratie voor Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
 5. Hieronder volgt een eenvoudig dashboard met twee grafieken. De naam van links ziet u het CPU-percentage van de twee virtuele machines. De grafiek aan de rechterkant ziet u de transacties in een Azure Storage-account onderverdeeld op basis van de transactie-API-type.
     ![Grafana twee grafieken voorbeeld](media/grafana-plugin/grafana6.png)

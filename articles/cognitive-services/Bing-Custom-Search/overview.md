@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: overview
-ms.date: 09/29/2017
+ms.date: 03/4/2019
 ms.author: aahi
-ms.openlocfilehash: 3a951f793ec946fc66d6a14acacd548a5f990be3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: e788da047cb0567fc00f27130621a2f21e575dc4
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872859"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337733"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Wat is de Bing Aangepaste zoekopdracht-API?
 
@@ -23,7 +23,7 @@ Met de Bing Aangepaste zoekopdrachten-API kunt u op maat gemaakte zoekervaringen
 
 ## <a name="features"></a>Functies
 
-|Functie  |Beschrijving  |
+|Functie  |Description  |
 |---------|---------|
 |[Aangepaste zoeksuggesties in realtime](define-custom-suggestions.md)     | Geef zoeksuggesties op die kunnen worden weergegeven als een vervolgkeuzelijst wanneer gebruikers beginnen te typen.       | 
 |[Ervaringen voor aangepast afbeeldingen zoeken](get-images-from-instance.md)     | Stel gebruikers in staat om naar afbeeldingen te zoeken vanuit de domeinen en websites die zijn opgegeven in het exemplaar voor aangepaste zoekopdrachten.        |        

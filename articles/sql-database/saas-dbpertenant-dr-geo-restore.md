@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 14c43fbc138d6d70b65f6afd1ef174488e066796
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567737"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116772"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Geo-herstel met een multitenant SaaS-toepassing herstellen vanuit back-ups
 
@@ -32,13 +32,13 @@ Geo-restore is de oplossing voor noodherstel van de laagste kosten voor Azure SQ
 
 Deze zelfstudie worden zowel terugzetten en repatriëring werkstromen. In deze zelfstudie leert u procedures om het volgende te doen:
 > [!div class="checklist"]
-
->* Databases en elastische groep configuratie-informatie in de tenantcatalogus synchroniseren.
->* Instellen van een omgeving spiegelbeeld in een herstelregio met toepassingen, servers en toepassingen.   
->* Catalogus en tenant-databases herstellen met behulp van geo-herstel.
->* Gebruik geo-replicatie voor de tenant catalog en het gewijzigde tenantdatabases repatriëren nadat de onderbreking verholpen is.
->* Catalogus bijwerken wanneer elke database wordt hersteld (of besluit zijn verricht) om bij te houden van de huidige locatie van het actieve exemplaar van de database van elke tenant.
->* Zorg ervoor dat de toepassing en de tenant-database altijd dezelfde zich in dezelfde Azure-regio te verminderen latentie. 
+> 
+> * Databases en elastische groep configuratie-informatie in de tenantcatalogus synchroniseren.
+> * Instellen van een omgeving spiegelbeeld in een herstelregio met toepassingen, servers en toepassingen.   
+> * Catalogus en tenant-databases herstellen met behulp van geo-herstel.
+> * Gebruik geo-replicatie voor de tenant catalog en het gewijzigde tenantdatabases repatriëren nadat de onderbreking verholpen is.
+> * Catalogus bijwerken wanneer elke database wordt hersteld (of besluit zijn verricht) om bij te houden van de huidige locatie van het actieve exemplaar van de database van elke tenant.
+> * Zorg ervoor dat de toepassing en de tenant-database altijd dezelfde zich in dezelfde Azure-regio te verminderen latentie. 
  
 
 Voordat u deze zelfstudie begint, moet u de volgende vereisten voldoen:
@@ -194,13 +194,13 @@ Terwijl het toepassingseindpunt van de is uitgeschakeld in Traffic Manager, word
 
 * Nadat de catalogusdatabase is hersteld, maar voordat de tenants weer online zijn, vernieuwt u de Wingtip Tickets events hub in uw webbrowser.
 
-    * U ziet dat de naam van de catalogus nu heeft in de voettekst een - recovery-achtervoegsel en bevindt zich in de herstelregio voor.
+  * U ziet dat de naam van de catalogus nu heeft in de voettekst een - recovery-achtervoegsel en bevindt zich in de herstelregio voor.
 
-    * U ziet dat tenants die nog niet zijn hersteld zijn gemarkeerd als offline en niet worden geselecteerd zijn.   
+  * U ziet dat tenants die nog niet zijn hersteld zijn gemarkeerd als offline en niet worden geselecteerd zijn.   
  
     ![Herstelproces](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-    * Als u van een tenant gebeurtenissen pagina rechtstreeks openen terwijl de tenant offline is is bereikt, wordt de pagina een tenant offline-melding weergegeven. Bijvoorbeeld, als Contoso Concert Hall offline is, probeert te openen http://events.wingtip-dpt.&lt; gebruiker&gt;.trafficmanager.net/contosoconcerthall.
+  * Als u van een tenant gebeurtenissen pagina rechtstreeks openen terwijl de tenant offline is is bereikt, wordt de pagina een tenant offline-melding weergegeven. Bijvoorbeeld, als Contoso Concert Hall offline is, probeert te openen http://events.wingtip-dpt.&lt; gebruiker&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Herstelproces](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -245,13 +245,13 @@ Wanneer het herstelproces is voltooid, zijn de toepassing en alle tenants volled
 
 4. Open de recovery-resourcegroep en ziet u de volgende items:
 
-    * De herstel-versies van de catalogus en tenants1-servers, met het achtervoegsel voor de - herstel. De herstelde catalogus en tenant-databases op deze alle servers hebben de namen in de oorspronkelijke regio gebruikt.
+   * De herstel-versies van de catalogus en tenants1-servers, met het achtervoegsel voor de - herstel. De herstelde catalogus en tenant-databases op deze alle servers hebben de namen in de oorspronkelijke regio gebruikt.
 
-    * De tenants2-dpt -&lt;gebruiker&gt;-recovery SQL server. Deze server wordt gebruikt voor het inrichten van nieuwe tenants gedurende de storing.
+   * De tenants2-dpt -&lt;gebruiker&gt;-recovery SQL server. Deze server wordt gebruikt voor het inrichten van nieuwe tenants gedurende de storing.
 
-    * De appservice met de naam van de gebeurtenissen-wingtip-dpt -&lt;recoveryregion&gt;-&lt;gebruiker&gt;, dit is de herstel-exemplaar van de app.
+   * De appservice met de naam van de gebeurtenissen-wingtip-dpt -&lt;recoveryregion&gt;-&lt;gebruiker&gt;, dit is de herstel-exemplaar van de app.
 
-    ![Contoso-resources in de herstelregio](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
+     ![Contoso-resources in de herstelregio](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
     
 5. Open de tenants2-dpt -&lt;gebruiker&gt;-recovery SQL server. U ziet dat deze de hawthornhall database en de elastische pool Pool1 bevat. De database hawthornhall is geconfigureerd als een elastische database in de elastische pool Pool1.
 
@@ -367,12 +367,12 @@ Tenant-databases kunnen zijn verdeeld over de oorspronkelijke regio's en herstel
 
 In deze zelfstudie heeft u het volgende geleerd:
 > [!div class="checklist"]
-
->* De tenantcatalogus gebruiken voor het opslaan van regelmatig vernieuwd configuratie-informatie, waarmee een omgeving voor het herstel van spiegelbeeld moet worden gemaakt in een andere regio.
->* Azure SQL-databases in de herstelregio herstellen met behulp van geo-herstel.
->* Update-tenantcatalogus om tenant herstelde databaselocaties weer te geven. 
->* Een DNS-alias gebruiken om in te schakelen van een toepassing verbinding maken met de tenantcatalogus in de gehele zonder herconfiguratie.
->* Gebruik geo-replicatie te repatriëren herstelde databases naar hun oorspronkelijke regio na een storing opgelost is.
+> 
+> * De tenantcatalogus gebruiken voor het opslaan van regelmatig vernieuwd configuratie-informatie, waarmee een omgeving voor het herstel van spiegelbeeld moet worden gemaakt in een andere regio.
+> * Azure SQL-databases in de herstelregio herstellen met behulp van geo-herstel.
+> * Update-tenantcatalogus om tenant herstelde databaselocaties weer te geven. 
+> * Een DNS-alias gebruiken om in te schakelen van een toepassing verbinding maken met de tenantcatalogus in de gehele zonder herconfiguratie.
+> * Gebruik geo-replicatie te repatriëren herstelde databases naar hun oorspronkelijke regio na een storing opgelost is.
 
 Probeer de [herstel na noodgevallen voor een multitenant SaaS-toepassing met behulp van geo-replicatie van de database](saas-dbpertenant-dr-geo-replication.md) zelfstudie voor informatie over het gebruik van geo-replicatie naar aanzienlijk minder tijd nodig om te zetten van een grootschalige toepassing met meerdere tenants.
 

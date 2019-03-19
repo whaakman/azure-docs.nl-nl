@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 7b73a0efbe20b43b3ba8e94fce3aabf12ea918e8
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: ca58059716ebebfaf663412b37014ae4f534d0e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986053"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081505"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes op Azure Stack Marketplace toevoegen
 
@@ -220,12 +220,12 @@ De Kubernetes uit de Marketplace toevoegen:
 1. Voer `Custom Script for Linux` in.
 
 1. Het script met het volgende profiel te selecteren:
-    - **Bieden**: Aangepast Script voor Linux 2.0
-    - **Version**: 2.0.6 (of de meest recente versie)
-    - **Publisher**: Microsoft Corp
+   - **Bieden**: Aangepast Script voor Linux 2.0
+   - **Version**: 2.0.6 (of de meest recente versie)
+   - **Publisher**: Microsoft Corp
 
-    > [!Note]  
-    > Meer dan één versie van het aangepaste Script voor Linux kan worden vermeld. U moet de laatste versie van het item toevoegen.
+     > [!Note]  
+     > Meer dan één versie van het aangepaste Script voor Linux kan worden vermeld. U moet de laatste versie van het item toevoegen.
 
 1. Selecteer **downloaden.**
 

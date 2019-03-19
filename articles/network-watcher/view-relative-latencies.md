@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 4df134c6644a9480460635cbe3565f030d4bf779
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0b6baec08470754c04aaa0bea2a3e6defe7fd91f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440944"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117851"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>De relatieve latentie weergeven op Azure-regio's op specifieke locaties
 
@@ -119,8 +119,8 @@ Get-AzureRmNetworkWatcherReachabilityReport `
   -EndTime "2017-12-15"
 ```
 
->[!NOTE]
-In tegenstelling tot moet wanneer u een enkele locatie opgeeft, als u niet een locatie opgeven, of meerdere locaties, zoals 'West vs2', 'VS-West, u een Internet-provider wanneer u de opdracht uitvoert. 
+> [!NOTE]
+> In tegenstelling tot moet wanneer u een enkele locatie opgeeft, als u niet een locatie opgeven, of meerdere locaties, zoals 'West vs2', 'VS-West, u een Internet-provider wanneer u de opdracht uitvoert. 
 
 ## <a name="view-available"></a>Beschikbare landen, provincies, steden en providers weergeven
 

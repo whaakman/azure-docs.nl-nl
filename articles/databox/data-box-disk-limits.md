@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 65a3aa41c72341aa57c8cb2ddca5d1ed10f0ec06
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9cad48eeadc06c84e326cbc5f19f1c97e151a795
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530838"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880446"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limieten voor Azure Data Box-schijf
 
@@ -74,8 +74,7 @@ Hier vindt u de grootte van de Azure-objecten die kunnen worden geschreven. Zorg
 | Blok-blob        | ~ 4.75 TiB                                                 |
 | Pagina-blob         | 8 TiB <br> (Elk bestand dat is geüpload in de indeling van de pagina-Blob moet 512 bytes uitgelijnd, anders het uploaden is mislukt. <br> De VHD- en VHDX zijn 512 bytes uitgelijnd.) |
 |Azure Files        | 1 TiB <br> Met maximaal de grootte van de share is 5 TiB     |
-| Managed Disks     |4 TiB <br> Zie voor meer informatie over de grootte en beperkingen: <li>[Schaalbaarheidsdoelen voor beheerde schijven](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)
-</li>|
+| Managed Disks     |4 TiB <br> Zie voor meer informatie over de grootte en beperkingen: <li>[Schaalbaarheidsdoelen voor beheerde schijven](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Azure blok-blobs, pagina-blob en bestand naamgevingsregels
@@ -83,7 +82,7 @@ Hier vindt u de grootte van de Azure-objecten die kunnen worden geschreven. Zorg
 | Entiteit                                       | Conventies                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Namen van containers voor blok-blobs en pagina-blobs <br> FileShare-namen voor Azure Files | Moet een geldige DNS-naam die tussen de 3 en 63 tekens lang zijn. <br>  Moet beginnen met een letter of cijfer. <br> Mag alleen kleine letters, cijfers en afbreekstreepjes (-). <br> Elk koppelteken (-) moet direct worden voorafgegaan en gevolgd door een letter of cijfer. <br> In namen worden geen opeenvolgende koppeltekens toegestaan. |
-| Directory- en bestandsnamen voor Azure files     |<li> Aanvraag te behouden, niet-hoofdlettergevoelige en mag niet groter zijn dan 255 tekens. </li><li> Mag niet eindigen met de schuine streep (/). </li><li>Indien opgegeven, worden deze automatisch verwijderd. </li><li> Volgende tekens zijn niet toegestaan: ' "\ /: | < > * ?`</li><li> Gereserveerde tekens voor URL's moeten op de juiste wijze van een escape-teken zijn voorzien. </li><li> Ongeldige tekens voor URL-pad zijn niet toegestaan. Codepunten zoals \uE000 zijn geen geldige Unicode-tekens. Sommige ASCII of Unicode-tekens, zoals stuurcodes (0x00-0x1F \u0081, enzovoort), zijn ook niet toegestaan. Tekenreeksen in HTTP/1.1 Zie RFC 2616, sectie 2.2 voor regels voor Unicode: Eenvoudige regels en RFC 3987. </li><li> Volgende bestandsnamen zijn niet toegestaan: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punt-teken (.), en twee punten tekens (.).</li>|
+| Directory- en bestandsnamen voor Azure files     |<li> Aanvraag te behouden, niet-hoofdlettergevoelige en mag niet groter zijn dan 255 tekens. </li><li> Mag niet eindigen met de schuine streep (/). </li><li>Indien opgegeven, worden deze automatisch verwijderd. </li><li> Volgende tekens zijn niet toegestaan: <code>" \\ / : \| < > * ?</code></li><li> Gereserveerde tekens voor URL's moeten op de juiste wijze van een escape-teken zijn voorzien. </li><li> Ongeldige tekens voor URL-pad zijn niet toegestaan. Code-punten zoals \\uE000 zijn geen geldige Unicode-tekens. Sommige ASCII of Unicode-tekens, zoals stuurcodes (0x00-0x1F \\u0081, enzovoort), zijn ook niet toegestaan. Tekenreeksen in HTTP/1.1 Zie RFC 2616, sectie 2.2 voor regels voor Unicode: Eenvoudige regels en RFC 3987. </li><li> Volgende bestandsnamen zijn niet toegestaan: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punt-teken (.), en twee punten tekens (.).</li>|
 | Blobnamen voor blok-blob en pagina-blob      | Blobnamen zijn hoofdlettergevoelig en kunnen elke combinatie van tekens bevatten. <br> Een blobnaam moet 1 tot 1024 tekens bevatten. <br> Gereserveerde tekens voor URL's moeten op de juiste wijze van een escape-teken zijn voorzien. <br>Het aantal padsegmenten dat de blobnaam omvat, mag niet meer dan 254 zijn. Een padsegment is de tekenreeks tussen opeenvolgende scheidingstekens (bijvoorbeeld de slash '/') die overeenkomt met de naam van een virtuele map. |
 
 ## <a name="managed-disk-naming-conventions"></a>Beheerde schijf naamgevingsregels

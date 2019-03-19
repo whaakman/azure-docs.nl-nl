@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1020e18894f4bb307ad14f780e76eab1df1314bb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 810388a85e4ad339ff1444d21ac231fe4c00aeac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875970"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120530"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Met een beschrijving van een service fabric-cluster
 De Service Fabric Cluster Resource Manager biedt verschillende mechanismen voor het beschrijven van een cluster. Cluster Resource Manager wordt tijdens runtime gebruikgemaakt van deze informatie om hoge beschikbaarheid van de services die in het cluster wordt uitgevoerd. Tijdens het afdwingen van deze belangrijke regels, probeert deze ook aan het Optimaliseer het gebruik van resources binnen het cluster.
@@ -47,6 +47,7 @@ Het is belangrijk dat Foutdomeinen correct zijn ingesteld omdat de Service Fabri
 In de onderstaande afbeelding kleur we alle entiteiten die bijdragen aan domeinen met fouten en alle de verschillende domeinen met fouten die het resultaat te vermelden. In dit voorbeeld hebben we datacenters ("DC"), rekken ('R') en blades ("B"). Mogelijk, als elk blade meer dan één virtuele machine bevat, kan er een andere laag in de hiërarchie van het domein met fouten.
 
 <center>
+
 ![Knooppunten ingedeeld via domeinen met fouten][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Het is raadzaam als er hetzelfde aantal knooppunten op elk niveau van de diepte 
 Wat imbalanced domeinen eruit? In het onderstaande diagram laten we zien twee verschillende cluster-indelingen. De knooppunten worden in het eerste voorbeeld, gelijkmatig verdeeld over de domeinen met fouten. In het tweede voorbeeld heeft één Foutdomein veel meer knooppunten dan de andere Foutdomeinen. 
 
 <center>
+
 ![Twee verschillende cluster-indelingen][Image2]
 </center>
 
@@ -72,6 +74,7 @@ Upgradedomeinen zijn veel zoals domeinen met fouten, maar met enkele belangrijke
 Het volgende diagram toont de dat drie Upgrade-domeinen worden striped verdeeld over drie Foutdomeinen. U ziet ook een mogelijke plaatsing voor drie verschillende replica's van een stateful service, waar elke in verschillende domeinen en domeinen bijwerken eindigt. Deze plaatsing kunt het verlies van een domein met fouten tijdens het in het midden van een service-upgrade en nog steeds een kopie van de code en gegevens.  
 
 <center>
+
 ![Plaatsing met domeinen en Upgradedomeinen][Image3]
 </center>
 
@@ -88,6 +91,7 @@ Er is geen echte limiet voor het totale aantal fouten of Upgrade-domeinen in een
 - Een 'striped' of 'matrix'-model waarbij de Foutdomeinen en Upgrade-domeinen vormen een matrix met de machines die meestal worden uitgevoerd op de diagonaal
 
 <center>
+
 ![Domeinen met fouten en Upgradedomein indelingen][Image4]
 </center>
 
@@ -190,9 +194,9 @@ De 'quorum veilige'-aanpak biedt meer flexibiliteit dan met de methode 'maximale
 Omdat beide van de methoden sterke en zwakke punten hebben, hebben we een adaptieve benadering die deze twee strategieën combineert geïntroduceerd.
 
 > [!NOTE]
->Dit is het standaardgedrag beginnen met Service Fabric versie 6.2. 
->
-De aanpak van adaptieve maakt standaard gebruik van de logica 'maximale verschil' en schakelt over naar de logica 'quorum veilige' alleen indien nodig. Cluster Resource Manager wordt automatisch zoekt uit welke strategie nodig is door te kijken hoe het cluster en de services zijn geconfigureerd. Voor een bepaalde service: *Als de TargetReplicaSetSize deelbaar is door het aantal domeinen met fouten en het aantal domeinen upgraden **en** het aantal knooppunten is kleiner dan of gelijk zijn aan de (aantal Foutdomeinen) * (het aantal domeinen upgraden), het Cluster Resource Manager moeten gebruikmaken van de logica 'quorum op basis van' voor die service.* Houd er rekening mee dat met Cluster Resource Manager gebruikt deze benadering voor staatloze en stateful services, ondanks quorumverlies niet meer relevant is voor stateless services.
+> Dit is het standaardgedrag beginnen met Service Fabric versie 6.2. 
+> 
+> De aanpak van adaptieve maakt standaard gebruik van de logica 'maximale verschil' en schakelt over naar de logica 'quorum veilige' alleen indien nodig. Cluster Resource Manager wordt automatisch zoekt uit welke strategie nodig is door te kijken hoe het cluster en de services zijn geconfigureerd. Voor een bepaalde service: *Als de TargetReplicaSetSize deelbaar is door het aantal domeinen met fouten en het aantal domeinen upgraden **en** het aantal knooppunten is kleiner dan of gelijk zijn aan de (aantal Foutdomeinen) * (het aantal domeinen upgraden), het Cluster Resource Manager moeten gebruikmaken van de logica 'quorum op basis van' voor die service.* Houd er rekening mee dat met Cluster Resource Manager gebruikt deze benadering voor staatloze en stateful services, ondanks quorumverlies niet meer relevant is voor stateless services.
 
 We gaan terug naar het vorige voorbeeld en wordt ervan uitgegaan dat een cluster heeft nu 8 knooppunten (Er is nog steeds het cluster met vijf Foutdomeinen en vijf domeinen upgraden en de TargetReplicaSetSize van een service die wordt gehost op dat cluster blijft vijf geconfigureerd). 
 
@@ -344,6 +348,7 @@ Soms (in feite de meeste gevallen) gaat u ervoor wilt zorgen dat bepaalde worklo
 Ter ondersteuning van dit soort configuraties, heeft de Service Fabric een eersteklas begrip van de labels die kunnen worden toegepast op de knooppunten. Deze tags worden genoemd **knooppunteigenschappen**. **Plaatsingsbeperkingen** zijn de instructies die zijn gekoppeld aan afzonderlijke services ervan die voor een of meer eigenschappen van het knooppunt selecteren. Plaatsingsbeperkingen definiëren waar services moeten worden uitgevoerd. De set met beperkingen worden uitgebreid - een sleutel/waarde-paar kan worden gebruikt. 
 
 <center>
+
 ![Verschillende werkbelastingen lay-out van cluster][Image5]
 </center>
 
@@ -351,6 +356,7 @@ Ter ondersteuning van dit soort configuraties, heeft de Service Fabric een eerst
 Service Fabric definieert de eigenschappen van een standaard-knooppunt die automatisch kunnen worden gebruikt zonder dat de gebruiker om deze te bepalen. De standaard-eigenschappen gedefinieerd op elk knooppunt zijn de **NodeType** en de **knooppuntnaam**. U kunt dus bijvoorbeeld een beperking voor plaatsing als schrijven `"(NodeType == NodeType03)"`. We hebben in het algemeen gevonden NodeType moet een van de meest vaak gebruikte eigenschappen. Dit is handig omdat deze 1:1 met een type van een virtuele machine overeenkomt. Elk type machine komt overeen met een soort werkbelasting in een traditionele toepassing met meerdere lagen.
 
 <center>
+
 ![Plaatsingsbeperkingen en eigenschappen van het knooppunt][Image6]
 </center>
 
@@ -474,6 +480,7 @@ Als u alle resource uitgeschakeld *balancing*, van Service Fabric Cluster Resour
 Cluster Resource Manager houdt tijdens runtime, resterende capaciteit in het cluster en op knooppunten. Als u wilt bijhouden capaciteit trekt met Cluster Resource Manager elk servicegebruik van knooppuntcapaciteit, waar de service wordt uitgevoerd. Met deze informatie worden Service Fabric Cluster Resource Manager kunt achterhalen waar te plaatsen of te verplaatsen van replica's zodat knooppunten niet via de capaciteit lopen.
 
 <center>
+
 ![Clusterknooppunten en -capaciteit][Image7]
 </center>
 

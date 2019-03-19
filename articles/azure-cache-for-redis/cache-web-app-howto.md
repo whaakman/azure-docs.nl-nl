@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8225f5a093724c00dcc336d5dc2195f4addc998b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237821"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090471"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Snelstart: Een ASP.NET-web-app maken 
 
@@ -74,9 +74,9 @@ Maak vervolgens de cache voor de app.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>Het bestand *CacheSecrets.config* bewerken
 
-3. Maak op de computer een bestand met de naam *CacheSecrets.config*. Sla dit bestand op een locatie op waar het niet wordt ingecheckt met de broncode van de voorbeeldtoepassing. Voor deze snelstart bevindt het bestand *CacheSecrets.config* zich op *C:\AppSecrets\CacheSecrets.config*.
+1. Maak op de computer een bestand met de naam *CacheSecrets.config*. Sla dit bestand op een locatie op waar het niet wordt ingecheckt met de broncode van de voorbeeldtoepassing. Voor deze snelstart bevindt het bestand *CacheSecrets.config* zich op *C:\AppSecrets\CacheSecrets.config*.
 
-4. Bewerk het bestand *CacheSecrets.config*. Voeg nu de volgende inhoud toe:
+1. Bewerk het bestand *CacheSecrets.config*. Voeg nu de volgende inhoud toe:
 
     ```xml
     <appSettings>
@@ -84,14 +84,14 @@ Maak vervolgens de cache voor de app.
     </appSettings>
     ```
 
-5. Vervang `<cache-name>` door de hostnaam van uw cache.
+1. Vervang `<cache-name>` door de hostnaam van uw cache.
 
-6. Vervang `<access-key>` door de primaire sleutel voor uw cache.
+1. Vervang `<access-key>` door de primaire sleutel voor uw cache.
 
     > [!TIP]
     > U kunt de secundaire toegangssleutel tijdens sleutelroulatie gebruiken als een alternatieve sleutel terwijl u de primaire toegangssleutel opnieuw genereert.
->
-7. Sla het bestand op.
+   >
+1. Sla het bestand op.
 
 ## <a name="update-the-mvc-application"></a>De MVC-toepassing bijwerken
 
@@ -274,7 +274,7 @@ Nadat het lokaal testen van de app is geslaagd, implementeert u de app in Azure 
 
 3. Breng in het dialoogvenster**App Service maken** de volgende wijzigingen aan:
 
-    | Instelling | Aanbevolen waarde | Beschrijving |
+    | Instelling | Aanbevolen waarde | Description |
     | ------- | :---------------: | ----------- |
     | **Naam van app** | Gebruik de standaard. | De app-naam is de hostnaam voor de app wanneer deze is geïmplementeerd in Azure. Aan de naam is mogelijk een tijdstempel als achtervoegsel toegevoegd om deze uniek te maken, indien nodig. |
     | **Abonnement** | Kies uw Azure-abonnement. | Voor dit abonnement worden eventuele gerelateerde hostingkosten in rekening gebracht. Als u meerdere Azure-abonnementen hebt, controleert u of het gewenste abonnement is geselecteerd.|

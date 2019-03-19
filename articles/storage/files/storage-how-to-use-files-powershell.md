@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 53f2b59032e7e9725b067ef472b2b6dcf94bcb72
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 59d8b9ffa8c0cbeaaa354f2497d279ac8c285ae1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662450"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437119"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Snelstartgids: Een Azure-bestandsshare maken en beheren met Azure PowerShell 
 In deze handleiding worden de basisbeginselen besproken van het werken met [Azure-bestandsshares](storage-files-introduction.md) met PowerShell. Azure-bestandsshares zijn net als andere bestandsshares, maar worden in de cloud opgeslagen en ondersteund door het Azure-platform. Azure-bestandsshares ondersteunen het SMB-protocol volgens de industriestandaard en bieden de mogelijkheid bestanden te delen tussen meerdere computers, toepassingen en exemplaren. 
@@ -166,7 +166,7 @@ Als u nu de bestanden in de nieuwe share opvraagt, ziet u het gekopieerde bestan
 Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
-Hoewel de cmdlet `Start-AzStorageFileCopy` handig is voor het ad hoc verplaatsen van bestanden tussen Azure-bestandsshares en Azure Blob-opslagcontainers, is het beter om AzCopy te gebruiken voor grotere bewerkingen (voor wat betreft het aantal bestanden of de grootte van de verplaatste bestanden). U vindt hier meer informatie over [AzCopy voor Windows](../common/storage-use-azcopy.md) en [AzCopy voor Linux](../common/storage-use-azcopy-linux.md). AzCopy moet lokaal worden geïnstalleerd. De opdracht is niet beschikbaar in Cloud Shell. 
+Terwijl de `Start-AzStorageFileCopy` cmdlet is handig voor het ad-hoc verplaatsen tussen Azure-bestandsshares en Azure Blob-Opslagcontainers, is het raadzaam AzCopy voor grotere bewerkingen (wat betreft het aantal of de grootte van de verplaatste bestanden). U vindt hier meer informatie over [AzCopy voor Windows](../common/storage-use-azcopy.md) en [AzCopy voor Linux](../common/storage-use-azcopy-linux.md). AzCopy moet lokaal worden geïnstalleerd. De opdracht is niet beschikbaar in Cloud Shell. 
 
 ## <a name="create-and-manage-share-snapshots"></a>Momentopnamen van shares maken en beheren
 Nog een andere handige taak die u kunt doen met een Azure-bestandsshare is het maken van een momentopname van de share. Een momentopname bevat voor een specifiek moment de actuele inhoud van een Azure-bestandsshare. Momentopnamen van een share zijn vergelijkbaar met technologieën van besturingssystemen die u mogelijk al kent, zoals:

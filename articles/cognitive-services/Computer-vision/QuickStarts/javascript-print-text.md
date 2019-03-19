@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 004b7033666dd575c94992b9a099944033680bdf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: fc755c888d2f5affd755ea8de8febcdf0a49663f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875124"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892690"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>Quickstart: Tekst extraheren (OCR) met behulp van de REST API en JavaScript in Computer Vision
 
@@ -47,7 +47,7 @@ U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
 <html>
 <head>
     <title>OCR Sample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -243,10 +243,6 @@ Een geslaagd antwoord wordt geretourneerd in JSON-indeling. De voorbeeldwebpagin
   ]
 }
 ```
-
-## <a name="clean-up-resources"></a>Resources opschonen
-
-Wanneer u het bestand niet meer nodig hebt, kunt u het verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

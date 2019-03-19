@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 56c09d9c6d1249713de7c6a0428ad2a124eee157
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454484"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013068"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
@@ -111,7 +111,7 @@ Hier volgen de belangrijkste punten die u weten wilt over het gebruik van RBAC v
 ### <a name="managing-your-storage-account-keys"></a>De sleutels van uw Storage-Account beheren
 De opslagaccountsleutels zijn 512-bits-tekenreeksen die zijn gemaakt door Azure die samen met de naam van het opslagaccount, kan worden gebruikt voor toegang tot de objecten die zijn opgeslagen in de storage-account, bijvoorbeeld, blobs, entiteiten in een tabel, berichten in wachtrij plaatsen en bestanden op een Azure-bestandsshare. Beheren van toegang tot de storage-account sleutels controleert de toegang tot de gegevenslaag voor dat opslagaccount.
 
-Elk opslagaccount heeft twee sleutels die worden aangeduid als "Sleutel 1" en "Sleutel 2" in de [Azure-portal](http://portal.azure.com/) en in de PowerShell-cmdlets. Deze kunnen worden hersteld handmatig met behulp van een van de verschillende methoden, met inbegrip van, maar niet beperkt tot met behulp van de [Azure-portal](https://portal.azure.com/), PowerShell, de Azure CLI of programmatisch met behulp van de Storage-clientbibliotheek voor .NET of de Azure Storage-Services REST-API.
+Elk opslagaccount heeft twee sleutels die worden aangeduid als "Sleutel 1" en "Sleutel 2" in de [Azure-portal](https://portal.azure.com/) en in de PowerShell-cmdlets. Deze kunnen worden hersteld handmatig met behulp van een van de verschillende methoden, met inbegrip van, maar niet beperkt tot met behulp van de [Azure-portal](https://portal.azure.com/), PowerShell, de Azure CLI of programmatisch met behulp van de Storage-clientbibliotheek voor .NET of de Azure Storage-Services REST-API.
 
 Er zijn een aantal redenen uw storage-accountsleutels opnieuw genereren.
 
@@ -187,7 +187,7 @@ Daarnaast kunt u opgeven dat aanvragen met behulp van een SAS beperkt tot een be
 #### <a name="definition-of-a-shared-access-signature"></a>Definitie van een Shared Access Signature
 Een Shared Access Signature is een set van query-parameters die zijn toegevoegd aan de URL die verwijst naar de resource
 
-dat biedt informatie over de toegang is toegestaan en de tijdsduur waarvoor de toegang is toegestaan. Hier volgt een voorbeeld. Deze URI biedt leestoegang tot een blob gedurende vijf minuten. Houd er rekening mee dat SAS queryparameters moet URL-gecodeerde, zoals % 3A voor dubbele punt (:) of 20% van een spatie.
+dat biedt informatie over de toegang is toegestaan en de tijdsduur waarvoor de toegang is toegestaan. Hier volgt een voorbeeld. Deze URI biedt leestoegang tot een blob gedurende vijf minuten. Houd er rekening mee dat SAS queryparameters moet URL-gecodeerde, zoals % 3A voor dubbele punt (:) of % 20 voor een spatie.
 
 ```
 http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
@@ -244,7 +244,7 @@ Raadpleeg de volgende artikelen voor meer gedetailleerde informatie over het geb
 
     Dit artikel bevat een uitleg van de SAS-model, voorbeelden van handtekeningen voor gedeelde toegang en aanbevelingen voor het beste gebruik van SAS. Ook wordt besproken, is het intrekken van de machtiging is verleend.
 
-* Verificatie
+* Authentication
 
   * [Verificatie voor de Azure Storage-Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Shared Access Signatures aan de slag zelfstudie

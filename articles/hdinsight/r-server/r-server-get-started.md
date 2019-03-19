@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: dce345c39918e7471531710051797c848a3c7cde
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 474048bc9f31e4630110ea099f3e0b375ad74e51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444069"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087581"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Aan de slag met ML Services in Azure HDInsight
 
@@ -79,16 +79,16 @@ Als u ervoor kiest RStudio Server Community Edition te installeren als onderdeel
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 * **Optie 2** -Azure portal gebruiken.
-Vanuit de portal:
+  Vanuit de portal:
   1. Selecteer **alle services** in het menu links.
   2. Onder **ANALYTICS**, selecteer **HDInsight-clusters**.
   3. Selecteer de clusternaam van uw vanaf het **HDInsight-clusters** pagina.
   4. Van **ML-Services dashboards**, selecteer **R Studio server**. 
 
-    ![De instellingen van het opslagaccount voor HDInsight configureren](./media/r-server-get-started/r-studio-server-dashboard.png)
+     ![De instellingen van het opslagaccount voor HDInsight configureren](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]  
-   > Ongeacht welke methode u kiest, de eerste keer dat u zich aanmeldt moet u zich twee keer verifiëren.  Bij de eerste verificatieprompt geeft u de *gebruikers-id* en het *wachtwoord* voor de beheerder op voor het cluster. Bij de tweede verificatieprompt geeft u de *gebruikers-id* en het *wachtwoord* voor SSH op. Volgende log-modules is alleen vereist voor de SSH-referenties.
+     > [!IMPORTANT]  
+     > Ongeacht welke methode u kiest, de eerste keer dat u zich aanmeldt moet u zich twee keer verifiëren.  Bij de eerste verificatieprompt geeft u de *gebruikers-id* en het *wachtwoord* voor de beheerder op voor het cluster. Bij de tweede verificatieprompt geeft u de *gebruikers-id* en het *wachtwoord* voor SSH op. Volgende log-modules is alleen vereist voor de SSH-referenties.
 
 Zodra u verbonden bent, moet het scherm vergelijkbaar zijn met de volgende schermafbeelding:
 

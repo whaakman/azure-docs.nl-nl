@@ -1,23 +1,23 @@
 ---
-title: Hoe een machine learning-model wordt een webservice
+title: Hoe een model wordt een webservice
 titleSuffix: Azure Machine Learning Studio
-description: Een overzicht van het mechanisme van hoe de voortgang van uw Azure Machine Learning Studio-model van een ontwikkeling met een ingezette webservice experimenteren.
+description: Een overzicht van het mechanisme van hoe de voortgang van uw Azure Machine Learning Studio-model van een ontwikkeling met een webservice experimenteren.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 808883fc96369538a26a06a7dadb5f0ecd6628d5
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 28bb96099acb800d9095325b8c7b46a6b5124b4e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823396"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835119"
 ---
-# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Hoe een model voor Machine Learning Studio wordt uitgevoerd van een experiment naar een ingezette-webservice
+# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Hoe een model voor Machine Learning Studio wordt uitgevoerd van een experiment met een webservice
 Azure Machine Learning Studio biedt een interactief canvas waarmee u kunt ontwikkelen, te worden uitgevoerd, te testen en te herhalen een ***experimenteren*** vertegenwoordigt een predictive Analytics-model. Er zijn tal van modules die kunnen:
 
 * Ingevoerde gegevens in uw experiment
@@ -32,7 +32,7 @@ Als u tevreden met uw experiment bent, kunt u het implementeren als een ***klass
 In dit artikel geven we een overzicht van het mechanisme van hoe de voortgang van uw Machine Learning-model van een ontwikkeling met een ingezette webservice experimenteren.
 
 > [!NOTE]
-> Er zijn andere manieren om te ontwikkelen en implementeren van machine learning-modellen, maar in dit artikel is gericht op hoe u Machine Learning Studio gebruiken. Bijvoorbeeld, een beschrijving van hoe u een klassieke voorspellende webservice maken met R, Zie het blogbericht [bouwen en implementeren van voorspellende Web Apps met behulp van RStudio en Azure Machine Learning studio](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+> Er zijn andere manieren om te ontwikkelen en implementeren van machine learning-modellen, maar in dit artikel is gericht op hoe u Machine Learning Studio gebruiken. Bijvoorbeeld, een beschrijving van hoe u een klassieke voorspellende webservice maken met R, Zie het blogbericht [bouwen en implementeren van voorspellende Web Apps met behulp van RStudio en Azure Machine Learning studio](https://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
 >
 >
 

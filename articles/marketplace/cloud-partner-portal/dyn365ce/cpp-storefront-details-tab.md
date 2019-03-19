@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445059"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997945"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 voor Customer Engagement Storefront Details tabblad
 
@@ -56,7 +56,7 @@ De volgende tabel beschrijft waar de velden op dit tabblad:
 |  App-type             | Selecteer het type van de proefversie die is ingeschakeld voor de app op AppSource. **Gratis** geeft aan dat uw app kan worden gebruikt zonder kosten; **Proefversie** geeft aan dat klanten uw app gedurende een korte periode zonder kosten uitproberen kunnen, en **Contact me** geeft aan dat klanten om een evaluatieversie van de app op AppSource vragen kunnen.  |
 | Help-koppeling voor uw app | De URL voor online-documentatie of andere hulpmiddel voor de app.  |
 | Ondersteunde landen/regio 's | Een pop-dialoogvenster kunt de selectie van de geografische regio's waar de app wordt aangeboden.  Wereldwijde distributie is de standaardinstelling. |
-| Ondersteunde talen   | Selecteer de talen die ondersteuning biedt voor uw app. Op dit moment slechts een paar taal opties worden ondersteund.  (Als uw app biedt ondersteuning voor extra talen die niet in deze lijst staat, blijven uw aanbieding publiceren en e-deze informatie naar: appsource@microsoft.com.)  |
+| Ondersteunde talen   | Selecteer de talen die ondersteuning biedt voor uw app. Op dit moment slechts een paar taal opties worden ondersteund.  (Als uw app biedt ondersteuning voor extra talen die niet in deze lijst staat, blijven uw aanbieding publiceren en e-deze informatie naar: appsource\@microsoft.com.)  |
 | App-versie           | Uniek versienummer op voor de app.    |
 | App-Releasedatum      | Datum van de app-versie/publishing |
 | Uw app met werkt producten | Producten of services die uw app tussen met werkt. U kunt maximaal drie producten weergeven. Als u een product, klikt u op **+ nieuw** en voer de naam van een product in het tekstvak weergegeven.  |

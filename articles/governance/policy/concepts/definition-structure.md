@@ -4,17 +4,17 @@ description: Hierin wordt beschreven hoe resourcedefinitie beleid wordt gebruikt
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e3f2b60af574bc1d4e6633ce47b6cdf51e8e6d3e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308411"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894424"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -101,7 +101,7 @@ Een parameter heeft de volgende eigenschappen die worden gebruikt in de beleidsd
   - `displayName`: De beschrijvende naam die wordt weergegeven in de portal voor de parameter.
   - `strongType`: (Optioneel) Gebruikt bij het toewijzen van de beleidsdefinitie via de portal. Geeft een lijst van context-op de hoogte. Zie voor meer informatie, [strongType](#strongtype).
 - `defaultValue`: (Optioneel) Hiermee stelt u de waarde van de parameter in een toewijzing, als er geen waarde is opgegeven. Vereist bij het bijwerken van een bestaande beleidsdefinitie die is toegewezen.
-- `allowedValues`: (Optioneel) Geeft de lijst met waarden die de parameter tijdens de toewijzing accepteert.
+- `allowedValues`: (Optioneel) Biedt een matrix met waarden die de parameter tijdens de toewijzing accepteert.
 
 U kunt bijvoorbeeld een beleidsdefinitie voor het beperken van de locaties waar resources kunnen worden geïmplementeerd definiëren. Een parameter voor de beleidsdefinitie van dit kan worden **allowedLocations**. Deze parameter kan worden gebruikt door elke toewijzing van de beleidsdefinitie om te beperken van de geaccepteerde waarden. Het gebruik van **strongType** biedt een verbeterde ervaring bij het voltooien van de toewijzing via de portal:
 
@@ -289,6 +289,9 @@ In het volgende voorbeeld `concat` wordt gebruikt om u te maken van een zoekveld
 Voorwaarden kunnen ook worden samengesteld met behulp van **waarde**. **waarde** controleert of voorwaarden op basis van [parameters](#parameters), [ondersteund sjabloonfuncties](#policy-functions), of letterlijke waarden.
 **waarde** is gekoppeld met een ondersteund [voorwaarde](#conditions).
 
+> [!WARNING]
+> Als het resultaat van een _sjabloonfunctie_ is een fout opgetreden, evaluatie mislukt. Een mislukte evaluatieversie is een impliciete **weigeren**. Zie voor meer informatie, [sjabloon fouten voorkomen](#avoiding-template-failures).
+
 #### <a name="value-examples"></a>Waarde-voorbeelden
 
 In dit voorbeeld van beleid voor regel maakt gebruik van **waarde** om te vergelijken van het resultaat van de `resourceGroup()` functie en de geretourneerde **naam** eigenschap in op een **zoals** voorwaarde van `*netrg`. De regel weigert een resource niet van de `Microsoft.Network/*` **type** in elke willekeurige resourcegroep waarvan de naam eindigt in `*netrg`.
@@ -328,6 +331,44 @@ In dit voorbeeld van beleid voor regel maakt gebruik van **waarde** om te contro
     }
 }
 ```
+
+#### <a name="avoiding-template-failures"></a>Sjabloon fouten voorkomen
+
+Het gebruik van _sjabloonfuncties_ in **waarde** kunt u veel complexe geneste functies. Als het resultaat van een _sjabloonfunctie_ is een fout opgetreden, evaluatie mislukt. Een mislukte evaluatieversie is een impliciete **weigeren**. Een voorbeeld van een **waarde** die in bepaalde scenario's is mislukt:
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[substring(field('name'), 0, 3)]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+De regel hierboven maakt gebruik van de voorbeeld [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) om te vergelijken van de eerste drie tekens van **naam** naar **abc**. Als **naam** korter is dan drie tekens, de `substring()` functie resulteert in een fout. Deze fout zorgt ervoor dat het beleid om te worden een **weigeren** effect.
+
+Gebruik in plaats daarvan de [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) functie om te controleren of de eerste drie tekens van **naam** gelijk **abc** zonder toe te staan een **naam** korter zijn dan drie tekens naar een fout veroorzaken:
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[if(greaterOrEquals(length(field('name')), 3), substring(field('name'), 0, 3), 'not starting with abc')]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+Met de gewijzigde beleidsregel `if()` controleert de lengte van **naam** voordat u bij het ophalen van een `substring()` op een waarde in van minder dan drie tekens. Als **naam** is te kort, de waarde "niet starten met abc" wordt geretourneerd in plaats daarvan en vergeleken met **abc**. Een resource met een korte naam die niet met begint **abc** nog steeds mislukt de beleidsregel, maar niet meer veroorzaakt een fout tijdens de evaluatie.
 
 ### <a name="effect"></a>Effect
 
@@ -443,70 +484,60 @@ Aantal van de aliassen die beschikbaar zijn hebben een versie die wordt weergege
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-Het eerste voorbeeld wordt gebruikt om te evalueren van de volledige matrix, waar de **[\*]** alias evalueert elk element van de matrix.
-
-We bekijken een beleidsregel als voorbeeld. Dit beleid wordt **weigeren** een opslagaccount waarvoor ipRules geconfigureerd en als **geen** van de ipRules heeft een waarde van '127.0.0.1'.
+De alias 'normale' vertegenwoordigt het veld als één waarde. Dit veld is voor de exacte overeenkomst vergelijking scenario's als de volledige set van waarden exact zoals is gedefinieerd, moet niet meer en niet kleiner. Met behulp van **ipRules**, een voorbeeld zou worden valideren dat een exacte set met regels met inbegrip van het aantal regels en de samenstelling van elke regel bestaat. In dit voorbeeldregel controleert of er precies beide **192.168.1.1** en **10.0.4.1** met _actie_ van **toestaan** in **ipRules** om toe te passen de **effectType**:
 
 ```json
 "policyRule": {
     "if": {
-        "allOf": [{
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "exists": "true"
+            },
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "Equals": [
+                    {
+                        "action": "Allow",
+                        "value": "192.168.1.1"
+                    },
+                    {
+                        "action": "Allow",
+                        "value": "10.0.4.1"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effectType')]"
+    }
+}
+```
+
+De **[\*]** alias maakt het mogelijk om te vergelijken met de waarde van elk element in de matrix en specifieke eigenschappen van elk element. Deze aanpak maakt het mogelijk om te vergelijken van de eigenschappen van het element voor 'als geen van', 'als', of ' als alle van de scenario's. Met behulp van **ipRules [\*]**, een voorbeeld zou worden valideren die elke _actie_ is _weigeren_, maar niet bezig te houden hoeveel regels bestaan of wat het IP-adres _waarde_ is. In dit voorbeeldregel controleert of er overeenkomsten van **ipRules [\*] .value** naar **10.0.4.1** en past de **effectType** alleen als er ten minste één overeenkomst niet gevonden:
+
+```json
+"policyRule": {
+    "if": {
+        "allOf": [
+            {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
                 "exists": "true"
             },
             {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "127.0.0.1"
+                "notEquals": "10.0.4.1"
             }
         ]
     },
     "then": {
-        "effect": "deny",
+        "effect": "[parameters('effectType')]"
     }
 }
 ```
 
-De **ipRules** matrix is als volgt voor het voorbeeld:
-
-```json
-"ipRules": [{
-        "value": "127.0.0.1",
-        "action": "Allow"
-    },
-    {
-        "value": "192.168.1.1",
-        "action": "Allow"
-    }
-]
-```
-
-Hier ziet u hoe in het volgende voorbeeld wordt verwerkt:
-
-- `networkAcls.ipRules` -Controleer of de matrix niet-null is. Dit resulteert in waar, evaluatie wordt dus voortgezet.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-    "exists": "true"
-  }
-  ```
-
-- `networkAcls.ipRules[*].value` -Controleert alle _waarde_ eigenschap in de **ipRules** matrix.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-    "notEquals": "127.0.0.1"
-  }
-  ```
-
-  - Als een matrix, wordt elk element verwerkt.
-
-    - '127.0.0.1'! = '127.0.0.1' wordt geëvalueerd als onwaar.
-    - '127.0.0.1'! = '192.168.1.1' wordt geëvalueerd als waar.
-    - Ten minste één _waarde_ eigenschap in de **ipRules** matrix geëvalueerd als onwaar, zodat de evaluatie wordt gestopt.
-
-Als een voorwaarde is geëvalueerd op false, de **weigeren** effect wordt niet geactiveerd.
+Zie voor meer informatie, [evalueren van de [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Initiatieven
 

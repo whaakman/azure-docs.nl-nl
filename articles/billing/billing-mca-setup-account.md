@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 389a8ac729cf5f4f95aa37654434245d08ecc87e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533626"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894543"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Instellen van uw factureringsrekening voor een Microsoft-KLANTOVEREENKOMST
 
@@ -47,7 +47,7 @@ Voordat u de installatie start, raden we dat u het volgende doen:
 - **Informatie over wijzigingen in uw facturering beheerders toegang**
   - Beheerders van uw Enterprise Agreement-inschrijving krijgen toegang tot de facturering bereiken in het nieuwe account. [Informatie over wijzigingen in hun toegang](#understand-changes-to-your-billing-administrators-access).
 - **Weergave Enterprise Agreement-functies die worden vervangen door het nieuwe account**
-  - Functies van de Enterprise Agreement-inschrijving die zijn weergeven [vervangen door de functies in het nieuwe account](#review-features-replaced-by-the-new-billing-account).
+  - Bekijk de functies van de Enterprise Agreement-inschrijving die zijn vervangen door de functies in het nieuwe account.
 - **Weergave-antwoorden op veelgestelde vragen**
   - Weergave [aanvullende informatie](#additional-information) voor meer informatie over de installatie.
 

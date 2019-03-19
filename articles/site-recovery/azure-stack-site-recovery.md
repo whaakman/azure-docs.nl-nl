@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039466"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002385"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack-VM's repliceren naar Azure
 
@@ -190,7 +190,7 @@ Nu de configuratieserver installeren:
 
 > [!NOTE]
 > De configuratieserver kan ook worden geïnstalleerd vanaf de opdrachtregel. [Meer informatie](physical-manage-configuration-server.md#install-from-the-command-line).
-
+> 
 > Het duurt 15 minuten of langer voordat de accountnaam wordt weergegeven in de portal. Selecteer **Configuratieservers** > ***servernaam*** > **Server vernieuwen** om direct bij te werken.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Stap 4: De doelomgeving instellen
@@ -249,9 +249,9 @@ Zorg ervoor dat u hebt voltooid, de taken in [stap 1: Machine voorbereiden](#ste
 
 > [!NOTE]
 > Site Recovery installeert Mobility Service wanneer replicatie wordt ingeschakeld voor een VM.
-
+> 
 > Het kan 15 minuten of langer duren voordat wijzigingen zijn doorgevoerd en in de portal worden weergegeven.
-
+> 
 > Voor het bewaken van virtuele machines die u toevoegt, controleert u de laatste detectietijd voor VM's in **Configuratieservers** > **Laatst contact om**. Als u VM's wilt toevoegen zonder te wachten op de geplande detectie, markeert u de configuratieserver (zonder deze te selecteren), en selecteert u **Vernieuwen**.
 
 
@@ -278,9 +278,9 @@ Wanneer u een testfailover uitvoert, gebeurt het volgende:
 
 1. Er wordt een controle uitgevoerd om na te gaan of aan alle vereiste voorwaarden voor failover wordt voldaan.
 2. De failover verwerkt de gegevens met behulp van het opgegeven herstelpunt:
-    - **Laatst verwerkte**: De machine failover-schakeling naar de meest recente herstelpunt dat is verwerkt door Site Recovery. Het tijdstempel wordt weergegeven. Met deze optie wordt er geen tijd besteed aan het verwerken van gegevens, zodat er een lage RTO (Recovery Time Objective) is.
-    - **Laatste toepassingsconsistente**: De machine failover-schakeling naar de meest recente toepassingsconsistente herstelpunt.
-    - **Aangepaste**: Selecteer het herstelpunt dat is gebruikt voor de failover.
+    - **Laatst verwerkt**: De machine failover-schakeling naar de meest recente herstelpunt dat is verwerkt door Site Recovery. Het tijdstempel wordt weergegeven. Met deze optie wordt er geen tijd besteed aan het verwerken van gegevens, zodat er een lage RTO (Recovery Time Objective) is.
+    - **Laatste toepassingsconsistente punt**: De machine failover-schakeling naar de meest recente toepassingsconsistente herstelpunt.
+    - **Aangepast**: Selecteer het herstelpunt dat is gebruikt voor de failover.
 
 3. Een Azure-VM wordt gemaakt met behulp van de verwerkte gegevens.
 4. Test-failover kan automatisch opschonen van virtuele Azure-machines die zijn gemaakt tijdens de analyse.

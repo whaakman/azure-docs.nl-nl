@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: afd5361774af3379dc0d4054509e318e8263dcc5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3fdb0f566789382a1606b19e4fac179f9ecf40cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250183"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887456"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Weergeven en wijzigen van hostnamen
 Als u wilt toestaan dat uw rolinstanties worden verwezen door de hostnaam van de, moet u de waarde voor de hostnaam instellen in het configuratiebestand van de service voor elke rol. U doet dit door het toevoegen van de gewenste hostnaam in de **vmName** kenmerk van de **rol** element. De waarde van de **vmName** kenmerk wordt gebruikt als basis voor de hostnaam van elke rolinstantie. Bijvoorbeeld, als **vmName** is *webrole* en er zijn drie exemplaren van deze rol, de hostnamen van de exemplaren worden *webrole0*, *webrole1*, en *webrole2*. U hoeft niet om op te geven van de naam van een host voor virtuele machines in het configuratiebestand, omdat de hostnaam voor een virtuele machine is ingevuld op basis van de naam van de virtuele machine. Zie voor meer informatie over het configureren van een Microsoft Azure-service [configuratieschema voor Azure-Service (.cscfg-bestand)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -37,12 +37,12 @@ Nadat u extern bureaublad (Windows), Windows PowerShell voor externe toegang (Wi
 * Typ ipconfig/alle bij de opdrachtprompt (alleen Windows).
 * Naam van de computer weergeven in de instellingen van het systeem (alleen Windows).
 
-### <a name="azure-service-management-rest-api"></a>Azure Service Management REST-API
+### <a name="azure-service-management-rest-api"></a>Azure Service Management REST API
 Volg deze instructies uit een REST-client:
 
-1. Zorg ervoor dat u hebt een clientcertificaat verbinding maken met de Azure portal. Als u wilt een certificaat hebt verkregen, volgt u de stappen die zijn gepresenteerd in [hoe: downloaden en importeren Publish Settings- en abonnementsgegevens](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Zorg ervoor dat u hebt een clientcertificaat verbinding maken met de Azure portal. Als u wilt een certificaat hebt verkregen, volgt u de stappen die zijn gepresenteerd in [het: Downloaden en importeren van instellingen en abonnementsgegevens publiceren](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Stelt u de vermelding van een koptekst met de naam x-ms-version met een waarde van 01-11-2013.
-3. Een aanvraag verzenden in de volgende indeling: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+3. Een aanvraag verzenden in de volgende indeling: https:\//management.core.windows.net/\<abonnement-id\>/services/hostedservices/\<servicenaam\>? insluiten details = true
 4. Zoek de **hostnaam** element voor elk **RoleInstance** element.
 
 > [!WARNING]
@@ -56,9 +56,9 @@ U kunt de hostnaam voor elke virtuele machine of rolinstantie wijzigen door het 
 ## <a name="next-steps"></a>Volgende stappen
 [Naamomzetting (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
-[Het configuratieschema van de Azure-Service (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
+[Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
-[Azure Virtual Network-configuratieschema](https://go.microsoft.com/fwlink/?LinkId=248093)
+[Azure Virtual Network Configuration Schema](https://go.microsoft.com/fwlink/?LinkId=248093)
 
 [DNS-instellingen met behulp van de configuratiebestanden netwerk opgeven](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 

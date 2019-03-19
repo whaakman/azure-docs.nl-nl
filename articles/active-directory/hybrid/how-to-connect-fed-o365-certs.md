@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 037c5210f73899483bebf131efce0d5f61a847c2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fae036a0860ddb5ee2776f7ed4734492741907f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200357"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177718"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Federatiecertificaten vernieuwen voor Office 365 en Azure Active Directory
 ## <a name="overview"></a>Overzicht
@@ -36,7 +36,7 @@ Dit artikel vindt u aanvullende informatie voor het beheren van uw token handtek
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Standaardconfiguratie van AD FS voor token-ondertekening van certificaten
 Het token-ondertekening en certificaten decoderen-token zijn meestal zelfondertekende certificaten en geschikt zijn voor één jaar. Standaard AD FS bevat een automatische verlenging-proces met de naam **AutoCertificateRollover**. Als u AD FS 2.0 of hoger, Office 365 en Azure AD automatisch bijwerken van uw certificaat voordat deze verloopt.
 
-### <a name="renewal-notification-from-the-office-365-portal-or-an-email"></a>Vernieuwen van meldingen vanuit de Office 365-portal of een e-mailbericht
+### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Melding van de verlenging van het Microsoft 365-beheercentrum of een e-mailbericht
 > [!NOTE]
 > Als u een e-mailadres of een portalmelding of u wilt een certificaat vernieuwen voor Office, Zie ontvangen [beheren van wijzigingen naar certificaten voor tokenondertekening](#managecerts) om te controleren als u geen actie te ondernemen. Microsoft is op de hoogte van een mogelijk probleem die tot meldingen voor certificaatvernieuwing wordt verzonden leiden kan, zelfs wanneer er is geen actie vereist.
 >
@@ -44,8 +44,8 @@ Het token-ondertekening en certificaten decoderen-token zijn meestal zelfonderte
 
 Azure AD wordt geprobeerd om te controleren van de federatiemetagegevens en bijwerken van het token-ondertekening van certificaten, zoals aangegeven door deze metagegevens. 30 dagen vóór de vervaldatum van token-ondertekening van certificaten, controleert Azure AD of er nieuwe certificaten beschikbaar zijn door de federatiemetagegevens polling.
 
-* Als deze kan pollen van de federatiemetagegevens en de nieuwe certificaten ophalen, wordt geen e-mailmelding of waarschuwingen in de Office 365-beheerportal verleend aan de gebruiker.
-* Als deze geen nieuwe token-ondertekening van certificaten ophalen, ofwel omdat de federatiemetagegevens is niet bereikbaar is of automatische certificaatrollover niet is ingeschakeld, omdat Azure AD geeft een e-mailbericht en een waarschuwing in de Office 365-beheerportal.
+* Als deze kan pollen van de federatiemetagegevens en de nieuwe certificaten ophalen, wordt zonder e-mailmelding of de waarschuwing in het Microsoft 365-beheercentrum verleend aan de gebruiker.
+* Als deze geen nieuwe token-ondertekening van certificaten ophalen, ofwel omdat de federatiemetagegevens is niet bereikbaar is of automatische certificaatrollover niet is ingeschakeld, omdat Azure AD geeft een e-mailbericht en een waarschuwing in het Microsoft 365-beheercentrum.
 
 ![Office 365-portalmelding](./media/how-to-connect-fed-o365-certs/notification.png)
 

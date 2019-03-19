@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 73f8b1323f6cd22ef215fba4ec45714f099032f6
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: f7288202eb6dd66aee0bb38bb3611e8b319b50f2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010537"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>OpenVPN clients configureren voor Azure VPN-Gateway (Preview)
 
@@ -36,29 +36,29 @@ Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gat
 4. [Exporteren](vpn-gateway-certificates-point-to-site.md#clientexport) de P2S-clients u hebt gemaakt en geüpload naar uw P2S-configuratie op de gateway van het certificaat.
 5. De persoonlijke sleutel en de vingerafdruk van het base64 uit te halen en de *pfx*. Er zijn meerdere manieren om dit te doen. Met behulp van OpenSSL op uw computer is één manier. De *profileinfo.txt* -bestand bevat de persoonlijke sleutel en de vingerafdruk voor de CA en het clientcertificaat. Zorg ervoor dat de vingerafdruk van het clientcertificaat gebruiken.
 
-  ```
-  openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
-  ```
+   ```
+   openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
+   ```
 6. Open *profileinfo.txt* in Kladblok. Als u de vingerafdruk van het clientcertificaat (onderliggend), selecteert u de tekst (met inbegrip van en tussen) "---BEGIN CERTIFICATE---" en "---END CERTIFICATE---' voor de onderliggende van het certificaat en deze te kopiëren. U kunt het onderliggende certificaat identificeren door te kijken de = onderwerp / lijn.
 7. Schakel over naar de *vpnconfig.ovpn* -bestand dat u in stap 3 in Kladblok hebt geopend. De onderstaande sectie zoeken en vervangen alles tussen 'cert' en ' / cert '.
 
-  ```
-  # P2S client certificate
-  # please fill this field with a PEM formatted cert
-  <cert>
-  $CLIENTCERTIFICATE
-  </cert>
-  ```
-8.  Open de *profileinfo.txt* in Kladblok. Als u de persoonlijke sleutel, selecteert u de tekst (met inbegrip van en tussen) "---BEGIN PRIVATE KEY---" en '---BEGIN PRIVATE KEY---' en deze te kopiëren.
-9.  Ga terug naar het bestand vpnconfig.ovpn in Kladblok en zoeken in deze sectie. Plak de persoonlijke sleutel vervangen alles tussen en "sleutel" en '/ sleutel'.
+   ```
+   # P2S client certificate
+   # please fill this field with a PEM formatted cert
+   <cert>
+   $CLIENTCERTIFICATE
+   </cert>
+   ```
+8. Open de *profileinfo.txt* in Kladblok. Als u de persoonlijke sleutel, selecteert u de tekst (met inbegrip van en tussen) "---BEGIN PRIVATE KEY---" en '---BEGIN PRIVATE KEY---' en deze te kopiëren.
+9. Ga terug naar het bestand vpnconfig.ovpn in Kladblok en zoeken in deze sectie. Plak de persoonlijke sleutel vervangen alles tussen en "sleutel" en '/ sleutel'.
 
-  ```
-  # P2S client root certificate private key
-  # please fill this field with a PEM formatted key
-  <key>
-  $PRIVATEKEY
-  </key>
-  ```
+   ```
+   # P2S client root certificate private key
+   # please fill this field with a PEM formatted key
+   <key>
+   $PRIVATEKEY
+   </key>
+   ```
 10. Wijzig geen andere velden. Gebruik de ingevulde configuratie in de clientinvoer om verbinding te maken met de VPN.
 11. Kopieer het bestand vpnconfig.ovpn naar C:\Program Files\OpenVPN\config folder.
 12. Klik met de rechtermuisknop op het pictogram van OpenVPN in het systeemvak en klik op Verbinding maken.
@@ -84,56 +84,56 @@ Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gat
 1. Open een nieuwe sessie. U kunt een nieuwe sessie openen door te drukken 'Ctrl + Alt + t' op hetzelfde moment.
 2. Voer de volgende opdracht om vereiste onderdelen te installeren:
 
-  ```
-  sudo apt-get install openvpn
-  sudo apt-get -y install network-manager-openvpn
-  sudo service network-manager restart
-  ```
+   ```
+   sudo apt-get install openvpn
+   sudo apt-get -y install network-manager-openvpn
+   sudo service network-manager restart
+   ```
 3. Download het VPN-profiel voor de gateway. Dit kan worden uitgevoerd vanaf het tabblad voor punt-naar-site-configuratie in Azure portal.
-4.  [Exporteren](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site#clientexport) de P2S-clients u hebt gemaakt en geüpload naar uw P2S-configuratie op de gateway van het certificaat. 
+4. [Exporteren](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site#clientexport) de P2S-clients u hebt gemaakt en geüpload naar uw P2S-configuratie op de gateway van het certificaat. 
 5. De persoonlijke sleutel en de vingerafdruk van het base64 extraheren uit het .pfx-bestand. Er zijn meerdere manieren om dit te doen. Met behulp van OpenSSL op uw computer is één manier.
 
     ```
     openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
     ```
-  De *profileinfo.txt* bestand bevat de persoonlijke sleutel en de vingerafdruk voor de CA en het clientcertificaat. Zorg ervoor dat de vingerafdruk van het clientcertificaat gebruiken.
+   De *profileinfo.txt* bestand bevat de persoonlijke sleutel en de vingerafdruk voor de CA en het clientcertificaat. Zorg ervoor dat de vingerafdruk van het clientcertificaat gebruiken.
 
 6. Open *profileinfo.txt* in een teksteditor. Als u de vingerafdruk van het clientcertificaat (onderliggend), selecteert u de tekst zoals en tussen "---BEGIN CERTIFICATE---" en "---END CERTIFICATE---' voor de onderliggende van het certificaat en deze te kopiëren. U kunt het onderliggende certificaat identificeren door te kijken de = onderwerp / lijn.
 
-7.  Open de *vpnconfig.ovpn* -bestand en zoek de sectie hieronder wordt weergegeven. Vervang alles tussen de en 'cert' en ' / cert '.
+7. Open de *vpnconfig.ovpn* -bestand en zoek de sectie hieronder wordt weergegeven. Vervang alles tussen de en 'cert' en ' / cert '.
 
-    ```
-    # P2S client certificate
-    # please fill this field with a PEM formatted cert
-    <cert>
-    $CLIENTCERTIFICATE
-    </cert>
-    ```
-8.  Open de profileinfo.txt in een teksteditor. Als u de persoonlijke sleutel, selecteert u de tekst zoals en tussen "---BEGIN PRIVÉSLEUTEL---" en '---BEGIN PRIVATE KEY---' en deze te kopiëren.
+   ```
+   # P2S client certificate
+   # please fill this field with a PEM formatted cert
+   <cert>
+   $CLIENTCERTIFICATE
+   </cert>
+   ```
+8. Open de profileinfo.txt in een teksteditor. Als u de persoonlijke sleutel, selecteert u de tekst zoals en tussen "---BEGIN PRIVÉSLEUTEL---" en '---BEGIN PRIVATE KEY---' en deze te kopiëren.
 
-9.  Open het bestand vpnconfig.ovpn in een teksteditor en zoek in deze sectie. Plak de persoonlijke sleutel vervangen alles tussen en "sleutel" en '/ sleutel'.
+9. Open het bestand vpnconfig.ovpn in een teksteditor en zoek in deze sectie. Plak de persoonlijke sleutel vervangen alles tussen en "sleutel" en '/ sleutel'.
 
-    ```
-    # P2S client root certificate private key
-    # please fill this field with a PEM formatted key
-    <key>
-    $PRIVATEKEY
-    </key>
-    ```
+   ```
+   # P2S client root certificate private key
+   # please fill this field with a PEM formatted key
+   <key>
+   $PRIVATEKEY
+   </key>
+   ```
 
 10. Wijzig geen andere velden. Gebruik de ingevulde configuratie in de clientinvoer om verbinding te maken met de VPN.
 11. Als u wilt verbinding maken met behulp van de opdrachtregel, typt u de volgende opdracht uit:
   
-  ```
-  sudo openvpn –-config <name and path of your VPN profile file>
-  ```
+    ```
+    sudo openvpn –-config <name and path of your VPN profile file>
+    ```
 12. Als u wilt verbinding maken met de gebruikersinterface, gaat u naar de systeeminstellingen.
 13. Klik op **+** om toe te voegen een nieuwe VPN-verbinding.
 14. Onder **toevoegen VPN**, kies **importeren uit bestand...**
 15. Blader naar de profielbestand en dubbelklik op of kies **Open**.
 16. Klik op **toevoegen** op de **toevoegen VPN** venster.
   
-  ![Importeren vanuit bestand](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
+    ![Importeren vanuit bestand](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
 17. U kunt verbinding maken door het inschakelen van de VPN-verbinding **ON** op de **netwerkinstellingen** pagina of onder het netwerkpictogram in het systeemvak.
 
 ## <a name="next-steps"></a>Volgende stappen

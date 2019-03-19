@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
-ms.openlocfilehash: d1c5ea0ae60894e810d2f4eb0edff2126171a220
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 4c5a7a138a2b491867c5c4ba7234415036c8ba0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417105"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100833"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Actief-actief S2S VPN-verbindingen configureren met Azure VPN-Gateways
 
@@ -36,10 +36,8 @@ U kunt deze samen als u wilt maken van een meer complexe en zeer beschikbare net
 
 > [!IMPORTANT]
 > De modus actief-actief maakt gebruik van de volgende SKU's: 
-  * VpnGw1, VpnGw2, VpnGw3
-  * HighPerformance (voor de oude verouderde SKU's)
-> 
-> 
+>   * VpnGw1, VpnGw2, VpnGw3
+>   * HighPerformance (voor de oude verouderde SKU's)
 
 ## <a name ="aagateway"></a>Deel 1: Maak en configureer de actief / actief VPN-gateways
 De volgende stappen wordt uw Azure VPN-gateway configureren in de modus actief-actief. De belangrijkste verschillen tussen de actief / actief en actief / standby-gateways:

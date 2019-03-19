@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 7/25/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 5559e2fc9b9cce95bd7d5d02a64d134e5eaa03be
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 2758817d58fdd2e80b302b5f833308dbde1a6b63
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100613"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779161"
 ---
 # <a name="create-an-azure-dns-private-zone-using-the-azure-cli"></a>Een Azure DNS-privézone maken met de Azure CLI
 
@@ -47,7 +47,7 @@ az group create --name MyAzureResourceGroup --location "East US"
 
 ## <a name="create-a-dns-private-zone"></a>Een privé-DNS-zone maken
 
-Een DNS-zone wordt gemaakt door de opdracht `az network dns zone create` met de waarde *Private* te gebruiken voor de parameter **ZoneType**. In het volgende voorbeeld wordt een DNS-zone met de naam **contoso.local** gemaakt in de resourcegroep **MyAzureResourceGroup**. De DNS-zone wordt beschikbaar gesteld voor het virtuele netwerk **MyAzureVnet** .
+Een DNS-zone wordt gemaakt door de opdracht `az network dns zone create` met de waarde *Private* te gebruiken voor de parameter **ZoneType**. Het volgende voorbeeld wordt een DNS-zone met de naam **private.contoso.com** in de resourcegroep met de naam **MyAzureResourceGroup** en maakt u de DNS-zone beschikbaar voor het virtuele netwerk met de naam  **MyAzureVnet**.
 
 Als de parameter **ZoneType** wordt weggelaten, wordt de zone gemaakt als een openbare zone, dus deze parameter is vereist voor het maken van een privézone.
 
@@ -61,7 +61,7 @@ az network vnet create \
   --subnet-prefixes 10.2.0.0/24
 
 az network dns zone create -g MyAzureResourceGroup \
-   -n contoso.local \
+   -n private.contoso.com \
   --zone-type Private \
   --registration-vnets myAzureVNet
 ```
@@ -118,12 +118,12 @@ Het duurt enkele minuten voordat dit is voltooid.
 
 Gebruik de opdracht `az network dns record-set [record type] add-record` om een DNS-record te maken. Voor hulp met bijvoorbeeld het toevoegen van A-records raadpleegt u `azure network dns record-set A add-record --help`.
 
- In het volgende voorbeeld maakt u een record met de relatieve naam **db** in de DNS-zone **contoso.local** in de resourcegroep **MyAzureResourceGroup**. De volledig gekwalificeerde naam van de recordset is **db.contoso.local**. Het recordtype is A, met IP-adres 10.2.0.4.
+ Het volgende voorbeeld wordt een record met de relatieve naam **db** in de DNS-Zone **private.contoso.com**, in de resourcegroep **MyAzureResourceGroup**. De volledig gekwalificeerde naam van de recordset is **db.private.contoso.com**. Het recordtype is A, met IP-adres 10.2.0.4.
 
 ```azurecli
 az network dns record-set a add-record \
   -g MyAzureResourceGroup \
-  -z contoso.local \
+  -z private.contoso.com \
   -n db \
   -a 10.2.0.4
 ```
@@ -135,13 +135,13 @@ Als u de DNS-records in uw zone wilt weergeven,voert u de volgende opdracht uit:
 ```azurecli
 az network dns record-set list \
   -g MyAzureResourceGroup \
-  -z contoso.local
+  -z private.contoso.com
 ```
 Denk eraan dat u de automatisch gemaakte A-records niet kunt zien voor uw twee virtuele testmachines.
 
 ## <a name="test-the-private-zone"></a>De privézone testen
 
-U kunt nu de naamomzetting testen voor uw **contoso.local**-privézone.
+Nu kunt u de naamomzetting voor testen uw **private.contoso.com** privézone.
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>VM’s configureren voor het toestaan van inkomende ICMP
 
@@ -160,13 +160,13 @@ Herhaal voor myVM02.
 
 1. Ping vanuit de myVM02 Windows PowerShell-opdrachtprompt myVM01 met de naam van de automatisch geregistreerde hostnaam:
    ```
-   ping myVM01.contoso.local
+   ping myVM01.private.contoso.com
    ```
    De uitvoer ziet er ongeveer als volgt uit:
    ```
-   PS C:\> ping myvm01.contoso.local
+   PS C:\> ping myvm01.private.contoso.com
 
-   Pinging myvm01.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging myvm01.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time=1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
@@ -180,13 +180,13 @@ Herhaal voor myVM02.
    ```
 2. Ping nu de **db**-naam die u eerder hebt gemaakt:
    ```
-   ping db.contoso.local
+   ping db.private.contoso.com
    ```
    De uitvoer ziet er ongeveer als volgt uit:
    ```
-   PS C:\> ping db.contoso.local
+   PS C:\> ping db.private.contoso.com
 
-   Pinging db.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging db.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128

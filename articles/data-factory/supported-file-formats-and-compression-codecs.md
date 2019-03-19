@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: bb701a33d4ebb1ffca19896f3b4ac0419f27d54f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e21223bf3c50a98e039d0f19c51116c4a3cfbcc0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539034"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875118"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Ondersteunde indelingen en codecs voor de compressie in Azure Data Factory
 
@@ -573,6 +573,14 @@ De **compressie** sectie heeft twee eigenschappen:
 
 > [!NOTE]
 > Compressie-instellingen worden niet ondersteund voor gegevens in de **AvroFormat**, **OrcFormat**, of **ParquetFormat**. Bij het lezen van bestanden in de volgende indelingen, wordt in Data Factory wordt gedetecteerd en wordt de compressiecodec in de metagegevens. Bij het schrijven naar bestanden in de volgende indelingen, kiest Data Factory de compressiecodec standaard voor deze indeling. Bijvoorbeeld, ZLIB voor OrcFormat en SNAPPY voor ParquetFormat.
+
+## <a name="unsupported-file-types-and-compression-formats"></a>Niet-ondersteunde bestandstypen en compressie-indelingen
+
+De functies van de uitbreidbaarheid van Azure Data Factory kunt u transformatie van bestanden die niet worden ondersteund. Twee opties zijn onder andere Azure Functions en aangepaste taken met behulp van Azure Batch.
+
+U kunt een voorbeeld dat gebruikmaakt van een Azure-functie om te zien [Pak de inhoud van een bestand met tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Zie voor meer informatie, [Azure Functions-activiteit](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+
+U kunt ook deze functionaliteit met behulp van een aangepaste dotnet-activiteit maken. Meer informatie vindt u [hier](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>Volgende stappen
 

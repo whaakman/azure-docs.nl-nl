@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2018
-ms.author: kumud
+ms.date: 03/18/2019
+ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: afadef8b29927f909af5be1e1204180724258b74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749211"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167062"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Instellen van failover tussen meerdere Azure CDN-eindpunten met Azure Traffic Manager
 
@@ -77,7 +77,7 @@ Na het instellen van uw CDN- en Traffic Manager-profielen, volg deze stappen voo
     >
 
 
-2.  Selecteer het eerste CDN-eindpunt (Akamai) in uw Azure CDN-profiel. Selecteer **aangepast domein toevoegen** en invoer *cdndemo101akamai.azureedge.net*. Controleer of het vinkje om te valideren van het aangepaste domein is groen. 
+2.  Selecteer het eerste CDN-eindpunt (Akamai) in uw Azure CDN-profiel. Selecteer **aangepast domein toevoegen** en invoer *cdndemo101.dustydogpetcare.online*. Controleer of het vinkje om te valideren van het aangepaste domein is groen. 
 
     Maakt gebruik van Azure CDN de *cdnverify* subdomein voor het valideren van de DNS-toewijzing voor het voltooien van het registratieproces. Zie voor meer informatie, [maakt u een CNAME-DNS-record](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). In deze stap kunt Azure CDN voor het herkennen van het aangepaste domein, zodat deze op de aanvragen reageren kan.
 
@@ -87,7 +87,7 @@ Na het instellen van uw CDN- en Traffic Manager-profielen, volg deze stappen voo
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Van uw Azure CDN-profiel, selecteer het tweede CDN-eindpunt (Verizon) en Herhaal stap 2. Selecteer **aangepast domein toevoegen**, en invoer *cdndemo101akamai.azureedge.net*.
+4. Van uw Azure CDN-profiel, selecteer het tweede CDN-eindpunt (Verizon) en Herhaal stap 2. Selecteer **aangepast domein toevoegen**, en invoer *cdndemo101.dustydogpetcare.online*.
  
 Nadat u deze stappen hebt voltooid, is uw multi-CDN-service met failover-functionaliteit ingesteld met Azure Traffic Manager. U moet toegang hebben tot de test worden URL's van uw aangepaste domein. De functionaliteit voor het testen, het primaire CDN-eindpunt uitschakelen en controleer of dat de aanvraag juist is overgezet naar het secundaire CDN-eindpunt. 
 

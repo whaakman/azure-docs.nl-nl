@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9804dee56e9f099654359e7c336f706cedbd1f7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d5d2e734ff9bd34a176d08e36019c826dac355bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Zelfstudie: Azure Active Directory-integratie met ZenQMS
 
@@ -120,6 +120,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![ZenQMS domein en URL's, eenmalige aanmelding informatie](./media/zenqms-tutorial/tutorial_zenqms_url1.png)
 
     In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
+    
     | |
     |-|-|
     | `https://<INSTANCE>.zenqms.com/<ID>`|
@@ -214,7 +215,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

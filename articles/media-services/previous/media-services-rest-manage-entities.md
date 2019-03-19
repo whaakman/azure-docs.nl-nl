@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 0f500ec776d90755d6738af80c34866105d354f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ff7bb6fa087ab7fa362c13ca03d6f3100a505ce3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999399"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858954"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Beheren van Media Services-entiteiten met REST  
 
@@ -29,7 +29,7 @@ ms.locfileid: "55999399"
 > 
 > 
 
-Microsoft Azure Media Services is een op REST gebaseerde service die is gebouwd op OData v3. U kunt toevoegen, query, bijwerken en verwijderen entiteiten in veel dezelfde manier kunt u op een andere OData-service. Uitzonderingen genoemd indien van toepassing. Zie voor meer informatie over OData [Open Data Protocol documentatie](http://www.odata.org/documentation/).
+Microsoft Azure Media Services is een op REST gebaseerde service die is gebouwd op OData v3. U kunt toevoegen, query, bijwerken en verwijderen entiteiten in veel dezelfde manier kunt u op een andere OData-service. Uitzonderingen genoemd indien van toepassing. Zie voor meer informatie over OData [Open Data Protocol documentatie](https://www.odata.org/documentation/).
 
 Dit onderwerp ziet u hoe u Azure Media Services entiteiten beheren met REST.
 

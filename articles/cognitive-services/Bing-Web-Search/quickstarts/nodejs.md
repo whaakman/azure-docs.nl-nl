@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 3233357d9013c2a1f9d77178c217ca9310a34ac4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198198"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834486"
 ---
-# <a name="search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Zoeken op internet met behulp van de REST API voor Bing Web Search en Node.js
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Quickstart: Zoeken op internet met behulp van de REST API voor Bing Web Search en Node.js
 
-Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Deze Node.js-toepassing stuurt een zoekaanvraag naar de API en geeft het antwoord weer. Hoewel deze toepassing in JavaScript is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
+Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Deze Node.js-toepassing een zoekaanvraag verzendt naar de API en het antwoord. Hoewel deze toepassing in JavaScript is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
+
 Voordat u verdergaat met deze snelstart moet u beschikken over:
 
 * [Node.js 6](https://nodejs.org/en/download/) of later
@@ -43,7 +44,7 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>Abonnementssleutel instellen
 
-Dit codefragment gebruikt de omgevingsvariabele `AZURE_SUBSCRIPTION_KEY` voor het opslaan van de abonnementssleutel, een goede gewoonte om te voorkomen dat uw sleutels per ongeluk worden weergegeven wanneer u code implementeert. [Klik hier](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) om de abonnementssleutel op te zoeken.
+Dit codefragment gebruikt de omgevingsvariabele `AZURE_SUBSCRIPTION_KEY` voor het opslaan van de abonnementssleutel, een goede gewoonte om te voorkomen dat uw sleutels per ongeluk worden weergegeven wanneer u code implementeert. Ga naar de [pagina van uw API's](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) om te controleren of de abonnementssleutel van uw.
 
 Als u niet bekend bent met het gebruik van omgevingsvariabelen, of als u deze app zo snel mogelijk wilt uitvoeren, kunt u `process.env['AZURE_SUBSCRIPTION_KEY']` vervangen door uw abonnementssleutel die is ingesteld als een tekenreeks.
 
@@ -110,7 +111,7 @@ Als u uw code wilt vergelijken met die van ons, volgt hier het volledige program
 const https = require('https')
 const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
 if (!SUBSCRIPTION_KEY) {
-  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment varable')
+  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment variable')
 }
 function bingWebSearch(query) {
   https.get({

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d2e29e183ab898635f550290b6ebd6eddd42c4d2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 15dd878b7ff322ac8243b37649f16fed4e068af4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659198"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091712"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Snelstartgids: een Windows Server-machine maken met behulp van Azure CLI in Azure Stack
 
@@ -42,8 +42,8 @@ U kunt een Windows Server 2016 virtuele machine maken met behulp van de Azure CL
 
 Een resourcegroep is een logische container waarin u kunt implementeren en beheren van Azure Stack-resources. Uitvoeren van uw Azure Stack-omgeving, de [az-groep maken](/cli/azure/group#az-group-create) opdracht om een resourcegroep te maken.
 
->[!NOTE]
- Waarden zijn voor de variabelen in de codevoorbeelden toegewezen. U kunt echter nieuwe waarden toewijzen als u wilt.
+> [!NOTE]
+>  Waarden zijn voor de variabelen in de codevoorbeelden toegewezen. U kunt echter nieuwe waarden toewijzen als u wilt.
 
 Het volgende voorbeeld wordt een resourcegroep met de naam myResourceGroup in de lokale locatie.
 

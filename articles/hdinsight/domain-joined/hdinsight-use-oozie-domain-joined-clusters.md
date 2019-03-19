@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: b0ec8bf52b0b41aef4ea4cc2bfb6ed8fdcd170ec
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 15cdc78559a8f299e2bf0f357bbb7c0664881712
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343286"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116891"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Voer Apache Oozie in HDInsight Hadoop clusters met Enterprise-beveiligingspakket
 
@@ -38,9 +38,9 @@ U kunt ook Oozie gebruiken voor het plannen van taken die specifiek voor een sys
 Zie voor meer informatie over Secure Shell (SSH) [verbinding maken met HDInsight (Hadoop) via SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Verbinding maken met het HDInsight-cluster met behulp van SSH:  
- ```bash
-ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
- ```
+   ```bash
+   ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
+   ```
 
 2. Als u wilt controleren of geslaagde Kerberos-verificatie, gebruikt u de `klist` opdracht. Als dit niet het geval is, gebruikt u `kinit` Kerberos-verificatie te starten.
 
@@ -54,23 +54,25 @@ ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
 ## <a name="define-the-workflow"></a>De werkstroom definiëren
 Oozie werkstroomdefinities worden geschreven in Apache Hadoop proces Definition Language (hPDL). hPDL is een definition language met XML-proces. Voer de volgende stappen uit om de werkstroom te definiëren:
 
-1.  Werkruimte van de domeingebruiker van een instellen:
- ```bash
-hdfs dfs -mkdir /user/<DomainUser>
-cd /home/<DomainUserPath>
-cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
-tar -xvf oozie-examples.tar.gz
-hdfs dfs -put examples /user/<DomainUser>/
- ```
-Vervang `DomainUser` met de naam van de gebruiker domein. Vervang `DomainUserPath` met het pad naar de basismap voor de domeingebruiker. Vervang `ClusterVersion` met uw cluster Hortonworks Data Platform (HDP)-versie.
+1. Werkruimte van de domeingebruiker van een instellen:
+   ```bash
+   hdfs dfs -mkdir /user/<DomainUser>
+   cd /home/<DomainUserPath>
+   cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
+   tar -xvf oozie-examples.tar.gz
+   hdfs dfs -put examples /user/<DomainUser>/
+   ```
+   Vervang `DomainUser` met de naam van de gebruiker domein. 
+   Vervang `DomainUserPath` met het pad naar de basismap voor de domeingebruiker. 
+   Vervang `ClusterVersion` met uw cluster Hortonworks Data Platform (HDP)-versie.
 
-2.  Gebruik de volgende instructie maken en bewerken van een nieuw bestand:
- ```bash
-nano workflow.xml
- ```
+2. Gebruik de volgende instructie maken en bewerken van een nieuw bestand:
+   ```bash
+   nano workflow.xml
+   ```
 
 3. Nadat de nano-editor wordt geopend, voert u het volgende XML-bestand als de inhoud van het bestand:
- ```xml
+   ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <workflow-app xmlns="uri:oozie:workflow:0.4" name="map-reduce-wf">
        <credentials>
@@ -165,25 +167,25 @@ nano workflow.xml
        </kill>
        <end name="end" />
     </workflow-app>
- ```
+   ```
 4. Vervang `clustername` met de naam van het cluster. 
 
 5. Om het bestand hebt opgeslagen, selecteert u Ctrl + X. Voer `Y` in. Selecteer vervolgens **Enter**.
 
     De werkstroom is onderverdeeld in twee delen:
-    *   **Referentie-sectie.** In deze sectie worden gebruikt in de referenties die worden gebruikt voor het verifiëren van Oozie acties:
+   * **Referentie-sectie.** In deze sectie worden gebruikt in de referenties die worden gebruikt voor het verifiëren van Oozie acties:
 
-       In dit voorbeeld gebruikt verificatie voor Hive-acties. Zie voor meer informatie, [actie verificatie](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
+     In dit voorbeeld gebruikt verificatie voor Hive-acties. Zie voor meer informatie, [actie verificatie](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
 
-       De referentie-service kunt Oozie-bewerkingen voor het imiteren van de gebruiker voor toegang tot Hadoop-services.
+     De referentie-service kunt Oozie-bewerkingen voor het imiteren van de gebruiker voor toegang tot Hadoop-services.
 
-    *   **Sectie van de actie.** Dit gedeelte bevat drie acties: mapreduce-, Hive server 2 en Hive-server 1:
+   * **Sectie van de actie.** Dit gedeelte bevat drie acties: mapreduce-, Hive server 2 en Hive-server 1:
 
-      - De mapreduce-een voorbeeld van een Oozie-pakket voor mapreduce-actie-uitvoeringen die het aantal samengevoegde woorden uitvoert.
+     - De mapreduce-een voorbeeld van een Oozie-pakket voor mapreduce-actie-uitvoeringen die het aantal samengevoegde woorden uitvoert.
 
-       - De Hive server 2 en Hive-server 1 acties kunt u een query uitvoeren op een voorbeeld-Hive-tabel voorzien van HDInsight.
+     - De Hive server 2 en Hive-server 1 acties kunt u een query uitvoeren op een voorbeeld-Hive-tabel voorzien van HDInsight.
 
-        De Hive-acties gebruiken de referenties die zijn opgegeven in de sectie referenties voor verificatie met behulp van het sleutelwoord `cred` in het actie-element.
+     De Hive-acties gebruiken de referenties die zijn opgegeven in de sectie referenties voor verificatie met behulp van het sleutelwoord `cred` in het actie-element.
 
 6. Gebruik de volgende opdracht uit om te kopiëren de `workflow.xml` van het bestand in `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
      ```bash

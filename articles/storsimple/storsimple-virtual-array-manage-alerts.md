@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cd3f506205a3ee4f4435b16fd2185eeb20aef3c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447221"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895461"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Gebruik StorSimple Device Manager voor het beheren van waarschuwingen voor de StorSimple Virtual Array
 
@@ -39,7 +39,7 @@ U kunt kiezen of u wilt een melding per e-mail van de waarschuwing voorwaarden v
 > [!NOTE]
 > U kunt maximaal 20 e-mailadressen per virtuele matrix invoeren.
 
-Nadat u e-mailmelding voor een virtuele matrix hebt ingeschakeld, wordt een e-mailbericht telkens wanneer een kritieke waarschuwing wordt gegenereerd door leden van de meldingenlijst ontvangen. De berichten worden verzonden vanuit *storsimple-alerts-noreply@mail.windowsazure.com* en vindt u een voorwaarde voor de waarschuwing. Ontvangers kunnen klikken op **Afmelden** om zelf te verwijderen uit de lijst met e-melding.
+Nadat u e-mailmelding voor een virtuele matrix hebt ingeschakeld, wordt een e-mailbericht telkens wanneer een kritieke waarschuwing wordt gegenereerd door leden van de meldingenlijst ontvangen. De berichten worden verzonden vanuit *storsimple-waarschuwingen-noreply\@mail.windowsazure.com* en vindt u een voorwaarde voor de waarschuwing. Ontvangers kunnen klikken op **Afmelden** om zelf te verwijderen uit de lijst met e-melding.
 
 #### <a name="to-enable-email-notification-for-alerts"></a>E-mailmeldingen voor waarschuwingen inschakelen
 
@@ -53,7 +53,7 @@ Nadat u e-mailmelding voor een virtuele matrix hebt ingeschakeld, wordt een e-ma
    
    1. In de **Activeer e-mailmelding** veld **Ja**.
    2. In de **e-servicebeheerders** veld **Ja** als u wilt dat de servicebeheerder en alle medebeheerders de waarschuwingsmeldingen moeten ontvangen.
-   3. In de **aanvullende e-mailontvangers** en voer de e-mailadressen van alle andere ontvangers die de waarschuwingsmeldingen moeten ontvangen. Geef de namen in de indeling *someone@somewhere.com*. Gebruik puntkomma te scheiden van de e-mailadressen. U kunt maximaal 20 e-mailadressen per virtuele apparaat configureren.
+   3. In de **aanvullende e-mailontvangers** en voer de e-mailadressen van alle andere ontvangers die de waarschuwingsmeldingen moeten ontvangen. Geef de namen in de indeling *iemand\@somewhere.com*. Gebruik puntkomma te scheiden van de e-mailadressen. U kunt maximaal 20 e-mailadressen per virtuele apparaat configureren.
       
        ![configuratie voor meldingen van waarschuwingen](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Als u wilt een test-e-mailmelding verzenden, klikt u op **testbericht verzenden**. De StorSimple Device Manager-service wordt statusberichten weergegeven als de Testmelding wordt doorgestuurd.
@@ -147,6 +147,7 @@ De volgende tabellen worden enkele van de StorSimple-waarschuwingen die u tegenk
 | Klonen van <*apparaatnaam* \> kan niet worden voltooid. |Kloon de migratietaak is mislukt. |Kan geen een kloon maken. Houd rekening met een van de volgende:<ul><li>De lijst met back-up is mogelijk niet geldig. Vernieuw de lijst om te controleren of dat het nog geldig is.</li><li>Problemen met de netwerkverbinding kunnen worden voorkomen dat de kloonbewerking is voltooid. Zorg ervoor dat er geen verbindingsproblemen zijn.</li><li>U kunt de beschikbare opslaglimiet hebt bereikt. Overweeg het verwijderen van een back-ups die niet meer nodig zijn om ruimte vrij.</li></ul>De problemen oplossen, wist u de waarschuwing en voer de bewerking opnieuw uit. |
 
 ### <a name="networking-alerts"></a>Waarschuwingen voor netwerken
+
 | Tekst van de waarschuwing | Gebeurtenis | Meer informatie / aanbevolen acties |
 |:--- |:--- |:--- |
 | Kan geen verbinding maken met de service voor verificatie. |Gegevenspad-fout |De URL die wordt gebruikt voor verificatie is niet bereikbaar. Zorg ervoor dat uw firewall-regels de URL-patronen die is opgegeven voor het StorSimple-apparaat bevatten. Voor meer informatie over URL-patronen in Azure portal, gaat u naar [StorSimple Virtual Array netwerkvereisten](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|

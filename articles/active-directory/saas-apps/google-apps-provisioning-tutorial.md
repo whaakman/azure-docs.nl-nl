@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ea80824588980fdd6c580b6d77c2a5566159547
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 99c6999e437abbef1920f6de771173e4e6e007f2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211084"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116908"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Zelfstudie: G Suite configureren voor het automatisch inrichten van gebruikers
 
@@ -53,7 +53,7 @@ Voordat u configureren en inschakelen van de inrichtingsservice, moet u bepalen 
 
 > [!IMPORTANT]
 > We raden aan dat een enkele Azure AD-gebruiker worden toegewezen aan G Suite voor het testen van de configuratie van de inrichting. U kunt extra gebruikers en groepen later toewijzen.
-
+> 
 > Wanneer u een gebruiker aan G Suite toewijzen, selecteert u de **gebruiker** of **groep** rol in het dialoogvenster toewijzing. De **standaardtoegang** rol werkt niet voor het inrichten.
 
 ## <a name="enable-automated-user-provisioning"></a>Geautomatiseerde gebruikersinrichting inschakelen
@@ -80,8 +80,8 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
    
     ![Selecteer de API-verwijzing.][16]
 
-    > [!IMPORTANT]
-    > Voor iedere gebruiker die u van plan bent om in te richten met G Suite, hun gebruikersnaam in Azure Active Directory *moet* worden gekoppeld aan een aangepast domein. Bijvoorbeeld, de gebruiker die eruit namen bob@contoso.onmicrosoft.com worden niet geaccepteerd door G Suite. Aan de andere kant bob@contoso.com wordt geaccepteerd. U kunt het domein van een bestaande gebruiker wijzigen door de eigenschappen bewerken in Azure AD. We hebben opgenomen instructies voor het instellen van een aangepast domein voor G Suite en Azure Active Directory in de volgende stappen.
+   > [!IMPORTANT]
+   > Voor iedere gebruiker die u van plan bent om in te richten met G Suite, hun gebruikersnaam in Azure Active Directory *moet* worden gekoppeld aan een aangepast domein. Bijvoorbeeld, de gebruiker die eruit namen bob@contoso.onmicrosoft.com worden niet geaccepteerd door G Suite. Aan de andere kant bob@contoso.com wordt geaccepteerd. U kunt het domein van een bestaande gebruiker wijzigen door de eigenschappen bewerken in Azure AD. We hebben opgenomen instructies voor het instellen van een aangepast domein voor G Suite en Azure Active Directory in de volgende stappen.
       
 1. Als u nog een aangepaste domeinnaam voor uw Azure Active Directory nog niet hebt toegevoegd, klikt u vervolgens de volgende stappen uitvoeren:
   
@@ -105,8 +105,8 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
 
     e. Herhaal de voorgaande stappen voor alle domeinen die u van plan bent om toe te voegen aan uw directory.
 
-    > [!NOTE]
-    Voor het inrichten van gebruikers, kan het aangepaste domein moet overeenkomen met de domeinnaam van de Azure AD-bron. Als ze niet overeenkomen, kunt u mogelijk het probleem oplossen door het implementeren van kenmerk toewijzing aanpassen.
+   > [!NOTE]
+   >  Voor het inrichten van gebruikers, kan het aangepaste domein moet overeenkomen met de domeinnaam van de Azure AD-bron. Als ze niet overeenkomen, kunt u mogelijk het probleem oplossen door het implementeren van kenmerk toewijzing aanpassen.
 
 
 1. Nu dat u hebt gecontroleerd dat alle domeinen met Azure AD, moet u ze opnieuw verifiëren met Google Apps. Voor elk domein dat al is niet geregistreerd bij Google, voert u de volgende stappen uit:
@@ -149,13 +149,13 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
 
 1. Stel de **Inrichtingsmodus** naar **automatische**. 
 
-     ![Inrichten](./media/google-apps-provisioning-tutorial/provisioning.png)
+      ![Inrichten](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Onder de **beheerdersreferenties** sectie, selecteer **autoriseren**. Er wordt een dialoogvenster voor autorisatie van Google geopend in een nieuw browservenster.
 
 1. Bevestig dat u wilt machtigen voor Azure Active Directory wijzigingen aanbrengen in uw G Suite-tenant. Selecteer **Accepteren**.
     
-     ![Controleer of u machtigingen.][28]
+      ![Controleer of u machtigingen.][28]
 
 1. Selecteer in de Azure portal, **testverbinding** om ervoor te zorgen dat Azure AD verbinding met uw app maken kunt. Als de verbinding is mislukt, zorg ervoor dat uw G Suite-account Teambeheerder machtigingen heeft. Probeer de **autoriseren** stap opnieuw uit.
 

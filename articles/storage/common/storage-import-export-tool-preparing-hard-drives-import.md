@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 7645694e9f2b90bfbe26ac3d0747791570f32d1b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 777e0aac46dbffb1e491874b5889667a888aadf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510133"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898683"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Harde schijven voorbereiden voor een importtaak
 
@@ -25,7 +25,7 @@ Het hulpprogramma WAImportExport is het station voorbereiding hulpprogramma en h
 
 - **Machineconfiguratie**
   - Windows 7, Windows Server 2008 R2 of een nieuwere Windows-besturingssysteem
-  - .NET framework 4 moet worden geïnstalleerd. Zie [Veelgestelde vragen over](#faq) over het controleren of .net Framework is geïnstalleerd op de computer.
+  - .NET framework 4 moet worden geïnstalleerd. Zie [Veelgestelde vragen over](#faq) over het controleren of .NET Framework is geïnstalleerd op de machine.
 - **Opslagaccountsleutel** -moet u ten minste één van de accountsleutels voor het opslagaccount.
 
 ### <a name="preparing-disk-for-import-job"></a>Voorbereiden van de schijf voor de import-taak
@@ -151,12 +151,12 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 Als de gegevens niet in de opgegeven stations in InitialDriveset past komt, kunt een het hulpprogramma extra schijven toevoegen aan dezelfde kopieersessie. 
 
->[!NOTE] 
->De sessie-id moet overeenkomen met de vorige sessie-id. Logboekbestand moet overeenkomen met de versie die is opgegeven in de vorige sessie.
->
-```
-WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
-```
+> [!NOTE]
+> De sessie-id moet overeenkomen met de vorige sessie-id. Logboekbestand moet overeenkomen met de versie die is opgegeven in de vorige sessie.
+> 
+> ```
+> WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
+> ```
 
 **Voorbeeld:**
 
@@ -364,7 +364,7 @@ TPM in BitLocker uitschakelen, gaat u door de volgende stappen:<br/>
 
 Alle versies van Microsoft .NET Framework zijn geïnstalleerd in de volgende map: %windir%\Microsoft.NET\Framework\
 
-Navigeer naar de hierboven genoemde onderdeel op de doelcomputer waarop het hulpprogramma moet worden uitgevoerd. Zoek naar mapnaam beginnen met 'v4'. Afwezigheid van dergelijk een directory betekent dat.NET 4 is niet geïnstalleerd op uw computer. U kunt .net 4 downloaden op uw machine met [Microsoft .NET Framework 4 (webinstallatie)](https://www.microsoft.com/download/details.aspx?id=17851).
+Navigeer naar de hierboven genoemde onderdeel op de doelcomputer waarop het hulpprogramma moet worden uitgevoerd. Zoek naar mapnaam beginnen met 'v4'. Afwezigheid van dergelijk een directory betekent dat.NET 4 is niet geïnstalleerd op uw computer. U kunt .NET 4 downloaden op uw machine met [Microsoft .NET Framework 4 (webinstallatie)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### <a name="limits"></a>Limieten
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2a2c2667ae3180fd4f7b114ce6cef05ac7a1080c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859722"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850272"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profiel productie-apps in Azure met Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Application Insights Profiler inschakelen voor uw toepassing
@@ -30,6 +30,7 @@ Profiler werkt met .NET-toepassingen die zijn geïmplementeerd op de volgende Az
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure virtuele Machines en virtuele-machineschaalsets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [**Preview-versie** ASP.NET Core Azure Linux-Web-Apps](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 Als u Profiler hebt ingeschakeld, maar traceringen niet ziet, controleert u onze [Troubleshooting guide](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
@@ -93,6 +94,10 @@ Methoden, zoals **SqlCommand.Execute** aangeven dat de code wordt gewacht tot ee
 ### <a id="block"></a>Geblokkeerde tijd
 
 **BLOCKED_TIME** geeft aan dat de code wordt gewacht tot een andere bron beschikbaar zijn. Het kan bijvoorbeeld worden wachten voor een synchronisatieobject, een thread beschikbaar zijn of een verzoek om te voltooien.
+
+### <a name="unmanaged-async"></a>Niet-beheerd asynchroon
+
+.NET framework verzendt ETW-gebeurtenissen en doorgegeven activiteit-ID's tussen threads zodat asynchrone aanroepen threads kunnen worden gevolgd. Niet-beheerde code (systeemeigen code) en sommige oudere stijlen van asynchrone code ontbreken deze gebeurtenissen en activiteit-ID's, zodat de profiler weet niet welke thread en welke functies worden uitgevoerd op de thread. Dit heet 'Niet-beheerde asynchrone' in de aanroepstack. Als u de ETW-bestand hebt gedownload, kunt u mogelijk kunnen gebruiken [voorbeeld](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) om meer inzicht in wat er gebeurt.
 
 ### <a id="cpu"></a>CPU-tijd
 

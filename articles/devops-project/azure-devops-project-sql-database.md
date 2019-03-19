@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: uw ASP.NET-app en Azure SQL Database-code implementeren met behulp van Azure DevOps Projects'
+title: 'Zelfstudie: Uw ASP.NET-app en Azure SQL Database-code implementeren met behulp van Azure DevOps Projects'
 description: Met DevOps Projects kunt u eenvoudig aan de slag met Azure. Met DevOps Projects kunt u in slechts enkele stappen een ASP.NET-app en Azure SQL Database-code implementeren.
 ms.author: mlearned
 ms.manager: douge
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 32f33e4ac66ad456b5ff8807d6a1b5ea5f541fed
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
+ms.openlocfilehash: 0d05a2f3de92791572f0a5e6313777b5388af3df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161396"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845219"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Zelfstudie: uw ASP.NET-app en Azure SQL Database-code implementeren met behulp van Azure DevOps Projects
+# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Zelfstudie: Uw ASP.NET-app en Azure SQL Database-code implementeren met behulp van Azure DevOps Projects
 
 Azure DevOps Projects biedt een vereenvoudigde ervaring waar u uw bestaande code en Git-opslagplaats gebruikt of een voorbeeldtoepassing kiest voor het maken van een CI- (Continue integratie) en CD-pijplijn (Continue levering) naar Azure. 
 
@@ -97,7 +97,7 @@ In DevOps Projects wordt automatisch een volledige CI/CD-pijplijn geconfigureerd
     In dit deelvenster ziet u een audittrail van recente wijzigingen voor de build. Azure Pipelines houdt alle wijzigingen in de build-pijplijn bij en biedt de mogelijkheid om versies te vergelijken.
 
 1. Selecteer **Triggers**.  
-    In DevOps Projects wordt automatisch een CI-trigger gemaakt en met elke doorvoering naar de opslagplaats wordt een nieuwe build gestart. Desgewenst kunt u kiezen of u vertakkingen van het CI-proces wilt opnemen of uitsluiten.
+    In DevOps Projects wordt automatisch een CI-trigger gemaakt en met elke doorvoering naar de opslagplaats wordt een nieuwe build gestart. U kunt eventueel kiezen of u branches van het CI-proces wilt opnemen of uitsluiten.
 
 1. Selecteer **Retentie**.  
     Afhankelijk van het scenario kunt u beleidsregels opgeven om een bepaald aantal builds te behouden of te verwijderen.
@@ -122,8 +122,8 @@ In DevOps Projects worden automatisch de benodigde stappen gemaakt en geconfigur
     
 1. Selecteer aan de linkerkant **Variabelen**. 
 
-  > [!NOTE]
-  > Voer de volgende stap alleen uit als u het SQL Server-wachtwoord hebt gewijzigd. Er is één wachtwoordvariabele.
+   > [!NOTE]
+   > Voer de volgende stap alleen uit als u het SQL Server-wachtwoord hebt gewijzigd. Er is één wachtwoordvariabele.
   
 1. Selecteer het hangslotpictogram naast het vak **Waarde**, voer het nieuwe wachtwoord in en selecteer **Opslaan**.
 
@@ -136,13 +136,13 @@ In DevOps Projects worden automatisch de benodigde stappen gemaakt en geconfigur
 1. Selecteer aan de rechterkant **Versies weergeven** om een versiegeschiedenis weer te geven.
 
 1. Selecteer het beletselteken (...) naast een versie en selecteer **Openen**.  
-    U kunt verschillende menu's verkennen, zoals een versieoverzicht, gekoppelde werkitems en tests.
+     U kunt verschillende menu's verkennen, zoals een versieoverzicht, gekoppelde werkitems en tests.
 
 1. Selecteer **Doorvoeringen**.  
-    In deze weergave worden de codedoorvoeringen weergegeven die zijn gekoppeld aan deze implementatie. Vergelijk versies om de doorvoerverschillen tussen implementaties weer te geven.
+     In deze weergave worden de codedoorvoeringen weergegeven die zijn gekoppeld aan deze implementatie. Vergelijk versies om de doorvoerverschillen tussen implementaties weer te geven.
 
 1. Selecteer **Logboeken**.  
-    De logboeken bevatten nuttige informatie over het implementatieproces. U kunt beide weergeven tijdens en na de implementaties.
+     De logboeken bevatten nuttige informatie over het implementatieproces. U kunt beide weergeven tijdens en na de implementaties.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Wijzigingen doorvoeren in Azure Repos en automatisch implementeren naar Azure 
 
@@ -158,7 +158,7 @@ U bent nu klaar om met een team samen te werken aan de app met behulp van een CI
 1. Breng een wijziging aan in het bestand, bijvoorbeeld door wat tekst toe te voegen in een van de div-tags. 
 
 1. Selecteer in de rechterbovenhoek **Doorvoeren** en selecteer vervolgens nogmaals **Doorvoeren** om de wijziging te pushen.  
-    Na een paar seconden wordt er in Azure DevOps een build gestart en wordt er een versie uitgevoerd om de wijzigingen te implementeren. Bewaak de buildstatus via het dashboard van DevOps Projects of in de browser met uw Azure DevOps-organisatie.
+    Na een paar seconden wordt in Azure DevOps een build gestart en wordt er een release uitgevoerd om de wijzigingen te implementeren. Bewaak de buildstatus op het DevOps Projects-dashboard of in de browser met uw Azure DevOps-organisatie.
 
 1. Wanneer de versie is voltooid, vernieuwt u de toepassing om uw wijzigingen te controleren.
 
@@ -182,10 +182,10 @@ U hebt de juiste machtigingen nodig om verbinding te kunnen maken met de Azure S
 
     U kunt nu desgewenst gebruikmaken van clienthulpprogramma's zoals SQL Server Management Studio of Visual Studio om verbinding te maken met SQL Server en de Azure SQL-database. Gebruik de eigenschap **Servernaam** om verbinding te maken.
 
-    Als u de gebruikersnaam van de database niet hebt gewijzigd tijdens de eerste configuratie van het project in DevOps Projects, is uw gebruikersnaam het lokale gedeelte van uw e-mailadres. Als uw e-mailadres bijvoorbeeld *johndoe@microsoft.com* is, is uw gebruikersnaam *johndoe*.
+    Als u de gebruikersnaam van de database niet hebt gewijzigd tijdens de eerste configuratie van het project in DevOps Projects, is uw gebruikersnaam het lokale gedeelte van uw e-mailadres. Als uw e-mailadres is bijvoorbeeld *JANJANSEN\@microsoft.com*, de gebruikersnaam is *JANJANSEN*.
 
- > [!NOTE]
- > Als u uw wachtwoord voor de SQL-aanmelding wijzigt, moet u het wachtwoord in de variabele van de release-pijplijn wijzigen zoals staat beschreven in de sectie De CD-pijplijn onderzoeken.
+   > [!NOTE]
+   > Als u uw wachtwoord voor de SQL-aanmelding wijzigt, moet u het wachtwoord in de variabele van de release-pijplijn wijzigen zoals staat beschreven in de sectie De CD-pijplijn onderzoeken.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -211,7 +211,7 @@ U kunt de build- en release-pijplijn desgewenst wijzigen in overeenstemming met 
 > * Verbinding maken met de Azure SQL-database 
 > * Resources opschonen
 
-Voor meer informatie over de CI/CD-pijplijn, zie:
+Voor meer informatie over de CI/CD-pijplijn raadpleegt u:
 
 > [!div class="nextstepaction"]
 > [Een CD-pijplijn (continue implementatie) met meerdere fasen definiëren](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

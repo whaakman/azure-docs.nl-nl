@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: ef360fd56c3530a49c2f36846db34b29ca1cf444
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3890283f70bfd922d0c436f76b38d7f81d7b8c6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107015"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Failover en failback-Hyper-V-machines gerepliceerd naar de secundaire on-premises site
 
@@ -49,7 +49,7 @@ U kunt een regelmatig of geplande failover uitvoeren voor Hyper-V-machines.
 - Gebruik een normale failover voor onverwachte storingen. Wanneer u deze failover uitvoert, Site Recovery maakt u een virtuele machine op de secundaire site en deze wordt gebruikt door omhoog. Verlies van gegevens kan optreden, afhankelijk van in afwachting van gegevens die nog niet is gesynchroniseerd.
 - Een geplande failover kan worden gebruikt voor onderhoud, hetzij tijdens de verwachte uitval. Deze optie heeft geen gegevens verloren gaan. Wanneer een geplande failover wordt geactiveerd, worden de bron-VM's afsluiten. Niet-gesynchroniseerde gegevens worden gesynchroniseerd en de failover wordt geactiveerd. 
 - 
-Deze procedure wordt beschreven hoe u een reguliere failover uitvoert.
+  Deze procedure wordt beschreven hoe u een reguliere failover uitvoert.
 
 
 1. Klik in **Instellingen** > **Gerepliceerde items** op de VM > **Failover**.
@@ -58,7 +58,7 @@ Deze procedure wordt beschreven hoe u een reguliere failover uitvoert.
 3. Nadat u hebt gecontroleerd dat de virtuele machine, **doorvoeren** de failover. Hiermee verwijdert u alle beschikbare herstelpunten.
 
 > [!WARNING]
-> **Annuleer een failover wordt uitgevoerd niet**: De VM-replicatie wordt gestopt voordat de failover is gestart. Als u een failover die in voortgang is annuleert, wordt de failover gestopt, maar de VM wordt niet meer gerepliceerd.  
+> **Annuleer nooit een failover die in uitvoering is**: De VM-replicatie wordt gestopt voordat de failover is gestart. Als u een failover die in voortgang is annuleert, wordt de failover gestopt, maar de VM wordt niet meer gerepliceerd.  
 
 
 ## <a name="reverse-replicate-and-failover"></a>Omgekeerde replicatie en failover
