@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108794"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Bewaking, metrische gegevens en waarschuwingen voor ExpressRoute
 
@@ -43,18 +43,18 @@ Hier vindt u metrische gegevens voor persoonlijke, openbare en Microsoft-peering
 
 1. Als u wilt configureren van waarschuwingen, gaat u naar **Azure Monitor**, klikt u vervolgens op **waarschuwingen**.
 
-  ![waarschuwingen](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
+   ![waarschuwingen](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. Klik op **+ doel selecteren** en selecteer de verbindingsresource van de ExpressRoute-gateway.
 
-  ![doel]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![doel]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Definieer de details van de waarschuwing.
 
-  ![Actiegroep](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
+   ![Actiegroep](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
 4. Definiëren en toevoegen van de actiegroep.
 
-  ![actiegroep toevoegen](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
+   ![actiegroep toevoegen](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
 ## <a name="alerts-based-on-each-peering"></a>Waarschuwingen op basis van elke peering
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e4f446ff67408ef390ba817de935c286c5b2a47e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 94ae233f8591c43afa1bb73c3e17964922967d36
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727601"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123025"
 ---
 # <a name="introduction-to-application-groups"></a>Inleiding tot toepassingsgroepen
 De service Fabric Cluster Resource Manager beheert doorgaans de clusterbronnen door de belasting te spreiden (vertegenwoordigd [metrische gegevens](service-fabric-cluster-resource-manager-metrics.md)) gelijkmatig in het cluster. Service Fabric beheert de capaciteit van de knooppunten in het cluster en het cluster als geheel via [capaciteit](service-fabric-cluster-resource-manager-cluster-description.md). Metrische gegevens en -capaciteit werken ideaal voor veel werkbelastingen, maar de patronen die intensief gebruik van verschillende exemplaren van Service Fabric-toepassing soms binnenhalen van de aanvullende vereisten. U kunt bijvoorbeeld op:
@@ -36,6 +36,7 @@ De eenvoudigste use-case voor capaciteit van een toepassing is wanneer een exemp
 De volgende afbeelding ziet het exemplaar van een toepassing met en zonder een maximum aantal knooppunten dat is gedefinieerd:
 
 <center>
+
 ![Maximum aantal knooppunten definiëren toepassingsexemplaar][Image1]
 </center>
 
@@ -117,6 +118,7 @@ Combineren **MinimumNodes** en **NodeReservationCapacity** garandeert een minima
 We bekijken een voorbeeld van de capaciteitsreservering:
 
 <center>
+
 ![Exemplaren van een toepassing reservecapaciteit definiëren][Image2]
 </center>
 

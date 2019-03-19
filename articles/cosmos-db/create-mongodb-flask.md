@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 24c47acd028aa767d1f02dd7c4119692eeac479a
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 35159a1630c7f1268119cd55cc6e0ac99dfd7b5f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587018"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119204"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Quickstart: Een Python-app maken met de API van Azure Cosmos DB voor MongoDB
 
@@ -37,10 +37,10 @@ In deze snelstart wordt gebruikgemaakt van het volgende [Flask voorbeeld](https:
 - Als u Visual Studio Code nog niet hebt geïnstalleerd, kunt u snel [VS Code](https://code.visualstudio.com/Download) installeren voor uw platform (Windows, Mac, Linux).
 
 - Zorg ervoor dat u ondersteuning voor de taal Python toevoegt door een van de populaire Python-extensies te installeren.
-    1. Selecteer een extensie.
-    2. Installeer de extensie door `ext install` in het opdrachtenpalet `Ctrl+Shift+P` te typen.
+  1. Selecteer een extensie.
+  2. Installeer de extensie door `ext install` in het opdrachtenpalet `Ctrl+Shift+P` te typen.
 
-    Voor de voorbeelden in dit document wordt gebruikgemaakt van de populaire en volledig functionele [Python-extensie](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) van Don Jayamanne.
+     Voor de voorbeelden in dit document wordt gebruikgemaakt van de populaire en volledig functionele [Python-extensie](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) van Don Jayamanne.
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 

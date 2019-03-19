@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: df89f8fd4dd5c7690d858009e250a474f702f1a8
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125031"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098131"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Versleuteling van gegevens in Azure Data Lake Storage Gen1
 
@@ -21,7 +21,7 @@ Versleuteling in Azure Data Lake Storage Gen1 helpt u uw gegevens te beschermen,
 
 Data Lake Storage Gen1 biedt ondersteuning voor versleuteling van gegevens in rust en onderweg zijn. Voor data-at-rest, Data Lake Storage Gen1 ondersteunt "op standaard" transparante versleuteling. Hier wordt iets gedetailleerder uitgelegd wat deze termen betekenen:
 
-* **Op standaard**: wanneer u een nieuw Data Lake Storage Gen1-account maakt, de standaardinstelling schakelt u versleuteling. Gegevens die zijn opgeslagen in Data Lake Storage Gen1 is daarna worden altijd versleuteld vóór het opslaan op permanente media. Dit is het gedrag voor alle gegevens en kan niet worden gewijzigd nadat u een account hebt gemaakt.
+* **Op standaard**: Wanneer u een nieuw Data Lake Storage Gen1-account maakt, kunt u de standaardinstelling versleuteling. Gegevens die zijn opgeslagen in Data Lake Storage Gen1 is daarna worden altijd versleuteld vóór het opslaan op permanente media. Dit is het gedrag voor alle gegevens en kan niet worden gewijzigd nadat u een account hebt gemaakt.
 * **Transparante**: Data Lake Storage Gen1 automatisch versleutelt de gegevens voordat deze worden opgeslagen en ontsleutelt gegevens automatisch voordat ze worden opgehaald. De versleuteling is geconfigureerd en beheerd op het niveau van de Data Lake Storage Gen1 account door een beheerder. Er worden geen wijzigingen aangebracht aan de API's voor gegevenstoegang. Dus zijn geen wijzigingen vereist in toepassingen en services die interactie met Data Lake Storage Gen1 vanwege versleuteling hebben.
 
 Gegevens tijdens overdracht (ook wel bekend als de gegevens in beweging) worden ook altijd versleuteld in Data Lake Storage Gen1. Naast het versleutelen van gegevens voorafgaand aan het opslaan op permanente media, worden de gegevens tijdens overdracht ook altijd beveiligd met behulp van HTTPS. HTTPS is het enige protocol dat wordt ondersteund voor de Data Lake Storage Gen1 REST-interfaces. Het volgende diagram toont hoe gegevens worden versleuteld in Data Lake Storage Gen1:
@@ -120,17 +120,17 @@ Houd er rekening mee dat als u de standaardopties voor versleuteling, uw gegeven
 
     ![Schermafdruk van Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.  Selecteer de sleutel die is gekoppeld aan uw Data Lake Storage Gen1-account en maak een nieuwe versie van deze sleutel. Houd er rekening mee dat Data Lake Storage Gen1 momenteel alleen ondersteuning biedt voor sleutelroulatie naar een nieuwe versie van een sleutel. Roulatie naar een andere sleutel wordt niet ondersteund.
+3. Selecteer de sleutel die is gekoppeld aan uw Data Lake Storage Gen1-account en maak een nieuwe versie van deze sleutel. Houd er rekening mee dat Data Lake Storage Gen1 momenteel alleen ondersteuning biedt voor sleutelroulatie naar een nieuwe versie van een sleutel. Roulatie naar een andere sleutel wordt niet ondersteund.
 
    ![Schermafdruk van het venster Sleutels met de nieuwe versie gemarkeerd](./media/data-lake-store-encryption/keynewversion.png)
 
-4.  Blader naar het Data Lake Storage Gen1-account en selecteer **versleuteling**.
+4. Blader naar het Data Lake Storage Gen1-account en selecteer **versleuteling**.
 
-    ![Schermafbeelding van Data Lake Storage Gen1 account venster met versleuteling gemarkeerd](./media/data-lake-store-encryption/select-encryption.png)
+   ![Schermafbeelding van Data Lake Storage Gen1 account venster met versleuteling gemarkeerd](./media/data-lake-store-encryption/select-encryption.png)
 
-5.  Er wordt een bericht weergegeven dat een nieuwe sleutelversie van de sleutel beschikbaar is. Klik op **Sleutel rouleren** om de sleutel naar de nieuwe versie bij te werken.
+5. Er wordt een bericht weergegeven dat een nieuwe sleutelversie van de sleutel beschikbaar is. Klik op **Sleutel rouleren** om de sleutel naar de nieuwe versie bij te werken.
 
-    ![Schermafbeelding van Data Lake Storage Gen1 venster met het bericht en sleutel rouleren gemarkeerd](./media/data-lake-store-encryption/rotatekey.png)
+   ![Schermafbeelding van Data Lake Storage Gen1 venster met het bericht en sleutel rouleren gemarkeerd](./media/data-lake-store-encryption/rotatekey.png)
 
 Deze bewerking duurt minder dan twee minuten en er is geen verwachte uitvaltijd vanwege het rouleren van de sleutel. Nadat de bewerking is voltooid, wordt de nieuwe versie van de sleutel gebruikt.
 

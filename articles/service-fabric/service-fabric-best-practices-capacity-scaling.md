@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: f91ea4c4ec887a9f9fe0c15000e3810109caeb96
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 425154958e4c60902b56f320f714a011b9095830
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889066"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997348"
 ---
 # <a name="capacity-planning-and-scaling"></a>Capaciteitsplanning en schalen
 
@@ -159,6 +159,13 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 
 scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
+
+> [!NOTE]
+> Wanneer u schaalt is een cluster omlaag u ziet het verwijderde knooppunt/VM-exemplaar in een slechte staat in de Service Fabric Explorer weergegeven. Zie voor een uitleg van dit gedrag [gedrag die u in Service Fabric Explorer zien kunt](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer).
+> 
+> U kunt:
+> * Bel [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) met de naam van het juiste knooppunt.
+> * Implementeer [service fabric-toepassing voor automatisch schalen helper](https://github.com/Azure/service-fabric-autoscale-helper/) op het cluster waarop zorgt ervoor de schaal omlaag knooppunten dat worden gewist uit de Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Betrouwbaarheid niveaus
 

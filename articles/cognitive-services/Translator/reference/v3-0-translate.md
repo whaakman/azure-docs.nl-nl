@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 47496be907726ca8cd0e235775cdb1a8493310d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4f6c420ab76462818fb17308d062cc9d881af7df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879102"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091032"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text-API 3.0: Translate
 
@@ -38,55 +38,55 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
   <th>Description</th>
   <tr>
     <td>API-versie</td>
-    <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
+    <td><em>Vereiste parameter</em>.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen <code>3.0</code>.</td>
   </tr>
   <tr>
     <td>uit</td>
-    <td>*Optionele parameter*.<br/>Hiermee geeft u de taal van de invoertekst. Welke talen zijn beschikbaar voor de omzetting van door het opzoeken [ondersteunde talen](./v3-0-languages.md) met behulp van de `translation` bereik. Als de `from` parameter niet wordt opgegeven, wordt automatische taaldetectie toegepast om te bepalen van de source-taal.</td>
+    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u de taal van de invoertekst. Welke talen zijn beschikbaar voor de omzetting van door het opzoeken [ondersteunde talen](./v3-0-languages.md) met behulp van de <code>translation</code> bereik. Als de <code>from</code> parameter niet wordt opgegeven, wordt automatische taaldetectie toegepast om te bepalen van de source-taal.</td>
   </tr>
   <tr>
     <td>tot</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de [ondersteunde talen](./v3-0-languages.md) opgenomen in de `translation` bereik. Gebruik bijvoorbeeld `to=de` te vertalen in Duitsland.<br/>Het is mogelijk te vertalen in meerdere talen tegelijkertijd door te herhalen van de parameter in de query-tekenreeks. Gebruik bijvoorbeeld `to=de&to=it` te vertalen in het Duits en Italiaans.</td>
+    <td><em>Vereiste parameter</em>.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de [ondersteunde talen](./v3-0-languages.md) opgenomen in de <code>translation</code> bereik. Gebruik bijvoorbeeld <code>to=de</code> te vertalen in Duitsland.<br/>Het is mogelijk te vertalen in meerdere talen tegelijkertijd door te herhalen van de parameter in de query-tekenreeks. Gebruik bijvoorbeeld <code>to=de&to=it</code> te vertalen in het Duits en Italiaans.</td>
   </tr>
   <tr>
     <td>textType</td>
-    <td>*Optionele parameter*.<br/>Hiermee wordt aangegeven of de tekst wordt vertaald tekst zonder opmaak of HTML-tekst. HTML-code moet een juist opgemaakte en volledige-element. Mogelijke waarden zijn: `plain` (standaard) of `html`.</td>
+    <td><em>Optionele parameter</em>.<br/>Hiermee wordt aangegeven of de tekst wordt vertaald tekst zonder opmaak of HTML-tekst. HTML-code moet een juist opgemaakte en volledige-element. Mogelijke waarden zijn: <code>plain</code> (standaard) of <code>html</code>.</td>
   </tr>
   <tr>
     <td>category</td>
-    <td>*Optionele parameter*.<br/>Een tekenreeks op te geven de categorie (domein) van de vertaling. Deze parameter wordt gebruikt om op te halen van vertalingen van een aangepast systeem die zijn gebouwd met [aangepaste Translator](../customization.md). De categorie-ID van uw aangepaste Translator-project toevoegen aan deze parameter om het gebruik van uw geïmplementeerde aangepaste systeem. Standaardwaarde: `general`.</td>
+    <td><em>Optionele parameter</em>.<br/>Een tekenreeks op te geven de categorie (domein) van de vertaling. Deze parameter wordt gebruikt om op te halen van vertalingen van een aangepast systeem die zijn gebouwd met [aangepaste Translator](../customization.md). De categorie-ID van uw aangepaste Translator-project toevoegen aan deze parameter om het gebruik van uw geïmplementeerde aangepaste systeem. Standaardwaarde: <code>general</code>.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>
-    <td>*Optionele parameter*.<br/>Hiermee geeft u op hoe profanities moeten worden behandeld in vertalingen. Mogelijke waarden zijn: `NoAction` (standaard), `Marked` of `Deleted`. Zie voor meer informatie over manieren om te behandelen grof taalgebruik, [grof taalgebruik verwerking](#handle-profanity).</td>
+    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u op hoe profanities moeten worden behandeld in vertalingen. Mogelijke waarden zijn: <code>NoAction</code> (standaard), <code>Marked</code> of <code>Deleted</code>. Zie voor meer informatie over manieren om te behandelen grof taalgebruik, [grof taalgebruik verwerking](#handle-profanity).</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td>*Optionele parameter*.<br/>Hiermee geeft u op hoe profanities moet worden gemarkeerd met de vertaling. Mogelijke waarden zijn: `Asterisk` (standaard) of `Tag`. Zie voor meer informatie over manieren om te behandelen grof taalgebruik, [grof taalgebruik verwerking](#handle-profanity).</td>
+    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u op hoe profanities moet worden gemarkeerd met de vertaling. Mogelijke waarden zijn: <code>Asterisk</code> (standaard) of <code>Tag</code>. Zie voor meer informatie over manieren om te behandelen grof taalgebruik, [grof taalgebruik verwerking](#handle-profanity).</td>
   </tr>
   <tr>
     <td>includeAlignment</td>
-    <td>*Optionele parameter*.<br/>Hiermee geeft u op of u wilt de projectie van de uitlijning van tekst naar vertaalde tekst bevatten. Mogelijke waarden zijn: `true` of `false` (standaard). </td>
+    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u op of u wilt de projectie van de uitlijning van tekst naar vertaalde tekst bevatten. Mogelijke waarden zijn: <code>true</code> of <code>false</code> (standaard). </td>
   </tr>
   <tr>
     <td>includeSentenceLength</td>
-    <td>*Optionele parameter*.<br/>Hiermee geeft u op of u wilt opnemen zin grenzen voor de invoertekst en de vertaalde tekst. Mogelijke waarden zijn: `true` of `false` (standaard).</td>
+    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u op of u wilt opnemen zin grenzen voor de invoertekst en de vertaalde tekst. Mogelijke waarden zijn: <code>true</code> of <code>false</code> (standaard).</td>
   </tr>
   <tr>
     <td>suggestedFrom</td>
-    <td>*Optionele parameter*.<br/>Hiermee geeft u een alternatieve taal als de taal van de ingevoerde tekst kan niet worden geïdentificeerd. Automatische taaldetectie wordt toegepast wanneer de `from` parameter wordt weggelaten. Als de detectie is mislukt, de `suggestedFrom` taal wordt verondersteld.</td>
+    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u een alternatieve taal als de taal van de ingevoerde tekst kan niet worden geïdentificeerd. Automatische taaldetectie wordt toegepast wanneer de <code>from</code> parameter wordt weggelaten. Als de detectie is mislukt, de <code>suggestedFrom</code> taal wordt verondersteld.</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Optionele parameter*.<br/>Hiermee geeft u het script uit de invoertekst.</td>
+    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u het script uit de invoertekst.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Optionele parameter*.<br/>Hiermee geeft u het script van de vertaalde tekst.</td>
+    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u het script van de vertaalde tekst.</td>
   </tr>
   <tr>
     <td>allowFallback</td>
-    <td>*Optionele parameter*.<br/>Hiermee geeft u op dat de service mag terugvallen op een algemene systeem wanneer een aangepast systeem niet bestaat. Mogelijke waarden zijn: `true` (standaard) of `false`.<br/><br/>`allowFallback=false` Hiermee geeft u de vertaling moet alleen gebruiken voor systemen die zijn getraind voor de `category` opgegeven door de aanvraag. Als een vertaling voor de taal die X Y vereist via een taal pivot E, klikt u vervolgens alle systemen in de keten-koppeling (X -> E- en E -> Y) moet worden aangepast en hebben dezelfde categorie. Als er geen systeem met een specifieke categorie wordt gevonden, wordt de aanvraag een 400-statuscode geretourneerd. `allowFallback=true` Hiermee geeft u op dat de service mag terugvallen op een algemene systeem wanneer een aangepast systeem niet bestaat.
+    <td><em>Optionele parameter</em>.<br/>Hiermee geeft u op dat de service mag terugvallen op een algemene systeem wanneer een aangepast systeem niet bestaat. Mogelijke waarden zijn: <code>true</code> (standaard) of <code>false</code>.<br/><br/><code>allowFallback=false</code> Hiermee geeft u de vertaling moet alleen gebruiken voor systemen die zijn getraind voor de <code>category</code> opgegeven door de aanvraag. Als een vertaling voor de taal die X Y vereist via een taal pivot E, klikt u vervolgens alle systemen in de keten-koppeling (X -> E- en E -> Y) moet worden aangepast en hebben dezelfde categorie. Als er geen systeem met een specifieke categorie wordt gevonden, wordt de aanvraag een 400-statuscode geretourneerd. <code>allowFallback=true</code> Hiermee geeft u op dat de service mag terugvallen op een algemene systeem wanneer een aangepast systeem niet bestaat.
 </td>
   </tr>
 </table> 
@@ -98,19 +98,19 @@ Aanvraagheaders zijn onder andere:
   <th>Description</th>
   <tr>
     <td>_Een autorisatie_<br/>_header_</td>
-    <td>*Vereiste aanvraagheader*.<br/>Zie [beschikbare opties voor verificatie](./v3-0-reference.md#authentication).</td>
+    <td><em>Vereiste aanvraagheader</em>.<br/>Zie [beschikbare opties voor verificatie](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Vereiste aanvraagheader*.<br/>Hiermee geeft u het type inhoud van de nettolading. Mogelijke waarden zijn: `application/json`.</td>
+    <td><em>Vereiste aanvraagheader</em>.<br/>Hiermee geeft u het type inhoud van de nettolading. Mogelijke waarden zijn: <code>application/json</code>.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Vereiste aanvraagheader*.<br/>De lengte van de aanvraagtekst.</td>
+    <td><em>Vereiste aanvraagheader</em>.<br/>De lengte van de aanvraagtekst.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Optioneel*.<br/>Een client gegenereerde GUID voor het aanduiden van de aanvraag. U kunt deze header weglaten als u de trace-ID opnemen in de querytekenreeks met behulp van een queryparameter met de naam `ClientTraceId`.</td>
+    <td><em>Optioneel</em>.<br/>Een client gegenereerde GUID voor het aanduiden van de aanvraag. U kunt deze header weglaten als u de trace-ID opnemen in de querytekenreeks met behulp van een queryparameter met de naam <code>ClientTraceId</code>.</td>
   </tr>
 </table> 
 
@@ -209,7 +209,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
   </tr>
   <tr>
     <td>408</td>
-    <td>De aanvraag kan niet worden uitgevoerd omdat een bron ontbreekt. Controleer het foutbericht voor meer informatie. Wanneer u een aangepaste `category`, dit betekent meestal dat de aangepaste vertaalsysteem nog niet beschikbaar is voor het verzenden van aanvragen. De aanvraag moet opnieuw worden uitgevoerd na een wachttijd (bijvoorbeeld 1 minuut).</td>
+    <td>De aanvraag kan niet worden uitgevoerd omdat een bron ontbreekt. Controleer het foutbericht voor meer informatie. Wanneer u een aangepaste <code>category</code>, dit betekent meestal dat de aangepaste vertaalsysteem nog niet beschikbaar is voor het verzenden van aanvragen. De aanvraag moet opnieuw worden uitgevoerd na een wachttijd (bijvoorbeeld 1 minuut).</td>
   </tr>
   <tr>
     <td>429</td>
@@ -217,11 +217,11 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
   </tr>
   <tr>
     <td>500</td>
-    <td>Er is een onverwachte fout opgetreden. Als de fout zich blijft voordoen, rapporteren met: datum en tijd van de fout, aanvraag-id van de reactieheader `X-RequestId`, en de client-id van aanvraagheader `X-ClientTraceId`.</td>
+    <td>Er is een onverwachte fout opgetreden. Als de fout zich blijft voordoen, rapporteren met: datum en tijd van de fout, aanvraag-id van de reactieheader <code>X-RequestId</code>, en de client-id van aanvraagheader <code>X-ClientTraceId</code>.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>De server is tijdelijk niet beschikbaar. De aanvraag opnieuw. Als de fout zich blijft voordoen, rapporteren met: datum en tijd van de fout, aanvraag-id van de reactieheader `X-RequestId`, en de client-id van aanvraagheader `X-ClientTraceId`.</td>
+    <td>De server is tijdelijk niet beschikbaar. De aanvraag opnieuw. Als de fout zich blijft voordoen, rapporteren met: datum en tijd van de fout, aanvraag-id van de reactieheader <code>X-RequestId</code>, en de client-id van aanvraagheader <code>X-ClientTraceId</code>.</td>
   </tr>
 </table> 
 
@@ -376,28 +376,28 @@ Als u wilt vermijden grof taalgebruik in de vertaling, ongeacht de aanwezigheid 
   <th width="20%">ProfanityAction</th>
   <th>Bewerking</th>
   <tr>
-    <td>`NoAction`</td>
+    <td><code>NoAction</code></td>
     <td>Dit is de standaardinstelling. Grof taalgebruik geeft van bron naar doel.<br/><br/>
-    **Voorbeeld van de bron (Japans)**: 彼はジャッカスです。<br/>
-    **Voorbeeld van de vertaling (Engels)**: Hij is een jackass.
+    <strong>Voorbeeld van de bron (Japans)</strong>: 彼はジャッカスです。<br/>
+    <strong>Voorbeeld van de vertaling (Engels)</strong>: Hij is een jackass.
     </td>
   </tr>
   <tr>
-    <td>`Deleted`</td>
+    <td><code>Deleted</code></td>
     <td>Grof woorden worden verwijderd uit de uitvoer zonder vervanging.<br/><br/>
-    **Voorbeeld van de bron (Japans)**: 彼はジャッカスです。<br/>
-    **Voorbeeld van de vertaling (Engels)**: Hij is een.
+    <strong>Voorbeeld van de bron (Japans)</strong>: 彼はジャッカスです。<br/>
+    <strong>Voorbeeld van de vertaling (Engels)</strong>: Hij is een.
     </td>
   </tr>
   <tr>
-    <td>`Marked`</td>
-    <td>Grof woorden vervangen door een markering in de uitvoer. De markering is afhankelijk van de `ProfanityMarker` parameter.<br/><br/>
-Voor `ProfanityMarker=Asterisk`, grof woorden vervangen door `***`:<br/>
-    **Voorbeeld van de bron (Japans)**: 彼はジャッカスです。<br/>
-    **Voorbeeld van de vertaling (Engels)**: Hij is een \* \* \*.<br/><br/>
-Voor `ProfanityMarker=Tag`, grof woorden worden omringd door de XML-tags &lt;grof taalgebruik&gt; en &lt;/profanity&gt;:<br/>
-    **Voorbeeld van de bron (Japans)**: 彼はジャッカスです。<br/>
-    **Voorbeeld van de vertaling (Engels)**: Hij is een &lt;grof taalgebruik&gt;jackass&lt;/profanity&gt;.
+    <td><code>Marked</code></td>
+    <td>Grof woorden vervangen door een markering in de uitvoer. De markering is afhankelijk van de <code>ProfanityMarker</code> parameter.<br/><br/>
+Voor <code>ProfanityMarker=Asterisk</code>, grof woorden vervangen door <code>***</code>:<br/>
+    <strong>Voorbeeld van de bron (Japans)</strong>: 彼はジャッカスです。<br/>
+    <strong>Voorbeeld van de vertaling (Engels)</strong>: Hij is een \* \* \*.<br/><br/>
+Voor <code>ProfanityMarker=Tag</code>, grof woorden worden omringd door de XML-tags &lt;grof taalgebruik&gt; en &lt;/profanity&gt;:<br/>
+    <strong>Voorbeeld van de bron (Japans)</strong>: 彼はジャッカスです。<br/>
+    <strong>Voorbeeld van de vertaling (Engels)</strong>: Hij is een &lt;grof taalgebruik&gt;jackass&lt;/profanity&gt;.
   </tr>
 </table> 
 
