@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: f0050a91ca8ed380c838c96cf1e485a80a0c9297
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: c15dc83929aeaf6811f4d19bfca462abfacf4014
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445392"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892452"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Hoe u kunt gebruiker-gebruikersregistratie en productabonnement delegeren
 Overdracht kunt u uw bestaande website gebruiken voor het verwerken van ontwikkelaars sign-in/aanmelden-up-to-date en abonnement op producten in plaats van met behulp van de ingebouwde functie in de portal voor ontwikkelaars. Hierdoor kan uw website eigenaar zijn van de gebruikersgegevens en de validatie van de volgende stappen uit in een aangepaste manier uitvoeren.
@@ -47,7 +47,7 @@ Nu moet u maken de **delegatie-eindpunt**. Het heeft een aantal acties uitvoeren
 
 1. Een aanvraag ontvangen in de volgende notatie:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL van bronpagina} & salt = {tekenreeks} & sig = {tekenreeks}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn & returnUrl = {URL van de bronpagina} & salt = {tekenreeks} & sig = {tekenreeks}*
    > 
    > 
    
@@ -104,7 +104,7 @@ Controleer vervolgens of de delegatie-eindpunt voert de volgende handelingen uit
 
 1. Een aanvraag ontvangen in de volgende notatie:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product abonneren op} & gebruikers-id = {user aanvraag} & salt = {tekenreeks} & sig = {tekenreeks}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation= {operation} & product-id = {product abonneren op} & gebruikers-id = {user aanvraag} & salt = {tekenreeks} & sig = {tekenreeks}*
    > 
    > 
    
@@ -120,7 +120,7 @@ Controleer vervolgens of de delegatie-eindpunt voert de volgende handelingen uit
    * **SIG**: een hash berekende beveiliging moet worden gebruikt voor vergelijking van uw eigen berekende hash
 2. Controleer of dat de aanvraag afkomstig is van Azure API Management (optioneel maar ten zeerste aanbevolen voor beveiliging)
    
-   * Berekenen van een HMAC-SHA512 gebruikt van een tekenreeks op basis van de **productId**, ** gebruikers-id, en **salt** queryparameters:
+   * Berekenen van een HMAC-SHA512 gebruikt van een tekenreeks op basis van de **productId**, **userId**, en **salt** queryparameters:
      
      > HMAC (**salt** + '\n' + **productId** + '\n' + **userId**)
      > 

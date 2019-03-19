@@ -3,18 +3,18 @@ title: Inleiding tot IoT-oplossingsversnellers - Azure | Microsoft Docs
 description: Hier vindt u informatie over Azure IoT-oplossingsversnellers. IoT-oplossingsversnellers zijn volledige, end-to-end, kant-en-klare IoT-oplossingen.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/09/2018
+ms.date: 03/09/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 79c8f0f1c987de6320770416641300f3b8bb7c1d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 042c3c2925e9d537847f16f02d841d793456fb03
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607198"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58172815"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Wat zijn Azure IoT-oplossingsversnellers?
 
@@ -78,7 +78,7 @@ Alle oplossingsversnellers volgen dezelfde ontwerpprincipes en -doelen. Het ontw
 
 De oorspronkelijke oplossingsversnellers werden geschreven met behulp van .NET en een model-view-controller (MVC)-architectuur. Microsoft werkt de oplossingsversnellers bij met een nieuwe architectuur op basis van microservices. In de volgende tabel wordt de huidige status van de oplossingsverbeteringen weergegeven met koppelingen naar de GitHub-opslagplaatsen:
 
-| Oplossingsverbetering   | Architectuur  | Talen     |
+| Oplossingsverbetering   | Architectuur  | Languages     |
 | ---------------------- | ------------- | ------------- |
 | Externe bewaking      | Microservices | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) en [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
 | Predictief onderhoud | MVC           | [.NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |

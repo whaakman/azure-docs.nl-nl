@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b2bfec47bc92ebf5db1561d8fca33940dc376866
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: c8fc99426751e9aaaec53cbb6b64a84b6e7f6734
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752609"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894322"
 ---
 # <a name="quickstart-create-a-hololens-unity-app-using-azure-spatial-anchors"></a>Quickstart: HoloLens Unity-app maken met Azure Spatial Anchors
 
@@ -34,8 +34,8 @@ U leert het volgende:
 
 Zorg ervoor dat u over het volgende beschikt om deze snelstart te voltooien:
 
-- Een Windows-computer waarop <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a> en <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> zijn geïnstalleerd met de workload **Universeel Windows-platform-ontwikkeling**.
-- Een HoloLens-apparaat waarvoor de [ontwikkelaarsmodus](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) is ingeschakeld.
+- Een Windows-machine met <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3 +</a>, <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 +</a> geïnstalleerd met de **universele Windows-platformontwikkeling** werkbelasting, en <a href="https://git-scm.com/download/win" target="_blank">Git voor Windows</a>.
+- Een HoloLens-apparaat waarvoor de [ontwikkelaarsmodus](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) is ingeschakeld. Dit artikel vereist een HoloLens-apparaat met de [Update voor Windows van 10 oktober 2018](https://docs.microsoft.com/en-us/windows/mixed-reality/release-notes-october-2018) (ook wel bekend als RS5). Als u wilt bijwerken naar de nieuwste release op HoloLens, opent u de app **Instellingen**, gaat u naar **Bijwerken en beveiliging** en selecteert u vervolgens de knop **Controleren op updates**.
 - Op de app moet de mogelijkheid **SpatialPerception** zijn ingesteld onder **Build Settings**->**Player Settings**->**Publishing Settings**->**Capabilities**.
 - Voor de app moet **Virtual Reality Supported** met **Windows Mixed Reality SDK** zijn ingeschakeld onder **Build Settings**->**Player Settings**->**XR Settings**.
 
@@ -51,7 +51,7 @@ Open **Build Settings** door **File** -> **Build Settings** te selecteren.
 
 in de sectie **Platform** selecteert u **Universeel Windows-platform**. Wijzig vervolgens **Doelapparaat** in **HoloLens**.
 
-Selecteer **Switch Platform** om het platform te wijzigen in **Universeel Windows-platform**.
+Selecteer **Switch Platform** om het platform te wijzigen in **Universeel Windows-platform**. Unity gevraagd UWP-ondersteuning om onderdelen te installeren als ze ontbreekt.
 
 ![Build-instellingen voor Unity](./media/get-started-unity-hololens/unity-build-settings.png)
 
@@ -81,9 +81,9 @@ Wijzig **Solution Configuration** in **Release**, wijzig **Solution Platform** i
 
 ![Configuratie van Visual Studio](./media/get-started-unity-hololens/visual-studio-configuration.png)
 
-Start het HoloLens-apparaat, meld u aan en maak verbinding met de pc via een USB-kabel.
+Start het HoloLens-apparaat, meld u aan en sluit het aan op de pc via een USB-kabel.
 
-Selecteer **Debug** > **Start debugging** om de app te implementeren en begin met de foutopsporing.
+Selecteer **Debug** > **Start debugging** om de app te implementeren en de foutopsporing te starten.
 
 Volg de instructies in de app om een anker te plaatsen en terug te halen.
 
@@ -94,4 +94,4 @@ Stop de app in Visual Studio door **Stop Debugging** te selecteren of door op **
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Spatial Anchors met apparaten delen](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Zelfstudie: Spatial Anchors met meerdere apparaten delen](../tutorials/tutorial-share-anchors-across-devices.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bfaa738b0f99594a3bd11541d519701ff5eb98f5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896157"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage bewaken, problemen opsporen en oplossen
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -123,9 +123,9 @@ De rest van deze sectie wordt beschreven welke metrische gegevens, moet u contro
 U kunt de [Azure-portal](https://portal.azure.com) om weer te geven van de status van de Storage-service (en andere Azure-services) in alle Azure-regio's over de hele wereld. Controle kunt u direct zien als een probleem buiten het besturingselement is die betrekking hebben op de Storage-service in de regio die u voor uw toepassing gebruiken.
 
 De [Azure-portal](https://portal.azure.com) biedt ook meldingen van incidenten die invloed hebben op de verschillende Azure-services.
-Opmerking: Deze informatie eerder beschikbaar was, samen met historische gegevens, op de [servicedashboard van Azure](http://status.azure.com).
+Opmerking: Deze informatie eerder beschikbaar was, samen met historische gegevens, op de [servicedashboard van Azure](https://status.azure.com).
 
-Terwijl de [Azure-portal](https://portal.azure.com) verzamelt gegevens over de servicestatus van binnen de datacenters van Azure (binnen-out bewaking), u kunt ook heeft een buiten-in-benadering voor het genereren van synthetische transacties die regelmatig toegang hebben tot uw Azure gehoste web-App vanaf meerdere locaties. De services die worden aangeboden door [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) en Application Insights voor Azure DevOps zijn voorbeelden van deze benadering. Zie voor meer informatie over Application Insights voor Azure DevOps, de bijlage '[bijlage 5: Bewaking met Application Insights voor Azure DevOps](#appendix-5). "
+Terwijl de [Azure-portal](https://portal.azure.com) verzamelt gegevens over de servicestatus van binnen de datacenters van Azure (binnen-out bewaking), u kunt ook heeft een buiten-in-benadering voor het genereren van synthetische transacties die regelmatig toegang hebben tot uw Azure gehoste web-App vanaf meerdere locaties. De services die worden aangeboden door [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) en Application Insights voor Azure DevOps zijn voorbeelden van deze benadering. Zie voor meer informatie over Application Insights voor Azure DevOps, de bijlage '[bijlage 5: Bewaking met Application Insights voor Azure DevOps](#appendix-5). "
 
 ### <a name="monitoring-capacity"></a>Bewaking van capaciteit
 Metrische gegevens van Storage slaat alleen metrische gegevens over capaciteit voor de blob-service omdat blobs doorgaans rekening voor het grootste deel van de opgeslagen gegevens (op het moment van schrijven, dit is niet mogelijk met gebruik van metrische gegevens van Storage voor het bewaken van de capaciteit van uw tabellen en wachtrijen). U vindt deze gegevens in de **$MetricsCapacityBlob** tabel als u bewaking voor de Blob-service hebt ingeschakeld. Metrische opslaggegevens registreert u deze gegevens eenmaal per dag en kunt u de waarde van de **RowKey** om te bepalen of de rij bevat een entiteit met betrekking tot gebruikersgegevens (waarde **gegevens**) of analytics-gegevens (waarde **analytics**). Elke entiteit opgeslagen bevat informatie over de hoeveelheid opslag die wordt gebruikt (**capaciteit** gemeten in bytes) en het huidige aantal containers (**ContainerCount**) en blobs (**ObjectCount** ) in het opslagaccount dat wordt gebruikt. Voor meer informatie over de metrische gegevens over de capaciteit die zijn opgeslagen in de **$MetricsCapacityBlob** tabel, Zie [tabelschema van metrische gegevens van Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -194,7 +194,7 @@ Gebruikers van uw toepassing kunnen melding van fouten die zijn gerapporteerd do
 > 
 > 
 
-De volgende resources zijn nuttig voor het begrijpen van opslag met betrekking tot de status en foutcodes:
+De volgende resources kunnen worden gebruikt voor een overzicht van status- en foutcodes in verband met de opslag:
 
 * [Algemene REST-API-foutcodes](https://msdn.microsoft.com/library/azure/dd179357.aspx)
 * [Foutcodes voor blob-services](https://msdn.microsoft.com/library/azure/dd179439.aspx)
@@ -220,10 +220,10 @@ De Opslagclientbibliotheek voor .NET kunt u voor het verzamelen van gegevens van
 ### <a name="using-network-logging-tools"></a>Met behulp van hulpprogramma's voor logboekregistratie
 U kunt het verkeer tussen de client en server voor gedetailleerde informatie over de gegevens die de client en server uitwisselt en de onderliggende netwerkomstandigheden vastleggen. Nuttige hulpprogramma's voor registratie zijn onder andere:
 
-* [Fiddler](http://www.telerik.com/fiddler) is een gratis proxy waarmee u de kopteksten en gegevens over de nettolading van HTTP en HTTPS-aanvraag en antwoord-berichten te onderzoeken voor Webfoutopsporing. Zie voor meer informatie, [bijlage 1: Fiddler gebruiken om vast te leggen van HTTP en HTTPS-verkeer](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) en [Wireshark](http://www.wireshark.org/) zijn gratis netwerk protocol-analyse waarmee u kunt gedetailleerde pakket weergeven voor een breed scala van netwerkprotocollen. Zie voor meer informatie over Wireshark "[bijlage 2: Met behulp van Wireshark om vast te leggen netwerkverkeer](#appendix-2)'.
+* [Fiddler](https://www.telerik.com/fiddler) is een gratis proxy waarmee u de kopteksten en gegevens over de nettolading van HTTP en HTTPS-aanvraag en antwoord-berichten te onderzoeken voor Webfoutopsporing. Zie voor meer informatie, [bijlage 1: Fiddler gebruiken om vast te leggen van HTTP en HTTPS-verkeer](#appendix-1).
+* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) en [Wireshark](https://www.wireshark.org/) zijn gratis netwerk protocol-analyse waarmee u kunt gedetailleerde pakket weergeven voor een breed scala van netwerkprotocollen. Zie voor meer informatie over Wireshark "[bijlage 2: Met behulp van Wireshark om vast te leggen netwerkverkeer](#appendix-2)'.
 * Microsoft Message Analyzer is een hulpprogramma van Microsoft die Netmon en die naast het vastleggen van gegevens van het pakket netwerk vervangt, helpt u bij het weergeven en analyseren van de logboekgegevens die zijn vastgelegd met andere hulpprogramma's. Zie voor meer informatie "[bijlage 3: Microsoft Message Analyzer gebruiken om vast te leggen netwerkverkeer](#appendix-3)'.
-* Als u een basisconnectiviteit test uitvoeren om te controleren wilt dat de clientcomputer verbinding met de Azure storage-service via het netwerk maken kan, dit niet mogelijk met behulp van de standaard **ping** hulpprogramma op de client. Echter, kunt u de [ **tcping** hulpprogramma](http://www.elifulkerson.com/projects/tcping.php) om te controleren op connectiviteit.
+* Als u een basisconnectiviteit test uitvoeren om te controleren wilt dat de clientcomputer verbinding met de Azure storage-service via het netwerk maken kan, dit niet mogelijk met behulp van de standaard **ping** hulpprogramma op de client. Echter, kunt u de [ **tcping** hulpprogramma](https://www.elifulkerson.com/projects/tcping.php) om te controleren op connectiviteit.
 
 In veel gevallen de logboekgegevens van logboekregistratie van opslag en de Storage-clientbibliotheek is voldoende om het probleem vast te stellen, maar in sommige scenario's, moet u mogelijk de meer gedetailleerde informatie die deze hulpprogramma's voor network logboekregistratie kunnen bieden. Bijvoorbeeld, kunt u header en -nettolading inzien verzonden naar en van de storage-services, waarmee u bekijken hoe een clienttoepassing opslagbewerkingen pogingen met Fiddler om HTTP en HTTPS-berichten te bekijken. Protocol analyzers zoals Wireshark worden uitgevoerd op het pakketniveau van het zodat u kunt bekijken van TCP-gegevens, waarmee u problemen met verloren pakketten en problemen met de netwerkverbinding. Message Analyzer kan worden uitgevoerd op zowel HTTP- en TCP-lagen.
 
@@ -464,12 +464,12 @@ Uw metrische gegevens geven een toename in **percentnetworkerror aan** voor een 
 De meest voorkomende oorzaak van deze fout is een client verbinding verbreken voordat een time-out is verlopen in de storage-service. Onderzoek de code in uw client om te begrijpen waarom en wanneer de client wordt losgekoppeld van de storage-service. U kunt ook Wireshark, Microsoft Message Analyzer of Tcping gebruiken voor het onderzoeken van problemen met de netwerkverbinding van de client. Deze hulpprogramma's worden beschreven in de [bijlagen].
 
 ### <a name="the-client-is-receiving-403-messages"></a>De client ontvangt berichten van HTTP 403 (verboden)
-Als u de clienttoepassing HTTP 403 (verboden) fouten genereren wordt, is een waarschijnlijke oorzaak dat de client een verlopen Shared Access Signature (SAS) is gebruikt tijdens het verzenden van een aanvraag voor opslag (Hoewel andere mogelijke oorzaken klok scheeftrekken, ongeldig sleutels en leeg kopteksten zijn ). Als een verlopen SAS-sleutel voor de oorzaak is, ziet u niet alle vermeldingen in de logboekgegevens van server-side logboekregistratie van opslag. De volgende tabel ziet u een voorbeeld van de client-side-logboekbestanden die worden gegenereerd door de Storage-clientbibliotheek die laat dit probleem optreedt zien:
+Als de clienttoepassing een HTTP 403-fout (verboden) weergeeft, is een vermoedelijke oorzaak dat de client gebruikmaakt van een verlopen Shared Access Signature (SAS) bij het verzenden van een opslagaanvraag (hoewel andere mogelijke oorzaken een tijdverschil, ongeldige sleutels of lege headers kunnen zijn). Als een verlopen SAS-sleutel de oorzaak is, ziet u geen vermeldingen in de logboekgegevens voor logboekregistratie voor opslag aan de serverzijde. De volgende tabel ziet u een voorbeeld van de client-side-logboekbestanden die worden gegenereerd door de Storage-clientbibliotheek die laat dit probleem optreedt zien:
 
 | Bron | Uitgebreidheid | Uitgebreidheid | Clientaanvraag-id | Bewerking tekst |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-… |Bewerking met de primaire locatie per locatiemodus PrimaryOnly starten. |
-| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Synchrone verzoek om te beginnen https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp; sr = c&amp;si = mypolicy&amp;sig OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % = 3D&amp;api-versie 2014-02-14 =. |
+| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Synchrone verzoek om te beginnen <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Wachten op antwoord. |
 | Microsoft.WindowsAzure.Storage |Waarschuwing |2 |85d077ab -… |Uitzondering geretourneerd tijdens het wachten op reactie: De externe server heeft een fout geretourneerd: (403) Verboden. |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Antwoord ontvangen. Statuscode 403, aanvraag-ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, inhoud MD5 = =, ETag =. |
@@ -480,17 +480,17 @@ Als u de clienttoepassing HTTP 403 (verboden) fouten genereren wordt, is een waa
 
 In dit scenario, moet u onderzoeken waarom het SAS-token is verlopen voordat de client het token naar de server stuurt:
 
-* Normaal gesproken moet u een begintijd die bij het maken van een SAS voor een client direct kunt gebruiken niet instellen. Als er kleine klok verschillen tussen de host genereren van de SAS met behulp van de huidige tijd en de storage-service zijn, dan is het mogelijk voor de storage-service voor het ontvangen van een SA's dat is nog niet geldig.
-* Moet u een zeer korte verlooptijd niet instellen op een SAS. Nogmaals, klok kleine verschillen tussen de host genereren van de SAS en de storage-service kunnen leiden tot een SAS blijkbaar verlopen ouder dan verwacht.
+* Normaliter mag u geen begintijd instellen als u een SAS voor een client maakt voor onmiddellijk gebruik. Als er kleine tijdverschillen zijn tussen de host die de SAS genereert en die gebruikmaakt van de huidige tijd en de opslagservice, dan kan de opslagservice een SAS ontvangen die nog niet geldig is.
+* Stel geen heel korte verlooptijd in voor een SAS. Kleine tijdverschillen tussen de host die de SAS genereert en de opslagservice kunnen er ook toe leiden dat een SAS kennelijk eerder verloopt dan verwacht.
 * Biedt de versie-parameter in de SAS-sleutel (bijvoorbeeld **sv = 2015-04-05**) overeenkomt met de versie van de Storage-clientbibliotheek die u gebruikt? Raden wij aan dat u altijd de nieuwste versie van de [Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/).
-* Als u uw opslagtoegangssleutels opnieuw genereren, bestaande SAS-tokens mogelijk ongeldig worden gemaakt. Dit probleem kan zich voordoen als het genereren van SAS-tokens met een lange verlooptijd voor clienttoepassingen cache.
+* Als u uw opslagtoegangssleutels opnieuw genereert, kunnen eventuele SAS-tokens ongeldig worden. Dit probleem doet zich voor als u SAS-tokens genereert met een lange verlooptijd voor clienttoepassingen die in de cache worden opgeslagen.
 
-Als u de Opslagclientbibliotheek voor het genereren van SAS-tokens gebruikt, is het eenvoudig te maken van een geldig token. Echter, als u met behulp van de REST-API voor Storage en de SAS-tokens handmatig maken, Zie [toegang delegeren met een Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx).
+Als u de Storage-clientbibliotheek gebruikt om SAS-tokens te genereren, dan kan er gemakkelijk een geldig token worden gemaakt. Echter, als u met behulp van de REST-API voor Storage en de SAS-tokens handmatig maken, Zie [toegang delegeren met een Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx).
 
 ### <a name="the-client-is-receiving-404-messages"></a>De client is ontvangen HTTP 404 (niet gevonden)-berichten
-Als de clienttoepassing een HTTP 404 (niet gevonden)-bericht van de server ontvangt, betekent dit dat het object dat de client probeerde te gebruiken (zoals een entiteit, tabel, blob, container of wachtrij) niet in de storage-service bestaat. Er zijn een aantal mogelijke redenen hiervoor, zoals:
+Als de clienttoepassing een HTTP 404-melding (niet gevonden) van de server ontvangt, houdt dit in dat het object dat de client wilde gebruiken (zoals een entiteit, tabel, blob, container of wachtrij) niet in de opslagservice aanwezig is. Hiervoor zijn een aantal mogelijke redenen, bijvoorbeeld:
 
-* [De client of een ander proces verwijderd het object eerder]
+* [Het object is eerder door de client of een ander proces verwijderd]
 * [Een probleem met de autorisatie Shared Access Signature (SAS)]
 * [Client-side JavaScript-code is niet gemachtigd voor toegang tot het object]
 * [Netwerkfout]
@@ -589,7 +589,7 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 > 
 > 
 
-Deze fouten optreden met de webbrowser implementeert de [beleid voor dezelfde oorsprong](http://www.w3.org/Security/wiki/Same_Origin_Policy) beveiligingsbeperking waarmee wordt voorkomen dat een webpagina aanroepen van een API in een ander domein uit het domein de pagina is afkomstig uit.
+Deze fouten optreden met de webbrowser implementeert de [beleid voor dezelfde oorsprong](https://www.w3.org/Security/wiki/Same_Origin_Policy) beveiligingsbeperking waarmee wordt voorkomen dat een webpagina aanroepen van een API in een ander domein uit het domein de pagina is afkomstig uit.
 
 De JavaScript-probleem omzeilen, kunt u Cross-Origin Resource Sharing (CORS) configureren voor de storage-service die de client toegang heeft tot. Zie voor meer informatie, [Cross-Origin Resource Sharing (CORS) ondersteuning voor Azure Storage-Services](https://msdn.microsoft.com/library/azure/dn535601.aspx).
 
@@ -632,9 +632,9 @@ De volgende tabel ziet u een extraheren uit het logboek serverzijde voor twee cl
 | 05:10:13.8987407 |GetContainerProperties |404 |mmcont |bc881924-… |
 | 05:10:14.2147723 |CreateContainer |409 |mmcont |bc881924-… |
 
-De code in de clienttoepassing wordt verwijderd en onmiddellijk opnieuw gemaakt een blob-container met dezelfde naam: de **CreateIfNotExists** methode (Client aanvraag ID bc881924-...) uiteindelijk mislukt met de fout HTTP 409 (Conflict). Wanneer een client wordt verwijderd blobcontainers, tabellen of wachtrijen die er een korte periode voordat u de naam is weer beschikbaar is.
+De code in de clienttoepassing wordt verwijderd en onmiddellijk opnieuw gemaakt een blob-container met dezelfde naam: de **CreateIfNotExists** methode (Client aanvraag ID bc881924-...) uiteindelijk mislukt met de fout HTTP 409 (Conflict). Als een client blobcontainers, tabellen of wachtrijen verwijderd, is er een korte periode voordat de naam opnieuw beschikbaar is.
 
-De clienttoepassing moet unieke containernamen gebruiken wanneer er nieuwe containers wordt gemaakt als het patroon verwijderen/opnieuw gebruikelijk is.
+De clienttoepassing moet een unieke containernaam gebruiken wanneer er een nieuwe container wordt gemaakt als het patroon voor verwijderen/opnieuw maken algemeen is.
 
 ### <a name="metrics-show-low-percent-success"></a>Prestatiegegevens geven lage PercentSuccess of vermeldingen in het analytics-bewerkingen met de status van ClientOtherErrors hebben
 De **PercentSuccess** metriek bevat het percentage van bewerkingen die met succes zijn uitgevoerd op basis van de HTTP-statuscode. Bewerkingen met statuscodes van 2XX tellen als geslaagd, terwijl de bewerkingen met statuscodes in 3XX, 4XX en 5XX bereiken worden geteld als mislukt en lager de **PercentSuccess** metrische waarde. In de logboekbestanden van de server-side-opslag, deze bewerkingen worden geregistreerd met de transactiestatus van de **ClientOtherErrors**.
@@ -708,7 +708,7 @@ Zie voor meer informatie over het gebruik van Microsoft Message Analyzer '[Bijla
 De bijlagen worden verschillende hulpprogramma's die mogelijk nuttig bij het vaststellen en oplossen van problemen met Azure Storage (en andere services) beschreven. Deze hulpprogramma's maken geen deel uit van Azure Storage, andere producten van derden zijn. Daarom de hulpprogramma's die worden beschreven in deze bijlagen zijn niet wordt gedekt door een eventuele ondersteuningsovereenkomst tot die u met Microsoft Azure of Azure Storage hebt, en daarom als onderdeel van uw evaluatieproces onderzoekt u de licenties en ondersteuning voor opties die beschikbaar zijn vanuit de providers van deze hulpprogramma's.
 
 ### <a name="appendix-1"></a>Bijlage 1: Fiddler gebruiken om vast te leggen van HTTP en HTTPS-verkeer
-[Fiddler](http://www.telerik.com/fiddler) een handig hulpmiddel voor het analyseren van de HTTP en HTTPS-verkeer tussen uw clienttoepassing en de Azure storage-service die u gebruikt.
+[Fiddler](https://www.telerik.com/fiddler) een handig hulpmiddel voor het analyseren van de HTTP en HTTPS-verkeer tussen uw clienttoepassing en de Azure storage-service die u gebruikt.
 
 > [!NOTE]
 > Fiddler kan worden gedecodeerd HTTPS-verkeer; Lees de documentatie van Fiddler zorgvuldig om te begrijpen hoe dit gebeurt en inzicht krijgen in de beveiligingsrisico's.
@@ -727,14 +727,14 @@ Als u wilt beperken de hoeveelheid verkeer die Fiddler vastlegt, kunt u filters 
 ![][5]
 
 ### <a name="appendix-2"></a>Bijlage 2: Met behulp van Wireshark om vast te leggen van netwerkverkeer
-[Wireshark](http://www.wireshark.org/) is een netwerkprotocolanalyse waarmee u om gedetailleerde pakketgegevens voor een breed scala aan netwerkprotocollen weer te geven.
+[Wireshark](https://www.wireshark.org/) is een netwerkprotocolanalyse waarmee u om gedetailleerde pakketgegevens voor een breed scala aan netwerkprotocollen weer te geven.
 
 De volgende procedure beschrijft hoe u om vast te leggen gedetailleerde pakketgegevens voor verkeer van de lokale computer waarop u Wireshark geïnstalleerd naar de tabelservice in uw Azure storage-account.
 
 1. Start Wireshark op uw lokale computer.
 2. In de **Start** sectie, selecteert u het lokale netwerk of interfaces die zijn verbonden met internet.
 3. Klik op **vastleggen opties**.
-4. Een filter toe te voegen de **vastleggen Filter** tekstvak. Bijvoorbeeld, **hosten contosoemaildist.table.core.windows.net** configureert Wireshark om vast te leggen alleen pakketten die zijn verzonden naar of van de service-eindpunt van de tabel in de **contosoemaildist** storage-account. Bekijk de [volledige lijst met Filters vastleggen](http://wiki.wireshark.org/CaptureFilters).
+4. Een filter toe te voegen de **vastleggen Filter** tekstvak. Bijvoorbeeld, **hosten contosoemaildist.table.core.windows.net** configureert Wireshark om vast te leggen alleen pakketten die zijn verzonden naar of van de service-eindpunt van de tabel in de **contosoemaildist** storage-account. Bekijk de [volledige lijst met Filters vastleggen](https://wiki.wireshark.org/CaptureFilters).
    
    ![][6]
 5. Klik op **Start**. Wireshark nu vastlegt alle de pakketten verzenden naar of van het eindpunt van table service tijdens het gebruik van uw clienttoepassing op uw lokale computer.
@@ -745,12 +745,12 @@ WireShark laten eventuele fouten die zijn opgenomen in de **packetlist** venster
 
 ![][7]
 
-U kunt er ook voor kiezen om weer te geven van de TCP-gegevens als het niveau van de toepassing ziet met de rechtermuisknop op de TCP-gegevens en selecteert u **Volg TCP Stream**. Dit is handig als u uw dump zonder een filter vastleggen vastgelegd. Zie voor meer informatie, [na de TCP-Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+U kunt er ook voor kiezen om weer te geven van de TCP-gegevens als het niveau van de toepassing ziet met de rechtermuisknop op de TCP-gegevens en selecteert u **Volg TCP Stream**. Dit is handig als u uw dump zonder een filter vastleggen vastgelegd. Zie voor meer informatie, [na de TCP-Streams](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
 > [!NOTE]
-> Zie voor meer informatie over het gebruik van Wireshark de [Wireshark gebruikershandleiding](http://www.wireshark.org/docs/wsug_html_chunked).
+> Zie voor meer informatie over het gebruik van Wireshark de [Wireshark gebruikershandleiding](https://www.wireshark.org/docs/wsug_html_chunked).
 > 
 > 
 
@@ -845,7 +845,7 @@ U vindt meer informatie op [wat is Application Insights](../../azure-monitor/app
 
 [De client ontvangt HTTP 403-meldingen (verboden)]: #the-client-is-receiving-403-messages
 [De client ontvangt HTTP 404-meldingen (niet gevonden)]: #the-client-is-receiving-404-messages
-[De client of een ander proces verwijderd het object eerder]: #client-previously-deleted-the-object
+[Het object is eerder door de client of een ander proces verwijderd]: #client-previously-deleted-the-object
 [Een probleem met de autorisatie Shared Access Signature (SAS)]: #SAS-authorization-issue
 [Client-side JavaScript-code is niet gemachtigd voor toegang tot het object]: #JavaScript-code-does-not-have-permission
 [Netwerkfout]: #network-failure

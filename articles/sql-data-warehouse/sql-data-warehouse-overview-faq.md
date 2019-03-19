@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: d55c9db9af2eea9a56afe34c7a8689947a689bac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 596ed857b39cf106ed2e37ad81c5fe9e939cca61
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462542"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001423"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse Veelgestelde vragen over
 
@@ -82,19 +82,19 @@ V. Welke-clientstuurprogramma's ondersteund?
 
 A. Ondersteuning voor stuurprogramma's voor DW is te vinden in de [verbindingsreeksen] pagina
 
-VRAAG: Welke bestandsformaten worden ondersteund door PolyBase met SQL Data Warehouse?
+V: Welke bestandsformaten worden ondersteund door PolyBase met SQL Data Warehouse?
 
 A: ORC, RC, Parquet en platte tekst met scheidingstekens
 
-VRAAG: Wat kan ik verbinding maken met van SQL DW met PolyBase? 
+V: Wat kan ik verbinding maken met van SQL DW met PolyBase? 
 
 A: [Azure Data Lake Store] en [Azure Storage Blobs]
 
-VRAAG: Is berekening pushdown mogelijk bij het verbinden met Azure Storage-Blobs of ADLS? 
+V: Is berekening pushdown mogelijk bij het verbinden met Azure Storage-Blobs of ADLS? 
 
 A: SQL DW PolyBase communiceert Nee, alleen de opslagonderdelen. 
 
-VRAAG: Kan ik verbinding maken met HDI?
+V: Kan ik verbinding maken met HDI?
 
 A: HDI kunt ADLS of WASB gebruiken als de HDFS-laag. Als u een als uw HDFS-laag, kunt u die gegevens laden in SQL DW. U kunt echter pushdown berekening met het HDI-exemplaar niet genereren. 
 
@@ -105,7 +105,7 @@ Zie voor meer informatie over SQL Data Warehouse als geheel, onze [overzicht] pa
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Verbindingsreeksen]: ./sql-data-warehouse-connection-strings.md
-[Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Ondersteuningstickets]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Beveiliging]: ./sql-data-warehouse-overview-manage-security.md
 [Microsoft Compliance]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
