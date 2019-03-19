@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 01294ec8aa65a8405bc99be215008dad66a73d8d
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 469c6802879707a3cf16b3e17876cb1f5e3854fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960741"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093004"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>De beheerde client gebruiken voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -62,7 +62,7 @@ public class TodoItem
 
 De [JsonPropertyAttribute] [ 6] wordt gebruikt voor het definiëren van de *PropertyName* toewijzing tussen de velden van de client en de tabel.
 
-Zie voor meer informatie over het maken van tabellen in uw back-end van Mobile Apps, de [.NET Server SDK onderwerp] [ 7] of de [Node.js Server SDK onderwerp][8]. Als u de back-end van uw mobiele App in Azure portal met behulp van de Quick Start hebt gemaakt, kunt u ook gebruiken de **eenvoudige tabellen** instellen in de [Azure Portal].
+Zie voor meer informatie over het maken van tabellen in uw back-end van Mobile Apps, de [.NET Server SDK onderwerp] [ 7] of de [Node.js Server SDK onderwerp][8]. Als u de back-end van uw mobiele App in Azure portal met behulp van de Quick Start hebt gemaakt, kunt u ook gebruiken de **eenvoudige tabellen** instellen in de [Azure-portal].
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>Procedure: De beheerde client-SDK-pakket installeren
 Gebruik een van de volgende methoden voor het installeren van de beheerde client-SDK-pakket voor mobiele Apps van [NuGet][9]:
@@ -89,7 +89,7 @@ De volgende code maakt de [MobileServiceClient] [ 12] -object dat wordt gebruikt
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-Vervang in de bovenstaande code `MOBILE_APP_URL` met de URL van de back-end van de mobiele App, die is gevonden in de blade voor uw mobiele App back-end in de [Azure Portal]. Het object MobileServiceClient moet een singleton.
+Vervang in de bovenstaande code `MOBILE_APP_URL` met de URL van de back-end van de mobiele App, die is gevonden in de blade voor uw mobiele App back-end in de [Azure-portal]. Het object MobileServiceClient moet een singleton.
 
 ## <a name="work-with-tables"></a>Werken met tabellen
 De volgende sectie wordt uitgelegd hoe om te zoeken en records ophalen en de gegevens in de tabel wijzigen.  De volgende onderwerpen komen aan bod:
@@ -654,7 +654,7 @@ U kunt de Active Directory Authentication Library (ADAL) te initiëren gebruiker
 2. Open uw project in Visual Studio of Xamarin Studio, en voeg een verwijzing naar de `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet-pakket. Wanneer u zoekt, neemt u voorlopige versies.
 3. Voeg de volgende code aan uw toepassing, op basis van het platform dat u gebruikt. In elk, moet u de volgende vervangingen:
 
-   * Vervang **INSERT-instantie-HERE** met de naam van de tenant waarin u uw toepassing hebt ingericht. De indeling moet https://login.microsoftonline.com/contoso.onmicrosoft.com. Deze waarde kan worden gekopieerd vanaf het tabblad domein in uw Azure Active Directory in de [Azure Portal].
+   * Vervang **INSERT-instantie-HERE** met de naam van de tenant waarin u uw toepassing hebt ingericht. De indeling moet https://login.microsoftonline.com/contoso.onmicrosoft.com. Deze waarde kan worden gekopieerd vanaf het tabblad domein in uw Azure Active Directory in de [Azure-portal].
    * Vervang **INSERT-RESOURCE-ID-HERE** met de client-ID voor de back-end van uw mobiele app. U vindt de client-ID van de **Geavanceerd** tabblad onder **Azure Active Directory-instellingen** in de portal.
    * Vervang **INSERT-CLIENT-ID-HERE** met de client-ID die u hebt gekopieerd uit de toepassing native client.
    * Vervang **INSERT-OMLEIDINGS-URI-HERE** met van uw site */.auth/login/done* eindpunt, met behulp van het HTTPS-schema. Deze waarde moet zijn vergelijkbaar met *https://contoso.azurewebsites.net/.auth/login/done*.
@@ -663,10 +663,10 @@ U kunt de Active Directory Authentication Library (ADAL) te initiëren gebruiker
 
      **Windows:**
 
-    ```csharp
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
+     ```csharp
+     private MobileServiceUser user;
+     private async Task AuthenticateAsync()
+     {
 
         string authority = "INSERT-AUTHORITY-HERE";
         string resourceId = "INSERT-RESOURCE-ID-HERE";
@@ -694,15 +694,15 @@ U kunt de Active Directory Authentication Library (ADAL) te initiëren gebruiker
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
-    }
-    ```
+     }
+     ```
 
      **Xamarin.iOS**
 
-    ```csharp
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync(UIViewController view)
-    {
+     ```csharp
+     private MobileServiceUser user;
+     private async Task AuthenticateAsync(UIViewController view)
+     {
 
         string authority = "INSERT-AUTHORITY-HERE";
         string resourceId = "INSERT-RESOURCE-ID-HERE";
@@ -722,15 +722,15 @@ U kunt de Active Directory Authentication Library (ADAL) te initiëren gebruiker
         {
             Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
         }
-    }
-    ```
+     }
+     ```
 
      **Xamarin.Android**
 
-    ```csharp
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
+     ```csharp
+     private MobileServiceUser user;
+     private async Task AuthenticateAsync()
+     {
 
         string authority = "INSERT-AUTHORITY-HERE";
         string resourceId = "INSERT-RESOURCE-ID-HERE";
@@ -753,14 +753,14 @@ U kunt de Active Directory Authentication Library (ADAL) te initiëren gebruiker
             builder.SetTitle("You must log in. Login Required");
             builder.Create().Show();
         }
-    }
-    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-    {
+     }
+     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+     {
 
         base.OnActivityResult(requestCode, resultCode, data);
         AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
-    }
-    ```
+     }
+     ```
 
 #### <a name="client-facebook"></a>Eenmalige aanmelding met een token van Facebook of Google
 U kunt de stroom kunt gebruiken, zoals wordt weergegeven in dit fragment voor Facebook of Google.
@@ -1068,7 +1068,7 @@ public class MyHandler : DelegatingHandler
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [waar]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Azure Portal]: https://portal.azure.com/
+[Azure-portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx

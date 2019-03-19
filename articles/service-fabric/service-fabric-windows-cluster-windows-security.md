@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: df836d46f244822c8c3dd35be6de08b0c4f34038
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 681ee66ca165ece170dd2a2ce2736cf55a44f1f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104077"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Een zelfstandige cluster beveiligen op Windows met behulp van Windows-beveiliging
 Om te voorkomen dat onbevoegde toegang tot een Service Fabric-cluster, moet u het cluster beveiligen. Beveiliging is vooral belangrijk wanneer het cluster wordt uitgevoerd voor werkbelastingen voor productie. In dit artikel wordt beschreven hoe u knooppunt-naar-knooppunt en client-naar-knooppunt om beveiligingsbeleid te configureren met behulp van Windows-beveiliging in de *ClusterConfig.JSON* bestand.  Het proces komt overeen met de stap van de beveiliging configureren van [maken van een zelfstandige cluster die worden uitgevoerd op Windows](service-fabric-cluster-creation-for-windows-server.md). Zie voor meer informatie over hoe Service Fabric Windows-beveiliging gebruikt [clusterbeveiligingsscenario's](service-fabric-cluster-security.md).
@@ -30,7 +30,7 @@ Om te voorkomen dat onbevoegde toegang tot een Service Fabric-cluster, moet u he
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Windows-beveiliging met behulp van gMSA configureren  
-Het voorbeeld *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuratiebestand is gedownload met de [Microsoft.Azure.ServiceFabric.WindowsServer.<version>. ZIP](https://go.microsoft.com/fwlink/?LinkId=730690) zelfstandige cluster pakket bevat een sjabloon voor het configureren van Windows-beveiliging via [groep beheerde serviceaccounts (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
+Het voorbeeld *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuratiebestand is gedownload met de [Microsoft.Azure.ServiceFabric.WindowsServer.<version> ZIP](https://go.microsoft.com/fwlink/?LinkId=730690) zelfstandige cluster pakket bevat een sjabloon voor het configureren van Windows-beveiliging via [groep beheerde serviceaccounts (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
 ```
 "security": {
@@ -52,13 +52,13 @@ Het voorbeeld *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuratiebestand
 | **Configuratie-instelling** | **Beschrijving** |
 | --- | --- |
 | ClusterCredentialType |Ingesteld op *Windows* naar het Windows-beveiliging inschakelen voor communicatie tussen knooppunten.  | 
-| ServerCredentialType |Ingesteld op *Windows* om in te schakelen van Windows-beveiliging voor de communicatie van client-knooppunt. |  
-| WindowsIdentities |Het cluster en de client-id's bevat. |  
-| ClustergMSAIdentity |Hiermee configureert u beveiliging van knooppunt-naar-knooppunt. Een groep beheerd serviceaccount. |  
-| ClusterSPN |Geregistreerde SPN voor een beheerd serviceaccount|  
-| ClientIdentities |Hiermee configureert u beveiliging van de client-naar-knooppunt. Een matrix van gebruikersaccounts van de client. | 
-| Identiteit |Voeg de domeingebruiker, domein\gebruikersnaam voor de clientidentiteit. |  
-| IsAdmin |Ingesteld op true om op te geven dat de domeingebruiker clienttoegang als beheerder of ONWAAR voor gebruiker clienttoegang heeft. |  
+| ServerCredentialType |Ingesteld op *Windows* om in te schakelen van Windows-beveiliging voor de communicatie van client-knooppunt. |
+| WindowsIdentities |Het cluster en de client-id's bevat. |
+| ClustergMSAIdentity |Hiermee configureert u beveiliging van knooppunt-naar-knooppunt. Een groep beheerd serviceaccount. |
+| ClusterSPN |Geregistreerde SPN voor een beheerd serviceaccount|
+| ClientIdentities |Hiermee configureert u beveiliging van de client-naar-knooppunt. Een matrix van gebruikersaccounts van de client. |
+| Identiteit |Voeg de domeingebruiker, domein\gebruikersnaam voor de clientidentiteit. |
+| IsAdmin |Ingesteld op true om op te geven dat de domeingebruiker clienttoegang als beheerder of ONWAAR voor gebruiker clienttoegang heeft. |
 
 > [!NOTE]
 > ClustergMSAIdentity waarde kan niet de domeinnaam bevatten en mag alleen bestaan uit de groepsnaam van de beheerde service-account. DAT WIL ZEGGEN "mysfgmsa" juist is, en beide "mijndomein / / mysfgmsa ' of 'mysfgmsa@mydomain' zijn ongeldig; als het domein wordt geïmpliceerd door de hostmachine.
@@ -86,7 +86,7 @@ Het volgende voorbeeld **security** sectie configureert u Windows-beveiliging me
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Windows-beveiliging met behulp van een Machinegroep configureren  
-Dit model wordt afgeschaft. De aanbeveling is het gebruik van gMSA zoals hierboven beschreven. Het voorbeeld *ClusterConfig.Windows.MultiMachine.JSON* configuratiebestand is gedownload met de [Microsoft.Azure.ServiceFabric.WindowsServer.<version>. ZIP](https://go.microsoft.com/fwlink/?LinkId=730690) zelfstandige cluster pakket bevat een sjabloon voor het configureren van Windows-beveiliging.  Windows-beveiliging is geconfigureerd in de **eigenschappen** sectie: 
+Dit model wordt afgeschaft. De aanbeveling is het gebruik van gMSA zoals hierboven beschreven. Het voorbeeld *ClusterConfig.Windows.MultiMachine.JSON* configuratiebestand is gedownload met de [Microsoft.Azure.ServiceFabric.WindowsServer.<version> ZIP](https://go.microsoft.com/fwlink/?LinkId=730690) zelfstandige cluster pakket bevat een sjabloon voor het configureren van Windows-beveiliging.  Windows-beveiliging is geconfigureerd in de **eigenschappen** sectie: 
 
 ```
 "security": {
@@ -104,10 +104,10 @@ Dit model wordt afgeschaft. De aanbeveling is het gebruik van gMSA zoals hierbov
 
 | **Configuratie-instelling** | **Beschrijving** |
 | --- | --- |
-| ClusterCredentialType |Ingesteld op *Windows* naar het Windows-beveiliging inschakelen voor communicatie tussen knooppunten.  | 
-| ServerCredentialType |Ingesteld op *Windows* om in te schakelen van Windows-beveiliging voor de communicatie van client-knooppunt. |  
-| WindowsIdentities |Het cluster en de client-id's bevat. |  
-| ClusterIdentity |Gebruik een machine-groepsnaam domain\machinegroup, beveiliging van knooppunt-naar-knooppunt configureren. |  
+| ClusterCredentialType |Ingesteld op *Windows* naar het Windows-beveiliging inschakelen voor communicatie tussen knooppunten.  |
+| ServerCredentialType |Ingesteld op *Windows* om in te schakelen van Windows-beveiliging voor de communicatie van client-knooppunt. |
+| WindowsIdentities |Het cluster en de client-id's bevat. |
+| ClusterIdentity |Gebruik een machine-groepsnaam domain\machinegroup, beveiliging van knooppunt-naar-knooppunt configureren. |
 | ClientIdentities |Hiermee configureert u beveiliging van de client-naar-knooppunt. Een matrix van gebruikersaccounts van de client. |  
 | Identiteit |Voeg de domeingebruiker, domein\gebruikersnaam voor de clientidentiteit. |  
 | IsAdmin |Ingesteld op true om op te geven dat de domeingebruiker clienttoegang als beheerder of ONWAAR voor gebruiker clienttoegang heeft. |  

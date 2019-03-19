@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: ec90c230674799d9b2f56f1659d61032d0eb834c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780946"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848674"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Aan de slag met Azure Notification Hubs die gebruikmaken van Baidu
 
@@ -132,8 +132,8 @@ Noteer de `DefaultListenSharedAccessSignature` en `DefaultFullSharedAccessSignat
 5. Voeg daarna Azure Notification Hubs-bibliotheken toe. Voeg in het bestand `Build.Gradle` voor de app de volgende regels toe in het gedeelte met afhankelijkheden.
 
     ```javascript
-    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
-    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
+    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
     Voeg de volgende opslagplaats toe na het gedeelte met afhankelijkheden.
@@ -141,7 +141,7 @@ Noteer de `DefaultListenSharedAccessSignature` en `DefaultFullSharedAccessSignat
     ```javascript
     repositories {
         maven {
-            url "http://dl.bintray.com/microsoftazuremobile/SDK"
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
         }
     }
     ```
@@ -161,7 +161,7 @@ Noteer de `DefaultListenSharedAccessSignature` en `DefaultFullSharedAccessSignat
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6. Download [Baidu Push Android SDK](http://push.baidu.com/doc/android/api) en pak deze uit. Kopieer het bestand `pushservice-x.y.z jar` in de map libs. Kopieer de `.so`-bestanden in de mappen in `src/main/jniLibs` (maak een nieuwe map) van uw Android-toepassing.
+6. Download [Baidu Push Android SDK](https://push.baidu.com/doc/android/api) en pak deze uit. Kopieer het bestand `pushservice-x.y.z jar` in de map libs. Kopieer de `.so`-bestanden in de mappen in `src/main/jniLibs` (maak een nieuwe map) van uw Android-toepassing.
 
     ![Azure Notification Hubs - Baidu SDK Libs](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
@@ -497,7 +497,7 @@ In dit gedeelte behandelen we hoe u een melding vanuit een .NET-console-app kunt
     Install-Package Microsoft.Azure.NotificationHubs
     ```
 
-    Hiermee wordt een verwijzing toegevoegd aan de Azure Notification Hubs-SDK met het [Microsoft.Azure.Notification Hubs NuGet-pakket](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+    Hiermee wordt een verwijzing toegevoegd aan de Azure Notification Hubs-SDK met het [Microsoft.Azure.Notification Hubs NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -537,6 +537,6 @@ U kunt een testmelding verzenden vanaf het foutopsporingstabblad van [Azure-port
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Android SDK Baidu Push]: http://push.baidu.com/sdk/push_client_sdk_for_android
+[Android SDK Baidu Push]: https://push.baidu.com/sdk/push_client_sdk_for_android
 [Azure-portal]: https://portal.azure.com/
-[Baidu Portal]: http://www.baidu.com/
+[Baidu Portal]: https://www.baidu.com/
