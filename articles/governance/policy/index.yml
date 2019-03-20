@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: db83cf4310cb4d74dcbbd290f650e4dcfc00c0c8
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: e389eb01faff93c0e45c66cded41e94ac3730715
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343703"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226025"
 documentType: LandingData
 title: Documentatie voor Azure Policy
 metadata:
@@ -15,7 +15,7 @@ metadata:
   manager: carmonm
   ms.service: azure-policy
   ms.topic: landing-page
-  ms.date: 01/23/2019
+  ms.date: 03/16/2019
   ms.author: dacoulte
 abstract:
   description: Azure Policy helpt u bij het beheren en voorkomen van IT-problemen met behulp van beleidsdefinities die regels en effecten voor uw resources afdwingen. Als u Azure Policy gebruikt, blijven uw resources voldoen aan uw bedrijfsnormen en service level agreements.
@@ -29,7 +29,7 @@ sections:
     items:
     - image:
         alt: Azure-portal
-        src: ./media/portal.svg
+        src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure-portal
       href: ./assign-policy-portal
     - image:
@@ -42,6 +42,11 @@ sections:
         src: ./media/cli.svg
       text: Azure-CLI
       href: ./assign-policy-azurecli
+    - image:
+        alt: Resource Manager-sjabloon
+        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
+      text: Resource Manager-sjabloon
+      href: ./assign-policy-template
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
@@ -50,15 +55,16 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Azure-beleid maken en beheren</a>
+    - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Een aangepaste beleidsdefinitie maken</a>
 - title: Voorbeelden
   items:
   - type: paragraph
-    text: Gebruik de volgende JSON-voorbeelden om beleidsdefinities te maken in Azure.
+    text: Bekijk de beschikbare voorbeelden om beleidsdefinities te maken in Azure.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/governance/policy/samples/index">Azure PowerShell</a>
+    - html: <a href="/azure/governance/policy/samples/index">Index van voorbeelden</a>
 - title: Naslaginformatie
   items:
   - type: list
@@ -66,8 +72,8 @@ sections:
     className: cardsD
     items:
     - title: Opdrachtregel
-      html: <p><a href="/cli/azure/policy">Azure-CLI</a></p>
-    - title: PowerShell
-      html: <p><a href="/powershell/module/az.resources/#policies">Azure PowerShell</a></p>
-    - title: REST-API
-      html: <p><a href="/rest/api/policy-insights/policyevents">Gebeurtenissen</a></p><p><a href="/rest/api/policy-insights/policystates">Statussen</a></p><p><a href="/rest/api/resources/policyassignments">Toewijzingen</a></p><p><a href="/rest/api/resources/policydefinitions">Beleidsdefinities</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiatiefdefinities</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Volgens beleid bijgehouden resources</a></p><p><a href="/rest/api/policy-insights/remediations">Herstelbewerkingen</a></p>
+      html: <p><a href="/cli/azure/policy">Azure-CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (beleid)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (beleidsinzichten)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (gastconfiguratie)</a></p>
+    - title: Resource Manager-sjablonen
+      html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Toewijzingen</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Beleidsdefinities</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Initiatiefdefinities</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/policy-insights/policyevents">Gebeurtenissen</a></p><p><a href="/rest/api/policy-insights/policystates">Statussen</a></p><p><a href="/rest/api/resources/policyassignments">Toewijzingen</a></p><p><a href="/rest/api/resources/policydefinitions">Beleidsdefinities</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiatiefdefinities</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Volgens beleid bijgehouden resources</a></p><p><a href="/rest/api/policy-insights/remediations">Herstelbewerkingen</a></p><p><a href="/rest/api/guestconfiguration/">Gastconfiguratie</a></p>

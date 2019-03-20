@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8caeb6ad79f82ecb86da313cca901cb3a16b6d5c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8385fe5ecb9a6e17d872795ba4eff5c038e4df47
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004703"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199866"
 documentType: LandingData
 title: Documentatie voor Azure Search
 metadata:
@@ -57,12 +57,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Werken met REST-API's voor cognitieve vaardigheden</a>
+    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Indexeren met AI (Cognitive Services)</a>
     - html: <a href="/azure/search/search-howto-dotnet-sdk">Azure Search gebruiken met .NET</a>
     - html: <a href="/azure/search/search-indexer-tutorial">Azure SQL Database-inhoud indexeren met .NET</a>
     - html: <a href="/azure/search/search-semi-structured-data">Semi-gestructureerde gegevens in Azure Blob Storage indexeren met REST</a>
-    - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Synoniemen toevoegen om resultaten te retourneren voor equivalente zoektermen</a>
-    - html: <a href="/azure/search/search-autocomplete-tutorial">Automatisch aanvullen met een zoekvak toevoegen met .NET</a>
     - html: <a href="/azure/search/search-get-started-portal">De portal gebruiken om te indexeren en query's te testen</a>
 - title: Naslaginformatie
   items:
