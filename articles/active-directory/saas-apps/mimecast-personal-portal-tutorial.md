@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 345b22be-d87e-45a4-b4c0-70a67eaf9bfd
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fd08de2711e8584b9f2bbe17716fe14400c8bf7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: ed7d8d1a2c2f8c515fa520f6701068e4655cad35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871370"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898581"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Zelfstudie: Azure Active Directory-integratie met de persoonlijke Portal Mimecast
 
@@ -53,7 +53,7 @@ Voor het configureren van de integratie van Mimecast Personal Portal in Azure AD
 
 **Voer de volgende stappen uit om Mimecast Personal Portal toe te voegen vanuit de galerie:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij Mimecast Perso
 
     a. Typ een URL in het tekstvak **Aanmeldings-URL**: 
 
-    | Regio  |  Waarde | 
+    | Regio  |  Value | 
     | --------------- | --------------- | 
     | Europa          | `https://eu-api.mimecast.com/login/saml`|
     | Verenigde Staten   | `https://us-api.mimecast.com/login/saml`|
@@ -117,7 +117,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij Mimecast Perso
 
     b. In het tekstvak **Id** typt u een URL met het volgende patroon:
 
-    | Regio  |  Waarde | 
+    | Regio  |  Value | 
     | --------------- | --------------- |
     | Europa          | `https://eu-api.mimecast.com/sso/<accountcode>`|
     | Verenigde Staten   | `https://us-api.mimecast.com/sso/<accountcode>`|    
@@ -127,7 +127,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij Mimecast Perso
 
     c. Typ een URL in het tekstvak **Antwoord-URL**: 
 
-    | Regio  |  Waarde | 
+    | Regio  |  Value | 
     | --------------- | --------------- | 
     | Europa          | `https://eu-api.mimecast.com/login/saml`|
     | Verenigde Staten   | `https://us-api.mimecast.com/login/saml`|
@@ -208,7 +208,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -267,7 +267,7 @@ U moet een domein registreren voordat u gebruikers kunt maken.
    
     ![Save](./media/mimecast-personal-portal-tutorial/ic795006.png "Save")
    
-    a. Typ in het tekstvak **Email Address** het **e-mailadres** van de gebruiker: **BrittaSimon@contoso.com**.
+    a. In de **e-mailadres** tekstvak, type **e-mailadres** van de gebruiker als **BrittaSimon\@contoso.com**.
     
     b. Typ in het tekstvak **Global Name** de **gebruikersnaam**: **BrittaSimon**.
 
@@ -280,7 +280,7 @@ U moet een domein registreren voordat u gebruikers kunt maken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel Mimecast Personal Portal in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van Mimecast Personal Portal waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

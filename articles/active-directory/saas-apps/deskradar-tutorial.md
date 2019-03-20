@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 5ff3e014-b79f-4a6c-bb0b-38462bea5d10
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 346db402bda2c56da2b5f711db29e4146ce34e75
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: ea17794a5ca57ae0d38d9a90857706cf380cab36
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864563"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deskradar"></a>Zelfstudie: Azure Active Directory-integratie met Deskradar
 
@@ -53,7 +53,7 @@ Voor het configureren van de integratie van Deskradar in Azure AD, moet u Deskra
 
 **Als u Deskradar wilt toevoegen vanuit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -124,7 +124,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], m
 
 7. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
 
-    | Naam | Bronkenmerk|
+    | Name | Bronkenmerk|
     | ---------------| --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
@@ -201,9 +201,9 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon** in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -242,7 +242,7 @@ In deze sectie maakt u een gebruiker met de naam Britta Simon in Deskradar. Neem
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 **Volg onderstaande stappen als u de toepassing wilt gebruiken in de door SP geïnitieerde modus:**
 

@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 87573b74f34e0a503db8f543da1d78a3c5b170f6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 74b1f854cfca6a280f1da5c6bdeeae4deb112f9c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753043"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857382"
 ---
 # <a name="create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>Maken en Ga naar ankers die gebruikmaken van Azure ruimtelijke ankers in C + +/ NDK
 
@@ -25,9 +25,11 @@ ms.locfileid: "56753043"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen verschillende apparaten. Als u wilt werken goed met uw favoriete ontwikkelomgeving tenantactiviteit. In dit artikel gaat we Duik in hoe u kunt dit doen in C + +/ NDK.
+Met Azure Spatial Anchors kunt u ankers delen tussen verschillende apparaten. Het ondersteunt verschillende ontwikkelomgevingen. In dit artikel gaat we Duik in hoe u kunt dit doen in C + +/ NDK.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
+
+Meer informatie over de [CloudSpatialAnchorSession](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession) struct.
 
 ```cpp
     std::shared_ptr<CloudSpatialAnchorSession> cloudSession_;
@@ -36,6 +38,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Meer informatie over de [SessionConfiguration](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionconfiguration) struct.
 
 ```cpp
     auto configuration = cloudSession_->Configuration();
@@ -51,8 +55,10 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
+Meer informatie over de [TokenRequiredDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/tokenrequireddelegate) delegeren.
+
 ```cpp
-    auto accessTokenRequiredToken = cloudSession_->AccessTokenRequired([](auto&&, auto&& args) {
+    auto accessTokenRequiredToken = cloudSession_->TokenRequired([](auto&&, auto&& args) {
         args->AccessToken(R"(MyAccessToken)");
     });
 ```
@@ -98,6 +104,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
+Meer informatie over de [Start](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#start) methode.
+
 ```cpp
     cloudSession_->Session(ar_session_);
     cloudSession_->Start();
@@ -105,11 +113,15 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
+Meer informatie over de [ProcessFrame](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#processframe) methode.
+
 ```cpp
     cloudSession_->ProcessFrame(ar_frame_);
 ```
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
+
+Meer informatie over de [SessionUpdatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionupdateddelegate) delegeren.
 
 ```cpp
     auto sessionUpdatedToken = cloudSession_->SessionUpdated([this](auto&&, auto&& args) {
@@ -124,6 +136,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Meer informatie over de [CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor) struct.
 
 ```cpp
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
@@ -175,6 +189,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Meer informatie over de [GetSessionStatusAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getsessionstatusasync) methode.
+
 ```cpp
     cloudSession_->GetSessionStatusAsync([this](Status status, const std::shared_ptr<SessionStatus>& value) {
         if (status != Status::OK) {
@@ -190,6 +206,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
+Meer informatie over de [AppProperties](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#appproperties) methode.
+
 ```cpp
     std::shared_ptr<CloudSpatialAnchor> cloudAnchor = std::make_shared<CloudSpatialAnchor>();
     cloudAnchor->LocalAnchor(localAnchor);
@@ -202,6 +220,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
+
+Meer informatie over de [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#updateanchorpropertiesasync) methode.
 
 ```cpp
     std::shared_ptr<CloudSpatialAnchor> anchor = /* locate your anchor */;
@@ -217,6 +237,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Meer informatie over de [GetAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getanchorpropertiesasync) methode.
 
 ```cpp
     cloudSession_->GetAnchorPropertiesAsync(R"(anchorId)", [this](Status status, const std::shared_ptr<CloudSpatialAnchor>& anchor) {
@@ -238,6 +260,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Meer informatie over de [verlopen](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#expiration) methode.
+
 ```cpp
     std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
     std::chrono::system_clock::time_point oneWeekFromNow = now + std::chrono::hours(7 * 24);
@@ -247,6 +271,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
+Meer informatie over de [CreateWatcher](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#createwatcher) methode.
+
 ```cpp
     auto criteria = std::make_shared<AnchorLocateCriteria>();
     criteria->Identifiers({ R"(id1)", R"(id2)", R"(id3)" });
@@ -254,6 +280,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Meer informatie over de [AnchorLocated](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/anchorlocateddelegate) delegeren.
 
 ```cpp
     auto anchorLocatedToken = cloudSession_->AnchorLocated([this](auto&&, auto&& args) {
@@ -281,6 +309,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Meer informatie over de [DeleteAnchorAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#deleteanchorasync) methode.
+
 ```cpp
     cloudSession_->DeleteAnchorAsync(cloudAnchor, [this](Status status) {
         // Perform any processing you may want when delete finishes
@@ -289,11 +319,15 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Meer informatie over de [stoppen](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#stop) methode.
+
 ```cpp
     cloudSession_->Stop();
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
+
+Meer informatie over de [opnieuw](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#reset) methode.
 
 ```cpp
     cloudSession_->Reset();

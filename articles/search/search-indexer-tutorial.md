@@ -1,32 +1,31 @@
 ---
 title: Zelfstudie voor het indexeren van Azure SQL-databases in Azure Portal - Azure Search
-description: In deze zelfstudie verkent u een Azure SQL-database om doorzoekbare gegevens op te halen en een Azure Search-index te vullen.
+description: In deze zelfstudie, verbinding maken met Azure SQL-database, doorzoekbare gegevens ophalen en deze te laden in een Azure Search-index.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e23c9e04d06e509cba32c728ae6f86e1328d88cc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4e94f4c1b5de47e36dd9a5be6b9e7f43d264de82
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111069"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201395"
 ---
 # <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Zelfstudie: Een Azure SQL-database verkennen met de indexeerfuncties van Azure Search
 
-In deze zelfstudie ziet u hoe u een indexeerfunctie configureert die doorzoekbare gegevens uit een Azure SQL-voorbeelddatabase ophaalt. [Indexeerfuncties](search-indexer-overview.md) zijn onderdelen van Azure Search die externe gegevensbronnen verkennen en een [zoekindex](search-what-is-an-index.md) vullen met inhoud. Van alle indexeerfuncties is de indexeerfunctie voor Azure SQL Database de meest gebruikte. 
+Informatie over het configureren van een indexeerfunctie die doorzoekbare gegevens uit een voorbeeld van Azure SQL-database. [Indexeerfuncties](search-indexer-overview.md) zijn onderdelen van Azure Search die externe gegevensbronnen verkennen en een [zoekindex](search-what-is-an-index.md) vullen met inhoud. De indexeerfunctie voor Azure SQL Database is van alle indexeerfuncties is de meest gebruikte. 
 
 Een goede vaardigheid in het configureren van indexeerfuncties is nuttig omdat dit de hoeveelheid code die u moet schrijven en onderhouden vereenvoudigt. In plaats van een schemacompatibele JSON-gegevensset voor te bereiden en te pushen, kunt u een indexeerfunctie koppelen aan een gegevensbron en de indexeerfunctie gegevens laten ophalen en in een index plaatsen. U kunt de indexeerfunctie eventueel uitvoeren volgens een terugkerend schema om zo wijzigingen in de onderliggende gegevensbron op te halen.
 
-In deze zelfstudie gebruikt u de [clientbibliotheken van Azure Search .NET](https://aka.ms/search-sdk) en een .NET Core-consoletoepassing om de volgende taken uit te voeren:
+In deze zelfstudie gebruikt u de [Azure Search .NET-clientbibliotheken](https://aka.ms/search-sdk) en een .NET Core-consoletoepassing voor het uitvoeren van de volgende taken:
 
 > [!div class="checklist"]
-> * De oplossing downloaden en configureren
 > * Informatie over de zoekservice toevoegen aan toepassingsinstellingen
 > * Een externe gegevensset voorbereiden in Azure SQL Database 
 > * De definities van de index en indexeerfunctie in de voorbeeldcode controleren
@@ -38,16 +37,16 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Azure Search-service. Zie [Een zoekservice maken](search-create-service-portal.md) voor meer informatie over het instellen hiervan.
+[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken.
 
-* Een Azure SQL-database met de externe gegevensbron die wordt gebruikt door een indexeerfunctie. De voorbeeldoplossing biedt een SQL-gegevensbestand om de tabel te maken.
+* Een [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) leveren van de externe gegevensbron die wordt gebruikt door een indexeerfunctie. De voorbeeldoplossing biedt een SQL-gegevensbestand om de tabel te maken.
 
-* Visual Studio 2017. U kunt de gratis [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) gebruiken. 
+* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alle edities. Voorbeeldcode en instructies zijn getest op de gratis Community-versie.
 
 > [!Note]
 > Als u de gratis Azure Search-service gebruikt, bent u beperkt tot drie indexen, drie indexeerfuncties en drie gegevensbronnen. In deze zelfstudie wordt één exemplaar van elk onderdeel gemaakt. Zorg ervoor dat uw service voldoende ruimte heeft voor de nieuwe resources.
 
-## <a name="download-the-solution"></a>De oplossing downloaden
+### <a name="download-the-solution"></a>De oplossing downloaden
 
 De indexeeroplossing in deze zelfstudie is afkomstig uit een verzameling Azure Search-voorbeelden die in één grote download wordt aangeboden. De oplossing die voor deze zelfstudie wordt gebruikt, is *DotNetHowToIndexers*.
 
@@ -63,7 +62,7 @@ De indexeeroplossing in deze zelfstudie is afkomstig uit een verzameling Azure S
 
 6. Klik in **Solution Explorer** met de rechtermuisknop op de bovenste bovenliggende oplossing > **Restore Nuget Packages**.
 
-## <a name="set-up-connections"></a>Verbindingen instellen
+### <a name="set-up-connections"></a>Verbindingen instellen
 Verbindingsgegevens voor benodigde services worden opgegeven in het bestand **appsettings.json** in de oplossing. 
 
 Open **appsettings.json** in Solution Explorer, zodat u elke instelling kunt invoeren op basis van de instructies in deze zelfstudie.  
@@ -105,7 +104,7 @@ U vindt het eindpunt van de zoekservice en de sleutel in de portal. Een sleutel 
    }
    ```
 
-## <a name="prepare-an-external-data-source"></a>Een externe gegevensbron voorbereiden
+## <a name="prepare-sample-data"></a>Voorbeeldgegevens voorbereiden
 
 In deze stap maakt u een externe gegevensbron die een indexeerfunctie kan verkennen. Het gegevensbestand voor deze zelfstudie is *hotels.sql*, in de oplossingsmap \DotNetHowToIndexers. 
 

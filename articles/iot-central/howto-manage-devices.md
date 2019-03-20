@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 59f4dffb64b0e72e8847f0b1baf947ad1d732063
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1e67c22a55068ce42cb1eb6d9c0c9bdf8215f44e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766567"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167980"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-new-ui-design"></a>Beheer van apparaten in uw Azure IoT Central-toepassing (nieuwe gebruikersinterface ontwerp)
 
@@ -23,7 +23,6 @@ Dit artikel wordt beschreven hoe u, als operator voor het beheren van apparaten 
 - Onderhouden een actuele inventaris van uw apparaten.
 - De metagegevens van uw apparaten up-to-date houden door de waarden die zijn opgeslagen in de apparaateigenschappen te wijzigen.
 - De werking van uw apparaten beheren door het bijwerken van een instelling op een specifiek apparaat uit de **instellingen** pagina.
-
 
 ## <a name="view-your-devices"></a>Uw apparaten weergeven
 
@@ -104,7 +103,7 @@ Als u apparaten registreren met het starten van de import onder **niet-gekoppeld
 
 ## <a name="export-devices"></a>Apparaten exporteren
 
-Als u wilt een echt apparaat verbinden met IoT Central, moet u de verbindingsreeks. U kunt details van het apparaat in één bulkbewerking om op te halen en verbindingsreeksen en andere eigenschappen exporteren. Het exportproces maakt een CSV-bestand met de apparaat-id, de apparaatnaam en het primaire verbindingsreeks voor de geselecteerde apparaten.
+Als u wilt een echt apparaat verbinden met IoT Central, moet u de verbindingsreeks. U kunt Apparaatdetails bulksgewijs om op te halen van de informatie die u wilt maken van verbindingsreeksen apparaat exporteren. Het exportproces maakt een CSV-bestand met de apparaat-id, de apparaatnaam en de sleutels voor de geselecteerde apparaten.
 
 Bulksgewijs export-apparaten van uw toepassing:
 
@@ -130,8 +129,10 @@ Bulksgewijs export-apparaten van uw toepassing:
     * IOTC_DEVICENAME
     * IOTC_SASKEY_PRIMARY
     * IOTC_SASKEY_SECONDARY
-    * IOTC_X509THUMBPRINT_PRIMARY   
+    * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
+
+Zie [verbindingsmogelijkheden voor apparaten in Azure IoT Central](concepts-connectivity.md), voor meer informatie over verbindingsreeksen en verbindende apparaten aan uw IoT Central-toepassing.
 
 ## <a name="delete-a-device"></a>Een apparaat verwijderen
 

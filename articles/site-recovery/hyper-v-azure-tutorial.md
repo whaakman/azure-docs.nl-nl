@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: ac214e9d29bade37bcb00f804859db730131752b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810692"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087326"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Herstel na noodgevallen instellen voor on-premises Hyper-V-VM's naar Azure
 
@@ -137,7 +137,7 @@ Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -
 4. Selecteer het opslagaccount **contosovmsacct1910171607**, dat in de vorige zelfstudie voor gerepliceerde gegevens is gemaakt, en het netwerk **ContosoASRnet**, waarin Azure-VM's na failover worden geplaatst.
 5. Selecteer in **Virtuele machines** > **Selecteren** de VM's die u wilt repliceren. Klik vervolgens op **OK**.
 
- U kunt de voortgang van de actie **Beveiliging inschakelen** volgen via **Taken** > **Site Recovery-taken**. Wanneer de taak **De beveiliging voltooien** is voltooid, is de initiële replicatie voltooid en is de virtuele machine klaar voor failover.
+   U kunt de voortgang van de actie **Beveiliging inschakelen** volgen via **Taken** > **Site Recovery-taken**. Wanneer de taak **De beveiliging voltooien** is voltooid, is de initiële replicatie voltooid en is de virtuele machine klaar voor failover.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Noodherstelanalyse uitvoeren](tutorial-dr-drill-azure.md)

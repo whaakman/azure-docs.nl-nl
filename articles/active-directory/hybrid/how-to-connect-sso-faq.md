@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11ebb8bbeb2a58cad41294b6bba805585127844a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442390"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085368"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: Veelgestelde vragen
 
@@ -47,7 +47,7 @@ Hieronder vindt u een niet-volledige lijst met toepassingen die deze parameters 
 | -- | -- |
 | Toegangsvenster | https://myapps.microsoft.com/contoso.com |
 | Webversie van Outlook | https://outlook.office365.com/contoso.com |
-| Office 365-portals | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
+| Office 365-portals | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
 
 Bovendien krijgen gebruikers een ervaring voor op de achtergrond als een toepassing aanmeldingsaanvragen naar Azure AD-eindpunten instellen als tenants - dat wil zeggen verzendt, https://login.microsoftonline.com/contoso.com/<..> of https://login.microsoftonline.com/<tenant_ID>/<..> : in plaats van Azure AD gemeenschappelijk eindpunt - dat wil zeggen, https://login.microsoftonline.com/common/<...>. Hieronder vindt u een niet-volledige lijst met toepassingen die dit aanmeldingsaanvragen soort.
 
@@ -95,8 +95,8 @@ Volg deze stappen op de on-premises server waarop Azure AD Connect:
 
 1. Bel `$creds = Get-Credential`. Wanneer u wordt gevraagd, typt u de domeinbeheerder-referenties voor het beoogde AD-forest.
 
-    >[!NOTE]
-    >We gebruiken de domeinbeheerder username, opgegeven in de User Principal namen (UPN) (johndoe@contoso.com) indeling of domein gekwalificeerde sam-account,-naam (contoso\janjansen of contoso.com\johndoe), om te vinden van de beoogde AD-forest. Als u de domeinnaam van de gekwalificeerde sam-account gebruikt, gebruiken we het domeingedeelte van de gebruikersnaam voor [vinden van de domeincontroller van de beheerder van het domein met behulp van DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Als u de UPN in plaats daarvan gebruiken we [vertaald in een domein gekwalificeerde sam-accountnaam](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) voordat het zoeken naar de desbetreffende domeincontroller.
+   > [!NOTE]
+   > We gebruiken de domeinbeheerder username, opgegeven in de User Principal namen (UPN) (johndoe@contoso.com) indeling of domein gekwalificeerde sam-account,-naam (contoso\janjansen of contoso.com\johndoe), om te vinden van de beoogde AD-forest. Als u de domeinnaam van de gekwalificeerde sam-account gebruikt, gebruiken we het domeingedeelte van de gebruikersnaam voor [vinden van de domeincontroller van de beheerder van het domein met behulp van DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Als u de UPN in plaats daarvan gebruiken we [vertaald in een domein gekwalificeerde sam-accountnaam](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) voordat het zoeken naar de desbetreffende domeincontroller.
 
 2. Bel `Update-AzureADSSOForest -OnPremCredentials $creds`. Deze opdracht werkt de ontsleutelingssleutel Kerberos voor de `AZUREADSSOACC` computeraccount in deze specifieke AD-forest en bijgewerkt in Azure AD.
 3. Herhaal de voorgaande stappen voor elk AD-forest dat u de functie hebt ingesteld op.

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: f00cc893f21db302c2efe63da285c8843958b1ee
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 55cb9564205c99abc868413ebf43e575999198ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731239"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183693"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Quickstart: Woorden opzoeken in een tweetalige woordenlijst met Python
 
@@ -32,7 +32,7 @@ Voor deze snelstart zijn de volgende zaken vereist:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Een project maken en de vereiste modules importeren
 
-Maak een nieuw Python-project met uw favoriete IDE of editor. Kopieer dit codefragment naar uw project in een bestand met de naam `dictionary-lookup.py`.
+Maak een nieuwe Python-project met behulp van uw favoriete IDE of editor, of maak een nieuwe map op uw bureaublad. Dit codefragment kopiëren naar de projectmap in een bestand met de naam `dictionary-lookup.py`.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -60,8 +60,8 @@ else:
     print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
     exit()
 # If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
+# below and add your subscription key. Then, be sure to delete your "os" import.
+# subscriptionKey = 'put_your_key_here'
 ```
 
 Het globaal eindpunt voor de Translator Text is ingesteld als de `base_url`. Met `path` wordt de `dictionary/lookup`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
@@ -123,7 +123,7 @@ print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separat
 Dat was het. U hebt een eenvoudig programma gemaakt dat we de Translator Text-API zullen noemen. Er is een JSON-antwoord geretourneerd. Het is nu tijd om uw programma uit te voeren:
 
 ```console
-python dictionary-lookup.py
+python alt-translations.py
 ```
 
 Als u uw code graag wilt vergelijken met de onze, kunt u het volledige voorbeeld vinden op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 56a7478ab7221a1ccb4394a245540d3181e4ad8e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8d14d9191e74cb59c6696568ead425fca61d6f7c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155575"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873900"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Een service uitvoeren als door een groep beheerd serviceaccount
 Op een zelfstandige cluster van Windows Server, kunt u een service uitvoeren als een groep beheerd-serviceaccount (gMSA) met behulp van een RunAs-beleid.  Standaard wordt Service Fabric-toepassingen uitvoeren onder het account dat de Fabric.exe-proces wordt uitgevoerd onder. Uitvoeren van toepassingen onder verschillende accounts, zelfs in een gedeelde omgeving, zorgt ervoor dat ze beter te beveiligen van elkaar. Houd er rekening mee dat dit maakt gebruik van on-premises Active Directory in uw domein en niet Azure Active Directory (Azure AD). Met behulp van een gMSA, is er geen wachtwoord of het versleutelde wachtwoord opgeslagen in het toepassingsmanifest.  U kunt ook uitvoeren met een service als een [Active Directory-gebruiker of groep](service-fabric-run-service-as-ad-user-or-group.md).
@@ -48,7 +48,7 @@ Vereisten:
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+    <ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
         <ServiceManifestImport>
           <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
           <ConfigOverrides />
@@ -68,7 +68,8 @@ Vereisten:
 > Als u een Run as-beleid op een service toepassen en het servicemanifest eindpunt resources met de HTTP-protocol verklaart, moet u een **SecurityAccessPolicy**.  Zie voor meer informatie, [toewijzen van een beveiligingsbeleid voor toegang voor HTTP en HTTPS-eindpunten](service-fabric-assign-policy-to-endpoint.md). 
 >
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> Lees de volgende stap, de volgende artikelen:
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+Lees de volgende stap, de volgende artikelen:
 * [Inzicht krijgen in het toepassingsmodel](service-fabric-application-model.md)
 * [Resources specificeren in een servicemanifest](service-fabric-service-manifest-resources.md)
 * [Een app implementeren](service-fabric-deploy-remove-applications.md)

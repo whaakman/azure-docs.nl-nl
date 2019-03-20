@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.topic: conceptual
-ms.openlocfilehash: dee0f55d816cae3b178990a432c37d3082d26de3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 195c39562e36000597d04bb760741ec7f40203c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844670"
 ---
 # <a name="data-filtering"></a>Gegevens filteren
 
@@ -45,7 +45,7 @@ Aangepaste Translator Hiermee verwijdert u de zinnen die aanwezig zijn in de tes
 Meerdere zin end-leestekens vervangen door één exemplaar.  
 
 ## <a name="japanese-character-normalization"></a>Japans teken normalisering
-Dubbele Japanse tekens normaliseren: Halve breedte converteren naar volledige breedte tekens.
+Volledige breedte letters en cijfers converteren naar halve breedte tekens.
 
 ## <a name="unescaped-xml-tags"></a>Unescaped XML-tags
 Transformaties unescaped tags met escape-teken tags filteren:

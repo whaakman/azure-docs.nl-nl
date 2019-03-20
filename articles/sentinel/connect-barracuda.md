@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 8cfe902ff8a679dfeaee49cbf0631530e53cf0d4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 453af401f3b6120345cbe489fbfc323eca464ade
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240181"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092273"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Verbinding maken met uw Barracuda-apparaat 
 
@@ -30,8 +30,8 @@ ms.locfileid: "57240181"
 Barracuda Web Application Firewall (WAF)-connector kunt u eenvoudig verbinding maken met uw Barracuda-logboeken met uw Azure Sentinel, dashboards weergeven, aangepaste waarschuwingen maken en onderzoek te verbeteren. Dit biedt u meer inzicht in het netwerk van uw organisatie en verbetert uw mogelijkheden voor beveiliging bewerking. Azure Sentinel maakt gebruik van de ingebouwde integratie tussen **Barracuda** en Microsoft Azure-OMS om naadloze integratie te bieden. 
 
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > - Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>Configureren en verbinden van Barracuda WAF

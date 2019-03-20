@@ -15,12 +15,12 @@ ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: eb5d1ca55efed7e83739f21a432b61b6aad25f70
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194007"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101870"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Hosting-servers voor de MySQL-resourceprovider toevoegen
 
@@ -44,9 +44,9 @@ Zorg ervoor dat u hebt de referenties voor een account met systeembeheerdersbevo
 4. Geef de details van de verbinding van uw MySQL-Server-exemplaar.
 
    * Voor **naam van MySQL-Server die als host fungeert**, geef de volledig gekwalificeerde domeinnaam (FQDN) of een geldig IPv4-adres. Gebruik niet de korte naam van de virtuele machine.
-   - De beheerder van de standaard **gebruikersnaam** voor u de Bitnami MySQL installatiekopieën beschikbaar in de Azure Stack marketplace is *hoofdmap*. 
-   - Als u niet dat de hoofdmap weet **wachtwoord**, Zie de [Bitnami documentatie](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) voor informatie over het downloaden. 
-   - Een standaardexemplaar van de MySQL is niet opgegeven, dus u hoeft op te geven de **grootte van de host-Server in GB**. Voer een grootte die zich in de buurt van de capaciteit van de database-server.
+   * De beheerder van de standaard **gebruikersnaam** voor u de Bitnami MySQL installatiekopieën beschikbaar in de Azure Stack marketplace is *hoofdmap*. 
+   * Als u niet dat de hoofdmap weet **wachtwoord**, Zie de [Bitnami documentatie](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) voor informatie over het downloaden. 
+   * Een standaardexemplaar van de MySQL is niet opgegeven, dus u hoeft op te geven de **grootte van de host-Server in GB**. Voer een grootte die zich in de buurt van de capaciteit van de database-server.
    * Laat de standaardinstelling voor **abonnement**.
    * Voor **resourcegroep**, een nieuwe maken of een bestaande groep gebruiken.
 
@@ -60,8 +60,8 @@ Zorg ervoor dat u hebt de referenties voor een account met systeembeheerdersbevo
    De SKU **naam** te relateren aan de eigenschappen van de SKU, zodat gebruikers hun databases op de juiste-SKU implementeren kunnen.
 
 6. Selecteer **OK** te maken van de SKU.
-> [!NOTE]
-> SKU's kunnen een uur duren om te worden weergegeven in de portal. U kunt een database kan niet maken, totdat de SKU geïmplementeerd en wordt uitgevoerd is.
+   > [!NOTE]
+   > SKU's kunnen een uur duren om te worden weergegeven in de portal. U kunt een database kan niet maken, totdat de SKU geïmplementeerd en wordt uitgevoerd is.
 
 7. Onder **toevoegen van een MySQL-Server die als host fungeert**, selecteer **maken**.
 

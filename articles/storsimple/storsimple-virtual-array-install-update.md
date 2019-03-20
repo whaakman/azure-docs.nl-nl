@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21c10c4bf19d4bf72c4ec5005bb95353ed00c7aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7bf064ff01693f7a65c756a99c435d7f1a39840e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256949"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010130"
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Updates installeren op uw StorSimple Virtual Array - Azure portal
 
@@ -49,7 +49,7 @@ Voer de volgende stappen uit om de software-update te downloaden uit de Microsof
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>De update of de hotfix te downloaden
 
-1. Start Internet Explorer en navigeer naar [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
+1. Start Internet Explorer en navigeer naar [ https://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Als dit de eerste keer is dat u de Microsoft Update-catalogus op deze computer gebruikt, klikt u op **Installeren** wanneer u wordt gevraagd of u de invoegtoepassing voor de Microsoft Update-catalogus wilt installeren.
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 7432cbf8fae098c0753641f2002b72eaab3ddbb4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321735"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57851360"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: Een toepassing met een ASP.NET Core web-API front-end service en een stateful back-endservice maken en implementeren
 
@@ -187,7 +187,7 @@ Open **Views/Shared/_Layout.cshtml**, de standaardindeling voor de ASP.NET-app. 
 
 ```html
 <!DOCTYPE html>
-<html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
+<html ng-app="VotingApp" xmlns:ng="https://angularjs.org">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -621,22 +621,22 @@ Als u wilt zien wat er in de code gebeurt, moet u de volgende stappen uitvoeren:
 4. Ga terug naar de browser en klik op een stemoptie of voeg een nieuwe stemoptie toe. U komt uit bij het eerste onderbrekingspunt in de API-controller van de web-front-end.
     
 
-    1. Dit is het punt waarop door JavaScript in de browser een aanvraag wordt verzonden naar de web-API-controller in de front-endservice.
+   1. Dit is het punt waarop door JavaScript in de browser een aanvraag wordt verzonden naar de web-API-controller in de front-endservice.
 
-    ![Front-endservice van Vote toevoegen](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+      ![Front-endservice van Vote toevoegen](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. Maak eerst de URL naar de ReverseProxy voor de back-endservice **(1)**.
-    3. Verzend vervolgens de HTTP PUT-aanvraag naar de ReverseProxy **(2)**.
-    4. Tot slot wordt het antwoord van de back-endservice naar de client geretourneerd **(3)**.
+   2. Maak eerst de URL naar de ReverseProxy voor de back-endservice **(1)**.
+   3. Verzend vervolgens de HTTP PUT-aanvraag naar de ReverseProxy **(2)**.
+   4. Tot slot wordt het antwoord van de back-endservice naar de client geretourneerd **(3)**.
 
 5. Druk op **F5** om verder te gaan.
-    1. U bent nu op het onderbrekingspunt in de back-endservice aanbeland.
+   1. U bent nu op het onderbrekingspunt in de back-endservice aanbeland.
 
-    ![Back-endservice Vote toevoegen](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+      ![Back-endservice Vote toevoegen](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. Gebruik in de eerste regel in de methode **(1)** de `StateManager` om een betrouwbare woordenlijst met de naam `counts` op te halen of toe te voegen.
-    3. Alle interacties met waarden in een betrouwbare woordenlijst vereisen een transactie, met deze instructie **(2)** wordt die transactie gemaakt.
-    4. Werk in de transactie de waarde bij van de relevante sleutel voor de stemoptie en voer de bewerking **(3)** door. Zodra de doorvoermethode resultaten retourneert, worden de gegevens bijgewerkt in de woordenlijst en gerepliceerd naar andere knooppunten in het cluster. De gegevens worden nu veilig opgeslagen in het cluster en de back-endservice kan een failover-overschakeling uitvoeren naar andere knooppunten, waarbij de gegevens beschikbaar blijven.
+   2. Gebruik in de eerste regel in de methode **(1)** de `StateManager` om een betrouwbare woordenlijst met de naam `counts` op te halen of toe te voegen.
+   3. Alle interacties met waarden in een betrouwbare woordenlijst vereisen een transactie, met deze instructie **(2)** wordt die transactie gemaakt.
+   4. Werk in de transactie de waarde bij van de relevante sleutel voor de stemoptie en voer de bewerking **(3)** door. Zodra de doorvoermethode resultaten retourneert, worden de gegevens bijgewerkt in de woordenlijst en gerepliceerd naar andere knooppunten in het cluster. De gegevens worden nu veilig opgeslagen in het cluster en de back-endservice kan een failover-overschakeling uitvoeren naar andere knooppunten, waarbij de gegevens beschikbaar blijven.
 6. Druk op **F5** om verder te gaan.
 
 Als u de foutopsporingssessie wilt stoppen, drukt u op **Shift+F5**.

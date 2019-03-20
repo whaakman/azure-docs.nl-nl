@@ -6,18 +6,18 @@ documentationcenter: na
 author: ggailey777
 manager: jeconnoc
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e08d76199817dfe15ba190d2deedf450c986c65a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 941a35084ba811e3bf9224087336db9abbd5b5d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904281"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137841"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Een door Azure Cosmos DB geactiveerde functie maken
 
@@ -60,7 +60,7 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
 1. Typ `cosmos` in het zoekveld en kies vervolgens de sjabloon **Azure Cosmos DB-trigger**.
 
-1. Als u hierom wordt gevraagd, selecteert u **Installeren** om de Azure Storage-extensie en alle eventuele afhankelijkheden in de functie-app te installeren. Wanneer de installatie is voltooid, selecteert u **Doorgaan**.
+1. Als u hierom wordt gevraagd, selecteert u **installeren** voor het installeren van de Azure Cosmos DB-extensie in de functie-app. Wanneer de installatie is voltooid, selecteert u **Doorgaan**.
 
     ![Binding-extensies installeren](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 
@@ -68,7 +68,7 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
     ![Maak de door Azure Cosmos DB geactiveerde functie](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
 
-    | Instelling      | Voorgestelde waarde  | Beschrijving                                |
+    | Instelling      | Voorgestelde waarde  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Naam** | Standaard | Gebruik de standaardnaam voor de functie die wordt voorgesteld in de sjabloon.|
     | **Verbinding met het Azure Cosmos DB-account** | Nieuwe instelling | Selecteer **Nieuw** en kies vervolgens uw **abonnement**, het **Database-account** dat u eerder hebt gemaakt, en **Selecteren**. Hiermee maakt u een toepassingsinstelling voor uw accountverbinding. Deze instelling wordt gebruikt door de binding om verbinding te maken met de database. |
@@ -102,7 +102,7 @@ Vervolgens maakt u verbinding met het Azure Cosmos DB-account en maakt u de verz
 
     ![De taskCollection definiëren](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
 
-    | Instelling|Voorgestelde waarde|Beschrijving |
+    | Instelling|Voorgestelde waarde|Description |
     | ---|---|--- |
     | **Database-id** | Taken |De naam voor de nieuwe database. Dit moet overeenkomen met de naam die is gedefinieerd in de functiebinding. |
     | **Verzamelings-id** | Items | De naam voor de nieuwe verzameling. Dit moet overeenkomen met de naam die is gedefinieerd in de functiebinding.  |

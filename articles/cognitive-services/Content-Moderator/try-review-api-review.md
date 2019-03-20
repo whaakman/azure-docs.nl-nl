@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: d963cdd484727ac46aed1915643dd92462e2c643
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2e40165bde7f3ce2eabd91b55c5bbc8139282b60
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857805"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101462"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Beoordelingen van de API-console maken
 
@@ -33,35 +33,35 @@ Als u wilt Maak een proefrit met de API met behulp van de online-console, moet u
 
 De eenvoudigste manier om toegang tot een testconsole is van de **referenties** venster.
 
-1.  In de **referenties** venster [revisie API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+1. In de **referenties** venster [revisie API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
-  De **controleren - maken** pagina wordt geopend.
+   De **controleren - maken** pagina wordt geopend.
 
-2.  Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie.
+2. Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie.
 
-  ![Controleren - pagina Regioselectie maken](images/test-drive-region.png)
+   ![Controleren - pagina Regioselectie maken](images/test-drive-region.png)
 
-  De **controleren - maken** API-console wordt geopend.
+   De **controleren - maken** API-console wordt geopend.
   
-3.  Geef waarden op voor de vereiste queryparameters, inhoudstype en de abonnementssleutel van uw. In de **aanvraagtekst** geeft u de inhoud (bijvoorbeeld installatiekopie-locatie), metagegevens en andere informatie die is gekoppeld aan de inhoud.
+3. Geef waarden op voor de vereiste queryparameters, inhoudstype en de abonnementssleutel van uw. In de **aanvraagtekst** geeft u de inhoud (bijvoorbeeld installatiekopie-locatie), metagegevens en andere informatie die is gekoppeld aan de inhoud.
 
-  ![Controleren - console queryparameters, headers en -vak voor hoofdtekst van aanvraag](images/test-drive-review-1.PNG)
+   ![Controleren - console queryparameters, headers en -vak voor hoofdtekst van aanvraag](images/test-drive-review-1.PNG)
   
-4.  Selecteer **Verzenden**. De ID van een toegangsbeoordeling is gemaakt. Kopieer deze ID in de volgende stappen gebruiken.
+4. Selecteer **Verzenden**. De ID van een toegangsbeoordeling is gemaakt. Kopieer deze ID in de volgende stappen gebruiken.
 
-  ![Controleren - console antwoord inhoud vak geeft de revisie-ID maken](images/test-drive-review-2.PNG)
+   ![Controleren - console antwoord inhoud vak geeft de revisie-ID maken](images/test-drive-review-2.PNG)
   
-5.  Selecteer **ophalen**, en open vervolgens de API door de knop die overeenkomt met uw regio te selecteren. Voer op de resulterende pagina, de waarden voor **teamName**, **ReviewID**, en **abonnementssleutel**. Selecteer de **verzenden** knop op de pagina. 
+5. Selecteer **ophalen**, en open vervolgens de API door de knop die overeenkomt met uw regio te selecteren. Voer op de resulterende pagina, de waarden voor **teamName**, **ReviewID**, en **abonnementssleutel**. Selecteer de **verzenden** knop op de pagina. 
 
-  ![Controleren - console Get resultaten maken](images/test-drive-review-3.PNG)
+   ![Controleren - console Get resultaten maken](images/test-drive-review-3.PNG)
   
-6.  Hier ziet u de resultaten van de scan.
+6. Hier ziet u de resultaten van de scan.
 
-  ![Controleren - vak console antwoord inhoud maken](images/test-drive-review-4.PNG)
+   ![Controleren - vak console antwoord inhoud maken](images/test-drive-review-4.PNG)
   
-7.  Selecteer op het Dashboard met Content Moderator, **revisie** > **installatiekopie**. De installatiekopie die u hebt gescand wordt weergegeven, klaar te maken voor menselijke beoordeling.
+7. Selecteer op het Dashboard met Content Moderator, **revisie** > **installatiekopie**. De installatiekopie die u hebt gescand wordt weergegeven, klaar te maken voor menselijke beoordeling.
 
-  ![Controleren of hulpprogramma installatiekopie van een voetbal](images/test-drive-review-5.PNG)
+   ![Controleren of hulpprogramma installatiekopie van een voetbal](images/test-drive-review-5.PNG)
 
 ## <a name="next-steps"></a>Volgende stappen
 

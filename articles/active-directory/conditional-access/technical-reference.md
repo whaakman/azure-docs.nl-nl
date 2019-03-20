@@ -16,12 +16,12 @@ ms.date: 03/12/2019
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e2e8a3c923f18d0e3d481539bb7278bc8fd7aaf
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b475eae337b7e6a7e26b3e5a7518be0e461c9fa4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792324"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170612"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
@@ -144,19 +144,19 @@ In het beleid voor voorwaardelijke toegang, kunt u **Browsers** als client-app.
 Deze instelling werkt met alle browsers. Echter, om te voldoen aan een apparaatbeleid, zoals een vereiste compatibel apparaat, de volgende besturingssystemen en browsers worden ondersteund:
 
 
-| Besturingssysteem                     | Browsers                            | Ondersteuning     |
+| OS                     | Browsers                            | Ondersteuning     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Vinkje][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Vinkje][1] |
-| Windows 7              | Internet Explorer, Chrome           | ![Vinkje][1] |
-| iOS                    | Safari, Intune Managed Browser      | ![Vinkje][1] |
-| Android                | Chrome, Intune Managed Browser      | ![Vinkje][1] |
-| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Vinkje][1] |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Vinkje][1] |
-| Windows Server 2016    | Chrome                              | Binnenkort |
-| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Vinkje][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Vinkje][1] |
-| macOS                  | Chrome, Safari                      | ![Vinkje][1] |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Selecteren][1] |
+| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Selecteren][1] |
+| Windows 7              | Internet Explorer, Chrome           | ![Selecteren][1] |
+| iOS                    | Safari, Intune Managed Browser      | ![Selecteren][1] |
+| Android                | Chrome, Intune Managed Browser      | ![Selecteren][1] |
+| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Selecteren][1] |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Selecteren][1] |
+| Windows Server 2016    | Chrome                              | Binnenkort beschikbaar |
+| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
+| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
+| macOS                  | Chrome, Safari                      | ![Selecteren][1] |
 
 
 
@@ -215,7 +215,7 @@ Deze instelling heeft een invloed op een poging toegang van de volgende mobiele 
 | Mobiele app van Outlook| Office 365 Exchange Online| Android, iOS|
 | Power BI-app| Power BI-service| Windows 10, Windows 8.1, Windows 7, Android en iOS|
 | Skype voor Bedrijven| Office 365 Exchange Online| Android, IOS|
-| Visual Studio Team Services-app| Visual Studio-teamservices| Windows 10, Windows 8.1, Windows 7, iOS en Android|
+| Visual Studio Team Services-app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS en Android|
 
 
 
@@ -242,7 +242,7 @@ Deze instelling geldt voor de volgende client-apps:
 - Microsoft Excel
 - Microsoft Flow
 - Microsoft Intune Managed Browser
-- Facturering van Microsoft
+- Microsoft Invoicing
 - Microsoft Kaizala 
 - Microsoft Launcher
 - Microsoft OneDrive

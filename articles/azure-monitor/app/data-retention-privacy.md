@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8218da62eb8c3d8c454ca1dca1bd1071e0de67b0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308751"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003590"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -156,12 +156,12 @@ Via code:
 
 - ServerTelemetryChannel verwijderen uit het configuratiebestand
 - Dit codefragment toevoegen aan uw configuratie:
-```csharp
-ServerTelemetryChannel channel = new ServerTelemetryChannel();
-channel.StorageFolder = @"D:\NewTestFolder";
-channel.Initialize(TelemetryConfiguration.Active);
-TelemetryConfiguration.Active.TelemetryChannel = channel;
-```
+  ```csharp
+  ServerTelemetryChannel channel = new ServerTelemetryChannel();
+  channel.StorageFolder = @"D:\NewTestFolder";
+  channel.Initialize(TelemetryConfiguration.Active);
+  TelemetryConfiguration.Active.TelemetryChannel = channel;
+  ```
 
 ### <a name="netcore"></a>NetCore
 
@@ -237,6 +237,7 @@ U kunt echter een dergelijke functie implementeren in uw toepassing. Alle SDK's 
 De SDK's variëren tussen platforms en er zijn verschillende onderdelen die u kunt installeren. (Raadpleeg [Application Insights - overzicht][start].) Elk onderdeel verzendt verschillende gegevens.
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Soorten gegevens die in verschillende scenario's worden verzonden
+
 | De actie | Gegevensklassen die worden verzameld (Zie de volgende tabel) |
 | --- | --- |
 | [Application Insights-SDK toevoegen aan een .NET-web-project][greenbrown] |ServerContext<br/>Afgeleid<br/>Prestatiemeteritems<br/>Aanvragen<br/>**Uitzonderingen**<br/>Sessie<br/>gebruikers |
@@ -252,6 +253,7 @@ De SDK's variëren tussen platforms en er zijn verschillende onderdelen die u ku
 Voor [SDK's voor andere platforms][platforms], Zie de documenten.
 
 #### <a name="the-classes-of-collected-data"></a>De klassen van de verzamelde gegevens
+
 | Klasse van de verzamelde gegevens | (Geen uitputtende lijst) bevat |
 | --- | --- |
 | **Eigenschappen** |**Alle gegevens - bepaald door uw code** |

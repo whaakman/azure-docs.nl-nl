@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2018
 ms.author: anshan
 ms.custom: include file
-ms.openlocfilehash: fb45ea02f365cf4e7b394e249f9b91a784e5469f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c9daa86bf36b260001d9969385b9e8a98a8ac0cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368671"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124996"
 ---
 ## <a name="grant-data-access"></a>Gegevenstoegang verlenen
 
@@ -33,12 +33,12 @@ Volg deze stappen voor het verlenen van toegang tot gegevens voor een gebruiker-
     ![Beheren van de Time Series Insights-bron - toevoegen](media/iot-tsi-data-access/getstarted-grant-data-access2.png)
 
 6. Selecteer **rol selecteren**. Kies de juiste rol voor de gebruiker:
-    - Selecteer **Inzender** als u wilt toestaan dat gebruiker referentiegegevens en delen die zijn opgeslagen query's en perspectieven met andere gebruikers van de omgeving wijzigen. 
-    - Selecteer anders **lezer** querygegevens van gebruikers toestaan in de omgeving en persoonlijke (niet-gedeelde) query's opslaan in de omgeving.
+   - Selecteer **Inzender** als u wilt toestaan dat gebruiker referentiegegevens en delen die zijn opgeslagen query's en perspectieven met andere gebruikers van de omgeving wijzigen. 
+   - Selecteer anders **lezer** querygegevens van gebruikers toestaan in de omgeving en persoonlijke (niet-gedeelde) query's opslaan in de omgeving.
 
-    Selecteer **Ok** de keuze van de rol te bevestigen.
+     Selecteer **Ok** de keuze van de rol te bevestigen.
 
-    ![Beheren van de Time Series Insights-bron - gebruiker selecteren](media/iot-tsi-data-access/getstarted-grant-data-access3.png)
+     ![Beheren van de Time Series Insights-bron - gebruiker selecteren](media/iot-tsi-data-access/getstarted-grant-data-access3.png)
 
 7. Selecteer **Ok** in de **gebruikersrol selecteren** pagina.
 

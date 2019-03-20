@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 02/25/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 423399c93fca222dad2db3175036719a0cd5fdb9
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 8a54d1ad3ab809f2a2f8df6ae0e30b1b061c2be1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986144"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201083"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Licenties toewijzen aan gebruikers door groepslidmaatschappen in Azure Active Directory
 
@@ -30,7 +30,7 @@ In dit voorbeeld bevat de tenant een beveiligingsgroep met de naam **HR-afdeling
 
 > [!NOTE]
 > Sommige services van Microsoft zijn niet op alle locaties beschikbaar. Voordat een licentie kan worden toegewezen aan een gebruiker, wordt de beheerder heeft om op te geven van de locatie-eigenschap van het gebruik van de gebruiker.
-
+> 
 > Alle gebruikers geen gebruikslocatie opgegeven overnemen voor licentietoewijzing groep, de locatie van de map. Als u gebruikers op meerdere locaties hebt, raden wij aan dat u altijd gebruikslocatie als onderdeel van de gebruikersstroom maken in Azure AD (bijvoorbeeld via AAD Connect-configuratie) - die ervoor zorgt het resultaat van licentietoewijzing dat altijd juist is en gebruikers geen ontvangen Services op locaties die niet zijn toegestaan.
 
 ## <a name="step-1-assign-the-required-licenses"></a>Stap 1: De vereiste licenties toewijzen
@@ -41,7 +41,7 @@ In dit voorbeeld bevat de tenant een beveiligingsgroep met de naam **HR-afdeling
 
 4. Onder **alle producten**, Office 365 Enterprise E5 en Enterprise Mobility + Security E3 selecteren door de productnamen te selecteren. Selecteer eerst de toewijzing **toewijzen** aan de bovenkant van het deelvenster.
 
-   ![Alle producten toewijzen-licentie](./media/licensing-groups-assign/all-products-assign.png)
+   ![Producten selecteren voor het toewijzen van licenties](./media/licensing-groups-assign/all-products-assign.png)
   
 5. Op de **licentie toewijzen** venster **gebruikers en groepen** om een lijst van gebruikers en groepen te openen.
 
@@ -49,7 +49,7 @@ In dit voorbeeld bevat de tenant een beveiligingsgroep met de naam **HR-afdeling
 
 7. Op de **licentie toewijzen** deelvenster, klikt u op **toewijzingsopties**, weergeven met alle service-abonnementen opgenomen in de twee producten die we eerder hebt geselecteerd. Zoek **Yammer Enterprise** en schakel het **uit** om uit te schakelen die service van de productlicentie. Controleer of door te klikken op **OK** aan de onderkant van **licentieopties**.
 
-   ![Toewijzingsopties](./media/licensing-groups-assign/assignment-options.png)
+   ![serviceplannen voor licenties selecteren](./media/licensing-groups-assign/assignment-options.png)
   
 8. Voltooi de toewijzing door onder aan het deelvenster **Licentie toewijzen** op **Toewijzen** te klikken.
 
@@ -69,7 +69,7 @@ Wanneer de licenties toewijzen aan een groep, Azure AD verwerkt alle bestaande l
 
    - Informatie over gebruikers die zich in een foutstatus omdat licenties kunnen niet worden toegewezen aan.
 
-   ![Toewijzingsopties](./media/licensing-groups-assign/assignment-errors.png)
+   ![licentieverlening fouten en licentiestatus](./media/licensing-groups-assign/assignment-errors.png)
 
 3. Meer gedetailleerde informatie over het verwerken van onder licentie **Azure Active Directory** > **gebruikers en groepen** > *groepsnaam*  >  **Auditlogboeken**. Houd rekening met de volgende activiteiten:
 
@@ -85,15 +85,15 @@ Wanneer de licenties toewijzen aan een groep, Azure AD verwerkt alle bestaande l
 2. Selecteer in de groep **licenties**. De melding boven op het deelvenster ziet u dat er 10 gebruikers die licenties kunnen niet worden toegewezen aan zijn. Open om te zien of een lijst met alle gebruikers in een licentie foutstatus van deze groep.
 3. De **mislukte toewijzingen** kolom kan worden achterhaald dat beide productlicenties kunnen niet worden toegewezen aan de gebruikers. De **belangrijkste reden voor mislukken** kolom bevat de oorzaak van het probleem. In dit geval heeft **conflicterende serviceabonnementen**.
 
-   ![Mislukte toewijzingen](./media/licensing-groups-assign/failed-assignments.png)
+   ![kunnen niet worden toegewezen licenties](./media/licensing-groups-assign/failed-assignments.png)
 
 4. Selecteer een gebruiker te openen de **licenties** deelvenster. Dit deelvenster toont alle licenties die momenteel zijn toegewezen aan de gebruiker. In dit voorbeeld wordt de gebruiker heeft de Office 365 Enterprise E1-licentie die is overgenomen van de **Kiosk gebruikers** groep. Dit veroorzaakt een conflict met de E3-licentie die het systeem heeft geprobeerd om toe te passen van de **HR-afdeling** groep. Als gevolg hiervan is geen van de licenties van die groep toegewezen aan de gebruiker.
 
-   ![Licenties voor een gebruiker weergeven](./media/licensing-groups-assign/user-license-view.png)
+   ![Alle licentie conflicten voor een gebruiker weergeven](./media/licensing-groups-assign/user-license-view.png)
 
 5. Als u wilt dit conflict is opgelost, verwijdert u de gebruiker van de **Kiosk gebruikers** groep. Nadat Azure AD de wijziging, verwerkt de **HR-afdeling** licenties correct worden toegewezen.
 
-   ![Licentie correct toegewezen](./media/licensing-groups-assign/license-correctly-assigned.png)
+   ![Correct zijn hier licenties toegewezen](./media/licensing-groups-assign/license-correctly-assigned.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

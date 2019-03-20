@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: aa9d03e40880dbc856045840499dba43b9d1aba9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: bb7c46548726b00c68c8e952a8e2956ad0511763
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105332"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201769"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools voor Visual Studio gebruiken om te verbinden met Azure HDInsight en Apache Hive-query's uitvoeren
 
@@ -93,7 +93,7 @@ Verbinding maken met Azure Portal vanuit Visual Studio:
 
 1. In Server Explorer, gaat u naar **Azure** > **HDInsight** en selecteert u uw cluster.
 
-2. Met de rechtermuisknop op een HDInsight-cluster en selecteer **Cluster beheren in Azure Portal**.
+2. Met de rechtermuisknop op een HDInsight-cluster en selecteer **Cluster beheren in Azure portal**.
 
 Stel vragen en/of feedback geven vanuit Visual Studio:
 
@@ -275,5 +275,5 @@ In dit artikel hebt u hoe geleerd u het Data Lake Tools-pakket voor Visual Studi
 * [Hadoop Hive in HDInsight gebruiken](hdinsight-use-hive.md)
 * [Aan de slag met Apache Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Apache Hadoop-taken in HDInsight](submit-apache-hadoop-jobs-programmatically.md)
-* [Twitter-gegevens met Apache Hadoop in HDInsight analyseren](../hdinsight-analyze-twitter-data.md)
+* [Twitter-gegevens met Apache Hadoop in HDInsight analyseren](../hdinsight-analyze-twitter-data-linux.md)
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4c9f92f80275d04cd1bab408213fd02abf5c9139
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279395"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087088"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Een functie maken die kan worden geïntegreerd met Azure Logic Apps
 
@@ -55,7 +55,7 @@ De Cognitive Services-API's zijn als afzonderlijke resources beschikbaar in Azur
 
     ![Cognitieve resourcepagina maken](media/functions-twitter-email/01-create-text-analytics.png)
 
-    | Instelling      |  Voorgestelde waarde   | Beschrijving                                        |
+    | Instelling      |  Voorgestelde waarde   | Description                                        |
     | --- | --- | --- |
     | **Naam** | MyCognitiveServicesAccnt | Kies een unieke naam voor het account. |
     | **Locatie** | US - west | Gebruik de dichtstbijzijnde locatie. |
@@ -141,7 +141,7 @@ U hebt nu een functie die gevoelsscores categoriseert. Maak vervolgens een logis
 
     ![Logische app maken in Azure Portal](./media/functions-twitter-email/08-logic-app-create.png)
 
-    | Instelling      |  Voorgestelde waarde   | Beschrijving                                        |
+    | Instelling      |  Voorgestelde waarde   | Description                                        |
     | ----------------- | ------------ | ------------- |
     | **Naam** | TweetSentiment | Kies een passende naam voor uw app. |
     | **Resourcegroep** | myResourceGroup | Kies dezelfde bestaande resourcegroep als eerder. |
@@ -165,7 +165,7 @@ Maak eerst verbinding met uw Twitter-account. De logische app peilt tweets, waar
 
     ![Connectorinstellingen voor Twitter](media/functions-twitter-email/10-tweet-settings.png)
 
-    | Instelling      |  Voorgestelde waarde   | Beschrijving                                        |
+    | Instelling      |  Voorgestelde waarde   | Description                                        |
     | ----------------- | ------------ | ------------- |
     | **Zoektekst** | #Azure | Gebruik een hashtag die populair genoeg is om in het gekozen interval nieuwe tweets te genereren. Wanneer u gebruikmaakt van de gratis categorie en uw hashtag is te populair, wordt het transactiequotum in uw Cognitive Services-API mogelijk snel verbruikt. |
     | **Interval** | 15 | De tijd tussen Twitter-aanvragen, in frequentie-eenheden. |
@@ -236,13 +236,13 @@ Het laatste deel van de werkstroom bestaat uit het activeren van een e-mail wann
 
     ![De e-mail configureren voor de actie Een e-mail verzenden.](media/functions-twitter-email/21-configure-email.png)
     
-| Instelling      |  Voorgestelde waarde   | Beschrijving  |
+| Instelling      |  Voorgestelde waarde   | Description  |
 | ----------------- | ------------ | ------------- |
 | **Aan** | Voer uw e-mailadres in | Het e-mailadres dat de melding ontvangt. |
 | **Onderwerp** | Negatief gevoel in tweet gedetecteerd  | De onderwerpregel van de e-mailmelding.  |
 | **Hoofdtekst** | Tweettekst, locatie | Klik op de parameters **Tweettekst** en **Locatie**. |
 
-5.  Klik op **Opslaan**.
+1. Klik op **Opslaan**.
 
 Nu uw werkstroom is voltooid, kunt u de logische app inschakelen en de functie aan het werk zien.
 

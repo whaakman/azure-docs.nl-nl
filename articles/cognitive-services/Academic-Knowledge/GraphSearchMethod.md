@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f6c2fbe5daeb114d6a5ea77c9823f1fa5bfe8425
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5d47b938560fb1bd15adfe1a1c2d35b7359d47a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864465"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57977408"
 ---
 # <a name="graph-search-method"></a>Zoekmethode Graph
 
@@ -29,6 +29,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>Aanvraagparameters  
+
 Name     | Value | Vereist?  | Description
 -----------|-----------|---------|--------
 **mode**       | Tekenreeks met tekst | Ja | De naam van de modus die u wilt gebruiken. De waarde is een *json* of *lambda*.
@@ -45,7 +46,9 @@ Voor de *json* zoeken, in de hoofdtekst van bericht is een JSON-object. Het JSON
 Voor de *lambda* zoeken, in de hoofdtekst van bericht is een tekenreeks met tekst zonder opmaak. De hoofdtekst van bericht is een queryreeks LIKQ lambda, dit één C#-instructie is (Zie de [specificatie van de query-tekenreeks](LambdaSearchSyntax.md) voor *lambda* zoeken). 
 
 <br>
+
 ## <a name="response-json"></a>Antwoord (JSON)
+
 Name | Description
 -------|-----   
 **Resultaten** | Een matrix met 0 of meer entiteiten die overeenkomen met de query-expressie. Elke entiteit bevat de waarden van de aangevraagde kenmerken. Dit veld is aanwezig als de aanvraag is verwerkt.
@@ -55,6 +58,7 @@ Name | Description
 Als een query kan niet worden verwerkt binnen _800 ms_, een _time-out_ fout wordt geretourneerd. 
 
 <br>
+
 #### <a name="example"></a>Voorbeeld:
 
 ##### <a name="json-search"></a>JSON-zoeken

@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: bf272262d8279dea034440c9ffcf8c49f9fd75ab
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c16483f4b8ef160c78ff95582faf54c9a9d24a04
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57458051"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57964130"
 ---
 In dit artikel bevat informatie over eerdere generaties groottes van virtuele machines. Met deze grootten zijn nog steeds kunnen worden gebruikt, maar er zijn nieuwere generaties beschikbaar.
 
 
 ## <a name="ds-series"></a>DS-serie
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
 Premium-opslag:  Ondersteund
 
@@ -33,11 +33,12 @@ Premium Storage Caching:  Ondersteund
 | Standard_DS3 |4 |14 |28 |16 |16.000 / 128 (172) |12.800 / 128 |4 / 2000 |
 | Standard_DS4 |8 |28 |56 |32 |32.000 / 256 (344) |25.600 / 256 |8 / 4000 |
 
+<sup>1</sup> VM-serie kan worden uitgevoerd op een van de volgende CPU: 2.2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) of 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)
 <br>
 
 ## <a name="ds-series---memory-optimized"></a>DS-serie - geoptimaliseerd voor geheugen
 
-ACU: 160 <sup>1</sup>
+ACU: 160-250 <sup>1,2</sup>
 
 Premium-opslag:  Ondersteund
 
@@ -52,11 +53,11 @@ Premium Storage Caching:  Ondersteund
 
 <sup>1</sup> de maximale schijfdoorvoer (IOPS of MBps) die mogelijk is met een virtuele machine uit de DS-serie kan worden beperkt door het aantal, grootte en de striping van de gekoppelde schijven.  Zie voor meer informatie, [ontwerpen voor hoge prestaties](../articles/virtual-machines/windows/premium-storage-performance.md).
 
-
+<sup>2</sup> VM-serie kan worden uitgevoerd op een van de volgende CPU: 2.2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) of 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)
 
 ## <a name="d-series"></a>D-serie 
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
 Premium-opslag:  Niet ondersteund
 
@@ -69,11 +70,12 @@ Premium Storage Caching:  Niet ondersteund
 | Standard_D3  | 4         | 14          | 200            | 12.000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 2000                     |
 | Standard_D4  | 8         | 28          | 400            | 24.000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 4000                     |
 
+<sup>1</sup> VM-serie kan worden uitgevoerd op een van de volgende CPU: 2.2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) of 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)
 <br>
 
 ## <a name="d-series---memory-optimized"></a>D-serie - geoptimaliseerd voor geheugen
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
 Premium-opslag:  Niet ondersteund
 
@@ -86,6 +88,7 @@ Premium Storage Caching:  Niet ondersteund
 | Standard_D13 | 8         | 56          | 400            | 24.000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 4000                     |
 | Standard_D14 | 16        | 112         | 800            | 48.000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 8000                |
 
+<sup>1</sup> VM-serie kan worden uitgevoerd op een van de volgende CPU: 2.2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) of 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)
 <br>
 
 ## <a name="a-series---compute-intensive-instances"></a>A-serie: rekenintensieve exemplaren
@@ -127,6 +130,7 @@ Premium Storage Caching:  Niet ondersteund
 | Standard_A5 |2 |14 |135 |4 |4 x 500 |2 / 500 |
 | Standard_A6 |4 |28 |285 |8 |8 x 500 |2 / 1000 |
 | Standard_A7 |8 |56 |605 |16 |16 x 500 |4 / 2000 |
+
 <br>
 
 <sup>1</sup> de A0-grootte wordt overgeschreven naar de fysieke hardware. Alleen bij deze specifieke grootte kunnen implementaties van andere klanten invloed hebben op de prestaties van uw uitgevoerde workload. De relatieve prestaties worden hieronder beschreven, zoals de verwachte basislijn, met een variabiliteit van ongeveer 15 procent.

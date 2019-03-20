@@ -1,7 +1,7 @@
 ---
-title: Wat is Project Acoustics?
+title: Overzicht van project akoestische
 titlesuffix: Azure Cognitive Services
-description: De invoegtoepassing Project Acoustics Unity biedt occlusie, reverberatie en spatialisatie voor projecten die gericht zijn op virtual reality (VR) en traditionele schermen.
+description: Project akoestische is een akoestische-engine voor 3D-interactieve ervaringen, integratie van sparen wave physics simulatie met interactieve ontwerp besturingselementen.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,56 +10,48 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 8305eca478854eeff29268a86e4e49b697261ca2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3d99ea5767c7b2e62f7228440201b4a9b6593b02
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868256"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136597"
 ---
 # <a name="what-is-project-acoustics"></a>Wat is Project Acoustics?
-De invoegtoepassing Project Acoustics Unity biedt occlusie, reverberatie en spatialisatie voor projecten die gericht zijn op virtual reality (VR) en traditionele schermen. De invoegtoepassing biedt een manier om game-akoestiek te ontwerpen waarmee de bedoelingen van de ontwerper als een laag over een met fysica gesimuleerde golfbeweging wordt aangebracht.
+Project akoestische is een engine voor het akoestische van wave voor 3D-interactieve ervaringen. Deze wave effecten als diffraction, portaling en weerklank effecten in complexe schermen zonder handmatige zone markup-modellen. Dit omvat ook game-engine en audio middleware-integratie. Project akoestische filosofie is vergelijkbaar met statische verlichting: gedetailleerde physics offline maken voor een fysieke basislijn en gebruikt een lichtgewicht runtime met expressieve ontwerp besturingselementen om uw artistieke doelstellingen te behalen.
 
-## <a name="why-use-acoustics-in-virtual-environments"></a>Waarom wordt akoestiek in een virtuele omgeving gebruikt?
-Mensen gebruiken audiovisuele aanwijzingen om de wereld om hen heen te kunnen begrijpen. Door middel van een combinatie van ruimtelijk geluid en akoestiek beleeft een gebruiker de virtuele wereld intensiever. Het akoestische hulpmiddel dat hier wordt beschreven, analyseert virtuele werelden om zo een realistische, akoestische simulatie te creëren. Het ondersteunt het ontwerpproces na de simulatie. Bij de analyse zijn de geometrie en de materialen voor elk oppervlak in de wereld betrokken. De simulatie omvat parameters als richting van een inkomend signaal (portaling), reverberatievermogen, vervaltijden en occlusie- en obstructie-effecten.
+![Ontwerpweergave](media/gears-with-voxels.jpg)
 
-## <a name="how-does-this-approach-to-acoustics-work"></a>Hoe werkt deze aanpak met betrekking tot akoestiek?
-Het systeem is afhankelijk van een offlineberekening van de virtuele wereld, waardoor een complexere situatie mogelijk is dan wanneer de analyse tijdens runtime zou worden uitgevoerd. De offlineberekening levert een opzoektabel met akoestische parameters op. Een ontwerper geeft de regels op die tijdens runtime op de parameters worden toegepast. Door de regels wat aan te passen kunnen hyperrealistische effecten worden bereikt voor een sterkere emotionele ervaring of minder realistische scenes om meer achtergrondgeluiden te krijgen.
+## <a name="using-wave-physics-for-interactive-acoustics"></a>Met behulp van wave physics voor interactieve akoestische
+Op basis van ray akoestische methoden kunnen controleren met behulp van één bron-naar-listener ray cast bedekking of weerklank door het schatten van de lokale scène volume met een paar stralen station. Maar deze technieken onbetrouwbare kunnen zijn omdat een pebble occludes zo veel een boulder. Stralen account geen voor de manier waarop geluid bochten om objecten, een verschijnsel diffraction genoemd. Project akoestische simulatie bevat deze effecten met behulp van een simulatie op basis van wave. Het resultaat is beter voorspelbare en betrouwbare.
 
-## <a name="design-process-comparison"></a>Vergelijking van de ontwerpprocessen
-De invoegtoepassing Proces Acoustics ondersteunt een nieuw ontwerpproces voor akoestiek in Unity-scenes. Dit ontwerpproces laat zich het beste uitleggen door het te vergelijken met een van de huidige populaire benaderingen van akoestiek.
+Project akoestische belangrijke innovatie is het paar akoestische simulatie met traditionele, gezonde ontwerpconcepten. Zet simulatieresultaten in traditionele audio DSP-parameters voor bedekking, portaling en weerklank. Controle van dit proces pakketvertaling maakt gebruik van de ontwerpfunctie. Voor meer informatie over de belangrijkste technologieën achter Project akoestische, gaat u naar de [research-projectpagina](https://www.microsoft.com/en-us/research/project/project-triton/).
 
-### <a name="typical-approach-to-acoustics-today"></a>Gebruikelijke, hedendaagse benadering van akoestiek
-Bij een gebruikelijke benadering van de akoestiek worden reverberatievolumes getekend:
+![Ontwerpweergave](media/wave-simulation.gif)
 
-![Ontwerpweergave](media/reverbZonesAltSPace2.png)
+## <a name="setup"></a>Instellen
+[Akoestische Unity-integratie van project](unity-integration.md) slepen en neerzetten en is voorzien van een invoegtoepassing van de audio-engine Unity. De Unity-besturingselementen voor audio gegevensbronnen verbeteren door het koppelen van een Project akoestische C# onderdeel van de besturingselementen op elk audio-object.
 
-Vervolgens worden de parameters voor elke zone enigszins aangepast:
+[Integratie van akoestische Unreal project](unreal-integration.md) -editor en game-invoegtoepassingen voor Unreal en een Wwise mixer-invoegtoepassing bevat. Een aangepast onderdeel audio breidt vertrouwde Wwise functionaliteit binnen Unreal met live akoestische ontwerp besturingselementen. Ontwerp besturingselementen worden ook weergegeven in Wwise op het mixer-invoegtoepassing.
 
-![Ontwerpweergave](media/TooManyReverbParameters.png)
+## <a name="workflow"></a>Werkstroom
+* **Vooraf maken:** Beginnen met het instellen van de bake door te selecteren welke geometrie reageert op akoestische, door bijvoorbeeld lichte schachten wordt genegeerd. Bewerk vervolgens automatische materiaal toewijzingen en navigatiegebieden voor de handleiding listener steekproeven selecteren. Er is geen handmatige markup voor weerklank/portal/ruimte zones.
+* **Maken van:** Een stap voor analyse wordt lokaal uitgevoerd, welke voxelization en andere geometrische analyses uitvoeren op de scène op basis van bovenstaande selecties is. Resultaten worden weergegeven in de editor om te controleren van de scène setup. Verzending van bake voxel gegevens uit naar Azure worden verzonden en je weer toegang krijgen een akoestische game asset.
+* **Runtime:** Laden van de asset in het abonnement en u bent klaar om te luisteren naar akoestische in het abonnement. Ontwerp het akoestische bevinden zich in de editor met behulp van besturingselementen voor nauwkeurige gegevensbronnen. De besturingselementen kunnen ook worden aangestuurd vanuit niveau uitvoeren van scripts.
 
-Ten slotte wordt er raytracing-logica aan toegevoegd voor de juiste wijze van toepassen van occlusie- en obstructiefilters gedurende de hele scene, en padzoeklogica voor portaling. Deze code kan extra kosten tijdens runtime met zich meebrengen. Er zijn ook problemen met gladde hoeken en er is sprake van edge cases bij onregelmatig gevormde scenes.
-
-### <a name="an-alternative-approach-with-physics-based-design"></a>Een alternatieve benadering met op fysica gebaseerd ontwerp
-Met de benadering van de Unity-invoegtoepassing van Project Acoustics beschikt u over een statische vorm en statische materialen voor een scene. Omdat de scene uit voxels is opgebouwd en er geen gebruik wordt gemaakt van raytracing, hebt u geen vereenvoudigd of waterdicht akoestisch gaas nodig. Het is evenmin noodzakelijk de scene met reverberatievolumes te verbeteren. Met de invoegtoepassing wordt de scene naar de cloud geüpload, waarbij van op fysica gebaseerde golfsimulatie gebruik wordt gemaakt. Het resultaat wordt als een opzoektabel in uw project geïntegreerd en kan voor een fraai uiterlijk of game-effecten worden aangepast.
-
-![Ontwerpweergave](media/GearsWithVoxels.jpg)
-
-## <a name="requirements"></a>Vereisten
-* Unity 2018.2+ voor akoestische creaties en Unity 5.2+ voor audio-ontwerp en -implementatie
-* Windows 64-bits Unity Editor
-* Azure Batch-abonnement voor akoestische creaties
-* De runtime voor scripting van Unity moet worden ingesteld op .NET 4.x equivalent
-
-## <a name="platform-support"></a>Platformondersteuning
-* Windows-desktop (x86 en AMD64)
-* Windows UWP (x86, AMD64 en ARM)
-* Android (x86 en ARM64)
+## <a name="platforms"></a>Platformen
+De runtime-Project akoestische invoegtoepassingen kan op dit moment worden geïmplementeerd voor de volgende platforms:
+* Windows
+* Android
+* Xbox One
 
 ## <a name="download"></a>Downloaden
-Als u een beoordeling wilt geven van de akoestische invoegtoepassing, kunt u zich [hier](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) registreren om deel te nemen aan de Designer Preview.
+* [Project akoestische invoegtoepassingen en -voorbeelden](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+  * Voor binaire bestanden voor Xbox en ondersteuning contact met ons opnemen via de registreren onderstaande formulier
+* [Project akoestische forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [Zich registreren voor het ontvangen van updates op het Project akoestische](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over het [ontwikkelproces](design-process.md)
-* Aan de slag met het [integreren van akoestiek in uw Unity-project](getting-started.md)
+* Probeer een [Project akoestische quickstart voor Unity](unity-quickstart.md) of voor [Unreal](unreal-quickstart.md)
+* Verken de [ontwerpplan van Project akoestische geluid](design-process.md)
 

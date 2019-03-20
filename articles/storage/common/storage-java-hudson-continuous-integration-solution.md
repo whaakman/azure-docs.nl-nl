@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 431a4ef4e84c88467dc7e36bb12d406309f9a8b7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d00bf87a80e13808c42a5839ad0f4508ad7214b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011100"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Azure Storage gebruiken met een Hudson CI-oplossing
 ## <a name="overview"></a>Overzicht
@@ -25,7 +25,7 @@ In deze zelfstudie wordt u de Azure Storage-invoegtoepassing voor Hudson CI besc
 ## <a name="introduction-to-hudson"></a>Inleiding tot Hudson
 Hudson kunt continue integratie van een softwareproject door ontwikkelaars kunnen hun wijzigingen in de code eenvoudig kunt integreren en builds geproduceerde automatisch en regelmatig, waardoor de productiviteit van de ontwikkelaars wordt verhoogd. Builds worden samengesteld en build-artefacten naar diverse opslagplaatsen kunnen worden geüpload. Dit artikel wordt beschreven hoe u Azure Blob-opslag gebruikt als de opslagplaats van de build-artefacten. U ziet ook hoe u kunt downloaden van afhankelijkheden van Azure Blob-opslag.
 
-Meer informatie over Hudson kan worden gevonden op [Hudson voldoen aan](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
+Meer informatie over Hudson kan worden gevonden op [Hudson voldoen aan](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
 
 ## <a name="benefits-of-using-the-blob-service"></a>Voordelen van het gebruik van de Blob-service
 Voordelen van het gebruik van de Blob-service voor het hosten van uw build-artefacten voor flexibele ontwikkeling zijn:
@@ -52,7 +52,7 @@ U moet de volgende voor het gebruik van de Blob-service met uw Hudson CI-oplossi
   5. Nadat u de initiële installatie is voltooid, het actieve exemplaar van de WAR Hudson annuleren, opnieuw starten van de WAR Hudson en opnieuw het dashboard Hudson opent `http://localhost:8080/`, die u wilt gebruiken voor het installeren en configureren van de Azure Storage-invoegtoepassing.
      
       Tijdens een typische Hudson CI-oplossing kan worden ingesteld voor het uitvoeren als een service, de war Hudson uitgevoerd op de opdrachtregel is voldoende voor deze zelfstudie.
-* Een Azure-account. U kunt zich aanmelden voor een Azure-account op <http://www.azure.com>.
+* Een Azure-account. U kunt zich aanmelden voor een Azure-account op <https://www.azure.com>.
 * Een Azure Storage-account. Als u nog een storage-account hebt, kunt u maken met de stappen in [een Opslagaccount maken](../common/storage-quickstart-create-account.md).
 * Vertrouwd zijn met de Hudson CI-oplossing wordt aanbevolen maar niet vereist, zoals de volgende inhoud maakt gebruik van een eenvoudige voorbeeld om weer te geven de stappen die nodig zijn bij het gebruik van de Blob-service als een opslagplaats voor Hudson CI build-artefacten.
 
@@ -134,7 +134,7 @@ De volgende stappen laten zien hoe het configureren van een build-stap om items 
 1. In de **bouwen** sectie van de taakconfiguratie van de, klikt u op **build-stap toevoegen** en kies **downloaden uit Azure Blob storage**.
 2. Voor **opslagaccountnaam**, selecteer het opslagaccount te gebruiken.
 3. Voor **containernaam**, geef de naam van de container met de blobs die u wilt downloaden. U kunt omgevingsvariabelen gebruiken.
-4. Voor **blobnaam**, geef de naam van de blob. U kunt omgevingsvariabelen gebruiken. Bovendien kunt u een sterretje als jokerteken nadat u de eerste letter (s) van de blob-naam opgeven. Bijvoorbeeld, **project\***  geeft alle blobs waarvan de namen met beginnen **project**.
+4. Voor **blobnaam**, geef de naam van de blob. U kunt omgevingsvariabelen gebruiken. Bovendien kunt u een sterretje als jokerteken nadat u de eerste letter (s) van de blob-naam opgeven. Bijvoorbeeld, **project\\*** geeft alle blobs waarvan de namen met beginnen **project**.
 5. [Optioneel] Voor **downloadpad**, geef het pad op de Hudson machine waar u bestanden wilt downloaden uit Azure Blob storage. Omgevingsvariabelen kunnen ook worden gebruikt. (Als u een waarde op voor geen opgeeft **downloadpad**, de bestanden van Azure Blob-opslag naar de werkruimte van de taak zal worden gedownload.)
 
 Als u extra items die u wilt downloaden uit Azure Blob storage hebt, kunt u extra build-stappen kunt maken.
@@ -144,7 +144,7 @@ Nadat u een build uitvoert, kunt u het console-uitvoer van de build-geschiedenis
 ## <a name="components-used-by-the-blob-service"></a>Onderdelen die worden gebruikt door de Blob-service
 Het volgende biedt een overzicht van de onderdelen van de Blob-service.
 
-* **Storage-account**: Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Dit is het hoogste niveau van de naamruimte voor toegang tot blobs. Een account kan een onbeperkt aantal containers bevatten, zolang de totale grootte onder 100 TB is.
+* **Opslagaccount**: Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Dit is het hoogste niveau van de naamruimte voor toegang tot blobs. Een account kan een onbeperkt aantal containers bevatten, zolang de totale grootte onder 100 TB is.
 * **Container**: Een container is een groepering van een reeks blobs. Alle blobs moeten zich in een container bevinden. Een account kan een onbeperkt aantal containers bevatten. Een container kan een onbeperkt aantal blobs bevatten.
 * **BLOB**: Een bestand van willekeurig type en grootte. Er zijn twee typen die kunnen worden opgeslagen in Azure Storage-blobs: blok- en pagina-blobs. De meeste bestanden zijn blok-blobs. Eén blok-blob kan maximaal 200 GB groot zijn. In deze zelfstudie maakt gebruik van blok-blobs. Pagina-blobs, een ander blobtype, kunnen tot 1 TB in grootte, en zijn efficiënter zijn bij het bereiken van de bytes in een bestand regelmatig worden gewijzigd. Zie voor meer informatie over blobs [blok-Blobs, toevoeg-Blobs en pagina-Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **URL-indeling**: BLOBs kunnen worden opgevraagd met de volgende URL-indeling:
@@ -158,7 +158,7 @@ Het volgende biedt een overzicht van de onderdelen van de Blob-service.
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Voldoen aan de Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
+* [Voldoen aan de Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [Azure Storage SDK voor Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage Client SDK-referentie](http://dl.windowsazure.com/storage/javadoc/)
 * [REST-API voor Azure Storage-services](https://msdn.microsoft.com/library/azure/dd179355.aspx)

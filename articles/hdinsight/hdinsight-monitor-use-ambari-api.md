@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7967459e1318e85e1e179e21bc803bf00ee329cd
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: ff6601042c82cef2b0101833117f17aca8b463dc
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743790"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223254"
 ---
 # <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>Controleren van Apache Hadoop-clusters in HDInsight met Apache Ambari-API
 Leer hoe u HDInsight-clusters controleren met behulp van Apache Ambari APIs.
@@ -39,7 +39,7 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
 
 * **Een Azure HDInsight-cluster**. Zie voor instructies over het inrichten van het cluster [aan de slag met HDInsight] [ hdinsight-get-started] of [inrichten HDInsight-clusters][hdinsight-provision]. U moet de volgende gegevens op de zelfstudie te volgen:
   
-  | Cluster-eigenschap | Naam van Azure PowerShell-variabele | Waarde | Description |
+  | Cluster-eigenschap | Naam van Azure PowerShell-variabele | Value | Description |
   | --- | --- | --- | --- |
   |   De naam van de HDInsight-cluster |$clusterName | |De naam van uw HDInsight-cluster. |
   |   Gebruikersnaam voor cluster |$clusterUsername | |Clusternaam van de gebruiker opgegeven wanneer het cluster is gemaakt. |
@@ -137,7 +137,7 @@ De volgende tabel bevat enkele van de meest voorkomende Ambari controle van het 
 ## <a name="next-steps"></a>Volgende stappen
 Nu hebt u geleerd hoe u bewaking Apache Ambari-API-aanroepen. Voor meer informatie zie:
 
-* [HDInsight-clusters met behulp van de Azure-portal beheren][hdinsight-admin-portal]
+* [Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal](hdinsight-administer-use-portal-linux.md)
 * [HDInsight-clusters met behulp van Azure PowerShell beheren][hdinsight-admin-powershell]
 * [HDInsight-clusters met behulp van de opdrachtregelinterface beheren][hdinsight-admin-cli]
 * [Documentatie voor HDInsight][hdinsight-documentation]
@@ -155,7 +155,6 @@ Nu hebt u geleerd hoe u bewaking Apache Ambari-API-aanroepen. Voor meer informat
 [powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-documentation]: https://docs.microsoft.com/azure/hdinsight/
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md

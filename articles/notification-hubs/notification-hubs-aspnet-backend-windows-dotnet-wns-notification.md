@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 7a351901a4453bc15b42900e5eb99d17afce5384
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 9fde3befb147aeeab9419e08602552a970368cfe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844981"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Zelfstudie: Meldingen verzenden naar specifieke gebruikers met behulp van Azure Notification Hubs
 
@@ -222,7 +222,7 @@ In deze sectie werkt u de code bij in het project dat u hebt gemaakt voor de [Ze
     ```
 13. Klik met de rechtermuisknop op het project **WindowsApp**, klik op **Add** en op **Class**. Geef de klasse de naam `RegisterClient.cs` en klik vervolgens op **OK** om de klasse te genereren.
 
-   Deze klasse verpakt de REST-aanroepen die nodig zijn om contact op te nemen met de app-back-end, om registratie voor pushmeldingen mogelijk te maken. Daarnaast wordt de *registrationIds* die is gemaakt door de Notification Hub, lokaal opgeslagen. Zie [Registering from your App Backend](https://msdn.microsoft.com/library/dn743807.aspx) (Registreren vanuit uw app-back-end) voor meer informatie. De klasse maakt gebruik van een verificatietoken dat wordt opgeslagen in de lokale opslag wanneer u op de knop **Login and register** klikt.
+    Deze klasse verpakt de REST-aanroepen die nodig zijn om contact op te nemen met de app-back-end, om registratie voor pushmeldingen mogelijk te maken. Daarnaast wordt de *registrationIds* die is gemaakt door de Notification Hub, lokaal opgeslagen. Zie [Registering from your App Backend](https://msdn.microsoft.com/library/dn743807.aspx) (Registreren vanuit uw app-back-end) voor meer informatie. De klasse maakt gebruik van een verificatietoken dat wordt opgeslagen in de lokale opslag wanneer u op de knop **Login and register** klikt.
 14. Voeg aan het begin van het bestand RegisterClient.cs de volgende `using`-instructies toe:
 
     ```csharp
@@ -355,4 +355,4 @@ In deze zelfstudie hebt u geleerd hoe u pushmeldingen kunt verzenden naar specif
 [Get started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Secure Push]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx

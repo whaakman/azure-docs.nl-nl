@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 3aa3b29ef44d3efb21237dc0d82a1ee6e99e729b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 03501ea774cf58a4be88ed9155e5cfdfb99f0379
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328942"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007190"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Aan de slag met Docker en Compose om te definiëren en uitvoeren van een toepassing met meerdere containers in Azure
-Met [opstellen](http://github.com/docker/compose), u een eenvoudig tekstbestand gebruiken voor het definiëren van een toepassing die bestaat uit meerdere Docker-containers. U instellen uw toepassing in één opdracht dat alles is voor het implementeren van uw omgeving gedefinieerde vervolgens. Bijvoorbeeld: in dit artikel wordt beschreven hoe u snel een WordPress-blog met een back-end MariaDB SQL-database op een Ubuntu-VM instellen. U kunt ook opstellen voor het instellen van complexere toepassingen gebruiken.
+Met [opstellen](https://github.com/docker/compose), u een eenvoudig tekstbestand gebruiken voor het definiëren van een toepassing die bestaat uit meerdere Docker-containers. U instellen uw toepassing in één opdracht dat alles is voor het implementeren van uw omgeving gedefinieerde vervolgens. Bijvoorbeeld: in dit artikel wordt beschreven hoe u snel een WordPress-blog met een back-end MariaDB SQL-database op een Ubuntu-VM instellen. U kunt ook opstellen voor het instellen van complexere toepassingen gebruiken.
 
 In dit artikel is laatste over het gebruik van 2/14/2019 getest door de [Azure Cloud Shell](https://shell.azure.com/bash) en de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) versie 2.0.58.
 
@@ -132,7 +132,7 @@ U kunt nu verbinding maken met WordPress rechtstreeks op de virtuele machine op 
 ![WordPress-startscherm](./media/docker-compose-quickstart/wordpressstart.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Bekijk de [Compose opdrachtregelreferentiewebpagina](http://docs.docker.com/compose/reference/) en [gebruikershandleiding](http://docs.docker.com/compose/) voor meer voorbeelden van het bouwen en implementeren van apps met meerdere containers.
+* Bekijk de [Compose opdrachtregelreferentiewebpagina](https://docs.docker.com/compose/reference/) en [gebruikershandleiding](https://docs.docker.com/compose/) voor meer voorbeelden van het bouwen en implementeren van apps met meerdere containers.
 * Een Azure Resource Manager-sjabloon gebruiken uw eigen of één hebben bijgedragen uit de [community](https://azure.microsoft.com/documentation/templates/), voor het implementeren van een virtuele Azure-machine met Docker en een toepassing instellen met opstellen. Bijvoorbeeld, de [implementeren van een WordPress-blog met Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) sjabloon maakt gebruik van Docker en Compose WordPress snel implementeren met een MySQL-back-end op een Ubuntu-VM.
 * Probeer het integreren van Docker Compose met een Docker Swarm-cluster. Zie [Compose gebruiken met Swarm](https://docs.docker.com/compose/swarm/) voor scenario's.
 

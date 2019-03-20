@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 9584f0ee4264724787c5913c0d6baa4c2769fa82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328287"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085674"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Taalanalyse toevoegen aan een Azure Search-index
 
@@ -46,8 +46,8 @@ De standaard-analyzer is standaard Lucene, dat goed voor Engels, maar misschien 
 
 + Engelse analyzer van Microsoft voert lemmatisering in plaats van die voortvloeien uit. Dit betekent dat veel beter wat in meer relevante zoekresultaten resulteert verbogen en onregelmatige word-formulieren kunnen worden verwerkt 
 
- > [!Tip]
- > De [Search Analyzer-Demo](https://alice.unearth.ai/) side-by-side-vergelijking van de resultaten van de standaard Lucene analyzer, de Engelse taal-analysefunctie van Lucene en Microsofts Engelse natuurlijke taal processor biedt. Voor elke invoer zoeken opgeeft u, resultaten van elke analyzer worden weergegeven in de aangrenzende deelvensters.
+  > [!Tip]
+  > De [Search Analyzer-Demo](https://alice.unearth.ai/) side-by-side-vergelijking van de resultaten van de standaard Lucene analyzer, de Engelse taal-analysefunctie van Lucene en Microsofts Engelse natuurlijke taal processor biedt. Voor elke invoer zoeken opgeeft u, resultaten van elke analyzer worden weergegeven in de aangrenzende deelvensters.
 
 ## <a name="configuring-analyzers"></a>Analyzers configureren
 

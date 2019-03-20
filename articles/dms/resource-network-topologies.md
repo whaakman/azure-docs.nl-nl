@@ -3,20 +3,20 @@ title: Netwerktopologieën voor migraties van Azure SQL Database Managed Instanc
 description: Meer informatie over de bron- en configuraties voor de Database Migration Service.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 82c91515ac3fae65623e3750471fec46b5d4bf5b
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: d12d6b1274a756bfb13761ab999a1539bcee3657
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790676"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178115"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Netwerktopologieën voor migraties van Azure SQL database Managed Instance met behulp van de Azure Database Migration Service
 Dit artikel worden verschillende netwerktopologieën maken waarin de Azure Database Migration Service werken kunt met een uitgebreide migratie-ervaring bieden van on-premises SQL-Servers naar Azure SQL Database Managed Instance.
@@ -68,18 +68,18 @@ Deze topologie gebruiken als uw omgeving een of meer van de volgende scenario's 
 
 | **NAME**   | **POORT** | **PROTOCOL** | **BRON** | **BESTEMMING** | **ACTIE** |
 |------------|----------|--------------|------------|-----------------|------------|
-| DMS_subnet | Elk      | Elk          | DMS-SUBNET | Elk             | Toestaan      |
+| DMS_subnet | Alle      | Alle          | DMS-SUBNET | Alle             | Toestaan      |
 
 ## <a name="outbound-security-rules"></a>Uitgaande beveiligingsregels
 
 | **NAME**                  | **POORT**                                              | **PROTOCOL** | **BRON** | **BESTEMMING**           | **ACTIE** | **Reden voor regel**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| beheer                | 443,9354                                              | TCP          | Elk        | Elk                       | Toestaan      | Management vlak communicatie via servicebus en Azure blob-opslag. <br/>(Als Microsoft-peering is ingeschakeld, moet u mogelijk niet met deze regel.)                                                             |
-| Diagnostische gegevens               | 12000                                                 | TCP          | Elk        | Elk                       | Toestaan      | DMS maakt gebruik van deze regel voor het verzamelen van diagnostische gegevens voor het oplossen van problemen.                                                                                                                      |
-| SQL-bronserver         | 1433 (of TCP IP-poorten die SQL Server naar luistert) | TCP          | Elk        | On-premises adresruimte | Toestaan      | Connectiviteit van SQL Server-bron van DMS <br/>(Als u site-naar-site-connectiviteit hebt, moet u mogelijk niet met deze regel.)                                                                                       |
-| SQL Server-benoemd exemplaar | 1434                                                  | UDP          | Elk        | On-premises adresruimte | Toestaan      | SQL Server-benoemd exemplaar bron connectiviteit van DMS <br/>(Als u site-naar-site-connectiviteit hebt, moet u mogelijk niet met deze regel.)                                                                        |
-| SMB-share                 | 445                                                   | TCP          | Elk        | On-premises adresruimte | Toestaan      | SMB-netwerkshare voor DMS voor het opslaan van back-upbestanden voor migraties naar MI Azure SQL Database en SQL-Servers op Azure VM <br/>(Als u site-naar-site-connectiviteit hebt, moet u mogelijk niet met deze regel). |
-| DMS_subnet                | Elk                                                   | Elk          | Elk        | DMS_Subnet                | Toestaan      |                                                                                                                                                                                                  |
+| beheer                | 443,9354                                              | TCP          | Alle        | Alle                       | Toestaan      | Management vlak communicatie via servicebus en Azure blob-opslag. <br/>(Als Microsoft-peering is ingeschakeld, moet u mogelijk niet met deze regel.)                                                             |
+| Diagnostiek               | 12000                                                 | TCP          | Alle        | Alle                       | Toestaan      | DMS maakt gebruik van deze regel voor het verzamelen van diagnostische gegevens voor het oplossen van problemen.                                                                                                                      |
+| SQL-bronserver         | 1433 (of TCP IP-poorten die SQL Server naar luistert) | TCP          | Alle        | On-premises adresruimte | Toestaan      | Connectiviteit van SQL Server-bron van DMS <br/>(Als u site-naar-site-connectiviteit hebt, moet u mogelijk niet met deze regel.)                                                                                       |
+| SQL Server-benoemd exemplaar | 1434                                                  | UDP          | Alle        | On-premises adresruimte | Toestaan      | SQL Server-benoemd exemplaar bron connectiviteit van DMS <br/>(Als u site-naar-site-connectiviteit hebt, moet u mogelijk niet met deze regel.)                                                                        |
+| SMB-share                 | 445                                                   | TCP          | Alle        | On-premises adresruimte | Toestaan      | SMB-netwerkshare voor DMS voor het opslaan van back-upbestanden voor migraties naar MI Azure SQL Database en SQL-Servers op Azure VM <br/>(Als u site-naar-site-connectiviteit hebt, moet u mogelijk niet met deze regel). |
+| DMS_subnet                | Alle                                                   | Alle          | Alle        | DMS_Subnet                | Toestaan      |                                                                                                                                                                                                  |
 
 ## <a name="see-also"></a>Zie ook
 - [SQL Server migreren naar beheerd exemplaar voor Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: f5713fe3333f291d8d28a6ef3df48572507661be
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 96d84b2328ffb83d5c1ea7218b17314a537fa45b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853201"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904555"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Gebruik Servicebus van .NET met AMQP 1.0
 
@@ -77,7 +77,7 @@ Interoperabiliteit met niet-.NET-clients in het kader, alleen .NET-typen die kun
 | decimal |decimal128 |AMQP-waarde |
 | CHAR |CHAR |AMQP-waarde |
 | DateTime |tijdstempel |AMQP-waarde |
-| GUID |uuid |AMQP-waarde |
+| Guid |uuid |AMQP-waarde |
 | byte[] |binaire bestanden |AMQP-waarde |
 | string |string |AMQP-waarde |
 | System.Collections.IList |list |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. |
@@ -86,7 +86,7 @@ Interoperabiliteit met niet-.NET-clients in het kader, alleen .NET-typen die kun
 | URI |Tekenreeks die wordt beschreven (Zie de volgende tabel) |AMQP-waarde |
 | DateTimeOffset |Lange beschreven (Zie de volgende tabel) |AMQP-waarde |
 | TimeSpan |Lange beschreven (Zie hieronder) |AMQP-waarde |
-| Stream |binaire bestanden |AMQP-gegevens (mogelijk meerdere). De gegevenssecties bevatten de onbewerkte bytes lezen uit de Stream-object. |
+| Streamen |binaire bestanden |AMQP-gegevens (mogelijk meerdere). De gegevenssecties bevatten de onbewerkte bytes lezen uit de Stream-object. |
 | Andere Object |binaire bestanden |AMQP-gegevens (mogelijk meerdere). Het geserialiseerde binaire bestand van het object dat gebruikmaakt van de DataContractSerializer of een serializer geleverd door de toepassing bevat. |
 
 | .NET-type | Toegewezen AMQP beschreven Type | Opmerkingen |
@@ -124,7 +124,7 @@ Bent u klaar om meer te weten? Ga naar de volgende koppelingen:
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
 [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
+[NuGet]: https://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [Service Bus AMQP-overzicht]: service-bus-amqp-overview.md
 [AMQP 1.0-protocolhandleiding]: service-bus-amqp-protocol-guide.md

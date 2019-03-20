@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2018
-ms.openlocfilehash: a42d2c75913b2c9fdfa0d2b7c3ec2742525a4c97
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.date: 03/13/2019
+ms.openlocfilehash: 354f6014e3230b65a0c4f1cd7507e58ca94474dd
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806093"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188098"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regionaal herstel na noodgevallen voor Azure Databricks-clusters
 
@@ -263,9 +263,14 @@ Voor het maken van de topologie van uw eigen regionale disaster recovery, de vol
 
 10. **Handmatig opnieuw configureren en toepassen van toegangsbeheer.**
 
-   Als uw bestaande primaire werkruimte is geconfigureerd voor het gebruik van de Premium-laag (SKU), is het waarschijnlijk u ook gebruikmaakt van de [Access Control-functie](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    Als uw bestaande primaire werkruimte is geconfigureerd voor het gebruik van de Premium-laag (SKU), is het waarschijnlijk u ook gebruikmaakt van de [Access Control-functie](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
 
-   Als u de Access Control-functie gebruikt, moet u handmatig het toegangsbeheer toepassen op de resources (Notebooks, Clusters, taken, tabellen).
+    Als u de Access Control-functie gebruikt, moet u handmatig het toegangsbeheer toepassen op de resources (Notebooks, Clusters, taken, tabellen).
+
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Herstel na noodgevallen voor uw Azure-ecosysteem
+
+Als u van andere Azure-services gebruikmaakt, zorg er dan voor dat disaster recovery aanbevolen procedures voor deze services te implementeren. Bijvoorbeeld, als u gebruiken van een extern exemplaar van de Hive-metastore wilt, u moet rekening houden met herstel na noodgevallen voor [Azure SQL-Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), en/of [Azure Database for MySQL ](../mysql/concepts-business-continuity.md). Raadpleeg voor algemene informatie over herstel na noodgevallen [herstel na noodgevallen voor Azure-toepassingen](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Zie voor meer informatie, [documentatie voor Azure Databricks](https://docs.azuredatabricks.net/user-guide/index.html).

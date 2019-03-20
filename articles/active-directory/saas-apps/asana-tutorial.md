@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 837e38fe-8f55-475c-87f4-6394dc1fee2b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc0fbc55c73f6d745d39873236df389f121dc9c7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 73f6126d6bf172a35a284e92b65b1c3ef449949e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Zelfstudie: Azure Active Directory-integratie met Asana
 
@@ -55,7 +55,7 @@ Voor het configureren van de integratie van Asana in Azure AD moet u Asana uit d
 
 **Als u Asana uit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -159,7 +159,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -202,15 +202,15 @@ In deze sectie maakt u in Asana een gebruiker met de naam Britta Simon.
 
 1. Ga in **Asana** naar de sectie **Teams** in het linkerdeelvenster. Klik op de knop met het plusteken (+).
 
-    ![Een Azure AD-testgebruiker maken](./media/asana-tutorial/tutorial_asana_12.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/asana-tutorial/tutorial_asana_12.png)
 
-2. Typ het e-mailadres van de gebruiker, in de notatie **britta.simon@contoso.com** in het tekstvak in en selecteer vervolgens **Uitnodigen**.
+2. Typ de e-mailadres van de gebruiker, zoals **britta.simon\@contoso.com** in het tekstvak in en selecteer vervolgens **uitnodigen**.
 
 3. Klik op **Uitnodiging verzenden**. De nieuwe gebruiker ontvangt een e-mailbericht in zijn of haar e-mailaccount. gebruiker moet het account maken en valideren.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel Asana in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van Asana waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
@@ -222,4 +222,4 @@ Wanneer u op de tegel Asana in het toegangsvenster klikt, wordt u automatisch aa
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-* [Inrichten van gebruikers configureren](asana-provisioning-tutorial.md)
+- [Inrichten van gebruikers configureren](asana-provisioning-tutorial.md)

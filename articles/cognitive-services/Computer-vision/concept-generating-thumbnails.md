@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8881a0c5e809dc75d1b9f4b6f6bd3af7142333cb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cea8522a9f3eb8fa98821c1cb08d92a9524d5ce4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876796"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Genereren van miniaturen smart bijgesneden met Computer Vision
 
 Een miniatuur is een kleiner formaat weergave van een afbeelding. Miniaturen worden gebruikt om afbeeldingen en andere gegevens op een meer betaalbare en lay-out-vriendelijk manier vertegenwoordigen. De Computer Vision-API maakt gebruik van slim bijsnijden, samen met het formaat van de afbeelding, intuïtieve miniaturen voor een bepaalde installatiekopie maken.
 
 De generatie van miniaturen Computer Vision-algoritme werkt als volgt:
+
 1. Verwijderen van bepaalde elementen van de installatiekopie en Identificeer de _interessegebied_&mdash;het gebied van de installatiekopie waarin de belangrijkste objecten wordt weergegeven.
 1. De afbeelding op basis van het geïdentificeerde bijsnijden _interessegebied_.
 1. De hoogte-breedteverhouding aanpassen aan de miniaturen dimensies doel wijzigen.

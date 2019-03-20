@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 1b157d8292eacff87a28554939a6f144b9f5d0e9
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: 7dcbfdaf00b0e628541cfd1a3b79df8cf8334ed3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092090"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536875"
 ---
-# <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Zelfstudie: Een aliasrecord zo configureren dat deze naar een openbaar Azure-IP-adres verwijst 
+# <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Zelfstudie: Een alias-record om te verwijzen naar een openbaar IP-adres van Azure configureren 
 
 In deze zelfstudie leert u het volgende:
 
@@ -30,13 +30,13 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 ## <a name="prerequisites"></a>Vereisten
 U moet een beschikbare domeinnaam hebben die u in Azure DNS kunt hosten om te testen. U moet het volledige beheer over dit domein hebben. Volledig beheer betekent ook de mogelijkheid om naamserverrecords (NS) voor het domein in te stellen.
 
-Zie voor instructies voor het hosten van uw domein in Azure DNS [Zelfstudie: Uw domein in Azure DNS hosten](dns-delegate-domain-azure-dns.md).
+Zie voor instructies voor het hosten van uw domein in Azure DNS [zelfstudie: Uw domein hosten in Azure DNS](dns-delegate-domain-azure-dns.md) voor meer informatie.
 
 Het voorbeelddomein dat wordt gebruikt voor deze zelfstudie is contoso.com, maar u moet uw eigen domeinnaam gebruiken.
 
 ## <a name="create-the-network-infrastructure"></a>De netwerkinfrastructuur maken
 Maak eerst een virtueel netwerk en een subnet waaraan u de webservers gaat toevoegen.
-1. Meld u aan bij Azure Portal op http://portal.azure.com.
+1. Meld u aan bij Azure Portal op https://portal.azure.com.
 2. Selecteer helemaal linksboven in de portal **Een resource maken**. Typ *resourcegroep* in het zoekvak en maak een resourcegroep met de naam **RG-DNS-Alias-pip**.
 3. Selecteer **Een resource maken** > **Netwerken** > **Virtueel netwerk**.
 4. Maak een virtueel netwerk met de naam **VNet-Server**. Plaats het in de resourcegroep **RG-DNS-Alias-pip** en geef het subnet de naam **SN-Web**.

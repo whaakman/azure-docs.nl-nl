@@ -3,7 +3,7 @@ title: Web-parameters van de service - Azure Machine Learning Studio | Microsoft
 description: Het gebruik van Azure Machine Learning Web Service Parameters aan het gedrag van uw model wijzigen wanneer de web-service wordt geopend.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.openlocfilehash: 07115b893c27c013e31614c0625c4bc87a400ffb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a236043d5622e5a2e1ffd572c887fb5ffac2174a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821112"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837997"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Azure Machine Learning Studio webserviceparameters gebruiken
 Een Azure Machine Learning-webservice wordt gemaakt door het publiceren van een experiment met modules met configureerbare parameters. In sommige gevallen kunt u het gedrag van de module niet wijzigen terwijl de webservice wordt uitgevoerd. *Web-Parameters van de Service* zodat u deze taak. 
@@ -75,7 +75,7 @@ Een voorbeeld: Stel dat we hebben een experiment met een [gegevens exporteren] [
 De gebruiker van de webservice kan nu opgeven voor een nieuwe bestemming voor de [gegevens exporteren] [ writer] module bij het openen van de webservice.
 
 ## <a name="more-information"></a>Meer informatie
-Zie voor een uitgebreider voorbeeld de [Webserviceparameters](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) vermelding in de [Machine Learning Blog](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
+Zie voor een uitgebreider voorbeeld de [Webserviceparameters](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) vermelding in de [Machine Learning Blog](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
 Zie voor meer informatie over het verkrijgen van toegang tot een Machine Learning-webservice [hoe u een Azure Machine Learning-webservice gebruiken](consume-web-services.md).
 

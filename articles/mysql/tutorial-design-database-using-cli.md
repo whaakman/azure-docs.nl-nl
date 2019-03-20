@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 17a147b12d660e25bfba1e3b987f9c6ae219942d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 951cf377c7e33dd3dd5e13a7b42fa05bec06245d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882583"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012383"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Zelfstudie: Een Azure Database for MySQL ontwerpen met Azure CLI
 
@@ -53,13 +53,13 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-mysql-server"></a>Een Azure-database voor MySQL-server maken
 Maak een Azure Database for MySQL-server met de opdracht az mysql server create. Een server kan meerdere databases beheren. Een aparte database wordt doorgaans gebruikt voor elk project of voor elke gebruiker.
 
-In het volgende voorbeeld wordt een Azure-database voor MySQL-server gemaakt die zich in `westus` bevindt in de resourcegroep `myresourcegroup` met de naam `mydemoserver`. De server heeft aanmeldgegevens voor de beheerder met de naam `myadmin`. Dit is een Gen 4-server voor Algemeen gebruik met twee vCores. Vervang het `<server_admin_password>` door uw eigen waarde.
+In het volgende voorbeeld wordt een Azure-database voor MySQL-server gemaakt die zich in `westus` bevindt in de resourcegroep `myresourcegroup` met de naam `mydemoserver`. De server heeft aanmeldgegevens voor de beheerder met de naam `myadmin`. Dit is een Gen 5-server voor Algemeen gebruik met twee vCores. Vervang het `<server_admin_password>` door uw eigen waarde.
 
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 De parameterwaarde voor de sku-naam volgt de conventie {prijscategorie} \_{compute-generatie}\_{vCores}, zoals in de onderstaande voorbeelden:
-+ `--sku-name B_Gen4_4` komt overeen met Basic, Gen 4 en 4 vCores.
++ `--sku-name B_Gen5_2` toewijzingen voor Basic, Gen 5 en 2 vCores.
 + `--sku-name GP_Gen5_32` komt overeen met Algemeen gebruik, Gen 5 en 32 vCores.
 + `--sku-name MO_Gen5_2` komt overeen met Geoptimaliseerd voor geheugen, Gen 5 en 2 vCores.
 
@@ -97,8 +97,8 @@ Het resultaat wordt in JSON-indeling weergegeven. Noteer de **fullyQualifiedDoma
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -184,7 +184,8 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 De opdracht `az mysql server restore` vereist de volgende parameters:
-| Instelling | Voorgestelde waarde | Beschrijving  |
+
+| Instelling | Voorgestelde waarde | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  De resourcegroep waarin de bronserver bestaat.  |
 | naam | mydemoserver-restored | De naam van de nieuwe server die door de opdracht restore is gemaakt. |

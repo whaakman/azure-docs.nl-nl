@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: e6a24bfe25513b1b4eacd8bc192caa5518c896c6
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: HT
+ms.openlocfilehash: 12ca210e1fe7aa60515f5b8c4c0ad830dcdd9594
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078955"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
 In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
@@ -382,7 +382,7 @@ In deze stap maakt u gegevenssets die de gegevensbron, het gegevensdoel en de pl
    ![Sink-gegevensset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 1. Nadat u op **Voltooien** hebt geklikt, ziet u **@dataset().SinkTableName** als de tabelnaam.
+   1. Nadat u hebt geklikt **voltooien**, ziet u  **\@dataset(). SinkTableName** als naam van de tabel.
    
    ![Sink-gegevensset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -424,11 +424,11 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
     ![Naam pijplijn](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
 1. Voer bij in het venster **Eigenschappen** de volgende stappen uit: 
 
-    1. Klik op **+ New**. 
-    1. Voer **tableList** in als **Name**-parameter. 
-    1. Selecteer **Object** voor de parameter **Type**.
+   1. Klik op **+ New**. 
+   1. Voer **tableList** in als **Name**-parameter. 
+   1. Selecteer **Object** voor de parameter **Type**.
 
-    ![Pijplijnparameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
+      ![Pijplijnparameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
 1. Vouw in de werkset **Activiteiten** de optie **Iteratie en voorwaarden** uit en sleep de **ForEach**-activiteit naar het ontwerpoppervlak voor pijplijnen. Voer in het tabblad **Algemeen** van het venster **Eigenschappen** **IterateSQLTables** in. 
 
     ![ForEach-activiteitnaam](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
@@ -457,69 +457,69 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
     ![Tweede opzoekactiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
 1. Schakel over naar het tabblad **Instellingen**.
 
-    1. Selecteer **SourceDataset** in het veld **Source Dataset**. 
-    1. Selecteer **Query** bij **Use Query**.
-    1. Voer bij **Query** de volgende SQL-query in.
+     1. Selecteer **SourceDataset** in het veld **Source Dataset**. 
+     1. Selecteer **Query** bij **Use Query**.
+     1. Voer bij **Query** de volgende SQL-query in.
 
-        ```sql    
-        select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
-        ```
+         ```sql    
+         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
+         ```
     
-        ![Tweede opzoekactiviteit - instellingen](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+         ![Tweede opzoekactiviteit - instellingen](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
 1. Sleep de activiteit **Kopiëren** uit de **Activiteiten**-werkset en voer **IncrementalCopyActivity** in als **Naam**. 
 
-    ![Kopieeractiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
+     ![Kopieeractiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
 1. Verbind **Opzoek**-activiteiten één voor één met de activiteit **Kopiëren**. Om te verbinden, start u met het slepen van het **groene** vak gekoppeld aan de **Opzoek**-activiteit en zet u dit neer op de activiteit **Kopiëren**. Laat de muisknop los als u ziet dat de randkleur van de kopieeractiviteit is gewijzigd in **blauw**.
 
-    ![Opzoekactiviteiten verbinden met kopieeractiviteit](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+     ![Opzoekactiviteiten verbinden met kopieeractiviteit](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. U ziet dat de activiteit **Kopiëren** in de pijplijn is mislukt. Ga naar het tabblad **Bron** in het venster **Eigenschappen**. 
 
-    1. Selecteer **SourceDataset** in het veld **Source Dataset**. 
-    1. Selecteer **Query** bij **Use Query**. 
-    1. Voer bij **Query** de volgende SQL-query in.
+     1. Selecteer **SourceDataset** in het veld **Source Dataset**. 
+     1. Selecteer **Query** bij **Use Query**. 
+     1. Voer bij **Query** de volgende SQL-query in.
 
-        ```sql
-        select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
-        ```
+         ```sql
+         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
+         ```
 
-        ![Kopieeractiviteit - broninstellingen](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+         ![Kopieeractiviteit - broninstellingen](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
 1. Open het tabblad **Sink** en selecteer **SinkDataset** in het veld **Sink Dataset**. 
         
-    ![Kopieeractiviteit - sinkinstellingen](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
+     ![Kopieeractiviteit - sinkinstellingen](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
 1. Open het tabblad **Parameters** en voer de volgende stappen uit:
 
-    1. Voer bij de eigenschap **In de sink opgeslagen procedurenaam** `@{item().StoredProcedureNameForMergeOperation}` in.
-    1. Voer bij de eigenschap **Tabeltype sink** `@{item().TableType}` in.
-    1. Voer in de sectie **Sink-gegevensset** bij de parameter **SinkTableName** `@{item().TABLE_NAME}` in.
+     1. Voer bij de eigenschap **In de sink opgeslagen procedurenaam** `@{item().StoredProcedureNameForMergeOperation}` in.
+     1. Voer bij de eigenschap **Tabeltype sink** `@{item().TableType}` in.
+     1. Voer in de sectie **Sink-gegevensset** bij de parameter **SinkTableName** `@{item().TABLE_NAME}` in.
 
-        ![Kopieeractiviteit - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+         ![Kopieeractiviteit - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Sleep de **Stored Procedure**-activiteit vanuit de werkset **Activities** naar het ontwerpoppervlak voor pijplijnen. Verbind de **Kopieer**-activiteit met de **Opgeslagen procedure**-activiteit. 
 
-    ![Kopieeractiviteit - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
+     ![Kopieeractiviteit - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
 1. Selecteer de **Opgeslagen procedure**-activiteit in de pijplijn en voer **StoredProceduretoWriteWatermarkActivity** in als **Naam** in het tabblad **Algemeen** van het venster **Eigenschappen**. 
 
-    ![Opgeslagen-procedureactiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
+     ![Opgeslagen-procedureactiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
 1. Ga naar het tabblad **SQL-account** en selecteer **AzureSqlDatabaseLinkedService** als **Gekoppelde Service**.
 
-    ![Opgeslagen-procedureactiviteit - SQL-account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+     ![Opgeslagen-procedureactiviteit - SQL-account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. Ga naar het tabblad **Opgeslagen procedure** en voer de volgende stappen uit:
 
-    1. Selecteer `usp_write_watermark` als **Opgeslagen procedurenaam**. 
-    1. Selecteer **Importparameter**. 
-    1. Geef de volgende waarden op voor de parameters: 
+     1. Selecteer `usp_write_watermark` als **Opgeslagen procedurenaam**. 
+     1. Selecteer **Importparameter**. 
+     1. Geef de volgende waarden op voor de parameters: 
 
-        | Naam | Type | Waarde | 
-        | ---- | ---- | ----- |
-        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | Tekenreeks | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+         | Name | Type | Value | 
+         | ---- | ---- | ----- |
+         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-        ![Opgeslagen-procedureactiviteit - instellingen voor de opgeslagen procedure](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+         ![Opgeslagen-procedureactiviteit - instellingen voor de opgeslagen procedure](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Klik in het linkerdeelvenster op **Publiceren**. Deze actie publiceert de entiteiten die u hebt gemaakt met de Data Factory-service. 
 
-    ![De knop Publiceren](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
+     ![De knop Publiceren](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
 1. Wacht tot u het bericht **Gepubliceerd** ziet. Om de meldingen te zien, klikt u op de link **Meldingen weergeven**. Sluit het meldingenvenster door op **X** te klikken.
 
-    ![Meldingen weergeven](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
+     ![Meldingen weergeven](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
 
  
 ## <a name="run-the-pipeline"></a>De pijplijn uitvoeren

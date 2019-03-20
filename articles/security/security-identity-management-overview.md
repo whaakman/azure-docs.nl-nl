@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
-Customer intent: As a IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: b58cbcdccced3952c3171daa14f80986e473c5dd
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
+ms.openlocfilehash: 29c04fc04b5d277e982a37402a128b2dbe787e2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111489"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898496"
 ---
 # <a name="azure-identity-management-security-overview"></a>Overzicht van Azure identity management-beveiliging
 
@@ -67,7 +67,7 @@ Meer informatie:
 
 ## <a name="reverse-proxy"></a>Omgekeerde proxy
 
-Azure AD-toepassingsproxy, kunt u on-premises toepassingen, zoals publiceren [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), en [IIS](http://www.iis.net/)-gebaseerde apps binnen uw particuliere netwerk en veilige toegang verleent aan gebruikers buiten uw netwerk. Application Proxy biedt externe toegang en eenmalige aanmelding voor veel soorten on-premises webtoepassingen met de duizenden SaaS-toepassingen die ondersteuning biedt voor Azure AD. Werknemers kunnen zich aanmelden bij uw apps op hun eigen apparaten van herkomst en via deze proxy cloud-gebaseerde te verifiëren.
+Azure AD-toepassingsproxy, kunt u on-premises toepassingen, zoals publiceren [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), en [IIS](https://www.iis.net/)-gebaseerde apps binnen uw particuliere netwerk en veilige toegang verleent aan gebruikers buiten uw netwerk. Application Proxy biedt externe toegang en eenmalige aanmelding voor veel soorten on-premises webtoepassingen met de duizenden SaaS-toepassingen die ondersteuning biedt voor Azure AD. Werknemers kunnen zich aanmelden bij uw apps op hun eigen apparaten van herkomst en via deze proxy cloud-gebaseerde te verifiëren.
 
 Meer informatie:
 

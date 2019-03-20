@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 536ca8895d130fd9273d556332830d020a485dc3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 812b3752bfffd16c09b466b036fb0ac91e77d5a4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958283"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104349"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Een virtuele machine maken met een statisch privé IP-adres met behulp van PowerShell
 
@@ -91,14 +91,12 @@ U kunt de volgende stappen uitvoeren vanaf uw lokale computer of met behulp van 
 
 > [!WARNING]
 > Hoewel u privé IP-adresinstellingen aan het besturingssysteem toevoegen kunt, wordt aangeraden niet in dat geval pas na het lezen [een privé IP-adres toevoegen aan een besturingssysteem](virtual-network-network-interface-addresses.md#private).
->
->
-<a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
-
+> 
+> 
+> <a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
+> 
 > [!IMPORTANT]
 > Voor toegang tot de virtuele machine via internet, moet u een openbaar IP-adres toewijzen aan de virtuele machine. U kunt ook een dynamisch privé IP-adrestoewijzing aan een statische toewijzing wijzigen. Zie voor meer informatie, [toevoegen of wijzigen van IP-adressen](virtual-network-network-interface-addresses.md). Het bovendien raadzaam het netwerkverkeer te beperken tot de virtuele machine te koppelen van een netwerkbeveiligingsgroep naar de netwerkinterface, het subnet dat u hebt gemaakt met de netwerkinterface in of beide. Zie voor meer informatie, [netwerkbeveiligingsgroepen beheren](manage-network-security-group.md).
->
->
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

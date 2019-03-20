@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 727a503a2fd942e6fbef9009c760a39f90828d2f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433124"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077017"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>1 TB laden in Azure SQL Data Warehouse minder dan 15 minuten met Data Factory
 > [!NOTE]
@@ -109,7 +109,7 @@ In dit artikel bevat stapsgewijze instructies voor het verplaatsen van gegevens 
         CLUSTERED COLUMNSTORE INDEX
     )
     ```
-Met de vereiste stappen voltooid, zijn er nu klaar om te configureren van de kopieeractiviteit in de Wizard kopiëren.
+  Met de vereiste stappen voltooid, zijn er nu klaar om te configureren van de kopieeractiviteit in de Wizard kopiëren.
 
 ## <a name="launch-copy-wizard"></a>De wizard Kopiëren starten
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).

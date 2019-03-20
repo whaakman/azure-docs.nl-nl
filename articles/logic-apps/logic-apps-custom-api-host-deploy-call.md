@@ -10,18 +10,18 @@ ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: e95b20a12fafa9d1dbcbd641ce1c9f2674314489
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606432"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880061"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implementeren en aanroepen van aangepaste API's van werkstromen in Azure Logic Apps
 
 Nadat u [aangepaste API's maken](./logic-apps-create-api-app.md) voor gebruik in logic app workflows, moet u uw API's implementeren voordat u ze kunt aanroepen. U kunt uw API's als implementeren [web-apps](../app-service/overview.md), maar Overweeg de implementatie van uw API's als [API apps](../app-service/app-service-web-tutorial-rest-api.md), die eenvoudiger uw taak bij het bouwen, hosten en gebruikmaken van API's in de cloud en on-premises. U hoeft niet te wijzigen van de code in uw API's - net implementeert uw code in een API-app. U kunt uw API's hosten op [Azure App Service](../app-service/overview.md), een platform-as-a-serviceoplossing (PaaS) waarmee de uiterst schaalbare webhostingservice met eenvoudige API die als host fungeert.
 
-Hoewel voor de beste ervaring, u een API vanuit een logische app aanroepen kunt, Voeg [OpenAPI (voorheen Swagger) metagegevens](http://swagger.io/specification/) met de beschrijving van uw API bewerkingen en parameters. Deze OpenAPI-bestand kunt u uw API eenvoudiger integreren en beter werken met logic apps.
+Hoewel voor de beste ervaring, u een API vanuit een logische app aanroepen kunt, Voeg [OpenAPI (voorheen Swagger) metagegevens](https://swagger.io/specification/) met de beschrijving van uw API bewerkingen en parameters. Deze OpenAPI-bestand kunt u uw API eenvoudiger integreren en beter werken met logic apps.
 
 ## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>Uw API als een web-app of API-app implementeren
 

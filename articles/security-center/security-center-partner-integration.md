@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/3/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52b347aef240f2338aedff2c2a1a3cd53743dc27
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 5a25ba889ebde750937f88e447123263a82d5627
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114260"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896820"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Beveiligingsoplossingen integreren in Azure Security Center
 Dit document helpt u bij het beheren van beveiligingsoplossingen die al zijn gekoppeld aan Azure Security Center en bij het toevoegen van nieuwe oplossingen.
@@ -34,7 +34,7 @@ Met Security Center kunt u gemakkelijk geïntegreerde beveiligingsoplossingen in
 Geïntegreerde beveiligingsoplossingen omvatten momenteel:
 
 - Firewall voor webtoepassingen ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) en [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
-- Firewall van de volgende generatie ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) en [Palo Alto Networks](https://www.paloaltonetworks.com/products))
+- Firewall van de volgende generatie ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](https://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) en [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Evaluatie van beveiligingsproblemen ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) en [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure-beveiligingsoplossingen die zijn geïmplementeerd vanuit Security Center, 
 
 3. Selecteer in het menu van Security Center de optie **Beveiligingsoplossingen**.
 
-  ![Overzicht van Security Center](./media/security-center-partner-integration/overview.png)
+   ![Overzicht van Security Center](./media/security-center-partner-integration/overview.png)
 
 Bij **beveiligingsoplossingen** kunt u informatie bekijken over de status van de geïntegreerde Azure-beveiligingsoplossingen en algemene beheertaken uitvoeren. U kunt ook andere typen gegevensbronnen voor beveiliging verbinden, zoals Azure Active Directory Identity Protection-waarschuwingen en firewall-logboeken in CEF (Common Event Format).
 
@@ -82,12 +82,12 @@ De status van een partneroplossing kan zijn:
 >
 >
 
-2. Selecteer **weergave** voor meer informatie en opties, inclusief:
+1. Selecteer **weergave** voor meer informatie en opties, inclusief:
 
-  - **Oplossingenconsole**. Hiermee opent u de ervaring voor deze oplossing.
-  - **VM koppelen**. Hiermee opent u de blade toepassingen koppelen. Hier kunt u resources verbinden met de partneroplossing.
-  - **Oplossing verwijderen**.
-  - **Configureer**.
+   - **Oplossingenconsole**. Hiermee opent u de ervaring voor deze oplossing.
+   - **VM koppelen**. Hiermee opent u de blade toepassingen koppelen. Hier kunt u resources verbinden met de partneroplossing.
+   - **Oplossing verwijderen**.
+   - **Configureer**.
 
    ![Details van partneroplossingen](./media/security-center-partner-solutions/partner-solutions-detail.png)
 

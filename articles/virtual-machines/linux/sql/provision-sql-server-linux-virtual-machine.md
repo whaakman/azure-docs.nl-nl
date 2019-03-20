@@ -12,12 +12,12 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7d33fb24e08ea0a726f9f8e51eacf17fd22efaf9
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 468db9d62a98e079fbe6954843e23a518eaabd0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791134"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011718"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Een virtuele SQL Server-machine inrichten in Azure Portal
 
@@ -76,23 +76,23 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 1. Voer bij **Naam virtuele machine** een naam in voor uw nieuwe Linux-VM.
 1. Typ of selecteer vervolgens de volgende waarden:
-    * **Regio**: selecteer de Azure-regio die het beste bij u past.
-    * **Beschikbaarheidsopties**: kies de beschikbaarheid en redundantie die het meest geschikt zijn voor uw apps en gegevens.
-    * **Formaat wijzigen**: selecteer deze optie om een machineformaat te kiezen en kies daarna **Selecteren**. Zie [Linux VM-grootten](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes) voor meer informatie over de grootte van VM-machines.
+   * **Regio**: selecteer de Azure-regio die het beste bij u past.
+   * **Beschikbaarheidsopties**: kies de beschikbaarheid en redundantie die het meest geschikt zijn voor uw apps en gegevens.
+   * **Formaat wijzigen**: selecteer deze optie om een machineformaat te kiezen en kies daarna **Selecteren**. Zie [Linux VM-grootten](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes) voor meer informatie over de grootte van VM-machines.
 
-    ![Een VM-grootte kiezen](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
+     ![Een VM-grootte kiezen](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
    > Voor de ontwikkeling en het uitvoeren van functionele tests kunt u het beste een VM-formaat van **DS2** of groter kiezen. Gebruik **DS13** of groter als u prestatietests wilt uitvoeren.
 
-    * **Verificatietype**: selecteer **Openbare SSH-sleutel**.
+   * **Verificatietype**: selecteer **Openbare SSH-sleutel**.
 
-    > [!Note]
-    > U hebt de keuze om voor de verificatie een openbare SSH-sleutel of een wachtwoord te gebruiken. SSH is veiliger. Zie [SSH-sleutels maken in Linux en Mac voor virtuele Linux-machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys) voor instructies over het maken van een SSH-sleutel.
+     > [!Note]
+     > U hebt de keuze om voor de verificatie een openbare SSH-sleutel of een wachtwoord te gebruiken. SSH is veiliger. Zie [SSH-sleutels maken in Linux en Mac voor virtuele Linux-machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys) voor instructies over het maken van een SSH-sleutel.
 
-    * **Gebruikersnaam**: voer de naam van de beheerder voor de VM in.
-    * **Openbare SSH-sleutel**: voer uw openbare RSA-sleutel in.
-    * **Openbare binnenkomende poorten**: selecteer **Geselecteerde poorten toestaan** en kies de poort **SSH (22)** in de lijst **Openbare binnenkomende poorten selecteren**. Deze stap is nodig in deze quickstart om verbinding te maken en de SQL Server-configuratie te voltooien. Als u op afstand verbinding wilt maken met SQL Server, selecteert u ook **MS SQL (1433)** om poort 1433 voor verbindingen via internet te openen.
+   * **Gebruikersnaam**: voer de naam van de beheerder voor de VM in.
+   * **Openbare SSH-sleutel**: voer uw openbare RSA-sleutel in.
+   * **Openbare binnenkomende poorten**: selecteer **Geselecteerde poorten toestaan** en kies de poort **SSH (22)** in de lijst **Openbare binnenkomende poorten selecteren**. Deze stap is nodig in deze quickstart om verbinding te maken en de SQL Server-configuratie te voltooien. Als u op afstand verbinding wilt maken met SQL Server, selecteert u ook **MS SQL (1433)** om poort 1433 voor verbindingen via internet te openen.
 
    ![Poorten voor inkomend verkeer](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
@@ -120,7 +120,7 @@ U vindt het IP-adres van uw virtuele machine in Azure Portal.
 
 Als u Windows gebruikt en geen BASH-shell hebt, installeert u een SSH-client, zoals PuTTY.
 
-1. [PuTTY downloaden en installeren](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. [PuTTY downloaden en installeren](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 1. Voer PuTTY uit.
 

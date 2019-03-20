@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 7eecd7f5da2b20cb80d8a04d105460baaf9ed4a2
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 38236cba6af46df2701bb0128fe9d78e95aa6ec7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984710"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076816"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Meer informatie over de status van uw Azure virtual machines met Azure Monitor voor virtuele machines (preview)
 Azure bevat meerdere services die afzonderlijk uitvoeren van een specifieke rol of de taak in de ruimte bewaking, maar biedt een perspectief gedetailleerde status van het besturingssysteem die worden gehost op Azure virtual machines niet beschikbaar was.  Terwijl u voor verschillende voorwaarden met behulp van Azure Monitor bewaakt kan, is niet het ontworpen modelleren en status van de belangrijkste onderdelen of algemene status van de virtuele machine vertegenwoordigen.  Met Azure Monitor voor virtuele machines de gezondheid van functie bewaakt het proactief de beschikbaarheid en prestaties van de Windows- of Linux Gast-OS met een model met daarin belangrijke onderdelen en hun relaties, criteria waarmee wordt aangegeven hoe u voor het meten van de status van deze onderdelen, en u waarschuwen wanneer een slechte status voorwaarde wordt gedetecteerd.  
@@ -29,22 +29,22 @@ In dit artikel helpt u begrijpen hoe u snel beoordelen, onderzoeken en oplossen 
 
 Zie voor meer informatie over het configureren van Azure Monitor voor virtuele machines [Azure Monitor inschakelen voor virtuele machines](vminsights-onboard.md).
 
->[!NOTE]
->Vanaf 11 februari 2019 zullen we u migreert vanaf het huidige statusmodel in Azure Monitor voor de functie de gezondheid van virtuele machines, dat weergegeven wordt wanneer u zich in de ervaring van de gezondheid van diagnostische gegevens van vandaag, naar een nieuwe versie van het statusmodel. Deze update verbetert de prestaties van de status rollup-verwerking en bevat een verfijnde statusmodel die zijn gepresenteerd in de statusweergave van de diagnostische gegevens. 
->
->Met het nieuwe statusmodel zijn rollup van onderliggende health criteria bovenliggende entiteit/niveau health criteria sneller en als gevolg hiervan de status van de bovenliggende updates naar de status van het gewenste of de doelserver met minder latentie. U kunt nog steeds de criteria voor beveiligingsstatus onder filteren de **prestaties** en **beschikbaarheid** categorieën in tegenstelling tot de vorige methode tabblad op basis van een categorie selecteren in de weergave.
->
->Raadpleeg voor meer informatie over de ervaring van de diagnostische gegevens over status, diagnostische gegevens over de status [sectie](#health-diagnostics) in dit artikel. 
->
->Deze update wordt verbeterd het volgende: 
->
->- Statustotalisatie verwerking met lagere latentie  
->- Sneller waarschuwen voor statuswijzigingen 
->- Sneller van de status in de weergave samengevoegde virtuele machine voor alle virtuele machines bijwerken 
->
->Er is geen regressie van alle functionaliteit die vandaag nog met de Health-functie van Azure Monitor worden geleverd voor VM's.
-
->Als gevolg van deze wijziging, twee ervaringen in de gezondheid van diagnostische gegevens zijn getroffen - geschiedenis van de wijziging wordt opnieuw ingesteld en statuswijzigingen in de vorige voor criteria voor beveiligingsstatus niet meer beschikbaar voor controle in de kolom Status wijzigen van de Health-pagina voor diagnostische gegevens. Als u geïnteresseerd in de historische gegevens van een bent essentiële kritieke VM vervolgens u een schermafbeelding van de statusgegevens van de criteria en de bijbehorende statuswijzigingen ter referentie neemt. 
+> [!NOTE]
+> Vanaf 11 februari 2019 zullen we u migreert vanaf het huidige statusmodel in Azure Monitor voor de functie de gezondheid van virtuele machines, dat weergegeven wordt wanneer u zich in de ervaring van de gezondheid van diagnostische gegevens van vandaag, naar een nieuwe versie van het statusmodel. Deze update verbetert de prestaties van de status rollup-verwerking en bevat een verfijnde statusmodel die zijn gepresenteerd in de statusweergave van de diagnostische gegevens. 
+> 
+> Met het nieuwe statusmodel zijn rollup van onderliggende health criteria bovenliggende entiteit/niveau health criteria sneller en als gevolg hiervan de status van de bovenliggende updates naar de status van het gewenste of de doelserver met minder latentie. U kunt nog steeds de criteria voor beveiligingsstatus onder filteren de **prestaties** en **beschikbaarheid** categorieën in tegenstelling tot de vorige methode tabblad op basis van een categorie selecteren in de weergave.
+> 
+> Raadpleeg voor meer informatie over de ervaring van de diagnostische gegevens over status, diagnostische gegevens over de status [sectie](#health-diagnostics) in dit artikel. 
+> 
+> Deze update wordt verbeterd het volgende: 
+> 
+> - Statustotalisatie verwerking met lagere latentie  
+> - Sneller waarschuwen voor statuswijzigingen 
+> - Sneller van de status in de weergave samengevoegde virtuele machine voor alle virtuele machines bijwerken 
+> 
+> Er is geen regressie van alle functionaliteit die vandaag nog met de Health-functie van Azure Monitor worden geleverd voor VM's.
+> 
+> Als gevolg van deze wijziging, twee ervaringen in de gezondheid van diagnostische gegevens zijn getroffen - geschiedenis van de wijziging wordt opnieuw ingesteld en statuswijzigingen in de vorige voor criteria voor beveiligingsstatus niet meer beschikbaar voor controle in de kolom Status wijzigen van de Health-pagina voor diagnostische gegevens. Als u geïnteresseerd in de historische gegevens van een bent essentiële kritieke VM vervolgens u een schermafbeelding van de statusgegevens van de criteria en de bijbehorende statuswijzigingen ter referentie neemt. 
 
 ## <a name="monitoring-configuration-details"></a>Informatie over de configuratie controleren
 In deze sectie geeft een overzicht van de standaard status criteria gedefinieerd voor het bewaken van Azure Windows en Linux-machines. Alle health criteria zijn vooraf geconfigureerd voor een waarschuwing wanneer het niet in orde voorwaarde wordt voldaan. 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: ea7b5b087a5cfb2a3eefaef7336de4a6acf7f116
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777529"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009300"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Eindpunten toevoegen, uitschakelen, inschakelen of verwijderen
 
@@ -29,7 +29,7 @@ U kunt ook afzonderlijke eindpunten uitschakelen die deel uitmaken van een Traff
 
 ## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Een cloudservice of app-service-eindpunt toevoegen aan een Traffic Manager-profiel
 
-1. Meld u vanuit een browser aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u vanuit een browser aan bij [Azure Portal](https://portal.azure.com).
 2. Zoek in de zoekbalk van de portal naar de naam van het **Traffic Manager-profiel** dat u wilt wijzigen, en klik vervolgens in de weergegeven resultaten op het Traffic Manager-profiel.
 3. Klik op de blade **Traffic Manager-profiel** in de sectie **Instellingen** op **Eindpunten**.
 4. Klik op de blade **Eindpunten** die wordt weergegeven, op **Toevoegen**.
@@ -49,7 +49,7 @@ U kunt ook afzonderlijke eindpunten uitschakelen die deel uitmaken van een Traff
 
 ## <a name="to-disable-an-endpoint"></a>Een eindpunt uitschakelen
 
-1. Meld u vanuit een browser aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u vanuit een browser aan bij [Azure Portal](https://portal.azure.com).
 2. Zoek in de zoekbalk van de portal naar de naam van het **Traffic Manager-profiel** dat u wilt wijzigen, en klik vervolgens in de weergegeven resultaten op het Traffic Manager-profiel.
 3. Klik op de blade **Traffic Manager-profiel** in de sectie **Instellingen** op **Eindpunten**. 
 4. Klik op het eindpunt dat u wilt uitschakelen, en klik vervolgens op de weergegeven blade **Eindpunt** op **Bewerken**.
@@ -58,7 +58,7 @@ U kunt ook afzonderlijke eindpunten uitschakelen die deel uitmaken van een Traff
 
 ## <a name="to-enable-an-endpoint"></a>Een eindpunt inschakelen
 
-1. Meld u vanuit een browser aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u vanuit een browser aan bij [Azure Portal](https://portal.azure.com).
 2. Zoek in de zoekbalk van de portal naar de naam van het **Traffic Manager-profiel** dat u wilt wijzigen, en klik vervolgens in de weergegeven resultaten op het Traffic Manager-profiel.
 3. Klik op de blade **Traffic Manager-profiel** in de sectie **Instellingen** op **Eindpunten**. 
 4. Klik op het eindpunt dat u wilt uitschakelen, en klik vervolgens op de weergegeven blade **Eindpunt** op **Bewerken**.
@@ -67,7 +67,7 @@ U kunt ook afzonderlijke eindpunten uitschakelen die deel uitmaken van een Traff
 
 ## <a name="to-delete-an-endpoint"></a>Een eindpunt verwijderen
 
-1. Meld u vanuit een browser aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u vanuit een browser aan bij [Azure Portal](https://portal.azure.com).
 2. Zoek in de zoekbalk van de portal naar de naam van het **Traffic Manager-profiel** dat u wilt wijzigen, en klik vervolgens in de weergegeven resultaten op het Traffic Manager-profiel.
 3. Klik op de blade **Traffic Manager-profiel** in de sectie **Instellingen** op **Eindpunten**. 
 4. Klik op het eindpunt dat u wilt uitschakelen, en klik vervolgens op de weergegeven blade **Eindpunt** op **Bewerken**.

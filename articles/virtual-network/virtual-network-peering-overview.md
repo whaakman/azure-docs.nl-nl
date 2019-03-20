@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 5141cd083469d51a067bbc993f598393768fe99f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e32bc2f4697b5ac32993a5da66e5c38cb7add03f
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000184"
+ms.locfileid: "58200579"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -79,7 +79,7 @@ U kunt ook de [Probleemoplosser voor virtueel netwerk peering problemen](https:/
 ## <a name="requirements-and-constraints"></a>Vereisten en beperkingen
 
 De volgende beperkingen zijn alleen van toepassing wanneer virtuele netwerken wereldwijd zijn gekoppeld:
-- Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een algemene interne load balancer in een wereldwijd gekoppelde virtuele netwerk. Ondersteuning voor de basisversie van Load Balancer bestaat alleen binnen dezelfde regio. Ondersteuning voor de standaardversie van Load Balancer bestaat voor wereldwijde VNet-Peering.  -Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een algemene interne load balancer in een wereldwijd gekoppelde virtuele netwerk. Ondersteuning voor de basisversie van Load Balancer bestaat alleen binnen dezelfde regio. Ondersteuning voor de standaardversie van Load Balancer bestaat voor zowel, VNet-Peering en wereldwijde VNet-Peering.
+- Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een algemene interne load balancer in een wereldwijd gekoppelde virtuele netwerk. Ondersteuning voor de basisversie van Load Balancer bestaat alleen binnen dezelfde regio. Ondersteuning voor de standaardversie van Load Balancer bestaat voor wereldwijde VNet-Peering.
 - U kunt externe gateways gebruiken of gatewayoverdracht toestaan in wereldwijd gekoppelde virtuele netwerken in de Preview-versie. De Preview-versie is beschikbaar in alle Azure-regio's, China-cloud-regio's en Government cloud-regio's. Er is geen opname in de whitelist is vereist. U kunt in de Preview-versie via de CLI, PowerShell, sjablonen of API testen. Portal wordt niet ondersteund in de Preview-versie.
 
 Zie [Vereisten en beperkingen voor peering op een virtueel netwerk](virtual-network-manage-peering.md#requirements-and-constraints) voor meer informatie over vereisten en beperkingen. Zie [Azure-netwerklimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie over de limieten voor het aantal peerings dat u kunt maken voor een virtueel netwerk. 

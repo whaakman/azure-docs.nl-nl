@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: f6d3fd32245c52d3fa3321dad8ef1545e9d2d84c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 687a9884c861b4cf72e51f9179e6c0b43968801d
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444817"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202901"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Excel verbinden met Apache Hadoop met Power Query
 Een belangrijke functie van de Microsoft big data-oplossing is de integratie van Microsoft business intelligence (BI)-onderdelen met Apache Hadoop-clusters in Azure HDInsight. Een voorbeeld van een primaire is de mogelijkheid om Excel verbinden met de Azure Storage-account met de gegevens die zijn gekoppeld aan uw Hadoop-cluster met behulp van de Microsoft Power Query voor Excel-invoegtoepassing. Dit artikel helpt u bij het instellen en gebruiken van Power Query om gegevens te doorzoeken die zijn gekoppeld aan een beheerd met HDInsight Hadoop-cluster.
@@ -40,22 +40,22 @@ De Power Query-invoegtoepassing voor Excel kunt u eenvoudig gegevens importeren 
 2. Maak een nieuwe lege werkmap.
 3. Voer de volgende stappen uit op basis van de versie van Excel:
 
-    - Excel 2016
+   - Excel 2016
 
-        - Klik op de **gegevens** menu, klikt u op **gegevens ophalen** uit de **gegevens ophalen en transformeren** lint, klikt u op **van Azure**, en klik vervolgens op **Uit Azure HDInsight(HDFS)**.
+     - Klik op de **gegevens** menu, klikt u op **gegevens ophalen** uit de **gegevens ophalen en transformeren** lint, klikt u op **van Azure**, en klik vervolgens op **Uit Azure HDInsight(HDFS)**.
 
-        ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
+       ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
-    - Excel 2013/2010
+   - Excel 2013/2010
 
-        - Klik op de **Power Query** menu, klikt u op **van Azure**, en klik vervolgens op **van Microsoft Azure HDInsight**.
+     - Klik op de **Power Query** menu, klikt u op **van Azure**, en klik vervolgens op **van Microsoft Azure HDInsight**.
    
-        ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
+       ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
-        **Opmerking:** Als er geen de **Power Query** menu, gaat u naar **bestand** > **opties** > **-invoegtoepassingen**, en selecteer  **COM-invoegtoepassingen** in de vervolgkeuzelijst **beheren** vak aan de onderkant van de pagina. Selecteer de **gaan...**  knop en controleer of het selectievakje in voor de Power Query voor Excel-invoegtoepassing is ingeschakeld.
+       **Opmerking:** Als er geen de **Power Query** menu, gaat u naar **bestand** > **opties** > **-invoegtoepassingen**, en selecteer  **COM-invoegtoepassingen** in de vervolgkeuzelijst **beheren** vak aan de onderkant van de pagina. Selecteer de **gaan...**  knop en controleer of het selectievakje in voor de Power Query voor Excel-invoegtoepassing is ingeschakeld.
        
-        **Opmerking:** Power Query kunt u gegevens importeren uit HDFS door te klikken op ook **van andere bronnen**.
-4. Voor **accountnaam**, voer de naam van de Azure Blob storage-account dat is gekoppeld aan het cluster en klik vervolgens op **OK**. Dit account mag de [storage-account standaard](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account) of een gekoppelde storage-account.  De indeling is *https://&lt;StorageAccountName >.blob.core.windows.net/*.
+       **Opmerking:** Power Query kunt u gegevens importeren uit HDFS door te klikken op ook **van andere bronnen**.
+4. Voor **accountnaam**, voer de naam van de Azure Blob storage-account dat is gekoppeld aan het cluster en klik vervolgens op **OK**. Dit account kan worden het standaardaccount voor opslag of een gekoppelde storage-account.  De indeling is *https://&lt;StorageAccountName >.blob.core.windows.net/*.
 5. Voor **Accountsleutel**, voer de sleutel voor de Blob storage-account en klik vervolgens op **opslaan**. (U moet de account informatie alleen de eerste keer dat u toegang dit archief tot invoeren.)
 6. In de **Navigator** in het linkerdeelvenster van de Query-Editor, dubbelklikt u op de naam van de Blob storage-container. Standaard is de naam van dezelfde naam als de naam van het cluster.
 7. Zoek **HiveSampleData.txt** in de **naam** kolom (pad naar de map is **... / hive/datawarehouse/hivesampletable/**), en klik vervolgens op **binaire** aan de linkerkant van HiveSampleData.txt. HiveSampleData.txt wordt geleverd met alle het cluster. Desgewenst kunt u uw eigen-bestand.

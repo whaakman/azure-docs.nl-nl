@@ -11,15 +11,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
-ms.date: 06/12/2018
+ms.date: 03/13/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 826b0d2e56034a99130962f259c5c4297a31daf7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7fe75dabe098cf98f0c3c04d592a32d6a44cebf8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537266"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905015"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Taken met meerdere instanties gebruiken voor het uitvoeren van Message Passing Interface (MPI) applications in Batch
 
@@ -52,7 +52,7 @@ Wanneer u een taak met de instellingen voor meerdere instanties aan een taak ver
 Taken met meerdere instanties vereist een pool met **communicatie tussen knooppunten is ingeschakeld**, en met **uitgeschakeld van de uitvoering van gelijktijdige taken**. Schakel de uitvoering van gelijktijdige taken instellen de [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool) eigenschap in op 1.
 
 > [!NOTE]
-> Batch [limieten](batch-quota-limit.md#other-limits) de grootte van een groep met de communicatie tussen knooppunten is ingeschakeld.
+> Batch [limieten](batch-quota-limit.md#pool-size-limits) de grootte van een groep met de communicatie tussen knooppunten is ingeschakeld.
 
 
 Dit codefragment laat zien hoe u een groep maken voor taken met meerdere instanties met behulp van de Batch .NET-bibliotheek.

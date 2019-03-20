@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2da89e674b967287150b2e8f3a98fc25df2af81e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fe653d36b2c527391a2f6d4ce33b89ba8dd648ac
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878258"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202789"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>HDInsight clusters aanpassen met Bootstrap
 
 Soms wilt u het configureren van de configuratiebestanden, waaronder:
 
 * clusterIdentity.xml
-* Core-site.xml
+* core-site.xml
 * gateway.XML
 * hbase-env.xml
 * hbase-site.xml
@@ -87,7 +87,7 @@ Een volledig werkend PowerShell-script kan worden gevonden in [bijlage](#appendi
 6. Klik op **HiveServer2** van **samenvatting**.
 7. Klik op de **Peeringconfiguraties** tabblad.
 8. Klik op **Hive** in het menu links.
-9. Klik op de **Geavanceerd** tabblad.
+9. Klik op het tabblad **Geavanceerd**.
 10. Schuif naar beneden en vouw vervolgens **geavanceerde hive-site**.
 11. Zoek naar **hive.metastore.client.socket.timeout** in de sectie.
 
@@ -131,7 +131,6 @@ U kunt de bootstrap in Resource Manager-sjabloon gebruiken:
 * [Apache Hadoop-clusters maken in HDInsight] [ hdinsight-provision-cluster] vindt u instructies voor het maken van een HDInsight-cluster met behulp van andere aangepaste opties.
 * [Script Action-scripts ontwikkelen voor HDInsight][hdinsight-write-script]
 * [Installeren en gebruiken van Apache Spark op HDInsight-clusters][hdinsight-install-spark]
-* [Installeren en gebruiken van Apache Solr op HDInsight-clusters](hdinsight-hadoop-solr-install.md).
 * [Installeren en Apache Giraph gebruikt op HDInsight-clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
@@ -142,7 +141,7 @@ U kunt de bootstrap in Resource Manager-sjabloon gebruiken:
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasen tijdens het maken van clusters"
 
-## <a name="appendix-powershell-sample"></a>Bijlage: PowerShell-voorbeeld
+## <a name="appendix-powershell-sample"></a>Bijlage: Voorbeeld van PowerShell
 Dit PowerShell-script maakt een HDInsight-cluster en een Hive-instelling past:
 
 ```powershell

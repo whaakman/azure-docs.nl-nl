@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: a2536802eb1da47531301e4476f37f7ec649c900
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 366cce89e2ee5c446443c4dfc5ed12244bb4938d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762361"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123739"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Een VNet met een site-naar-site-VPN-verbinding maken met PowerShell
 
@@ -105,16 +105,16 @@ Maak uw virtuele netwerk.
 
 1. Stel de variabelen in.
 
-  ```azurepowershell-interactive
-  $subnet1 = New-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27
-  $subnet2 = New-AzVirtualNetworkSubnetConfig -Name 'Frontend' -AddressPrefix 10.1.0.0/24
-  ```
+   ```azurepowershell-interactive
+   $subnet1 = New-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27
+   $subnet2 = New-AzVirtualNetworkSubnetConfig -Name 'Frontend' -AddressPrefix 10.1.0.0/24
+   ```
 2. Maak het VNet.
 
-  ```azurepowershell-interactive
-  New-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1 `
-  -Location 'East US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet1, $subnet2
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1 `
+   -Location 'East US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet1, $subnet2
+   ```
 
 ### <a name="gatewaysubnet"></a>Een gatewaysubnet toevoegen aan een virtueel netwerk dat u al hebt gemaakt
 
@@ -122,19 +122,19 @@ Gebruik de stappen in deze sectie als u al een virtueel netwerk hebt, maar een g
 
 1. Stel de variabelen in.
 
-  ```azurepowershell-interactive
-  $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
+   ```
 2. Maak het gatewaysubnet.
 
-  ```azurepowershell-interactive
-  Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+   ```
 3. Stel de configuratie in.
 
-  ```azurepowershell-interactive
-  Set-AzVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 
 ## 2. <a name="localnet"></a>De lokale netwerkgateway maken
 
@@ -222,17 +222,17 @@ Voor site-naar-site-verbindingen met een on-premises netwerk is een VPN-apparaat
 Maak vervolgens de site-naar-site-VPN-verbinding tussen de gateway van uw virtuele netwerk en het VPN-apparaat. Zorg dat u de waarden vervangt door die van uzelf. De gedeelde sleutel moet overeenkomen met de waarde die u hebt gebruikt voor de configuratie van uw VPN-apparaat. Het '-ConnectionType' voor site-naar-site is **IPsec**.
 
 1. Stel de variabelen in.
-  ```azurepowershell-interactive
-  $gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-  $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell-interactive
+   $gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+   ```
 
 2. Maak de verbinding.
-  ```azurepowershell-interactive
-  New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
-  -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
-  -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
+   -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   ```
 
 Na een korte tijd wordt de verbinding tot stand gebracht.
 

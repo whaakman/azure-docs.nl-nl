@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7b657d11e829d636063639e26a90d671a5d1473
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ad716e2ef5e597424c860378e7a63d5c2de53f54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438350"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834554"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Apache Sqoop taken uitvoeren met Hadoop in HDInsight met Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -27,7 +27,7 @@ CURL is gebruikt om te demonstreren hoe u met HDInsight kunt werken met behulp v
 Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende:
 
 
-* Volledige [Apache Sqoop gebruiken met Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) het configureren van een omgeving met een HDInsight-cluster en een Azure SQL-database.
+* Volledige [Apache Sqoop gebruiken met Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) het configureren van een omgeving met een HDInsight-cluster en een Azure SQL database.
 * [cURL](https://curl.haxx.se/). CURL is een hulpprogramma voor het overbrengen van gegevens van of naar een HDInsight-cluster.
 * [jq](https://stedolan.github.io/jq/). Het hulpprogramma jq wordt gebruikt om de JSON-gegevens geretourneerd door de REST-aanvragen te verwerken.
 
@@ -68,19 +68,19 @@ Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende:
 
     In deze opdracht worden de volgende parameters gebruikt:
 
-    * **-d** - sinds `-G` wordt niet gebruikt, de aanvraag standaard ingesteld op de POST-methode. `-d` Hiermee geeft u de waarden die worden verzonden met de aanvraag.
+   * **-d** - sinds `-G` wordt niet gebruikt, de aanvraag standaard ingesteld op de POST-methode. `-d` Hiermee geeft u de waarden die worden verzonden met de aanvraag.
 
-        * **User.name** -de gebruiker die de opdracht wordt uitgevoerd.
+       * **User.name** -de gebruiker die de opdracht wordt uitgevoerd.
 
-        * **opdracht** -Sqoop van de opdracht moet worden uitgevoerd.
+       * **opdracht** -Sqoop van de opdracht moet worden uitgevoerd.
 
-        * **statusdir** -de map die de status voor deze taak om te worden geschreven.
+       * **statusdir** -de map die de status voor deze taak om te worden geschreven.
 
-    Met deze opdracht wordt een taak-ID die kan worden gebruikt om te controleren of de status van de taak retourneren.
+     Met deze opdracht wordt een taak-ID die kan worden gebruikt om te controleren of de status van de taak retourneren.
 
-        ```json
-        {"id":"job_1415651640909_0026"}
-        ```
+       ```json
+       {"id":"job_1415651640909_0026"}
+       ```
 
 3. Gebruik de volgende opdracht om te controleren of de status van de taak. Vervang **JOBID** met de waarde die wordt geretourneerd in de vorige stap. Bijvoorbeeld, als de geretourneerde waarde is `{"id":"job_1415651640909_0026"}`, klikt u vervolgens **JOBID** zou `job_1415651640909_0026`.
 

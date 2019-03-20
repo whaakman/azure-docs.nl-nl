@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 6f55491ba7d422b19b3ee9db8b9ee804b920e422
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2126ed2624d735d88d52ddc1ee97bfb970cc8a74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983833"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119765"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Externe hulpprogramma's gebruiken om problemen met virtuele Azure-machine te
 
@@ -172,14 +172,14 @@ Computerlocatie van de volgende opdracht, afhankelijk van de client de uitvoerin
 
 * Buiten het VNET of de implementatie
 
-    * Voor een klassieke virtuele machine, moet u de volgende opdracht uitvoeren:
+  * Voor een klassieke virtuele machine, moet u de volgende opdracht uitvoeren:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-    * Voor een ARM-VM, moet u eerst een DNS-naam toevoegen aan het openbare IP-adres. Zie voor gedetailleerde stappen [een volledig gekwalificeerde domeinnaam voor een Windows-VM maken in Azure portal](../windows/portal-create-fqdn.md). Voer daarna de volgende opdracht uit:
+  * Voor een ARM-VM, moet u eerst een DNS-naam toevoegen aan het openbare IP-adres. Zie voor gedetailleerde stappen [een volledig gekwalificeerde domeinnaam voor een Windows-VM maken in Azure portal](../windows/portal-create-fqdn.md). Voer daarna de volgende opdracht uit:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213618"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078754"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Adviesdiensten voor Azure Marketplace en AppSource
 Adviesservices in Azure Marketplace en AppSource biedt Microsoft-partners het doel van de verbindende klanten met services te ondersteunen en uitbreiden van hun gebruik van Azure en zakelijke doelstellingen. 
@@ -41,12 +41,12 @@ De marketplace-storefronts zijn uitgelijnd met de doelgroepen en Microsoft-cloud
 
 Service-aanbiedingen die zijn gebaseerd op Microsoft Dynamics 365, Office 365 en Power BI komen in aanmerking wilt laten vermelden op AppSource. Zie voor meer informatie, [Microsoft AppSource consulting services-aanbieding richtlijnen](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
->[!Note]
->Adviesservices op Azure Marketplace moet gebruikmaken van aanbiedingen die zijn gericht op een ** technische doelgroep met richt zich op *Azure technische oplossingen en services.* ** Adviesservices in AppSource moet gebruikmaken van aanbiedingen die zijn gericht op hun ervaring in het leveren van kwaliteitsoplossingen voor Dynamics 365, Power BI of PowerApps om hun consulting services-aanbiedingen op AppSource weer te geven
-
-
->[!TIP]
->Als u wilt publiceren naar de Azure Marketplace-webwinkel, brengt u deze selectie door te kiezen 'Azure' in de vervolgkeuzelijst "Primaire Product" in de Cloud Partner-Portal. Als u wilt publiceren naar AppSource, brengt u deze selectie door te kiezen 'Dynamics 365,' 'Power BI' of 'Power Apps' in het menu van de vervolgkeuzelijst "Primaire Product" in de Cloud Partner-Portal.
+> [!Note]
+> Adviesservices op Azure Marketplace moet gebruikmaken van aanbiedingen die zijn gericht op een ** technische doelgroep met richt zich op *Azure technische oplossingen en services.* ** Adviesservices in AppSource moet gebruikmaken van aanbiedingen die zijn gericht op hun ervaring in het leveren van kwaliteitsoplossingen voor Dynamics 365, Power BI of PowerApps om hun consulting services-aanbiedingen op AppSource weer te geven
+> 
+> 
+> [!TIP]
+> Als u wilt publiceren naar de Azure Marketplace-webwinkel, brengt u deze selectie door te kiezen 'Azure' in de vervolgkeuzelijst "Primaire Product" in de Cloud Partner-Portal. Als u wilt publiceren naar AppSource, brengt u deze selectie door te kiezen 'Dynamics 365,' 'Power BI' of 'Power Apps' in het menu van de vervolgkeuzelijst "Primaire Product" in de Cloud Partner-Portal.
 
 ## <a name="eligible-partners-and-supported-countries"></a>In aanmerking komende Partners en ondersteunde landen
 
@@ -67,7 +67,7 @@ Partners zijn vereist om een **silver- of gold-competentie** in het desbetreffen
 |---------|---------|
 | Dynamics 365 for Customer Engagement    |   Silver- of Gold [Cloud Customer Relationship Management](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency) competentie.    | 
 |Dynamics 365 voor Finance and Operations, Enterprise edition  |  Silver- of Gold [Enterprise Resource Planning](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) competentie en een minimale omzet van $25 K in Cloud-bewerkingen in de afsluitende 12 maanden.       |
-|Dynamics 365 voor Finance and Operations, Business edition  |  Fungeren als [Cloud Service Provider (CSP)](https://partner.microsoft.com/cloud-solution-provider) of [digitale Partner van Record (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) voor ten minste één klant      |
+|Dynamics 365 for Finance and Operations, Business edition  |  Fungeren als [Cloud Service Provider (CSP)](https://partner.microsoft.com/cloud-solution-provider) of [digitale Partner van Record (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) voor ten minste één klant      |
 |Power BI, Power BI aangepaste visuele elementen | Voldoen aan de [Solution Partner criteria](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
 |PowerApps | Hebt u een gepubliceerde [Partnershowcase](https://appsource.microsoft.com/partners) oplossing
 
@@ -149,7 +149,7 @@ Voorbeelden:
 |Van Voorbeeldtitel  |Juiste indeling  |
 |---------|---------|
 |Aan de slag met Azure IoT in productie    |   IoT productie: 2-daagse evaluatie      |
-|Workshop op slimme broodroosters        |  Slimme broodroosters: 1 wk-Workshop       |
+|Workshop op slimme broodroosters        |  Slimme broodroosters: 1-Wk Workshop       |
 |  SQL Server-migratie PoC    | SQL-migratie: 3-wk testen van Concept        |
 
 #### <a name="listing-summaries-and-descriptions"></a>Aanbieding samenvattingen en beschrijvingen

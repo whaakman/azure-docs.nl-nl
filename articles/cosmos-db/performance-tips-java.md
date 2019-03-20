@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: 747f58ba5062bd8bcc3995bbfa73cea49e8ddc4b
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a3f194150d1ce452f79db273266d3c9d77e560fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892895"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094732"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Tips voor betere prestaties voor Azure Cosmos DB en Java
 
@@ -36,25 +36,25 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
    1. [Gateway (standaard)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
    2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
 
-    Gateway-modus wordt ondersteund op alle platforms van de SDK en de geconfigureerde standaardwaarde is.  Als uw toepassing wordt uitgevoerd vanuit een bedrijfsnetwerk met strikte firewallbeperkingen, is Gateway de beste keuze, omdat deze de standaard HTTPS-poort en één eindpunt gebruikt. De negatieve gevolgen voor de prestaties, is echter dat modus van de Gateway bestaat uit een aanvullend netwerk hop telkens wanneer gegevens worden gelezen of geschreven naar Azure Cosmos DB. Als gevolg hiervan biedt DirectHttps modus betere prestaties vanwege minder netwerkhops. 
+      Gateway-modus wordt ondersteund op alle platforms van de SDK en de geconfigureerde standaardwaarde is.  Als uw toepassing wordt uitgevoerd vanuit een bedrijfsnetwerk met strikte firewallbeperkingen, is Gateway de beste keuze, omdat deze de standaard HTTPS-poort en één eindpunt gebruikt. De negatieve gevolgen voor de prestaties, is echter dat modus van de Gateway bestaat uit een aanvullend netwerk hop telkens wanneer gegevens worden gelezen of geschreven naar Azure Cosmos DB. Als gevolg hiervan biedt DirectHttps modus betere prestaties vanwege minder netwerkhops. 
 
-    De Java-SDK maakt gebruik van HTTPS als een transportprotocol. HTTPS gebruikt SSL voor de initiële verificatie en het versleutelen van verkeer. Wanneer u de Java-SDK gebruikt, moet alleen HTTPS-poort 443 geopend. 
+      De Java-SDK maakt gebruik van HTTPS als een transportprotocol. HTTPS gebruikt SSL voor de initiële verificatie en het versleutelen van verkeer. Wanneer u de Java-SDK gebruikt, moet alleen HTTPS-poort 443 geopend. 
 
-    De ConnectionMode is geconfigureerd tijdens het samenstellen van het DocumentClient-exemplaar met de ConnectionPolicy-parameter. 
+      De ConnectionMode is geconfigureerd tijdens het samenstellen van het DocumentClient-exemplaar met de ConnectionPolicy-parameter. 
 
-    ```Java
-    public ConnectionPolicy getConnectionPolicy() {
+      ```Java
+      public ConnectionPolicy getConnectionPolicy() {
         ConnectionPolicy policy = new ConnectionPolicy();
         policy.setConnectionMode(ConnectionMode.DirectHttps);
         policy.setMaxPoolSize(1000);
         return policy;
-    }
+      }
         
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-    DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
-    ```
+      ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+      DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
+      ```
 
-    ![Afbeelding van het beleid voor Azure Cosmos DB-verbinding](./media/performance-tips-java/connection-policy.png)
+      ![Afbeelding van het beleid voor Azure Cosmos DB-verbinding](./media/performance-tips-java/connection-policy.png)
 
    <a id="same-region"></a>
 2. **Clients in hetzelfde Azure-regio voor de prestaties plaatsen**
@@ -147,7 +147,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     ```             
 
     De kosten van de aanvraag heeft geretourneerd als deze header is een fractie van de ingerichte doorvoer. Bijvoorbeeld, als u werkt met 2000 RU/s ingericht, en als de voorgaande query 1000 1KB-documenten retourneert, de kosten van de bewerking is 1000. Binnen één seconde houdt de server daarom slechts twee dergelijke aanvragen voordat de volgende aanvragen beperken. Zie voor meer informatie, [Aanvraageenheden](request-units.md) en de [aanvraag eenheid calculator](https://www.documentdb.com/capacityplanner).
-<a id="429"></a>
+   <a id="429"></a>
 1. **Ingang snelheid beperken/snelheid van aanvragen te groot**
 
     Wanneer een client probeert te overschrijden de gereserveerde doorvoer voor een account, is er geen verslechtering van prestaties optreedt op de server en geen gebruik van doorvoercapaciteit buiten het niveau van de gereserveerde. De server te beëindigen van de aanvraag met RequestRateTooLarge (HTTP-statuscode 429) en retourneren de [x-ms-nieuwe poging-na-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header die aangeeft van de hoeveelheid tijd in milliseconden, dat de gebruiker voordat het opnieuw proberen wachten moet de aanvraag.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 372df0bc6ea540b4b2c030ec71acc6889e7c7d19
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3a1fd81f890e304c6bda75fad609cc8c98cd634d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874083"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880378"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Certificaatassets in Azure Automation
 
@@ -28,11 +28,12 @@ De cmdlets in de volgende tabel worden gebruikt voor AzureRM, maken en beheren v
 
 |Cmdlets|Description|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Haalt informatie op over een certificaat wilt gebruiken in een runbook of DSC-configuratie. U kunt alleen het certificaat zelf ophalen van Get-AutomationCertificate activiteit.|
-|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Hiermee maakt u een nieuw certificaat in Azure Automation.|
-[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Hiermee verwijdert u een certificaat van Azure Automation.|Hiermee maakt u een nieuw certificaat in Azure Automation.
+|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Haalt informatie op over een certificaat wilt gebruiken in een runbook of DSC-configuratie. U kunt alleen het certificaat zelf ophalen van Get-AutomationCertificate activiteit.| 
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Hiermee maakt u een nieuw certificaat in Azure Automation.| 
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Hiermee verwijdert u een certificaat van Azure Automation.|
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Hiermee stelt u de eigenschappen voor een bestaand certificaat, met inbegrip van het certificaatbestand uploaden en het instellen van het wachtwoord voor een pfx-bestand.|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Hiermee wordt een certificaat voor de opgegeven cloudservice geüpload.|
+
 
 ## <a name="activities"></a>Activiteiten
 De activiteiten in de volgende tabel worden gebruikt voor toegang tot de certificaten in een runbook en DSC-configuraties.
@@ -62,11 +63,11 @@ Wanneer u een nieuw certificaat maakt, kunt u een cer- of pfx-bestand uploaden n
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Een nieuw certificaat maken met de Azure-portal
 
 1. Via uw Automation-account, klikt u op de **activa** tegel om te openen de **activa** blade.
-1. Klik op de **certificaten** tegel om te openen de **certificaten** blade.
-1. Klik op **toevoegen van een certificaat** aan de bovenkant van de blade.
-1. Typ een naam voor het certificaat in de **naam** vak.
-1. Als u wilt bladeren naar een cer- of pfx-bestand, klikt u op **selecteert u een bestand** onder **een certificaatbestand uploaden**. Als u een pfx-bestand selecteert, geeft u een wachtwoord en of het is toegestaan om te worden geëxporteerd.
-1. Klik op **maken** om op te slaan van het nieuwe certificaatasset.
+2. Klik op de **certificaten** tegel om te openen de **certificaten** blade.
+3. Klik op **toevoegen van een certificaat** aan de bovenkant van de blade.
+4. Typ een naam voor het certificaat in de **naam** vak.
+5. Als u wilt bladeren naar een cer- of pfx-bestand, klikt u op **selecteert u een bestand** onder **een certificaatbestand uploaden**. Als u een pfx-bestand selecteert, geeft u een wachtwoord en of het is toegestaan om te worden geëxporteerd.
+6. Klik op **maken** om op te slaan van het nieuwe certificaatasset.
 
 ### <a name="to-create-a-new-certificate-with-windows-powershell"></a>Een nieuw certificaat maken met Windows PowerShell
 

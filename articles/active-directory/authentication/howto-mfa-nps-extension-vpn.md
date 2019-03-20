@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfe77602d138224c848cc915bbba5a7084c29650
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c22b035b325582cf4a12ff10a9abbedb8837229b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170054"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117877"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
 
@@ -30,20 +30,20 @@ Network Policy and Access Services biedt organisaties de mogelijkheid om:
 
 * Toewijzen van een centrale locatie voor het beheer en controle van netwerkaanvragen om op te geven:
 
-    * Wie verbinding kan maken 
+  * Wie verbinding kan maken 
     
-    * Welke tijdstippen van de dag verbindingen zijn toegestaan 
+  * Welke tijdstippen van de dag verbindingen zijn toegestaan 
     
-    * De duur van de verbindingen
+  * De duur van de verbindingen
     
-    * Het niveau van beveiliging die clients gebruiken moeten om verbinding te maken
+  * Het niveau van beveiliging die clients gebruiken moeten om verbinding te maken
 
     In plaats van beleidsregels voor elke VPN- of extern bureaublad-Gateway-server opgeeft, doen nadat ze op een centrale locatie. Het RADIUS-protocol wordt gebruikt voor het centrale verificatie, autorisatie en Accounting (AAA). 
 
 * Instellen en afdwingen van statusbeleid voor Network Access Protection (NAP) client om te bepalen of apparaten onbeperkte of beperkte toegang krijgen tot netwerkbronnen.
 
 * Bieden een manier om af te dwingen de verificatie en autorisatie voor toegang met 802. 1 x-compatibele draadloze toegangspunten en Ethernet-switches.   
-Zie voor meer informatie, [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
+  Zie voor meer informatie, [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
 
 Voor betere beveiliging en een hoge mate van naleving, kunnen organisaties NPS geïntegreerd met Azure multi-factor Authentication om ervoor te zorgen dat gebruikers verificatie in twee stappen om verbinding met de virtuele poort op de VPN-server te gebruiken. Voor gebruikers toegang te krijgen, moeten ze bieden hun gebruikersnaam en wachtwoord combinatie en andere informatie die ze beheren. Deze informatie moet worden vertrouwd en worden niet gedupliceerd. Een mobiele-telefoonnummer, een vast aantal of een toepassing op een mobiel apparaat kan bevatten.
 

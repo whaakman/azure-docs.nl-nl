@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 89161f3dad68c4b208f4badc548e2057c7ed58c1
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 5ab967cbd630447132300b22da5c5deb31fd50e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022046"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852353"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Functies op serviceniveau implementeren in uw actor-service
 
@@ -160,13 +160,13 @@ De remoting V2 (interface compatibel zijn, ook wel V2_1) stack heeft alle functi
 
 De volgende wijzigingen zijn vereist voor het gebruik van de externe toegang V2_1 stapel:
 
- 1. De volgende assembly-kenmerk toevoegen op de actor-interfaces.
+1. De volgende assembly-kenmerk toevoegen op de actor-interfaces.
   
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
    ```
 
- 2. Bouw en upgrade actor-service en client actorprojecten om te beginnen met behulp van de V2-stack.
+2. Bouw en upgrade actor-service en client actorprojecten om te beginnen met behulp van de V2-stack.
 
 ### <a name="actor-service-upgrade-to-remoting-v2-interface-compatible-stack-without-affecting-service-availability"></a>Actor-service een upgrade uit naar remoting V2 (compatibel interface)-stack zonder die betrekking hebben op beschikbaarheid van de service
 
@@ -174,12 +174,12 @@ Deze wijziging is een upgrade van verificatie in twee stappen. Volg de stappen i
 
 1. De volgende assembly-kenmerk toevoegen op de actor-interfaces. Dit kenmerk wordt gestart voor twee listeners voor de actorservice, V1 (bestaand) en de listener V2_1. Upgrade van de actorservice met deze wijziging.
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
 
 2. De actor-clients upgraden na het voltooien van de vorige upgrade.
-Deze stap zorgt ervoor dat de stack V2_1 voor externe toegang maakt gebruik van de actor-proxy.
+   Deze stap zorgt ervoor dat de stack V2_1 voor externe toegang maakt gebruik van de actor-proxy.
 
 3. Deze stap is optioneel. Wijzig het vorige kenmerk als u wilt verwijderen van de V1-listener.
 
@@ -193,13 +193,13 @@ Gebruikers kunnen nu de remoting V2-stack, waardoor beter presteert en waarmee u
 
 De volgende wijzigingen zijn vereist voor de remoting V2-stack gebruiken.
 
- 1. De volgende assembly-kenmerk toevoegen op de actor-interfaces.
+1. De volgende assembly-kenmerk toevoegen op de actor-interfaces.
 
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
- 2. Bouw en werk de actor-service en client actorprojecten om te beginnen met behulp van de V2-stack.
+2. Bouw en werk de actor-service en client actorprojecten om te beginnen met behulp van de V2-stack.
 
 ### <a name="upgrade-the-actor-service-to-the-remoting-v2-stack-without-affecting-service-availability"></a>De actorservice upgraden naar de remoting V2-stack zonder die betrekking hebben op beschikbaarheid van de service
 
@@ -207,12 +207,12 @@ Deze wijziging is een upgrade van verificatie in twee stappen. Volg de stappen i
 
 1. De volgende assembly-kenmerk toevoegen op de actor-interfaces. Dit kenmerk wordt gestart voor twee listeners voor de actorservice, V1 (bestaand) en de V2-listener. Upgrade van de actorservice met deze wijziging.
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
+   ```
 
 2. De actor-clients upgraden na het voltooien van de vorige upgrade.
-Deze stap zorgt ervoor dat de actor-proxy wordt gebruikt voor de remoting V2-stack.
+   Deze stap zorgt ervoor dat de actor-proxy wordt gebruikt voor de remoting V2-stack.
 
 3. Deze stap is optioneel. Wijzig het vorige kenmerk als u wilt verwijderen van de V1-listener.
 
@@ -226,7 +226,7 @@ Deze stap zorgt ervoor dat de actor-proxy wordt gebruikt voor de remoting V2-sta
 * [Actor-levenscyclus en garbagecollection verzameling](service-fabric-reliable-actors-lifecycle.md)
 * [Actoren API-referentiedocumentatie](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET-voorbeeldcode](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java-voorbeeldcode](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java-voorbeeldcode](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

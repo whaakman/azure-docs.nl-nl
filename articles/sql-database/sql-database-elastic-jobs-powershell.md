@@ -11,19 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: dc9b58402ed0fcc48d60b51d30f891ffcadddbe0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 52a12486add25cd32400af755aa6cd8cac07c6f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315619"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905054"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>SQL Database elastische taken met behulp van PowerShell (preview) maken en beheren
 
 De PowerShell-APIs voor **taken voor Elastic Database** (in preview), kunt u bij het definiëren van een groep databases op basis waarvan de scripts worden uitgevoerd. Dit artikel wordt beschreven hoe u kunt maken en beheren van **taken voor Elastic Database** met behulp van PowerShell-cmdlets. Zie [overzicht van elastische taken](sql-database-elastic-jobs-overview.md). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 ## <a name="prerequisites"></a>Vereisten
 * Een Azure-abonnement. Zie voor een gratis proefversie [gratis proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).

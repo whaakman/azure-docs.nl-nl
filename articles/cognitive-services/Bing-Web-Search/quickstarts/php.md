@@ -1,31 +1,32 @@
 ---
-title: 'Quickstart: Een zoekopdracht uitvoeren met PHP - Bing Webzoekopdrachten-API'
+title: 'Snelstartgids: Een zoekopdracht uitvoeren met PHP - Bing Webzoekopdrachten-API'
 titleSuffix: Azure Cognitive Services
-description: Gebruik deze quickstart om aanvragen naar de REST API van Bing Web Search te verzenden via PHP en een JSON-antwoord te ontvangen
+description: Gebruik deze snelstartgids om aanvragen naar de REST API van Bing Web Search te verzenden via PHP en een JSON-antwoord te ontvangen
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1a02862d3ea2e17cfa25a2a2d96e1454699ae7f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166280"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858198"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Quickstart: PHP gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Snelstartgids: PHP gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
 
-Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Deze Node.js-toepassing stuurt een zoekaanvraag naar de API en geeft het antwoord weer. Hoewel deze toepassing in JavaScript is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
+Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Deze Node.js-toepassing een zoekaanvraag verzendt naar de API en het antwoord. Hoewel deze toepassing in JavaScript is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
+
 Voordat u verdergaat met deze snelstart moet u beschikken over:
 
-* [PHP 5.6.x](http://php.net/downloads.php) of later
+* [PHP 5.6.x](https://php.net/downloads.php) of later
 * Een abonnementssleutel  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
@@ -34,11 +35,11 @@ Voordat u verdergaat met deze snelstart moet u beschikken over:
 
 Voordat we aan de slag gaan, gaat u eerst naar `php.ini` en haalt u de opmerkingen weg bij deze regel:
 
-```
-;extension=php_openssl.dll
+```php
+; extension=php_openssl.dll
 ```
 
-## <a name="create-a-project-and-define-variables"></a>Een project maken en variabelen definiëren  
+## <a name="create-a-project-and-define-variables"></a>Een project maken en variabelen definiëren
 
 Maak een nieuw PHP-project in uw favoriete IDE of editor. Vergeet niet om de tags voor openen en sluiten `<?php` en `?>` toe te voegen.
 

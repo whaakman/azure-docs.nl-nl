@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 6960f6da2eb8c867d36ba4073d1a0fcafe8d75bf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443198"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901998"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Offline PlayReady Streaming voor Windows 10
 
@@ -41,7 +41,7 @@ We de uitdaging bij de uitvoering van de offlinemodus bevindt, is het volgende:
 * MP4 wordt ondersteund door een groot aantal spelers, hulpprogramma's voor codering, maar er is geen binding tussen MP4-container en DRM;
 * Op de lange termijn is CFF met CENC de manier om te gaan. Maar vandaag de dag is het ecosysteem van hulpprogramma's / player-ondersteuning er nog niet. We hebben nodig een oplossing vandaag nog.
  
-Het idee is: smooth streaming ([PIFF](http://go.microsoft.com/?linkid=9682897)) bestandsindeling met H264/AAC heeft een binding met PlayReady (AES-128 CTR). Afzonderlijke smooth streaming .ismv-bestand (ervan uitgaande dat audio is gemengde in de video) is zelf een fMP4 en kan worden gebruikt om te worden afgespeeld. Als een smooth streaming inhoud via PlayReady-versleuteling gaat, elk bestand .ismv verandert in een beveiligd PlayReady-gefragmenteerde MP4. We kunnen een .ismv-bestand met de gewenste bitrate kiezen en wijzig de naam als MP4 voor downloaden.
+Het idee is: smooth streaming ([PIFF](https://go.microsoft.com/?linkid=9682897)) bestandsindeling met H264/AAC heeft een binding met PlayReady (AES-128 CTR). Afzonderlijke smooth streaming .ismv-bestand (ervan uitgaande dat audio is gemengde in de video) is zelf een fMP4 en kan worden gebruikt om te worden afgespeeld. Als een smooth streaming inhoud via PlayReady-versleuteling gaat, elk bestand .ismv verandert in een beveiligd PlayReady-gefragmenteerde MP4. We kunnen een .ismv-bestand met de gewenste bitrate kiezen en wijzig de naam als MP4 voor downloaden.
 
 Er zijn twee opties voor de MP4 voor het progressief downloaden die als host fungeert voor de PlayReady beveiligd:
 
@@ -57,12 +57,12 @@ Hieronder vindt u twee sets met test-activa, de eerste record met behulp van lev
 
 Asset #1:
 
-* Progressieve download-URL: [http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
+* Progressieve download-URL: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
 * PlayReady LA_URL (AMS): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
 Asset #2:
 
-* Progressieve download-URL: [http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* Progressieve download-URL: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL (on premises): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 Voor het testen van afspelen, hebben we een universele Windows-toepassing op Windows 10 gebruikt. In [Windows 10 Universal-voorbeelden](https://github.com/Microsoft/Windows-universal-samples), er is een eenvoudige player-voorbeeld met de naam [adaptieve Streaming voorbeeld](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). We moeten doen, is de code voor ons gedownloade video ophalen en deze gebruiken als de bron, in plaats van adaptieve streaming gegevensbron toevoegen. De wijzigingen zijn in de knop klikt u op gebeurtenis-handler:

@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: bd591ff30755fd68bb2dc673899d0ac993215e68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188552"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834716"
 ---
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Snelstart: De Azure Data Box implementeren met behulp van de Azure-portal
+# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Quickstart: De Azure Data Box implementeren met behulp van de Azure-portal
 
 In deze quickstart wordt beschreven hoe u de Azure Data Box implementeert met behulp van de Azure-portal. De stappen omvatten het aansluiten van de kabels, het configureren en het kopiëren van gegevens naar de Data Box, zodat deze kunnen worden geüpload naar Azure. De quickstart wordt uitgevoerd in de Azure-portal en op de lokale webgebruikersinterface van het apparaat.
 
-Gedetailleerde stapsgewijze instructies voor implementatie en tracering vindt u in [Zelfstudie: Azure Data Box bestellen](data-box-deploy-ordered.md)
+Ga voor gedetailleerde stapsgewijze instructies voor implementatie en tracering naar [Zelfstudie: Volgorde van Azure Data Box](data-box-deploy-ordered.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -43,7 +43,7 @@ Voordat u begint:
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="order"></a>Bestellen
 
@@ -74,7 +74,7 @@ Als u de Data Box hebt ontvangen, voert u de volgende stappen uit om de kabels a
     
 4. Sluit de kabels aan zoals hieronder wordt weergegeven.  
 
-    ![Bekabeling van de Data Box](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
+    ![Bekabelde achterzijde van Data Box-apparaat](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
 
     1. Sluit de voedingskabel aan op het apparaat.
     2. Gebruik de RJ-45-netwerkkabel van het type CAT-6 om de hostcomputer te koppelen aan de MGMT-poort (Managementpoort) op het apparaat. 
@@ -86,7 +86,7 @@ Als u de Data Box hebt ontvangen, voert u de volgende stappen uit om de kabels a
 
 Deze stap neemt ongeveer 5 tot 7 minuten in beslag.
 
-1. Als u het wachtwoord van het apparaat wilt ophalen, gaat u naar **Algemeen > Apparaatdetails** in de [Azure-portal](http://portal.azure.com).
+1. Als u het wachtwoord van het apparaat wilt ophalen, gaat u naar **Algemeen > Apparaatdetails** in de [Azure-portal](https://portal.azure.com).
 2. Wijs een statisch IP-adres 192.168.100.5 en subnet 255.255.255.0 toe aan de Ethernet-adapter op de computer die u gebruikt om verbinding te maken met Data Box. U hebt op `https://192.168.100.10` toegang tot de webgebruikersinterface van het apparaat. Nadat u het apparaat hebt ingeschakeld, duurt het maximaal 5 minuten om de verbinding tot stand te brengen. 
 3. Meld u aan met het wachtwoord uit de Azure-portal. U ziet nu een foutmelding over een probleem met het beveiligingscertificaat van de website. Volg de browserinstructies om naar de webpagina te gaan.
 4. De netwerkinstellingen voor de 10 Gbps-gegevensinterface (of 1 Gbps) zijn standaard geconfigureerd als DHCP. Indien nodig kunt u deze interface configureren als statisch en een IP-adres opgeven. 

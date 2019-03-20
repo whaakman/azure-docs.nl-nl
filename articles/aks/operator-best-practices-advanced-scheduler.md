@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 1534a3f010183cd91c444b577d26e3f21e296d27
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434316"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175978"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor geavanceerde scheduler-functies in Azure Kubernetes Service (AKS)
 
@@ -39,10 +39,10 @@ De scheduler Kubernetes kunt taints en tolerations gebruiken om te beperken welk
 Wanneer u een schil op een AKS-cluster implementeert, plant Kubernetes alleen schillen op knooppunten waar een toleration wordt uitgelijnd met de beïnvloeding. Als voorbeeld wordt ervan uitgegaan dat u hebt een nodepool in uw AKS-cluster voor knooppunten met GPU ondersteunt. Definieert u de naam, zoals *gpu*, klikt u vervolgens een waarde voor de planning. Als u deze waarde instelt op *NoSchedule*, de Kubernetes-scheduler schillen op het knooppunt kan niet worden gepland als de schil bevat geen definitie van de juiste toleration.
 
 ```console
-kubectl taint node aks-nodepool1 gpu:NoSchedule
+kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Met een beïnvloeding toegepast op de knooppunten, definieert u een toleration vervolgens in de schil-specificatie waarmee plannen op de knooppunten. Het volgende voorbeeld definieert de `key: gpu` en `effect: NoSchedule` te tolereren de beïnvloeding toegepast op het knooppunt in de vorige stap:
+Met een beïnvloeding toegepast op de knooppunten, definieert u een toleration vervolgens in de schil-specificatie waarmee plannen op de knooppunten. Het volgende voorbeeld definieert de `sku: gpu` en `effect: NoSchedule` te tolereren de beïnvloeding toegepast op het knooppunt in de vorige stap:
 
 ```yaml
 kind: Pod
@@ -61,9 +61,9 @@ spec:
       cpu: 4.0
       memory: 16Gi
   tolerations:
-  - key: "gpu"
+  - key: "sku"
     operator: "Equal"
-    value: "value"
+    value: "gpu"
     effect: "NoSchedule"
 ```
 

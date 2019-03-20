@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 52bfc73ad586bb3852e30a850d4ba50a113183d3
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 66c5bd9390d6fe0f26af66e18aed22c07a7da3e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140414"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003104"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Routeringsmethode voor verkeer prioriteit configureren in Traffic Manager
 
@@ -26,7 +26,7 @@ Een algemeen patroon voor failover van de service is het verzenden van verkeer n
 
 ## <a name="to-configure-the-priority-traffic-routing-method"></a>De verkeersrouteringsmethode prioriteit configureren
 
-1. Meld u vanuit een browser aan bij [Azure Portal](http://portal.azure.com). Als u nog geen account hebt, kunt u zich registreren voor een [gratis proefversie van één maand](https://azure.microsoft.com/free/). 
+1. Meld u vanuit een browser aan bij [Azure Portal](https://portal.azure.com). Als u nog geen account hebt, kunt u zich registreren voor een [gratis proefversie van één maand](https://azure.microsoft.com/free/). 
 2. Zoek in de zoekbalk van de portal, de **Traffic Manager-profielen** en klik vervolgens op de naam van het profiel dat u wilt de routeringsmethode voor configureren.
 3. In de **Traffic Manager-profiel** blade controleren of de cloudservices en de websites die u wilt opnemen in uw configuratie weergegeven worden.
 4. In de **instellingen** sectie, klikt u op **configuratie**, en klik in de **configuratie** blade voltooid zijn als volgt te werk:

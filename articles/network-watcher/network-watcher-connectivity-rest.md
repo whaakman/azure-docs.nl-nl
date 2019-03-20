@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: d04340c340a7285b62ccc68eed4e70f7c4b43bc8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bb26c7422dda42da93b5e5bebdabadb6809a6b09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990022"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57843590"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Problemen oplossen met verbindingen met Azure Network Watcher met de Azure REST-API
 
@@ -26,7 +26,7 @@ ms.locfileid: "46990022"
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [Azure-CLI](network-watcher-connectivity-cli.md)
-> - [Azure REST-API](network-watcher-connectivity-rest.md)
+> - [Azure REST API](network-watcher-connectivity-rest.md)
 
 Informatie over het gebruik van de verbinding oplossen om te controleren of een rechtstreekse TCP-verbinding van een virtuele machine naar een bepaald eindpunt kan worden gemaakt.
 
@@ -302,7 +302,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000"
 $resourceGroupName = "NetworkWatcherRG"
 $networkWatcherName = "NetworkWatcher_westcentralus"
 $sourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/MultiTierApp0"
-$destinationAddress = "http://bing.com"
+$destinationAddress = "https://bing.com"
 $destinationPort = "0"
 $requestBody = @"
 {

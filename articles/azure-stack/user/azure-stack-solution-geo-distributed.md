@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 857aa71a4812534030ca638fd8bab11f60535ea0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536943"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860581"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een geografisch gedistribueerde app-oplossing maken met Azure en Azure Stack
 
@@ -135,7 +135,7 @@ Hybride CI/CD naar Web-App implementeren in Azure en Azure Stack en breng wijzig
 
 1. **Meld u aan bij Azure pijplijnen** om te bevestigen builddefinities kan maken.
 
-2. Voeg **win10 - r-x64** code. Dit is nodig voor het activeren van een onafhankelijke implementatie met .net Core.
+2. Voeg **win10 - r-x64** code. Dit is nodig voor het activeren van een onafhankelijke implementatie met .NET Core.
 
     ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image4.png)
 
@@ -154,9 +154,9 @@ Azure DevOps en Azure DevOps-Server bieden een pijplijn maximaal kunnen worden g
 
 ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image5.png)
 
-1.  Selecteer de **plus** om toe te voegen een nieuwe versie onder de **Releases tabblad** op de pagina Build en versie van Visual Studio Online (VSO).
+1. Selecteer de **plus** om toe te voegen een nieuwe versie onder de **Releases tabblad** op de pagina Build en versie van Visual Studio Online (VSO).
 
-    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image6.png)
+   ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. Van toepassing de **Azure App Service-implementatie** sjabloon.
 
@@ -210,7 +210,7 @@ Azure DevOps en Azure DevOps-Server bieden een pijplijn maximaal kunnen worden g
 
 14. Selecteer de **abonnement** voor het eindpunt van de Azure Stack.
 
-  ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image20.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Stel de naam van Azure Stack-web-app als de **App service-naam**.
 
@@ -299,11 +299,11 @@ In de schermafbeelding hieronder wordt een voorbeeld van een pagina met DNS-reco
 
 ![Voorbeeld van een pagina met DNS-records](media/azure-stack-solution-geo-distributed/image28.png)
 
-1.  Selecteer in de Domeinnaamregistrar, **toevoegen of maken** om een record te maken. Sommige providers hebben afzonderlijke links voor verschillende typen records. Raadpleeg de documentatie van de provider.
+1. Selecteer in de Domeinnaamregistrar, **toevoegen of maken** om een record te maken. Sommige providers hebben afzonderlijke links voor verschillende typen records. Raadpleeg de documentatie van de provider.
 
-2.  Voeg een CNAME-record voor een subdomein toewijzen aan de standaardhostnaam van de app.
+2. Voeg een CNAME-record voor een subdomein toewijzen aan de standaardhostnaam van de app.
 
-  Voor het domeinvoorbeeld www.northwindcloud.com toevoegen een CNAME-record die wordt toegewezen, de naam < app\_naam >. azurewebsites.net.
+   Voor het domeinvoorbeeld www.northwindcloud.com toevoegen een CNAME-record die wordt toegewezen, de naam < app\_naam >. azurewebsites.net.
 
 Nadat de CNAME zijn toegevoegd, lijkt de pagina met DNS-records in het volgende voorbeeld:
 
@@ -311,47 +311,47 @@ Nadat de CNAME zijn toegevoegd, lijkt de pagina met DNS-records in het volgende 
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>De toewijzing van het CNAME-record in Azure inschakelen
 
-1.  In een nieuw tabblad moet u zich aanmelden bij de Azure-portal
+1. In een nieuw tabblad moet u zich aanmelden bij de Azure-portal
 
-2.  Navigeer naar de App-Services.
+2. Navigeer naar de App-Services.
 
-3.  Selecteer de web-app.
+3. Selecteer de web-app.
 
-4.  Selecteer in het linkernavigatievenster van de app-pagina in de Azure portal **Aangepaste domeinen**.
+4. Selecteer in het linkernavigatievenster van de app-pagina in de Azure portal **Aangepaste domeinen**.
 
-5.  Selecteer het pictogram **+** naast **Hostnaam toevoegen**.
+5. Selecteer het pictogram **+** naast **Hostnaam toevoegen**.
 
-1.  Typ de volledig gekwalificeerde domeinnaam, zoals `www.northwindcloud.com`.
+1. Typ de volledig gekwalificeerde domeinnaam, zoals `www.northwindcloud.com`.
 
-2.  Selecteer **Valideren**.
+2. Selecteer **Valideren**.
 
-3.  Indien aangegeven, toevoegen van extra records van andere typen (`A` of `TXT`) in het domein naam registrars DNS-records. Azure biedt de waarden en typen van deze records:
+3. Indien aangegeven, toevoegen van extra records van andere typen (`A` of `TXT`) in het domein naam registrars DNS-records. Azure biedt de waarden en typen van deze records:
 
-    a.  Een **A**-record toewijzen aan het IP-adres van de app.
+   a.  Een **A**-record toewijzen aan het IP-adres van de app.
 
-    b.  Een **TXT** record toewijzen aan de standaardhostnaam van de app < app_name >. azurewebsites.net. App Service gebruikt dit record alleen tijdens de configuratie, om te verifiëren dat dit aangepaste domein. Na de verificatie door de TXT-record te verwijderen.
+   b.  Een **TXT** record toewijzen aan de standaardhostnaam van de app < app_name >. azurewebsites.net. App Service gebruikt dit record alleen tijdens de configuratie, om te verifiëren dat dit aangepaste domein. Na de verificatie door de TXT-record te verwijderen.
 
-4.  Voltooien van deze taak op het tabblad van de registrar domein en de validatie opnieuw totdat de **hostnaam toevoegen** knop is geactiveerd.
+4. Voltooien van deze taak op het tabblad van de registrar domein en de validatie opnieuw totdat de **hostnaam toevoegen** knop is geactiveerd.
 
-5.  Zorg ervoor dat ** hostnaam recordtype is ingesteld op **CNAME (www.example.com of elk subdomein)**.
+5. Zorg ervoor dat ** hostnaam recordtype is ingesteld op **CNAME (www.example.com of elk subdomein)**.
 
-6.  Selecteer **Hostnaam toevoegen**.
+6. Selecteer **Hostnaam toevoegen**.
 
-7.  Typ de volledig gekwalificeerde domeinnaam, zoals `northwindcloud.com`.
+7. Typ de volledig gekwalificeerde domeinnaam, zoals `northwindcloud.com`.
 
-8.  Selecteer **Valideren**.
+8. Selecteer **Valideren**.
 
-9.  De **toevoegen** is geactiveerd.
+9. De **toevoegen** is geactiveerd.
 
 10. Zorg ervoor dat ** hostnaam recordtype is ingesteld op **een record (voorbeeld.com)**.
 
 11. **Hostnaam toevoegen**.
 
-  Het duurt even voordat de nieuwe hostnamen worden weergegeven in de app **aangepaste domeinen** pagina. Vernieuw de browser voor om de gegevens bij te werken.
+    Het duurt even voordat de nieuwe hostnamen worden weergegeven in de app **aangepaste domeinen** pagina. Vernieuw de browser voor om de gegevens bij te werken.
   
-  ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image31.png) 
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  In het geval van een fout wordt een verificatie-foutmelding aan de onderkant van de pagina weergegeven. ![Verificatiefout](media/azure-stack-solution-geo-distributed/image32.png)
+    In het geval van een fout wordt een verificatie-foutmelding aan de onderkant van de pagina weergegeven. ![Verificatiefout](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  De bovenstaande stappen mogen worden herhaald om toe te wijzen een wildcard-domein (\*. northwindcloud.com)... Hiermee wordt het toevoegen van extra subdomeinen toe die aan deze appservice zonder te hoeven maken van een afzonderlijke CNAME-record voor elk criterium. De registrar instructies om deze instelling te configureren.
@@ -482,15 +482,15 @@ Als IIS of **Certreq.exe** worden gebruikt voor het genereren van de certificaat
 
 #### <a name="upload-the-ssl-certificate"></a>Het SSL-certificaat uploaden
 
-1.  Selecteer **SSL-instellingen** in het linkernavigatievenster van de web-app.
+1. Selecteer **SSL-instellingen** in het linkernavigatievenster van de web-app.
 
-2.  Selecteer **-certificaat uploaden**.
+2. Selecteer **-certificaat uploaden**.
 
-3.  In **PFX-certificaatbestand**optie PFX-bestand.
+3. In **PFX-certificaatbestand**optie PFX-bestand.
 
-4.  4. In **certificaatwachtwoord**, typt u het wachtwoord dat is gemaakt tijdens het exporteren van het PFX-bestand.
+4. 1. In **certificaatwachtwoord**, typt u het wachtwoord dat is gemaakt tijdens het exporteren van het PFX-bestand.
 
-5.  Selecteer **Uploaden**.
+5. Selecteer **Uploaden**.
 
 ![Certificaat uploaden](media/azure-stack-solution-geo-distributed/image38.png)
 
@@ -588,23 +588,23 @@ De app kunnen [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 sta
 
 ### <a name="add-traffic-manager-endpoints"></a>Traffic Manager-eindpunten toevoegen
 
-1.  Zoek in de zoekbalk portals de ** Traffic Manager-profiel ** naam gemaakt in de vorige sectie en selecteer de traffic manager-profiel in de resultaten die de weergegeven.
+1. Zoek in de zoekbalk portals de ** Traffic Manager-profiel ** naam gemaakt in de vorige sectie en selecteer de traffic manager-profiel in de resultaten die de weergegeven.
 
-2.  In **Traffic Manager-profiel**, in de **instellingen** sectie, selecteer **eindpunten**.
+2. In **Traffic Manager-profiel**, in de **instellingen** sectie, selecteer **eindpunten**.
 
-3.  Selecteer **Toevoegen**.
+3. Selecteer **Toevoegen**.
 
-4.  De Azure Stack-eindpunt toevoegen.
+4. De Azure Stack-eindpunt toevoegen.
 
-5.  Voor **Type**, selecteer **Extern eindpunt**.
+5. Voor **Type**, selecteer **Extern eindpunt**.
 
-6.  Geef een **naam** voor dit eindpunt, in het ideale geval de naam van de Azure Stack.
+6. Geef een **naam** voor dit eindpunt, in het ideale geval de naam van de Azure Stack.
 
-7.  Voor de volledig gekwalificeerde domeinnaam (**FQDN**), de externe URL gebruiken voor de Azure Stack Web-App.
+7. Voor de volledig gekwalificeerde domeinnaam (**FQDN**), de externe URL gebruiken voor de Azure Stack Web-App.
 
-8.  Selecteer een regio/continent waar de resource zich bevindt, bijvoorbeeld in het Geo-toewijzing, **Europa.**
+8. Selecteer een regio/continent waar de resource zich bevindt, bijvoorbeeld in het Geo-toewijzing, **Europa.**
 
-9.  Selecteer onder de land/regio vervolgkeuzelijst die wordt weergegeven, het land dat wordt toegepast op dit eindpunt, bijvoorbeeld **Duitsland**.
+9. Selecteer onder de land/regio vervolgkeuzelijst die wordt weergegeven, het land dat wordt toegepast op dit eindpunt, bijvoorbeeld **Duitsland**.
 
 10. Laat **Toevoegen als uitgeschakeld** uit staan.
 
@@ -628,12 +628,12 @@ De app kunnen [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 sta
 
 16. Selecteer **OK**
 
-  > [!Note]  
-  >  Maak ten minste één eindpunt met een geografische bereik van alle (wereld) om te fungeren als het standaardeindpunt voor de resource.
+    > [!Note]  
+    >  Maak ten minste één eindpunt met een geografische bereik van alle (wereld) om te fungeren als het standaardeindpunt voor de resource.
 
-1.  Als beide eindpunten zijn toegevoegd, worden ze weergegeven in **Traffic Manager-profiel**, samen met de controlestatus **Online**.
+1. Als beide eindpunten zijn toegevoegd, worden ze weergegeven in **Traffic Manager-profiel**, samen met de controlestatus **Online**.
 
-  ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image46.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image46.png)
 
 **Wereldwijd opererende onderneming is afhankelijk van de mogelijkheden van Azure Geo-distributie**
 

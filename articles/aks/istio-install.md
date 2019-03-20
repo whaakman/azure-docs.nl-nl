@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
-ms.openlocfilehash: 25a68f55eb9a6deb037029d5d8a984ce74f12be5
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: d85b830b63e2d52f3eeb5df8645edccfccf43c76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791457"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138147"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installeren en gebruiken van Istio in Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ In dit artikel worden gescheiden van de richtlijnen van de installatie Istio in 
 
 ## <a name="download-istio"></a>Istio downloaden
 
-Eerst, downloaden en uitpakken van de meest recente versie van de Istio. De stappen enigszins anders voor een bash-shell op MacOS, Linux of Windows-subsysteem voor Linux en een PowerShell-shell. Kies een van de installatie van de volgende stappen voor uw favoriete omgeving:
+Eerst, downloaden en uitpakken van de meest recente versie van de Istio. De stappen zijn enigszins anders voor een bash-shell op MacOS, Linux of Windows-subsysteem voor Linux en een PowerShell-shell. Kies een van de installatie van de volgende stappen voor uw favoriete omgeving:
 
 * [Bash on MacOS, Linux of Windows-subsysteem voor Linux](#bash)
 * [PowerShell](#powershell)
@@ -148,6 +148,9 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 
 > [!IMPORTANT]
 > Zorg ervoor dat u de stappen in deze sectie worden uitgevoerd vanuit de map op het hoogste niveau van de Istio-versie die u hebt gedownload en uitgepakt.
+
+> [!NOTE]
+> Versie `1.0.6` en nieuwere van het Istio Helm-diagram bevat belangrijke wijzigingen. Als u voor het installeren van deze versie selecteert, moet u nu handmatig maken van een geheim voor Kiali. U moet ook handmatig maken van een geheim voor Grafana als u hebt ingesteld `grafana.security.enabled=true`. Zie het Helm-diagram Istio [README.md](https://github.com/istio/istio/tree/master/install/kubernetes/helm/istio#installing-the-chart) voor meer informatie over het maken van deze geheime gegevens.
 
 Gebruik Helm om de onderdelen Istio naar uw AKS-cluster. Installeren van de resources Istio in de `istio-system` naamruimte, en aanvullende opties voor beveiliging en bewaking als volgt inschakelen:
 

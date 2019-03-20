@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6f5b53b7-6d1d-4bed-a95a-127e2d4d8b3f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f9fe3f53d9d54c2a8fdc0b0c663d0085d137188
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 426162d6655a107aad6fc7dd1081ca9352099449
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873726"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899329"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Zelfstudie: Azure Active Directory-integratie met Korn Ferry ALP
 
@@ -53,7 +53,7 @@ Voor het configureren van de integratie van Korn Ferry ALP met Azure AD moet u K
 
 **Als u Korn Ferry ALP wilt toevoegen vanuit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -106,6 +106,7 @@ Om Azure AD-eenmalige aanmelding te configureren met Korn Ferry ALP, voert u de 
     ![Informatie over domein en URL's van eenmalige aanmelding met Korn Ferry ALP](common/sp-identifier.png)
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
+
     | |
     |--|
     | `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` | 
@@ -113,6 +114,7 @@ Om Azure AD-eenmalige aanmelding te configureren met Korn Ferry ALP, voert u de 
     | `https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>` |
 
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon:
+    
     | |
     |--|
     | `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` |
@@ -148,7 +150,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -187,7 +189,7 @@ In deze sectie gaat u in Korn Ferry ALP een gebruiker maken met de naam Britta S
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel Korn Ferry ALP in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van Korn Ferry ALP waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff46d9644848d197051e574106b029fb44efb069
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: b7556e93e6e7b7e9bdb1f19f5a6e5b3c15c7b910
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877704"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894067"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Zelfstudie: Azure Active Directory-integratie met Canvas
 
@@ -53,7 +53,7 @@ Voor het configureren van de integratie van Canvas in Azure AD moet u Canvas van
 
 **Voer de volgende stappen uit om Canvas toe te voegen vanuit de galerie:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -180,7 +180,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -239,9 +239,9 @@ Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Canvas, moeten ze w
 
    a. Voer in het tekstvak **Full Name** de volledige naam van de gebruiker in, bijvoorbeeld **Britta Simon**.
 
-   b. Voer in het tekstvak **Email** het e-mailadres van de gebruiker in, bijvoorbeeld **brittasimon@contoso.com**.
+   b. In de **e** tekstvak, voer het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
 
-   c. Voer in het tekstvak **Login** het e-mailadres van de Azure AD-gebruiker in, bijvoorbeeld **brittasimon@contoso.com**.
+   c. In de **aanmelding** tekstvak invoeren van de gebruiker Azure AD e-mailadres zoals **brittasimon\@contoso.com**.
 
    d. Selecteer **Email the user about this account creation**.
 
@@ -252,7 +252,7 @@ Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Canvas, moeten ze w
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel Canvas in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van Canvas waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

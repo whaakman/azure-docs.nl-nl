@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3ee9740f9ef7e364c47bb205315683d1e4ea9294
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: f71bfa39e4ded0ea300cc2d329c442fdc6ddec37
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977119"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309074"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Zelfstudie: Virtuele machines met hoge beschikbaarheid maken en implementeren met Azure PowerShell
 
@@ -38,7 +38,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="availability-set-overview"></a>Overzicht beschikbaarheidsset
 
-Een beschikbaarheidsset is een logische groeperingsmogelijkheid om VM-resources van elkaar te isoleren wanneer deze zijn geïmplementeerd. Azure zorgt ervoor dat de VM's die u in een beschikbaarheidsset plaatst, op meerdere fysieke servers, compute-racks, opslageenheden en netwerkswitches worden uitgevoerd. Als er een hardware- of softwarefout optreedt, heeft dit gevolgen voor slechts een subset van uw VM’s en blijft uw totale oplossing operationeel. Beschikbaarheidssets zijn essentieel voor het bouwen van betrouwbare cloudoplossingen.
+Een Beschikbaarheidsset is een logische groeperingsmogelijkheid voor het VM-resources van elkaar isoleren wanneer deze zijn geïmplementeerd. Azure zorgt ervoor dat de VM's die u in een beschikbaarheidsset plaatst, op meerdere fysieke servers, compute-racks, opslageenheden en netwerkswitches worden uitgevoerd. Als er een hardware- of softwarefout optreedt, heeft dit gevolgen voor slechts een subset van uw VM’s en blijft uw totale oplossing operationeel. Beschikbaarheidssets zijn essentieel voor het bouwen van betrouwbare cloudoplossingen.
 
 Laten we eens kijken naar een typische VM-oplossing met vier front-end webservers en twee VM's in de back-end. Met Azure wilt u twee beschikbaarheidssets definiëren voordat u uw VM's implementeert: eentje voor de web-laag en eentje voor de back-endlaag. Wanneer u een nieuwe VM maakt, geeft u de beschikbaarheidsset op als parameter. Azure zorgt ervoor dat de VM’s worden geïsoleerd over meerdere fysieke hardwareresources. Als er een probleem is met de fysieke hardware waarop een van uw servers draait, weet u dat de andere instanties van uw servers actief blijven, omdat ze worden uitgevoerd op andere hardware.
 

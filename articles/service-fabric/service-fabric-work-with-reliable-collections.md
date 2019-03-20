@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2019
 ms.author: aljo
-ms.openlocfilehash: 38aef6e5ba65f67a1dd30ba2c18e180cd92624c6
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805304"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872684"
 ---
 # <a name="working-with-reliable-collections"></a>Werken met betrouwbare verzamelingen
 Service Fabric biedt een stateful programmeermodel beschikbaar voor .NET-ontwikkelaars via betrouwbare verzamelingen. Specifiek, biedt Service Fabric betrouwbare dictionary en betrouwbare wachtrij klassen. Wanneer u deze klassen, uw status is gepartitioneerd (voor schaalbaarheid), gerepliceerd (voor beschikbaarheid) en transactionele binnen een partitie (voor ACID-semantiek). Laten we kijken naar een typische gebruik van een betrouwbare dictionary-object en zien wat er daadwerkelijk doet.
@@ -143,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Onveranderbare gegevenstypen om te voorkomen dat programmeurs fout definiëren
-In het ideale geval wij willen graag de compiler fouten rapporteren wanneer u per ongeluk code die de status van een object dat u rekening houden met onveranderbare verwacht mutates produceren. Maar, de C# compiler beschikt niet over de mogelijkheid om dit te doen. Dus, om te voorkomen van potentiële programmeur bugs, is het raadzaam dat u de typen definieert u met betrouwbare verzamelingen zijn onveranderd typen. Dit houdt in dat u aan de regels Houd waardetypen core (zoals cijfers [Int32, UInt64, enz.], DateTime, Guid, TimeSpan en dergelijke). U kunt ook de tekenreeks. Het is raadzaam om te voorkomen dat de eigenschappen van de verzameling als serialiseren en deserialiseren van hen kunt vaak de prestaties nadelig beïnvloeden. Echter, als u gebruiken van de eigenschappen van verzameling wilt, wij raden het gebruik van. De NET onveranderbare verzamelingen bibliotheek ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Deze bibliotheek is beschikbaar voor downloaden van http://nuget.org. Het beste ook verzegelen van de klassen en het aanbrengen van velden alleen-lezen indien mogelijk.
+In het ideale geval wij willen graag de compiler fouten rapporteren wanneer u per ongeluk code die de status van een object dat u rekening houden met onveranderbare verwacht mutates produceren. Maar, de C# compiler beschikt niet over de mogelijkheid om dit te doen. Dus, om te voorkomen van potentiële programmeur bugs, is het raadzaam dat u de typen definieert u met betrouwbare verzamelingen zijn onveranderd typen. Dit houdt in dat u aan de regels Houd waardetypen core (zoals cijfers [Int32, UInt64, enz.], DateTime, Guid, TimeSpan en dergelijke). U kunt ook de tekenreeks. Het is raadzaam om te voorkomen dat de eigenschappen van de verzameling als serialiseren en deserialiseren van hen kunt vaak de prestaties nadelig beïnvloeden. Echter, als u gebruiken van de eigenschappen van verzameling wilt, wij raden het gebruik van. De NET onveranderbare verzamelingen bibliotheek ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Deze bibliotheek is beschikbaar voor downloaden van https://nuget.org. Het beste ook verzegelen van de klassen en het aanbrengen van velden alleen-lezen indien mogelijk.
 
 Het type gebruikersgegevens hieronder ziet u hoe u een onveranderbare type profiteren van de hiervoor genoemde aanbevelingen definiëren.
 

@@ -10,22 +10,22 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8544d63f38f88a0e623dff343bf8b5133931b70b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 07550ed9c78aa584e55403d225eef4bcff33b057
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228301"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167419"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Over het gebruik van meerdere waarden entiteiten met een model Conversatiecursist
 In deze zelfstudie leert de eigenschap met meerdere waarden van entiteiten.
 
 ## <a name="video"></a>Video
 
-[![Meerdere waarden entiteiten zelfstudie Preview](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
+[![Zelfstudie Preview entiteiten van meerdere waarden](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
 
 ## <a name="requirements"></a>Vereisten
-In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
+In deze zelfstudie is vereist dat de algemene zelfstudie Bot wordt uitgevoerd
 
     npm run tutorial-general
 
@@ -36,65 +36,65 @@ Entiteiten die zijn gemarkeerd als meerdere waarden elk herkende exemplaar van d
 
 ## <a name="steps"></a>Stappen
 
+Start op de startpagina in de Web-UI.
+
 ### <a name="create-the-model"></a>Het Model maken
 
-1. In de Web-gebruikersinterface, klikt u op "Nieuwe Model."
-2. Typ in het veld 'Name', 'MultiValueEntities' en druk op enter.
-3. Klik op de knop 'Maken'.
+1. Selecteer **nieuw Model**.
+2. Voer **MultiValueEntities** voor **naam**.
+3. Selecteer **Maken**.
 
 ### <a name="entity-creation"></a>Entiteit maken
 
-1. In het linkerdeelvenster klikt u op "Entiteiten" en vervolgens de knop 'Nieuwe entiteit'.
-2. Selecteer 'Aangepaste getraind' voor het "entiteitstype'.
-3. Typ 'toppings' voor "Naam van de entiteit."
-4. Het selectievakje 'Meerdere waarden'.
-    - Entiteiten van meerdere waarden worden verzameld van een of meer waarden in de entiteit.
-5. Schakel het selectievakje 'Negatable'.
-    - De eigenschap 'Negatable' is in een andere zelfstudie besproken.
-6. Klik op de knop 'Maken'.
+1. Selecteer **entiteiten** in het linker deelvenster, klikt u vervolgens **nieuwe entiteit**.
+2. Selecteer **aangepaste getraind** voor **entiteitstype**.
+3. Voer **toppings** voor **entiteitnaam**.
+4. Controleer **meerdere waarden** om in te schakelen door de entiteit een of meer waarden worden verzameld.
+5. Controleer **Negatable**.
+6. Selecteer **Maken**.
 
-![](../media/tutorial6_entities.PNG)
+![](../media/T07_entity_create.png)
 
 ### <a name="create-the-first-action"></a>De eerste actie maken
 
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-2. In de 'van de Bot response...' veld, typt u "Hier worden de toppings: $toppings"
-    - De toonaangevende dollarteken geeft aan dat de verwijzing naar een entiteit
-3. Klik op de knop 'Maken'.
+1. Selecteer **acties** in het linker deelvenster, klikt u vervolgens **nieuwe actie**.
+2. Voer **Hier vindt u uw toppings: $toppings** voor **van Bot-antwoord...** . De toonaangevende dollarteken geeft aan dat de verwijzing naar een entiteit.
+3. Selecteer **Maken**.
+
+![](../media/T07_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>De tweede actie maken
 
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-2. In de 'van de Bot response...' veld, typt u 'welke toppings wilt u dat?'
-3. Typ in het veld "Diskwalificeren voorziet", "toppings."
-4. Klik op de knop 'Maken'.
+1. Selecteer **acties** in het linker deelvenster, klikt u vervolgens **nieuwe actie**.
+2. Voer **welke toppings wilt u dat?** voor **van Bot-antwoord...** .
+3. Voer **toppings** voor **diskwalificeren voorziet**.
+4. Selecteer **Maken**.
 
 U hebt nu twee acties.
 
-![](../media/tutorial6_actions.PNG)
+![](../media/T07_action_create_2.png)
 
 ### <a name="train-the-model"></a>Het Model te trainen
 
-1. In het linkerdeelvenster klikt u op "Train-dialoogvensters" en vervolgens de knop 'Nieuwe Train dialoogvenster'.
-2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'Hallo.'
-3. Klik op de knop 'Acties Score'.
-4. Selecteer het antwoord, "welke toppings wilt u?"
-    - Het percentiel is 100%, omdat de enige geldige actie op basis van de beperkingen.
-5. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'kaas en paddestoelen'
-6. Klik op 'kaas' en kies het label "+ toppings"
-7. Klik op 'paddestoelen' en kies het label "+ toppings"
-8. Klik op de knop 'Acties Score'.
-9. Selecteer het antwoord "Hier worden de toppings: $toppings"
-10. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'peper toevoegen'
-11. Klik op 'peper' en kies het label "+ toppings"
-12. Klik op de knop 'Acties Score'.
-13. Selecteer het antwoord "Hier worden de toppings: $toppings"
-14. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "kaas verwijderen"
-15. Klik op 'kaas' en kies het label '-toppings "
-16. Klik op de knop 'Acties Score'.
-17. Selecteer het antwoord "Hier worden de toppings: $toppings"
+1. Selecteer **Train-dialoogvensters** in het linker deelvenster, klikt u vervolgens **nieuwe dialoogvenster van de trein**.
+2. Voer **Hallo** voor utterance van de gebruiker in het deelvenster links chat.
+3. Selecteer **Score acties**.
+4. Selecteer **welke toppings wilt u dat?** uit de lijst met acties. Het percentiel is 100% als de enige geldige actie op basis van de beperkingen.
+5. Voer **kaas- en paddestoelen** voor utterance van de gebruiker in het deelvenster links chat.
+6. Markeer **kaas** Selecteer **+ toppings**.
+7. Markeer **paddestoelen** Selecteer **+ toppings**.
+8. Selecteer **Score acties**.
+9. Selecteer **Hier vindt u uw toppings: $toppings** uit de lijst met acties.
+10. Voer **toevoegen peper** voor de volgende utterance van de gebruiker in het deelvenster links chat.
+11. Markeer **peper** Selecteer **+ toppings**.
+12. Selecteer **Score acties**.
+13. Selecteer **Hier vindt u uw toppings: $toppings** uit de lijst met acties.
+14. Voer **kaas verwijderen** voor derde utterance van de gebruiker in het deelvenster links chat.
+15. Markeer **kaas** Selecteer **-toppings**.
+16. Selecteer **Score acties**.
+17. Selecteer **Hier vindt u uw toppings: $toppings** uit de lijst met acties.
 
-![](../media/tutorial5_dialogs.PNG)
+![](../media/T07_training.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

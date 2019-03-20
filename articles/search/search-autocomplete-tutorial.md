@@ -1,32 +1,32 @@
 ---
-title: Zelfstudie voor het toevoegen van automatisch aanvullen aan uw zoekvak - Azure Search
+title: Voorbeeld voor het automatisch aanvullen toevoegen aan uw zoekvak - Azure Search
 description: Voorbeelden van hoe u de eindgebruikerservaring van uw gegevensgerichte toepassingen kunt verbeteren met behulp van Azure Search-API's voor automatisch aanvullen en het bieden van suggesties.
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: de48f3129beba31f80f5bd4d0c131b28f2b1c91a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b754f00e9bed34717734c4aec81e5489d2c12b63
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997159"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200273"
 ---
-# <a name="tutorial-add-autocomplete-to-your-search-box-using-azure-search"></a>Zelfstudie: Automatisch aanvullen aan uw zoekvak toevoegen met behulp van Azure Search
+# <a name="example-add-autocomplete-to-your-search-box-using-azure-search"></a>Voorbeeld: Automatisch aanvullen aan uw zoekvak toevoegen met behulp van Azure Search
 
-Tijdens deze zelfstudie leert u hoe u [suggesties](https://docs.microsoft.com/rest/api/searchservice/suggestions), [automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete) en [facetten](search-faceted-navigation.md) in de [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) en [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) kunt gebruiken om een krachtig zoekvak te bouwen. 
+In dit voorbeeld leert u hoe u [suggesties](https://docs.microsoft.com/rest/api/searchservice/suggestions), [automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete) en [facetten](search-faceted-navigation.md) in de [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) en [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) aan het bouwen van een krachtige zoekvak. 
 
 + *Suggesties* biedt aanbevelingen van werkelijke resultaten op basis van wat de gebruiker tot dusverre heeft getypt. 
 + *Automatisch aanvullen* is [een nieuwe preview-functie](search-api-preview.md) in Azure Search die termen aanbiedt die afkomstig zijn uit de index, om aan te vullen wat de gebruiker op dat moment typt. 
 
 Er worden meerdere technieken met elkaar vergeleken die de productiviteit van gebruikers verbeteren door de geavanceerde functionaliteit van Search rechtstreeks ter beschikking te stellen aan gebruikers terwijl ze typen.
 
-In deze zelfstudie wordt u stapsgewijs uitgelegd hoe een ASP.NET MVC-toepassing werkt die gebruikmaakt van C# om de [Azure Search .NET-clientbibliotheken](https://aka.ms/search-sdk) aan te roepen, en van JavaScript gebruikmaakt om de Azure Search REST-API rechtstreeks aan te roepen. De toepassing voor deze zelfstudie richt zich op een index met de [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)-voorbeeldgegevens. U kunt de index gebruiken die eerder al is geconfigureerd in de demoversie van NYC Jobs, of u kunt uw eigen index van gegevens voorzien met behulp van een gegevenslader in de voorbeeldtoepassing NYCJobs. In het voorbeeld worden de [jQuery UI](https://jqueryui.com/autocomplete/) en [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) JavaScript-bibliotheken gebruikt om een zoekvak te bouwen dat ondersteuning biedt voor automatisch aanvullen. Door deze onderdelen in combinatie met Azure Search te gebruiken, krijgt u meerdere voorbeelden te zien van hoe u ervoor kunt zorgen dat er via aangevulde suggesties in uw zoekbalk ondersteuning wordt geboden voor automatisch aanvullen.
+In dit voorbeeld ziet u hoe een ASP.NET MVC-toepassing die gebruikmaakt van C# om aan te roepen de [Azure Search .NET-clientbibliotheken](https://aka.ms/search-sdk), en JavaScript, kunnen de Azure Search REST-API rechtstreeks aanroepen. De toepassing voor dit voorbeeld is gericht op een index ingevuld de [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) sample van gegevens. U kunt de index gebruiken die eerder al is geconfigureerd in de demoversie van NYC Jobs, of u kunt uw eigen index van gegevens voorzien met behulp van een gegevenslader in de voorbeeldtoepassing NYCJobs. In het voorbeeld worden de [jQuery UI](https://jqueryui.com/autocomplete/) en [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) JavaScript-bibliotheken gebruikt om een zoekvak te bouwen dat ondersteuning biedt voor automatisch aanvullen. Door deze onderdelen in combinatie met Azure Search te gebruiken, krijgt u meerdere voorbeelden te zien van hoe u ervoor kunt zorgen dat er via aangevulde suggesties in uw zoekbalk ondersteuning wordt geboden voor automatisch aanvullen.
 
 U gaat de volgende taken uitvoeren:
 
@@ -35,16 +35,16 @@ U gaat de volgende taken uitvoeren:
 > * Informatie over de zoekservice toevoegen aan toepassingsinstellingen
 > * Een invoervak voor de zoekfunctie implementeren
 > * Ondersteuning toevoegen voor een lijst voor automatisch aanvullen die gegevens uit een externe bron ophaalt 
-> * Suggesties en automatisch aanvullen ophalen met de .Net SDK en REST-API
+> * Ophalen van suggesties en automatisch aanvullen met behulp van de SDK voor .NET en REST-API
 > * Ondersteuning bieden voor caching aan clientzijde om de prestaties te verbeteren 
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Visual Studio 2017. U kunt de gratis [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) gebruiken. 
 
-* Download de voorbeeld[broncode](https://github.com/azure-samples/search-dotnet-getting-started) voor de zelfstudie.
+* Het voorbeeld downloaden [broncode](https://github.com/azure-samples/search-dotnet-getting-started) voor het voorbeeld.
 
-* Een actief Azure-account en een Azure Search-service. (optioneel) Als u nog geen Azure-account hebt, kunt u zich registreren voor een [gratis proefversie](https://azure.microsoft.com/free/). Zie [Een zoekservice maken](search-create-service-portal.md) voor hulp bij het inrichten van de service. Het account en de service zijn optioneel omdat deze zelfstudie kan worden voltooid met een gehoste NYCJobs-index die al aanwezig is in verband met een andere demo.
+* Een actief Azure-account en een Azure Search-service. (optioneel) Als u nog geen Azure-account hebt, kunt u zich registreren voor een [gratis proefversie](https://azure.microsoft.com/free/). Zie [Een zoekservice maken](search-create-service-portal.md) voor hulp bij het inrichten van de service. Het account en de service zijn optioneel, omdat in dit voorbeeld kan worden voltooid met een gehoste NYCJobs index al in plaats van een andere demo.
 
 * Download de voorbeeldcode [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) om de gegevens van NYCJobs te importeren in een index van uw eigen Azure Search-service. (optioneel)
 
@@ -61,11 +61,11 @@ Volg de stappen in deze sectie als u de gegevens voor de voorbeeldtoepassing NYC
 
 1. Druk op F5 om de toepassing starten.  Nu worden twee indexen gemaakt en de NYCJob-voorbeeldgegevens geïmporteerd.
 
-1. Open in de voorbeeldcode van de zelfstudie het oplossingsbestand AutocompleteTutorial.sln in Visual Studio.  Open Web.config in het project AutocompleteTutorial en wijzig de waarden SearchServiceName en SearchServiceApiKey in dezelfde waarden als hierboven.
+1. Open het oplossingsbestand AutocompleteTutorial.sln in Visual Studio in de voorbeeldcode voorbeeld.  Open Web.config in het project AutocompleteTutorial en wijzig de waarden SearchServiceName en SearchServiceApiKey in dezelfde waarden als hierboven.
 
 ### <a name="running-the-sample"></a>Het voorbeeld uitvoeren
 
-U kunt nu de voorbeeldtoepassingen van de zelfstudie gaan uitvoeren.  Open het oplossingsbestand AutocompleteTutorial.sln in Visual Studio om de zelfstudie uit te voeren.  De oplossing bevat een ASP.NET MVC-project.  Druk op F5 om het project uit te voeren en de pagina in de door u gewenste browser te laden.  Bovenaan ziet u een optie voor het selecteren van C# of JavaScript.  De optie C# roept de HomeController aan vanuit de browser en gebruikt de Azure Search .Net SDK om resultaten op te halen.  Met de JavaScript-optie wordt de Azure Search REST-API rechtstreeks vanuit de browser aangeroepen.  Met deze optie worden doorgaans opmerkelijk betere prestaties gehaald, omdat de controller ertussenuit wordt gehaald.  U kunt de optie kiezen die bij uw behoeften en taalvoorkeuren past.  Er bevinden zich diverse voorbeelden voor automatisch aanvullen op de pagina, met enkele richtlijnen voor elk voorbeeld.  Elk voorbeeld heeft een aanbevolen voorbeeldtekst die u kunt proberen.  Typ een paar letters in elk zoekvak om te zien wat er gebeurt.
+U bent nu klaar om uit te voeren van de voorbeeld-voorbeeldtoepassing.  Open het oplossingsbestand AutocompleteTutorial.sln in Visual Studio om uit te voeren in het voorbeeld.  De oplossing bevat een ASP.NET MVC-project.  Druk op F5 om het project uit te voeren en de pagina in de door u gewenste browser te laden.  Bovenaan ziet u een optie voor het selecteren van C# of JavaScript.  De C# optie aanroepen naar de HomeController vanuit de browser en de Azure Search .NET SDK gebruikt voor het ophalen van resultaten.  Met de JavaScript-optie wordt de Azure Search REST-API rechtstreeks vanuit de browser aangeroepen.  Met deze optie worden doorgaans opmerkelijk betere prestaties gehaald, omdat de controller ertussenuit wordt gehaald.  U kunt de optie kiezen die bij uw behoeften en taalvoorkeuren past.  Er bevinden zich diverse voorbeelden voor automatisch aanvullen op de pagina, met enkele richtlijnen voor elk voorbeeld.  Elk voorbeeld heeft een aanbevolen voorbeeldtekst die u kunt proberen.  Typ een paar letters in elk zoekvak om te zien wat er gebeurt.
 
 ## <a name="how-this-works-in-code"></a>Hoe dit met code werkt
 
@@ -79,7 +79,7 @@ Voor elke taal is het zoekvak precies hetzelfde.  Open het bestand Index.cshtml 
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-Het is een eenvoudig vak voor het invoeren van tekst met een klasse voor stijlaanpassingen, een id waar door JavaScript naar wordt verwezen en een tijdelijke aanduiding voor tekst.  Het geheim schuilt in het JavaScript.
+Dit is een eenvoudige invoertekstvak met een klasse voor stijl, een ID worden verwezen door JavaScript, en de tijdelijke aanduiding voor tekst.  Het geheim schuilt in het JavaScript.
 
 ### <a name="javascript-code-c"></a>JavaScript-code (C#)
 
@@ -132,7 +132,7 @@ Nu u de JavaScript-code voor het voorbeeld hebt bekeken, gaat u de code van de C
 
 1. Open het bestand HomeController.cs in de map Controllers. 
 
-1. Het eerste wat u mogelijk zal opvallen is een methode met de naam InitSearch die zich boven in de klasse bevindt.  Hiermee wordt een geverifieerde HTTP-indexclient voor de Azure Search-service gemaakt.  Als u meer informatie wilt over hoe dit werkt, raadpleegt u de volgende zelfstudie: [Weten hoe u Azure Search gebruikt via een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+1. Het eerste wat u mogelijk zal opvallen is een methode met de naam InitSearch die zich boven in de klasse bevindt.  Hiermee wordt een geverifieerde HTTP-indexclient voor de Azure Search-service gemaakt.  Als u meer informatie wilt over hoe dit werkt, gaat u naar het volgende voorbeeld: [Weten hoe u Azure Search gebruikt via een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 1. Ga naar de functie Voorstellen.
 
@@ -209,15 +209,15 @@ $(function () {
 });
 ```
 
-Als u dit vergelijkt met het bovenstaande voorbeeld waarbij de begincontroller wordt aangeroepen, ziet u verschillende overeenkomsten.  De configuratie voor automatisch aanvullen voor `minLength` en `position` zijn identiek.  De belangrijke wijziging hier is de bron.  In plaats van dat de methode Suggest wordt aangeroepen in de begincontroller, wordt er een REST-aanvraag gemaakt in een JavaScript-functie en wordt deze uitgevoerd met behulp van AJAX.  De reactie wordt vervolgens verwerkt in 'geslaagd' en als bron gebruikt.
+Als u dit vergelijkt met het bovenstaande voorbeeld waarbij de begincontroller wordt aangeroepen, ziet u verschillende overeenkomsten.  De configuratie voor automatisch aanvullen voor `minLength` en `position` zijn identiek.  De belangrijke wijziging hier is de bron.  In plaats van de aanbevolen methode aanroept in de oorspronkelijke domeincontroller, een REST-aanvraag in een JavaScript-functie wordt gemaakt en uitgevoerd met behulp van Ajax.  De reactie wordt vervolgens verwerkt in 'geslaagd' en als bron gebruikt.
 
 ## <a name="takeaways"></a>Opgedane kennis
 
-In deze zelfstudie worden basisstappen beschreven voor het bouwen van een zoekvak dat ondersteuning biedt voor automatisch aanvullen en suggesties.  U hebt gezien hoe u een ASP.NET MVC-toepassing kunt bouwen en de Azure Search .Net SDK of REST-API kunt gebruiken voor het ophalen van suggesties.
+In dit voorbeeld ziet u de basisstappen voor het bouwen van een zoekvak die ondersteuning biedt voor automatisch aanvullen en suggesties.  Hebt u gezien hoe u kunt een ASP.NET MVC-toepassing bouwen en de Azure Search .NET SDK of REST-API gebruiken voor het ophalen van suggesties.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Suggesties en automatisch aanvullen in uw zoekervaring integreren.  Bedenk hoe de .Net SDK of de REST-API u direct kan helpen om het potentieel van Azure Search ter beschikking te stellen aan uw gebruikers terwijl ze typen, zodat ze nog productiever worden.
+Suggesties en automatisch aanvullen in uw zoekervaring integreren.  Houd rekening met hoe u met behulp van de .NET SDK of de REST-API rechtstreeks kunt vele mogelijkheden van Azure Search bij uw gebruikers, terwijl ze typt zodat ze nog productiever.
 
 > [!div class="nextstepaction"]
 > [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)

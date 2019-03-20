@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004578"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893268"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Zelfstudie: Een enkelvoudige of gepoolde database beveiligen
 
@@ -77,11 +77,11 @@ Stel als volgt een serverfirewallregel in:
 
 1. Selecteer **Serverfirewall instellen** op de pagina **Overzicht**. De pagina **Firewallinstellingen** voor de databaseserver wordt geopend.
 
-    1. Selecteer **IP van client toevoegen** op de werkbalk om uw huidige IP-adres aan een nieuwe firewallregel toe te voegen. De regel kan poort 1433 openen voor één IP-adres of voor een bereik met IP-adressen. Selecteer **Opslaan**.
+   1. Selecteer **IP van client toevoegen** op de werkbalk om uw huidige IP-adres aan een nieuwe firewallregel toe te voegen. De regel kan poort 1433 openen voor één IP-adres of voor een bereik met IP-adressen. Selecteer **Opslaan**.
 
-    ![serverfirewallregel instellen](./media/sql-database-security-tutorial/server-firewall-rule2.png)
+      ![serverfirewallregel instellen](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
-    1. Selecteer **OK** en sluit de pagina **Firewallinstellingen**.
+   1. Selecteer **OK** en sluit de pagina **Firewallinstellingen**.
 
 U kunt nu verbinding maken met elke database op de server met het opgegeven IP-adres of IP-adresbereik.
 
@@ -90,7 +90,7 @@ U kunt nu verbinding maken met elke database op de server met het opgegeven IP-a
 
 ### <a name="setup-database-firewall-rules"></a>Database-firewallregels instellen
 
-Firewallregels op databaseniveau zijn alleen van toepassing op afzonderlijke databases. Deze regels zijn draagbaar en volgen de database tijdens een serverfailover. Firewallregels op databaseniveau kunnen alleen worden geconfigureerd met behulp van T-SQL-instructies (Transact-SQL) en alleen nadat u een firewallregel op serverniveau hebt geconfigureerd.
+Firewallregels op databaseniveau zijn alleen van toepassing op afzonderlijke databases. De database, deze regels worden behouden tijdens een serverfailover. Firewallregels op databaseniveau kunnen alleen worden geconfigureerd met behulp van T-SQL-instructies (Transact-SQL) en alleen nadat u een firewallregel op serverniveau hebt geconfigureerd.
 
 Firewallregel op databaseniveau instellen:
 
@@ -142,7 +142,7 @@ Zie voor informatie over het configureren van Azure AD:
 
 - [Uw on-premises identiteiten integreren met Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Uw eigen domeinnaam toevoegen aan Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure ondersteunt nu federatie met Windows Server AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure ondersteunt nu federatie met Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Uw Azure AD-directory beheren](../active-directory/fundamentals/active-directory-administer.md)
 - [Azure AD beheren met behulp van PowerShell](/powershell/azure/overview?view=azureadps-2.0)
 - [Voor hybride identiteit benodigde poorten en protocollen](../active-directory/hybrid/reference-connect-ports.md)
@@ -248,11 +248,11 @@ U schakelt Advanced Data Security als volgt in:
 
 1. Ga op de pagina **SQL-server** naar de sectie **Beveiliging** en selecteer **Advanced Data Security**.
 
-    1. Selecteer **AAN** onder **Advanced Data Security** om de functie in te schakelen. Kies een opslagaccount om de evaluaties van beveiligingsproblemen in op te slaan. Selecteer vervolgens **Opslaan**.
+   1. Selecteer **AAN** onder **Advanced Data Security** om de functie in te schakelen. Kies een opslagaccount om de evaluaties van beveiligingsproblemen in op te slaan. Selecteer vervolgens **Opslaan**.
 
-    ![Navigatievenster](./media/sql-database-security-tutorial/threat-settings.png)
+      ![Navigatievenster](./media/sql-database-security-tutorial/threat-settings.png)
 
-    U kunt ook e-mailberichten configureren voor het ontvangen van beveiligingswaarschuwingen, opslaggegevens en detectie van typen bedreigingen.
+      U kunt ook e-mailberichten configureren voor het ontvangen van beveiligingswaarschuwingen, opslaggegevens en detectie van typen bedreigingen.
 
 1. Ga terug naar de pagina**SQL-databases** van uw database en selecteer **Advanced Data Security** in de sectie **Beveiliging**. Hier vindt u verschillende beveiligingsindicatoren die beschikbaar zijn voor de database.
 
@@ -264,7 +264,7 @@ Als er afwijkende activiteiten worden gedetecteerd, ontvangt u een e-mailbericht
 
 ### <a name="auditing"></a>Controleren
 
-De controlefunctie houdt databasegebeurtenissen bij en schrijft gebeurtenissen naar een auditlogboek in Azure-opslag, logboekanalyse of naar een event hub. Controles helpen u zorgen voor naleving van wet- en regelgeving, de activiteit in uw database te begrijpen en inzicht te krijgen in afwijkingen en discrepanties die kunnen wijzen op mogelijke schendingen van de beveiliging.
+De controlefunctie databasegebeurtenissen bijgehouden en gebeurtenissen schrijft naar een auditlogboek in de Azure-opslag, Azure Monitor-Logboeken, of naar een event hub. Controles helpen u zorgen voor naleving van wet- en regelgeving, de activiteit in uw database te begrijpen en inzicht te krijgen in afwijkingen en discrepanties die kunnen wijzen op mogelijke schendingen van de beveiliging.
 
 Controle inschakelen:
 
@@ -274,25 +274,25 @@ Controle inschakelen:
 
 1. Stel bij de **Controle**-instellingen de volgende waarden in:
 
-    1. Stel **Controle** in op **AAN**.
+   1. Stel **Controle** in op **AAN**.
 
-    1. Selecteer bij **Bestemming voor auditlogboek** een van de volgende mogelijkheden:
+   1. Selecteer bij **Bestemming voor auditlogboek** een van de volgende mogelijkheden:
 
-        - **Storage**, een Azure-opslagaccount waar gebeurtenislogboeken worden opgeslagen en als *.xel*-bestanden kunnen worden gedownload
+       - **Storage**, een Azure-opslagaccount waar gebeurtenislogboeken worden opgeslagen en als *.xel*-bestanden kunnen worden gedownload
 
-           > [!TIP]
-           > Gebruik hetzelfde opslagaccount voor alle gecontroleerde databases om optimaal gebruik te maken van de sjablonen voor auditrapporten.
+          > [!TIP]
+          > Gebruik hetzelfde opslagaccount voor alle gecontroleerde databases om optimaal gebruik te maken van de sjablonen voor auditrapporten.
 
-        - **Log Analytics**, waarin gebeurtenissen automatisch worden opgeslagen voor het uitvoeren query’s of verdere analyse
+       - **Log Analytics**, waarin gebeurtenissen automatisch worden opgeslagen voor het uitvoeren query’s of verdere analyse
 
-            > [!NOTE]
-            > Een **Log Analytics-werkruimte** is vereist voor de ondersteuning van geavanceerde functies zoals analyses, aangepaste waarschuwingsregels en uitvoer naar Excel of Power BI. Zonder een werkruimte is alleen de query-editor beschikbaar.
+           > [!NOTE]
+           > Een **Log Analytics-werkruimte** is vereist voor de ondersteuning van geavanceerde functies zoals analyses, aangepaste waarschuwingsregels en Excel of Power BI-uitvoer. Zonder een werkruimte is alleen de query-editor beschikbaar.
 
-        - **Event Hub**, waarmee gebeurtenissen kunnen worden gerouteerd voor gebruik in andere toepassingen
+       - **Event Hub**, waarmee gebeurtenissen kunnen worden gerouteerd voor gebruik in andere toepassingen
 
-    1. Selecteer **Opslaan**.
+   1. Selecteer **Opslaan**.
 
-    ![Controle-instellingen](./media/sql-database-security-tutorial/audit-settings.png)
+      ![Controle-instellingen](./media/sql-database-security-tutorial/audit-settings.png)
 
 1. Nu kunt u **Auditlogboeken weergeven** om gegevens van databasegebeurtenissen weer te geven.
 
@@ -334,7 +334,7 @@ Versleuteling inschakelen of controleren:
     ![Transparante gegevensversleuteling](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> Als u de versleutelingsstatus wilt bekijken, maakt u verbinding met de database met behulp van [SSMS](./sql-database-connect-query-ssms.md) en vraagt u de `encryption_state`-kolom van de weergave [sys.dm_database_encrytion_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) op. De status `3` geeft aan dat de database is versleuteld.
+> Als u de versleutelingsstatus wilt bekijken, maakt u verbinding met de database met behulp van [SSMS](./sql-database-connect-query-ssms.md) en vraagt u de `encryption_state`-kolom van de weergave [sys.dm_database_encrytion_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) op. De status `3` geeft aan dat de database is versleuteld.
 
 ## <a name="next-steps"></a>Volgende stappen
 

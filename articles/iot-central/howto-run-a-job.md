@@ -5,98 +5,104 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 02/04/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 142881e0a72ef9db7397276f092a4b7502b61fed
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ec7033719316bb186408ea78f6dabac43c383491
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781439"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199848"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Maken en uitvoeren van een taak in uw Azure IoT Central-toepassing
 
-U kunt Microsoft Azure IoT Central gebruiken voor het beheren van uw verbonden apparaten op schaal met behulp van taken. De functionaliteit van de taken kunt u bulksgewijze updates van apparaateigenschappen, instellingen en opdrachten uitvoeren. In dit artikel begeleidt u stapsgewijs door van hoe u aan de slag met behulp van taken in uw eigen toepassing.
+U kunt Microsoft Azure IoT Central gebruiken voor het beheren van uw verbonden apparaten op schaal met behulp van taken. Taken kunt u bulksgewijs updates van apparaateigenschappen, instellingen en opdrachten. In dit artikel leert u hoe u aan de slag met behulp van taken in uw eigen toepassing.
 
 ## <a name="create-and-run-a-job"></a>Maken en uitvoeren van een taak
 
-Deze sectie leest u hoe u maken en een taak uitvoert. Elke stap verloopt via een voorbeeld waarin wordt gedemonstreerd hoe u een taak voor gekoeld Verkoopautomaat-apparaten die u moet beschikken over de snelheid van de ventilator verhoogd uit te voeren.
+Deze sectie leest u hoe u maken en een taak uitvoert. Hier ziet u hoe u kunt de snelheid van de ventilator voor meerdere gekoeld verkoopautomaten verhogen.
 
 1. Navigeer naar de taken in het navigatiedeelvenster.
 
-1. Selecteer **+ nieuw** om te beginnen met het maken van een nieuwe taak.
+1. Selecteer **+ nieuw** om een nieuwe taak te maken.
 
     ![Nieuwe taak maken](./media/howto-run-a-job/createnewjob.png)
 
-1. Voer een naam en beschrijving die u helpen identificeren de taak die u maakt.
+1. Voer een naam en beschrijving in voor de taak die u maakt.
 
-1. Selecteer die het apparaat zo ingesteld dat u wilt dat de taak moet worden toegepast op. Nadat het apparaat te selecteren hebt ingesteld, ziet u de rechterkant te vullen met de apparaten binnen het geselecteerde apparaat. Als u een apparaatset verbroken selecteert, er zijn geen apparaten worden weergegeven en ziet u een bericht waarin wordt uitgelegd dat het instellen van uw apparaat verbroken is.
+1. Selecteer die het apparaat zo ingesteld dat u wilt dat uw taak toe te passen op. Nadat het apparaat te selecteren hebt ingesteld, ziet u de rechterkant te vullen met de apparaten in de set met apparaten. Als u een apparaatset verbroken selecteert, er zijn geen apparaten worden weergegeven en ziet u een bericht dat het instellen van uw apparaat verbroken is.
 
-1. Kies vervolgens het type taak dat is gedefinieerd (een instelling, eigenschap of opdracht). Selecteer **+** naast het type taak ingeschakeld en de gewenste bewerkingen toevoegen.
+1. Kies vervolgens het type van de taak voor het definiëren van (een instelling, eigenschap of opdracht). Selecteer **+** naast het type taak ingeschakeld en uw bewerkingen toevoegen.
 
     ![Taak configureren](./media/howto-run-a-job/configurejob.png)
 
-1. Aan de rechterkant, kies de apparaten die u wilt de taak wordt uitgevoerd. Als u het selectievakje boven selecteert, worden alle apparaten geselecteerd in het hele apparaat instellen. Als u het selectievakje in de buurt van de naam selecteert, worden alle apparaten in de huidige pagina geselecteerd.
+1. Kies de apparaten die u wilt de taak wordt uitgevoerd aan de rechterkant. Als u het selectievakje boven selecteert, worden alle apparaten geselecteerd in het hele apparaat instellen. Door het selectievakje in de buurt **naam**, alle apparaten in de huidige pagina zijn geselecteerd.
 
-1. Zodra uw gewenste apparaten zijn geselecteerd, kiest u **uitvoeren**. De taak wordt nu weergegeven op de hoofdpagina **taken** pagina. In deze weergave bent u kan uw huidige actieve taak en de geschiedenis van een eerder taken uitvoeren. De actieve taak wordt altijd weergegeven boven aan de lijst.
+1. Na het selecteren van uw apparaten, kiest u **uitvoeren** of **opslaan**. De taak wordt nu weergegeven op de hoofdpagina **taken** pagina. In deze weergave ziet u de momenteel actieve taak en de geschiedenis van een eerder taken uitvoeren. De actieve taak wordt altijd weergegeven boven aan de lijst. Uw opgeslagen taak kan worden geopend opnieuw op elk gewenst moment om door te gaan bewerken of uit te voeren.
 
     ![Taak weergeven](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
-    > U kunt zich de geschiedenis van uw eerder uitgevoerde taken weergeven voor 30 dagen.
+    > U kunt de geschiedenis van uw eerder uitgevoerde taken weergeven voor 30 dagen.
 
-1. Als u een overzicht van uw project, selecteer de naam van de taak die u wilt weergeven in de lijst. In dit overzicht bevat de taakdetails, apparaten en apparaatstatussen.
+1. Als u een overzicht van uw taak, selecteert u de taak om weer te geven in de lijst. In dit overzicht bevat de taakdetails, apparaten en statussen van een apparaat. In dit overzicht kunt u ook selecteren **taakdetails downloaden** voor het downloaden van een CSV-bestand van uw taakdetails, met inbegrip van de apparaten en hun waarden voor status. Deze informatie kan nuttig zijn voor het oplossen van problemen zijn.
 
-    ![Apparaatstatus weergeven](./media/howto-run-a-job/viewdevicestatus.png)
+    ![Apparaatstatus weergeven](./media/howto-run-a-job/downloaddetails.png)
 
 ### <a name="stop-a-running-job"></a>Een actieve taak stoppen
 
-Als u stoppen van een taak die momenteel wordt uitgevoerd wilt, selecteert u de naam van de actieve taak die u wilt stoppen. Kies de **stoppen** knop in het deelvenster. U ziet dat de status van de taak is gewijzigd om aan te geven dat de taak is gestopt.
+Als u wilt stoppen met een actieve taak, selecteert u deze en kies **stoppen** in het venster. De taak status is gewijzigd in overeenstemming met de taak is gestopt.
 
    ![Taak stoppen](./media/howto-run-a-job/stopjob.png)
 
 ### <a name="run-a-stopped-job"></a>Een gestopte taak uitvoeren
 
-Als u uitvoeren van een taak die momenteel gestopt wilt is, selecteert u de naam van de gestopte taak die u wilt uitvoeren. Kies de **uitvoeren** knop in het deelvenster. U ziet dat de taak de status is gewijzigd om aan te geven dat de taak is nu nogmaals uit te voeren.
+Als u wilt een taak die momenteel gestopt uitvoert, selecteert u de gestopte taak. Kies **uitvoeren** in het venster. De taak status is gewijzigd in overeenstemming met de taak wordt nu opnieuw uitgevoerd.
 
    ![Taak hervatten](./media/howto-run-a-job/resumejob.png)
 
+## <a name="copy-a-job"></a>Een taak voor het kopiëren
+
+Als u wilt kopiëren van een bestaande taak die u hebt gemaakt, selecteert u deze in de belangrijkste taken pagina en selecteer **kopie**. Een nieuwe kopie van de taakconfiguratie van de wordt geopend om te bewerken. U kunt opslaan of de nieuwe taak uitvoeren. Als wijzigingen zijn aangebracht aan de set geselecteerde apparaat, zijn ze weerspiegeld in deze gekopieerde taak voor u om te bewerken.
+
+   ![Taak voor het kopiëren](./media/howto-run-a-job/copyjob.png)
+
 ## <a name="view-the-job-status"></a>Status van de taak weergeven
 
-Als een taak eenmaal is gemaakt, de **Status** kolom wordt bijgewerkt met de meest recente statusbericht van de taak. De statusberichten betekenen het volgende:
+Nadat een taak is gemaakt, de **Status** updates van de kolom met de meest recente statusbericht van de taak. De volgende tabel bevat de van de mogelijke statuswaarden:
 
 | Statusbericht       | Betekenis van status                                          |
 | -------------------- | ------------------------------------------------------- |
 | Voltooid            | Deze taak is uitgevoerd op alle apparaten.              |
 | Mislukt               | Deze taak is mislukt en niet volledig worden uitgevoerd op apparaten.  |
-| In behandeling              | Deze taak nog niet is gestart op apparaten wordt uitgevoerd.        |
+| In behandeling              | Deze taak nog niet nog gestart op apparaten wordt uitgevoerd.         |
 | In uitvoering              | Deze taak wordt momenteel uitgevoerd op apparaten.             |
 | Gestopt              | Deze taak is handmatig gestopt door een gebruiker.           |
 
-Het statusbericht wordt gevolgd door een overzicht van de apparaten in de taak. Deze apparaatstatussen betekenen het volgende:
+Het statusbericht wordt gevolgd door een overzicht van de apparaten in de taak. De volgende tabel bevat de waarden van de status van mogelijke apparaten:
 
 | Statusbericht       | Betekenis van status                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Geslaagd            | Het aantal apparaten waarop de taak met succes is uitgevoerd op.  |
-| Mislukt               | Het aantal apparaten waarop de taak is mislukt op worden uitgevoerd.      |
+| Geslaagd            | Het aantal apparaten dat de taak is uitgevoerd op.       |
+| Mislukt               | Het aantal apparaten dat de taak is mislukt op worden uitgevoerd.       |
 
 ### <a name="view-the-device-status"></a>Status van het apparaat weergeven
 
-Als u wilt de status van elk apparaat weergeven in de taak, selecteren de taaknaam. Hier ziet u de details van de job en alle van de apparaten die een deel van deze specifieke taak zijn. Naast de naam van elk apparaat ziet u een van de volgende statusberichten:
+Als u wilt de status van de taak en de betreffende apparaten weergeven, selecteert u de taak. Selecteer om te downloaden van een CSV-bestand met de taakdetails, met inbegrip van de lijst met apparaten en hun statuswaarden **downloaden taakdetails**. Naast de naam van elk apparaat ziet u een van de volgende statusberichten:
 
 | Statusbericht       | Betekenis van status                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
 | Voltooid            | De taak is uitgevoerd op dit apparaat.                                     |
-| Mislukt               | De taak is mislukt op dit apparaat worden uitgevoerd. Het bijbehorende foutbericht ziet u meer informatie.  |
-| In behandeling              | De taak is nog niet uitgevoerd op dit apparaat.                                  |
+| Mislukt               | De taak is mislukt op dit apparaat worden uitgevoerd. Het foutbericht ziet u meer informatie.  |
+| In behandeling              | De taak niet is nog uitgevoerd op dit apparaat.                                   |
 
 > [!NOTE]
-> Als een apparaat is verwijderd, kunt u zich niet om het apparaat te selecteren en deze wordt weergegeven als verwijderd met de apparaat-ID.
+> Als een apparaat is verwijderd, u kunt het apparaat niet selecteren en deze wordt weergegeven als verwijderd met de apparaat-ID.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u taken maken in uw toepassing met Azure IoT Central, hier andere de volgende stappen te volgen:
+Nu dat u hebt geleerd hoe u taken maken in uw toepassing met Azure IoT Central, hier andere de volgende stappen te volgen:
 
 - [Apparaatsets gebruiken](howto-use-device-sets.md)
 - [Uw apparaten beheren](howto-manage-devices.md)

@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 3e5fa15bbd6890bc6f36c97aadf3aeaa980b5031
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 65064707374ba76701566e061b77bfd6cdf520ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310315"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833382"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van klassieke metrische waarschuwingen met behulp van Azure Monitor
 
@@ -35,7 +35,7 @@ Klassieke metrische waarschuwingen in Azure Monitor biedt een manier om te worde
 
 6. Selecteer **e-eigenaren...**  als u wilt dat beheerders en medebeheerders e-mailmeldingen ontvangen wanneer de waarschuwing wordt geactiveerd.
 
-7. Als u wilt om meldingen te verzenden naar extra e-mailadressen wanneer de waarschuwing wordt geactiveerd, voegt u ze op in de **beheerder email(s)** veld. Scheid meerdere e-mailberichten met puntkomma's, in de volgende indeling:  *email@contoso.com;email2@contoso.com*
+7. Als u wilt om meldingen te verzenden naar extra e-mailadressen wanneer de waarschuwing wordt geactiveerd, voegt u ze op in de **beheerder email(s)** veld. Scheid meerdere e-mailberichten met puntkomma's, in de volgende indeling: *e\@contoso.com;email2\@contoso.com*
 
 8. Plaats in een geldige URI in de **Webhook** veld als u wilt dat deze moet worden aangeroepen wanneer de waarschuwing wordt geactiveerd.
 
@@ -127,7 +127,7 @@ Deze secties ziet u hoe u PowerShell-opdrachten maken, weergeven en beheren van 
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Regels voor klassieke waarschuwingen kunnen niet meer worden gemaakt via PowerShell. Het maken van een waarschuwingsregel die u wilt gebruikmaken van de nieuwe ['Add-AzMetricAlertRule'](https://docs.microsoft.com/powershell/module/az.insights/add-azmetricalertrule?view=azurermps-6.13.0) opdracht.
+8. Regels voor klassieke waarschuwingen kunnen niet meer worden gemaakt via PowerShell. Het maken van een waarschuwingsregel die u wilt gebruikmaken van de nieuwe ['Add-AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) opdracht.
 
 ## <a name="next-steps"></a>Volgende stappen
 

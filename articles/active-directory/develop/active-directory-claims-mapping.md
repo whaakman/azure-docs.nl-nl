@@ -13,12 +13,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aad699df2de8b745058784790e672f5b8c6e98e9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: af00c311b406a0bae285a00f0d537ce9bae3aa7e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209741"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102100"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedure: Claims worden weergegeven in tokens voor een specifieke app in een tenant (Preview) aanpassen
 
@@ -109,13 +109,13 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 |hasgroups|
 |hash_alg|
 |home_oid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
 |IAT|
 |identityprovider|
 |idp|
@@ -189,52 +189,52 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 
 |Claimtype (URI)|
 | ----- |
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
-|http://schemas.microsoft.com/identity/claims/accesstoken|
-|http://schemas.microsoft.com/identity/claims/openid2_id|
-|http://schemas.microsoft.com/identity/claims/identityprovider|
-|http://schemas.microsoft.com/identity/claims/objectidentifier|
-|http://schemas.microsoft.com/identity/claims/puid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] |
-|http://schemas.microsoft.com/identity/claims/tenantid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
-|http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/groups|
-|http://schemas.microsoft.com/claims/groups.link|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/role|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/wids|
-|http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant|
-|http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown|
-|http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged|
-|http://schemas.microsoft.com/2014/03/psso|
-|http://schemas.microsoft.com/claims/authnmethodsreferences|
-|http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier|
-|http://schemas.microsoft.com/identity/claims/scope|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.microsoft.com/identity/claims/accesstoken`|
+|`http://schemas.microsoft.com/identity/claims/openid2_id`|
+|`http://schemas.microsoft.com/identity/claims/identityprovider`|
+|`http://schemas.microsoft.com/identity/claims/objectidentifier`|
+|`http://schemas.microsoft.com/identity/claims/puid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] `|
+|`http://schemas.microsoft.com/identity/claims/tenantid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
+|`http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`|
+|`http://schemas.microsoft.com/claims/groups.link`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`|
+|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`|
+|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`|
+|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
+|`http://schemas.microsoft.com/2014/03/psso`|
+|`http://schemas.microsoft.com/claims/authnmethodsreferences`|
+|`http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier`|
+|`http://schemas.microsoft.com/identity/claims/scope`|
 
 ## <a name="claims-mapping-policy-properties"></a>Claimtoewijzing beleidseigenschappen
 
@@ -286,8 +286,8 @@ De ID-element geeft aan welke eigenschap van de bron geeft de waarde voor de cla
 
 |Bron|Id|Description|
 |-----|-----|-----|
-|Gebruiker|Achternaam|Familienaam|
-|Gebruiker|givenName|Voornaam|
+|Gebruiker|surname|Familienaam|
+|Gebruiker|givenname|Voornaam|
 |Gebruiker|displayname|Weergavenaam|
 |Gebruiker|object-id|ObjectID|
 |Gebruiker|mail|E-mailadres|
@@ -323,7 +323,7 @@ De ID-element geeft aan welke eigenschap van de bron geeft de waarde voor de cla
 |Gebruiker|city|Plaats|
 |Gebruiker|state|Status|
 |Gebruiker|jobtitle|Functie|
-|Gebruiker|werknemer-id|Werknemer-id|
+|Gebruiker|employeeid|Werknemer-id|
 |Gebruiker|facsimiletelephonenumber|Fax telefoonnummer|
 |toepassing, resource, doelgroep|displayname|Weergavenaam|
 |toepassing, resource, doelgroep|objecten|ObjectID|
@@ -389,7 +389,7 @@ Op basis van de gekozen methode, wordt een set van invoer en uitvoer verwacht. D
 |Gebruiker|mail|E-mailadres|
 |Gebruiker|userprincipalname|User principal name|
 |Gebruiker|onpremisessamaccountname|Op de lokale Sam-accountnaam|
-|Gebruiker|werknemer-id|Werknemer-id|
+|Gebruiker|employeeid|Werknemer-id|
 |Gebruiker|extensionattribute1|Kenmerk toestelnummer 1|
 |Gebruiker|extensionattribute2|Kenmerk toestelnummer 2|
 |Gebruiker|extensionattribute3|Kenmerk toestelnummer 3|
@@ -448,72 +448,72 @@ Om te beginnen, voer de volgende stappen uit:
         Get-AzureADPolicy
     
     ```
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid voor het overslaan van de basic claims van tokens die zijn uitgegeven aan een service-principal.
-In dit voorbeeld maakt u een beleid dat Hiermee verwijdert u de eenvoudige claim instellen van tokens die zijn uitgegeven aan de gekoppelde service-principals.
+   #### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid voor het overslaan van de basic claims van tokens die zijn uitgegeven aan een service-principal.
+   In dit voorbeeld maakt u een beleid dat Hiermee verwijdert u de eenvoudige claim instellen van tokens die zijn uitgegeven aan de gekoppelde service-principals.
 
 1. Maak een beleid voor claimtoewijzing. Dit beleid, gekoppeld aan specifieke service-principals, Hiermee verwijdert u de eenvoudige claim ingesteld van tokens.
-    1. Voor het maken van het beleid, moet u deze opdracht uitvoeren: 
+   1. Voor het maken van het beleid, moet u deze opdracht uitvoeren: 
     
-     ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
-    ```
-    2. Om te zien van het nieuwe beleid en het beleid voor object-id ophalen, voert u de volgende opdracht uit:
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
+      ```
+   2. Om te zien van het nieuwe beleid en het beleid voor object-id ophalen, voert u de volgende opdracht uit:
     
-     ``` powershell
-    Get-AzureADPolicy
-    ```
+      ``` powershell
+      Get-AzureADPolicy
+      ```
 1. Het beleid toewijzen aan uw service-principal. U moet ook de object-id van uw service principal ophalen. 
-    1.  Als u wilt zien van de service-principals van uw organisatie, kunt u een query Microsoft Graph. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
-    2.  Wanneer u de object-id van uw service-principal hebt, kunt u de volgende opdracht uitvoeren:  
+   1. Als u wilt zien van de service-principals van uw organisatie, kunt u een query Microsoft Graph. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
+   2. Wanneer u de object-id van uw service-principal hebt, kunt u de volgende opdracht uitvoeren:  
      
-     ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-    ```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```
 
 #### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Voorbeeld: Een beleid om op te nemen van de werknemer-id en TenantCountry als claims in de tokens die zijn uitgegeven aan een service-principal maken en toewijzen
 
 In dit voorbeeld maakt u een beleid dat de werknemer-id en TenantCountry toegevoegd aan de tokens die zijn uitgegeven aan de gekoppelde service-principals. Id van de werknemer is verzonden als het claimtype naam in SAML-tokens en JWTs. De TenantCountry wordt verzonden als het type van de claim land/regio in zowel JWTs als SAML-tokens. In dit voorbeeld gaan we bevatten de eenvoudige claims in de tokens instellen.
 
 1. Maak een beleid voor claimtoewijzing. Dit beleid, dat is gekoppeld aan een specifieke service-principals, wordt de werknemer-id en TenantCountry claims naar tokens toegevoegd.
-    1. Voor het maken van het beleid, moet u deze opdracht uitvoeren:  
+   1. Voor het maken van het beleid, moet u deze opdracht uitvoeren:  
      
-     ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
-    ```
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
+      ```
     
-    2. Om te zien van het nieuwe beleid en het beleid voor object-id ophalen, voert u de volgende opdracht uit:
+   2. Om te zien van het nieuwe beleid en het beleid voor object-id ophalen, voert u de volgende opdracht uit:
      
-     ``` powershell  
-    Get-AzureADPolicy
-    ```
+      ``` powershell  
+      Get-AzureADPolicy
+      ```
 1. Het beleid toewijzen aan uw service-principal. U moet ook de object-id van uw service principal ophalen. 
-    1.  Als u wilt zien van de service-principals van uw organisatie, kunt u een query Microsoft Graph. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
-    2.  Wanneer u de object-id van uw service-principal hebt, kunt u de volgende opdracht uitvoeren:  
+   1. Als u wilt zien van de service-principals van uw organisatie, kunt u een query Microsoft Graph. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
+   2. Wanneer u de object-id van uw service-principal hebt, kunt u de volgende opdracht uitvoeren:  
      
-     ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-    ```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```
 
 #### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Voorbeeld: Een beleid die gebruikmaakt van een claimtransformatie in de tokens die zijn uitgegeven aan een service-principal maken en toewijzen
 
 In dit voorbeeld maakt u een beleid dat een aangepaste claim "JoinedData" verleend aan de gekoppelde service-principals JWTs verzendt. Deze claim bevat een waarde die is gemaakt door de gegevens die zijn opgeslagen in het kenmerk extensionattribute1 van het gebruikersobject met '.sandbox'. In dit voorbeeld sluiten we de eenvoudige claims in de tokens instellen.
 
 1. Maak een beleid voor claimtoewijzing. Dit beleid, dat is gekoppeld aan een specifieke service-principals, wordt de werknemer-id en TenantCountry claims naar tokens toegevoegd.
-    1. Voor het maken van het beleid, moet u deze opdracht uitvoeren: 
+   1. Voor het maken van het beleid, moet u deze opdracht uitvoeren: 
      
-     ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
-    ```
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
+      ```
     
-    2. Om te zien van het nieuwe beleid en het beleid voor object-id ophalen, voert u de volgende opdracht uit: 
+   2. Om te zien van het nieuwe beleid en het beleid voor object-id ophalen, voert u de volgende opdracht uit: 
      
-     ``` powershell
-    Get-AzureADPolicy
-    ```
+      ``` powershell
+      Get-AzureADPolicy
+      ```
 1. Het beleid toewijzen aan uw service-principal. U moet ook de object-id van uw service principal ophalen. 
-    1.  Als u wilt zien van de service-principals van uw organisatie, kunt u een query Microsoft Graph. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
-    2.  Wanneer u de object-id van uw service-principal hebt, kunt u de volgende opdracht uitvoeren: 
+   1. Als u wilt zien van de service-principals van uw organisatie, kunt u een query Microsoft Graph. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
+   2. Wanneer u de object-id van uw service-principal hebt, kunt u de volgende opdracht uitvoeren: 
      
-     ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-    ```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 07e3552b58b702cb94c879dd34397010c07522db
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 66cef8369a314a76cf619e436cd25d6bdf628c45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076300"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Logboekgegevens en toegang tot werkruimten in Azure Monitor beheren
 Azure Monitor-winkels vastleggen gegevens in een Log Analytics-werkruimte is in wezen een container die gegevens en configuratie-informatie bevat. Voor het beheren van toegang tot gegevens vastleggen, kunt u verschillende beheertaken met betrekking tot werkruimten uitvoeren. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
@@ -104,7 +104,7 @@ De _toegangsmodus_ verwijst naar hoe een gebruiker toegang heeft tot een Log Ana
 > - Containers
 > - Aangepaste logboeken die zijn gemaakt door HTTP-gegevensverzamelaar-API
 >
-> U kunt testen als Logboeken goed gekoppeld aan de resource zijn door een query uit te voeren en inspecteren van de records u geïnteresseerd bent in. Als de juiste resource-ID in de [_ResourceId](log-standard-properties.md#resourceid) eigenschap en klik vervolgens gegevens is beschikbaar voor de resource-georiënteerde query's.
+> U kunt testen als Logboeken goed gekoppeld aan de resource zijn door een query uit te voeren en inspecteren van de records u geïnteresseerd bent in. Als de juiste resource-ID in de [_ResourceId](log-standard-properties.md#_resourceid) eigenschap en klik vervolgens gegevens is beschikbaar voor de resource-georiënteerde query's.
 
 ### <a name="comparing-access-modes"></a>Vergelijking van de toegangsmodi in
 

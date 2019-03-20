@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: d5ed8da4ea527e350b1ff73d0bd188cdad2caf71
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad58b8f1034a0e2818d3aca53c023736da9370cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189205"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119918"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Integratie van Azure Stack-datacenter
 
@@ -116,32 +116,32 @@ Verschillende stappen moeten worden uitgevoerd door de partner voordat de oploss
 
 Acties die moeten worden genomen door de OEM-Partner zijn:
 
--   [Test-azurestack uitvoeren](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
+- [Test-azurestack uitvoeren](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
 
--   [Registratie bij Azure](azure-stack-registration.md)
+- [Registratie bij Azure](azure-stack-registration.md)
 
--   [Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
+- [Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Back-upbestanden voor configuratie van de Switch en HLH configuratie
+- Back-upbestanden voor configuratie van de Switch en HLH configuratie
 
--   DVM verwijderen
+- DVM verwijderen
 
--   Een klant overzicht voorbereiden voor implementatie
+- Een klant overzicht voorbereiden voor implementatie
 
--   [Controleren op updates te controleren of dat de oplossingsoftware wordt bijgewerkt naar de nieuwste versie](.\azure-stack-updates.md)
+- [Controleren op updates te controleren of dat de oplossingsoftware wordt bijgewerkt naar de nieuwste versie](./azure-stack-updates.md)
 
 Er zijn verschillende stappen die vereist of optioneel zijn, afhankelijk van het installatietype zijn.
 
--   Als de implementatie is voltooid met behulp van [AD FS](azure-stack-integrate-identity.md), klikt u vervolgens de Azure Stack stempel moet worden geïntegreerd met de klant de eigen AD FS.
+- Als de implementatie is voltooid met behulp van [AD FS](azure-stack-integrate-identity.md), klikt u vervolgens de Azure Stack stempel moet worden geïntegreerd met de klant de eigen AD FS.
 
   > [!NOTE]
   > Deze stap is de verantwoordelijkheid van de klant, hoewel de partner kan desgewenst bieden services om dit te doen.
 
--   Integratie met een bestaande bewakingssysteem van de respectieve partner.
+- Integratie met een bestaande bewakingssysteem van de respectieve partner.
 
-    -   [Integratie van System Center Operations Manager](azure-stack-integrate-monitor.md) biedt ook ondersteuning voor vloot beheermogelijkheden.
+  -   [Integratie van System Center Operations Manager](azure-stack-integrate-monitor.md) biedt ook ondersteuning voor vloot beheermogelijkheden.
 
-    -   [Nagios-integratie](azure-stack-integrate-monitor.md#integrate-with-nagios)
+  -   [Nagios-integratie](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
 ## <a name="overall-timeline"></a>Algemene tijdlijn
 

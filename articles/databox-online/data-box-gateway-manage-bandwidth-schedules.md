@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: e4bc5de9345bcb65f82ca7ac0095b3e0fd3907e9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102105"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>De Azure Portal gebruiken om bandbreedteschema's te beheren in uw Azure Data Box Gateway  
 
@@ -43,13 +43,13 @@ Voer in Azure Portal de volgende stappen uit om een gebruiker toe te voegen.
 
 3. Doe het volgende in **Schema toevoegen**: 
 
-    1. Geef de **Eerste dag**, **Laatste dag**, **Begintijd** en **Eindtijd** van de planning op. 
-    2. Als dit schema de hele dag wordt uitgevoerd, kunt u de optie **Hele dag** inschakelen. 
-    3. **Bandbreedtesnelheid** is de bandbreedte in Megabits per seconde (Mbps) die door uw apparaat wordt gebruikt bij bewerkingen die betrekking hebben op de cloud (uploaden en downloaden). Geef voor dit veld een waarde op tussen 1 en 1000. 
-    4. Schakel **Onbeperkte** bandbreedte in als u de datumupload en -download niet wilt regelen. 
-    5. Klik op **Add**.
+   1. Geef de **Eerste dag**, **Laatste dag**, **Begintijd** en **Eindtijd** van de planning op. 
+   2. Als dit schema de hele dag wordt uitgevoerd, kunt u de optie **Hele dag** inschakelen. 
+   3. **Bandbreedtesnelheid** is de bandbreedte in Megabits per seconde (Mbps) die door uw apparaat wordt gebruikt bij bewerkingen die betrekking hebben op de cloud (uploaden en downloaden). Geef voor dit veld een waarde op tussen 1 en 1000. 
+   4. Schakel **Onbeperkte** bandbreedte in als u de datumupload en -download niet wilt regelen. 
+   5. Klik op **Add**.
 
-    ![Klikken op Gebruiker toevoegen](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Klikken op Gebruiker toevoegen](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. Er wordt een schema gemaakt met de opgegeven parameters. Dit schema wordt vervolgens weergegeven in de lijst van bandbreedteschema's in de portal.
 

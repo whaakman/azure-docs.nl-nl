@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/06/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 01c88b9bc64bc1541e97aff26e41c360acfaf6bd
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809969"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770473"
 ---
 # <a name="what-is-azure-event-grid"></a>Wat is Azure Event Grid?
 
@@ -44,6 +44,7 @@ Zie [gebeurtenisbronnen](event-sources.md) voor meer informatie over de mogelijk
 * Service Bus
 * Storage Blob
 * Storage voor algemene doeleinden v2 (GPv2)
+* Azure Maps
 
 ## <a name="event-handlers"></a>Event Handlers
 
@@ -87,7 +88,7 @@ Zie [Een keuze maken tussen Azure-services die berichten bezorgen](compare-messa
 
 ## <a name="what-can-i-do-with-event-grid"></a>Wat kan ik doen met Event Grid?
 
-Azure Event Grid beschikt over verschillende functies die werkzaamheden zonder servers en met betrekking tot de automatisering van bewerkingen en [integratie](http://azure.com/integration) aanzienlijk verbeteren: 
+Azure Event Grid beschikt over verschillende functies die werkzaamheden zonder servers en met betrekking tot de automatisering van bewerkingen en [integratie](https://azure.com/integration) aanzienlijk verbeteren: 
 
 ### <a name="serverless-application-architectures"></a>Architecturen voor serverloze toepassingen
 

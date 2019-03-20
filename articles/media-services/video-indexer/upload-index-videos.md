@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: c11a206316cfb7b2d9e96b631fce01701da93565
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e7f39b6298dd950147fea7ac21969c53e1b58e2e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550479"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877867"
 ---
 # <a name="upload-and-index-your-videos"></a>Uw video's uploaden en indexeren  
 
@@ -26,7 +26,7 @@ Tijdens het uploaden van video's met Video Indexer-API, hebt u de volgende optie
 
 In het artikel ziet u hoe u de API [Video uploaden](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) gebruikt voor het uploaden en indexeren van uw video's op basis van een URL. De voorbeeldcode in het artikel bevat de opmerkingen in de code die laten zien hoe u de bytematrix uploadt. <br/>In het artikel komen enkele van de parameters aan bod die u op de API kunt instellen om het proces en de uitvoer van de API te wijzigen.
 
-Zodra uw video is geüpload, codeert Video Indexer, eventueel de video (besproken in het artikel). Wanneer u een Video Indexer-account maakt, kunt u kiezen uit een gratis proefversie (waarmee u een bepaald aantal gratis minuten indexering krijgt) of een betaalde optie (zonder quotumlimiet). Bij de gratis proefversie biedt Video Indexer websitegebruikers maximaal 600 minuten aan gratis indexering en API-gebruikers maximaal 2400 minuten gratis indexering. Met de betaalde versie maakt u een Video Indexer-account dat is [gekoppeld aan uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt zowel voor de geïndexeerde minuten als voor kosten verbonden aan het Media-account. 
+Zodra uw video is geüpload, codeert Video Indexer, eventueel de video (besproken in het artikel). Wanneer u een Video Indexer-account maakt, kunt u kiezen uit een gratis proefversie (waarmee u een bepaald aantal gratis minuten indexering krijgt) of een betaalde optie (zonder quotumlimiet). Bij de gratis proefversie biedt Video Indexer websitegebruikers maximaal 600 minuten aan gratis indexering en API-gebruikers maximaal 2400 minuten gratis indexering. Betaalde optie, maakt u een Video Indexer-account dat is [verbonden met uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt zowel voor de geïndexeerde minuten als voor kosten verbonden aan het Media-account. 
 
 ## <a name="uploading-considerations"></a>Aandachtspunten voor uploaden
 
@@ -64,16 +64,16 @@ Een URL die wordt gebruikt om de klant (met een POST-aanvraag) op de hoogte te s
         |state|De videostatus|  
     - Voorbeeld: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Personen geïdentificeerd in de video:
-    - Properties
+  - Properties
     
-        |Name|Description|
-        |---|---|
-        |id| De video-id|
-        |faceId|De gezichts-id die wordt weergegeven in de video-index|
-        |knownPersonId|De persoons-id die uniek is in een gezichtsmodel|
-        |personName|De naam van de persoon|
+      |Name|Description|
+      |---|---|
+      |id| De video-id|
+      |faceId|De gezichts-id die wordt weergegeven in de video-index|
+      |knownPersonId|De persoons-id die uniek is in een gezichtsmodel|
+      |personName|De naam van de persoon|
         
-     - Voorbeeld: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Voorbeeld: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Opmerkingen
 

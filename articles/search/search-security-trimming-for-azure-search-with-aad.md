@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 3f55b3b099cc22fda2bebf0dcb8d3e9c1a580f02
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099691"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102523"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Beveiligingsfilters voor Azure Search-resultaten met behulp van Active Directory-identiteiten bijsnijden
 
@@ -22,13 +22,13 @@ In dit artikel laat zien hoe u Azure Active Directory (AAD) om beveiligingsident
 
 Dit artikel behandelt de volgende taken:
 > [!div class="checklist"]
-- AAD-groepen en gebruikers maken
-- De gebruiker koppelen aan de groep die u hebt gemaakt
-- De nieuwe groep in de cache
-- Documenten van de index met de bijbehorende groepen
-- Een zoekaanvraag probleem met het filter voor groep-id 's
-
->[!NOTE]
+> - AAD-groepen en gebruikers maken
+> - De gebruiker koppelen aan de groep die u hebt gemaakt
+> - De nieuwe groep in de cache
+> - Documenten van de index met de bijbehorende groepen
+> - Een zoekaanvraag probleem met het filter voor groep-id 's
+> 
+> [!NOTE]
 > De codefragmenten voorbeeld in dit artikel worden geschreven in C#. U vindt de volledige broncode [op GitHub](https://aka.ms/search-dotnet-howto). 
 
 ## <a name="prerequisites"></a>Vereisten

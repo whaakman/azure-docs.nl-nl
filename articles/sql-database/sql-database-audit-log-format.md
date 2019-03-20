@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 915ccc60216f3f206bcdc53825decac4d6d020d0
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57012026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001683"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database-Audit-logboekindeling
 
@@ -35,7 +35,7 @@ Bijvoorbeeld, voor de database `Database1` op `Server1` is mogelijk geldig pad v
 
 ### <a name="event-hub"></a>Event Hub
 
-Auditgebeurtenissen worden geschreven naar de naamruimte en event hub die is gedefinieerd tijdens het configureren van controle en worden vastgelegd in de hoofdtekst van [Apache Avro](http://avro.apache.org/) gebeurtenissen en opgeslagen met behulp van JSON opmaak met UTF-8-codering. De om controlelogboeken te lezen, kunt u [Avro-hulpprogramma's](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) of een vergelijkbaar hulpprogramma's waarmee deze indeling worden verwerkt.
+Auditgebeurtenissen worden geschreven naar de naamruimte en event hub die is gedefinieerd tijdens het configureren van controle en worden vastgelegd in de hoofdtekst van [Apache Avro](https://avro.apache.org/) gebeurtenissen en opgeslagen met behulp van JSON opmaak met UTF-8-codering. De om controlelogboeken te lezen, kunt u [Avro-hulpprogramma's](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) of een vergelijkbaar hulpprogramma's waarmee deze indeling worden verwerkt.
 
 ### <a name="log-analytics"></a>Log Analytics
 

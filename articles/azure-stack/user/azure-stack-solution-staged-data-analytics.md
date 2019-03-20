@@ -15,12 +15,12 @@ ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 1115e11d6bf830afad3746eb41d6368cb89bdbf3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c3ea877e3271dcb5bea527d661e12827eb64fa0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534368"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997416"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een gefaseerde data analytics-oplossing maken met Azure en Azure Stack 
 
@@ -175,25 +175,25 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Een door Blob Storage geactiveerde functie maken
 
-1.  Vouw de functie-app en selecteer de **+** naast **functies**.
+1. Vouw de functie-app en selecteer de **+** naast **functies**.
 
-2.  Typ in het zoekveld `blob` en kies vervolgens de gewenste taal voor de **blobtrigger** sjabloon.
+2. Typ in het zoekveld `blob` en kies vervolgens de gewenste taal voor de **blobtrigger** sjabloon.
 
-  ![Kies de trigger-sjabloon voor blob-opslag.](media/azure-stack-solution-staged-data-analytics/image10.png)
+   ![Kies de trigger-sjabloon voor blob-opslag.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
-3.  Gebruik de instellingen zoals opgegeven in de onderstaande tabel:
+3. Gebruik de instellingen zoals opgegeven in de onderstaande tabel:
 
-    | Instelling | Voorgestelde waarde | Description |
-    | ------- | ------- | ------- |
-    | Name | Uniek in uw functie-app | Naam van deze door Blob geactiveerde functie. |
-    | Pad | \<het pad van de bovenstaande opslaglocatie > | Locatie in Blob Storage die wordt bewaakt. De bestandsnaam van de blob wordt doorgegeven in de binding als de parameter name. |
-    | Opslagaccountverbinding | Functie-App verbinding | U kunt de opslagaccountverbinding al wordt gebruikt door uw functie-app gebruiken of een nieuwe maken. |
+   | Instelling | Voorgestelde waarde | Description |
+   | ------- | ------- | ------- |
+   | Name | Uniek in uw functie-app | Naam van deze door Blob geactiveerde functie. |
+   | Pad | \<het pad van de bovenstaande opslaglocatie > | Locatie in Blob Storage die wordt bewaakt. De bestandsnaam van de blob wordt doorgegeven in de binding als de parameter name. |
+   | Opslagaccountverbinding | Functie-App verbinding | U kunt de opslagaccountverbinding al wordt gebruikt door uw functie-app gebruiken of een nieuwe maken. |
 
-    **Voorbeeld:**
+   **Voorbeeld:**
 
-    ![Maak de door Blob Storage geactiveerde functie.](media/azure-stack-solution-staged-data-analytics/image11.png)
+   ![Maak de door Blob Storage geactiveerde functie.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
-4.  Selecteer **maken** om de functie te maken.
+4. Selecteer **maken** om de functie te maken.
 
 ### <a name="test-the-function"></a>De functie testen
 
@@ -253,21 +253,21 @@ Gebruik de stappen en de instellingen die hierboven worden beschreven om te make
 
 ## <a name="test-the-queue-triggered-function"></a>Test de wachtrij geactiveerde functie
 
-1.  In de Azure Stack-portal, blader naar de functie. Vouw de **logboeken** aan de onderkant van de pagina en zorg ervoor dat logboekstreaming niet is onderbroken.
+1. In de Azure Stack-portal, blader naar de functie. Vouw de **logboeken** aan de onderkant van de pagina en zorg ervoor dat logboekstreaming niet is onderbroken.
 
-2.  Open Opslagverkenner en verbinding maken met het opslagaccount dat aan het begin van deze sectie is gemaakt.
+2. Open Opslagverkenner en verbinding maken met het opslagaccount dat aan het begin van deze sectie is gemaakt.
 
-3.  Vouw het opslagaccount, **Blob-containers**, en de blob u eerder hebt gemaakt. Selecteer **uploaden** en vervolgens **bestanden uploaden.**
+3. Vouw het opslagaccount, **Blob-containers**, en de blob u eerder hebt gemaakt. Selecteer **uploaden** en vervolgens **bestanden uploaden.**
 
-    ![Upload een bestand naar de blob-container.](media/azure-stack-solution-staged-data-analytics/image12.png)
+   ![Upload een bestand naar de blob-container.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4.  Selecteer het veld bestanden in het dialoogvenster van de bestanden uploaden. Blader naar een bestand op een lokale computer, zoals een afbeeldingsbestand, selecteert u deze en selecteer **Open** en vervolgens **uploaden**.
+4. Selecteer het veld bestanden in het dialoogvenster van de bestanden uploaden. Blader naar een bestand op een lokale computer, zoals een afbeeldingsbestand, selecteert u deze en selecteer **Open** en vervolgens **uploaden**.
 
-5.  Ga terug naar de functielogboeken en controleer of dat de blob is gelezen.
+5. Ga terug naar de functielogboeken en controleer of dat de blob is gelezen.
 
-  **Voorbeeld:**
+   **Voorbeeld:**
 
-    ![Bekijk het bericht in de logboeken.](media/azure-stack-solution-staged-data-analytics/image13.png)
+   ![Bekijk het bericht in de logboeken.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Veilig opgeslagen en geopend compatibele gegevens
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 332382282c2b55b52bb23f278a25868c09360619
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d8640881e83084dac7f4725115f48dcf7d29e787
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729350"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007605"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Maken en een schijfinstallatiekopie OpenBSD uploaden naar Azure
 In dit artikel wordt beschreven hoe u maken en uploaden van een virtuele harde schijf (VHD) die het OpenBSD-besturingssysteem bevat. Nadat u deze uploadt, kunt u deze als uw eigen installatiekopie maken van een virtuele machine (VM) in Azure via Azure CLI.
@@ -56,7 +56,7 @@ Ondersteuning op de virtuele machine waarop u het OpenBSD besturingssysteem 6.1,
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. Standaard de `root` gebruiker is uitgeschakeld op virtuele machines in Azure. Gebruikers kunnen opdrachten uitvoeren met verhoogde bevoegdheden met behulp van de `doas` opdracht op OpenBSD VM. Doas is standaard ingeschakeld. Zie voor meer informatie, [doas.conf](http://man.openbsd.org/doas.conf.5). 
+4. Standaard de `root` gebruiker is uitgeschakeld op virtuele machines in Azure. Gebruikers kunnen opdrachten uitvoeren met verhoogde bevoegdheden met behulp van de `doas` opdracht op OpenBSD VM. Doas is standaard ingeschakeld. Zie voor meer informatie, [doas.conf](https://man.openbsd.org/doas.conf.5). 
 
 5. Installeren en configureren van vereisten voor de Azure-Agent als volgt:
 
@@ -175,6 +175,6 @@ ssh azureuser@<ip address>
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u meer weten over de ondersteuning van Hyper-V op OpenBSD6.1 wilt, leest u [OpenBSD 6.1](https://www.openbsd.org/61.html) en [hyperv.4](http://man.openbsd.org/hyperv.4).
+Als u meer weten over de ondersteuning van Hyper-V op OpenBSD6.1 wilt, leest u [OpenBSD 6.1](https://www.openbsd.org/61.html) en [hyperv.4](https://man.openbsd.org/hyperv.4).
 
 Als u een virtuele machine van de beheerde schijf maken wilt, lezen [az schijf](/cli/azure/disk). 

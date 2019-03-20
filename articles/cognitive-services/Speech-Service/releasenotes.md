@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: e389df02966146b217802d4e93f844a4fee425a3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958643"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856087"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
 
@@ -32,7 +32,7 @@ Dit is een opgelost probleem release en alleen gevolgen heeft voor de SDK systee
 
 **Nieuwe functies**
 
-* De spraak-SDK biedt ondersteuning voor selectie van de invoer microfoon via de klasse AudioConfig. Hiermee audio om gegevens te streamen met de spraak-Service van een niet-standaard microfoon. Voor meer informatie, Zie de documentatie beschrijven [audio-invoer Apparaatselectie](how-to-select-audio-input-devices.md). Dit is nog niet beschikbaar is via JavaScript.
+* De spraak-SDK biedt ondersteuning voor selectie van de invoer microfoon via de klasse AudioConfig. Hiermee kunt u audio om gegevens te streamen met de spraak-Services via een microfoon niet-standaard. Zie voor meer informatie de documentatie beschrijven [audio-invoer Apparaatselectie](how-to-select-audio-input-devices.md). Dit is nog niet beschikbaar is via JavaScript.
 * De spraak-SDK biedt nu ondersteuning voor Unity in een bètaversie. Geef feedback via de sectie probleem in de [voorbeeldopslagplaats in GitHub](https://aka.ms/csspeech/samples). Deze release biedt ondersteuning voor Unity op Windows x86 en x64 (desktop of Universal Windows Platform-toepassingen), en Android (ARM32/64, x86). Meer informatie vindt u in onze [Unity-snelstartgids](quickstart-csharp-unity.md).
 * Het bestand `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (geleverd in eerdere versies) wordt niet meer nodig hebt. De functionaliteit is nu geïntegreerd in de core-SDK.
 
@@ -89,13 +89,13 @@ Dit is een alleen-JavaScript-versie. Er zijn geen functies zijn toegevoegd. De v
 **Nieuwe functies**
 
 * Python
-  * De bètaversie van Python-ondersteuning (3.5 en hoger) is beschikbaar in deze versie. Voor meer informatie [hier te zien krijgen](quickstart-python.md).
+  * De bètaversie van Python-ondersteuning (3.5 en hoger) is beschikbaar in deze versie. Zie voor meer informatie, here](quickstart-python.md).
 * Javascript
   * De spraak-SDK voor JavaScript is open-source. De broncode is beschikbaar op [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
   * We bieden nu ondersteuning voor Node.js, kunt u meer informatie vinden [hier](quickstart-js-node.md).
   * De lengtebeperking voor audio-sessies is verwijderd, opnieuw verbinden gebeurt automatisch onder de dekking.
 * Verbindingsobject
-  * U kunt een verbindingsobject openen vanuit de herkenning. Dit object kunt u expliciet de serviceverbinding tot stand brengen en zich inschrijven voor het verbinding maken en gebeurtenissen te verbreken.
+  * U kunt een verbindingsobject openen van het kenmerk. Dit object kunt u expliciet de serviceverbinding tot stand brengen en zich inschrijven voor het verbinding maken en gebeurtenissen te verbreken.
     (Dit nog niet beschikbaar is via JavaScript en Python.)
 * Ondersteuning voor Ubuntu 18.04.
 * Android
@@ -122,7 +122,7 @@ Dit is een alleen-JavaScript-versie. Er zijn geen functies zijn toegevoegd. De v
 
 **Voorbeelden**
 
-* Bijgewerkt en vaste enkele voorbeelden van (bijvoorbeeld uitvoer stemmen voor vertaling, enzovoort).
+* Bijgewerkt en vaste enkele voorbeelden van (bijvoorbeeld uitvoer stemmen voor vertaling, enz.).
 * Voorbeelden van Node.js in toegevoegd de [voorbeeldopslagplaats](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-sdk-110"></a>Spraak SDK 1.1.0
@@ -141,7 +141,7 @@ Dit is een alleen-JavaScript-versie. Er zijn geen functies zijn toegevoegd. De v
 
 **Oplossingen voor problemen**
 
-* Verschillende uitzonderingen gevonden in de kenmerken die zijn opgelost. Bovendien worden uitzonderingen onderschept en geconverteerd naar geannuleerde gebeurtenis.
+* Verschillende uitzonderingen gevonden in de kenmerken die zijn opgelost. Bovendien zijn uitzonderingen onderschept en geconverteerd naar geannuleerde gebeurtenis.
 * Een geheugenlek in de eigenschap management oplossen.
 * Probleem opgelost waarbij een audio-invoerbestand de herkenning kan vastlopen.
 * Een bug opgelost waar de gebeurtenissen na een sessie stop-gebeurtenis kunnen worden ontvangen.
@@ -179,7 +179,7 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 
 **Belangrijke wijzigingen**
 
-* Met deze release zijn een aantal belangrijke wijzigingen worden geïntroduceerd.
+* Met deze release zijn een aantal belangrijke wijzigingen zijn geïntroduceerd.
   Controleer of [deze pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) voor meer informatie.
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0: Release van augustus 2018

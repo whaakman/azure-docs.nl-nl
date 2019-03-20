@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/03/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d1eac8f79ea53643659f8780ee03f8ced13c7dcd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 411b43ec631c77246da1ee55f2532486f8b55ffc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452223"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006628"
 ---
 # <a name="azure-storage-samples"></a>Voorbeelden van Azure Storage
 
@@ -63,8 +63,8 @@ Als u wilt de C++-voorbeelden verkennen, downloaden de [Storage-clientbibliothee
 |----------|---------------|-------------|
 | .NET | [Naslaginformatie over .NET-clientbibliotheek](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Broncode voor de .NET-opslagclientbibliotheek](https://github.com/Azure/azure-storage-net) |
 | Java | [Naslaginformatie over Java-clientbibliotheek](https://docs.microsoft.com/java/api/overview/azure/storage) | [Broncode voor de opslagclientbibliotheek voor Java](https://github.com/azure/azure-storage-java) |
-| Node.js | [Naslaginformatie over node.js-clientbibliotheek](http://azure.github.io/azure-storage-node) | [Broncode voor de opslagclientbibliotheek voor Node.js](https://github.com/Azure/azure-storage-node) |
-| C++ | [Naslaginformatie over C++-clientbibliotheek](http://azure.github.io/azure-storage-cpp/) | [Broncode voor de storage-clientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp)|
+| Node.js | [Naslaginformatie over node.js-clientbibliotheek](https://azure.github.io/azure-storage-node) | [Broncode voor de opslagclientbibliotheek voor Node.js](https://github.com/Azure/azure-storage-node) |
+| C++ | [Naslaginformatie over C++-clientbibliotheek](https://azure.github.io/azure-storage-cpp/) | [Broncode voor de storage-clientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp)|
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9a819f94ae0cc90d86fdbdf4c9201f1d5a2df6ee
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e3a84bfa643ebe74983bcef0d0ea72c701ffa589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213341"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170493"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Hoe u zich aanmeldt dialoogvensters in een model Conversatiecursist
 
@@ -55,6 +55,8 @@ Dit Model bevat één entiteit met de naam 'plaats' en acties die zijn ontworpen
 9. Selecteer het antwoord, "het weer in Austin is waarschijnlijk zonnige."
 10. Klik op de knop 'Opslaan als Train dialoogvenster'.
     - Training wordt onmiddellijk gestart
+
+![](../media/T11_logdialog.png)
 
 Een laatste notitie. Afhankelijk van de behoeften van uw bedrijf, kan de conversatie-functie voor logboekregistratie worden uitgeschakeld door te gaan naar de instellingen en -unchecking "Log gesprekken."
 

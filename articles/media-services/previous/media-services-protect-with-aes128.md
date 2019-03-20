@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 357cf832f8878364965c8d8a85d7af8c5a2bc21c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: a0ec87f2afb8e2a18727fe6dd62547e6ad6ecfac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992076"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841052"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Gebruik dynamische AES-128-versleuteling en de sleutelleveringsservice
 > [!div class="op_single_selector"]
@@ -140,7 +140,7 @@ Haal op basis van de tokenbeperking een test-token op die is gebruikt voor het s
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-U kunt de [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) gebruiken om uw stream te testen.
+U kunt de [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) gebruiken om uw stream te testen.
 
 ## <a id="client_request"></a>Hoe kan clientcomputers een sleutel aanvragen van de sleutelleveringsservice
 In de vorige stap hebt samengesteld u de URL die naar een manifestbestand verwijst. De client moet de benodigde informatie onttrekken aan het streaming-manifestbestanden aan te vragen de sleutelleveringsservice.

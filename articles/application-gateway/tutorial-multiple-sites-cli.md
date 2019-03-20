@@ -10,16 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8fede6907b2b5fac475758b1bb8b1493b86ed408
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: a1f1b464b2ac6fc62ea23a80a3887961ebe2d87e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756543"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100714"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Zelfstudie: Een toepassingsgateway maken waarop meerdere websites worden gehost met Azure CLI
 
-U kunt Azure CLI gebruiken om [het hosten van meerdere websites](multiple-site-overview.md) te configureren als u een [toepassingsgateway maakt](overview.md). In deze zelfstudie definieert u back-endadresgroepen met behulp van schaalsets voor virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In deze zelfstudie wordt ervan uitgegaan dat u eigenaar bent van meerdere domeinen en voorbeelden gebruikt van *www.contoso.com* en *www.fabrikam.com*.
+U kunt Azure CLI gebruiken om [het hosten van meerdere websites](multiple-site-overview.md) te configureren als u een [toepassingsgateway maakt](overview.md). In deze zelfstudie definieert u back-endadresgroepen met behulp van schaalsets voor virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. Deze zelfstudie wordt ervan uitgegaan dat u voorbeelden van meerdere domeinen en maakt gebruik van de eigenaar bent *www\.contoso.com* en *www\.fabrikam.com*.
 
 In deze zelfstudie leert u het volgende:
 

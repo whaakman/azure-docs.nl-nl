@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: fca14eb5a51799e6d3c0e4f96cb956e4e6886cdb
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: aa9cdbaece2714dd4869268f394e6840fe42edda
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844820"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225396"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Lege edge-knooppunten op Apache Hadoop-clusters in HDInsight gebruiken
 
@@ -91,7 +91,7 @@ In deze sectie maakt u een Resource Manager-sjabloon gebruiken een edge-knooppun
 > Zorg ervoor dat u selecteert u de Azure-resourcegroep voor de bestaande HDInsight-cluster.  Anders krijgt u het foutbericht 'kan de bewerking voor de geneste resource niet uitvoeren. Bovenliggende resource '&lt;ClusterName > is niet gevonden. "
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Een edge-knooppunt toevoegen bij het maken van een cluster
-In deze sectie maakt u een Resource Manager-sjabloon gebruiken voor het maken van HDInsight-cluster met een edge-knooppunt.  De Resource Manager-sjabloon kunt u vinden in de [galerie met Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). De Resource Manager-sjabloon wordt de actie van een script dat zich bevindt in https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Het script uitvoeren niet alle acties.  Het is om te demonstreren aanroepende scriptactie van Resource Manager-sjabloon.
+In deze sectie maakt u een Resource Manager-sjabloon gebruiken voor het maken van HDInsight-cluster met een edge-knooppunt.  De Resource Manager-sjabloon kunt u vinden in de [galerie van Azure-quickstart-sjablonen](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). De Resource Manager-sjabloon wordt de actie van een script dat zich bevindt in https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Het script uitvoeren niet alle acties.  Het is om te demonstreren aanroepende scriptactie van Resource Manager-sjabloon.
 
 **Een HDInsight-cluster maakt met een edge-knooppunt**
 

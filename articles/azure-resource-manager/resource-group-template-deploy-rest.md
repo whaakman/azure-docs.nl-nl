@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: f49b8ed592422927288e24b164a04645e2e37744
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: bd574eb2d3537d3e5c0774f57e37283817cc7879
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301380"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112021"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Resources implementeren met Resource Manager-sjablonen en Resource Manager REST API
 
@@ -38,32 +38,32 @@ U kunt uw sjabloon opnemen in de hoofdtekst van de aanvraag of een koppeling naa
 
 1. Als u een bestaande resourcegroep hebt, maakt u een resourcegroep. Geef uw abonnements-ID, de naam van de nieuwe resourcegroep en locatie die u nodig hebt voor uw oplossing. Zie voor meer informatie, [een resourcegroep maken](/rest/api/resources/resourcegroups/createorupdate).
 
-  ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
-  ```
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
+   ```
 
-  Met een aanvraagtekst, zoals:
-  ```json
-  {
+   Met een aanvraagtekst, zoals:
+   ```json
+   {
     "location": "West US",
     "tags": {
       "tagname1": "tagvalue1"
     }
-  }
-  ```
+   }
+   ```
 
 1. Controleren of uw implementatie voordat deze wordt uitgevoerd door het uitvoeren van de [controleren of de sjabloonimplementatie van een](/rest/api/resources/deployments/validate) bewerking. Bij het testen van de implementatie, parameters opgeven precies zoals u zou doen bij het uitvoeren van de implementatie (weergegeven in de volgende stap).
 
 1. Maak een implementatie. Geef uw abonnements-ID, de naam van de resourcegroep, de naam van de implementatie en een koppeling naar uw sjabloon. Zie voor meer informatie over het sjabloonbestand [parameterbestand](#parameter-file). Zie voor meer informatie over de REST-API voor het maken van een resourcegroep, [maken van een sjabloonimplementatie](/rest/api/resources/deployments/createorupdate). U ziet dat de **modus** is ingesteld op **incrementele**. Als u wilt uitvoeren van een volledige implementatie, **modus** naar **voltooid**. Wees voorzichtig bij het gebruik van de volledige-modus, kunt u per ongeluk resources die zich niet in uw sjabloon verwijderen.
 
-  ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
-  ```
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   ```
 
-  Met een aanvraagtekst, zoals:
+   Met een aanvraagtekst, zoals:
 
    ```json
-  {
+   {
     "properties": {
       "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
@@ -75,13 +75,13 @@ U kunt uw sjabloon opnemen in de hoofdtekst van de aanvraag of een koppeling naa
         "contentVersion": "1.0.0.0"
       }
     }
-  }
-  ```
+   }
+   ```
 
     Als u wilt vastleggen van de inhoud van de reactie en/of de inhoud van de aanvraag, **debugSetting** in de aanvraag.
 
-  ```json
-  {
+   ```json
+   {
     "properties": {
       "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
@@ -96,15 +96,15 @@ U kunt uw sjabloon opnemen in de hoofdtekst van de aanvraag of een koppeling naa
         "detailLevel": "requestContent, responseContent"
       }
     }
-  }
-  ```
+   }
+   ```
 
     U kunt uw storage-account instellen om te gebruiken van een token shared access signature (SAS). Zie voor meer informatie, [toegang delegeren met een Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
 1. In plaats van koppelingen naar bestanden voor de sjabloon en parameters, kunt u ze opneemt in de aanvraagtekst.
 
-  ```json
-  {
+   ```json
+   {
       "properties": {
       "mode": "Incremental",
       "template": {
@@ -161,14 +161,14 @@ U kunt uw sjabloon opnemen in de hoofdtekst van de aanvraag of een koppeling naa
         }
       }
     }
-  }
-  ```
+   }
+   ```
 
 5. Haal de status van de sjabloonimplementatie. Zie voor meer informatie, [informatie over de sjabloonimplementatie van een](/rest/api/resources/deployments/get).
 
-  ```HTTP
-  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
-  ```
+   ```HTTP
+   GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   ```
 
 ## <a name="redeploy-when-deployment-fails"></a>Opnieuw implementeren wanneer de implementatie mislukt
 

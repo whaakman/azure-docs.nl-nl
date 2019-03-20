@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 6cc5e3f8f188c60a129f6ad6575b348616bdad9b
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002296"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Clientbibliotheek voor elastic database gebruiken met Dapper
 Dit document is bedoeld voor ontwikkelaars die afhankelijk zijn van Dapper om toepassingen te bouwen, maar ook wilt Profiteer [elastische database tooling](sql-database-elastic-scale-introduction.md) om toepassingen te maken die sharding implementeren om uit de gegevenslaag te schalen.  Dit document ziet u de wijzigingen in Dapper gebaseerde toepassingen die nodig zijn om te integreren met hulpmiddelen voor elastic database. Onze focus ligt op het samenstellen van de elastische database shard management en gegevensafhankelijke routering met Dapper. 
@@ -35,7 +35,7 @@ Wanneer u DapperExtensions, moet u niet meer voor de SQL-instructies. Extensies-
 
 Een ander voordeel van Dapper en ook DapperExtensions is dat de toepassing het maken van verbinding met de database bepaalt. Dit helpt te communiceren met de clientbibliotheek van elastische database die brokers op basis van de toewijzing van shardlets met databases databaseverbindingen.
 
-Als u de Dapper assembly's, Zie [Dapper dot net](http://www.nuget.org/packages/Dapper/). Zie voor de extensies Dapper [DapperExtensions](http://www.nuget.org/packages/DapperExtensions).
+Als u de Dapper assembly's, Zie [Dapper dot net](https://www.nuget.org/packages/Dapper/). Zie voor de extensies Dapper [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
 ## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Een beknopt overzicht van de clientbibliotheek van elastische database
 Met de clientbibliotheek van elastische database, definieert u de partities van de gegevens van uw toepassing met de naam *shardlets*, toe te wijzen aan databases en herkennen door *sharding sleutels*. U kunt zoveel databases als u uw shardlets verdelen over deze databases nodig hebben. De toewijzing van sharding-sleutelwaarden op de databases is door een shard-toewijzing geleverd door de API's van de bibliotheek opgeslagen. Deze mogelijkheid wordt genoemd **shard-Toewijzingsbeheer**. De shard-toewijzing fungeert ook als de broker van databaseverbindingen voor aanvragen die een sharding-sleutel bevatten. Deze mogelijkheid wordt aangeduid als **gegevensafhankelijke routering**.

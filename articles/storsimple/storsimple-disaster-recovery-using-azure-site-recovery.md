@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5b128306389a87c432b869b4756a6d232dc903c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084875"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatisch herstel na noodgevallen oplossing met behulp van Azure Site Recovery voor bestandsshares die worden gehost op StorSimple
 ## <a name="overview"></a>Overzicht
@@ -179,7 +179,7 @@ U kunt een plan voor herstel in ASR voor het automatiseren van het failoverproce
    - *RecoveryPlanName***-StorageAccountKey**: De toegangssleutel voor de bovenstaande storage-account.
    - *RecoveryPlanName***-VMGUIDS**: Bij het beveiligen van een virtuele machine, wordt elke virtuele machine een unieke ID waarmee de details van de mislukte via VM Azure Site Recovery toegewezen. Als u wilt de VMGUID, selecteer de **herstelservices** tabblad en klik op **beveiligde Item** &gt; **beveiligingsgroepen** &gt;  **Machines** &gt; **eigenschappen**. Als u meerdere virtuele machines hebt, kunt u vervolgens de GUID's als een door komma's gescheiden tekenreeks op toevoegen.
 
-    Bijvoorbeeld, als de naam van het herstelplan is fileServerpredayRP, vervolgens uw **variabelen**, **verbindingen** en **certificaten** tabblad moet als volgt worden weergegeven nadat u hebt toegevoegd alle assets.
+     Bijvoorbeeld, als de naam van het herstelplan is fileServerpredayRP, vervolgens uw **variabelen**, **verbindingen** en **certificaten** tabblad moet als volgt worden weergegeven nadat u hebt toegevoegd alle assets.
 
       ![Assets](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
@@ -332,30 +332,30 @@ Capaciteitsplanning is opgebouwd uit ten minste twee belangrijke processen:
    - Bepalen van de vereiste bandbreedte met Internet.
 
 ## <a name="limitations"></a>Beperkingen
-   - Op dit moment slechts 1 StorSimple-apparaat kan een failover (met een één StorSimple-Cloudapparaat). Het scenario van een bestandsserver die meerdere StorSimple-apparaten omvat is nog niet ondersteund.
-   - Als u een fout optreedt terwijl u beveiliging voor een virtuele machine inschakelt, zorg ervoor dat u de iSCSI-doelen niet zijn verbonden.
-   - De volumecontainers die samen zijn gegroepeerd vanwege back-upbeleid verdelen over volumecontainers wordt een failover samen.
-   - Alle volumes in de volumecontainers die u hebt ervoor gekozen wordt failover mogelijk is.
-   - Volumes die tot meer dan 64 TB toevoegen kunnen geen failover omdat de maximale capaciteit van een enkele StorSimple-Cloudapparaat 64 TB is.
-   - Als de geplande/niet-geplande failover is mislukt en de virtuele machines in Azure worden gemaakt, klikt u vervolgens verwijdert u niet de virtuele machines. In plaats daarvan een failback uitvoeren. Worden als u de virtuele machines verwijdert vervolgens de on-premises VM's kunnen niet ingeschakeld op het opnieuw.
-   - Na een failover, als u niet kunnen zien van de volumes, gaat u naar de virtuele machines, opent u Schijfbeheer Scan de schijven opnieuw en ze online brengt.
-   - In sommige gevallen de stationsletters in de DR-site mogelijk anders dan de letters on-premises. Als dit gebeurt, moet u handmatig het probleem te verhelpen nadat de failover is voltooid.
-   - Time-out van de taak failover: Als de failover van de volumecontainers kost meer tijd dan de Azure Site Recovery-limiet per script (momenteel 120 minuten), wordt het script StorSimple time-out.
-   - Back-uptaak time-out: Het StorSimple-script een time-out optreedt als de back-up van volumes langer dan de Azure Site Recovery-limiet per script (momenteel 120 minuten duurt).
+- Op dit moment slechts 1 StorSimple-apparaat kan een failover (met een één StorSimple-Cloudapparaat). Het scenario van een bestandsserver die meerdere StorSimple-apparaten omvat is nog niet ondersteund.
+- Als u een fout optreedt terwijl u beveiliging voor een virtuele machine inschakelt, zorg ervoor dat u de iSCSI-doelen niet zijn verbonden.
+- De volumecontainers die samen zijn gegroepeerd vanwege back-upbeleid verdelen over volumecontainers wordt een failover samen.
+- Alle volumes in de volumecontainers die u hebt ervoor gekozen wordt failover mogelijk is.
+- Volumes die tot meer dan 64 TB toevoegen kunnen geen failover omdat de maximale capaciteit van een enkele StorSimple-Cloudapparaat 64 TB is.
+- Als de geplande/niet-geplande failover is mislukt en de virtuele machines in Azure worden gemaakt, klikt u vervolgens verwijdert u niet de virtuele machines. In plaats daarvan een failback uitvoeren. Worden als u de virtuele machines verwijdert vervolgens de on-premises VM's kunnen niet ingeschakeld op het opnieuw.
+- Na een failover, als u niet kunnen zien van de volumes, gaat u naar de virtuele machines, opent u Schijfbeheer Scan de schijven opnieuw en ze online brengt.
+- In sommige gevallen de stationsletters in de DR-site mogelijk anders dan de letters on-premises. Als dit gebeurt, moet u handmatig het probleem te verhelpen nadat de failover is voltooid.
+- Time-out van de taak failover: Als de failover van de volumecontainers kost meer tijd dan de Azure Site Recovery-limiet per script (momenteel 120 minuten), wordt het script StorSimple time-out.
+- Back-uptaak time-out: Het StorSimple-script een time-out optreedt als de back-up van volumes langer dan de Azure Site Recovery-limiet per script (momenteel 120 minuten duurt).
    
-   > [!IMPORTANT]
-   > De back-up handmatig uitvoeren vanuit de Azure-portal en voer vervolgens het herstelplan opnieuw uit.
+  > [!IMPORTANT]
+  > De back-up handmatig uitvoeren vanuit de Azure-portal en voer vervolgens het herstelplan opnieuw uit.
    
-   - Kloon de time-out van taak: Het script StorSimple verloopt als het klonen van volumes meer tijd dan de Azure Site Recovery-limiet per script (momenteel 120 minuten kost).
-   - Tijd synchronisatie-fout: De StorSimple-scripts fouten uit waarin wordt gemeld dat de back-ups mislukt, zijn zelfs als de back-up voltooid in de portal is. Een mogelijke oorzaak voor dit kan zijn dat de tijd van het StorSimple-apparaat mogelijk niet gesynchroniseerd met de huidige tijd in de tijdzone.
+- Kloon de time-out van taak: Het script StorSimple verloopt als het klonen van volumes meer tijd dan de Azure Site Recovery-limiet per script (momenteel 120 minuten kost).
+- Tijd synchronisatie-fout: De StorSimple-scripts fouten uit waarin wordt gemeld dat de back-ups mislukt, zijn zelfs als de back-up voltooid in de portal is. Een mogelijke oorzaak voor dit kan zijn dat de tijd van het StorSimple-apparaat mogelijk niet gesynchroniseerd met de huidige tijd in de tijdzone.
    
-   > [!IMPORTANT]
-   > Synchroniseer de tijd van het apparaat met de huidige tijd in de tijdzone.
+  > [!IMPORTANT]
+  > Synchroniseer de tijd van het apparaat met de huidige tijd in de tijdzone.
    
-   - Fout bij failover van apparaat: Het StorSimple-script kan mislukken als er een failover van het apparaat wanneer het herstelplan wordt uitgevoerd.
+- Fout bij failover van apparaat: Het StorSimple-script kan mislukken als er een failover van het apparaat wanneer het herstelplan wordt uitgevoerd.
    
-   > [!IMPORTANT]
-   > Nadat de failover van het apparaat voltooid is, voert u het herstelplan opnieuw uit.
+  > [!IMPORTANT]
+  > Nadat de failover van het apparaat voltooid is, voert u het herstelplan opnieuw uit.
 
 
 ## <a name="summary"></a>Samenvatting

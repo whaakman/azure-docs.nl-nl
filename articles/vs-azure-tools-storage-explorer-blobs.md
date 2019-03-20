@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422049"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858164"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Azure Blob Storage-resources beheren met Opslagverkenner
 ## <a name="overview"></a>Overzicht
@@ -30,7 +30,7 @@ U kunt Blob Storage gebruiken om gegevens openbaar te maken of om toepassingsgeg
 U moet het volgende doen om de stappen in dit artikel uit te voeren:
 
 * [Storage Explorer downloaden en installeren](https://www.storageexplorer.com)
-* [Verbinding maken met een opslagaccount of -service van Azure Storage](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Verbinding maken met een Azure storage-account of -service](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Een blob-container maken
 Alle blobs moeten zich bevinden in een blobcontainer, dit gewoon een logische groepering van blobs is. Een account kan een onbeperkt aantal containers bevatten en elke container kan een onbeperkt aantal blobs.
@@ -38,14 +38,14 @@ Alle blobs moeten zich bevinden in een blobcontainer, dit gewoon een logische gr
 De volgende stappen laten zien hoe u een blob-container binnen Storage Explorer maken.
 
 1. Open Storage Explorer.
-2. Vouw in het linkerdeelvenster het opslagaccount waarin u wilt maken van de blob-container.
+2. Vouw in het linkerdeelvenster het opslagaccount uit waarin u de blobcontainer wilt maken.
 3. Met de rechtermuisknop op **Blobcontainers**, en selecteer in het contextmenu - **Blob-Container maken**.
 
-   ![Contextmenu voor blob-containers maken][0]
+   ![Het contextmenu Blobcontainers maken][0]
 4. Een tekstvak wordt weergegeven onder de **Blobcontainers** map. Voer een naam in voor de blobcontainer. Zie de [de container maken en machtigingen instellen](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) voor meer informatie over regels en beperkingen voor namen van blobcontainers.
 
    ![Tekstvak voor Blob-Containers maken][1]
-5. Druk op **Enter** wanneer u klaar bent voor het maken van de blob-container of **Esc** om te annuleren. Als de blob-container is gemaakt, worden deze weergegeven onder de **Blobcontainers** map voor het geselecteerde opslagaccount.
+5. Druk op **Enter** om de blobcontainer te maken of op **Esc** om te annuleren. Als de blob-container is gemaakt, worden deze weergegeven onder de **Blobcontainers** map voor het geselecteerde opslagaccount.
 
    ![BLOB-Container gemaakt][2]
 

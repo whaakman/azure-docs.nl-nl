@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d273e963c6191fdc87c4f19c6465d8a9026a074e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 268b94cb77c238c0d6e0d3fe51a059e3a6602c80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959405"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003159"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Event Hubs in Azure Monitor
 
@@ -40,7 +40,7 @@ U kunt metrische gegevens controleren na verloop van tijd in de [Azure-portal](h
 
 ![Geslaagde metrische gegevens weergeven][1]
 
-U kunt ook toegang tot metrische gegevens rechtstreeks via de naamruimte. Om dit te doen, selecteert u uw naamruimte en klik vervolgens op ** metrische gegevens **. Als u wilt weergeven van metrische gegevens die zijn gefilterd op het bereik van de event hub, selecteer de event hub en klik vervolgens op **metrische gegevens**.
+U kunt ook toegang tot metrische gegevens rechtstreeks via de naamruimte. Om dit te doen, selecteert u uw naamruimte en klik vervolgens op **metrische gegevens**. Als u wilt weergeven van metrische gegevens die zijn gefilterd op het bereik van de event hub, selecteer de event hub en klik vervolgens op **metrische gegevens**.
 
 Voor metrische gegevens voor ondersteuning van dimensies, moet u filteren met de waarde van de gewenste dimensie zoals wordt weergegeven in het volgende voorbeeld:
 

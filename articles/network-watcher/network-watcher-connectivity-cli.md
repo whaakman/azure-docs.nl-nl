@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: ee7aff0256cf5567b4b29e6140ffb57b3717631a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a44f46a01bd0c0530ce57ad65464c10a4d2617f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978043"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889961"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Problemen oplossen met verbindingen met Azure Network Watcher met de Azure CLI
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [Azure-CLI](network-watcher-connectivity-cli.md)
-> - [Azure REST-API](network-watcher-connectivity-rest.md)
+> - [Azure REST API](network-watcher-connectivity-rest.md)
 
 Informatie over het gebruik van de verbinding oplossen om te controleren of een rechtstreekse TCP-verbinding van een virtuele machine naar een bepaald eindpunt kan worden gemaakt.
 
@@ -185,7 +185,7 @@ Het volgende voorbeeld wordt de verbinding met een website.
 ### <a name="example"></a>Voorbeeld
 
 ```azurecli
-az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address http://bing.com --dest-port 80
+az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://bing.com --dest-port 80
 ```
 
 ### <a name="response"></a>Antwoord

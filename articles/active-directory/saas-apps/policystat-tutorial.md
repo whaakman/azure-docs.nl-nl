@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43ddf56e4c72e7e59778fc43a808b9800bc3b9b3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 602dd0fd4050a3b4336c560bbd82b32f3903b93c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187709"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850193"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Zelfstudie: Azure Active Directory-integratie met PolicyStat
 
@@ -176,7 +176,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     c. In de **laatste naamkenmerk** tekstvak, type **lastname** van gebruiker **Simon**.
 
-    d. In de **e kenmerk** tekstvak, type **emailaddress** van gebruiker **BrittaSimon@contoso.com**.
+    d. In de **e kenmerk** tekstvak, type **emailaddress** van gebruiker **BrittaSimon\@contoso.com**.
 
     e. Klik op **Wijzigingen opslaan**.
 
@@ -272,7 +272,7 @@ Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

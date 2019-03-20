@@ -8,12 +8,12 @@ ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 31b9405b7d4141890d786ab3d1cb70d11ef0c1b3
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: b5062dd4edf43fbb348a6de57f534096a8c922de
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267951"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193565"
 ---
 # <a name="what-is-azure-resource-graph"></a>Wat is Azure Resource Graph
 
@@ -52,7 +52,7 @@ Query's voor Resource Graph worden beperkt om de beste ervaring en responstijd t
 
 ## <a name="running-your-first-query"></a>Uw eerste query uitvoeren
 
-Resource Graph ondersteunt zowel Azure CLI als Azure PowerShell. De query is voor beide talen hetzelfde gestructureerd. Meer informatie over het inschakelen van Resource Graph in [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) en [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module).
+Resourcegrafiek biedt ondersteuning voor Azure CLI, Azure PowerShell en Azure SDK voor .NET. De query is opgebouwd hetzelfde voor elke taal. Meer informatie over het inschakelen van Resource Graph in [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) en [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module).
 
 ## <a name="next-steps"></a>Volgende stappen
 

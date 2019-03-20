@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 4356ea57e73e063d18155611b8c11090aa11edb3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d478307ff4393d84a854fcd3b2ea0efd77de7135
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087836"
 ---
-# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Snelstart: Uw eerste Batch-taak uitvoeren in de Azure-portal
+# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Quickstart: Uw eerste Batch-taak uitvoeren in de Azure-portal
 
 In deze snelstartgids leert u hoe u Azure Portal gebruikt voor het maken van een Batch-account, een *pool* met computerknooppunten (virtuele machines), en een *Batch-taak* waarmee *basistaken* worden uitgevoerd in de groep. Nadat u deze snelstartgids hebt voltooid, begrijpt u de belangrijkste principes van de Batch-service en bent u er klaar voor om Batch op grotere schaal te gebruiken voor meer realistische workloads.
 
@@ -34,7 +34,7 @@ Volg deze stappen om een Batch-voorbeeldaccount te maken voor testdoeleinden. U 
 
 1. Selecteer **Resource maken** > **Compute** > **Batch-service**. 
 
-  ![Batch in de Marketplace][marketplace_portal]
+   ![Batch in de Marketplace][marketplace_portal]
 
 2. Voer waarden in bij **Accountnaam** en **Resourcegroep**. De accountnaam moet uniek zijn voor de geselecteerde Azure-**locatie**. Gebruik alleen kleine letters of cijfers, en kies een naam van minimaal 3 en maximaal 24 tekens. 
 
@@ -42,7 +42,7 @@ Volg deze stappen om een Batch-voorbeeldaccount te maken voor testdoeleinden. U 
 
 4. Laat de overige instellingen op de standaardwaarden staan, en selecteer **Maken** om het account te maken.
 
-  ![Batch-account maken][account_portal]  
+   ![Batch-account maken][account_portal]  
 
 Wanneer het bericht **Implementatie is voltooid** wordt weergegeven, gaat u naar het Batch-account in de portal.
 
@@ -57,23 +57,23 @@ Nu u beschikt over een Batch-account, maakt u een voorbeeldpool met Windows-reke
 
 3. Selecteer bij **Besturingssysteem** de volgende instellingen (u kunt andere opties verkennen).
   
-  |Instelling  |Waarde  |
-  |---------|---------|
-  |**Type installatiekopie**|Marketplace (Linux/Windows)|
-  |**Publisher**     |MicrosoftWindowsServer|
-  |**Aanbieding**     |WindowsServer|
-  |**SKU**     |2012-R2-Datacenter-smalldisk|
+   |Instelling  |Value  |
+   |---------|---------|
+   |**Type installatiekopie**|Marketplace (Linux/Windows)|
+   |**Publisher**     |MicrosoftWindowsServer|
+   |**Aanbieding**     |WindowsServer|
+   |**SKU**     |2012-R2-Datacenter-smalldisk|
 
-  ![Selecteer een besturingssysteem voor de pool][pool_os] 
+   ![Selecteer een besturingssysteem voor de pool][pool_os] 
 
 4. Schuif naar beneden om de **Knooppuntgrootte** en instellingen voor **Schalen** in te voeren. De voorgestelde knooppuntgrootte in dit snelle voorbeeld biedt een goede balans tussen prestaties en kosten.
   
-  |Instelling  |Waarde  |
-  |---------|---------|
-  |**Prijscategorie voor het knooppunt**     |Standard_A1|
-  |**Aan het doel toegewezen knooppunten**     |2|
+   |Instelling  |Value  |
+   |---------|---------|
+   |**Prijscategorie voor het knooppunt**     |Standard_A1|
+   |**Aan het doel toegewezen knooppunten**     |2|
 
-  ![Een poolgrootte selecteren][pool_size] 
+   ![Een poolgrootte selecteren][pool_size] 
 
 5. Laat de overige instellingen op de standaardwaarden staan en selecteer **OK** om de pool te maken.
 
@@ -91,7 +91,7 @@ Nu u beschikt over een pool, kunt u een Batch-taak maken om uit te voeren op dez
 
 2. Voer een **taak-id** in met naam *myjob*. Selecteer *mypool* bij **Pool**. Behoud de standaardwaarden voor de overige instellingen en selecteer **OK**.
 
-  ![Een taak maken][job_create]
+   ![Een taak maken][job_create]
 
 Nadat de taak is gemaakt, wordt de pagina **Taken** geopend.
 
@@ -109,7 +109,7 @@ De eerste taak maken:
 
 3. Voer `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"` in bij **Opdrachtregel**. Behoud de standaardwaarden voor de overige instellingen en selecteer **OK**.
 
-  ![Een taak maken][task_create]
+   ![Een taak maken][task_create]
 
 Nadat u een taak hebt gemaakt, wordt deze in Batch in de wachtrij geplaatst voor uitvoering op de pool. Wanneer er een knooppunt beschikbaar is om de taak uit te voeren, wordt de taak uitgevoerd.
 

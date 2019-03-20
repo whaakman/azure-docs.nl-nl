@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
-ms.openlocfilehash: 68cdabd8d6e5921eabaa200169c0523352461733
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856941"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092001"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-activiteit in Azure Data Factory
 De ForEach-activiteit definieert een herhalende controlestroom in de pijplijn. Deze activiteit wordt gebruikt om een verzameling te herhalen en voert opgegeven activiteiten uit in een lus. De lusimplementatie van deze activiteit is vergelijkbaar met Foreach-lusstructuur in computertalen.
@@ -71,8 +71,8 @@ De eigenschappen worden verderop in dit artikel beschreven. De eigenschap items 
 
 Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | Naam van de voor elke activiteit. | Reeks | Ja
-type | Moet worden ingesteld op **ForEach** | Reeks | Ja
+naam | Naam van de voor elke activiteit. | String | Ja
+type | Moet worden ingesteld op **ForEach** | String | Ja
 isSequential | Hiermee geeft u op of de lus sequentieel of parallel moet worden uitgevoerd.  Maximaal 20 lus iteraties kan worden uitgevoerd in één keer parallel). Bijvoorbeeld, als u hebt een ForEach activiteit met iteratie van een kopieeractiviteit met 10 verschillende gegevensbronnen en sinks gegevenssets met **isSequential** ingesteld op False, alle exemplaren worden uitgevoerd in één keer. Standaardinstelling is False. <br/><br/> Als 'isSequential' is ingesteld op False, zorg ervoor dat er een juiste configuratie om uit te voeren van meerdere uitvoerbare bestanden. Deze eigenschap moet anders voorzichtig worden gebruikt om te vermijden kunt oplossen. Zie voor meer informatie, [parallelle uitvoering](#parallel-execution) sectie. | Booleaans | Nee. Standaardinstelling is False.
 batchCount | Batch-aantal moet worden gebruikt voor het beheren van het aantal parallelle uitvoering (als isSequential is ingesteld op false). | Geheel getal (maximum 50) | Nee. Standaardwaarde is 20.
 Items | Een expressie die als een JSON-matrix resultaat te worden herhaald. | Expressie (die resulteert in een JSON-matrix) | Ja
@@ -474,7 +474,7 @@ Het is mogelijk om te herhalen meerdere activiteiten (bijvoorbeeld: kopiëren en
 
 ## <a name="aggregating-outputs"></a>Uitvoer verzamelen
 
-Aan de cumulatieve uitvoer van __foreach__ activiteit,. Gebruik _Variable_s en _variabele toevoegen_ activiteit.
+Aan de cumulatieve uitvoer van __foreach__ activiteit,. Gebruik _variabelen_ en _variabele toevoegen_ activiteit.
 
 Declareer eerst een `array` _variabele_ in de pijplijn. Vervolgens aanroepen _variabele toevoegen_ activiteit binnen elk __foreach__ lus. U kunt vervolgens de aggregatie ophalen uit uw matrix.
 

@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 67baa204d50d1319559abcc58e0ae00e1810ebaf
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ff77a955c34941d87a1f653726ab3f19e84aa440
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452646"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101972"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>De huidige gebruiker voor pushmeldingen registreren met behulp van ASP.NET
 
@@ -42,9 +42,9 @@ Dit onderwerp ziet u hoe u registratie voor pushberichten met Azure Notification
    * **Tekstveld**: 'Wachtwoord'
    * **Knop**: "Login"
 
-    Op dit moment uw storyboard ziet er als volgt uit:
+     Op dit moment uw storyboard ziet er als volgt uit:
 
-    ![][0]
+     ![][0]
 
 2. In de editor assistent uitgangen van de geschakelde besturingselementen maken en ze aanroept, verbinding maken met de velden met de View-Controller (gemachtigde) en maken een **actie** voor de **aanmelding** knop.
 

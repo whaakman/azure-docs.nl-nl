@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 3fa890b02c791f26f3f25bf2418b105d1116ca75
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f66101d9847c57c5e078c3484a243e7b38823f53
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094423"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001786"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Een Windows-VM vanuit Amazon Web Services (AWS) te verplaatsen naar een virtuele machine van Azure
 
@@ -46,7 +46,7 @@ U kunt zowel gegeneraliseerde en gespecialiseerde VHD's uploaden naar Azure. Elk
 
 ## <a name="export-and-download-the-vhd"></a>Exporteren en downloaden van de VHD 
 
-Exporteer de EC2-instantie naar een VHD in een Amazon S3-bucket. Volg de stappen in de Amazon-documentatieartikel [exporteren van een exemplaar als een virtuele machine met behulp van virtuele machine importeren/exporteren](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) en voer de [-exemplaar-export-taak maken](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) opdracht voor het exporteren van de EC2-instantie naar een VHD-bestand. 
+Exporteer de EC2-instantie naar een VHD in een Amazon S3-bucket. Volg de stappen in de Amazon-documentatieartikel [exporteren van een exemplaar als een virtuele machine met behulp van virtuele machine importeren/exporteren](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) en voer de [-exemplaar-export-taak maken](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) opdracht voor het exporteren van de EC2-instantie naar een VHD-bestand. 
 
 De geëxporteerde VHD-bestand wordt opgeslagen in de Amazon S3-bucket die u opgeeft. De syntaxis van de basis voor het exporteren van de VHD is hieronder, vervang de tijdelijke tekstaanduiding in <brackets> met uw gegevens.
 
@@ -55,7 +55,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-Nadat de VHD is geëxporteerd, volg de instructies in [hoe kan ik een Object downloaden vanaf een S3-Bucket?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) te downloaden van het VHD-bestand van de S3-bucket. 
+Nadat de VHD is geëxporteerd, volg de instructies in [hoe kan ik een Object downloaden vanaf een S3-Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) te downloaden van het VHD-bestand van de S3-bucket. 
 
 > [!IMPORTANT]
 > AWS het kosten van gegevensoverdracht kosten voor het downloaden van de VHD. Zie [prijzen van Amazon S3](https://aws.amazon.com/s3/pricing/) voor meer informatie.

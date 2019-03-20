@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 680bd80261e1f8b026f6e885156b2ef090b0764d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c67d4979709fc8e72c560c9071b17f48b309e07d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404481"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110831"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Routefilters voor Microsoft-peering configureren: PowerShell
 > [!div class="op_single_selector"]
@@ -162,15 +162,15 @@ Als u de eigenschappen van een routefilter, gebruikt u de volgende stappen uit:
 
 1. Voer de volgende opdracht om op te halen van de resource route-filter:
 
-  ```azurepowershell-interactive
-  $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
-  ```
+   ```azurepowershell-interactive
+   $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+   ```
 2. De route filterregels voor de route-filter resource ophalen met de volgende opdracht:
 
-  ```azurepowershell-interactive
-  $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
-  $rule = $routefilter.Rules[0]
-  ```
+   ```azurepowershell-interactive
+   $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+   $rule = $routefilter.Rules[0]
+   ```
 
 ### <a name="updateproperties"></a>De eigenschappen van een routefilter bijwerken
 

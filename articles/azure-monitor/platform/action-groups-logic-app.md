@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121125"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Hoe kunt u complexe acties met Azure Monitor-waarschuwingen activeren
 
@@ -275,19 +275,19 @@ Het proces voor het maken van een waarschuwing voor metrische gegevens is vergel
 - Stap 9 en 10 zijn hetzelfde.
 - Voor de stappen 11 tot en met 14, gebruikt u het volgende proces:
 
-   1. Selecteer **+** **nieuwe stap** en kies vervolgens **een voorwaarde toevoegen**. De volgende voorwaarden instellen, zodat de logische app wordt uitgevoerd alleen wanneer de invoergegevens overeenkomt met deze onderstaande waarden. Wanneer de waarde voor de versie in te voeren in het tekstvak, aanhalingstekens rond het ("2.0") plaatsen op ervoor zorgt dat deze wordt geëvalueerd als een tekenreeks en niet een numeriek type.  Het systeem wordt niet weergegeven voor de aanhalingstekens als u terug naar de pagina, maar de onderliggende code nog steeds het tekenreekstype. 
-       - `schemaId == AzureMonitorMetricAlert`
-       - `version == "2.0"`
+  1. Selecteer **+** **nieuwe stap** en kies vervolgens **een voorwaarde toevoegen**. De volgende voorwaarden instellen, zodat de logische app wordt uitgevoerd alleen wanneer de invoergegevens overeenkomt met deze onderstaande waarden. Wanneer de waarde voor de versie in te voeren in het tekstvak, aanhalingstekens rond het ("2.0") plaatsen op ervoor zorgt dat deze wordt geëvalueerd als een tekenreeks en niet een numeriek type.  Het systeem wordt niet weergegeven voor de aanhalingstekens als u terug naar de pagina, maar de onderliggende code nog steeds het tekenreekstype. 
+     - `schemaId == AzureMonitorMetricAlert`
+     - `version == "2.0"`
        
        !['Metrische alert payload voorwaarde'](media/action-groups-logic-app/metric-alert-payload-condition.png "metrische alert payload voorwaarde")
 
-   1. In de **als de waarde true** voorwaarde, voegt u een **voor elk** lus en de Microsoft Teams-actie. Het bericht definiëren met behulp van een combinatie van HTML- en dynamische inhoud.
+  1. In de **als de waarde true** voorwaarde, voegt u een **voor elk** lus en de Microsoft Teams-actie. Het bericht definiëren met behulp van een combinatie van HTML- en dynamische inhoud.
 
-       !['Actie metrische waarschuwing voorwaarde na'](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "actie na de metrische waarschuwing voorwaarde is voldaan")
+      !['Actie metrische waarschuwing voorwaarde na'](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "actie na de metrische waarschuwing voorwaarde is voldaan")
 
-   1. In de **indien onwaar** voorwaarde, het definiëren van een Microsoft Teams-actie om te communiceren dat de waarschuwing voor metrische gegevens, komt niet overeen met de verwachtingen van de logische app. De JSON-nettolading opnemen. U ziet hoe om te verwijzen naar de `triggerBody` dynamische inhoud in de `json()` expressie.
+  1. In de **indien onwaar** voorwaarde, het definiëren van een Microsoft Teams-actie om te communiceren dat de waarschuwing voor metrische gegevens, komt niet overeen met de verwachtingen van de logische app. De JSON-nettolading opnemen. U ziet hoe om te verwijzen naar de `triggerBody` dynamische inhoud in de `json()` expressie.
 
-       !['Actie metrische waarschuwing false na'](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "actie na de waarschuwing false metrische gegevens")
+      !['Actie metrische waarschuwing false na'](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "actie na de waarschuwing false metrische gegevens")
 
 - Stap 15 is hetzelfde. Volg de instructies voor het opslaan van uw logische app en bijwerken van de actiegroep.
 

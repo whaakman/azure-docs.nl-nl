@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7f3b6de64343137278895d92835f080f8844dda1
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: e40b6fe115d6b6dea38ead9f0b2550d96bd04c7a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588921"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112633"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Een aangepaste domeinnaam voor uw Azure storage-account configureren
 
-U kunt een aangepast domein voor toegang tot blobgegevens in uw Azure storage-account configureren. Het standaardeindpunt voor Azure Blob-opslag is  *\<storage-account-name >. blob.core.windows.net*. U kunt ook het eindpunt op het web die wordt gegenereerd als onderdeel van de [statische websites-functie (preview)](storage-blob-static-website.md). Als u een aangepast domein en subdomein, zoals toewijst *www.contoso.com*, naar het blob of web-eindpunt voor uw opslagaccount, uw gebruikers dat domein toegang tot blob-gegevens in uw storage-account kunnen gebruiken.
+U kunt een aangepast domein voor toegang tot blobgegevens in uw Azure storage-account configureren. Het standaardeindpunt voor Azure Blob-opslag is  *\<storage-account-name >. blob.core.windows.net*. U kunt ook het eindpunt op het web die wordt gegenereerd als onderdeel van de [statische websites-functie (preview)](storage-blob-static-website.md). Als u een aangepast domein en subdomein, zoals toewijst *www\.contoso.com*, naar het blob of web-eindpunt voor uw opslagaccount, uw gebruikers dat domein toegang tot blob-gegevens in uw storage-account kunnen gebruiken.
 
 > [!IMPORTANT]
 > Azure Storage biedt niet nog systeemeigen ondersteuning voor HTTPS met aangepaste domeinen. U kunt op dit moment [Azure CDN gebruiken voor toegang tot blobs met behulp van aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md).
->
-
-> [!NOTE]  
+> 
+> 
+> [!NOTE]
 > Storage-accounts ondersteunen momenteel slechts één aangepaste domeinnaam per account. U kunt een aangepaste domeinnaam kan niet toewijzen aan de web- en blob service-eindpunten.
+> 
+> [!NOTE]
+> De toewijzing kan alleen worden gebruikt voor subdomeinen (bijvoorbeeld www\.contoso.com). Als u wilt uw eindpunt op het web beschikbaar hebt voor het hoofddomein (bijvoorbeeld contoso.com), wordt u [Azure CDN gebruiken met aangepaste domeinen](storage-https-custom-domain-cdn.md)
 
-> [!NOTE]  
-> De toewijzing kan alleen worden gebruikt voor subdomeinen die (bijvoorbeeld www.contoso.com). Als u wilt uw eindpunt op het web beschikbaar hebt voor het hoofddomein (bijvoorbeeld contoso.com), wordt u [Azure CDN gebruiken met aangepaste domeinen](storage-https-custom-domain-cdn.md)
-
-De volgende tabel ziet u enkele voorbeeld-URL's voor blob-gegevens die zich in een opslagaccount met de naam *mystorageaccount*. Het aangepaste subdomein dat geregistreerd voor het opslagaccount is *www.contoso.com*:
+De volgende tabel ziet u enkele voorbeeld-URL's voor blob-gegevens die zich in een opslagaccount met de naam *mystorageaccount*. Het aangepaste subdomein dat geregistreerd voor het opslagaccount is *www\.contoso.com*:
 
 | Resourcetype | Standaard-URL | Aangepaste domein-URL |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Storage-account | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | Root-container | http://mystorageaccount.blob.core.windows.net/myblob of http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob of http://www.contoso.com/$root/myblob |
@@ -43,13 +43,13 @@ De volgende tabel ziet u enkele voorbeeld-URL's voor blob-gegevens die zich in e
 
 ## <a name="direct-vs-intermediary-cname-mapping"></a>Directe versus tussenliggende CNAME-toewijzing
 
-U kunt uw aangepaste domein voorafgegaan door een subdomein (bijvoorbeeld www.contoso.com) verwijzen naar het blobeindpunt voor uw opslagaccount op twee manieren: 
+U kunt uw aangepaste domein voorafgegaan door een subdomein verwijzen (bijvoorbeeld www\.contoso.com) aan het blobeindpunt voor uw opslagaccount op twee manieren: 
 * Gebruik direct CNAME-toewijzing.
 * Gebruik de *asverify* tussenliggende subdomein.
 
 ### <a name="direct-cname-mapping"></a>Directe CNAME-toewijzing
 
-De methode voor eerste en eenvoudigste, is het maken van een canonieke naam (CNAME)-record die uw aangepaste domein en subdomein dat rechtstreeks naar het blobeindpunt wordt toegewezen. Een CNAME-record is een domain name system (DNS)-functie die een brondomein wordt toegewezen aan een doeldomein. In ons voorbeeld is het brondomein uw eigen aangepaste domein en subdomein (*www.contoso.com*, bijvoorbeeld). Het doeldomein is het eindpunt van de blob-service (*mystorageaccount.blob.core.windows.net*, bijvoorbeeld).
+De methode voor eerste en eenvoudigste, is het maken van een canonieke naam (CNAME)-record die uw aangepaste domein en subdomein dat rechtstreeks naar het blobeindpunt wordt toegewezen. Een CNAME-record is een domain name system (DNS)-functie die een brondomein wordt toegewezen aan een doeldomein. In ons voorbeeld is het brondomein uw eigen aangepaste domein en subdomein (*www\.contoso.com*, bijvoorbeeld). Het doeldomein is het eindpunt van de blob-service (*mystorageaccount.blob.core.windows.net*, bijvoorbeeld).
 
 De directe methode die wordt beschreven in de sectie 'Een aangepast domein registreren'.
 
@@ -89,7 +89,7 @@ Meestal kunt u beheren van uw domein-DNS-instellingen op de website van uw domei
    De hostnaam is het eindpunt van de blob-service. De indeling  *\<mystorageaccount >. blob.core.windows.net*, waarbij *mystorageaccount* is de naam van uw storage-account. De naam van de host te gebruiken wordt weergegeven in item #1 van de **aangepast domein** deelvenster in de [Azure-portal](https://portal.azure.com). 
 
 1. In de **aangepast domein** deelvenster in het tekstvak, voer de naam van uw aangepaste domein, met inbegrip van het subdomein.  
-   Bijvoorbeeld, als uw domein is *contoso.com* en je alias subdomein is *www*, voer **www.contoso.com**. Als uw subdomein *foto's*, voer **photos.contoso.com**.
+   Bijvoorbeeld, als uw domein is *contoso.com* en je alias subdomein is *www*, voer **www\.contoso.com**. Als uw subdomein *foto's*, voer **photos.contoso.com**.
 
 1. Selecteer voor het registreren van uw aangepaste domein, **opslaan**.  
    Als de registratie geslaagd is, de portal een melding dat uw storage-account is bijgewerkt.
@@ -116,7 +116,7 @@ De *asverify* subdomein is een speciale subdomein wordt herkend door Azure. Door
    De hostnaam is het eindpunt van de blob-service. De indeling *asverify.\< mystorageaccount >. blob.core.windows.net*, waarbij *mystorageaccount* is de naam van uw storage-account. De naam van de host te gebruiken wordt weergegeven in item #2 van de *aangepast domein* deelvenster in de [Azure-portal](https://portal.azure.com).
 
 1. In de **aangepast domein** deelvenster in het tekstvak, voer de naam van uw aangepaste domein, met inbegrip van het subdomein.  
-   Maak daarbij dan geen *asverify*. Bijvoorbeeld, als uw domein is *contoso.com* en je alias subdomein is *www*, voer **www.contoso.com**. Als uw subdomein *foto's*, voer **photos.contoso.com**.
+   Maak daarbij dan geen *asverify*. Bijvoorbeeld, als uw domein is *contoso.com* en je alias subdomein is *www*, voer **www\.contoso.com**. Als uw subdomein *foto's*, voer **photos.contoso.com**.
 
 1. Selecteer de **indirecte CNAME-validatie gebruiken** selectievakje.
 

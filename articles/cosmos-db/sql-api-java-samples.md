@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: sample
 ms.date: 02/08/2018
 ms.author: sngun
-ms.openlocfilehash: 13b7d85841adca6e153474d665b4e3f7c06aebf5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: c0b776bfbae1f79b000c553b8318e273699a2fa3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880390"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542421"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: Java-voorbeelden voor de SQL API
 
@@ -88,7 +88,7 @@ Uitvoeren vanaf de opdrachtregel:
    > 
 
 ## <a name="database-examples"></a>Voorbeelden voor databases
-Het bestand [DatabaseCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DatabaseCrudSamples.java) laat u zien hoe u de volgende taken uitvoert:
+De [DatabaseCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DatabaseCrudSamples.java) bestand ziet u hoe u de volgende taken uitvoeren. Zie voor meer informatie over de Azure Cosmos-databases voordat de volgende voorbeelden wordt uitgevoerd, [werken met databases, containers en objecten](databases-containers-items.md) conceptueel artikel. 
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -97,7 +97,7 @@ Het bestand [DatabaseCrudSamples](https://github.com/Azure/azure-documentdb-java
 | [Een database maken en een query erop uitvoeren](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DatabaseCrudSamples.java#L96-L111) | [DocumentClient.queryDatabases](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.querydatabases) |
 
 ## <a name="collection-examples"></a>Voorbeelden voor verzamelingen
-Het bestand [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) laat u zien hoe u de volgende taken uitvoert:
+De [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) bestand ziet u hoe u de volgende taken uitvoeren. Zie voor meer informatie over de Azure Cosmos-verzamelingen voordat de volgende voorbeelden wordt uitgevoerd, [werken met databases, containers en objecten](databases-containers-items.md) conceptueel artikel.
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -106,7 +106,7 @@ Het bestand [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-ja
 | [Een verzameling verwijderen](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L97-L99) | [DocumentClient.deleteCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.deletecollection) |
 
 ## <a name="document-examples"></a>Voorbeelden voor documenten
-Het bestand [DocumentCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java) laat u zien hoe u de volgende taken uitvoert:
+De [DocumentCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java) bestand ziet u hoe u de volgende taken uitvoeren. Zie voor meer informatie over de Azure Cosmos-documenten voordat de volgende voorbeelden wordt uitgevoerd, [werken met databases, containers en objecten](databases-containers-items.md) conceptueel artikel.
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -114,7 +114,7 @@ Het bestand [DocumentCrudSamples](https://github.com/Azure/azure-documentdb-java
 | [Een document maken met een programmeerbare documentdefinitie](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java#L126-L147) | [Document](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.document)<br>[Resource.setId](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resource.setid) |
 
 ## <a name="indexing-examples"></a>Voorbeelden van indexen
-Het bestand [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) laat u zien hoe u de volgende taken uitvoert:
+De [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) bestand ziet u hoe u de volgende taken uitvoeren. Zie voor meer informatie over voordat de volgende voorbeelden wordt uitgevoerd in Azure Cosmos DB-indexering [indexeringsbeleid](index-policy.md), [indexeren typen](index-types.md), en [indexeren paden](index-paths.md) conceptuele artikelen. 
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -123,7 +123,8 @@ Het bestand [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-ja
 Zie [Azure Cosmos DB-indexeringsbeleid](index-policy.md) voor meer informatie over indexering.
 
 ## <a name="query-examples"></a>Voorbeelden van query's
-Het bestand [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java) laat u zien hoe u de volgende taken uitvoert:
+De [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java) bestand ziet u hoe u de volgende taken uitvoeren. Zie voor meer informatie over een verwijzing naar de SQL-query in Azure Cosmos DB voordat de volgende voorbeelden wordt uitgevoerd, [SQL-queryvoorbeelden](how-to-sql-query.md) conceptueel artikel. 
+
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -141,7 +142,8 @@ Het bestand [OfferCrudSamples](https://github.com/Azure/azure-documentdb-java/bl
 | [Een verzameling lezen om de bijbehorende aanbieding te vinden](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java#L108-L132) | [Offer.getContent](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.offer.getcontent)<br>[DocumentClient.replaceOffer](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.replaceoffer)<br>[DocumentClient.readCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.readcollection)<br>[DocumentClient.queryOffers](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.queryoffers) |
 
 ## <a name="partition-key-examples"></a>Voorbeelden van partitiesleutels
-Het bestand [SinglePartitionCollectionDocumentCrudSample](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java) laat u zien hoe u de volgende taken uitvoert:
+De [SinglePartitionCollectionDocumentCrudSample](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java) bestand ziet u hoe u de volgende taken uitvoeren. Zie voor meer informatie over partitionering en partitiesleutels in Azure Cosmos DB voordat de volgende voorbeelden wordt uitgevoerd, [partitioneren](partitioning-overview.md) conceptueel artikel. 
+
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -149,7 +151,8 @@ Het bestand [SinglePartitionCollectionDocumentCrudSample](https://github.com/Azu
 | [De doorvoeraanbieding voor een verzameling met één partitie wijzigen](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java#L209-L223) | [DocumentClient.replaceOffer](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.replaceoffer) |
 
 ## <a name="stored-procedure-examples"></a>Voorbeelden van opgeslagen procedures
-Het bestand [StoredProcedureSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java) laat u zien hoe u de volgende taken uitvoert:
+De [StoredProcedureSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java) bestand ziet u hoe u de volgende taken uitvoeren. Zie voor meer informatie over programmeren-Server in Azure Cosmos DB voordat de volgende voorbeelden wordt uitgevoerd, [opgeslagen procedures, triggers en gebruikersgedefinieerde functies](stored-procedures-triggers-udfs.md) conceptueel artikel. 
+
 
 | Taak | API-verwijzing |
 | --- | --- |

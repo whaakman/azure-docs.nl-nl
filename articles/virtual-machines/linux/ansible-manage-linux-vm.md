@@ -1,19 +1,19 @@
 ---
 title: Een virtuele Linux-machine beheren in Azure met Ansible
 description: Lees hoe u een virtuele Linux-machine beheert in Azure met behulp van Ansible
-ms.service: ansible
+ms.service: virtual-machines-linux
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.openlocfilehash: ef19043465cb67401786cddec4972f67231995bb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 8f97cf8a4231e9a2144f27c0540de96574e13795
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077807"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789874"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Een virtuele Linux-machine beheren in Azure met Ansible
 U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken voor het beheren van uw virtuele Azure-machines, net zoals andere resources. In dit artikel leest u hoe u een virtuele Linux-machine start en stopt met een Ansible-playbook. 

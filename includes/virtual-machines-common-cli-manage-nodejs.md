@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125291"
 ---
 U hebt een account van Azure nodig als u Azure CLI wilt gebruiken met opdrachten en sjablonen van Resource Manager voor het implementeren van Azure-resources en -werkbelastingen met behulp van resourcegroepen. Als u geen account hebt, kunt u [hier een gratis proefversie starten](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -31,7 +31,7 @@ In dit artikel bevat informatie over eenvoudige opdrachten die u wilt gebruiken 
 > 
 
 | Taak | Resource Manager |
-| --- | --- | --- |
+| --- | --- |
 | Een basis-VM maken |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Bepaal de `image-urn` met behulp van de opdracht `azure vm image list`. Zie [dit artikel](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor voorbeelden.) |
 | Een Linux-VM maken |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
 | Een Windows-VM maken |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |

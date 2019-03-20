@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4e787ab134caee1a7f9a26e46f698f2fe9807d83
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: edb169d131aafd045fdf0f670e1dda87677d57ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813673"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834674"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Failover en failback van fysieke servers gerepliceerd naar Azure
 
@@ -36,7 +36,7 @@ Controleer de servereigenschappen van de en zorg ervoor dat het voldoet aan [Azu
 1. In **beveiligde Items**, klikt u op **gerepliceerde Items**, en selecteer de machine.
 
 2. In de **gerepliceerd item** deelvenster bevindt zich een overzicht van machine-informatie, status, en de laatste beschikbare herstelpunten. Klik op **Eigenschappen** om meer details te bekijken.
-3. In **berekening en netwerk**, kunt u de naam van Azure, de resourcegroep, de doelgrootte, [beschikbaarheidsset](../virtual-machines/windows/tutorial-availability-sets.md), en beheerde-Schijfinstellingen
+3. In **Berekening en netwerk** kunt u de Azure-naam, de resourcegroep, de doelgrootte, [beschikbaarheidsset](../virtual-machines/windows/tutorial-availability-sets.md) en beheerde-schijfinstellingen wijzigen
 4. U kunt de netwerkinstellingen bekijken en wijzigen, inclusief het netwerk-/subnet waarin de Azure VM zich na failover bevindt en het IP-adres dat eraan wordt toegewezen.
 5. In **schijven**, ziet u informatie over de computer, besturingssysteem en gegevensschijven.
 
@@ -68,7 +68,7 @@ Volg de stappen die [hier](site-recovery-failover-to-azure-troubleshoot.md) word
 De processerver ontvangt gegevens van de Azure VM en verzendt deze naar de on-premises site. Een netwerk met lage latentie is vereist tussen de processerver en de beveiligde machine.
 
 - Als u een Azure ExpressRoute-verbinding hebt, kunt u voor testdoeleinden de on-premises processerver gebruiken die automatisch wordt geïnstalleerd op de configuratieserver.
-- Als u een VPN-verbinding hebt of als u failback in een productieomgeving uitvoert, moet u een Azure VM instellen als een Azure-processerver voor failback.
+- Als u een VPN-verbinding hebt of als u failback uitvoert in een productieomgeving, moet u een Azure-VM instellen als een Azure-processerver voor failback.
 - Volg de instructies in [in dit artikel](vmware-azure-set-up-process-server-azure.md) voor het instellen van een processerver in Azure.
 
 ## <a name="configure-the-master-target-server"></a>De hoofddoelserver configureren

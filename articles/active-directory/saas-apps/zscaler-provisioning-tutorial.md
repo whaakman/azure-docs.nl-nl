@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: 535c02b351c2a12261afd6ba09ea2645af0f06d3
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 42da57ee7320ec78de0c1d3a5336034289e30f76
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57577629"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086272"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Zelfstudie: Zscaler configureren voor het automatisch inrichten van gebruikers
 
@@ -27,7 +27,7 @@ Het doel van deze zelfstudie is ter illustratie van de stappen om te worden uitg
 
 > [!NOTE]
 > Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../active-directory-saas-app-provisioning.md).
-
+> 
 > Deze connector is momenteel in openbare Preview. Zie voor meer informatie over de algemene Microsoft Azure gebruiksvoorwaarden voor Preview-functies, [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Vereisten

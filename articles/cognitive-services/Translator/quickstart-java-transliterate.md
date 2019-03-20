@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 3ee586011c17125d5647d9a7baf946532190d8ca
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 58821492c6972eeef622f8dc8a777f8da70acdf1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729781"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895920"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Quickstart: De Translator Text-API gebruiken voor transliteratie van tekst met Java
 
@@ -74,7 +74,7 @@ Opmerking: dit voorbeeld heeft afhankelijkheden op OkHttp voor HTTP-aanvragen, e
 We gaan een map maken voor de voorbeeld-app. Voer vanuit uw werkmap de volgende opdracht uit:
 
 ```console
-mkdir -p src/main/java
+mkdir -p src\main\java
 ```
 
 Maak vervolgens in deze map een bestand met de naam `Transliterate.java`.
@@ -184,7 +184,7 @@ gradle run
 ```json
 [
   {
-    "text": "konnnichiha",
+    "text": "konnichiwa",
     "script": "latn"
   }
 ]

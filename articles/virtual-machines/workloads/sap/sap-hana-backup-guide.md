@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 9d72bc885bdaaed521042df236dd722b80533186
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866998"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013343"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Back-uphandleiding voor SAP HANA op Azure Virtual Machines
 
@@ -63,8 +63,8 @@ _Nee, momenteel kunt u alleen ondernemen gegevens en logboekback-ups op de prima
 
 - [Inleiding tot beheer van SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US)
 - [Plannen van de back-up en de strategie voor herstel](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)
-- [HANA-back-up met behulp van ABAP DBACOCKPIT plannen](http://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html)
-- [Planning gegevensback-ups (SAP HANA Cockpit)](http://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm)
+- [HANA-back-up met behulp van ABAP DBACOCKPIT plannen](https://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html)
+- [Planning gegevensback-ups (SAP HANA Cockpit)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm)
 - Veelgestelde vragen over SAP HANA back-up [1642148 voor SAP-notitie](https://launchpad.support.sap.com/#/notes/1642148)
 - Veelgestelde vragen over SAP HANA-database en storage-momentopnamen in [2039883 voor SAP-notitie](https://launchpad.support.sap.com/#/notes/2039883)
 - Ongeschikte netwerk bestandssystemen voor back-up en herstel in [1820529 voor SAP-notitie](https://launchpad.support.sap.com/#/notes/1820529)
@@ -80,7 +80,7 @@ Wanneer u opslagmomentopnamen, wordt die wordt uitgevoerd een test voor het teru
 
 Houden er rekening mee dat doen een eenvoudig herstellen en controleren of HANA actief is en het uitvoeren is niet voldoende. In het ideale geval moet een een consistentiecontrole voor de tabel om er zeker van te zijn dat de herstelde database goed is uitgevoerd. SAP HANA biedt verschillende soorten consistentiecontroles wordt beschreven in [SAP-notitie 1977584](https://launchpad.support.sap.com/#/notes/1977584).
 
-Informatie over de consistentiecontrole van de tabel kan ook worden gevonden op de website van de SAP op [tabel en consistentiecontroles catalogus](http://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b).
+Informatie over de consistentiecontrole van de tabel kan ook worden gevonden op de website van de SAP op [tabel en consistentiecontroles catalogus](https://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b).
 
 Voor back-ups van standard-is test terugzetten niet nodig. Er zijn twee SAP HANA-hulpprogramma's die helpen om te controleren welke back-up kan worden gebruikt voor herstel: hdbbackupdiag en hdbbackupcheck. Zie [handmatig controleren of een herstel is mogelijk](https://help.sap.com/saphelp_hanaplatform/helpdata/en/77/522ef1e3cb4d799bab33e0aeb9c93b/content.htm) voor meer informatie over deze hulpprogramma's.
 
@@ -90,7 +90,7 @@ SAP heeft&#39;t de voorkeur geeft aan een van beide HANA back-up ten opzichte va
 
 In Azure, worden op de hoogte van het feit dat de Azure-blob-functie Snapshot&#39;t garantie consistentie van bestandssysteem (Zie [met blob-momentopnamen met PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). De volgende sectie, _SAP HANA-gegevensconsistentie bij het nemen van opslagmomentopnamen_, enkele overwegingen met betrekking tot deze functie wordt besproken.
 
-Bovendien een heeft om de gevolgen voor de facturering te begrijpen wanneer vaak werken met blob-momentopnamen, zoals beschreven in dit artikel: [inzicht in hoe momentopnamen toerekenen kosten](/rest/api/storageservices/understanding-how-snapshots-accrue-charges): het is&#39;t als voor de hand liggende als het gebruik van Azure virtual schijven.
+Bovendien heeft een inzicht in de facturering gevolgen wanneer vaak werken met blob-momentopnamen zoals beschreven in dit artikel: [Inzicht in hoe momentopnamen toerekenen kosten](/rest/api/storageservices/understanding-how-snapshots-accrue-charges): het is&#39;t als voor de hand liggende als Azure virtuele schijven.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>SAP HANA-gegevensconsistentie bij het nemen van opslagmomentopnamen
 
@@ -137,7 +137,7 @@ Gebruikershandleiding voor de HANA biedt een lijst met voorbeelden. Dit kan erop
 Met betrekking tot een exacte plannen wanneer en hoe vaak een bepaald type back-up moet gebeuren, is het niet mogelijk om te geven van een algemene richtlijn — te klantspecifieke is en is afhankelijk van hoeveel gegevenswijzigingen in het systeem optreden. Een algemene aanbeveling van SAP-zijde, die kan worden gezien als algemene richtlijnen, is het maken een volledige HANA back-up eenmaal per week.
 Met betrekking tot logboekback-ups, Zie de documentatie van SAP HANA [logboekback-ups](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm).
 
-SAP wordt ook aangeraden voeren sommige housekeeping van de back-catalogus om te voorkomen dat deze groeiende oneindig (Zie [huishoudelijke voor back-catalogus en back-upopslag](http://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm)).
+SAP wordt ook aangeraden voeren sommige housekeeping van de back-catalogus om te voorkomen dat deze groeiende oneindig (Zie [huishoudelijke voor back-catalogus en back-upopslag](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm)).
 
 ### <a name="sap-hana-configuration-files"></a>SAP HANA-configuratiebestanden
 
@@ -220,7 +220,7 @@ Op basis van de resultaten van die de volgende tabellen tonen de voor- en nadele
 |BLOB kopiëren via Powershell of CLI                    |Er zijn geen extra hulpmiddelen die nodig zijn, kan worden geconfigureerd via Azure Powershell of CLI |handmatig proces-klant beschikt om te zorgen voor het uitvoeren van scripts en het beheer van de gekopieerde blobs voor terugzetten|
 |Kopiëren naar NFS-share                                  |Na verwerking van back-upbestanden op andere virtuele machine zonder gevolgen voor de HANA-server|Trage kopieerproces|
 |Blobxfer kopiëren naar Azure File-Service                |Geen eten ruimte vrij op de lokale VM-schijven|Er is geen directe ondersteuning door HANA back-up, formaat beperking van de bestandsshare die momenteel op 5 TB schrijven|
-|Azure Backup-Agent                                 | Zou worden aanbevolen oplossing         | Op dit moment niet beschikbaar op Linux    |
+|Azure Backup Agent                                 | Zou worden aanbevolen oplossing         | Op dit moment niet beschikbaar op Linux    |
 
 
 
@@ -228,7 +228,7 @@ Op basis van de resultaten van die de volgende tabellen tonen de voor- en nadele
 
 |Oplossing                                           |Professionals                                 |Nadelen                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
-|Azure Backup-Service                               | Hiermee kunnen back-up van virtuele machine op basis van de blob-momentopnamen | Als u niet op herstel, het maken van een nieuwe virtuele machine is vereist voor het herstelproces, wat vervolgens betekent de noodzaak van een nieuwe sleutel van de SAP HANA-licentie dat|
+|Azure Backup Service                               | Hiermee kunnen back-up van virtuele machine op basis van de blob-momentopnamen | Als u niet op herstel, het maken van een nieuwe virtuele machine is vereist voor het herstelproces, wat vervolgens betekent de noodzaak van een nieuwe sleutel van de SAP HANA-licentie dat|
 |Handmatige blob-momentopnamen                              | Flexibiliteit om te maken en herstellen van specifieke VM-schijven zonder te hoeven wijzigen van de unieke ID van de virtuele machine|Alle handmatig werk dat moet worden uitgevoerd door de klant|
 
 ## <a name="next-steps"></a>Volgende stappen

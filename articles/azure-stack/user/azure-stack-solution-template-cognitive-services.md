@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 1ccbe8b268725cf3d0747486a20e0597d023662e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8080355bebf00c9f37c28ae8ed54bba092f8dc17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890600"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099930"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Azure Cognitive Services implementeren in Azure Stack
 
@@ -67,12 +67,12 @@ Voordat u begint, moet u naar:
 
 Maak een bron van Cognitive Service in Azure om een voorbeeld van de containers Face, LUIS of tekst herkennen, respectievelijk. U moet het abonnement sleutel en het eindpunt-URL van de resource exemplaar maken van de servicecontainers cognitive gebruiken.
 
-1.  Maak een Azure-resource in Azure portal. Als u wilt om een voorbeeld van de Face-containers, moet u eerst een bijbehorende Face-resource maken in Azure portal. Zie voor meer informatie [Snelstart: Een Cognitive Services-account maken in Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Maak een Azure-resource in Azure portal. Als u wilt om een voorbeeld van de Face-containers, moet u eerst een bijbehorende Face-resource maken in Azure portal. Zie voor meer informatie [Snelstart: Een Cognitive Services-account maken in Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
-    >  [!Note]  
-    >  De Face- of Computer Vision-bron moet de prijscategorie F0 gebruiken.
+   > [!Note]
+   >  De Face- of Computer Vision-bron moet de prijscategorie F0 gebruiken.
 
-2.  De eindpunt-URL en abonnement-sleutel voor de Azure-resource ophalen. Nadat de Azure-resource is gemaakt, moet u het abonnement sleutel en het eindpunt-URL van die resource voor het starten van de overeenkomstige gezichten, LUIS of tekst herkennen container voor de Preview-versie.
+2. De eindpunt-URL en abonnement-sleutel voor de Azure-resource ophalen. Nadat de Azure-resource is gemaakt, moet u het abonnement sleutel en het eindpunt-URL van die resource voor het starten van de overeenkomstige gezichten, LUIS of tekst herkennen container voor de Preview-versie.
 
 ## <a name="create-a-kubernetes-secret"></a>Een Kubernetes-geheim maken 
 

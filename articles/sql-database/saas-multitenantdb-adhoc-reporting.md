@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/30/2018
-ms.openlocfilehash: 2780215e409886be82ac70642dabe05c9257945e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d4c5a2ca88f982626c8c2a8b37e4a7d6dfdbe599
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568444"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076357"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Ad-hoc analytics-query's uitvoeren voor meerdere Azure SQL-databases
 
@@ -27,7 +27,7 @@ In deze zelfstudie hebt u gedistribueerde query's uitvoeren voor de volledige se
 In deze zelfstudie komen deze onderwerpen aan bod:
 
 > [!div class="checklist"]
-
+> 
 > * Over het implementeren van een ad-hoc rapportagedatabase
 > * Het uitvoeren van gedistribueerde query's in alle tenantdatabases
 
@@ -147,7 +147,7 @@ Bij de inspectie van het abonnement kan worden uitgevoerd, Beweeg de muisaanwijz
 In deze zelfstudie hebt u het volgende geleerd:
 
 > [!div class="checklist"]
-
+> 
 > * Gedistribueerde query's uitvoeren voor alle databases van de tenant
 > * Implementeren van een ad-hoc reporting-database en schema toevoegen aan deze gedistribueerde query's uitvoeren.
 

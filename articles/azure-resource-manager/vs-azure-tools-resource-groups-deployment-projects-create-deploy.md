@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: HT
+ms.openlocfilehash: 36815010c3e8fccc2ec24ce344071d0836da219b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649676"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097454"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Azure-resourcegroepen maken en implementeren met Visual Studio
 
@@ -51,7 +51,7 @@ In dit gedeelte maakt u een Azure Resource Group-project met de sjabloon **Web a
    
     Omdat er voor dit voorbeeld is gekozen voor de sjabloon Web-app + SQL, krijgt u de volgende bestanden te zien: 
    
-   | Bestandsnaam | Beschrijving |
+   | Bestandsnaam | Description |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Een PowerShell-script waarmee PowerShell-opdrachten worden uitgevoerd om te worden geïmplementeerd in Azure Resource Manager.<br />**Opmerking** Visual Studio gebruikt dit PowerShell-script voor het implementeren van uw sjabloon. Eventuele wijzigingen die u aanbrengt in dit script beïnvloeden de implementatie in Visual Studio, dus wees voorzichtig. |
    | WebSiteSQLDatabase.json |Het Resource Manager-sjabloon dat de infrastructuur definieert die u in Azure wilt implementeren en de parameters die u kunt opgeven tijdens de implementatie. Hiermee worden ook de afhankelijkheden tussen resources gedefinieerd zodat deze in de juiste volgorde worden geïmplementeerd. |
@@ -221,7 +221,7 @@ U bent niet beperkt tot alleen de resources die beschikbaar zijn via de Visual S
 
 1. Open het bestand WebsiteSqlDeploy.json en voeg de volgende JSON toe, na de resource voor het opslagaccount maar voor het afsluitende `]` van de sectie resources.
 
-  ```json
+   ```json
     ,{
       "properties": {
         "lenses": {
@@ -296,7 +296,7 @@ U bent niet beperkt tot alleen de resources die beschikbaar zijn via de Visual S
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-  ```
+   ```
 
 2. Implementeer de resourcegroep opnieuw. Kijk naar het dashboard in Azure Portal en u ziet dat het gedeelde dashboard is toegevoegd aan uw lijst met mogelijkheden.
 

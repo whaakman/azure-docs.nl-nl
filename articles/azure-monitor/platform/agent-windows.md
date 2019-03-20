@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: af5d8e4146b7cf7b0b9c474b25b3ad48c9cb3902
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d433a480165424e47d4d84e67e7fd02648ebe2d1
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890029"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223424"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows-computers verbinden met de service Log Analytics in Azure
 
@@ -34,7 +34,7 @@ De agent kan worden geïnstalleerd met behulp van een van de volgende methoden. 
 * Resource Manager-sjabloon voor virtuele machines waarop Windows wordt uitgevoerd on-premises beschikken in Azure Stack.  
 
 >[!NOTE]
->Azure Security Center (ASC) is afhankelijk van de Microsoft Monitoring Agent (ook wel de Log Analytics-Windows-agent genoemd) en installeert en configureert om te rapporteren aan een Log Analytics-werkruimte als onderdeel van de implementatie. ASC bevat een automatische inrichting optie dat automatische installatie van de Log Analytics-Windows-agent op alle virtuele machines in uw abonnement en configureert deze om te rapporteren aan een specifieke werkruimte. Zie voor meer informatie over deze optie [automatische inrichting van Log Analytics-agent inschakelen](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-log-analytics-agent-).
+>Azure Security Center (ASC) is afhankelijk van de Microsoft Monitoring Agent (ook wel de Log Analytics-Windows-agent genoemd) en installeert en configureert om te rapporteren aan een Log Analytics-werkruimte als onderdeel van de implementatie. ASC bevat een automatische inrichting optie dat automatische installatie van de Log Analytics-Windows-agent op alle virtuele machines in uw abonnement en configureert deze om te rapporteren aan een specifieke werkruimte. Zie voor meer informatie over deze optie [automatische inrichting van Log Analytics-agent inschakelen](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-).
 >
 
 Als u meer wilt weten over de ondersteunde configuratie, kunt u de informatie over [ondersteunde Windows-besturingssystemen](log-analytics-agent.md#supported-windows-operating-systems) en de [ netwerkconfiguratie voor de firewall](log-analytics-agent.md#network-firewall-requirements) raadplegen.

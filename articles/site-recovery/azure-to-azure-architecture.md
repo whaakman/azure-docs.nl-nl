@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 797838b077993ddcb4120bcf48b026063abbe1ab
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ef75ec40df50931f5a49c06184c61d2f78608dcf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105318"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014990"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure naar Azure disaster recovery-architectuur
 
@@ -102,9 +102,10 @@ De volgende tabel beschrijft de verschillende typen consistentie.
 Een crash-consistente momentopname bevat gegevens die op de schijf was toen de momentopname werd gemaakt. Deze bevat geen iets in het geheugen.<br/><br/> Het bevat het equivalent van de gegevens op de schijf die aanwezig zijn als de virtuele machine is vastgelopen of het netsnoer is opgehaald uit de server op het moment dat de momentopname werd gemaakt.<br/><br/> Een crash-consistente biedt geen garantie voor de consistentie van gegevens voor het besturingssysteem, of voor apps op de virtuele machine. | Site Recovery maakt crash-consistente herstelpunten om de vijf minuten standaard. Deze instelling kan niet worden gewijzigd.<br/><br/>  | De meeste apps kunnen vandaag, herstellen en van crash-consistente punten.<br/><br/> Crash-consistente herstelpunten zijn meestal voldoende zijn voor de replicatie van besturingssystemen en apps, zoals DHCP-servers en afdrukservers.
 
 ### <a name="app-consistent"></a>Toepassingsconsistent
+
 **Beschrijving** | **Details** | **Aanbeveling**
 --- | --- | ---
-App-consistente herstelpunten zijn gemaakt op basis van app-consistente momentopnamen.<br/><br/> Een app-consistente momentopname bevatten alle gegevens in een crash-consistente momentopname, plus alle gegevens in het geheugen en transacties in uitvoering. | App-consistente momentopnamen gebruiken Volume Shadow Copy Service (VSS):<br/><br/>   (1) VSS uitvoeren als een momentopname wordt gestart, een bewerking van kopiëren bij schrijven (betreft) op het volume.<br/><br/>   2) voordat deze wordt uitgevoerd de betreft, informeert VSS elke app op de computer die de gegevens in het geheugen geladen leegmaken naar schijf nodig.<br/><br/>   3) de back-ups/noodherstel recovery-app kan VSS vervolgens (in dit geval Site Recovery) om te lezen van de momentopname van de gegevens en doorgaan. | App-consistente momentopnamen worden gemaakt in overeenstemming met de frequentie die u opgeeft. Deze frequentie moet altijd kleiner dan u herstelpunten worden bewaard. Bijvoorbeeld, als u met behulp van de standaardinstelling van 24 uur herstelpunten behoudt, moet u de frequentie instellen op minder dan 24 uur.<br/><br/>Ze meer complexe en het langer duren om dan crash-consistente momentopnamen.<br/><br/> Ze invloed op de prestaties van apps die worden uitgevoerd op een virtuele machine ingeschakeld voor replicatie. | <br/><br/>Toepassingsconsistente herstelpunten worden aanbevolen voor database-besturingssystemen en toepassingen, zoals SQL.<br/><br/> App-consistente momentopnamen worden alleen ondersteund voor virtuele machines waarop Windows wordt uitgevoerd.
+App-consistente herstelpunten zijn gemaakt op basis van app-consistente momentopnamen.<br/><br/> Een app-consistente momentopname bevatten alle gegevens in een crash-consistente momentopname, plus alle gegevens in het geheugen en transacties in uitvoering. | App-consistente momentopnamen gebruiken Volume Shadow Copy Service (VSS):<br/><br/>   (1) VSS uitvoeren als een momentopname wordt gestart, een bewerking van kopiëren bij schrijven (betreft) op het volume.<br/><br/>   2) voordat deze wordt uitgevoerd de betreft, informeert VSS elke app op de computer die de gegevens in het geheugen geladen leegmaken naar schijf nodig.<br/><br/>   3) de back-ups/noodherstel recovery-app kan VSS vervolgens (in dit geval Site Recovery) om te lezen van de momentopname van de gegevens en doorgaan. | App-consistente momentopnamen worden gemaakt in overeenstemming met de frequentie die u opgeeft. Deze frequentie moet altijd kleiner dan u herstelpunten worden bewaard. Bijvoorbeeld, als u met behulp van de standaardinstelling van 24 uur herstelpunten behoudt, moet u de frequentie instellen op minder dan 24 uur.<br/><br/>Ze meer complexe en het langer duren om dan crash-consistente momentopnamen.<br/><br/> Ze invloed op de prestaties van apps die worden uitgevoerd op een virtuele machine ingeschakeld voor replicatie. 
 
 ## <a name="replication-process"></a>Replicatieproces
 
@@ -116,8 +117,7 @@ Wanneer u replicatie voor een Azure-VM inschakelt, gebeurt het volgende:
 4. Site Recovery verwerkt de gegevens in de cache en verzendt ze naar het doelopslagaccount of op de replica beheerde schijven.
 5. Nadat de gegevens zijn verwerkt, worden de crash-consistente herstelpunten om de vijf minuten gegenereerd. App-consistente herstelpunten worden gegenereerd op basis van de instelling die is opgegeven in het replicatiebeleid.
 
-
-   ![Replicatieproces, stap 2 inschakelen](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Replicatieproces, stap 2 inschakelen](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
 **Replicatieproces**
 

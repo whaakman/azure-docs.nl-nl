@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: e773986d11a11c6cc84df367aa48ac1b01a9183e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: fa897b4b77f7f5869eab2ba2e7db9afbd84febfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157119"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121499"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>De StorSimple Data Manager-service in Azure portal beheren
 
@@ -46,19 +46,19 @@ Voer de volgende stappen uit voor het maken van een StorSimple Data Manager-serv
 
 3. Voor de nieuwe service, geeft u het volgende:
 
-    1. Geef een unieke **servicenaam** voor uw StorSimple-gegevensbeheer. Dit is een beschrijvende naam die kan worden gebruikt om de service te identificeren. De naam kan tussen 3 en 24 tekens bevatten (letters, cijfers en afbreekstreepjes). De naam moet beginnen en eindigen met een letter of cijfer.
+   1. Geef een unieke **servicenaam** voor uw StorSimple-gegevensbeheer. Dit is een beschrijvende naam die kan worden gebruikt om de service te identificeren. De naam kan tussen 3 en 24 tekens bevatten (letters, cijfers en afbreekstreepjes). De naam moet beginnen en eindigen met een letter of cijfer.
 
-    2. Kies een **abonnement** in de vervolgkeuzelijst. Het abonnement is gekoppeld aan uw factureringsrekening. Dit veld wordt automatisch ingevuld (en niet worden geselecteerd) als u slechts één abonnement hebt.
+   2. Kies een **abonnement** in de vervolgkeuzelijst. Het abonnement is gekoppeld aan uw factureringsrekening. Dit veld wordt automatisch ingevuld (en niet worden geselecteerd) als u slechts één abonnement hebt.
 
-    3. Selecteer een bestaande resourcegroep of maak een nieuwe groep. Zie [Azure-resourcegroepen](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) voor meer informatie.
+   3. Selecteer een bestaande resourcegroep of maak een nieuwe groep. Zie [Azure-resourcegroepen](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) voor meer informatie.
 
-    4. Geef de **locatie** voor uw service met de storage-accounts en wordt uw service StorSimple Data Manager. Uw StorSimple Device Manager-service, Data Manager-service en het bijbehorende opslagaccount moeten in de ondersteunde regio's.
+   4. Geef de **locatie** voor uw service met de storage-accounts en wordt uw service StorSimple Data Manager. Uw StorSimple Device Manager-service, Data Manager-service en het bijbehorende opslagaccount moeten in de ondersteunde regio's.
     
-    5. Als u een koppeling naar deze service op uw dashboard, selecteert u **vastmaken aan dashboard**.
+   5. Als u een koppeling naar deze service op uw dashboard, selecteert u **vastmaken aan dashboard**.
     
-    6. Klik op **Create**.
+   6. Klik op **Create**.
 
-    ![Maken van een StorSimple Data Manager-service 3](./media/storsimple-data-manager-ui/create-service-4.png)
+      ![Maken van een StorSimple Data Manager-service 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
 Het maken van de service duurt enkele minuten. U ziet een melding nadat de service is gemaakt en de nieuwe service wordt weergegeven.
 
@@ -88,33 +88,33 @@ Voer de volgende stappen uit voor het maken van de taakdefinitie van een.
 
     ![Nieuwe gegevens opslagplaats toevoegen](./media/storsimple-data-manager-ui/create-job-definition-3.png)
   
-    1. Kies **StorSimple 8000-serie Manager** als het gegevenstype van de opslagplaats.
+   1. Kies **StorSimple 8000-serie Manager** als het gegevenstype van de opslagplaats.
     
-    2. Voer een beschrijvende naam voor uw gegevensopslagplaats bron.
+   2. Voer een beschrijvende naam voor uw gegevensopslagplaats bron.
     
-    3. Kies een abonnement dat is gekoppeld aan uw StorSimple Device Manager-service in de vervolgkeuzelijst.
+   3. Kies een abonnement dat is gekoppeld aan uw StorSimple Device Manager-service in de vervolgkeuzelijst.
     
-    4. Geef de naam van de StorSimple Device Manager voor de **Resource**.
+   4. Geef de naam van de StorSimple Device Manager voor de **Resource**.
 
-    5. Voer de **Service gegevensversleuteling** sleutel voor de StorSimple Device Manager-service. 
+   5. Voer de **Service gegevensversleuteling** sleutel voor de StorSimple Device Manager-service. 
 
-    ![Configureren van de opslagplaats van het data 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
+      ![Configureren van de opslagplaats van het data 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
 
-    Klik op **OK** wanneer u klaar bent. Hiermee slaat u uw gegevensopslagplaats. Deze StorSimple-Apparaatbeheerfunctie in andere taakdefinities hergebruiken zonder deze parameters opnieuw in te voeren. Het duurt een paar seconden nadat u op **OK** voor de opslagplaats van de zojuist gemaakte gegevensbron worden weergegeven in de vervolgkeuzelijst.
+      Klik op **OK** wanneer u klaar bent. Hiermee slaat u uw gegevensopslagplaats. Deze StorSimple-Apparaatbeheerfunctie in andere taakdefinities hergebruiken zonder deze parameters opnieuw in te voeren. Het duurt een paar seconden nadat u op **OK** voor de opslagplaats van de zojuist gemaakte gegevensbron worden weergegeven in de vervolgkeuzelijst.
 
 7. In de vervolgkeuzelijst voor **gegevensopslagplaats**, selecteert u de gegevensopslagplaats die u hebt gemaakt. 
 
-    1. Voer de naam van de StorSimple 8000-apparaat met de gegevens van belang zijn.
+   1. Voer de naam van de StorSimple 8000-apparaat met de gegevens van belang zijn.
 
-    2. Geef de naam van het volume op het StorSimple-apparaat dat uw gegevens van belang is.
+   2. Geef de naam van het volume op het StorSimple-apparaat dat uw gegevens van belang is.
 
-    3. In de **Filter** subsectie, voer de hoofdmap waarin de gegevens van belang zijn in _\MyRootDirectory\Data_ indeling. Stationsletters zoals _\C:\Data_ worden niet ondersteund. U kunt ook alle filters voor bestanden hier toevoegen.
+   3. In de **Filter** subsectie, voer de hoofdmap waarin de gegevens van belang zijn in _\MyRootDirectory\Data_ indeling. Stationsletters zoals _\C:\Data_ worden niet ondersteund. U kunt ook alle filters voor bestanden hier toevoegen.
 
-    4. De transformatie gegevensservice werkt op de gegevens die via de momentopnamen van wordt gepusht naar Azure. Wanneer u deze taak uitvoert, kunt u een back-up uitvoeren telkens wanneer deze taak wordt uitgevoerd (om te werken op de meest recente gegevens) of gebruikt u de laatste bestaande back-up in de cloud (als u op sommige gearchiveerde gegevens werkt).
+   4. De transformatie gegevensservice werkt op de gegevens die via de momentopnamen van wordt gepusht naar Azure. Wanneer u deze taak uitvoert, kunt u een back-up uitvoeren telkens wanneer deze taak wordt uitgevoerd (om te werken op de meest recente gegevens) of gebruikt u de laatste bestaande back-up in de cloud (als u op sommige gearchiveerde gegevens werkt).
 
-    5. Klik op **OK**.
+   5. Klik op **OK**.
 
-    ![Configureren van de opslagplaats van het data 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
+      ![Configureren van de opslagplaats van het data 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
 
 8. De doel-gegevensopslagplaats moet vervolgens worden geconfigureerd. Kies de storage-accounts om bestanden in de blobs in dat account. Selecteer in de vervolgkeuzelijst **nieuwe toevoegen** en vervolgens **-instellingen configureren**.
 

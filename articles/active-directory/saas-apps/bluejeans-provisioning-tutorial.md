@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c2006b025c4bcf54ee2ab131e0d6a105f9f4e9f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fa740a558015b28e6d3fa7245c9041dc4167f832
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178172"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110355"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Zelfstudie: BlueJeans configureren voor het automatisch inrichten van gebruikers
 
@@ -107,9 +107,9 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 5. Onder de **beheerdersreferenties** sectie, voer de **Admin Username**, en **beheerderswachtwoord** van uw account BlueJeans. Voorbeelden van deze waarden zijn:
 
-    *   In de **Admin Username** veld, de gebruikersnaam van het beheerdersaccount dat op uw tenant BlueJeans vullen. Voorbeeld: admin@contoso.com.
+   * In de **Admin Username** veld, de gebruikersnaam van het beheerdersaccount dat op uw tenant BlueJeans vullen. Voorbeeld: admin@contoso.com.
 
-    *   In de **beheerderswachtwoord** veld, het wachtwoord dat overeenkomt met de gebruikersnaam van beheerder vullen.
+   * In de **beheerderswachtwoord** veld, het wachtwoord dat overeenkomt met de gebruikersnaam van beheerder vullen.
 
 6. Bij het invullen van de velden die in stap 5 wordt weergegeven, klikt u op **testverbinding** om te controleren of Azure AD kunt verbinden met BlueJeans. Als de verbinding is mislukt, zorg ervoor dat uw account BlueJeans beheerdersmachtigingen heeft en probeer het opnieuw.
 

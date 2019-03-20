@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8f5d98ff591cb456cbbcb3d28a63f39ab3729152
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 47f3c4bdf21d751cd3804c6a854e7f8706b0815a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308512"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767954"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Uw eerste Resource Graph-query uitvoeren met Azure CLI
 
@@ -70,8 +70,8 @@ Nu de Azure CLI-extensie is toegevoegd aan uw gewenste omgeving, kunt u een eenv
    az graph query -q 'project name, type | limit 5 | order by name asc'
    ```
 
-  > [!NOTE]
-  > Net als bij de eerste query zal deze query waarschijnlijk per aanvraag een andere set resources opleveren als de query meerdere keren wordt uitgevoerd. De volgorde van de queryopdrachten is belangrijk. In dit voorbeeld komt `order by` na `limit`. Hiermee worden de queryresultaten eerst beperkt en daarna geordend.
+   > [!NOTE]
+   > Net als bij de eerste query zal deze query waarschijnlijk per aanvraag een andere set resources opleveren als de query meerdere keren wordt uitgevoerd. De volgorde van de queryopdrachten is belangrijk. In dit voorbeeld komt `order by` na `limit`. Hiermee worden de queryresultaten eerst beperkt en daarna geordend.
 
 1. Werk de query als volgt bij om eerst te `order by` op de eigenschap **naam** en daarna de resultaten van de top vijf te `limit`:
 

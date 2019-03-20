@@ -4,7 +4,7 @@ description: bestand opnemen
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: ac4f826ed1d27ee39d8e35605a3baa7f94b33e64
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 6345eca674086801f8bb0f45476009f04a10f2e3
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035419"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58214032"
 ---
-## <a name="test-your-code"></a>Testen van uw code
+## <a name="test-your-code"></a>Uw code testen
 
 Als u wilt uitvoeren van uw project in Visual Studio, selecteer **F5**. Uw toepassing **MainWindow** wordt weergegeven, zoals hier wordt weergegeven:
 
@@ -41,12 +41,12 @@ De eerste keer dat u zich aanmelden bij uw toepassing u ook wordt gevraagd voor 
 
 Nadat u zich hebt aangemeld, ziet u de gebruikersgegevens van het profiel dat wordt geretourneerd door de aanroep naar de Microsoft Graph API. De resultaten worden weergegeven in de **API Gespreksresultaten** vak. Algemene informatie over het token dat is verkregen via de aanroep van `AcquireTokenAsync` of `AcquireTokenSilentAsync` moeten worden weergegeven in de **Token Info** vak. De resultaten bevatten de volgende eigenschappen:
 
-|Eigenschap  |Indeling  |Beschrijving |
+|Eigenschap  |Indeling  |Description |
 |---------|---------|---------|
 |**Naam** |Volledige naam van gebruiker |En achternaam van eerst de gebruiker.|
 |**Gebruikersnaam** |<span>user@domain.com</span> |De gebruikersnaam die wordt gebruikt om de gebruiker te identificeren.|
 |**Token is verlopen** |DateTime |De tijd waarop het token is verlopen. MSAL vervolg op de vervaldatum vernieuwen van het token indien nodig.|
-|**Toegangstoken** |Reeks |De token tekenreeks die wordt verzonden naar HTTP-aanvragen waarvoor een *autorisatie-header*.|
+|**Toegangstoken** |String |De token tekenreeks die wordt verzonden naar HTTP-aanvragen waarvoor een *autorisatie-header*.|
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Meer informatie over bereiken en gedelegeerde machtigingen

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b81129ada4710eff58d50bf998802e8ac1b2788
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a674748e9e95828436df25222f6daad881e0487
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191058"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109134"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassian Jira en samenloop beheerdershandleiding voor Azure Active Directory
 
@@ -110,33 +110,33 @@ De volgende afbeelding ziet u het Configuratiescherm in Jira en samenloop:
 
 ![Invoegtoepassing Configuratiescherm](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **Metagegevens-URL**: De URL voor federatiemetagegevens ophalen uit Azure AD.
+* **Metagegevens-URL**: De URL voor federatiemetagegevens ophalen uit Azure AD.
 
-*   **Id's**: De URL die Azure AD wordt gebruikt voor het valideren van de bron van de aanvraag. Het wordt toegewezen aan de **id** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*< domein: poort >*/.
+* **Id's**: De URL die Azure AD wordt gebruikt voor het valideren van de bron van de aanvraag. Het wordt toegewezen aan de **id** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*< domein: poort >*/.
 
-*   **Antwoord-URL**: De antwoord-URL in uw id-provider (IdP) die de SAML-aanmelding initieert. Het wordt toegewezen aan de **antwoord-URL** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*< domein: poort >*/plugins/servlet/saml/auth.
+* **Antwoord-URL**: De antwoord-URL in uw id-provider (IdP) die de SAML-aanmelding initieert. Het wordt toegewezen aan de **antwoord-URL** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*< domein: poort >*/plugins/servlet/saml/auth.
 
-*   **Aanmeldings-URL**: De aanmeldings-URL in de IdP die de SAML-aanmelding initieert. Het wordt toegewezen aan de **aanmelding** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*< domein: poort >*/plugins/servlet/saml/auth.
+* **Aanmeldings-URL**: De aanmeldings-URL in de IdP die de SAML-aanmelding initieert. Het wordt toegewezen aan de **aanmelding** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*< domein: poort >*/plugins/servlet/saml/auth.
 
-*   **IdP entiteit-ID**: De entiteit-ID die gebruikmaakt van uw id-provider. Dit vak wordt gevuld wanneer de metagegevens-URL opgelost is.
+* **IdP entiteit-ID**: De entiteit-ID die gebruikmaakt van uw id-provider. Dit vak wordt gevuld wanneer de metagegevens-URL opgelost is.
 
-*   **Aanmeldings-URL**: De URL aanmelden vanaf uw id-provider. Dit vak wordt opgehaald uit Azure AD wanneer de metagegevens-URL opgelost is.
+* **Aanmeldings-URL**: De URL aanmelden vanaf uw id-provider. Dit vak wordt opgehaald uit Azure AD wanneer de metagegevens-URL opgelost is.
 
-*   **Afmeldings-URL van**: De URL van de afmelding van uw id-provider. Dit vak wordt opgehaald uit Azure AD wanneer de metagegevens-URL opgelost is.
+* **Afmeldings-URL van**: De URL van de afmelding van uw id-provider. Dit vak wordt opgehaald uit Azure AD wanneer de metagegevens-URL opgelost is.
 
-*   **X.509-certificaat**: Uw IdP x.509-certificaat. Dit vak wordt opgehaald uit Azure AD wanneer de metagegevens-URL opgelost is.
+* **X.509-certificaat**: Uw IdP x.509-certificaat. Dit vak wordt opgehaald uit Azure AD wanneer de metagegevens-URL opgelost is.
 
-*   **Aanmeldingsnaam van de knop**: De naam van de knop aanmelden die uw organisatie wil dat gebruikers om te zien op de pagina aanmelden.
+* **Aanmeldingsnaam van de knop**: De naam van de knop aanmelden die uw organisatie wil dat gebruikers om te zien op de pagina aanmelden.
 
-*   **SAML-ID gebruikerslocaties**: De locatie waar de Jira of samenloop gebruikers-ID wordt verwacht in het SAML-antwoord. Kan **NameID** of in de naam van een aangepast kenmerk.
+* **SAML-ID gebruikerslocaties**: De locatie waar de Jira of samenloop gebruikers-ID wordt verwacht in het SAML-antwoord. Kan **NameID** of in de naam van een aangepast kenmerk.
 
-*   **De naam van het kenmerk**: De naam van het kenmerk waar de gebruikers-ID wordt verwacht.
+* **De naam van het kenmerk**: De naam van het kenmerk waar de gebruikers-ID wordt verwacht.
 
-*   **Schakel Home Realm Discovery**: De selectie te maken als het bedrijf met behulp van Active Directory Federation Services (AD FS) - op basis van aanmelding - in.
+* **Schakel Home Realm Discovery**: De selectie te maken als het bedrijf met behulp van Active Directory Federation Services (AD FS) - op basis van aanmelding - in.
 
-*   **Domeinnaam**: De domeinnaam is als aanmelden AD FS op basis van.
+* **Domeinnaam**: De domeinnaam is als aanmelden AD FS op basis van.
 
-*   **Inschakelen van één die afmelden wordt weergegeven**: De selectie te maken als u zich wilt afmelden bij Azure AD wanneer een gebruiker zich afmeldt van Jira of samenloop.
+* **Inschakelen van één die afmelden wordt weergegeven**: De selectie te maken als u zich wilt afmelden bij Azure AD wanneer een gebruiker zich afmeldt van Jira of samenloop.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 

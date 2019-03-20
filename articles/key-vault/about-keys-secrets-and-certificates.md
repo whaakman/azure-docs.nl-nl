@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cb18b9063599520ccc6caec44053dc9780969f74
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 01d9f763983da2415aba0f9bae81414017bc2f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532323"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842563"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 
@@ -42,7 +42,7 @@ De JavaScript Object Notation (JSON) en de specificaties voor JavaScript Object 
 -   [JSON-Websleutel (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [JSON Web algoritmen (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web handtekening (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [JSON Web handtekening (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
 ### <a name="data-types"></a>Gegevenstypen
 
@@ -112,7 +112,7 @@ De cryptografische modules die Key Vault gebruikt, of HSM of software zijn geval
 #### <a name="curve-types"></a>Curve-typen
 
 -   **P-256** -curve van het NIST p-256, gedefinieerd op [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256_K** -de seconde curve SECP256K1, gedefinieerd op [SEC 2: Aanbevolen Elliptic Curve domeinparameters](http://www.secg.org/sec2-v2.pdf).
+-   **P-256_K** -de seconde curve SECP256K1, gedefinieerd op [SEC 2: Aanbevolen Elliptic Curve domeinparameters](https://www.secg.org/sec2-v2.pdf).
 -   **P-384** -curve van het NIST P-384, gedefinieerd op [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** -curve van het NIST p-521 gedefinieerd op [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -409,10 +409,10 @@ Certificaatcontactpersonen bevatten informatie voor het verzenden van meldingen 
 
 Als het beleid van het certificaat is ingesteld op automatische verlenging, wordt op de volgende gebeurtenissen een melding verzonden.  
 
--   Voordat u certificaatvernieuwing
--   Na het vernieuwen van een certificaat, waarin wordt vermeld als het certificaat is verlengd of als er een fout optreedt, waarvoor handmatige verlenging van het certificaat.  
+- Voordat u certificaatvernieuwing
+- Na het vernieuwen van een certificaat, waarin wordt vermeld als het certificaat is verlengd of als er een fout optreedt, waarvoor handmatige verlenging van het certificaat.  
 
- Wanneer een certificaatbeleid of is ingesteld op handmatig worden vernieuwd (alleen voor e-mail), wordt een melding wordt verzonden wanneer het is nu tijd om het certificaat te vernieuwen.  
+  Wanneer een certificaatbeleid of is ingesteld op handmatig worden vernieuwd (alleen voor e-mail), wordt een melding wordt verzonden wanneer het is nu tijd om het certificaat te vernieuwen.  
 
 ### <a name="certificate-access-control"></a>Certificaat-toegangsbeheer
 

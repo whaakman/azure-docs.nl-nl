@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 256d709ac976736715f441ecde5eee22a6d86fa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: be1c46c5bc2c8edcfeca81c82095687c4ddfd894
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009082"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225821"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Maximaal beschikbare toepassingen met RA-GRS ontwerpen
 
@@ -123,7 +123,7 @@ Er zijn in feite twee scenario's om te overwegen wanneer u beslist het reageren 
 
     In dit scenario is het een op de prestaties omdat de leesaanvragen wordt Probeer eerst het primaire eindpunt, wacht totdat de time-out is verlopen en schakel over naar het secundaire eindpunt.
 
-Voor deze scenario's, moet u aangeven dat er een lopende probleem met het primaire eindpunt en verzenden aanvragen rechtstreeks naar het secundaire eindpunt lezen door in te stellen de **LocationMode** eigenschap **SecondaryOnly** . Op dit moment moet u ook de toepassing worden uitgevoerd in de modus alleen-lezen te wijzigen. Deze aanpak wordt ook wel de [Circuitonderbrekerpatroon](https://msdn.microsoft.com/library/dn589784.aspx).
+Voor deze scenario's, moet u aangeven dat er een lopende probleem met het primaire eindpunt en verzenden aanvragen rechtstreeks naar het secundaire eindpunt lezen door in te stellen de **LocationMode** eigenschap **SecondaryOnly** . Op dit moment moet u ook de toepassing worden uitgevoerd in de modus alleen-lezen te wijzigen. Deze aanpak wordt ook wel de [Circuitonderbrekerpatroon](/azure/architecture/patterns/circuit-breaker).
 
 ### <a name="update-requests"></a>Verzoeken om te werken
 

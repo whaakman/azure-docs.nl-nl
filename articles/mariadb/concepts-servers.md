@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: c2497fef359d4a519c6d4927dfc0c38ee3d80d88
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f61f8740c9514f6276afb2ee84bcdccdc54c0710
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544563"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997891"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Concepten van de server in Azure Database voor MariaDB
 In dit artikel vindt u overwegingen en richtlijnen voor het werken met Azure Database voor MariaDB-servers.
@@ -36,6 +36,7 @@ Op een Azure Database for MariaDB-server kunt u een of meerdere databases maken.
 ## <a name="how-do-i-secure-an-azure-database-for-mariadb-server"></a>Hoe beveilig ik een Azure Database voor MariaDB-server?
 
 De volgende elementen zorgen veilige toegang tot uw database.
+
 |||
 | :--| :--|
 | **Verificatie en autorisatie** | Azure Database voor MariaDB-server biedt ondersteuning voor systeemeigen MySQL-verificatie. U kunt verbinding maken en verifiëren met een server met de serverbeheerder. |

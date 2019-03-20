@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 859cd6cfd3db68dad2607f1dc8905facb43dd290
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ed53f9bf2e22e1d69a4e00de1e8d71291a5be46d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453768"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108709"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Aanroepen van een SSIS-pakket met behulp van opgeslagen procedure-activiteit in Azure Data Factory
 In dit artikel wordt beschreven hoe u een SSIS-pakket van een Azure Data Factory-pijplijn aanroepen met behulp van een opgeslagen procedure-activiteit. 
@@ -54,20 +54,20 @@ Eerste stap is het maken van een data factory met behulp van de Azure-portal.
 3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
 4. Voer een van de volgende stappen uit voor de **Resourcegroep**:
      
-      - Selecteer **Bestaande gebruiken** en selecteer een bestaande resourcegroep in de vervolgkeuzelijst. 
-      - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in.   
+   - Selecteer **Bestaande gebruiken** en selecteer een bestaande resourcegroep in de vervolgkeuzelijst. 
+   - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in.   
          
-    Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
+     Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
 4. Selecteer **V1** voor de **versie**.
 5. Selecteer de **locatie** voor de gegevensfactory. In de vervolgkeuzelijst ziet u alleen locaties die worden ondersteund in Data Factory. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich op andere locaties bevinden.
 6. Selecteer **Vastmaken aan dashboard**.     
 7. Klik op **Create**.
 8. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
 
-    ![tegel met de status 'gegevensfactory implementeren'](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
+     ![tegel met de status 'gegevensfactory implementeren'](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
    
-    ![Startpagina van de gegevensfactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+     ![Startpagina van de gegevensfactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Klik op **auteur en implementeer** tegel om te starten van de Data Factory-Editor.
 
     ![Data Factory Editor](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-editor.png)
@@ -304,13 +304,13 @@ In deze stap maakt maken u een pijplijn met een opgeslagen procedure-activiteit.
 
 ### <a name="monitor-the-pipeline-run"></a>De pijplijnuitvoering controleren.
 
-2. Voer **Get-AzDataFactorySlice** voor meer informatie over alle segmenten van de uitvoer gegevensset **, is de uitvoertabel van de pijplijn.
+1. Voer **Get-AzDataFactorySlice** voor meer informatie over alle segmenten van de uitvoer gegevensset **, is de uitvoertabel van de pijplijn.
 
     ```PowerShell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     De StartDateTime die u hier opgeeft, is dezelfde begintijd die u hebt opgegeven in de JSON van de pijplijn. 
-3. Voer **Get-AzDataFactoryRun** om op te halen van de details van activiteit actief is gedurende een bepaald segment.
+1. Voer **Get-AzDataFactoryRun** om op te halen van de details van activiteit actief is gedurende een bepaald segment.
 
     ```PowerShell
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z

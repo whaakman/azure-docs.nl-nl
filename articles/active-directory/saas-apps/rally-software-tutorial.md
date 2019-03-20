@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba4f1d41497af8f57a343eacc92c5da7d2488d07
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e7264792a123a8f8ce6c4a08a6c502de578d374c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163696"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891957"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Zelfstudie: Azure Active Directory-integratie met Rally Software
 
@@ -200,17 +200,17 @@ Voor Azure AD-gebruikers kunnen zich aanmelden, moeten ze worden ingericht voor 
 
 1. Typ de naam in het tekstvak van de nieuwe gebruiker en klik vervolgens op **toevoegen met Details**.
 
-1. In de **Create User** sectie, voert u de volgende stappen uit:
+1. Voer in de sectie **Create User** de volgende stappen uit:
    
     ![Create User](./media/rally-software-tutorial/ic781040.png "Create User")
 
     a. In de **gebruikersnaam** tekstvak typt u de naam van gebruiker, zoals **Brittsimon**.
    
-    b. In **e-mailadres** tekstvak, voer het e-mailadres van gebruiker, zoals **brittasimon@contoso.com**.
+    b. In **e-mailadres** tekstvak, voer het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
 
     c. Voer in het tekstvak **Voornaam** de voornaam van de gebruiker in, zoals **Britta**.
 
-    d. In **achternaam** tekst voert u de achternaam van de gebruiker, zoals **Simon**.
+    d. Typ in het tekstvak **Achternaam** de achternaam van de gebruiker, zoals **Simon**.
 
     e. Klik op **opslaan en sluiten**.
 
@@ -255,7 +255,7 @@ Wanneer u op de tegel Rally Software in het toegangsvenster, u moet u automatisc
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

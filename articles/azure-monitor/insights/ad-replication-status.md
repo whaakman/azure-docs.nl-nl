@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 3b7aa932d24b7879ee3f46419afa2327ee48b403
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 100d33bbd888d00ed33a38680df5a777e12fd63e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000990"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120802"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Status van Active Directory-replicatie bewaken met Azure Monitor
 
@@ -45,8 +45,8 @@ Als u niet wilt dat uw domeincontrollers rechtstreeks verbinden met Azure Monito
 
    > [!NOTE]
    > Deze wijzigingen kunnen pas van kracht opnieuw te starten de service Microsoft Monitoring Agent (HealthService.exe).
-### <a name="install-solution"></a>Oplossing installeren
-Volg de procedure beschreven in [installeren van een oplossing voor bewaking](solutions.md#install-a-monitoring-solution) om toe te voegen de **Active Directory Replication Status** oplossing aan uw Log Analytics-werkruimte. Er is geen verdere configuratie nodig.
+   > ### <a name="install-solution"></a>Oplossing installeren
+   > Volg de procedure beschreven in [installeren van een oplossing voor bewaking](solutions.md#install-a-monitoring-solution) om toe te voegen de **Active Directory Replication Status** oplossing aan uw Log Analytics-werkruimte. Er is geen verdere configuratie nodig.
 
 
 ## <a name="ad-replication-status-data-collection-details"></a>Details van AD-replicatiestatus gegevens verzamelen

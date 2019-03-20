@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: fa51290623f68e94db9cb1b28cd69c88b5d5cf18
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 46e60583da79006c133c8d9fac63e27f28bd699f
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000061"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188183"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detecteer gezichten en emoties met Azure Media Analytics
 ## <a name="overview"></a>Overzicht
@@ -60,7 +60,7 @@ Face Detector maakt gebruik van technieken van fragmentatie (waar de metagegeven
 
 ## <a name="face-detection-input-and-output-example"></a>Face detection-invoer en uitvoer voorbeeld
 ### <a name="input-video"></a>Invoervideo
-[Invoervideo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
+[Invoervideo](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>Taakconfiguratie (standaardoptie)
 Bij het maken van een taak met **Azure Media Face Detector**, moet u een configuratie-definitie opgeven. De volgende configuratie-voorinstelling is alleen voor gezichtsdetectie.
@@ -132,7 +132,7 @@ Het volgende voorbeeld van JSON-uitvoer is afgebroken.
 
 ## <a name="emotion-detection-input-and-output-example"></a>Detectie van emoties in invoer en uitvoer voorbeeld
 ### <a name="input-video"></a>Invoervideo
-[Invoervideo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
+[Invoervideo](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>Taakconfiguratie (standaardoptie)
 Bij het maken van een taak met **Azure Media Face Detector**, moet u een configuratie-definitie opgeven. De volgende configuratie-definitie Hiermee geeft u als u wilt maken op basis van de detectie van emoties in JSON.
@@ -522,5 +522,5 @@ namespace FaceDetection
 ## <a name="related-links"></a>Verwante koppelingen
 [Azure Media Services Analytics-overzicht](media-services-analytics-overview.md)
 
-[Azure Media Analytics-demo 's](http://amslabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics-demo 's](https://amslabs.azurewebsites.net/demos/Analytics.html)
 

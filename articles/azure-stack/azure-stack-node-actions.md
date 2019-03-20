@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 8073dff6dbd8bbceb16d7fdcf8d39012233c32d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240451"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090964"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Knooppunt-eenheidacties schalen in Azure Stack
 
@@ -42,21 +42,21 @@ Ga als volgt te werk om de status van een schaaleenheid weer te geven:
 3. Selecteer in de resultaten de schaaleenheid.
 4. Aan de linkerkant, onder **algemene**, selecteer **knooppunten**.
 
-  Bekijk de volgende informatie:
+   Bekijk de volgende informatie:
 
-  - De lijst met afzonderlijke knooppunten
-  - Operationele Status (Zie onderstaande lijst)
-  - Energiebeheer-Status (actief of gestopt)
-  - server-model
-  - IP-adres van de BMC (baseboard management controller)
-  - Totale aantal kernen
-  - totale hoeveelheid geheugen
+   - De lijst met afzonderlijke knooppunten
+   - Operationele Status (Zie onderstaande lijst)
+   - Energiebeheer-Status (actief of gestopt)
+   - server-model
+   - IP-adres van de BMC (baseboard management controller)
+   - Totale aantal kernen
+   - totale hoeveelheid geheugen
 
 ![status van een schaaleenheid](media/azure-stack-node-actions/multinodeactions.png)
 
 ### <a name="node-operational-states"></a>Operationele status van knooppunt
 
-| Status | Beschrijving |
+| Status | Description |
 |----------------------|-------------------------------------------------------------------|
 | In uitvoering | Het knooppunt is actief deelnemer in de schaaleenheid. |
 | Gestopt | Het knooppunt is niet beschikbaar. |

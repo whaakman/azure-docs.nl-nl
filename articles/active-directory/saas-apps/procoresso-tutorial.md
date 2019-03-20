@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62320d6523652d91f35e55196a84cc32ea7bc55d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 36e1c8d6cae79147c5cd4b5a46f5e1c330811ab8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440162"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877646"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Zelfstudie: Azure Active Directory-integratie met Procore eenmalige aanmelding
 
@@ -177,9 +177,9 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het maken van een Azure AD-testgebruiker](common/create_aaduser_02.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon** in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veld, typt u **brittasimon\@yourcompanydomain.extension**  
        Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
@@ -204,7 +204,7 @@ Volg de onderstaande stappen voor het maken van een Procore testgebruiker Procor
 
     b. In de **achternaam** tekstvak, de achternaam van de gebruiker van het type, zoals **Simon**.
 
-    c. In de **e-mailadres** tekstvak van de gebruiker van het type e-mailadres zoals **BrittaSimon@contoso.com**.
+    c. In de **e-mailadres** tekstvak van de gebruiker van het type e-mailadres zoals **BrittaSimon\@contoso.com**.
 
     d. Selecteer **machtigingssjabloon** als **machtigingssjabloon Later toepassen**.
 

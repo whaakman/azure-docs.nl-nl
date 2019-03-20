@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 0ba3c7321b0771c839289abb7891cd8e6b280afe
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4d3d45434a90e89e011bf8aa7c3fd37909e25386
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822677"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203061"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Apache Hadoop-logboeken analyseren
 
-Elke Apache Hadoop-cluster in Azure HDInsight is een Azure storage-account gebruikt als het standaardbestandssysteem. Het opslagaccount dat wordt aangeduid als het standaardaccount voor opslag. Cluster maakt gebruik van de Azure Table storage en de Blob-opslag op het standaardopslagaccount voor het opslaan van de logboeken.  Als u wilt het standaardopslagaccount voor uw cluster weten, Zie [beheren Apache Hadoop-clusters in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). De logboeken behouden in de Storage-account, zelfs nadat het cluster wordt verwijderd.
+Elke Apache Hadoop-cluster in Azure HDInsight is een Azure storage-account gebruikt als het standaardbestandssysteem. Het opslagaccount dat wordt aangeduid als het standaardaccount voor opslag. Cluster maakt gebruik van de Azure Table storage en de Blob-opslag op het standaardopslagaccount voor het opslaan van de logboeken.  Als u wilt het standaardopslagaccount voor uw cluster weten, Zie [beheren Apache Hadoop-clusters in HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). De logboeken behouden in de Storage-account, zelfs nadat het cluster wordt verwijderd.
 
 ## <a name="logs-written-to-azure-tables"></a>Logboeken geschreven naar Azure Tables
 
@@ -48,7 +48,7 @@ Deze tabellen bevatten de volgende velden:
 * Rol
 * RowIndex
 * Tenant
-* TIMESTAMP
+* TIJDSTEMPEL
 * TraceLevel
 
 ### <a name="tools-for-accessing-the-logs"></a>Hulpprogramma's voor toegang tot de logboeken
@@ -143,7 +143,7 @@ Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als
 
 ### <a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
 * **Beschrijving**: De server kan de aangevraagde cluster-record niet vinden.  
-* **Risicobeperking**: Probeer het opnieuw.
+* **Risicobeperking**: De bewerking opnieuw proberen.
 
 ### <a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
 * **Beschrijving**: Cluster DNS-naam *yourDnsName* is ongeldig. Controleer of de naam begint en eindigt met alfanumerieke tekens en mag alleen '-' speciaal teken  
@@ -171,7 +171,7 @@ Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als
 
 ### <a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
 * **Beschrijving**: Ongeldige clusterconfiguratie. Kan niet alle gegevens Knooppuntdefinities in de grootte van knooppunt vinden.  
-* **Risicobeperking**: Probeer het opnieuw.
+* **Risicobeperking**: De bewerking opnieuw proberen.
 
 ### <a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
 * **Beschrijving**: Verwijderen van de implementatie is mislukt voor het Cluster  
@@ -191,7 +191,7 @@ Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als
 
 ### <a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
 * **Beschrijving**: De server kan de status van de implementatie van het cluster niet bijwerken.  
-* **Risicobeperking**: Probeer het opnieuw. Als dit herhaaldelijk gebeurt, moet u contact op met CSS.
+* **Risicobeperking**: De bewerking opnieuw proberen. Als dit herhaaldelijk gebeurt, moet u contact op met CSS.
 
 ### <a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
 * **Beschrijving**: Cluster *yourClusterName* is verwijderd als onderdeel van onderhoud. Maak een nieuwe het cluster.
@@ -199,7 +199,7 @@ Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als
 
 ### <a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
 * **Beschrijving**: Ongeldige clusterconfiguratie. De configuratie van de vereiste hoofdknooppunt is niet gevonden in de grootte van.
-* **Risicobeperking**: Probeer het opnieuw.
+* **Risicobeperking**: De bewerking opnieuw proberen.
 
 ### <a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
 * **Beschrijving**: Kan niet worden gemaakt van de gehoste service *nameOfYourHostedService*. Probeer de aanvraag.  
@@ -317,4 +317,4 @@ Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als
 
 * [Apache Ambari-weergaven gebruiken om op te sporen Apache Tez-taken in HDInsight](../hdinsight-debug-ambari-tez-view.md)
 * [Heapdumps voor Apache Hadoop-services op Linux gebaseerde HDInsight inschakelen](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [HDInsight-clusters beheren met behulp van de Apache Ambari-Webinterface](../hdinsight-hadoop-manage-ambari.md)
+* [HDInsight-clusters beheren met behulp van de Apache Ambari-webinterface](../hdinsight-hadoop-manage-ambari.md)

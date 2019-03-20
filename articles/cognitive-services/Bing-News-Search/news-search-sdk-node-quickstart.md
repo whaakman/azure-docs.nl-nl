@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 262f7f49987dba8340ba4a1f0e6e505b9858e1e5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1930ef761b4be9d8085fd6e1785e78146c6b5547
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109158"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Snelstartgids: Nieuws zoeken met de Bing News Search-SDK voor Node.js
 
@@ -35,7 +35,7 @@ Stel een consoletoepassing in met de Bing News Search SDK:
 
 ## <a name="create-and-initialize-the-application"></a>De toepassing maken en initialiseren
 
-1. Maak een instantie van de `CognitiveServicesCredentials`. Maak variabelen voor uw abonnementssleutel en een zoekterm.
+1. Maak een instantie van de `CognitiveServicesCredentials`. Variabelen voor de abonnementssleutel van uw en een zoekterm maken.
 
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
@@ -52,7 +52,7 @@ Stel een consoletoepassing in met de Bing News Search SDK:
 
 ## <a name="send-a-search-query"></a>Een zoekquery verzenden
 
-3. Gebruik de client om te zoeken met een queryterm, in dit geval 'Winter Olympics':
+1. Gebruik de client om te zoeken met een queryterm, in dit geval 'Winter Olympics':
     
     ```javascript
     client.newsOperations.search(search_term).then((result) => {
@@ -72,4 +72,4 @@ De code geeft `result.value` items weer in de console zonder tekst te parseren. 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-[Een web-app met één pagina maken](tutorial-bing-news-search-single-page-app.md)
+> [Een web-app met één pagina maken](tutorial-bing-news-search-single-page-app.md)

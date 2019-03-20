@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 3938dece92ed133d268fceda746cbe05305e15ae
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 388a0419d5de87c3eb7faff9b556f888e52ac12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449492"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117367"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Machines groeperen met behulp van machine-afhankelijkheidstoewijzing
 
@@ -105,8 +105,8 @@ Meer informatie over de ondersteuning van de agent afhankelijkheid voor de [Wind
 
 4. U kunt zoeken op afhankelijkheden verschillende tijdsduren door te klikken op de duur in het bereik tijdlabel. Het bereik is standaard een uur. U kunt het tijdsbereik wijzigen of geef de begin- en einddatums en duur.
 
-    > [!NOTE]
-      De visualisatie van afhankelijkheden gebruikersinterface biedt op dit moment geen ondersteuning voor selectie van een periode die langer dan een uur. Gebruik Azure Monitor meldt zich aan [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) gedurende een langere periode.
+   > [!NOTE]
+   >    De visualisatie van afhankelijkheden gebruikersinterface biedt op dit moment geen ondersteuning voor selectie van een periode die langer dan een uur. Gebruik Azure Monitor meldt zich aan [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) gedurende een langere periode.
 
 5. Nadat u hebt vastgesteld dat afhankelijke machines die u wilt groeperen, gebruikt u Ctrl + klikken om te selecteren van meerdere virtuele machines op de kaart en klikt u op **machines groeperen**.
 6. Geef een groepsnaam op. Controleer of dat de afhankelijke machines zijn gedetecteerd door Azure Migrate.

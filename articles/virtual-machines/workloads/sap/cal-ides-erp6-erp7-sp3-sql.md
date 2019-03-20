@@ -16,17 +16,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: eb5d731fbef22c70aaf970bf64aa90361e47a542
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 413e449f005d288f66da0257f5b800733e58eb94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194195"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011272"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>SAP IDES EHP7 SP3 implementeren voor SAP ERP 6.0 op Azure
 In dit artikel wordt beschreven hoe u een SAP IDES-systeem dat u met SQL Server en het Windows-besturingssysteem wordt uitgevoerd, op Azure via de SAP Cloud Appliance Library (SAP CAL) 3.0 implementeren. De schermafbeeldingen tonen het stapsgewijze proces. Volg dezelfde stappen voor het implementeren van een andere oplossing.
 
-Als u wilt beginnen met de SAP CAL, gaat u naar de [SAP Cloud Appliance Library](https://cal.sap.com/) website. SAP heeft ook een blog over de nieuwe [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
+Als u wilt beginnen met de SAP CAL, gaat u naar de [SAP Cloud Appliance Library](https://cal.sap.com/) website. SAP heeft ook een blog over de nieuwe [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 > [!NOTE]
 > Vanaf 29 mei 2017, kunt u het Azure Resource Manager-implementatiemodel naast het minder voorkeur klassieke implementatiemodel gebruiken voor het implementeren van de SAP CAL. U wordt aangeraden dat u de nieuwe Resource Manager-implementatiemodel gebruiken en geen rekening gehouden met het klassieke implementatiemodel.
@@ -46,8 +46,8 @@ Nadat u zich bij de SAP CAL aanmelden, de eerste pagina meestal leidt u naar de 
     
     c. Hiermee geeft u de SAP CAL-machtiging voor het implementeren in uw Azure-abonnement.
 
-    > [!NOTE]
-    De volgende stappen laten zien hoe een SAP CAL-account voor Resource Manager-implementaties maken. Als u al een SAP CAL-account dat is gekoppeld aan het klassieke implementatiemodel, hebt u *moet* om deze stappen om een nieuwe SAP CAL-account te maken. De nieuwe SAP CAL-account moet implementeren in het Resource Manager-model.
+   > [!NOTE]
+   >  De volgende stappen laten zien hoe een SAP CAL-account voor Resource Manager-implementaties maken. Als u al een SAP CAL-account dat is gekoppeld aan het klassieke implementatiemodel, hebt u *moet* om deze stappen om een nieuwe SAP CAL-account te maken. De nieuwe SAP CAL-account moet implementeren in het Resource Manager-model.
 
 1. Een nieuwe SAP CAL-account, maken de **Accounts** pagina ziet u twee opties voor Azure: 
 
@@ -91,7 +91,7 @@ U een SAP CAL-account dat kan worden gemaakt:
 - Implementeer SAP-systemen in uw Azure-abonnement.
 
 > [!NOTE]
-Voordat u de SAP IDES-oplossing op basis van Windows en SQL Server implementeren kunt, moet u mogelijk om u te registreren voor een SAP CAL-abonnement. Anders wordt de oplossing mogelijk weergegeven als **vergrendeld** op de overzichtspagina.
+> Voordat u de SAP IDES-oplossing op basis van Windows en SQL Server implementeren kunt, moet u mogelijk om u te registreren voor een SAP CAL-abonnement. Anders wordt de oplossing mogelijk weergegeven als **vergrendeld** op de overzichtspagina.
 
 ### <a name="deploy-a-solution"></a>Een oplossing implementeren
 1. Na het instellen van een SAP CAL-account, selecteert u **oplossing voor de SAP IDES op Windows en SQL Server** oplossing. Klik op **instantie maken**, en controleer of de gebruiks- en voorwaarden de voorwaarden. 

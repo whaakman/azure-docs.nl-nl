@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 336b30a8e8687b3a2bdd05a17e558f44905f135e
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a4757be00a3633f56aed52dd7af22923e49b0b62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338838"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102380"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Beveiligingsgegevens (preview) ingesteld voor het gebruik van een verificator-app
 U kunt deze stappen om toe te voegen uw tweeledige verificatie en methoden voor wachtwoord opnieuw instellen. Nadat u hebt dit tijdens de eerste keer hebt ingesteld, kunt u terugkeren naar de **beveiligingsgegevens** pagina toevoegen, bijwerken of verwijderen van uw beveiligingsgegevens.
@@ -52,10 +52,10 @@ Afhankelijk van instellingen van uw organisatie, kunt u mogelijk een verificatie
 
     ![Beginnen met het ophalen van de app-pagina](media/security-info/securityinfo-myprofile-getauthapp.png)
 
-    >[!Note]
-    >Als u een andere verificator-app dan de Microsoft Authenticator-app gebruiken wilt, selecteert u de koppeling **Ik wil een andere verificator-app gebruiken**.
-    
-    >Als u van uw organisatie u een andere methode dan de authenticator-app kiezen mag, kunt u de **Ik wil andere methode instellen-koppeling** selecteren.
+   > [!Note]
+   > Als u een andere verificator-app dan de Microsoft Authenticator-app gebruiken wilt, selecteert u de koppeling **Ik wil een andere verificator-app gebruiken**.
+   > 
+   > Als u van uw organisatie u een andere methode dan de authenticator-app kiezen mag, kunt u de **Ik wil andere methode instellen-koppeling** selecteren.
 
 5. Blijven op de **Uw account instellen**-pagina tijdens het instellen van de Microsoft Authenticator-app op uw mobiele apparaat.
 
@@ -81,9 +81,9 @@ Afhankelijk van instellingen van uw organisatie, kunt u mogelijk een verificatie
 
 8. Keur de melding in de Microsoft Authenticator-app goed en selecteer vervolgens **Volgende**.
 
-    ![Melding van geslaagd, met verbinding van de app en uw account](media/security-info/securityinfo-myprofile-successauthapp.png)
+     ![Melding van geslaagd, met verbinding van de app en uw account](media/security-info/securityinfo-myprofile-successauthapp.png)
 
-    Uw beveiligingsgegevens zijn bijgewerkt voor het standaard gebruik van de Microsoft Authenticator-app om uw identiteit te verifiëren bij het gebruik van verificatie in twee stappen of opnieuw instellen van het wachtwoord.
+     Uw beveiligingsgegevens zijn bijgewerkt voor het standaard gebruik van de Microsoft Authenticator-app om uw identiteit te verifiëren bij het gebruik van verificatie in twee stappen of opnieuw instellen van het wachtwoord.
 
 ## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>De authenticator-app verwijderen uit uw gegevens beveiligingsmethoden
 Als u niet meer gebruiken de authenticator-app als een methode-info wilt, kunt u het verwijderen van de **beveiligingsgegevens** pagina. Dit werkt voor alle verificator-apps, niet alleen de Microsoft Authenticator-app. Nadat u de app verwijdert, hebt u de authenticator-app op uw mobiele apparaat en het account verwijderen.

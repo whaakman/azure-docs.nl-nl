@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: a4f9fee0c405c893d76d044278c80e7b31823fce
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 60489e3fc7fc6482a14a241e777066b3805a4d5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881333"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095106"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Het back-up en herstellen van een server in Azure Database for PostgreSQL via Azure portal
 
@@ -58,10 +58,10 @@ De volgende stappen wordt de voorbeeldserver hersteld naar een punt-in-time:
 3. Vul het formulier herstellen met de vereiste gegevens in:
 
    ![Azure Database voor PostgreSQL - gegevens herstellen](./media/howto-restore-server-portal/3-restore.png)
-  - **Herstelpunt**: Selecteer de point-in-time-u wilt herstellen.
-  - **Doelserver**: Geef een naam voor de nieuwe server.
-  - **Locatie**: U kunt de regio niet selecteren. Het is standaard hetzelfde als de bronserver.
-  - **Prijscategorie**: U kunt deze parameters niet wijzigen bij het uitvoeren van een point-in-time-restore. Deze is hetzelfde als de bronserver. 
+   - **Herstelpunt**: Selecteer de point-in-time-u wilt herstellen.
+   - **Doelserver**: Geef een naam voor de nieuwe server.
+   - **Locatie**: U kunt de regio niet selecteren. Het is standaard hetzelfde als de bronserver.
+   - **Prijscategorie**: U kunt deze parameters niet wijzigen bij het uitvoeren van een point-in-time-restore. Deze is hetzelfde als de bronserver. 
 
 4. Klik op **OK** om de server om te herstellen naar een punt-in-time te herstellen. 
 

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 16beaadae36dfc7445a88875d36786bd97889599
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2a959c9d131c6aa0bdc99450cf2b6f09a5d8bfa7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445070"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102346"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Meldingen en e-mailsjablonen configureren in Azure API Management
 API Management biedt de mogelijkheid om meldingen voor specifieke gebeurtenissen te configureren en het configureren van het e-mailsjablonen die worden gebruikt om te communiceren met de beheerders en ontwikkelaars van exemplaar van API Management. Dit artikel laat zien hoe u meldingen voor de beschikbare gebeurtenissen configureren en biedt een overzicht van het configureren van het e-mailsjablonen gebruikt deze gebeurtenissen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u geen exemplaar van API Management-service, voert u de volgende Snelstartgids: [maken van een Azure API Management-exemplaar](get-started-create-service-instance.md).
+Als u geen exemplaar van API Management-service, voert u de volgende Quick Start: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -38,15 +38,15 @@ Als u geen exemplaar van API Management-service, voert u de volgende Snelstartgi
 
     De volgende lijst met gebeurtenissen kan worden geconfigureerd voor meldingen.
 
-    * **Verzoeken om abonnementen (moeten worden goedgekeurd)** -ontvangt de opgegeven e-mailontvangers en gebruikers e-mailmeldingen over verzoeken om abonnementen voor API-producten die moeten worden goedgekeurd.
-    * **Nieuwe abonnementen** -ontvangt de opgegeven e-mailontvangers en gebruikers e-mailmeldingen over nieuwe abonnementen voor API-product.
-    * **Galerie toepassingsaanvragen** -de opgegeven e-mailontvangers en gebruikers worden e-mailmeldingen ontvangen wanneer nieuwe toepassingen worden verzonden naar de galerie.
-    * **BCC** -ontvangt de opgegeven e-mailontvangers en gebruikers e-mailbericht blind kopie van alle e-mailberichten verzonden voor ontwikkelaars.
-    * **Nieuw probleem of opmerking** : de opgegeven e-mailontvangers en gebruikers e-mailmeldingen wanneer een nieuw probleem wordt ontvangen of opmerking wordt ingediend op de portal voor ontwikkelaars.
-    * **Account sluiten bericht** -de opgegeven e-mailontvangers en gebruikers worden e-mailmeldingen ontvangen wanneer een account is gesloten.
-    * **Bijna quotumlimiet voor uw abonnement** -de volgende e-mailontvangers en gebruikers worden e-mailmeldingen ontvangen wanneer abonnementsgebruik dicht bij gebruiksquotum opgehaald.
+   * **Verzoeken om abonnementen (moeten worden goedgekeurd)** -ontvangt de opgegeven e-mailontvangers en gebruikers e-mailmeldingen over verzoeken om abonnementen voor API-producten die moeten worden goedgekeurd.
+   * **Nieuwe abonnementen** -ontvangt de opgegeven e-mailontvangers en gebruikers e-mailmeldingen over nieuwe abonnementen voor API-product.
+   * **Galerie toepassingsaanvragen** -de opgegeven e-mailontvangers en gebruikers worden e-mailmeldingen ontvangen wanneer nieuwe toepassingen worden verzonden naar de galerie.
+   * **BCC** -ontvangt de opgegeven e-mailontvangers en gebruikers e-mailbericht blind kopie van alle e-mailberichten verzonden voor ontwikkelaars.
+   * **Nieuw probleem of opmerking** : de opgegeven e-mailontvangers en gebruikers e-mailmeldingen wanneer een nieuw probleem wordt ontvangen of opmerking wordt ingediend op de portal voor ontwikkelaars.
+   * **Account sluiten bericht** -de opgegeven e-mailontvangers en gebruikers worden e-mailmeldingen ontvangen wanneer een account is gesloten.
+   * **Bijna quotumlimiet voor uw abonnement** -de volgende e-mailontvangers en gebruikers worden e-mailmeldingen ontvangen wanneer abonnementsgebruik dicht bij gebruiksquotum opgehaald.
 
-    Voor elke gebeurtenis, kunt u e-mailontvangers in het tekstvak voor e-mailadres of kunt u gebruikers in een lijst selecteren.
+     Voor elke gebeurtenis, kunt u e-mailontvangers in het tekstvak voor e-mailadres of kunt u gebruikers in een lijst selecteren.
 
 3. Als u de e-mailadressen op de hoogte worden gebracht, moet u deze in het tekstvak e-mailadres invoeren. Hebt u meerdere e-mailadressen scheiden met komma's.
 

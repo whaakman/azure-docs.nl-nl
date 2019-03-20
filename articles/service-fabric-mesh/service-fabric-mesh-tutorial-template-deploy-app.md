@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 906efa00243cc622c374d442a7982d87d106079b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 773a466f9619f162fe3f7cbeeab0b766d3ca32ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158839"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864861"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Zelfstudie: Een toepassing in Service Fabric Mesh implementeren met behulp van een sjabloon
 
@@ -211,7 +211,7 @@ Het parametergedeelte is aan de bovenkant van uw implementatiesjabloon gedefinie
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       ...
@@ -229,7 +229,7 @@ Services worden in de sjabloon gespecificeerd als eigenschappen van de toepassin
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     ...
@@ -344,7 +344,8 @@ Raadpleeg het [mesh_rp.windows.json-implementatiesjabloonbestand](https://github
 Maak de toepassing en gerelateerde resources met behulp van de volgende opdracht en geef de referenties uit de vorige stap [Referenties voor het register ophalen](#retrieve-credentials-for-the-registry) op.
 
 Werk in het parameterbestand de volgende parameterwaarden bij:
-|Parameter|Waarde|
+
+|Parameter|Value|
 |---|---|
 |location|De regio waarin de toepassing moet worden geïmplementeerd.  Bijvoorbeeld: ‘eastus’.|
 |registryPassword|Het wachtwoord dat u eerder hebt opgehaald in [Referenties voor het register ophalen](#retrieve-credentials-for-the-registry). Deze parameter in de sjabloon is een beveiligde tekenreeks en zal niet in de implementatiestatus of `az mesh service show`-opdrachten worden weergegeven.|

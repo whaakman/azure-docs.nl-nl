@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 17f239dc3ba9714c01f55a88419df2d3416908fa
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539697"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995791"
 ---
 # <a name="troubleshooting-network-performance"></a>Oplossen van problemen met prestaties van het netwerk
 ## <a name="overview"></a>Overzicht
@@ -180,20 +180,20 @@ Instellingen testen:
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Locatie|Azure<br/>Regio|Schatting<br/>Afstand (km)|Latentie|1-sessie<br/>Bandbreedte|Maximum<br/>Bandbreedte|
-| Seattle | US - west 2        |    191 km |   5 ms | 262.0 Mbit per seconde |  3,74 Gbit/sec | 21
-| Seattle | US - west          |  1,094 km |  18 ms |  82.3 Mbit per seconde |  3.70 Gbit/sec | 20
-| Seattle | US - centraal       |  2,357 km |  40 ms |  38.8 Mbit per seconde |  2,55 Gbit/sec | 17
-| Seattle | US - zuid-centraal |  2,877 km |  51 ms |  30,6 mil Mbit per seconde |  2.49 Gbit/sec | 19
-| Seattle | US - noord-centraal |  2,792 km |  55 ms |  27.7 Mbit per seconde |  2.19 Gbit/sec | 18
-| Seattle | US - oost 2        |  3,769 km |  73 ms |  21.3 Mbit per seconde |  1.79 Gbit/sec | 16
-| Seattle | US - oost          |  3,699 km |  74 ms |  21.1 Mbit per seconde |  1,78 Gbit/sec | 15
-| Seattle | Japan - oost       |  7,705 km | 106 ms |  14,6 Mbit per seconde |  1.22 Gbit/sec | 28
-| Seattle | Verenigd Koninkrijk Zuid         |  7,708 km | 146 ms |  10.6 Mbit per seconde |   896 Mbit per seconde | 24
-| Seattle | Europa -west      |  7,834 km | 153 ms |  10.2 Mbit per seconde |   761 Mbit per seconde | 23
-| Seattle | Australië - oost   | 12,484 km | 165 ms |   9.4 Mbit per seconde |   794 Mbit per seconde | 26
-| Seattle | Azië - zuidoost   | 12,989 km | 170 ms |   9.2 Mbit per seconde |   756 Mbit per seconde | 25
-| Seattle | Brazilië-Zuid *   | 10,930 km | 189 ms |   8.2 Mbit per seconde |   699 Mbit per seconde | 22
-| Seattle | India - zuid      | 12,918 km | 202 ms |   7,7 Mbit per seconde |   634 Mbit per seconde | 27
+| Seattle | US - west 2        |    191 km |   5 ms | 262.0 Mbit per seconde |  3,74 Gbit/sec |
+| Seattle | US - west          |  1,094 km |  18 ms |  82.3 Mbit per seconde |  3.70 Gbit/sec |
+| Seattle | US - centraal       |  2,357 km |  40 ms |  38.8 Mbit per seconde |  2,55 Gbit/sec |
+| Seattle | US - zuid-centraal |  2,877 km |  51 ms |  30,6 mil Mbit per seconde |  2.49 Gbit/sec |
+| Seattle | US - noord-centraal |  2,792 km |  55 ms |  27.7 Mbit per seconde |  2.19 Gbit/sec |
+| Seattle | US - oost 2        |  3,769 km |  73 ms |  21.3 Mbit per seconde |  1.79 Gbit/sec |
+| Seattle | US - oost          |  3,699 km |  74 ms |  21.1 Mbit per seconde |  1,78 Gbit/sec |
+| Seattle | Japan - oost       |  7,705 km | 106 ms |  14,6 Mbit per seconde |  1.22 Gbit/sec |
+| Seattle | Verenigd Koninkrijk Zuid         |  7,708 km | 146 ms |  10.6 Mbit per seconde |   896 Mbit per seconde |
+| Seattle | Europa -west      |  7,834 km | 153 ms |  10.2 Mbit per seconde |   761 Mbit per seconde |
+| Seattle | Australië - oost   | 12,484 km | 165 ms |   9.4 Mbit per seconde |   794 Mbit per seconde |
+| Seattle | Azië - zuidoost   | 12,989 km | 170 ms |   9.2 Mbit per seconde |   756 Mbit per seconde |
+| Seattle | Brazilië-Zuid *   | 10,930 km | 189 ms |   8.2 Mbit per seconde |   699 Mbit per seconde |
+| Seattle | India - zuid      | 12,918 km | 202 ms |   7,7 Mbit per seconde |   634 Mbit per seconde |
 
 \* De latentie voor Brazilië is een goed voorbeeld waarbij de lineaire afstand aanzienlijk verschilt van de fiber afstand worden uitgevoerd. Kan ik verwachten dat de latentie in de groep van 160 ms worden zou, maar daadwerkelijk 189 ms is. Dit verschil op basis van de verwachting dat kan duiden op een netwerkprobleem ergens, maar zeer waarschijnlijk dat de fiber uitgevoerd niet naar Brazilië in een rechte lijn en heeft een extra 1000 km of zo manier van reizen om op te halen voor Brazilië uit Seattle.
 
@@ -213,14 +213,3 @@ Instellingen testen:
 [Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
 [ACT]: https://aka.ms/AzCT
-
-
-
-
-
-
-
-
-
-
-

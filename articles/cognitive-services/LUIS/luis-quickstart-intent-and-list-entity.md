@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 23a94f7b2054692feedb3b7755dad1e840809be7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 5417c1c008b5abaada158530c7c29c67e0dc1ca0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734115"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119663"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Zelfstudie: Gegevens met exacte tekstovereenkomst ophalen uit een utterance
 
@@ -134,7 +134,7 @@ De primaire, _canonieke_, naam voor elk item is de afdelingsnaam. Voorbeelden va
 
 1. Ga naar het einde van de URL in het adres en voer `shift Joe Smith to IT` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `TransferEmployeeToDepartment` met `Department` geëxtraheerd als resultaat moet geven.
 
-  ```json
+   ```json
     {
       "query": "shift Joe Smith to IT",
       "topScoringIntent": {
@@ -165,7 +165,7 @@ De primaire, _canonieke_, naam voor elk item is de afdelingsnaam. Voorbeelden va
         }
       ]
     }
-  ```
+   ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

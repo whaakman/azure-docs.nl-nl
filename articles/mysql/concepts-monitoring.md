@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 05af196d115376d744df1976c6a3d9fe9cab74e0
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9dcb79e7f4ebd43da3f6c6fd35fa0707898d7ec8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958895"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111001"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Bewaking in Azure Database for MySQL
 Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database for MySQL biedt verschillende metrische gegevens inzicht in het gedrag van uw server geven.
@@ -23,7 +23,7 @@ Alle metrische gegevens van Azure hebben een frequentie van één minuut en elke
 Deze metrische gegevens zijn beschikbaar voor Azure Database voor MySQL:
 
 |Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Description|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU-percentage|Procent|Het percentage van CPU gebruikt.|
 |memory_percent|Percentage geheugen|Procent|Het percentage gebruikt geheugen.|
 |io_consumption_percent|I/o-percentage|Procent|Het percentage i/o in gebruik.|

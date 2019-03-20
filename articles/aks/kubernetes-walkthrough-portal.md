@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 39d267c1d113c2f1950650416c18bfd8ad8caa9c
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 9a7cbc22ce6034db0ab7d5229104c644ec3f0330
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653591"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087734"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Quickstart: Een AKS-cluster (Azure Kubernetes Service) implementeren met Azure Portal
 
@@ -36,20 +36,20 @@ Selecteer in de linkerbovenhoek van Azure Portal **+ Een resource maken** > **Ku
 Voltooi de volgende stappen om een AKS-cluster te maken:
 
 1. **Basisprincipes**, configureer de volgende opties:
-    - *PROJECTGEGEVENS*: Selecteer een Azure-abonnement, en selecteer of maak vervolgens een Azure-resourcegroep, zoals *myResourceGroup*. Voer een **Kubernetes-clusternaam** in, zoals *myAKSCluster*.
-    - *CLUSTERDETAILS*: Selecteer een regio, Kubernetes-versie en DNS-naamvoorvoegsel voor het AKS-cluster.
-    - *SCHAAL*: Selecteer een VM-grootte voor de AKS-knooppunten. De VM-grootte kan **niet** meer worden gewijzigd als een AKS-cluster eenmaal is geïmplementeerd.
-        - Selecteer het aantal knooppunten dat u in het cluster wilt implementeren. Stel voor deze quickstart het **Aantal knooppunten** in op *1*. Het aantal knooppunten kan nog **wel** worden gewijzigd als het cluster is geïmplementeerd.
+   - *PROJECTGEGEVENS*: Selecteer een Azure-abonnement, en selecteer of maak vervolgens een Azure-resourcegroep, zoals *myResourceGroup*. Voer een **Kubernetes-clusternaam** in, zoals *myAKSCluster*.
+   - *CLUSTERDETAILS*: Selecteer een regio, Kubernetes-versie en DNS-naamvoorvoegsel voor het AKS-cluster.
+   - *SCHAAL*: Selecteer een VM-grootte voor de AKS-knooppunten. De VM-grootte kan **niet** meer worden gewijzigd als een AKS-cluster eenmaal is geïmplementeerd.
+       - Selecteer het aantal knooppunten dat u in het cluster wilt implementeren. Stel voor deze quickstart het **Aantal knooppunten** in op *1*. Het aantal knooppunten kan nog **wel** worden gewijzigd als het cluster is geïmplementeerd.
     
-    ![AKS-cluster maken - basisgegevens opgeven](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+     ![AKS-cluster maken - basisgegevens opgeven](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Selecteer **Volgende: Verificatie** wanneer u klaar bent.
+     Selecteer **Volgende: Verificatie** wanneer u klaar bent.
 
 1. **Verificatie**: Configureer de volgende opties:
-    - Maak een nieuwe service-principal of *configureer* om een bestaande te gebruiken. Wanneer u een bestaande service-principal gebruikt, moet u de SPN-client-ID en het geheim opgeven.
-    - Schakel de optie voor Kubernetes-toegangsbeheer op basis van rollen (RBAC) in. Deze besturingselementen bieden een verfijnder beheer van de toegang tot de Kubernetes-resources die zijn geïmplementeerd in het AKS-cluster.
+   - Maak een nieuwe service-principal of *configureer* om een bestaande te gebruiken. Wanneer u een bestaande service-principal gebruikt, moet u de SPN-client-ID en het geheim opgeven.
+   - Schakel de optie voor Kubernetes-toegangsbeheer op basis van rollen (RBAC) in. Deze besturingselementen bieden een verfijnder beheer van de toegang tot de Kubernetes-resources die zijn geïmplementeerd in het AKS-cluster.
 
-    Standaard worden *basis* netwerkfuncties gebruikt en Azure Monitor voor containers is ingeschakeld. Selecteer **Controleren + maken** en vervolgens **Maken** wanneer u klaar bent.
+     Standaard worden *basis* netwerkfuncties gebruikt en Azure Monitor voor containers is ingeschakeld. Selecteer **Controleren + maken** en vervolgens **Maken** wanneer u klaar bent.
 
 Het duurt enkele minuten om het AKS-cluster te maken en voor te bereiden voor gebruik. Blader als u klaar bent naar de AKS-clusterresourcegroep, zoals *myResourceGroup*, en selecteer de AKS-resource, zoals *myAKSCluster*. Het AKS-clusterdashboard wordt weergegeven, zoals u kunt zien in de volgende voorbeeldschermopname:
 
@@ -84,7 +84,7 @@ aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-In een Kubernetes-manifestbestand wordt een gewenste status voor het cluster gedefinieerd, zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In deze snelstart worden met behulp van een manifest alle objecten gemaakt die nodig zijn om de Azure Vote-toepassing uit te voeren. Dit manifest bevat twee [Kubernetes-implementaties][kubernetes-deployment]: een voor de Azure Vote Python-voorbeeldtoepassingen en een voor een Redis-instantie. Er worden bovendien twee [Kubernetes-services][kubernetes-service] gemaakt: een interne service voor de Redis-instantie en een externe service voor toegang tot de Azure Vote-toepassing vanaf internet.
+In een Kubernetes-manifestbestand wordt een gewenste status voor het cluster gedefinieerd, zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In deze snelstart worden met behulp van een manifest alle objecten gemaakt die nodig zijn om de Azure Vote-toepassing uit te voeren. Dit manifest bevat twee [Kubernetes-implementaties][kubernetes-deployment], een voor de Azure Vote Python-voorbeeldtoepassingen en een voor een instantie van Redis. Er worden bovendien twee [Kubernetes-services][kubernetes-service] gemaakt: een interne service voor de Redis-instantie en een externe service voor toegang tot de Azure Vote-toepassing vanaf internet.
 
 > [!TIP]
 > In deze snelstart maakt en implementeert u handmatig uw toepassingsmanifesten in het AKS-cluster. In meer praktijkgerichte scenario’s kunt u [Azure Dev Spaces][azure-dev-spaces] gebruiken om uw code snel te herhalen en fouten op te sporen, rechtstreeks in het AKS-cluster. U kunt Dev Spaces gebruiken op alle OS-platformen en in alle ontwikkelomgevingen, en u kunt samenwerken met andere leden van uw team.
@@ -178,7 +178,7 @@ Implementeer de toepassing met de opdracht [kubectl apply][kubectl-apply] en gee
 kubectl apply -f azure-vote.yaml
 ```
 
-In de volgende voorbeelduitvoer ziet u dat de implementaties en services zijn gemaakt:
+In de volgende voorbeelduitvoer ziet u dat je implementaties en services zijn gemaakt:
 
 ```
 deployment "azure-vote-back" created

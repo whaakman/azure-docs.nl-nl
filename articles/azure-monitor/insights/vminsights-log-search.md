@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/06/2019
+ms.date: 03/15/2019
 ms.author: magoedte
-ms.openlocfilehash: f33b87fa2c90eda7e4fa135e55565781e8491418
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 12f8b3d9dd461dc5d09d76245aa02f0e1cefc343
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983775"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188965"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hoe u Logboeken voor query's van Azure Monitor voor virtuele machines (preview)
 Azure Monitor voor virtuele machines verzamelt prestaties en metrische verbindingsgegevens, computer- en inventarisgegevens proces en informatie over de status en stuurt deze door naar de Log Analytics-werkruimte in Azure Monitor.  Deze gegevens zijn beschikbaar voor [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
@@ -33,10 +33,20 @@ Er zijn intern gegenereerde eigenschappen die u gebruiken kunt om unieke process
 
 Omdat meerdere records kunnen voor een opgegeven proces en de computer in een opgegeven tijdperiode, kunnen meer dan één record voor dezelfde computer of proces-query's retourneren. Zodat alleen de meest recente record toevoegen ' | Ontdubbeling ResourceId"aan de query.
 
-### <a name="connections"></a>Verbindingen
-Metrische verbindingsgegevens worden geschreven naar een nieuwe tabel in Azure Monitor-logs - VMConnection. Deze tabel bevat informatie over de verbindingen voor een virtuele machine (binnenkomend en uitgaand). Metrische verbindingsgegevens worden ook weergegeven met API's die de mogelijkheid om op te halen van specifieke metrische gegevens gedurende een bepaalde periode.  TCP-verbindingen die voortvloeien uit "*accepteren*- ing op een socket die luisteren naar binnenkomende, terwijl deze die zijn gemaakt door zijn *verbinding*- doorsturen naar een bepaald IP en poort uitgaande zijn. De richting van een verbinding wordt vertegenwoordigd door de eigenschap Direction, die kan worden ingesteld op **inkomende** of **uitgaande**. 
+### <a name="connections-and-ports"></a>Verbindingen en poorten
+De functie metrische verbindingsgegevens bevat twee nieuwe tabellen in Azure Monitor logs - VMConnection en VMBoundPort. Deze tabellen bevatten informatie over de verbindingen voor een virtuele machine (binnenkomend en uitgaand), evenals de server openen/actief zijn op deze poorten. ConnectionMetrics worden ook beschikbaar gesteld via API's die de mogelijkheid om op te halen van specifieke metrische gegevens gedurende een bepaalde periode. TCP-verbindingen die voortvloeien uit *accepteren* op luisterende socket inkomend, terwijl deze die zijn gemaakt door zijn *verbinding* naar een bepaald IP en poort zijn uitgaande. De richting van een verbinding wordt vertegenwoordigd door de eigenschap Direction, die kan worden ingesteld op **inkomende** of **uitgaande**. 
 
-Records in deze tabellen zijn gegenereerd op basis van gegevens die zijn gerapporteerd door de agent voor afhankelijkheden. Elke record vertegenwoordigt een waarneming gedurende een tijdsinterval van één minuut. De eigenschap TimeGenerated geeft het begin van het tijdsinterval. Elke record bevat informatie om te identificeren van de respectieve entiteit, dat wil zeggen, de verbinding of poort, evenals metrische gegevens die zijn gekoppeld aan die entiteit. Op dit moment wordt alleen netwerkactiviteit die wordt uitgevoerd met behulp van de TCP via IPv4 gerapporteerd.
+Records in deze tabellen zijn gegenereerd op basis van gegevens die zijn gerapporteerd door de Agent voor afhankelijkheden. Elke record vertegenwoordigt een waarneming gedurende een tijdsinterval van 1 minuut. De eigenschap TimeGenerated geeft het begin van het tijdsinterval. Elke record bevat informatie om te identificeren van de respectieve entiteit, dat wil zeggen, de verbinding of poort, evenals metrische gegevens die zijn gekoppeld aan die entiteit. Op dit moment wordt alleen netwerkactiviteit die wordt uitgevoerd met behulp van de TCP via IPv4 gerapporteerd. 
+
+#### <a name="common-fields-and-conventions"></a>Algemene velden, en overeenkomsten 
+De volgende velden en conventies van toepassing op zowel VMConnection en VMBoundPort: 
+
+- Computer: FQDN-naam van machine-rapportage 
+- AgentID: De unieke id voor een machine met de Log Analytics-agent  
+- Apparaat: De naam van de Azure Resource Manager-resource voor de machine door ServiceMap beschikbaar gesteld. Het is van het formulier *m-{GUID}*, waarbij *GUID* is de GUID als AgentID  
+- Proces: De naam van de Azure Resource Manager-resource voor het proces door ServiceMap beschikbaar gesteld. Het is van het formulier *p-{hex-tekenreeks}*. Proces is uniek binnen het bereik van een machine en voor het genereren van unieke proces-ID op computers, velden Machine en het proces te combineren. 
+- ProcessName: Naam van uitvoerbaar bestand van het proces voor rapportage.
+- Alle IP-adressen zijn tekenreeksen in IPv4-notatie, bijvoorbeeld *13.107.3.160* 
 
 Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding records geen afzonderlijke fysieke netwerkverbindingen. Verbindingen van meerdere fysieke netwerk zijn gegroepeerd in een logische verbinding, die vervolgens wordt weergegeven in de bijbehorende tabel.  Betekenis, registreert in *VMConnection* tabel staan voor een logische groepering en niet de afzonderlijke fysieke verbindingen die zijn waargenomen. Fysieke netwerkverbinding delen dezelfde waarde voor de volgende kenmerken tijdens een opgegeven interval van één minuut worden samengevoegd in één logische record in *VMConnection*. 
 
@@ -81,7 +91,7 @@ Hier volgen enkele belangrijke punten om te overwegen:
 1. Als een proces op hetzelfde IP-adres, maar meerdere netwerkinterfaces accepteert, kunt u een afzonderlijke record voor elke interface worden gerapporteerd. 
 2. Records met jokertekens IP-adres bevat geen activiteiten. Ze zijn opgenomen om weer te geven van het feit dat een poort op de machine geopend voor inkomend verkeer is.
 3. Als u wilt verkleinen uitgebreidheid en gegevensvolume, wordt records met jokertekens IP-adres worden weggelaten wanneer er een overeenkomende record (voor de hetzelfde proces, poort en protocol) met een specifiek IP-adres. Wanneer een jokerteken IP-adresrecord wordt weggelaten, wordt de record, eigenschap IsWildcardBind met specifieke IP-adres, worden ingesteld op 'True' om aan te geven dat de poort beschikbaar wordt gemaakt via elke interface van de rapportage-machine.
-4. Poorten die afhankelijk zijn van alleen op een specifieke interface hebben IsWildcardBind ingesteld op 'False'.
+4. Poorten die afhankelijk zijn van alleen op een specifieke interface hebt ingesteld op IsWildcardBind *False*.
 
 #### <a name="naming-and-classification"></a>Naamgeving en classificatie
 Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgenomen in de eigenschap RemoteIp. Voor binnenkomende verbindingen, RemoteIp is hetzelfde als SourceIp, terwijl voor uitgaande verbindingen, is hetzelfde als DestinationIp. De eigenschap RemoteDnsCanonicalNames vertegenwoordigt de DNS-namen canonieke gerapporteerd door de virtuele machine voor RemoteIp. De eigenschappen RemoteDnsQuestions en RemoteClassification zijn gereserveerd voor toekomstig gebruik. 
@@ -111,6 +121,36 @@ Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is 
 |IsActive |Geeft aan dat indicatoren zijn uitgeschakeld met *waar* of *False* waarde. |
 |ReportReferenceLink |Koppelingen naar rapporten met betrekking tot een bepaalde zichtbaar zijn. |
 |AdditionalInformation |Bevat aanvullende informatie, indien van toepassing, over de bedreiging waargenomen. |
+
+### <a name="ports"></a>Poorten 
+Poorten op een virtuele machine die actief accepteren van binnenkomend verkeer of verkeer kunnen mogelijk worden geaccepteerd, maar niet actief zijn tijdens de periode reporting worden geschreven naar de tabel VMBoundPort.  
+
+Gegevens worden standaard niet geschreven in deze tabel. Als u wilt dat gegevens die naar deze tabel geschreven, stuur een e-mail naar vminsights@microsoft.com samen met uw werkruimte-ID en de regio van de werkruimte.   
+
+Elke record in VMBoundPort wordt geïdentificeerd door de volgende velden: 
+
+| Eigenschap | Description |
+|:--|:--|
+|Verwerken | De identiteit van proces (of groepen van processen) waarmee de poort gekoppeld is.|
+|IP | IP-adres-poort (mag jokertekens IP-adres, *0.0.0.0*) |
+|Poort |Het poortnummer |
+|Protocol | Het protocol.  Bijvoorbeeld *tcp* of *udp* (alleen *tcp* wordt momenteel ondersteund).|
+ 
+De identiteit een poort is afgeleid van de bovenstaande vijf velden en wordt opgeslagen in de eigenschap PortId. Deze eigenschap kan worden gebruikt om snel te vinden records voor een specifieke poort in de tijd. 
+
+#### <a name="metrics"></a>Metrische gegevens 
+Poort-records bevatten voor de verbindingen die zijn gekoppeld aan deze metrische gegevens. Op dit moment de volgende metrische gegevens worden gerapporteerd (de details voor elke metrische gegevens worden beschreven in de vorige sectie): 
+
+- BytesSent en BytesReceived 
+- LinksEstablished, LinksTerminated, LinksLive 
+- ResposeTime, ResponseTimeMin, ResponseTimeMax, ResponseTimeSum 
+
+Hier volgen enkele belangrijke punten om te overwegen:
+
+- Als een proces op hetzelfde IP-adres, maar meerdere netwerkinterfaces accepteert, kunt u een afzonderlijke record voor elke interface worden gerapporteerd.  
+- Records met jokertekens IP-adres bevat geen activiteiten. Ze zijn opgenomen om weer te geven van het feit dat een poort op de machine geopend voor inkomend verkeer is. 
+- Als u wilt verkleinen uitgebreidheid en gegevensvolume, wordt records met jokertekens IP-adres worden weggelaten wanneer er een overeenkomende record (voor de hetzelfde proces, poort en protocol) met een specifiek IP-adres. Wanneer een jokerteken IP-adresrecord wordt weggelaten, de *IsWildcardBind* eigenschap voor de record met het specifieke IP-adres wordt ingesteld op *waar*.  Dit geeft aan dat de poort beschikbaar wordt gemaakt via elke interface van de rapportage-machine. 
+- Poorten die afhankelijk zijn van alleen op een specifieke interface hebt ingesteld op IsWildcardBind *False*. 
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL records
 Records met een type *ServiceMapComputer_CL* inventarisgegevens voor servers met de agent voor afhankelijkheden hebben. Deze records hebben de eigenschappen in de volgende tabel:
@@ -165,55 +205,124 @@ Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 
 ### <a name="list-all-known-machines"></a>Lijst van alle bekende machines
-`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="when-was-the-vm-last-rebooted"></a>Wanneer is de virtuele machine laatst opnieuw opgestart
-`let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc`
+```kusto
+let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc`
+```
 
 ### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>Overzicht van Azure-VM's per afbeelding, de locatie en SKU
-`ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s`
+```kusto
+ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s`
+```
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Een lijst van de capaciteit van het fysieke geheugen van alle beheerde computers.
-`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
+```kusto
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
+```
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Computernaam van de lijst, DNS, IP- en OS.
-`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
+```kusto
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
+```
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Alle processen met 'sql' niet vinden in de opdrachtregel
-`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Een virtuele machine (meest recente record) vinden op resourcenaam
-`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Een virtuele machine (meest recente record) vinden door IP-adres
-`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Lijst van alle bekende processen op een opgegeven computer
-`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="list-all-computers-running-sql-server"></a>Lijst van alle computers met SQL Server
-`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
+```kusto
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
+```
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Lijst van alle unieke productversies van curl in mijn datacenter
-`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
+```kusto
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
+```
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Maak een computergroep van alle computers waarop CentOS wordt uitgevoerd
-`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
+```kusto
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
+```
 
 ### <a name="bytes-sent-and-received-trends"></a>Bytes verzonden en ontvangen van trends
-`VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart`
+```kusto
+VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart`
+```
 
 ### <a name="which-azure-vms-are-transmitting-the-most-bytes"></a>Welke Azure-VM's zijn het meest bytes verzenden
-`VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc`
+```kusto
+VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc`
+```
 
 ### <a name="link-status-trends"></a>Koppeling status trends
-`VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart`
+```kusto
+VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart`
+```
 
 ### <a name="connection-failures-trend"></a>Trend van mislukte verbinding
-`VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
+```kusto
+VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
+```
+
+### <a name="bound-ports"></a>Gebonden poorten
+```kusto
+VMBoundPort
+| where TimeGenerated >= ago(24hr)
+| where Computer == 'admdemo-appsvr'
+| distinct Port, ProcessName
+```
+
+### <a name="number-of-open-ports-across-machines"></a>Het aantal poorten openen tussen computers
+```kusto
+VMBoundPort
+| where Ip != "127.0.0.1"
+| summarize by Computer, Machine, Port, Protocol
+| summarize OpenPorts=count() by Computer, Machine
+| order by OpenPorts desc
+```
+
+### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>Score processen in uw werkruimte door het aantal poorten dat ze hebben openen
+```kusto
+VMBoundPort
+| where Ip != "127.0.0.1"
+| summarize by ProcessName, Port, Protocol
+| summarize OpenPorts=count() by ProcessName
+| order by OpenPorts desc
+```
+
+### <a name="aggregate-behavior-for-each-port"></a>Cumulatieve gedrag voor elke poort
+Deze query kan vervolgens worden gebruikt om poorten te beoordelen door activiteit, bijvoorbeeld poorten met het meeste inkomende/uitgaande verkeer en poorten met de meeste verbindingen
+```kusto
+// 
+VMBoundPort
+| where Ip != "127.0.0.1"
+| summarize BytesSent=sum(BytesSent), BytesReceived=sum(BytesReceived), LinksEstablished=sum(LinksEstablished), LinksTerminated=sum(LinksTerminated), arg_max(TimeGenerated, LinksLive) by Machine, Computer, ProcessName, Ip, Port, IsWildcardBind
+| project-away TimeGenerated
+| order by Machine, Computer, Port, Ip, ProcessName
+```
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Samenvatting van de uitgaande verbindingen van een groep machines
-```
+```kusto
 // the machines of interest
 let machines = datatable(m: string) ["m-82412a7a-6a32-45a9-a8d6-538354224a25"];
 // map of ip to monitored machine in the environment

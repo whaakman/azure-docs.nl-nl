@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b4e7165f30364ba61b583cf5d2f55e8826b9cf3
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092122"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095854"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box-beveiliging en -gegevensbescherming
 
@@ -75,16 +75,16 @@ Azure Data Box verzamelt en toont persoonlijke informatie in de volgende belangr
 
 - **Ordergegevens** – Zodra de order is gemaakt, worden het verzendadres, het e-mailadres en de contactgegevens van gebruikers in de Azure-portal opgeslagen. De opgeslagen informatie omvat:
 
-    - Naam van contactpersoon
-    - Telefoonnummer
-    - Email
-    - Adres
-    - Plaats
-    - Postcode
-    - Status
-    - Land/Provincie/Regio
-    - Accountnummer van transporteur
-    - Volgnummer van verzending
+  - Naam van contactpersoon
+  - Telefoonnummer
+  - Email
+  - Adres
+  - Plaats
+  - Postcode
+  - Status
+  - Land/Provincie/Regio
+  - Accountnummer van transporteur
+  - Volgnummer van verzending
 
     De ordergegevens worden verwijderd door de Data Box-service wanneer de order is voltooid of wanneer u de order verwijdert.
 
@@ -97,16 +97,16 @@ Bekijk het Microsoft-privacybeleid in het [Vertrouwenscentrum](https://www.micro
 
 De volgende beveiligingsrichtlijnen zijn geïmplementeerd in Data Box: 
 
-|Richtlijn   |Beschrijving   |
+|Richtlijn   |Description   |
 |---------|---------|
-|[IEC 60529 IP52](http://www.iec.ch/)    | Voor bescherming tegen water en stof         |
+|[IEC 60529 IP52](https://www.iec.ch/)    | Voor bescherming tegen water en stof         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | Voor het weerstaan van nadelige vervoersomstandigheden          |
-|[NIST SP 800-147](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | Voor het veilig bijwerken van firmware         |
+|[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | Voor het veilig bijwerken van firmware         |
 |[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | Voor gegevensbescherming         |
-|[NIST SP 800-88r1](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Voor het opschonen van gegevens         |
+|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Voor het opschonen van gegevens         |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - De [Vereisten voor Data Box](data-box-system-requirements.md) bekijken.
-- Informatie over de [limieten voor Data Box](data-box-limits.md).
-- [Azure Data Box](data-box-quickstart-portal.md) snel implementeren in de Azure Portal.
+- Informatie over de [Limieten voor Data Box](data-box-limits.md).
+- [Azure Data Box](data-box-quickstart-portal.md) snel implementeren in de Azure-portal.

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: 034ea49322f213971f549673a1d179a301585c96
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 182783576c8b47db8dd1c60ed2d5c5948fb98672
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875208"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438989"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Zelfstudie: Video's zoeken-app met één pagina
 Met de Bing Video Search-API kunt u op internet zoeken en videoresultaten ophalen die relevant zijn voor een zoekquery. In deze zelfstudie bouwen we een webtoepassing met één pagina die gebruikmaakt van de Bing Search-API om resultaten op de pagina weer te geven. De toepassing omvat HTML-, CSS- en JavaScript-onderdelen.
@@ -281,7 +281,7 @@ function renderSearchResults(results) {
     showDiv("paging1", pagingLinks);
     showDiv("paging2", pagingLinks);
 
-    // Render the resuts to the mainline section
+    // Render the results to the mainline section
     for (section in { mainline: 0 }) {
          showDiv(section, renderResultsItems(section, results));
     }

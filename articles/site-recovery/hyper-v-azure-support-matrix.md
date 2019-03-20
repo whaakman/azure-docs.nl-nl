@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 325df38cfea0c87cda8b7fb5ab37dca4a6a529fd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 84b1cfd54f5ff9e6a29c975622847e3ae6304bf8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315670"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107148"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van on-premises Hyper-V-machines naar Azure
 
@@ -91,7 +91,7 @@ Versneld netwerken | Nee | Nee
 ## <a name="hyper-v-host-storage"></a>Opslag voor Hyper-V-host
 
 **Storage** | **Hyper-V met Virtual Machine Manager** | **Hyper-V zonder Virtual Machine Manager**
---- | --- | --- | ---
+--- | --- | --- 
 NFS | N.v.t. | N.v.t.
 SMB 3.0 | Ja | Ja
 SAN (ISCSI) | Ja | Ja
@@ -180,7 +180,7 @@ Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen<br/><br/> Binnen 
 Zorg ervoor dat uw implementatie is compatibel met de instellingen in dit artikel, zodat dat u de meest recente provider en agent-versies.
 
 **Naam** | **Beschrijving** | **Details**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Azure Site Recovery-provider | Coördineert de communicatie tussen on-premises servers en Azure <br/><br/> Hyper-V met Virtual Machine Manager: Geïnstalleerd op de Virtual Machine Manager-servers<br/><br/> Hyper-V zonder Virtual Machine Manager: Op Hyper-V-hosts is geïnstalleerd| Meest recente versie: 5.1.2700.1 (beschikbaar via de Azure-portal)<br/><br/> [Nieuwste functies en correcties](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure Recovery Services-agent | Coördineert de replicatie tussen Hyper-V-machines en Azure<br/><br/> Geïnstalleerd op de on-premises Hyper-V-servers (met of zonder Virtual Machine Manager) | Meest recente agent beschikbaar is via de portal
 

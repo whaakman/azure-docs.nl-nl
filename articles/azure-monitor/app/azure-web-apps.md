@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 09084f71eda611c4b638a339d0d837e77e2639b9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 92a7c1a45655f8804aa1f81b1a77ebf7cd5197e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432308"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122162"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service-prestaties bewaken
 In de [Azure-portal](https://portal.azure.com) kunt u instellen prestatiebewaking van toepassingen voor uw web-apps, mobiele back-ends en API-apps in [Azure App Service](../../app-service/overview.md). Met [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instrumenteert u uw app om telemetrie over de eigen activiteiten te sturen naar de Application Insights-service, waar de gegevens worden opgeslagen en geanalyseerd. Daar kunnen metrische grafieken en zoekfuncties worden gebruikt om problemen vast te stellen, prestaties te verbeteren en het gebruik te beoordelen.
@@ -38,25 +38,25 @@ Als u momenteel een appservice in Azure uitvoert, u al sprake van enige controle
 
    * Te kiezen om een nieuwe resource te maken, tenzij u al een Application Insights-resource voor deze toepassing instellen. 
 
-    > [!NOTE]
-    > Wanneer u klikt op **OK** te maken van de nieuwe resource wordt u gevraagd naar **controle-instellingen toepassen**. Selecteren **doorgaan** uw nieuwe Application Insights-resource wordt gekoppeld aan uw appservice, doet dit het geval is, wordt ook **activeert u opnieuw opstarten van uw appservice**. 
+     > [!NOTE]
+     > Wanneer u klikt op **OK** te maken van de nieuwe resource wordt u gevraagd naar **controle-instellingen toepassen**. Selecteren **doorgaan** uw nieuwe Application Insights-resource wordt gekoppeld aan uw appservice, doet dit het geval is, wordt ook **activeert u opnieuw opstarten van uw appservice**. 
 
-    ![Uw web-app instrumenteren](./media/azure-web-apps/create-resource.png)
+     ![Uw web-app instrumenteren](./media/azure-web-apps/create-resource.png)
 
 2. Na het op te geven welke resource moet worden gebruikt, kunt u kiezen hoe application insights voor het verzamelen van gegevens per platform voor uw toepassing. ASP.NET-app-controle op standaard wordt met twee verschillende niveaus van de verzameling.
 
     ![Kies opties per platform](./media/azure-web-apps/choose-options-new.png)
 
-    * .NET **basic verzameling** niveau essentiële single instance APM mogelijkheden biedt.
+   * .NET **basic verzameling** niveau essentiële single instance APM mogelijkheden biedt.
     
-    * .NET **verzameling aanbevolen** niveau:
-        * Voegt de CPU, geheugen en i/o trends in gebruik.
-        * Correleert microservices grenzen van de aanvraag/afhankelijkheid.
-        * Trends in gebruik worden verzameld, en kunt correlatie van resultaten van beschikbaarheid voor transacties.
-        * Verzamelt de uitzonderingen die niet is verwerkt door het hostproces.
-        * Verbetert de nauwkeurigheid van de APM-metrische gegevens onder belasting, wanneer steekproeven wordt gebruikt.
+   * .NET **verzameling aanbevolen** niveau:
+       * Voegt de CPU, geheugen en i/o trends in gebruik.
+       * Correleert microservices grenzen van de aanvraag/afhankelijkheid.
+       * Trends in gebruik worden verzameld, en kunt correlatie van resultaten van beschikbaarheid voor transacties.
+       * Verzamelt de uitzonderingen die niet is verwerkt door het hostproces.
+       * Verbetert de nauwkeurigheid van de APM-metrische gegevens onder belasting, wanneer steekproeven wordt gebruikt.
     
-    .NET core biedt **verzameling aanbevolen** of **uitgeschakelde** voor .NET Core 2.0 en 2.1.
+     .NET core biedt **verzameling aanbevolen** of **uitgeschakelde** voor .NET Core 2.0 en 2.1.
 
 3. **Instrumenteer uw appservice** nadat Application Insights is geïnstalleerd.
 
@@ -67,9 +67,9 @@ Als u momenteel een appservice in Azure uitvoert, u al sprake van enige controle
    * Selecteer Instellingen > Toepassingsinstellingen
    * Voeg een nieuw sleutelwaardepaar toe bij App-instellingen:
 
-    Sleutel: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Sleutel: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-    Waarde:`true`
+     Waarde:`true`
    * Sla de instellingen op met **Opslaan** en start de app opnieuw met **Opnieuw opstarten**.
 
 4. Controle van uw app-gegevens verkennen door te selecteren **instellingen** > **Application Insights** > **meer in Application Insights weergeven**.

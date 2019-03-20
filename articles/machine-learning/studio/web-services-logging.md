@@ -3,7 +3,7 @@ title: Web service logboekregistratie - Azure Machine Learning Studio | Microsof
 description: Leer hoe u logboekregistratie inschakelen voor Machine Learning Studio-webservices. Logboekregistratie bevat aanvullende informatie over het oplossen van de API's.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 23a160ee15547bea7d5ee832cd1032b2e899966b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857552"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Logboekregistratie inschakelen voor Azure Machine Learning Studio-webservices
 Dit document bevat informatie over de logboekregistratie van webservices voor Machine Learning Studio. Logboekregistratie bevat aanvullende informatie, dan alleen een foutnummer en een bericht, die kan helpen bij het oplossen van de aanroepen van de API's voor Machine Learning Studio.  
@@ -57,7 +57,7 @@ Inschakelen van logboekregistratie van het [Azure Machine Learning Studio-webser
 
    3. Als de container **ml-diagnostics** niet bestaat, klikt u op **+ Container**, geef de container de naam 'ml-diagnostics' en selecteer de **toegangstype** als 'Blob'. Klik op **OK**.
 
-      ![Selecteer het logboekregistratieniveau van](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Maak een nieuwe container voor het opslaan van uw logboeken met diagnostische gegevens](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >

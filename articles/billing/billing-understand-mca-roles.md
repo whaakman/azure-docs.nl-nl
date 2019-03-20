@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 9b14174541117878d7fd98b79d1cd139babb1027
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834894"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Informatie over Microsoft KLANTOVEREENKOMST beheerdersrollen in Azure
 
 Voor het beheren van uw factureringsrekening voor een Microsoft-KLANTOVEREENKOMST, gebruikt u de rollen die worden beschreven in de volgende secties. Deze rollen zijn naast de ingebouwde rollen die Azure heeft toegang tot resources beheren. Zie voor meer informatie, [ingebouwde rollen voor Azure-resources](../role-based-access-control/built-in-roles.md).
 
-In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREENKOMST. [Controleer of u toegang tot een Microsoft-KLANTOVEREENKOMST hebt](#check-your-access-to-a-microsoft-customer-agreement).
+In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREENKOMST. Controleer of u toegang tot de KLANTOVEREENKOMST van een Microsoft hebt.
 
 ## <a name="billing-role-definitions"></a>Roldefinities voor facturering
 
@@ -44,7 +44,7 @@ De volgende tabel beschrijft de facturering rollen die u gebruiken voor het behe
 |Factuursectie voor lezer|Alleen-lezen weergave van alles wat in de sectie factuur|
 |De maker van de Azure-abonnement|Azure-abonnementen maken|
 
-## <a name="billing-account-roles-and-tasks"></a>Facturering-account rollen en taken
+## <a name="billing-account-roles-and-tasks"></a>Rollen en taken voor factureringsaccount
 
 Factureringsaccount kunt u beheren de facturering voor uw organisatie. U factureringsaccount gebruiken voor het ordenen van kosten, monitor kosten in rekening gebracht en facturen en facturering toegangsbeheer voor uw organisatie. Zie voor meer informatie, [begrijpen factureringsaccount](billing-mca-overview.md#understand-billing-account).
 
@@ -90,7 +90,7 @@ De volgende tabellen ziet u welke rol u taken uitvoeren in de context van het fa
 |---|---|---|---|
 |Alle Azure-abonnementen weergeven in de factureringsaccount|✔|✔|✔|
 
-## <a name="billing-profile-roles-and-tasks"></a>Facturering-profiel rollen en taken
+## <a name="billing-profile-roles-and-tasks"></a>Rollen en taken voor factureringsprofiel
 
 Een factureringsprofiel kunt u uw facturen en betalingswijzen beheren. Een maandelijkse factuur wordt gegenereerd voor de Azure-abonnementen en andere producten die zijn gekocht met het profiel voor facturering. De betalingsmethoden kunt u de factuur betaalt. Zie voor meer informatie, [inzicht in facturering profielen](billing-mca-overview.md#understand-billing-profiles).
 
@@ -140,7 +140,7 @@ De volgende tabellen ziet u welke rol u taken uitvoeren in de context van het pr
 |---|---|---|---|---|---|---|---|
 |Alle Azure-abonnementen voor de facturering profiel weergeven|✔|✔|✔|✔|✔|✔|✔|
 
-## <a name="invoice-section-roles-and-tasks"></a>Factuur sectie rollen en taken
+## <a name="invoice-section-roles-and-tasks"></a>Rollen en taken voor factuursectie
 
 Een gedeelte van de factuur kunt u de kosten op uw factuur te organiseren. U kunt een sectie voor het ordenen van uw kosten per afdeling, ontwikkelomgeving, maken of op basis van de behoeften van uw organisatie. Machtiging voor het maken van Azure-abonnementen voor de sectie met anderen. Alle kosten voor het gebruik en aankopen voor de abonnementen weergeven in de sectie van de factuur. Zie voor meer informatie, [gedeelte van de factuur begrijpen](billing-mca-overview.md#understand-invoice-sections).
 
@@ -148,11 +148,11 @@ De volgende tabellen ziet u welke rol u taken uitvoeren in de context van de fac
 
 ### <a name="manage-invoice-section-permissions-and-properties"></a>Eigenschappen en de factuur sectie Machtigingen beheren
 
-|Taken|Factuursectie voor eigenaar|Factuursectie voor inzender|Factuursectie voor lezer|De maker van de Azure-abonnement|Eigenaar van factureringsaccount|Inzender van factureringsaccount|Lezer van factureringsaccount
-|---|---|---|---|---|---|---|---|
-|Alle machtigingen voor gedeelte factuur weergeven|✔|✔|✔|✔|✔|✔|✔|
-|Machtigingen weergeven en beheren van het gedeelte factuur anderen|✔|✘|✘|✘|✘|✘|✘|
-|Eigenschappen van sectie factuur weergeven|✔|✔|✔|✔|✔|✔|✔|
+|Taken|Factuursectie voor eigenaar|Factuursectie voor inzender|Factuursectie voor lezer|De maker van de Azure-abonnement|Eigenaar van factureringsaccount|Inzender van factureringsaccount|Lezer van factureringsaccount | |
+|---|---|---|---|---|---|---|---|---|
+|Alle machtigingen voor gedeelte factuur weergeven|✔|✔|✔|✔|✔|✔|✔| |
+|Machtigingen weergeven en beheren van het gedeelte factuur anderen|✔|✘|✘|✘|✘|✘|✘| |
+|Eigenschappen van sectie factuur weergeven|✔|✔|✔|✔|✔|✔|✔| |
 |Eigenschappen van de sectie factuur bijwerken|✔|✔|✘|✘|✘|✘|✘|✘|
 
 ### <a name="manage-products-for-invoice-section"></a>Beheren van producten voor factuur-sectie
@@ -171,7 +171,7 @@ De volgende tabellen ziet u welke rol u taken uitvoeren in de context van de fac
 |Factuur-gedeelte voor de abonnementen wijzigen|✔|✔|✘|✘|✘|✘|✘|
 |Eigendom van abonnementen aanvragen van gebruikers in andere facturering-accounts|✔|✔|✘|✘|✘|✘|✘|
 
-## <a name="subscription-billing-roles-and-tasks"></a>Abonnement facturering rollen en taken
+## <a name="subscription-billing-roles-and-tasks"></a>Rollen en taken voor abonnementsfacturering
 
 De volgende tabel ziet u welke rol u taken uitvoeren in de context van een abonnement moet.
 

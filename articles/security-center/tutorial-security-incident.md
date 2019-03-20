@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: d3154e137aec8dcedcb066e2c9aab046b5a7b6e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108820"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081987"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Zelfstudie: Reageren op beveiligingsincidenten
 Security Center analyseert voortdurend de werkbelasting van uw hybride cloud met behulp van geavanceerde analysen en bedreigingsinformatie, om u te waarschuwen voor schadelijke activiteiten. Bovendien kunt u waarschuwingen van andere beveiligingsproducten en -services integreren in Security Center en aangepaste waarschuwingen maken op basis van uw eigen indicatoren of informatiebronnen. Wanneer een waarschuwing is gegenereerd, moet onmiddellijk actie worden ondernomen om het probleem te onderzoeken en te herstellen. In deze zelfstudie leert u het volgende:
@@ -45,28 +45,28 @@ Security Center biedt een overkoepelend overzicht van alle beveiligingswaarschuw
 
 1. Selecteer in het hoofdmenu van Security Center onder **DETECTIE** de optie **Beveiligingswaarschuwingen**:
 
-  ![Beveiligingswaarschuwingen](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Beveiligingswaarschuwingen](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
 
 2. Klik in de lijst met waarschuwingen op een beveiligingsincident, dus een verzameling waarschuwingen, voor meer informatie over dit incident. **Veiligheidsincident gedetecteerd** wordt geopend.
 
-  ![Beveiligingsincident](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Beveiligingsincident](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. Bovenin dit scherm staat de beschrijving van het incident, met de lijst van waarschuwingen die deel uitmaken van dit incident. Klik op de waarschuwing die u verder wilt onderzoeken, voor meer informatie.
 
-  ![Beveiligingsincident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Beveiligingsincident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-  Het type waarschuwing kan verschillen. Lees [Beveiligingswaarschuwingen in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) voor meer informatie over het type waarschuwing en mogelijke herstelstappen. Voor waarschuwingen die veilig kunnen worden genegeerd, klikt u met de rechtermuisknop op de waarschuwing en selecteert u de optie **Sluiten**:
+   Het type waarschuwing kan verschillen. Lees [Beveiligingswaarschuwingen in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) voor meer informatie over het type waarschuwing en mogelijke herstelstappen. Voor waarschuwingen die veilig kunnen worden genegeerd, klikt u met de rechtermuisknop op de waarschuwing en selecteert u de optie **Sluiten**:
 
-  ![Waarschuwing](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+   ![Waarschuwing](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 
 4. Als de hoofdoorzaak en het bereik van de schadelijke activiteit onbekend is, gaat u verder met de volgende stap om verder onderzoek te doen.
 
 ## <a name="investigate-an-alert-or-incident"></a>Een waarschuwing of incident onderzoeken
 1. Klik op de pagina **Beveiligingswaarschuwing** op de knop **Onderzoek starten** (als u al bent begonnen, verandert de naam in **Onderzoek voortzetten**).
 
-  ![Onderzoek](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
+   ![Onderzoek](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-  De onderzoekskaart is een grafische weergave van de entiteiten die zijn verbonden met deze beveiligingswaarschuwing of dit incident. Door op een entiteit in de kaart te klikken, toont de informatie over die entiteit nieuwe entiteiten en wordt de kaart uitgebreid. De eigenschappen van de entiteit die in de kaart is geselecteerd, zijn gemarkeerd in het deelvenster aan de rechterkant van de pagina. Welke informatie op elk tabblad beschikbaar is, is afhankelijk van de geselecteerde entiteit. Bekijk tijdens het onderzoek alle relevante informatie om meer inzicht te krijgen in de tactiek van de aanvaller.
+   De onderzoekskaart is een grafische weergave van de entiteiten die zijn verbonden met deze beveiligingswaarschuwing of dit incident. Door op een entiteit in de kaart te klikken, toont de informatie over die entiteit nieuwe entiteiten en wordt de kaart uitgebreid. De eigenschappen van de entiteit die in de kaart is geselecteerd, zijn gemarkeerd in het deelvenster aan de rechterkant van de pagina. Welke informatie op elk tabblad beschikbaar is, is afhankelijk van de geselecteerde entiteit. Bekijk tijdens het onderzoek alle relevante informatie om meer inzicht te krijgen in de tactiek van de aanvaller.
 
 2. Als u meer bewijs nodig hebt of meer onderzoek moet verrichten voor entiteiten die tijdens het onderzoek zijn gevonden, gaat u verder met de volgende stap.
 

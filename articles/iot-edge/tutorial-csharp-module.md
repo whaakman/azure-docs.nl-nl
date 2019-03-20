@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 21f59ad03f2ff91b3c33675b0994b7f565bf5031
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: f4afd83e31cf724e734b4e86045f8404e65753c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563198"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088023"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Zelfstudie: Een IoT Edge-module in C# ontwikkelen en implementeren op uw gesimuleerde apparaat
 
@@ -65,7 +65,7 @@ Als u nog geen containerregister hebt, volgt u deze stappen om een nieuw contain
 
 2. Geef de volgende waarden op om uw containerregister te maken:
 
-   | Veld | Waarde | 
+   | Veld | Value | 
    | ----- | ----- |
    | Registernaam | Geef hier een unieke naam op. |
    | Abonnement | Selecteer een abonnement in de vervolgkeuzelijst. |
@@ -93,7 +93,7 @@ Maak een C#-oplossingssjabloon die u met uw eigen code kunt aanpassen.
 
 3. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Volg de aanwijzingen in het opdrachtpalet om uw oplossing te maken.
 
-   | Veld | Waarde |
+   | Veld | Value |
    | ----- | ----- |
    | Map selecteren | Kies de locatie op uw ontwikkelcomputer waar VS Code de oplossingsbestanden moet maken. |
    | Een naam opgeven voor de oplossing | Voer een beschrijvende naam voor de oplossing in of accepteer de standaardnaam **EdgeSolution**. |
@@ -277,15 +277,15 @@ In het omgevingsbestand worden de referenties voor het containerregister opgesla
 
 10. Voeg de moduledubbel **CSharpModule** toe aan het distributiemanifest. Voeg de volgende JSON-inhoud onder aan de sectie **modulesContent** in, na de moduledubbel **$edgeHub**: 
 
-   ```json
+    ```json
        "CSharpModule": {
            "properties.desired":{
                "TemperatureThreshold":25
            }
        }
-   ```
+    ```
 
-   ![Moduledubbel toevoegen aan implementatiesjabloon](./media/tutorial-csharp-module/module-twin.png)
+    ![Moduledubbel toevoegen aan implementatiesjabloon](./media/tutorial-csharp-module/module-twin.png)
 
 11. Sla het bestand deployment.template.json op.
 
@@ -309,9 +309,9 @@ U kunt het volledige adres van de containerinstallatiekopie, inclusief de tag, z
 
 >[!TIP]
 >Als u een foutmelding krijgt bij het bouwen en pushen van de module, controleert u het volgende:
->* Hebt u zich bij Docker in Visual Studio Code aangemeld met de referenties uit uw containerregister? Deze referenties zijn anders dan de referenties die u gebruikt om u aan te melden bij de Microsoft Azure-portal.
+>* Hebt u zich bij Docker in Visual Studio Code aangemeld met de referenties uit uw containerregister? Deze referenties zijn anders dan de referenties die u gebruikt om u aan te melden bij de Azure Portal.
 >* Hebt u de juiste containeropslagplaats? Open **modules** > **cmodule** > **module.json** en zoek het veld **opslagplaats**. De opslagplaats voor de installatiekopie ziet er ongeveer uit als **\<registryname\>.azurecr.io/csharpmodule**. 
->* Bouwt u hetzelfde type containers dat door uw ontwikkelcomputer wordt uitgevoerd? Visual Studio Code wordt teruggezet op de Linux amd64-standaardcontainers. Als op uw ontwikkelcomputer Windows-containers of Linux arm32v7-containers worden uitgevoerd, werkt u het platform bij op de blauwe statusbalk onder aan het Visual Studio Code-venster, zodat dit overeenkomt met uw containerplatform.
+>* Bouwt u hetzelfde type containers dat door uw ontwikkelcomputer wordt uitgevoerd? Visual Studio Code valt standaard terug op de Linux amd64-standaardcontainers. Als op uw ontwikkelcomputer Windows-containers of Linux arm32v7-containers worden uitgevoerd, werkt u het platform bij op de blauwe statusbalk onder aan het Visual Studio Code-venster, zodat dit overeenkomt met uw containerplatform.
 
 ## <a name="deploy-and-run-the-solution"></a>De oplossing implementeren en uitvoeren
 

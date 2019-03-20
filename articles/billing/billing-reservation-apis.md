@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
 ms.author: banders
-ms.openlocfilehash: a71c456f017e80da85f27437738aa963ec967a3c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 7e5697073b9406d915eda99a5e71e3123c48073a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904153"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880212"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API's voor het automatiseren van Azure-reservering
 
@@ -29,7 +29,7 @@ Gebruik Azure API's via een programma om informatie te verkrijgen voor uw organi
 
 Gebruik de reservering aanbeveling API aanbevelingen waarop reserveringen wilt kopen ophalen op basis van gebruik van uw organisatie. Zie voor meer informatie, [reservering aanbevelingen krijgen](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 
-U kunt ook uw Resourcegebruik analyseren met behulp van de Gebruiksdetails van het verbruik-API. Zie voor meer informatie, [gebruiksgegevens - lijst voor facturering periode door factureringsaccount](/rest/api/consumption/usagedetails/listforbillingperiodbybillingaccount). De Azure-resources die u consistent gebruikt zijn meestal de beste kandidaat voor een reservering.
+U kunt ook uw Resourcegebruik analyseren met behulp van de Gebruiksdetails van het verbruik-API. Zie voor meer informatie, [gebruiksgegevens - lijst voor facturering periode door factureringsaccount](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod). De Azure-resources die u consistent gebruikt zijn meestal de beste kandidaat voor een reservering.
 
 ## <a name="buy-a-reservation"></a>Een reservering kopen
 

@@ -9,18 +9,20 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 3be2ab8bd4be56de945303bec9969f531be77864
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 85dca677238070ded13b59faf9a13081c2409987
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535584"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890854"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
 Dit artikel bevat stappen voor probleemoplossing waarmee u kunnen Azure Backup-fouten met betrekking tot communicatie met de VM-agent en de extensie oplossen.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+
 
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM-agent kan niet communiceren met Azure Backup
 
@@ -54,7 +56,7 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 Aanbevolen actie:<br>
 U lost dit probleem, verwijder de vergrendeling van de resourcegroep van de virtuele machine en probeer het opnieuw als u wilt opschonen te activeren.
 > [!NOTE]
-    > Backup-service maakt een afzonderlijke resourcegroep dan de resourcegroep van de virtuele machine voor het opslaan van de verzameling van herstelpunt. Klanten wordt aangeraden niet aan het vergrendelen van de resourcegroep gemaakt voor gebruik door de Backup-service. De naamgeving indeling van de resourcegroep hebt gemaakt met Backup-service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+> Backup-service maakt een afzonderlijke resourcegroep dan de resourcegroep van de virtuele machine voor het opslaan van de verzameling van herstelpunt. Klanten wordt aangeraden niet aan het vergrendelen van de resourcegroep gemaakt voor gebruik door de Backup-service. De naamgeving indeling van de resourcegroep hebt gemaakt met Backup-service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 **Stap 1: [Verwijder de vergrendeling van de resourcegroep van de restore-punt](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Stap 2: [Herstelpuntverzameling opschonen](#clean_up_restore_point_collection)**<br>
@@ -64,7 +66,7 @@ U lost dit probleem, verwijder de vergrendeling van de resourcegroep van de virt
 **Foutcode**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Foutbericht**: Back-up beschikt niet over voldoende machtigingen tot de key vault voor back-ups van versleutelde virtuele machines. <br>
 
-Back-bewerking te voltooien voor versleutelde virtuele machines, moet machtigingen voor toegang tot de key vault hebben. Dit kan worden gedaan met behulp van de [Azure-portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) of via de [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
+Back-bewerking te voltooien voor versleutelde virtuele machines, moet machtigingen voor toegang tot de key vault hebben. Dit kan worden gedaan met behulp van de [Azure-portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) of via [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - momentopname is mislukt omdat er geen netwerkverbinding beschikbaar is op de virtuele machine
 
@@ -126,12 +128,12 @@ Uw recente back-uptaak is mislukt omdat er een bestaande back-uptaak uitgevoerd 
 3. Klik op het menu kluis dashboard **back-uptaken** de back-uptaken wordt weergegeven.
 
     * Als een back-uptaak uitgevoerd wordt, wacht het voltooid of annuleer de back-uptaak.
-        * De back-uptaak Klik met de rechtermuisknop op de back-uptaak annuleren en klikt u op **annuleren** of gebruik [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+        * De back-uptaak Klik met de rechtermuisknop op de back-uptaak annuleren en klikt u op **annuleren** of gebruik [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
     * Als u de back-up in een andere kluis hebt geconfigureerd, klikt u vervolgens controleert u of er zijn geen back-taken die worden uitgevoerd in de oude kluis. Als deze bestaat, annuleert u de back-uptaak.
-        * De back-uptaak Klik met de rechtermuisknop op de back-uptaak annuleren en klikt u op **annuleren** of gebruik [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+        * De back-uptaak Klik met de rechtermuisknop op de back-uptaak annuleren en klikt u op **annuleren** of gebruik [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Voer back-up opnieuw uit.
 
-Als de geplande back-upbewerking langer conflicteert met de volgende back-upconfiguratie duurt Bekijk vervolgens de [Best Practices](backup-azure-vms-introduction.md#best-practices), [back-upprestaties](backup-azure-vms-introduction.md#backup-performance) en [overweging herstellen ](backup-azure-vms-introduction.md#restore-considerations).
+Als de geplande back-upbewerking langer conflicteert met de volgende back-upconfiguratie duurt Bekijk vervolgens de [Best Practices](backup-azure-vms-introduction.md#best-practices), [back-upprestaties](backup-azure-vms-introduction.md#backup-performance) en [overweging herstellen ](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
 
 ## <a name="causes-and-solutions"></a>Oorzaken en oplossingen
@@ -166,15 +168,15 @@ Meest-agents of -extensie-gerelateerde fouten voor Linux-VM's worden veroorzaakt
 
 1. Volg de instructies voor [bijwerken van de Linux-VM-agent](../virtual-machines/linux/update-agent.md).
 
- > [!NOTE]
- > We *wordt ten zeerste aangeraden* de agent alleen via een distributie-opslagplaats bij te werken. We raden niet downloaden van de agentcode rechtstreeks vanuit GitHub en bijwerkt. Als de meest recente agent voor uw distributie geen distributiepunt beschikbaar is, contact op met ondersteuning voor instructies over hoe u deze installeert is. Om te controleren of de meest recente agent, gaat u naar de [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) pagina in de GitHub-opslagplaats.
+   > [!NOTE]
+   > We *wordt ten zeerste aangeraden* de agent alleen via een distributie-opslagplaats bij te werken. We raden niet downloaden van de agentcode rechtstreeks vanuit GitHub en bijwerkt. Als de meest recente agent voor uw distributie geen distributiepunt beschikbaar is, contact op met ondersteuning voor instructies over hoe u deze installeert is. Om te controleren of de meest recente agent, gaat u naar de [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) pagina in de GitHub-opslagplaats.
 
 2. Zorg ervoor dat de Azure-agent wordt uitgevoerd op de virtuele machine met de volgende opdracht: `ps -e`
 
- Als het proces niet wordt uitgevoerd, start u deze opnieuw met behulp van de volgende opdrachten:
+   Als het proces niet wordt uitgevoerd, start u deze opnieuw met behulp van de volgende opdrachten:
 
- * Voor Ubuntu: `service walinuxagent start`
- * Voor andere distributies: `service waagent start`
+   * Voor Ubuntu: `service walinuxagent start`
+   * Voor andere distributies: `service waagent start`
 
 3. [Configureren van de agent van automatisch opnieuw opstarten](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Een nieuwe test back-up uitvoeren. Als de fout zich blijft voordoen, moet u de volgende logboeken verzamelen van de virtuele machine:
@@ -198,7 +200,7 @@ De volgende voorwaarden kunnen leiden tot de taak momentopname is mislukt:
 | Oorzaak | Oplossing |
 | --- | --- |
 | De status van de virtuele machine niet correct gerapporteerd omdat de virtuele machine wordt afgesloten in Remote Desktop Protocol (RDP). | Als u de virtuele machine in RDP afsluit, controleert u de portal om te bepalen of de status van de virtuele machine juist is. Als dit niet juist is, sluit u de virtuele machine in de portal met behulp van de **afsluiten** optie op het dashboard voor VM's. |
-| De virtuele machine kan de host of fabric-adres ophalen van DHCP. | DHCP moet zijn ingeschakeld in de Gast voor de IaaS-VM back-up om te werken. Als de virtuele machine de host of fabric-adres niet uit de DHCP-reacties 245 ophalen kan, kan het downloaden of geen extensies worden uitgevoerd. Als u een statisch privé IP-adres nodig hebt, moet u het configureren via de **Azure Portal** of **PowerShell** en zorg ervoor dat de DHCP-optie binnen de virtuele machine is ingeschakeld. Zie voor meer informatie over het instellen van een statisch IP-adres via de PowerShell [klassieke VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm) en [Resource Manager-VM](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
+| De virtuele machine kan de host of fabric-adres ophalen van DHCP. | DHCP moet zijn ingeschakeld in de Gast voor de IaaS-VM back-up om te werken. Als de virtuele machine de host of fabric-adres niet uit de DHCP-reacties 245 ophalen kan, kan het downloaden of geen extensies worden uitgevoerd. Als u een statisch privé IP-adres nodig hebt, moet u het configureren via de **Azure Portal** of **PowerShell** en zorg ervoor dat de DHCP-optie binnen de virtuele machine is ingeschakeld. [Meer informatie](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) over het instellen van een statisch IP-adres met PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>De back-upextensie om te werken of te laden is mislukt
 Als extensies kunnen niet worden geladen, wordt back-up mislukt, omdat een momentopname kan niet worden gemaakt.
@@ -236,7 +238,7 @@ Nadat de vergrendeling is verwijderd, moeten de herstelpunten worden opgeschoond
 Na het verwijderen van vergrendeling-trigger voor een ad-hoc/handmatige back-up. Dit zorgt ervoor dat de herstelpunten worden automatisch opgeschoond. Met deze bewerking ad hoc/handmatige mislukken van de eerste keer; verwacht het wordt echter voor zorgen automatisch op te schonen in plaats van handmatig verwijderen van herstelpunten. De volgende geplande back-up moet na opschonen slaagt.
 
 > [!NOTE]
-    > Automatisch op te schonen gebeurt na een paar uur van de ad-hoc/handmatige back-up activeren. Als uw geplande back-up nog steeds mislukt, wordt geprobeerd handmatig verwijderen van de verzameling van herstelpunt met behulp van de stappen die worden vermeld [hier](#clean-up-restore-point-collection-from-azure-portal).
+> Automatisch op te schonen gebeurt na een paar uur van de ad-hoc/handmatige back-up activeren. Als uw geplande back-up nog steeds mislukt, wordt geprobeerd handmatig verwijderen van de verzameling van herstelpunt met behulp van de stappen die worden vermeld [hier](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Opschonen van terugzetten wijst u het verzamelen van Azure portal <br>
 
