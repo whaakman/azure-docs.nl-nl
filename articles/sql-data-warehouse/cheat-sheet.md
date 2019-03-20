@@ -10,15 +10,15 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: cede105f0bff9a65f88e06467e4d13419d389f04
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 795facc6148d33592ff8eac5083a273dc3d5cb26
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461556"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314905"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Tips voor Azure SQL Data Warehouse
-Dit overzicht biedt nuttige tips en best practices voor het maken van uw Azure SQL Data Warehouse-oplossingen. Voordat u begint, kunt u gedetailleerde informatie over elke stap lezen in [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Patronen en anti-patronen voor workloads van Microsoft Azure SQL Data Warehouse), waarin wordt uitgelegd wat SQL Data Warehouse is.
+Dit overzicht biedt nuttige tips en best practices voor het maken van uw Azure SQL Data Warehouse-oplossingen. Voordat u begint, kunt u gedetailleerde informatie over elke stap lezen in [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Patronen en anti-patronen voor workloads van Microsoft Azure SQL Data Warehouse), waarin wordt uitgelegd wat SQL Data Warehouse is.
 
 De volgende afbeelding geeft het proces weer voor het ontwerpen van een datawarehouse:
 
@@ -129,7 +129,7 @@ U kunt nu op elk moment automatisch de schaal aanpassen met Azure Functions:
 
 We raden u aan SQL Database en Azure Analysis Services in een hub-en-spoke-architectuur te gebruiken. Deze oplossing kan workloadisolatie bieden tussen verschillende gebruikersgroepen en tegelijkertijd geavanceerde beveiligingsfuncties van SQL Database en Azure Analysis Services gebruiken. Dit is ook een manier om grenzeloze gelijktijdigheid te bieden aan uw gebruikers.
 
-Meer informatie over [typische architecturen die profiteren van SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Meer informatie over [typische architecturen die profiteren van SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
 Met één muisklik uw spokes van SQL Data Warehouse naar SQL databases implementeren:
 
@@ -155,9 +155,9 @@ Met één muisklik uw spokes van SQL Data Warehouse naar SQL databases implement
 
 
 <!--Other Web references-->
-[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
-[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[gegevensmigratie]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
+[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
+[gegevensmigratie]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 [Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql

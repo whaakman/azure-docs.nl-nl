@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: e8028bc9a4a6f3245dca61d6dd30db22dc295a7f
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d66254cdad596e3b10482b2c937326162e2e075d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992427"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886827"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Een App Service-resourceprovider toevoegen aan Azure Stack
 
@@ -44,13 +44,13 @@ U kunt uw gebruikers de mogelijkheid om te maken van web- en API-toepassingen ge
 
 Installeren van de App Service-resourceprovider is ten minste een uur. De lengte van de tijd die nodig is, is afhankelijk van op de rol van hoeveel u exemplaren implementeren. Het installatieprogramma uitgevoerd tijdens de implementatie van de volgende taken:
 
- - Maak een blobcontainer in het opgegeven Azure Stack-opslagaccount.
- - Maak een DNS-zone en vermeldingen voor App Service.
- - Registreer de resourceprovider App Service.
- - Registreer het galerie-items van het App Service.
+- Maak een blobcontainer in het opgegeven Azure Stack-opslagaccount.
+- Maak een DNS-zone en vermeldingen voor App Service.
+- Registreer de resourceprovider App Service.
+- Registreer het galerie-items van het App Service.
 
- > [!IMPORTANT]
- > Controleer voordat u de resourceprovider implementeert, de opmerkingen bij de release voor meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
+  > [!IMPORTANT]
+  > Controleer voordat u de resourceprovider implementeert, de opmerkingen bij de release voor meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
 
 Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
@@ -74,8 +74,8 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     a. Selecteer **Connect** naast de **Azure Stack-abonnementen**.
 
-     - Als u Azure Active Directory (Azure AD), voert u de Azure AD-beheerdersaccount en het wachtwoord die u hebt opgegeven tijdens de implementatie van Azure Stack. Selecteer **aanmelden**.
-     - Als u Active Directory Federation Services (AD FS), Geef uw beheerdersaccount. Bijvoorbeeld cloudadmin@azurestack.local. Voer uw wachtwoord in en selecteer vervolgens **aanmelden**.
+   - Als u Azure Active Directory (Azure AD), voert u de Azure AD-beheerdersaccount en het wachtwoord die u hebt opgegeven tijdens de implementatie van Azure Stack. Selecteer **aanmelden**.
+   - Als u Active Directory Federation Services (AD FS), Geef uw beheerdersaccount. Bijvoorbeeld cloudadmin@azurestack.local. Voer uw wachtwoord in en selecteer vervolgens **aanmelden**.
 
    b. In **Azure Stack-abonnementen**, selecteer de **Providerabonnement standaard**.
 
@@ -243,7 +243,7 @@ Volg deze stappen voor het maken van een web-app testen:
 
 1. Selecteer in de portal voor Azure Stack-tenant **+**, gaat u naar de Azure Marketplace, een Django-website kunt implementeren en wacht totdat de implementatie is voltooid. Een bestand system gebaseerde database maakt gebruik van het Django webplatform. Er is aanvullende resourceproviders, zoals SQL- of MySQL geen vereist.
 
-2. Als u ook een MySQL-resourceprovider hebt geïmplementeerd, kunt u een WordPress-website vanuit de Marketplace kunt implementeren. Wanneer u wordt gevraagd voor databaseparameters, voert u de naam van de gebruiker als *User1@Server1*, met de gebruikersnaam en de naam van de server van uw keuze.
+2. Als u ook een MySQL-resourceprovider hebt geïmplementeerd, kunt u een WordPress-website vanuit de Marketplace kunt implementeren. Wanneer u wordt gevraagd voor databaseparameters, voert u de naam van de gebruiker als *gebruiker1\@Server1*, met de gebruikersnaam en de naam van de server van uw keuze.
 
 3. Als u ook een SQL Server-resourceprovider hebt geïmplementeerd, kunt u een website met DNN vanuit de Marketplace kunt implementeren. Wanneer u wordt gevraagd voor databaseparameters, kiest u een database in de computer met SQL Server die verbonden met de resourceprovider.
 

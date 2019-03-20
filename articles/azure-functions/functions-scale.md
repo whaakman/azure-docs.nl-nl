@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cd3f7f1f1f17d6dedea0157760b03c7e55e3d8a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 17df4415166c71f49c6b2534289b2c1f79cb6174
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410091"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117248"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
 
@@ -71,7 +71,7 @@ Bij het uitvoeren van JavaScript-functies op een App Service-plan, moet u een pl
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-###<a name="always-on"></a> Altijd ingeschakeld
+### <a name="always-on"></a> Altijd ingeschakeld
 
 Als u op een App Service-plan uitvoert, moet u inschakelen de **altijd op** instellen zodat uw functie-app correct wordt uitgevoerd. Op een App Service-plan gaat de functions-runtime niet-actieve na een paar minuten van inactiviteit, zodat alleen HTTP-triggers '' uw functies inschakelt. Altijd is op alleen beschikbaar op een App Service-plan. Functie-apps die het automatisch door het platform wordt geactiveerd op een verbruiksabonnement.
 
