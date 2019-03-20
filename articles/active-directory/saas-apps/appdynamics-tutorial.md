@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79424ff3fe3bce006932c19dba8cf5fc4bce4f2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: d6b8edf2627ade23fc6d1125afbabc34a1d9d21b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878622"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860377"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Zelfstudie: Azure Active Directory-integratie met AppDynamics
 
@@ -55,7 +55,7 @@ Voor het configureren van de integratie van AppDynamics in Azure AD moet u AppDy
 
 **Als u AppDynamics uit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -130,29 +130,29 @@ Voor het configureren van Azure AD-eenmalige aanmelding met AppDynamics moet u d
 
 ### <a name="configure-appdynamics-single-sign-on"></a>AppDynamics-eenmalige aanmelding configureren
 
-7. Meld u zich in een ander browservenster aan bij uw AppDynamics-bedrijfswebsite als beheerder.
+1. Meld u zich in een ander browservenster aan bij uw AppDynamics-bedrijfswebsite als beheerder.
 
-8. Klik in de werkbalk bovenaan op **Instellingen** en klik vervolgens op **Beheer**.
+1. Klik in de werkbalk bovenaan op **Instellingen** en klik vervolgens op **Beheer**.
 
     ![Beheer](./media/appdynamics-tutorial/ic790216.png "Beheer")
 
-9. Klik op het tabblad **Verificatieprovider**.
+1. Klik op het tabblad **Verificatieprovider**.
 
     ![Verificatieprovider](./media/appdynamics-tutorial/ic790224.png "Verificatieprovider")
 
-10. Voer in de sectie **Verificatieprovider** de volgende stappen uit:
+1. Voer in de sectie **Verificatieprovider** de volgende stappen uit:
 
-    ![SAML-configuratie](./media/appdynamics-tutorial/ic790225.png "SAML-configuratie")
+   ![SAML-configuratie](./media/appdynamics-tutorial/ic790225.png "SAML-configuratie")
 
-    a. Selecteer als **verificatieprovider** **SAML**.
+   a. Selecteer als **verificatieprovider** **SAML**.
 
-    b. Plak in het tekstvak **Aanmeldings-URL** de waarde van **Aanmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
+   b. Plak in het tekstvak **Aanmeldings-URL** de waarde van **Aanmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
 
-    c. Plak in het tekstvak **Afmeldings-URL** de waarde van **Afmeldings-URL**, die u hebt gekopieerd uit Azure Portal.
+   c. Plak in het tekstvak **Afmeldings-URL** de waarde van **Afmeldings-URL**, die u hebt gekopieerd uit Azure Portal.
 
-    d. Open het base-64 gecodeerde certificaat in Kladblok, kopieer de inhoud ervan naar het klembord en plak het in het tekstvak **Certificaat**
+   d. Open het base-64 gecodeerde certificaat in Kladblok, kopieer de inhoud ervan naar het klembord en plak het in het tekstvak **Certificaat**
 
-    e. Klik op **Opslaan**.
+   e. Klik op **Opslaan**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
@@ -172,7 +172,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -214,7 +214,7 @@ Het doel van deze sectie is om in AppDynamics een gebruiker te maken met de naam
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel AppDynamics in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van AppDynamics waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

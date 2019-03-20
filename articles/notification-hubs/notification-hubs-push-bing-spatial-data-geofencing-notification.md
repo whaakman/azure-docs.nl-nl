@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 7b01ee726d8417e34645e743497a02455fbe709c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 9baeb1c21252f8b7f7b24debde48108532d9865c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453150"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118303"
 ---
 # <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Zelfstudie: Locatiegebaseerde pushmeldingen verzenden met Azure Notification Hubs en ruimtelijke Bing-gegevens
 
@@ -63,12 +63,12 @@ In deze zelfstudie voert u de volgende stappen uit:
 
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. Voer op de pagina **Upload a data source** de volgende acties uit:
-    1. Selecteer **pipe** bij **Data format**.
-    2. Bladeren naar en selecteer het bestand `NotificationHubGeofence.pipe` dat u in de vorige stap hebt gemaakt.
-    3. Selecteer de knop **Upload**.
+   1. Selecteer **pipe** bij **Data format**.
+   2. Bladeren naar en selecteer het bestand `NotificationHubGeofence.pipe` dat u in de vorige stap hebt gemaakt.
+   3. Selecteer de knop **Upload**.
 
-    > [!NOTE]
-    > Mogelijk wordt u gevraagd om een nieuwe sleutel op te geven als **hoofdsleutel**; deze verschilt van de **querysleutel**. Maak een nieuwe sleutel via het dashboard en vernieuw de pagina voor het uploaden van gegevensbronnen.
+      > [!NOTE]
+      > Mogelijk wordt u gevraagd om een nieuwe sleutel op te geven als **hoofdsleutel**; deze verschilt van de **querysleutel**. Maak een nieuwe sleutel via het dashboard en vernieuw de pagina voor het uploaden van gegevensbronnen.
 6. Wanneer u het gegevensbestand hebt geüpload, moet u niet vergeten de gegevensbron te publiceren. Selecteer opnieuw **Data sources** -> **Manage Data Sources**.
 7. Selecteer de gegevensbron in de lijst en kies **Publish** in de kolom **Actions**.
 
@@ -112,11 +112,11 @@ In deze zelfstudie voert u de volgende stappen uit:
     ```
     Geef de volgende parameters op om hiermee aan de slag te gaan:
 
-    * De **gegevensbron-id** en de **gegevensbronnaam**. In de Bing Kaarten-API bevatten gegevensbronnen verschillende gerangschikte metagegevens, zoals locaties en bedrijfsuren.  
-    * **Naam van de entiteit**: de entiteit die u als verwijzingspunt wilt gebruiken voor de melding.
-    * **Bing Maps API Key**: dit is de sleutel die u eerder hebt verkregen tijdens het maken van het Bing Dev Center-account.
+   * De **gegevensbron-id** en de **gegevensbronnaam**. In de Bing Kaarten-API bevatten gegevensbronnen verschillende gerangschikte metagegevens, zoals locaties en bedrijfsuren.  
+   * **Naam van de entiteit**: de entiteit die u als verwijzingspunt wilt gebruiken voor de melding.
+   * **Bing Maps API Key**: dit is de sleutel die u eerder hebt verkregen tijdens het maken van het Bing Dev Center-account.
 
-    Nu de gegevensbron klaar is, kunt u aan de slag met de UWP-toepassing.
+     Nu de gegevensbron klaar is, kunt u aan de slag met de UWP-toepassing.
 2. Schakel locatieservices in voor uw toepassing. Open het bestand `Package.appxmanifest` in **Solution Explorer**.
 
     ![](./media/notification-hubs-geofence/vs-package-manifest.png)

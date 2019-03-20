@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 04712b1ba1eccd71dcfcc9012ebcbdfcbdcd2404
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d8cea95fbfb76f1dd1891045309a35aa1d0a8ab0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773667"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099481"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Met behulp van Azure API Management-service met een intern virtueel netwerk
 Met virtuele netwerken van Azure beheren Azure API Management API's die niet toegankelijk is via internet. Een aantal VPN-technologieën zijn beschikbaar voor het maken van de verbinding. API Management kan worden geïmplementeerd in twee belangrijke modi binnen een virtueel netwerk:
@@ -108,11 +108,11 @@ Als u een aangepaste DNS-server in een virtueel netwerk gebruikt, kunt u ook een
 
 ### <a name="access-on-custom-domain-names"></a>Toegang tot aangepaste domeinnamen
 
-   1. Als u toegang tot de API Management-service met de standaard-hostnamen niet wilt, kunt u aangepaste domeinnamen voor alle uw service-eindpunten zoals wordt weergegeven in de volgende afbeelding kunt instellen:
+1. Als u toegang tot de API Management-service met de standaard-hostnamen niet wilt, kunt u aangepaste domeinnamen voor alle uw service-eindpunten zoals wordt weergegeven in de volgende afbeelding kunt instellen:
 
    ![Instellen van een aangepast domein voor API Management][api-management-custom-domain-name]
 
-   2. Vervolgens maakt u records in de DNS-server toegang hebben tot de eindpunten die alleen toegankelijk vanuit uw virtuele netwerk zijn.
+2. Vervolgens maakt u records in de DNS-server toegang hebben tot de eindpunten die alleen toegankelijk vanuit uw virtuele netwerk zijn.
 
 ## <a name="routing"> </a> Routing
 + Een gelijke persoonlijke virtuele IP-adres uit het subnetbereik wordt gereserveerd en gebruikt voor toegang tot de API Management service-eindpunten van binnen het vnet.

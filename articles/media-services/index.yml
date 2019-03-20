@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0f249cfc604a31a29f6b2e3c0380e6591ec8b4e6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 3b778caed10981923d424745d820bfe10c1ce553
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378823"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903603"
 documentType: LandingData
 title: Documentatie voor Azure Media Services
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09-24-2018
+  ms.date: 03/11/2019
   ms.author: juliako
 abstract:
   description: Azure Media Services (AMS) is een platform in de cloud waarmee u oplossingen bouwt voor videocodering in high definition en videostreaming van uitzendkwaliteit waarmee u uw publiek via de populairste apparaten bereikt. Met AMS v3 kunt u ook de inzichten uit uw video- en audiobestanden extraheren met Video Indexer via de vooraf ingestelde AMS v3-analyzer. Als u meer gedetailleerde inzichten wilt, gebruikt u Video Indexer rechtstreeks.<br/> Als u het verschil wilt weten tussen het gebruik van instellingen van Video Indexer en Media Services, raadpleegt u het <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">vergelijkingsdocument</a>.
@@ -27,23 +27,28 @@ sections:
   - type: list
     style: cards
     className: cardsM
-    columns: 3
+    columns: 2
     items:
     - href: /azure/media-services/latest/
       html: <p>Leer hoe u uw video's codeert, op aanvraag streamt, live uitzendt en analyseert met Media Services v3.</p>
       image:
         src: media/index/AMSIcons-media_servicesV3.svg
       title: Azure Media Services v3
-    - href: /azure/media-services/previous/
-      html: <p>Leer hoe u uw video's codeert, op aanvraag streamt en live uitzendt met Media Services v2.</p>
-      image:
-        src: media/index/AMSIcons-media_servicesV2.svg
-      title: Azure Media Services v2 (verouderd)
     - href: /azure/media-services/video-indexer/
       html: <p>Leer hoe u inzichten uit uw video- en audiobestanden extraheert met behulp van Video Indexer.</p>
       image:
         src: media/index/AMSIcons-media_analytics.svg
       title: Video Indexer
+    - href: /azure/media-services/previous/
+      html: <p>Leer hoe u uw video's codeert, op aanvraag streamt en live uitzendt met Media Services v2.</p>
+      image:
+        src: media/index/AMSIcons-media_servicesV2.svg
+      title: Azure Media Services v2 (verouderd)
+    - href: /azure/cdn/
+      html: <p>Leer hoe u CDN gebruikt om statische objecten in de cache op te slaan en dynamische inhoud, die niet voor opslag in de cache in aanmerking komt, te versnellen.</p>
+      image:
+        src: /azure/cdn/media/index/cdn.svg
+      title: CDN
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph

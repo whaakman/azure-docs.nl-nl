@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: 8d3d2acb28a82f50f0255701fe6079ad444ce03f
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: bdf8b701567aaa3a0d9006333557bcec4f312723
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360276"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890913"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Threat Modeling Tool GA-release 7.1.50911.2 - 9/12/2018
 
@@ -90,7 +90,7 @@ Ja, u kunt! De [Azure stencil set is beschikbaar op github](https://github.com/M
 - Ondersteunde besturingssystemen
   - Microsoft Windows 10
 - .NET-versie vereist
-  - .Net 3.5.2
+  - .NET 3.5.2
 - Aanvullende vereisten
   - Een internetverbinding is vereist voor het ontvangen van updates voor het hulpprogramma, evenals de sjablonen.
 

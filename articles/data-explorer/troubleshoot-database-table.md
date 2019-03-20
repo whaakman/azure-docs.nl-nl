@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ec66066fe51af97f6355b78dd7af3480a39a5a03
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0bd9f5ed00193aa9f872287b6afaf9e2b28c24dc
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215083"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188336"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Problemen oplossen: Fout bij maken of verwijderen van een database of tabel in Azure Data Explorer
 
@@ -37,7 +37,7 @@ Zorg ervoor dat u voldoende machtigingen hebt. Als u wilt verwijderen of wijzig 
 
     Zie voor meer informatie over machtigingen [databasemachtigingen beheren](manage-database-permissions.md).
 
-1. Zorg ervoor dat een tabel met dezelfde naam al bestaat niet. Als deze bestaat, dan u kunt: Maak een tabel met een andere naam; Wijzig de naam van de bestaande tabel (vereist *tabel admin* rol); of verwijdert u de bestaande tabel (vereist *database admin* rol). Gebruik de volgende opdrachten.
+1. Zorg ervoor dat een tabel met dezelfde naam al bestaat niet. Als deze bestaat, kunt u: Maak een tabel met een andere naam; Wijzig de naam van de bestaande tabel (vereist *tabel admin* rol); of verwijdert u de bestaande tabel (vereist *database admin* rol). Gebruik de volgende opdrachten.
 
     ```Kusto
     .drop table <TableName>
@@ -53,7 +53,7 @@ Zie voor meer informatie over machtigingen [databasemachtigingen beheren](manage
 
 ## <a name="general-guidance"></a>Algemene richtlijnen
 
-1. Controleer de [Azure service health-dashboard](https://azure.microsoft.com/status/>). Zoek naar de status van Azure Data Explorer in de regio waar u wilt werken met een database of tabel.
+1. Controleer de [Azure service health-dashboard](https://azure.microsoft.com/status/). Zoek naar de status van Azure Data Explorer in de regio waar u wilt werken met een database of tabel.
 
     Als de status niet **goede** (groen vinkje), probeer het opnieuw nadat de status wordt verbeterd.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 77fa369a3085a3d11d5bf03406b4ddb885a24009
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041152"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847396"
 ---
 # <a name="reliable-actors-state-management"></a>Statusbeheer van betrouwbare actoren
 Reliable Actors zijn single-threaded objecten die zowel de logica en de status kunnen inkapselen. Omdat actoren op Reliable Services worden uitgevoerd, kunnen deze status op betrouwbare wijze onderhouden met behulp van dezelfde persistentie en replicatiemechanismen voor. Op deze manier actoren dat u geen hun status na fouten bij het reactiveren na de garbagecollection, of wanneer ze worden verplaatst tussen knooppunten in een cluster vanwege de bron-balancing of upgrades worden uitgevoerd.
@@ -29,9 +29,9 @@ Alle Reliable Actors worden beschouwd als *stateful* omdat elk exemplaar van de 
 
 Hoewel actoren worden beschouwd als stateful, dat betekent niet dat de status op betrouwbare wijze moeten worden opgeslagen. Actoren kunnen ervoor kiezen het niveau van persistentie ingeschakeld en replicatie op basis van hun gegevens opslagvereisten:
 
-* **Opgeslagen status**: status is opgeslagen op schijf en worden gerepliceerd naar drie of meer replica's. Permanente status is de meest duurzame opslag-optie state waar status kunt behouden tot en met volledige cluster onderbreking.
-* **Veranderlijke status**: status is gerepliceerd naar drie of meer replica's en alleen in het geheugen worden bewaard. Veranderlijke status bevat tolerantie tegen knooppuntfout en actor mislukt, en tijdens upgrades en bron-balancing. Echter de status niet is opgeslagen op schijf. Dus als alle replica's verloren gaan in één keer, de status is verloren gegaan ook.
-* **Er is geen permanente status**: status niet is gerepliceerd of geschreven naar de schijf alleen gebruiken voor actors die niet hoeven te onderhouden, de status op betrouwbare wijze.
+* **Opgeslagen status**: Status is opgeslagen op schijf en worden gerepliceerd naar drie of meer replica's. Permanente status is de meest duurzame opslag-optie state waar status kunt behouden tot en met volledige cluster onderbreking.
+* **Veranderlijke status**: De status is gerepliceerd naar drie of meer replica's en alleen in het geheugen worden bewaard. Veranderlijke status bevat tolerantie tegen knooppuntfout en actor mislukt, en tijdens upgrades en bron-balancing. Echter de status niet is opgeslagen op schijf. Dus als alle replica's verloren gaan in één keer, de status is verloren gegaan ook.
+* **Er is geen permanente status**: Status niet is gerepliceerd of geschreven naar de schijf alleen gebruiken voor actors die niet hoeven te onderhouden, de status op betrouwbare wijze.
 
 Elk niveau van persistentie is gewoon een andere *state-provider* en *replicatie* configuratie van uw service. Wel of niet de status wordt geschreven naar schijf is afhankelijk van de state-provider--het onderdeel in een betrouwbare service die wordt opgeslagen status. Replicatie is afhankelijk van het aantal replica's een-service wordt geïmplementeerd met. Net als bij betrouwbare Services, kunnen zowel de state-provider en het aantal replica's eenvoudig worden handmatig ingesteld. Het actorframework biedt een kenmerk dat, wanneer op een actor gebruikt, selecteert automatisch een standaard state-provider en instellingen voor het aantal replica's voor het bereiken van een van deze drie persistentie-instellingen worden automatisch gegenereerd. Het kenmerk StatePersistence is niet overgenomen door de afgeleide klasse, elk type Actor zijn StatePersistence niveau moet opgeven.
 
@@ -86,7 +86,7 @@ Wanneer u de `StatePersistence` kenmerk, een state-provider wordt automatisch ge
 U kunt deze parameters handmatig wijzigen. Maar telkens wanneer de `StatePersistence` kenmerk wordt gewijzigd, de parameters zijn ingesteld op de replica set grootte standaardwaarden voor de geselecteerde `StatePersistence` kenmerk overschrijven van een vorige waarden. Met andere woorden, de waarden die u in ServiceManifest.xml instelt zijn *alleen* overschreven tijdens het opbouwen wanneer u wijzigt de `StatePersistence` waarde van het kenmerk.
 
 ```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
       <Parameter Name="MyActorService_PartitionCount" DefaultValue="10" />
       <Parameter Name="MyActorService_MinReplicaSetSize" DefaultValue="3" />

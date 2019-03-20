@@ -14,12 +14,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 261efda18b7cecc6370743c604622a8884ff8364
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 519046081a7f9778fb430daa0cd418cf9863a2b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732312"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975624"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI in Azure Stack
 
@@ -47,7 +47,7 @@ Voor het exporteren van het basiscertificaat ASDK in PEM-indeling:
 
 2. Meld u aan bij de computer, open een verhoogde PowerShell-prompt en voer het volgende script:
 
-      ```powershell  
+    ```powershell  
       $label = "AzureStackSelfSignedRootCert"
       Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
       $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
@@ -56,13 +56,13 @@ Voor het exporteren van het basiscertificaat ASDK in PEM-indeling:
           Write-Error "Certificate with subject CN=$label not found"
           return
       }
-      
+
     Write-Host "Exporting certificate"
     Export-Certificate -Type CERT -FilePath root.cer -Cert $root
 
     Write-Host "Converting certificate to PEM format"
     certutil -encode root.cer root.pem
-```
+    ```
 
 3. Kopieer het certificaat naar uw lokale computer.
 
@@ -75,15 +75,15 @@ U kunt een openbaar toegankelijk eindpunt dat als host fungeert voor een virtuel
 
 2. Download de [voorbeeldbestand](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) vanuit GitHub.
 
-4. Maak een opslagaccount in Azure Stack. Wanneer u dat hebt gedaan, maakt u een blob-container. Instellen van het toegangsbeleid voor 'openbare'.  
+3. Maak een opslagaccount in Azure Stack. Wanneer u dat hebt gedaan, maakt u een blob-container. Instellen van het toegangsbeleid voor 'openbare'.  
 
-3. Upload het JSON-bestand naar de nieuwe container. Wanneer u dat hebt gedaan, kunt u de URL van de blob weergeven. Selecteer de blobnaam van de en vervolgens de URL in de blob-eigenschappen te selecteren.
+4. Upload het JSON-bestand naar de nieuwe container. Wanneer u dat hebt gedaan, kunt u de URL van de blob weergeven. Selecteer de blobnaam van de en vervolgens de URL in de blob-eigenschappen te selecteren.
 
-### <a name="install-or-ugrade-cli"></a>Installeren of u CLI
+### <a name="install-or-upgrade-cli"></a>Installeren of upgraden van CLI
 
 Aanmelden bij uw ontwikkelwerkstation en CLI installeren. Azure Stack is versie 2.0 of hoger van Azure CLI vereist. De nieuwste versie van de API-profielen vereist een actuele versie van de CLI.  U kunt de CLI installeren met behulp van de stappen in de [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) artikel. Om te controleren of de installatie geslaagd is, open een terminal of opdrachtpromptvenster en voer de volgende opdracht uit:
 
-```azurecli
+```shell
 az --version
 ```
 
@@ -151,7 +151,7 @@ In deze sectie helpen u bij het instellen van de CLI als u van Azure AD als uw i
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Vertrouwen van de Azure Stack-CA-basiscertificaat
 
-Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer vertrouwt. U moet niet doen dit met de intregrated-systemen.
+Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer vertrouwt. U moet niet om dit te doen met de geïntegreerde systemen.
 
 Als u het basiscertificaat van de Azure Stack-CA vertrouwt, voegt u deze toe aan het bestaande certificaat voor Python.
 
@@ -206,11 +206,12 @@ Als u het basiscertificaat van de Azure Stack-CA vertrouwt, voegt u deze toe aan
     ```
 
 2. Registreer uw omgeving. De volgende parameters gebruiken bij het uitvoeren van `az cloud register`.
+
     | Value | Voorbeeld | Description |
     | --- | --- | --- |
     | Naam van de omgeving | AzureStackUser | Gebruik `AzureStackUser` voor de gebruikersomgeving. Als u de operator bent, geeft u `AzureStackAdmin`. |
-    | Resource manager-eindpunt | https://management.local.azurestack.external | De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<region>.<fqdn>/` Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Als u een vraag hebt over het eindpunt geïntegreerd systeem, moet u contact op met uw cloud-operator. |
-    | Opslageindpunt | local.azurestack.external | `local.azurestack.external` is voor de ASDK. Voor een systeem intregrated, wordt u wilt gebruiken van een eindpunt voor uw systeem.  |
+    | Resource Manager-eindpunt | https://management.local.azurestack.external | De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<region>.<fqdn>/` Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Als u een vraag hebt over het eindpunt geïntegreerd systeem, moet u contact op met uw cloud-operator. |
+    | Opslageindpunt | local.azurestack.external | `local.azurestack.external` is voor de ASDK. Voor een geïntegreerd systeem, wordt u wilt gebruiken van een eindpunt voor uw systeem.  |
     | Keyvalut achtervoegsel | .vault.local.azurestack.external | `.vault.local.azurestack.external` is voor de ASDK. Voor een geïntegreerd systeem, wordt u wilt gebruiken van een eindpunt voor uw systeem.  |
     | VM-installatiekopie alias doc-eindpunt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | De URI van het document waarin de virtuele machine-installatiekopie aliassen. Zie voor meer informatie, [### instellen van het eindpunt van de virtuele machine-aliassen](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -235,24 +236,24 @@ Als u het basiscertificaat van de Azure Stack-CA vertrouwt, voegt u deze toe aan
  
 1. Aanmelden bij uw Azure Stack-omgeving met behulp van de `az login` opdracht. U kunt aanmelden bij de Azure Stack-omgeving als een gebruiker of als een [service-principal](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-  - Meld u aan als een *gebruiker*: 
+   - Meld u aan als een *gebruiker*: 
 
-    U kunt de gebruikersnaam en het wachtwoord rechtstreeks binnen opgeven de `az login` opdracht of verifiëren met behulp van een browser. U moet de laatste doen als uw account multi-factor authentication ingeschakeld heeft:
+     U kunt de gebruikersnaam en het wachtwoord rechtstreeks binnen opgeven de `az login` opdracht of verifiëren met behulp van een browser. U moet de laatste doen als uw account multi-factor authentication ingeschakeld heeft:
 
-    ```azurecli
-    az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
-    ```
+     ```azurecli
+     az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+     ```
 
-    > [!NOTE]
-    > Als uw gebruikersaccount multi-factor authentication ingeschakeld heeft, kunt u de `az login` opdracht zonder op te geven de `-u` parameter. Met deze opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
+     > [!NOTE]
+     > Als uw gebruikersaccount multi-factor authentication ingeschakeld heeft, kunt u de `az login` opdracht zonder op te geven de `-u` parameter. Met deze opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
 
-  - Meld u aan als een *service-principal*: 
+   - Meld u aan als een *service-principal*: 
     
-    Voordat u zich aanmeldt, [maken van een service-principal via de Azure-portal](azure-stack-create-service-principals.md) of CLI en een rol toewijzen. Nu aanmelden met behulp van de volgende opdracht uit:
+     Voordat u zich aanmeldt, [maken van een service-principal via de Azure-portal](azure-stack-create-service-principals.md) of CLI en een rol toewijzen. Nu aanmelden met behulp van de volgende opdracht uit:
 
-    ```azurecli  
-    az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
-    ```
+     ```azurecli  
+     az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
+     ```
 
 ### <a name="test-the-connectivity"></a>De connectiviteit testen
 
@@ -272,7 +273,7 @@ In deze sectie helpen u bij het instellen van de CLI als u van Active Directory 
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Vertrouwen van de Azure Stack-CA-basiscertificaat
 
-Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer vertrouwt. U moet niet doen dit met de intregrated-systemen.
+Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer vertrouwt. U moet niet om dit te doen met de geïntegreerde systemen.
 
 1. De certificaatlocatie op uw computer vinden. De locatie kan variëren, afhankelijk van waar u Python hebt geïnstalleerd. Open een opdrachtprompt of een PowerShell-prompt met verhoogde bevoegdheid en typ de volgende opdracht:
 
@@ -325,11 +326,12 @@ Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer ve
     ```
 
 2. Registreer uw omgeving. De volgende parameters gebruiken bij het uitvoeren van `az cloud register`.
+
     | Value | Voorbeeld | Description |
     | --- | --- | --- |
     | Naam van de omgeving | AzureStackUser | Gebruik `AzureStackUser` voor de gebruikersomgeving. Als u de operator bent, geeft u `AzureStackAdmin`. |
-    | Resource manager-eindpunt | https://management.local.azurestack.external | De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<region>.<fqdn>/` Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Als u een vraag hebt over het eindpunt geïntegreerd systeem, moet u contact op met uw cloud-operator. |
-    | Opslageindpunt | local.azurestack.external | `local.azurestack.external` is voor de ASDK. Voor een systeem intregrated, wordt u wilt gebruiken van een eindpunt voor uw systeem.  |
+    | Resource Manager-eindpunt | https://management.local.azurestack.external | De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<region>.<fqdn>/` Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Als u een vraag hebt over het eindpunt geïntegreerd systeem, moet u contact op met uw cloud-operator. |
+    | Opslageindpunt | local.azurestack.external | `local.azurestack.external` is voor de ASDK. Voor een geïntegreerd systeem, wordt u wilt gebruiken van een eindpunt voor uw systeem.  |
     | Keyvalut achtervoegsel | .vault.local.azurestack.external | `.vault.local.azurestack.external` is voor de ASDK. Voor een geïntegreerd systeem, wordt u wilt gebruiken van een eindpunt voor uw systeem.  |
     | VM-installatiekopie alias doc-eindpunt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | De URI van het document waarin de virtuele machine-installatiekopie aliassen. Zie voor meer informatie, [### instellen van het eindpunt van de virtuele machine-aliassen](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -354,34 +356,34 @@ Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer ve
 
 1. Aanmelden bij uw Azure Stack-omgeving met behulp van de `az login` opdracht. U kunt aanmelden bij de Azure Stack-omgeving als een gebruiker of als een [service-principal](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-  - Meld u aan als een *gebruiker*:
+   - Meld u aan als een *gebruiker*:
 
-    U kunt de gebruikersnaam en het wachtwoord rechtstreeks binnen opgeven de `az login` opdracht of verifiëren met behulp van een browser. U moet de laatste doen als uw account multi-factor authentication ingeschakeld heeft:
+     U kunt de gebruikersnaam en het wachtwoord rechtstreeks binnen opgeven de `az login` opdracht of verifiëren met behulp van een browser. U moet de laatste doen als uw account multi-factor authentication ingeschakeld heeft:
 
-    ```azurecli
-    az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
-    ```
+     ```azurecli
+     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
+     ```
 
-    > [!NOTE]
-    > Als uw gebruikersaccount multi-factor authentication ingeschakeld heeft, kunt u de `az login` opdracht zonder op te geven de `-u` parameter. Met deze opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
+     > [!NOTE]
+     > Als uw gebruikersaccount multi-factor authentication ingeschakeld heeft, kunt u de `az login` opdracht zonder op te geven de `-u` parameter. Met deze opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
 
-  - Meld u aan als een *service-principal*: 
+   - Meld u aan als een *service-principal*: 
     
-    Bereid het .pem-bestand moet worden gebruikt voor service-principal-aanmelding.
+     Bereid het .pem-bestand moet worden gebruikt voor service-principal-aanmelding.
 
-    Op de clientcomputer waar de principal is gemaakt, de service-principal-certificaat exporteren als een pfx met de persoonlijke sleutel te vinden op `cert:\CurrentUser\My`; de naam heeft dezelfde naam als de principal certificaat.
+     Op de clientcomputer waar de principal is gemaakt, de service-principal-certificaat exporteren als een pfx met de persoonlijke sleutel te vinden op `cert:\CurrentUser\My`; de naam heeft dezelfde naam als de principal certificaat.
 
-    Converteer de pfx naar pem (Gebruik het hulpprogramma OpenSSL).
+     Converteer de pfx naar pem (Gebruik het hulpprogramma OpenSSL).
 
-    Meld u aan bij de CLI:
+     Meld u aan bij de CLI:
   
-    ```azurecli  
-    az login --service-principal \
+     ```azurecli  
+     az login --service-principal \
       -u <Client ID from the Service Principal details> \
       -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
       --tenant <Tenant ID> \
       --debug 
-    ```
+     ```
 
 ### <a name="test-the-connectivity"></a>De connectiviteit testen
 
@@ -402,7 +404,7 @@ In deze sectie helpen u bij het instellen van de CLI als u van Azure AD als uw i
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Vertrouwen van de Azure Stack-CA-basiscertificaat
 
-Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer vertrouwt. U moet niet doen dit met de intregrated-systemen.
+Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer vertrouwt. U moet niet om dit te doen met de geïntegreerde systemen.
 
 De Azure Stack-CA-basiscertificaat door deze toe te voegen aan het bestaande Python-certificaat vertrouwen.
 
@@ -416,17 +418,17 @@ De Azure Stack-CA-basiscertificaat door deze toe te voegen aan het bestaande Pyt
 
 2. Voer de volgende bash-opdracht door het pad naar het certificaat.
 
-  - Voor een externe Linux-machine:
+   - Voor een externe Linux-machine:
 
-    ```bash  
-    sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
+     ```
 
-  - Voor een Linux-machine in de Azure Stack-omgeving:
+   - Voor een Linux-machine in de Azure Stack-omgeving:
 
-    ```bash  
-    sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
+     ```
 
 ### <a name="connect-to-azure-stack"></a>Verbinding maken met Azure Stack
 
@@ -440,11 +442,12 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
    ```
 
 2. Registreer uw omgeving. De volgende parameters gebruiken bij het uitvoeren van `az cloud register`.
+
     | Value | Voorbeeld | Description |
     | --- | --- | --- |
     | Naam van de omgeving | AzureStackUser | Gebruik `AzureStackUser` voor de gebruikersomgeving. Als u de operator bent, geeft u `AzureStackAdmin`. |
-    | Resource manager-eindpunt | https://management.local.azurestack.external | De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<region>.<fqdn>/` Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Als u een vraag hebt over het eindpunt geïntegreerd systeem, moet u contact op met uw cloud-operator. |
-    | Opslageindpunt | local.azurestack.external | `local.azurestack.external` is voor de ASDK. Voor een systeem intregrated, wordt u wilt gebruiken van een eindpunt voor uw systeem.  |
+    | Resource Manager-eindpunt | https://management.local.azurestack.external | De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<region>.<fqdn>/` Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Als u een vraag hebt over het eindpunt geïntegreerd systeem, moet u contact op met uw cloud-operator. |
+    | Opslageindpunt | local.azurestack.external | `local.azurestack.external` is voor de ASDK. Voor een geïntegreerd systeem, wordt u wilt gebruiken van een eindpunt voor uw systeem.  |
     | Keyvalut achtervoegsel | .vault.local.azurestack.external | `.vault.local.azurestack.external` is voor de ASDK. Voor een geïntegreerd systeem, wordt u wilt gebruiken van een eindpunt voor uw systeem.  |
     | VM-installatiekopie alias doc-eindpunt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | De URI van het document waarin de virtuele machine-installatiekopie aliassen. Zie voor meer informatie, [### instellen van het eindpunt van de virtuele machine-aliassen](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -469,30 +472,30 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
 
 5. Aanmelden bij uw Azure Stack-omgeving met behulp van de `az login` opdracht. U kunt aanmelden bij de Azure Stack-omgeving als een gebruiker of als een [service-principal](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-    * Meld u aan als een *gebruiker*:
+   * Meld u aan als een *gebruiker*:
 
-    U kunt de gebruikersnaam en het wachtwoord rechtstreeks binnen opgeven de `az login` opdracht of verifiëren met behulp van een browser. U moet de laatste doen als uw account multi-factor authentication ingeschakeld heeft:
+     U kunt de gebruikersnaam en het wachtwoord rechtstreeks binnen opgeven de `az login` opdracht of verifiëren met behulp van een browser. U moet de laatste doen als uw account multi-factor authentication ingeschakeld heeft:
 
-      ```azurecli
-      az login \
-        -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
-        --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
-      ```
+     ```azurecli
+     az login \
+       -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
+       --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+     ```
 
-    > [!NOTE]
-    > Als uw gebruikersaccount multi-factor authentication ingeschakeld heeft, kunt u de `az login` opdracht zonder op te geven de `-u` parameter. Met deze opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
+     > [!NOTE]
+     > Als uw gebruikersaccount multi-factor authentication ingeschakeld heeft, kunt u de `az login` opdracht zonder op te geven de `-u` parameter. Met deze opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
    
-    * Meld u aan als een *service-principal*
+   * Meld u aan als een *service-principal*
     
-    Voordat u zich aanmeldt, [maken van een service-principal via de Azure-portal](azure-stack-create-service-principals.md) of CLI en een rol toewijzen. Nu aanmelden met behulp van de volgende opdracht uit:
+     Voordat u zich aanmeldt, [maken van een service-principal via de Azure-portal](azure-stack-create-service-principals.md) of CLI en een rol toewijzen. Nu aanmelden met behulp van de volgende opdracht uit:
 
-      ```azurecli  
-      az login \
-        --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
-        --service-principal \
-        -u <Application Id of the Service Principal> \
-        -p <Key generated for the Service Principal>
-      ```
+     ```azurecli  
+     az login \
+       --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
+       --service-principal \
+       -u <Application Id of the Service Principal> \
+       -p <Key generated for the Service Principal>
+     ```
 
 ### <a name="test-the-connectivity"></a>De connectiviteit testen
 
@@ -512,7 +515,7 @@ In deze sectie helpen u bij het instellen van de CLI als u van Active Directory 
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Vertrouwen van de Azure Stack-CA-basiscertificaat
 
-Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer vertrouwt. U moet niet doen dit met de intregrated-systemen.
+Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer vertrouwt. U moet niet om dit te doen met de geïntegreerde systemen.
 
 De Azure Stack-CA-basiscertificaat door deze toe te voegen aan het bestaande Python-certificaat vertrouwen.
 
@@ -526,17 +529,17 @@ De Azure Stack-CA-basiscertificaat door deze toe te voegen aan het bestaande Pyt
 
 2. Voer de volgende bash-opdracht door het pad naar het certificaat.
 
-  - Voor een externe Linux-machine:
+   - Voor een externe Linux-machine:
 
-    ```bash  
-    sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
+     ```
 
-  - Voor een Linux-machine in de Azure Stack-omgeving:
+   - Voor een Linux-machine in de Azure Stack-omgeving:
 
-    ```bash  
-    sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
+     ```
 
 ### <a name="connect-to-azure-stack"></a>Verbinding maken met Azure Stack
 
@@ -550,11 +553,12 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
    ```
 
 2. Registreer uw omgeving. De volgende parameters gebruiken bij het uitvoeren van `az cloud register`.
+
     | Value | Voorbeeld | Description |
     | --- | --- | --- |
     | Naam van de omgeving | AzureStackUser | Gebruik `AzureStackUser` voor de gebruikersomgeving. Als u de operator bent, geeft u `AzureStackAdmin`. |
-    | Resource manager-eindpunt | https://management.local.azurestack.external | De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<region>.<fqdn>/` Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Als u een vraag hebt over het eindpunt geïntegreerd systeem, moet u contact op met uw cloud-operator. |
-    | Opslageindpunt | local.azurestack.external | `local.azurestack.external` is voor de ASDK. Voor een systeem intregrated, wordt u wilt gebruiken van een eindpunt voor uw systeem.  |
+    | Resource Manager-eindpunt | https://management.local.azurestack.external | De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<region>.<fqdn>/` Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Als u een vraag hebt over het eindpunt geïntegreerd systeem, moet u contact op met uw cloud-operator. |
+    | Opslageindpunt | local.azurestack.external | `local.azurestack.external` is voor de ASDK. Voor een geïntegreerd systeem, wordt u wilt gebruiken van een eindpunt voor uw systeem.  |
     | Keyvalut achtervoegsel | .vault.local.azurestack.external | `.vault.local.azurestack.external` is voor de ASDK. Voor een geïntegreerd systeem, wordt u wilt gebruiken van een eindpunt voor uw systeem.  |
     | VM-installatiekopie alias doc-eindpunt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | De URI van het document waarin de virtuele machine-installatiekopie aliassen. Zie voor meer informatie, [### instellen van het eindpunt van de virtuele machine-aliassen](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -581,24 +585,24 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
 
 6. Aanmelden: 
 
-  *  Als een **gebruiker** via een webbrowser met de apparaatcode van een:  
+   *  Als een **gebruiker** via een webbrowser met de apparaatcode van een:  
 
-  ```azurecli  
+   ```azurecli  
     az login --use-device-code
-  ```
+   ```
 
-  > [!NOTE]  
-  >Met de opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
+   > [!NOTE]  
+   >Met de opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
 
-  * Als een service-principal:
+   * Als een service-principal:
         
-    Bereid het .pem-bestand moet worden gebruikt voor service-principal-aanmelding.
+     Bereid het .pem-bestand moet worden gebruikt voor service-principal-aanmelding.
 
       * Op de clientcomputer waar de principal is gemaakt, de service-principal-certificaat exporteren als een pfx met de persoonlijke sleutel te vinden op `cert:\CurrentUser\My`; de naam heeft dezelfde naam als de principal certificaat.
   
       * Converteer de pfx naar pem (Gebruik het hulpprogramma OpenSSL).
 
-    Meld u aan bij de CLI:
+     Meld u aan bij de CLI:
 
       ```azurecli  
       az login --service-principal \

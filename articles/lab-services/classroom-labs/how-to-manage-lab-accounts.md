@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 6cd06778ad54fa698c5bc2fe4ccf02f4be2ee2ec
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f1194d8385d1e7ddcb906d0c8c3a2b56648e2547
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120819"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Lab-accounts in Azure Lab Services beheren 
 Een lab-account is in Azure Lab-Services, een container voor beheerde labtypen zoals leslokaallabs. Een beheerder stelt u een lab-account met Azure Lab-Services en biedt toegang tot een lab-eigenaren die labs in het account maken kunnen. In dit artikel wordt beschreven hoe u een lab-account maken, alle lab-accounts weergeven of verwijderen van een lab-account.
@@ -38,7 +38,9 @@ In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te ma
     2. Selecteer het **Azure-abonnement** waarin u het lab-account wilt maken.
     3. Selecteer voor **Resourcegroep** de optie **Nieuwe maken** en voer een naam in voor de resourcegroep.
     4. Selecteer voor **Locatie** een locatie/regio waarin het lab-account moet worden gemaakt. 
-    5. Selecteer **Maken**. 
+    5. Voor **virtuele peernetwerk**, selecteert u een peer-netwerk (VNet voor het testlabnetwerk). Labs gemaakt in dit account zijn verbonden met het geselecteerde VNet en hebben toegang tot de resources in het geselecteerde VNet. 
+    7. Voor het veld **Labmaker toestaan om lablocatie te kiezen** geeft u op of u wilt dat labmakers een locatie voor het lab kunnen selecteren. De optie is standaard uitgeschakeld. Wanneer deze is uitgeschakeld, kunnen labmakers geen locatie opgeven voor het lab dat ze maken. De labs worden gemaakt in de dichtstbijzijnde geografische locatie in het labaccount. Wanneer deze is ingeschakeld, kan de labmaker een locatie selecteren wanneer hij een lab maakt.      
+    8. Selecteer **Maken**. 
 
         ![Venster Een lab-account maken](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Selecteer het **Klokpictogram** op de werkbalk (**Meldingen**), controleer of de implementatie is voltooid en selecteer vervolgens **Naar de resource gaan**. 
@@ -86,6 +88,18 @@ Als eigenaar van een labaccount kunt u de Marketplace-installatiekopieën opgeve
     1. Selecteer **... (beletselteken)**  in de laatste kolom en selecteer **Installatiekopie inschakelen**. 
     2. Selecteer een of meer installatiekopieën in de lijst door de selectievakjes bij de namen van de installatiekopieën in de lijst te selecteren en **Geselecteerde installatiekopieën inschakelen** te selecteren. 
 
+## <a name="configure-the-lab-account"></a>Configureer het lab-account
+1. Op de **Lab-Account** weergeeft, schakelt **Labs configuratie** in het menu links.
+
+    ![Configuratiepagina voor Labs](../media/how-to-manage-lab-accounts/labs-configuration-page.png) 
+1. Voor **virtuele peernetwerk**, selecteer **ingeschakeld** of **uitgeschakelde**. De standaardwaarde is **uitgeschakelde**. Om in te schakelen op het virtuele peernetwerk, voer de volgende stappen uit: 
+    1. Selecteer **ingeschakeld**.
+    2. Selecteer de **VNet** uit de vervolgkeuzelijst. 
+    3. Selecteer **Opslaan** op de werkbalk. 
+    
+        Labs gemaakt in dit account zijn verbonden met het geselecteerde virtuele netwerk. Ze hebben toegang tot de bronnen in de geselecteerde virtuele netwerk. 
+3. Voor de **labmaker toestaan om te kiezen lab locatie**, selecteer **ingeschakeld** als u wilt dat de labmaker kunnen een locatie voor de testomgeving te selecteren. Als deze uitgeschakeld, worden de labs automatisch gemaakt op dezelfde locatie waarin de lab-account bestaat. 
+
 ## <a name="view-lab-accounts"></a>Lab-accounts weergeven
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer **alle resources** in het menu. 
@@ -93,19 +107,6 @@ Als eigenaar van een labaccount kunt u de Marketplace-installatiekopieën opgeve
     U kunt ook filteren op abonnement, resourcegroep, locaties en tags. 
 
     ![Alle resources -> Lab-Accounts](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
-
-
-## <a name="delete-a-lab-account"></a>Een lab-account verwijderen
-Volg de instructies uit de vorige sectie die lab-accounts in een lijst weergegeven. Gebruik de volgende instructies om een lab-account te verwijderen: 
-
-1. Selecteer de **lab-account** die u wilt verwijderen. 
-2. Selecteer **verwijderen** via de werkbalk. 
-
-    ![Lab-Accounts -> knop verwijderen](../media/how-to-manage-lab-accounts/delete-button.png)
-1. Type **Ja** ter bevestiging.
-1. Selecteer **Verwijderen**. 
-
-    ![Lab-account - bevestiging verwijderen](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
 ## <a name="view-and-manage-labs-in-the-lab-account"></a>Weergeven en labs in het lab-account beheren
 
@@ -119,6 +120,8 @@ Volg de instructies uit de vorige sectie die lab-accounts in een lijst weergegev
     4. Maximum aantal gebruikers dat is toegestaan in het lab. 
     5. De status van het testlab. 
 
+
+
 ## <a name="delete-a-lab-in-the-lab-account"></a>Een lab in het lab-account verwijderen
 Volg de instructies in de vorige sectie voor een overzicht van de labs in het lab-account.
 
@@ -128,6 +131,20 @@ Volg de instructies in de vorige sectie voor een overzicht van de labs in het la
 2. Selecteer **Ja** op het waarschuwingsbericht staan aangegeven. 
 
     ![Lab verwijderen bevestigen](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
+
+## <a name="delete-a-lab-account"></a>Een lab-account verwijderen
+Volg de instructies uit de vorige sectie die lab-accounts in een lijst weergegeven. Gebruik de volgende instructies om een lab-account te verwijderen: 
+
+1. Selecteer de **lab-account** die u wilt verwijderen. 
+2. Selecteer **verwijderen** via de werkbalk. 
+
+    ![Lab-Accounts -> knop verwijderen](../media/how-to-manage-lab-accounts/delete-button.png)
+1. Type **Ja** ter bevestiging.
+1. Selecteer **Verwijderen**. 
+
+    ![Lab-account - bevestiging verwijderen](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen:

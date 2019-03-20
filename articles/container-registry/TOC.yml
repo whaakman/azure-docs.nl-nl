@@ -62,26 +62,29 @@ items:
       href: container-registry-image-lock.md
     - name: Containerinstallatiekopieën verwijderen
       href: container-registry-delete.md
-    - name: Inhoud vertrouwen (Preview-versie)
-      href: container-registry-content-trust.md
     - name: Een klassiek register upgraden
       href: container-registry-upgrade.md
     - name: ACR-webhooks gebruiken
       href: container-registry-webhook.md
     - name: Opslagplaatsen voor Helm-grafieken (preview)
       href: container-registry-helm-repos.md
-  - name: Verificatie
+  - name: Verificatie en beveiliging
     items:
+    - name: Toegang beperken met een virtueel netwerk (preview)
+      href: container-registry-vnet.md
     - name: Verificatieoverzicht
       href: container-registry-authentication.md
-    - name: Verificatie van service-principal
-      href: container-registry-auth-service-principal.md
-    - name: Verificatie van beheerde identiteit
-      href: container-registry-authentication-managed-identity.md
-    - name: Azure Container Instances
-      href: container-registry-auth-aci.md
-    - name: Azure Kubernetes Service (AKS)
-      href: container-registry-auth-aks.md
+      items:
+      - name: Verificatie van service-principal
+        href: container-registry-auth-service-principal.md
+      - name: Verificatie van beheerde identiteit
+        href: container-registry-authentication-managed-identity.md
+      - name: Verificatie via Azure Container Instances
+        href: container-registry-auth-aci.md
+      - name: Verificatie via Azure Kubernetes Service (AKS)
+        href: container-registry-auth-aks.md
+    - name: Inhoud vertrouwen (Preview-versie)
+      href: container-registry-content-trust.md
   - name: Compileren en patchen
     items:
     - name: ACR-taken
@@ -137,9 +140,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Video's
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: ef8f6b64129f9dd2f2959c89e93c34b9d90a62f7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 732c0f878df9b5d722571bf45e4afd76a3180ebb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541946"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137991"

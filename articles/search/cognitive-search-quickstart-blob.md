@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/02/2019
+ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 191cff21cdaa6a4e94358ed0b9c63cd942f71a6e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: f00df841f81ea5c7aa1fd53309b00487602e5143
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564558"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200620"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snelstart: Een pijplijn voor cognitief zoeken maken met vaardigheden en voorbeeldgegevens
 
@@ -32,21 +32,7 @@ Maak in deze snelstart uw eerste verrijkingspijplijn in [Azure Portal](https://p
 
 ## <a name="supported-regions"></a> Ondersteunde regio's
 
-U kunt cognitief zoeken uitproberen in een Azure Search-service in de volgende gebieden:
-
-* US - west-centraal
-* US - zuid-centraal
-* US - oost
-* US - oost 2
-* US - west 2
-* Canada - midden
-* Europa -west
-* Verenigd Koninkrijk Zuid
-* Europa - noord
-* Brazilië - zuid
-* Azië - zuidoost
-* India - centraal
-* Australië - oost
+AI-verrijkt indexeren via Cognitive Services is beschikbaar in alle regio's voor Azure Search.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -69,11 +55,11 @@ Azure-services worden uitsluitend in dit scenario gebruikt. Het maken van de ser
 
 Registreer u eerst voor de Azure Search-service. 
 
-1. Ga naar [Azure Portal](https://portal.azure.com) en meld u aan met uw Azure-account.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van uw Azure-account.
 
 1. Klik op **Een resource maken**, zoek naar Azure Search en klik op **Maken**. Zie [Een Azure Search-service maken in de portal](search-create-service-portal.md) als u voor de eerste keer een zoekservice instelt en meer hulp nodig hebt.
 
-  ![Dashboard van portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Een Azure Search-service maken in de portal")
+   ![Dashboard van portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Een Azure Search-service maken in de portal")
 
 1. Maak voor Resourcegroep een nieuwe resourcegroep voor alle resources die u in deze snelstart gaat maken. Dit vergemakkelijkt het opschonen van de resources nadat u de snelstart hebt voltooid.
 
@@ -81,16 +67,16 @@ Registreer u eerst voor de Azure Search-service.
 
 1. Voor de prijscategorie kunt u een **Gratis** service maken om de zelfstudies en snelstarts te voltooien. Voor nadere analyse met behulp van uw eigen gegevens, maakt u een [betaalde service](https://azure.microsoft.com/pricing/details/search/) zoals **Basic** of **Standard**. 
 
-  Een gratis service is beperkt tot 3 indexen, maximaal 16 MB aan blobgrootte en 2 minuten indexeren. Dit is voldoende om de volledige functionaliteit van cognitief zoeken te verkennen. Zie [Servicelimieten](search-limits-quotas-capacity.md) om de limieten voor verschillende prijscategorieën te bekijken.
+   Een gratis service is beperkt tot 3 indexen, maximaal 16 MB aan blobgrootte en 2 minuten indexeren. Dit is voldoende om de volledige functionaliteit van cognitief zoeken te verkennen. Zie [Servicelimieten](search-limits-quotas-capacity.md) om de limieten voor verschillende prijscategorieën te bekijken.
 
-  ![Pagina Servicedefinitie in de portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Pagina Servicedefinitie in de portal")
+   ![Pagina Servicedefinitie in de portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Pagina Servicedefinitie in de portal")
 
-  > [!NOTE]
-  > Cognitief zoeken is een openbare preview. De uitvoering van vaardigheden is momenteel in alle prijscategorieën beschikbaar, waaronder de gratis categorie. U kunt een beperkt aantal verrijkingen uitvoeren zonder een betaalde Cognitive Services-resource te koppelen. [Meer](cognitive-search-attach-cognitive-services.md) informatie.
+   > [!NOTE]
+   > Cognitief zoeken is een openbare preview. De uitvoering van vaardigheden is momenteel in alle prijscategorieën beschikbaar, waaronder de gratis categorie. U kunt een beperkt aantal verrijkingen uitvoeren zonder een betaalde Cognitive Services-resource te koppelen. [Meer](cognitive-search-attach-cognitive-services.md) informatie.
 
 1. Maak de service vast aan het dashboard voor snelle toegang tot service-informatie.
 
-  ![Pagina Servicedefinitie in de portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Pagina Servicedefinitie in de portal")
+   ![Pagina Servicedefinitie in de portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Pagina Servicedefinitie in de portal")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob service instellen en voorbeeldgegevens laden
 
@@ -98,11 +84,13 @@ De verrijkingspijplijn haalt gegevensbronnen op uit Azure ondersteund door [inde
 
 1. [Download de voorbeeldgegevens](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) die bestaan uit een kleine set van verschillende typen bestanden. 
 
-1. Meld u aan bij Azure Blob-opslag, maak een opslagaccount, open de Blob-servicepagina's en maak een container. Stel voor de container het openbare toegangsniveau in op **Container**. Zie de sectie [Een container maken](../storage/blobs/storage-unstructured-search.md#create-a-container) in de zelfstudie *Niet-gestructureerde gegevens doorzoeken* voor meer informatie.
+1. Meld u aan bij Azure Blob-opslag, maak een opslagaccount, open de Blob-servicepagina's en maak een container. 
+
+1. Op de container, stelt u de openbare toegang tot op **Container (anonieme leestoegang voor containers en blobs)**. Zie de sectie [Een container maken](../storage/blobs/storage-unstructured-search.md#create-a-container) in de zelfstudie *Niet-gestructureerde gegevens doorzoeken* voor meer informatie.
 
 1. Klik in de container die u hebt gemaakt op **Uploaden** om de voorbeeldbestanden te uploaden die u in een vorige stap hebt gedownload.
 
-  ![Bronbestanden in Azure-blobopslag](./media/cognitive-search-quickstart-blob/sample-data.png)
+   ![Bronbestanden in Azure-blobopslag](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 ## <a name="create-the-enrichment-pipeline"></a>De verrijkingspijplijn maken
 
@@ -126,17 +114,17 @@ Voeg vervolgens verrijkingsstappen toevoegen aan de pijplijn voor indexering. Al
 
 1. Vouw **Cognitive Services toevoegen** uit om opties voor brontoewijzing van de Cognitive Services-API's weer te geven. Voor deze zelfstudie kunt u de resource **Gratis** gebruiken.
 
-  ![Cognitive Services toevoegen](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   ![Cognitive Services toevoegen](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
 2. Vouw **Verrijkingen toevoegen** uit en selecteer vaardigheden voor het verwerken van natuurlijke taal. Kies bij deze snelstart voor entiteitsherkenning voor personen, organisaties en locaties.
 
-  ![Cognitive Services toevoegen](media/cognitive-search-quickstart-blob/skillset.png)
+   ![Cognitive Services toevoegen](media/cognitive-search-quickstart-blob/skillset.png)
 
-  De portal biedt ingebouwde vaardigheden voor OCR-analyse en tekstanalyse. In de portal werkt een set vaardigheden via één bronveld. Dat lijkt misschien een klein doel, maar voor Azure-blobs bevat het veld `content` het meeste van het blobdocument (bijvoorbeeld een Word-document of PowerPoint-presentatie). Dit veld is een ideale invoer omdat het alle inhoud van een blob bevat.
+   De portal biedt ingebouwde vaardigheden voor OCR-analyse en tekstanalyse. In de portal werkt een set vaardigheden via één bronveld. Dat lijkt misschien een klein doel, maar voor Azure-blobs bevat het veld `content` het meeste van het blobdocument (bijvoorbeeld een Word-document of PowerPoint-presentatie). Dit veld is een ideale invoer omdat het alle inhoud van een blob bevat.
 
 3. Ga door naar de volgende pagina.
 
-  ![Volgende pagina Index aanpassen](media/cognitive-search-quickstart-blob/next-button-customize-index.png)
+   ![Volgende pagina Index aanpassen](media/cognitive-search-quickstart-blob/next-button-customize-index.png)
 
 > [!NOTE]
 > Vaardigheden voor verwerking van natuurlijke taal werken met behulp van tekstinhoud in de set voorbeeldgegevens. Omdat we geen OCR-optie hebben geselecteerd, worden de JPEG- en PNG-bestanden die worden gevonden in de set voorbeeldgegevens niet verwerkt in deze snelstart. 

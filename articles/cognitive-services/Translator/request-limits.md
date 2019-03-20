@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 96ee65bfe8792bd56feb39f48659397cb517471a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735363"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861567"
 ---
 # <a name="request-limits-for-translator-text"></a>Aanvraaglimieten voor Translator tekst
 
@@ -43,7 +43,7 @@ Deze limieten zijn beperkt tot de algemene systemen van Microsoft. Aangepaste ve
 
 ## <a name="latency"></a>Latentie
 
-Translator tekst heeft een maximale latentie van 13 seconden. Op dit moment hebt u hebt ontvangen een resultaat of een time-antwoord. Normaal gesproken worden antwoorden geretourneerd in 150 milliseconden op 300 milliseconden. Reactietijden variëren op basis van de grootte of het paar aanvraag- en taalinstellingen.
+De Translator Text-API heeft een maximale latentie van 15 seconden met behulp van standaard-modellen. Met behulp van aangepaste modellen vertaling heeft een maximale latentie van 25 seconden. Op dit moment hebt u hebt ontvangen een resultaat of een time-antwoord. Normaal gesproken worden antwoorden geretourneerd in 150 milliseconden op 300 milliseconden. Reactietijden variëren op basis van de grootte van het paar aanvraag- en taalinstellingen. Als u een vertaling niet ontvangt of een [foutbericht](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) in die periode, moet u Controleer uw netwerkverbinding en probeer het opnieuw.
 
 ## <a name="sentence-length-limits"></a>Lengtebeperkingen zin
 

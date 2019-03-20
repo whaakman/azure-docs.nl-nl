@@ -1,6 +1,6 @@
 ---
-title: 'Snelstartgids: Een toepassing uitvoeren in Azure Container Instances - portal'
-description: In deze snelstartgids gebruikt u Azure Portal om een Docker-containertoepassing te implementeren die moet worden uitgevoerd in een geïsoleerde container in Azure Container Instances
+title: Snelstartgids - Docker-container implementeren in Azure Container Instances - Portal
+description: In deze snelstartgids gebruikt u de Azure portal om snel te implementeren een beperkte web-app die wordt uitgevoerd in een geïsoleerde Azure container-exemplaar
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566087"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729156"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Snelstartgids: Een containertoepassing in Azure Container Instances uitvoeren in Azure Portal
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Quickstart: Een containerinstantie in Azure met behulp van de Azure-portal implementeren
 
-Gebruik Azure Container Instances om Docker-containers in Azure snel en eenvoudig uit te voeren. U hoeft geen virtuele machines te implementeren en u hoeft geen volledig container-indelingsplatform zoals Kubernetes te gebruiken. In deze snelstart gebruikt u Azure Portal om een container te maken in Azure en maakt u de bijbehorende toepassing beschikbaar met een FQDN (Fully Qualified Domain Name). Na het configureren van een paar instellingen en de implementatie van de container kunt u bladeren naar de toepassing die wordt uitgevoerd:
+Gebruik Azure Container Instances om uit te voeren zonder server Docker-containers in Azure met de eenvoud en snelheid. Een toepassing implementeren in een container-exemplaar op aanvraag wanneer u niet nodig voor een volledige container-orchestration-platform, zoals Azure Kubernetes Service hebt.
+
+In deze snelstartgids gebruikt u de Azure-portal een geïsoleerde Docker-container implementeren en de toepassing beschikbaar met een volledig gekwalificeerde domeinnaam (FQDN). Na het configureren van een paar instellingen en de implementatie van de container kunt u bladeren naar de toepassing die wordt uitgevoerd:
 
 ![App die is geïmplementeerd in Azure Container Instances, weergegeven in de browser][aci-portal-07]
 
@@ -41,9 +43,9 @@ Voer de waarden voor de volgende tekstvakken in: **Containernaam**, **Containeri
 
 ![Basisinstellingen configureren voor een nieuwe containerinstantie in Azure Portal][aci-portal-03]
 
-Laat in deze quickstart de standaardinstelling op **Openbaar** om de `microsoft/aci-helloworld` installatiekopie uit het openbare Docker Hub-register te implementeren. Deze installatiekopie bevat een kleine web-app die is geschreven in Node.js en die een statische HTML-pagina dient.
+In deze Quick Start laat de standaardinstelling van **openbare** implementeren van de openbare `microsoft/aci-helloworld` installatiekopie. Deze installatiekopie bevat een kleine web-app die is geschreven in Node.js en die een statische HTML-pagina dient.
 
-Geef onder **configuratie** een **DNS-naamlabel** op voor uw container. De naam moet uniek zijn voor de Azure-regio waar u de containerinstallatiekopie maakt. De container zal openbaar bereikbaar zijn op `<dns-name-label>.<region>.azurecontainer.io`.
+Geef onder **configuratie** een **DNS-naamlabel** op voor uw container. De naam moet uniek zijn binnen Azure-regio waarin u de containerinstantie maken. De container zal openbaar bereikbaar zijn op `<dns-name-label>.<region>.azurecontainer.io`. Als u een foutbericht 'DNS-naamlabel niet beschikbaar' ontvangt, probeert u een ander DNS-naamlabel.
 
 Laat de overige instellingen in **Configuratie** op de standaardwaarden staan. Klik vervolgens op **OK** om de configuratie te valideren.
 

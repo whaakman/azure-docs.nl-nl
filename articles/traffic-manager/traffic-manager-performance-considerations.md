@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 454d06912c34a07b0b2617936769888e92adaba1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453657"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007942"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Prestatieoverwegingen voor Traffic Manager
 
@@ -42,11 +42,11 @@ De hulpprogramma's voor deze sites meting DNS latenties en weergave van de opgel
 
 ## <a name="sample-tools-to-measure-dns-performance"></a>Voorbeeld van hulpprogramma's voor het meten van DNS-prestaties
 
-* [SolveDNS](http://www.solvedns.com/dns-comparison/)
+* [SolveDNS](https://www.solvedns.com/dns-comparison/)
 
     SolveDNS biedt veel hulpprogramma's voor prestaties. De vergelijking van de DNS-hulpprogramma kunt u weergeven, hoe lang het duurt om uw DNS-naam te herleiden en hoe die zich verhoudt tot andere DNS-serviceproviders.
 
-* [WebSitePulse](http://www.websitepulse.com/help/tools.php)
+* [WebSitePulse](https://www.websitepulse.com/help/tools.php)
 
     Een van de meest eenvoudige hulpprogramma's is WebSitePulse. Voer de URL om te zien van de DNS-omzettingstijd, de eerste Byte, laatste Byte en andere statistieken over de prestaties. U kunt kiezen uit drie verschillende locaties. In dit voorbeeld ziet u dat de eerste uitvoering ziet u dat de DNS-zoekactie 0.204 sec duurt.
 
@@ -62,15 +62,15 @@ De hulpprogramma's voor deze sites meting DNS latenties en weergave van de opgel
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 
-* [Pingdom](http://tools.pingdom.com/)
+* [Pingdom](https://tools.pingdom.com/)
 
     Dit hulpprogramma biedt statistieken over de prestaties voor elk element van een webpagina. Het tabblad analyse van de pagina bevat het percentage tijd besteed aan de DNS-zoekactie.
 
-* [Wat is mijn DNS?](http://www.whatsmydns.net/)
+* [Wat is mijn DNS?](https://www.whatsmydns.net/)
 
     Deze site heeft een DNS-zoekopdracht vanuit 20 verschillende locaties en de resultaten worden weergegeven op een kaart.
 
-* [Dig Web Interface](http://www.digwebinterface.com)
+* [Dig Web Interface](https://www.digwebinterface.com)
 
     Deze site bevat dat meer gedetailleerde DNS-informatie, met inbegrip van CNAME-records en A-records. Zorg ervoor dat u de 'Vullen met kleur uitvoer' en 'Statistieken' onder opties controleren, en selecteer 'All' onder naamservers.
 

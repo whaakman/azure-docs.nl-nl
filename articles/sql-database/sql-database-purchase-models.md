@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456687"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010505"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database aanschaffen van modellen
 
@@ -104,7 +104,7 @@ Er kunnen extra eDTU's aan een bestaande pool worden toegevoegd zonder uitvaltij
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Het aantal dtu's die nodig zijn voor een werkbelasting bepalen
 
-Als u wilt migreren als u een bestaande on-premises of virtuele machine-werkbelasting SQL Server naar Azure SQL Database, kunt u de [DTU-Rekenmachine](http://dtucalculator.azurewebsites.net/) om het aantal benodigde dtu's te schatten. Voor een bestaande Azure SQL Database-workload, kunt u [query performance insight](sql-database-query-performance.md) om uw verbruik van databaseresources (dtu's) om te krijgen van inzicht voor het optimaliseren van uw werkbelasting te begrijpen. U kunt ook de [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV om gebruik van resources voor het afgelopen uur weer te geven. U kunt ook de catalogusweergave [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) resourceverbruik voor de afgelopen 14 dagen, maar op een lagere betrouwbaarheid van gemiddeld vijf minuten worden weergegeven.
+Als u wilt migreren als u een bestaande on-premises of virtuele machine-werkbelasting SQL Server naar Azure SQL Database, kunt u de [DTU-Rekenmachine](https://dtucalculator.azurewebsites.net/) om het aantal benodigde dtu's te schatten. Voor een bestaande Azure SQL Database-workload, kunt u [query performance insight](sql-database-query-performance.md) om uw verbruik van databaseresources (dtu's) om te krijgen van inzicht voor het optimaliseren van uw werkbelasting te begrijpen. U kunt ook de [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV om gebruik van resources voor het afgelopen uur weer te geven. U kunt ook de catalogusweergave [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) resourceverbruik voor de afgelopen 14 dagen, maar op een lagere betrouwbaarheid van gemiddeld vijf minuten worden weergegeven.
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Workloads die baat bij een elastische pool met resources hebben
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: bfc80318eb43992e292159a0cd99a9b2f4a3c041
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d5a411e227704eb80b0020f68fad072491576f18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233099"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883794"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interactie met Power BI-rapporten met behulp van de JavaScript-API
 
@@ -43,29 +43,29 @@ Met de JavaScript-API kunt u rapporten beheren, navigeren naar pagina's in een r
 ### <a name="manage-reports"></a>Rapporten beheren
 Met de Javascript-API kunt u gedrag beheren op rapportniveau en op paginaniveau:
 
-* Een specifiek Power BI-rapport veilig insluiten in uw toepassing: probeer de [demotoepassing over insluiten](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
+* Een specifiek Power BI-rapport veilig insluiten in uw toepassing: probeer de [demotoepassing over insluiten](https://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   * Toegangstoken instellen
 * Het rapport configureren
-  * Het filterdeelvenster en het deelvenster voor paginanavigatie in- en uitschakelen: probeer de [demotoepassing over het bijwerken van instellingen](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
-  * Standaardwaarden instellen voor pagina's en filters: probeer de [demo over het selecteren van standaardinstellingen](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
+  * Het filterdeelvenster en het deelvenster voor paginanavigatie in- en uitschakelen: probeer de [demotoepassing over het bijwerken van instellingen](https://azure-samples.github.io/powerbi-angular-client/#/scenario6)
+  * Standaardwaarden instellen voor pagina's en filters: probeer de [demo over het selecteren van standaardinstellingen](https://azure-samples.github.io/powerbi-angular-client/#/scenario5)
 * De schermvullende modus openen en sluiten
 
 [Meer informatie over het insluiten van een rapport](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
 ### <a name="navigate-to-pages-in-a-report"></a>Navigeren naar pagina's in een rapport
-Via de JavaScript-API kunt u alle pagina's in een rapport detecteren en de huidige pagina instellen. Probeer de [demotoepassing over navigatie](http://azure-samples.github.io/powerbi-angular-client/#/scenario3).
+Via de JavaScript-API kunt u alle pagina's in een rapport detecteren en de huidige pagina instellen. Probeer de [demotoepassing over navigatie](https://azure-samples.github.io/powerbi-angular-client/#/scenario3).
 
 [Meer informatie over paginanavigatie](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
 ### <a name="filter-a-report"></a>Een rapport filteren
-De JavaScript-API biedt eenvoudige en geavanceerde filtermogelijkheden voor ingesloten rapporten en rapportpagina’s. Probeer de [demotoepassing over filteren](http://azure-samples.github.io/powerbi-angular-client/#/scenario4) en bekijk hier wat inleidende code.
+De JavaScript-API biedt eenvoudige en geavanceerde filtermogelijkheden voor ingesloten rapporten en rapportpagina’s. Probeer de [demotoepassing over filteren](https://azure-samples.github.io/powerbi-angular-client/#/scenario4) en bekijk hier wat inleidende code.
 
 #### <a name="basic-filters"></a>Basisfilters
 Een basisfilter wordt geplaatst in een kolom of hiërarchieniveau en bevat een lijst met waarden die moeten worden opgenomen of uitgesloten.
 
 ```typescript
 const basicFilter: pbi.models.IBasicFilter = {
-  $schema: "http://powerbi.com/product/schema#basic",
+  $schema: "https://powerbi.com/product/schema#basic",
   target: {
     table: "Store",
     column: "Count"
@@ -94,7 +94,7 @@ Geavanceerde filters gebruiken de logische operator AND of OR en accepteren éé
 
 ```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
-  $schema: "http://powerbi.com/product/schema#advanced",
+  $schema: "https://powerbi.com/product/schema#advanced",
   target: {
     table: "Store",
     column: "Name"

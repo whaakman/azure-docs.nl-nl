@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dcab8d1cfd076e57a25ee3d36fadd86f158c53b8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880594"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835109"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Gegevens verplaatsen naar SQL Server op een virtuele Azure-machine
 
@@ -58,7 +58,7 @@ BCP is een opdrachtregelprogramma moet zijn geïnstalleerd met SQL Server en is 
 
 > [!NOTE]
 > **Waar worden mijn gegevens, moet zijn voor BCP?**  
-> Het is niet vereist, kunt dat bestanden met de brongegevens bevinden zich op dezelfde computer als de doel-SQL-Server u snellere overdracht (netwerk snelheid vs lokale schijf i/o-snelheid). U kunt verplaatsen de platte bestanden met gegevens aan de machine waarop SQL Server is geïnstalleerd met behulp van verschillende kopiëren van bestanden hulpprogramma's zoals [AZCopy](../../storage/common/storage-use-azcopy.md), [Azure Storage Explorer](http://storageexplorer.com/) of windows kopiëren/plakken via Extern bureaublad Het protocol (RDP).
+> Het is niet vereist, kunt dat bestanden met de brongegevens bevinden zich op dezelfde computer als de doel-SQL-Server u snellere overdracht (netwerk snelheid vs lokale schijf i/o-snelheid). U kunt verplaatsen de platte bestanden met gegevens aan de machine waarop SQL Server is geïnstalleerd met behulp van verschillende kopiëren van bestanden hulpprogramma's zoals [AZCopy](../../storage/common/storage-use-azcopy.md), [Azure Storage Explorer](https://storageexplorer.com/) of windows kopiëren/plakken via Extern bureaublad Het protocol (RDP).
 >
 >
 
@@ -75,10 +75,10 @@ CREATE TABLE <tablename>
 )
 ```
 
-2. Genereer het indelingsbestand waarin wordt beschreven van het schema voor de tabel door de volgende opdracht vanaf de opdrachtregel van de machine waarop bcp is geïnstalleerd.
+1. Genereer het indelingsbestand waarin wordt beschreven van het schema voor de tabel door de volgende opdracht vanaf de opdrachtregel van de machine waarop bcp is geïnstalleerd.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-3. De gegevens invoegen in de database met behulp van de bcp-opdracht als volgt. Dit moet werken vanaf de opdrachtregel ervan uitgaande dat de SQL Server op dezelfde computer is geïnstalleerd:
+1. De gegevens invoegen in de database met behulp van de bcp-opdracht als volgt. Dit moet werken vanaf de opdrachtregel ervan uitgaande dat de SQL Server op dezelfde computer is geïnstalleerd:
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -142,7 +142,7 @@ Hier volgen enkele Voorbeeldopdrachten voor Bulk Insert zijn zoals hieronder:
 ```sql
 SET DATEFORMAT ymd;
 ```
-2. Gegevens importeren met bulksgewijs importinstructie toe:
+1. Gegevens importeren met bulksgewijs importinstructie toe:
 
 ```sql
 BULK INSERT <tablename>
@@ -195,7 +195,7 @@ Verschillende manieren kunnen worden gebruikt voor het bulksgewijs gegevens expo
 4. Gebruik een van de methoden die worden beschreven in de sectie [verplaatsen van gegevens uit de bestandsbron](#filesource_to_sqlonazurevm) de gegevens in platte bestanden verplaatsen naar een SQL-Server.
 
 ### <a name="sql-migration"></a>SQL Database-migratiewizard
-[SQL Server-Database-migratiewizard](http://sqlazuremw.codeplex.com/) biedt een gebruiksvriendelijke manier om gegevens te verplaatsen tussen twee SQL server-exemplaren. Hierdoor kan de gebruiker kan het schema tussen bronnen en doeltabellen toewijzen, kiest u kolommen van het type en verschillende andere functies. Bulksgewijs kopiëren (BCP) op de achtergrond wordt gebruikt. Hieronder ziet u een schermopname van het welkomstscherm wordt weergegeven voor de migratie van SQL Database-wizard.  
+[SQL Server-Database-migratiewizard](https://sqlazuremw.codeplex.com/) biedt een gebruiksvriendelijke manier om gegevens te verplaatsen tussen twee SQL server-exemplaren. Hierdoor kan de gebruiker kan het schema tussen bronnen en doeltabellen toewijzen, kiest u kolommen van het type en verschillende andere functies. Bulksgewijs kopiëren (BCP) op de achtergrond wordt gebruikt. Hieronder ziet u een schermopname van het welkomstscherm wordt weergegeven voor de migratie van SQL Database-wizard.  
 
 ![SQL Server-migratiewizard][2]
 

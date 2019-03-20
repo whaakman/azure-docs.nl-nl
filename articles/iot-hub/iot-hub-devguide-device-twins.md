@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 4cbb8e389f403aeb149998acc21956ebce40be78
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 4ad75a7ba4e2f6060824f3cf1c87a42f8fa32843
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011497"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113135"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Begrijpen en gebruiken van apparaatdubbels in IoT Hub
 
@@ -180,44 +180,44 @@ De back-end van de oplossing is van invloed op het dubbele apparaat met behulp v
 
 * **Dubbele meldingen ontvangen**. Met deze bewerking kunt de back-end oplossing om te worden geïnformeerd wanneer het dubbele wordt gewijzigd. Om dit te doen, moet uw IoT-oplossing een route te maken en in te stellen de gegevensbron gelijk zijn aan *twinChangeEvents*. Standaard bestaat geen dergelijke routes vooraf, zodat er geen dubbele meldingen worden verzonden. Als de wijzigingssnelheid te hoog is, of om andere redenen, zoals interne fouten, worden de IoT-Hub slechts één melding alle wijzigingen bevat verzonden. Als uw toepassing moet betrouwbare controle en logboekregistratie van alle tussenliggende statussen, moet u apparaat-naar-cloud-berichten. Het meldingsbericht dubbele bevat eigenschappen en de hoofdtekst.
 
-   - Properties
+  - Properties
 
-   | Name | Value |
-   | --- | --- |
-   $content-type | application/json |
-   $iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
-   $iothub-bericht-bron | twinChangeEvents |
-   $content-encoding | utf-8 |
-   deviceId | ID van het apparaat |
-   hubName | Naam van IoT Hub |
-   operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp van bewerking |
-   iothub-bericht-schema | deviceLifecycleNotification |
-   opType | "replaceTwin" of "updateTwin" |
+    | Name | Value |
+    | --- | --- |
+    $content-type | application/json |
+    $iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
+    $iothub-bericht-bron | twinChangeEvents |
+    $content-encoding | utf-8 |
+    deviceId | ID van het apparaat |
+    hubName | Naam van IoT Hub |
+    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp van bewerking |
+    iothub-bericht-schema | deviceLifecycleNotification |
+    opType | "replaceTwin" of "updateTwin" |
 
-   Systeemeigenschappen bericht worden voorafgegaan door de `$` symbool.
+    Systeemeigenschappen bericht worden voorafgegaan door de `$` symbool.
 
-   - Hoofdtekst
+  - Hoofdtekst
         
-   Deze sectie bevat alle wijzigingen in de apparaatdubbel in een JSON-indeling. Het maakt gebruik van dezelfde indeling als een patch, met het verschil dat deze alle dubbele secties kan bevatten: labels, properties.reported, properties.desired en dat deze de elementen '$metadata bevat'. Bijvoorbeeld:
+    Deze sectie bevat alle wijzigingen in de apparaatdubbel in een JSON-indeling. Het maakt gebruik van dezelfde indeling als een patch, met het verschil dat deze alle dubbele secties kan bevatten: labels, properties.reported, properties.desired en dat deze de elementen '$metadata bevat'. Bijvoorbeeld:
 
-   ```json
-   {
-       "properties": {
-           "desired": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           },
-           "reported": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           }
-       }
-   }
-   ```
+    ```json
+    {
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
+    }
+    ```
 
 Ondersteuning voor alle voorgaande bewerkingen [optimistische gelijktijdigheid](iot-hub-devguide-device-twins.md#optimistic-concurrency) en vereisen dat de **ServiceConnect** machtiging, zoals gedefinieerd in [beheren van toegang tot IoT Hub](iot-hub-devguide-security.md).
 

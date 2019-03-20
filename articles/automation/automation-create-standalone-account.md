@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 197d7529a52b400cd078ead79bbb6db5f5849ee6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093174"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Een zelfstandig Azure Automation-account maken
 
@@ -62,12 +62,12 @@ Voor het maken van een Azure Automation-account in Azure portal, moet u de volge
 
 1. Selecteer op het volgende scherm **maken**.
 
-  ![Automation-account toevoegen](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+   ![Automation-account toevoegen](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
-  > [!NOTE]
-  > Als u het volgende bericht in de **Automation-Account toevoegen** deelvenster uw account is geen lid van de rol Abonnementsbeheerders en CO-beheerder van het abonnement.
-  >
-  > ![Waarschuwing voor Automation-account toevoegen](media/automation-create-standalone-account/create-account-without-perms.png)
+   > [!NOTE]
+   > Als u het volgende bericht in de **Automation-Account toevoegen** deelvenster uw account is geen lid van de rol Abonnementsbeheerders en CO-beheerder van het abonnement.
+   >
+   > ![Waarschuwing voor Automation-account toevoegen](media/automation-create-standalone-account/create-account-without-perms.png)
 
 1. In de **Automation-Account toevoegen** deelvenster in de **naam** vak, voer een naam in voor uw nieuwe Automation-account. Deze naam kan niet worden gewijzigd nadat deze is geselecteerd. *Automation-accountnamen zijn uniek per regio en resourcegroep. Namen voor Automation-Accounts die zijn verwijderd, zijn mogelijk niet onmiddellijk beschikbaar.*
 1. Als u meer dan één abonnement hebt, in de **abonnement** , geeft u het abonnement dat u wilt gebruiken voor het nieuwe account.
@@ -75,13 +75,13 @@ Voor het maken van een Azure Automation-account in Azure portal, moet u de volge
 1. Voor **locatie**, selecteert u een Azure-datacenter-locatie.
 1. Voor de **Azure uitvoeren als-account maken** optie, zorg ervoor dat **Ja** is geselecteerd en selecteer vervolgens **maken**.
 
-  > [!NOTE]
-  > Als u ervoor kiezen geen uitvoeren als-account maken door te selecteren **Nee** voor **Azure uitvoeren als-account maken**, een bericht wordt weergegeven in de **Automation-Account toevoegen** deelvenster. Hoewel het account is gemaakt in Azure portal, kan het account een overeenkomstige verificatie-id beschikt niet over in uw model klassieke implementatie abonnement of in de adreslijstservice van het Azure Resource Manager-abonnement. Het Automation-account geen daarom toegang tot resources in uw abonnement. Hierdoor kunnen alle runbooks die verwijzen naar dit account geen taken verifiëren en uitvoeren met resources in die implementatiemodellen.
-  >
-  > ![Waarschuwing voor Automation-account toevoegen](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
-  >
-  > Wanneer de service-principal niet is gemaakt, wordt de rol Inzender niet toegewezen.
-  >
+   > [!NOTE]
+   > Als u ervoor kiezen geen uitvoeren als-account maken door te selecteren **Nee** voor **Azure uitvoeren als-account maken**, een bericht wordt weergegeven in de **Automation-Account toevoegen** deelvenster. Hoewel het account is gemaakt in Azure portal, kan het account een overeenkomstige verificatie-id beschikt niet over in uw model klassieke implementatie abonnement of in de adreslijstservice van het Azure Resource Manager-abonnement. Het Automation-account geen daarom toegang tot resources in uw abonnement. Hierdoor kunnen alle runbooks die verwijzen naar dit account geen taken verifiëren en uitvoeren met resources in die implementatiemodellen.
+   >
+   > ![Waarschuwing voor Automation-account toevoegen](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   >
+   > Wanneer de service-principal niet is gemaakt, wordt de rol Inzender niet toegewezen.
+   >
 
 1. Selecteer voor het volgen van de voortgang van het maken van een Automation-account, in het menu **meldingen**.
 

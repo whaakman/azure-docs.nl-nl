@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 58f4d7be530aa3c7e0071a2f0d80bc30ebd5cf25
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e7b67905c96495382536555b87772e4eefada250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440910"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835744"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Een Linux CentOS Data Science Virtual Machine op Azure inrichten
 
@@ -104,7 +104,7 @@ Hier volgen de stappen voor het maken van een exemplaar van de Linux Data Scienc
 De inrichting duurt ongeveer 10-20 minuten. De status van de inrichting wordt weergegeven op de Azure-portal.
 
 ## <a name="how-to-access-the-linux-data-science-virtual-machine"></a>Toegang tot de Linux Data Science Virtual Machine
-Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van SSH. Gebruik de accountreferenties op die u hebt gemaakt in de **basisbeginselen** sectie van stap 3 voor de tekst shell-interface. In Windows kunt u een SSH-clienthulpprogramma zoals [Putty](http://www.putty.org) downloaden. Als u liever een grafische desktop (X Windows-systeem), kunt u X11 doorsturen op Putty gebruiken of de X2Go-client installeren.
+Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van SSH. Gebruik de accountreferenties op die u hebt gemaakt in de **basisbeginselen** sectie van stap 3 voor de tekst shell-interface. In Windows kunt u een SSH-clienthulpprogramma zoals [Putty](https://www.putty.org) downloaden. Als u liever een grafische desktop (X Windows-systeem), kunt u X11 doorsturen op Putty gebruiken of de X2Go-client installeren.
 
 > [!NOTE]
 > De client X2Go uitgevoerd aanzienlijk beter dan X11 doorsturen in de testfase. Het is raadzaam om met behulp van de client X2Go voor een grafische interface voor het bureaublad.
@@ -114,7 +114,7 @@ Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van S
 ## <a name="installing-and-configuring-x2go-client"></a>Installeren en configureren van X2Go client
 De Linux-VM is al ingericht met X2Go-server en gereed voor clientverbindingen accepteren. Voor verbinding met het bureaublad van de Linux-VM-grafische, het volgende op de client te doen:
 
-1. Download en installeer de client X2Go voor uw clientplatform van [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Download en installeer de client X2Go voor uw clientplatform van [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. De X2Go-client wordt uitgevoerd, en selecteer **nieuwe sessie**. Er verschijnt een configuratievenster met meerdere tabbladen. Voer de volgende configuratieparameters:
    * **Tabblad sessie**:
      * **Host**: De hostnaam of IP-adres van uw Linux Data Science VM.
@@ -132,7 +132,7 @@ R is een van de meest populaire talen voor data-analyse en machine learning. Als
 
 Console te starten, R, typt u **R** in de shell. Hiermee gaat u naar een interactieve omgeving. Voor het ontwikkelen van uw R-programma, u gewoonlijk gebruikt een editor zoals Emacs of vi of gedit en voer de scripts in R. Met RStudio hebt u een volledige grafische IDE-omgeving voor het ontwikkelen van uw R-programma.
 
-Er is ook een R-script voor installatie de [Top 20 R-pakketten](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) als u wilt. Met dit script kan worden uitgevoerd nadat u zich in de interactieve interface van R, die kan worden ingevoerd (zoals vermeld) door te typen **R** in de shell.  
+Er is ook een R-script voor installatie de [Top 20 R-pakketten](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) als u wilt. Met dit script kan worden uitgevoerd nadat u zich in de interactieve interface van R, die kan worden ingevoerd (zoals vermeld) door te typen **R** in de shell.  
 
 ### <a name="python"></a>Python
 Voor het ontwikkelen met behulp van Python, is distributie Anaconda Python 2.7 en 3.5 geïnstalleerd. Deze verdeling bevat de basis Python samen met ongeveer 300 van de meest populaire math, engineering en data analytics-pakketten. U kunt de standaard-teksteditors. Bovendien kunt u Spyder, een Python IDE die wordt geleverd met Anaconda Python-distributies. Spyder moet een grafische bureaublad of X11 doorsturen. Een snelkoppeling naar Spyder is opgegeven in het grafische bureaublad.
@@ -203,7 +203,7 @@ U kunt de Hadoop stoppen gerelateerde services wanneer u ze niet nodig door uit 
 ### <a name="ides-and-editors"></a>IDE's en editors
 U hebt een ruime keuze aan verschillende code-editors. Dit omvat vi/VIM, Emacs gEdit, PyCharm, RStudio, Eclipse en IntelliJ. gEdit, Eclipse, IntelliJ, RStudio en PyCharm grafische editors zijn en moet u zijn aangemeld met een grafische bureaublad om ze te gebruiken. Deze editors hebben bureaublad- en toepassingsservices snelkoppelingen in het menu te starten.
 
-**VIM** en **Emacs** editors op basis van tekst zijn. Op Emacs, hebben we een add-on pakket met de naam Emacs spreekt statistieken (eldingen ONDERDRUKKEN) die werken met R gemakkelijker in de editor Emacs geïnstalleerd. Meer informatie kunt vinden op [ERDRUKKEN](http://ess.r-project.org/).
+**VIM** en **Emacs** editors op basis van tekst zijn. Op Emacs, hebben we een add-on pakket met de naam Emacs spreekt statistieken (eldingen ONDERDRUKKEN) die werken met R gemakkelijker in de editor Emacs geïnstalleerd. Meer informatie kunt vinden op [ERDRUKKEN](https://ess.r-project.org/).
 
 **Eclipse** is een open source, uitbreidbare IDE die ondersteuning biedt voor meerdere talen. De Java-ontwikkelaars-editie wordt het exemplaar geïnstalleerd op de virtuele machine. Er zijn invoegtoepassingen beschikbaar zijn voor verschillende veelgebruikte talen die kunnen worden geïnstalleerd om uit te breiden de omgeving. We hebben ook een invoegtoepassing geïnstalleerd in Eclipse met de naam **Azure Toolkit voor Eclipse**. Hiermee kunt u maken, ontwikkelen, testen en implementeren van Azure met behulp van de Eclipse-ontwikkelomgeving die ondersteuning biedt voor talen zoals Java-toepassingen. Er is ook een **Azure SDK voor Java** waarmee toegang tot verschillende Azure-services uit binnen een Java-omgeving. Meer informatie over Azure toolkit voor Eclipse kan worden gevonden op [Azure Toolkit voor Eclipse](../../azure-toolkit-for-eclipse.md).
 
@@ -377,5 +377,5 @@ Hier ziet u hoe u kunt doorgaan met uw learning en verkennen:
 * De [gegevenswetenschap op de Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md) procedure ziet u hoe u enkele algemene datatechnologietaken met de Linux Data Science VM ingericht hier uitvoert. 
 * Verken de verschillende hulpprogramma's voor data science op de virtuele machine voor datatechnologie door het uitproberen van de hulpprogramma's die worden beschreven in dit artikel. U kunt ook uitvoeren *dsvm-meer-info* op de shell binnen de virtuele machine voor een algemene inleiding tot en tips voor meer informatie over de hulpprogramma's geïnstalleerd op de virtuele machine.  
 * Informatie over het bouwen van analytische oplossingen voor end-to-end systematisch met behulp van de [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
-* Ga naar de [Cortana Analytics-galerie](http://gallery.cortanaanalytics.com) voor machine learning en data analytics-voorbeelden die gebruikmaken van de Cortana Analytics Suite.
+* Ga naar de [Cortana Analytics-galerie](https://gallery.cortanaanalytics.com) voor machine learning en data analytics-voorbeelden die gebruikmaken van de Cortana Analytics Suite.
 

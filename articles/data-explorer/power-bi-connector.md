@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Gegevens visualiseren met de Azure Data Explorer-connector voor Power BI'
+title: 'Quickstart: Gegevens visualiseren met behulp van de Azure Data Explorer-connector voor Power BI'
 description: 'In deze quickstart leert u hoe u een van de drie opties kunt gebruiken voor het visualiseren van gegevens in Power BI: de Power BI-connector voor Azure Data Explorer.'
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 3cb8f52677991997a0176a9f8d408e2fd6d2d8d9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.openlocfilehash: de920a9addf9d2053a3c101c6b1f9a2c1a2feb27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974268"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106743"
 ---
-# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Quickstart: Gegevens visualiseren met de Azure Data Explorer-connector voor Power BI
+# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Quickstart: Gegevens visualiseren met behulp van de Azure Data Explorer-connector voor Power BI
 
 Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Power BI is een business analytics-oplossing waarmee u uw gegevens kunt visualiseren en de gegevens kunt delen in uw organisatie.
 
@@ -53,7 +53,7 @@ Eerst maakt u verbinding met het Azure Data Explorer-helpcluster en daarna haalt
     |---|---|---|
     | Cluster | *https://help.kusto.windows.net* | De URL voor het helpcluster. Voor andere clusters heeft de URL de notatie *https://\<ClusterName\>.\<Regio\>. kusto.windows.net*. |
     | Database | Leeg laten | Een database die wordt gehost op het cluster waarmee u verbinding maakt. Deze selecteren we in een latere stap. |
-    | Tabelnaam | Leeg laten | Een van de tabellen in de database of een query zoals 'StormEvents | take 1000'. Deze selecteren we in een latere stap. |
+    | Tabelnaam | Leeg laten | Een van de tabellen in de database, of een query zoals <code>StormEvents \| take 1000</code>. Deze selecteren we in een latere stap. |
     | Geavanceerde opties | Leeg laten | Opties voor uw query's, zoals grootte van resultatenset. |
     | Gegevensverbindingsmodus | *DirectQuery* | Bepaalt of Power BI de gegevens importeert of rechtstreeks verbinding maakt met de gegevensbron. Met deze connector kunt u een van beide opties gebruiken. |
     | | | |
@@ -91,4 +91,4 @@ Als u het rapport dat u voor deze quickstart hebt gemaakt niet meer nodig hebt, 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Quickstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-imported-query.md)
+> [Snelstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-imported-query.md)

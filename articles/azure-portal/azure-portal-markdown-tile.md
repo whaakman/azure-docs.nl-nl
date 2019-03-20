@@ -9,12 +9,12 @@ ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 29c6dc0f7e71508e7b4ecb4e0f1d5c849df7a68c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904845"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110780"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Een tegel markdown gebruiken op Azure-dashboards om aangepaste inhoud weer te geven
 
@@ -24,17 +24,17 @@ U kunt een tegel markdown toevoegen aan uw Azure-dashboards om aangepaste, stati
 
 1. Selecteer **Dashboard** in de Azure portal zijbalk. Als u geen aangepaste dashboards in de dashboardweergave hebt gemaakt, gebruikt u de vervolgkeuzelijst te selecteren van het dashboard waarin de aangepaste markdown-tegel moet worden weergegeven. Selecteer het bewerkingspictogram openen de **Tegelgalerie**.
 
-  ![Schermafbeelding waarin de weergave dashboard bewerken](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
+   ![Schermafbeelding waarin de weergave dashboard bewerken](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
 2. In de **Tegelgalerie**, zoek de tegel met de naam **Markdown** en klikt u op **toevoegen**. De tegel wordt toegevoegd aan het dashboard en de **Markdown bewerken** deelvenster wordt geopend.
 
 1. Bewerk de **titel**, **subtitel**, en **inhoud** velden voor het aanpassen van de tegel. In het voorbeeld hieronder wordt is de tegel markdown bewerkt om aangepaste help helpdesk-informatie weer te geven.
 
-  ![Schermafbeelding van de weergave voor het bewerken van tegel markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
+   ![Schermafbeelding van de weergave voor het bewerken van tegel markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 
 4. Selecteer **gedaan** voor het verwijderen van de **Markdown bewerken** deelvenster. Uw inhoud wordt weergegeven op de tegel Markdown, die vervolgens kan worden gewijzigd door het schuifblokje in de rechterbenedenhoek.
 
-  ![Schermopname die laat zien aangepaste markdown-tegel](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
+   ![Schermopname die laat zien aangepaste markdown-tegel](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
 ## <a name="markdown-content-capabilities-and-limitations"></a>Markdown-inhoud mogelijkheden en beperkingen
 

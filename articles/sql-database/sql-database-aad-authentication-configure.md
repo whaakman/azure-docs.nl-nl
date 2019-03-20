@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 03/04/2019
-ms.openlocfilehash: e4ccb9be5d13ea72086fbaae2ffb2ec63ad55786
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/12/2019
+ms.openlocfilehash: f3c485659bc686efbb4101879e5cd24e7bb3db46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340317"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905100"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configureren en beheren van Azure Active Directory-verificatie met behulp van SQL
 
@@ -29,12 +29,14 @@ Dit artikel leest u hoe u kunt maken en vullen van Azure AD en vervolgens Azure 
 > Verbinding maken met SQL Server die wordt uitgevoerd op een Azure-VM wordt niet ondersteund met behulp van Azure Active Directory-account. Gebruik in plaats daarvan een domein Active Directory-account.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Maken en vullen van een Azure AD
 
 Maak een Azure AD en deze vullen met gebruikers en groepen. Azure AD kan de eerste Azure AD worden beheerde domein. Azure AD kan ook worden voor een on-premises Active Directory Domain Services die is gefedereerd met Azure AD.
 
-Zie [Uw on-premises identiteiten integreren met Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Uw domeinnaam toevoegen in Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure ondersteunt nu federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Uw Azure AD-adreslijst beheren](../active-directory/fundamentals/active-directory-administer.md), [Azure AD beheren met Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) en [Poorten en protocollen waarvoor hybride identiteit is vereist](../active-directory/hybrid/reference-connect-ports.md) voor meer informatie.
+Zie [Uw on-premises identiteiten integreren met Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Uw domeinnaam toevoegen in Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure ondersteunt nu federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Uw Azure AD-adreslijst beheren](../active-directory/fundamentals/active-directory-administer.md), [Azure AD beheren met Windows PowerShell](/powershell/azure/overview) en [Poorten en protocollen waarvoor hybride identiteit is vereist](../active-directory/hybrid/reference-connect-ports.md) voor meer informatie.
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Koppelen of een Azure-abonnement toevoegen aan Azure Active Directory
 
@@ -240,6 +242,7 @@ U kunt ook Azure Active Directory-beheerder inrichten met behulp van de REST API
 ### <a name="cli"></a>CLI  
 
 U kunt ook een Azure AD-beheerder inrichten door het aanroepen van de volgende CLI-opdrachten:
+
 | Opdracht | Description |
 | --- | --- |
 |[AZ sql server ad-beheerder maken](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Richt een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. (Moet zich in het huidige abonnement.) |
@@ -349,7 +352,7 @@ Gebruik deze methode wanneer u verbinding maakt met een Azure AD UPN-naam met be
 Gebruik deze methode om te verifiëren naar SQL DB/DW met Azure AD voor systeemeigen of gefedereerd Azure AD-gebruikers. Een systeemeigen gebruiker is een expliciet in Azure AD hebt gemaakt en wordt geverifieerd met gebruikersnaam en wachtwoord, terwijl een federatieve gebruiker een Windows-gebruiker is met het domein is gefedereerd met Azure AD. De laatste methode (met behulp van de gebruiker en wachtwoord) kan worden gebruikt wanneer een gebruiker wil gebruiken hun windows-referentie, maar hun lokale computer niet is verbonden met het domein (bijvoorbeeld met behulp van een externe toegang). In dit geval een Windows-gebruiker kan duiden op hun domeinaccount en wachtwoord en naar SQL DB/DW met federatieve referenties kan worden geverifieerd.
 
 1. Management Studio of gegevens-hulpprogramma's starten en klik in de **verbinding maken met Server** (of **verbinding maken met Database-Engine**) in het dialoogvenster de **verificatie** Schakel  **Active Directory - wachtwoord**.
-2. In de **gebruikersnaam** typt u de naam van uw Azure Active Directory-gebruikersaccount in de indeling **username@domain.com**. Gebruikersnamen moet een van de Azure Active Directory-account of een account van een domein federeren met de Azure Active Directory.
+2. In de **gebruikersnaam** typt u de naam van uw Azure Active Directory-gebruikersaccount in de indeling **gebruikersnaam\@domein.com**. Gebruikersnamen moet een van de Azure Active Directory-account of een account van een domein federeren met de Azure Active Directory.
 3. In de **wachtwoord** vak, typ het wachtwoord van de gebruiker voor de Azure Active Directory-account of domeinaccount federatieve.
 
     ![Selecteer verificatie van AD-wachtwoord][12]

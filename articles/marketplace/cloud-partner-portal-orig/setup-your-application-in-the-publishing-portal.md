@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847124"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Instellen van uw toepassing in de Portal voor publiceren
 
@@ -27,16 +27,16 @@ U bent nu klaar voor het instellen van uw toepassing in de portal voor publicere
 
 ## <a name="login-and-create-a-new-offer"></a>Aanmelden en een nieuwe aanbieding maken
 
-1. Aanmelden bij de [Cloud Partner-Portal](http://cloudpartner.azure.com/).
+1. Aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/).
 2. In de linker navigatiebalk, klikt u op '+ nieuw bieden' en selecteer "Dynamics 365 voor Customer Engagement."
 
 ![Een nieuwe aanbieding selecteren](./media/CRMScreenShot14.png)
 
-3. Een nieuwe aanbieding 'Editor' weergave wordt nu voor u geopend en we zijn klaar om door te gaan ontwerpen.
+1. Een nieuwe aanbieding 'Editor' weergave wordt nu voor u geopend en we zijn klaar om door te gaan ontwerpen.
 
 ![Venster voor de nieuwe aanbieding](./media/CRMScreenShot15.png)
 
-4. De 'formulieren"die moeten worden ingevuld zijn zichtbaar aan de linkerkant in de weergave 'Editor'. Elke "vorm" bestaat uit een set velden die moeten worden ingevuld. Vereiste velden zijn gemarkeerd met een rood sterretje (\*).
+1. De 'formulieren"die moeten worden ingevuld zijn zichtbaar aan de linkerkant in de weergave 'Editor'. Elke "vorm" bestaat uit een set velden die moeten worden ingevuld. Vereiste velden zijn gemarkeerd met een rood sterretje (\*).
 
 Er zijn vier belangrijkste formulieren voor het ontwerpen van een Dynamics 365 voor Customer Engagement-aanbieding
 
@@ -88,7 +88,7 @@ Hier volgt een uitleg voor deze velden:
 
 ### <a name="crm-package-availability"></a>Beschikbaarheid van CRM-pakket
 
-In deze sectie, selecteer welke regio's van uw pakket wordt beschikbaar gesteld aan CRM. Zie de koppeling voor informatie op welke regio's welke landen bedienen: [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
+In deze sectie, selecteer welke regio's van uw pakket wordt beschikbaar gesteld aan CRM. Zie de koppeling voor informatie op welke regio's welke landen bedienen: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Opmerking: Implementeren naar Duitsland 'Onafhankelijke en VS (overheid)-Cloud' onafhankelijke vereist speciale MACHTIGINGEN en validatie tijdens de certificering
 

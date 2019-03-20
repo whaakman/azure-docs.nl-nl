@@ -1,19 +1,19 @@
 ---
 title: 'Zelfstudie: Toegang tot Azure Data Lake Storage Gen2-gegevens met Azure Databricks met behulp van Apache Spark | Microsoft Docs'
-description: Deze zelfstudie bevat informatie over het uitvoeren van Spark-query's in een Azure Databricks-cluster voor toegang tot gegevens in een Azure Data Lake Storage Gen2-opslagaccount.
+description: In deze zelfstudie laat zien hoe Spark-query's uitvoeren op een Azure Databricks-cluster voor toegang tot gegevens in een Azure Data Lake Storage Gen2 storage-account.
 services: storage
 author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 03/11/2019
 ms.author: dineshm
-ms.openlocfilehash: 14e8d54b7b9cf579bb5dcbce595e2591c158b841
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 7f712bcf3e82005480d4960484cb0ea3ad51fbff
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585422"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226756"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Zelfstudie: Toegang tot Data Lake Storage Gen2-gegevens met Azure Databricks met behulp van Apache Spark
 
@@ -32,22 +32,22 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 * Een Azure Data Lake Storage Gen2-account maken.
 
-  Zie [Een Azure Data Lake Storage Gen2-account maken](data-lake-storage-quickstart-create-account.md).
+  Zie [maken van een account met Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 
 * Zorg ervoor dat aan uw gebruikersaccount de [rol van Gegevensbijdrager voor opslagblob](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) is toegewezen.
 
 * Installeer AzCopy v10. Zie [Gegevens overdragen met AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-*  Een service-principal maken. Raadpleeg [Uitleg: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Een service-principal maken. Raadpleeg [Uitleg: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-   Er zijn een paar specifieke zaken die u moet doen terwijl u de stappen in het artikel uitvoert.
+  Er zijn een paar specifieke zaken die u moet doen terwijl u de stappen in het artikel uitvoert.
 
-   :heavy_check_mark: Wanneer u de stappen uitvoert in de sectie [De toepassing toewijzen aan een rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) van het artikel, moet u ervoor zorgen dat de rol **Gegevensbijdrager voor opslagblob** is toegewezen aan de service-principal.
+  :heavy_check_mark: Wanneer u de stappen uitvoert in de sectie [De toepassing toewijzen aan een rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) van het artikel, moet u ervoor zorgen dat de rol **Gegevensbijdrager voor opslagblob** is toegewezen aan de service-principal.
 
-   > [!IMPORTANT]
-   > Zorg ervoor dat u de rol toewijst in het bereik van het Data Lake Storage Gen2-opslagaccount. U kunt een rol toewijzen aan de bovenliggende resourcegroep of het bovenliggende abonnement, maar u ontvangt machtigingsgerelateerde fouten tot die roltoewijzingen zijn doorgegeven aan het opslagaccount.
+  > [!IMPORTANT]
+  > Zorg ervoor dat u de rol toewijst in het bereik van het Data Lake Storage Gen2-opslagaccount. U kunt een rol toewijzen aan de bovenliggende resourcegroep of het bovenliggende abonnement, maar u ontvangt machtigingsgerelateerde fouten tot die roltoewijzingen zijn doorgegeven aan het opslagaccount.
 
-   :heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [Waarden ophalen voor het aanmelden](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) van het artikel, plakt u de waarden van de tenant-id, de toepassings-id en de verificatiesleutel in een tekstbestand. U hebt deze binnenkort nodig.
+  :heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [Waarden ophalen voor het aanmelden](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) van het artikel, plakt u de waarden van de tenant-id, de toepassings-id en de verificatiesleutel in een tekstbestand. U hebt deze binnenkort nodig.
 
 ### <a name="download-the-flight-data"></a>De vluchtgegevens downloaden
 
@@ -147,12 +147,12 @@ In deze sectie maakt u een bestandssysteem en een map in uw opslagaccount.
 
    * De tijdelijke aanduiding `storage-account-name` is de naam van uw Azure Data Lake Storage Gen2-opslagaccount.
 
-    > [!NOTE]
-    > In een productieomgeving kunt u de verificatiesleutel eventueel in Azure Databricks opslaan. Vervolgens voegt u een opzoeksleutel toe aan uw codeblok in plaats van de verificatiesleutel. Nadat u deze quickstart hebt afgerond, raadpleegt u het artikel [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) (Engelstalig) op de website van Azure Databricks voor voorbeelden van deze methode.
+   > [!NOTE]
+   > In een productieomgeving kunt u de verificatiesleutel eventueel in Azure Databricks opslaan. Vervolgens voegt u een opzoeksleutel toe aan uw codeblok in plaats van de verificatiesleutel. Nadat u deze quickstart hebt afgerond, raadpleegt u het artikel [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) (Engelstalig) op de website van Azure Databricks voor voorbeelden van deze methode.
 
 19. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
 
-    Houd dit notitieblok open, want u gaat er later opdrachten aan toevoegen.
+   Houd dit notitieblok open, want u gaat er later opdrachten aan toevoegen.
 
 ## <a name="ingest-data"></a>Gegevens opnemen
 
@@ -171,9 +171,10 @@ Gebruik AzCopy om gegevens uit uw *csv*-bestand te kopiëren naar uw Data Lake S
 2. Voer de volgende opdracht in om gegevens kopiëren vanuit het *csv*-account.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
    ```
-   * Vervang de waarde van de tijdelijke aanduiding `<csv-folder-path>` door het mappad naar het *csv*-bestand (met uitzondering van de naam van het bestand).
+
+   * Vervang de `<csv-folder-path>` aanduidingswaarde door het pad naar de *CSV* bestand.
 
    * Vervang de waarde van de tijdelijke plaatsaanduiding `storage-account-name` door de naam van uw opslagaccount.
 
@@ -181,28 +182,28 @@ Gebruik AzCopy om gegevens uit uw *csv*-bestand te kopiëren naar uw Data Lake S
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Databricks Notebook gebruiken om CSV te converteren naar Parquet
 
-Voeg aan het notitieblok dat u eerder hebt gemaakt een nieuwe cel toe en plak de volgende code in die cel. Vervang de waarde van de tijdelijke aanduiding `storage-account-name` in dit codefragment door de naam van de map waarin u het CSV-bestand hebt opgeslagen.
+Voeg aan het notitieblok dat u eerder hebt gemaakt een nieuwe cel toe en plak de volgende code in die cel. 
 
 ```python
 # Use the previously established DBFS mount point to read the data.
 # create a data frame to read data.
 
-flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/*.csv")
+flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
 # read the airline csv file and write the output to parquet format for easy query.
- flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
- print("Done")
- ```
+flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
+print("Done")
+```
 
 ## <a name="explore-data"></a>Gegevens verkennen
 
-Plak de volgende code in een nieuwe cel om een lijst op te halen met CSV-bestanden die zijn geüpload via AzCopy. Vervang de waarde van de tijdelijke aanduiding `<csv-folder-path>` door dezelfde waarde voor die tijdelijke aanduiding die u eerder hebt gebruikt.
+Plak de volgende code in een nieuwe cel om een lijst op te halen met CSV-bestanden die zijn geüpload via AzCopy.
 
 ```python
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/On_Time/<your-folder-name>"))
+display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
 Als u een nieuw bestand en een nieuwe lijst met bestanden wilt maken in de map *parquet/flights*, voert u dit script uit:
@@ -220,13 +221,11 @@ Hierna kunt u beginnen met het doorzoeken van de gegevens die u hebt geüpload i
 
 Als u dataframes wilt maken voor uw gegevensbronnen, voert u het volgende script uit:
 
-* Vervang de waarde van de tijdelijke aanduiding `<csv-folder-path>` door het mappad naar het *csv*-bestand (met uitzondering van de naam van het bestand).
-
-* Vervang de waarde van de tijdelijke plaatsaanduiding `<your-csv-file-name` door de naam van uw *csv*-bestand.
+* Vervang de `<csv-folder-path>` aanduidingswaarde door het pad naar de *CSV* bestand.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/<your-csv-file-name>.csv")
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier
@@ -285,5 +284,5 @@ Verwijder de resourcegroep en alle gerelateerde resources, wanneer u deze niet m
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[!div class="nextstepaction"] 
+> [!div class="nextstepaction"] 
 > [Gegevens extraheren, transformeren en laden met Apache Hive in Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)

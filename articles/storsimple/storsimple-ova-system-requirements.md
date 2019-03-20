@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 7e5cf79613bdbd62427e99a0d1f2aa29ed8f85be
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: becf48320b346feea82944ed2f7e752125795d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245188"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999502"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systeemvereisten voor StorSimple virtuele array
 ## <a name="overview"></a>Overzicht
@@ -52,7 +52,7 @@ De softwarevereisten omvatten de informatie over de ondersteunde webbrowsers, SM
 | --- | --- |
 | Minimum aantal virtuele processors (kernen) |4 |
 | Minimaal geheugen (RAM) |8 GB <br> Voor een bestandsserver, 8 GB voor minder dan 2 miljoen bestanden en 16 GB 2-4 miljoen bestanden|
-| Schijfruimte<sup>1</sup> |De schijf met besturingssysteem - 80 GB <br></br>Gegevensschijf - 500 GB tot 8 TB |
+| Schijfruimte<sup>1</sup> |OS disk - 80 GB <br></br>Data disk - 500 GB to 8 TB |
 | Minimum aantal netwerkinterfaces |1 |
 | Internetbandbreedte<sup>2</sup> |Minimale bandbreedte vereist: 5 Mbps <br> Aanbevolen bandbreedte: 100 Mbps <br> De snelheid van data transfer worden geschaald met de Internet-bandbreedte. 100 GB aan gegevens heeft bijvoorbeeld twee dagen om over te dragen met 5 Mbps die tot mislukte back-ups leiden kunnen omdat de dagelijkse back-ups kunnen niet worden voltooid in een dag. Met een bandbreedte van 100 Mbps, kunt u 100 GB aan gegevens overbrengen in 2,5 uur.   |
 
@@ -100,7 +100,7 @@ De volgende tabel staan de poorten die moeten worden geopend in uw firewall om t
 | UDP 123 (NTP) |Uit |WAN |In sommige gevallen; Zie de opmerkingen. |Deze poort is alleen vereist als u een Internet-gebaseerde NTP-server gebruikt.<br></br> Houd er rekening mee dat als u een bestandsserver implementeert, het beste tijd synchroniseren met uw Active Directory-domeincontrollers. |
 | TCP 80 (HTTP) |In |LAN |Ja |Dit is de binnenkomende poort voor lokale gebruikersinterface op het StorSimple-apparaat voor lokaal beheer. <br></br> Houd er rekening mee dat toegang tot de gebruikersinterface voor het lokale via HTTP worden automatisch omgeleid naar HTTPS. |
 | TCP 443 (HTTPS) |In |LAN |Ja |Dit is de binnenkomende poort voor lokale gebruikersinterface op het StorSimple-apparaat voor lokaal beheer. |
-| TCP-3260 (iSCSI) |In |LAN |Nee |Deze poort wordt gebruikt voor toegang tot gegevens via iSCSI. |
+| TCP 3260 (iSCSI) |In |LAN |Nee |Deze poort wordt gebruikt voor toegang tot gegevens via iSCSI. |
 
 <sup>1</sup> geen inkomende poorten moeten worden geopend op het openbare Internet.
 
@@ -125,12 +125,12 @@ U wordt aangeraden dat u uw firewall-regels voor uitgaand verkeer, op basis van 
 | --- | --- |
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple-apparaatbeheerservice<br>Access Control Service<br>Azure Service Bus<br>Verificatieservice|
 | `http://*.backup.windowsazure.com` |Apparaatregistratie |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Het intrekken van certificaten |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Het intrekken van certificaten |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-accounts en bewaking |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update-servers<br> |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update-servers<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` |Ondersteuningspakket |
-| `http://*.data.microsoft.com ` |Telemetrieservice in Windows, Zie de [update voor de gebruikerservaring en diagnostische telemetrie](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com ` |Telemetrieservice in Windows, Zie de [update voor de gebruikerservaring en diagnostische telemetrie](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Voorbereiden van de portal voor het implementeren van uw StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: f809644d4b94ea5facebba45b921485c739eb047
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078806"
 ---
 # <a name="configure-storage"></a>Opslag configureren
 
@@ -149,7 +149,7 @@ Blob-opslag toevoegen nadat het cluster is gemaakt, volg deze stappen.
    * (Optioneel) Stel **versleutelingstype** naar **geen**.  Azure Storage is standaard versleuteld.
    * Klik op **Filer toevoegen**.
 
-  Lees voor meer informatie gedetailleerde, [toe te voegen een nieuwe cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) in de handleiding voor Avere cluster. 
+   Lees voor meer informatie gedetailleerde, [toe te voegen een nieuwe cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) in de handleiding voor Avere cluster. 
 
 De pagina wordt vernieuwd, of u kunt de pagina om uw nieuwe core filer weer te vernieuwen.
 

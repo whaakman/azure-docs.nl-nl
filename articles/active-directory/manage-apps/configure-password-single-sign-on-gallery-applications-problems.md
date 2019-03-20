@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afe467d56d0247e17f73bb85a39246c4c04629cd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f6c313cc654461ea22c126fede317ed230408b82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173450"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079193"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Probleem bij het configureren wachtwoord eenmalige aanmelding voor een toepassing in Azure AD-galerie
 
@@ -37,23 +37,23 @@ Microsoft heeft technologieën voor het automatisch detecteren wanneer integrati
 
 U lost dit probleem, moet u eerst deze dingen proberen:
 
--   Laat de gebruiker die het eerst **rechtstreeks aanmelden bij de website van de toepassing** met de referenties die voor hen zijn opgeslagen.
+- Laat de gebruiker die het eerst **rechtstreeks aanmelden bij de website van de toepassing** met de referenties die voor hen zijn opgeslagen.
 
   * Als u werkt, hebt u de gebruiker klikt u op de **referenties bijwerken** knop op de **toepassing naast elkaar** in de **Apps** sectie van de [toegang tot toepassingen Deelvenster](https://myapps.microsoft.com/) ze updaten naar de laatste bekende werken gebruikersnaam en wachtwoord.
 
-   * Als u, of een andere beheerder de referenties voor deze gebruiker is toegewezen, vindt de gebruiker of de toewijzing van de groep van toepassingen door te navigeren naar de **gebruikers en groepen** tabblad van de toepassing, selecteert u de toewijzing en op de  **Referenties bijwerken** knop.
+  * Als u, of een andere beheerder de referenties voor deze gebruiker is toegewezen, vindt de gebruiker of de toewijzing van de groep van toepassingen door te navigeren naar de **gebruikers en groepen** tabblad van de toepassing, selecteert u de toewijzing en op de  **Referenties bijwerken** knop.
 
--   Als de gebruiker hun eigen referenties toegewezen, laat de gebruiker **controleren om ervoor te zorgen dat hun wachtwoord niet is verlopen in de toepassing** en zo ja, **hun wachtwoord verlopen** door het aanmelden bij de toepassing rechtstreeks.
+- Als de gebruiker hun eigen referenties toegewezen, laat de gebruiker **controleren om ervoor te zorgen dat hun wachtwoord niet is verlopen in de toepassing** en zo ja, **hun wachtwoord verlopen** door het aanmelden bij de toepassing rechtstreeks.
 
-   * Nadat het wachtwoord is bijgewerkt in de toepassing, de gebruiker op te vragen de **referenties bijwerken** knop op de **toepassing tegel** in de **Apps** sectie van de [Toegangsvenster](https://myapps.microsoft.com/) ze updaten naar de laatste bekende werken gebruikersnaam en wachtwoord.
+  * Nadat het wachtwoord is bijgewerkt in de toepassing, de gebruiker op te vragen de **referenties bijwerken** knop op de **toepassing tegel** in de **Apps** sectie van de [Toegangsvenster](https://myapps.microsoft.com/) ze updaten naar de laatste bekende werken gebruikersnaam en wachtwoord.
 
-   * Als u, of een andere beheerder de referenties voor deze gebruiker is toegewezen, vindt de gebruiker of de toewijzing van de groep van toepassingen door te navigeren naar de **gebruikers en groepen** tabblad van de toepassing, selecteert u de toewijzing en op de  **Referenties bijwerken** knop.
+  * Als u, of een andere beheerder de referenties voor deze gebruiker is toegewezen, vindt de gebruiker of de toewijzing van de groep van toepassingen door te navigeren naar de **gebruikers en groepen** tabblad van de toepassing, selecteert u de toewijzing en op de  **Referenties bijwerken** knop.
 
--   Laat de gebruiker de uitbreiding voor toegang tot deelvenster browser bijwerken met de volgende stappen hieronder in de [het installeren van de extensie toegang deelvenster Browser](#how-to-install-the-access-panel-browser-extension) sectie.
+- Laat de gebruiker de uitbreiding voor toegang tot deelvenster browser bijwerken met de volgende stappen hieronder in de [het installeren van de extensie toegang deelvenster Browser](#how-to-install-the-access-panel-browser-extension) sectie.
 
--   Zorg ervoor dat de uitbreiding voor toegang tot deelvenster browser uitgevoerd en ingeschakeld in de browser van de gebruiker wordt.
+- Zorg ervoor dat de uitbreiding voor toegang tot deelvenster browser uitgevoerd en ingeschakeld in de browser van de gebruiker wordt.
 
--   Zorg ervoor dat uw gebruikers niet wilt aanmelden bij de toepassing van het toegangsvenster, terwijl in **incognito, InPrivate- of persoonlijke modus**. De extensie van het Configuratiescherm toegang wordt niet ondersteund in deze modi.
+- Zorg ervoor dat uw gebruikers niet wilt aanmelden bij de toepassing van het toegangsvenster, terwijl in **incognito, InPrivate- of persoonlijke modus**. De extensie van het Configuratiescherm toegang wordt niet ondersteund in deze modi.
 
 Als de vorige suggesties niet werkt, wordt het geval dat een wijziging aan de toepassing die tijdelijk niet van de toepassing-integratie met Azure AD werken is is opgetreden. Bijvoorbeeld, kan dit gebeuren wanneer de leverancier van de toepassing wordt geïntroduceerd een script op de pagina die zich anders voor handmatige vs gedraagt geautomatiseerde invoer, waardoor automatische integratie, net als onze eigen, verbreken. In veel gevallen kan Microsoft gelukkig werken met leveranciers van deze problemen snel oplossen door toepassingen.
 
@@ -65,13 +65,13 @@ Daarnaast **als u verbonden met de leverancier van deze toepassing bent,** **ze 
 
 Er zijn twee mogelijke oorzaken voor dit probleem:
 
--   Afhankelijk van de beveiligingsinstellingen die zijn ingeschakeld in Internet Explorer, als de website geen deel uitmaakt van een **Zone met vertrouwde**, soms in het script wordt uitgevoerd voor de toepassing worden geblokkeerd.
+- Afhankelijk van de beveiligingsinstellingen die zijn ingeschakeld in Internet Explorer, als de website geen deel uitmaakt van een **Zone met vertrouwde**, soms in het script wordt uitgevoerd voor de toepassing worden geblokkeerd.
 
   *  U kunt dit oplossen, moet de gebruiker **website van de toepassing toevoegen** naar de **vertrouwde Sites** weergeven binnen hun **instellingen van Internet Explorer**. U kunt uw gebruikers te verzenden de [een site toevoegen aan mijn lijst met vertrouwde sites](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) artikel voor gedetailleerde instructies.
 
--   Validatie van de beveiliging van Internet Explorer in zeldzame gevallen kan kan soms de pagina te laden trager dan het uitvoeren van het script veroorzaken.
+- Validatie van de beveiliging van Internet Explorer in zeldzame gevallen kan kan soms de pagina te laden trager dan het uitvoeren van het script veroorzaken.
 
-   * Deze situatie kan helaas variëren afhankelijk van de browserversie, de Computersnelheid of de site bezocht. In dit geval is het raadzaam dat u contact op met ondersteuning, zodat we de integratie voor deze specifieke toepassing kunt oplossen.
+  * Deze situatie kan helaas variëren afhankelijk van de browserversie, de Computersnelheid of de site bezocht. In dit geval is het raadzaam dat u contact op met ondersteuning, zodat we de integratie voor deze specifieke toepassing kunt oplossen.
 
 Daarnaast **als u verbonden met de leverancier van deze toepassing bent,** **ze de TIP naar ons verzenden** , zodat we kunnen werken met hun toepassing systeemeigen integratie met Azure Active Directory. U kunt de leverancier verzenden de [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](../develop/howto-app-gallery-listing.md) aan om ze aan de slag.
 

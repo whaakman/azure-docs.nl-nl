@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 03/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 73175b326c25d5d9a78155d0d9d888b655da1bfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191595"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124130"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Aandachtspunten voor netwerken voor een App Service Environment #
 
@@ -28,7 +28,7 @@ ms.locfileid: "54191595"
  Azure [App Service-omgeving] [ Intro] is een implementatie van Azure App Service in een subnet in uw Azure-netwerk (VNet). Er zijn twee implementatietypen voor een App Service environment (ASE):
 
 - **Externe as-omgeving**: Beschrijft de as-omgeving gehoste apps op internet toegankelijk is via het IP-adres. Zie voor meer informatie, [maken van een externe as-omgeving][MakeExternalASE].
-- **ILB AS-OMGEVING**: Beschrijft de as-omgeving gehoste apps op een IP-adres in uw VNet. Het interne eindpunt is een interne load balancer (ILB), vandaar dat het een ILB as-omgeving wordt genoemd. Zie voor meer informatie, [maken en gebruiken een ILB as-omgeving][MakeILBASE].
+- **ILB ASE**: Beschrijft de as-omgeving gehoste apps op een IP-adres in uw VNet. Het interne eindpunt is een interne load balancer (ILB), vandaar dat het een ILB as-omgeving wordt genoemd. Zie voor meer informatie, [maken en gebruiken een ILB as-omgeving][MakeILBASE].
 
 Er zijn twee versies van App Service-omgeving: ASEv1 en ASEv2. Zie voor meer informatie over ASEv1 [Inleiding tot App Service Environment v1][ASEv1Intro]. ASEv1 kan worden geïmplementeerd in een klassieke of Resource Manager-VNet. ASEv2 kan alleen worden geïmplementeerd in een Resource Manager VNet.
 
@@ -54,6 +54,7 @@ De normale app-poorten zijn:
 |  HTTP/HTTPS  | Gebruiker worden geconfigureerd |  80, 443 |
 |  FTP/FTPS    | Gebruiker worden geconfigureerd |  21, 990, 10001-10020 |
 |  Visual Studio fouten opsporen op afstand  |  Gebruiker worden geconfigureerd |  4020, 4022, 4024 |
+|  Webservice implementeren | Gebruiker worden geconfigureerd | 8172 |
 
 Dit geldt als u op een externe as-omgeving of in een ILB as-omgeving bent. Als u een externe as-omgeving, kunt u deze poorten op de openbare VIP bereikt. Als u een ILB as-omgeving, kunt u deze poorten op de ILB bereikt. Als u poort 443 te vergrendelen, kan het zijn dat er van invloed op sommige functies die beschikbaar zijn in de portal hebt gemaakt. Zie voor meer informatie, [Portal afhankelijkheden](#portaldep).
 

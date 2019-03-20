@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 93beef5702df9b4cf0a51a01fb286a3f023f9839
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876616"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905219"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Beveiliging-Frame: Gevoelige gegevens | Oplossingen 
 | Product/Service | Artikel |
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [MSDN: automatisch aanvullen kenmerk](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [automatisch aanvullen gebruiken in HTML](https://msdn.microsoft.com/library/ms533032.aspx), [beveiligingslek met betrekking tot het opschonen van het HTML-](https://technet.microsoft.com/security/bulletin/MS10-071), [automatisch aanvullen., opnieuw?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **Verwijzingen**              | [MSDN: automatisch aanvullen kenmerk](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [automatisch aanvullen gebruiken in HTML](https://msdn.microsoft.com/library/ms533032.aspx), [beveiligingslek met betrekking tot het opschonen van het HTML-](https://technet.microsoft.com/security/bulletin/MS10-071), [automatisch aanvullen., opnieuw?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Stappen** | Het automatisch aanvullen-kenmerk geeft aan of een formulier automatisch aanvullen in- of uitschakelen zijn moet. Als automatisch aanvullen is ingeschakeld, worden de waarden op basis van waarden die de gebruiker heeft ingevoerd voordat de browser automatisch aanvullen. Bijvoorbeeld, wanneer een nieuwe naam en het wachtwoord is ingevoerd in een formulier en het formulier wordt ingediend, de browser wordt gevraagd als het wachtwoord moet worden opgeslagen. Daarna wanneer het formulier wordt weergegeven, de naam en het wachtwoord worden automatisch ingevuld of zijn voltooid, zoals de naam van de opgegeven. Een aanvaller met lokale toegang, kan het wachtwoord niet-versleutelde tekst ophalen uit de cache van de browser. Automatisch aanvullen is standaard ingeschakeld en moet expliciet worden uitgeschakeld. |
 
 ### <a name="example"></a>Voorbeeld
@@ -182,7 +182,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [Hashing van wachtwoord met behulp van .NET Crypto-API 's](http://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
+| **Verwijzingen**              | [Hashing van wachtwoord met behulp van .NET Crypto-API 's](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
 | **Stappen** | Wachtwoorden moeten niet worden opgeslagen in de store van aangepaste gebruikersdatabases. Wachtwoord-hashes moeten in plaats daarvan met salt waarden worden opgeslagen. Zorg ervoor dat de salt voor de gebruiker altijd uniek is en u b-crypt, s-crypt of PBKDF2 toepassen voordat u het wachtwoord, met een minimale werk factor iteratie telling van 150.000 lussen te voorkomen dat de van brute force opslaat.| 
 
 ## <a id="db-encrypted"></a>Zorg ervoor dat gevoelige gegevens in de databasekolommen is versleuteld
@@ -399,7 +399,7 @@ Als de toepassing is niet een bedrijfstoepassing, klikt u vervolgens gebruiken p
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [Crypto codeversleuteling voor .net](http://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
+| **Verwijzingen**              | [Crypto codeversleuteling voor .net](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
 | **Stappen** | Gegenereerde binaire bestanden (assembly's in apk) moeten worden verborgen als u wilt stoppen, reverse-engineering van assembly's. Hulpprogramma's zoals `CryptoObfuscator` kan worden gebruikt voor dit doel. |
 
 ## <a id="cert"></a>ClientCredentialType ingesteld op certificaten of Windows
@@ -429,7 +429,7 @@ Stel clientCredentialType op certificaat of Windows.
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemeen, .NET Framework 3 |
 | **Kenmerken**              | Modus - Transport, beveiligingsmodus - bericht |
-| **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Koninkrijk Voeg](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [basisprincipes van beveiliging van WCF-CoDe Magazine](http://www.codemag.com/article/0611051) |
+| **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Koninkrijk Voeg](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [basisprincipes van beveiliging van WCF-CoDe Magazine](https://www.codemag.com/article/0611051) |
 | **Stappen** | Er is geen beveiliging transport of het bericht is gedefinieerd. Toepassingen die berichten zonder transport of bericht beveiliging kan niet garanderen de integriteit of vertrouwelijkheid van de berichten worden verzonden. Wanneer een WCF-security-binding is ingesteld op None, worden zowel transport en bericht-beveiliging uitgeschakeld. |
 
 ### <a name="example"></a>Voorbeeld
@@ -453,8 +453,8 @@ Modus voor beveiliging voor alle servicebindingen er zijn vijf mogelijk beveilig
 * Beide. Hiermee kunt u instellingen voor het transport en bericht-beveiliging (alleen MSMQ ondersteunt dit) opgeven. 
 * TransportWithMessageCredential. Referenties worden doorgegeven met het bericht en de bericht-beveiliging en verificatie van de server worden geleverd door de transportlaag is opgehaald. 
 * TransportCredentialOnly. Clientreferenties worden doorgegeven met de transportlaag is opgehaald en er geen bericht-beveiliging wordt toegepast. Transport en bericht-beveiliging gebruiken om u te beschermen van de integriteit en vertrouwelijkheid van berichten. De onderstaande configuratie geeft aan dat de service moet transportbeveiliging gebruiken met de referenties van het bericht.
-```
-<system.serviceModel>
+  ```
+  <system.serviceModel>
   <bindings>
     <wsHttpBinding>
     <binding name=""MyBinding""> 
@@ -462,5 +462,5 @@ Modus voor beveiliging voor alle servicebindingen er zijn vijf mogelijk beveilig
     <message clientCredentialType=""Windows""/> 
     </binding> 
   </bindings> 
-</system.serviceModel> 
-```
+  </system.serviceModel> 
+  ```

@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 61bec775fc8be963ee6fd0768a297420e6eb7ab2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761579"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095208"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Zelfstudie: Een QnA Bot maken met Azure Bot Service v3
 
@@ -90,12 +90,12 @@ De bot reageert met 'Stel QnAKnowledgebaseId en QnASubscriptionKey in Appinstell
 
 1. Uw knowledge base-ID en host-url voor de eindpuntsleutel ophalen uit het tabblad instellingen van uw knowledge base in de portal voor QnA Maker.
 
-    - Aanmelden bij [QnA Maker](https://qnamaker.ai)
-    - Ga naar uw knowledge base
-    - Selecteer de **instellingen** tabblad
-    - **Publiceren** uw knowledge base, als dit nog niet gedaan
+   - Aanmelden bij [QnA Maker](https://qnamaker.ai)
+   - Ga naar uw knowledge base
+   - Selecteer de **instellingen** tabblad
+   - **Publiceren** uw knowledge base, als dit nog niet gedaan
 
-    ![QnA Maker-waarden](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+     ![QnA Maker-waarden](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
 ## <a name="test-the-bot"></a>De bot testen
 

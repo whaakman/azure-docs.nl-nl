@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 2fd06a2164761489af6ee84d56806ef858e3b5d8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f350d0ae6602fb393da3ddc350f33ec89e86078e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782680"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081437"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maken van een regel voor gebeurtenissen en meldingen in uw Azure IoT Central-toepassing instellen
 
@@ -59,15 +59,15 @@ Voorwaarde definieert de criteria die wordt bewaakt door de regel.
 
 1. (Optioneel) u kunt ook instellen **aantal** als **aggregatie** en de bijbehorende drempelwaarde opgeven.
 
-    - Zonder aggregatie, de regel wordt geactiveerd voor elk gegevenspunt gebeurtenis die aan de voorwaarde voldoet. Bijvoorbeeld, als u van de regel configureert voorwaarde om te activeren wanneer een **ventilator Motor fout** gebeurtenis optreedt en vervolgens de regel wordt geactiveerd bijna onmiddellijk wanneer het apparaat dat de gebeurtenis meldt.
-    - Als het aantal wordt gebruikt als een statistische functie, hebt u voor een **drempelwaarde** en een **cumulatieve tijdvenster** over waarop de voorwaarde moet worden geëvalueerd. In dit geval wordt het aantal gebeurtenissen is samengevoegd en de regel wordt geactiveerd als het aantal verzamelde gebeurtenissen komt overeen met de drempelwaarde.
+   - Zonder aggregatie, de regel wordt geactiveerd voor elk gegevenspunt gebeurtenis die aan de voorwaarde voldoet. Bijvoorbeeld, als u van de regel configureert voorwaarde om te activeren wanneer een **ventilator Motor fout** gebeurtenis optreedt en vervolgens de regel wordt geactiveerd bijna onmiddellijk wanneer het apparaat dat de gebeurtenis meldt.
+   - Als het aantal wordt gebruikt als een statistische functie, hebt u voor een **drempelwaarde** en een **cumulatieve tijdvenster** over waarop de voorwaarde moet worden geëvalueerd. In dit geval wordt het aantal gebeurtenissen is samengevoegd en de regel wordt geactiveerd als het aantal verzamelde gebeurtenissen komt overeen met de drempelwaarde.
 
-    Bijvoorbeeld, als u waarschuwen wilt wanneer er meer dan drie apparaatgebeurtenissen binnen 5 minuten, selecteert u de gebeurtenis en de statistische functie "aantal", operator, als "groter is dan" en "drempelwaarde' als 3. Stel 'Aggregatie periode' van '5 minuten'. De regel wordt geactiveerd wanneer er meer dan drie gebeurtenissen worden verzonden door het apparaat binnen 5 minuten. De evaluatiefrequentie regel is hetzelfde als de **cumulatieve tijdvenster**, wat betekent dat, in dit voorbeeld wordt de regel is geëvalueerd om de 5 minuten.
+     Bijvoorbeeld, als u waarschuwen wilt wanneer er meer dan drie apparaatgebeurtenissen binnen 5 minuten, selecteert u de gebeurtenis en de statistische functie "aantal", operator, als "groter is dan" en "drempelwaarde' als 3. Stel 'Aggregatie periode' van '5 minuten'. De regel wordt geactiveerd wanneer er meer dan drie gebeurtenissen worden verzonden door het apparaat binnen 5 minuten. De evaluatiefrequentie regel is hetzelfde als de **cumulatieve tijdvenster**, wat betekent dat, in dit voorbeeld wordt de regel is geëvalueerd om de 5 minuten.
 
-    ![Gebeurtenis voorwaarde toevoegen](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
+     ![Gebeurtenis voorwaarde toevoegen](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE]
-    >Meer dan één gebeurtenis meting kan worden toegevoegd onder **voorwaarde**. Wanneer meerdere voorwaarden zijn opgegeven, moeten aan de voorwaarden worden voldaan om de regel te activeren. Elke voorwaarde wordt impliciet gekoppeld door een 'En'-component. Wanneer u statistische functie gebruikt, moet elke meting worden geaggregeerd.
+     >[!NOTE]
+     >Meer dan één gebeurtenis meting kan worden toegevoegd onder **voorwaarde**. Wanneer meerdere voorwaarden zijn opgegeven, moeten aan de voorwaarden worden voldaan om de regel te activeren. Elke voorwaarde wordt impliciet gekoppeld door een 'En'-component. Wanneer u statistische functie gebruikt, moet elke meting worden geaggregeerd.
 
 ### <a name="configure-actions"></a>Configureren van acties
 

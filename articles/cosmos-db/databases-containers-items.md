@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c7288b112ce2fd062a67cb673a1efa6028ec7d57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468135"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888516"
 ---
-# <a name="work-with-databases-containers-and-items"></a>Werken met databases, containers en objecten
+# <a name="work-with-databases-containers-and-items"></a>Werken met databases, containers en items
 
 Nadat u hebt gemaakt een [Azure Cosmos DB-account](account-overview.md) onder uw Azure-abonnement, kunt u gegevens beheren in uw account met het maken van databases, containers en objecten. Elk van deze entiteiten in dit artikel wordt beschreven: databases, containers en objecten. De volgende afbeelding ziet u de hiërarchie van verschillende entiteiten in een Azure Cosmos-account:
 
@@ -92,7 +92,7 @@ Een Azure Cosmos-container is een set door het systeem gedefinieerde eigenschapp
 De volgende bewerkingen uit met behulp van een Azure Cosmos-API biedt ondersteuning voor een Azure Cosmos-container.
 
 | **Bewerking** | **Azure-CLI** | **SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API** | **Tabel-API** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Het inventariseren van containers in een database | Ja* | Ja | Ja | Ja | N.v.t. | N.v.t. |
 | Lezen van een container | Ja | Ja | Ja | Ja | N.v.t. | N.v.t. |
 | Nieuwe container maken | Ja | Ja | Ja | Ja | N.v.t. | N.v.t. |
@@ -125,7 +125,7 @@ Elke Azure Cosmos-item heeft de volgende eigenschappen van het systeem gedefinie
 De volgende bewerkingen die kunnen worden uitgevoerd met behulp van een Azure Cosmos-API biedt ondersteuning voor Azure Cosmos-item.
 
 | **Bewerking** | **Azure-CLI** | **SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API** | **Tabel-API** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Invoegen, vervangen, verwijderen, Upsert, lezen | Nee | Ja | Ja | Ja | Ja | Ja |
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -133,7 +133,7 @@ De volgende bewerkingen die kunnen worden uitgevoerd met behulp van een Azure Co
 U kunt nu doorgaan om worden ingericht met doorvoer in Azure Cosmos-account of naar andere concepten te leren:
 
 * [Ingerichte doorvoer op een Azure Cosmos-database configureren](how-to-provision-database-throughput.md)
-* [Ingerichte doorvoer voor een Azure Cosmos-container configureren](how-to-provision-container-throughput.md)
+* [Ingerichte doorvoer op een Azure Cosmos-container configureren](how-to-provision-container-throughput.md)
 * [Logische partities](partition-data.md)
 * [TTL op Azure Cosmos-container configureren](how-to-time-to-live.md)
 * [Over het bouwen van reactieve toepassingen met behulp van Change Feed](change-feed.md)

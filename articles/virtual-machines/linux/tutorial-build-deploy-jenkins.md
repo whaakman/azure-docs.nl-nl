@@ -5,20 +5,20 @@ author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: devops
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074764"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901420"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Zelfstudie: Uw app implementeren voor Linux Virtual Machines in Azure met Jenkins en Azure DevOps Services
 
@@ -35,7 +35,7 @@ naar een [implementatiegroep](https://docs.microsoft.com/azure/devops/pipelines/
 > * Jenkins configureren voor de integratie met Azure DevOps Services.
 > * Een Jenkins-service-eindpunt maken.
 > * Een implementatiegroep maakt voor de virtuele Azure-machines.
-> * Een Azure Pipelines-release-pijplijn maken.
+> * Maak een Azure-pijplijnen release-pijplijn.
 > * Handmatige en door CI geactiveerde implementaties uitvoeren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
@@ -60,7 +60,7 @@ Voor deze zelfstudie raden we u aan gebruik te maken van [deze voorbeeld-app die
 Maak een fork van deze app en noteer de locatie (URL) voor gebruik in latere stappen van deze zelfstudie. Zie [Een fork van een opslagplaats maken](https://help.github.com/articles/fork-a-repo/) voor meer informatie.    
 
 > [!NOTE]
-> De app is gemaakt met [Yeoman](http://yeoman.io/learning/index.html). Hierin is gebruikgemaakt van Express, Bower en Grunt. Daarnaast bevat deze een aantal npm-pakketten als afhankelijkheden.
+> De app is gemaakt met [Yeoman](https://yeoman.io/learning/index.html). Hierin is gebruikgemaakt van Express, Bower en Grunt. Daarnaast bevat deze een aantal npm-pakketten als afhankelijkheden.
 > Het voorbeeld bevat ook een script waarmee Nginx wordt ingesteld en de app wordt geïmplementeerd. Deze wordt uitgevoerd op de virtuele machines. Met name met het script:
 > 1. Worden Node, Nginx en PM2 geïnstalleerd.
 > 2. Worden Nginx en PM2 geconfigureerd.
@@ -141,7 +141,7 @@ U hebt een [implementatiegroep](https://www.visualstudio.com/docs/build/concepts
 8. Na de installatie wordt u gevraagd om implementatiegroepstags. Accepteer de standaardwaarden.
 9. Controleer in Azure DevOps Services uw zojuist geregistreerde virtuele machine in **Doelen** onder **Implementatiegroepen**.
 
-## <a name="create-a-azure-pipelines-release-pipeline"></a>Een Azure Pipelines-release-pijplijn maken
+## <a name="create-an-azure-pipelines-release-pipeline"></a>Een Azure-pijplijnen release-pijplijn
 
 Met een release-pijplijn geeft u het proces op dat in Azure DevOps Services wordt gebruikt om de app te implementeren. In dit voorbeeld voert u een shellscript uit.
 

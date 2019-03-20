@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2019
 ms.author: monhaber
-ms.openlocfilehash: d92d9c444985989cdec3e94840ff21f4a79fe3ad
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cbda94b8ceeaf7a225117e1ca73445135a32a243
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104921"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088992"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Adaptieve toepassingsbesturingselementen in Azure Security Center
 Lees hoe u toepassingsbeheer configureert in Azure Security Center met behulp van dit stapsgewijze overzicht.
@@ -60,33 +60,33 @@ De sectie **Groepen virtuele machines** bevat drie tabbladen:
 ### <a name="configure-a-new-application-control-policy"></a>Een nieuw toepassingsbeheerbeleid configureren
 1. Klik op het tabblad **Aanbevolen** voor een lijst met groepen waarvoor toepassingsbeheer wordt aanbevolen:
 
-  ![Aanbevolen](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+   ![Aanbevolen](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-  De lijst bevat:
+   De lijst bevat:
 
-  - **NAAM**: de naam van het abonnement en de groep
-  - **VM's**: het aantal virtuele machines in de groep
-  - **STATUS**: de status van de aanbevelingen
-  - **ERNST**: de ernst van de aanbevelingen
+   - **NAAM**: de naam van het abonnement en de groep
+   - **VM's**: het aantal virtuele machines in de groep
+   - **STATUS**: de status van de aanbevelingen
+   - **ERNST**: de ernst van de aanbevelingen
 
 2. Klik op een groep te openen de **regels voor toepassingsbeheer maken** optie.
 
-  ![Regels voor toepassingsbeheer](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   ![Regels voor toepassingsbeheer](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
 3. In de **VM's selecteren**, Controleer de lijst met aanbevolen virtuele machines en schakel uit wat u niet wilt dat een toepassing in de whitelist aan beleid toepassen op. Vervolgens ziet u twee lijsten:
 
-  - **Aanbevolen toepassingen**: een lijst met toepassingen die vaak op de virtuele machines in deze groep, en worden aanbevolen om mag worden uitgevoerd.
-  - **Meer toepassingen**: een lijst met toepassingen die minder frequent op de virtuele machines in deze groep of die worden aangeduid als Exploitables (Zie hieronder meer), en aanbevolen voor controle.
+   - **Aanbevolen toepassingen**: een lijst met toepassingen die vaak op de virtuele machines in deze groep, en worden aanbevolen om mag worden uitgevoerd.
+   - **Meer toepassingen**: een lijst met toepassingen die minder frequent op de virtuele machines in deze groep of die worden aangeduid als Exploitables (Zie hieronder meer), en aanbevolen voor controle.
 
 4. Bekijk de toepassingen in elk van de lijsten en schakel uit wat u niet wilt toepassen. Elke lijst bevat:
 
-  - **NAAM**: informatie over het certificaat of het volledige pad van een toepassing
-  - **BESTANDSTYPEN**: het bestandstype van de toepassing. Dit kan EXE, Script, MSI-bestand of elk permutatie van de volgende typen zijn.
-  - **EXPLOITEERBAAR**: een waarschuwingspictogram geeft aan dat als een bepaalde toepassing door een aanvaller kan worden gebruikt om een oplossing voor het in de whitelist aan over te slaan. U wordt aanbevolen om deze toepassingen te controleren voordat ze worden goedgekeurd.
-  - **GEBRUIKERS**: gebruikers die worden aanbevolen om een toepassing uit te mogen voeren
+   - **NAAM**: informatie over het certificaat of het volledige pad van een toepassing
+   - **BESTANDSTYPEN**: het bestandstype van de toepassing. Dit kan EXE, Script, MSI-bestand of elk permutatie van de volgende typen zijn.
+   - **EXPLOITEERBAAR**: een waarschuwingspictogram geeft aan dat als een bepaalde toepassing door een aanvaller kan worden gebruikt om een oplossing voor het in de whitelist aan over te slaan. U wordt aanbevolen om deze toepassingen te controleren voordat ze worden goedgekeurd.
+   - **GEBRUIKERS**: gebruikers die worden aanbevolen om een toepassing uit te mogen voeren
 
 5. Selecteer **Maken** nadat u uw selecties hebt gemaakt. <br>
-Nadat u maken selecteert, maakt Azure Security Center automatisch de juiste regels boven op de ingebouwde toepassing opname in de whitelist oplossing die beschikbaar op Windows-servers (AppLocker).
+   Nadat u maken selecteert, maakt Azure Security Center automatisch de juiste regels boven op de ingebouwde toepassing opname in de whitelist oplossing die beschikbaar op Windows-servers (AppLocker).
 
 > [!NOTE]
 > - Security Center heeft minimaal twee weken aan gegevens nodig om een basislijn te maken en de unieke aanbevelingen per groep virtuele machines te vullen. Voor nieuwe klanten van de Security Center-standaardcategorie worden groepen virtuele machines in het begin weergegeven op het tabblad *Geen aanbeveling*.
@@ -98,23 +98,23 @@ Nadat u maken selecteert, maakt Azure Security Center automatisch de juiste rege
 
 1. Als u wilt bewerken en controleren van een groep die is geconfigureerd met een toepassing in de whitelist-beleid, gaat u terug naar de **besturingselementen voor adaptieve toepassingen** pagina en selecteer **geconfigureerd** onder **groepen virtuele machines**:
 
-  ![Groepen](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+   ![Groepen](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
-  De lijst bevat:
+   De lijst bevat:
 
-  - **Naam**: de naam van het abonnement en de groep
-  - **VM's**: het aantal virtuele machines in de groep
-  - **Modus**: Controlemodus legt pogingen tot uitvoering van niet-goedgekeurde toepassingen. Afdwingen van wordt niet toe dat niet-goedgekeurde toepassingen worden uitgevoerd
-  - **Waarschuwingen**: eventuele actuele overtredingen
+   - **Naam**: de naam van het abonnement en de groep
+   - **VM's**: het aantal virtuele machines in de groep
+   - **Modus**: Controlemodus legt pogingen tot uitvoering van niet-goedgekeurde toepassingen. Afdwingen van wordt niet toe dat niet-goedgekeurde toepassingen worden uitgevoerd
+   - **Waarschuwingen**: eventuele actuele overtredingen
 
 2. Klik op een groep te wijzigen in de **beleid voor toepassingsbeheer bewerken** pagina.
 
-  ![Beveiliging](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+   ![Beveiliging](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
 3. Onder **Beveiligingsmodus** kunt u een keuze maken uit de volgende opties:
 
-  - **Controle**: in deze modus worden de regels niet afgedwongen door de oplossing voor toepassingsbeheer en wordt alleen de activiteit op de beveiligde virtuele machines gecontroleerd. Dit wordt aanbevolen voor scenario's waarin u eerst het algehele gedrag wilt observeren voordat de uitvoering van een app op de doel-VM wordt geblokkeerd.
-  - **Afdwingen**: in deze modus worden de regels wel afgedwongen door de oplossing voor toepassingsbeheer. Ook worden toepassingen die niet mogen worden uitgevoerd, geblokkeerd.
+   - **Controle**: in deze modus worden de regels niet afgedwongen door de oplossing voor toepassingsbeheer en wordt alleen de activiteit op de beveiligde virtuele machines gecontroleerd. Dit wordt aanbevolen voor scenario's waarin u eerst het algehele gedrag wilt observeren voordat de uitvoering van een app op de doel-VM wordt geblokkeerd.
+   - **Afdwingen**: in deze modus worden de regels wel afgedwongen door de oplossing voor toepassingsbeheer. Ook worden toepassingen die niet mogen worden uitgevoerd, geblokkeerd.
 
    > [!NOTE]
    > -  **Afdwingen** beveiligingsmodus is uitgeschakeld tot nader order van kracht.
@@ -124,14 +124,14 @@ Nadat u maken selecteert, maakt Azure Security Center automatisch de juiste rege
 4. Onder **beleidsuitbreiding**, voegt u een toepassingspad die u wilt toestaan. Nadat u deze paden hebt toegevoegd, kan Security Center werkt het beleid van de toepassing in de whitelist aan op de virtuele machines in de geselecteerde groep van virtuele machines en maakt de juiste regels voor deze toepassingen, naast de regels die al aanwezig.
 
 5. Bekijk de actuele overtredingen vermeld in de **recente waarschuwingen** sectie. Klik op elke regel worden omgeleid naar de **waarschuwingen** pagina in Azure Security Center en alle waarschuwingen die zijn gedetecteerd door Azure Security Center op de bijbehorende virtuele machines weergeven.
-  - **Waarschuwingen**: eventuele schendingen die zijn geregistreerd.
-  - **Nee. van virtuele machines**: het aantal virtuele machines met dit type waarschuwing.
+   - **Waarschuwingen**: eventuele schendingen die zijn geregistreerd.
+   - **Nee. van virtuele machines**: het aantal virtuele machines met dit type waarschuwing.
 
 6. Onder **uitgeverregels**, **padregels voor opname in de whitelist**, en **hash-regels voor opname in de whitelist** ziet u welke opname in de whitelist regels momenteel zijn geconfigureerd op de virtuele machines in een groep, op basis van het type regelverzameling. Voor elke regel kunt u het volgende zien:
 
-  - **Regel**: De specifieke parameters opgegeven op basis waarvan een toepassing wordt gecontroleerd door AppLocker om te bepalen of een toepassing is toegestaan om uit te voeren.
-  - **Bestandstype**: De bestandstypen die worden gedekt door een specifieke regel. Dit kan een van de volgende zijn: EXE, Script, MSI-bestand of elk permutatie van deze bestandstypen.
-  - **Gebruikers**: Naam of het aantal gebruikers die gemachtigd zijn om uit te voeren van een toepassing die wordt gedekt door een toepassing in de whitelist aan-regel.
+   - **Regel**: De specifieke parameters opgegeven op basis waarvan een toepassing wordt gecontroleerd door AppLocker om te bepalen of een toepassing is toegestaan om uit te voeren.
+   - **Bestandstype**: De bestandstypen die worden gedekt door een specifieke regel. Dit kan een van de volgende zijn: EXE, Script, MSI-bestand of elk permutatie van deze bestandstypen.
+   - **Gebruikers**: Naam of het aantal gebruikers die gemachtigd zijn om uit te voeren van een toepassing die wordt gedekt door een toepassing in de whitelist aan-regel.
 
    ![Regels voor opname in de whitelist](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 

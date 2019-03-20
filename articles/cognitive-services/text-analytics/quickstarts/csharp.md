@@ -10,17 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 9b56104934c1ddcc60222c988efdf173ca33d77b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: bc4553df239dbb8b62a31414539b10998cd74f02
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871006"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189645"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Quickstart: C# gebruiken om de Text Analytics Cognitive Service aan te roepen
 <a name="HOLTop"></a>
 
-In dit artikel ziet u hoe u de  [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711) met C# gebruikt om taal te detecteren, sentiment te analyseren en sleuteltermen op te halen. De code is geschreven om te werken met een .Net Core-toepassing, met minimale verwijzingen naar externe bibliotheken, dus u moet de code ook kunnen gebruiken met Linux of macOS.
+In dit artikel ziet u hoe u de  [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711) met C# gebruikt om taal te detecteren, sentiment te analyseren en sleuteltermen op te halen. De code is geschreven om te werken op een .NET Core-toepassing, met minimale verwijzingen naar externe bibliotheken, dus u het ook in Linux of MacOS uitvoeren kunt.
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
@@ -30,26 +30,25 @@ Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor tec
 
 U moet ook de [eindpunt- en toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u is gegenereerd tijden de registratie.
 
-
 ## <a name="install-the-nuget-sdk-package"></a>NuGet-pakket van SDK installeren
 1. Maak een nieuwe console-oplossing in Visual Studio.
 1. Klik met de rechtermuisknop op de oplossing en klik op **Manage NuGet Packages for Solution**.
 1. Schakel het selectievakje **Include Prerelease** in.
 1. Selecteer het tabblad **Browse** en zoek naar **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
-1. Selecteer het NuGet-pakket en installeer het.
+1. Selecteer het NuGet-pakket en installeer het. Mogelijk moet u v2.8.0 voor nu (3-18-2019), v3.0.0, tot een fout in de software niet is opgelost.
 
 > [!Tip]
 >  Hoewel u de [HTTP-eindpunten](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) rechtstreeks vanuit C# kunt aanroepen, maakt de SDK Microsoft.Azure.CognitiveServices.Language het veel gemakkelijker om de service aan te roepen zonder dat u zich zorgen hoeft te maken over het serialiseren en deserialiseren van JSON.
 >
 > Een paar handige koppelingen:
-> - [Pagina over het NuGet-pakket voor de SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> - [Pagina over het NuGet-pakket voor de SDK](<https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics>)
 > - [SDK-code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
-
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>De Text Analytics-API aanroepen met de SDK
+
 1. Vervang Program.cs door de code hieronder. Dit programma laat de mogelijkheden van de Text Analytics-API zien in drie secties (taaldetectie, extractie van sleuteltermen en sentimentanalyse).
 1. Vervang de waarde van de header `Ocp-Apim-Subscription-Key` door een geldige toegangssleutel voor uw abonnement.
-1. Vervang de locatie in `Endpoint` door het eindpunt waarvoor u zich hebt geregistreerd. U vindt het eindpunt voor de resource in de Azure-portal. Het eindpunt begint meestal met 'https://[regio].api.cognitive.microsoft.com' en u hoeft hier alleen het protocol en de hostnaam op te nemen.
+1. Vervang de regio in `Endpoint`. U vindt het eindpunt in de sectie overzicht van de Text Analytics-resource in de [Azure-portal](<https://ms.portal.azure.com>). Alleen dit gedeelte van uw eindpunt bevatten: 'https://[region].api.cognitive.microsoft.com'.
 1. Voer het programma uit.
 
 ```csharp

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: d496801894560310a4225eae8a32fced52bcc428
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0a2d964d60d13f0e71de5776112a4edbe3cdcc45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063537"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993914"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Verificatie toevoegen aan uw Xamarin.Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -57,7 +57,7 @@ De app wordt bijgewerkt om te vereisen dat gebruikers tikken op de **aanmelden**
 
 1. Voeg de volgende code aan de **TodoActivity** klasse:
    
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
         private async Task<bool> Authenticate()
         {
@@ -96,7 +96,7 @@ De app wordt bijgewerkt om te vereisen dat gebruikers tikken op de **aanmelden**
     Hiermee maakt u een nieuwe methode voor het verifiëren van een gebruiker en een methode-handler voor een nieuwe **aanmelden** knop. De gebruiker in de bovenstaande voorbeeldcode wordt geverifieerd met behulp van een Facebook-aanmelding. Een dialoogvenster wordt gebruikt om de gebruikers-ID eenmaal geverifieerd weer te geven.
    
    > [!NOTE]
-   > Als u een id-provider dan Facebook gebruikt, wijzigt u de waarde die is doorgegeven aan **LoginAsync** boven op een van de volgende opties: *MicrosoftAccount*, *Twitter*,  *Google*, of *WindowsAzureActiveDirectory*.
+   > Als u een id-provider dan Facebook gebruikt, wijzigt u de waarde die is doorgegeven aan **LoginAsync** boven op een van de volgende: *MicrosoftAccount*, *Twitter*, *Google*, or *WindowsAzureActiveDirectory*.
    > 
    > 
 2. In de **OnCreate** methode, verwijderen of opmerking-out van de volgende coderegel:
@@ -130,7 +130,7 @@ De app wordt bijgewerkt om te vereisen dat gebruikers tikken op de **aanmelden**
 
 **De toepassing is vastgelopen met `Java.Lang.NoSuchMethodError: No static method startActivity`**
 
-In sommige gevallen, veroorzaakt een conflict in de voor ondersteuningspakketten die weergegeven als slechts een waarschuwing in de Visual studio, maar het vastlopen van de toepassing met deze uitzondering tijdens runtime. In dit geval moet u ervoor zorgen dat alle ondersteuningspakketten waarnaar wordt verwezen in uw project beschikt over dezelfde versie. De [Azure Mobile Apps NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) heeft `Xamarin.Android.Support.CustomTabs` afhankelijkheid voor Android-platform, dus als uw project gebruikmaakt van nieuwere ondersteuning u pakketten moet dit pakket installeren met de vereiste versie rechtstreeks op het voorkomen van conflicten.
+In sommige gevallen, veroorzaakt een conflict in de voor ondersteuningspakketten die weergegeven als slechts een waarschuwing in de Visual studio, maar het vastlopen van de toepassing met deze uitzondering tijdens runtime. In dit geval moet u ervoor zorgen dat alle ondersteuningspakketten waarnaar wordt verwezen in uw project beschikt over dezelfde versie. Het [Azure Mobile Apps NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) heeft `Xamarin.Android.Support.CustomTabs`-afhankelijkheid voor het Android-platform, dus als uw project gebruikmaakt van nieuwere ondersteuningspakketten, moet u dit pakket met de vereiste versie rechtstreeks installeren om conflicten te voorkomen.
 
 <!-- URLs. -->
 [Een Xamarin.Android-app maken]: app-service-mobile-xamarin-android-get-started.md

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/14/2019
 ms.author: lagayhar
-ms.openlocfilehash: 224da9285ab0aef312688e4dfa1da49451abfa5a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ece8b4ac3946f543c13975e40b1025bb3cc222f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674647"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013267"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Aan de slag met Application Insights in een Java-webproject
 
@@ -39,10 +39,9 @@ Als u de voorkeur geeft aan het Spring-framework, kunt u de handleiding gebruike
 1. Meld u aan bij de [Microsoft Azure Portal](https://portal.azure.com).
 2. Maak een Application Insights-resource. Stel het toepassingstype in op Java-webtoepassing.
 
-    ![Een naam invoeren, Java-web-app kiezen en op Maken klikken](./media/java-get-started/02-create.png)
 3. Zoek de instrumentatiesleutel van de nieuwe resource. U moet deze sleutel zo dadelijk in de code van uw project plakken.
 
-    ![Op Eigenschappen klikken in het overzicht van de nieuwe resource en de instrumentatiesleutel kopiëren](./media/java-get-started/03-key.png)
+    ![Op Eigenschappen klikken in het overzicht van de nieuwe resource en de instrumentatiesleutel kopiëren](./media/java-get-started/instrumentation-key-001.png)
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. De Application Insights-SDK voor Java toevoegen aan uw project
 *Kies de juiste methode voor uw project.*
@@ -301,13 +300,13 @@ Ga terug naar uw Application Insights-resource in de [Microsoft Azure Portal](ht
 
 Gegevens van HTTP-aanvragen worden weergegeven op de overzichtsblade. (Als dit niet het geval is, wacht u een paar seconden en klikt u vervolgens op Vernieuwen.)
 
-![voorbeeldgegevens](./media/java-get-started/5-results.png)
+![Schermafbeelding van de voorbeeldgegevens overzicht](./media/java-get-started/overview-graphs.png)
 
 [Meer informatie over metrische gegevens.][metrics]
 
 Klik in een grafiek voor gedetailleerdere cumulatieve metrische gegevens.
 
-![](./media/java-get-started/6-barchart.png)
+![Deelvenster voor de Application Insights-fouten met grafieken](./media/java-get-started/006-barcharts.png)
 
 > Application Insights gaat uit van de volgende indeling van HTTP-aanvragen voor MVC-toepassingen: `VERB controller/action`. Bijvoorbeeld, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` en `GET Home/Product/sdf96vws` worden gegroepeerd in `GET Home/Product`. Door deze groepering kunnen er zinvolle sets van aanvragen worden samengesteld, zoals het aantal aanvragen en de gemiddelde runtime voor aanvragen.
 >
@@ -316,16 +315,12 @@ Klik in een grafiek voor gedetailleerdere cumulatieve metrische gegevens.
 ### <a name="instance-data"></a>Gegevens van exemplaren
 Klik op een specifiek aanvraagtype om de afzonderlijke exemplaren weer te geven.
 
-In Application Insights worden twee soorten gegevens weergegeven: cumulatieve gegevens (opgeslagen en weergegeven als gemiddelden, aantallen en sommen) en gegevens van exemplaren (afzonderlijke rapporten over HTTP-aanvragen, uitzonderingen, paginaweergaven of aangepaste gebeurtenissen).
-
-Wanneer u de eigenschappen van een aanvraag bekijkt, ziet u de bijbehorende telemetrische gebeurtenissen, zoals aanvragen en uitzonderingen.
-
-![](./media/java-get-started/7-instance.png)
+![Zoom in op een specifiek voorbeeld weergeven](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analyse: Krachtige querytaal
 Naarmate u meer gegevens verzamelt, kunt u query's uitvoeren voor zowel het samenvoegen van gegevens als het zoeken naar afzonderlijke exemplaren.  [Analyse](../../azure-monitor/app/analytics.md) is een krachtig hulpprogramma om inzicht te krijgen in prestaties en gebruik, en om diagnoses uit te voeren.
 
-![Voorbeeld van het hulpprogramma Analyse](./media/java-get-started/025.png)
+![Voorbeeld van het hulpprogramma Analyse](./media/java-get-started/0025.png)
 
 ## <a name="7-install-your-app-on-the-server"></a>7. Uw app installeren op de server
 Publiceer nu uw app op de server, geef de app vrij voor gebruik en bekijk de telemetrische gegevens die in de portal binnenkomen.
@@ -343,11 +338,25 @@ Publiceer nu uw app op de server, geef de app vrij voor gebruik en bekijk de tel
 
     (Dit onderdeel schakelt prestatiemeteritems in.)
 
+## <a name="azure-app-service-config-spring-boot"></a>Azure App Service-configuratie (Spring Boot)
+
+Spring Boot-apps die worden uitgevoerd op Windows vereist aanvullende configuratie om uit te voeren in Azure App Services. Wijzigen **web.config** en voeg de volgende:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <handlers>
+            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
+        </handlers>
+        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
+        </httpPlatform>
+    </system.webServer>
+</configuration>
+```
 
 ## <a name="exceptions-and-request-failures"></a>Uitzonderingen en mislukte aanvragen
-Onverwerkte uitzonderingen worden automatisch verzameld:
-
-![Open Instellingen, Fouten](./media/java-get-started/21-exceptions.png)
+Niet-verwerkte uitzonderingen worden automatisch verzameld.
 
 Voor het verzamelen van gegevens over andere uitzonderingen hebt u twee opties:
 
@@ -366,9 +375,9 @@ De binnenkomende SDK-configuratie wordt verderop in ons artikel over [correlatie
 Uitgaande SDK-configuratie is gedefinieerd in de [AI-Agent.xml](java-agent.md) bestand.
 
 ## <a name="performance-counters"></a>Prestatiemeteritems
-Open **Instellingen**, **Servers** om een aantal prestatiemeteritems weer te geven.
+Open **onderzoeken**, **metrische gegevens**, om te zien van een groot aantal prestatiemeteritems.
 
-![](./media/java-get-started/11-perf-counters.png)
+![Schermafbeelding van deelvenster met proceseigen bytes geselecteerde metrische gegevens](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Het verzamelen van prestatiemeteritems aanpassen
 Als u het verzamelen van de standaardset prestatiemeteritems wilt uitschakelen, voegt u de volgende code toe onder het hoofdknooppunt van het ApplicationInsights.xml-bestand:
@@ -418,10 +427,6 @@ Elk [Windows-prestatiemeteritem](https://msdn.microsoft.com/library/windows/desk
 * counterName: de naam van het prestatiemeteritem.
 * instanceName: de naam van het exemplaar van de prestatiemeteritemcategorie, of een lege tekenreeks ("") als de categorie slechts één exemplaar bevat. Als de categorienaam Process is en het prestatiemeteritem dat u wilt verzamelen, afkomstig is uit het huidige JVM-proces waarop uw app wordt uitgevoerd, specificeert u `"__SELF__"`.
 
-De prestatiemeteritems zijn zichtbaar als aangepaste metrische gegevens in [Metrics Explorer][metrics].
-
-![](./media/java-get-started/12-custom-perfs.png)
-
 ### <a name="unix-performance-counters"></a>Unix-prestatiemeteritems
 * [Installeer collectd met de Application Insights-invoegtoepassing](java-collectd.md) om een scala aan systeem- en netwerkgegevens op te halen.
 
@@ -465,22 +470,12 @@ Nu u de SDK hebt geïnstalleerd, kunt u de API gebruiken voor het verzenden van 
 * [Doorzoek gebeurtenissen en logboeken][diagnostic] om problemen beter te kunnen analyseren.
 
 ## <a name="availability-web-tests"></a>Webtests voor beschikbaarheid
-Application Insights kan uw website regelmatig testen om te controleren of deze actief is en goed reageert. [Voor het instellen][availability] klikt u op Webtests.
+Application Insights kan uw website regelmatig testen om te controleren of deze actief is en goed reageert.
 
-![Klik op webtests en vervolgens op Webtest toevoegen.](./media/java-get-started/31-config-web-test.png)
-
-Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen als uw site uitvalt.
-
-![Voorbeeld van een webtest](./media/java-get-started/appinsights-10webtestresult.png)
-
-[Meer informatie over de webtests voor beschikbaarheid.][availability]
+[Meer informatie over het instellen van webtests voor beschikbaarheid.][availability]
 
 ## <a name="questions-problems"></a>Vragen? Problemen?
 [Problemen met Java oplossen](java-troubleshoot.md)
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Afhankelijkheidsaanroepen bewaken](java-agent.md)

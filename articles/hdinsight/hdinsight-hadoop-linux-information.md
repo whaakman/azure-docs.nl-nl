@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: c6763580a6693020c497c500342ff3ae4dc840d4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 43b672569b398f636b2e02172428cf072febb156
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339225"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202449"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informatie over het gebruik van HDInsight in Linux
 
@@ -57,7 +57,7 @@ Met deze opdracht retourneert een JSON-document met een beschrijving van de serv
 
 * **Ambari (web)** - https://&lt;clustername >. azurehdinsight.net
 
-    Verifiëren met behulp van de cluster-gebruiker met beheerdersrechten en het wachtwoord en klikt u vervolgens Meld u aan bij de Ambari.
+    Verifiëren met behulp van de cluster-gebruiker met beheerdersrechten en het wachtwoord en meld u aan Ambari.
 
     Verificatie is als tekst zonder opmaak - gebruik altijd HTTPS om ervoor te zorgen dat de verbinding beveiligd is.
 
@@ -114,7 +114,8 @@ Wanneer u Azure Storage of Data Lake-opslag, bevindt u zich hoeft te doen niets 
 
 In HDInsight, zijn de gegevens storage-resources (Azure Blob Storage en Azure Data Lake Storage) ontkoppeld van compute-resources. Daarom kunt u HDInsight-clusters voor het berekenen van de doen als u nodig hebt, en het cluster later verwijderen wanneer het werk is voltooid, veilig in opslag in de cloud in de tussentijd zorgen houden van uw gegevensbestanden behouden zolang u nodig hebt.
 
-### <a name="uri-and-scheme"></a>URI- en -schema
+
+### <a name="URI-and-scheme"></a>URI- en -schema
 
 Sommige opdrachten moet u mogelijk het schema als onderdeel van de URI opgeven bij het openen van een bestand. Bijvoorbeeld, moet de Storm-HDFS-component u het schema opgeven. Als u niet-standaard storage (opslag als "extra" opslag toegevoegd aan het cluster), moet u het schema altijd worden gebruikt als onderdeel van de URI.
 
@@ -248,7 +249,7 @@ Zie voor specifieke informatie over het schalen van uw HDInsight-cluster:
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hoe installeer ik Hue (of andere Hadoop-onderdelen)?
 
-HDInsight is een beheerde service. Als Azure wordt gedetecteerd door een probleem met het cluster, kunt het verwijderen van het knooppunt mislukt en maakt u een knooppunt om deze te vervangen. Als u dingen handmatig op het cluster installeren, zijn ze niet permanent opgeslagen wanneer deze bewerking wordt uitgevoerd. In plaats daarvan gebruik [HDInsight scriptacties](hdinsight-hadoop-customize-cluster.md). Een scriptactie kan worden gebruikt voor de volgende wijzigingen aanbrengen:
+HDInsight is een beheerde service. Als Azure wordt gedetecteerd door een probleem met het cluster, kunt het verwijderen van het knooppunt mislukt en maakt u een knooppunt om deze te vervangen. Als u dingen handmatig op het cluster installeren, zijn ze niet permanent opgeslagen wanneer deze bewerking wordt uitgevoerd. In plaats daarvan gebruik [HDInsight scriptacties](hdinsight-hadoop-customize-cluster-linux.md). Een scriptactie kan worden gebruikt voor de volgende wijzigingen aanbrengen:
 
 * Installeren en configureren van een service of website.
 * Installeren en configureren van een onderdeel dat wijzigingen in de configuratie op meerdere knooppunten in het cluster vereist.
@@ -256,7 +257,6 @@ HDInsight is een beheerde service. Als Azure wordt gedetecteerd door een problee
 Scriptacties zijn Bash-scripts. De scripts uitgevoerd tijdens het maken van clusters, en worden gebruikt voor het installeren en configureren van extra onderdelen. Van de voorbeeldscripts zijn beschikbaar voor het installeren van de volgende onderdelen:
 
 * [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Zie [Ontwikkeling van scriptacties met HDInsight](hdinsight-hadoop-script-actions-linux.md) voor informatie over het ontwikkelen van uw eigen scriptacties.
 

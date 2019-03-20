@@ -3,8 +3,8 @@ title: bestand opnemen
 description: bestand opnemen
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/13/2018
-ms.author: andret
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 7ff04789a4ba5e5a689b3d3815852bc0fbcdc6a7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2b30f95e050887130db1b2395f51e543a50e25d0
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988324"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203693"
 ---
 ## <a name="register-your-application"></a>Uw toepassing registreren
 
@@ -32,7 +32,7 @@ U kunt uw toepassing registreren op twee manieren, zoals beschreven in de volgen
 3. Zorg ervoor dat de **begeleide installatie** selectievakje is geselecteerd en selecteer vervolgens **maken**.
 4. Volg de instructies voor het verkrijgen van de toepassings-ID en plak deze in uw code.
 
-### <a name="option-2-advanced"></a>Optie 2: geavanceerde
+### <a name="option-2-advanced"></a>Optie 2: Geavanceerd
 
 1. Ga naar de [Microsoft-portal voor app-registratie](https://apps.dev.microsoft.com/portal/register-app).
 2. Typ in het vak **Toepassingsnaam** een naam voor de toepassing.
@@ -44,7 +44,7 @@ U kunt uw toepassing registreren op twee manieren, zoals beschreven in de volgen
     ```java
     final static String CLIENT_ID = "[Enter the application Id here]";
     ```
-<!-- Workaround for Docs conversion bug -->
+   <!-- Workaround for Docs conversion bug -->
 7. Onder **app** > **manifesten**, open de *AndroidManifest.xml* bestand.
 8. In de `manifest\application`, voeg de volgende activiteit. De `BrowserTabActivity` activiteit waarmee Microsoft om aan te roepen terug naar uw toepassing nadat deze de verificatie is voltooid:
 
@@ -64,5 +64,5 @@ U kunt uw toepassing registreren op twee manieren, zoals beschreven in de volgen
         </intent-filter>
     </activity>
     ```
-<!-- Workaround for Docs conversion bug -->
+   <!-- Workaround for Docs conversion bug -->
 9. In de `BrowserTabActivity`, Vervang `[Enter the application Id here]` met de toepassing / Client-ID.

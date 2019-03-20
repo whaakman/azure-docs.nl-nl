@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99c6999e437abbef1920f6de771173e4e6e007f2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b78cb45d83cd9bc9bc973ec7a09cb75a8b111744
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116908"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224145"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Zelfstudie: G Suite configureren voor het automatisch inrichten van gebruikers
 
@@ -149,13 +149,13 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
 
 1. Stel de **Inrichtingsmodus** naar **automatische**. 
 
-      ![Inrichten](./media/google-apps-provisioning-tutorial/provisioning.png)
+       ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Onder de **beheerdersreferenties** sectie, selecteer **autoriseren**. Er wordt een dialoogvenster voor autorisatie van Google geopend in een nieuw browservenster.
 
 1. Bevestig dat u wilt machtigen voor Azure Active Directory wijzigingen aanbrengen in uw G Suite-tenant. Selecteer **Accepteren**.
     
-      ![Controleer of u machtigingen.][28]
+       ![Confirm permissions.][28]
 
 1. Selecteer in de Azure portal, **testverbinding** om ervoor te zorgen dat Azure AD verbinding met uw app maken kunt. Als de verbinding is mislukt, zorg ervoor dat uw G Suite-account Teambeheerder machtigingen heeft. Probeer de **autoriseren** stap opnieuw uit.
 

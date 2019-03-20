@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0e3d6255d6e2787d407d24a4217a0262ae4c974d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 411a3d606ac8ec2f262ec9a1aabac7b74ccd110a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098474"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010928"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Verbinding maken met een Amazon Web Services-account
 
@@ -45,9 +45,9 @@ De eerste stap is de unieke verbindings-wachtwoordzin ophalen uit de Cloudyn-por
 1. Aanmelden bij de AWS-console op https://console.aws.amazon.com/iam/home en selecteer **rollen**.
 2. Klik op **rol maken** en selecteer vervolgens **een andere AWS-account**.
 3. In de **Account-ID** vak, plak `432263259397`. Deze Account-ID is de Cloudyn data collector-account toegewezen door AWS aan de Cloudyn-service. Gebruik de exacte Account-ID die wordt weergegeven.
-4. Naast **opties**, selecteer **externe ID vereisen**. Plak uw unieke waarde die u eerder hebt gekopieerd uit de **externe ID** veld in Cloudyn. Klik vervolgens op **volgende: machtigingen**.  
+4. Naast **opties**, selecteer **externe ID vereisen**. Plak uw unieke waarde die u eerder hebt gekopieerd uit de **externe ID** veld in Cloudyn. Klik vervolgens op **volgende: Permissions**.  
     ![Plak de externe ID van Cloudyn op de pagina van de rol maken](./media/connect-aws-account/create-role01.png)
-5. Onder **koppelen van beleidsregels voor beveiligingsmachtigingen**, in de **beleidstype** filter vak zoeken, type `ReadOnlyAccess`, selecteer **ReadOnlyAccess**, klikt u vervolgens op **volgende: Beoordeling**.  
+5. Onder **koppelen van beleidsregels voor beveiligingsmachtigingen**, in de **beleidstype** filter vak zoeken, type `ReadOnlyAccess`, selecteer **ReadOnlyAccess**, klikt u vervolgens op **volgende: Review**.  
     ![Selecteer alleen-lezen toegang in de lijst met beleidsnamen van](./media/connect-aws-account/readonlyaccess.png)
 6. Op de pagina controleren, zorg ervoor dat uw selecties kloppen en typt u een **rolnaam**. Bijvoorbeeld, *Azure-kosten-Mgt*. Voer een **beschrijving van de functie**. Bijvoorbeeld, _roltoewijzing voor Cloudyn_, klikt u vervolgens op **rol maken**.
 7. In de **rollen** lijst, klik op de rol die u hebt gemaakt en kopieer de **rol informatie** waarde op de pagina overzicht. De rol van informatie (resourcenaam Amazon)-waarde later gebruiken wanneer u uw configuratie in Cloudyn registreert.  
@@ -80,10 +80,10 @@ De volgende secties helpen u bij het maken van een gebruiker alleen-lezen toegan
 1. Aanmelden bij de AWS-console op https://console.aws.amazon.com/iam/home en selecteer **gebruikers**.
 2. Klik op **gebruiker toevoegen**.
 3. In de **gebruikersnaam** veld, typt u de naam van een gebruiker.
-4. Voor **toegangstype**, selecteer **toegang op programmeerniveau** en klikt u op **volgende: machtigingen**.  
+4. Voor **toegangstype**, selecteer **toegang op programmeerniveau** en klikt u op **volgende: Machtigingen**.  
     ![Voer een gebruikersnaam op de pagina van de gebruiker toevoegen](./media/connect-aws-account/add-user01.png)
 5. Selecteer voor machtigingen, **bestaande beleidsregels rechtstreeks koppelen**.
-6. Onder **koppelen van beleidsregels voor beveiligingsmachtigingen**, in de **beleidstype** filter vak zoeken, type `ReadOnlyAccess`, selecteer **ReadOnlyAccess**, en klik vervolgens op **volgende : Controleer**.  
+6. Onder **koppelen van beleidsregels voor beveiligingsmachtigingen**, in de **beleidstype** filter vak zoeken, type `ReadOnlyAccess`, selecteer **ReadOnlyAccess**, en klik vervolgens op **volgende : Review**.  
     ![Selecteer ReadOnlyAccess machtigingen instellen voor de gebruiker](./media/connect-aws-account/set-permission-for-user.png)
 7. Controleer of uw selecties kloppen en klik vervolgens op de pagina controleren **gebruiker maken**.
 8. Op de pagina is voltooid, worden uw sleutel-ID en -geheim toegang toegangssleutel weergegeven. U kunt deze informatie gebruiken om te registreren in Cloudyn configureren.
@@ -127,11 +127,11 @@ U maakt een S3-bucket voor het opslaan van gedetailleerde informatie over factur
 6. Klik op de pagina controleren op **maken bucket**. De bucket-lijst wordt weergegeven.
 7. Klik op de bucket die u hebt gemaakt en selecteer de **machtigingen** tabblad en selecteer vervolgens **Bucket beleid**. De Bucket editor wordt geopend.
 8. De volgende JSON-voorbeeld Kopieer en plak deze in de beleidseditor Bucket.
-  - Vervang `<BillingBucketName>` met de naam van de S3-bucket.
-  - Vervang `<ReadOnlyUserOrRole>` met de rol of de gebruiker informatie die u eerder hebt gekopieerd.
+   - Vervang `<BillingBucketName>` met de naam van de S3-bucket.
+   - Vervang `<ReadOnlyUserOrRole>` met de rol of de gebruiker informatie die u eerder hebt gekopieerd.
 
-  ```json
-  {
+   ```json
+   {
     "Version": "2012-10-17",
     "Id": "Policy1426774604000",
     "Statement": [
@@ -169,8 +169,8 @@ U maakt een S3-bucket voor het opslaan van gedetailleerde informatie over factur
             "Resource": "arn:aws:s3:::<BillingBucketName>/*"
         }
     ]
-  }
-  ```
+   }
+   ```
 
 9. Klik op **Opslaan**.  
     ![Klik op opslaan in de beleidseditor Bucket](./media/connect-aws-account/bucket-policy-editor.png)

@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1d66ca49db097eebd4c8fb5663f63e0db7460ad6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e038afe27718dcbd407e83b5c9190606e6b917c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004650"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Maken van een site-naar-site VPN-verbinding tussen twee virtuele netwerken in verschillende Azure Stack Development Kit-omgevingen
 ## <a name="overview"></a>Overzicht
@@ -52,6 +52,7 @@ Bereid een aanbieding voor op POC1 en POC2, zodat een gebruiker kan zich op de a
 De volgende tabel geeft een overzicht van de netwerkconfiguratie voor beide omgevingen met Azure Stack Development Kit. Gebruik de procedure die wordt weergegeven na de tabel toe te voegen van de externe BGPNAT-adres dat specifiek is voor uw netwerk.
 
 **Netwerk-configuratietabel**
+
 |   |POC1|POC2|
 |---------|---------|---------|
 |Naam van virtueel netwerk     |VNET-01|VNET-02 |

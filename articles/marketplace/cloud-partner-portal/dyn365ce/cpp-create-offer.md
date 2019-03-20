@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6551eab45fdfb5070b29de4152cf2b3e3d008f69
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0138ea8dcbd780ca8aa87178dad41bdca1a72267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082789"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900655"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Een Dynamics 365 voor Customer Engagement toepassing aanbieding maken
 
@@ -28,7 +28,7 @@ In deze sectie wordt beschreven hoe u maken en publiceren van een Dynamics 365 v
 
 ## <a name="new-offer-form"></a>Nieuwe aanbieding formulier
 
-Aanmelden bij de [Cloud Partner-Portal](http://cloudpartner.azure.com/), en selecteer vervolgens **+ nieuwe aanbieding** in het menu links. Op het pictogram Nieuw menu bieden, selecteert u **Dynamics 365 voor Customer Engagement**:
+Aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/), en selecteer vervolgens **+ nieuwe aanbieding** in het menu links. Op het pictogram Nieuw menu bieden, selecteert u **Dynamics 365 voor Customer Engagement**:
 
 ![Nieuwe aanbieding menu-item voor Dynamics 365 voor Customer Engagement-toepassing](./media/new-dyn365ce-menu-item.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5fb263819a5bb96175f636f53a16c28649a3f39
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b006a4fbb8d1059f5096f5c1585853953b69042f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082140"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Maken van een strategie voor flexibele toegang beheren met Azure Active Directory
 
@@ -94,18 +94,18 @@ U kunt ook kunt uw organisatie ook beleid voor onvoorziene gebeurtenissen maken.
 Inzicht krijgen in de blootstelling tijdens een onderbreking vermindert het risico en is een belangrijk onderdeel van uw planningsproces. Voor het maken van uw plan voor onvoorziene gebeurtenissen, moet u eerst de volgende zakelijke vereisten van uw organisatie bepalen:
 
 1. Bepaal uw essentiële apps vooraf: Wat zijn de apps die u toegang tot, zelfs met een lagere risico's / beveiligingspostuur moet geven? Een lijst van deze apps bouwen en zorg ervoor dat uw andere belanghebbenden (business, beveiliging, juridische, leiderschap) alle gaat ermee akkoord dat als alle toegangsbeheer is verdwenen, deze apps nog steeds blijven moeten om uit te voeren. U waarschijnlijk gaat einde van categorieën van:
-  * **Categorie 1 essentiële apps** die niet beschikbaar kan niet meer dan een paar minuten, bijvoorbeeld de Apps die rechtstreeks van invloed op de omzet van de organisatie.
-  * **Categorie 2 belangrijke apps** dat het bedrijf moet toegankelijk zijn binnen een paar uur.
-  * **Categorie 3 met lage prioriteit apps** dat bestand is tegen een onderbreking van een paar dagen.
+   * **Categorie 1 essentiële apps** die niet beschikbaar kan niet meer dan een paar minuten, bijvoorbeeld de Apps die rechtstreeks van invloed op de omzet van de organisatie.
+   * **Categorie 2 belangrijke apps** dat het bedrijf moet toegankelijk zijn binnen een paar uur.
+   * **Categorie 3 met lage prioriteit apps** dat bestand is tegen een onderbreking van een paar dagen.
 2. Voor apps in de categorie 1 en 2 raadt Microsoft dat u vooraf van plan bent welk type niveau van toegang dat u wilt toestaan:
-  * Wilt u volledige toegang of beperkte sessie, zoals het beperken van downloads toestaan?
-  * Wilt u toegang tot deel uit van de app, maar niet de hele app?
-  * Wilt u de toegang tot de worker van informatie toestaan en blokkeren van toegang als beheerder, totdat het toegangsbeheer is hersteld?
+   * Wilt u volledige toegang of beperkte sessie, zoals het beperken van downloads toestaan?
+   * Wilt u toegang tot deel uit van de app, maar niet de hele app?
+   * Wilt u de toegang tot de worker van informatie toestaan en blokkeren van toegang als beheerder, totdat het toegangsbeheer is hersteld?
 3. Voor deze apps wordt ook aangeraden dat u van plan bent welke mogelijkheden van toegang die u opzettelijk wordt geopend en welke u wordt afgesloten:
-  * Wilt u de browser toestaan alleen toegang en blok rich clients die offline gegevens kunnen opslaan?
-  * Wilt u toegang toestaan alleen voor gebruikers binnen het bedrijfsnetwerk en houden buiten gebruikers geblokkeerd?
-  * Wilt u om toegang te verlenen in bepaalde landen of regio's alleen tijdens de onderbreking?
-  * Wilt u beleid voor het beleid voor onvoorziene gebeurtenissen, met name voor essentiële-apps, mislukt of slaagt als een alternatieve toegangsbeheer niet beschikbaar is?
+   * Wilt u de browser toestaan alleen toegang en blok rich clients die offline gegevens kunnen opslaan?
+   * Wilt u toegang toestaan alleen voor gebruikers binnen het bedrijfsnetwerk en houden buiten gebruikers geblokkeerd?
+   * Wilt u om toegang te verlenen in bepaalde landen of regio's alleen tijdens de onderbreking?
+   * Wilt u beleid voor het beleid voor onvoorziene gebeurtenissen, met name voor essentiële-apps, mislukt of slaagt als een alternatieve toegangsbeheer niet beschikbaar is?
 
 #### <a name="microsoft-recommendations"></a>Aanbevelingen van Microsoft
 
@@ -251,7 +251,7 @@ Wijzigingen ongedaan maken het u als onderdeel van de geactiveerde plan voor onv
 Als uw organisatie van verouderde MFA-beleid per gebruiker gebruikmaakt, kunt u de volgende opties overwegen:
 
 1. Als u het bedrijfsnetwerk uitgaande IP-adres hebt, kunt u hen toevoegen als vertrouwde IP-adressen verificatie alleen met het bedrijfsnetwerk in te schakelen.
- 2. Als u de inventaris van de uitgaande IP-adressen hebt, of u vereist om toegang te krijgen binnen en buiten het bedrijfsnetwerk bevinden, kunt u de volledige IPv4-adresruimte toevoegen als goedgekeurde IP-adressen door 0.0.0.0/1 en 128.0.0.0/1 op te geven.
+   1. Als u de inventaris van de uitgaande IP-adressen hebt, of u vereist om toegang te krijgen binnen en buiten het bedrijfsnetwerk bevinden, kunt u de volledige IPv4-adresruimte toevoegen als goedgekeurde IP-adressen door 0.0.0.0/1 en 128.0.0.0/1 op te geven.
 
 >[!IMPORTANT]
  > Als u de vertrouwde IP-adressen om de toegang blokkering te vergroten, zal niet risicogebeurtenissen die zijn gekoppeld aan IP-adressen (bijvoorbeeld onmogelijk traject of onbekende locaties) worden gegenereerd.
@@ -264,9 +264,9 @@ Als uw organisatie van verouderde MFA-beleid per gebruiker gebruikmaakt, kunt u 
 * [Documentatie over Azure AD-verificatie](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Beheerdersaccounts voor EMS-toegang beheren in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Benoemde locaties configureren in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
- * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Het configureren van hybride Azure Active Directory verbonden apparaten](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Implementatiehandleiding Windows Hello voor Bedrijven](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
- * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+  * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

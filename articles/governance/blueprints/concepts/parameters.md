@@ -4,17 +4,17 @@ description: Meer informatie over statische en dynamische parameters en hoe ze w
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d7c923dd819f826d9d9aaf8d5b88355a9feb344f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823158"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838014"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Het maken van dynamische blauwdrukken via parameters
 
@@ -41,8 +41,13 @@ Dit beveiligingsmaatregel wordt voorkomen dat de onveilige praktijk geheimen sam
 - Naam van de Key Vault-geheim
 - Key Vault geheime versie
 
-De Sleutelkluis waarnaar wordt verwezen, moeten zich in hetzelfde abonnement als de blauwdruk wordt toegewezen aan.
-Het moet ook beschikken over **inschakelen van toegang tot Azure Resource Manager voor sjabloonimplementatie** geconfigureerd op de Key Vault **toegangsbeleid** pagina. Zie voor instructies over het inschakelen van deze functie [Key Vault - sjabloonimplementatie inschakelen](../../../managed-applications/key-vault-access.md#enable-template-deployment). Zie voor meer informatie over Azure Key Vault [Key Vault, overzicht](../../../key-vault/key-vault-overview.md).
+Als u gebruikmaakt van de blauwdruktoewijzing een **systeem toegewezen identiteit beheerd**, wordt het Key Vault waarnaar wordt verwezen _moet_ aanwezig zijn in de blauwdrukdefinitie is toegewezen aan hetzelfde abonnement.
+
+Als u gebruikmaakt van de blauwdruktoewijzing een **gebruiker toegewezen beheerde identiteit**, wordt het Key Vault waarnaar wordt verwezen _kan_ aanwezig zijn in een gecentraliseerde abonnement. De beheerde identiteit moet de juiste rechten in de Key Vault vóór blauwdruktoewijzing verlenen.
+
+In beide gevallen moet de Key Vault moet hebben **inschakelen van toegang tot Azure Resource Manager voor sjabloonimplementatie** geconfigureerd op de **toegangsbeleid** pagina. Zie voor instructies over het inschakelen van deze functie [Key Vault - sjabloonimplementatie inschakelen](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+
+Zie voor meer informatie over Azure Key Vault [Key Vault, overzicht](../../../key-vault/key-vault-overview.md).
 
 ## <a name="parameter-types"></a>Parametertypen
 
@@ -52,9 +57,9 @@ Een parameterwaarde die is gedefinieerd in de definitie van een blauwdruk heet e
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Statische parameters instelt in de portal
 
-1. Selecteer **alle services** in het linkerdeelvenster. Zoek en selecteer **blauwdrukken**.
+1. Selecteer **Alle services** in het linkerdeelvenster. Zoek en selecteer **Blauwdrukken**.
 
-1. Selecteer **blauwdruk definities** op de pagina aan de linkerkant.
+1. Selecteer **Blauwdrukdefinities** op de pagina aan de linkerkant.
 
 1. Klik op een bestaande blauwdruk en klik vervolgens op **blauwdruk bewerken** of klik op **+ maken blauwdruk** en vul de informatie op de **basisbeginselen** tabblad.
 
@@ -169,9 +174,9 @@ Het tegenovergestelde van een statische parameter is een **dynamische parameter*
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Dynamische parameters instellen in de portal
 
-1. Selecteer **alle services** in het linkerdeelvenster. Zoek en selecteer **blauwdrukken**.
+1. Selecteer **Alle services** in het linkerdeelvenster. Zoek en selecteer **Blauwdrukken**.
 
-1. Selecteer **blauwdruk definities** op de pagina aan de linkerkant.
+1. Selecteer **Blauwdrukdefinities** op de pagina aan de linkerkant.
 
 1. Met de rechtermuisknop op de blauwdruk die u wilt toewijzen. Selecteer **blauwdruk toewijzen** of klik op de blauwdruk die u wilt toewijzen en klik vervolgens op de **blauwdruk toewijzen** knop.
 
@@ -236,8 +241,8 @@ Artefacten voor een resourcegroep met een 'sjabloonnaam", zijn gedefinieerd, **n
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [levenscyclus van een blauwdruk](lifecycle.md)
-- Meer informatie over hoe u de [blauwdrukvolgorde](sequencing-order.md) aanpast
-- Ontdek hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](resource-locking.md)
-- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](../how-to/update-existing-assignments.md)
-- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md)
+- Meer informatie over de [levenscyclus van een blauwdruk](lifecycle.md).
+- Meer informatie over hoe u de [blauwdrukvolgorde](sequencing-order.md) aanpast.
+- Meer informatie over hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](resource-locking.md).
+- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](../how-to/update-existing-assignments.md).
+- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md).

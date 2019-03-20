@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
-ms.openlocfilehash: e7644128a3f0e0ea531933286e95b15149fdebd3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: b67290f72f762331a6d699fb79aef0c0d7f9fb65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557854"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853270"
 ---
 # <a name="upgrade-windows-server-2012-r2-hosts-scvmm-2012-r2-configured-with-azure-site-recovery-to-windows-server-2016--scvmm-2016"></a>Upgrade van Windows Server 2012 R2-hosts, SCVMM 2012 R2 is geconfigureerd met Azure Site Recovery naar Windows Server 2016 & SCVMM 2016
 
@@ -50,8 +50,8 @@ Voordat u een upgrade uitvoert, Let op het volgende:-
     - Zorg ervoor dat u de nieuwe SCVMMs die u aan het cluster toevoegt dezelfde namen als eerder was. 
 
 - Als u tussen twee van uw sites beheerd door SCVMMs aan beide zijden repliceert, zorgt u ervoor dat u uw herstelzijde vóór de upgrade van de primaire zijde eerst hebt upgraden.
-> [!WARNING]
-> Selecteer tijdens het upgraden van het SCVMM 2012 R2, onder Distributed Key Management **opslag van versleutelingssleutels in Active Directory**. Kies de instellingen voor het serviceaccount en gedistribueerd Sleutelbeheer zorgvuldig. Op basis van uw selectie, versleutelde gegevens, zoals wachtwoorden in sjablonen mogelijk niet meer beschikbaar zijn na de upgrade, en de kan mogelijk van invloed zijn op replicatie met Azure Site Recovery
+  > [!WARNING]
+  > Selecteer tijdens het upgraden van het SCVMM 2012 R2, onder Distributed Key Management **opslag van versleutelingssleutels in Active Directory**. Kies de instellingen voor het serviceaccount en gedistribueerd Sleutelbeheer zorgvuldig. Op basis van uw selectie, versleutelde gegevens, zoals wachtwoorden in sjablonen mogelijk niet meer beschikbaar zijn na de upgrade, en de kan mogelijk van invloed zijn op replicatie met Azure Site Recovery
 
 > [!IMPORTANT]
 > Raadpleeg de gedetailleerde documentatie van SCVMM van [vereisten](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#requirements-and-limitations)
@@ -79,8 +79,8 @@ Vóór de upgrade van uw Windows Server 2012 R2-hosts, moet u de SCVMM 2012 R2 u
 
 4. [Installeer VMM 2016](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016)
 5. SCVMM starten en controleer de status van alle hosts onder **Fabrics** tabblad. Klik op **vernieuwen** om op te halen van de meest recente status. U ziet de status als 'Aandacht'. 
-17. Installeer de meest recente [Microsoft Azure Site Recovery Provider](http://aka.ms/downloaddra) op de SCVMM.
-16. Installeer de meest recente [Microsoft Azure Recovery Service agent (MARS)](http://aka.ms/latestmarsagent) op elke host van het cluster. Vernieuwen om ervoor te zorgen dat SCVMM is op de hosts is een query uitgevoerd.
+17. Installeer de meest recente [Microsoft Azure Site Recovery Provider](https://aka.ms/downloaddra) op de SCVMM.
+16. Installeer de meest recente [Microsoft Azure Recovery Service agent (MARS)](https://aka.ms/latestmarsagent) op elke host van het cluster. Vernieuwen om ervoor te zorgen dat SCVMM is op de hosts is een query uitgevoerd.
 
 **Upgrade van de hosts Windows Server 2012 R2 naar Windows Server 2016**
 
@@ -97,8 +97,8 @@ Vóór de upgrade van uw Windows Server 2012 R2-hosts, moet u de SCVMM 2012 R2 u
 1.  Uninstall ASR provider door te navigeren naar het Configuratiescherm -> programma's -> programma's en onderdelen -> Microsoft Azure Site Recovery en klik op verwijderen
 2. Volg de stappen die [hier](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#upgrade-a-standalone-vmm-server) op basis van de modus van de upgrade die u wilt uitvoeren.
 3. Start de SCVMM-console en controleer de status van alle hosts onder **Fabrics** tabblad. Klik op **vernieuwen** om op te halen van de meest recente status. U ziet de status als 'Aandacht'.
-4. Installeer de meest recente [Microsoft Azure Site Recovery Provider](http://aka.ms/downloaddra) op de SCVMM.
-5. De meest recente update [Microsoft Azure Recovery Service agent (MARS)](http://aka.ms/latestmarsagent) op elke host van het cluster. Vernieuwen om ervoor te zorgen SC VMM op de hosts is een query uitgevoerd.
+4. Installeer de meest recente [Microsoft Azure Site Recovery Provider](https://aka.ms/downloaddra) op de SCVMM.
+5. De meest recente update [Microsoft Azure Recovery Service agent (MARS)](https://aka.ms/latestmarsagent) op elke host van het cluster. Vernieuwen om ervoor te zorgen SC VMM op de hosts is een query uitgevoerd.
 
 
 **Upgrade van de hosts Windows Server 2012 R2 naar Windows Server 2016**

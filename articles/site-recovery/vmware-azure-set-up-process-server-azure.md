@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 099576b1a4c5c28aab7672aaeb9274bc0beb96bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105638"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Een processerver in Azure voor failback instellen
 
@@ -33,7 +33,7 @@ Meer informatie over de [opnieuw beveiligen](vmware-azure-reprotect.md) en [fail
 3. In **toevoegen processerver** pagina en selecteer de processerver in Azure implementeren.
 4. Geef de instellingen voor Azure, met inbegrip van het abonnement dat is gebruikt voor failover, een resourcegroep, de Azure-regio die wordt gebruikt voor failover en het virtuele netwerk waarin de Azure VM's zich bevinden. Als u meerdere Azure-netwerken gebruikt, moet u een processerver in elk.
 
-  ![Proces het galerie-item toevoegen](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   ![Proces het galerie-item toevoegen](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
 4. In **servernaam**, **gebruikersnaam**, en **wachtwoord**, Geef een naam voor de processerver en de referenties die beheerdersmachtigingen heeft op de server worden toegewezen.
 5. Geef een opslagaccount moet worden gebruikt voor de server-VM-schijven, het subnet waarin de virtuele machine van de processerver geplaatst worden en de IP-adres dat wordt toegewezen wanneer de virtuele machine wordt gestart.

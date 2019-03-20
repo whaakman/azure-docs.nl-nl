@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 6d307111d8c19324cb6daf82a234ff9128103fd2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9108c52529319288fba48dbad3c6f8aa6cb5f725
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763423"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850748"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Vastleggen van streaming-gebeurtenissen via Azure Event Hubs inschakelen
 
@@ -47,8 +47,12 @@ Als u gegevens wilt vastleggen in Azure Data Lake Store, maakt u een Data Lake S
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Een Azure Data Lake Store-account en -mappen maken
 
-1. Maak een Data Lake Store-account volgens de instructies in [Aan de slag met Azure Data Lake Store met Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md).
+> [!NOTE]
+> De functie Event Hubs Capture ondersteunt momenteel alleen Gen 1 van Azure Data Lake Store, niet Gen 2. 
+
+1. Maken van een Gen 1 van Data Lake Store-account, de instructies in [aan de slag met Azure Data Lake Store met behulp van de Azure-portal](../data-lake-store/data-lake-store-get-started-portal.md).
 2. Volg de instructies in de sectie [Machtigingen toewijzen aan Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) om een map te maken binnen het Data Lake Store-account waarin u de gegevens uit Event Hubs wilt vastleggen en machtigingen toe te wijzen aan de Event Hubs, zodat deze gegevens naar uw Data Lake Store-account kan schrijven.  
+
 
 ### <a name="create-an-event-hub"></a>Een Event Hub maken
 

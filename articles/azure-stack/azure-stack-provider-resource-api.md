@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 4392dc0ab53304c172bbf4c29a50a64757ec9b77
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 34159d059b976043fac415470421970056320acc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760440"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996490"
 ---
 # <a name="provider-resource-usage-api"></a>Resourcegebruik-API voor providers
 
@@ -39,6 +39,7 @@ Dit gebruik API is een serviceprovider-API, zodat de aanroeper een eigenaar, bij
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {token-waarde} |
 
 ### <a name="arguments"></a>Argumenten
+
 | **Argument** | **Beschrijving** |
 | --- | --- |
 | *armendpoint* |Azure Resource Manager-eindpunt van uw Azure Stack-omgeving. De Azure Stack-conventie is dat de naam van de Azure Resource Manager-eindpunt in de indeling wordt `https://adminmanagement.{domain-name}`. Bijvoorbeeld: voor de development kit, als de domeinnaam is *local.azurestack.external*, dan is het Resource Manager-eindpunt `https://adminmanagement.local.azurestack.external`. |
@@ -80,6 +81,7 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>Details van de reactie
+
 | **Argument** | **Beschrijving** |
 | --- | --- |
 | *id* |De unieke ID van het gebruik van statistische functie. |
@@ -102,9 +104,10 @@ Voor het genereren van gegevens over gebruik, moet u de resources die worden uit
 1. [Installeer PowerShell voor Azure Stack.](azure-stack-powershell-install.md)
 2. [Configureren van de Azure Stack-gebruiker](user/azure-stack-powershell-configure-user.md) of de [Azure Stack-operators](azure-stack-powershell-configure-admin.md) PowerShell-omgeving 
 3. Als u wilt ophalen van gegevens over gebruik, gebruikt u de [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell-cmdlet:
-```powershell
-Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
-```
+   ```powershell
+   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+   ```
+
 ### <a name="rest-api"></a>REST-API
 
 U kunt informatie over het gebruik voor abonnementen verwijderd door het aanroepen van de service Microsoft.Commerce.Admin verzamelen. 

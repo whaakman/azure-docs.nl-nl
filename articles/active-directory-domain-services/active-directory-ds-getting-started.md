@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 4c533921b0c88a4f61cd96896b72306adb9a23cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 637ad62744affa37630df9c841f3c7529674e788
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175703"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122906"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
 In dit artikel laat zien hoe Azure Active Directory Domain Services inschakelen (Azure AD DS) via Azure portal.
@@ -62,14 +62,13 @@ In de **basisbeginselen** pagina van de wizard, geeft u de DNS-domeinnaam voor h
    > [!NOTE]
    > **Richtlijnen voor het selecteren van een DNS-domeinnaam**
    > * **Naam van de ingebouwde domein:** Standaard geeft de wizard de standaard/ingebouwde-in-naam van de map (met een **. onmicrosoft.com** achtervoegsel) voor u. Als u ervoor kiest om in te schakelen toegang van secure LDAP aan het beheerde domein via internet, kunt u problemen met het maken van een openbare DNS-record of het verkrijgen van een certificaat voor secure LDAP via een openbare Certificeringsinstantie voor deze domeinnaam verwachten. Microsoft is eigenaar van de *. onmicrosoft.com* domein en de CA geeft geen certificaten garandeert voor dit domein.
-   * **Aangepaste domeinnamen:** U kunt ook typen in een aangepaste domeinnaam. In dit voorbeeld is de aangepaste domeinnaam *contoso100.com*.
-   * **Niet-routeerbare domeinachtervoegsels:** Het algemeen wordt aangeraden een achtervoegsel voor niet-routeerbare domeinnaam te vermijden. Bijvoorbeeld, is het beter om te voorkomen dat het maken van een domein met de DNS-domein naam 'contoso.local'. De DNS-achtervoegsel '.local' kan niet worden omgeleid en kan problemen veroorzaken met DNS-omzetting.
-   * **Domeinbeperkingen voorvoegsel:** Het voorvoegsel van de opgegeven domeinnaam (bijvoorbeeld contoso100 in de domeinnaam *contoso100.com*) mag maximaal 15 tekens bevatten. U kunt een beheerde domein maken met het voorvoegsel langer is dan 15 tekens.
-   * **Netwerk naam een conflict veroorzaakt:** Controleer of de DNS-domeinnaam die u hebt gekozen voor het beheerde domein, nog niet bestaat in het virtuele netwerk. Controleer met name of:
-       * U hebt al een Active Directory-domein met dezelfde DNS-domeinnaam op het virtuele netwerk.
-       * Het virtuele netwerk waar u van plan bent om in te schakelen van het beheerde domein heeft een VPN-verbinding met uw on-premises netwerk. In dit scenario, zorg ervoor dat u hebt geen een domein met dezelfde DNS-domeinnaam voor uw on-premises netwerk.
-       * Of het virtuele netwerk een bestaande cloudservice met deze naam bevat.
-    >
+   > * **Aangepaste domeinnamen:** U kunt ook typen in een aangepaste domeinnaam. In dit voorbeeld is de aangepaste domeinnaam *contoso100.com*.
+   > * **Niet-routeerbare domeinachtervoegsels:** Het algemeen wordt aangeraden een achtervoegsel voor niet-routeerbare domeinnaam te vermijden. Bijvoorbeeld, is het beter om te voorkomen dat het maken van een domein met de DNS-domein naam 'contoso.local'. De DNS-achtervoegsel '.local' kan niet worden omgeleid en kan problemen veroorzaken met DNS-omzetting.
+   > * **Domeinbeperkingen voorvoegsel:** Het voorvoegsel van de opgegeven domeinnaam (bijvoorbeeld contoso100 in de domeinnaam *contoso100.com*) mag maximaal 15 tekens bevatten. U kunt een beheerde domein maken met het voorvoegsel langer is dan 15 tekens.
+   > * **Netwerk naam een conflict veroorzaakt:** Controleer of de DNS-domeinnaam die u hebt gekozen voor het beheerde domein, nog niet bestaat in het virtuele netwerk. Controleer met name of:
+   >     * U hebt al een Active Directory-domein met dezelfde DNS-domeinnaam op het virtuele netwerk.
+   >     * Het virtuele netwerk waar u van plan bent om in te schakelen van het beheerde domein heeft een VPN-verbinding met uw on-premises netwerk. In dit scenario, zorg ervoor dat u hebt geen een domein met dezelfde DNS-domeinnaam voor uw on-premises netwerk.
+   >     * Of het virtuele netwerk een bestaande cloudservice met deze naam bevat.
 
 2. Selecteer het Azure **abonnement** in die u wilt maken van het beheerde domein.
 

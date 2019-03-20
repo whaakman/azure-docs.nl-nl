@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 170b96810130d33935e54c85529129e7e0267fe9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957773"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106473"
 ---
 # <a name="reset-your-work-or-school-password"></a>Uw werk- of schoolaccount wachtwoord opnieuw instellen
 
@@ -93,15 +93,15 @@ Als u geen toegang tot uw account voor Azure Active Directory (Azure AD), kan he
 
 - **Uw wachtwoord met behulp van een code uit je verificator-app opnieuw instellen.** Accepteert een willekeurige code die is opgegeven door de verificatie-app. Als de beheerder is ingeschakeld op de ervaring van de informatie over beveiliging, vindt u meer informatie over het instellen van een verificator-app een code in op te geven de [beveiligingsgegevens ingesteld voor het gebruik van een verificatie-app (preview)](security-info-setup-auth-app.md) artikel. Als u nog niet beveiligingsgegevens, vindt u meer informatie over het instellen van een verificator-app een code in op te geven de [instellen van mijn account voor verificatie in twee stappen](multi-factor-authentication-end-user-first-time.md) artikel.
 
-    1. Selecteer **een code invoeren uit mijn authenticator-app**, en selecteer vervolgens **melding verzenden**.
+  1. Selecteer **een code invoeren uit mijn authenticator-app**, en selecteer vervolgens **melding verzenden**.
 
-    2. De authenticator-app openen, typt u de verificatiecode voor uw account in het vak en selecteer vervolgens **volgende**.
+  2. De authenticator-app openen, typt u de verificatiecode voor uw account in het vak en selecteer vervolgens **volgende**.
 
-    3. Typ en Bevestig uw nieuwe wachtwoord en selecteer vervolgens **voltooien**.
+  3. Typ en Bevestig uw nieuwe wachtwoord en selecteer vervolgens **voltooien**.
 
-    4. Nadat u het bericht dat uw wachtwoord is opnieuw ingesteld, kunt u zich kunt aanmelden bij uw account met behulp van uw nieuwe wachtwoord.
+  4. Nadat u het bericht dat uw wachtwoord is opnieuw ingesteld, kunt u zich kunt aanmelden bij uw account met behulp van uw nieuwe wachtwoord.
         
-    Als u nog steeds geen toegang uw account tot, moet u contact op met de beheerder van uw organisatie voor meer informatie.
+     Als u nog steeds geen toegang uw account tot, moet u contact op met de beheerder van uw organisatie voor meer informatie.
 
 Nadat u uw wachtwoord in te stellen, krijgt u mogelijk een e-mail ter bevestiging dat afkomstig van een account zoals is ' Microsoft namens \< *organisatie*>. " Als u een dergelijke e-mail ontvangt, maar u niet hebt uw wachtwoord onlangs opnieuw instellen, u moet direct contact opnemen met de beheerder van uw organisatie.
 
@@ -113,7 +113,7 @@ Als u alleen wilt om uw wachtwoord te wijzigen, kunt u dit doen via de Office 36
 
 Gebruik deze methode als u doorgaans toegang uw apps via de Office-portal tot:
 
-1. Aanmelden bij uw [Office 365-account](https://www.office.com), met uw huidige wachtwoord.
+1. Aanmelden bij uw [Office 365-account](https://portal.office.com), met uw huidige wachtwoord.
 
 2. Selecteer uw profiel in de rechterbovenhoek en selecteer vervolgens **account weergeven**.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: a5df9215aec0b6c774b37f17b699e91ef813754d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771070"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104485"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Beleid voor service-eindpunten voor virtuele netwerken (preview)
 
@@ -158,11 +158,11 @@ Voor beleid voor service-eindpunten is gecentraliseerde logboekregistratie niet 
 - De toegang wordt geweigerd voor accounts die in het beleid voor eindpunten worden vermeld
   - Mogelijk wordt de toegang geblokkeerd door netwerkbeveiligingsgroepen of firewall-filters
   - Als het verwijderen/het opnieuw toepassen van het beleid ervoor zorgt dat de verbinding wordt verbroken:
-   - Controleer of de Azure-service zo is geconfigureerd dat toegang via het virtuele netwerk is toegestaan, via eindpunten, of dat het standaardbeleid voor de resource is ingesteld op *Alles toestaan*.
+    - Controleer of de Azure-service zo is geconfigureerd dat toegang via het virtuele netwerk is toegestaan, via eindpunten, of dat het standaardbeleid voor de resource is ingesteld op *Alles toestaan*.
       > [!NOTE]      
       > Serviceresources mogen niet worden beveiligd op virtuele netwerken om toegang te krijgen via beleidsregels voor eindpunten. Als best practice op het gebied van beveiliging raden we u echter aan om de serviceresources te beveiligen op uw vertrouwde netwerken, zoals uw virtuele Azure-netwerken (via service-eindpunten) en uw on-premises netwerk (via een IP-firewall).
   
-   - Controleer of het verkeer via de eindpunten wordt weergegeven in de diagnostische gegevens.
+    - Controleer of het verkeer via de eindpunten wordt weergegeven in de diagnostische gegevens.
     - Controleer in de stroomlogboeken voor de netwerkbeveiligingsgroep en de opslaglogboeken of de toegang, zoals verwacht, via de service-eindpunten verloopt.
     - Neem contact op met de ondersteuning van Azure.
 - De toegang wordt geweigerd voor accounts niet worden vermeld in het beleid voor service-eindpunten

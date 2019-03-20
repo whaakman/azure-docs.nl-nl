@@ -4,24 +4,24 @@ description: bestand opnemen
 author: anthonychu
 ms.service: signalr
 ms.topic: include
-ms.date: 09/14/2018
+ms.date: 03/04/2019
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 73d40bfb5a7e691cead5a84be70398e9cbf6656a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 73d4d4e1a5f148dce6099b2d747ee1c290bcf7c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262748"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58051717"
 ---
 ## <a name="run-the-web-application"></a>De webtoepassing uitvoeren
 
-1. Voor uw gemak wordt een voorbeeldwebtoepassing van één pagina in GitHub gehost. Open uw browser naar [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat/).
+1. Voor uw gemak wordt een voorbeeldwebtoepassing van één pagina in GitHub gehost. Open uw browser naar [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/).
 
     > [!NOTE]
-    > De bron van het HTML-bestand bevindt zich in [/docs/demo/chat/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat/index.html).
+    > De bron van het HTML-bestand bevindt zich in [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html).
 
-1. Wanneer u om de basis-URL van de functie-app wordt gevraagd, voert u *http://localhost:7071* in.
+1. Wanneer u hierom wordt gevraagd voor de functie-app basis-URL, voert u `http://localhost:7071`.
 
 1. Voer een gebruikersnaam in wanneer hierom wordt gevraagd.
 
@@ -32,3 +32,6 @@ ms.locfileid: "53262748"
     ![De toepassing uitvoeren](../media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-run-application.png)
 
 1. Open een ander exemplaar van de webtoepassing in een ander browservenster. U ziet dat alle verzonden berichten in alle exemplaren van de toepassing worden weergegeven.
+
+> [!IMPORTANT]
+> Omdat de HTML-pagina wordt weergegeven door middel van HTTPS, maar de lokale Azure Functions-runtime standaard HTTP gebruikt, kan uw browser (zoals Firefox) een beleid voor gemengde inhoud die blokkeert de aanvragen van de webpagina aan uw functies afdwingen. Gebruik een browser die niet is deze beperking of een lokale HTTP-server, zoals starten om op te lossen dit, [http-server](https://www.npmjs.com/package/http-server) in de */docs/demo/chat-v2* directory. Zorg ervoor dat de oorsprong wordt toegevoegd aan de `CORS` instellen in *local.settings.json*.

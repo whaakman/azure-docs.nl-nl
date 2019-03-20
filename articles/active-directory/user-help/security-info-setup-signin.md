@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da54c4f7fae5a613d88f169d58a083f9273c0d3
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587885"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123603"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Uw beveiligingsgegevens (preview) instellen vanaf de opdrachtprompt voor de aanmeldingspagina
 U kunt deze stappen volgen als u wordt gevraagd uw beveiligingsgegevens in te stellen, onmiddellijk nadat u zich aanmeldt bij uw werk- of schoolaccount.
@@ -39,10 +39,10 @@ Volg deze stappen voor het instellen van uw beveiligingsgegevens voor uw werk- o
 
 1. Nadat u **Volgende** hebt geselecteerd in de opdrachtprompt, wordt de wizard **Houd uw account veilig** weergegeven, de eerste methode die u van uw beheerder en de organisatie moet instellen. Voor dit voorbeeld is dit de Microsoft Authenticator-app.
 
-    >[!Note]
-    >Als u een andere verificator-app dan de Microsoft Authenticator-app gebruiken wilt, selecteert u de koppeling **Ik wil een andere verificator-app gebruiken**.
-    
-    >Als u van uw organisatie u een andere methode dan de authenticator-app kiezen mag, kunt u de **Ik wil andere methode instellen-koppeling** selecteren.
+   > [!Note]
+   > Als u een andere verificator-app dan de Microsoft Authenticator-app gebruiken wilt, selecteert u de koppeling **Ik wil een andere verificator-app gebruiken**.
+   > 
+   > Als u van uw organisatie u een andere methode dan de authenticator-app kiezen mag, kunt u de **Ik wil andere methode instellen-koppeling** selecteren.
 
     ![Wizard Houd uw account veilig met de downloadpagina van de verificator](media/security-info/securityinfo-prompt-get-auth-app.png)
 

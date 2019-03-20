@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: e739ed1f7cd1b832ffe11299d3444c9bf0ac99e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 296005f68592a8c89f3ec78da8ece4d1741f253f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874457"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880820"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Quickstart: Een Azure Database for MariaDB-server maken met behulp van Azure Portal
 
@@ -72,11 +72,11 @@ De service Azure Database for MariaDB maakt een firewall op serverniveau. De fir
 
 Een serverfirewallregel maken:
 
-1.   Ga naar de server zodra deze is geïmplementeerd. U kunt indien nodig naar de server zoeken. Selecteer bijvoorbeeld **Alle resources** in het menu aan de linkerkant. Voer vervolgens de naam van de server in. Voer bijvoorbeeld **mydemoserver** in om te zoeken naar de zojuist gemaakte server. Selecteer de naam van de server in de lijst met zoekresultaten. De pagina **Overzicht** voor uw server wordt geopend. Op deze pagina kunt u aanvullende instellingen wijzigen.
+1. Ga naar de server zodra deze is geïmplementeerd. U kunt indien nodig naar de server zoeken. Selecteer bijvoorbeeld **Alle resources** in het menu aan de linkerkant. Voer vervolgens de naam van de server in. Voer bijvoorbeeld **mydemoserver** in om te zoeken naar de zojuist gemaakte server. Selecteer de naam van de server in de lijst met zoekresultaten. De pagina **Overzicht** voor uw server wordt geopend. Op deze pagina kunt u aanvullende instellingen wijzigen.
 
 2. Selecteer **Verbindingsbeveiliging** op de serveroverzichtspagina.
 
-3.  Selecteer onder **Firewallregels** het lege tekstvak in de kolom **Regelnaam** om te beginnen met het maken van de firewallregel. Geef het precieze IP-adresbereik op van de clients die verbinding met deze server maken.
+3. Selecteer onder **Firewallregels** het lege tekstvak in de kolom **Regelnaam** om te beginnen met het maken van de firewallregel. Geef het precieze IP-adresbereik op van de clients die verbinding met deze server maken.
    
    ![Verbindingsbeveiliging - Firewallregels](./media/quickstart-create-mariadb-server-database-using-azure-portal/5-firewall-2.png)
 
@@ -94,7 +94,7 @@ Voor verbinding met uw databaseserver moet u beschikken over de volledige server
 
 2. Als u de waarden wilt kopiëren, plaats de cursor over het veld dat u wilt kopiëren. Het kopieerpictogram wordt rechts van de tekst weergegeven. Selecteer het kopieerpictogram indien nodig om de waarden te kopiëren.
 
-In dit voorbeeld is de servernaam **mydemoserver.mariadb.database.azure.com**. De aanmeldingsnaam van de serverbeheerder is **myadmin@mydemoserver**.
+In ons voorbeeld is de servernaam **mydemoserver.mariadb.database.azure.com** en de serverbeheerder is **myadmin\@mydemoserver**.
 
 ## <a name="connect-to-azure-database-for-mariadb-by-using-the-mysql-command-line"></a>Verbinding maken met Azure Database for MariaDB met behulp van de mysql-opdrachtregel
 
@@ -103,9 +103,9 @@ U kunt verschillende toepassingen gebruiken om verbinding te maken met uw Azure 
 We gebruiken eerst het opdrachtregelprogramma [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) om te laten zien hoe u verbinding maakt met de server. U kunt ook een webbrowser en Azure Cloud Shell gebruiken zonder dat u extra software hoeft te installeren. Als het hulpprogramma mysql lokaal is geïnstalleerd, kunt u dit ook gebruiken om verbinding te maken.
 
 1. Open Azure Cloud Shell via het terminalpictogram (**>_**) op de werkbalk rechtsboven in de Azure-portal.
-![Het terminalsymbool voor Azure Cloud Shell](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
+   ![Het terminalsymbool voor Azure Cloud Shell](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
 
-2.  Azure Cloud Shell wordt geopend in uw browser. In Cloud Shell kunt u bash-shellopdrachten gebruiken.
+2. Azure Cloud Shell wordt geopend in uw browser. In Cloud Shell kunt u bash-shellopdrachten gebruiken.
 
    ![Opdrachtprompt - voorbeeld van opdrachtregel mysql](./media/quickstart-create-mariadb-server-database-using-azure-portal/8-bash.png)
 
@@ -123,10 +123,10 @@ We gebruiken eerst het opdrachtregelprogramma [mysql](https://dev.mysql.com/doc/
     mysql --host mydemoserver.mariadb.database.azure.com --user myadmin@mydemoserver -p
     ```
 
-    mysql-parameter |Voorgestelde waarde|Beschrijving
+    mysql-parameter |Voorgestelde waarde|Description
     ---|---|---
     --host | *servernaam* | De servernaamwaarde die u hebt gebruikt bij het maken van de Azure Database for MariaDB-server. De server in ons voorbeeld is **mydemoserver.mariadb.database.azure.com**. Gebruik de FQDN (Fully Qualified Domain Name) (**\*.mariadb.database.azure.com**) zoals weergegeven in het voorbeeld. Als u de servernaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen.
-    --user | *aanmeldnaam van serverbeheerder* |De gebruikersnaam van de serverbeheerder die u hebt gebruikt bij het maken van de Azure Database for MariaDB-server. Als u de gebruikersnaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen. De indeling is *username@servername*.
+    --user | *aanmeldnaam van serverbeheerder* |De gebruikersnaam van de serverbeheerder die u hebt gebruikt bij het maken van de Azure Database for MariaDB-server. Als u de gebruikersnaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen. De indeling is *gebruikersnaam\@servername*.
     -p | *Uw wachtwoord*<br>(wacht totdat u hierom wordt gevraagd) |Voer desgevraagd het wachtwoord in dat u hebt gebruikt voor het maken van de server. De ingevoerde wachtwoordtekens worden niet weergegeven bij de bash-prompt terwijl u de tekens typt. Nadat u het wachtwoord hebt ingevoerd, drukt u op Enter.
 
    Wanneer het hulpprogramma mysql is verbonden, wordt de prompt `mysql>` weergegeven. U kunt opdrachten bij de prompt invoeren. 
@@ -165,14 +165,14 @@ We gebruiken eerst het opdrachtregelprogramma [mysql](https://dev.mysql.com/doc/
    > [!TIP]
    > Zie [hoofdstuk 4.5.1 in de Engelstalige naslaghandleiding van MySQL 5.7](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) voor aanvullende opdrachten.
 
-5.  Maak een lege database door bij de prompt `mysql>` de volgende opdracht in te voeren:
+5. Maak een lege database door bij de prompt `mysql>` de volgende opdracht in te voeren:
 
-    ```sql
-    CREATE DATABASE quickstartdb;
-    ```
-    Het uitvoeren van de opdracht kan enkele minuten duren. 
+   ```sql
+   CREATE DATABASE quickstartdb;
+   ```
+   Het uitvoeren van de opdracht kan enkele minuten duren. 
 
-    Op een Azure Database for MariaDB-server kunt u een of meer databases maken. U kunt één database per server maken om gebruik te maken van alle resources, of meerdere databases om de resources te delen. Er geldt geen limiet voor het aantal databases dat u kunt maken, maar meerdere databases delen wel dezelfde serverresources. 
+   Op een Azure Database for MariaDB-server kunt u een of meer databases maken. U kunt één database per server maken om gebruik te maken van alle resources, of meerdere databases om de resources te delen. Er geldt geen limiet voor het aantal databases dat u kunt maken, maar meerdere databases delen wel dezelfde serverresources. 
 
 6. Vraag de databases op bij de prompt `mysql>` door de volgende opdracht in te voeren:
 
@@ -180,7 +180,7 @@ We gebruiken eerst het opdrachtregelprogramma [mysql](https://dev.mysql.com/doc/
     SHOW DATABASES;
     ```
 
-7.  Voer **\q** in en druk op Enter om het hulpprogramma mysql af te sluiten. Vervolgens kunt u Azure Cloud Shell sluiten.
+7. Voer **\q** in en druk op Enter om het hulpprogramma mysql af te sluiten. Vervolgens kunt u Azure Cloud Shell sluiten.
 
 U hebt verbinding gemaakt met de Azure Database for MariaDB-server en een lege gebruikersdatabase gemaakt. In de volgende oefening maakt u verbinding met dezelfde server met behulp van een ander veelgebruikt hulpprogramma, MySQL Workbench.
 
@@ -202,7 +202,7 @@ Verbinding maken met de server met MySQL Workbench:
     Verbindingsmethode | **Standard (TCP/IP)** | Standard (TCP/IP) is voldoende. |
     Hostnaam | *servernaam* | De servernaamwaarde die u hebt gebruikt bij het maken van de Azure Database for MariaDB-server. De server in ons voorbeeld is **mydemoserver.mariadb.database.azure.com**. Gebruik de FQDN (Fully Qualified Domain Name) (**\*.mariadb.database.azure.com**) zoals weergegeven in het voorbeeld. Als u de servernaam niet meer weet, volgt u de eerder beschreven stappen in dit artikel om de verbindingsgegevens op te halen.|
      Poort | 3306 | De poort die u gebruikt om verbinding te maken met uw Azure Database for MariaDB-server. |
-    Gebruikersnaam |  *aanmeldnaam van serverbeheerder* | De aanmeldingsgegevens van de serverbeheerder die u hebt gebruikt bij het maken van de Azure Database for MariaDB-server. De gebruikersnaam in ons voorbeeld is **myadmin@mydemoserver**. Als u de gebruikersnaam niet meer weet, volgt u de eerder beschreven stappen in dit artikel om de verbindingsgegevens op te halen. De indeling is *username@servername*.
+    Gebruikersnaam |  *aanmeldnaam van serverbeheerder* | De aanmeldingsgegevens van de serverbeheerder die u hebt gebruikt bij het maken van de Azure Database for MariaDB-server. De gebruikersnaam van ons voorbeeld is **myadmin\@mydemoserver**. Als u de gebruikersnaam niet meer weet, volgt u de eerder beschreven stappen in dit artikel om de verbindingsgegevens op te halen. De indeling is *gebruikersnaam\@servername*.
     Wachtwoord | *Uw wachtwoord* | Selecteer **Opslaan in de kluis** om het wachtwoord op te slaan. |
 
 4. Selecteer **Verbinding testen** om te controleren of alle parameters juist zijn geconfigureerd. Selecteer ten slotte **OK** om de verbinding op te slaan. 
@@ -227,13 +227,13 @@ De hele resourcegroep verwijderen, met inbegrip van de nieuwe server:
 
 Alleen de zojuist gemaakte server verwijderen:
 
-1.  Zoek de server in de Azure-portal als deze nog niet is geopend. Selecteer **Alle resources** in het menu aan de linkerkant. Zoek vervolgens naar de server die u hebt gemaakt.
+1. Zoek de server in de Azure-portal als deze nog niet is geopend. Selecteer **Alle resources** in het menu aan de linkerkant. Zoek vervolgens naar de server die u hebt gemaakt.
 
-2.  Selecteer **Verwijderen** op de pagina **Overzicht**. 
+2. Selecteer **Verwijderen** op de pagina **Overzicht**. 
 
    ![Azure Database for MariaDB - server verwijderen](./media/quickstart-create-mariadb-server-database-using-azure-portal/delete-server.png)
 
-3.  Controleer de naam van de server die u wilt verwijderen. Bekijk de databases op de server die worden beïnvloed door het verwijderen. Voer de naam van de server in (in ons voorbeeld **mydemoserver**) om het verwijderen te bevestigen. Selecteer **Verwijderen**.
+3. Controleer de naam van de server die u wilt verwijderen. Bekijk de databases op de server die worden beïnvloed door het verwijderen. Voer de naam van de server in (in ons voorbeeld **mydemoserver**) om het verwijderen te bevestigen. Selecteer **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

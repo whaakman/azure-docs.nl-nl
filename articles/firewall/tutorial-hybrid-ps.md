@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 1/30/2019
+ms.date: 3/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 973d5c5c3822eaddce2bc77d06d01930606994c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815741"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182571"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Zelfstudie: Azure Firewall implementeren en configureren in een hybride netwerk met Azure PowerShell
 
@@ -25,7 +25,7 @@ Voor deze zelfstudie maakt u drie virtuele netwerken:
 
 - **VNet-Hub**: de firewall bevindt zich in dit virtuele netwerk.
 - **VNet-spoke**: het virtuele spoke-netwerk vertegenwoordigt de workload die zich bevindt in Azure.
-- **VNet-Onprem**: het on-premises virtuele netwerk vertegenwoordigt een on-premises netwerk. In een daadwerkelijke implementatie kan het zijn verbonden via een VPN of een Route-verbinding. Om het eenvoudig te houden wordt in deze zelfstudie een VPN-gatewayverbinding gebruikt en wordt een on-premises netwerk vertegenwoordigd door een virtueel Azure-netwerk.
+- **VNet-Onprem**: het on-premises virtuele netwerk vertegenwoordigt een on-premises netwerk. In een werkelijke implementatie, kan dit worden gekoppeld door een VPN of ExpressRoute-verbinding. Om het eenvoudig te houden wordt in deze zelfstudie een VPN-gatewayverbinding gebruikt en wordt een on-premises netwerk vertegenwoordigd door een virtueel Azure-netwerk.
 
 ![Firewall in een hybride netwerk](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -51,13 +51,16 @@ Er zijn drie belangrijke vereisten voor de correcte werking van dit scenario:
 
 - Een door de gebruiker gedefinieerde route (UDR) in het spoke-subnet die verwijst naar het IP-adres van Azure Firewall als de standaardgateway. Doorgifte van BGP-route moet zijn **Uitgeschakeld** voor deze routetabel.
 - Een door de gebruiker gedefinieerde route (UDR) in het subnet van de hubgateway moet verwijzen naar het IP-adres van de firewall als de volgende hop naar de spoke-netwerken.
-- Er is geen door de gebruiker gedefinieerde route (UDR) nodig in het Azure Firewall-subnet, omdat het de routes overneemt van BGP.
+
+   Er is geen door de gebruiker gedefinieerde route (UDR) nodig in het Azure Firewall-subnet, omdat het de routes overneemt van BGP.
 - Zorg dat u **AllowGatewayTransit** instelt voor de peering van VNet-Hub naar VNet-Spoke en **UseRemoteGateways** voor de peering van VNet-Spoke naar VNet-Hub.
 
-Zie het gedeelte Routes maken in deze zelfstudie voor informatie over hoe deze routes worden gemaakt.
+Zie het gedeelte [Routes maken](#create-the-routes) in deze zelfstudie voor informatie over hoe deze routes worden gemaakt.
 
 >[!NOTE]
->Azure Firewall moeten directe verbinding met internet hebben. Als u geforceerde tunnels naar on-premises hebt ingeschakeld via ExpressRoute of Application Gateway, moet u UDR 0.0.0.0/0 configureren met de waarde **NextHopType** ingeschakeld als **Internet** en deze vervolgens toewijzen aan **AzureFirewallSubnet**.
+>Azure Firewall moeten directe verbinding met internet hebben. Standaard AzureFirewallSubnet Sta alleen een UDR 0.0.0.0/0 met de **NextHopType** waarde ingesteld als **Internet**.
+>
+>Als u geforceerde tunneling naar inschakelt on-premises via ExpressRoute of Application Gateway, moet u mogelijk expliciet een UDR 0.0.0.0/0 configureren met de waarde NextHopType als **Internet** en koppel deze aan uw AzureFirewallSubnet. Als uw organisatie geforceerde tunneling voor Azure-Firewall verkeer vereist, kunt u contact op met ondersteuning zodat we whitelist uw abonnement kunnen en zorg ervoor dat de internetverbinding vereist firewall wordt onderhouden.
 
 >[!NOTE]
 >Verkeer tussen rechtstreeks gepeerde VNets wordt rechtstreeks gerouteerd, zelfs als de UDR naar Azure Firewall als standaardgateway wijst. Als u in dit scenario subnet-naar-subnet-verkeer wilt verzenden, moet een UDR het voorvoegsel van het doelsubnetwerk expliciet op beide subnetten bevatten.

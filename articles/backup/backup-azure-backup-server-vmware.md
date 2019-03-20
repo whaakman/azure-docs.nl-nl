@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 4b6c4af37211ede2cb2153afdd071c219178f2ba
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b323836ff804d9e4af3765a2d4ea713a34bcf284
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882838"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226518"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Back-up van virtuele VMware-machines met Azure Backup Server
 
@@ -65,10 +65,10 @@ Stel een beveiligd kanaal als volgt in:
 4. Sla het bestand op de Azure Backup Server-machine met de extensie .zip.
 
 5. Met de rechtermuisknop op **download.zip** > **alle uitpakken**. Het ZIP-bestand haalt de inhoud ervan naar de **certificaten** map:
-    - Bestand van het basiscertificaat met een extensie die met een genummerde volgorde, zoals.0 en.1 begint.
-    - Het CRL-bestand heeft een extensie die met een reeks zoals .r0 of .r1 begint. Het CRL-bestand is gekoppeld aan een certificaat.
+   - Bestand van het basiscertificaat met een extensie die met een genummerde volgorde, zoals.0 en.1 begint.
+   - Het CRL-bestand heeft een extensie die met een reeks zoals .r0 of .r1 begint. Het CRL-bestand is gekoppeld aan een certificaat.
 
-    ![Gedownloade certificaten](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
+     ![Gedownloade certificaten](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
 
 5. In de **certificaten** map met de rechtermuisknop op het basiscertificaatbestand > **naam**.
 
@@ -85,7 +85,7 @@ Stel een beveiligd kanaal als volgt in:
 
 9. Op de **certificaat Store** weergeeft, schakelt **alle certificaten in het onderstaande archief plaatsen**, en klik vervolgens op **Bladeren** kiezen van het certificaatarchief.
 
-    ![Certificaatarchief](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
+     ![Certificaatarchief](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
 10. In **Selecteer certificaat Store**, selecteer **Trusted Root Certification Authorities** als de doelmap voor de certificaten en klik vervolgens op **OK**.
 
@@ -134,11 +134,11 @@ De Azure Backup-Server moet een gebruikersaccount met machtigingen voor toegang 
 4. In **rol maken** > **rolnaam**, voer *BackupAdminRole*. De rolnaam mag wat u maar wilt, maar moet wel voor doel van de rol te herkennen.
 
 5. Selecteer de bevoegdheden, zoals samengevat in de onderstaande tabel en klik vervolgens op **OK**.  De nieuwe rol wordt weergegeven in de lijst van de **rollen** deelvenster.
-    - Klik op het pictogram naast het bovenliggende label in op de bovenliggende uitvouwen en weergeven van de onderliggende bevoegdheden.
-    - Als u wilt de bevoegdheden VirtualMachine selecteert, moet u verschillende niveaus met ingang van de bovenliggende/onderliggende hiërarchie.
-    - U hoeft niet te selecteren van alle onderliggende bevoegdheden binnen een van de bovenliggende bevoegdheden.
+   - Klik op het pictogram naast het bovenliggende label in op de bovenliggende uitvouwen en weergeven van de onderliggende bevoegdheden.
+   - Als u wilt de bevoegdheden VirtualMachine selecteert, moet u verschillende niveaus met ingang van de bovenliggende/onderliggende hiërarchie.
+   - U hoeft niet te selecteren van alle onderliggende bevoegdheden binnen een van de bovenliggende bevoegdheden.
 
-    ![Bovenliggende/onderliggende hiërarchie bevoegdheden](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
+     ![Bovenliggende/onderliggende hiërarchie bevoegdheden](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
 ### <a name="role-permissions"></a>Rolmachtigingen
 **6.5/6.0** | **5.5**
@@ -265,7 +265,7 @@ De vCenter-Server toevoegen aan Azure Backup Server.
 
 8. Controleer de instellingen op de **voltooien** pagina.
 
-  ![Voltooiingspagina](./media/backup-azure-backup-server-vmware/summary-screen.png)
+   ![Voltooiingspagina](./media/backup-azure-backup-server-vmware/summary-screen.png)
 
 Als u meerdere ESXi-hosts die niet worden beheerd door vCenter-server hebt, of u meerdere exemplaren van de vCenter-Server hebt, moet u de wizard om toe te voegen van de servers opnieuw uit te voeren.
 
@@ -281,77 +281,77 @@ Virtuele VMware-machines toevoegen voor back-up. Beveiligingsgroepen voor het ve
 
     ![Open de wizard nieuwe beveiligingsgroep maken](./media/backup-azure-backup-server-vmware/open-protection-wizard.png)
 
-2. In de **nieuwe beveiligingsgroep maken** welkomstpagina van de wizard, klikt u op **volgende**.
+1. In de **nieuwe beveiligingsgroep maken** welkomstpagina van de wizard, klikt u op **volgende**.
 
     ![Dialoogvenster voor wizard nieuwe beveiligingsgroep maken](./media/backup-azure-backup-server-vmware/protection-wizard.png)
 
-3. Op de **Selecteer type beveiligingsgroep** pagina, selecteert u **Servers** en klik vervolgens op **volgende**. De **groepsleden selecteren** pagina wordt weergegeven.
+1. Op de **Selecteer type beveiligingsgroep** pagina, selecteert u **Servers** en klik vervolgens op **volgende**. De **groepsleden selecteren** pagina wordt weergegeven.
 
-3. In **groepsleden selecteren** > Selecteer de VM's (of mappen van de virtuele machine) die u wilt back-up. Klik op **Volgende**.
+1. In **groepsleden selecteren** > Selecteer de VM's (of mappen van de virtuele machine) die u wilt back-up. Klik op **Volgende**.
 
     - Wanneer u een map selecteert of virtuele machines of mappen in deze map ook voor back-up zijn geselecteerd. U kunt mappen of virtuele machines die u niet wilt dat back-up uitschakelen.
-- Als een virtuele machine of de map is al back-up, kunt u deze niet selecteren. Dit Zorg ervoor dat er dubbele herstelpunten zijn niet gemaakt voor een virtuele machine. .
+1. Als een virtuele machine of de map is al back-up, kunt u deze niet selecteren. Dit Zorg ervoor dat er dubbele herstelpunten zijn niet gemaakt voor een virtuele machine. .
 
-    ![Groepsleden selecteren](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
+     ![Groepsleden selecteren](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
 
-4. In **methode voor gegevensbeveiliging selecteren** pagina, typ een naam voor de beveiligingsgroep en beveiligingsinstellingen. Terug naar Azure, beveiliging op korte termijn instellen op **schijf** en online beveiliging inschakelt. Klik op **Volgende**.
+1. In **methode voor gegevensbeveiliging selecteren** pagina, typ een naam voor de beveiligingsgroep en beveiligingsinstellingen. Terug naar Azure, beveiliging op korte termijn instellen op **schijf** en online beveiliging inschakelt. Klik op **Volgende**.
 
     ![Methode voor gegevensbeveiliging selecteren](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
-5. In **Kortetermijndoelen opgeven**, opgeven hoe lang u gegevens wilt bewaren back-ups op schijf.
-    - In **bewaartermijn**, geef het aantal dagen schijfherstelpunten moeten worden opgeslagen.
-    - In **Synchronisatiefrequentie**, Geef op hoe vaak herstelpunten van de schijf worden gemaakt.
-        - Als u niet wilt dat het instellen van een vorige van interval kunt u controleren **net vóór een herstelpunt** zodat een back-up wordt uitgevoerd net voordat elk herstelpunt is gepland.
-        - Op korte termijn een back-ups zijn volledige back-ups en geen incrementele.
-        - Klik op **wijzigen** wijzigen van de tijden/datums wanneer op korte termijn een back-ups uitgevoerd.
+1. In **Kortetermijndoelen opgeven**, opgeven hoe lang u gegevens wilt bewaren back-ups op schijf.
+   - In **bewaartermijn**, geef het aantal dagen schijfherstelpunten moeten worden opgeslagen.
+   - In **Synchronisatiefrequentie**, Geef op hoe vaak herstelpunten van de schijf worden gemaakt.
+       - Als u niet wilt dat het instellen van een vorige van interval kunt u controleren **net vóór een herstelpunt** zodat een back-up wordt uitgevoerd net voordat elk herstelpunt is gepland.
+       - Op korte termijn een back-ups zijn volledige back-ups en geen incrementele.
+       - Klik op **wijzigen** wijzigen van de tijden/datums wanneer op korte termijn een back-ups uitgevoerd.
 
-    ![Korte-termijndoelstellingen opgeven](./media/backup-azure-backup-server-vmware/short-term-goals.png)
+     ![Korte-termijndoelstellingen opgeven](./media/backup-azure-backup-server-vmware/short-term-goals.png)
 
-6. In **Schijftoewijzing controleren**, Controleer de schijfruimte die is opgegeven voor de virtuele machine back-ups. voor de virtuele machines.
+1. In **Schijftoewijzing controleren**, Controleer de schijfruimte die is opgegeven voor de virtuele machine back-ups. voor de virtuele machines.
 
-    - De aanbevolen schijftoewijzingen zijn gebaseerd op de bewaartermijn die u hebt opgegeven, het type werkbelasting en de grootte van de beveiligde gegevens. Vereiste wijzigingen, en klik vervolgens op **volgende**.
-    -  **Gegevensgrootte:** De grootte van de gegevens in de beveiligingsgroep.
-    - **Schijfruimte:** De aanbevolen hoeveelheid schijfruimte voor de beveiligingsgroep. Als u wilt om deze instelling te wijzigen, kunt u de totale ruimte die groter is dan het bedrag dat u een schatting maken van dat elke gegevensbron groeit moet toewijzen.
-    - **Collocatie gegevens:** Als u collocatie inschakelt, worden meerdere gegevensbronnen in de beveiliging kunnen toewijzen aan een enkele replica en herstelpuntvolume. CO-locatie wordt niet ondersteund voor alle werkbelastingen.
-    - **Automatisch vergroten:** Als u deze instelling inschakelen en gegevens in de beveiligingsgroep groter worden dan de aanvankelijke toewijzing, wordt Azure Backup Server probeert om de schijfgrootte met 25 procent.
-    - **Opslaggroepdetails:** Toont de status van de opslaggroep weer, waaronder de totale en resterende schijfgrootte.
+   - De aanbevolen schijftoewijzingen zijn gebaseerd op de bewaartermijn die u hebt opgegeven, het type werkbelasting en de grootte van de beveiligde gegevens. Vereiste wijzigingen, en klik vervolgens op **volgende**.
+   - **Gegevensgrootte:** De grootte van de gegevens in de beveiligingsgroep.
+   - **Schijfruimte:** De aanbevolen hoeveelheid schijfruimte voor de beveiligingsgroep. Als u wilt om deze instelling te wijzigen, kunt u de totale ruimte die groter is dan het bedrag dat u een schatting maken van dat elke gegevensbron groeit moet toewijzen.
+   - **Collocatie gegevens:** Als u collocatie inschakelt, worden meerdere gegevensbronnen in de beveiliging kunnen toewijzen aan een enkele replica en herstelpuntvolume. CO-locatie wordt niet ondersteund voor alle werkbelastingen.
+   - **Automatisch vergroten:** Als u deze instelling inschakelen en gegevens in de beveiligingsgroep groter worden dan de aanvankelijke toewijzing, wordt Azure Backup Server probeert om de schijfgrootte met 25 procent.
+   - **Opslaggroepdetails:** Toont de status van de opslaggroep weer, waaronder de totale en resterende schijfgrootte.
 
-    ![Schijftoewijzing controleren](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
+     ![Schijftoewijzing controleren](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
 
-7. In **Replica methode voor maken** pagina, op te geven hoe u wilt de eerste back-up maken en klik vervolgens op **volgende**.
-    - De standaardwaarde is **automatisch via het netwerk** en **nu**.
-    - Als u de standaardwaarde, raden wij aan dat u een tijdstip buiten de piekuren opgeeft. Kies **Later** en geeft u een dag en tijd.
-    - Voor grote hoeveelheden gegevens of minder dan optimale netwerkomstandigheden, kunt u de gegevens offline repliceren met behulp van verwisselbare media.
+1. In **Replica methode voor maken** pagina, op te geven hoe u wilt de eerste back-up maken en klik vervolgens op **volgende**.
+   - De standaardwaarde is **automatisch via het netwerk** en **nu**.
+   - Als u de standaardwaarde, raden wij aan dat u een tijdstip buiten de piekuren opgeeft. Kies **Later** en geeft u een dag en tijd.
+   - Voor grote hoeveelheden gegevens of minder dan optimale netwerkomstandigheden, kunt u de gegevens offline repliceren met behulp van verwisselbare media.
 
-    ![Methode voor het maken van replica selecteren](./media/backup-azure-backup-server-vmware/replica-creation.png)
+     ![Methode voor het maken van replica selecteren](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-8. In **opties voor consistentiecontrole**, selecteer hoe en wanneer de consistentiecontroles automatiseren. Klik op **Volgende**.
-    - U kunt consistentiecontroles uitvoeren wanneer de gerepliceerde gegevens inconsistent of volgens een vast schema.
-    - Als u niet dat automatische consistentiecontroles configureren wilt, kunt u een handmatige controle uitvoeren. U doet dit door met de rechtermuisknop op de beveiligingsgroep > **consistentiecontrole uitvoeren**.
+1. In **opties voor consistentiecontrole**, selecteer hoe en wanneer de consistentiecontroles automatiseren. Klik op **Volgende**.
+      - U kunt consistentiecontroles uitvoeren wanneer de gerepliceerde gegevens inconsistent of volgens een vast schema.
+      - Als u niet dat automatische consistentiecontroles configureren wilt, kunt u een handmatige controle uitvoeren. U doet dit door met de rechtermuisknop op de beveiligingsgroep > **consistentiecontrole uitvoeren**.
 
-9. In **gegevens voor Online beveiliging opgeven** pagina, selecteert u de virtuele machines of virtuele machine mappen die u back wilt-up. U kunt de leden afzonderlijk selecteren of klik op **Alles selecteren** kiezen alle leden. Klik op **Volgende**.
+1. In **gegevens voor Online beveiliging opgeven** pagina, selecteert u de virtuele machines of virtuele machine mappen die u back wilt-up. U kunt de leden afzonderlijk selecteren of klik op **Alles selecteren** kiezen alle leden. Klik op **Volgende**.
 
-    ![Gegevens voor online beveiliging opgeven](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+      ![Gegevens voor online beveiliging opgeven](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
-10. Op de **Online back-upschema opgeven** pagina, Geef op hoe vaak u wilt back-up van gegevens uit de lokale opslag naar Azure.
+1. Op de **Online back-upschema opgeven** pagina, Geef op hoe vaak u wilt back-up van gegevens uit de lokale opslag naar Azure.
 
     - Cloudherstelpunten voor de gegevens worden gegenereerd op basis van de planning. Klik op **Volgende**.
     - Nadat het herstelpunt dat is gegenereerd, wordt deze overgebracht naar de Recovery Services-kluis in Azure.
 
-    ![Onlineback-upschema opgeven](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+      ![Onlineback-upschema opgeven](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
-11. Op de **Online bewaarbeleid opgeven** pagina, geef aan hoe lang u wilt behouden van de herstelpunten die zijn gemaakt op basis van de dagelijkse/wekelijkse/maandelijkse/jaarlijkse back-ups naar Azure. Klik vervolgens op **volgende**.
+1. Op de **Online bewaarbeleid opgeven** pagina, geef aan hoe lang u wilt behouden van de herstelpunten die zijn gemaakt op basis van de dagelijkse/wekelijkse/maandelijkse/jaarlijkse back-ups naar Azure. Klik vervolgens op **volgende**.
 
     - Er is geen beperking voor hoe lang u gegevens in Azure behouden kunt.
     - De enige beperking is dat er geen meer dan 9999 herstelpunten per beveiligd exemplaar. In dit voorbeeld is het beveiligde exemplaar de VMware-server.
 
-    ![Onlinebewaarbeleid opgeven](./media/backup-azure-backup-server-vmware/retention-policy.png)
+      ![Onlinebewaarbeleid opgeven](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
 
-12. Op de **samenvatting** pagina, Controleer de instellingen en klik vervolgens op **groep maken**.
+1. Op de **samenvatting** pagina, Controleer de instellingen en klik vervolgens op **groep maken**.
 
-    ![Een lid van beveiligingsgroep en samenvatting van instelling](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+     ![Een lid van beveiligingsgroep en samenvatting van instelling](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
 

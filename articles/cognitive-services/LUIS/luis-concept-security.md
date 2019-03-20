@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: ac4095d19904db10d4d60364dd2c739e8105c171
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863616"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089842"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Ontwerp- en eindpunt gebruikerstoegang
 Ontwerpen toegang is beschikbaar voor de eigenaar en samenwerkers. Eindpunt toegang is voor een persoonlijke app beschikbaar voor de eigenaar en samenwerkers. Voor een openbare app is eindpunt toegang beschikbaar voor iedereen die hun eigen account LUIS en heeft de openbare app-ID. 
@@ -53,7 +53,7 @@ Toegang tot het eindpunt van de query wordt beheerd door een instelling op de **
 Een persoonlijke app eindpunt is alleen beschikbaar voor het volgende:
 
 |Sleutel en de gebruiker|Uitleg|
-|--|--|--|
+|--|--|
 |De eigenaar van authoring sleutel| Maximaal 1000 eindpunt treffers|
 |De deelnemers authoring sleutels| Maximaal 1000 eindpunt treffers|
 |Een willekeurige toets door de auteur of een medewerker die is toegewezen aan LUIS|Op basis van gebruik van de sleutel-laag|

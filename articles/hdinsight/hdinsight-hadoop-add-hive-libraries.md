@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 4eb4db9a4057d072f348de48bee2f746f77cbb84
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6001d291581dc317da89cadbf3891e334362062b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715338"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897585"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aangepaste Apache Hive-bibliotheken toevoegen bij het maken van uw HDInsight-cluster
 
@@ -51,7 +51,7 @@ Voor **Windows gebaseerde clusters**: [https://hdiconfigactions.blob.core.window
 
 * Het opslagaccount met de bibliotheek met jar-bestanden **moet** tijdens het maken worden gekoppeld aan het HDInsight-cluster. Dit moet het standaardopslagaccount of een account toegevoegd via __optionele configuratie__.
 
-* Het WASB-pad naar de container moet worden opgegeven als parameter voor de scriptactie. Bijvoorbeeld, als de JAR-bestanden worden opgeslagen in een container met de naam **bibliotheken** op een storage-account met de naam **mijnopslag**, zou de parameter **wasb://libs@mystorage.blob.core.windows.net/**.
+* Het WASB-pad naar de container moet worden opgegeven als parameter voor de scriptactie. Bijvoorbeeld, als de JAR-bestanden worden opgeslagen in een container met de naam **bibliotheken** op een storage-account met de naam **mijnopslag**, zou de parameter **wasb://libs\@ mystorage.BLOB.Core.Windows.NET/**.
 
   > [!NOTE]  
   > Dit document wordt ervan uitgegaan dat u hebt al een storage-account, blob-container gemaakt en de bestanden geüpload naar deze.
@@ -79,7 +79,7 @@ Voor **Windows gebaseerde clusters**: [https://hdiconfigactions.blob.core.window
 
    * **ZOOKEEPER**: Laat dit leeg.
 
-   * **PARAMETERS**: Voer het adres WASB naar de container en de opslag rekening met het JAR-bestanden. Bijvoorbeeld **wasb://libs@mystorage.blob.core.windows.net/**.
+   * **PARAMETERS**: Voer het adres WASB naar de container en de opslag rekening met het JAR-bestanden. Bijvoorbeeld, **wasb://libs\@mystorage.blob.core.windows.net/**.
 
 3. Aan de onderkant van de **scriptacties**, gebruikt u de **selecteren** om de configuratie op te slaan.
 

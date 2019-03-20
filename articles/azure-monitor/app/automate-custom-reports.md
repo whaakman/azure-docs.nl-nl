@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 74fdfed23d30dbf88b2faa6028039159010d9afc
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53756533"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113075"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Aangepaste rapporten met Azure Application Insights-gegevens automatiseren
 
@@ -110,12 +110,12 @@ availabilityResults
     
     (De waarden AI_ vindt u onder de API-toegang voor de Application Insights-Resource die u wilt rapporteren. Als u een Application Insights-API-sleutel niet hebt, is de optie voor **API-sleutel maken**.)
     
-    * AI_APP_ID toepassings-ID =
-    * AI_APP_KEY = API-sleutel
-    * SendGridAPI = SendGrid-API-sleutel
+   * AI_APP_ID toepassings-ID =
+   * AI_APP_KEY = API-sleutel
+   * SendGridAPI = SendGrid-API-sleutel
 
-    > [!NOTE]
-    > Als u geen een SendGrid-account hebt, kunt u een kunt maken. Van SendGrid-documentatie voor Azure Functions is [hier](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Als alleen kunt u een minimale uitleg over hoe u SendGrid instellen en genereren van een API-sleutel een aan het einde van dit artikel is opgegeven. 
+     > [!NOTE]
+     > Als u geen een SendGrid-account hebt, kunt u een kunt maken. Van SendGrid-documentatie voor Azure Functions is [hier](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Als alleen kunt u een minimale uitleg over hoe u SendGrid instellen en genereren van een API-sleutel een aan het einde van dit artikel is opgegeven. 
 
 9. Selecteer **integreren** en onder uitvoer **SendGrid ($return)**.
 

@@ -8,30 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 08e2ef1b219ed66a39d38c08be80df89814afbaf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 871cca9fe2b3ff50202feb4925a267b93d432700
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180484"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842070"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Snelstartgids: Zoeken op internet met behulp van de REST API voor Bing Web Search en C#
 
-
-Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en een JSON-antwoord te ontvangen. Deze C#-toepassing stuurt een query naar de API en geeft het antwoord weer. Hoewel deze toepassing in C# is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
+Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Dit C# toepassing een zoekaanvraag verzendt naar de API en het antwoord. Hoewel deze toepassing in C# is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
+
 Voordat u verdergaat met deze snelstart moet u beschikken over:
 
 * Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](http://www.mono-project.com/)  
+* Linux/macOS: [Mono](https://www.mono-project.com/)  
 * Een abonnementssleutel
 
 In dit voorbeeldprogramma worden alleen .NET Core-klassen gebruikt.
-
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -63,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Variabelen definiëren
 
-Er moet een aantal variabelen worden ingesteld voordat we verder kunnen gaan. Controleer of de `uriBase` geldig is en vervang de waarde `accessKey` door een geldige abonnementssleutel uit uw Azure-account. U kunt de zoekquery gerust aanpassen door de waarde voor `searchTerm` te vervangen.
+Er moet een aantal variabelen worden ingesteld voordat we verder kunnen gaan. Controleer of de `uriBase` geldig is en vervang de waarde `accessKey` door een geldige abonnementssleutel uit uw Azure-account. U kunt de zoekquery gerust aanpassen door de waarde voor `searchTerm` te vervangen. Houd er rekening mee om toe te voegen deze code de `Program` klasse, zoals hierboven is vermeld.
 
 ```csharp
 // Enter a valid subscription key.
@@ -79,7 +78,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="declare-the-main-method"></a>De methode Main declareren
 
-`Main()` is vereist, en is de eerste methode die wordt aangeroepen wanneer het programma wordt gestart. In deze toepassing valideert de methode Man de `accessKey`, doet een aanvraag en drukt het antwoord af.
+De `Main()` methode is vereist en is de eerste methode die wordt aangeroepen wanneer het programma wordt gestart. In deze toepassing valideert de methode Man de `accessKey`, doet een aanvraag en drukt het antwoord af.
 
 Houd er rekening mee dat `main()` afhankelijk is van methoden die in de volgende secties worden gemaakt.
 
@@ -110,7 +109,7 @@ static void Main()
 
 ## <a name="create-a-struct-for-search-results"></a>Een struct voor zoekresultaten maken
 
-Deze struct retourneert zoekresultaten met relevante headers. Hij wordt aangeroepen wanneer een aanvraag wordt gedaan bij de Bing Webzoekopdrachten-API om een ​​resultaatobject te maken.
+Deze struct retourneert zoekresultaten met relevante headers. Deze wordt aangeroepen wanneer die een aanvraag verzendt naar de Bing webzoekopdrachten-API om een resultaatobject te maken.
 
 ```csharp
 // Returns search results with headers.

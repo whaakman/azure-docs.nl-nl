@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 40b26429cf4e7f218c2b5a276ae936f60bd6abe4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d7dc690f719dd9265317b2bba3b87521e9a00d6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453232"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106573"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Een nieuw account voor Azure Stack-tenant in Azure Active Directory toevoegen
 
@@ -41,11 +41,11 @@ Hebt u een Azure-abonnement het gebruik van Azure portal.
 
     ![Nieuwe gebruiker, met gebruikersgegevens op de pagina gebruiker toevoegen](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-    - **Naam (vereist).** De eerste en laatste naam van de nieuwe gebruiker. Bijvoorbeeld, Mary Parker.
-    - **Gebruikersnaam (vereist).** De gebruikersnaam van de nieuwe gebruiker. Bijvoorbeeld mary@contoso.com.
-        Het domeingedeelte van de gebruikersnaam moet een van beide de aanvankelijke standaarddomeinnaam, gebruiken <_uwdomeinnaam_>. onmicrosoft.com of een aangepaste domeinnaam, bijvoorbeeld contoso.com. Zie voor meer informatie over het maken van een aangepaste domeinnaam [een aangepaste domeinnaam toevoegen aan Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
-    - **Profiel.** U kunt desgewenst meer informatie over de gebruiker toevoegen. U kunt ook gebruikersgegevens op een later tijdstip toevoegen. Zie voor meer informatie over het toevoegen van gebruikersgegevens [toevoegen of wijzigen van de informatie uit gebruikersprofielen](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
-    - **Directory-rol.**  Kies **gebruiker**.
+   - **Naam (vereist).** De eerste en laatste naam van de nieuwe gebruiker. Bijvoorbeeld, Mary Parker.
+   - **Gebruikersnaam (vereist).** De gebruikersnaam van de nieuwe gebruiker. Bijvoorbeeld mary@contoso.com.
+       Het domeingedeelte van de gebruikersnaam moet een van beide de aanvankelijke standaarddomeinnaam, gebruiken <_uwdomeinnaam_>. onmicrosoft.com of een aangepaste domeinnaam, bijvoorbeeld contoso.com. Zie voor meer informatie over het maken van een aangepaste domeinnaam [een aangepaste domeinnaam toevoegen aan Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
+   - **Profiel.** U kunt desgewenst meer informatie over de gebruiker toevoegen. U kunt ook gebruikersgegevens op een later tijdstip toevoegen. Zie voor meer informatie over het toevoegen van gebruikersgegevens [toevoegen of wijzigen van de informatie uit gebruikersprofielen](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+   - **Directory-rol.**  Kies **gebruiker**.
 
 5. Controleer **wachtwoord weergeven** en kopieert u de automatisch gegenereerde wachtwoord opgegeven in de **wachtwoord** vak. U hebt dit wachtwoord voor het initiële aanmeldingsproces.
 

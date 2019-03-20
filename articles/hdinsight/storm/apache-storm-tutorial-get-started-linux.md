@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8981f6a2b2d42627530fb8bf820ff8373e8f50b0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5c0fe0921446dde12771bacf096f806701b90444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971662"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117996"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Aan de slag met Apache Storm in HDInsight met behulp van Storm-Starter-voorbeelden
 
@@ -61,7 +61,7 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
     * **Besturingssysteem**: Linux
 
-    * **Versie**: Storm 1.1.0 (HDI 3.6)
+    * **Version**: Storm 1.1.0 (HDI 3.6)
 
    Gebruik ten slotte de knop **Selecteren** om de instellingen op te slaan.
 
@@ -69,7 +69,7 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
 4. Nadat u het clustertype hebt geselecteerd, gebruikt u de knop __Selecteren__ om het clustertype te selecteren. Gebruik vervolgens de knop __Volgende__ om de basisconfiguratie te voltooien.
 
-5. In de sectie **Opslag** selecteert of maakt u een opslagaccount. Voor de stappen in dit document gebruikt u voor de andere velden in deze sectie de standaardwaarden. Gebruik de knop __Volgende__ om de opslagconfiguratie op te slaan. Zie voor meer informatie over het gebruik van Data Lake Storage Gen2 [Quick Start: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+5. In de sectie **Opslag** selecteert of maakt u een opslagaccount. Voor de stappen in dit document gebruikt u voor de andere velden in deze sectie de standaardwaarden. Gebruik de knop __Volgende__ om de opslagconfiguratie op te slaan. Zie voor informatie over het gebruik van Data Lake Storage Gen2 [Snelstart: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![De instellingen van het opslagaccount voor HDInsight configureren](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
@@ -124,26 +124,26 @@ Voer de volgende stappen uit voor het bewaken van de topologie met behulp van de
 
     Deze pagina bevat de volgende informatie:
 
-    * **Topology stats**: basisinformatie over de topologieprestaties, geordend in tijdvensters.
+   * **Topology stats**: basisinformatie over de topologieprestaties, geordend in tijdvensters.
 
-        > [!NOTE]  
-        > Wanneer er een specifiek tijdvenster wordt geselecteerd, verandert het tijdvenster voor informatie die wordt weergegeven in andere gedeelten van de pagina.
+       > [!NOTE]  
+       > Wanneer er een specifiek tijdvenster wordt geselecteerd, verandert het tijdvenster voor informatie die wordt weergegeven in andere gedeelten van de pagina.
 
-    * **Spouts**: basisinformatie over spouts, met inbegrip van de laatste fout die door elke spout is geretourneerd.
+   * **Spouts**: basisinformatie over spouts, met inbegrip van de laatste fout die door elke spout is geretourneerd.
 
-    * **Bolts**: basisinformatie over bolts.
+   * **Bolts**: basisinformatie over bolts.
 
-    * **Topology configuration**: gedetailleerde informatie over de topologieconfiguratie.
+   * **Topology configuration**: gedetailleerde informatie over de topologieconfiguratie.
 
-    Deze pagina bevat ook de acties die op de topologie kunnen worden uitgevoerd:
+     Deze pagina bevat ook de acties die op de topologie kunnen worden uitgevoerd:
 
-    * **Activate**: de verwerking van een gedeactiveerde topologie wordt hervat.
+   * **Activate**: de verwerking van een gedeactiveerde topologie wordt hervat.
 
-    * **Deactivate**: een actieve topologie wordt onderbroken.
+   * **Deactivate**: een actieve topologie wordt onderbroken.
 
-    * **Rebalance**: de parallelle uitvoering van de topologie wordt aangepast. Nadat u het aantal knooppunten in het cluster hebt gewijzigd, moet u actieve topologieën opnieuw verdelen. Met het opnieuw verdelen wordt de parallelle uitvoering aangepast om te compenseren voor het toegenomen/afgenomen aantal knooppunten in het cluster. Zie voor meer informatie, [inzicht in de parallelle uitvoering van een Apache Storm-topologie](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+   * **Rebalance**: de parallelle uitvoering van de topologie wordt aangepast. Nadat u het aantal knooppunten in het cluster hebt gewijzigd, moet u actieve topologieën opnieuw verdelen. Met het opnieuw verdelen wordt de parallelle uitvoering aangepast om te compenseren voor het toegenomen/afgenomen aantal knooppunten in het cluster. Zie voor meer informatie, [inzicht in de parallelle uitvoering van een Apache Storm-topologie](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-    * **Kill**: hiermee wordt een Storm-topologie na de opgegeven time-out beëindigd.
+   * **Kill**: hiermee wordt een Storm-topologie na de opgegeven time-out beëindigd.
 
 3. Selecteer op deze pagina een item in de sectie **Spouts** of **Bolts**. Er wordt informatie over het geselecteerde onderdeel weergegeven.
 

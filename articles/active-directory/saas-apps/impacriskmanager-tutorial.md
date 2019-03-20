@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec119c9e11b21828b1b056fb97598ca7434cfc68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9f987c6803f6ca538f4ae7470caaff597c9596c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197706"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900740"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Zelfstudie: Azure Active Directory-integratie met IMPAC risico Manager
 
@@ -114,6 +114,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     a. In de **id** tekstvak, typ een waarde die is opgegeven door IMPAC
 
     b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie:
+
     | Omgeving | URL-patroon |
     | ---------------|--------------- |    
     | Voor productie |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
@@ -127,6 +128,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![IMPAC risico Manager-domein en URL's, eenmalige aanmelding informatie](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
     In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
+    
     | Omgeving | URL-patroon |
     | ---------------|--------------- |    
     | Voor productie |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
@@ -230,7 +232,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

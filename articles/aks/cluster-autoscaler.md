@@ -7,21 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 841c9ae933dfa6d94eaf265549c7e697caf3dc02
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dd66ac6392c0afb88d43a8814cef07ec590f6a55
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782510"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990757"
 ---
-# <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Automatisch schalen van een cluster om te voldoen aan de eisen van de toepassing in Azure Kubernetes Service (AKS)
+# <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Voorbeeld - automatisch schalen van een cluster om te voldoen aan de eisen van de toepassing in Azure Kubernetes Service (AKS)
 
 Als u wilt bijhouden toepassingsbehoeften in Azure Kubernetes Service (AKS), moet u mogelijk het aantal knooppunten waarop uw workloads aanpassen. Het clusteronderdeel automatisch schalen kunt van schillen in uw cluster kan niet worden gepland vanwege resourcebeperkingen bekijken. Wanneer er problemen zijn gedetecteerd, wordt het aantal knooppunten verhoogd om te voldoen aan de vraag van de toepassing. Knooppunten ook regelmatig gecontroleerd op een gebrek aan schillen, uitgevoerd met het aantal knooppunten vervolgens weer afneemt indien nodig. Deze mogelijkheid automatisch omhoog of omlaag te schalen het aantal knooppunten in uw AKS-cluster maakt u een efficiënte en voordelige-cluster.
 
 Dit artikel laat u het inschakelen en beheren van het cluster automatisch schalen in een AKS-cluster.
 
 > [!IMPORTANT]
-> Deze functie is momenteel beschikbaar als preview-product. Preview-versies worden beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
+> AKS-preview-functies zijn selfservice en aanmelden. Previews worden opgegeven voor het verzamelen van fouten en feedback van onze community. Ze worden echter niet ondersteund door Azure technische ondersteuning. Als u een cluster maken of deze functies aan bestaande clusters toevoegen, is dat cluster wordt niet ondersteund totdat de functie niet langer in preview is en is geslaagd voor algemene beschikbaarheid (GA).
+>
+> Als u problemen met de preview-functies ondervindt, [opent u een probleem op de AKS-GitHub-opslagplaats] [ aks-github] met de naam van de preview-functie in de titel van fout.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -36,7 +38,7 @@ az extension add --name aks-preview
 ```
 
 > [!NOTE]
-> Wanneer u installeert de *aks-preview* extensie, elke AKS-cluster dat u gebruikt het scale set preview-implementatiemodel. Als u wilt zich afmelden en regular, volledig ondersteunde clusters maken, de extensie verwijderen met `az extension remove --name aks-preview`.
+> Als u eerder hebt geïnstalleerd het *aks-preview* extensie, installatie van de beschikbare updates met behulp van de de `az extension update --name aks-preview` opdracht.
 
 ### <a name="register-scale-set-feature-provider"></a>Scale set functie provider registreren
 
@@ -87,7 +89,7 @@ De twee autoscalers kunnen samenwerken, en worden vaak beide geïmplementeerd in
 Als u maken van een AKS-cluster wilt, gebruikt u de [az aks maken] [ az-aks-create] opdracht. Geef een *--kubernetes-versie* die voldoet aan of groter is dan de minimale versienummer dat is vereist, zoals wordt beschreven in de voorgaande [voordat u begint met](#before-you-begin) sectie. Als u wilt inschakelen en configureren van het cluster automatisch schalen, gebruikt u de *--inschakelen-cluster-automatisch schalen* parameter, en geeft u een knooppunt *--min-count* en *--maximum aantal*.
 
 > [!IMPORTANT]
-> Het cluster automatisch schalen is een Kubernetes-onderdeel. Hoewel het AKS-cluster maakt gebruik van een virtuele-machineschaalset voor de knooppunten, niet handmatig inschakelen of bewerken van instellingen voor scale set automatisch schalen in Azure portal of met de Azure CLI. Laat het Kubernetes-cluster automatisch schalen de schaalinstellingen van de vereiste beheren. Zie voor meer informatie, [kan ik de AKS-resources in de resourcegroep MC_ wijzigen?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group)
+> Het cluster automatisch schalen is een Kubernetes-onderdeel. Hoewel het AKS-cluster maakt gebruik van een virtuele-machineschaalset voor de knooppunten, niet handmatig inschakelen of bewerken van instellingen voor scale set automatisch schalen in Azure portal of met de Azure CLI. Laat het Kubernetes-cluster automatisch schalen de schaalinstellingen van de vereiste beheren. Zie voor meer informatie, [kan ik de AKS-resources in de resourcegroep MC_ wijzigen?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc_-resource-group)
 
 Het volgende voorbeeld maakt u een AKS-cluster met virtuele-machineschaalset en het cluster automatisch schalen ingeschakeld en maakt gebruik van een minimum van *1* en maximaal *3* knooppunten:
 
@@ -174,6 +176,7 @@ In dit artikel laat zien hoe u het aantal AKS-knooppunten automatisch schalen. U
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

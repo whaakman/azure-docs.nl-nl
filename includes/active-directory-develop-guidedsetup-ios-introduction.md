@@ -3,23 +3,23 @@ title: bestand opnemen
 description: bestand opnemen
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
-ms.date: 09/19/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 8c7f11d74d0a0b81f9f0c40871b2eaa3eb25f51f
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ace6c36f1bc4582b3210c049a4ff8cb1f770bf88
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988236"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203472"
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>De Microsoft Graph-API aanroepen vanuit een iOS-toepassing
 
@@ -34,7 +34,7 @@ Nadat u de oefeningen in deze handleiding hebt voltooid, kan uw toepassing een b
 
 ## <a name="how-this-guide-works"></a>De werking van deze handleiding
 
-![De werking van deze handleiding](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.png)
+![Laat zien hoe de voorbeeld-app wordt gegenereerd door deze zelfstudie werkt](media/active-directory-develop-guidedsetup-ios-introduction/iosintro-updated.png)
 
 In deze handleiding kan de voorbeeld-App een iOS-toepassing om op te vragen van de Microsoft Graph API of een web-API die tokens van het Azure AD v2.0-eindpunt accepteert. In dit scenario voor een token wordt toegevoegd aan de HTTP-aanvragen met behulp van de **autorisatie** header. Ophalen van tokens en vernieuwing worden afgehandeld door de Microsoft Authentication Library (MSAL).
 
@@ -50,6 +50,6 @@ MSAL kunt opslaan in cache en toegangstokens vernieuwen voor u, zodat uw toepass
 
 Deze handleiding worden de volgende bibliotheek gebruikt:
 
-|Bibliotheek|Beschrijving|
+|Bibliotheek|Description|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|Preview van Microsoft Authentication Library voor iOS|

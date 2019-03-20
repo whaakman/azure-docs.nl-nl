@@ -1,26 +1,26 @@
 ---
-title: C#-zelfstudie over synoniemen - Azure Search
-description: In deze C#-zelfstudie leert u hoe u de synoniemenfunctie toevoegt aan een index in Azure Search. Een synoniemenkaart is een lijst met equivalente termen. Voor velden met ondersteuning voor synoniemen worden query's uitgebreid met de door de gebruiker opgegeven term en alle gerelateerde synoniemen.
+title: Synoniemen C# voorbeeld - Azure Search
+description: In deze C# bijvoorbeeld informatie over het toevoegen van de synoniemenfunctie naar een index in Azure Search. Een synoniemenkaart is een lijst met equivalente termen. Voor velden met ondersteuning voor synoniemen worden query's uitgebreid met de door de gebruiker opgegeven term en alle gerelateerde synoniemen.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: tutorial
-ms.date: 07/10/2018
+ms.topic: conceptual
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d04956df7f79f2522b53b98d7b10f93d67b9c3c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: cb0d04e46834530c8fea29ef79a2156caabeeeff
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086731"
+ms.locfileid: "58202364"
 ---
-# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Zelfstudie: Synoniemen toevoegen voor Azure Search in C#
+# <a name="example-add-synonyms-for-azure-search-in-c"></a>Voorbeeld: Synoniemen toevoegen voor Azure Search in C#
 
 Met synoniemen breidt u een query uit door termen te gebruiken die semantisch overeenkomen met de ingevoerde term. Mogelijk wilt u bijvoorbeeld dat met 'auto' ook documenten worden geretourneerd met de termen 'voertuig' of 'cabrio'. 
 
-In Azure Search worden synoniemen gedefinieerd in een *synoniementoewijzing* op basis van *toewijzingsregels* waarmee equivalente termen worden gekoppeld. Deze zelfstudie bevat essentiële stappen voor het toevoegen en gebruiken van synoniemen met een bestaande index. In deze zelfstudie leert u procedures om het volgende te doen:
+In Azure Search worden synoniemen gedefinieerd in een *synoniementoewijzing* op basis van *toewijzingsregels* waarmee equivalente termen worden gekoppeld. In dit voorbeeld bevat informatie over essentiële stappen voor het toevoegen en het gebruik van synoniemen met een bestaande index. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Synoniemen inschakelen door toewijzingsregels te maken en plaatsen 
@@ -42,7 +42,7 @@ Voor de zelfstudie gelden de volgende vereisten:
 
 ## <a name="overview"></a>Overzicht
 
-Met 'voor en na'-query's wordt de meerwaarde van synoniemen aangetoond. In deze zelfstudie gebruikt u een voorbeeldtoepassing die query's uitvoert en resultaten retourneert in een voorbeeldindex. De voorbeeldtoepassing maakt een kleine index met de naam 'hotels' en vult deze met twee documenten. De toepassing voert zoekquery's uit met termen en zinnen die niet voorkomen in de index. Hierna wordt de synoniemenfunctie ingeschakeld en worden dezelfde zoekopdrachten opnieuw uitgevoerd. In de onderstaande code wordt de algehele stroom gedemonstreerd.
+Met 'voor en na'-query's wordt de meerwaarde van synoniemen aangetoond. In dit voorbeeld gebruikt u een voorbeeldtoepassing die query's uitvoert en resultaten retourneert in een voorbeeldindex. De voorbeeldtoepassing maakt een kleine index met de naam 'hotels' en vult deze met twee documenten. De toepassing voert zoekquery's uit met termen en zinnen die niet voorkomen in de index. Hierna wordt de synoniemenfunctie ingeschakeld en worden dezelfde zoekopdrachten opnieuw uitgevoerd. In de onderstaande code wordt de algehele stroom gedemonstreerd.
 
 ```csharp
   static void Main(string[] args)
@@ -161,18 +161,18 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
 Met de eerste query wordt het document opgehaald uit de regel `five star=>luxury`. Met de tweede query wordt de zoekopdracht uitgebreid met `internet,wifi` en met de derde met zowel `hotel, motel` als `economy,inexpensive=>budget` bij het zoeken naar de overeenkomende documenten.
 
-Door synoniemen toe te voegen, wordt de zoekervaring volledig veranderd. In deze zelfstudie worden met de oorspronkelijke query's geen bruikbare resultaten geretourneerd, hoewel de documenten in de index wel relevant zijn. Door synoniemen in te schakelen, breidt u de index zodanig uit dat deze ook termen bevat die regelmatig worden gebruikt, zonder dat daarbij wijzigingen worden aangebracht aan de onderliggende gegevens in de index.
+Door synoniemen toe te voegen, wordt de zoekervaring volledig veranderd. In dit voorbeeld is de oorspronkelijke query's mislukt bruikbare resultaten geretourneerd, hoewel de documenten in de index wel relevant zijn. Door synoniemen in te schakelen, breidt u de index zodanig uit dat deze ook termen bevat die regelmatig worden gebruikt, zonder dat daarbij wijzigingen worden aangebracht aan de onderliggende gegevens in de index.
 
 ## <a name="sample-application-source-code"></a>Broncode van een voorbeeldtoepassing
 U vindt de volledige broncode van de voorbeeldtoepassing die in deze walkthrough wordt gebruikt, op [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-De snelste manier om op te schonen na een zelfstudie is de resourcegroep met de Azure Search-service te verwijderen. U kunt de resourcegroep nu verwijderen om alles daarin permanent te verwijderen. De naam van de resourcegroep staat in de portal op de pagina Overzicht van de Azure Search-service.
+De snelste manier om op te schonen nadat een voorbeeld hiervan is door de resourcegroep met de Azure Search-service te verwijderen. U kunt de resourcegroep nu verwijderen om alles daarin permanent te verwijderen. De naam van de resourcegroep staat in de portal op de pagina Overzicht van de Azure Search-service.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie is de [REST-API voor synoniemen](https://aka.ms/rgm6rq) in C#-code gedemonstreerd om toewijzingsregels te maken en plaatsen en de synoniemtoewijzing vervolgens in een query aan te roepen. Aanvullende informatie vindt u in de referentiedocumentatie voor de [.NET-SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) en [REST-API](https://docs.microsoft.com/rest/api/searchservice/).
+In dit voorbeeld de [synoniemen REST-API](https://aka.ms/rgm6rq) in C# code voor het maken en regels voor apparaatgroeptoewijzing plaatsen en vervolgens de synoniemtoewijzing aanroepen op een query. Aanvullende informatie vindt u in de referentiedocumentatie voor de [.NET-SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) en [REST-API](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Synoniemen gebruiken in Azure Search](search-synonyms.md)

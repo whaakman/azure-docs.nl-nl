@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 73a88ec0280728b4a485bd095096e90bbc43ef40
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990948"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106556"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Beveiligen van uw computers en toepassingen in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen. Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's) en computers, toepassingen, netwerken, SQL, en de identiteit en toegang.
@@ -144,21 +144,21 @@ Er zijn drie soorten pictogrammen weergegeven in deze lijst:
 
 1. Selecteer een web-App. Een overzicht wordt geopend met drie tabbladen:
 
-  - **Aanbevelingen**: op basis van beoordelingen die door Security Center die niet zijn uitgevoerd.
-  - **Evaluaties doorgegeven**: lijst met beoordelingen uitgevoerd door Security Center die doorgegeven.
-  - **Niet-beschikbare evaluaties**: lijst met beoordelingen die kan niet worden uitgevoerd vanwege een fout of de aanbeveling is niet relevant zijn voor de specifieke appservice
+   - **Aanbevelingen**: op basis van beoordelingen die door Security Center die niet zijn uitgevoerd.
+   - **Evaluaties doorgegeven**: lijst met beoordelingen uitgevoerd door Security Center die doorgegeven.
+   - **Niet-beschikbare evaluaties**: lijst met beoordelingen die kan niet worden uitgevoerd vanwege een fout of de aanbeveling is niet relevant zijn voor de specifieke appservice
 
-  Onder **aanbevelingen** is een lijst met aanbevelingen voor de geselecteerde web-App en de ernst van elke aanbeveling.
+   Onder **aanbevelingen** is een lijst met aanbevelingen voor de geselecteerde web-App en de ernst van elke aanbeveling.
 
-  ![Aanbevelingen van App Services](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
+   ![Aanbevelingen van App Services](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
 2. Selecteer een aanbeveling om een beschrijving van de aanbeveling en een lijst met resources niet in orde, gezonde resources en niet-gescande resources te bekijken.
 
- - Onder de **doorgegeven evaluaties** kolom is een lijst van geslaagde evaluaties.  Ernst van deze beoordeling is altijd groen.
+   - Onder de **doorgegeven evaluaties** kolom is een lijst van geslaagde evaluaties.  Ernst van deze beoordeling is altijd groen.
 
- -  Selecteer een evaluatie van de doorgegeven in de lijst voor een beschrijving van de evaluatie, een lijst met resources niet in orde en in orde is en een lijst met niet-gescande resources. Er is een tabblad voor de resources niet in orde, maar deze lijst is altijd leeg omdat de evaluatie van de doorgegeven.
+   - Selecteer een evaluatie van de doorgegeven in de lijst voor een beschrijving van de evaluatie, een lijst met resources niet in orde en in orde is en een lijst met niet-gescande resources. Er is een tabblad voor de resources niet in orde, maar deze lijst is altijd leeg omdat de evaluatie van de doorgegeven.
 
-    ![App Service-herstel](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+     ![App Service-herstel](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
 ## <a name="virtual-machine-scale-sets"></a>Virtuele-machineschaalsets
 Security Center detecteert automatisch of u ingesteld voor schalen hebt en raadt u aan de Microsoft Monitoring Agent installeren op deze scale sets. 
@@ -168,7 +168,7 @@ De Microsoft Monitoring Agent installeren:
 1. Selecteer de aanbeveling **monitoring agent installeren op virtuele-machineschaalset**. U ophalen een lijst van niet-bewaakte schaalsets.
 2. Selecteer een schaalset niet in orde. Volg de instructies voor het installeren van de bewakingsagent met behulp van een bestaande ingevuld werkruimte of maak een nieuwe. Zorg ervoor dat u de werkruimte [prijscategorie](security-center-pricing.md) als deze niet ingesteld.
 
- ![MMS installeren](./media/security-center-virtual-machine-recommendations/install-mms.png)
+   ![MMS installeren](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
 Als u wilt instellen schaalsets nieuwe automatisch de Microsoft Monitoring Agent wilt installeren:
 1. Ga naar Azure Policy en klikt u op **definities**.

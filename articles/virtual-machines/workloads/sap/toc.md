@@ -78,6 +78,7 @@
 #### [Hoge beschikbaarheid in Windows met gedeelde schijven voor een (A)SCS-exemplaar](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [Hoge beschikbaarheid in Windows met SOFS File Share voor een (A)SCS-exemplaar](sap-high-availability-guide-wsfc-file-share.md)
 #### [Hoge beschikbaarheid in SUSE Linux voor een (A)SCS-exemplaar](high-availability-guide-suse.md)
+#### [Hoge beschikbaarheid in SUSE Linux voor een (A)SCS-exemplaar met Azure NetApp Files](high-availability-guide-suse-netapp-files.md)
 #### [Hoge beschikbaarheid in een Red Hat Enterprise Linux for (A)SCS-exemplaar](high-availability-guide-rhel.md)
 ### Voorbereiding van Azure-infrastructuur
 #### [Windows met gedeelde schijven voor een (A)SCS-exemplaar](sap-high-availability-infrastructure-wsfc-shared-disk.md)
@@ -90,6 +91,7 @@
 #### [Windows met gedeelde schijven voor een (A)SCS-exemplaar](sap-high-availability-installation-wsfc-shared-disk.md)
 #### [Windows met SOFS File Share voor een (A)SCS-exemplaar](sap-high-availability-installation-wsfc-file-share.md)
 #### [SUSE Linux met NFS voor een (A)SCS-exemplaar](high-availability-guide-suse.md)
+#### [SUSE Linux met NFS voor een (A)SCS-exemplaar met Azure NetApp Files](high-availability-guide-suse-netapp-files.md)
 #### [Hoge beschikbaarheid voor SAP NetWeaver op Red Hat Enterprise Linux](high-availability-guide-rhel.md)
 ### SAP Multi-SID
 #### [Windows met gedeelde schijven voor een (A)SCS-exemplaar](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)

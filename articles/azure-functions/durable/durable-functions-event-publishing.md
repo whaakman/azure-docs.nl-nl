@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: 78011e799fb4ddaf89fb1fd24c1f2a313ef49ba5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338104"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136358"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Duurzame functies publiceren naar Azure Event Grid (preview)
 
@@ -35,16 +35,16 @@ Hier volgen enkele scenario's waarin deze functie handig is:
 * Installeer [Azure-Opslagemulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
 * Installeer [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) of gebruik [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
-## <a name="create-a-custom-event-grid-topic"></a>Een aangepast Event Grid-onderwerp maken
+## <a name="create-a-custom-event-grid-topic"></a>Een aangepast event grid-onderwerp maken
 
-Maak een Event Grid-onderwerp voor het verzenden van gebeurtenissen van duurzame functies. De volgende instructies laten zien hoe u een onderwerp maakt met behulp van Azure CLI. Raadpleeg de volgende artikelen voor meer informatie over hoe u doet dit met behulp van PowerShell of Azure portal:
+Maak een event grid-onderwerp voor het verzenden van gebeurtenissen van duurzame functies. De volgende instructies laten zien hoe u een onderwerp maakt met behulp van Azure CLI. Raadpleeg de volgende artikelen voor meer informatie over hoe u doet dit met behulp van PowerShell of Azure portal:
 
 * [EventGrid snelstartgidsen: Maken van aangepaste gebeurtenissen - PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
 * [EventGrid snelstartgidsen: Een aangepaste gebeurtenis - Azure portal maken](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een resourcegroep met de opdracht `az group create`. Event Grid ondersteunt op dit moment niet alle regio's. Zie voor meer informatie over welke regio's worden ondersteund, de [overzicht van Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+Maak een resourcegroep met de opdracht `az group create`. Op dit moment ondersteunt Azure Event Grid niet alle regio's. Zie voor meer informatie over welke regio's worden ondersteund, de [overzicht van Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -52,7 +52,7 @@ az group create --name eventResourceGroup --location westus2
 
 ### <a name="create-a-custom-topic"></a>Een aangepast onderwerp maken
 
-Een Event Grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenis te posten. Vervang `<topic_name>` door een unieke naam voor het onderwerp. Naam van het onderwerp moet uniek zijn omdat deze niet langer een DNS-vermelding.
+Een event grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenis te posten. Vervang `<topic_name>` door een unieke naam voor het onderwerp. Naam van het onderwerp moet uniek zijn omdat deze niet langer een DNS-vermelding.
 
 ```bash
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
@@ -78,25 +78,18 @@ Nu kunt u gebeurtenissen verzenden naar het onderwerp.
 
 Zoek in uw project duurzame functies de `host.json` bestand.
 
-Voeg `EventGridTopicEndpoint` en `EventGridKeySettingName` in een `durableTask` eigenschap.
+Voeg `eventGridTopicEndpoint` en `eventGridKeySettingName` in een `durableTask` eigenschap.
 
 ```json
 {
     "durableTask": {
-        "EventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
-        "EventGridKeySettingName": "EventGridKey"
+        "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+        "eventGridKeySettingName": "EventGridKey"
     }
 }
 ```
 
-De mogelijke configuratie-eigenschappen van Azure Event Grid zijn als volgt:
-
-* **EventGridTopicEndpoint** -het eindpunt van de Event Grid-onderwerp. De *AppSettingName %* syntaxis om op te lossen toepassings- of omgevingsvariabelen voor deze waarde kan worden gebruikt.
-* **EventGridKeySettingName** -de sleutel van de toepassingsinstelling van de voor uw Azure-functie. Duurzame functies krijgt de sleutel voor Event Grid-onderwerp van de waarde.
-* **EventGridPublishRetryCount** : [optioneel] het aantal nieuwe pogingen als publiceren naar de Event Grid-onderwerp is mislukt.
-* **EventGridPublishRetryInterval** -[optioneel] het Event Grid publish interval voor opnieuw proberen in de *uu: mm:* indeling. Indien niet opgegeven, is het standaardinterval 5 minuten.
-
-Zodra u configureert de `host.json` -bestand, uw duurzame functies project begint met het verzenden van gebeurtenissen in de levensduur naar de Event Grid-onderwerp. Dit werkt wanneer u uitvoert in de functie-App en wanneer u lokaal uitvoeren.
+De mogelijke configuratie-eigenschappen van Azure Event Grid kunnen u vinden in de [host.json documentatie](../functions-host-json.md#durabletask). Na het configureren van de `host.json` -bestand, de functie-app verzendt lifecycle gebeurtenissen naar event grid-onderwerp. Dit werkt wanneer u uw functie-app, zowel lokaal als in Azure uitvoeren.'' '
 
 De app-instelling voor de sleutel voor onderwerp instellen in de functie-App en `local.setting.json`. De volgende JSON wordt een voorbeeld van de `local.settings.json` voor lokale foutopsporing. Vervang `<topic_key>` met de sleutel van het onderwerp.  
 
@@ -115,9 +108,9 @@ Zorg ervoor dat [Opslagemulator](https://docs.microsoft.com/azure/storage/common
 
 ## <a name="create-functions-that-listen-for-events"></a>Functies maken die naar gebeurtenissen luisteren
 
-Een functie-App maken. Het is raadzaam te zoeken in dezelfde regio als de Event Grid-onderwerp.
+Een functie-App maken. Het is raadzaam te zoeken in dezelfde regio als de event grid-onderwerp.
 
-### <a name="create-an-event-grid-trigger-function"></a>Een activeringsfunctie voor Event Grid maken
+### <a name="create-an-event-grid-trigger-function"></a>Een activeringsfunctie voor event grid maken
 
 Maak een functie voor het ontvangen van de van levenscyclusgebeurtenissen. Selecteer **aangepaste functie**.
 
@@ -145,11 +138,11 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-Selecteer `Add Event Grid Subscription`. Met deze bewerking wordt een Event Grid-abonnement voor het Event Grid-onderwerp dat u hebt gemaakt. Zie voor meer informatie, [concepten in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
+Selecteer `Add Event Grid Subscription`. Met deze bewerking wordt een event grid-abonnement voor de event grid-onderwerp dat u hebt gemaakt. Zie voor meer informatie, [concepten in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
 
 ![Selecteer de Trigger Gebeurtenisraster-koppeling.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-Selecteer `Event Grid Topics` voor **Onderwerptype**. Selecteer de resourcegroep die u hebt gemaakt voor de Event Grid-onderwerp. Selecteer vervolgens het exemplaar van de Event Grid-onderwerp. Druk op `Create`.
+Selecteer `Event Grid Topics` voor **Onderwerptype**. Selecteer de resourcegroep die u hebt gemaakt voor de event grid-onderwerp. Selecteer vervolgens het exemplaar van de event grid-onderwerp. Druk op `Create`.
 
 ![Hiermee wordt een Event Grid-abonnement gemaakt.](./media/durable-functions-event-publishing/eventsubscription.png)
 
@@ -171,7 +164,6 @@ using Microsoft.Extensions.Logging;
 namespace LifeCycleEventSpike
 {
     public static class Sample
-    {
     {
         [FunctionName("Sample")]
         public static async Task<List<string>> RunOrchestrator(
@@ -258,19 +250,19 @@ Zie de logboeken van de functie die u hebt gemaakt in Azure portal.
 
 De volgende lijst wordt het schema van de levenscyclus van gebeurtenissen beschreven:
 
-* **Id**: De unieke id voor de Event Grid-gebeurtenis.
-* **Onderwerp**: Pad naar het onderwerp van de gebeurtenis. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` worden `Running`, `Completed`, `Failed`, en `Terminated`.  
-* **Gegevens**: Duurzame functies specifieke Parameters.
-  * **hubName**: [TaskHub](durable-functions-task-hubs.md) naam.
-  * **Functienaam**: Naam van de orchestrator-functie.
-  * **instanceId**: Duurzame functies instanceId.
-  * **reden**: Aanvullende gegevens die zijn gekoppeld aan de traceringsgebeurtenis. Zie voor meer informatie, [diagnostische gegevens in duurzame functies (Azure Functions)](durable-functions-diagnostics.md)
-  * **runtimeStatus**: Status van de Orchestration-Runtime. Actieve, voltooid, is mislukt, geannuleerd.
-* **type gebeurtenis**: "orchestratorEvent"
-* **eventTime**: Tijd van de gebeurtenis (UTC).
-* **dataVersion**: De versie van het schema van de gebeurtenis levenscyclus.
-* **metadataVersion**:  De versie van de metagegevens.
-* **onderwerp**: EventGrid onderwerp resource.
+* **`id`**: De unieke id voor de event grid-gebeurtenis.
+* **`subject`**: Pad naar het onderwerp van de gebeurtenis. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` worden `Running`, `Completed`, `Failed`, en `Terminated`.  
+* **`data`**: Duurzame functies specifieke Parameters.
+  * **`hubName`**: [TaskHub](durable-functions-task-hubs.md) naam.
+  * **`functionName`**: Naam van de orchestrator-functie.
+  * **`instanceId`**: Duurzame functies instanceId.
+  * **`reason`**: Aanvullende gegevens die zijn gekoppeld aan de traceringsgebeurtenis. Zie voor meer informatie, [diagnostische gegevens in duurzame functies (Azure Functions)](durable-functions-diagnostics.md)
+  * **`runtimeStatus`**: Status van de Orchestration-Runtime. Actieve, voltooid, is mislukt, geannuleerd.
+* **`eventType`**: "orchestratorEvent"
+* **`eventTime`**: Tijd van de gebeurtenis (UTC).
+* **`dataVersion`**: De versie van het schema van de gebeurtenis levenscyclus.
+* **`metadataVersion`**:  De versie van de metagegevens.
+* **`topic`**: Event grid-onderwerp resource.
 
 ## <a name="how-to-test-locally"></a>Lokaal testen
 

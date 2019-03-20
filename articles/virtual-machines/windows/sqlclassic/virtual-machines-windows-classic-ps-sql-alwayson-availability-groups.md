@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: 584fca3df4fee24a4f1c7b93d5371c48be059f7b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a6d8326afa3bcf13234ab072a2cd2909a864738b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257932"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002847"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>De AlwaysOn-beschikbaarheidsgroep configureren op een Azure-VM met PowerShell
 > [!div class="op_single_selector"]
-> * [Klassieke: UI](../classic/portal-sql-alwayson-availability-groups.md)
-> * [Klassieke: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+> * [Klassiek: GEBRUIKERSINTERFACE](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Klassiek: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 Voordat u begint, kunt u dat u deze taak in Azure resource manager-model kunt voltooien. Het wordt aangeraden de Azure resource manager-model voor nieuwe implementaties. Zie [SQL Server Always On-beschikbaarheidsgroepen op Azure virtual machines](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
@@ -103,7 +103,7 @@ Deze zelfstudie is bedoeld om u de stappen die nodig zijn voor het instellen van
 
     Het configuratiebestand bevat de volgende XML-document. In het kort het Hiermee geeft u een virtueel netwerk met de naam **ContosoNET** in de affiniteitsgroep met de naam **ContosoAG**. Dit is de adresruimte **10.10.0.0/16** en twee subnetten gemaakt, heeft **10.10.1.0/24** en **10.10.2.0/24**, die respectievelijk de front-subnet en de back-subnet, zijn. De front-subnet is waar u clienttoepassingen, zoals Microsoft SharePoint kunt plaatsen. De back-subnet is plaatst u de SQL Server-VM's. Als u wijzigt de **$affinityGroupName** en **$virtualNetworkName** variabelen eerder gebruikt, moet u ook de bijbehorende namen hieronder wijzigen.
 
-        <NetworkConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+        <NetworkConfiguration xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
             <Dns />
             <VirtualNetworkSites>
@@ -239,7 +239,7 @@ De domain controller-server is nu ingericht. Vervolgens configureert u het Activ
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    De GUID die hierboven is opgegeven, is de GUID voor het objecttype van de computer. De **CORP\Install** account moet de **alle eigenschappen lezen** en **Computerobjecten maken** machtiging voor het maken van de actieve directe objecten voor de failover-cluster. De **alle eigenschappen lezen** machtiging is al toegewezen aan CORP\Install standaard, dus u hoeft het expliciet te geven. Zie voor meer informatie over de machtigingen die nodig zijn om de failovercluster te maken, [stapsgewijze handleiding voor Failover-Cluster: configureren van Accounts in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
+    De GUID die hierboven is opgegeven, is de GUID voor het objecttype van de computer. De **CORP\Install** account moet de **alle eigenschappen lezen** en **Computerobjecten maken** machtiging voor het maken van de actieve directe objecten voor de failover-cluster. De **alle eigenschappen lezen** machtiging is al toegewezen aan CORP\Install standaard, dus u hoeft het expliciet te geven. Zie voor meer informatie over de machtigingen die nodig zijn om de failovercluster te maken, [stapsgewijze handleiding voor Failover-Cluster: Configureren van Accounts in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
 
     Nu dat u klaar bent met het configureren van Active Directory en de gebruikersobjecten, u twee SQL Server-VM's maken en voeg ze toe aan dit domein.
 
@@ -388,7 +388,7 @@ In deze sectie die u wilt wijzigen van de drie servers die u in het failover-clu
   * Wijzigen van een beschikbaarheidsgroep
   * Verbinding maken met SQL
   * Status van de server weergeven
-* ContosoSQL1 en alleen ContosoSQL2: de **TCP** protocol is al ingeschakeld op de SQL Server-VM. U moet wel openen van de firewall voor externe toegang van SQL Server.
+* ContosoSQL1 en alleen ContosoSQL2: De **TCP** protocol is al ingeschakeld op de SQL Server-VM. U moet wel openen van de firewall voor externe toegang van SQL Server.
 
 U bent nu klaar om te beginnen. Beginnen met **ContosoQuorum**, volg de onderstaande stappen:
 

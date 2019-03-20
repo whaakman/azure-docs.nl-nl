@@ -1,5 +1,5 @@
 ---
-title: Taalondersteuning - Speech Service-API
+title: Taalondersteuning - spraakservices
 titleSuffix: Azure Cognitive Services
 description: De Azure-Services voor spraak-ondersteuning voor vele talen voor spraak-naar-tekst en spraak conversie, samen met spraakomzetting. Dit artikel bevat een uitgebreide lijst van taalondersteuning door de service.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 22916a188c79d5894faf48dd71d6ab17a582cf8b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878031"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225430"
 ---
-# <a name="language-and-region-support-for-speech-service-api"></a>Ondersteuning voor spraak-API voor Service taal en regio
+# <a name="language-and-region-support-for-the-speech-services"></a>Ondersteuning voor de spraakservices taal en regio
 
 Andere talen worden ondersteund voor verschillende functies van de spraakservices. De volgende tabellen geven een overzicht van ondersteuning voor talen.
 
@@ -76,13 +76,18 @@ Neurale stemmen kunnen worden gebruikt voor interactie met chatbots en virtuele 
 Zie voor een volledige lijst van neurale stemmen en regionale beschikbaarheid, [regio's](regions.md#neural-voices).
 
 | Landinstelling | Taal | Geslacht | De toewijzing van service|
-|--------|----------|---------|--------------------|
+|--------|----------|--------|---------------------|
+| de-DE | Duits (Duitsland) | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (nl-nl, KatjaNeural)" |
 | en-US | English (US) | Man | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
 | en-US | English (US) | Vrouw | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+| IT-IT | Italiaans (Italië) | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (it-IT, ElsaNeural)" |
 | zh-CN | Chinees | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-CN, XiaoxiaoNeural)" |
 
 > [!IMPORTANT]
 > Microsoft Server spraak tekst en spraak, spraak (zh-CN, XiaoxiaoNeural) is alleen beschikbaar via het eindpunt Zuidoost-Azië: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
+
+> [!IMPORTANT]
+> Microsoft Server spraak tekst en spraak, spraak (nl-nl, KatjaNeural) en Microsoft Server spraak tekst en spraak, spraak (it-IT, ElsaNeural) zijn alleen beschikbaar via het eindpunt West-Europa: https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### <a name="standard-voices"></a>Standard stemmen
 
@@ -179,7 +184,7 @@ zh-TW | Chinees (Taiwan)|Vrouw | "Microsoft Server spraak tekst en spraak, spraa
 Stem aanpassing is beschikbaar voor ons Engels (en-US), vasteland Chinees (zh-CN), Frans (fr-FR), Duits (nl-nl) en Italiaans (it-IT).
 
 > [!NOTE]
-> Frans, Duits en Italiaans trainingen voor de toon begint met een gegevensset van 2000 + uitingen. Chinees-Engels tweetalige modellen worden ook ondersteund met een initiële gegevensset van meer dan 2000 uitingen.
+> Frans en Duits, Italiaans trainingen voor de toon begint met een gegevensset van meer dan 2000 uitingen. Chinees-Engels tweetalige modellen worden ook ondersteund met een initiële gegevensset van meer dan 2000 uitingen.
 
 ## <a name="speech-translation"></a>Spraakomzetting
 
@@ -255,5 +260,5 @@ De **Spraakomzetting** API biedt ondersteuning voor verschillende talen voor spr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
+* [Uw proefabonnement voor Speech Services ophalen](https://azure.microsoft.com/try/cognitive-services/)
 * [Zie voor het herkennen van gesproken tekst in C#](quickstart-csharp-dotnet-windows.md)

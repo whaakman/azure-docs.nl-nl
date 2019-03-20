@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: e851f6f5433a832aa30a0d87a917b64d1bc721f2
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 76f1ddeebb173bf19b15753d12e4374e6365bf8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888274"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998985"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>PostgreSQL installeren en configureren op Azure
 PostgreSQL is een geavanceerde open-source-database die vergelijkbaar is met Oracle en DB2. Het bevat enterprise-ready-functies zoals volledige ACID naleving, betrouwbare transactionele verwerking en gelijktijdigheidsbeheer voor meerdere versies. Het biedt ook ondersteuning voor standaarden, zoals ANSI SQL en SQL/MED (met inbegrip van externe gegevens wrappers voor Oracle, MySQL, MongoDB en nog veel meer). Het is maximaal worden uitgebreid met ondersteuning voor meer dan 12 procedurele talen GIN en basisvertalingen indexen, ruimtelijke gegevens en ondersteuning meerdere NoSQL-achtige functies voor JSON of toepassingen op basis van sleutel-waarde.
@@ -238,5 +238,5 @@ Gebruik de volgende opdracht uit om gegevens in een tabel te werken. Voor deze e
 
 
 ## <a name="get-more-information-about-postgresql"></a>Meer informatie over PostgreSQL
-Nu dat u de installatie van PostgreSQL in een Azure Linux-VM hebt voltooid, kunt u met plezier gebruiken in Azure. Voor meer informatie over PostgreSQL, gaat u naar de [PostgreSQL website](http://www.postgresql.org/).
+Nu dat u de installatie van PostgreSQL in een Azure Linux-VM hebt voltooid, kunt u met plezier gebruiken in Azure. Voor meer informatie over PostgreSQL, gaat u naar de [PostgreSQL website](https://www.postgresql.org/).
 

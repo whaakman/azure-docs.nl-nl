@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2179b212dbbc7891b003664f4bea3d47cbb3a34e
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: f03ece417ef5db891efe32a662a092ebf6072b33
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575389"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848158"
 documentType: LandingData
 title: Documentatie voor Azure Data Factory
 metadata:
@@ -80,6 +80,7 @@ sections:
     - html: Gegevens in een virtueel netwerk transformeren - <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Gebruikersinterface van Data Factory</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
     - html: Vertakking en keten toevoegen - <a href="/azure/data-factory/tutorial-control-flow-portal">Gebruikersinterface van Data Factory</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
     - html: SSIS-pakketten uitvoeren in Azure - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Gebruikersinterface van Data Factory</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
+    - html: Continue integratie en levering (CI/CD) in Azure Data Factory - <a href="/azure/data-factory/continuous-integration-deployment">Data Factory-gebruikersinterface</a>
 - title: Voorbeelden
   items:
   - type: paragraph

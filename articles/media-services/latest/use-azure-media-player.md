@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
-ms.openlocfilehash: 4dd0f697d16d7a2fbeec8f712d98e6a7c439cb4e
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 6de626323c82689d0ead4f5aaad2a2e43187ebd0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064675"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896990"
 ---
 # <a name="azure-media-player-overview"></a>Overzicht van Azure Media Player
 
@@ -24,13 +24,13 @@ Azure Media Player is een web-videospeler gebouwd om af te spelen media-inhoud v
 
 Microsoft Azure Media Services kan inhoud worden aangeboden met HLS, DASH, Smooth Streaming-indelingen voor het afspelen van inhoud. Azure Media Player houdt rekening met deze verschillende indelingen en automatisch de beste koppeling op basis van de platform-en browsermogelijkheden speelt. Media Services kan ook dynamische versleuteling van activa met PlayReady-versleuteling of AES-128-bits envelop codering. Azure Media Player profiteert u van de ontsleuteling van PlayReady en AES-128 bits versleutelde inhoud wanneer op de juiste wijze geconfigureerd. 
 
-[Start uw gratis proefversie](http://azure.microsoft.com/en-us/pricing/free-trial/)
+[Start uw gratis proefversie](https://azure.microsoft.com/en-us/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>U kunt Azure Media Player-demo-pagina
 
 ### <a name="start-using"></a>Gaan gebruiken
 
-U kunt de [Azure Media Player-demo pagina](http://aka.ms/amp) Azure Media Services-voorbeelden of uw eigen stroom af te spelen.  
+U kunt de [Azure Media Player-demo pagina](https://aka.ms/amp) Azure Media Services-voorbeelden of uw eigen stroom af te spelen.  
 
 Als u wilt een nieuwe video afspelen, plakt u een andere URL en druk op **Update**.
 
@@ -40,7 +40,7 @@ Voor het configureren van verschillende opties voor afspelen (bijvoorbeeld, tech
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>Diagnostische gegevens van een videostream bewaken
 
-U kunt de [Azure Media Player-demo pagina](http://aka.ms/amp) voor het bewaken van diagnostische gegevens van een videostream. 
+U kunt de [Azure Media Player-demo pagina](https://aka.ms/amp) voor het bewaken van diagnostische gegevens van een videostream. 
 
 ![Azure Media Player diagnostics](./media/azure-media-player/diagnostics.png)
 

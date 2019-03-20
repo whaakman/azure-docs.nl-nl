@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 29208bcbdbe6ad01d0e1ac7343bd921f3287260a
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 3e93e822c5764a23bba124152ef5dfabf2d3f94f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581390"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223866"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Service Fabric-container die Apache Tomcat-server op Linux maken
 Apache Tomcat is een populaire, open-source implementatie van de Java Servlet- en Java-Server-technologieën. Dit artikel ziet u hoe u een container met Apache Tomcat en een eenvoudige webtoepassing bouwen, de container geïmplementeerd naar een Service Fabric-cluster waarop Linux wordt uitgevoerd en verbinding maken met de Web-App.  
 
-Zie voor meer informatie over de Apache Tomcat, de [Apache Tomcat-startpagina](http://tomcat.apache.org/). 
+Zie voor meer informatie over de Apache Tomcat, de [Apache Tomcat-startpagina](https://tomcat.apache.org/). 
 
 ## <a name="prerequisites"></a>Vereisten
 * Een ontwikkelcomputer waarop wordt uitgevoerd:
@@ -95,9 +95,9 @@ Volg de stappen in deze sectie om een Docker-installatiekopie op basis van een i
 
 1. Als u wilt uw container testen, open een browser en voer een van de volgende URL's. U ziet een variant van de "Hello World!" welkomstscherm wordt weergegeven voor elke URL.
 
-   - http://localhost:8080/hello 
-   - http://localhost:8080/hello/sayhello 
-   - http://localhost:8080/hello/sayhi 
+   - `http://localhost:8080/hello` 
+   - `http://localhost:8080/hello/sayhello` 
+   - `http://localhost:8080/hello/sayhi` 
 
    ![Hello world /sayhi](./media/service-fabric-get-started-tomcat/hello.png)
 
@@ -145,78 +145,78 @@ Nu dat u hebt de Tomcat-installatiekopie naar een containerregister hebt gepusht
    * Naam van de toepassingsservice: TomcatService
    * Voer de naam van de installatiekopie: Geef de URL voor de installatiekopie van de container in het containerregister; bijvoorbeeld, myregistry.azurecr.io/samples/tomcattest.
    * Opdrachten: Laat dit leeg. Omdat voor deze installatiekopie een workloadinvoerpunt is gedefinieerd, hoeft u niet expliciet invoeropdrachten op te geven (opdrachten worden uitgevoerd in de container, zodat de container na het opstarten actief blijft).
-   * Aantal exemplaren van de Gast-containertoepassing: 1
+   * Het aantal exemplaren van de Gast-containertoepassing: 1
 
    ![Service Fabric Yeoman-generator voor containers](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
 10. In het servicemanifest (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml*), voeg de volgende XML-code in de basismap **ServiceManfest** tag om de poort te openen uw toepassing luistert naar aanvragen. De **eindpunt** tag worden gedeclareerd voor het protocol en poort voor het eindpunt. In dit artikel wordt de beperkte service luistert op poort 8080: 
 
-    ```xml
-    <Resources>
-      <Endpoints>
-        <!-- This endpoint is used by the communication listener to obtain the port on which to 
-         listen. Please note that if your service is partitioned, this port is shared with 
-         replicas of different partitions that are placed in your code. -->
-        <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
-      </Endpoints>
-    </Resources>
-    ```
+   ```xml
+   <Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+       listen. Please note that if your service is partitioned, this port is shared with 
+       replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
+    </Endpoints>
+   </Resources>
+   ```
 
 11. In het toepassingsmanifest (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), onder de **ServiceManifestImport** taggen, het volgende XML-bestand toevoegen. Vervang de **AccountName** en **wachtwoord** in de **RepositoryCredentials** tag met de naam van het containerregister en het wachtwoord is vereist voor aanmelding bij deze.
 
-    ```xml
-    <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-      </ContainerHostPolicies>
-    </Policies>
-    ```
+   ```xml
+   <Policies>
+    <ContainerHostPolicies CodePackageRef="Code">
+      <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
+      <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+    </ContainerHostPolicies>
+   </Policies>
+   ```
 
-    De **ContainerHostPolicies** tag Hiermee geeft u het beleid voor het activeren van de hosts van de container.
+   De **ContainerHostPolicies** tag Hiermee geeft u het beleid voor het activeren van de hosts van de container.
     
-    * De **PortBinding** tag configureert u het beleid van de toewijzing van container-poort-naar-host. De **ContainerPort** kenmerk is ingesteld op 8080 omdat de container poort 8080, zoals opgegeven in de Dockerfile gebruikt. De **EndpointRef** kenmerk is ingesteld op 'endpointTest', het eindpunt dat is gedefinieerd in het servicemanifest in de vorige stap. Dus, binnenkomende aanvragen naar de service op poort 8080 worden toegewezen aan poort 8080 voor de container. 
-    * De **RepositoryCredentials** tag Hiermee geeft u de referenties die de container moet worden geverifieerd bij de (privé) waar deze wordt opgehaald van een installatiekopie van-opslagplaats. U hoeft niet op dit beleid als de afbeelding wordt worden opgehaald uit een openbare opslagplaats.
+   * De **PortBinding** tag configureert u het beleid van de toewijzing van container-poort-naar-host. De **ContainerPort** kenmerk is ingesteld op 8080 omdat de container poort 8080, zoals opgegeven in de Dockerfile gebruikt. De **EndpointRef** kenmerk is ingesteld op 'endpointTest', het eindpunt dat is gedefinieerd in het servicemanifest in de vorige stap. Dus, binnenkomende aanvragen naar de service op poort 8080 worden toegewezen aan poort 8080 voor de container. 
+   * De **RepositoryCredentials** tag Hiermee geeft u de referenties die de container moet worden geverifieerd bij de (privé) waar deze wordt opgehaald van een installatiekopie van-opslagplaats. U hoeft niet op dit beleid als de afbeelding wordt worden opgehaald uit een openbare opslagplaats.
     
 
 12. In de *ServiceFabricTomcat* map, verbinding maken met uw service fabric-cluster. 
 
-    * Voor verbinding met het lokale Service Fabric-cluster, voert u de volgende uit:
+   * Voor verbinding met het lokale Service Fabric-cluster, voert u de volgende uit:
 
-       ```bash
-       sfctl cluster select --endpoint http://localhost:19080
-       ```
+     ```bash
+     sfctl cluster select --endpoint http://localhost:19080
+     ```
     
-    * Voor verbinding met een beveiligde Azure-cluster, zorg ervoor dat het clientcertificaat is aanwezig is als een .pem-bestand in de *ServiceFabricTomcat* Active directory en uitvoeren: 
+   * Voor verbinding met een beveiligde Azure-cluster, zorg ervoor dat het clientcertificaat is aanwezig is als een .pem-bestand in de *ServiceFabricTomcat* Active directory en uitvoeren: 
 
-       ```bash
-       sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
-       ```
-       Vervang in de voorgaande opdracht `your-certificate.pem` met de naam van uw client-certificaatbestand. In de ontwikkel- en testomgevingen, wordt het clustercertificaat dat is vaak gebruikt als het clientcertificaat. Als uw certificaat zelf niet is ondertekend, laat de `-no-verify` parameter. 
+     ```bash
+     sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
+     ```
+     Vervang in de voorgaande opdracht `your-certificate.pem` met de naam van uw client-certificaatbestand. In de ontwikkel- en testomgevingen, wordt het clustercertificaat dat is vaak gebruikt als het clientcertificaat. Als uw certificaat zelf niet is ondertekend, laat de `-no-verify` parameter. 
        
-       Clustercertificaten zijn meestal lokaal gedownload als pfx-bestanden. Als u het certificaat nog in de PEM-indeling hebt, kunt u de volgende opdracht om een PEM-bestand maken vanuit een pfx-bestand uitvoeren:
+     Clustercertificaten zijn meestal lokaal gedownload als pfx-bestanden. Als u het certificaat nog in de PEM-indeling hebt, kunt u de volgende opdracht om een PEM-bestand maken vanuit een pfx-bestand uitvoeren:
 
-       ```bash
-       openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
-       ```
+     ```bash
+     openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
+     ```
 
-       Als uw pfx-bestand niet beveiligd met een wachtwoord is, gebruikt u `-passin pass:` voor de laatste parameter zijn.
+     Als uw pfx-bestand niet beveiligd met een wachtwoord is, gebruikt u `-passin pass:` voor de laatste parameter zijn.
 
 
 13. Voer het installatiescript dat is opgegeven in de sjabloon om de toepassing in uw cluster te implementeren. Het script het toepassingspakket worden gekopieerd naar de installatiekopieopslag van het cluster, het toepassingstype registreert en maakt u een exemplaar van de toepassing.
 
-       ```bash
-       ./install.sh
-       ```
+     ```bash
+     ./install.sh
+     ```
 
-    Nadat u het installatiescript hebt uitgevoerd, open een browser en Ga naar Service Fabric Explorer:
+   Nadat u het installatiescript hebt uitgevoerd, open een browser en Ga naar Service Fabric Explorer:
     
-    * Gebruik op een lokaal cluster http://localhost:19080/Explorer (Vervang *localhost* met het particuliere IP-adres van de virtuele machine als u Vagrant in Mac OS X).
-    * Gebruik op een beveiligde Azure-cluster, https://PublicIPorFQDN:19080/Explorer. 
+   * Gebruik op een lokaal cluster `http://localhost:19080/Explorer` (Vervang *localhost* met het particuliere IP-adres van de virtuele machine als u Vagrant in Mac OS X).
+   * Gebruik op een beveiligde Azure-cluster, `https://PublicIPorFQDN:19080/Explorer`. 
     
-    Vouw de **toepassingen** knooppunt en Let op: er nu een vermelding voor uw toepassingstype is **ServiceFabricTomcatType**, en een andere voor het eerste exemplaar van dat type. Het kan enkele minuten duren voor de toepassing volledig implementeren, worden dus even geduld.
+   Vouw de **toepassingen** knooppunt en Let op: er nu een vermelding voor uw toepassingstype is **ServiceFabricTomcatType**, en een andere voor het eerste exemplaar van dat type. Het kan enkele minuten duren voor de toepassing volledig implementeren, worden dus even geduld.
 
-    ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
+   ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 
 
 1. Voor toegang tot de toepassing op de Tomcat-server, open een browservenster en voer een van de volgende URL's. Als u met het lokale cluster geïmplementeerd, gebruikt u *localhost* voor *PublicIPorFQDN*. U ziet een variant van de "Hello World!" welkomstscherm wordt weergegeven voor elke URL.

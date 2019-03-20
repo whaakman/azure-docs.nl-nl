@@ -12,16 +12,23 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 08ec654ecdfe9764aefdde287c5a4c78022c108c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551684"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852754"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Transactionele replicatie met één, gegroepeerd en databases in Azure SQL Database-exemplaar
 
 Transactionele replicatie is een functie van Azure SQL Database en SQL-Server waarmee u voor het repliceren van gegevens uit een tabel in Azure SQL Database of SQL Server voor de tabellen die voor externe databases wordt geplaatst. Deze functie kunt u meerdere tabellen in verschillende databases synchroniseren.
+
+## <a name="when-to-use-transactional-replication"></a>Wanneer u transactionele replicatie
+
+Transactionele replicatie is handig in de volgende scenario's:
+- Publiceren van wijzigingen die u in een of meer tabellen in een database en deze toewijzen aan een of meer SQL Server of Azure SQL-databases die voor de wijzigingen die zijn geabonneerd.
+- Houd verschillende gedistribueerde databases gesynchroniseerde status.
+- Databases van een SQL Server of Managed Instance migreren naar een andere database door continu de wijzigingen publiceert.
 
 ## <a name="overview"></a>Overzicht
 
@@ -54,7 +61,7 @@ De **abonnee** is een exemplaar of een server waarop de wijzigingen op de Publis
   >[!NOTE]
   > Een pull-abonnement wordt niet ondersteund wanneer de distributor een exemplaar in de database is en de abonnee niet. 
 
-Er zijn verschillende [replicatietypes](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
+Er zijn verschillende [replicatietypes](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
 
 
 | Replicatie | Één en gepoolde databases | Exemplaar-databases|
@@ -70,7 +77,7 @@ Er zijn verschillende [replicatietypes](https://docs.microsoft.com/sql/relationa
 
   >[!NOTE]
   > - -Replicatie configureren met een oudere versie willen kan resulteren in fout MSSQL_REPL20084 (het proces kan geen verbinding met abonneeserver.) en MSSQ_REPL40532 (server kan niet worden geopend \<naam > door de aanmelding is aangevraagd. De aanmelding is mislukt.)
-  > - Voor het gebruik van alle functies van Azure SQL Database, moet u de nieuwste versies van [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) en [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).
+  > - Voor het gebruik van alle functies van Azure SQL Database, moet u de nieuwste versies van [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) en [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
   ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>Supportabilty matrix voor exemplaar-Databases en On-premises systemen
   De replicatie supportability matrix bijvoorbeeld-databases zijn hetzelfde als de waarde voor on-premises SQL Server. 
@@ -93,14 +100,6 @@ Er zijn verschillende [replicatietypes](https://docs.microsoft.com/sql/relationa
 
   >[!NOTE]
   > Fout 53 kunnen optreden bij het verbinden met een Azure Storage-bestand als de uitgaande network security group (NSG)-poort 445 is geblokkeerd wanneer de distributor een exemplaar in de database is en de abonnee on-premises wordt. [Werk het vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) om dit probleem te verhelpen. 
-
-## <a name="when-to-use-transactional-replication"></a>Wanneer u transactionele replicatie
-
-Transactionele replicatie is handig in de volgende scenario's:
-
-- Publiceren van wijzigingen die u in een of meer tabellen in een database en deze toewijzen aan een of meer SQL Server of Azure SQL-databases die voor de wijzigingen die zijn geabonneerd.
-- Houd verschillende gedistribueerde databases gesynchroniseerde status.
-- Databases van een SQL Server of Managed Instance migreren naar een andere database door continu de wijzigingen publiceert.
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Gegevens synchroniseren met transactionele replicatie vergelijken
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 15f280b16e362a4b39cb9fc0e4baaf67d0e31942
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ce9804a4ecad4cd0f2e797038dc10c71b50de9bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661697"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122709"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>De Azure portal gebruiken voor het instellen van waarschuwingen over metrische gegevens voor Azure Database voor MariaDB
 
@@ -25,7 +25,7 @@ Een waarschuwing als u wilt de volgende acties uitvoeren wanneer deze wordt geac
 * Een webhook aanroepen
 
 U kunt configureren en informatie over met behulp van regels voor waarschuwingen:
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure-portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure-CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
@@ -60,21 +60,21 @@ U kunt configureren en informatie over met behulp van regels voor waarschuwingen
 
 10. Configureer een **e-mailadres/SMS/Push/stem** actietype.
     
-   Kies 'E-mailbericht Azure Resource Manager rol' te selecteren van Abonnementseigenaren, bijdragers en lezers om meldingen te ontvangen.
+    Kies 'E-mailbericht Azure Resource Manager rol' te selecteren van Abonnementseigenaren, bijdragers en lezers om meldingen te ontvangen.
    
-   (Optioneel) Geef een geldige URI in de **Webhook** veld als u wilt dat deze wordt aangeroepen wanneer de waarschuwing wordt geactiveerd.
+    (Optioneel) Geef een geldige URI in de **Webhook** veld als u wilt dat deze wordt aangeroepen wanneer de waarschuwing wordt geactiveerd.
 
-   Selecteer **OK** wanneer dit is voltooid.
+    Selecteer **OK** wanneer dit is voltooid.
 
-   ![Actiegroep](./media/howto-alert-metric/10-action-group-type.png)
+    ![Actiegroep](./media/howto-alert-metric/10-action-group-type.png)
 
 11. Geef een naam, beschrijving en ernst.
 
-   ![Actiegroep](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![Actiegroep](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. Selecteer **waarschuwingsregel maken** om de waarschuwing te maken.
 
-   Binnen een paar minuten, wordt de waarschuwing is actief en wordt geactiveerd als eerder beschreven.
+    Binnen een paar minuten, wordt de waarschuwing is actief en wordt geactiveerd als eerder beschreven.
 
 ## <a name="manage-your-alerts"></a>De waarschuwingen beheren
 Als u een waarschuwing hebt gemaakt, kunt u deze selecteren en de volgende acties uitvoeren:

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: 23d30d3b881fbe5aab4e537073b2582eb01bfe7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b5544be37015368173f3f8eb39288b7a97ae11c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183421"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084994"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synchronisatie in een Azure AD Domain Services beheerde domein
 Het volgende diagram illustreert hoe synchronisatie werkt in Azure AD Domain Services beheerde domeinen.
@@ -70,8 +70,6 @@ De volgende tabel bevat enkele algemene kenmerken en wordt beschreven hoe ze zij
 
 > [!NOTE]
 > **Meld u aan het beheerde domein met behulp van de UPN-indeling:** Het kenmerk SAMAccountName mogelijk automatisch wordt gegenereerd voor sommige gebruikersaccounts in uw beheerde domein. Als meerdere gebruikers het kenmerk mailNickname van dezelfde hebben of gebruikers overmatig lange UPN-voorvoegsels hebben, kan de SAMAccountName voor deze gebruikers worden automatisch gegenereerde. Daarom is de SAMAccountName-indeling (bijvoorbeeld ' CONTOSO100\joeuser') niet altijd een betrouwbare manier om aan te melden bij het domein. Gebruikers automatisch gegenereerde SAMAccountName kan afwijken van de UPN-voorvoegsel. Gebruik de UPN-indeling (bijvoorbeeld 'joeuser@contoso100.com') op een betrouwbare manier aanmelden bij het beheerde domein.
->
->
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Kenmerktoewijzing voor gebruikersaccounts
 De volgende tabel ziet u hoe specifieke kenmerken voor objecten in uw Azure AD-tenant worden gesynchroniseerd met de bijbehorende kenmerken in uw beheerde domein gebruiker.
@@ -98,7 +96,7 @@ De volgende tabel ziet u hoe specifieke kenmerken voor objecten in uw Azure AD-t
 | preferredLanguage |preferredLanguage |
 | state |St |
 | streetAddress |streetAddress |
-| Achternaam |SN |
+| surname |SN |
 | telephoneNumber |telephoneNumber |
 | userPrincipalName |userPrincipalName |
 

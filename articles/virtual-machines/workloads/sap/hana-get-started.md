@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 561eff75ef4268acd3f737f7aaa92ccaacfda7f3
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 635f519239ad00df8672472bcb6c54e6b8a59927
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328710"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001703"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Quickstart: Handmatige installatie van één exemplaar SAP HANA op Azure Virtual machines
 ## <a name="introduction"></a>Inleiding
@@ -49,7 +49,7 @@ De typen Azure VM's die kunnen worden gebruikt voor productiescenario's worden v
 Raadpleeg het document voor meer informatie over de virtuele machine configuratie en bewerkingen [configuraties van SAP HANA-infrastructuur en bewerkingen op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
 Zie voor hoge beschikbaarheid van SAP HANA, [SAP HANA met hoge beschikbaarheid voor Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
 
-Als u op zoek zijn naar een exemplaar van SAP HANA of S/4HANA of BW/4HANA system geïmplementeerd in de zeer snel tijd ophalen, kunt u overwegen het gebruik van [SAP Cloud Appliance Library](http://cal.sap.com). Documentatie over het implementeren, bijvoorbeeld van een S/4HANA-systeem via SAP CAL op Azure in [in deze handleiding](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Alles wat u nodig hebt is een Azure-abonnement en een SAP-gebruiker die kan worden geregistreerd met SAP Cloud Appliance Library.
+Als u op zoek zijn naar een exemplaar van SAP HANA of S/4HANA of BW/4HANA system geïmplementeerd in de zeer snel tijd ophalen, kunt u overwegen het gebruik van [SAP Cloud Appliance Library](https://cal.sap.com). Documentatie over het implementeren, bijvoorbeeld van een S/4HANA-systeem via SAP CAL op Azure in [in deze handleiding](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Alles wat u nodig hebt is een Azure-abonnement en een SAP-gebruiker die kan worden geregistreerd met SAP Cloud Appliance Library.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 ### <a name="sap-hana-backup"></a>Back-up van SAP HANA
@@ -70,7 +70,7 @@ Zie voor informatie over SAP HANA ondersteunde besturingssystemen, [SAP Support 
 Zie voor aanvullende SAP-documentatie over SAP HANA en andere Linux-besturingssystemen:
 
 * [SAP-ondersteuning Opmerking #171356 - SAP-Software op Linux:  Algemene informatie](https://launchpad.support.sap.com/#/notes/1984787)
-* [SAP-ondersteuning Opmerking #1944799 - SAP HANA-richtlijnen voor de installatie van de SLES-besturingssysteem](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
+* [SAP-ondersteuning Opmerking #1944799 - SAP HANA-richtlijnen voor de installatie van de SLES-besturingssysteem](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 * [SAP Support Opmerking #2205917 - SAP HANA DB aanbevolen besturingssysteeminstellingen voor het voor SLES 12 voor SAP-toepassingen](https://launchpad.support.sap.com/#/notes/2205917/E)
 * [SAP Support Note #1984787 - SUSE Linux Enterprise Server 12:  Opmerkingen bij de installatie](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP Support Opmerking #1391070 - UUID van de Linux-oplossingen](https://launchpad.support.sap.com/#/notes/1391070)
@@ -195,7 +195,7 @@ Op basis van de [opslagvereisten voor SAP HANA TDI](https://www.sap.com/document
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-In de configuratie van de voorgestelde schijven, worden de HANA-gegevensvolume en logboekvolume op dezelfde set Azure premium storage-schijven striped met LVM of MDADM geplaatst. Het is niet nodig voor het definiëren van een RAID-niveau voor redundantie omdat Azure Premium Storage drie kopieën van de schijven voor de redundantie van opgeslagen. Om ervoor te zorgen dat u voldoende opslagruimte configureren, raadpleegt u de [opslagvereisten voor SAP HANA TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) en [SAP HANA-Server-installatie- en Updatehandleiding](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Ook rekening houden met de volumes van de doorvoer van verschillende virtuele harde schijf (VHD) van de verschillende Azure premium storage-schijven zoals beschreven in [High-performance Premium Storage en beheerde schijven voor virtuele machines](../../windows/disks-types.md). 
+In de configuratie van de voorgestelde schijven, worden de HANA-gegevensvolume en logboekvolume op dezelfde set Azure premium storage-schijven striped met LVM of MDADM geplaatst. Het is niet nodig voor het definiëren van een RAID-niveau voor redundantie omdat Azure Premium Storage drie kopieën van de schijven voor de redundantie van opgeslagen. Om ervoor te zorgen dat u voldoende opslagruimte configureren, raadpleegt u de [opslagvereisten voor SAP HANA TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) en [SAP HANA-Server-installatie- en Updatehandleiding](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Ook rekening houden met de volumes van de doorvoer van verschillende virtuele harde schijf (VHD) van de verschillende Azure premium storage-schijven zoals beschreven in [High-performance Premium Storage en beheerde schijven voor virtuele machines](../../windows/disks-types.md). 
 
 U kunt meer premium storage-schijven toevoegen aan de HANA DBMS-VM's voor het opslaan van de database die of transactielogboek logboekback-ups.
 
@@ -251,7 +251,7 @@ Het is niet verplicht om te structureren van uw bestandssystemen op deze manier.
 
 Met betrekking tot de SAP HANA DB-VM tijdens de installatie van een database, wanneer u SAPinst (SWPM) en de **typische** installatieoptie, alles onder /hana en /usr/sap is geïnstalleerd. De standaardlocatie voor de SAP HANA logboekback-up is onder /usr/sap. Nogmaals, omdat het is belangrijk om te voorkomen dat het bestandssysteem van de hoofdmap van opslagruimte opraakt, zorg ervoor dat er is onvoldoende vrije ruimte onder /hana en /usr/sap voordat u SAP HANA installeren met behulp van SWPM.
 
-Zie voor een beschrijving van de indeling standaard bestandssysteem van SAP HANA, de [SAP HANA-Server-installatie- en Updatehandleiding](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm).
+Zie voor een beschrijving van de indeling standaard bestandssysteem van SAP HANA, de [SAP HANA-Server-installatie- en Updatehandleiding](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm).
 
 ![Aanvullende bestandssystemen die zijn gemaakt op de SAP-appserver VM](./media/hana-get-started/image009.jpg)
 
@@ -403,7 +403,7 @@ Zie voor meer informatie over het hulpprogramma HANA HDBLCM:
 
 * [De juiste SAP HANA-HDBLCM voor uw taak kiezen](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
 * [SAP HANA Lifecycle-beheerhulpprogramma 's](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
-* [SAP HANA-Server-installatie- en Updatehandleiding](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
+* [SAP HANA-Server-installatie- en Updatehandleiding](https://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 Om te voorkomen dat problemen met een standaard groepsinstelling-ID voor de `\<HANA SID\>adm user` (gemaakt door het hulpprogramma HDBLCM), definieert u een nieuwe groep met de naam `sapsys` met behulp van groeps-ID `1001` voordat u SAP HANA via HDBLCM installeert:
 

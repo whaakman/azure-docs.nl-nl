@@ -1,49 +1,77 @@
 ---
-title: Over Spraakomzetting - spraakservices
+title: Spraakomzetting met Azure Speech Services
 titlesuffix: Azure Cognitive Services
-description: De spraak-API-Service kunt u end-to-end-, realtime, meerdere talen vertaling van spraak toevoegen aan uw toepassingen, hulpprogramma's en apparaten. Dezelfde API kan worden gebruikt voor zowel spraak-naar-spraak- en spraak naar tekst converteren.
+description: De spraak-Services kunt u end-to-end-, realtime, meerdere talen vertaling van spraak kunt toevoegen aan uw toepassingen, hulpprogramma's en apparaten. Dezelfde API kan worden gebruikt voor zowel spraak-naar-spraak- en spraak naar tekst converteren.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: e77bfcdf2e037c7f6221b6761df708dac01924dd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 95682612b4b0fdb1baa5038039630e74abddb1a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879238"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890464"
 ---
-# <a name="about-the-speech-translation-api"></a>Over de Spraakomzettings-API
+# <a name="what-is-speech-translation"></a>Wat is de vertaling van gesproken tekst?
 
-De spraak-API-Service kunt u end-to-end-, realtime, meerdere talen vertaling van spraak toevoegen aan uw toepassingen, hulpprogramma's en apparaten. Dezelfde API kan worden gebruikt voor zowel spraak-naar-spraak- en spraak naar tekst converteren.
+Met spraakomzetting van Azure Speech Services, kunt realtime, meerdere talen spraak-naar-spraak en spraak-naar-tekst vertalen van audiostreams. Met de SDK-spraak zijn uw toepassingen, hulpprogramma's en apparaten toegang tot de bron transcripties en uitvoer van de vertaling voor de opgegeven audio. Tijdelijke transcriptie en vertaling resultaten worden geretourneerd als spraak wordt gedetecteerd en eindronden resultaten kunnen worden omgezet in kunstmatige spraak.
 
-Met de spraak-API van Translator clienttoepassingen streamen gesproken audio naar de service en het ontvangen van een stream van resultaten. Deze resultaten opnemen de herkende tekst in de source-taal en de vertaling in de doel-taal. Tijdelijke vertalingen kunnen worden opgegeven voordat een utterance voltooid is, op dat moment een laatste omzetting wordt opgegeven.
+NAT-engine van Microsoft wordt aangestuurd door twee verschillende benaderingen: statistische machinevertalingen (SMT) en neurale machinevertalingen (NMT). SMT maakt gebruik van geavanceerde statistische analyse kunt u schatten van de best mogelijke vertalingen gegeven van de context van een paar woorden. Met NMT, zijn neurale netwerken gebruikt voor nauwkeurigere, natuurlijk klinkende vertalingen opgeven met behulp van de volledige context van zinnen om te vertalen woorden.
 
-(Optioneel) een kunstmatige audioversie van de laatste vertaling voor te bereiden, waar spraak-naar-spraak-omzetting inschakelen.
+Vandaag de dag door Microsoft NMT gebruikt voor het omzetten naar de meest populaire talen. Alle [beschikbare talen voor spraak-naar-spraak vertaling](language-support.md#speech-translation) worden aangestuurd door NMT. Spraak naar tekst converteren kan gebruikmaken van SMT of NMT, afhankelijk van de combinatie van taal. Wanneer de doeltaal wordt ondersteund door NMT, is de volledige vertaling NMT aangestuurde. Wanneer de doeltaal wordt niet ondersteund door NMT, is de omzetting van een hybride van NMT en SMT, met behulp van Engels als een "draaien" tussen de twee talen.
 
-De Spraakomzettings-API gebruikt een WebSockets-protocol voor een kanaal full-duplex-communicatie tussen de client en de server. Maar u hoeft niet te bekommeren om WebSockets; de spraak-SDK verwerkt die voor u.
+## <a name="core-features"></a>Belangrijkste functies
 
-De Spraakomzettings-API maakt gebruik van dezelfde technologieën die verschillende Microsoft-producten services en. Deze service wordt al gebruikt door duizenden bedrijven wereldwijd in hun toepassingen en werkstromen.
+Hier zijn de functies die beschikbaar zijn via de spraak-SDK en REST-API's:
 
-## <a name="about-the-technology"></a>Over de technologie
+| Toepassing | SDK | REST |
+|----------|-----|------|
+| Spraak naar tekst converteren met van herkenningsresultaten. | Ja | Nee |
+| Spraak-naar-spraak vertaling. | Ja | Nee |
+| Tijdelijke opname- en NAT-resultaten. | Ja | Nee |
 
-Onderliggende vertaling-engine van Microsoft zijn twee verschillende manieren: statistische machinevertalingen (SMT) en neurale machinevertalingen (NMT). De laatste, een benadering van kunstmatige intelligentie die gebruikmaakt van neurale netwerken, is de moderne aanpak van machinevertalingen. NMT biedt betere vertalingen, niet alleen meer nauwkeurige, maar ook meer gestroomlijnde en natuurlijke. De belangrijkste reden hiervoor is dat NMT gebruikmaakt van de volledige context van een zin bij het vertalen van woorden.
+## <a name="get-started-with-speech-translation"></a>Aan de slag met spraakomzetting
 
-Vandaag de dag is Microsoft gemigreerd naar NMT voor de meest populaire talen die gebruikmaakt van SMT alleen voor minder vaak gebruikte talen. Alle [beschikbare talen voor spraak-naar-spraak vertaling](language-support.md#speech-translation) worden aangestuurd door NMT. Spraak naar tekst converteren kan gebruikmaken van SMT of NMT, afhankelijk van de combinatie van taal. Als de doeltaal voor NMT wordt ondersteund, wordt de volledige vertaling verzorgd door NMT. Als de doel-taal wordt niet ondersteund door NMT, is de omzetting van een hybride van NMT en SMT, met behulp van Engels als een "draaien" tussen de twee talen.
+We bieden snelstartgidsen ontworpen dat u de uitvoering van code in minder dan 10 minuten. Deze tabel bevat een lijst met spraak vertaling snelstartgidsen ingedeeld per taal.
 
-De verschillen tussen modellen zijn intern voor de NAT-engine. Eindgebruikers kunnen u alleen de kwaliteit van de verbeterde vertaling met name voor Chinese, Japans en Arabisch ziet.
+| Snelstartgids | Platform | API-verwijzing |
+|------------|----------|---------------|
+| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [Bladeren](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Bladeren](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Bladeren](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Bladeren](https://aka.ms/csspeech/cppref)|
+| [Java](quickstart-translate-speech-java-jre.md) | Windows | [Bladeren](https://aka.ms/csspeech/javaref) |
 
-> [!NOTE]
-> Wilt u meer informatie over de technologie achter NAT-engine van Microsoft? Zie [machinevertalingen](https://www.microsoft.com/en-us/translator/mt.aspx).
+## <a name="sample-code"></a>Voorbeeldcode
+
+Voorbeeldcode voor de spraak-SDK is beschikbaar op GitHub. Deze voorbeelden voor algemene scenario's, zoals lezen van audio van een bestand of de stroom, continue en één erkenning/vertaling van en werken met aangepaste modellen.
+
+* [Spraak-naar-tekst- en NAT-voorbeelden (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+
+## <a name="migration-guides"></a>Migratiehandleidingen
+
+> [!WARNING]
+> Translator Speech wordt gesteld op 15 oktober 2019.
+
+Als uw toepassingen, hulpprogramma's of producten die Translator Speech, hebben we hulplijnen waarmee u kunt migreren naar de Speech Services gemaakt.
+
+* [Migreren van de Translator Speech-API naar de spraakservices](how-to-migrate-from-translator-speech-api.md)
+
+## <a name="reference-docs"></a>Referentiedocumenten
+
+* [Speech-SDK](speech-sdk-reference.md)
+* [Spraak apparaten SDK](speech-devices-sdk.md)
+* [REST API: Spraak-naar-tekst](rest-speech-to-text.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
+* [REST API: Batch transcriptie en aanpassen](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
-* [Informatie over het vertalen van gesproken tekst in C#](how-to-translate-speech-csharp.md)
-* [Informatie over het vertalen van gesproken tekst in C++](how-to-translate-speech-cpp.md)
-* [Informatie over het vertalen van gesproken tekst in Java](how-to-translate-speech-java.md)
+* [Ontvangt u een abonnementssleutel Speech Services gratis](get-started.md)
+* [De spraak-SDK ophalen](speech-sdk.md)

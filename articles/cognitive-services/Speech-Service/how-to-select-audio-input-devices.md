@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: e02c99edcc1774510f9d10a5d19f49c4fc0530a9
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: HT
+ms.openlocfilehash: e8e2bd34ebb5b789bb3e9ba4a419ab424d3fdf5a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594080"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550670"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Een audio-invoerapparaat selecteren met de Speech-SDK
 
@@ -223,7 +223,7 @@ Een voorbeeld van een apparaat-id is `\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23
 
 De apparaat-id's worden geselecteerd met standaard-ALSA-apparaat-id's.
 De id's van de invoer die aan het systeem is gekoppeld, worden opgenomen in de uitvoer van de opdracht `arecord -L`.
-Ze kunnen ook worden verkregen met de [ALSA C-bibliotheek](http://www.alsa-project.org/alsa-doc/alsa-lib/).
+Ze kunnen ook worden verkregen met de [ALSA C-bibliotheek](https://www.alsa-project.org/alsa-doc/alsa-lib/).
 Voorbeeld-id's zijn `hw:1,0` en `hw:CARD=CC,DEV=0`.
 
 ## <a name="audio-device-ids-on-macos"></a>Audioapparaat-id's onder macOS

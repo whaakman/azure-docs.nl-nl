@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804000b781ca1fc8d9f8834e3a8c0f0a78c52c11
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878479"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227028"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD Privileged Identity Management (PIM) implementeren
 
@@ -27,9 +27,9 @@ Deze stapsgewijze handleiding wordt beschreven hoe u de implementatie van Azure 
 
 > [!TIP]
 > In dit document ziet u de items die zijn gemarkeerd als:
->
+> 
 > :heavy_check_mark: **Microsoft raadt aan**
->
+> 
 > Dit zijn algemene aanbevelingen en moet u alleen implementeren als ze van toepassing op uw specifieke zakelijke behoeften zijn.
 
 ## <a name="step-1-learn-about-pim"></a>Step 1. Meer informatie over PIM

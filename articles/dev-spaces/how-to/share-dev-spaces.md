@@ -9,12 +9,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: 3d48591dd4a20bad4fbb01b882d0693debb50638
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 62d4affa5ef49de7600f9ccc800ea6bf83e4bd49
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759420"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099573"
 ---
 # <a name="share-azure-dev-spaces"></a>Azure Dev Spaces delen
 
@@ -25,10 +25,10 @@ Met Azure Dev Space kunt u uw ontwikkelruimte delen met anderen in uw team. Elke
 1. Maak een Dev Space in Azure. Kies [.NET Core- en VS Code](../get-started-netcore.md), [.NET Core en Visual Studio](../get-started-netcore-visualstudio.md), of [Node.js en VS Code](../get-started-nodejs.md). U moet als eigenaar of bijdrager toegang hebben tot de geselecteerde Azure-abonnement.
 1. Configureer de Azure Dev Space **resourcegroep** voor [medewerker toegang](/azure/active-directory/role-based-access-control-configure) voor elk teamlid. Met deze opdracht kunt u de resourcegroep van een ontwikkelruimte controleren: `azds list-up`
 1. Vraag teamleden om de **ontwikkelruimte te selecteren** om erin te ontwikkelen.
-     * **Vanaf de opdrachtregel of in VS Code**: Om te zien van bestaande Azure Dev spaties die u hebt toegang tot: `azds space list`. Om een ontwikkelruimte te selecteren: `azds space select`.
-     * **Visual Studio IDE**: Open een project in Visual Studio, selecteer **Azure Dev spaties** in de starten instellingen vervolgkeuzelijst. In het dialoogvenster dat wordt geopend selecteert u een bestaand cluster.
+   * **Vanaf de opdrachtregel of in VS Code**: Om te zien van bestaande Azure Dev spaties die u hebt toegang tot: `azds space list`. Om een ontwikkelruimte te selecteren: `azds space select`.
+   * **Visual Studio IDE**: Open een project in Visual Studio, selecteer **Azure Dev spaties** in de starten instellingen vervolgkeuzelijst. In het dialoogvenster dat wordt geopend selecteert u een bestaand cluster.
 
-    ![Visual Studio start-instellingen vervolgkeuzelijst](../media/get-started-netcore-visualstudio/LaunchSettings.png)
+     ![Visual Studio start-instellingen vervolgkeuzelijst](../media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

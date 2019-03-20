@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: raynew
-ms.openlocfilehash: 637a8e91ba03240cd4c2c530ae2c982d2115c81d
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 086a3b4bf34f2ea7454bb018f9468dd21629a8ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569821"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903093"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -48,7 +48,7 @@ Vrije schijfruimte | 600 GB aan ruimte vereist voor de cache van de processerver
 Vrije schijfruimte | 600 GB aan ruimte vereist voor het bewaarstation.
 Besturingssysteem  | Windows Server 2012 R2 of WindowsServer 2016 |
 Landinstelling van het besturingssysteem | Engels (en-us)
-PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") moet worden geïnstalleerd.
+PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") is niet vereist voor de configuratieserver met versies van [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Windows Server-functies | Niet inschakelen: <br/> - Active Directory Domain Services <br/>- Internet Information Services <br/> - Hyper-V |
 Groepsbeleid| Niet inschakelen: <br/> -Toegang tot de opdrachtprompt voorkomen. <br/> -Toegang tot registerbewerkingsprogramma's voorkomen. <br/> -Logica vertrouwen voor bestandsbijlagen. <br/> -Uitvoering van Script inschakelen. <br/> [Meer informatie](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Zorg ervoor dat u:<br/><br/> -Geen een bestaande standaardwebsite <br/> -Inschakelen [anonieme verificatie](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> -Inschakelen [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) instelling  <br/> -Bestaande website /-app niet hebt luisteren op poort 443<br/>
@@ -185,7 +185,7 @@ Gast/server MPIO (Multipath I/O) | Nee
 
 > [!NOTE]
 > UEFI, opstarten van virtuele VMware-machines met Windows Server 2012 of later kunnen worden gemigreerd naar Azure. Er gelden de volgende beperkingen:
-
+> 
 > - Alleen de migratie naar Azure wordt ondersteund. Failback naar on-premises VMware-site wordt niet ondersteund.
 > - De server mag niet meer dan vier partities hebben op de besturingssysteemschijf.
 > - Mobility Service versie 9.13 of hoger vereist.
@@ -265,7 +265,7 @@ Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen<br/><br/> Binnen 
 ## <a name="download-latest-azure-site-recovery-components"></a>Download de nieuwste Azure Site Recovery-onderdelen
 
 **Naam** | **Beschrijving** | **Meest recente versie downloadinstructies**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Configuratieserver | Coördineert de communicatie tussen on-premises VMware-servers en Azure <br/><br/> Geïnstalleerd op de on-premises VMware-servers | Nieuwe installatie, klikt u op [hier](vmware-azure-deploy-configuration-server.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Processerver|standaard geïnstalleerd op de configuratieserver. Deze ontvangt replicatiegegevens; Met caching, compressie en versleuteling, optimaliseert en verzendt dit naar Azure Storage. Naarmate uw implementatie groeit, kunt u extra, afzonderlijk processervers voor het afhandelen van grotere hoeveelheden replicatieverkeer kunt toevoegen.| Nieuwe installatie, klikt u op [hier](vmware-azure-set-up-process-server-scale.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-azure-manage-process-server.md#upgrade-a-process-server).
 Mobility-Service | Coördineert de replicatie tussen on-premises VMware-servers/fysieke servers en Azure/secundaire site<br/><br/> Geïnstalleerd op de VM met VMware of fysieke servers die u wilt repliceren | Nieuwe installatie, klikt u op [hier](vmware-azure-install-mobility-service.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-physical-mobility-service-overview.md##update-mobility-service-from-azure-portal).

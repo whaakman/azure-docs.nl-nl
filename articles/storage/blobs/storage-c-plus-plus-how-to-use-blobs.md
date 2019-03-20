@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: a9b7d15bebdef40c983eaf4d5eee6953b5a10994
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d86b2c71515900405b0e7714d2c36cd8e4cbc7fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236935"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993216"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Het Blob storage gebruiken met C++
 
-Deze handleiding laat zien hoe u algemene scenario's met behulp van Azure Blob-opslag uitvoert. De voorbeelden laten zien hoe om te uploaden, vermelden, downloaden en verwijderen van blobs. De voorbeelden zijn geschreven in C++ en maken gebruik van de [Azure Storage-clientbibliotheek voor C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
+Deze handleiding laat zien hoe u algemene scenario's met behulp van Azure Blob-opslag uitvoert. De voorbeelden laten zien hoe om te uploaden, vermelden, downloaden en verwijderen van blobs. De voorbeelden zijn geschreven in C++ en maken gebruik van de [Azure Storage-clientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
 
 Zie voor meer informatie over Blob-opslag, [Inleiding tot Azure Blob-opslag](storage-blobs-introduction.md).
 
 > [!NOTE]
-> Deze handleiding is gericht op de Azure-opslagclientbibliotheek voor C++ versie 1.0.0 en hoger. Microsoft raadt het gebruik van de meest recente versie van de Storage-clientbibliotheek voor C++, beschikbaar via [NuGet](http://www.nuget.org/packages/wastorage) of [GitHub](https://github.com/Azure/azure-storage-cpp).
+> Deze handleiding is gericht op de Azure-opslagclientbibliotheek voor C++ versie 1.0.0 en hoger. Microsoft raadt het gebruik van de meest recente versie van de Storage-clientbibliotheek voor C++, beschikbaar via [NuGet](https://www.nuget.org/packages/wastorage) of [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -34,7 +34,7 @@ Hiervoor moet u de Azure-opslagclientbibliotheek voor C++ installeren en een Azu
 Voor het installeren van de Azure-opslagclientbibliotheek voor C++ kunt u de volgende methoden gebruiken:
 
 * **Linux:** Volg de instructies de [Azure Storage-clientbibliotheek voor C++ Leesmij](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) pagina.  
-* **Windows:** Klik in Visual Studio op **Tools > NuGet Package Manager > Package Manager Console**. Typ de volgende opdracht in de [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) en druk op **ENTER**.  
+* **Windows:** Klik in Visual Studio op **Tools > NuGet Package Manager > Package Manager Console**. Typ de volgende opdracht in de [NuGet Package Manager console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) en druk op **ENTER**.  
   
      Install-Package wastorage
 
@@ -258,7 +258,7 @@ Nu dat u de basisprincipes van blob storage hebt geleerd, volgt u deze koppeling
 * [Hoe u Queue Storage gebruiken met C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Hoe u kunt Table Storage gebruiken met C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Lijst met Azure Storage-Resources in C++](../storage-c-plus-plus-enumeration.md)
-* [Storage-clientbibliotheek voor C++-referentie](http://azure.github.io/azure-storage-cpp)
+* [Storage-clientbibliotheek voor C++-referentie](https://azure.github.io/azure-storage-cpp)
 * [Documentatie bij Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../storage-use-azcopy.md)
 

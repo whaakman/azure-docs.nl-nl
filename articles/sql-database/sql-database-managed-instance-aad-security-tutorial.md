@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456925"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226212"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Zelfstudie: Beveiliging van een beheerd exemplaar in Azure SQL Database met behulp van Azure AD-server-principals (aanmeldingen)
 
@@ -148,13 +148,13 @@ Nadat de Azure AD-server-principal (aanmelding) is gemaakt en is voorzien van `s
 
 1. Maak verbinding met het beheerde exemplaar met de Azure AD-server-principal (aanmelding), met behulp van SQL Server Management Studio. Voer de hostnaam van uw beheerd exemplaar in. Voor verificatie in SSMS zijn er drie opties waaruit u kunt kiezen wanneer u zich aanmeldt bij een Azure AD-account:
 
-    - Active Directory - Universal met ondersteuning voor MFA
-    - Active Directory - wachtwoord
-    - Active Directory - geïntegreerd </br>
+   - Active Directory - Universal met ondersteuning voor MFA
+   - Active Directory - wachtwoord
+   - Active Directory - geïntegreerd </br>
 
-    ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
+     ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-    Zie het volgende artikel voor meer informatie: [Universele verificatie met SQL Database en SQL Data Warehouse (SSMS-ondersteuning voor MFA)](sql-database-ssms-mfa-authentication.md)
+     Zie het volgende artikel voor meer informatie: [Universele verificatie met SQL Database en SQL Data Warehouse (SSMS-ondersteuning voor MFA)](sql-database-ssms-mfa-authentication.md)
 
 1. Selecteer **Active Directory - Universal met ondersteuning voor MFA**. Hiermee wordt een venster voor Multi-Factor Authentication (MFA) geopend. Meld u aan met uw Azure AD-wachtwoord.
 
@@ -207,10 +207,10 @@ Nadat de Azure AD-server-principal (aanmelding) is gemaakt en is voorzien van `s
 1. Klik in **Objectverkenner** met de rechtermuisknop op de server en kies **Nieuwe query** als nieuwe verbinding.
 1. Controleer servermachtigingen voor de zojuist gemaakte Azure AD-server-principal (aanmelding) door de volgende opdracht uit te voeren:
 
-    ```sql
-    SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-    GO
-    ```
+      ```sql
+      SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+      GO
+      ```
 
 > [!NOTE]
 > Ook gastgebruikers van Azure AD worden ondersteund voor aanmeldingen bij een beheerd exemplaar, maar alleen wanneer ze zijn toegevoegd als onderdeel van een Azure AD-groep. Een Azure AD-gastgebruiker is een account dat vanuit een andere Azure AD wordt uitgenodigd voor de Azure AD waarvan het beheerde exemplaar deel uitmaakt. joe@contoso.com (Azure AD-Account) of steve@outlook.com (MSA-Account) kunnen bijvoorbeeld worden toegevoegd aan een groep in de Azure AD aadsqlmi. Zodra de gebruikers aan een groep zijn toegevoegd, kan er een aanmelding worden gemaakt in de **hoofd**database van het beheerde exemplaar voor de groep met de syntaxis **CREATE LOGIN**. Gastgebruikers die lid zijn van deze groep, kunnen verbinding maken met het beheerde exemplaar met behulp van hun huidige aanmeldingsgegevens (bijvoorbeeld joe@contoso.com of steve@outlook.com).
@@ -360,7 +360,7 @@ Managed Instance biedt ondersteuning voor het imiteren van principals op Azure A
     GO
     ```
 
-1. Gebruik de volgende opdracht om weer te geven dat de gebruiker die u imiteert bij het uitvoeren van de opgeslagen procedure **bob@aadsqlmi.net** is.
+1. Gebruik de volgende opdracht om te zien dat de gebruiker die u bij het uitvoeren van de opgeslagen procedure bent imiteren **bob\@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo

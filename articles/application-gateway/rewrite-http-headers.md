@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 176e6804e6c98a1b9e9ffe4af04f02748c80928b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310899"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119289"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Herschrijf de HTTP-headers met Application Gateway (openbare preview)
 
@@ -22,8 +22,8 @@ Via HTTP-headers kan vanaf de client en de server aanvullende informatie worden 
 
 Application Gateway ondersteunt nu de mogelijkheid om headers van zowel de inkomende HTTP-aanvragen als de uitgaande HTTP-antwoorden opnieuw te genereren. Kunt u zich kunt toevoegen, verwijderen of bijwerken van HTTP-aanvraag- en reactieheaders terwijl de aanvraag/antwoord-pakketten worden verplaatst tussen de client en back-end-pools. U kunt beide zowel standard als niet-standaard headervelden herschrijven.
 
-> [!NOTE] 
->
+> [!NOTE]
+> 
 > De HTTP-ondersteuning voor het herschrijven van-header is alleen beschikbaar voor de [nieuwe Voorraadeenheid [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 Application Gateway-header herschrijven-ondersteuning biedt:

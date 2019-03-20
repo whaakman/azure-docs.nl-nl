@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 6b3318ced4c6e40b80172b19d7f664c53e5569cc
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: b824c99a015cfa2c1d1c75e2a1257eff482e8dd6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750630"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087955"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs-SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -46,15 +46,15 @@ Zie voor meer informatie over het werken met de WebJobs SDK [over het gebruik va
 
 1. Installeer de nieuwste stabiele 3.x-versies van de volgende NuGet-pakketten:
 
-    * `Microsoft.Azure.WebJobs`
-    * `Microsoft.Azure.WebJobs.Extensions`
+   * `Microsoft.Azure.WebJobs`
+   * `Microsoft.Azure.WebJobs.Extensions`
 
-    Hier volgt de **Package Manager Console** opdrachten voor versie 3.0.4:
+     Hier volgt de **Package Manager Console** opdrachten voor versie 3.0.4:
 
-    ```powershell
-    Install-Package Microsoft.Azure.WebJobs -version 3.0.4
-    Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
-    ```
+     ```powershell
+     Install-Package Microsoft.Azure.WebJobs -version 3.0.4
+     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
+     ```
 
 ## <a name="create-the-host"></a>Maken van de Host
 
@@ -293,7 +293,7 @@ In deze sectie maakt u bouwen en lokaal uitvoeren van het project en activeer de
 
    Vanwege [wachtrij polling exponentieel uitstel](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm), duurt het zo lang 2 minuten voor de runtime voor het vinden van het bericht en de functie aanroepen. Deze wachttijd kan worden teruggebracht door te voeren in [Ontwikkelingsmodus](webjobs-sdk-how-to.md#host-development-settings).
 
-  De console-uitvoer ziet er zo uit:
+   De console-uitvoer ziet er zo uit:
 
    ```console
     info: Function.ProcessQueueMessage[0]
@@ -340,7 +340,7 @@ In deze sectie maakt uitvoeren u de volgende taken voor het instellen van Applic
 
    |Name  |Connection String  |Databasetype|
    |---------|---------|------|
-   |AzureWebJobsStorage | {de verbindingsreeks voor opslag die u eerder hebt gekopieerd}|Aanpassen|
+   |AzureWebJobsStorage | {de verbindingsreeks voor opslag die u eerder hebt gekopieerd}|Aangepast telefoonnummer|
 
 1. Als de **toepassingsinstellingen** vak beschikt niet over de instrumentatie van een Application Insights-sleutel, voegt u de naam die u eerder hebt gekopieerd. (De instrumentatiesleutel kan al zijn er, afhankelijk van hoe u de App Service-app hebt gemaakt.)
 

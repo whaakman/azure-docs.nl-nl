@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5e8e634bfb69d7c274322d34d26ff614f75905af
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 01da5f0798316517869fcc94eed2a7428fffba7b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215916"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850697"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Gegevens synchroniseren tussen meerdere cloud en on-premises databases met SQL Data Sync
 
@@ -40,7 +40,7 @@ Gegevenssynchronisatie is niet de beste oplossing voor de volgende scenario's:
 |----------|----------------------------|
 | Herstel na noodgevallen | [Azure geografisch redundante back-ups](sql-database-automated-backups.md) |
 | Schaal lezen | [Alleen-lezen replica's gebruiken om te laden saldo alleen-lezen query workloads (preview)](sql-database-read-scale-out.md) |
-| ETL (OLTP met OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) of [SQL Server integratieservices](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| ETL (OLTP met OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) of [SQL Server integratieservices](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
 | Migratie van on-premises SQL Server naar Azure SQL Database | [Azure Database migratieservice](https://azure.microsoft.com/services/database-migration/) |
 |||
 
