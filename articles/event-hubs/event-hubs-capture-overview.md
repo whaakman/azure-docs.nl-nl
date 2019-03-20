@@ -15,17 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: f1fefb863770c4b71249e924162c543cc217c9d2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cc74bfe9bf9e5f33b7cf05ebb19b44ab8b3bea43
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541465"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864640"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Vastleggen van gebeurtenissen tot en met Azure Event Hubs in Azure Blob Storage of Azure Data Lake Storage
-Azure Event Hubs kunt u automatisch vastleggen de streaminggegevens in Event Hubs in een [Azure Blob-opslag](https://azure.microsoft.com/services/storage/blobs/) of [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) -account van uw keuze, met de extra flexibiliteit een tijds- of grootte-interval op te geven. Instellen van Capture is snel, er zijn geen administratieve kosten uit te voeren en wordt automatisch geschaald met Event Hubs [doorvoereenheden](event-hubs-features.md#capacity). Event Hubs Capture is de eenvoudigste manier om het streaming-gegevens laden in Azure, en kunt u zich richten op gegevensverwerking in plaats van gegevensregistratie.
+Azure Event Hubs kunt u automatisch vastleggen de streaminggegevens in Event Hubs in een [Azure Blob-opslag](https://azure.microsoft.com/services/storage/blobs/) of [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) -account van uw keuze, met de extra flexibiliteit een tijds- of grootte-interval op te geven. Instellen van Capture is snel, er zijn geen administratieve kosten uit te voeren en wordt automatisch geschaald met Event Hubs [doorvoereenheden](event-hubs-features.md#throughput-units). Event Hubs Capture is de eenvoudigste manier om het streaming-gegevens laden in Azure, en kunt u zich richten op gegevensverwerking in plaats van gegevensregistratie.
 
 Event Hubs Capture kunt u realtime en op basis van een batch-pijplijnen in dezelfde stroom verwerken. Dit betekent dat u oplossingen die meegroeien met uw behoeften na verloop van tijd kunt bouwen. Of u op basis van een batch-systemen vandaag nog met het oog voor toekomstige verwerking in realtime bouwt, of u wilt een efficiënte koude pad toevoegen aan een bestaande oplossing voor realtime, maakt Event Hubs Capture werken met het streamen van gegevens gemakkelijker.
+
+> [!NOTE]
+> De functie Event Hubs Capture ondersteunt momenteel alleen Gen 1 van Azure Data Lake Store, niet Gen 2. 
 
 ## <a name="how-event-hubs-capture-works"></a>Event Hubs Capture werking
 
@@ -51,7 +54,7 @@ https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhu
 
 ### <a name="scaling-to-throughput-units"></a>Schalen naar doorvoereenheden
 
-Verkeer van Event Hubs wordt bepaald door [doorvoereenheden](event-hubs-features.md#capacity). Eén doorvoereenheid toestaat 1 MB per seconde of 1000 gebeurtenissen per seconde van inkomend verkeer en twee keer de omvang van uitgaand verkeer. Event Hubs Standard aan kan worden geconfigureerd met 1-20 doorvoereenheden, en u kunt meer kopen met een quotum verhogen [ondersteuningsaanvraag][support request]. Gebruik bij meer dan uw aangeschafte doorvoereenheden wordt vertraagd. Event Hubs Capture kopieert gegevens rechtstreeks van de interne opslag van de Event Hubs voor het overslaan van doorvoer eenheid uitgaande quota en opslaan van uw uitgaand verkeer voor andere lezers van de verwerking, zoals Stream Analytics of Apache Spark.
+Verkeer van Event Hubs wordt bepaald door [doorvoereenheden](event-hubs-features.md#throughput-units). Eén doorvoereenheid toestaat 1 MB per seconde of 1000 gebeurtenissen per seconde van inkomend verkeer en twee keer de omvang van uitgaand verkeer. Event Hubs Standard aan kan worden geconfigureerd met 1-20 doorvoereenheden, en u kunt meer kopen met een quotum verhogen [ondersteuningsaanvraag][support request]. Gebruik bij meer dan uw aangeschafte doorvoereenheden wordt vertraagd. Event Hubs Capture kopieert gegevens rechtstreeks van de interne opslag van de Event Hubs voor het overslaan van doorvoer eenheid uitgaande quota en opslaan van uw uitgaand verkeer voor andere lezers van de verwerking, zoals Stream Analytics of Apache Spark.
 
 Wanneer geconfigureerd, Event Hubs Capture wordt automatisch uitgevoerd wanneer u uw eerste gebeurtenis verzenden en verder wordt uitgevoerd. Event Hubs schrijft lege bestanden te vereenvoudigen voor uw downstream-verwerkingen weten of het proces werkt, als er geen gegevens. Deze procedure biedt een voorspelbare uitgebracht en markering waarin uw batch-processors.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 4471b556dc1ac5f520185d7ad586fb489c6d8f30
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 11ea10f1deba5a21b98dea875a1b7dc94998aa00
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856805"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225158"
 ---
 # <a name="message-deferral"></a>Berichten uitstellen
 
@@ -36,7 +36,7 @@ De API is [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.bro
 
 Uitgestelde berichten blijven in de hoofdwachtrij samen met andere actieve berichten (in tegenstelling tot onbestelbare berichten die bevinden zich in een subwachtrij), maar ze kunnen niet meer worden ontvangen met behulp van de reguliere ontvangen/ReceiveAsync-functies. Uitgestelde berichten kunnen worden gedetecteerd [door berichten bladert](message-browsing.md) als een toepassing bijhouden hiervan verliest.
 
-Als u wilt een uitgesteld bericht ophalen, de eigenaar is verantwoordelijk voor het herinneren van de [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) als dit het wordt uitgesteld. Elke ontvanger die bekend is het volgnummer van een uitgesteld bericht kan later ontvangen het bericht expliciet met `Receive(sequenceNumber)`.
+Als u wilt een uitgesteld bericht ophalen, de eigenaar is verantwoordelijk voor het herinneren van de [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) als dit het wordt uitgesteld. Elke ontvanger die bekend is het volgnummer van een uitgesteld bericht kan later ontvangen het bericht expliciet met `Receive(sequenceNumber)`. Voor wachtrijen, kunt u de [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), onderwerpabonnementen gebruiken de [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient).
 
 Als een bericht kan niet worden verwerkt omdat een bepaalde resource voor het verwerken van dat bericht tijdelijk niet beschikbaar is, maar berichtverwerking moet niet summarily worden onderbroken, een manier om dat bericht over een paar minuten aan de zijde te onthouden is de  **SequenceNumber** in een [gepland bericht](message-sequencing.md) worden geplaatst in een paar minuten en het uitgestelde bericht opnieuw ophalen als de geplande bericht wordt ontvangen. Als een berichtenhandler afhankelijk van een database voor alle bewerkingen is en dat de database tijdelijk niet beschikbaar is is, moet deze niet gebruiken om, maar in plaats daarvan onderbreken ontvangen van berichten helemaal totdat de database weer beschikbaar is.
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0a583a75b72286718b34b84e67ee5aff34726be0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 13049018042183a4960c81af65b35fcfa6d4c50d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818235"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447012"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Quickstart: Een virtuele SQL Server 2017-machine voor Windows maken in Azure Portal
 
@@ -100,7 +100,7 @@ Configureer in het venster **SQL Server-instellingen** de volgende opties:
 
 1. Selecteer in de vervolgkeuzelijst **SQL-verbinding** de optie **Openbaar (internet)**. Hiermee staat u SQL Server-verbindingen via internet toe.
 
-1. Wijzig de instelling voor **Poort** in **1401** om te voorkomen dat u in het openbare scenario een bekende poortnaam gebruikt.
+1. Wijzig de **poort** naar **1401** om te voorkomen dat met behulp van een bekende poortnaam in het openbare scenario.
 
 1. Klik onder **SQL-verificatie** op **Inschakelen**. De SQL-aanmeldingsgegevens zijn ingesteld op dezelfde combinatie van gebruikersnaam en wachtwoord als u voor de virtuele machine hebt geconfigureerd.
 

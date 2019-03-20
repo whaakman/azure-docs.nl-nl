@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: 74cd56f5a8bfe8717927c13e6bf30eb27b43fbc9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: b18ae44a140d77c24d8b5741bc09740767d1344f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558519"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075949"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Een nieuwe Time Series Insights-omgeving maken in Azure Portal
 In dit artikel wordt beschreven hoe u een nieuwe Time Series Insights-omgeving maken met de Azure-portal.
@@ -26,15 +26,15 @@ Time Series Insights kunt u aan de slag te visualiseren en opvragen van gegevens
 ## <a name="steps-to-create-the-environment"></a>Stappen voor het maken van de omgeving
 Volg deze stappen voor het maken van een omgeving:
 
-1.  Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2.  Selecteer de **+ nieuw** knop.
+2. Selecteer de **+ nieuw** knop.
 
-3.  Selecteer de **Internet of Things** categorie en selecteer **Time Series Insights**.
+3. Selecteer de **Internet of Things** categorie en selecteer **Time Series Insights**.
 
    ![De Time Series Insights-omgeving maken](media/time-series-insights-get-started/1-new-tsi.png)
 
-4.  Op de **Time Series Insights** weergeeft, schakelt **maken**.
+4. Op de **Time Series Insights** weergeeft, schakelt **maken**.
 
 5. Vul de vereiste parameters. De volgende tabel beschrijft elke parameter:
    

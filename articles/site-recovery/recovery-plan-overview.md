@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 053d400a9986d0997344b2be09140d8afb0e1faf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975658"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996362"
 ---
 # <a name="about-recovery-plans"></a>Over herstelplannen
 
@@ -29,7 +29,7 @@ Een herstelplan helpt u bij het definiëren van een systematische herstelproces 
 
 * Het model van een app om de afhankelijkheden ervan.
 * Hersteltaken om te beperken RTO automatiseren.
-- Controleert u of u bent voorbereid voor migratie of herstel na noodgevallen door ervoor te zorgen dat uw apps deel uit van een plan voor herstel maken.
+* Controleert u of u bent voorbereid voor migratie of herstel na noodgevallen door ervoor te zorgen dat uw apps deel uit van een plan voor herstel maken.
 * Testfailover uitvoert op plannen voor herstel, om ervoor te zorgen voor herstel na noodgevallen of de migratie naar behoren werkt.
 
 
@@ -42,10 +42,10 @@ U kunt plannen en maken van een groep voor gegevensherstel om vast te leggen van
     - Deze volgorde zorgt ervoor dat wanneer de middleware wordt gestart en probeert verbinding maken met de SQL Server-laag, de SQL Server-laag wordt al uitgevoerd. 
     - Deze volgorde zorgt er ook dat de front-endwebserver laatste is gestart, zodat eindgebruikers geen verbinding maken met de URL van de app voordat alle onderdelen zijn en die wordt uitgevoerd en de app is gereed om aanvragen te accepteren.
 
-Voor het maken van deze volgorde, kunt u groepen toevoegen aan de groep voor gegevensherstel en computers in de groepen toevoegen. 
-    - Wanneer de order is opgegeven, wordt sequentiëren gebruikt. Acties parallel worden uitgevoerd indien van toepassing, voor het verbeteren van RTO-toepassing herstellen.
-    - Computers in één groep failover parallel.
-    - In verschillende groepen failover van machines in de volgorde van groepen, zodat de machines groep 2 hun failover start pas nadat alle machines in de groep 1 hebben een failover en gestart.
+Voor het maken van deze volgorde, kunt u groepen toevoegen aan de groep voor gegevensherstel en computers in de groepen toevoegen.
+- Wanneer de order is opgegeven, wordt sequentiëren gebruikt. Acties parallel worden uitgevoerd indien van toepassing, voor het verbeteren van RTO-toepassing herstellen.
+- Computers in één groep failover parallel.
+- In verschillende groepen failover van machines in de volgorde van groepen, zodat de machines groep 2 hun failover start pas nadat alle machines in de groep 1 hebben een failover en gestart.
 
     ![Voorbeeld van herstelplan](./media/recovery-plan-overview/rp.png)
 
@@ -93,4 +93,4 @@ Bekijk de video van een kort voorbeeld van een failover op en klik op voor een a
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Maak](site-recovery-create-recovery-plans.md) een plan voor herstel.
-* Meer informatie over [uitvoeren van failovers](site-recovery-failover.md).  
+- Meer informatie over [uitvoeren van failovers](site-recovery-failover.md).  

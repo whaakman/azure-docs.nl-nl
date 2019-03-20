@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: cac889b83bb0e7a7aab12ff4097556abf60663b6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b9c707dcc1628f685661f88aaed29612465a5469
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449118"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010075"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Het Blob Storage gebruiken met Xamarin
 
@@ -168,7 +168,7 @@ namespace XamarinApp.iOS
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=391641
 
 namespace XamarinApp.WinPhone
 {
@@ -231,7 +231,7 @@ namespace XamarinApp.WinPhone
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 U kunt deze toepassing nu uitvoeren in een Android- of Windows Phone-emulator. U kunt deze toepassing ook uitvoeren in een iOS-emulator, maar hiervoor moet een Mac. Voor specifieke instructies over hoe u dit doet, leest u de documentatie voor [Visual Studio verbinding te maken met een Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
-Nadat u uw app uitvoert, wordt het maken van de container `mycontainer` in uw opslagaccount. De blob moet bevatten `myblob`, die de tekst heeft `Hello, world!`. U kunt dit controleren met behulp van de [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+Nadat u uw app uitvoert, wordt het maken van de container `mycontainer` in uw opslagaccount. De blob moet bevatten `myblob`, die de tekst heeft `Hello, world!`. U kunt dit controleren met behulp van de [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u geleerd hoe u een platformonafhankelijke toepassing maakt in Xamarin die gebruikmaakt van Azure Storage, specifiek gericht op één scenario in Blob-opslag. Echter, kunt u doen nog veel meer met niet alleen Blob-opslag, maar ook met tabel-, bestands- en Queue Storage. Bekijk de volgende artikelen voor meer informatie:

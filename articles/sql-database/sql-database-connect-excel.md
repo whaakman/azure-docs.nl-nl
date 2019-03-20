@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103397"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Excel verbinden met een individuele database in Azure SQL-database en een rapport maken
 
@@ -43,10 +43,10 @@ U hebt ook een kopie van Excel nodig. Dit artikel gebruikt [Microsoft Excel 2016
 
 4. In de **SQL Server-Database** in het dialoogvenster, selecteer **Database** aan de linkerkant zijde en voer vervolgens uw **gebruikersnaam** en **wachtwoord** voor de U verbinding maken wilt met SQL Database-server. Selecteer **Connect** openen de **Navigator**. 
 
-  ![Typ de servernaam en aanmeldingsreferenties in](./media/sql-database-connect-excel/connect-to-server.png)
+   ![Typ de servernaam en aanmeldingsreferenties in](./media/sql-database-connect-excel/connect-to-server.png)
 
-  > [!TIP]
-  > Afhankelijk van uw netwerkomgeving kunt u mogelijk geen verbinding maken of kan de verbinding verbroken worden als de server van de SQL Database geen verkeer van het IP-adres van de client toestaat. Ga naar de [Azure-portal](https://portal.azure.com/), klik op SQL-servers, klik op uw server, klik op firewall onder instellingen en voeg uw client-IP-adres toe. Zie [Firewallinstellingen configureren](sql-database-configure-firewall-settings.md) voor meer informatie.
+   > [!TIP]
+   > Afhankelijk van uw netwerkomgeving kunt u mogelijk geen verbinding maken of kan de verbinding verbroken worden als de server van de SQL Database geen verkeer van het IP-adres van de client toestaat. Ga naar de [Azure-portal](https://portal.azure.com/), klik op SQL-servers, klik op uw server, klik op firewall onder instellingen en voeg uw client-IP-adres toe. Zie [Firewallinstellingen configureren](sql-database-configure-firewall-settings.md) voor meer informatie.
 
 5. In de **Navigator**, selecteer de database die u wilt werken met in de lijst, selecteer de tabellen of weergaven die u wilt werken (We hebben gekozen voor **vGetAllCategories**), en selecteer vervolgens **Load**naar de gegevens van uw database verplaatsen naar het Excel-werkblad.
 
@@ -75,17 +75,17 @@ Nu dat u de verbinding tot stand hebt gebracht, hebt u diverse opties met het la
 Om de verbindingsgegevens permanent opgeslagen, kunt u een ODC-bestand maken en deze verbinding maken als een selecteerbaar-optie in de **bestaande verbindingen** in het dialoogvenster. 
 
 1. Selecteer in de menubalk boven aan de pagina, de **gegevens** tabblad, en selecteer vervolgens **bestaande verbindingen** starten de **bestaande verbindingen** in het dialoogvenster. 
-    1. Selecteer **laderen naar meer** openen de **gegevensbron selecteren** in het dialoogvenster.   
-    2. Selecteer de **+NewSqlServerConnection.odc** -bestand en selecteer vervolgens **Open** openen de **Wizard Gegevensverbinding**.
+   1. Selecteer **laderen naar meer** openen de **gegevensbron selecteren** in het dialoogvenster.   
+   2. Selecteer de **+NewSqlServerConnection.odc** -bestand en selecteer vervolgens **Open** openen de **Wizard Gegevensverbinding**.
 
-    ![Nieuwe verbinding](media/sql-database-connect-excel/new-connection.png)
+      ![Nieuwe verbinding](media/sql-database-connect-excel/new-connection.png)
 
 2. In de **Wizard Gegevensverbinding**, typ de servernaam van uw en de referenties van uw SQL-Database. Selecteer **Volgende**. 
-    1. Selecteer de database met uw gegevens uit de vervolgkeuzelijst. 
-    2. Selecteer de tabel of weergave die u geïnteresseerd bent in. We hebben gekozen vGetAllCategories.
-    3. Selecteer **Volgende**. 
+   1. Selecteer de database met uw gegevens uit de vervolgkeuzelijst. 
+   2. Selecteer de tabel of weergave die u geïnteresseerd bent in. We hebben gekozen vGetAllCategories.
+   3. Selecteer **Volgende**. 
 
-    ![Wizard Gegevensverbinding](media/sql-database-connect-excel/data-connection-wizard.png) 
+      ![Wizard Gegevensverbinding](media/sql-database-connect-excel/data-connection-wizard.png) 
 
 3. Selecteer de locatie van het bestand, de **bestandsnaam**, en de **beschrijvende naam** in het volgende scherm van de Wizard Gegevensverbinding. U kunt ook het wachtwoord opslaan in het bestand, maar dit aan ongewenste toegang tot gegevens blootstellen kunt. Selecteer **voltooien** als u klaar bent. 
 

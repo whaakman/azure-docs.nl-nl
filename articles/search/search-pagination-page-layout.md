@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8cf65f0ed3ecd5c9a86d6adcdd5defd930522f85
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: ef29dafe32c3c5988cd33f59c8436eeef4b45886
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301550"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849275"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Over het werken met zoeken resulteert in Azure Search
 Dit artikel bevat richtlijnen over het implementeren van standard elementen van een pagina met zoekresultaten, zoals het totale aantal, document ophalen, sorteervolgorde en navigatie. Opties voor pagina's gerelateerde die of gegevens naar uw zoekresultaten bijdragen worden opgegeven via de [Document doorzoeken](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) aanvragen naar uw Azure Search-Service verzonden. 
 
 In de REST-API bevatten aanvragen een GET-opdracht, pad, en queryparameters die de service wat wordt aangevraagd informeren en hoe u het antwoord te formuleren. In de .NET SDK, de equivalente API is [DocumentSearchResult klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
 
-Enkele voorbeelden van code bevatten een web front-interface, dat u hier kunt vinden: [New York City taken demo-app](http://azjobsdemo.azurewebsites.net/) en [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Enkele voorbeelden van code bevatten een web front-interface, dat u hier kunt vinden: [New York City taken demo-app](https://azjobsdemo.azurewebsites.net/) en [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
 > Een geldige aanvraag bevat een aantal elementen, zoals een service-URL en het pad, HTTP-term `api-version`, enzovoort. Beknopt alternatief bijgesneden we in de voorbeelden om te markeren, alleen de syntaxis die relevant is voor paginering. Zie voor meer informatie over de syntaxis van de aanvraag [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice). > 

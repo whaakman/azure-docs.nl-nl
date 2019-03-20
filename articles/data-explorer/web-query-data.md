@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7ce66d3f6117a5e395920dc2232efb0e43f4cd18
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 9dade2ccebfb96cd54bdb9c8ef70c14fdeadad76
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106444"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225770"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>Snelstart: Query's uitvoeren op gegevens in Azure Data Explorer
 
@@ -39,7 +39,11 @@ U moet een verbinding voor ten minste één cluster toevoegen voordat u query's 
 
 1. Selecteer in de linkerbovenhoek van de toepassing **Add Cluster**.
 
-1. Voer in het dialoogvenster **Add Cluster** `https://help.kusto.windows.net` in en selecteer vervolgens **Add**.
+1. In de **toevoegen cluster** in het dialoogvenster, voer de URI en selecteer vervolgens **toevoegen**.
+
+   U kunt het helpcluster URI, `https://help.kusto.windows.net`. Als u uw eigen cluster hebt, geeft u de URI van het cluster. Bijvoorbeeld, `https://mydataexplorercluster.westus.kusto.windows.net` zoals in de volgende afbeelding:
+
+    ![Server-URI in de Portal](media/web-query-data/server-uri.png)
 
 1. In het linkerdeelvenster ziet u nu het cluster **help**. Vouw de database **Samples** uit, zodat u de voorbeeldtabellen ziet waartoe u toegang hebt.
 

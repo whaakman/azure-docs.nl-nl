@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4873c834a33ff5f401f38fdb810c65ca7ef20f5e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 6330e941f3308920ff4d5404663824633484146a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108355"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (C#)
 
@@ -68,13 +68,13 @@ Als u wilt de volgende stappen hebt voltooid, kunt u Visual Studio Code. Zie voo
 
 1. Voor het initialiseren van uw .NET-project en voeg de vereiste NuGet-pakketten toe, voer de volgende opdrachten:
 
-  ```cmd/sh
-  mkdir pisample
-  cd pisample
-  dotnet new console
-  dotnet add package Microsoft.Azure.Devices.Client
-  dotnet restore
-  ```
+   ```cmd/sh
+   mkdir pisample
+   cd pisample
+   dotnet new console
+   dotnet add package Microsoft.Azure.Devices.Client
+   dotnet restore
+   ```
 
 1. Open de `pisample` map in Visual Studio Code. Open vervolgens de **pisample.csproj** projectbestand. Voeg de `<RuntimeIdentifiers>` label wordt weergegeven in het volgende codefragment:
 
@@ -281,10 +281,10 @@ Uw apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat 
 
 1. Voer de volgende opdracht in uw omgeving opdrachtregel:
 
-  ```cmd/sh
-  dotnet restore
-  dotnet publish -r linux-arm
-  ```
+   ```cmd/sh
+   dotnet restore
+   dotnet publish -r linux-arm
+   ```
 
 1. Kopieer de `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` map op uw apparaat Raspberry Pi. U kunt de **scp** opdracht de bestanden te kopiëren, bijvoorbeeld:
 
@@ -313,13 +313,13 @@ Uw apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat 
 
 1. U kunt zien hoe de code die wordt uitgevoerd op de Raspberry Pi communiceert met de toepassing in uw Azure IoT Central-toepassing:
 
-    * Op de **metingen** pagina voor uw echte apparaten, kunt u de telemetrie bekijken.
-    * Op de **eigenschappen** pagina, ziet u de waarde van de gerapporteerde **Die nummer** eigenschap.
-    * Op de **instellingen** pagina, kunt u verschillende instellingen op de Raspberry Pi zoals spanning- en fan-snelheid.
+   * Op de **metingen** pagina voor uw echte apparaten, kunt u de telemetrie bekijken.
+   * Op de **eigenschappen** pagina, ziet u de waarde van de gerapporteerde **Die nummer** eigenschap.
+   * Op de **instellingen** pagina, kunt u verschillende instellingen op de Raspberry Pi zoals spanning- en fan-snelheid.
 
-    De volgende schermafbeelding ziet u de Raspberry Pi ontvangen van de wijziging in de instelling:
+     De volgende schermafbeelding ziet u de Raspberry Pi ontvangen van de wijziging in de instelling:
 
-    ![Raspberry Pi ontvangt instelling wijzigen](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+     ![Raspberry Pi ontvangt instelling wijzigen](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
 
 ## <a name="raspberry-pi-device-template-details"></a>Details van de sjabloon Raspberry PI-apparaat

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313531"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997964"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux Diagnostic-extensie gebruiken om te controleren, logboeken en metrische gegevens
 
@@ -313,7 +313,7 @@ Element | Value
 ------- | -----
 sinks | (optioneel) Een door komma's gescheiden lijst met namen van sinks welke LAD verzendt metrische resultaten samengevoegde. Alle samengevoegde metrische gegevens worden gepubliceerd naar elke vermelde sink. Zie [sinksConfig](#sinksconfig). Voorbeeld: `"EHsink1, myjsonsink"`.
 type | Hiermee geeft u de werkelijke provider van de metrische gegevens.
-klasse | Hiermee geeft u de specifieke metrische gegevens in de naamruimte van de provider, samen met 'item'.
+Klasse | Hiermee geeft u de specifieke metrische gegevens in de naamruimte van de provider, samen met 'item'.
 counter | Samen met "class", identificeert de specifieke metrische gegevens in de naamruimte van de provider.
 counterSpecifier | Hiermee geeft u de specifieke metrische gegevens in de naamruimte van de metrische gegevens van Azure.
 voorwaarde | (optioneel) Hiermee selecteert u een specifiek exemplaar van het object waaraan de metrische gegevens is van toepassing, of selecteert de aggregatie voor alle instanties van dat object. Zie voor meer informatie de `builtin` metrische definities.
@@ -386,7 +386,7 @@ Deze optionele sectie Hiermee bepaalt u de uitvoering van willekeurige [OMI](htt
 
 Element | Value
 ------- | -----
-naamruimte | (optioneel) De OMI-naamruimte waarin de query moet worden uitgevoerd. Als u niets opgeeft, de standaardwaarde is "root/scx", uitgevoerd door de [System Center platformoverschrijdende Providers](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+naamruimte | (optioneel) De OMI-naamruimte waarin de query moet worden uitgevoerd. Als u niets opgeeft, de standaardwaarde is "root/scx", uitgevoerd door de [System Center platformoverschrijdende Providers](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | De OMI-query moet worden uitgevoerd.
 tabel | (optioneel) De Azure storage-tabel in de aangewezen storage-account (Zie [beveiligde instellingen](#protected-settings)).
 frequency | (optioneel) Het aantal seconden tussen het uitvoeren van de query. Standaardwaarde is 300 (5 minuten); minimumwaarde is 15 seconden.

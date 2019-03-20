@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 67442a5861514eadfebfc877d91e735e05f6f63d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 64bab5c1b99720eecb189834d7a11802cf919ca3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106777"
 ---
 # <a name="alert-confidence-score"></a>Betrouwbaarheidsscore waarschuwing 
 
@@ -45,7 +45,7 @@ De betrouwbaarheidsscore weergeven:
 De gegevens die hebben bijgedragen aan Security Center van vertrouwen in een waarschuwing weergeven:
 - In de beveiliging onder blade waarschuwing **vertrouwen**, bekijk de metingen die hebben bijgedragen aan de betrouwbaarheidsscore en Verkrijg inzichten met betrekking tot de waarschuwing. Dit biedt u meer inzicht in de aard van de activiteiten die de waarschuwing heeft veroorzaakt.
 
- ![Verdachte betrouwbaarheidsscore][2]
+  ![Verdachte betrouwbaarheidsscore][2]
 
 Betrouwbaarheidsscore gebruikt Security Center om de prioriteit van waarschuwing classificeren in uw omgeving te. De betrouwbaarheidsscore bespaart u tijd en moeite door automatisch onderzoeken van waarschuwingen, toepassen van best practices voor de bedrijfstak en intelligente algoritmen en die fungeert als een virtuele analist om te bepalen welke bedreigingen van een echte zijn en waar u zich concentreren uw aandacht nodig hebt.
 

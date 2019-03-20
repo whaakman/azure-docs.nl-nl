@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d04956df7f79f2522b53b98d7b10f93d67b9c3c7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309226"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086731"
 ---
 # <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Zelfstudie: Synoniemen toevoegen voor Azure Search in C#
 
@@ -114,7 +114,7 @@ no document matched
 U kunt synoniemen op basis van twee stappen inschakelen. Als eerste definieert en uploadt u synoniemregels en daarna configureert u velden voor het gebruik van synoniemen. Het proces wordt beschreven in `UploadSynonyms` en `EnableSynonymsInHotelsIndex`.
 
 1. Voeg een synoniemtoewijzing toe aan de Search-service. In `UploadSynonyms` worden vier regels gedefinieerd voor de synoniemtoewijzing desc-synonymmap, die vervolgens naar de service worden geüpload.
-```csharp
+   ```csharp
     var synonymMap = new SynonymMap()
     {
         Name = "desc-synonymmap",
@@ -126,21 +126,21 @@ U kunt synoniemen op basis van twee stappen inschakelen. Als eerste definieert e
     };
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
-```
-Een synoniemtoewijzing moet voldoen aan de standaard-open-source-indeling `solr`. De indeling wordt in de sectie `Apache Solr synonym format` uitgelegd in [Synoniemen in Azure Search](search-synonyms.md).
+   ```
+   Een synoniemtoewijzing moet voldoen aan de standaard-open-source-indeling `solr`. De indeling wordt in de sectie `Apache Solr synonym format` uitgelegd in [Synoniemen in Azure Search](search-synonyms.md).
 
 2. Configureer doorzoekbare velden voor het gebruik van de synoniemtoewijzing in de indexdefinitie. In `EnableSynonymsInHotelsIndex` worden synoniemen ingeschakeld voor twee velden (`category` en `tags`) door de eigenschap `synonymMaps` in te stellen op de naam van de zojuist geüploade synoniemtoewijzing.
-```csharp
-  Index index = serviceClient.Indexes.Get("hotels");
-  index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
-  index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
+   ```csharp
+   Index index = serviceClient.Indexes.Get("hotels");
+   index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
+   index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
 
-  serviceClient.Indexes.CreateOrUpdate(index);
-```
-Wanneer u een synoniemtoewijzing toevoegt, is het niet nodig om indexen opnieuw op te bouwen. U kunt een synoniemtoewijzing toevoegen aan uw service en daarna de bestaande velddefinities aanpassen in een index om de nieuwe synoniemtoewijzing te gebruiken. Het toevoegen van nieuwe kenmerken heeft geen invloed op de beschikbaarheid van indexen. Ditzelfde is van toepassing op het uitschakelen van synoniemen voor een veld. U kunt eenvoudigweg de eigenschap `synonymMaps` instellen op een lege lijst.
-```csharp
-  index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
-```
+   serviceClient.Indexes.CreateOrUpdate(index);
+   ```
+   Wanneer u een synoniemtoewijzing toevoegt, is het niet nodig om indexen opnieuw op te bouwen. U kunt een synoniemtoewijzing toevoegen aan uw service en daarna de bestaande velddefinities aanpassen in een index om de nieuwe synoniemtoewijzing te gebruiken. Het toevoegen van nieuwe kenmerken heeft geen invloed op de beschikbaarheid van indexen. Ditzelfde is van toepassing op het uitschakelen van synoniemen voor een veld. U kunt eenvoudigweg de eigenschap `synonymMaps` instellen op een lege lijst.
+   ```csharp
+   index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
+   ```
 
 ## <a name="after-queries"></a>'Na'-query's
 

@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dc56384d550854c05a813157b32ac36f5ebfb76
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: df2c4e447ff41e56c4d8b9862282b6fcb452a8c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211917"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224291"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Wat zijn beheerde identiteiten voor Azure-resources?
 
@@ -64,13 +64,12 @@ In het volgende diagram ziet u hoe beheerde service-identiteiten samenwerken met
     1. Het Azure Instance Metadata Service-eindpunt voor identiteit wordt bijgewerkt met de client-id en het certificaat van de service-principal.
     1. De VM-extensie wordt ingericht (gepland voor afschaffing in januari 2019) en de client-id en het certificaat van de service-principal worden toegevoegd. (Deze stap wordt later afgeschaft.)
 4. Als de VM een identiteit heeft, gebruikt u de informatie van de service-principal om de VM toegang te verlenen tot Azure-resources. Voor het aanroepen van Azure Resource Manager gebruikt u op rollen gebaseerd toegangsbeheer (RBAC) in Azure AD om de juiste rol aan de VM-service-principal toe te wijzen. Als u Key Vault wilt aanroepen, geeft u de code toegang tot het specifieke geheim of de specifieke sleutel in Key Vault.
-5. De code die wordt uitgevoerd op de VM, kan een token aanvragen vanaf twee eindpunten die alleen toegankelijk zijn vanuit de VM:
+5. Uw code die wordt uitgevoerd op de virtuele machine kan aanvragen van een token van het Azure Instance Metadata service-eindpunt, alleen toegankelijk vanuit de virtuele machine: `http://169.254.169.254/metadata/identity/oauth2/token`
+    - De resourceparameter geeft de service op waarnaar het token wordt verzonden. Gebruik `resource=https://management.azure.com/` om bij Azure Resource Manager te verificatie uit te voeren.
+    - De API-versieparameter specificeert de IMDS-versie, gebruik api-version=2018-02-01 of hoger.
 
-    - Azure Instance Metadata Service-eindpunt voor identiteit (aanbevolen): `http://169.254.169.254/metadata/identity/oauth2/token`
-        - De resourceparameter geeft de service op waarnaar het token wordt verzonden. Gebruik `resource=https://management.azure.com/` om bij Azure Resource Manager te verificatie uit te voeren.
-        - De API-versieparameter specificeert de IMDS-versie, gebruik api-version=2018-02-01 of hoger.
-    - VM-extensie-eindpunt (gepland voor afschaffing in januari 2019): `http://localhost:50342/oauth2/token` 
-        - De resourceparameter geeft de service op waarnaar het token wordt verzonden. Gebruik `resource=https://management.azure.com/` om bij Azure Resource Manager te verificatie uit te voeren.
+> [!NOTE]
+> Uw code kunt ook een token aanvragen van VM-extensie-eindpunt, maar dit is gepland voor de afschaffing binnenkort. Zie voor meer informatie over de VM-extensie, [migreren van de VM-extensie naar Azure IMDS voor verificatie](howto-migrate-vm-extension.md).
 
 6. Er wordt een aanroep uitgevoerd naar Azure AD om een toegangstoken aan te vragen (zoals beschreven in stap 5) met behulp van de client-id en het certificaat dat in stap 3 is geconfigureerd. Azure AD retourneert een JWT-toegangstoken (JSON Web Token).
 7. Uw code verzendt het toegangstoken bij een aanroep naar een service die Azure AD-verificatie ondersteunt.
@@ -87,16 +86,14 @@ In het volgende diagram ziet u hoe beheerde service-identiteiten samenwerken met
    > [!Note]
    > U kunt deze stap ook vóór stap 3 uitvoeren.
 
-5. De code die wordt uitgevoerd op de VM, kan een token aanvragen vanaf twee eindpunten die alleen toegankelijk zijn vanuit de VM:
+5. De code die wordt uitgevoerd op de virtuele machine kunt u een token aanvragen van het eindpunt Azure Instance Metadata Service-identiteit, alleen toegankelijk vanuit de virtuele machine: `http://169.254.169.254/metadata/identity/oauth2/token`
+    - De resourceparameter geeft de service op waarnaar het token wordt verzonden. Gebruik `resource=https://management.azure.com/` om bij Azure Resource Manager te verificatie uit te voeren.
+    - De client-id-parameter bevat de identiteit waarvoor het token wordt aangevraagd. Deze waarde is vereist om ambiguïteit op te heffen wanneer meer dan een door de gebruiker toegewezen identiteit aanwezig is op één VM.
+    - De parameter voor de API-versie geeft de versie van Azure Instance Metadata Service op. Gebruik `api-version=2018-02-01` of hoger.
 
-    - Azure Instance Metadata Service-eindpunt voor identiteit (aanbevolen): `http://169.254.169.254/metadata/identity/oauth2/token`
-        - De resourceparameter geeft de service op waarnaar het token wordt verzonden. Gebruik `resource=https://management.azure.com/` om bij Azure Resource Manager te verificatie uit te voeren.
-        - De client-id-parameter bevat de identiteit waarvoor het token wordt aangevraagd. Deze waarde is vereist om ambiguïteit op te heffen wanneer meer dan een door de gebruiker toegewezen identiteit aanwezig is op één VM.
-        - De parameter voor de API-versie geeft de versie van Azure Instance Metadata Service op. Gebruik `api-version=2018-02-01` of hoger.
+> [!NOTE]
+> Uw code kunt ook een token aanvragen van VM-extensie-eindpunt, maar dit is gepland voor de afschaffing binnenkort. Zie voor meer informatie over de VM-extensie, [migreren van de VM-extensie naar Azure IMDS voor verificatie](howto-migrate-vm-extension.md).
 
-    - VM-extensie-eindpunt (gepland voor afschaffing in januari 2019): `http://localhost:50342/oauth2/token`
-        - De resourceparameter geeft de service op waarnaar het token wordt verzonden. Gebruik `resource=https://management.azure.com/` om bij Azure Resource Manager te verificatie uit te voeren.
-        - De client-id-parameter bevat de identiteit waarvoor het token wordt aangevraagd. Deze waarde is vereist om ambiguïteit op te heffen wanneer meer dan een door de gebruiker toegewezen identiteit aanwezig is op één VM.
 6. Er wordt een aanroep uitgevoerd naar Azure AD om een toegangstoken aan te vragen (zoals beschreven in stap 5) met behulp van de client-id en het certificaat dat in stap 3 is geconfigureerd. Azure AD retourneert een JWT-toegangstoken (JSON Web Token).
 7. Uw code verzendt het toegangstoken bij een aanroep naar een service die Azure AD-verificatie ondersteunt.
 

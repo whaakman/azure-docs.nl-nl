@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 88347076888b68459747757d655759d3f83d19a7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 446f83ecf81d344163deca58ac4aaf8487292ab4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964556"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181041"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Quickstart: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met Java
 
@@ -171,6 +171,8 @@ gradle run
 ```
 
 ## <a name="sample-response"></a>Voorbeeldantwoord
+
+De afkorting van land/regio niet vinden in dit [lijst met talen](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het volgende voorbeeld kunt zien:
 

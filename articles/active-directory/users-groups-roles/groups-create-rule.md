@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79b40af914cd55ae37205123df595ab177c87752
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098199"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199678"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Een dynamische groep maken en de status controleren
 
@@ -34,11 +34,11 @@ Zie voor meer voorbeelden van syntaxis, ondersteunde eigenschappen, operators en
 2. Selecteer **groepen**.
 3. Selecteer **alle groepen**, en selecteer **nieuwe groep**.
 
-   ![Nieuwe groep toevoegen](./media/groups-create-rule/new-group-creation.png)
+   ![Selecteer de opdracht nieuwe groep toevoegen](./media/groups-create-rule/new-group-creation.png)
 
 4. Op de **groep** pagina, voer een naam en beschrijving voor de nieuwe groep. Selecteer een **lidmaatschapstype** voor gebruikers of apparaten en selecteer vervolgens **dynamische query toevoegen**. U kunt de opbouwfunctie voor regel gebruiken om te maken van een eenvoudige regel of [zelf schrijven van een lidmaatschapsregel](groups-dynamic-membership.md).
 
-   ![Regel voor dynamisch lidmaatschap toevoegen](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Lidmaatschapsregel voor een dynamische groep toevoegen](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 5. Om te zien van de aangepaste extensie-eigenschappen die beschikbaar zijn voor uw lidmaatschapquery
    1. Selecteer **aangepaste extensie-eigenschappen ophalen**
@@ -56,7 +56,7 @@ Wanneer een nieuwe Office 365-groep is gemaakt, wordt de gebruikers die zijn toe
 
 Ziet u het lidmaatschap van de status en het laatst bijgewerkt op verwerking op de **overzicht** pagina voor de groep.
   
-  ![dynamische groep status weergeven](./media/groups-create-rule/group-status.png)
+  ![weergave van de status van de dynamische groep](./media/groups-create-rule/group-status.png)
 
 De volgende statusberichten kunnen worden weergegeven voor **lidmaatschap verwerking** status:
 
@@ -74,7 +74,7 @@ De volgende statusberichten kunnen worden weergegeven voor **lidmaatschap laatst
 
 Als er een fout optreedt tijdens het verwerken van de lidmaatschapsregel voor een specifieke groep, een waarschuwing wordt weergegeven bovenaan het **overzichtspagina** voor de groep. Als niet in afwachting van lidmaatschap van dynamische updates kunnen worden verwerkt voor alle groepen in de tenant voor meer dan 24 uur, een waarschuwing wordt weergegeven boven in het **alle groepen**.
 
-![verwerking van foutbericht](./media/groups-create-rule/processing-error.png)
+![fout-berichten verwerken](./media/groups-create-rule/processing-error.png)
 
 Deze artikelen bevatten aanvullende informatie over groepen in Azure Active Directory.
 

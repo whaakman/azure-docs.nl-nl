@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1abdfc377c40e37f01fbbbbd695e949671d40a51
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1c93716d5c8d0c9a74e2cb14a35637faa029c156
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820124"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226178"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configureren van beheerde identiteiten voor Azure-resources op een Azure-VM met behulp van een sjablonen
 
@@ -39,7 +39,7 @@ In dit artikel, leert met behulp van de sjabloon van Azure Resource Manager-impl
 
 Net als bij Azure portal en uitvoeren van scripts, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) sjablonen bieden de mogelijkheid om nieuwe of gewijzigde resources die zijn gedefinieerd door een Azure-resourcegroep te implementeren. Er zijn diverse opties beschikbaar voor het bewerken van de sjabloon en implementatie, zowel lokaal als portal-gebaseerd, met inbegrip van:
 
-   - Met behulp van een [aangepaste sjabloon vanuit Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), waarmee u een sjabloon maken van een volledig nieuwe of baseren op een bestaande gemeenschappelijke of [QuickStart-sjabloon](https://azure.microsoft.com/documentation/templates/).
+   - Met behulp van een [aangepaste sjabloon vanuit Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), waarmee u een sjabloon maken van een volledig nieuwe of baseren op een bestaande gemeenschappelijke of [quickstart-sjabloon](https://azure.microsoft.com/documentation/templates/).
    - Die is afgeleid van een bestaande resourcegroep door een sjabloon exporteren vanuit een [de oorspronkelijke implementatie](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates), of vanuit de [huidige status van de implementatie van](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
    - Met behulp van een lokale [JSON-editor (zoals VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), en vervolgens uploaden en implementeren met behulp van PowerShell of CLI.
    - Met Visual Studio [Azure-resourcegroepproject](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) te maken en implementeren van een sjabloon.  
@@ -64,35 +64,10 @@ Om in te schakelen door het systeem toegewezen beheerde identiteit op een virtue
    },
    ```
 
-3. (Optioneel) Toevoegen van de identiteit van de VM beheerd voor uitbreiding van de Azure-resources als een `resources` element. Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens.  Gebruik de volgende syntaxis:
+> [!NOTE]
+> U mag de beheerde identiteiten voor VM-extensie voor Azure-resources (optioneel) inrichten op te geven als een `resources` element in de sjabloon. Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens.  Zie voor meer informatie, [migreren van VM-extensie naar Azure IMDS voor verificatie](howto-migrate-vm-extension.md).
 
-   >[!NOTE] 
-   > De volgende voorbeelden wordt ervan uitgegaan dat een Windows VM-extensie (`ManagedIdentityExtensionForWindows`) wordt geïmplementeerd. U kunt ook configureren voor Linux met behulp van `ManagedIdentityExtensionForLinux` in plaats daarvan voor de `"name"` en `"type"` elementen. De VM-extensie is gepland voor de afschaffing in januari 2019.
-   >
-
-   ```JSON
-   { 
-       "type": "Microsoft.Compute/virtualMachines/extensions",
-       "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-       "apiVersion": "2018-06-01",
-       "location": "[resourceGroup().location]",
-       "dependsOn": [
-           "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-       ],
-       "properties": {
-           "publisher": "Microsoft.ManagedIdentity",
-           "type": "ManagedIdentityExtensionForWindows",
-           "typeHandlerVersion": "1.0",
-           "autoUpgradeMinorVersion": true,
-           "settings": {
-               "port": 50342
-           },
-           "protectedSettings": {}
-       }
-   }
-   ```
-
-4. Wanneer u klaar bent, in de volgende secties moet worden toegevoegd aan de `resource` sectie van uw sjabloon en deze is vergelijkbaar met het volgende:
+3. Wanneer u klaar bent, in de volgende secties moet worden toegevoegd aan de `resource` sectie van uw sjabloon en deze is vergelijkbaar met het volgende:
 
    ```JSON
    "resources": [
@@ -106,6 +81,8 @@ Om in te schakelen door het systeem toegewezen beheerde identiteit op een virtue
                 "type": "SystemAssigned",
                 },
             },
+        
+            //The following appears only if you provisioned the optional VM extension (to be deprecated)
             {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
@@ -253,29 +230,6 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
    }
    ```
        
-
-2. (Optioneel) Vervolgens onder de `resources` -element de volgende vermelding voor het toewijzen van de extensie beheerde identiteit aan uw virtuele machine (gepland voor de afschaffing in januari 2019) toevoegen. Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens. Gebruik de volgende syntaxis:
-    ```json
-    {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-        "apiVersion": "2018-06-01",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.ManagedIdentity",
-            "type": "ManagedIdentityExtensionForWindows",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "port": 50342
-            }
-        }
-    }
-    ```
-    
 3. Wanneer u klaar bent, in de volgende secties moet worden toegevoegd aan de `resource` sectie van uw sjabloon en deze is vergelijkbaar met het volgende:
    
    **Microsoft.Compute/virtualMachines API-versie 2018-06-01**    
@@ -295,6 +249,7 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
                 }
             }
         },
+        //The following appears only if you provisioned the optional VM extension (to be deprecated)                  
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
@@ -332,6 +287,8 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
                 ]
             }
         },
+                 
+        //The following appears only if you provisioned the optional VM extension (to be deprecated)                   
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",

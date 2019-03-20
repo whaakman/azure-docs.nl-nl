@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb00ef0f76b71d0a4748a319c9f2a5d64dffa251
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233307"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861584"
 ---
 # <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Toevoegen en aangepaste codefragmenten uitvoeren in Azure Logic Apps met Azure Functions
 
-Wanneer u wilt dat alleen voldoende code die een specifieke taak in uw logische apps uitvoert uit te voeren, kunt u uw eigen functies met [Azure Functions](../azure-functions/functions-overview.md). Deze service kunt u Node.js, C# en F #-codefragmenten maken zodat u niet hoeft te maken van een volledige app of de infrastructuur voor het uitvoeren van uw code. Azure Functions biedt serverloze computing in de cloud en is handig voor het uitvoeren van taken, zoals deze voorbeelden:
+Wanneer u wilt dat alleen voldoende code die een specifieke taak in uw logische apps uitvoert uit te voeren, kunt u uw eigen functies met [Azure Functions](../azure-functions/functions-overview.md). Deze service helpt u bij het maken van Node.js, C#, en F# codefragmenten, zodat u niet hoeft te maken van een volledige app of de infrastructuur voor het uitvoeren van uw code. Azure Functions biedt serverloze computing in de cloud en is handig voor het uitvoeren van taken, zoals deze voorbeelden:
 
 * Breid uw logische app gedrag met Node.js of C#-functies.
 * Uitvoeren van berekeningen in uw werkstroom voor logische Apps.
@@ -44,7 +44,7 @@ Als u wilt in dit artikel volgen, moet u deze items:
     De HTTP-trigger-sjabloon kunt accepteren inhoud waarvoor `application/json` type van uw logische app. 
     Wanneer u een Azure-functie aan uw logische app toevoegt, toont de ontwerper van logische App aangepaste functies die zijn gemaakt met deze sjabloon binnen uw Azure-abonnement. 
 
-  * De functie aangepaste routes niet gebruiken tenzij u hebt gedefinieerd een [OpenAPI-definitie](../azure-functions/functions-openapi-definition.md), voorheen bekend als een [Swagger-bestand](http://swagger.io/). 
+  * De functie aangepaste routes niet gebruiken tenzij u hebt gedefinieerd een [OpenAPI-definitie](../azure-functions/functions-openapi-definition.md), voorheen bekend als een [Swagger-bestand](https://swagger.io/). 
   
   * Als u een OpenAPI-definitie voor de functie hebt gedefinieerd, kunt u in de ontwerper van logische Apps een rijkere ervaring voor het werken met de parameters van de functie. Voordat uw logische app kunt vinden en toegang tot functies met OpenAPI-definities [instellen van uw functie-app door de volgende stappen](#function-swagger).
 
@@ -52,7 +52,7 @@ Als u wilt in dit artikel volgen, moet u deze items:
 
   Voordat u de acties die kunnen worden uitgevoerd functies toevoegen kunt, wordt uw logische app moet beginnen met een trigger.
 
-  Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Snelstartgids: uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Quick Start: Maak uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="create-function-external"></a>
 
@@ -67,7 +67,7 @@ Als u geen ervaring hebt met het maken van Azure functions, krijgt u informatie 
 
 <a name="function-swagger"></a>
 
-* (Optioneel) als u [een API-definitie genereren](../azure-functions/functions-openapi-definition.md), voorheen bekend als een [Swagger-bestand](http://swagger.io/), voor uw functie, krijgt u een rijkere ervaring wanneer u met parameters van de functie in de ontwerper van logische Apps werkt. Voor het instellen van uw functie-app, zodat uw logische app kunt vinden en gebruiken van functies met Swagger beschrijvingen, als volgt te werk:
+* (Optioneel) als u [een API-definitie genereren](../azure-functions/functions-openapi-definition.md), voorheen bekend als een [Swagger-bestand](https://swagger.io/), voor uw functie, krijgt u een rijkere ervaring wanneer u met parameters van de functie in de ontwerper van logische Apps werkt. Voor het instellen van uw functie-app, zodat uw logische app kunt vinden en gebruiken van functies met Swagger beschrijvingen, als volgt te werk:
 
   1. Zorg ervoor dat uw functie-app actief wordt uitgevoerd.
 
@@ -125,11 +125,11 @@ Voordat u een Azure-functie binnen uw logische app in de Logic App Designer vana
    * Tussen bestaande stappen in uw logic app-werkstroom Beweeg de muis over de pijl, kies de plusknop (+) Meld u aan en selecteer vervolgens **een actie toevoegen**.
 
 3. Typ 'azure functions' als filter in het zoekvak.
-Selecteer in de lijst met acties met deze actie: **kiest u een Azure-functie - Azure Functions** 
+Selecteer deze actie uit de lijst met acties: **Een Azure-functie kiezen - Azure Functions** 
 
    ![Zoek 'Azure functions'](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-4. Selecteer uw functie-app in de functie App-lijst. Nadat de acties weer wordt geopend, selecteert u deze actie: **Azure Functions - nieuwe functie maken**
+4. Selecteer uw functie-app in de functie App-lijst. Nadat de lijst met acties wordt geopend, selecteert u deze actie: **Azure Functions - maken nieuwe functie**
 
    ![Selecteer uw functie-app](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
@@ -181,7 +181,7 @@ U kunt voor het aanroepen van bestaande Azure-functies van uw logische apps, Azu
 2. Kies onder de stap waarin u wilt toevoegen van de functie, **nieuwe stap** > **een actie toevoegen**. 
 
 3. Typ 'azure functions' als filter in het zoekvak.
-Selecteer in de lijst met acties met deze actie: **kiest u een Azure-functie - Azure Functions** 
+Selecteer deze actie uit de lijst met acties: **Een Azure-functie kiezen - Azure Functions** 
 
    ![Zoek 'Azure functions'](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 

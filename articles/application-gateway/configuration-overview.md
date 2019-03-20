@@ -7,20 +7,20 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: absha
-ms.openlocfilehash: 702101039c03b30bb8883ef0308fe68c5567a0c4
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
-ms.translationtype: MT
+ms.openlocfilehash: 515243cb043bac8e9f28a3c63808e4fbd9b8f525
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57733214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905029"
 ---
 # <a name="application-gateway-configuration-overview"></a>Overzicht van de configuratie van de Application Gateway
 
 Application-gateway bestaat uit verschillende onderdelen die op verschillende manieren voor het uitvoeren van verschillende scenario's kunnen worden geconfigureerd. Dit artikel begeleidt u bij hoe elk onderdeel moet worden geconfigureerd.
 
-![Application-gateway-onderdelen](.\media\configuration-overview\configuration-overview1.png)
+![Application-gateway-onderdelen](./media/configuration-overview/configuration-overview1.png)
 
-Bovenstaande afbeelding ziet u de configuratie van een toepassing met 3 listeners. De eerste twee listeners voor meerdere locaties zijn http://acme.com/* en http://fabrikam.com/*, respectievelijk. Beide luisteren op poort 80. De derde listener is een basislistener met end-to-end SSL-beëindiging. 
+Bovenstaande afbeelding ziet u de configuratie van een toepassing met 3 listeners. De eerste twee listeners voor meerdere locaties zijn `http://acme.com/*` en `http://fabrikam.com/*`, respectievelijk. Beide luisteren op poort 80. De derde listener is een basislistener met end-to-end SSL-beëindiging. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -83,9 +83,9 @@ Een listener is een logische eenheid waarmee wordt gecontroleerd op de inkomende
 
 U kunt kiezen tussen [basic- of multi-site-listener](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners) tijdens het maken van een nieuwe listener. 
 
-- Als u een enkele site achter een Application gateway host, kiest u basislistener. Informatie over [over het maken van een toepassingsgateway met met basislistener](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
+- Als u een enkele site achter een Application gateway host, kiest u basislistener. Informatie over [over het maken van een toepassingsgateway met basislistener](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Als u meer dan één webtoepassing of meerdere subdomeinen van hetzelfde bovenliggende domein op hetzelfde exemplaar van application gateway configureert, kiest u listener voor meerdere locaties. Voor de listener voor meerdere locaties moet u bovendien een hostnaam invoeren. Dit is omdat Application Gateway maakt gebruik van HTTP 1.1-hostheaders voor het hosten van meer dan één website op hetzelfde openbare IP-adres en dezelfde poort.![1551057450710](C:\Users\absha\AppData\Roaming\Typora\typora-user-images\1551057450710.png)
+- Als u meer dan één webtoepassing of meerdere subdomeinen van hetzelfde bovenliggende domein op hetzelfde exemplaar van application gateway configureert, kiest u listener voor meerdere locaties. Voor de listener voor meerdere locaties moet u bovendien een hostnaam invoeren. Dit is omdat Application Gateway maakt gebruik van HTTP 1.1-hostheaders voor het hosten van meer dan één website op hetzelfde openbare IP-adres en dezelfde poort.![1551057450710](C:/Users/absha/AppData/Roaming/Typora/typora-user-images/1551057450710.png)
 
 
 > [!NOTE]
@@ -195,7 +195,7 @@ Zie voor meer informatie over de mogelijkheden voor omleiding [Mapomleiding-over
 
   - ##### <a name="listener"></a>Listener
 
-    Kiezen listener als het doel van omleiding helpt bij het omleiden van een listener voor een ander listener op de gateway. Deze instelling is vereist als u wilt inschakelen van HTTP naar HTTPS-omleiding, dat wil zeggen, omleidings-verkeer van de bron-listener controleren op de binnenkomende HTTP-aanvragen naar de doel-listener controleren op de inkomende HTTPS-aanvragen. U kunt ook de queryreeks en het pad in de oorspronkelijke aanvraag moeten worden opgenomen in de aanvraag doorgestuurd naar het doel van omleiding.![Application-gateway-onderdelen](.\media\configuration-overview\configure-redirection.png)
+    Kiezen listener als het doel van omleiding helpt bij het omleiden van een listener voor een ander listener op de gateway. Deze instelling is vereist als u wilt inschakelen van HTTP naar HTTPS-omleiding, dat wil zeggen, omleidings-verkeer van de bron-listener controleren op de binnenkomende HTTP-aanvragen naar de doel-listener controleren op de inkomende HTTPS-aanvragen. U kunt ook de queryreeks en het pad in de oorspronkelijke aanvraag moeten worden opgenomen in de aanvraag doorgestuurd naar het doel van omleiding.![Application-gateway-onderdelen](./media/configuration-overview/configure-redirection.png)
 
     Zie voor meer informatie over HTTP naar HTTPS-omleiding, [HTTP naar HTTP-omleiding met behulp van portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal), [HTTP naar HTTP-omleiding met behulp van PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell), [HTTP naar HTTP-omleiding met behulp van CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
 
@@ -277,7 +277,7 @@ Als u een aangepast domein en de bestaande aangepaste DNS-naam naar de App-servi
 
 ### <a name="host-name-override"></a>Host naam negeren
 
-Deze functie vervangt de *host* -header in de inkomende aanvraag op de toepassingsgateway de naam van de host die u hier opgeeft. Bijvoorbeeld, als www.contoso.com is opgegeven als de **hostnaam** instellen, de oorspronkelijke aanvraag https://appgw.eastus.cloudapp.net/path1 wordt gewijzigd in https://www.contoso.com/path1 wanneer de aanvraag wordt doorgestuurd naar de back-endserver. 
+Deze functie vervangt de *host* -header in de inkomende aanvraag op de toepassingsgateway de naam van de host die u hier opgeeft. Bijvoorbeeld, als www\.contoso.com is opgegeven als de **hostnaam** instellen, de oorspronkelijke aanvraag https://appgw.eastus.cloudapp.net/path1 wordt gewijzigd in https://www.contoso.com/path1 wanneer de aanvraag wordt doorgestuurd naar de back-endserver. 
 
 ## <a name="backend-pool"></a>Back-endpool
 

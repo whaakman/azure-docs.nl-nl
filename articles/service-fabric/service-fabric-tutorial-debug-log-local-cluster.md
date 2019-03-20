@@ -15,21 +15,16 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c1a8b18062f61be9eb020beefd3ad741c41b55f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: c5ff1a0373fcce339bea2b235d86f20dc861a15c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652699"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444256"
 ---
-# <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Zelfstudie: Fouten opsporen in een Java-toepassing die is geïmplementeerd op een lokale Service Fabric-cluster
+# <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Zelfstudie: Fouten opsporen in een Java-toepassing geïmplementeerd in een lokaal Service Fabric-cluster
 
 Deze zelfstudie is deel twee van een serie. U leert hoe u een extern foutopsporingsprogramma koppelt met gebruik van Eclipse voor de Service Fabric-toepassing. Bovendien leert u hoe u logboeken moet omleiden van de actieve toepassingen naar een locatie die praktisch is voor de ontwikkelaar.
-
-In deel twee van de serie leert u het volgende:
-> [!div class="checklist"]
-> * Fouten opsporen in de Java-toepassing met behulp van Eclipse
-> * Logboeken omleiden naar een configureerbare locatie
 
 In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
@@ -38,6 +33,13 @@ In deze zelfstudiereeks leert u het volgende:
 > * [De toepassing implementeren in een Azure-cluster](service-fabric-tutorial-java-deploy-azure.md)
 > * [Controle en diagnostische gegevens voor de toepassing instellen](service-fabric-tutorial-java-elk.md)
 > * [CI/CD instellen](service-fabric-tutorial-java-jenkins.md)
+
+
+In deel twee van de serie leert u het volgende:
+> [!div class="checklist"]
+> * Fouten opsporen in de Java-toepassing met behulp van Eclipse
+> * Logboeken omleiden naar een configureerbare locatie
+
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -53,7 +55,7 @@ Als u in [deel één van deze zelfstudiereeks](service-fabric-tutorial-create-ja
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 ```
 
-[Bouw en implementeer](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) de applicatie in het cluster voor lokale ontwikkeling.
+[Bouw en implementeer](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) de toepassing op het lokale ontwikkelcluster.
 
 ## <a name="debug-java-application-using-eclipse"></a>Fouten opsporen in de Java-toepassing met behulp van Eclipse
 
@@ -89,13 +91,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 10. Selecteer in de Eclipse IDE **Run -> Debug Configurations -> Remote Java Application**, klik op de **Voting**-configuratie die u hebt gemaakt en klik op **Debug**.
 
-11. Ga naar uw webbrowser en bezoek **localhost:8080** om het onderbrekingspunt te raken en voer het **Debug perspective** in Eclipse in.
+11. Ga naar uw webbrowser en Open **localhost: 8080**. Dit wordt automatisch het onderbrekingspunt bereikt en Eclipse voert de **Debug perspective**.
+
+U kunt nu dezelfde stappen als u fouten opsporen in een Service Fabric-toepassing in Eclipse wilt toepassen.
 
 ## <a name="redirect-application-logs-to-custom-location"></a>Toepassingslogboeken omleiden naar aangepaste locatie
 
 De volgende stappen doorlopen het omleiden van de toepassingslogboeken van de standaardlocatie */var/log/syslog* naar een aangepaste locatie.
 
-1. Op dit moment kunnen toepassingen die worden uitgevoerd in Service Fabric Linux-clusters het ophalen van één logboekbestand ondersteunen. Als gevolg hiervan gaan de logboeken altijd naar */tmp/mysfapp0.0.log*. Maak een bestand met de naam logging.properties op de volgende locatie *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* en voeg de volgende inhoud toe.
+1. Op dit moment ondersteuning toepassingen die worden uitgevoerd in Service Fabric Linux-clusters alleen voor één logboekbestand ophalen. Het instellen van een toepassing, zodat de logboeken altijd gaat u naar */tmp/mysfapp0.0.log*, maak een bestand met de naam logging.properties op de volgende locatie *Voting/VotingApplication/VotingWebPkg/Code/logging.properties*  en voeg de volgende inhoud toe.
 
     ```
     handlers = java.util.logging.FileHandler
@@ -103,7 +107,8 @@ De volgende stappen doorlopen het omleiden van de toepassingslogboeken van de st
     java.util.logging.FileHandler.level = ALL
     java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 
-    # This value specifies your custom location. You will have to ensure this path has read and write access by the process running the SF Application
+    # This value specifies your custom location.
+    # You will have to ensure this path has read and write access by the process running the SF Application
     java.util.logging.FileHandler.pattern = /tmp/mysfapp0.0.log
     ```
 
@@ -113,7 +118,7 @@ De volgende stappen doorlopen het omleiden van de toepassingslogboeken van de st
     -Djava.util.logging.config.file=logging.properties
     ```
 
-    In het volgende voorbeeld wordt een voorbeeld van een uitvoerbewerking weergegeven:
+    Het volgende voorbeeld ziet u een voorbeeld van een uitvoerbewerking met het foutopsporingsprogramma gekoppelde, vergelijkbaar met de uitvoering in de vorige sectie.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar

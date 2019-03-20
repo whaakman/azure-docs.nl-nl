@@ -9,14 +9,14 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: 401cd6b2a78072c8299f32f60f1ac3677f05557c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 9d6119b0703ccce61b0731d75f3bb2f75aec4e39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902226"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -194,22 +194,22 @@ Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en
 
 | Instelling      | Description                            |
 | ------------ | -------------------------------------- |
-| **IsEncrypted** | Als de waarde **waar**, alle waarden zijn versleuteld met behulp van de sleutel van een lokale computer. Gebruikt in combinatie met `func settings` opdrachten. Standaardwaarde is **false**. |
-| **Waarden** | Verzameling van toepassings- en verbindingsreeksen gebruikt bij het lokaal worden uitgevoerd. Deze waarden overeenkomen met app-instellingen in uw functie-app in Azure, zoals **AzureWebJobsStorage** en **AzureWebJobsDashboard**. Veel triggers en bindingen hebben een eigenschap die naar een appinstelling voor de verbindingsreeks, zoals verwijst **verbinding** voor de [Blob storage-trigger](functions-bindings-storage-blob.md#trigger---configuration). Voor deze eigenschappen, moet u een toepassingsinstelling gedefinieerd in de **waarden** matrix. <br/>**AzureWebJobsStorage** is een vereiste app-instelling voor triggers dan HTTP. Wanneer u hebt de [Azure-opslagemulator](../storage/common/storage-use-emulator.md) lokaal is geïnstalleerd, kunt u instellen **AzureWebJobsStorage** naar `UseDevelopmentStorage=true` en Core Tools maakt gebruik van de emulator. Dit is handig tijdens het ontwikkelen, maar u moet testen met een verbinding van de werkelijke opslag vóór de implementatie. |
-| **Host** | Instellingen in deze sectie aanpassen hostproces van de functies bij lokale uitvoering. |
-| **LocalHttpPort** | Hiermee stelt u de standaardpoort gebruikt bij het uitvoeren van de lokale host van de functies (`func host start` en `func run`). De `--port` opdrachtregeloptie te gebruiken heeft voorrang op deze waarde. |
-| **CORS** | Definieert de oorsprongen toegestaan voor [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Oorsprongen zijn opgegeven als een door komma's gescheiden lijst zonder spaties. Het jokerteken (\*) wordt ondersteund, waarmee aanvragen van een oorsprong. |
-| **ConnectionStrings** | Gebruik deze verzameling niet voor de verbindingsreeksen die worden gebruikt door uw functiebindingen. Deze verzameling wordt alleen gebruikt door frameworks die doorgaans downloadt verbindingsreeksen uit de **ConnectionStrings** gedeelte van een configuratie-bestand, zoals [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Verbindingsreeksen in dit object zijn toegevoegd aan de omgeving van het providertype [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in deze verzameling zijn niet gepubliceerd naar Azure met andere app-instellingen. U moet expliciet toevoegen met deze waarden naar de **verbindingsreeksen** verzameling van de instellingen van uw functie-app. Als u maakt een [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in uw functiecode aan te geven, moet u de connection string-waarde in opslaan **toepassingsinstellingen** met uw andere verbindingen. |
+| **`IsEncrypted`** | Als de waarde `true`, alle waarden zijn versleuteld met behulp van de sleutel van een lokale computer. Gebruikt in combinatie met `func settings` opdrachten. Standaardwaarde is `false`. |
+| **`Values`** | Verzameling van toepassings- en verbindingsreeksen gebruikt bij het lokaal worden uitgevoerd. Deze waarden overeenkomen met app-instellingen in uw functie-app in Azure, zoals [ `AzureWebJobsStorage` ]. Veel triggers en bindingen hebben een eigenschap die naar een appinstelling voor de verbindingsreeks, zoals verwijst `Connection` voor de [Blob storage-trigger](functions-bindings-storage-blob.md#trigger---configuration). Voor deze eigenschappen, moet u een toepassingsinstelling gedefinieerd in de `Values` matrix. <br/>[`AzureWebJobsStorage`] is een vereiste app instellen voor triggers dan HTTP. <br/>Versie 2.x van de Functions-runtime moet de [ `FUNCTIONS_WORKER_RUNTIME` ] instelling, die wordt gegenereerd voor uw project door Core Tools. <br/> Wanneer u hebt de [Azure-opslagemulator](../storage/common/storage-use-emulator.md) lokaal is geïnstalleerd, kunt u instellen [ `AzureWebJobsStorage` ] naar `UseDevelopmentStorage=true` en Core Tools maakt gebruik van de emulator. Dit is handig tijdens het ontwikkelen, maar u moet testen met een verbinding van de werkelijke opslag vóór de implementatie. |
+| **`Host`** | Instellingen in deze sectie aanpassen hostproces van de functies bij lokale uitvoering. |
+| **`LocalHttpPort`** | Hiermee stelt u de standaardpoort gebruikt bij het uitvoeren van de lokale host van de functies (`func host start` en `func run`). De `--port` opdrachtregeloptie te gebruiken heeft voorrang op deze waarde. |
+| **`CORS`** | Definieert de oorsprongen toegestaan voor [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Oorsprongen zijn opgegeven als een door komma's gescheiden lijst zonder spaties. Het jokerteken (\*) wordt ondersteund, waarmee aanvragen van een oorsprong. |
+| **`ConnectionStrings`** | Gebruik deze verzameling niet voor de verbindingsreeksen die worden gebruikt door uw functiebindingen. Deze verzameling wordt alleen gebruikt door frameworks die doorgaans downloadt verbindingsreeksen uit de `ConnectionStrings` gedeelte van een configuratie-bestand, zoals [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Verbindingsreeksen in dit object zijn toegevoegd aan de omgeving van het providertype [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in deze verzameling zijn niet gepubliceerd naar Azure met andere app-instellingen. U moet expliciet toevoegen met deze waarden naar de `Connection strings` verzameling van de instellingen van uw functie-app. Als u maakt een [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in uw functiecode aan te geven, moet u de connection string-waarde in opslaan **toepassingsinstellingen** in de portal aan met uw andere verbindingen. |
 
 De waarden voor de functie-app-instellingen kunnen ook worden gelezen in uw code als omgevingsvariabelen. Zie de sectie van de variabelen voor de omgeving van de volgende taalspecifieke referentie-onderwerpen voor meer informatie:
 
-+ [C# vooraf geschreven](functions-dotnet-class-library.md#environment-variables)
-+ [C# script (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables)
-+ [JavaScript](functions-reference-node.md#environment-variables)
+* [C# vooraf geschreven](functions-dotnet-class-library.md#environment-variables)
+* [C# script (.csx)](functions-reference-csharp.md#environment-variables)
+* [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
-Wanneer er is geen geldige verbindingsreeks is ingesteld voor **AzureWebJobsStorage** en de emulator niet wordt gebruikt, wordt het volgende foutbericht weergegeven:
+Wanneer er is geen geldige verbindingsreeks is ingesteld voor [ `AzureWebJobsStorage` ] en de emulator niet wordt gebruikt, wordt het volgende foutbericht weergegeven:
 
 > Ontbrekende waarde voor AzureWebJobsStorage in local.settings.json. Dit is vereist voor alle triggers dan HTTP. U kunt uitvoeren ' azure functionapp ophalen-app-instellingen van de func \<functionAppName\>' of een verbindingsreeks in local.settings.json opgeven.
 
@@ -219,7 +219,7 @@ Zelfs wanneer u de opslagemulator gebruikt voor ontwikkeling, kunt u om te teste
 
 + Uit de [Azure-portal]. Navigeer naar uw opslagaccount, selecteer **toegangssleutels** in **instellingen**, en kopieer een van de **Connection string** waarden.
 
-  ![Verbindingsreeks kopiëren vanuit Azure-portal](./media/functions-run-local/copy-storage-connection-portal.png)
+  ![Verbindingsreeks kopiëren vanuit Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
 + Gebruik [Azure Storage Explorer](https://storageexplorer.com/) verbinding maken met uw Azure-account. In de **Explorer**, vouw uw abonnement, selecteer uw opslagaccount en kopieer de primaire of secundaire verbindingsreeks.
 
@@ -227,12 +227,12 @@ Zelfs wanneer u de opslagemulator gebruikt voor ontwikkeling, kunt u om te teste
 
 + Core-hulpprogramma's gebruiken voor het downloaden van de verbindingsreeks van Azure met een van de volgende opdrachten:
 
-    + Alle instellingen voor downloaden van een bestaande functie-app:
+  + Alle instellingen voor downloaden van een bestaande functie-app:
 
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    + De verbindingsreeks ophalen voor een specifiek opslagaccount:
+  + De verbindingsreeks ophalen voor een specifiek opslagaccount:
 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
@@ -438,7 +438,7 @@ Met deze opdracht publiceert naar een bestaande functie-app in Azure. Een fout o
 De `publish` opdracht wordt de inhoud van de projectmap functies geüpload. Als u bestanden lokaal, verwijdert de `publish` opdracht worden niet verwijderd van Azure. U kunt bestanden in Azure verwijderen met behulp van de [Kudu hulpprogramma](functions-how-to-use-azure-function-app-settings.md#kudu) in de [Azure-portal].
 
 >[!IMPORTANT]
-> Wanneer u een functie-app in Azure-portal maakt, wordt versie 2.x van de runtime van de functies standaard. Om te maken van de functie app-gebruik versie 1.x van de runtime, volg de instructies in [worden uitgevoerd op versie 1.x](functions-versions.md#creating-1x-apps).
+> Wanneer u een functie-app in Azure portal maakt, wordt versie 2.x van de runtime van de functies standaard. Om te maken van de functie app-gebruik versie 1.x van de runtime, volg de instructies in [worden uitgevoerd op versie 1.x](functions-versions.md#creating-1x-apps).
 > U kunt de runtimeversie voor een functie-app met bestaande functies niet wijzigen.
 
 Opties voor het volgende project publiceren voor zowel versies, 1.x en 2.x van toepassing:
@@ -492,3 +492,5 @@ Naar het bestand een bug of functie-aanvraag [opent u een GitHub-probleem](https
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure-portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+['FUNCTIONS_WORKER_RUNTIME']: functions-app-settings.md#functions_worker_runtime
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

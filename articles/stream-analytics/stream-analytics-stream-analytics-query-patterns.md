@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 2aba399a45a4118dcc80e188b2d03b62b7fcbfac
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 9c9a5f219af0d474e1608f98595abe027b894117
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663499"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001738"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene patronen voor het gebruik van Stream Analytics query
 
@@ -108,7 +108,7 @@ Bijvoorbeeld, Geef een beschrijving voor het aantal auto's van dezelfde maken di
 **Uitvoer**:
 
 | CarsPassed | Time |
-| --- | --- | --- |
+| --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
 
@@ -609,6 +609,7 @@ WHERE
 
 
 **Invoer**:
+
 | LicensePlate | Maken | Time | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
@@ -621,6 +622,7 @@ WHERE
 | YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
 
 **Uitvoer**:
+
 | TollID | Count |
 | --- | --- |
 | 1 | 2 |

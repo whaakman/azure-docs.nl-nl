@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 41e7f0ea8616b25eac43ecff7802e0f9e1c08050
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f18d3409d53123733d7f423c77864cd0739765eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180701"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900587"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Een virtuele Windows Server-machine toevoegen aan een beheerd domein
 In dit artikel laat zien hoe een Windows Server-machine implementeren met behulp van de Azure-portal. Vervolgens wordt uitgelegd hoe u de virtuele machine koppelen aan een beheerd domein van Azure Active Directory Domain Services (Azure AD DS).
@@ -107,7 +107,7 @@ Als u wilt deelnemen aan de Windows Server-machine met Azure AD DS-beheerd domei
 
 7. U kunt referenties opgeven in een van de volgende manieren:
 
-   * **UPN-indeling**: (Aanbevolen) Geef het achtervoegsel van de user principal name (UPN) voor het gebruikersaccount, zoals geconfigureerd in Azure AD. In dit voorbeeld wordt het UPN-achtervoegsel van de gebruiker *bob* is *bob@domainservicespreview.onmicrosoft.com*.
+   * **UPN-indeling**: (Aanbevolen) Geef het achtervoegsel van de user principal name (UPN) voor het gebruikersaccount, zoals geconfigureerd in Azure AD. In dit voorbeeld wordt het UPN-achtervoegsel van de gebruiker *bob* is *bob\@domainservicespreview.onmicrosoft.com*.
 
    * **SAMAccountName-indeling**: U kunt de accountnaam opgeven in de SAMAccountName-indeling. In dit voorbeeld wordt de gebruiker *bob* moet invoeren *CONTOSO100\bob*.
 
@@ -146,7 +146,7 @@ Als u hebt met referenties problemen en kan niet deelnemen aan het domein, probe
 
 * Controleer of u hebt [ingeschakeld Wachtwoordsynchronisatie](active-directory-ds-getting-started-password-sync.md) met uw beheerde domein.
 
-* Controleer of u de UPN van de gebruiker hebt gebruikt zoals geconfigureerd in Azure AD (bijvoorbeeld *bob@domainservicespreview.onmicrosoft.com*) aan te melden.
+* Controleer of u de UPN van de gebruiker hebt gebruikt zoals geconfigureerd in Azure AD (bijvoorbeeld *bob\@domainservicespreview.onmicrosoft.com*) aan te melden.
 
 * Wacht lang genoeg voor Wachtwoordsynchronisatie moeten worden uitgevoerd, zoals opgegeven in de introductiehandleiding.
 

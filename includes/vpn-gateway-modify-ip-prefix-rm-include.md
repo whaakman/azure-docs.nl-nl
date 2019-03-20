@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: da351942ae4e53fa48ae20616b5ea480d4fe03e4
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 13089a2514229c5c5bc7b40d9447719247b23405
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418275"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124459"
 ---
 ### <a name="noconnection"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk - geen gatewayverbinding
 
@@ -26,10 +26,10 @@ Ga als volgt te werk om aanvullende voorvoegsels toe te voegen:
    ```
 2. Wijzig de voorvoegsels.
 
-  ```azurepowershell-interactive
-  Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.101.0.0/24','10.101.1.0/24','10.101.2.0/24')
-  ```
+   ```azurepowershell-interactive
+   Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
+   -AddressPrefix @('10.101.0.0/24','10.101.1.0/24','10.101.2.0/24')
+   ```
 
 Ga als volgt te werk om adresvoorvoegsels te verwijderen:
 
@@ -37,15 +37,15 @@ Ga als volgt te werk om adresvoorvoegsels te verwijderen:
 
 1. Stel de variabele in voor LocalNetworkGateway.
 
-  ```azurepowershell-interactive
-  $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell-interactive
+   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+   ```
 2. De gateway met de bijgewerkte voorvoegsels instellen.
 
-  ```azurepowershell-interactive
-  Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
-  ```
+   ```azurepowershell-interactive
+   Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
+   -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
+   ```
 
 ### <a name="withconnection"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk - bestaande gatewayverbinding
 

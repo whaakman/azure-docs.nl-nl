@@ -1,21 +1,21 @@
 ---
 title: 'Snelstartgids: Telemetrie verzenden naar Azure IoT Hub (Python) | Microsoft Docs'
 description: In deze snelstart voert u een Python-voorbeeldtoepassing uit om gesimuleerde telemetrie te verzenden naar een IoT-hub en gebruikt u vervolgens een hulpprogramma om telemetrie uit de IoT-hub te lezen.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/22/2019
-ms.author: dobett
-ms.openlocfilehash: 104be28d1b438dc862b2b8a2effd51be4b9b2bc9
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: 8dab132cd03b24f4f9e55cb777cc0f984526ba12
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510915"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243360"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Quickstart: Telemetrie vanaf een apparaat verzenden naar een IoT-hub en lezen met een back-endtoepassing (Python)
 
@@ -31,9 +31,11 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prerequisites"></a>Vereisten
 
-De twee voorbeeldtoepassingen die u uitvoert in deze snelstartgids zijn geschreven in Python. Python 2.7.x of 3.5.x moet beschikbaar zijn op uw ontwikkelcomputer.
+De twee voorbeeldtoepassingen die u uitvoert in deze snelstartgids zijn geschreven in Python. De Microsoft Azure IoT SDK's voor Python momenteel alleen specifieke versies van Python voor elk platform. Zie voor meer informatie, de [Python SDK Leesmij](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-U kunt Python voor meerdere platforms downloaden van [Python.org](https://www.python.org/downloads/). Welk Python-installatieprogramma u moet kiezen, hangt af van de architectuur van het systeem waarmee u werkt. Als uw systeem-CPU-architectuur 32-bits is, downloadt u x86 (het standaardinstallatieprogramma op Python.org). Voor de 64-bits architectuur moet u het x86-64-installatieprogramma downloaden.
+In deze snelstartgids wordt ervan uitgegaan dat u een Windows-ontwikkelcomputer. Voor Windows-systemen, alleen [Python 3.6.x](https://www.python.org/downloads/release/python-368/) wordt ondersteund. Welk Python-installatieprogramma u moet kiezen, hangt af van de architectuur van het systeem waarmee u werkt. Als uw systeem-CPU-architectuur 32-bits en download de x86 installatieprogramma is; voor de 64-bits architectuur, het x86-64-installatieprogramma te downloaden. Controleer ook of de [Microsoft Visual C++ Redistributable voor Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) voor uw architectuur (x86 of x64) is geïnstalleerd.
+
+U kunt Python downloaden voor andere platforms van [Python.org](https://www.python.org/downloads/).
 
 Gebruik een van de volgende opdrachten om te controleren wat de huidige versie van Python op uw ontwikkelcomputer is:
 

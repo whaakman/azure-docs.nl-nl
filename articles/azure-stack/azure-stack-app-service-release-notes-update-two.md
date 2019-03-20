@@ -16,12 +16,12 @@ ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 8126397dfb3b02778413ab6ee696a8138c792c15
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: d57b06a33421a94c4f849a1c1fd7cd6f1f4248dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342561"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848895"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service op de opmerkingen bij de release van de Azure Stack update 2
 
@@ -64,7 +64,7 @@ Azure App Service op Azure Stack Update 2 omvat de volgende verbeteringen en opl
     - NodeJS 8.11.1
   - Toegevoegd **NPM** versies:
     - 5.6.0
-  - Bijgewerkt .net Core-onderdelen moet consistent zijn met Azure App Service in de openbare cloud.
+  - Bijgewerkte .NET Core-onderdelen moet consistent zijn met Azure App Service in de openbare cloud.
   - Bijgewerkte Kudu
 
 - Automatisch wisselen van de implementatie van de functie is ingeschakeld - sleuven [configureren voor automatisch wisselen](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)

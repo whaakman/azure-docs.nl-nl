@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 7fa2dad124b5ef9e93402d6d4c03d956b00184af
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442365"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188353"
 ---
-# <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Live streamen met on-premises coderingsprogramma's die multi-bitrate streams maken
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Werken met kanalen die een multi-bitrate livestream van on-premises encoders ontvangen
 
 > [!NOTE]
 > Vanaf 12 mei 2018 livekanalen wordt niet langer ondersteuning voor het RTP/MPEG-2-transportstroom-opnameprotocol. Voer een migratie uit van RTP/MPEG-2 naar RTMP- of gefragmenteerde MP4 (Smooth Streaming) opnameprotocollen.
@@ -146,7 +146,7 @@ Kanalen bevatten een preview-eindpunt (de voorbeeld-URL) die u gebruikt om te be
 
 U kunt de voorbeeld-URL ophalen bij het maken van het kanaal. Voor u om de URL te krijgen, het kanaal niet hoeft te zijn de **met** staat. Nadat het kanaal begint het ophalen van gegevens, kunt u uw stroom bekijken.
 
-Op dit moment de preview-stream kan worden geleverd alleen in gefragmenteerde MP4 (Smooth Streaming)-indeling, ongeacht het type van de opgegeven ingang. U kunt de [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) player om het smooth stream te testen. U kunt ook een speler die wordt gehost in Azure portal om uw stream weer te geven.
+Op dit moment de preview-stream kan worden geleverd alleen in gefragmenteerde MP4 (Smooth Streaming)-indeling, ongeacht het type van de opgegeven ingang. U kunt de [Smooth Streaming Health Monitor](https://playready.directtaps.net/smoothstreaming/) player om het smooth stream te testen. U kunt ook een speler die wordt gehost in Azure portal om uw stream weer te geven.
 
 #### <a name="allowed-ip-addresses"></a>Toegestane IP-adressen
 U kunt de IP-adressen die zijn toegestaan verbinding maken met de preview-eindpunt definiëren. Als er geen IP-adressen zijn opgegeven, wordt elk IP-adres is toegestaan. Een toegestane IP-adres kan worden opgegeven als een van de volgende:
@@ -185,7 +185,7 @@ Mogelijke waarden voor de huidige status van een kanaal zijn onder andere:
 In de volgende tabel wordt het verband tussen de verschillende kanaalstatussen en de facturering weergegeven.
 
 | Kanaalstatus | Portal UI-indicatoren | In rekening gebracht? |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Starten** |**Starten** |Nee (overgangsstatus) |
 | **Wordt uitgevoerd** |**Gereed** (geen programma's uitgevoerd)<p><p>of<p>**Streaming** (ten minste één programma uitgevoerd) |Ja |
 | **Stoppen** |**Stoppen** |Nee (overgangsstatus) |

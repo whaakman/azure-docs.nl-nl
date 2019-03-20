@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: fd64376f68a177f12b2105ae0974eeeeefa94f4b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996143"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Gegevensoverdracht met het Microsoft Azure Storage-bibliotheek voor gegevensverplaatsing
 
@@ -193,7 +193,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 Deze code wordt ons gevraagd het pad naar een lokaal bestand, de naam van een nieuwe of bestaande container en de naam van een nieuwe blob. De `TransferManager.UploadAsync` methode voert het uploaden met behulp van deze gegevens.
 
-Raak `F5` uw toepassing uit te voeren. U kunt controleren of dat de upload is opgetreden door te bekijken van uw opslagaccount met de [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+Raak `F5` uw toepassing uit te voeren. U kunt controleren of dat de upload is opgetreden door te bekijken van uw opslagaccount met de [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 ## <a name="set-number-of-parallel-operations"></a>Aantal parallelle bewerkingen
 Een fantastische functie die worden aangeboden door de bibliotheek voor gegevensverplaatsing is de mogelijkheid om in te stellen van het aantal parallelle bewerkingen om de overdracht van gegevensdoorvoer te vergroten. De bibliotheek voor gegevensverplaatsing wordt standaard het aantal parallelle bewerkingen zijn ingesteld op 8 * het aantal kernen op uw computer.

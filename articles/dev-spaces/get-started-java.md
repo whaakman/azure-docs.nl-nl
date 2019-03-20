@@ -1,22 +1,21 @@
 ---
-title: Een Kubernetes-ontwikkelomgeving in de cloud maken met Java en VS Code | Microsoft Docs
+title: Een Kubernetes-dev-ruimte in de cloud met behulp van Java en VS-Code maken
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: d080a3d251d88095e14011b5834d2b923f204162
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 49f3f50cd33d2b3fea1e784fcfc70044c568ba31
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822903"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842410"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Aan de slag in Azure Dev Spaces met behulp van Java
 
@@ -62,7 +61,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Een Kubernetes-cluster maken dat is ingeschakeld voor Azure Dev Spaces
 
-Maak de resourcegroep bij de opdrachtprompt. Gebruik een van de momenteel ondersteunde regio's (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral of CanadaEast).
+Bij de opdrachtprompt, maak de resourcegroep in een [regio die ondersteuning biedt voor Azure Dev spaties](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -71,7 +70,7 @@ az group create --name MyResourceGroup --location <region>
 Maak een Kubernetes-cluster met de volgende opdracht:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 Het duurt een paar minuten om het cluster te maken.
@@ -143,15 +142,15 @@ Scan de console-uitvoer voor informatie over de openbare URL die door de opdrach
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
-Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
+Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
 Open deze URL in een browservenster. Dan ziet u dat de web-app wordt geladen. Terwijl de container wordt uitgevoerd, wordt `stdout`- en `stderr`-uitvoer naar het terminalvenster gestreamd.
 
 > [!Note]
-> Bij de eerste uitvoering kan het enkele minuten duren voordat de openbare DNS gereed is. Als de openbare URL niet wordt omgezet, kunt u de alternatieve URL http://localhost:<portnumber> gebruiken die wordt weergegeven in de console-uitvoer. Als u de localhost-URL gebruikt, lijkt het misschien alsof de container lokaal wordt uitgevoerd, maar wordt deze feitelijk uitgevoerd in AKS. Voor uw gemak en om interactie met de service mogelijk te maken vanaf de lokale computer, wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure. U kunt later terugkomen en de openbare URL proberen wanneer de DNS-record gereed is.
-### <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
-Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
+> Bij de eerste uitvoering kan het enkele minuten duren voordat de openbare DNS gereed is. Als de openbare URL niet is opgelost, kunt u de alternatieve `http://localhost:<portnumber>` URL die wordt weergegeven in de console-uitvoer. Als u de localhost-URL gebruikt, lijkt het misschien alsof de container lokaal wordt uitgevoerd, maar wordt deze feitelijk uitgevoerd in AKS. Voor uw gemak en om interactie met de service mogelijk te maken vanaf de lokale computer, wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure. U kunt later terugkomen en de openbare URL proberen wanneer de DNS-record gereed is.
+> ### <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
+> Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
 
 1. Druk in het terminalvenster op `Ctrl+C` (om `azds up` te stoppen).
 1. Open het codebestand met de naam `src/main/java/com/ms/sample/webfrontend/Application.java` en bewerk het welkomstbericht: `return "Hello from webfrontend in Azure!";`

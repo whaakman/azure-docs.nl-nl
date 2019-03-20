@@ -10,16 +10,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 53c816ee8fa670c8a4dde3212325524a17d25aab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 85113a5007a171459b831684f584773ba4328b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314429"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079943"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Een toepassingsgateway maken met meerdere site hosten met behulp van de Azure portal
 
-U kunt de Azure-portal gebruiken om te configureren [hosting van meerdere websites](application-gateway-multi-site-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie maakt u back endpools met behulp van schaalsets voor virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In deze zelfstudie wordt ervan uitgegaan dat u eigenaar bent van meerdere domeinen en voorbeelden gebruikt van *www.contoso.com* en *www.fabrikam.com*.
+U kunt de Azure-portal gebruiken om te configureren [hosting van meerdere websites](application-gateway-multi-site-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie maakt u back endpools met behulp van schaalsets voor virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. Deze zelfstudie wordt ervan uitgegaan dat u voorbeelden van meerdere domeinen en maakt gebruik van de eigenaar bent *www\.contoso.com* en *www\.fabrikam.com*.
 
 In dit artikel leert u het volgende:
 
@@ -46,20 +46,20 @@ U hebt een virtueel netwerk nodig voor communicatie tussen de resources die u ma
 2. Selecteer **Netwerken** en vervolgens **Application Gateway** in de lijst Aanbevolen.
 3. Voer deze waarden in voor de toepassingsgateway:
 
-    - *myAppGateway* als de naam van de toepassingsgateway.
-    - *myResourceGroupAG* als de nieuwe resourcegroep.
+   - *myAppGateway* als de naam van de toepassingsgateway.
+   - *myResourceGroupAG* als de nieuwe resourcegroep.
 
-    ![Nieuwe toepassingsgateway maken](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
+     ![Nieuwe toepassingsgateway maken](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
 4. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
 5. Klik op **Een virtueel netwerk kiezen**, klik op **Nieuw maken** en voer deze waarden in voor het virtuele netwerk:
 
-    - *myVnet* als de naam van het virtuele netwerk.
-    - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
-    - *myAGSubnet* als de naam van het subnet.
-    - *10.0.0.0/24* als de adresruimte van het subnet.
+   - *myVnet* als de naam van het virtuele netwerk.
+   - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
+   - *myAGSubnet* als de naam van het subnet.
+   - *10.0.0.0/24* als de adresruimte van het subnet.
 
-    ![Virtueel netwerk maken](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
+     ![Virtueel netwerk maken](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
 6. Klik op **OK** om het virtuele netwerk en subnet te maken.
 7. Klik op **een openbaar IP-adres kiezen**, klikt u op **nieuw**, en voer de naam van het openbare IP-adres. In dit voorbeeld is de naam van het openbare IP-adres *myAGPublicIPAddress*. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
@@ -136,11 +136,11 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 1. Klik op **Listeners** en klik vervolgens op **multi-site**.
 2. Voer deze waarden in voor de listener:
     
-    - *contosoListener* : voor de naam van de listener.
-    - *www.contoso.com* -in dit voorbeeld host-naam vervangen door de domeinnaam van uw.
+   - *contosoListener* : voor de naam van de listener.
+   - *www\.contoso.com* -in dit voorbeeld host-naam vervangen door de domeinnaam van uw.
 
 3. Klik op **OK**.
-4. Maak een tweede listener met de naam van *fabrikamListener* en de naam van het tweede domein gebruiken. In dit voorbeeld *www.fabrikam.com* wordt gebruikt.
+4. Maak een tweede listener met de naam van *fabrikamListener* en de naam van het tweede domein gebruiken. In dit voorbeeld *www\.fabrikam.com* wordt gebruikt.
 
 Regels worden afgehandeld in de volgorde waarop ze staan vermeld. Verkeer wordt omgeleid volgens de eerste regel die overeenkomt, ongeacht de specificiteit. Als u bijvoorbeeld een regel hebt die van een basislistener gebruikmaakt en een regel die via dezelfde poort van een listener voor meerdere sites gebruikmaakt, moet de regel voor de listener voor meerdere sites vermeld worden vóór de regel met de basislistener, opdat de regel voor meerdere sites kan functioneren zoals het hoort. 
 

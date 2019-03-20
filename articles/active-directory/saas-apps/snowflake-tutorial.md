@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3488ac27-0417-4ad9-b9a3-08325fe8ea0d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e86ede90a19d829e87b47d49fa4a12a17fe1d5c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 617a01fdce71e76cf4783ee6a274ee428b0b3b57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Zelfstudie: Azure Active Directory-integratie met Snowflake
 
@@ -53,7 +53,7 @@ Om de integratie van Snowflake te configureren in Azure AD, moet u Snowflake van
 
 **Voer de volgende stappen uit om Snowflake vanuit de galerie toe te voegen:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -134,29 +134,29 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
 ### <a name="configure-snowflake-single-sign-on"></a>Eenmalige aanmelding configureren voor Snowflake
 
-8. Meld u in een ander browservenster als beveiligingsbeheerder aan bij Snowflake.
+1. Meld u in een ander browservenster als beveiligingsbeheerder aan bij Snowflake.
 
-9. **Wijzig uw rol** in **ACCOUNTADMIN** door rechtsboven op de pagina te klikken op **profile**.
+1. **Wijzig uw rol** in **ACCOUNTADMIN** door rechtsboven op de pagina te klikken op **profile**.
 
     > [!NOTE]
     > Dit staat los van de context die u hebt geselecteerd in de rechterbovenhoek onder uw gebruikersnaam
     
     ![De Snowflake-beheerder](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
-10. Open het **gedownloade Base 64-certificaat** in Kladblok. Kopieer de waarde tussen "---BEGIN CERTIFICATE---" en '---END CERTIFICATE---' en plak deze tussen de aanhalingstekens naast **certificate** hieronder. Plak in het veld **ssoUrl** de waarde van **Aanmeldings-URL** die u uit de Azure-portal hebt gekopieerd. Selecteer **All Queries** en klik op **Run**.
+1. Open het **gedownloade Base 64-certificaat** in Kladblok. Kopieer de waarde tussen "---BEGIN CERTIFICATE---" en '---END CERTIFICATE---' en plak deze tussen de aanhalingstekens naast **certificate** hieronder. Plak in het veld **ssoUrl** de waarde van **Aanmeldings-URL** die u uit de Azure-portal hebt gekopieerd. Selecteer **All Queries** en klik op **Run**.
 
-    ![Snowflake-sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
+   ![Snowflake-sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
 
-    ```
-    use role accountadmin;
-    alter account set saml_identity_provider = '{
-    "certificate": "<Paste the content of downloaded certificate from Azure portal>",
-    "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
-    "type":"custom",
-    "label":"AzureAD"
-    }';
-    alter account set sso_login_page = TRUE;
-    ```
+   ```
+   use role accountadmin;
+   alter account set saml_identity_provider = '{
+   "certificate": "<Paste the content of downloaded certificate from Azure portal>",
+   "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
+   "type":"custom",
+   "label":"AzureAD"
+   }';
+   alter account set sso_login_page = TRUE;
+   ```
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
@@ -176,7 +176,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -232,7 +232,7 @@ Als u wilt dat gebruikers van Azure AD zich kunnen aanmelden bij Snowflake, moet
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u in het toegangsvenster op de tegel Snowflake klikt, wordt u automatisch aangemeld bij de instantie van Snowflake waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

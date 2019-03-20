@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: ce458328967337976ed713f78ead24e2f1fcdb96
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b9c66216411f42e46cc7c7be486f6103db9c7208
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451270"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894594"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Wat is Apache Storm in Azure HDInsight?
 
@@ -86,7 +86,7 @@ U kunt in enkele minuten een nieuw Storm-cluster op HDInsight maken. Zie [Aan de
 
 * __Azure PowerShell en Azure klassieke CLI__: PowerShell en klassieke CLI bevatten allebei opdrachtregelprogramma's die u vanuit het clientsysteem gebruiken kunt om te werken met HDInsight en andere Azure-services.
 
-* __Visual Studio-integratie__: Azure Data Lake Tools voor Visual Studio bevatten projectsjablonen voor het maken van C# Storm-topologieën met behulp van het SCP.Net-framework. Data Lake Tools biedt ook hulpprogramma's voor het implementeren, bewaken en beheren van oplossingen met Storm op HDInsight.
+* __Visual Studio-integratie__: Azure Data Lake Tools voor Visual Studio bevatten projectsjablonen voor het maken van C# Storm-topologieën met behulp van het SCP.NET-framework. Data Lake Tools biedt ook hulpprogramma's voor het implementeren, bewaken en beheren van oplossingen met Storm op HDInsight.
 
   Zie [C# Storm-topologieën met de hulpprogramma's van HDInsight voor Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md) voor meer informatie.
 

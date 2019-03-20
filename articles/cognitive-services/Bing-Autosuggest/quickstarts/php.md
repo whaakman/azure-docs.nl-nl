@@ -1,31 +1,31 @@
 ---
-title: 'Quickstart: Automatische suggestie-API voor Bing, PHP'
+title: "Quickstart: Zoekquery's met de REST-API voor Bing Automatische suggestie en PHP voorstellen"
 titlesuffix: Azure Cognitive Services
-description: Informatie en codevoorbeelden om snel aan de slag te gaan met de Automatische suggestie-API voor Bing.
+description: Meer informatie over het snel starten voorstellen zoektermen in realtime met de Automatische suggestie-API.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 139c7149173285283041f5f4b30d2002e40810c2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: bfaab155c98b0721868a46a6d34c3402d08c053f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872914"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547908"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-php"></a>Snelstartgids voor Automatische suggestie-API voor Bing met PHP
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Quickstart: Zoekquery's met de REST-API voor Bing Automatische suggestie en PHP voorstellen
 
-In dit artikel leest u hoe u de [Automatische suggestie-API voor Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/)  gebruikt met PHP. De Automatische suggestie-API retourneert een lijst met voorgestelde query's op basis van de gedeeltelijke queryreeks die de gebruiker invoert in het zoekvak. Normaal gesproken zou u deze API telkens aanroepen wanneer de gebruiker een nieuw teken in het zoekvak typt om vervolgens de suggesties weer te geven in de vervolgkeuzelijst van het zoekvak. In dit artikel ziet u hoe u een aanvraag verstuurt die de voorgestelde queryreeksen voor *sail* retourneert.
+Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Automatische suggestie-API en het ophalen van het JSON-antwoord. Deze eenvoudige PHP-toepassing een gedeeltelijke zoekquery verzendt naar de API en suggesties voor zoekopdrachten retourneert. Hoewel deze toepassing in PHP is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [PHP 5.6.x](http://php.net/downloads.php) nodig om deze code uit te voeren.
+* [PHP 5.6.x](https://php.net/downloads.php) of later
 
-U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Automatische suggestie-API voor Bing v7**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/#search) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ## <a name="get-autosuggest-results"></a>Resultaten van Automatische suggesties ophalen
 
@@ -61,7 +61,7 @@ function get_suggestions ($host, $path, $key, $mkt, $query) {
     "Ocp-Apim-Subscription-Key: $key\r\n";
 
   // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-  // http://php.net/manual/en/function.stream-context-create.php
+  // https://php.net/manual/en/function.stream-context-create.php
   $options = array (
     'http' => array (
       'header' => $headers,

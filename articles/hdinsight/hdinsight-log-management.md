@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: c1618d3402b37e91b3cf17365d6ccbf1285f4847
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993776"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225314"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Logboeken beheren voor een HDInsight-cluster
 
@@ -177,5 +177,5 @@ Als u wilt de logboeken te verzamelen van alle knooppunten op één centrale loc
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Controle en logboekregistratie voor HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Toegang Apache Hadoop YARN-logboek op Linux gebaseerde HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Meld u de toepassing toegang Apache Hadoop YARN in HDInsight op basis van Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Grootte van logboekbestanden voor verschillende Apache Hadoop-onderdelen beheren](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

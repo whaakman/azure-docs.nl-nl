@@ -1,21 +1,21 @@
 ---
 title: In code gegevens uploaden met behulp van .NET SDK - Azure Search
 description: Lees hoe u gegevens uploadt naar een doorzoekbare volledige-tekstindex in Azure Search met behulp van C#-voorbeeldcode en de .NET SDK.
-author: brjohnstmsft
-manager: jlembicz
-ms.author: brjohnst
+author: heidisteen
+manager: cgronlun
+ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/13/2017
 ms.custom: seodec2018
-ms.openlocfilehash: a34a48f8816315602fc497d4f39dcfee7fe2b032
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 2b0b9d2f2030346c5201d006459ebe752aa532af
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634895"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202024"
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Gegevens uploaden naar Azure Search met behulp van de .NET SDK
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ## <a name="decide-which-indexing-action-to-use"></a>Bepalen welke indexeerbewerking u moet gebruiken
 Om gegevens te importeren met de .NET SDK, moet u uw gegevens in een `IndexBatch`-object verpakken. Een `IndexBatch` omvat een verzameling van `IndexAction`-objecten, die een document en een eigenschap bevatten die Azure Search aansturen om een bewerking op het document uit te voeren (uploaden, samenvoegen, verwijderen, enzovoort). Afhankelijk van welke van de onderstaande bewerkingen u kiest, moet u slechts bepaalde velden voor elk document opnemen:
 
-| Bewerking | Beschrijving | Vereiste velden voor elk document | Opmerkingen |
+| Bewerking | Description | Vereiste velden voor elk document | Opmerkingen |
 | --- | --- | --- | --- |
 | `Upload` |Een `Upload`-actie is vergelijkbaar met een "upsert", waarbij het document wordt ingevoegd als het nieuw is en wordt bijgewerkt/vervangen als het al bestaat. |sleutel, plus andere velden die u wilt definiëren |Tijdens het bijwerken/vervangen van een bestaand document wordt elk veld dat niet is opgegeven in de aanvraag ingesteld op `null`. Dit gebeurt zelfs als het veld eerder is ingesteld op een niet-null-waarde. |
 | `Merge` |Een bestaand document wordt bijgewerkt met de opgegeven velden. Als het document niet in de index bestaat, mislukt de samenvoeging. |sleutel, plus andere velden die u wilt definiëren |Alle velden die u in een samenvoeging opgeeft, vervangen de bestaande velden in het document, ook velden van het type `DataType.Collection(DataType.String)`. Als het document bijvoorbeeld een veld `tags` bevat met de waarde `["budget"]` en u een samenvoeging doet met de waarde `["economy", "pool"]` voor `tags`, wordt de uiteindelijke waarde van het veld `tags` `["economy", "pool"]`. Het wordt dus niet `["budget", "economy", "pool"]`. |

@@ -7,18 +7,23 @@ manager: vijayts
 keywords: herstellen van back-up. het herstellen van; herstelpunt;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 03/19/2019
 ms.author: geg
-ms.openlocfilehash: 26856ac77f169d76c8bcbee7efd707c9881e4876
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 44b8d57af83f53c73868a84104da7a7f72cb1e81
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105808"
+ms.locfileid: "58202585"
 ---
 # <a name="restore-azure-vms"></a>Azure-VM's herstellen
 
 In dit artikel wordt beschreven hoe u Azure VM-gegevens herstellen vanaf de herstelpunten die zijn opgeslagen in [Azure Backup](backup-overview.md) Recovery Services-kluizen.
+
+Om terug te zetten een virtuele machine Zorg ervoor dat u hebt de vereiste [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) machtiging.
+
+> [!NOTE]
+> Als u nog geen [RABAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) machtiging kunt u uitvoeren [schijf herstellen](backup-azure-arm-restore-vms.md#create-new-restore-disks) en maakt met behulp van virtuele machine [-sjabloon implementeren](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) functie.
 
 ### <a name="restore-options"></a>Opties herstellen
 

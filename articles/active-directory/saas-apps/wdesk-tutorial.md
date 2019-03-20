@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff88f25d4bf7fea09ea07673326e068840243b98
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 75d0e962169529ab8d17aeeeed8aab26e7b7e994
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176574"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Zelfstudie: Azure Active Directory-integratie met Wdesk
 
@@ -164,7 +164,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     ![Eenmalige aanmelding configureren](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
   
-1. Klik op **wijzigingen opslaan**.
+1. Klik op **Save changes** (Wijzigingen opslaan).
 
     ![Eenmalige aanmelding configureren](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
@@ -219,7 +219,7 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij Wdesk, moeten ze worden in
    
     ![Het maken van een Azure AD-testgebruiker](./media/wdesk-tutorial/createuser1.png)  
 
-1. In **gebruiker** tekst voert u de gebruikersnaam van gebruiker, zoals **brittasimon@contoso.com** en klikt u op **doorgaan** knop.
+1. In **gebruiker** tekst voert u de gebruikersnaam van gebruiker, zoals **brittasimon\@contoso.com** en klikt u op **doorgaan** knop.
 
     ![Het maken van een Azure AD-testgebruiker](./media/wdesk-tutorial/createuser3.png)
 
@@ -227,11 +227,11 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij Wdesk, moeten ze worden in
   
     ![Het maken van een Azure AD-testgebruiker](./media/wdesk-tutorial/createuser4.png)
  
-    a. In **e** tekst vak, voer het e-mailadres van gebruiker, zoals **brittasimon@contoso.com**.
+    a. In **e** tekst vak, voer het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
 
     b. Voer in het tekstvak **Voornaam** de voornaam van de gebruiker in, zoals **Britta**.
 
-    c. In **achternaam** tekst voert u de achternaam van de gebruiker, zoals **Simon**.
+    c. Typ in het tekstvak **Achternaam** de achternaam van de gebruiker, zoals **Simon**.
 
 1. Klik op **lid opslaan** knop.  
 
@@ -277,7 +277,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9116dd8a27b268b656f688083032a127177d2d51
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 2628cafada47b2602b195c44d4b6f2e6b16012ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754557"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092766"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Azure-VM's verbinden met HANA grote instanties
 
@@ -73,7 +73,7 @@ Hieronder volgt een samenvatting van de belangrijke informatie over een Azure-ne
 - De **virtuele netwerkadresruimte** mag een groter bereik die betrekking heeft op het bereik voor zowel het subnet IP-adresbereik van de Azure-VM en de virtuele netwerkgateway.
 - Of u kunt indienen meerdere adresbereiken die betrekking hebben op de verschillende IP-adresbereiken van VM-subnet IP-adresbereiken en het virtuele netwerk gateway IP-adresbereik.
 - De gedefinieerde **virtuele netwerkadresruimte** wordt gebruikt voor het doorgeven van BGP-routering.
-- De naam van het gatewaysubnet moet zijn: **'GatewaySubnet'**.
+- De naam van het gatewaysubnet moet zijn: **"GatewaySubnet"**.
 - De adresruimte die wordt gebruikt als een filter aan de HANA grote instantie wilt toestaan of weigeren van verkeer naar de eenheden HANA grote instantie van Azure. De BGP-routering informatie van de Azure-netwerk en de IP-adresbereiken die zijn geconfigureerd voor het filteren aan de HANA grote instantie moet overeenkomen met. Anders kunnen er verbindingsproblemen optreden.
 - Er zijn een aantal details van het gatewaysubnet die later worden besproken in de sectie **een virtueel netwerk verbinden met HANA grote instantie ExpressRoute.**
 
@@ -85,7 +85,7 @@ We al enkele van de IP-adresbereiken die nodig zijn voor het implementeren van H
 
 - **Virtuele netwerkadresruimte**: De **virtuele netwerkadresruimte** is het IP-adresbereiken die u aan de parameter adresruimte in de Azure-netwerken toewijst. Deze netwerken verbinden met de SAP HANA grote instantie-omgeving.
 
- U wordt aangeraden dat de parameter van dit adresruimte een waarde met meerdere regels is. Deze moet bestaan uit het subnetbereik van de Azure-VM en het subnet meerdere bereiken van de Azure-gateway. Deze subnetbereik werd weergegeven in de vorige afbeeldingen. Deze mag niet overlappen met uw on-premises of server IP-adresgroep of ER P2P-adresbereiken. 
+  U wordt aangeraden dat de parameter van dit adresruimte een waarde met meerdere regels is. Deze moet bestaan uit het subnetbereik van de Azure-VM en het subnet meerdere bereiken van de Azure-gateway. Deze subnetbereik werd weergegeven in de vorige afbeeldingen. Deze mag niet overlappen met uw on-premises of server IP-adresgroep of ER P2P-adresbereiken. 
  
 Hoe ontvang ik deze IP-adresbereiken? 
 
@@ -108,7 +108,7 @@ Uw bedrijfsnetwerk team of de service-provider moet een IP-adresbereik dat niet 
   
 - **Server IP-adresgroepbereik dat:** Deze IP-adresbereik wordt gebruikt om de afzonderlijke IP-adres toewijzen aan HANA grote instantie servers. De subnetgrootte van de aanbevolen is een/24 CIDR-blok. Indien nodig, kan het zijn kleiner, met slechts 64 IP-adressen. Uit dit bereik, worden de eerste 30 IP-adressen gereserveerd voor gebruik door Microsoft. Zorg ervoor dat voor dit account te maken wanneer u de grootte van het bereik te kiezen. Dit bereik mag niet overlappen met uw on-premises of andere Azure-IP-adressen. Hoe ontvang ik deze IP-adresbereik? Uw bedrijfsnetwerk team of de service-provider moet een IP-adresbereik dat momenteel niet wordt gebruikt in uw netwerk bieden. 
 
- **Dit bereik is een IP-adresbereik op dat worden verzonden naar Microsoft moet tijdens het aanvragen van een aanvankelijke implementatie**.
+  **Dit bereik is een IP-adresbereik op dat worden verzonden naar Microsoft moet tijdens het aanvragen van een aanvankelijke implementatie**.
  
 U moet definiëren en plan de IP-adresbereiken die eerder zijn beschreven. U moet echter niet al deze naar Microsoft worden verzonden. De IP-adresbereiken die u nodig zijn voor de naam van Microsoft zijn:
 

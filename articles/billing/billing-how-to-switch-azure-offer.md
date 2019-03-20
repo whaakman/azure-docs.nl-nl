@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 6e0339808d65cd5b4acd7b77284ccedf7cdf1989
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902122"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835264"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Uw abonnement op Azure betalen naar gebruik wijzigen naar een andere aanbieding
 
@@ -55,7 +55,7 @@ Als een [betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) 
 1. Klik op **Overstappen naar een andere aanbieding**. De knop is alleen beschikbaar als u betaalt per gebruik en uw eerste factureringsperiode voorbij is.
 
    ![U ziet de knop van de aanbieding Switch aan de rechterkant van de pagina](./media/billing-how-to-switch-azure-offer/switchbutton.png)
-1. **Selecteer de gewenste aanbieding** uit de lijst met aanbiedingen van uw abonnement kan worden overgeschakeld naar de. Deze lijst varieert op basis van de lidmaatschappen die uw account is gekoppeld. Als er niets beschikbaar is, controleert u de [lijst met beschikbare aanbiedingen die u naar overschakelen kunt](#whats-supported) en zorg ervoor dat u hebt de juiste lidmaatschappen. 
+1. **Selecteer de gewenste aanbieding** uit de lijst met aanbiedingen van uw abonnement kan worden overgeschakeld naar de. Deze lijst verschilt afhankelijk van de lidmaatschappen die aan uw account zijn gekoppeld. Als er niets beschikbaar is, controleert u de [lijst met beschikbare aanbiedingen die u naar overschakelen kunt](#whats-supported) en zorg ervoor dat u hebt de juiste lidmaatschappen. 
 
    ![Selecteer een aanbieding die u overschakelen wilt op](./media/billing-how-to-switch-azure-offer/selectoffer.png)
 1. Afhankelijk van de aanbieding die u naar omschakelt, ziet u mogelijk een opmerking over de gevolgen van het overschakelen. Deze lijst zorgvuldig doorlopen en volg de instructies voordat u doorgaat.
@@ -78,7 +78,7 @@ Een Azure-aanbieding is de *type* van de Azure-abonnement hebt. Bijvoorbeeld, [b
 
 U ziet mogelijk niet de **overstappen naar een andere aanbieding** knop als:
 
-* U bent niet op [betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/). Op dit moment alleen betalen per gebruik-abonnementen kunnen worden geconverteerd naar een andere aanbieding.
+* U bent niet op [betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/). Op dit moment kunnen alleen abonnementen van het type Betalen per gebruik worden omgezet naar een andere aanbieding.
   * Als u [gratis proefversie](https://azure.microsoft.com/free/), informatie over hoe u [upgraden naar betalen per gebruik](billing-upgrade-azure-subscription.md).
   * Om over te schakelen van de aanbieding van een ander abonnement [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 * U bent nog steeds op uw eerste factureringsperiode; u moet wachten voor uw eerste factureringsperiode beëindigen voordat u aanbiedingen overschakelen kunt.
@@ -116,4 +116,4 @@ Op de dag dat u overschakelt, wordt een factuur voor alle openstaande kosten die
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

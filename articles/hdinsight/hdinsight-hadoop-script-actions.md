@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5db4387c2fd610313aaac032c122366aa45dc7f9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 93313557781c6b3788d8b4d43d6676fc17625709
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720183"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201310"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Voor clusters op basis van HDInsight Windows Script Action-scripts ontwikkelen
-Informatie over het schrijven van scripts met Script Action voor HDInsight. Zie voor meer informatie over het gebruik van Script Action-scripts [aanpassen HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster.md). Zie voor hetzelfde artikel is geschreven voor Linux gebaseerde HDInsight-clusters, [ontwikkelen Script Action-scripts voor HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Informatie over het schrijven van scripts met Script Action voor HDInsight. Zie voor meer informatie over het gebruik van Script Action-scripts [aanpassen HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster-linux.md). Zie voor hetzelfde artikel is geschreven voor Linux gebaseerde HDInsight-clusters, [ontwikkelen Script Action-scripts voor HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 
 > [!IMPORTANT]  
@@ -29,7 +29,7 @@ Script Action kan worden gebruikt om aanvullende software die wordt uitgevoerd o
 > [!NOTE]  
 > Als u de volgende strekking weergegeven:
 >
-> System.Management.Automation.CommandNotFoundException; ExceptionMessage: De term 'Opslaan-HDIFile' wordt niet herkend als de naam van een cmdlet, functie, scriptbestand of programma. Controleer de spelling van de naam, of als een pad opgenomen is, dat het pad juist is en probeer het opnieuw.
+> System.Management.Automation.CommandNotFoundException; ExceptionMessage : De term 'Opslaan-HDIFile' wordt niet herkend als de naam van een cmdlet, functie, scriptbestand of programma. Controleer de spelling van de naam, of als een pad opgenomen is, dat het pad juist is en probeer het opnieuw.
 > 
 > Dit is omdat u niet de helpermethoden hebt opgenomen.  Zie [helpermethoden voor aangepaste scripts](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 
@@ -95,12 +95,11 @@ HDInsight biedt verschillende scripts voor het installeren van extra onderdelen 
 | --- | --- |
 | **Spark installeren** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Zie [installeren en gebruiken Apache Spark in HDInsight-clusters][hdinsight-install-spark]. |
 | **R installeren** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Zie [installeren en gebruiken R op HDInsight-clusters](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Solr installeren** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Zie [installeren en gebruiken Apache Solr op HDInsight-clusters](hdinsight-hadoop-solr-install.md). |
 | **Giraph installeren** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Zie [installeren en gebruiken Apache Giraph op HDInsight-clusters](hdinsight-hadoop-giraph-install.md). |
 | **Hive-bibliotheken vooraf laden** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Zie [toevoegen Apache Hive-bibliotheken op HDInsight-clusters](hdinsight-hadoop-add-hive-libraries.md) |
 
 
-Script Action kan worden geïmplementeerd via Azure portal, Azure PowerShell of met behulp van de HDInsight .NET SDK.  Zie voor meer informatie, [aanpassen HDInsight-clusters met Script Action][hdinsight-cluster-customize].
+Script Action kan worden geïmplementeerd via Azure portal, Azure PowerShell of met behulp van de HDInsight .NET SDK.  Zie voor meer informatie [aanpassen HDInsight-clusters met Script Action] [hdinsight-cluster-aanpassen].
 
 > [!NOTE]  
 > De voorbeelden van scripts werken alleen met HDInsight-clusterversie 3.1 of hoger. Zie voor meer informatie over HDInsight-clusterversies [HDInsight-clusterversies](hdinsight-component-versioning.md).
@@ -132,7 +131,7 @@ Hier volgen de methoden die worden geboden door dit script:
 | Help-methode | Description |
 | --- | --- |
 | **Save-HDIFile** |Download een bestand van de opgegeven Uniform Resource Identifier (URI) naar een locatie op de lokale schijf die is gekoppeld aan het Azure-VM-knooppunt dat is toegewezen aan het cluster. |
-| **Vouw HDIZippedFile** |Pak een ZIP-bestand. |
+| **Expand-HDIZippedFile** |Pak een ZIP-bestand. |
 | **Invoke-HDICmdScript** |Een script uitvoeren vanaf cmd.exe. |
 | **Write-HDILog** |Uitvoer van het aangepaste script gebruikt voor de scriptactie van een schrijven. |
 | **Get-Services** |Haal een lijst van de services die worden uitgevoerd op de machine waarop het script wordt uitgevoerd. |
@@ -291,13 +290,11 @@ In dit logboek is het duidelijk dat de actie van de Spark-script is uitgevoerd o
 In het geval dat een uitvoeringsfout optreedt, wordt de uitvoer met een beschrijving van het is ook opgenomen in dit logboekbestand. De informatie in deze logboeken moet nuttig zijn bij het opsporen van fouten in script-problemen die zich kunnen voordoen.
 
 ## <a name="see-also"></a>Zie ook
-* [HDInsight clusters aanpassen met Script Action][hdinsight-cluster-customize]
+* [HDInsight clusters aanpassen met Script Action] [hdinsight-cluster-aanpassen]
 * [Installeren en gebruiken van Apache Spark op HDInsight-clusters][hdinsight-install-spark]
-* [Installeren en gebruiken van Apache Solr op HDInsight-clusters](hdinsight-hadoop-solr-install.md).
 * [Installeren en Apache Giraph gebruikt op HDInsight-clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [powershell-install-configure]: install-configure-powershell.md
 

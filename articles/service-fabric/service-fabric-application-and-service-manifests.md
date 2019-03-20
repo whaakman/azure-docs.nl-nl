@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9e8ca50970ff4a845174d7061b60a88a8f5ce578
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0cd8131a0e5168ba8cfb6045c3be238162668995
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465620"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864572"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric-toepassing- en servicemanifesten
 Dit artikel wordt beschreven hoe Service Fabric-toepassingen en services worden gedefinieerd en is samengesteld met behulp van de bestanden ApplicationManifest.xml en ServiceManifest.xml.  Zie voor meer voorbeelden van gedetailleerde [toepassing en service manifest van de voorbeelden](service-fabric-manifest-examples.md).  Het XML-schema voor deze manifestbestanden wordt gedocumenteerd in [ServiceFabricServiceModel.xsd schemadocumentatie](service-fabric-service-model-schema.md).
@@ -35,8 +35,8 @@ Het servicemanifest definieert declaratief het servicetype en de versie. Het gee
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType. 
          This name must match the string used in RegisterServiceType call in Program.cs. -->
@@ -88,7 +88,7 @@ Zie voor meer informatie over het configureren van de SetupEntryPoint [het belei
 **ConfigPackage** declareert u een map met de naam van de **naam** kenmerk dat bevat een *Settings.xml* bestand. Het instellingenbestand bevat secties van de gebruiker gedefinieerde, sleutel / waarde-paar instellingen die het proces weer tijdens runtime leest. Tijdens een upgrade wordt als alleen de **ConfigPackage** **versie** is gewijzigd, en vervolgens het proces dat wordt uitgevoerd niet opnieuw wordt opgestart. In plaats daarvan een retouraanroep hoogte gebracht van het proces dat configuratie-instellingen hebt gewijzigd, zodat ze kunnen dynamisch worden geladen. Hier volgt een voorbeeld *Settings.xml* bestand:
 
 ```xml
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MyConfigurationSection">
     <Parameter Name="MySettingA" Value="Example1" />
     <Parameter Name="MySettingB" Value="Example2" />
@@ -115,7 +115,7 @@ Manifest van de toepassing worden elementen op toepassingsniveau en dus verwijst
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />

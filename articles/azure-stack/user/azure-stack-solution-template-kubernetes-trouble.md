@@ -14,12 +14,12 @@ ms.topic: article
 ms.author: mabvrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 5436b562b4f9054e0e00e3cc6abb1724797437db
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 6a5efce2f50a25902b33f2cb85d470a280000305
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729647"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002056"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Problemen met uw Kubernetes-implementatie naar Azure Stack oplossen
 
@@ -151,6 +151,7 @@ Als u zich aanmeldt, moet u de volgende stappen uitvoeren:
     ```
 
 4. Controleer de parameters en stel de waarden op basis van uw omgeving.
+
     | Parameter           | Description                                                                                                      | Voorbeeld                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d--vmd-host       | Het openbare IP-adres of de FQDN-naam van de DVM. De naam van de virtuele machine wordt gestart met `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
@@ -174,7 +175,7 @@ Als u zich aanmeldt, moet u de volgende stappen uitvoeren:
     ![Gegenereerde logboeken](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
 
 
-4. De logboeken in de mappen die zijn gemaakt door de opdracht kunt ophalen. De opdracht maakt u nieuwe mappen en tijdstempels ze.
+1. De logboeken in de mappen die zijn gemaakt door de opdracht kunt ophalen. De opdracht maakt u nieuwe mappen en tijdstempels ze.
     - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
         - Dvmlogs
         - Acsengine-kubernetes-dvm.log

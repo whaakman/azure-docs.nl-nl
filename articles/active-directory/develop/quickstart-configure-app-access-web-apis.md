@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08ad61070fd3bfb8472cffb51fd0b1bb4bcf169b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7ef499e49fc4d1a0dc79dfc4efb818f7330b57b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995204"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Quickstart: Een clienttoepassing configureren voor toegang tot web-API's (preview)
 
@@ -74,11 +74,11 @@ Ga als volgt te werk om een omleidings-URI toe te voegen aan uw toepassing:
 
 1. Als u een aangepaste omleidings-URI's voor web- en openbare client-apps wilt toevoegen, voert u deze stappen uit:
 
-    1. Ga naar de sectie **Omleidings-URI**.
-    1. Selecteer het type toepassing dat u bouwt, **Web** of **Openbare client (mobiel en desktop)**.
-    1. Voer de omleidings-URI voor uw toepassing in.
-        * Geef voor webtoepassingen de basis-URL van uw toepassing op. http://localhost:31544 kan bijvoorbeeld de URL zijn van een webtoepassing die op uw lokale machine wordt uitgevoerd. Gebruikers moeten deze URL gebruiken om zich bij een webclienttoepassing aan te melden.
-        * Geef voor openbare toepassingen de URI op die door Azure Active Directory wordt gebruikt om tokenantwoorden te retourneren. Voer een waarde in die specifiek is voor uw toepassing, bijvoorbeeld https://MyFirstApp.
+   1. Ga naar de sectie **Omleidings-URI**.
+   1. Selecteer het type toepassing dat u bouwt, **Web** of **Openbare client (mobiel en desktop)**.
+   1. Voer de omleidings-URI voor uw toepassing in.
+      * Geef voor webtoepassingen de basis-URL van uw toepassing op. `http://localhost:31544` kan bijvoorbeeld de URL zijn van een webtoepassing die op uw lokale machine wordt uitgevoerd. Gebruikers moeten deze URL gebruiken om zich bij een webclienttoepassing aan te melden.
+      * Geef voor openbare toepassingen de URI op die door Azure Active Directory wordt gebruikt om tokenantwoorden te retourneren. Voer een waarde in die specifiek is voor uw toepassing, bijvoorbeeld https://MyFirstApp.
 
 1. Volg deze stappen om een keuze te maken uit voorgestelde omleidings-URI's voor openbare clients (mobiel, desktop):
 

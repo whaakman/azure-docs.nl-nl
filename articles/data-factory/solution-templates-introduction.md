@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: c684d275052e011d965210c132e09bab679cf166
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003548"
 ---
 # <a name="templates"></a>Sjablonen
 
@@ -40,11 +40,13 @@ U kunt aan de slag maken van een Data Factory-pijplijn met een sjabloon in de vo
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Buiten het vak Data Factory-sjablonen
 
-Data Factory maakt gebruik van Azure Resource Manager-sjablonen voor het opslaan van data factory-pijplijn sjablonen. U kunt zien dat alle Resource Manager-sjablonen, samen met het manifestbestand gebruikt voor buiten de sjablonen van de Data Factory vak de [officiële Azure Data Factory Github-opslagplaats](https://github.com/Azure/Azure-DataFactory/tree/master/templates). De vooraf gedefinieerde sjablonen die door Microsoft geleverd, omvatten maar zijn niet beperkt tot de volgende items:
+Data Factory maakt gebruik van Azure Resource Manager-sjablonen voor het opslaan van data factory-pijplijn sjablonen. U kunt zien dat alle Resource Manager-sjablonen, samen met het manifestbestand gebruikt voor buiten de sjablonen van de Data Factory vak de [officiële Azure Data Factory GitHub-opslagplaats](https://github.com/Azure/Azure-DataFactory/tree/master/templates). De vooraf gedefinieerde sjablonen die door Microsoft geleverd, omvatten maar zijn niet beperkt tot de volgende items:
 
 -   Kopieer de sjablonen:
 
     -   [Bulksgewijs kopiëren uit Database](solution-template-bulk-copy-with-control-table.md)
+    
+    -   [Nieuwe bestanden door LastModifiedDate kopiëren](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Meerdere bestand containers tussen winkels op basis van een bestand kopiëren](solution-template-copy-files-multiple-containers.md)
 

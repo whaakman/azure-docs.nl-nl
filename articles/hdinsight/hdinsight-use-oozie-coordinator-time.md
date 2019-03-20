@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 000f8de4d40fda39f183b0824bea6a09605e6e9d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a47a30995f651204782325a9f984086fdf382a03
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977606"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202194"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Apache Oozie-coördinator op basis van tijd met Apache Hadoop in HDInsight gebruiken voor het definiëren van werkstromen en coördinatie van taken
 In dit artikel leert u hoe u workflows en coördinatoren definieert en hoe u activeert de coördinator taken, op basis van tijd. Is het handig om te gaan via [Apache Oozie gebruiken met HDInsight] [ hdinsight-use-oozie] voordat u dit artikel leest. Naast Oozie, kunt u ook met Azure Data Factory taken plannen. Zie voor meer Azure Data Factory [gebruik Apache Pig- en Apache Hive met Data Factory](../data-factory/transform-data.md).
@@ -73,7 +73,7 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
     |De naam van de HDInsight-cluster|$clusterName||Het HDInsight-cluster op waarop u deze zelfstudie wordt uitgevoerd.|
     |Gebruikersnaam van de HDInsight-cluster|$clusterUsername||De naam van de gebruiker in de HDInsight-cluster. |
     |Gebruikerswachtwoord van HDInsight-cluster |$clusterPassword||Het wachtwoord van de gebruiker in de HDInsight-cluster.|
-    |Azure storage-accountnaam|$storageAccountName||Een Azure Storage-account beschikbaar voor het HDInsight-cluster. Voor deze zelfstudie gebruikt u het standaardopslagaccount die u hebt opgegeven tijdens het inrichten cluster.|
+    |Naam van het Azure-opslagaccount|$storageAccountName||Een Azure Storage-account beschikbaar voor het HDInsight-cluster. Voor deze zelfstudie gebruikt u het standaardopslagaccount die u hebt opgegeven tijdens het inrichten cluster.|
     |Naam van een Azure Blob-container|$containerName||In dit voorbeeld gebruikt u de Azure Blob storage-container die wordt gebruikt voor het standaardbestandssysteem voor de HDInsight-cluster. Standaard heeft dezelfde naam als het HDInsight-cluster.|
 
 
@@ -87,7 +87,7 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
     |SQL-databasenaam|$sqlDatabaseName||De Azure SQL-database waarnaar Sqoop gegevens worden geëxporteerd. |
 
   > [!NOTE]   
-  > Een Azure SQL database staat standaard verbindingen van Azure-Services, zoals Azure HDInsight. Als deze firewallinstelling is uitgeschakeld, moet u het inschakelen van de Azure-Portal. Zie voor instructies over het maken van een SQL-Database en firewallregels configureren, [maken en SQL Database configureren][sqldatabase-get-started].
+  > Een Azure SQL database staat standaard verbindingen van Azure-Services, zoals Azure HDInsight. Als deze firewallinstelling is uitgeschakeld, moet u dit inschakelen via de Azure-portal. Zie voor instructies over het maken van een SQL-Database en firewallregels configureren, [maken en SQL Database configureren][sqldatabase-get-started].
 
 > [!NOTE]  
 > Invullen de waarden in de tabellen. Dit is handig voor deze zelfstudie te doorlopen.
@@ -192,7 +192,7 @@ De Hive-actie in de werkstroom wordt een bestand HiveQL-script. Dit scriptbestan
     |Werkstroomvariabelen voor de|Description|
     |---|---|
     |${jobTracker}|Geef de URL van het beheer van Hadoop-taak. Gebruik **jobtrackerhost:9010** cluster in HDInsight versie 3.0 en 2.0.|
-    |${nameNode}|Geef de URL van het knooppunt van de naam van Hadoop. Gebruik de standaard-bestand system wasb: / / -adres, bijvoorbeeld *wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net*.|
+    |${nameNode}|Geef de URL van het knooppunt van de naam van Hadoop. Gebruik de standaard-bestand system wasb: / / -adres, bijvoorbeeld *wasb: / /&lt;containerName&gt;\@&lt;storageAccountName&gt;. blob.core.windows.net*.|
     |${queueName}|Hiermee geeft u de naam van de wachtrij die de taak om te worden verzonden. Gebruik **standaard**.|
 
     Variabelen voor de hive
@@ -655,15 +655,15 @@ Azure PowerShell biedt op dit moment geen cmdlets voor het definiëren van Oozie
 
 De tekens # verwijderen als u wilt de aanvullende functies uitvoeren.
 
-9. Als uw HDinsight-cluster versie 2.1 is, vervangt u 'https://$clusterName.azurehdinsight.net:443/oozie/v2/"met 'https://$clusterName.azurehdinsight.net:443/oozie/v1/'. HDInsight-clusterversie 2.1 wordt niet ondersteund versie 2 van de web-services.
-10. Klik op **-Script uitvoeren** of druk op **F5** het script uit te voeren. De uitvoer is vergelijkbaar met:
+1. Als uw HDInsight-cluster versie 2.1 is, vervangt u 'https://$clusterName.azurehdinsight.net:443/oozie/v2/"met 'https://$clusterName.azurehdinsight.net:443/oozie/v1/'. HDInsight-clusterversie 2.1 wordt niet ondersteund versie 2 van de web-services.
+1. Klik op **-Script uitvoeren** of druk op **F5** het script uit te voeren. De uitvoer is vergelijkbaar met:
 
-     ![Zelfstudie werkstroomuitvoer uitvoeren][img-runworkflow-output]
-11. Verbinding maken met uw SQL-Database om de geëxporteerde gegevens te bekijken.
+    ![Zelfstudie werkstroomuitvoer uitvoeren][img-runworkflow-output]
+1. Verbinding maken met uw SQL-Database om de geëxporteerde gegevens te bekijken.
 
 **Om te controleren of het foutenlogboek van taak**
 
-Voor het oplossen van een werkstroom, kan het logboekbestand Oozie worden gevonden op C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log van het hoofdknooppunt van het cluster. Zie voor informatie over RDP, [beheer van HDInsight-clusters met behulp van de Azure-portal][hdinsight-admin-portal].
+Voor het oplossen van een werkstroom, kan het logboekbestand Oozie worden gevonden op C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log van het hoofdknooppunt van het cluster. Zie voor informatie over RDP, [beheren Apache Hadoop-clusters in HDInsight met behulp van de Azure-portal](hdinsight-administer-use-portal-linux.md).
 
 **De zelfstudie opnieuw uit te voeren**
 
@@ -719,7 +719,6 @@ In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow en een Oozie-coördin
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

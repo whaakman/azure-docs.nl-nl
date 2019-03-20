@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: b4778c87ca5da266858cd05c67e5f0a78af731bc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 11a8ef1974e8d930b0001ccfb445b0eee509356f
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330814"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188948"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Go gebruiken om de Text Analytics Cognitive Service aan te roepen 
 <a name="HOLTop"></a>
@@ -41,9 +41,9 @@ Met de Language Detection-API wordt de taal van een tekstdocument gedetecteerd m
 1. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
 1. Vervang de locatie `uriBase` (momenteel `westcentralus`) door de regio waarvoor u zich hebt geregistreerd.
 1. Sla het bestand op met de extensie .go.
-1. Open een opdrachtprompt op een computer waarop Go is geïnstalleerd.
-1. Compileer het bestand. Bijvoorbeeld: go build quickstart.go.
-1. Voer het bestand uit. Bijvoorbeeld: quickstart.
+1. Open een opdrachtprompt op een computer met Ga geïnstalleerd vanuit de hoofdmap.
+1. Maak het bestand, bijvoorbeeld met: `go build detect.go`.
+1. Voer het bestand uit, bijvoorbeeld met: `go run detect.go`.
 
 ```golang
 package main
@@ -177,16 +177,16 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="analyze-sentiment-request"></a>Sentiment analyseren-aanvraag
 
-Met de Sentiment Analysis-API wordt een set tekstrecords gedetecteerd met behulp van de [methode Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). In het volgende voorbeeld worden twee documenten beoordeeld, één in het Engels en één in het Spaans.
+Met de Sentiment Analysis-API wordt een set tekstrecords gedetecteerd met behulp van de [methode Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Sentimentanalyse kan worden gebruikt om erachter te komen hoe klanten van uw merk of onderwerp denken door onbewerkte tekst of er aanwijzingen over positief of negatief gevoel analyseren. Het volgende voorbeeld biedt scores voor de twee documenten, één in het Engels en andere in het Spaans.
 
 1. Maak een nieuw Go-project in uw favoriete code-editor.
 1. Voeg de onderstaande code toe.
 1. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
 1. Vervang de locatie `uriBase` (momenteel `westcentralus`) door de regio waarvoor u zich hebt geregistreerd.
 1. Sla het bestand op met de extensie .go.
-1. Open een opdrachtprompt op een computer waarop Go is geïnstalleerd.
-1. Compileer het bestand. Bijvoorbeeld: go build quickstart.go.
-1. Voer het bestand uit. Bijvoorbeeld: quickstart.
+1. Open een opdrachtprompt op een computer met Ga geïnstalleerd vanuit de hoofdmap.
+1. Maak het bestand, bijvoorbeeld met: `go build sentiment.go`.
+1. Voer het bestand uit, bijvoorbeeld met: `go run sentiment.go`.
 
 ```golang
 package main
@@ -272,7 +272,8 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>Sentiment analyseren-antwoord
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
+Het resultaat wordt gemeten als positief als deze dichter bij 1.0 en negatieve wordt berekend als het dichter beoordeeld op 0.0.
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld:
 
 ```json
 {
@@ -294,7 +295,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="extract-key-phrases-request"></a>Sleuteltermen ophalen-aanvraag
 
-Met de Key Phrase Extraction-API worden sleuteltermen opgehaald uit een tekstdocument met behulp van de [methode Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). In het volgende voorbeeld worden sleuteltermen opgehaald voor zowel de Engelse als Spaanse documenten.
+Met de Key Phrase Extraction-API worden sleuteltermen opgehaald uit een tekstdocument met behulp van de [methode Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Sleuteltermextractie wordt snel identificeren van de belangrijkste punten van een document of de tekst gebruikt. In het volgende voorbeeld worden sleuteltermen opgehaald voor zowel de Engelse als Spaanse documenten.
 
 1. Maak een nieuw Go-project in uw favoriete code-editor.
 1. Voeg de onderstaande code toe.
@@ -302,8 +303,8 @@ Met de Key Phrase Extraction-API worden sleuteltermen opgehaald uit een tekstdoc
 1. Vervang de locatie `uriBase` (momenteel `westcentralus`) door de regio waarvoor u zich hebt geregistreerd.
 1. Sla het bestand op met de extensie .go.
 1. Open een opdrachtprompt op een computer waarop Go is geïnstalleerd.
-1. Compileer het bestand. Bijvoorbeeld: go build quickstart.go.
-1. Voer het bestand uit. Bijvoorbeeld: quickstart.
+1. Maak het bestand, bijvoorbeeld met: `go build key-phrases.go`.
+1. Voer het bestand uit, bijvoorbeeld met: `go run key-phrases.go`.
 
 ```golang
 package main
@@ -390,7 +391,7 @@ func main() {
 
 ## <a name="extract-key-phrases-response"></a>Sleuteltermen ophalen-antwoord
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld:
 
 ```json
 {
@@ -430,9 +431,9 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="Entities"></a>
 
-## <a name="identify-entities-request"></a>Aanvraag om entiteiten te identificeren
+## <a name="identify-entities"></a>Entiteiten identificeren
 
-De Entities-API identificeert bekende entiteiten in een tekstdocument, met behulp van de [methode Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). In het volgende voorbeeld worden entiteiten geïdentificeerd voor Engelse documenten.
+De Entities-API identificeert bekende entiteiten in een tekstdocument, met behulp van de [methode Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). [Entiteiten](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) woorden extraheren uit tekst, zoals 'VS', en vervolgens geeft u het type en/of de Wikipedia-koppeling voor deze woorden. Het type voor "Verenigde Staten" `location`, terwijl de koppeling naar Wikipedia `https://en.wikipedia.org/wiki/United_States`.  In het volgende voorbeeld worden entiteiten geïdentificeerd voor Engelse documenten.
 
 1. Maak een nieuw Go-project in uw favoriete code-editor.
 1. Voeg de onderstaande code toe.
@@ -440,8 +441,8 @@ De Entities-API identificeert bekende entiteiten in een tekstdocument, met behul
 1. Vervang de locatie `uriBase` (momenteel `westcentralus`) door de regio waarvoor u zich hebt geregistreerd.
 1. Sla het bestand op met de extensie .go.
 1. Open een opdrachtprompt op een computer waarop Go is geïnstalleerd.
-1. Compileer het bestand. Bijvoorbeeld: go build quickstart.go.
-1. Voer het bestand uit. Bijvoorbeeld: quickstart.
+1. Maak het bestand, bijvoorbeeld met: `go build entities.go`.
+1. Voer het bestand uit, bijvoorbeeld met: `go run entities.go`.
 
 ```golang
 package main

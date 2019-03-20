@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156168"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404889"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Zelfstudie: Een Azure Data Box Disk bestellen
 
@@ -61,7 +61,7 @@ Voer de volgende stappen uit in [Azure Portal](https://aka.ms/azuredataboxfromdi
 
     ![De optie Data Box Disk selecteren](media/data-box-disk-deploy-ordered/select-data-box-sku-1.png)
 
-    |Instelling|Waarde|
+    |Instelling|Value|
     |---|---|
     |Abonnement|Selecteer het abonnement waarvoor Data Box is ingeschakeld.<br> Het abonnement is gekoppeld aan uw factureringsrekening. |
     |Type overdracht| Importeren in Azure|
@@ -77,14 +77,28 @@ Voer de volgende stappen uit in [Azure Portal](https://aka.ms/azuredataboxfromdi
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|Geef een beschrijvende naam op om de bestelling te volgen.<br> De naam kan tussen 3 en 24 tekens bevatten (letters, cijfers en afbreekstreepjes). <br> De naam moet beginnen en eindigen met een letter of cijfer. |
+    |Name|Geef een beschrijvende naam op om de bestelling te volgen.<br> De naam kan tussen 3 en 24 tekens bevatten (letters, cijfers en afbreekstreepjes). <br> De naam moet beginnen en eindigen met een letter of cijfer. |
     |Resourcegroep| Gebruik een bestaande of maak een nieuwe. <br> Een resourcegroep is een logische container voor resources die samen kunnen worden beheerd of geïmplementeerd. |
     |Doel-Azure-regio| Selecteer een regio voor uw opslagaccount.<br> Momenteel worden opslagaccounts in alle regio's in de VS, West- en Noord-Europa, Canada en Australië ondersteund. |
-    |Opslagaccount(s)|Selecteer deze uit de gefilterde lijst van een bestaand opslagaccount, gebaseerd op de opgegeven Azure-regio. <br>U kunt ook een nieuw account voor Algemeen gebruik v1 of Algemeen gebruik v2 maken. |
     |Geschatte gegevensgrootte in TB| Voer een schatting in TB in. <br>Op basis van de gegevensgrootte stuurt Microsoft u het juiste aantal SSD-schijven van 8 TB (7 TB aan bruikbare capaciteit). <br>De maximale bruikbare capaciteit van 5 schijven is 35 TB. |
     |Wachtwoordsleutel voor schijf| Geef de wachtwoordsleutel voor schijf op als u het selectievakje **Aangepaste sleutel gebruiken in plaats van door Azure gegenereerde sleutel** inschakelt. <br> Geef een alfanumerieke sleutel tussen 12 tot 32 tekens lang op met ten minste één numeriek en één speciaal teken. Alleen de speciale tekens `@?_+` zijn toegestaan. <br> U kunt deze optie overslaan en de door Azure gegenereerde wachtwoordsleutel gebruiken om uw schijven te ontgrendelen.|
+    |Opslaglocatie     | Kies in de storage-account of beheerde schijven of beide. <br> Op basis van de opgegeven Azure-regio, selecteer een opslagaccount in de gefilterde lijst van een bestaand opslagaccount. Data Box kan worden gekoppeld aan maximaal 10 opslagaccounts. <br> U kunt ook maken een nieuwe **voor algemeen gebruik v1**, **voor algemeen gebruik v2**, of **Blob storage-account**. <br>U kunt geen opslagaccounts gebruiken waarvoor regels zijn geconfigureerd. De opslagaccounts moeten **toegang vanaf alle netwerken toestaan**. Dit is te configureren in het gedeelte voor firewalls en virtuele netwerken.|
 
-13. Klik op **Volgende**. 
+    Als u de storage-account als de opslaglocatie, ziet u de volgende schermafbeelding:
+
+    ![Data Box-schijforder voor storage-account](media/data-box-disk-deploy-ordered/order-storage-account.png)
+
+    Als met behulp van Data Box-schijf voor het maken van beheerde schijven van de on-premises VHD's, moet u ook de volgende informatie:
+
+    |Instelling  |Waarde  |
+    |---------|---------|
+    |Resourcegroep     | Maak een nieuwe resourcegroep als u van plan bent voor het maken van beheerde schijven vanaf on-premises VHD's. Gebruik een bestaande resourcegroep alleen als deze is gemaakt voor de Data Box-schijforder voor beheerde schijf met de Data Box-service. <br> Slechts één resourcegroep wordt ondersteund.|
+
+    ![Data Box-schijforder voor beheerde schijf](media/data-box-disk-deploy-ordered/order-managed-disks.png)
+
+    Het opslagaccount dat is opgegeven voor beheerde schijven wordt als een tijdelijke opslagaccount dat gebruikt. De Data Box-service wordt de VHD's naar het tijdelijke opslagaccount dat wordt geüpload en vervolgens worden geconverteerd naar beheerde schijven en wordt verplaatst naar de resourcegroepen. Zie voor meer informatie, [controleren of gegevens uploaden naar Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
+
+13. Klik op **volgende**.
 
     ![Ordergegevens invoeren](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
@@ -102,7 +116,7 @@ Voer de volgende stappen uit in [Azure Portal](https://aka.ms/azuredataboxfromdi
  
 ## <a name="track-the-order"></a>De bestelling volgen
 
-Nadat u uw bestelling hebt geplaatst, kunt u de status van de bestelling volgen via de Azure-portal. Ga naar uw bestelling en vervolgens naar **Overzicht** om de status te bekijken. In de portal ziet u dat de taak de status **Besteld** heeft. 
+Nadat u uw bestelling hebt geplaatst, kunt u de status van de bestelling volgen via de Azure-portal. Ga naar uw bestelling en vervolgens naar **Overzicht** om de status te bekijken. In de portal ziet u dat de taak de status **Besteld** heeft.
 
 ![Status bestel van Data Box Disk](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -118,9 +132,9 @@ Microsoft bereidt uw schijven vervolgens voor en verzendt deze met een regionale
 
 ## <a name="cancel-the-order"></a>De bestelling annuleren
 
-Als u deze bestelling wilt annuleren, gaat u in de Azure-portal naar **Overzicht** en klikt u in de opdrachtbalk op **Annuleren**. 
+Als u deze bestelling wilt annuleren, gaat u in de Azure-portal naar **Overzicht** en klikt u in de opdrachtbalk op **Annuleren**.
 
-U kunt alleen annuleren wanneer de schijven zijn besteld en de bestelling nog wordt verwerkt voor verzending. Nadat de bestelling is verwerkt, kunt u de bestelling niet meer annuleren. 
+U kunt alleen annuleren wanneer de schijven zijn besteld en de bestelling nog wordt verwerkt voor verzending. Nadat de bestelling is verwerkt, kunt u de bestelling niet meer annuleren.
 
 ![Bestelling annuleren](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
@@ -140,5 +154,3 @@ Ga naar de volgende zelfstudie om te lezen hoe u uw Data Box Disk instelt.
 
 > [!div class="nextstepaction"]
 > [Uw Azure Data Box Disk instellen](./data-box-disk-deploy-set-up.md)
-
-

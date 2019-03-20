@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: af604dbabe9df56322342230eaec70548f53c927
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: MT
+ms.openlocfilehash: 556d67bb67e9eb01c442cdf158561f16a5bcf922
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794495"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875937"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Aan de slag met een voorbeeld van Apache HBase in HDInsight
 
@@ -31,7 +31,7 @@ Voordat u begint met dit HBase-voorbeeld, moet u beschikken over de volgende ite
 * [curl](https://curl.haxx.se/download.html).
 
 ## <a name="create-apache-hbase-cluster"></a>Apache HBase-cluster maken
-In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om een HBase-cluster en het afhankelijke standaard Azure Storage-opslagaccount te maken. Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) voor meer inzicht in de parameters die voor deze procedure worden gebruikt en andere methoden voor het maken van clusters. Zie voor meer informatie over het gebruik van Data Lake Storage Gen2 [Quick Start: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om een HBase-cluster en het afhankelijke standaard Azure Storage-opslagaccount te maken. Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) voor meer inzicht in de parameters die voor deze procedure worden gebruikt en andere methoden voor het maken van clusters. Zie voor informatie over het gebruik van Data Lake Storage Gen2 [Snelstart: clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen. De sjabloon bevindt zich in [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/).
    
@@ -56,7 +56,7 @@ In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om e
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Tabellen maken en gegevens invoegen
-U kunt SSH gebruiken om te verbinden met HBase-clusters en vervolgens [Apache HBase-Shell](https://hbase.apache.org/0.94/book/shell.html) HBase om tabellen te maken, gegevens en querygegevens invoegen. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+U kunt SSH gebruiken om verbinding te maken met HBase-clusters en vervolgens [Apache HBase Shell](https://hbase.apache.org/0.94/book/shell.html) gebruiken om HBase-tabellen te maken, gegevens in te voegen, en gegevens te doorzoeken. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 Voor de meeste mensen worden de gegevens weergegeven in een tabelindeling:
 
@@ -111,7 +111,7 @@ In HBase (een implementatie van [Cloud BigTable](https://cloud.google.com/bigtab
 
 U kunt in HBase verschillende methoden gebruiken om gegevens in tabellen te laden.  Zie [Bulk loading](https://hbase.apache.org/book.html#arch.bulk.load) (Bulkgsgewijs laden) voor meer informatie.
 
-Een voorbeeld van een gegevensbestand is te vinden in een openbare Azure Blob-container, *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  De inhoud van het gegevensbestand is:
+Een bestand met voorbeeldgegevens vindt u in een openbare blob-container *wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt*.  De inhoud van het gegevensbestand is:
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -175,14 +175,14 @@ U kunt gegevens in HBase-tabellen opvragen met behulp van [Apache Hive](https://
 
 De REST API is beveiligd via [basisverificatie](https://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd uitvoeren via een beveiligde HTTP-verbinding (HTTPS). Zo zorgt u ervoor dat uw referenties veilig worden verzonden naar de server.
 
-2. Gebruik de volgende opdracht om een lijst met bestaande HBase-tabellen weer te geven:
+1. Gebruik de volgende opdracht om een lijst met bestaande HBase-tabellen weer te geven:
 
     ```bash
     curl -u <UserName>:<Password> \
     -G https://<ClusterName>.azurehdinsight.net/hbaserest/
     ```
 
-3. Gebruik de volgende opdracht om een nieuwe HBase-tabel met twee kolomfamilies te maken:
+1. Gebruik de volgende opdracht om een nieuwe HBase-tabel met twee kolomfamilies te maken:
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -194,7 +194,7 @@ De REST API is beveiligd via [basisverificatie](https://en.wikipedia.org/wiki/Ba
     ```
 
     Het schema wordt opgegeven in de JSON-indeling.
-4. Gebruik de volgende opdracht om enkele gegevens in te voegen:
+1. Gebruik de volgende opdracht om enkele gegevens in te voegen:
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -207,12 +207,12 @@ De REST API is beveiligd via [basisverificatie](https://en.wikipedia.org/wiki/Ba
    
     U moet de waarden die in de schakeloptie -d zijn opgegeven, met Base64 coderen. In het voorbeeld:
    
-   * MTAwMA ==: 1000
+   * MTAwMA==: 1000
    * UGVyc29uYWw6TmFtZQ ==: Persoonlijk: naam
    * Sm9obiBEb2xl: Joep Davids
      
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) maakt het mogelijk om meerdere waarden (in batch) in te voegen.
-5. Gebruik de volgende opdracht om een rij te verkrijgen:
+1. Gebruik de volgende opdracht om een rij te verkrijgen:
    
     ```bash 
     curl -u <UserName>:<Password> \
@@ -247,15 +247,15 @@ HBase in HDInsight wordt geleverd met een webgebruikersinterface voor het bewake
 2. Klik in het linkermenu op **HBase**.
 3. Klik op **Quick links** boven aan de pagina, wijs de actieve Zookeeper-knooppuntkoppeling aan en klik vervolgens op **HBase Master UI**.  De interface wordt in een nieuw browsertabblad geopend:
 
-  ![HDInsight HBase HMaster-interface](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![HDInsight HBase HMaster-interface](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-  De HBase-hoofdinterface bevat de volgende onderdelen:
+   De HBase-hoofdinterface bevat de volgende onderdelen:
 
-  - regioservers
-  - back-upmasters
-  - tabellen
-  - taken
-  - softwarekenmerken
+   - regioservers
+   - back-upmasters
+   - tabellen
+   - taken
+   - softwarekenmerken
 
 ## <a name="delete-the-cluster"></a>Het cluster verwijderen
 Om inconsistenties te voorkomen, wordt u aangeraden de HBase-tabellen uit te schakelen voordat u het cluster verwijdert.

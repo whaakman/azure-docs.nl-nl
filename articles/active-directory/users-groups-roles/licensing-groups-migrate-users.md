@@ -1,5 +1,5 @@
 ---
-title: Gebruikers migreren naar een groepslicentie - Azure Active Directory | Microsoft Docs
+title: Gebruikers met een afzonderlijke licentie migreren naar het Groepslicenties - Azure Active Directory | Microsoft Docs
 description: Overstappen van afzonderlijke gebruikerslicenties aan op basis van een groep met behulp van Azure Active Directory-licentieverlening
 services: active-directory
 keywords: Azure AD-licenties
@@ -11,21 +11,21 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd800097ca5107f7df1e67c91ff4c96b9cfcd74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6fd2eb51c7178421b0656e3b1d0e0ea36176c16
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107743"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199969"
 ---
-# <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Gelicentieerde gebruikers toevoegen aan een groep voor licentieverlening in Azure Active Directory
+# <a name="how-to-add-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Het toevoegen van gebruikers met afzonderlijke licenties aan groepen migreren voor licentieverlening
 
-Mogelijk hebt u bestaande licenties die zijn geïmplementeerd naar gebruikers in de organisaties via 'directe toewijzing'; dat wil zeggen, gebruik van PowerShell-scripts of andere hulpprogramma's voor afzonderlijke gebruikerslicenties toewijzen. Als u beginnen met behulp van Groepslicenties om licenties in uw organisatie te beheren wilt, moet u een migratieplan naadloos vervangen bestaande oplossingen met Groepslicenties.
+Mogelijk hebt u bestaande licenties die zijn geïmplementeerd naar gebruikers in de organisaties via 'directe toewijzing'; dat wil zeggen, gebruik van PowerShell-scripts of andere hulpprogramma's voor afzonderlijke gebruikerslicenties toewijzen. Voordat u met behulp van Groepslicenties begint voor het beheren van licenties in uw organisatie, kunt u dit migratieplan naadloos vervangen bestaande oplossingen met Groepslicenties.
 
 Het belangrijkste dat rekening moet houden is dat u een situatie waarbij migreren naar Groepslicenties leidt gebruikers tijdelijk verlies van hun momenteel toegewezen licenties te vermijden. Elke proces dat tot het verwijderen van licenties leiden kan moet worden vermeden als u wilt verwijderen van het risico van gebruikers die toegang tot services en hun gegevens verliezen.
 
@@ -69,18 +69,17 @@ Dit is wat het migratieproces kan er als volgt uitzien:
 
    - Dit is de status van de verwachte gebruiker tijdens de migratie:
 
-      ![verwachte gebruikersstatus](./media/licensing-groups-migrate-users/expected-user-state.png)
+      ![de status van de verwachte gebruiker tijdens de migratie](./media/licensing-groups-migrate-users/expected-user-state.png)
 
    Hiermee bevestigt u dat de gebruiker direct en overgenomen licenties heeft. Zien we dat beide **EMS** en **E3** zijn toegewezen.
 
    - Selecteer elke licentie om meer informatie over de ingeschakelde services weer te geven. Dit kan worden gebruikt om te controleren als de directe en groep-licenties exact de dezelfde service-plannen voor de gebruiker inschakelen.
 
-      ![Controleer de service-plannen](./media/licensing-groups-migrate-users/check-service-plans.png)
+      ![service-plannen voor de gebruiker controleren](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. Nadat is bevestigd dat dat zowel direct als groep licenties gelijkwaardig zijn, kunt u beginnen met het verwijderen van directe licenties van gebruikers. U kunt dit testen door deze te verwijderen voor afzonderlijke gebruikers in de portal en voer vervolgens automatiseringsscripts van te zijn verwijderd in één bulkbewerking. Hier volgt een voorbeeld van dezelfde gebruiker in de directe licenties verwijderd via de portal. U ziet dat de licentiestatus ongewijzigd blijft, maar niet meer we direct toewijzingen zien.
 
-   ![directe licenties die zijn verwijderd](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
-
+   ![Bevestig dat direct licenties zijn verwijderd](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

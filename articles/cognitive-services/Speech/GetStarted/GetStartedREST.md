@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 9ee0abdf722d3dc6d0d332f3894943bd3a03a877
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: e29d4c0a4279ae44a45b082c5a36b471af3cb12a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671911"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110185"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Quickstart: De Bing-spraakherkenning REST-API gebruiken
 
@@ -67,7 +67,7 @@ In de volgende tabel vindt u enkele voorbeelden van URI's-service.
 | Herkennings-modus  | Taal | Uitvoerindeling | Service-URI |
 |---|---|---|---|
 | `interactive` | pt-BR | Standaard | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Gedetailleerd |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `conversation` | en-US | Gedetailleerd | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
 | `dictation` | fr-FR | Eenvoudig | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]

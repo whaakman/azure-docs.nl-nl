@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 7d93e5777e3456098e1282fd70da55e85e1f80d0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: aa9d03e40880dbc856045840499dba43b9d1aba9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438242"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105332"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools voor Visual Studio gebruiken om te verbinden met Azure HDInsight en Apache Hive-query's uitvoeren
 
@@ -246,12 +246,12 @@ Hive-taken weergeven:
 1. Met de rechtermuisknop op een HDInsight-cluster en selecteer **taken weergeven**. Er wordt een lijst weergegeven met de Hive-taken die op het cluster zijn uitgevoerd.  
 
 2. Selecteer een taak. Selecteer in het venster **Samenvatting van Hive-taak** een van de volgende opties:
-    - **Taakquery**
-    - **Taakuitvoer**
-    - **Takenlogboek**  
-    - **Yarn-logboek**
+   - **Taakquery**
+   - **Taakuitvoer**
+   - **Takenlogboek**  
+   - **Yarn-logboek**
 
-    ![Schermafbeelding van het venster Hive-taken in HDInsight Visual Studio Tools](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "Hive-taken weergeven")
+     ![Schermafbeelding van het venster Hive-taken in HDInsight Visual Studio Tools](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "Hive-taken weergeven")
 
 
 ## <a name="run-apache-pig-scripts"></a>Apache Pig-scripts uitvoeren

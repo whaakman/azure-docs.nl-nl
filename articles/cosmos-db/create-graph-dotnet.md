@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 2979f64934b2ea4517800f5bf0a17e96a1b238dc
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 3f10c8d38d37682e2a949397d9747ec094bdb9af
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170102"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Een .NET Framework- of Core-toepassing ontwikkelen met het Azure Cosmos DB Gremlin API-account
 
@@ -160,7 +160,7 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 1. Vanuit [Azure Portal](https://portal.azure.com/) gaat u naar uw grafiekdatabaseaccount. In het tabblad **Overzicht** ziet u twee eindpunten: 
  
-   **.Net SDK URI**: deze waarde wordt gebruikt wanneer u verbinding met het grafiekaccount maakt met behulp van de Microsoft.Azure.Graphs-bibliotheek. 
+   **.NET SDK URI** -deze waarde wordt gebruikt wanneer u verbinding met de graph-account maken met behulp van Microsoft.Azure.Graphs-bibliotheek. 
 
    **Gremlin-eindpunt**: deze waarde wordt gebruikt wanneer u verbinding met het grafiekaccount maakt met behulp van de Gremlin.Net-bibliotheek.
 

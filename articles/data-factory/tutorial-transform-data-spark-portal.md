@@ -3,20 +3,20 @@ title: Gegevens transformeren met behulp van Spark in Azure Data Factory | Micro
 description: Deze zelfstudie biedt stapsgewijze instructies voor het transformeren van gegevens met behulp van een Spark-activiteit in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/10/2018
-ms.author: douglasl
-ms.openlocfilehash: be9ed1d840eab5478dee4d212705211c0967bdbd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: de99d1a58cac12c80748b34ef4a1b07c9fb2a78e
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427964"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576851"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Gegevens transformeren in de cloud met behulp van een Spark-activiteit in Azure Data Factory
 In deze zelfstudie gebruikt u Azure Portal om een pijplijn voor Azure Data Factory te maken. Deze pijplijn transformeert gegevens met behulp van een Spark-activiteit en een gekoppelde Azure HDInsight-service op aanvraag. 
@@ -32,12 +32,15 @@ In deze zelfstudie voert u de volgende stappen uit:
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Azure-opslagaccount**. U maakt een Python-script en een invoerbestand, en upload deze naar Azure Storage. De uitvoer van het Spark-programma wordt opgeslagen in dit opslagaccount. Het Spark-cluster op aanvraag gebruikt hetzelfde opslagaccount als de primaire opslag.  
 
 > [!NOTE]
 > HdInsight ondersteunt alleen algemene opslagaccounts met de catogorie Standard. Zorg ervoor dat het account niet een premium of alleen-blob opslagaccount is.
 
-* **Azure PowerShell**. Volg de instructies in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) (Azure PowerShell installeren en configureren).
+* **Azure PowerShell**. Volg de instructies in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps) (Azure PowerShell installeren en configureren).
 
 
 ### <a name="upload-the-python-script-to-your-blob-storage-account"></a>Het Python-script uploaden naar het Blob-opslagaccount

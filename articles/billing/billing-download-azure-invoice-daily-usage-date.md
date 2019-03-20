@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 59d63efbf261813c8519b03d3e1630cf24d868d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 52e227b933533bf60a474d0417c57e4b75c7978f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835923"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224631"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Downloaden of uw Azure-factuur en de dagelijkse gebruiksgegevens weergeven
 
@@ -56,7 +56,7 @@ Zie voor meer informatie over uw factuur [meer informatie over uw factuur voor M
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Downloaden van facturen voor een Microsoft-KLANTOVEREENKOMST
 
-Facturen worden gegenereerd voor elke [facturering profiel](billing-mca-overview.md#understand-billing-profiles) in de Microsoft-overeenkomst voor de klant. U moet een factureringsprofiel eigenaar, Inzender, lezer, of factuur manager voor het downloaden van facturen van de Azure-portal. 
+Facturen worden gegenereerd voor elke [facturering profiel](billing-mca-overview.md#understand-billing-profiles) in de Microsoft-overeenkomst voor de klant. U moet een factureringsprofiel eigenaar, Inzender, lezer, of factuur manager voor het downloaden van facturen van de Azure-portal.
 
 1. Zoeken op **kosten Management en facturering**.
 2. Selecteer een profiel voor facturering.
@@ -91,7 +91,7 @@ U kunt ervoor kiezen en configureren van extra ontvangers voor het ontvangen van
 2. Klik op **Opt-in** en accepteer de voorwaarden.
 
     ![Schermafbeelding van de stroom opt-in voor-stap 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
+
 3. Wanneer u de overeenkomst hebt geaccepteerd, kunt u extra ontvangers configureren. Als een geadresseerde wordt verwijderd, wordt het e-mailadres niet meer opgeslagen. Als u van gedachten verandert, moet u deze opnieuw toevoegen.
 
     ![Schermafbeelding van de stroom opt-in voor-stap 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
@@ -106,7 +106,7 @@ U kunt uw factuur per e-mail aan met de volgende stappen hierboven en klik op Af
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Ophalen van uw Microsoft-KLANTOVEREENKOMST facturen in e-mailbericht
 
-Als u een KLANTOVEREENKOMST van Microsoft hebt, kunt u meldt zich aan uw factuur in een e-mailbericht niet ophalen. Alle facturering profiel eigenaren, bijdragers lezers en factuur managers de factuur wordt ontvangen via e-mail. Lezers bijwerken niet de voorkeur van de factuur e-mailadres. 
+Als u een KLANTOVEREENKOMST van Microsoft hebt, kunt u meldt zich aan uw factuur in een e-mailbericht niet ophalen. Alle facturering profiel eigenaren, bijdragers lezers en factuur managers de factuur wordt ontvangen via e-mail. Lezers bijwerken niet de voorkeur van de factuur e-mailadres.
 
 1. Zoeken op **kosten Management en facturering**.
 1. Selecteer een profiel voor facturering.
@@ -121,7 +121,7 @@ U kunt uw factuur per e-mail aan met de volgende stappen hierboven en klik op Af
 
 ## <a name="download-usage"></a>Gebruiksgegevens downloaden
 
- Voor de meeste abonnementen, zoek het dagelijkse gebruiksbestand in de [Azure-Accountcentrum](https://account.azure.com/Subscriptions). Als u een EA-klant bent of een KLANTOVEREENKOMST van Microsoft hebt, kunt u downloaden gebruik in de [Azure-portal](https://portal.azure.com/). <!--te doen: betalen per gebruik-ervaring bijwerken naar Ibiza verschijning >
+ Voor de meeste abonnementen, zoek het dagelijkse gebruiksbestand in de [Azure-Accountcentrum](https://account.azure.com/Subscriptions). Als u een EA-klant bent of een KLANTOVEREENKOMST van Microsoft hebt, kunt u downloaden gebruik in de [Azure-portal](https://portal.azure.com/). <!-- TO DO: update PayG experience to Ibiza once it ships-->
 
 ### <a name="download-usage-from-the-account-center-csv"></a>Gebruiksgegevens downloaden via het Accountcentrum (.csv)
 

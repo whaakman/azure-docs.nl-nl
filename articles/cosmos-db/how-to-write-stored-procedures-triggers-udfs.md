@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: b6b83d944aed2f42f0309eec8a05e65f6fe3eaf6
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: b0c09c5b425beef6badff7fb6ec298f96591abc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746877"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990539"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies schrijven in Azure Cosmos DB
 
@@ -286,9 +286,9 @@ In het volgende voorbeeld wordt een UDF gemaakt voor het berekenen van de inkoms
 
 ```json
 {
-   name = "Satya Nadella",
-   country = "USA",
-   income = 70000
+   "name": "Satya Nadella",
+   "country": "USA",
+   "income": 70000
 }
 ```
 

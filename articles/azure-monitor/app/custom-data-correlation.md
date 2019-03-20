@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: b7814ce2ae94216da691b9a54049d20a03aafdd9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cbb144cc8aac6dc8e90d196147b0c154471b7239
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994813"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102057"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Application Insights-gegevens te correleren met aangepaste gegevensbronnen
 
@@ -44,7 +44,7 @@ Om te beginnen met het verzenden van gegevens in Azure Monitor. Er zijn diverse 
 
 - Een synchrone mechanisme, kunt u ofwel rechtstreeks aanroepen de [gegevensverzamelaar-API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) of gebruik onze logische App-connector: gewoon zoek naar "Azure Log Analytics" en kies de optie 'Gegevens verzenden':
 
- ![Schermafbeelding kiezen en de actie](./media/custom-data-correlation/01-logic-app-connector.png)  
+  ![Schermafbeelding kiezen en de actie](./media/custom-data-correlation/01-logic-app-connector.png)  
 
 - Gebruik de Collector-API om een pijplijn voor een asynchrone optie. Zie [in dit artikel](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) voor meer informatie.
 
