@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: c9e08cd1daef919fa4bd919c06e402da1c48d5db
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c7ec3ba960929250f2d23d09b9a5ab06e3f6cd38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769911"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095412"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Aangepaste metrische gegevens voor een Azure-resource verzenden naar de Azure Monitor metrische store met behulp van een REST-API
 
@@ -78,13 +78,13 @@ Sla het toegangstoken op uit het antwoord.
     ``` 
 
 1. In het venster Opdrachtprompt plaatsen de metrische gegevens: 
-    - **azureRegion**. Moet overeenkomen met de implementatieregio van de resource die u bij het verzenden van metrische gegevens voor. 
-    - **resourceID**.  Resource-ID van de Azure-resource die u de metrische gegevens tegen bijhoudt.  
-    - **AccessToken**. Plak het token dat u eerder hebt verkregen.
+   - **azureRegion**. Moet overeenkomen met de implementatieregio van de resource die u bij het verzenden van metrische gegevens voor. 
+   - **resourceID**.  Resource-ID van de Azure-resource die u de metrische gegevens tegen bijhoudt.  
+   - **AccessToken**. Plak het token dat u eerder hebt verkregen.
 
-    ```Shell 
-    curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
-    ```
+     ```Shell 
+     curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+     ```
 1. Wijzig de tijdstempel en de waarden in het JSON-bestand. 
 1. Herhaal de vorige twee stappen een paar keer, zodat u gegevens voor enkele minuten hebt.
 

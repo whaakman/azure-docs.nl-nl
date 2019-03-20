@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 0f86af63be760a6ba4291f683f41845a6c54ed96
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: c00b805a8a702828f6d6402478ed8d2a79d3966e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446304"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862876"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Snelstartgids: Python gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
 
-Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en een JSON-antwoord te ontvangen. Deze Python-toepassing stuurt een zoekaanvraag naar de API en geeft het antwoord weer. Hoewel deze toepassing in Python is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
+Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Deze Python-toepassing een zoekaanvraag verzendt naar de API en het antwoord. Hoewel deze toepassing in Python is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
-Dit voorbeeld wordt uitgevoerd als een Jupyter-notitieblok in [MyBinder](https://mybinder.org). Klik op de badge voor het lanceren van Binder:
+Dit voorbeeld wordt uitgevoerd als een Jupyter-notitieblok in [MyBinder](https://mybinder.org). Selecteer de binder-badge starten:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
@@ -69,7 +69,7 @@ search_results = response.json()
 
 ## <a name="format-and-display-the-response"></a>Het antwoord opmaken en weergeven
 
-Het object `search_results` bevat de zoekresultaten en metagegevens, zoals gerelateerde query's en pagina's. Deze code maakt gebruikt van de `IPython.display`-bibliotheek om het antwoord in uw browser op te maken en weer te geven.
+De `search_results` object bevat de lijst met zoekresultaten en metagegevens, zoals gerelateerde query's en pagina's. Deze code maakt gebruikt van de `IPython.display`-bibliotheek om het antwoord in uw browser op te maken en weer te geven.
 
 ```python
 from IPython.display import HTML

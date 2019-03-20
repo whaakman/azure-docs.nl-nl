@@ -15,18 +15,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: c0a5e8695b712ca95952ea839fa829dab2c48824
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6dd1dd0ce2395e2b06d80385ffd299835a280526
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002026"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init-ondersteuning voor virtuele machines in Azure
 Dit artikel wordt uitgelegd voor de ondersteuning die er bestaat voor [cloud-init](https://cloudinit.readthedocs.io) het configureren van een virtuele machine (VM) of de virtuele machine-schaalsets (VMSS) inrichtingstijd in Azure. Deze cloud-init-scripts uitvoeren op de eerste keer opstarten nadat de resources zijn ingericht met Azure.  
 
 ## <a name="cloud-init-overview"></a>Overzicht van cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud-init gebruiken voor het installeren van pakketten en schrijven van bestanden, of om gebruikers en beveiliging te configureren. Omdat cloud-init wordt aangeroepen tijdens het opstartproces, zijn er geen extra stappen of agents vereist om toe te passen van uw configuratie.  Voor meer informatie over het juiste indeling uw `#cloud-config` bestanden, Zie de [cloud-init-documentatiesite](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` bestanden zijn tekstbestanden die zijn gecodeerd in base64.
+[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud-init gebruiken voor het installeren van pakketten en schrijven van bestanden, of om gebruikers en beveiliging te configureren. Omdat cloud-init wordt aangeroepen tijdens het opstartproces, zijn er geen extra stappen of agents vereist om toe te passen van uw configuratie.  Voor meer informatie over het juiste indeling uw `#cloud-config` bestanden, Zie de [cloud-init-documentatiesite](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` bestanden zijn tekstbestanden die zijn gecodeerd in base64.
 
 Cloud-init werkt ook in distributies. U gebruikt bijvoorbeeld niet **apt-get install** of **yum install** om een pakket te installeren. In plaats daarvan kunt u een lijst definiëren met te installeren pakketten. Cloud-init maakt automatisch gebruik van het hulpprogramma voor systeemeigen pakketbeheer voor de distro die u selecteert.
 
@@ -92,7 +92,7 @@ Zodra de virtuele machine is ingericht, cloud-init wordt uitgevoerd via alle mod
 > [!NOTE]
 > Niet elke-modulefout resulteert in een onherstelbare cloud-init algemene configuratie mislukt. Bijvoorbeeld, met behulp van de `runcmd` -module, als het script is mislukt, cloud-init nog steeds rapporteert inrichting geslaagd omdat de module runcmd uitgevoerd.
 
-Raadpleeg voor meer informatie over cloud-init-logboekregistratie, het [cloud-init-documentatie](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
+Raadpleeg voor meer informatie over cloud-init-logboekregistratie, het [cloud-init-documentatie](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende documenten voor cloud-init voorbeelden van wijzigingen in de configuratie:

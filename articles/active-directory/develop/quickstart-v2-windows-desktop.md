@@ -3,8 +3,8 @@ title: Quickstart voor Azure AD v2 Windows-bureaublad | Microsoft Docs
 description: Leer hoe met een .NET-toepassing (XAML) voor Windows-bureaublad een token kan worden opgehaald en een API kan worden aangeroepen die is beveiligd met een Azure Active Directory v2.0-eindpunt
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/18/2019
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dccb1385cb5c7909b5b15ae57c6b6cadf4d10f16
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 74f024ee55a707534fbd42b647845179baed01ce
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408575"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201038"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Quickstart: Een token verkrijgen en Microsoft Graph API aanroepen vanuit een Windows-bureaublad-app
 
@@ -30,7 +30,7 @@ ms.locfileid: "56408575"
 
 In deze quickstart leert u hoe u een .NET-toepassing (WPF) voor Windows-bureaublad schrijft waarmee privé-, werk- en schoolaccounts kunnen worden aangemeld, een toegangstoken kan worden opgehaald en de Microsoft Graph API kan worden aangeroepen.
 
-![Werking van de voorbeeld-app die is gegenereerd met deze quickstart](media/quickstart-v2-windows-desktop/windesktop-intro.png)
+![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-windows-desktop/windesktop-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>De quickstart-app registreren en downloaden

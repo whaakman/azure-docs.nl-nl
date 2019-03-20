@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 797ac714d3205a271fe6590a3a320e1b9e2a073e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 908ae768ae471ab6f49452c99323c31d34772d45
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194730"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201840"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Aangepaste domeinnamen in uw Azure Active Directory beheren
 
@@ -33,11 +33,11 @@ Wanneer de map wordt gemaakt, wordt de initiële domeinnaam, zoals 'contoso.onmi
 2. Selecteer **Azure Active Directory**.
 3. Selecteer **Namen van aangepaste domeinen**.
   
-   ![Gebruikersbeheer openen](./media/domains-manage/add-custom-domain.png)
+   ![De pagina voor Gebruikersbeheer openen](./media/domains-manage/add-custom-domain.png)
 4. Selecteer de naam van het domein dat u wilt worden van het primaire domein.
 5. Selecteer de **instellen als primaire domeinnaam** opdracht. Bevestig uw keuze wanneer hierom wordt gevraagd.
   
-   ![Een domeinnaam instellen als primaire domeinnaam](./media/domains-manage/make-primary-domain.png)
+   ![Maken van een domein dat de primaire naam](./media/domains-manage/make-primary-domain.png)
 
 U kunt de primaire domeinnaam voor uw directory moet een gecontroleerd aangepast domein dat niet is gefedereerd wijzigen. Wijzigen van het primaire domein voor uw directory, niet de naam van de gebruiker voor alle bestaande gebruikers gewijzigd.
 
@@ -90,7 +90,7 @@ Een fout wordt geretourneerd wanneer:
 **V: Waarom is het domein verwijderen mislukt met een fout met de mededeling dat ik heb onder de knie Exchange-groepen op de domeinnaam van dit?** <br>
 **A:** Op dit moment, bepaalde groepen, zoals berichtgrootte-beveiligingsgroepen en gedistribueerde lijsten zijn ingericht door Exchange en moeten handmatig worden opgeschoond [Exchange Admin Center (EAC)](https://outlook.office365.com/ecp/). Mogelijk worden er ProxyAddresses die afhankelijk zijn van de aangepaste domeinnaam en moet handmatig worden bijgewerkt naar een andere domeinnaam achtergebleven. 
 
-**V: Ik ben aangemeld als admin@contoso.com , maar ik kan de domeinnaam 'contoso.com' niet verwijderen?**<br>
+**V: Ik ben aangemeld als beheerder\@contoso.com, maar ik kan de domeinnaam 'contoso.com' niet verwijderen?**<br>
 **A:** U kunt de aangepaste domeinnaam die u probeert te verwijderen in de naam van uw gebruikersaccount kan niet verwijzen naar. Zorg ervoor dat het account voor globale beheerders met behulp van de aanvankelijke standaarddomeinnaam (. onmicrosoft.com) zoals admin@contoso.onmicrosoft.com. Meld u aan met een andere globale beheerder zoals die account admin@contoso.onmicrosoft.com of een andere aangepaste domeinnaam zoals 'fabrikam.com"waar het account is admin@fabrikam.com.
 
 **V: Ik klikte op de knop verwijderen-domein en Zie `In Progress` status voor de bewerking verwijderen. Hoe lang duurt het voordat? Wat gebeurt er als dit mislukt?**<br>

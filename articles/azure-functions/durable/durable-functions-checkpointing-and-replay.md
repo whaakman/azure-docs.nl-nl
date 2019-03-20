@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5d2cf4d76ce6f44cb31f05d45f2ccbceccbe9c10
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9edcc313a9e88b657337ba631218388f70d4b41f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339362"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086748"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Controlepunten en herhaling in duurzame functies (Azure Functions)
 
@@ -79,7 +79,7 @@ Zodra het controlepunt voltooid is, is de orchestrator-functie moet worden verwi
 Na voltooiing de geschiedenis van de functie hierboven ziet er ongeveer als volgt in Azure Table-opslag (afgekort ter illustratie):
 
 | PartitionKey (InstanceId)                     | Type gebeurtenis             | Tijdstempel               | Invoer | Name             | Resultaat                                                    | Status |
-|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------|
+|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
@@ -100,7 +100,7 @@ Na voltooiing de geschiedenis van de functie hierboven ziet er ongeveer als volg
 Enkele opmerkingen bij de kolomwaarden:
 
 * **PartitionKey**: Bevat de exemplaar-ID van de indeling.
-* **Type gebeurtenis**: Hiermee geeft u het type van de gebeurtenis. Mogelijk een van de volgende typen:
+* **EventType**: Hiermee geeft u het type van de gebeurtenis. Mogelijk een van de volgende typen:
   * **OrchestrationStarted**: De orchestrator-functie hervat vanaf een await of voor de eerste keer wordt uitgevoerd. De `Timestamp` kolom wordt gebruikt voor het vullen van de deterministische waarde voor de [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API.
   * **ExecutionStarted**: De orchestrator-functie is gestart voor de eerste keer wordt uitgevoerd. Deze gebeurtenis bevat ook de functie-invoer in de `Input` kolom.
   * **TaskScheduled**: Een functie van de activiteit is gepland. De naam van de functie van de activiteit is vastgelegd in de `Name` kolom.

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
-ms.openlocfilehash: e429504cb6df2ba4f871fa0c9ca780ac5d906356
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958964"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223815"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL Database Managed Instance-resourcebeperkingen
 
@@ -55,8 +55,8 @@ Beheerd exemplaar heeft twee Servicelagen: algemeen gebruik en bedrijfskritiek. 
 | Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar | Bepaald door de maximale opslagruimte per exemplaar |
 | Maximumaantal databases per exemplaar | 100 | 100 |
 | Maximum aantal bestanden per exemplaar | Maximaal 280 | 32.767 bestanden per database |
-| Gegevens/Log IOPS (bij benadering) | 500 - 7500 per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines)| 11 K - 110 K (1.375 per vCore) |
-|Logboek-doorvoer | 22 MB/s per exemplaar | 3 MB/s per vCore<br/>Max 48 MB/s per exemplaar|
+| Gegevens/Log IOPS (bij benadering) | 500 - 7500 per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1.375 per vCore) |
+| Logboek-doorvoer | 22 MB/s per exemplaar | 3 MB/s per vCore<br/>Max 48 MB/s per exemplaar|
 | Doorvoer van gegevens (bij benadering) | 100 - 250 MB/s per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/s per vCore |
 | I/o-latentie (bij benadering) | 5-10 ms | 1-2 ms |
 | Maximumgrootte van tempDB | 192 - 1,920 GB (24 GB per vCore) | Er zijn geen beperkingen - beperkt door de grootte van de maximale sessie |
@@ -90,6 +90,9 @@ Ondersteunde abonnementstypen mag een beperkt aantal resources per regio. Beheer
 - **Subnet limiet**: Het maximale aantal subnetten waarop beheerde exemplaren zijn geïmplementeerd in een enkele regio.
 - **Maximumaantal exemplaar**: Het maximum aantal instanties dat kan worden geïmplementeerd in een enkele regio.
 
+> [!Note]
+> Deze limieten zijn de standaardinstellingen en geen technische beperkingen. De limieten meer op aanvraag kunnen worden door het maken van speciale [verzoek tot ondersteuning in Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) als u meer beheerde instanties in de huidige regio. Als alternatief, kunt u nieuwe beheerde instanties in een andere Azure-regio maken zonder te verzenden aanvragen voor ondersteuning.
+
 In de volgende tabel worden weergegeven regionale standaardlimieten voor ondersteunde abonnementen:
 
 |Abonnementstype| Maximumaantal Managed Instance-subnetten | Maximumaantal exemplaren |Maximumaantal GP beheerde exemplaren *|Maximumaantal BC beheerde exemplaren *|
@@ -104,7 +107,7 @@ In de volgende tabel worden weergegeven regionale standaardlimieten voor onderst
 
 ** Maximum aantal exemplaren in een servicelaag van toepassing als er geen exemplaren in een andere servicelaag zijn. Als u van plan bent om GP- en BC-instanties binnen hetzelfde subnet bevinden, maken gebruik van de volgende sectie als uitgangspunt voor toegestane combinaties. Als een eenvoudige regel, het totale aantal subnetten niet langer zijn dan 3 en het totale aantal eenheden van de sessie mag niet meer dan 12.
 
-Deze limieten kunnen worden verhoogd door het maken van speciale [verzoek tot ondersteuning in Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) als u meer beheerde instanties in de huidige regio. Als alternatief, kunt u nieuwe beheerde instanties in een andere Azure-regio maken zonder te verzenden aanvragen voor ondersteuning.
+
 
 > [!IMPORTANT]
 > Wanneer u uw implementatie plant, houd rekening met dat een kritieke zakelijke (BC)-exemplaar (als gevolg van toegevoegde redundantie) in het algemeen 4 x meer capaciteit dan een algemeen doel (GP)-exemplaar worden verbruikt. Ja, voor de berekeningen, 1 exemplaar van de GP = 1 exemplaar eenheid en 1 BC instantie = 4 eenheden van het exemplaar. Ter vereenvoudiging van uw verbruik analyse op basis van de standaardlimieten, een overzicht maken van de exemplaar-eenheden via alle subnetten in de regio waar beheerde instanties zijn geïmplementeerd en vergelijk de resultaten met de exemplaar-eenheid-limieten voor uw abonnementstype.

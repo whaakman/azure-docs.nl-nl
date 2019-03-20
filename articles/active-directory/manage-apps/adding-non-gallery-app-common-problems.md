@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a07ca553aee2a6267af5a33836e85b2a12d8ae3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c53675c27276fdcf403ca5a6add5d86fc38e410a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182286"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842454"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Probleem met het toevoegen van een toepassing buiten de galerie
 
@@ -46,20 +46,20 @@ Als u informatie over aangepaste toepassingen moet de [Azure AD-toepassingen-doc
 
 U kunt de details van een portalmelding zien door de onderstaande stappen te volgen:
 
-1.  Klik op de **meldingen** pictogram (de klok) in de rechterbovenhoek van de Azure-portal
+1. Klik op de **meldingen** pictogram (de klok) in de rechterbovenhoek van de Azure-portal
 
-2.  Selecteer een bericht in een **fout** status (die met een rode (!) ernaast).
+2. Selecteer een bericht in een **fout** status (die met een rode (!) ernaast).
 
    >[!NOTE]
    >U kunt niet klikken meldingen in een **geslaagd** of **In voortgang** staat.
    >
    >
 
-4.  Gebruik de informatie onder **Meldingsdetails** om meer informatie over het probleem te begrijpen.
+4. Gebruik de informatie onder **Meldingsdetails** om meer informatie over het probleem te begrijpen.
 
-5.  Als u nog steeds hulp nodig hebt, kunt u ook deze informatie delen met een ondersteuningsmedewerker of de productgroep voor hulp bij het probleem.
+5. Als u nog steeds hulp nodig hebt, kunt u ook deze informatie delen met een ondersteuningsmedewerker of de productgroep voor hulp bij het probleem.
 
-6.  Klik op de **kopieerpictogram** aan de rechterkant van de **fout kopiëren** tekstvak kopiëren alle details van de melding om te delen met een medewerker van de groep ondersteuning of product.
+6. Klik op de **kopieerpictogram** aan de rechterkant van de **fout kopiëren** tekstvak kopiëren alle details van de melding om te delen met een medewerker van de groep ondersteuning of product.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Hulp krijgen door de details van melding verzenden naar een ondersteuningsmedewerker
 
@@ -71,63 +71,63 @@ Zie de volgende beschrijvingen voor meer informatie over de meldingen.
 
 ### <a name="essential-notification-items"></a>Essentiële kennisgeving Items
 
--   **Titel** – de beschrijvende titel van de melding
-   *  Voorbeeld: **Application proxy-instellingen**
+- **Titel** – de beschrijvende titel van de melding
+  *  Voorbeeld: **Application proxy-instellingen**
 
--   **Beschrijving** : de beschrijving van wat is het gevolg van de bewerking
+- **Beschrijving** : de beschrijving van wat is het gevolg van de bewerking
 
-   *  Voorbeeld: **opgegeven interne url wordt al gebruikt door een andere toepassing**
+  *  Voorbeeld: **opgegeven interne url wordt al gebruikt door een andere toepassing**
 
--   **Meldings-ID** : de unieke ID van de melding
+- **Meldings-ID** : de unieke ID van de melding
 
-   *  Voorbeeld: **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  *  Voorbeeld: **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **Clientaanvraag-ID** – de specifieke aanvraag-ID die is gemaakt door uw browser
+- **Clientaanvraag-ID** – de specifieke aanvraag-ID die is gemaakt door uw browser
 
-   *  Voorbeeld: **302fd775-3329-4670-a9f3-bea37004f0bc**
+  *  Voorbeeld: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Tijd stempel UTC** – de tijdstempel gedurende welke de melding is opgetreden, in UTC
+- **Tijd stempel UTC** – de tijdstempel gedurende welke de melding is opgetreden, in UTC
 
-   *  Voorbeeld: **2017-03-23T19:50:43.7583681Z**
+  *  Voorbeeld: **2017-03-23T19:50:43.7583681Z**
 
--   **Interne transactie-ID** : de interne ID die we kunnen gebruiken voor de fout opzoeken in onze systemen
+- **Interne transactie-ID** : de interne ID die we kunnen gebruiken voor de fout opzoeken in onze systemen
 
-   *  Voorbeeld: **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  *  Voorbeeld: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – de gebruiker die de bewerking heeft uitgevoerd
+- **UPN** – de gebruiker die de bewerking heeft uitgevoerd
 
-   *  Voorbeeld: **tperkins@f128.info**
+  *  Voorbeeld: **tperkins\@f128.info**
 
--   **Tenant-ID** : de unieke ID van de tenant die de gebruiker die de bewerking heeft uitgevoerd, een lid van is
+- **Tenant-ID** : de unieke ID van de tenant die de gebruiker die de bewerking heeft uitgevoerd, een lid van is
 
-   *  Voorbeeld: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  *  Voorbeeld: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Object-ID gebruiker** : de unieke ID van de gebruiker die de bewerking heeft uitgevoerd
+- **Object-ID gebruiker** : de unieke ID van de gebruiker die de bewerking heeft uitgevoerd
 
- *  Voorbeeld: **17f84be4-51f8-483a-b533-383791227a99**
+  *  Voorbeeld: **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Gedetailleerde melding Items
 
--   **Weergavenaam** – **(mag leeg zijn)** een meer gedetailleerde weergavenaam voor de fout
+- **Weergavenaam** – **(mag leeg zijn)** een meer gedetailleerde weergavenaam voor de fout
 
   *  Voorbeeld: **Application proxy-instellingen**
 
--   **Status** – de specifieke status van de melding
+- **Status** – de specifieke status van de melding
 
-   *  Voorbeeld: **is mislukt**
+  *  Voorbeeld: **is mislukt**
 
--   **Object-ID** – **(mag leeg zijn)** de object-ID op basis waarvan de bewerking is uitgevoerd
+- **Object-ID** – **(mag leeg zijn)** de object-ID op basis waarvan de bewerking is uitgevoerd
 
-   *  Example – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+  *  Example – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **Details** : de gedetailleerde beschrijving van wat is het gevolg van de bewerking
+- **Details** : de gedetailleerde beschrijving van wat is het gevolg van de bewerking
 
-   *  Voorbeeld: **interne url 'https://bing.com/' is ongeldig omdat deze al in gebruik**
+  *  Voorbeeld: **interne url `https://bing.com/` is ongeldig omdat deze al in gebruik**
 
--   **Fout kopiëren** : klik op de **kopieerpictogram** aan de rechterkant van de **fout kopiëren** tekstvak kopiëren alle details van de melding om te delen met een groep ondersteuning of product 
--   technicus
+- **Fout kopiëren** : klik op de **kopieerpictogram** aan de rechterkant van de **fout kopiëren** tekstvak kopiëren alle details van de melding om te delen met een groep ondersteuning of product 
+- technicus
 
-   *  Voorbeeld ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+  *  Voorbeeld ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 
 

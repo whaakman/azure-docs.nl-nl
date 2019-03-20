@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb22594ba240f9e7b790dbef0bd1e091c30c82b9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b400af524d303fe4fbcbc8e34a394b286a048cc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008811"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -4153,15 +4153,15 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.Portal/consoles/delete | Hiermee wordt de Cloud Shell-instantie verwijderd. |
-> | Bewerking | Microsoft.Portal/consoles/write | Een Cloud Shell-instantie maken of bijwerken. |
+> | Bewerking | Microsoft.Portal/consoles/delete | Hiermee verwijdert u het exemplaar van cloud shell. |
+> | Bewerking | Microsoft.Portal/consoles/write | Maken of bijwerken van een exemplaar van cloud shell. |
 > | Bewerking | Microsoft.Portal/dashboards/delete | Het dashboard verwijderen uit het abonnement. |
 > | Bewerking | Microsoft.Portal/dashboards/read | De dashboards voor het abonnement lezen. |
 > | Bewerking | Microsoft.Portal/dashboards/write | Dashboard toevoegen aan een abonnement of het dashboard wijzigen. |
 > | Bewerking | Microsoft.Portal/register/action | Registreren bij de portal |
-> | Bewerking | Microsoft.Portal/usersettings/delete | Hiermee worden de Cloud Shell-instellingen verwijderd. |
-> | Bewerking | Microsoft.Portal/usersettings/read | Hiermee worden de Cloud Shell-gebruikersinstellingen gelezen. |
-> | Bewerking | Microsoft.Portal/usersettings/write | Cloud Shell-gebruikersinstelling maken of bijwerken. |
+> | Bewerking | Microsoft.Portal/usersettings/delete | Hiermee verwijdert u de gebruikersinstellingen voor cloud shell. |
+> | Bewerking | Microsoft.Portal/usersettings/read | Hiermee leest u de cloud shell-gebruikersinstellingen. |
+> | Bewerking | Microsoft.Portal/usersettings/write | Maken of bijwerken van de gebruikersinstelling voor cloud shell. |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
@@ -4739,7 +4739,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 > | Bewerking | Microsoft.Sql/locations/instanceFailoverGroups/failover/action | Geplande failover uitgevoerd in een bestaand exemplaar van failover-groep. |
 > | Bewerking | Microsoft.Sql/locations/instanceFailoverGroups/forceFailoverAllowDataLoss/action | Geforceerde failover uitgevoerd in een bestaand exemplaar van failover-groep. |
 > | Bewerking | Microsoft.Sql/locations/instanceFailoverGroups/read | Retourneert de lijst met exemplaar failover groepen of haalt u de eigenschappen voor het opgegeven exemplaar van failover-groep. |
-> | Bewerking | Microsoft.Sql/locations/instanceFailoverGroups/write | Hiermee maakt u een exemplaar van failover-groep met de opgegeven parameters of de eigenschappen of labels voor de failovergroep opgegeven exemplaar bijgewerkt. |
+> | Bewerking | Microsoft.Sql/locations/instanceFailoverGroups/write | Hiermee maakt u een exemplaar van failover-groep met de opgegeven parameters of de eigenschappen of labels voor de failovergroep voor de opgegeven instantie bijgewerkt. |
 > | Bewerking | Microsoft.Sql/locations/instancePoolAzureAsyncOperation/read | Hiermee haalt u de status van de bewerking van een exemplaar van toepassingen. |
 > | Bewerking | Microsoft.Sql/locations/instancePoolOperationResults/read | Hiermee haalt u het resultaat van de bewerking van een exemplaar van toepassingen. |
 > | Bewerking | Microsoft.Sql/locations/interfaceEndpointProfileAzureAsyncOperation/read | Retourneert de gegevens van een specifieke interface-eindpunt Azure asynchrone bewerking |

@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: ea01900926f0a2e9b3481b64a191a58e04839513
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: acf904ec061351996f57be3d12f7dcce019378e7
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752627"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57588118"
 ---
 Open Unity en open het project in de map `Unity`.
 
@@ -17,7 +17,7 @@ Open **Build Settings** door **File** -> **Build Settings** te selecteren.
 
 Selecteer in het gedeelte **Platform** de optie **iOS**.
 
-Selecteer **Switch Platform** om het platform te wijzigen in **iOS**.
+Selecteer **Switch Platform** om het platform te wijzigen in **iOS**. Unity kan verzoeken dat u iOS-ondersteuning om onderdelen te installeren als ze ontbreekt.
 
 ![Build-instellingen voor Unity](./media/spatial-anchors-unity/unity-ios-build-settings.png)
 

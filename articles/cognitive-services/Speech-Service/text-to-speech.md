@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 39d500e2ceee71bdabb198d0dc7672b113a4c1af
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853341"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226909"
 ---
 # <a name="what-is-text-to-speech"></a>Wat is voor tekst naar spraak?
 
@@ -30,7 +30,7 @@ Neurale stemmen kunnen worden gebruikt voor interactie met chatbots en virtuele 
 
 ### <a name="custom-voices"></a>Aangepaste stemmen
 
-Stem aanpassingen kunt u een herkenbare, één van een unieke stem voor uw merk maken: een *spraakstijl.* Voor het maken van uw spraakstijl, moet u een studio-opname maken en uploaden van de bijbehorende scripts als de trainingsgegevens. De service maakt vervolgens een unieke stem-model dat is afgestemd op de opname. U kunt deze spraakstijl gebruiken om na te bootsen spraak. Zie voor meer informatie, [aangepaste stemmen](how-to-customize-voice-font.md).
+Stem aanpassingen kunt u een herkenbare, één van een unieke stem voor uw merk maken. Voor het maken van uw aangepaste spraakstijl, moet u een studio-opname maken en uploaden van de bijbehorende scripts als de trainingsgegevens. De service maakt vervolgens een unieke stem-model dat is afgestemd op de opname. U kunt deze aangepaste spraakstijl gebruiken om na te bootsen spraak. Zie voor meer informatie, [aangepaste stemmen](how-to-customize-voice-font.md).
 
 ## <a name="core-features"></a>Belangrijkste functies
 

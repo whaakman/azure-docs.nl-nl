@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a1ca6988158d1cd15b6c802a8dcda1c91850c91
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112208"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocollen - kuuroorden met behulp van de impliciete stroom
 
@@ -134,7 +134,7 @@ error=access_denied
 
 Alleen een id_token ontvangen is niet voldoende om te verifiëren van de gebruiker. u moet ook de handtekening van het id_token valideren en controleer of de claims in het token op basis van de vereisten van uw app. Maakt gebruik van het v2.0-eindpunt [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en cryptografie met openbare sleutels voor het ondertekenen van tokens en controleren of ze geldig zijn.
 
-U kunt kiezen om te valideren de `id_token` in client-code, maar een gebruikelijk is voor het verzenden van de `id_token` naar een back-endserver en er de validatie uit te voeren. Nadat u de handtekening van het id_token hebt gevalideerd, zijn er enkele claims u moet om te controleren. Zie de [ `id_token` verwijzing](id-tokens.md) voor meer informatie, met inbegrip van [valideren van tokens](id-tokens.md#validating-an-idtoken) en [belangrijke informatie over de rollover van ondertekeningssleutel gebruiken](active-directory-signing-key-rollover.md). Het is raadzaam om gebruik van een bibliotheek voor het parseren en valideren van tokens: Er is ten minste één beschikbaar voor de meeste talen en platforms.
+U kunt kiezen om te valideren de `id_token` in client-code, maar een gebruikelijk is voor het verzenden van de `id_token` naar een back-endserver en er de validatie uit te voeren. Nadat u de handtekening van het id_token hebt gevalideerd, zijn er enkele claims u moet om te controleren. Zie de [ `id_token` verwijzing](id-tokens.md) voor meer informatie, met inbegrip van [valideren van tokens](id-tokens.md#validating-an-id_token) en [belangrijke informatie over de rollover van ondertekeningssleutel gebruiken](active-directory-signing-key-rollover.md). Het is raadzaam om gebruik van een bibliotheek voor het parseren en valideren van tokens: Er is ten minste één beschikbaar voor de meeste talen en platforms.
 
 U kunt ook om aanvullende claims, afhankelijk van uw scenario te valideren. Sommige algemene validaties zijn onder andere:
 

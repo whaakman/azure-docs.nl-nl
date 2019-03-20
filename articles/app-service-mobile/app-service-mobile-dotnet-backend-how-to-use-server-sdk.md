@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33e968ac608c393d65f69bfd6abbc0d205fb9bd9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718874"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078785"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Werken met de .NET-back-endserver-SDK voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -36,7 +36,7 @@ Dit onderwerp ziet u hoe u de .NET back-endserver SDK in belangrijke scenario's 
 De referentiedocumentatie voor de SDK-server bevindt zich hier: [Naslaginformatie over Azure Mobile Apps .NET][1].
 
 ## <a name="create-app"></a>Procedures: De back-end van een .NET Mobile Apps maken
-Als u een nieuw project start, kunt u een App Service-toepassing met behulp van de [Azure Portal] of Visual Studio. U kunt de App Service-toepassing lokaal uitvoeren of het project om uw cloud-gebaseerde mobiele App Service-app te publiceren.
+Als u een nieuw project start, kunt u een App Service-toepassing met behulp van de [Azure-portal] of Visual Studio. U kunt de App Service-toepassing lokaal uitvoeren of het project om uw cloud-gebaseerde mobiele App Service-app te publiceren.
 
 Als u mobiele mogelijkheden aan een bestaand project toevoegt, raadpleegt u de [downloaden en het initialiseren van de SDK](#install-sdk) sectie.
 
@@ -240,10 +240,10 @@ U kunt ook de `UseDefaultConfiguration()` uitbreidingsmethode in plaats van `Map
 ## <a name="how-to-work-with-authentication"></a>Procedure: Werken met verificatie
 Azure Mobile Apps maakt gebruik van App Service-verificatie / autorisatie voor het beveiligen van uw mobiele back-end.  Deze sectie leest u hoe u de volgende verificatie-gerelateerde taken in uw serverproject voor .NET-back-end uitvoert:
 
-* [Procedures: Verificatie toevoegen aan een serverproject](#add-auth)
-* [Procedures: Aangepaste verificatie voor uw toepassing gebruiken](#custom-auth)
-* [Procedures: Gegevens van de geverifieerde gebruiker ophalen](#user-info)
-* [Procedures: Beperken van toegang tot gegevens voor gemachtigde gebruikers](#authorize)
+* [Procedure: Verificatie toevoegen aan een serverproject](#add-auth)
+* [Procedure: Aangepaste verificatie voor uw toepassing gebruiken](#custom-auth)
+* [Procedure: Gegevens van de geverifieerde gebruiker ophalen](#user-info)
+* [Procedure: Beperken van toegang tot gegevens voor gemachtigde gebruikers](#authorize)
 
 ### <a name="add-auth"></a>Procedures: Verificatie toevoegen aan een serverproject
 U kunt verificatie toevoegen aan uw serverproject door uit te breiden de **MobileAppConfiguration** object en het configureren van OWIN-middleware. Wanneer u installeert de [Microsoft.Azure.Mobile.Server.Quickstart] pakket en roep de **UseDefaultConfiguration** uitbreidingsmethode, kunt u doorgaan met stap 3.
@@ -263,7 +263,7 @@ Zie voor meer informatie over het verifiëren van clients naar uw back-end van M
 > Om te kunnen aangepaste verificatie inschakelt, moet u eerst een App Service-verificatie inschakelen zonder het selecteren van een provider voor uw App Service in Azure portal. Hiermee schakelt u de omgevingsvariabele WEBSITE_AUTH_SIGNING_KEY wanneer deze wordt gehost.
 > 
 > 
-Als u niet gebruiken op een van de App Service-verificatie/autorisatie-providers wilt, kunt u uw eigen systeem aanmelding kunt implementeren. Installeer de [Microsoft.Azure.Mobile.Server.Login] pakket om u te helpen bij het genereren van tokens van verificatie.  Geef uw eigen code voor het valideren van gebruikersreferenties. U kunt bijvoorbeeld controleren op basis van wachtwoorden voor gezouten en hash in een database. In onderstaand voorbeeld wordt de `isValidAssertion()` methode (elders gedefinieerd) is verantwoordelijk voor deze controles.
+> Als u niet gebruiken op een van de App Service-verificatie/autorisatie-providers wilt, kunt u uw eigen systeem aanmelding kunt implementeren. Installeer de [Microsoft.Azure.Mobile.Server.Login] pakket om u te helpen bij het genereren van tokens van verificatie.  Geef uw eigen code voor het valideren van gebruikersreferenties. U kunt bijvoorbeeld controleren op basis van wachtwoorden voor gezouten en hash in een database. In onderstaand voorbeeld wordt de `isValidAssertion()` methode (elders gedefinieerd) is verantwoordelijk voor deze controles.
 
 De aangepaste verificatie wordt weergegeven met het maken van een ApiController en het weergeven van `register` en `login` acties. De client moet een aangepaste UI gebruiken voor het verzamelen van de gegevens van de gebruiker.  De informatie wordt vervolgens verzonden naar de API met een standaard-HTTP POST-aanroep. Zodra de verklaring worden geverifieerd door de server, een token is verleend met behulp van de `AppServiceLoginHandler.CreateToken()` methode.  De ApiController **beter niet** gebruiken de `[MobileAppController]` kenmerk.
 
@@ -469,7 +469,7 @@ Zorg ervoor dat uw mobiele back-end [Microsoft.Azure.Mobile.Server.Authenticatio
 In het voorgaande voorbeeld, moet u configureren de *authAudience* en *authIssuer* toepassingsinstellingen binnen uw Web.config-bestand op elke worden de URL van de toepassingshoofdmap van uw, met behulp van het HTTPS-schema. U moet op dezelfde manier ingesteld *authSigningKey* moet de waarde van uw toepassing de ondertekeningssleutel.
 Als u de ondertekeningssleutel:
 
-1. Ga naar de app binnen de [Azure Portal]
+1. Ga naar de app binnen de [Azure-portal]
 2. Klik op **extra**, **Kudu**, **gaat**.
 3. Klik op de site Kudu Management **omgeving**.
 4. Zoek de waarde voor *WEBSITE\_AUTH\_ondertekening\_sleutel*.
@@ -482,7 +482,7 @@ Gebruik de sleutel voor de *authSigningKey* parameter in de configuratie van uw 
 [4]: https://azure.microsoft.com/downloads/
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
-[Azure Portal]: https://portal.azure.com
+[Azure-portal]: https://portal.azure.com
 [NuGet.org]: https://www.nuget.org/
 [Microsoft.Azure.Mobile.Server]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
 [Microsoft.Azure.Mobile.Server.Quickstart]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/

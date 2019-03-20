@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: 7dff82538448b27f14dd81e2862cd63d4dd56a9b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a47b38acc372e6c1d215c7440657486b5babf3bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247099"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009474"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integratie van datacenter voor Azure Stack - syslog doorsturen
 
@@ -61,10 +61,10 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 Parameters voor *Set SyslogServer* cmdlet:
 
-| Parameter | Beschrijving | Type | Vereist |
+| Parameter | Description | Type | Vereist |
 |---------|---------|---------|---------|
-|*ServerName* | FQDN of IP-adres van de syslog-server | Reeks | ja|
-|*ServerPort* | Poortnummer dat de syslog-server luistert | Reeks | ja|
+|*ServerName* | FQDN of IP-adres van de syslog-server | String | ja|
+|*ServerPort* | Poortnummer dat de syslog-server luistert | String | ja|
 |*NoEncryption*| Afdwingen dat de client voor het verzenden van syslog-berichten in niet-versleutelde tekst | Vlag | nee|
 |*SkipCertificateCheck*| De validatie van het certificaat dat is geleverd door de syslog-server tijdens de initiële TLS-handshake overslaan | Vlag | nee|
 |*SkipCNCheck*| De validatie van de waarde van de algemene naam van het certificaat dat is geleverd door de syslog-server tijdens de initiële TLS-handshake overslaan | Vlag | nee|
@@ -72,7 +72,8 @@ Parameters voor *Set SyslogServer* cmdlet:
 |*Remove*| Configuratie van de server van de client verwijderen en syslog doorsturen stoppen| Vlag | nee|
 
 Parameters voor *Set SyslogClient* cmdlet:
-| Parameter | Beschrijving | Type |
+
+| Parameter | Description | Type |
 |---------|---------| ---------|
 | *pfxBinary* | PFX-bestand met het certificaat moet worden gebruikt door de client-id voor verificatie op basis van de syslog-server  | Byte[] |
 | *CertPassword* |  Wachtwoord voor het importeren van de persoonlijke sleutel die is gekoppeld aan het pfx-bestand | SecureString |
@@ -287,6 +288,7 @@ Tabel van gebeurtenissen voor de recovery-eindpunt:
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 REP Severity tabel:
+
 | Severity | Niveau | Numerieke waarde |
 |----------|-------| ----------------|
 |0|Undefined|Waarde: 0. Geeft aan dat de logboeken op alle niveaus|
@@ -306,6 +308,7 @@ REP Severity tabel:
 ```
 
 Ernst van de tabel voor Windows-gebeurtenissen:
+
 | CEF-waarde voor ernst | Niveau van de Windows-gebeurtenissen | Numerieke waarde |
 |--------------------|---------------------| ----------------|
 |0|Undefined|Waarde: 0. Geeft aan dat de logboeken op alle niveaus|
@@ -316,6 +319,7 @@ Ernst van de tabel voor Windows-gebeurtenissen:
 |0|Uitgebreid|Waarde: 5. Geeft aan dat de logboeken op alle niveaus|
 
 Aangepaste extensie-tabel voor Windows-gebeurtenissen in Azure Stack:
+
 | Naam van de aangepaste uitbreiding | Voorbeeld van de Windows-gebeurtenis | 
 |-----------------------|---------|
 |MasChannel | Systeem|
@@ -352,6 +356,7 @@ Aangepaste extensie-tabel voor Windows-gebeurtenissen in Azure Stack:
 ```
 
 Tabel van de ernst van waarschuwingen:
+
 | Severity | Niveau |
 |----------|-------|
 |0|Undefined|
@@ -359,6 +364,7 @@ Tabel van de ernst van waarschuwingen:
 |5|Waarschuwing|
 
 Aangepaste extensie-tabel voor waarschuwingen die zijn gemaakt in Azure Stack:
+
 | Naam van de aangepaste uitbreiding | Voorbeeld | 
 |-----------------------|---------|
 |MasEventDescription|BESCHRIJVING: Een gebruikersaccount \<TestUser\> is gemaakt voor \<TestDomain\>. Het is een mogelijk beveiligingsrisico. --HERSTEL: Neem contact op met ondersteuning. Klantondersteuning is vereist om dit probleem te verhelpen. Probeer niet om op te lossen dit probleem zonder de hulp. Voordat u een ondersteuningsaanvraag opent, start u het bestand logboekverzamelproces volgens de richtlijnen van https://aka.ms/azurestacklogfiles |

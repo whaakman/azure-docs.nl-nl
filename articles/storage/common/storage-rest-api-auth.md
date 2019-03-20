@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 771f910fce44724250ff79e770e0d1ca56e8765c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768413"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012792"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>De Azure Storage REST API gebruiken
 
@@ -46,7 +46,7 @@ Met deze opdracht wordt de opslagplaats naar uw lokale git-map gekloond. Open de
 
 ## <a name="what-is-rest"></a>Wat is er REST?
 
-REST-middelen *representational state transfer*. Bekijk voor de definitie van een specifieke [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer).
+REST-middelen *representational state transfer*. Bekijk voor de definitie van een specifieke [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
 In principe REST is voor een architectuur die u kunt gebruiken bij het aanroepen van API's of voor het doen van API's beschikbaar om te worden aangeroepen. Het is niet afhankelijk van wat op beide kanten gebeurt er en welke andere software wordt gebruikt bij het verzenden of ontvangen van de REST-aanroepen. U kunt een toepassing die wordt uitgevoerd op een Mac, Windows, Linux, een Android-telefoon of tablet, iPhone, iPod of website schrijven en dezelfde REST-API gebruiken voor al deze platforms. Gegevens kunnen worden doorgegeven in en/of uit wanneer de REST-API wordt aangeroepen. De REST-API niet van belang van het platform wordt genoemd – belangrijk is de informatie die wordt doorgegeven in de aanvraag en de gegevens die zijn opgegeven in het antwoord.
 
@@ -80,7 +80,7 @@ Voor het gebruik van aanvullende parameters aan de resourcetekenreeks met de waa
 
 [Aanvraagtekst](/rest/api/storageservices/List-Containers2#request-body)**:** Er is geen aanvraagtekst voor ListContainers. Hoofdtekst van de aanvraag wordt gebruikt op al de PUT-bewerkingen tijdens het uploaden van blobs, evenals SetContainerAccessPolicy, zodat u kunt verzenden in een XML-lijst met opgeslagen toegangsbeleid om toe te passen. Opgeslagen toegangsbeleid worden besproken in het artikel [met behulp van Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
-[Antwoordstatuscode](/rest/api/storageservices/List-Containers2#status-code)**:** Geeft aan van alle statuscodes die u wilt weten. In dit voorbeeld wordt een HTTP-statuscode 200 ok. Bekijk voor een volledige lijst van HTTP-statuscodes [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Foutcodes die specifiek zijn voor de Storage REST-API's Zie [algemene REST-API-foutcodes](/rest/api/storageservices/common-rest-api-error-codes)
+[Antwoordstatuscode](/rest/api/storageservices/List-Containers2#status-code)**:** Geeft aan van alle statuscodes die u wilt weten. In dit voorbeeld wordt een HTTP-statuscode 200 ok. Bekijk voor een volledige lijst van HTTP-statuscodes [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Foutcodes die specifiek zijn voor de Storage REST-API's Zie [algemene REST-API-foutcodes](/rest/api/storageservices/common-rest-api-error-codes)
 
 [Antwoordheaders](/rest/api/storageservices/List-Containers2#response-headers)**:** Het gaat hierbij *inhoudstype*; *x-ms-request-id* (aanvraag-id u doorgegeven in, indien van toepassing); *x-ms-version* (geeft de versie van de Blob-service die wordt gebruikt), en de *datum* (UTC, vertelt hoe de tijd die de aanvraag is gedaan).
 
@@ -88,7 +88,7 @@ Voor het gebruik van aanvullende parameters aan de resourcetekenreeks met de waa
 
 ## <a name="creating-the-rest-request"></a>Het maken van de REST-aanvraag
 
-Een aantal opmerkingen bij de voordat u begint met – voor beveiliging bij het uitvoeren van de productie, en gebruik altijd HTTPS in plaats van HTTP-in. U moet voor deze oefening, HTTP gebruiken, zodat u de aanvraag- en -gegevens kunt bekijken. Als u de aanvraag- en informatie in de werkelijke REST-aanroepen, kunt u downloaden [Fiddler](http://www.telerik.com/fiddler) of een vergelijkbare toepassing. In Visual Studio-oplossing, de naam van het opslagaccount en de sleutel zijn vastgelegd in de klasse en de methode ListContainersAsyncREST de opslagaccountnaam en opslagaccountsleutel wordt doorgegeven aan de methoden die worden gebruikt voor het maken van de verschillende onderdelen van de REST-aanvraag . In een werkelijke toepassing, het storage-accountnaam en de sleutel zou bevinden zich in een configuratiebestand, omgevingsvariabelen, of worden opgehaald uit een Azure Key Vault.
+Een aantal opmerkingen bij de voordat u begint met – voor beveiliging bij het uitvoeren van de productie, en gebruik altijd HTTPS in plaats van HTTP-in. U moet voor deze oefening, HTTP gebruiken, zodat u de aanvraag- en -gegevens kunt bekijken. Als u de aanvraag- en informatie in de werkelijke REST-aanroepen, kunt u downloaden [Fiddler](https://www.telerik.com/fiddler) of een vergelijkbare toepassing. In Visual Studio-oplossing, de naam van het opslagaccount en de sleutel zijn vastgelegd in de klasse en de methode ListContainersAsyncREST de opslagaccountnaam en opslagaccountsleutel wordt doorgegeven aan de methoden die worden gebruikt voor het maken van de verschillende onderdelen van de REST-aanvraag . In een werkelijke toepassing, het storage-accountnaam en de sleutel zou bevinden zich in een configuratiebestand, omgevingsvariabelen, of worden opgehaald uit een Azure Key Vault.
 
 In ons voorbeeldproject is de code voor het maken van de autorisatie-header in een afzonderlijke klasse, met het idee dat u kan de gehele klasse nemen en toe te aan uw eigen oplossing voegen en deze gebruikt 'as is." De autorisatie-header-code werkt voor de meeste REST API-aanroepen naar Azure Storage.
 
@@ -300,7 +300,7 @@ StringToSign = VERB + "\n" +
 
 De meeste van deze velden worden zelden gebruikt. Voor Blob-opslag geeft u de bewerking, md5, lengte van de inhoud, Gecanoniseerd Headers en Gecanoniseerd Resource. U kunt de andere leeg laten (maar plaats in de `\n` zodat deze ze zijn leeg).
 
-Wat zijn CanonicalizedHeaders en CanonicalizedResource? Goede vraag. Wat doet gecanoniseerd in feite gemiddelde? Microsoft Word niet, zelfs herkend als een woord. Hier volgt een uitleg [Wikipedia vertelt over standaardisatie](http://en.wikipedia.org/wiki/Canonicalization): *Standaardisatie (soms standardization of normalisering) is in computerwetenschappen, een proces voor het converteren van gegevens met meer dan een mogelijke weergave in een 'standaard', 'normale' of canonieke vorm.* In normale spreken, dit betekent dat de lijst met items (zoals kopteksten in het geval van Headers Gecanoniseerd) en deze naar een vereiste indeling te standaardiseren. In principe Microsoft besloten een indeling en u wilt vergelijken.
+Wat zijn CanonicalizedHeaders en CanonicalizedResource? Goede vraag. Wat doet gecanoniseerd in feite gemiddelde? Microsoft Word niet, zelfs herkend als een woord. Hier volgt een uitleg [Wikipedia vertelt over standaardisatie](https://en.wikipedia.org/wiki/Canonicalization): *Standaardisatie (soms standardization of normalisering) is in computerwetenschappen, een proces voor het converteren van gegevens met meer dan een mogelijke weergave in een 'standaard', 'normale' of canonieke vorm.* In normale spreken, dit betekent dat de lijst met items (zoals kopteksten in het geval van Headers Gecanoniseerd) en deze naar een vereiste indeling te standaardiseren. In principe Microsoft besloten een indeling en u wilt vergelijken.
 
 Laten we beginnen met deze twee canonieke velden, omdat ze zijn vereist voor het maken van de autorisatie-header.
 
@@ -325,7 +325,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
     StringBuilder sb = new StringBuilder();
 
     // Create the string in the right format; this is what makes the headers "canonicalized" --
-    //   it means put in a standard format. http://en.wikipedia.org/wiki/Canonicalization
+    //   it means put in a standard format. https://en.wikipedia.org/wiki/Canonicalization
     foreach (var kvp in headers)
     {
         StringBuilder headerBuilder = new StringBuilder(kvp.Key);
@@ -482,7 +482,7 @@ GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
 SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 ```
 
-De volgende waarden afkomstig zijn van [Fiddler](http://www.telerik.com/fiddler):
+De volgende waarden afkomstig zijn van [Fiddler](https://www.telerik.com/fiddler):
 
 **Aanvraag:**
 

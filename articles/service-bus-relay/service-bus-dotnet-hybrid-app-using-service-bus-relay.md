@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 0dc50da5eb302e2f1b24c265b4675d93f0a2e849
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768362"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838405"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Een on-premises WCF-service zichtbaar maken voor een webtoepassing in de cloud met behulp van Azure Relay 
 In dit artikel wordt beschreven hoe u een hybride cloudtoepassing opbouwt met Microsoft Azure en Visual Studio. U maakt een toepassing die meerdere Azure-resources gebruikt en wordt uitgevoerd in de cloud.
@@ -43,7 +43,7 @@ In deze zelfstudie voert u de volgende stappen uit:
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
-- [Visual Studio 2015 of hoger](http://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2017 gebruikt.
+- [Visual Studio 2015 of hoger](https://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2017 gebruikt.
 - Azure-SDK voor .NET. Installeer de SDK via de [SDK-downloadpagina](https://azure.microsoft.com/downloads/).
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Hoe Azure hulp biedt bij hybride oplossingen
@@ -85,7 +85,7 @@ U bouwt eerst een gesimuleerd on-premises systeem voor de productcatalogus op.  
 
    ![Het dialoogvenster Nieuw project][11]
 4. Klik op **OK** om het project **ProductsServer** te maken.
-5. Als u NuGet Package Manager voor Visual Studio al hebt geïnstalleerd, slaat u de volgende stap over. Anders gaat u naar [NuGet][NuGet] en klikt u op [NuGet installeren](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Volg de aanwijzingen om NuGet Package Manager te installeren en vervolgens Visual Studio opnieuw te starten.
+5. Als u NuGet Package Manager voor Visual Studio al hebt geïnstalleerd, slaat u de volgende stap over. Anders gaat u naar [NuGet][NuGet] en klikt u op [NuGet installeren](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Volg de aanwijzingen om NuGet Package Manager te installeren en vervolgens Visual Studio opnieuw te starten.
 6. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsServer** en klik vervolgens op **NuGet-pakketten beheren**.
 7. Klik op het tabblad **Bladeren** en zoek vervolgens naar **WindowsAzure.ServiceBus**. Selecteer het pakket **WindowsAzure.ServiceBus**.
 8. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
@@ -422,14 +422,14 @@ De volgende stap is het opnieuw publiceren van de frontend van de Azure-web-app 
 
 1. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsPortal** en klik op **Publiceren**. Klik vervolgens op de pagina **Publiceren** op **Publiceren**.
 
-  > [!NOTE]
-  > Mogelijk wordt er een foutbericht weergegeven in het browservenster wanneer het **ProductsPortal**-webproject automatisch wordt gestart na de implementatie. Dit is normaal en doet zich voor omdat de **ProductsServer**-toepassing nog niet wordt uitgevoerd.
->
->
+   > [!NOTE]
+   > Mogelijk wordt er een foutbericht weergegeven in het browservenster wanneer het **ProductsPortal**-webproject automatisch wordt gestart na de implementatie. Dit is normaal en doet zich voor omdat de **ProductsServer**-toepassing nog niet wordt uitgevoerd.
+   >
+   >
 
 2. Kopieer de URL van de geïmplementeerde web-app. Deze hebt u in de volgende stap nodig. Deze URL is ook beschikbaar in het venster Azure App Service-activiteit in Visual Studio:
 
-  ![URL van de geïmplementeerde app][9]
+   ![URL van de geïmplementeerde app][9]
 
 3. Sluit het browservenster om het uitvoeren van de toepassing te stoppen.
 
@@ -470,7 +470,7 @@ Ga naar de volgende zelfstudie:
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-[NuGet]: http://nuget.org
+[NuGet]: https://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
 [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png

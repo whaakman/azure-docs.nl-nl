@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Key Vault gebruiken met Azure Windows Virtual Machine in Python | Microsoft Docs'
-description: 'Zelfstudie: Een ASP.NET Core-toepassing configureren voor het lezen van een geheim uit Key Vault'
+title: 'Zelfstudie: Azure Key Vault gebruikt met een Windows-machine in Python | Microsoft Docs'
+description: In deze zelfstudie configureert u een ASP.NET core-toepassing een geheim lezen uit uw key vault.
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -12,47 +12,48 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: cced3d363f9eb7418d6f453eccb1bf1d7ac20ead
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 133de5410d5e506c9528e2dba90dd4c00d8fcc2d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972342"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438207"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-python"></a>Zelfstudie: Azure Key Vault gebruiken met Azure Windows Virtual Machine in Python
+# <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Zelfstudie: Azure Key Vault gebruiken met een Windows-machine in Python
 
-Azure Key Vault helpt u bij het beveiligen van geheimen zoals API-sleutels, databaseverbindingsreeksen die nodig zijn voor toegang tot uw toepassingen, services en IT-resources.
+Azure Key Vault helpt u bij het beveiligen van geheimen zoals API-sleutels, de tekenreeksen voor databaseverbindingen moet u toegang tot uw toepassingen, services en IT-resources.
 
-In deze zelfstudie voert u de stappen uit die nodig zijn om een Azure-webtoepassing gegevens te laten lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. Hieronder leert u:
+In deze zelfstudie leert u hoe u een consoletoepassing om informatie te lezen uit Azure Key Vault. Om dit te doen, kunt u beheerde identiteiten gebruiken voor Azure-resources. 
+
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een sleutelkluis maken.
-> * Een geheim opslaan in de sleutelkluis.
+> * Voeg een geheim toe aan de sleutelkluis.
 > * Een geheim ophalen uit de sleutelkluis.
 > * Een virtuele Azure-machine maken.
-> * Een [beheerde identiteit](../active-directory/managed-identities-azure-resources/overview.md) inschakelen voor de virtuele machine.
-> * De vereiste machtigingen verlenen aan de consoletoepassing om gegevens te lezen uit de sleutelkluis.
-> * Geheimen lezen uit Key Vault
+> * Een beheerde identiteit inschakelen
+> * Machtigingen toewijzen aan de identiteit van de virtuele machine.
 
-Lees voordat we verdergaan de [basisconcepten](key-vault-whatis.md#basic-concepts).
+Voordat u begint, Lees [Key Vault-basisconcepten](key-vault-whatis.md#basic-concepts). 
+
+Als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Vereisten
-* Alle platformen:
-  * Git ([downloaden](https://git-scm.com/downloads)).
-  * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) versie 2.0.4 of hoger. Deze is beschikbaar voor Windows, Mac en Linux.
 
-In deze zelfstudie wordt Managed Service Identity gebruikt
+Voor Windows, Mac en Linux:
+  * [Git](https://git-scm.com/downloads)
+  * Voor deze zelfstudie moet u de Azure CLI lokaal uitvoeren. U moet de Azure CLI versie 2.0.4 of hoger is geïnstalleerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>Wat is Managed Service Identity en hoe werkt het?
-Voordat we verder gaan, moeten we het over MSI hebben. Azure Key Vault kan referenties veilig opslaan zodat ze zich niet in uw code bevinden, maar om ze op te halen moet u zich authenticeren bij Azure Key Vault. En om u te authenticeren bij Key Vault, hebt u een referentie nodig! Een klassiek bootstrap-probleem. Door de magie van Azure en Azure AD biedt MSI een 'bootstrap-identiteit' die het veel eenvoudiger maakt om dingen op gang te brengen.
+## <a name="about-managed-service-identity"></a>Informatie over Managed Service Identity
 
-Het werkt als volgt. Wanneer u MSI inschakelt voor een Azure-service zoals Virtual Machines, App Service of Functions, maakt Azure een [service-principal](key-vault-whatis.md#basic-concepts) voor de instantie van de service in Azure Active Directory, en injecteert de referenties voor de service-principal in de instantie van de service. 
+Azure Key Vault worden referenties veilig opgeslagen, zodat ze niet worden weergegeven in uw code. U moet u echter verifiëren bij Azure Key Vault om uw sleutels op te halen. En om u te verifiëren bij Key Vault, hebt u een referentie nodig. Dit is een klassiek bootstrap-dilemma. In MSI (Managed Service Identity) is dit probleem opgelost doordat er een _bootstrap-identiteit_ wordt geboden dat het proces vereenvoudigt.
+
+Wanneer u MSI voor een Azure-service, zoals virtuele Machines van Azure, Azure App Service of Azure Functions inschakelt, Azure maakt een [service-principal](key-vault-whatis.md#basic-concepts). MSI-bestand doet dit voor het exemplaar van de service in Azure Active Directory (Azure AD) en de referenties voor de service-principal injects naar dat exemplaar. 
 
 ![MSI](media/MSI.png)
 
-Vervolgens roept uw ​​code een lokale metadataservice aan die beschikbaar is op de Azure-resource om een ​​toegangstoken te verkrijgen.
-Uw code gebruikt het toegangstoken dat wordt verkregen van het lokale MSI_ENDPOINT zich te authenticeren bij een Azure Key Vault-service. 
+Vervolgens roept de code voor een toegangstoken, een lokale metadata-service die beschikbaar is op de Azure-resource. Om te verifiëren met een Azure Key Vault-service, wordt uw code gebruikt het toegangstoken dat wordt opgehaald uit het lokale eindpunt van de MSI-bestand. 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -64,116 +65,124 @@ az login
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#az-group-create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
-Selecteer de naam van een resourcegroep en vul de tijdelijke aanduiding in.
-In het volgende voorbeeld wordt een resourcegroep gemaakt in de regio US - west:
+Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#az-group-create). 
+
+Selecteer de naam van een resourcegroep en vul de tijdelijke aanduiding in. In het volgende voorbeeld wordt een resourcegroep gemaakt in de regio US - west:
 
 ```azurecli
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-De resourcegroep die u net hebt gemaakt, wordt overal in dit artikel gebruikt.
+U uw zojuist gemaakte resource-groep in deze zelfstudie.
 
 ## <a name="create-a-key-vault"></a>Een sleutelkluis maken
 
-Vervolgens maakt u een sleutelkluis in de resourcegroep die u in de vorige stap hebt gemaakt. Geef de volgende informatie op:
+Voor het maken van een key vault in de resourcegroep die u in de vorige stap hebt gemaakt, moet u de volgende informatie leveren:
 
-* Naam van de sleutelkluis: de naam moet een tekenreeks zijn met 3-24 tekens en mag alleen (0-9, a-z, A-Z en -) bevatten.
-* Naam van de resourcegroep.
-* Locatie: **US - west**.
+* Key vault-naam: een reeks van 3 tot 24 tekens die mag alleen cijfers (0-9), letters (a-z, A-Z) en afbreekstreepjes (-)
+* Naam van de resourcegroep
+* Locatie: **US - west**
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
-Vanaf dit punt is uw Azure-account nu als enige gemachtigd om bewerkingen op deze nieuwe kluis uit te voeren.
+Op dit moment is uw Azure-account de enige die is gemachtigd voor het uitvoeren van bewerkingen op deze nieuwe sleutelkluis.
 
 ## <a name="add-a-secret-to-the-key-vault"></a>Een geheim toevoegen aan de sleutelkluis
 
-We gaan een geheim toevoegen om te laten zien hoe dit werkt. U wilt bijvoorbeeld een SQL-verbindingsreeks opslaan of andere gegevens die u veilig wilt bewaren, maar wel beschikbaar wilt stellen aan uw toepassing.
+We gaan een geheim toevoegen om te laten zien hoe dit werkt. De geheime sleutel is mogelijk een SQL-verbindingsreeks of andere informatie die u nodig hebt om veilig en beschikbaar zijn voor uw toepassing te houden.
 
-Typ de volgende opdrachten om een geheim te maken in de sleutelkluis met de naam **AppGeheim**. Met dit geheim wordt de waarde **MijnGeheim** opgeslagen.
+Een geheim maken in de key vault met de naam **AppSecret**, voer de volgende opdracht:
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
+Met dit geheim wordt de waarde **MijnGeheim** opgeslagen.
+
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
-Volg de onderstaande koppelingen om een virtuele Windows-machine te maken
+U kunt een virtuele machine maken met behulp van een van de volgende methoden:
 
-[Azure-CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli) 
+* [De Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
+* [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
+* [Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
-[Powershell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
+## <a name="assign-an-identity-to-the-vm"></a>Een identiteit toewijzen aan de virtuele machine
+In deze stap maakt maken u een systeem toegewezen identiteit voor de virtuele machine met de volgende opdracht in de Azure CLI:
 
-[Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
-
-## <a name="assign-identity-to-virtual-machine"></a>Identiteit toewijzen aan een virtuele machine
-In deze stap wijzen we een door het systeem toegewezen identiteit toe aan de virtuele machine met de volgende opdracht in Azure CLI
-
-```
+```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Hieronder wordt de door het systeem toegewezen identiteit (systemAssignedIdentity) weergegeven. De uitvoer van de bovenstaande opdracht ziet er als volgt uit 
+Houd er rekening mee de door het systeem toegewezen identiteit die wordt weergegeven in de volgende code. De uitvoer van de voorgaande opdracht zou zijn: 
 
-```
+```azurecli
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
 }
 ```
 
-## <a name="give-virtual-machine-identity-permission-to-key-vault"></a>Identiteit van virtuele machine machtigen voor Key Vault
-Nu kunnen we de hierboven gemaakte identiteit machtigen voor Key Vault met de volgende opdracht
+## <a name="assign-permissions-to-the-vm-identity"></a>Machtigingen toewijzen aan de identiteit van VM
+U kunt nu de eerder gemaakte Identiteitsmachtigingen toewijzen aan uw key vault met de volgende opdracht:
 
-```
+```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="login-to-the-virtual-machine"></a>Aanmelden bij de virtuele machine
+## <a name="log-on-to-the-virtual-machine"></a>Aanmelden bij de virtuele machine
 
-U kunt deze [zelfstudie](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon) volgen
+Als u wilt aanmelden bij de virtuele machine, volg de instructies in [verbinding maken met en meld u aan bij een virtuele Azure-machine waarop Windows wordt uitgevoerd](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
-## <a name="create-and-run-sample-python-app"></a>Python-voorbeeld-app maken en uitvoeren
+## <a name="create-and-run-a-sample-python-app"></a>Maken en uitvoeren van een Python-voorbeeld-app
 
-Het volgende bestand is slechts een voorbeeldbestand met de naam 'Sample.py'. Hierbij wordt gebruikgemaakt van de bibliotheek [requests](http://docs.python-requests.org/en/master/) (aanvragen) voor HTTP GET-aanroepen.
+In de volgende sectie een voorbeeldbestand met de naam is *Sample.py*. Hierbij een [aanvragen](http://docs.python-requests.org/en/master/) bibliotheek voor HTTP GET-aanroepen.
 
 ## <a name="edit-samplepy"></a>Sample.py bewerken
-Nadat u Sample.py hebt gemaakt, opent u het bestand en kopieert u de onderstaande code
 
-```
-The below is a 2 step process. 
-1. Fetch a token from the local MSI endpoint on the VM which in turn fetches a token from Azure Active Directory
-2. Pass the token to Key Vault and fetch your secret 
+Nadat u hebt gemaakt *Sample.py*, open het bestand en kopieer vervolgens de code in deze sectie. 
+
+De code is een proces in twee stappen:
+1. Haal een token uit het lokale MSI-eindpunt op de virtuele machine op.  
+  In dat geval ophaalt een token ook uit Azure AD.
+1. Het token doorgegeven aan uw key vault en vervolgens uw geheim ophalen. 
+
 ```
     # importing the requests library 
     import requests 
 
-    # Step 1: Fetch an access token from a Managed Identity enabled azure resource      
+    # Step 1: Fetch an access token from a Managed Identity enabled azure resource.      
     # Note that the resource here is https://vault.azure.net for public cloud and api-version is 2018-02-01
     MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
     r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"}) 
       
     # extracting data in json format 
-    # This request gets a access_token from Azure Active Directory using the local MSI endpoint
+    # This request gets an access_token from Azure AD by using the local MSI endpoint.
     data = r.json() 
     
-    # Step 2: Pass the access_token received from previous HTTP GET call to Key Vault
+    # Step 2: Pass the access_token received from previous HTTP GET call to your key vault.
     KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
     kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
     
     print(kvSecret.json()["value"])
 ```
 
-By running you should see the secret value 
+U kunt de geheime waarde weergeven door het uitvoeren van de volgende code: 
+
 ```
 python Sample.py
 ```
 
-The above code shows you how to do operations with Azure Key Vault in an Azure Windows Virtual Machine. 
+In de voorgaande code ziet u hoe u bewerkingen met Azure Key Vault uitvoert op een virtuele Windows-machine. 
 
-## Next steps
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Wanneer ze niet meer nodig hebt zijn, verwijdert u de virtuele machine en uw key vault.
+
+## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)
+> [REST-API van Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)

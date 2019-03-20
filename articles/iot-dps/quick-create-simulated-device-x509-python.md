@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 04fbbbf0f1ecd280153c5b23fff681808be51998
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 6a62e75fadad14148f5f82da3a213d4b13cbe343
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259578"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122670"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd X.509-apparaat met de SDK voor Python maken en inrichten voor IoT Hub Device Provisioning Service
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -25,8 +25,8 @@ In deze stappen wordt getoond hoe u een gesimuleerd X.509-apparaat maakt op een 
 Als u niet bekend bent met het proces van automatisch inrichten, bekijk dan ook de [Concepten voor automatische inrichting](concepts-auto-provisioning.md). Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat. 
 
 Azure IoT Device Provisioning Service ondersteunt twee typen inschrijvingen:
-- [Registratiegroepen](concepts-service.md#enrollment-group): wordt gebruikt om meerdere gerelateerde apparaten in te schrijven.
-- [Afzonderlijke inschrijvingen](concepts-service.md#individual-enrollment): wordt gebruikt om een enkel apparaat in te schrijven.
+- [Inschrijvingsgroepen](concepts-service.md#enrollment-group): Wordt gebruikt om meerdere gerelateerde apparaten in te schrijven.
+- [Afzonderlijke inschrijvingen](concepts-service.md#individual-enrollment): Wordt gebruikt om één apparaat in te schrijven.
 
 In dit artikel worden afzonderlijke registraties gedemonstreerd.
 
@@ -95,15 +95,15 @@ U gaat voorbeeldcode van de Azure IoT C-SDK gebruiken om het certificaat te make
 6. Selecteer **Manage enrollments** in de overzichtsblade van Device Provisioning Service. Selecteer het tabblad **Afzonderlijke registraties** en klik vervolgens op de knop **Afzonderlijke inschrijving toevoegen** bovenaan. 
 
 7. Voer onder het deelvenster **Inschrijving toevoegen** de volgende gegevens in:
-    - Selecteer **X.509** als *mechanisme* voor identiteitscontrole.
-    - Klik onder het *PEM- of CER-bestand van het primaire certificaat* op een *Select a file* om het certificaatbestand **X509testcertificate.pem** te selecteren dat in de vorige stappen is gemaakt.
-    - Desgewenst kunt u de volgende informatie verstrekken:
-      - Selecteer een IoT-hub die is gekoppeld aan uw inrichtingsservice.
-      - Voer een unieke apparaat-id in. Vermijd gevoelige gegevens bij het benoemen van uw apparaat. 
-      - Werk de **initiële status van de apparaatdubbel** bij met de gewenste beginconfiguratie voor het apparaat.
-    - Klik op de knop **Save** als u klaar bent. 
+   - Selecteer **X.509** als *mechanisme* voor identiteitscontrole.
+   - Klik onder het *PEM- of CER-bestand van het primaire certificaat* op een *Select a file* om het certificaatbestand **X509testcertificate.pem** te selecteren dat in de vorige stappen is gemaakt.
+   - Desgewenst kunt u de volgende informatie verstrekken:
+     - Selecteer een IoT-hub die is gekoppeld aan uw inrichtingsservice.
+     - Voer een unieke apparaat-id in. Vermijd gevoelige gegevens bij het benoemen van uw apparaat. 
+     - Werk de **initiële status van de apparaatdubbel** bij met de gewenste beginconfiguratie voor het apparaat.
+   - Klik op de knop **Save** als u klaar bent. 
 
-    [![Afzonderlijke inschrijving voor X.509-attestation toevoegen in de portal](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
+     [![Afzonderlijke inschrijving voor X.509-attestation toevoegen in de portal](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
    Als het apparaat is ingeschreven, wordt uw X.509-apparaat weergegeven als **riot-device-cert** onder de kolom *Registratie-id* op het tabblad *Afzonderlijke registraties*. 
 
@@ -120,8 +120,8 @@ U gaat voorbeeldcode van de Azure IoT C-SDK gebruiken om het certificaat te make
 
 3. Volg [deze instructies](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) voor het bouwen van de Python-pakketten.
 
-    > [!NOTE]
-        > Als u `pip` gebruikt, zorg dan ook dat u het pakket `azure-iot-provisioning-device-client` installeert.
+   > [!NOTE]
+   > Als u `pip` gebruikt, zorg dan ook dat u het pakket `azure-iot-provisioning-device-client` installeert.
 
 4. Navigeer naar de map met voorbeelden.
 

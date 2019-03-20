@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 8ef1b2a2271106a382faf9e06d57b44ca1bf033b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 80977c13aa9851ea5df9a15f5b9580dd1a931259
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810793"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569192"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Functions uitvoeren vanuit Azure Stream Analytics-taken 
 
@@ -63,77 +63,77 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
 
 2. Blader naar de functie **run.csx**. Werk deze bij met de volgende code. (Vervang '\<your Azure Cache for Redis connection string goes here\>' door de verbindingsreeks van de Azure Cache voor Redis die u in de vorige sectie hebt opgehaald.)  
 
-   ```csharp
-   using System;
-   using System.Net;
-   using System.Threading.Tasks;
-   using StackExchange.Redis;
-   using Newtonsoft.Json;
-   using System.Configuration;
+    ```csharp
+    using System;
+    using System.Net;
+    using System.Threading.Tasks;
+    using StackExchange.Redis;
+    using Newtonsoft.Json;
+    using System.Configuration;
 
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-   {
-      log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    {
+        log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
     
-      // Get the request body
-      dynamic dataArray = await req.Content.ReadAsAsync<object>();
+        // Get the request body
+        dynamic dataArray = await req.Content.ReadAsAsync<object>();
 
-      // Throw an HTTP Request Entity Too Large exception when the incoming batch(dataArray) is greater than 256 KB. Make sure that the size value is consistent with the value entered in the Stream Analytics portal.
+        // Throw an HTTP Request Entity Too Large exception when the incoming batch(dataArray) is greater than 256 KB. Make sure that the size value is consistent with the value entered in the Stream Analytics portal.
 
-      if (dataArray.ToString().Length > 262144)
-      {        
-         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
-      }
-      var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
-      log.Info($"Connection string.. {connection}");
+        if (dataArray.ToString().Length > 262144)
+        {
+            return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
+        }
+        var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
+        log.Info($"Connection string.. {connection}");
     
-      // Connection refers to a property that returns a ConnectionMultiplexer
-      IDatabase db = connection.GetDatabase();
-      log.Info($"Created database {db}");
+        // Connection refers to a property that returns a ConnectionMultiplexer
+        IDatabase db = connection.GetDatabase();
+        log.Info($"Created database {db}");
     
-      log.Info($"Message Count {dataArray.Count}");
+        log.Info($"Message Count {dataArray.Count}");
 
-      // Perform cache operations using the cache object. For example, the following code block adds few integral data types to the cache
-      for (var i = 0; i < dataArray.Count; i++)
-      {
-        string time = dataArray[i].time;
-        string callingnum1 = dataArray[i].callingnum1;
-        string key = time + " - " + callingnum1;
-        db.StringSet(key, dataArray[i].ToString());
-        log.Info($"Object put in database. Key is {key} and value is {dataArray[i].ToString()}");
+        // Perform cache operations using the cache object. For example, the following code block adds few integral data types to the cache
+        for (var i = 0; i < dataArray.Count; i++)
+        {
+            string time = dataArray[i].time;
+            string callingnum1 = dataArray[i].callingnum1;
+            string key = time + " - " + callingnum1;
+            db.StringSet(key, dataArray[i].ToString());
+            log.Info($"Object put in database. Key is {key} and value is {dataArray[i].ToString()}");
        
-      // Simple get of data types from the cache
-      string value = db.StringGet(key);
-      log.Info($"Database got: {value}");
-      }
+            // Simple get of data types from the cache
+            string value = db.StringGet(key);
+            log.Info($"Database got: {value}");
+        }
 
-      return req.CreateResponse(HttpStatusCode.OK, "Got");
-    }    
+        return req.CreateResponse(HttpStatusCode.OK, "Got");
+    }
 
    ```
 
    Wanneer Stream Analytics de uitzondering 'HTTP Request Entity Too Large' (HTTP-aanvraagentiteit te groot) van de functie ontvangt, worden de batches die naar Azure Functions worden gestuurd, verkleind. Gebruik de volgende code in uw functie om te controleren of Stream Analytics geen te grote batches verzendt. Zorg dat het maximum aantal batches en de grootten die in de functie worden gebruikt, consistent zijn met de waarden die zijn ingevoerd in de Stream Analytics-portal.
 
-   ```csharp
-   if (dataArray.ToString().Length > 262144)
-      {        
-        return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
-      }
+    ```csharp
+    if (dataArray.ToString().Length > 262144)
+        {
+            return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
+        }
    ```
 
 3. Maak in een teksteditor een JSON-bestand met de naam **project.json**. Gebruik de volgende code en sla het bestand op uw lokale computer op. Dit bestand bevat de NuGet-pakketafhankelijkheden die de C#-functie nodig heeft.  
    
-   ```json
-       {
-         "frameworks": {
-             "net46": {
-                 "dependencies": {
-                     "StackExchange.Redis":"1.1.603",
-                     "Newtonsoft.Json": "9.0.1"
-                 }
-             }
-         }
-     }
+    ```json
+    {
+        "frameworks": {
+            "net46": {
+                "dependencies": {
+                    "StackExchange.Redis":"1.1.603",
+                    "Newtonsoft.Json": "9.0.1"
+                }
+            }
+        }
+    }
 
    ```
  
@@ -158,7 +158,7 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
    |Uitvoeralias| Een gebruiksvriendelijke naam die u in query van de taak gebruikt om naar de uitvoer te verwijzen. |
    |Importoptie| U kunt de functie van het huidige abonnement gebruiken of de instellingen handmatig opgeven als de functie zich in een ander abonnement bevindt. |
    |Functie-app| Naam van uw Azure Functions-app. |
-   |Functie| Naam van de functie in uw Azure Functions-app (naam van de functie run.csx).|
+   |Function| Naam van de functie in uw Azure Functions-app (naam van de functie run.csx).|
    |Maximale batchgrootte|Hiermee stelt u de maximale grootte (in bytes) in voor elke uitvoerbatch die naar uw functie wordt verzonden. Deze waarde is standaard ingesteld op 262.144 bytes (256 kB).|
    |Maximum aantal batches|Hiermee geeft u het maximum aantal gebeurtenissen in elke batch op die naar de functie worden verzonden. De standaardwaarde is 100. Deze eigenschap is optioneel.|
    |Sleutel|Hiermee kunt u een functie uit een ander abonnement gebruiken. Geef de waarde op van de sleutel die toegang geeft tot uw functie. Deze eigenschap is optioneel.|
@@ -168,8 +168,8 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
 4. Open uw Stream Analytics-taak en werk de query als volgt bij. (Verander de tekst 'saop1' als u uw uitvoerlocatie een andere naam hebt gegeven.)  
 
    ```sql
-    SELECT 
-            System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1, 
+    SELECT
+            System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1,
             CS2.CallingNum as CallingNum2, CS1.SwitchNum as Switch1, CS2.SwitchNum as Switch2
         INTO saop1
         FROM CallStream CS1 TIMESTAMP BY CallRecTime

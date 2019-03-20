@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie voor het aanroepen van API's voor cognitief zoeken - Azure Search
+title: Zelfstudie voor het aanroepen van Cognitive Services API's in een indexering pijplijn - Azure Search
 description: In deze zelfstudie ziet u een voorbeeld van gegevensextractie, natuurlijke taal en AI-beeldverwerking in Azure Search indexeren voor gegevensextractie en transformatie.
 manager: pablocas
 author: luiscabrer
@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a4481e1bbc6248a9616fa7b3fe1d67c7d90af56e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: a68d33d44e5edfb53f34f8a58b590dfdd25bc050
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429414"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201786"
 ---
-# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Zelfstudie: API's voor cognitief zoeken aanroepen (preview)
+# <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Zelfstudie: Cognitive Services API's aanroepen in een Azure Search indexeren pijplijn (Preview)
 
-In deze zelfstudie leert u de mechanismen achter gegevensverrijking programmeren in Azure Search met behulp van *cognitieve vaardigheden*. Cognitieve vaardigheden zijn bewerkingen voor de verwerking van natuurlijke taal (NLP) en afbeeldingsanalyse die tekst en tekstweergaven van een afbeelding extraheren en taal, entiteiten, sleuteltermen en meer detecteren. Het eindresultaat is uitgebreide aanvullende inhoud in een Azure Search-index, gemaakt met een indexeringspijplijn voor cognitief zoeken. 
+In deze zelfstudie leert u de mechanismen achter gegevensverrijking programmeren in Azure Search met behulp van *cognitieve vaardigheden*. Vaardigheden worden ondersteund door natuurlijke taalverwerking (NLP) en de installatiekopie van analysemogelijkheden in Cognitive Services. U kunt via de samenstelling van vaardigheden en configuratie, tekst en de vorm van een afbeelding of gescande documentbestand tekst extraheren. Ook kunt u de taal, entiteiten en sleuteltermen detecteren. Het eindresultaat is uitgebreide aanvullende inhoud in een Azure Search-index, die zijn gemaakt door een AI aangestuurde indexing-pijplijn. 
 
 In deze zelfstudie maakt u REST API-aanroepen om de volgende taken uit te voeren:
 
@@ -55,27 +55,27 @@ Registreer u eerst voor de Azure Search-service.
 
 1. Klik op **Een resource maken**, zoek naar Azure Search en klik op **Maken**. Zie [Een Azure Search-service maken in de portal](search-create-service-portal.md) als u voor de eerste keer een zoekservice instelt.
 
-  ![Dashboard van portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Een Azure Search-service maken in de portal")
+   ![Dashboard van portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Een Azure Search-service maken in de portal")
 
 1. Maak een resourcegroep voor alle resources die u in deze zelfstudie gaat maken. Dit vergemakkelijkt het opschonen van de resources nadat u de zelfstudie hebt voltooid.
 
-1. Kies voor Locatie een van de [ondersteunde regio's](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob#supported-regions) voor Cognitive Search.
+1. Voor de locatie, kiest u een regio die zich in de buurt van uw gegevens en andere cloud-apps.
 
 1. Voor de prijscategorie kunt u een **Gratis** service maken om de zelfstudies en snelstarts te voltooien. Voor nadere analyse met behulp van uw eigen gegevens, maakt u een [betaalde service](https://azure.microsoft.com/pricing/details/search/) zoals **Basic** of **Standard**. 
 
-  Een gratis service is beperkt tot 3 indexen, maximaal 16 MB aan blobgrootte en 2 minuten indexeren. Dit is voldoende om de volledige functionaliteit van cognitief zoeken te verkennen. Zie [Servicelimieten](search-limits-quotas-capacity.md) om de limieten voor verschillende prijscategorieën te bekijken.
+   Een gratis service is beperkt tot 3 indexen, maximaal 16 MB aan blobgrootte en 2 minuten indexeren. Dit is voldoende om de volledige functionaliteit van cognitief zoeken te verkennen. Zie [Servicelimieten](search-limits-quotas-capacity.md) om de limieten voor verschillende prijscategorieën te bekijken.
 
-  ![Servicedefinitiepagina in de portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Servicedefinitiepagina in de portal")
-  ![Servicedefinitiepagina in de portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Servicedefinitiepagina in de portal")
+   ![Servicedefinitiepagina in de portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Servicedefinitiepagina in de portal")
+   ![Servicedefinitiepagina in de portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Servicedefinitiepagina in de portal")
 
  
 1. Maak de service vast aan het dashboard voor snelle toegang tot service-informatie.
 
-  ![Pagina Servicedefinitie in de portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Pagina Servicedefinitie in de portal")
+   ![Pagina Servicedefinitie in de portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Pagina Servicedefinitie in de portal")
 
 1. Nadat de service is gemaakt, kunt u de volgende informatie verzamelen: **URL** op de overzichtspagina en **API-sleutel** (primair of secundair) op de pagina Sleutels.
 
-  ![Eindpunt- en sleutelinformatie in de portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Eindpunt- en sleutelinformatie in de portal")
+   ![Eindpunt- en sleutelinformatie in de portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Eindpunt- en sleutelinformatie in de portal")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob service instellen en voorbeeldgegevens laden
 
@@ -89,7 +89,7 @@ De verrijkingspijplijn haalt gegevens uit Azure-gegevensbronnen. Brongegevens mo
 
 1. Nadat de voorbeeldbestanden zijn geladen, haalt u de containernaam en een verbindingsreeks voor de Blob-opslag op. U kunt dat doen door in de Azure-portal naar uw opslagaccount te navigeren. Ga naar **Toegangssleutels** en kopieer het veld **Verbindingsreeks**.
 
-  De verbindingsreeks moet een URL zijn die er ongeveer als volgt uitziet:
+   De verbindingsreeks moet een URL zijn die er ongeveer als volgt uitziet:
 
       ```http
       DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
@@ -106,21 +106,21 @@ Gebruik voor deze zelfstudie de REST API en een hulpprogramma dat HTTP-aanvragen
 ### <a name="sample-request"></a>Voorbeeldaanvraag
 ```http
 POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
-Content-Type: application/json  
-api-key: [admin key]  
+Content-Type: application/json
+api-key: [admin key]
 ```
 #### <a name="request-body-syntax"></a>Syntaxis aanvraagbody
 ```json
-{   
-    "name" : "demodata",  
-    "description" : "Demo files to demonstrate cognitive search capabilities.",  
-    "type" : "azureblob",
-    "credentials" :
-    { "connectionString" :
-      "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
-    },  
-    "container" : { "name" : "<your blob container name>" }
-}  
+{
+  "name" : "demodata",
+  "description" : "Demo files to demonstrate cognitive search capabilities.",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" :
+    "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
+  },
+  "container" : { "name" : "<your blob container name>" }
+}
 ```
 Verzend de aanvraag. Het online hulpprogramma zou een 201-statuscode moeten retourneren om de succesvolle uitvoering te bevestigen. 
 
@@ -158,7 +158,7 @@ Content-Type: application/json
 #### <a name="request-body-syntax"></a>Syntaxis aanvraagbody
 ```json
 {
-  "description": 
+  "description":
   "Extract entities, detect language and extract key-phrases",
   "skills":
   [
@@ -193,26 +193,26 @@ Content-Type: application/json
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages", 
+      "textSplitMode" : "pages",
       "maximumPageLength": 4000,
       "inputs": [
-      {
-        "name": "text",
-        "source": "/document/content"
-      },
-      { 
-        "name": "languageCode",
-        "source": "/document/languageCode"
-      }
-    ],
-    "outputs": [
-      {
-            "name": "textItems",
-            "targetName": "pages"
-      }
-    ]
-  },
-  {
+        {
+          "name": "text",
+          "source": "/document/content"
+        },
+        {
+          "name": "languageCode",
+          "source": "/document/languageCode"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "textItems",
+          "targetName": "pages"
+        }
+      ]
+    },
+    {
       "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
       "context": "/document/pages/*",
       "inputs": [
@@ -256,7 +256,7 @@ In dit gedeelte kunt u het indexschema definiëren door op te geven welke velden
 
 In deze oefening worden de volgende velden en veldtypen gebruikt:
 
-| field-names: | id       | content   | languageCode | keyPhrases         | organizations     |
+| field-names: | `id`       | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -351,41 +351,41 @@ Content-Type: application/json
   "targetIndexName" : "demoindex",
   "skillsetName" : "demoskillset",
   "fieldMappings" : [
-        {
-          "sourceFieldName" : "metadata_storage_path",
-          "targetFieldName" : "id",
-          "mappingFunction" : 
-            { "name" : "base64Encode" }
-        },
-        {
-          "sourceFieldName" : "content",
-          "targetFieldName" : "content"
-        }
-   ],
-  "outputFieldMappings" : 
+    {
+      "sourceFieldName" : "metadata_storage_path",
+      "targetFieldName" : "id",
+      "mappingFunction" :
+        { "name" : "base64Encode" }
+    },
+    {
+      "sourceFieldName" : "content",
+      "targetFieldName" : "content"
+    }
+  ],
+  "outputFieldMappings" :
   [
-        {
-          "sourceFieldName" : "/document/organizations", 
-          "targetFieldName" : "organizations"
-        },
-        {
-          "sourceFieldName" : "/document/pages/*/keyPhrases/*", 
-          "targetFieldName" : "keyPhrases"
-        },
-        {
-            "sourceFieldName": "/document/languageCode",
-            "targetFieldName": "languageCode"
-        }      
+    {
+      "sourceFieldName" : "/document/organizations",
+      "targetFieldName" : "organizations"
+    },
+    {
+      "sourceFieldName" : "/document/pages/*/keyPhrases/*",
+      "targetFieldName" : "keyPhrases"
+    },
+    {
+      "sourceFieldName": "/document/languageCode",
+      "targetFieldName": "languageCode"
+    }
   ],
   "parameters":
   {
     "maxFailedItems":-1,
     "maxFailedItemsPerBatch":-1,
-    "configuration": 
+    "configuration":
     {
-        "dataToExtract": "contentAndMetadata",
-        "imageAction": "generateNormalizedImages"
-        }
+      "dataToExtract": "contentAndMetadata",
+      "imageAction": "generateNormalizedImages"
+    }
   }
 }
 ```
@@ -443,7 +443,7 @@ Content-Type: application/json
 
 Herhaal dit voor andere velden: inhoud, taal, sleuteltermen en organisaties in deze oefening. U kunt meerdere velden retourneren via `$select` met behulp van een door komma's gescheiden lijst.
 
-U kunt GET of POST gebruiken, afhankelijk van de complexiteit en lengte van de queryreeks. Zie [Query using the REST API](https://docs.microsoft.com/azure/search/search-query-rest-api) (Query's uitvoeren met de REST API) voor meer informatie.
+U kunt GET of POST gebruiken, afhankelijk van de complexiteit en lengte van de queryreeks. Zie [Query using the REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Query's uitvoeren met de REST API) voor meer informatie.
 
 <a name="access-enriched-document"></a>
 

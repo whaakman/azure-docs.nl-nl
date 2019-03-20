@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 270254ae4f66fa3642df844f384e15564945628e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3c79747bf33e1769af5f8d3589904ba15105f216
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242153"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087598"
 ---
 # <a name="connect-windows-security-events"></a>Verbinding maken met Windows-beveiligingsgebeurtenissen 
 
@@ -34,8 +34,8 @@ U kunt alle beveiligingsgebeurtenissen van de Windows-Servers die zijn verbonden
 - **Minimale** -een klein aantal gebeurtenissen die op mogelijke bedreigingen wijzen kunnen. Als deze optie inschakelt, kunt u zich niet aan een volledige audittrail hebben.
 - **Geen** -geen beveiligings- of AppLocker-gebeurtenissen.
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > - Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
 
 ## <a name="set-up-the-windows-security-events-connector"></a>De Windows security gebeurtenissen connector instellen

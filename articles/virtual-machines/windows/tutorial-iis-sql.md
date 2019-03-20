@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aa8f4e188761c50391cd2ead49ae8d8b9081188f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 770fa89bc08b448482b4a74d21ee307df8a9f836
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983488"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167912"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Zelfstudie: De SQL-, IIS-, .NET-stack installeren op een Windows-VM met Azure PowerShell
 
@@ -38,7 +38,7 @@ Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit a
 
 Als u Cloud Shell wilt openen, selecteert u **Proberen** in de rechterbovenhoek van een codeblok. U kunt Cloud Shell ook openen in een afzonderlijk browsertabblad door naar [https://shell.azure.com/powershell](https://shell.azure.com/powershell) te gaan. Klik op **Kopiëren** om de codeblokken te kopiëren, plak deze in Cloud Shell en druk vervolgens op Enter om de code uit te voeren.
 
-## <a name="create-a-iis-vm"></a>Een virtuele IIS-machine maken 
+## <a name="create-an-iis-vm"></a>Een IIS-virtuele machine maken 
 
 In dit voorbeeld gebruiken we de cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) in PowerShell Cloud Shell om snel een Windows Server 2016-VM te maken en vervolgens IIS en .NET Framework te installeren. De virtuele IIS en SQL-machines delen een resourcegroep en een virtueel netwerk, dus voor deze namen maken we variabelen.
 

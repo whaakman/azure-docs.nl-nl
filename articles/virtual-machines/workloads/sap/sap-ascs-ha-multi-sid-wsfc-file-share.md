@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486044656b1c288b1658d10a162e1f9fa071172a
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: eac9f80e4b57c725de3bc05f55e09d49fb8e2ee5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817113"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004605"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -48,7 +48,7 @@ ms.locfileid: "56817113"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -403,26 +403,31 @@ Met de rechtermuisknop op de **saoglobal2** scale-out Bestandsserver, cluster-gr
 _**Afbeelding 6:** 'Bestandsshare toevoegen' wizard starten_
 
 <br>
+
 ![Afbeelding 7: "Selecteer SMB-Share – snel"][sap-ha-guide-figure-8018]
 
 _**Afbeelding 7:** Selecteer "SMB-Share – snel"_
 
 <br>
+
 ![Afbeelding 8: Selecteer 'sapglobalhost2' en pad op Volume2 opgeven][sap-ha-guide-figure-8019]
 
 _**Afbeelding 8:** Selecteer 'sapglobalhost2' en pad op Volume2 opgeven_
 
 <br>
+
 ![Afbeelding 9: Naam van bestandsshare instellen op "sapmnt"][sap-ha-guide-figure-8020]
 
 _**Afbeelding 9:** Naam van bestandsshare instellen op "sapmnt"_
 
 <br>
+
 ![Afbeelding 10: Alle instellingen uitschakelen][sap-ha-guide-figure-8021]
 
 _**Afbeelding 10:** Alle instellingen uitschakelen_
 
 <br>
+
 Toewijzen *volledig beheer* machtigingen voor bestanden en sapmnt voor delen:
 * De **SAP_\<SID > _GlobalAdmin** domeingebruikersgroep
 * Computerobject van de clusterknooppunten ASCS/SCS **ascs-1-$** en **$ ascs-2**
@@ -432,16 +437,19 @@ Toewijzen *volledig beheer* machtigingen voor bestanden en sapmnt voor delen:
 _**Afbeelding 11:** 'Volledig beheer' toewijzen aan gebruikersaccounts groep en computer_
 
 <br>
+
 ![Afbeelding 12: Selecteer 'Maken'][sap-ha-guide-figure-8023]
 
 _**Afbeelding 12:** Selecteer 'Maken'_
 
 <br>
+
 ![Afbeelding 13: De tweede sapmnt gekoppeld aan host sapglobal2 en Volume2 wordt gemaakt][sap-ha-guide-figure-8024]
 
 _**Afbeelding 13:** De tweede sapmnt gekoppeld aan host sapglobal2 en Volume2 wordt gemaakt_
 
 <br>
+
 ## <a name="install-sap-netweaver-multi-sid"></a>Installeren van SAP NetWeaver multi-SID
 
 ### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>Installeren van SAP \<SID2 > ASCS/SCS- en go-instanties

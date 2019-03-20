@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb752a6b598c9fe7f146cd6ce96182405fc0dc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 86148d428bc526e071f095233b0692a6f3775a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167674"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880638"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Zelfstudie: Azure Active Directory-integratie met Jitbit Helpdesk
 
@@ -114,6 +114,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![Eenmalige aanmelding configureren](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: 
+    
     | |     
     | ----------------------------------------|
     | `https://<hostname>/helpdesk/User/Login`|
@@ -161,7 +162,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     c. Open uw **base-64** gecodeerd certificaat in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **X.509-certificaat** tekstvak
 
-    d. Klik op **wijzigingen opslaan**.
+    d. Klik op **Save changes** (Wijzigingen opslaan).
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -224,11 +225,11 @@ Om in te schakelen in Azure AD-gebruikers zich aanmelden bij de Jitbit Helpdesk,
    
    a. In de **gebruikersnaam** tekstvak, type **BrittaSimon**, zoals in de Azure-portal de naam van de gebruiker.
 
-   b. In de **e** tekstvak type e-mailadres van de gebruiker, zoals **BrittaSimon@contoso.com**.
+   b. In de **e** tekstvak type e-mailadres van de gebruiker, zoals **BrittaSimon\@contoso.com**.
 
-   c. In de **voornaam** tekstvak, type de voornaam van de gebruiker, zoals **Julia**.
+   c. Typ in het tekstvak **First Name** de voornaam van de gebruiker, bijvoorbeeld **Britta**.
 
-   d. In de **achternaam** tekstvak, type achternaam van de gebruiker, zoals **Simon**.
+   d. Typ in het tekstvak **Last Name** de achternaam van de gebruiker, bijvoorbeeld **Simon**.
    
    e. Klik op **Create**.
 
@@ -276,7 +277,7 @@ Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

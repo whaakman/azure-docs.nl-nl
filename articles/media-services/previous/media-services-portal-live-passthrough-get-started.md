@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 4609c9d49cd2ed9aeb8d07c7fb27d290b6bd7771
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: c960ae10fc892a5f4bd044fff80a44a0628ea38e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875903"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Live streamen met on-premises coderingsprogramma's via Azure Portal
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 
 * Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
 * Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
-* Een webcam. Bijvoorbeeld [Telestream Wirecast-coderingsprogramma](http://www.telestream.net/wirecast/overview.htm).
+* Een webcam. Bijvoorbeeld [Telestream Wirecast-coderingsprogramma](https://www.telestream.net/wirecast/overview.htm).
 
 Het wordt ten zeerste aanbevolen de volgende artikelen te lezen:
 

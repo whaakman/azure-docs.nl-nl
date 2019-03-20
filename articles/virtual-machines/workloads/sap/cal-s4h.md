@@ -16,21 +16,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: a99fb959ae1ac1434bedffd782a7c4e0a302d361
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c59fcf43cb4767f1d95d769dfce4d5c8755e45ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431405"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990480"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>SAP S/4HANA of BW/4HANA op Azure implementeren
 In dit artikel wordt beschreven hoe u S/4HANA op Azure implementeren met behulp van de SAP Cloud Appliance Library (SAP CAL) 3.0. Volg dezelfde stappen voor het implementeren van andere oplossingen op basis van SAP HANA, zoals BW/4HANA.
 
 > [!NOTE]
-Voor meer informatie over de SAP CAL, gaat u naar de [SAP Cloud Appliance Library](https://cal.sap.com/) website. SAP heeft ook een blog over de [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
-
+> Voor meer informatie over de SAP CAL, gaat u naar de [SAP Cloud Appliance Library](https://cal.sap.com/) website. SAP heeft ook een blog over de [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+> 
 > [!NOTE]
-Vanaf 29 mei 2017, kunt u het Azure Resource Manager-implementatiemodel naast het minder voorkeur klassieke implementatiemodel gebruiken voor het implementeren van de SAP CAL. U wordt aangeraden dat u de nieuwe Resource Manager-implementatiemodel gebruiken en geen rekening gehouden met het klassieke implementatiemodel.
+> Vanaf 29 mei 2017, kunt u het Azure Resource Manager-implementatiemodel naast het minder voorkeur klassieke implementatiemodel gebruiken voor het implementeren van de SAP CAL. U wordt aangeraden dat u de nieuwe Resource Manager-implementatiemodel gebruiken en geen rekening gehouden met het klassieke implementatiemodel.
 
 ## <a name="step-by-step-process-to-deploy-the-solution"></a>Stapsgewijze procedure om de oplossing te implementeren
 
@@ -49,8 +49,8 @@ De **oplossingen** pagina ziet u enkele van de oplossingen op basis van een SAP 
 
     c. Hiermee geeft u de SAP CAL-machtiging voor het implementeren in uw Azure-abonnement.
 
-    > [!NOTE]
-    De volgende stappen laten zien hoe een SAP CAL-account voor Resource Manager-implementaties maken. Als u al een SAP CAL-account dat is gekoppeld aan het klassieke implementatiemodel, hebt u *moet* om deze stappen om een nieuwe SAP CAL-account te maken. De nieuwe SAP CAL-account moet implementeren in het Resource Manager-model.
+   > [!NOTE]
+   >  De volgende stappen laten zien hoe een SAP CAL-account voor Resource Manager-implementaties maken. Als u al een SAP CAL-account dat is gekoppeld aan het klassieke implementatiemodel, hebt u *moet* om deze stappen om een nieuwe SAP CAL-account te maken. De nieuwe SAP CAL-account moet implementeren in het Resource Manager-model.
 
 1. Maak een nieuwe SAP CAL-account. De **Accounts** pagina ziet u drie opties voor Azure: 
 
@@ -96,10 +96,10 @@ U een SAP CAL-account dat kan worden gemaakt:
 U kunt nu starten voor het implementeren van S/4HANA in uw gebruikersabonnement in Azure.
 
 > [!NOTE]
-Voordat u doorgaat, moet u bepalen of u hebt de Azure-vCPU-quota voor Azure uit de H-serie VM's. Op dit moment gebruikt de SAP CAL H-serie VM's van Azure enkele van de SAP HANA-oplossingen implementeren. Uw Azure-abonnement mogelijk geen eventuele H-serie vCPU-quota voor de H-serie. Als dit het geval is, moet u mogelijk contact opnemen met ondersteuning van Azure om op te halen van een quotum van ten minste 16 vcpu's voor uit de H-serie.
-
+> Voordat u doorgaat, moet u bepalen of u hebt de Azure-vCPU-quota voor Azure uit de H-serie VM's. Op dit moment gebruikt de SAP CAL H-serie VM's van Azure enkele van de SAP HANA-oplossingen implementeren. Uw Azure-abonnement mogelijk geen eventuele H-serie vCPU-quota voor de H-serie. Als dit het geval is, moet u mogelijk contact opnemen met ondersteuning van Azure om op te halen van een quotum van ten minste 16 vcpu's voor uit de H-serie.
+> 
 > [!NOTE]
-Wanneer u een oplossing op Azure in de SAP CAL implementeert, kunt u wellicht dat u slechts één Azure-regio kunt. Als u wilt implementeren in Azure-regio's dan de regio die wordt voorgesteld door de SAP CAL, moet u een abonnement te kopen CAL van SAP. Ook is het mogelijk een bericht openen met SAP hebt ingeschakeld om te leveren in de Azure-regio's dan degene die in eerste instantie aanbevolen CAL-account.
+> Wanneer u een oplossing op Azure in de SAP CAL implementeert, kunt u wellicht dat u slechts één Azure-regio kunt. Als u wilt implementeren in Azure-regio's dan de regio die wordt voorgesteld door de SAP CAL, moet u een abonnement te kopen CAL van SAP. Ook is het mogelijk een bericht openen met SAP hebt ingeschakeld om te leveren in de Azure-regio's dan degene die in eerste instantie aanbevolen CAL-account.
 
 ### <a name="deploy-a-solution"></a>Een oplossing implementeren
 
@@ -120,7 +120,7 @@ Het eenvoudige pad naar implementatie Hier ziet.
 
     d. Voer een master **wachtwoord** voor de oplossing van acht of negen tekens. Het wachtwoord wordt gebruikt voor de beheerders van de verschillende onderdelen.
 
-   ![SAP CAL-standaardmodus: Exemplaar maken](./media/cal-s4h/s4h-pic10a.png)
+   ![SAP CAL Basic modus: Instantie maken](./media/cal-s4h/s4h-pic10a.png)
 
 1. Klik op **maken**, en in het vak van het bericht dat wordt weergegeven, klikt u op **OK**.
 

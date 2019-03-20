@@ -3,7 +3,7 @@ title: Vereisten voor Azure Application aanbieding | Microsoft Docs
 description: De vereisten voor het publiceren van een Azure-toepassing aanbieden op Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: dan-wesley
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,20 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: b3f978635127ef6aabb123d1c95b76ed06fccbbf
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: df127eec662f8598246f276ef9b1608ae3021512
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097787"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007160"
 ---
 # <a name="azure-application-prerequisites"></a>Vereisten voor Azure-toepassing
 
-Dit artikel beschrijft de technische en zakelijke vereisten voor het publiceren van een beheerder toepassingsbieding op Azure Marketplace.  Als u hebt nog niet gedaan, bekijkt u de video [gebouw Oplossingssjablonen en beheerde toepassingen voor Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+Dit artikel beschrijft de technische en zakelijke vereisten voor het publiceren van een beheerder toepassingsbieding op Azure Marketplace.  Wanneer u hebt nog niet gedaan, controleert u de volgende bronnen:
+- Afhankelijk van uw SKU-type, ofwel [Azure-toepassingen: Oplossingssjabloon bieden Publicatiehandleiding voor](../../marketplace-solution-templates.md) of [Azure-toepassingen: Beheerder Toepassingsbieding Publicatiehandleiding voor](../../marketplace-managed-apps.md)
+- [Het bouwen van Oplossingssjablonen en beheerde toepassingen voor Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) video
 
 
 ## <a name="technical-requirements"></a>Technische vereisten
@@ -33,7 +35,7 @@ De technische vereisten zijn onder andere de volgende items:
 *   Azure Resource Manager-sjablonen voor meer informatie, Zie [inzicht in de structuur en de syntaxis van Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). Dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Deze geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. 
 * Azure Quickstart-sjablonen.<br> Zie voor meer informatie:
 
-  * [Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates/). Implementeer Azure-bronnen via Azure Resource Manager met sjablonen die zijn aangeleverd door de community, zodat u meer gedaan krijgt. Met Azure Resource Manager kunt u uw toepassingen inrichten aan de hand van een declaratieve sjabloon. U kunt in één enkele sjabloon meerdere services plus de bijbehorende afhankelijkheden implementeren. U gebruikt dezelfde sjabloon om uw toepassing herhaaldelijk te implementeren in elke fase van de levenscyclus van de toepassing.
+  * [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/). Implementeer Azure-bronnen via Azure Resource Manager met sjablonen die zijn aangeleverd door de community, zodat u meer gedaan krijgt. Met Azure Resource Manager kunt u uw toepassingen inrichten aan de hand van een declaratieve sjabloon. U kunt in één enkele sjabloon meerdere services plus de bijbehorende afhankelijkheden implementeren. U gebruikt dezelfde sjabloon om uw toepassing herhaaldelijk te implementeren in elke fase van de levenscyclus van de toepassing.
   * [GitHub: Azure Resource Manager Quickstart-sjablonen](https://github.com/azure/azure-quickstart-templates). Deze opslagplaats bevat alle beschikbare Azure Resource Manager-sjablonen door de community bijgedragen. Een sjabloon voor doorzoekbare index wordt onderhouden op https://azure.microsoft.com/en-us/documentation/templates/.
 * UI-definitie maken<br>
 Zie voor meer informatie, [maken-Azure portal gebruikersinterface voor uw beheerde toepassing](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). Dit artikel worden de belangrijkste concepten van het bestand createUiDefinition.json geïntroduceerd. Dit bestand in de Azure-portal wordt gebruikt voor het genereren van de gebruikersinterface voor het maken van een beheerde toepassing.
@@ -43,7 +45,7 @@ Zie voor meer informatie, [maken-Azure portal gebruikersinterface voor uw beheer
 
 De zakelijke vereisten zijn onder andere de volgende procedure, contractuele en wettelijke verplichtingen:
 
-* U moet een geregistreerde Cloud-Marketplace-uitgever. Als u niet bent geregistreerd, volgt u de stappen in het artikel worden een Cloud-Marketplace-uitgever.
+* U moet een geregistreerde Cloud-Marketplace-uitgever. Als u niet bent geregistreerd, volg de stappen in het artikel [geworden van een Cloud-Marketplace-uitgever](../../become-publisher.md).
 
 >[!NOTE]
 >Het account voor registratie van dezelfde Microsoft Developer Center moet u zich aanmeldt bij de Cloud Partner-Portal. U hebt slechts één Microsoft-account voor uw aanbiedingen op Azure Marketplace. Dit account mag niet zijn specifiek voor afzonderlijke services of aanbiedingen.
@@ -65,8 +67,8 @@ Als u een nieuwe aanbieding voor Azure-toepassing publiceren, moet u voldoen aan
   * Een titel
   * Een beschrijving (in HTML-indeling)
   * Een logoafbeelding (in PNG-indeling) en in deze vaste grootte: 40, 40 pixels, 90 x 90 pixels, 115 x 115 pixels en 255 x 115 pixels.
-* Een *gebruiksvoorwaarden* en een *privacybeleid*
-* Documentatie
+* Een *gebruiksvoorwaarden* en een *privacybeleid* documenten
+* Documentatie voor Application
 * Contactpersonen voor ondersteuning
 
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2762e5c4f2b67415a0e42e80a34ae5b34c57adc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086578"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>ZIP-implementatie voor Azure Functions
 
@@ -51,13 +51,13 @@ Echter, u mogelijk hebt gemaakt uw functies met behulp van de editor in Azure po
 
 + **Vanuit de Azure-portal:**
 
-    1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en ga vervolgens naar uw functie-app.
+  1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en ga vervolgens naar uw functie-app.
 
-    2. Op de **overzicht** tabblad **app-inhoud downloaden**. Selecteer de gewenste downloadopties en selecteer vervolgens **downloaden**.
+  2. Op de **overzicht** tabblad **app-inhoud downloaden**. Selecteer de gewenste downloadopties en selecteer vervolgens **downloaden**.
 
-        ![De functie-app-project downloaden](./media/deployment-zip-push/download-project.png)
+      ![De functie-app-project downloaden](./media/deployment-zip-push/download-project.png)
 
-    Het gedownloade ZIP-bestand is in de juiste indeling opnieuw worden gepubliceerd naar uw functie-app met behulp van ZIP-push-implementatie. Het downloaden van de portal kan ook de bestanden die nodig zijn voor uw functie-app rechtstreeks in Visual Studio openen toevoegen.
+     Het gedownloade ZIP-bestand is in de juiste indeling opnieuw worden gepubliceerd naar uw functie-app met behulp van ZIP-push-implementatie. Het downloaden van de portal kan ook de bestanden die nodig zijn voor uw functie-app rechtstreeks in Visual Studio openen toevoegen.
 
 + **Met behulp van REST-API's:**
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e2924a45ae8851095944131b6fb1598775247f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885314"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Vaststellen en herstellen van de synchronisatiefouten dubbel kenmerk
 
@@ -33,7 +33,7 @@ Zie voor meer informatie over Azure AD, [duplicatiekenmerken identificeren voor 
 
 ## <a name="problems"></a>Problemen met
 ### <a name="a-common-scenario"></a>Een veelvoorkomend scenario
-Wanneer **QuarantinedAttributeValueMustBeUnique** en **AttributeValueMustBeUnique** synchronisatiefouten optreden, is het gebruikelijk om te zien een **UserPrincipalName** of **Proxyadressen** conflict in Azure AD. U kunt de synchronisatiefouten oplossen door het bijwerken van de conflicterende bronobject vanaf de on-premises. De synchronisatiefout worden opgelost na de volgende synchronisatie. Deze afbeelding geeft bijvoorbeeld aan dat twee gebruikers beschikken over een conflict van hun **UserPrincipalName**. Beide zijn **Joe.J@contoso.com**. De conflicterende objecten in Azure AD in quarantaine zijn geplaatst.
+Wanneer **QuarantinedAttributeValueMustBeUnique** en **AttributeValueMustBeUnique** synchronisatiefouten optreden, is het gebruikelijk om te zien een **UserPrincipalName** of **Proxyadressen** conflict in Azure AD. U kunt de synchronisatiefouten oplossen door het bijwerken van de conflicterende bronobject vanaf de on-premises. De synchronisatiefout worden opgelost na de volgende synchronisatie. Deze afbeelding geeft bijvoorbeeld aan dat twee gebruikers beschikken over een conflict van hun **UserPrincipalName**. Beide zijn **Joe.J\@contoso.com**. De conflicterende objecten in Azure AD in quarantaine zijn geplaatst.
 
 ![Algemeen scenario voor synchronisatie fout vaststellen](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -66,32 +66,34 @@ Volg de stappen van de Azure portal om te beperken de foutdetails voor synchroni
 
 Uitvoeren vanuit de Azure-portal, een paar stappen voor het identificeren van specifieke corrigeerbare scenario's:  
 1.  Controleer de **Diagnose status** kolom. De status wordt aangegeven als er een manier om op te lossen van een synchronisatiefout rechtstreeks uit Azure Active Directory. Een probleemoplossing stroom bestaat die met andere woorden, kan het geval is fout verfijnen en op te lossen mogelijk.
+
 | Status | Wat betekent dit? |
 | ------------------ | -----------------|
 | Niet gestart | U kunt dit proces diagnose nog niet hebt bezocht. Afhankelijk van het diagnostisch resultaat is er een mogelijke manier om op te lossen de synchronisatiefout rechtstreeks vanuit de portal. |
 | Handmatige oplossing vereist | De fout niet aanpassen aan de criteria van de beschikbare oplossingen in de portal. Een van beide conflicterende objecttypen zijn niet-gebruikers, of u al de diagnostische stappen doorlopen en geen oplossing die oplossing is beschikbaar via de portal. In dat laatste geval is een oplossing vanaf de on-premises nog steeds een van de oplossingen. [Meer informatie over on-premises oplossingen](https://support.microsoft.com/help/2647098). | 
 | In afwachting van synchronisatie | Een oplossing is toegepast. De portal wacht op de volgende synchronisatiecyclus om te wissen van de fout. |
+
   >[!IMPORTANT]
   > De statuskolom van de diagnostische worden opnieuw ingesteld na elke synchronisatiecyclus. 
   >
 
-2.  Selecteer de **vaststellen** knop onder de foutdetails. U een aantal vragen beantwoorden en identificeren van de details van de synchronisatie-fout. Antwoorden op de vragen kunt een aanvraag zwevende object identificeren.
+1. Selecteer de **vaststellen** knop onder de foutdetails. U een aantal vragen beantwoorden en identificeren van de details van de synchronisatie-fout. Antwoorden op de vragen kunt een aanvraag zwevende object identificeren.
 
-3.  Als een **sluiten** knop wordt weergegeven aan het einde van de diagnostische gegevens, er is geen snelle correctie beschikbaar is via de portal op basis van uw antwoorden. Raadpleeg de oplossing wordt weergegeven in de laatste stap. Oplossingen van on-premises zijn nog steeds de oplossingen. Selecteer de **sluiten** knop. De status van de huidige synchronisatiefout schakelt over naar de **handmatige oplossing vereist**. De status blijft tijdens de huidige synchronisatiecyclus.
+1. Als een **sluiten** knop wordt weergegeven aan het einde van de diagnostische gegevens, er is geen snelle correctie beschikbaar is via de portal op basis van uw antwoorden. Raadpleeg de oplossing wordt weergegeven in de laatste stap. Oplossingen van on-premises zijn nog steeds de oplossingen. Selecteer de **sluiten** knop. De status van de huidige synchronisatiefout schakelt over naar de **handmatige oplossing vereist**. De status blijft tijdens de huidige synchronisatiecyclus.
 
-4.  Nadat een aanvraag zwevende object wordt geïdentificeerd, kunt u de dubbele kenmerken synchronisatiefouten rechtstreeks vanuit de portal oplossen. Voor het activeren van het proces, selecteer de **op oplossing toepassen** knop. De status van de huidige synchronisatie fout updates voor **in afwachting van synchronisatie**.
+1. Nadat een aanvraag zwevende object wordt geïdentificeerd, kunt u de dubbele kenmerken synchronisatiefouten rechtstreeks vanuit de portal oplossen. Voor het activeren van het proces, selecteer de **op oplossing toepassen** knop. De status van de huidige synchronisatie fout updates voor **in afwachting van synchronisatie**.
 
-5.  Na de volgende synchronisatiecyclus, moet de fout worden verwijderd uit de lijst.
+1. Na de volgende synchronisatiecyclus, moet de fout worden verwijderd uit de lijst.
 
 ## <a name="how-to-answer-the-diagnosis-questions"></a>Hoe u de diagnose vragen beantwoorden 
 ### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>Bestaat de gebruiker in uw on-premises Active Directory?
 
 Deze vraag wordt geprobeerd om de bronobject van de bestaande gebruiker van on-premises Active Directory te identificeren.  
-1.  Controleer of Azure Active Directory een object met de opgegeven heeft **UserPrincipalName**. Zo niet, antwoord **Nee**.
-2.  Als dit wel gebeurt, controleert u of het object nog steeds binnen het bereik voor het synchroniseren is.  
-  - Zoeken in de Azure AD-connectorgebied met behulp van de DN-naam.
-  - Als het object is gevonden de **toevoegen in behandeling** status, beantwoorden **Nee**. Azure AD Connect kan geen verbinding met het maken van het object op het juiste Azure AD-object.
-  - Als het object niet wordt gevonden, beantwoorden **Ja**.
+1. Controleer of Azure Active Directory een object met de opgegeven heeft **UserPrincipalName**. Zo niet, antwoord **Nee**.
+2. Als dit wel gebeurt, controleert u of het object nog steeds binnen het bereik voor het synchroniseren is.  
+   - Zoeken in de Azure AD-connectorgebied met behulp van de DN-naam.
+   - Als het object is gevonden de **toevoegen in behandeling** status, beantwoorden **Nee**. Azure AD Connect kan geen verbinding met het maken van het object op het juiste Azure AD-object.
+   - Als het object niet wordt gevonden, beantwoorden **Ja**.
 
 In deze voorbeelden wordt de vraag wordt geprobeerd om te identificeren of **Joe Jackson** nog steeds aanwezig in on-premises Active Directory.
 Voor de **veelvoorkomend scenario**, beide gebruikers **Joe Johnson** en **Joe Jackson** aanwezig zijn in on-premises Active Directory. Er zijn twee verschillende gebruikers in quarantaine geplaatste objecten.
@@ -104,11 +106,11 @@ Voor de **zwevende object scenario**, alleen de één gebruiker **Joe Johnson** 
 
 ### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Horen beide van deze accounts bij dezelfde gebruiker?
 Deze vraag controleert een binnenkomende conflicterende gebruiker en het bestaande gebruikersobject in Azure AD om te zien als ze deel uitmaken van dezelfde gebruiker.  
-1.  De conflicterende object wordt pas gesynchroniseerd met Azure Active Directory. Vergelijk de objecten kenmerken:  
-  - Weergavenaam
-  - User principal name
-  - Object-id
-2.  Als Azure AD om ze te vergelijken is mislukt, controleert u of Active Directory-objecten met de opgegeven heeft **UserPrincipalNames**. Antwoord **Nee** als u beide vinden.
+1. De conflicterende object wordt pas gesynchroniseerd met Azure Active Directory. Vergelijk de objecten kenmerken:  
+   - Weergavenaam
+   - User principal name
+   - Object-id
+2. Als Azure AD om ze te vergelijken is mislukt, controleert u of Active Directory-objecten met de opgegeven heeft **UserPrincipalNames**. Antwoord **Nee** als u beide vinden.
 
 In het volgende voorbeeld wordt de twee objecten deel uitmaken van dezelfde gebruiker **Joe Johnson**.
 

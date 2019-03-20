@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-voorbeeldscript - Log Analytics | Microsoft Docs
-description: Azure PowerShell-voorbeeldscript - Log Analytics
+title: Voorbeeld van Azure PowerShell-Script - logboeken van Azure Monitor | Microsoft Docs
+description: Voorbeeld van Azure PowerShell-Script - logboeken van Azure Monitor
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 615ba2286fc8c3e920e10a4909ed336ec6a30f9d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 11ae92770f712f2e809824d9caf5981f435b25a9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001729"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541516"
 ---
-# <a name="create-a-log-analytics-monitored-vm-with-powershell"></a>Een door Log Analytics bewaakte virtuele machine maken met PowerShell 
+# <a name="create-an-azure-monitor-vm-with-powershell"></a>Een Azure VM-Monitor maken met PowerShell 
 
 Met dit script maakt u een virtuele machine in Azure, installeert u de Log Analytics-agent en registreert u het systeem bij een Log Analytics-werkruimte. Nadat het script is uitgevoerd, is de virtuele machine zichtbaar in Azure Monitor. U moet ook de Log Analytics-werkruimte-id en -werkruimtesleutel bijwerken.
 

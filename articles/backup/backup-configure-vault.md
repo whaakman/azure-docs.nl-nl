@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 3700ffe0a2b0e0d3ec69bce3a11cdc36d28d9145
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 7a1bd6da68b49481429709c7e4fd37dd5c07ae2c
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569107"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200783"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Back-up van Windows-machines met de Azure Backup MARS-agent
 
@@ -43,7 +43,7 @@ Wat u kunt back-up, is afhankelijk van de waarop de agent is geïnstalleerd.
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-- [Informatie over hoe](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) Azure Backup back-ups van Windows-machines met de MARS-agent.
+- [Informatie over hoe](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders) Azure Backup back-ups van Windows-machines met de MARS-agent.
 - [Meer informatie over](backup-architecture.md#architecture-back-up-to-dpmmabs) de back-architectuur van de MARS-agent die wordt uitgevoerd op een secundaire MABS of DPM-server.
 - [Beoordeling](backup-support-matrix-mars-agent.md) wat wordt ondersteund en wat kan een back-up met de MARS-agent.
 - Controleer of u toegang tot internet op de machines die u back wilt-up.
@@ -51,13 +51,21 @@ Wat u kunt back-up, is afhankelijk van de waarop de agent is geïnstalleerd.
 
 ### <a name="verify-internet-access"></a>Controleer of u toegang tot internet
 
-Als uw computer toegang tot internet beperkt heeft, zorgt u ervoor dat firewall-instellingen op de machine of de proxy toestaan deze URL's:
+Als uw computer toegang tot internet beperkt heeft, zorgt u ervoor dat firewall-instellingen op de machine of de proxy toestaan deze URL's en IP-adres:
 
-- www.msftncsi.com
+**URL 's**
+
+- www\.msftncsi.com
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - *.windows.net
+
+**IP-adres**
+
+- 20.190.128.0/18
+- 40.126.0.0/18
+
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
@@ -72,15 +80,20 @@ Een Recovery Services-kluis alle back-ups en herstelpunten die u na verloop van 
 
     ![Een Recovery Services-kluis maken, stap 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-4. Voer bij **Naam** een beschrijvende naam in om de kluis aan te duiden. De naam moet uniek zijn voor het Azure-abonnement. Typ een naam die tussen 2 en 50 tekens bevat. De naam moet beginnen met een letter en mag alleen letters, cijfers en afbreekstreepjes bevatten.
+4. Voer bij **Naam** een beschrijvende naam in om de kluis aan te duiden.
+
+   - De naam moet uniek zijn voor het Azure-abonnement.
+   - 2 en 50 tekens kan bevatten.
+   - Deze moet beginnen met een letter en mag alleen letters, cijfers en afbreekstreepjes bevatten.
 
 5. Selecteer de Azure-abonnement, resourcegroep en geografische regio waarin de kluis moet worden gemaakt. Back-upgegevens wordt verzonden naar de kluis. Klik vervolgens op **Maken**.
 
     ![Een Recovery Services-kluis maken, stap 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-Het kan enige tijd duren om de kluis te maken. Controleer in de portal. Nadat de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Services-kluizen. Als u na enkele minuten kunt u de kluis niet ziet, klikt u op **vernieuwen**.
+   - Het kan even duren voor de kluis is gemaakt.
+   - Houd de statusmeldingen in de rechterbovenhoek van de portal. Als u na enkele minuten kunt u de kluis niet ziet, klikt u op **vernieuwen**.
 
-![Op de knop Vernieuwen klikken](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
+     ![Op de knop Vernieuwen klikken](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
 
 ### <a name="set-storage-redundancy"></a>Opslagredundantie instellen
 
@@ -129,17 +142,17 @@ Download de MARS-agent voor installatie op computers die u back wilt-up.
 
 1. Voer de **MARSagentinstaller.exe** -bestand op computers die u back wilt-up.
 2. In de Wizard Setup van MARS Agent > **installatie-instellingen**, Geef op waar u wilt installeren van de agent en een locatie moet worden gebruikt voor de cache. Klik op **Volgende**.
-    - Azure Backup maakt gebruik van de cache voor het opslaan van gegevens momentopnamen voordat ze worden verzonden naar Azure.
-    - Locatie van de cache moet ruimte ten minste 5% van de grootte van de gegevens die u moet back-up hebben.
+   - Azure Backup maakt gebruik van de cache voor het opslaan van gegevens momentopnamen voordat ze worden verzonden naar Azure.
+   - Locatie van de cache moet ruimte ten minste 5% van de grootte van de gegevens die u moet back-up hebben.
 
-    ![MARS wizard Installatie-instellingen](./media/backup-configure-vault/mars1.png)
+     ![MARS wizard Installatie-instellingen](./media/backup-configure-vault/mars1.png)
 
 2. In **proxyconfiguratie**, opgeven hoe de agent wordt uitgevoerd op de Windows-machine maakt verbinding met het internet. Klik op **Volgende**.
 
-    - Als u een aangepaste proxy opgeven de proxy-instellingen en de referenties indien nodig.
-    - Houd er rekening mee dat de agent toegang hebben tot moet [deze URL's](#verify-internet-access).
+   - Als u een aangepaste proxy opgeven de proxy-instellingen en de referenties indien nodig.
+   - Houd er rekening mee dat de agent toegang hebben tot moet [deze URL's](#verify-internet-access).
 
-    ![Toegang tot internet MARS-wizard](./media/backup-configure-vault/mars2.png)
+     ![Toegang tot internet MARS-wizard](./media/backup-configure-vault/mars2.png)
 
 3. In **installatie** controleert u de controle van vereisten en op **installeren**.
 4. Nadat de agent is geïnstalleerd, klikt u op **doorgaan naar registratie**.

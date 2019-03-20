@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 55407ec1846a0fe2eb037756dc2e97d8b05e7330
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769848"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997300"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snelstart: Kosten verkennen en analyseren met Kostenanalyse
 
@@ -51,7 +51,7 @@ Zie [Toegang tot gegevens toewijzen](assign-access-acm-data.md) voor meer inform
 
 ## <a name="review-costs-in-cost-analysis"></a>Kosten in kostenanalyse beoordelen
 
-Als u uw kosten met kostenanalyse wilt bekijken, navigeert u in de Azure-portal naar **Kostenbeheer + facturering** &gt; **Kostenbeheer**. Selecteer **Bereik: _ScopeName_**, kies een scope en klik vervolgens op **Selecteren**.
+Als u wilt uw kosten in kostenanalyse bekijken, opent u het gewenste bereik in de Azure portal en selecteer **Cost analysis** in het menu. Bijvoorbeeld, gaat u naar **abonnementen**, selecteer een abonnement in de lijst en selecteer vervolgens **Cost analysis** in het menu. Gebruik de **bereik** pill om over te schakelen naar een ander bereik in kostenanalyse. Zie voor meer informatie over bereiken [begrijpen en werk met een bereik](understand-work-scopes.md).
 
 Het bereik dat u selecteert wordt door Cost Management gebruikt om gegevens te bundelen en toegang tot de kostengegevens te beheren. Wanneer u gebruikmaakt van bereiken, moet u geen meervoudige selectie maken. In plaats daarvan selecteert u een groter bereik dat de andere bereiken omvat en filtert u vervolgens wat u wilt. Dit is belangrijk om te begrijpen, omdat bepaalde personen geen toegang mogen hebben tot een bovenliggend bereik waartoe een onderliggend bereik behoort.
 

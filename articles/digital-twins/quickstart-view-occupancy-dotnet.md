@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 12/17/2018
 ms.author: alinast
-ms.openlocfilehash: d2588090ced3e82e63397a416245ca69204f3d87
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: 4c41fbaa00dc3460df3f94433428c448a7b41250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583082"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089693"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snelstart: Beschikbare ruimten zoeken met behulp van Azure Digital Twins
 
@@ -115,8 +115,8 @@ Het sensorvoorbeeld simuleert willekeurige gegevenswaarden voor twee sensoren. D
 1. Bekijk deze opdrachtprompt en de opdrachtprompt voor sensorgegevens naast elkaar.
 
     De ene opdrachtprompt stuurt gesimuleerde gegevens over beweging en koolstofdioxide om de vijf seconden naar Digital Twins. De andere opdrachtprompt leest in realtime de grafiek om beschikbare ruimten met frisse lucht te vinden op basis van willekeurige, gesimuleerde gegevens. Een van deze voorwaarden wordt bijna in realtime weergegeven op basis van de sensorgegevens die de laatste keer zijn verzonden:
-    - Beschikbare ruimten met frisse lucht.
-    - Ruimte bezet of slechte luchtkwaliteit in de ruimte.
+   - Beschikbare ruimten met frisse lucht.
+   - Ruimte bezet of slechte luchtkwaliteit in de ruimte.
 
      ![Beschikbare ruimten met frisse lucht ophalen][3]
 
@@ -132,7 +132,7 @@ In de zelfstudies wordt diep op de code ingegaan. U komt te weten hoe u configur
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Naam | Vervangen door |
+| Name | Vervangen door |
 | --- | --- |
 | YOUR_INSTANCE_NAME | De naam van uw Digital Twins-exemplaar |
 | YOUR_LOCATION | De serverregio waarin het exemplaar wordt gehost |
@@ -149,7 +149,7 @@ In de zelfstudies wordt ook in detail ingegaan op:
 Als u doorgaat naar de zelfstudies, verwijder dan niet de resources die u in deze snelstart hebt gemaakt. Als u niet doorgaat, verwijdert u alle resources die u in deze snelstart hebt gemaakt.
 
 1. Verwijder de map die is gemaakt bij het downloaden van de opslagplaats met voorbeelden.
-1. Selecteer **Alle resources** in het menu aan de linkerkant van de [Azure-portal](http://portal.azure.com). Selecteer vervolgens uw Digital Twins-resource. Selecteer boven aan het deelvenster **Alle resources** de optie **Verwijderen**.
+1. Selecteer **Alle resources** in het menu aan de linkerkant van de [Azure-portal](https://portal.azure.com). Selecteer vervolgens uw Digital Twins-resource. Selecteer boven aan het deelvenster **Alle resources** de optie **Verwijderen**.
 
     > [!TIP]
     > Als u problemen hebt bij het verwijderen van uw Digital Twins-exemplaar, is er een service-update met de oplossing hiervoor beschikbaar. Probeer opnieuw of u het exemplaar kunt verwijderen.

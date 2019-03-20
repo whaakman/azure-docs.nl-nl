@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: b35b069f05f117b227a2edbf5595f2682b7f6e86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416714"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997265"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Documentatie over Backup-Service-infrastructuur
 
@@ -89,17 +89,20 @@ De vereisten zijn onder andere:
 Infrastructuur voor back-up Controller worden back-up van gegevens op aanvraag. De aanbeveling is het back-up van ten minste twee keer een dag en blijf aan de back-ups van maximaal zeven dagen. 
 
 **1811 en meer**
+
 | Omgeving schalen | Geschatte grootte van back-up | Totale hoeveelheid vereiste schijfruimte |
 |-------------------|--------------------------|--------------------------------|
 | 4-16 knooppunten        | 20 GB                    | 280 GB                        |
 | ASDK              | 10 GB                    | 140 GB                        |
 
 **Pre-1811**
+
 | Omgeving schalen | Geschatte grootte van back-up | Totale hoeveelheid vereiste schijfruimte |
 |-------------------|--------------------------|--------------------------------|
 | 4-16 knooppunten, ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>Netwerkvereisten
+
 | Opslaglocatie                                                                 | Details                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SMB-bestandsshare die wordt gehost op een opslagapparaat binnen de omgeving vertrouwd netwerk | Poort 445 is vereist als de Azure Stack-exemplaar bevindt zich in een omgeving met firewall. Infrastructuur voor back-up Controller initiëren een verbinding met de SMB-bestandsserver via poort 445. |
@@ -131,6 +134,7 @@ Het certificaat dat wordt gebruikt tijdens het cloudherstel met de persoonlijke 
 Rekening houden deze limieten bij het plannen, implementeren en uitvoeren van uw Microsoft Azure Stack-instanties. De volgende tabel beschrijft deze limieten.
 
 ### <a name="infrastructure-backup-limits"></a>Limieten voor back-up van infrastructuur
+
 | Limiet-id                                                 | Limiet        | Opmerkingen                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Type back-up                                                      | Alleen volledige    | Infrastructuur voor back-up-Controller ondersteunt alleen volledige back-ups. Incrementele back-ups worden niet ondersteund.                                          |

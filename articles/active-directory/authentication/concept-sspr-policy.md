@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5639984c6eef7d1c081fd52061988d3535c00fa
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 6888a8787856ef23c459c7ffc18f8e2b4de17f6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576987"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901132"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en beperkingen in Azure Active Directory
 
@@ -36,19 +36,19 @@ Het beleid voor twee-gate vereist twee soorten verificatiegegevens, zoals een **
   * Factureringsbeheerder
   * Laag1-ondersteuning voor partner
   * Laag2-ondersteuning voor partner
-  * Exchange Service-beheerder
-  * Lync Service-beheerder
-  * Beheerder van gebruikersaccounts
+  * Exchange-beheerder
+  * Skype voor Bedrijven-beheerder
+  * Gebruikersbeheerder
   * Schrijvers van mappen
   * Globale beheerder of bedrijfsbeheerder
-  * SharePoint-servicebeheerder
+  * SharePoint-beheerder
   * Beheerder voor naleving
   * Toepassingsbeheerder
   * Beveiligingsbeheerder
   * Beheerder met bevoorrechte rol
-  * Microsoft Intune-servicebeheerder
+  * Intune-beheerder
   * Servicebeheerder voor toepassingsproxy
-  * CRM-servicebeheerder
+  * Dynamics 365-beheerder
   * Power BI-servicebeheerder
   * Verificatiebeheerder
   * Beheerder met bevoorrechte verificatie
@@ -81,7 +81,7 @@ De volgende tabel beschrijft de instellingen voor het beleid toegepast op gebrui
 
 | Eigenschap | Vereisten |
 | --- | --- |
-| Toegestane tekens |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
+| Toegestane tekens |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
 | Zijn niet toegestaan |<ul><li>Unicode-tekens.</li><li>Spaties.</li><li> Mag een punt-teken niet bevatten "." direct vóór de '\@ \" symbool ".</li></ul> |
 | Wachtwoordbeperkingen |<ul><li>Ten minste 8 tekens en maximaal 16 tekens bestaan.</li><li>Moet drie van vier van de volgende opties:<ul><li>Kleine letters.</li><li>Hoofdletters.</li><li>Cijfers (0-9).</li><li>De symbolen (Zie de vorige wachtwoordbeperkingen).</li></ul></li></ul> |
 | Duur van de wachtwoord-vervaldatum |<ul><li>Standaardwaarde: **90** dagen.</li><li>De waarde kan worden geconfigureerd met behulp van de `Set-MsolPasswordPolicy` cmdlet uit de Azure Active Directory-Module voor Windows PowerShell.</li></ul> |
@@ -110,7 +110,7 @@ Als u wilt beginnen, moet u [downloaden en installeren van de Azure AD PowerShel
 1. Verbinding maken met Windows PowerShell met behulp van de administrator-referenties van uw bedrijf.
 1. Voer een van de volgende opdrachten:
 
-   * Als u wilt zien als het wachtwoord van een enkele gebruiker is ingesteld op nooit verlopen, kunt u de volgende cmdlet uitvoeren met behulp van de UPN (bijvoorbeeld *aprilr@contoso.onmicrosoft.com*) of de gebruikers-ID van de gebruiker die u wilt controleren: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * Als u wilt zien als het wachtwoord van een enkele gebruiker is ingesteld op nooit verlopen, kunt u de volgende cmdlet uitvoeren met behulp van de UPN (bijvoorbeeld *aprilr\@contoso.onmicrosoft.com*) of de gebruikers-ID van de gebruiker die u wilt controleren: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Om te zien de **wachtwoord verloopt nooit** instellen voor alle gebruikers, voert u de volgende cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>Stel een wachtwoord verlopen

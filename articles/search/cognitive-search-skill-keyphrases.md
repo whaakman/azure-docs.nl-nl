@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f3c8fd3043f20ab34dda1f4e3762e3ebc4bb6ae1
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 422b97414142c36669ed449a21c6045fd774581a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749882"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902651"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Sleutel vindt er sleuteltermextractie plaats cognitieve vaardigheden
 
@@ -38,12 +38,14 @@ De maximale grootte van een record moet tussen de 50.000 tekens wordt gemeten do
 ## <a name="skill-parameters"></a>Kwalificatie parameters
 
 Parameters zijn hoofdlettergevoelig.
+
 | Invoer                | Description |
 |---------------------|-------------|
 | defaultLanguageCode | (Optioneel) De taalcode om toe te passen op documenten die taal niet expliciet opgeven.  Als de standaardtaalcode niet opgegeven, Engels is (en) gebruikt als de standaard taal. <br/> Zie [volledige lijst met ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
 | maxKeyPhraseCount   | (Optioneel) Het maximum aantal sleuteltermen te produceren. |
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
+
 | Invoer     | Description |
 |--------------------|-------------|
 | tekst | De tekst die moet worden geanalyseerd.|

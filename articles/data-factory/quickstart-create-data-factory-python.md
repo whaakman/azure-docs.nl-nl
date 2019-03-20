@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: fcef143f48bc9e7864fe69900e3c9002fd597fb5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 264a1200ce78d85181650de716f9898033834bc0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001865"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549830"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Een data factory en pijplijn maken met behulp van Python
 
@@ -45,7 +45,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     John|Doe
     Jane|Doe
     ```
-2.  Gebruik hulpprogramma's zoals [Azure Opslagverkenner](http://storageexplorer.com/) om de container **adfv2tutorial** te maken, en de map **input** in de container. Vervolgens kunt u het bestand **input.txt** uploaden naar de map **input**.
+2.  Gebruik hulpprogramma's zoals [Azure Opslagverkenner](https://storageexplorer.com/) om de container **adfv2tutorial** te maken, en de map **input** in de container. Vervolgens kunt u het bestand **input.txt** uploaden naar de map **input**.
 
 ## <a name="install-the-python-package"></a>Het Python-pakket installeren
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 247d09e58ded2de12fb7cc6b5a036b695e715077
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0ac62a99f5735647f67917d441645e30444b3818
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298650"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005675"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>SSH-sleutels gebruiken met Windows op Azure
 
@@ -37,9 +37,9 @@ Windows-computers altijd geen vergelijkbare SSH opdrachten die zijn geïnstallee
 
 Andere algemene Windows SSH-clients die kunt u lokaal installeren zijn opgenomen in de volgende pakketten:
 
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+* [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [GIT voor Windows](https://git-for-windows.github.io/)
-* [MobaXterm](http://mobaxterm.mobatek.net/)
+* [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
 U kunt ook de SSH-hulpprogramma's beschikbaar in Bash in de [Azure Cloud Shell](../../cloud-shell/overview.md). 
@@ -62,7 +62,7 @@ Zie voor meer achtergrondinformatie en informatie, de [snelle](mac-create-ssh-ke
 
 ### <a name="create-ssh-keys-with-puttygen"></a>SSH-sleutels met PuTTYgen maken
 
-Als u liever een GUI-hulpprogramma gebruiken om te maken van SSH-sleutels, kunt u de serversleutelgenerator PuTTYgen, opgenomen in de [PuTTY downloadpakket](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
+Als u liever een GUI-hulpprogramma gebruiken om te maken van SSH-sleutels, kunt u de serversleutelgenerator PuTTYgen, opgenomen in de [PuTTY downloadpakket](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
 
 Een SSH-RSA-sleutelpaar maken met PuTTYgen:
 
@@ -110,7 +110,7 @@ Als de virtuele machine wordt met behulp van het beleid voor just-in-time-toegan
 
 ### <a name="connect-with-putty"></a>Verbinding maken met PuTTY
 
-Als u hebt geïnstalleerd het [PuTTY downloadpakket](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) en eerder gegenereerde een bestand PuTTY persoonlijke sleutel (.ppk), u kunt verbinding maken met een Linux-VM met PuTTY.
+Als u hebt geïnstalleerd het [PuTTY downloadpakket](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) en eerder gegenereerde een bestand PuTTY persoonlijke sleutel (.ppk), u kunt verbinding maken met een Linux-VM met PuTTY.
 
 1. Start PuTTy.
 
