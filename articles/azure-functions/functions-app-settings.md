@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 8b364e2a51db8ee8d97fc981ac3df0d1fa5650ef
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d49a6f88f3475359a74be74bf528fb5699dce632
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037069"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860649"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Naslaginformatie over App-instellingen voor Azure Functions
 
@@ -122,7 +122,7 @@ De versie van de Functions-runtime voor gebruik in deze functie-app. Een tilde m
 
 ## <a name="functionsworkerruntime"></a>FUNCTIES\_WORKER\_RUNTIME
 
-De werknemer language runtime worden geladen in de functie-app.  Dit komt overeen met de taal die wordt gebruikt in uw toepassing (bijvoorbeeld ' dotnet'). Voor functies in meerdere talen moet u deze publiceren naar meerdere apps, elk met een overeenkomende waarde van de worker-runtime.  Geldige waarden zijn `dotnet` (C#/F#), `node` (JavaScript), en `java` (Java).
+De werknemer language runtime worden geladen in de functie-app.  Dit komt overeen met de taal die wordt gebruikt in uw toepassing (bijvoorbeeld ' dotnet'). Voor functies in meerdere talen moet u deze publiceren naar meerdere apps, elk met een overeenkomende waarde van de worker-runtime.  Geldige waarden zijn `dotnet` (C#/F#), `node` (JavaScript/TypeScript) `java` (Java), en `python` (Python).
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|

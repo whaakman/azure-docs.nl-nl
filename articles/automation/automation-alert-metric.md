@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7932d057a348957d369ba325044055ac8dfe3428
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185855"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170187"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Runbooks met metrische waarschuwingen controleren
 
@@ -36,6 +36,9 @@ Navigeer in de Azure-portal naar uw Automation-Account. Onder **bewaking**, sele
 2. De **signaallogica configureren** pagina is waar u de logica definiëren die de waarschuwing wordt geactiveerd. Onder de historische grafiek, u twee dimensies krijgt **Runbooknaam** en **Status**. Dimensies zijn verschillende eigenschappen voor metrische gegevens die kunnen worden gebruikt om resultaten te filteren. Voor **Runbooknaam**, selecteer het runbook dat u wilt waarschuwen op of laat leeg voor de waarschuwing op alle runbooks. Voor **Status**, selecteert u een status in de vervolgkeuzelijst die u wilt controleren. De runbook-naam en -status waarden die worden weergegeven in de vervolgkeuzelijst worden alleen voor taken die zijn uitgevoerd in de afgelopen week.
 
    Als u wilt een waarschuwing op basis van een status- of -runbook dat wordt niet in de vervolgkeuzelijst weergegeven, klikt u op de **\+** naast de dimensie. Deze actie wordt een dialoogvenster waarin u kunt invoeren in een aangepaste waarde, die nog niet is verzonden voor deze dimensie onlangs geopend. Als u een waarde die niet bestaat voor een eigenschap die de waarschuwing wordt niet worden geactiveerd.
+
+   > [!NOTE]
+   > Als u niet van toepassing is een naam op voor de **RunbookName** dimensie, als er eventuele runbooks die voldoen aan de criteria status en die verborgen systeemrunbooks bevat, ontvangt u een waarschuwing.
 
 3. Onder **waarschuwen logische**, definiëren de voorwaarde en drempelwaarde voor de waarschuwing. Een Preview-versie van de voorwaarde die is gedefinieerd wordt weergegeven onder.
 

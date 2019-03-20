@@ -4,14 +4,14 @@ description: Dit artikel wordt beschreven hoe toevoegen en beheren van VMware vC
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 6c00ed6f3bec1e16b2a3cb8588335c1741a92883
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: efbcc0143570b3d379cf392c170f599fcc0176d4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855126"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Beheren van VMware vCenter-server
 
@@ -26,7 +26,7 @@ Site Recovery moet toegang hebben tot de VMware voor de processerver voor het au
 2. Open de lancering van de cspsconfigtool.exe met behulp van de snelkoppeling op het bureaublad.
 3. Klik op **-Account toevoegen** op de **Account beheren** tabblad.
 
-  ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
+   ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
 1. Geef de accountgegevens en klikt u op **OK** toe te voegen.  Het account moet hebben de bevoegdheden in de volgende tabel samengevat. 
 
 Het duurt ongeveer 15 minuten voor de accountgegevens van worden gesynchroniseerd met de Site Recovery-service.
@@ -42,7 +42,7 @@ Het duurt ongeveer 15 minuten voor de accountgegevens van worden gesynchroniseer
 
 ## <a name="add-vmware-server-to-the-vault"></a>VMware-server toevoegen aan de kluis
 
-1. Open de kluis op de Azure-portal > **Site Recovery-infrastructuur** > **Configuration servers**, en opent u de configuratieserver.
+1. Open uw kluis in Azure portal > **Site Recovery-infrastructuur** > **Configuration servers**, en opent u de configuratieserver.
 2. Op de **Details** pagina, klikt u op **+ vCenter**.
 
 [!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
@@ -54,14 +54,14 @@ De referenties waarmee verbinding met de vCenter-server of de ESXi-host als volg
 1. Meld u aan bij de configuratieserver en start de cspsconfigtool.exe vanaf het bureaublad.
 2. Klik op **-Account toevoegen** op de **Account beheren** tabblad.
 
-  ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
+   ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
 3. Geef de nieuwe accountgegevens en klikt u op **OK** toe te voegen. Het account moet hebben de bevoegdheden die zijn vermeld [hierboven](#account-permissions).
 4. Open de kluis op de Azure portal > **Site Recovery-infrastructuur** > **Configuration servers**, en opent u de configuratieserver.
 5. In de **Details** pagina, klikt u op **Server vernieuwen**.
 6. Nadat de Server vernieuwen-taak is voltooid, selecteert u de vCenter-Server, om te openen van de vCenter **samenvatting** pagina.
 7. Selecteer het zojuist toegevoegde account in de **vCenter server/vSphere-hostaccount** veld en klikt u op **opslaan**.
 
-    ![wijzigen-account](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
+   ![modify-account](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
 
 ## <a name="delete-a-vcenter-server"></a>Een vCenter-server verwijderen
 
@@ -69,7 +69,53 @@ De referenties waarmee verbinding met de vCenter-server of de ESXi-host als volg
 2. Op de **Details** pagina, selecteert u de vCenter-server.
 3. Klik op de **verwijderen** knop.
 
-  ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
+   ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
+
+## <a name="modify-the-vcenter-ip-address-and-port"></a>De vCenter-IP-adres en poort wijzigen
+
+1. Meld u aan bij Azure Portal.
+2. Navigeer naar **Recovery Services-kluis** > **Site Recovery-infrastructuur** > **configuratieservers**.
+3. Klik op de configuratieserver het vCenter is toegewezen aan.
+4. In de **vCenter-servers** sectie, klikt u op het vCenter dat u wilt wijzigen.
+5. Bijwerken van de IP-adres en poort van de vCenter-in de desbetreffende velden op de pagina van de vCenter-overzicht, en sla uw wijzigingen op.
+
+   ![add_ip_new_vcenter](media/vmware-azure-manage-vcenter/add-ip.png)
+
+6. Wijzigingen van kracht, wacht u 15 minuten of [vernieuwen van de configuratieserver](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
+
+## <a name="migrate-all-protected-virtual-machines-to-a-new-vcenter"></a>Alle beveiligde virtuele machines migreren naar een nieuwe vCenter
+
+Als u wilt migreren alle virtuele machines met de vCenter-nieuwe, Voeg een ander vCenter-account niet. Dit kan leiden tot er zijn dubbele vermeldingen. Alleen het IP-adres van de vCenter-nieuwe bijwerken:
+
+1. Meld u aan bij Azure Portal.
+2. Navigeer naar **Recovery Services-kluis** > **Site Recovery-infrastructuur** > **configuratieservers**.
+3. Klik op de configuratieserver de oude vCenter is toegewezen aan.
+4. In de **vCenter-servers** sectie, klikt u op het vCenter dat u van plan bent om te migreren van.
+5. Bijgewerkt op de pagina van de vCenter-overzicht, het IP-adres van de nieuwe vCenter in het veld **vCenter server/vSphere-hostnaam of IP-adres**. Sla uw wijzigingen op.
+
+Als het IP-adres wordt bijgewerkt, kan Site Recovery-onderdelen wordt gestart detectie-informatie van virtuele machines van de nieuwe vCenter ontvangen. Dit heeft geen gevolgen voor de voortdurende replicatie-activiteiten.
+
+## <a name="migrate-few-protected-virtual-machines-to-a-new-vcenter"></a>Aantal beveiligde virtuele machines migreren naar een nieuwe vCenter
 
 > [!NOTE]
-Als u wijzigen van de vCenter-IP-adres, FQDN-naam of de poort wilt, moet u de vCenter-server verwijderen en opnieuw toevoegen aan de portal.
+> In deze sectie is van toepassing alleen wanneer u migreert enkele van uw beveiligde virtuele machines naar een nieuwe vCenter. Als u wilt dat een nieuwe set van virtuele machines beschermen tegen een nieuwe vCenter [nieuwe details voor vCenter toevoegen aan de configuratieserver](#add-vmware-server-to-the-vault) en beginnen met  **[beveiliging inschakelen](vmware-azure-tutorial.md#enable-replication)**.
+
+Een paar virtuele machines verplaatsen naar een nieuwe vCenter:
+
+1. [De details van de nieuwe vCenter toevoegen aan de configuratieserver](#add-vmware-server-to-the-vault).
+2. [Schakel de replicatie van de virtuele machines](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) u van plan bent om te migreren.
+3. Voltooi de migratie van de geselecteerde virtuele machines met de vCenter-nieuwe.
+4. Nu beveiligen gemigreerde virtuele machines door [de nieuwe vCenter selecteren wanneer u beveiliging inschakelt](vmware-azure-tutorial.md#enable-replication).
+
+> [!TIP]
+> Als het aantal virtuele machines gemigreerd **hogere** dat het aantal virtuele machines die zijn opgeslagen in de oude vCenter, het IP-adres van de nieuwe vCenter met behulp van de instructies update [hier](#modify-vcenter-ip-address-port). Voor het aantal virtuele machines die worden bewaard op de oude vCenter [replicatie uitschakelen](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [nieuwe details voor vCenter toevoegen aan de configuratieserver](#add-vmware-server-to-the-vault), en start  **[beveiliging inschakelen](vmware-azure-tutorial.md#enable-replication)**.
+
+## <a name="frequently-asked-questions"></a>Veelgestelde vragen
+
+1. Als beveiligde virtuele machines van één ESXi-host naar een andere worden verplaatst, is dit van invloed op replicatie?
+
+    Nee, dit is niet van invloed op de doorlopende replicatie. Echter [ervoor te zorgen voor het implementeren van de hoofddoelserver met voldoende machtigingen](vmware-azure-reprotect.md#deploy-a-separate-master-target-server)
+
+2. Wat zijn de poortnummers die wordt gebruikt om te voor communicatie tussen vCenter en andere Site Recovery onderdelen?
+
+    De standaardpoort is 443. Configuratieserver wordt toegang tot informatie over de vCenter/vSphere-host via deze poort. Als u deze gegevens bijwerken wilt, klikt u op [hier](#modify-the-vcenter-ip-address-and-port).

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 627275855f231f5a4336075df3864448325127f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211866"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Zelfstudie: Azure Active Directory-integratie met Palo Alto Networks Captive Portal
 
@@ -105,12 +105,12 @@ Schakel eerst in de Azure-portal Azure AD-eenmalige aanmelding in:
 
     ![Deelvenster Palo Alto Networks Captive Portal Standaard SAML-configuratie](common/idp-intiated.png)
 
-    1. Voer bij **Id** een URL in met het patroon `https://<customer_firewall_host_name>/SAML20/SP`.
+   1. Voer bij **Id** een URL in met het patroon `https://<customer_firewall_host_name>/SAML20/SP`.
 
-    2. Voer bij **Antwoord-URL** een URL in met het patroon `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
+   2. Voer bij **Antwoord-URL** een URL in met het patroon `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
-    > [!NOTE]
-    > Werk de plaatsaanduidingen in deze stap bij met de werkelijke warden voor de id en antwoord-URL's. Neem contact op met het [ondersteuningsteam van Palo Alto Networks Captive Portal](https://support.paloaltonetworks.com/support) om de werkelijke waarden te verkrijgen.
+      > [!NOTE]
+      > Werk de plaatsaanduidingen in deze stap bij met de werkelijke warden voor de id en antwoord-URL's. Neem contact op met het [ondersteuningsteam van Palo Alto Networks Captive Portal](https://support.paloaltonetworks.com/support) om de werkelijke waarden te verkrijgen.
 
 5. Selecteer **Downloaden** in de sectie **SAML-handtekeningcertificaat** naast **XML-bestand met federatieve metagegevens**. Sla het gedownloade bestand op uw computer op.
 
@@ -158,7 +158,7 @@ Maak vervolgens een testgebruiker met de naam *Britta Simon* in de Azure-portal:
 
     1. Voer **BrittaSimon** in bij **Naam**.
   
-    2. Voer **BrittaSimon@\<domein_van_uw_bedrijf\>** in bij **Gebruikersnaam**. Bijvoorbeeld **BrittaSimon@contoso.com**.
+    2. Voor **gebruikersnaam**, voer **BrittaSimon\@\<your_company_domain\>**. Bijvoorbeeld, **BrittaSimon\@contoso.com**.
 
     3. Voer bij **Wachtwoord** een wachtwoord in. Wij raden u aan het wachtwoord dat u invoert te noteren. U kunt het selectievakje **Wachtwoord weergeven** inschakelen om het wachtwoord weer te geven.
 

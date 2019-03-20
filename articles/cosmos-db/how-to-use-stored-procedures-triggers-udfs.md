@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/08/2018
 ms.author: mjbrown
-ms.openlocfilehash: 374bc040cf43f89899bbe1fc5b0835cff187ec9b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: d3ab0f78cc59c94a95aac6c067ad185476502f6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037596"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998611"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies registreren en gebruiken in Azure Cosmos DB
 
-De SQL-API in Azure Cosmos DB biedt ondersteuning voor het registreren en aanroepen van opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies (UDF's) die zijn geschreven in JavaScript. U kunt de opgeslagen procedures registreren en aanroepen met de [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md) of [Python](sql-api-sdk-python.md) SDK's voor de SQL-API. Als u een of meer opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies hebt gedefinieerd, kunt u deze laden en weergeven in [Azure Portal](https://portal.azure.com/) met behulp van Data Explorer.
+De SQL-API in Azure Cosmos DB biedt ondersteuning voor het registreren en aanroepen van opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies (UDF's) die zijn geschreven in JavaScript. U kunt de SQL-API [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md), of [Python](sql-api-sdk-python.md) SDK's voor het registreren en aanroepen van de opgeslagen procedures. Als u een of meer opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies hebt gedefinieerd, kunt u deze laden en weergeven in [Azure Portal](https://portal.azure.com/) met behulp van Data Explorer.
 
 ## <a id="stored-procedures"></a>Opgeslagen procedures uitvoeren
 
-Opgeslagen procedures worden geschreven met behulp van JavaScript. U kunt er items in een Azure Cosmos-container mee maken, bijwerken, lezen en verwijderen en query's op items uitvoeren. Voor meer informatie over het schrijven van opgeslagen procedures in Azure Cosmos DB, raadpleegt u het artikel over het [schrijven van opgeslagen procedures in Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures).
+Opgeslagen procedures worden geschreven met behulp van JavaScript. U kunt er items in een Azure Cosmos-container mee maken, bijwerken, lezen en verwijderen en query's op items uitvoeren. Zie voor meer informatie over het schrijven van opgeslagen procedures in Azure Cosmos DB [over het schrijven van opgeslagen procedures in Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) artikel.
 
 De volgende voorbeelden laten zien hoe u een opgeslagen procedure registreert en aanroept met behulp van de Azure Cosmos DB-SDK's. Raadpleeg [Een document maken](how-to-write-stored-procedures-triggers-udfs.md#create-an-item) als de bron voor deze opgeslagen procedure is opgeslagen als `spCreateToDoItem.js`.
 
@@ -423,7 +423,7 @@ De volgende voorbeelden laten zien hoe u een door de gebruiker gedefinieerde fun
 De volgende code laat zien hoe u een door de gebruiker gedefinieerde functie registreert met de .NET SDK:
 
 ```csharp
-string udfId = "udfTax";
+string udfId = "Tax";
 var udfTax = new UserDefinedFunction
 {
     Id = udfId,
@@ -439,7 +439,7 @@ De volgende code laat zien hoe u een door de gebruiker gedefinieerde functie aan
 
 ```csharp
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
-var results = client.CreateDocumentQuery<dynamic>(containerUri, "SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000"));
+var results = client.CreateDocumentQuery<dynamic>(containerUri, "SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000"));
 
 foreach (var result in results)
 {
@@ -453,7 +453,7 @@ De volgende code laat zien hoe u een door de gebruiker gedefinieerde functie reg
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-String udfId = "udfTax";
+String udfId = "Tax";
 UserDefinedFunction udf = new UserDefinedFunction();
 udf.setId(udfId);
 udf.setBody(new String(Files.readAllBytes(Paths.get(String.format("..\\js\\%s.js", udfId)))));
@@ -465,7 +465,7 @@ De volgende code laat zien hoe u een door de gebruiker gedefinieerde functie aan
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-Observable<FeedResponse<Document>> queryObservable = client.queryDocuments(containerLink, "SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000", new FeedOptions());
+Observable<FeedResponse<Document>> queryObservable = client.queryDocuments(containerLink, "SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000", new FeedOptions());
 final CountDownLatch completionLatch = new CountDownLatch(1);
 queryObservable.subscribe(
         queryResultPage -> {
@@ -491,7 +491,7 @@ De volgende code laat zien hoe u een door de gebruiker gedefinieerde functie reg
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
-const udfId = "udfTax";
+const udfId = "Tax";
 await container.userDefinedFunctions.create({
     id: udfId,
     body: require(`../js/${udfId}`)
@@ -501,7 +501,7 @@ De volgende code laat zien hoe u een door de gebruiker gedefinieerde functie aan
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
-const sql = "SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000";
+const sql = "SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000";
 const {result} = await container.items.query(sql).toArray();
 ```
 
@@ -514,7 +514,7 @@ with open('../js/udfTax.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 udf_definition = {
-            'id': 'trgPostUpdateMetadata',
+            'id': 'Tax',
             'serverScript': file_contents,
         }
 udf = client.CreateUserDefinedFunction(container_link, udf_definition)
@@ -524,7 +524,7 @@ De volgende code laat zien hoe u een door de gebruiker gedefinieerde functie aan
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
-results = list(client.QueryItems(container_link, 'SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000'))
+results = list(client.QueryItems(container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

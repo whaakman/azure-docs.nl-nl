@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747591"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011146"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple als back-updoel met Backup Exec
 
@@ -94,6 +94,7 @@ De volgende tabellen tonen de initiële richtlijnen voor apparaat-model-naar-arc
 |------------------------|---------------|-----------------|
 | Lokale opslagcapaciteit | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Cloudopslagcapaciteit | &gt; 200 TiB\* | &gt; 500 TiB\* |
+
 \* Maximale grootte wordt ervan uitgegaan dat er geen gegevensontdubbeling of compressie.
 
 **StorSimple-capaciteiten voor primaire en secundaire back-ups**
@@ -206,16 +207,16 @@ Instellen van uw oplossing op basis van de richtlijnen in de volgende secties.
 
 ### <a name="operating-system-best-practices"></a>Aanbevolen procedures voor besturingssysteem
 
--   Windows Server-versleuteling en Ontdubbeling voor het NTFS-bestandssysteem uitgeschakeld.
--   Uitschakelen van Windows Server-defragmentatie op de StorSimple-volumes.
--   Indexeren van Windows Server op het StorSimple-volumes uitschakelen.
--   Voer een antivirusprogramma uit op de bronhost (niet op basis van de StorSimple-volumes).
--   De standaardwaarde uitschakelen [onderhoud van Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Taakbeheer. Dit op een van de volgende manieren doen:
-   - De configurator onderhoud in Windows Taakplanner uitschakelen.
-   - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) van Windows Sysinternals. Nadat u PsExec hebt gedownload, voert u Azure PowerShell als beheerder, en typ:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Windows Server-versleuteling en Ontdubbeling voor het NTFS-bestandssysteem uitgeschakeld.
+- Uitschakelen van Windows Server-defragmentatie op de StorSimple-volumes.
+- Indexeren van Windows Server op het StorSimple-volumes uitschakelen.
+- Voer een antivirusprogramma uit op de bronhost (niet op basis van de StorSimple-volumes).
+- De standaardwaarde uitschakelen [onderhoud van Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Taakbeheer. Dit op een van de volgende manieren doen:
+  - De configurator onderhoud in Windows Taakplanner uitschakelen.
+  - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) van Windows Sysinternals. Nadat u PsExec hebt gedownload, voert u Azure PowerShell als beheerder, en typ:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>Aanbevolen procedures voor StorSimple
 
@@ -259,6 +260,7 @@ Op basis van de voorgaande veronderstellingen, maak een 26-TiB StorSimple gelaag
 | Jaarlijks volledige | 1  | 10 | 10 |
 | Algemene vereisten |   | 38 |   |
 | Uitbreiding van uw quotum  | 4  |   | 42 totale algemene vereiste  |
+
 \* De algemene vermenigvuldiger is het aantal exemplaren dat u wilt beveiligen en te behouden om te voldoen aan de vereisten van uw back-upbeleid.
 
 ## <a name="set-up-backup-exec-storage"></a>Back-up Exec opslag instellen
@@ -312,7 +314,7 @@ Hier volgt een voorbeeld van een algemene rotatieschema vier weken, maandelijkse
 |---|---|---|
 | Wekelijks (weken 1-4) | zaterdag | Monday-Friday |
 | Maandelijks  | zaterdag  |   |
-| Per jaar | zaterdag  |   |   |
+| Per jaar | zaterdag  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>StorSimple-volumes toewijzen aan een back-uptaak Backup Exec
@@ -373,6 +375,7 @@ De volgende tabel laat zien hoe het instellen van back-ups uit te voeren op de l
 | Maandelijks volledige |StorSimple-schijf (langlopende) | 1 | 12 | 12 |
 | Jaarlijks volledige |StorSimple-schijf (langlopende) | 1 | 1 | 1 |
 |Vereiste grootte van algemene volumes |  |  |  | 18*|
+
 \* Totale capaciteit omvat 17 TiB van StorSimple-schijven en 1 TiB aan lokale RAID-volume.
 
 
@@ -385,7 +388,7 @@ De volgende tabel laat zien hoe het instellen van back-ups uit te voeren op de l
 | Week 3 | StorSimple weken 2-4 |   |   |   |   |   |
 | Week 4 | StorSimple weken 2-4 |   |   |   |   |   |
 | Maandelijks | Maandelijks StorSimple |   |   |   |   |   |
-| Per jaar | StorSimple jaarlijks  |   |   |   |   |   |   |
+| Per jaar | StorSimple jaarlijks  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>StorSimple-volumes toewijzen aan een archief Exec back-up en Ontdubbeling van taak
@@ -445,15 +448,15 @@ De volgende sectie wordt beschreven hoe u een korte script om te starten en verw
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Om te starten of een cloudmomentopname verwijderen
 
-1.  [Installeer Azure PowerShell](/powershell/azure/overview).
+1. [Installeer Azure PowerShell](/powershell/azure/overview).
 2. Downloaden en installeren [beheren CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell-script.
 3. Voer op de server waarop het script wordt uitgevoerd, PowerShell als beheerder. Zorg ervoor dat u het script uitgevoerd `-WhatIf $true` om te zien wat het script verandert maakt. Nadat de validatie voltooid is, doorgeven `-WhatIf $false`. Voer de onderstaande opdracht:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
-4.  Het script toevoegen aan uw back-uptaak in Backup Exec door het bewerken van uw back-up Exec taak options vooraf verwerken en na het verwerken van opdrachten.
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. Het script toevoegen aan uw back-uptaak in Backup Exec door het bewerken van uw back-up Exec taak options vooraf verwerken en na het verwerken van opdrachten.
 
-    ![Back-up Exec-console, back-upopties, tabblad vóór en na verwerking opdrachten](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
+   ![Back-up Exec-console, back-upopties, tabblad vóór en na verwerking opdrachten](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
 > [!NOTE]
 > Het is raadzaam dat u uw back-upbeleid van StorSimple cloud-momentopname als een na verwerking script aan het einde van uw dagelijkse back-uptaak uitvoeren. Voor meer informatie over hoe u het back-up en herstellen van uw back-uptoepassing omgeving om te voldoen aan de RPO en de RTO, neem contact op met uw back-architect.

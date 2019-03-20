@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2e281896d45ada8010f24a1f18265a8cdd523d31
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696980"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855401"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Resources vergrendelen in Azure blauwdrukken begrijpen
 
-Het maken van consistente testomgevingen op schaal is alleen echt nuttig zijn als er is een mechanisme om dat consistentie te garanderen. In dit artikel wordt uitgelegd hoe in Azure blauwdrukken resource vergrendelen werkt.
+Het maken van consistente testomgevingen op schaal is alleen echt nuttig zijn als er is een mechanisme om dat consistentie te garanderen. In dit artikel wordt uitgelegd hoe in Azure blauwdrukken resource vergrendelen werkt. Voor een voorbeeld van de resource vergrendelen en de toepassing van _weigeren toewijzingen_, Zie de [beveiligen van nieuwe resources](../tutorials/protect-new-resources.md) zelfstudie.
 
 ## <a name="locking-modes-and-states"></a>Vergrendeling modi en statussen
 
@@ -58,8 +58,9 @@ Een RBAC [weigeren toewijzingen](../../../role-based-access-control/deny-assignm
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [levenscyclus van een blauwdruk](lifecycle.md)
-- Informatie over hoe u [statische en dynamische parameters](parameters.md) gebruikt
-- Meer informatie over hoe u de [blauwdrukvolgorde](sequencing-order.md) aanpast
-- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](../how-to/update-existing-assignments.md)
-- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md)
+- Ga als volgt de [nieuwe resources beveiligen](../tutorials/protect-new-resources.md) zelfstudie.
+- Meer informatie over de [blauwdruk levenscyclus](lifecycle.md).
+- Meer informatie over het gebruik van [statische en dynamische parameters](parameters.md).
+- Meer informatie over het aanpassen van de [blauwdruk volgorde](sequencing-order.md).
+- Meer informatie over het [bijwerken, bestaande toewijzingen](../how-to/update-existing-assignments.md).
+- Problemen oplossen bij het toewijzen van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md).

@@ -3,8 +3,8 @@ title: bestand opnemen
 description: bestand opnemen
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,16 +12,16 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/19/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 167fccd8e0546bc8f5ac1b24489cae68cc14191f
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 2b9d696ca896d0c8f0801f055000b9763d65d7ff
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842904"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203585"
 ---
-## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Toevoegen van een domeincontroller voor het afhandelen van aanmelding en afmeldingsaanvragen te verzenden
+## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Een controller toevoegen om aanmeldings- en afmeldingsaanvragen te verwerken
 
 Deze stap ziet u hoe u een nieuwe controller als aanmelden en afmelden methoden beschikbaar wilt maken.
 
@@ -65,13 +65,13 @@ Deze stap ziet u hoe u een nieuwe controller als aanmelden en afmelden methoden 
     }
     ```
 
-## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Maken van de startpagina van de app aan te melden bij gebruikers via een knop aanmelden
+## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>De startpagina van de app maken om gebruikers aan te melden via een aanmeldknop
 
-Maak in Visual Studio een nieuwe weergave om de knop Aanmelden toe te voegen en gebruikersgegevens weer te geven na de verificatie:
+Maak in Visual Studio een nieuwe weergave om de aanmeldknop toe te voegen en gebruikersgegevens weer te geven na de verificatie:
 
 1.  Klik met de rechtermuisknop de `Views\Home` map en selecteer `Add View`
 2.  Noem deze `Index`.
-3.  Voeg de volgende HTML toe aan het bestand. Deze bevat de knop Aanmelden:
+3.  Voeg de volgende HTML toe aan het bestand. Deze bevat de aanmeldknop:
 
     ```html
     <html>
@@ -159,7 +159,7 @@ Deze controller demonstreert het gebruik van het kenmerk `[Authorize]` om een co
 > Vanwege het gebruik van het kenmerk `[Authorize]` kunnen alle methoden van deze controller alleen worden uitgevoerd als de gebruiker is geverifieerd. Als de gebruiker niet is geverifieerd en probeert te krijgen tot de controller, wordt de OWIN een verificatiecontrole initiëren en afdwingen dat de gebruiker om te verifiëren. De bovenstaande code kijkt naar de lijst met claims voor de kenmerken van de specifieke gebruiker is opgenomen in het Id-token van de gebruiker. Deze kenmerken omvatten de volledige naam en gebruikersnaam van de gebruiker, en het globale onderwerp voor de gebruikers-id. Ze omvatten ook de *Tenant-id*. Dit is de id voor de organisatie van de gebruiker. 
 <!--end-collapse-->
 
-## <a name="create-a-view-to-display-the-users-claims"></a>Maken van een weergave om claims van de gebruiker weer te geven
+## <a name="create-a-view-to-display-the-users-claims"></a>Een weergave maken om de claims van de gebruiker weer te geven
 
 Maak in Visual Studio een nieuwe weergave om de claims van de gebruiker weer te geven op een webpagina:
 

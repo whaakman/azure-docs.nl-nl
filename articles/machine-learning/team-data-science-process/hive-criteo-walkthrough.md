@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5cb3a029795dd69c80cfa580aa1bd135c67e609e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451941"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850040"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Het Team Data Science Process in de praktijk - met behulp van een Azure HDInsight Hadoop-Cluster op een gegevensset van 1 TB
 
-In dit scenario ziet u hoe u het gebruik van het Team Data Science Process in een end-to-end-scenario met een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/) wilt opslaan, verkennen, voorzien van engineering en voorbeeldgegevens uit een van de openbaar beschikbare omlaag[ Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) gegevenssets. Azure Machine Learning wordt gebruikt voor het bouwen van een binair classificeringsmodel in deze gegevens. U ziet ook hoe u een van deze modellen publiceren als een webservice.
+In dit scenario ziet u hoe u het gebruik van het Team Data Science Process in een end-to-end-scenario met een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/) wilt opslaan, verkennen, voorzien van engineering en voorbeeldgegevens uit een van de openbaar beschikbare omlaag[ Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) gegevenssets. Azure Machine Learning wordt gebruikt voor het bouwen van een binair classificeringsmodel in deze gegevens. U ziet ook hoe u een van deze modellen publiceren als een webservice.
 
 Het is ook mogelijk met gebruik van een IPython notebook de taken die zijn gepresenteerd in deze procedure. Gebruikers die u wilt uitproberen van deze benadering contact opnemen met de [Criteo scenario met behulp van een Hive ODBC-verbinding](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) onderwerp.
 
 ## <a name="dataset"></a>Beschrijving van de gegevensset Criteo
-De Criteo gegevens is een klik voorspelling gegevensset die is ongeveer 370GB gecomprimeerde gzip TSV-bestanden (niet-gecomprimeerd ~1.3TB), die bestaat uit meer dan 4.3 miljard records. Het is afkomstig uit 24 dagen van klikt u op gegevens die de [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Voor het gemak van gegevenswetenschappers zijn de gegevens beschikbaar voor ons om te experimenteren met uitgepakt.
+De Criteo gegevens is een klik voorspelling gegevensset die is ongeveer 370GB gecomprimeerde gzip TSV-bestanden (niet-gecomprimeerd ~1.3TB), die bestaat uit meer dan 4.3 miljard records. Het is afkomstig uit 24 dagen van klikt u op gegevens die de [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/). Voor het gemak van gegevenswetenschappers zijn de gegevens beschikbaar voor ons om te experimenteren met uitgepakt.
 
 Elke record in deze gegevensset bevat 40 kolommen:
 
@@ -68,7 +68,7 @@ Instellen van uw Azure Data Science-omgeving voor het bouwen van voorspellende a
 3. [Een Azure Machine Learning studio-werkruimte maken](../studio/create-workspace.md): Deze Azure Machine Learning-werkruimte wordt gebruikt voor het machine learning-modellen bouwen na een initiële gegevens verkennen en omlaag steekproeven op het HDInsight-cluster.
 
 ## <a name="getdata"></a>Ophalen en gegevens uit een openbare gegevensbron gebruiken
-De [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) gegevensset kan worden geopend door te klikken op de koppeling, de gebruiksvoorwaarden accepteren en een naam geven. Hier ziet u een momentopname van hoe dit eruitziet:
+De [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) gegevensset kan worden geopend door te klikken op de koppeling, de gebruiksvoorwaarden accepteren en een naam geven. Hier ziet u een momentopname van hoe dit eruitziet:
 
 ![Criteo accepteren](./media/hive-criteo-walkthrough/hLxfI2E.png)
 
@@ -306,7 +306,7 @@ Dit resulteert in:
         19011825
         Time taken: 448.116 seconds, Fetched: 1 row(s)
 
-Houd er rekening mee dat Col15 19M unieke waarden bevat. Met behulp van technieken als 'een hot-codering' naïve is om te coderen die high-dimensionale categorische variabelen niet haalbaar is. In het bijzonder, een krachtige, robuuste techniek met de naam [Learning met telt](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) voor efficiënt aanpakken van dit probleem is uitgelegd en gedemonstreerd.
+Houd er rekening mee dat Col15 19M unieke waarden bevat. Met behulp van technieken als 'een hot-codering' naïve is om te coderen die high-dimensionale categorische variabelen niet haalbaar is. In het bijzonder, een krachtige, robuuste techniek met de naam [Learning met telt](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) voor efficiënt aanpakken van dit probleem is uitgelegd en gedemonstreerd.
 
 Ten slotte het aantal unieke waarden voor sommige andere categorische kolommen ook bekijken. De inhoud van [voorbeeld&#95;hive&#95;criteo&#95;unieke&#95;waarden&#95;meerdere&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) zijn:
 
@@ -405,10 +405,10 @@ Dit is bent u klaar voor gebruik van onze omlaag sample trainen en testen van ge
 Er is een belangrijk onderdeel voor uiteindelijke voordat u doorgaat met de Azure Machine Learning, die betrekking heeft op de count-tabel. In de volgende subsectie, wordt de count-tabel in bepaalde mate van detail besproken.
 
 ## <a name="count"></a> Een korte beschrijving van de count-tabel
-Als u hebt gezien, hebben verschillende categorische variabelen een zeer hoge dimensionaliteit. In dit overzicht, een krachtige techniek met de naam [Learning met telt](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) voor het coderen van deze variabelen in een efficiënte, robuuste wijze wordt weergegeven. Meer informatie over deze techniek wordt de koppeling.
+Als u hebt gezien, hebben verschillende categorische variabelen een zeer hoge dimensionaliteit. In dit overzicht, een krachtige techniek met de naam [Learning met telt](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) voor het coderen van deze variabelen in een efficiënte, robuuste wijze wordt weergegeven. Meer informatie over deze techniek wordt de koppeling.
 
 [!NOTE]
->In dit scenario is gericht op het aantal tabellen gebruiken voor het produceren van compact representaties van high-dimensionale categorische functies. Dit is niet de enige manier om te coderen categorische functies. voor meer informatie over andere technieken, willen gebruikers kunnen bekijken [één-hot-encoding](http://en.wikipedia.org/wiki/One-hot) en [hash-functies](http://en.wikipedia.org/wiki/Feature_hashing).
+>In dit scenario is gericht op het aantal tabellen gebruiken voor het produceren van compact representaties van high-dimensionale categorische functies. Dit is niet de enige manier om te coderen categorische functies. voor meer informatie over andere technieken, willen gebruikers kunnen bekijken [één-hot-encoding](https://en.wikipedia.org/wiki/One-hot) en [hash-functies](https://en.wikipedia.org/wiki/Feature_hashing).
 >
 
 Voor het bouwen van het aantal tabellen op de gegevens over het aantal, de gegevens in de map onbewerkte/aantal te gebruiken. In de sectie modellering van gebruikers over het bouwen van deze tabellen aantal voor categorische functies vanaf het begin, worden weergegeven of u kunt ook een aantal vooraf gemaakte tabel gebruiken voor hun explorations. In welke volgt wanneer 'vooraf gemaakte aantal tabellen' worden genoemd, bedoelen we met behulp van het aantal tabellen die zijn opgegeven. Gedetailleerde instructies over hoe u toegang tot deze tabellen zijn opgegeven in de volgende sectie.

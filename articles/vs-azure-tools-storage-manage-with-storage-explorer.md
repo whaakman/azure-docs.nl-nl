@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311202"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225090"
 ---
 # <a name="get-started-with-storage-explorer"></a>Aan de slag met Storage Explorer
 
@@ -55,18 +55,13 @@ Azure Storage Explorer wordt op de volgende versies van macOS ondersteund:
 
 Azure Storage Explorer wordt ondersteund op de volgende distributies van Linux:
 
-* Ubuntu 16.04 x64 (aanbevolen)
-* Ubuntu 17.10 x64
+* Ubuntu 18.04 x64
+* Ubuntu 16.04 x64
 * Ubuntu 14.04 x64
 
 Azure Storage Explorer werkt in een andere distributie, maar de enige die hierboven vermeld worden officieel ondersteund.
 
-U moet ook de volgende afhankelijkheden/bibliotheken geïnstalleerd voor uitvoering van Azure Storage Explorer op Linux hebben:
-
-* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* libsecret (Opmerking: libsecret 1.so.0 moet beschikbaar zijn op uw computer. Als u een andere versie van libsecret geïnstalleerd hebt, kunt u proberen voorlopig de .so-bestand te koppelen aan libsecret 1.so.0)
-* libgconf-2-4
-* Recente GCC
+Zie voor meer informatie over Storage Explorer installeren op Linux, de [Troubleshooting Guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
 
 Azure Storage Explorer [opmerkingen bij de Release](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) specifieke stappen voor het aantal distributies bevatten.
 

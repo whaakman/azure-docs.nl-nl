@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 8cf977f9c5bbf10c6a4d862a29fda98d3ce71844
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755685"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998959"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Oracle ASM installeren op een virtuele Azure Linux-machine  
 
@@ -90,7 +90,7 @@ ssh <publicIpAddress>
 
 Oracle ASM installeren, de volgende stappen. 
 
-Zie voor meer informatie over het installeren van Oracle ASM [Oracle ASMLib Downloads voor Oracle Linux 6](http://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html).  
+Zie voor meer informatie over het installeren van Oracle ASM [Oracle ASMLib Downloads voor Oracle Linux 6](https://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html).  
 
 1. U moet zich aanmelden als basis om door te gaan met de ASM-installatie:
 
@@ -104,7 +104,7 @@ Zie voor meer informatie over het installeren van Oracle ASM [Oracle ASMLib Down
     yum list | grep oracleasm 
     yum -y install kmod-oracleasm.x86_64 
     yum -y install oracleasm-support.x86_64 
-    wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
+    wget https://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
    ```
@@ -336,24 +336,24 @@ Voor deze zelfstudie de standaardwaarde is *raster* en de standaard-groep is *as
 
 10. Wijzig de map machtiging:
 
-   ```bash
-   chmod -R 775 /opt 
-   chown grid:oinstall /opt 
-   chown oracle:oinstall /dev/sdc1 
-   chown oracle:oinstall /dev/sdd1 
-   chown oracle:oinstall /dev/sde1 
-   chown oracle:oinstall /dev/sdf1 
-   chmod 600 /dev/sdc1 
-   chmod 600 /dev/sdd1 
-   chmod 600 /dev/sde1 
-   chmod 600 /dev/sdf1
-   ```
+    ```bash
+    chmod -R 775 /opt 
+    chown grid:oinstall /opt 
+    chown oracle:oinstall /dev/sdc1 
+    chown oracle:oinstall /dev/sdd1 
+    chown oracle:oinstall /dev/sde1 
+    chown oracle:oinstall /dev/sdf1 
+    chmod 600 /dev/sdc1 
+    chmod 600 /dev/sdd1 
+    chmod 600 /dev/sde1 
+    chmod 600 /dev/sdf1
+    ```
 
 ## <a name="download-and-prepare-oracle-grid-infrastructure"></a>Download en Oracle Grid infrastructuur voorbereiden
 
 Om te downloaden en bereidt u de infrastructuur voor het raster van Oracle-software, voert u de volgende stappen uit:
 
-1. Downloaden van Oracle Grid infrastructuur niet vanuit de [Oracle ASM-downloadpagina](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+1. Downloaden van Oracle Grid infrastructuur niet vanuit de [Oracle ASM-downloadpagina](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
 
    Bij het downloaden met de titel **Oracle Database 12c Release 1 Grid infrastructuur (12.1.0.2.0) voor Linux x86-64**, de twee ZIP-bestanden te downloaden.
 
@@ -402,7 +402,7 @@ Om te downloaden en bereidt u de infrastructuur voor het raster van Oracle-softw
 ## <a name="prepare-your-local-client-and-vm-to-run-x11"></a>Uw lokale client en de virtuele machine om uit te voeren x11 voorbereiden
 Oracle ASM configureren, is een grafische interface voor het voltooien van de installatie en configuratie vereist. We gebruiken de x11 protocol om deze installatie mogelijk te maken. Als u een clientsysteem (Mac of Linux) die al X11 heeft mogelijkheden ingeschakeld en geconfigureerd - kunt u deze configuratie en installatie exclusieve verdergaan met Windows-machines. 
 
-1. [Download PuTTY](http://www.putty.org/) en [Xming downloaden](https://xming.en.softonic.com/) op uw Windows-computer. U moet de installatie van beide van deze toepassingen met de standaardwaarden voordat u doorgaat.
+1. [Download PuTTY](https://www.putty.org/) en [Xming downloaden](https://xming.en.softonic.com/) op uw Windows-computer. U moet de installatie van beide van deze toepassingen met de standaardwaarden voordat u doorgaat.
 
 2. Nadat u PuTTY, open een opdrachtprompt, in de PuTTY-map (bijvoorbeeld C:\Program Files\PuTTY) wijzigen en uitvoeren `puttygen.exe` om een sleutel te genereren.
 

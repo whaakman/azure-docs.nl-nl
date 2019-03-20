@@ -14,36 +14,38 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 44ae922b182874eef378d4868fb278c3c76252db
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: d5e1e5989f9902d9ab8dcc3e6c2b9d2a71f12df9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884411"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224376"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Zelfstudie: Dynamische configuratie in een ASP.NET Core-app gebruiken
 
-ASP.NET Core heeft een pluggable configuratiesysteem dat configuratiegegevens uit diverse bronnen kan lezen, en ook wijzigingen op elk gewenst moment kan verwerken zonder dat een toepassing opnieuw moet worden opgestart. Het biedt ondersteuning voor binding van configuratie-instellingen voor sterk getypeerde .NET-klassen en voeren deze in uw code in met behulp van de verschillende `IOptions<T>`-patronen. Een van deze patronen, met name `IOptionsSnapshot<T>`, zorgt voor het automatische opnieuw laden van de configuratie van de toepassing wanneer de onderliggende gegevens wijzigen. U kunt `IOptionsSnapshot<T>` in domeincontrollers in uw toepassing invoeren voor toegang tot de meest recente configuratiegegevens die zijn opgeslagen in Azure-app-configuratie. Bovendien kunt u de app-configuratie ASP.NET Core-clientbibliotheek continu bewaken en eventuele wijzigingen in een app-configuratie ophalen via polling op basis van een door u gedefinieerd periodiek interval.
+ASP.NET Core is een pluggable configuratiesysteem die configuratiegegevens kan worden gelezen uit een groot aantal bronnen. Wijzigingen op elk gewenst moment kan verwerken zonder dat een toepassing te starten. ASP.NET Core biedt ondersteuning voor de binding van configuratie-instellingen voor sterk getypeerde .NET-klassen. Het ze in uw code met behulp van de verschillende injects `IOptions<T>` patronen. Een van deze patronen specifiek `IOptionsSnapshot<T>`, automatisch opnieuw laden van de configuratie van de toepassing wanneer de onderliggende gegevens worden gewijzigd. 
 
-In deze zelfstudie leert hoe u dynamische configuratie-updates kunt implementeren in uw code. Dit is gebaseerd op de web-app die is geïntroduceerd in de quickstarts. Volg eerst [Een ASP.NET Core-app maken met app-configuratie](./quickstart-aspnet-core-app.md) voordat u verder gaat.
+U kunt `IOptionsSnapshot<T>` in domeincontrollers in uw toepassing invoeren voor toegang tot de meest recente configuratiegegevens die zijn opgeslagen in Azure-app-configuratie. U kunt er ook voor instellen van de App-configuratie ASP.NET Core-clientbibliotheek continu bewaken en eventuele wijzigingen in een app-configuratiearchief ophalen. U definieert de periodiek interval voor de polling.
 
-U kunt elke code-editor gebruiken om de stappen in deze snelstart uit te voeren. [Visual Studio Code](https://code.visualstudio.com/) is een uitstekende optie die beschikbaar is op de Windows-, macOS- en Linux-platforms.
+In deze zelfstudie leert hoe u dynamische configuratie-updates kunt implementeren in uw code. Dit is gebaseerd op de web-app die is geïntroduceerd in de quickstarts. Voordat u doorgaat, voltooien [maken van een ASP.NET Core-app met App-configuratie](./quickstart-aspnet-core-app.md) eerste.
+
+Een code-editor kunt u de stappen in deze Quick Start. [Visual Studio Code](https://code.visualstudio.com/) is een uitstekende optie die beschikbaar is op Windows, macOS en Linux-platforms.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Uw toepassing instellen voor het bijwerken van de configuratie als reactie op wijzigingen in een app-configuratiearchief
-> * De meest recente configuratie in de controllers van uw toepassing invoeren
+> * Instellen van uw toepassing om bij te werken van de configuratie ervan in reactie op wijzigingen in een configuratie van apps.
+> * De meest recente configuratie in de controllers van uw toepassing invoeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om deze quickstart te kunnen voltooien, moet u de [.NET Core-SDK](https://dotnet.microsoft.com/download) installeren.
+Als u wilt doen in deze Quick Start, installeert de [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="reload-data-from-app-configuration"></a>Gegevens opnieuw laden vanuit app-configuratie
 
-1. Open *Program.cs* en werk de methode `CreateWebHostBuilder` bij door de methode `config.AddAzureAppConfiguration()` toe te voegen.
+1. Open Program.cs en werk de `CreateWebHostBuilder` methode door toe te voegen de `config.AddAzureAppConfiguration()` methode.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -59,9 +61,9 @@ Om deze quickstart te kunnen voltooien, moet u de [.NET Core-SDK](https://dotnet
             .UseStartup<Startup>();
     ```
 
-    De tweede parameter in de methode `.Watch` is het pollinginterval waarmee de ASP.NET-clientbibliotheek in een app-configuratiearchief zoekt om te zien of er een wijziging voor de specifieke configuratie-instelling is.
+    De tweede parameter in de `.Watch` methode is het polling-interval waarmee de client-bibliotheek voor ASP.NET-query's opslaan van de configuratie van een app. De clientbibliotheek controleert of het specifieke configuratie-instellingen om te bekijken of eventuele wijzigingen zijn opgetreden.
 
-2. Voeg een *Settings.cs*-bestand toe dat een nieuwe `Settings`-klasse definieert en implementeert.
+2. Toevoegen van een bestand Settings.cs die definieert en implementeert een nieuwe `Settings` klasse.
 
     ```csharp
     namespace TestAppConfig
@@ -76,7 +78,7 @@ Om deze quickstart te kunnen voltooien, moet u de [.NET Core-SDK](https://dotnet
     }
     ```
 
-3. Open *Startup.cs* en werk de methode `ConfigureServices` voor het binden van configuratiegegevens aan de klasse `Settings` bij.
+3. Open Startup.cs en werk de `ConfigureServices` methode voor het binden van configuratiegegevens naar het `Settings` klasse.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -95,7 +97,7 @@ Om deze quickstart te kunnen voltooien, moet u de [.NET Core-SDK](https://dotnet
 
 ## <a name="use-the-latest-configuration-data"></a>De meest recente configuratiegegevens gebruiken
 
-1. Open *HomeController.cs* in de directory *Controllers*, werk de klasse `HomeController` bij voor het ontvangen van `Settings` via afhankelijkheidsinjectie en gebruik de waarden ervan.
+1. Open HomeController.cs in de map domeincontrollers. Update de `HomeController` klasse voor het ontvangen van `Settings` via afhankelijkheidsinjectie uit en controleer het gebruik van de waarden ervan.
 
     ```csharp
     public class HomeController : Controller
@@ -118,7 +120,7 @@ Om deze quickstart te kunnen voltooien, moet u de [.NET Core-SDK](https://dotnet
     }
     ```
 
-2. Open *Index.cshtml* in de directory *Views* > *Home* en vervang de inhoud ervan door het volgende:
+2. Index.cshtml in de weergaven openen > Home-directory en vervang de inhoud ervan door het volgende script:
 
     ```html
     <!DOCTYPE html>
@@ -143,23 +145,23 @@ Om deze quickstart te kunnen voltooien, moet u de [.NET Core-SDK](https://dotnet
 
 ## <a name="build-and-run-the-app-locally"></a>De app lokaal compileren en uitvoeren
 
-1. Compileer de app met behulp van de .NET Core CLI door de volgende opdracht uit te voeren in de opdrachtshell:
+1. Voor het bouwen van de app met behulp van .NET Core CLI, voer de volgende opdracht in de opdrachtshell:
 
         dotnet build
 
-2. Als het compileren is voltooid, voert u de volgende opdracht uit om de web-app lokaal uit te voeren:
+2. Nadat de build is voltooid, voert u de volgende opdracht om de web-app lokaal uitvoeren:
 
         dotnet run
 
-3. Open een browservenster en navigeer naar `http://localhost:5000`. Dit is de standaard-URL voor de web-app die lokaal wordt gehost.
+3. Open een browservenster en Ga naar `http://localhost:5000`, dit is de standaard-URL voor de web-app die lokaal wordt gehost.
 
     ![Quickstart voor het lokaal starten van een app](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Meld u aan bij de [Microsoft Azure-portal](https://aka.ms/azconfig/portal), klik op **Alle resources** en het exemplaar van het app-configuratiearchief dat u in de quickstart hebt gemaakt.
+4. Meld u aan bij [Azure Portal](https://aka.ms/azconfig/portal). Selecteer **alle resources**, en selecteer het app-configuratie store-exemplaar dat u in de Quick Start hebt gemaakt.
 
-5. Klik op **Sleutel-waardeverkenner** en werk de waarden van de volgende sleutels bij:
+5. Selecteer **sleutel/waarde-Explorer**, en de waarden voor de volgende sleutels:
 
-    | Sleutel | Waarde |
+    | Sleutel | Value |
     |---|---|
     | TestAppSettings:BackgroundColor | blue |
     | TestAppSettings:FontColor | lightGray |
@@ -175,7 +177,7 @@ Om deze quickstart te kunnen voltooien, moet u de [.NET Core-SDK](https://dotnet
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u een beheerde Azure-service-identiteit toegevoegd om toegang tot app-configuratie te stroomlijnen en het beheer van referenties voor uw app te verbeteren. Voor meer informatie over het gebruik van app-configuratie, gaat u verder naar de Azure CLI-voorbeelden.
+In deze zelfstudie hebt u een beheerde Azure-service-identiteit toegevoegd om toegang tot app-configuratie te stroomlijnen en het beheer van referenties voor uw app te verbeteren. Voor meer informatie over het gebruik van App-configuratie, gaat u naar de Azure CLI-voorbeelden.
 
 > [!div class="nextstepaction"]
 > [CLI-voorbeelden](./cli-samples.md)

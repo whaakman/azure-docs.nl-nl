@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: a6fccb087d8a2c78bb1ad47758952b76b245dbde
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576188"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881160"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Ruimte is voor één en gepoolde databases in Azure SQL Database beheren
 
@@ -29,6 +29,8 @@ In dit artikel beschrijft de verschillende typen opslagruimte voor één en gepo
 ## <a name="overview"></a>Overzicht
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 Met één en gepoolde databases in Azure SQL Database zijn er patronen van werkbelasting waarbij de toewijzing van onderliggende gegevensbestanden voor databases die groter is dan de hoeveelheid gebruikte gegevenspagina's kan worden. Dit probleem kan optreden als er meer ruimte wordt gebruikt en er tegelijkertijd gegevens worden verwijderd. De reden is dat bestandsruimte die is toegewezen niet automatisch wordt opgeëist wanneer gegevens worden verwijderd.
 
@@ -239,7 +241,7 @@ Wijzig de naam van de database in de volgende opdracht uit zodat automatisch ver
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Zie voor meer informatie over deze opdracht [DATABASE ingesteld](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) opties. 
+Zie voor meer informatie over deze opdracht [DATABASE ingesteld](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) opties. 
 
 ### <a name="rebuild-indexes"></a>Indexen opnieuw samenstellen
 

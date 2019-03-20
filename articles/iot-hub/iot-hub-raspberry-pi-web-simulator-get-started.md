@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 6844fb9b6e85e77ad9c7a869a989214fffd05ece
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0167665684bc4fc8b29dce70c53033dcbb007555
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438741"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113780"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Raspberry Pi online simulator verbinden met Azure IoT Hub (Node.js)
 
@@ -39,7 +39,7 @@ Als u fysieke apparaten hebt, gaat u naar [Raspberry Pi verbinding maken met Azu
 ## <a name="what-you-do"></a>Wat u allemaal doen
 
 * Leer de basisprincipes van Raspberry Pi online simulator.
-* Een IoT-hub maken.
+* Maak een IoT-hub.
 * Registreer een apparaat voor Pi in uw IoT-hub.
 * Een voorbeeldtoepassing uitvoert op Pi gesimuleerde om sensorgegevens te verzenden naar uw IoT hub.
 
@@ -56,7 +56,7 @@ Gesimuleerde Raspberry Pi verbinden met een IoT-hub die u maakt. U kunt vervolge
 Klik op de knop Start Raspberry Pi online simulator.
 
 > [!div class="button"]
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Starten van de Simulator Raspberry Pi</a>
+> <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Starten van de Simulator Raspberry Pi</a>
 
 Er zijn drie gebieden in de websimulator.
 
@@ -70,8 +70,8 @@ Er zijn drie gebieden in de websimulator.
    * **Opnieuw instellen van** -opnieuw instellen van het coderen gebied met de standaard-voorbeeldtoepassing.
    * **Vouw/uit te breiden** -aan de rechterkant is voor u het consolevenster vouwen/uitbreiden om een knop.
 
-> [!NOTE] 
-De Raspberry Pi-websimulator is nu beschikbaar in preview-versie. We willen graag horen uw in de [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). De broncode is openbare op [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+> [!NOTE]
+> De Raspberry Pi-websimulator is nu beschikbaar in preview-versie. We willen graag horen uw in de [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). De broncode is openbare op [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
 ![Overzicht van Pi online simulator](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 

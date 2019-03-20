@@ -3,18 +3,18 @@ title: Uw apparaten bewaken in Azure IoT Central | Microsoft Docs
 description: Gebruik als operator uw Azure IoT Central-toepassing om uw apparaten te bewaken.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/12/2018
+ms.date: 02/01/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 941fbffaa7a0129de30d6fdf14d3d0559429309f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 561477d8bf3a64397e9964499339c368dec5470d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200238"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760469"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Zelfstudie: Azure IoT Central gebruiken om uw apparaten te bewaken
 
@@ -41,7 +41,7 @@ Azure IoT Central verzendt meldingen over apparaten als e-mailberichten. De bouw
 
 Open het e-mailbericht dat u aan het einde van de zelfstudie [Regels en acties voor uw apparaat configureren](tutorial-configure-rules.md) hebt ontvangen. Kies in het e-mailbericht **Klik hier om uw apparaat te openen**:
 
-![Regels in Application Builder](media/tutorial-monitor-devices/email.png)
+![E-mailwaarschuwing](media/tutorial-monitor-devices/email.png)
 
 De **Apparaat**-pagina voor het gesimuleerde apparaat **Aangesloten airconditioner-1** dat u in de vorige zelfstudies hebt gemaakt, wordt in uw browser geopend:
 
@@ -55,13 +55,13 @@ Kies de weergave **Dashboard** om informatie over het apparaat te bekijken.
 
 ![Apparaatdashboard](media/tutorial-monitor-devices/initial_screen.png)
 
-De grafiek op het dashboard toont een grafische voorstelling van de temperatuur van het apparaat. U kunt ook de huidige doeltemperatuur voor het apparaat bekijken in de tegel **​​Doeltemperatuur instellen**. U besluit dat de doeltemperatuur te hoog is.
+De grafiek op het dashboard toont een grafische voorstelling van de temperatuur van het apparaat. U ziet ook de huidige temperatuur doel voor het apparaat in de **apparaateigenschappen** tegel. U besluit dat de doeltemperatuur te hoog is.
 
 ## <a name="remediate-an-issue"></a>Een probleem oplossen
 
 Gebruik de pagina **Instellingen** om de doeltemperatuur van het apparaat te wijzigen:
 
-1. Kies **Instellingen**. Wijzig **Temperatuur instellen** in 75. Kies **Update** om de nieuwe doeltemperatuur naar het apparaat te verzenden. Wanneer het apparaat de instellingswijziging bevestigt, verandert de status van de instelling in **Gesynchroniseerd**:
+1. Kies **Instellingen**. Wijzig **Temperatuur instellen** in 75. Kies **Update** om de nieuwe doeltemperatuur naar het apparaat te verzenden. Wanneer het apparaat de instellingswijziging bevestigt, verandert de status van de instellingswaarde in **Gesynchroniseerd**:
 
     ![Instellingen bijwerken](media/tutorial-monitor-devices/change_settings.png)
 

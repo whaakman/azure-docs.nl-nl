@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
-ms.openlocfilehash: dd06ae6046ab96d95cf1c1907c74d0b4d9a843bb
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 96160745fa8702fc6f931904098c28d8968de2c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214330"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010236"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools kunt u beheren en schalen van meerdere Azure SQL-databases
 
@@ -211,7 +211,7 @@ Zie voor meer informatie, [waarschuwingen van de SQL-Database maken in Azure por
 
   Umbraco maakt gebruik van elastische pools met Azure SQL Database tot snel inrichten en schalen-services voor duizenden tenants in de cloud.
 
-- [Daxko/CSI](http://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+- [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
 
   Daxko/CSI maakt gebruik van elastische pools met Azure SQL Database de ontwikkeling versnellen en verbeter de klantenservice en prestaties.
 

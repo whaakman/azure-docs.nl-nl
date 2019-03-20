@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 04653dcdf0fb64e8b935cda18c01198ec91c548d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ed91425ca56278eccf21c10db6360b4f770b0660
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807470"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226535"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -554,6 +554,16 @@ module.exports = myObj;
 ```
 
 In dit voorbeeld is het belangrijk te weten dat hoewel een object wordt geëxporteerd, er geen garanties met betrekking zijn tot de status tussen uitvoerbewerkingen te behouden.
+
+## <a name="local-debugging"></a>Lokale foutopsporing
+
+Wanneer de slag met de `--inspect` parameter, een Node.js-proces luistert naar een foutopsporing client op de opgegeven poort. In Azure Functions 2.x gebruikt, kunt u argumenten om door te geven in het Node.js-proces dat uw code wordt uitgevoerd door de omgevingsvariabele of App-instelling toe te voegen `languageWorkers:node:arguments = <args>`. 
+
+Toevoegen om op te sporen lokaal, `"languageWorkers:node:arguments": "--inspect=5858"` onder `Values` in uw [local.settings.json](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) -bestand en voeg een debugger toe aan poort 5858.
+
+Wanneer foutopsporing met behulp van VS Code, de `--inspect` parameter wordt automatisch toegevoegd met behulp van de `port` waarde in de bestand launch.json van het project.
+
+In versie 1.x, instellen van `languageWorkers:node:arguments` werkt niet. De poort voor foutopsporing kan worden geselecteerd met de [ `--nodeDebugPort` ](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start) parameter op Azure Functions Core Tools.
 
 ## <a name="typescript"></a>TypeScript
 

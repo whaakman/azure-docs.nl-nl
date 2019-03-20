@@ -14,12 +14,12 @@ ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d9a60544f01048cd90605306e64d750982bf7a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3b91e2c15e86cdda4daab27892fa7a2b6ed0c0e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200544"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008905"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Controlegeschiedenis voor Azure AD directory-rollen in PIM weergeven
 U kunt de controlegeschiedenis Privileged Identity Management (PIM) gebruiken om te zien van alle toewijzingen van gebruikers en activeringen binnen een bepaalde periode voor alle bevoorrechte rollen. Als u wilt zien van de volledige controlegeschiedenis van activiteit in uw tenant, met inbegrip van de beheerder, eindgebruikers en synchronisatieactiviteit, kunt u de [Azure Active Directory-toegang en gebruik rapporten.](../reports-monitoring/overview-reports.md)
@@ -27,10 +27,10 @@ U kunt de controlegeschiedenis Privileged Identity Management (PIM) gebruiken om
 ## <a name="navigate-to-audit-history"></a>Navigeer om controlegeschiedenis
 Uit de [Azure-portal](https://portal.azure.com) dashboard, selecteer de **Azure AD Privileged Identity Management** app. Van daaruit toegang krijgen tot de controlegeschiedenis door te klikken op **bevoorrechte rollen beheren** > **controlegeschiedenis** in de PIM-dashboard.
 
-![](media/azure-ad-pim-approval-workflow/image021.png)
+![Controlegeschiedenis](media/azure-ad-pim-approval-workflow/image021.png)
 
->[!NOTE]
-Sorteer de gegevens door de actie en zoek naar "Activeren goedgekeurd"
+> [!NOTE]
+> Sorteer de gegevens door de actie en zoek naar "Activeren goedgekeurd"
 
 
 ## <a name="audit-history-graph"></a>Audit-grafiek

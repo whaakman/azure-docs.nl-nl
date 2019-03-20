@@ -11,43 +11,44 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c81ab72be58cd223eb9b3fe9ec53d56574a94e8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 4b65eb38b6c8102295f40b5e169ae7c32a2342a2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430298"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201361"
 ---
-# <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Gebruikers tussen productlicenties met behulp van Groepslicenties veilig migreren
+# <a name="change-the-license-for-a-single-user-in-a-licensed-group-in-azure-active-directory"></a>De licentie voor één gebruiker in een gelicentieerde groep in Azure Active Directory wijzigen
 
 Dit artikel beschrijft de aanbevolen methode voor het verplaatsen van gebruikers tussen productlicenties bij het gebruik van Groepslicenties. Het doel van deze benadering is om ervoor te zorgen dat er geen verlies van service of gegevens tijdens de migratie: gebruikers moeten schakelen tussen producten naadloos. Twee varianten van het migratieproces worden behandeld:
 
--   Eenvoudige migratie tussen productlicenties met geen conflicterende serviceabonnementen, zoals het migreren tussen Office 365 Enterprise E3 en Office 365 Enterprise E5.
+- Eenvoudige migratie tussen productlicenties met geen conflicterende serviceabonnementen, zoals het migreren tussen Office 365 Enterprise E3 en Office 365 Enterprise E5.
 
--   Complexere migratie tussen producten met sommige conflicterende serviceabonnementen, zoals het migreren tussen Office 365 Enterprise E1 en Office 365 Enterprise E3. Zie voor meer informatie over conflicten [conflicterende serviceabonnementen](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) en [Service-plannen die kunnen niet worden toegewezen op hetzelfde moment](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
+- Complexere migratie tussen producten met sommige conflicterende serviceabonnementen, zoals het migreren tussen Office 365 Enterprise E1 en Office 365 Enterprise E3. Zie voor meer informatie over conflicten [conflicterende serviceabonnementen](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) en [Service-plannen die kunnen niet worden toegewezen op hetzelfde moment](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
 
 Dit artikel bevat een PowerShell-voorbeeldcode die kan worden gebruikt om de migratie- en verificatiestappen stappen uitvoeren. De code is vooral handig voor grootschalige bewerkingen waar het is niet mogelijk de stappen handmatig uitvoeren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Voordat u de migratie begint, is het belangrijk om te controleren op dat bepaalde veronderstellingen zijn geldt voor alle gebruikers moeten worden gemigreerd. Als de veronderstellingen niet geldt voor alle gebruikers, kan de migratie voor een aantal mislukken. Als gevolg hiervan enkele van de gebruikers mogelijk geen toegang meer tot services of gegevens. De volgende veronderstellingen moeten worden geverifieerd:
 
--   Gebruikers hebben de *sourcelicentie* die met behulp van Groepslicenties toegewezen. De licenties voor het product te verlaten worden overgenomen van een groep één bron en worden niet rechtstreeks toegewezen.
+- Gebruikers hebben de *sourcelicentie* die met behulp van Groepslicenties toegewezen. De licenties voor het product te verlaten worden overgenomen van een groep één bron en worden niet rechtstreeks toegewezen.
 
     >[!NOTE]
     >Als licenties ook rechtstreeks is toegewezen, ze kunnen voorkomen dat de toepassing van de *doel licentie*. Meer informatie over [direct en groep licentietoewijzing](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). U wilt gebruiken een [PowerShell-script](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) om te controleren of gebruikers directe licenties.
 
--   U hebt voldoende beschikbare licenties voor uw product. Als u niet voldoende licenties hebt, sommige gebruikers niet altijd de *doel licentie*. U kunt [Controleer het aantal beschikbare licenties](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
+- U hebt voldoende beschikbare licenties voor uw product. Als u niet voldoende licenties hebt, sommige gebruikers niet altijd de *doel licentie*. U kunt [Controleer het aantal beschikbare licenties](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
 
--   Gebruikers hebben geen andere toegewezen productlicenties die in strijd kunnen met de *doel licentie* of te voorkomen dat het verwijderen van de *sourcelicentie*. Bijvoorbeeld, een licentie van een invoegtoepassing product, zoals Workplace Analytics of Online-Project, die is afhankelijk van andere producten.
+- Gebruikers hebben geen andere toegewezen productlicenties die in strijd kunnen met de *doel licentie* of te voorkomen dat het verwijderen van de *sourcelicentie*. Bijvoorbeeld, een licentie van een invoegtoepassing product, zoals Workplace Analytics of Online-Project, die is afhankelijk van andere producten.
 
--   Krijg inzicht in hoe groepen worden beheerd in uw omgeving. Bijvoorbeeld, als u groepen on-premises beheren en deze naar Azure Active Directory (Azure AD) via Azure AD Connect synchroniseren, klikt u vervolgens u gebruikers toevoegen/verwijderen met behulp van uw on-premises systeem. Het duurt om de wijzigingen te synchroniseren met Azure AD en ophalen die zijn opgepikt door Groepslicenties. Als u dynamische Azure AD-groepslidmaatschappen, u gebruikers toevoegen/verwijderen door het wijzigen van hun kenmerken in plaats daarvan. Het algehele migratieproces blijft echter hetzelfde. Het enige verschil is hoe u gebruikers toevoegen/verwijderen voor groepslidmaatschap.
+- Krijg inzicht in hoe groepen worden beheerd in uw omgeving. Bijvoorbeeld, als u groepen on-premises beheren en deze naar Azure Active Directory (Azure AD) via Azure AD Connect synchroniseren, klikt u vervolgens u gebruikers toevoegen/verwijderen met behulp van uw on-premises systeem. Het duurt om de wijzigingen te synchroniseren met Azure AD en ophalen die zijn opgepikt door Groepslicenties. Als u dynamische Azure AD-groepslidmaatschappen, u gebruikers toevoegen/verwijderen door het wijzigen van hun kenmerken in plaats daarvan. Het algehele migratieproces blijft echter hetzelfde. Het enige verschil is hoe u gebruikers toevoegen/verwijderen voor groepslidmaatschap.
 
 ## <a name="migrate-users-between-products-that-dont-have-conflicting-service-plans"></a>Migreren van gebruikers tussen producten waarvoor geen conflicterende serviceabonnementen
+
 Het doel van de migratie is met Groepslicenties wijzigen gebruikerslicenties van een *sourcelicentie* (in dit voorbeeld: Office 365 Enterprise E3) naar een *doel licentie* (in dit voorbeeld: Office 365 Enterprise E5). De twee producten in dit scenario bevatten geen conflicterende serviceabonnementen, zodat ze volledig op hetzelfde moment zonder een conflict kunnen worden toegewezen. Op niet moment tijdens de migratie moeten gebruikers geen toegang meer tot services of gegevens. De migratie wordt uitgevoerd in kleine "batches." U kunt valideren van het resultaat voor elke batch en het bereik van eventuele problemen die tijdens het proces optreden kunnen te minimaliseren. Over het algemeen is het proces als volgt:
 
 1.  Gebruikers lid zijn van een brongroep en nemen ze de *sourcelicentie* uit die groep.
@@ -65,6 +66,7 @@ Het doel van de migratie is met Groepslicenties wijzigen gebruikerslicenties van
 7.  Herhaal het proces voor latere batches van gebruikers.
 
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migreren van één gebruiker met behulp van de Azure-portal
+
 Dit is een eenvoudig scenario voor het migreren van één gebruiker.
 
 **STAP 1**: De gebruiker heeft een *sourcelicentie* die overgenomen van de groep. Er zijn geen directe toewijzingen voor de licentie:

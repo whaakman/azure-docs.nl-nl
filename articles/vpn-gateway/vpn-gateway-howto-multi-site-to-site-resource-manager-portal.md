@@ -1,5 +1,5 @@
 ---
-title: 'Meerdere VPN-gateway-Site-naar-Site-verbindingen toevoegen aan een VNet: Azure Portal: Resource Manager | Microsoft Docs'
+title: 'Meerdere Site-naar-Site-verbindingen van de VPN-gateway toevoegen aan een VNet: Azure-Portal: Resource Manager | Microsoft Docs'
 description: S2S-verbindingen van meerdere sites toevoegen aan een VPN-gateway met een bestaande verbinding
 services: vpn-gateway
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a814834be3225764c3b6f237bd515ca087f975a7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4b9f007e00d0912687b723bd4f7e747da893948d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873118"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998834"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Een Site-naar-Site-verbinding toevoegen aan een VNet met een bestaande VPN-gatewayverbinding
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure-portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klassiek)](vpn-gateway-multi-site.md)
 >
 > 
@@ -52,7 +52,7 @@ Controleer of de volgende items:
 * U hebt een extern gericht openbaar IP-adres voor uw VPN-apparaat. Dit IP-adres kan zich niet achter een NAT bevinden.
 
 ## <a name="part1"></a>Deel 1: een verbinding configureren
-1. Navigeer via een browser naar de [Azure Portal](http://portal.azure.com) en log, indien nodig, in met uw Azure-account.
+1. Navigeer via een browser naar de [Azure Portal](https://portal.azure.com) en log, indien nodig, in met uw Azure-account.
 2. Klik op **alle resources** en zoek uw **virtuele netwerkgateway** uit de lijst met resources en klik erop.
 3. Op de **gateway van virtueel netwerk** pagina, klikt u op **verbindingen**.
    
@@ -62,7 +62,7 @@ Controleer of de volgende items:
     ![De knop verbinding toevoegen](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "knop van de verbinding toevoegen")<br>
 5. Op de **verbinding toevoegen** pagina, vul de volgende velden:
    
-   * **Naam:** de naam die u wilt geven tot de site maakt u de verbinding aan.
+   * **Naam:** De naam die u wilt geven tot de site die u de verbinding met maakt.
    * **Verbindingstype:** Selecteer **Site-naar-site (IPsec)**.
      
      ![Pagina van de verbinding toevoegen](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "pagina van de verbinding toevoegen")<br>
@@ -76,9 +76,9 @@ Controleer of de volgende items:
     ![Pagina lokale netwerkgateway maken](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "lokale netwerkgateway maken")<br>
 3. Op de **lokale netwerkgateway maken** pagina, vul de volgende velden:
    
-   * **Naam:** de naam die u wilt geven tot een resource van de lokale netwerkgateway.
-   * **IP-adres:** het openbare IP-adres van de VPN-apparaat op de site die u wilt verbinden.
-   * **Adresruimte:** de adresruimte die u wilt worden doorgestuurd naar de nieuwe lokale netwerksite.
+   * **Naam:** De naam die u wilt geven tot een resource van de lokale netwerkgateway.
+   * **IP-adres:** Het openbare IP-adres van de VPN-apparaat op de site die u wilt verbinden.
+   * **Adresruimte:** De adresruimte die u wilt worden doorgestuurd naar de nieuwe lokale netwerksite.
 4. Klik op **OK** op de **lokale netwerkgateway maken** pagina de wijzigingen op te slaan.
 
 ## <a name="part3"></a>Deel 3: de gedeelde sleutel toevoegen en maak de verbinding

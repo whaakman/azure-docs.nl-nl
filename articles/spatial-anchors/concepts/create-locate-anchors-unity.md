@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0b8f99246852a699f8036a98d8ddf1df7e310c1c
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 4da02a4576b0a44c4b80a556d128c154adc246b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898547"
 ---
 # <a name="create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Maken en Ga naar ankers die gebruikmaken van Azure ruimtelijke ankers in Unity
 
@@ -25,9 +25,11 @@ ms.locfileid: "56753062"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen verschillende apparaten. Als u wilt werken goed met uw favoriete ontwikkelomgeving tenantactiviteit. In dit artikel wordt we dieper in hoe u kunt dit doen in Unity.
+Met Azure Spatial Anchors kunt u ankers delen tussen verschillende apparaten. Het ondersteunt verschillende ontwikkelomgevingen. In dit artikel wordt we dieper in hoe u kunt dit doen in Unity.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
+
+Meer informatie over de [CloudSpatialAnchorSession](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession) klasse.
 
 ```csharp
     CloudSpatialAnchorSession cloudSession;
@@ -36,6 +38,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Meer informatie over de [SessionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionconfiguration) klasse.
 
 ```csharp
     this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
@@ -48,6 +52,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
+
+Meer informatie over de [TokenRequiredDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.tokenrequireddelegate) delegeren.
 
 ```csharp
     this.cloudSession.TokenRequired += (object sender, TokenRequiredEventArgs args) =>
@@ -97,6 +103,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
+Meer informatie over de [Start](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.start) methode.
+
 ```csharp
 #if UNITY_IOS
     this.arkitSession = UnityARSessionNativeInterface.GetARSessionNativeInterface();
@@ -114,6 +122,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
+
+Meer informatie over de [ProcessFrame](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe) methode.
 
 ```csharp
 #if UNITY_ANDROID
@@ -137,6 +147,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
+Meer informatie over de [SessionUpdatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionupdateddelegate) delegeren.
+
 ```csharp
     this.cloudSession.SessionUpdated += (object sender, SessionUpdatedEventArgs args)
     {
@@ -148,6 +160,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Meer informatie over de [CloudSpatialAnchor](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor) klasse.
 
 ```csharp
     // Create a local anchor, perhaps by hit-testing and spawning an object within the scene
@@ -197,6 +211,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Meer informatie over de [GetSessionStatusAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getsessionstatusasync) methode.
+
 ```csharp
     SessionStatus value = await this.cloudSession.GetSessionStatusAsync();
     if (value.RecommendedForCreateProgress < 1.0f) return;
@@ -204,6 +220,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
+
+Meer informatie over de [AppProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.appproperties) eigenschap.
 
 ```csharp
     CloudSpatialAnchor cloudAnchor = new CloudSpatialAnchor() { LocalAnchor = localAnchor };
@@ -214,6 +232,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
+Meer informatie over de [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updateanchorpropertiesasync) methode.
+
 ```csharp
     CloudSpatialAnchor anchor = /* locate your anchor */;
     anchor.AppProperties[@"last-user-access"] = @"just now";
@@ -221,6 +241,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Meer informatie over de [GetAnchorPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getanchorpropertiesasync) methode.
 
 ```csharp
     var anchor = await cloudSession.GetAnchorPropertiesAsync(@"anchorId");
@@ -233,11 +255,15 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Meer informatie over de [verlopen](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.expiration) eigenschap.
+
 ```csharp
     cloudAnchor.Expiration = DateTimeOffset.Now.AddDays(7);
 ```
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
+
+Meer informatie over de [CreateWatcher](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher) methode.
 
 ```csharp
     AnchorLocateCriteria criteria = new AnchorLocateCriteria();
@@ -246,6 +272,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Meer informatie over de [AnchorLocatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocateddelegate) delegeren.
 
 ```csharp
     this.cloudSession.AnchorLocated += (object sender, AnchorLocatedEventArgs args) =>
@@ -274,6 +302,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Meer informatie over de [DeleteAnchorAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) methode.
+
 ```csharp
     await this.cloudSession..DeleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes
@@ -281,17 +311,23 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Meer informatie over de [stoppen](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.stop) methode.
+
 ```csharp
     this.cloudSession.Stop();
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
+Meer informatie over de [opnieuw](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset) methode.
+
 ```csharp
     this.cloudSession.Reset();
 ```
 
 [!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-unity.md)]
+
+Meer informatie over de [buitengebruikstelling](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.dispose) methode.
 
 ```csharp
     this.cloudSession.Dispose();

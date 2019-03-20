@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: yushwang
-ms.openlocfilehash: 98252f7faf7a456edae71dda5fda44850eef74dc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a4f8e2b6a1367658514cc1bf9711825959ee371e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766985"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095650"
 ---
 # <a name="vpn-gateway-faq"></a>Veelgestelde vragen VPN-gateways
 
@@ -71,11 +71,11 @@ Op route gebaseerde gateways implementeren op route gebaseerde VPN's. Op route g
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Kan ik mijn op beleid gebaseerde VPN-gateway bijwerken naar een op route gebaseerde gateway?
 Nee. Een gateway van het type Azure-Vnet kan niet worden gewijzigd van op beleid gebaseerd in op route gebaseerd, of andersom. De gateway moet worden verwijderd en opnieuw worden gemaakt. Dit duurt ongeveer 60 minuten. Het IP-adres van de gateway en ook de PSK (vooraf gedeelde sleutel) blijven niet behouden.
 1. Verwijder alle verbindingen die zijn gekoppeld aan de gateway die moet worden verwijderd.
-2. Gateway verwijderen:
-* [Azure-portal](vpn-gateway-delete-vnet-gateway-portal.md)
-* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-* [Azure Powershell - klassiek](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-3. [Een nieuwe gateway van het gewenste type maken en de VPN-installatie voltooien](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+1. Gateway verwijderen:
+1. [Azure-portal](vpn-gateway-delete-vnet-gateway-portal.md)
+1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+1. [Azure Powershell - klassiek](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [Een nieuwe gateway van het gewenste type maken en de VPN-installatie voltooien](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Heb ik een gatewaysubnet nodig?
 

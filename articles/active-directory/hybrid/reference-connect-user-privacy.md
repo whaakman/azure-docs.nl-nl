@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74cdbd704f589ca4c045f672bbc49fa4460003a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175843"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096347"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Gebruikersprivacy en Azure AD Connect 
 
@@ -84,4 +84,4 @@ Gebruik de volgende stappen uit om te plannen dat het script om uit te voeren om
 
 ## <a name="next-steps"></a>Volgende stappen
 * [De Microsoft Privacy controlebeleid op Vertrouwenscentrum](https://www.microsoft.com/trustcenter)
-- [Azure AD Connect Health en Privacy van gebruikers](reference-connect-health-user-privacy.md)
+* [Azure AD Connect Health en Privacy van gebruikers](reference-connect-health-user-privacy.md)

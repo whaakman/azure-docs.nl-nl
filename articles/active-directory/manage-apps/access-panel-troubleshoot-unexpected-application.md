@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a488c30f5b9438a91d2eae429cf65689af992dcb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fccf671edbc121501a17975be303453a798837e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167079"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122196"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Hoe toepassingen worden weergegeven in het toegangsvenster
 
@@ -46,41 +46,41 @@ Een gebruiker mogelijk ziet u een toepassing in hun Toegangsvenster omdat ze was
 
 Om te zien als een gebruiker is toegewezen aan de toepassing, de volgende stappen uit:
 
-1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
+4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
 
-5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-6.  **Search** voor de naam van de betreffende toepassing.
+6. **Search** voor de naam van de betreffende toepassing.
 
-7.  Klik op **gebruikers en groepen**.
+7. Klik op **gebruikers en groepen**.
 
-8.  Controleer of de gebruiker is toegewezen aan de toepassing.
+8. Controleer of de gebruiker is toegewezen aan de toepassing.
 
-  * Als u wilt verwijderen van de gebruiker van de toepassing **klikt u op de rij** van de gebruiker en selecteer **verwijderen**.
+   * Als u wilt verwijderen van de gebruiker van de toepassing **klikt u op de rij** van de gebruiker en selecteer **verwijderen**.
 
 ### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Controleren of een gebruiker een licentie met betrekking tot de toepassing
 
 Om te controleren of de toegewezen licenties van een gebruiker, de volgende stappen uit:
 
-1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **gebruikers en groepen** in het navigatiemenu.
+4. Klik op **gebruikers en groepen** in het navigatiemenu.
 
-5.  Klik op **alle gebruikers**.
+5. Klik op **alle gebruikers**.
 
-6.  **Search** voor de gebruiker die u geïnteresseerd bent in en **klikt u op de rij** om te selecteren.
+6. **Search** voor de gebruiker die u geïnteresseerd bent in en **klikt u op de rij** om te selecteren.
 
-7.  Klik op **licenties** om te zien welke licenties die de gebruiker die momenteel is toegewezen.
+7. Klik op **licenties** om te zien welke licenties die de gebruiker die momenteel is toegewezen.
 
    * Als de gebruiker aan een Office-licentie is toegewezen, kunt dit eerste partij Office-toepassingen worden weergegeven in het toegangsvenster van de gebruiker.
 
@@ -96,45 +96,45 @@ Een gebruiker mogelijk ziet u een toepassing in hun Toegangsvenster omdat ze dee
 
 Als u wilt controleren van een groep lidmaatschap, de volgende stappen uit:
 
-1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **gebruikers en groepen** in het navigatiemenu.
+4. Klik op **gebruikers en groepen** in het navigatiemenu.
 
-5.  Klik op **alle gebruikers**.
+5. Klik op **alle gebruikers**.
 
-6.  **Search** voor de gebruiker die u geïnteresseerd bent in en **klikt u op de rij** om te selecteren.
+6. **Search** voor de gebruiker die u geïnteresseerd bent in en **klikt u op de rij** om te selecteren.
 
-7.  Klik op **groepen.**
+7. Klik op **groepen.**
 
-8.  Controleer of de gebruiker deel uitmaakt van een groep die is toegewezen aan de toepassing is.
+8. Controleer of de gebruiker deel uitmaakt van een groep die is toegewezen aan de toepassing is.
 
    * Als u wilt verwijderen van de gebruiker uit de groep **klikt u op de rij** van de groep en selecteer verwijderen.
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Controleren of een gebruiker lid is van een groep die is toegewezen aan een licentie
 
-1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **gebruikers en groepen** in het navigatiemenu.
+4. Klik op **gebruikers en groepen** in het navigatiemenu.
 
-5.  Klik op **alle gebruikers**.
+5. Klik op **alle gebruikers**.
 
-6.  **Search** voor de gebruiker die u geïnteresseerd bent in en **klikt u op de rij** om te selecteren.
+6. **Search** voor de gebruiker die u geïnteresseerd bent in en **klikt u op de rij** om te selecteren.
 
-7.  Klik op **groepen.**
+7. Klik op **groepen.**
 
-8.  Klik op de rij van een specifieke groep.
+8. Klik op de rij van een specifieke groep.
 
-9.  Klik op **licenties** om te zien die de groep licenties zijn toegewezen aan.
+9. Klik op **licenties** om te zien die de groep licenties zijn toegewezen aan.
 
-  * Als de groep is toegewezen aan een licentie voor Office, is dit mogelijk bepaalde eerste partij Office-toepassingen worden weergegeven in het toegangsvenster van de gebruiker.
+   * Als de groep is toegewezen aan een licentie voor Office, is dit mogelijk bepaalde eerste partij Office-toepassingen worden weergegeven in het toegangsvenster van de gebruiker.
 
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Als deze stappen voor probleemoplossing niet oplossen door het probleem doet

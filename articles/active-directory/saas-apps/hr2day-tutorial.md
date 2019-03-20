@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e932fd59fb888d73fb2ad9aee3f440b4aca3e662
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 378aab82fac5298c3785f752478e3bfc3c6e325b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180570"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103142"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Zelfstudie: Azure Active Directory-integratie met HR2day door Merces
 
@@ -118,7 +118,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     b. In de **id** vak, typ een URL met behulp van het volgende patroon: `https://hr2day.force.com/<companyname>`.
 
     > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met de [HR2day door Merces client ondersteuningsteam](mailto:servicedesk@merces.nl) om deze waarden te verkrijgen. 
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met de [HR2day door Merces client ondersteuningsteam](mailto:servicedesk@merces.nl) om deze waarden te verkrijgen. 
  
 
 
@@ -132,8 +132,8 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/hr2day-tutorial/tutorial_hr2day_00.png)
     
-    > [!NOTE] 
-    Voordat u de SAML-verklaring configureren kunt, moet u contact met de [HR2day door het ondersteuningsteam Merces Client](mailto:servicedesk@merces.nl) en vraagt u de waarde van het kenmerk unieke id voor uw tenant. U moet deze waarde om de stappen in de volgende sectie te voltooien. 
+   > [!NOTE]
+   >  Voordat u de SAML-verklaring configureren kunt, moet u contact met de [HR2day door het ondersteuningsteam Merces Client](mailto:servicedesk@merces.nl) en vraagt u de waarde van het kenmerk unieke id voor uw tenant. U moet deze waarde om de stappen in de volgende sectie te voltooien. 
 
 1. In de **eenmalige aanmelding** in het dialoogvenster de **gebruikerskenmerken** sectie, het configureren van het kenmerk van SAML-token, zoals wordt weergegeven in de volgende afbeelding. Vervolgens de volgende stappen uitvoeren.
     
@@ -174,7 +174,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     > [!TIP]
     >U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Nadat u deze app uit de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad. Vervolgens toegang tot de ingesloten documentatie via de **configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie in de [documentatie over Azure AD embedded]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+   > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
@@ -242,7 +242,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 1. Klik op de **Selecteer** knop.
 
-1. In de **toevoegen toewijzing** in het dialoogvenster, selecteer **toewijzen**.
+1. Selecteer **Toewijzen** in het dialoogvenster **Toewijzing toevoegen**.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e3f6a160f57a4432f91c395a2e0dd664bc8f323d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253677"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106539"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Schaal voor failback met extra processervers
 
@@ -24,8 +24,8 @@ Wanneer u repliceert virtuele VMware-machines of fysieke servers naar Azure met 
 
 Zorg ervoor dat u hebt uitgevoerd [capaciteitsplanning](site-recovery-plan-capacity-vmware.md) voor VMware-replicatie. Dit helpt u om te bepalen hoe en wanneer u aanvullende processenservers te implementeren.
 
->[!NOTE]
-Gebruik van een gekloonde onderdeel van de processerver wordt niet ondersteund. Volg de stappen in dit artikel voor elke PS scale-out.
+> [!NOTE]
+> Gebruik van een gekloonde onderdeel van de processerver wordt niet ondersteund. Volg de stappen in dit artikel voor elke PS scale-out.
 
 ### <a name="sizing-requirements"></a>Vereisten voor volumegrootte 
 
@@ -56,11 +56,11 @@ Download het installatiebestand voor de processerver als volgt:
 3. Selecteer de configuratieserver Inzoomen op gegevens van de server. Klik vervolgens op **+ processerver**.
 4. In **toevoegen processerver** >  **kiezen waar u uw processerver implementeren**, selecteer **implementeren een uitbreidbare processerver on-premises**.
 
-  ![Pagina-Servers toevoegen](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+   ![Pagina-Servers toevoegen](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Klik op **downloaden van de Microsoft Azure Site Recovery van geïntegreerde Setup**. Hiermee downloadt u de nieuwste versie van het bestand voor installatie.
 
-  > [!WARNING]
-  Versie-installatie van de processerver moet hetzelfde zijn als of ouder is dan, de versie van de configuratie die u hebt uitgevoerd. Een eenvoudige manier om te controleren of de compatibiliteit van de versie is het gebruik van de dezelfde installatieprogramma, die u hebt onlangs gebruikt om te installeren of bijwerken van uw configuratieserver.
+   > [!WARNING]
+   > Versie-installatie van de processerver moet hetzelfde zijn als of ouder is dan, de versie van de configuratie die u hebt uitgevoerd. Een eenvoudige manier om te controleren of de compatibiliteit van de versie is het gebruik van de dezelfde installatieprogramma, die u hebt onlangs gebruikt om te installeren of bijwerken van uw configuratieserver.
 
 ## <a name="install-from-the-ui"></a>Installeren vanuit de gebruikersinterface
 

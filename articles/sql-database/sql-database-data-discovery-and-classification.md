@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 8417b849ad7589ce6a770eb805c38a13e3c672dd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448761"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202976"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database-gegevensdetectie en classificatie
 
@@ -145,6 +145,13 @@ U kunt ook REST-API's gebruiken voor het programmatisch beheren van classificati
 - [Ophalen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -haalt de gevoeligheid, label van een bepaalde kolom
 - [Lijst met huidige door Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) -haalt de huidige gevoeligheidslabels van een bepaalde database
 - [Lijst met aanbevolen door Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -haalt de van aanbevolen gevoeligheidslabels van een bepaalde database
+
+## <a name="permissions"></a>Machtigingen
+De volgende ingebouwde rollen vindt u de gegevensclassificatie van een Azure SQL database: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` en `User Access Administrator`.
+
+De indeling van de gegevens van een Azure SQL database kunnen wijzigen door de volgende ingebouwde rollen: `Owner`, `Contributor`, `SQL Security Manager`.
+
+Meer informatie over [RBAC voor Azure-resources](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## <a id="subheading-5"></a>Volgende stappen
 

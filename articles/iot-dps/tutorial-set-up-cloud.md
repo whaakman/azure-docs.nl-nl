@@ -1,20 +1,20 @@
 ---
 title: Cloud instellen voor Azure IoT Hub Device Provisioning Service in portal | Microsoft Docs
 description: Automatische apparaatinrichting van IoT Hub in Azure Portal
-author: sethmanheim
-ms.author: sethm
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 971b00f54d59782d5aa7ca752fc06e490d372760
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.openlocfilehash: 8f06d3f033a2bf5907dc2ee324359bef0eb247d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514839"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170731"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Cloudresources configureren voor apparaatinrichting met de IoT Hub Device Provisioning Service
 
@@ -44,7 +44,7 @@ Volg deze stappen om een nieuwe instantie van een Device Provisioning Service te
 
 4. Vul in het formulier **IoT Hub Device Provisioning Service** de volgende gegevens in:
     
-   | Instelling       | Voorgestelde waarde | Beschrijving | 
+   | Instelling       | Voorgestelde waarde | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Naam** | Een unieke naam | -- | 
    | **Abonnement** | Uw abonnement  | Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
@@ -81,23 +81,23 @@ De volgende stap bestaat uit het koppelen van de Device Provisioning Service en 
 
 4. Voer op de pagina **Koppeling toevoegen aan IoT-hub** de volgende gegevens in en klik op **Opslaan**:
 
-    * **Abonnement:** zorg ervoor dat het abonnement met de IoT-hub is geselecteerd. U kunt een koppeling aanbrengen met IoT-hub die zich in een ander abonnement bevindt.
+    * **Abonnement:** Zorg ervoor dat het abonnement met de IoT-hub is geselecteerd. U kunt een koppeling aanbrengen met IoT-hub die zich in een ander abonnement bevindt.
 
-    * **IoT-hub:** kies de naam van de IoT-hub die u wilt koppelen aan deze instantie van de Device Provisioning Service.
+    * **IoT hub:** Kies de naam van de IoT-hub die u wilt koppelen aan dit exemplaar van de Device Provisioning Service.
 
-    * **Toegangsbeleid:** selecteer **iothubowner** als de referenties om de koppeling met de IoT-hub tot stand te brengen.
+    * **Toegangsbeleid:** Selecteer **iothubowner** als de referenties wilt gebruiken voor het tot stand brengen van de koppeling naar de IoT-hub.
 
    ![Koppel de naam van de hub aan Device Provisioning Service op de portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Het toewijzingsbeleid instellen voor de Device Provisioning Service
 
-Het toewijzingsbeleid is een instelling voor de IoT Hub Device Provisioning Service die bepaalt hoe apparaten aan een IoT-hub worden toegewezen. Er worden drie soorten toewijzingsbeleid ondersteund: 
+Het toewijzingsbeleid is een IoT Hub Device Provisioning Service-instelling waarmee wordt bepaald hoe apparaten worden toegewezen aan een IoT-hub. Er worden drie soorten toewijzingsbeleid ondersteund: 
 
-1. **Laagste latentie**: apparaten worden ingericht voor een IoT-hub op basis van de hub met de laagste latentie voor het apparaat.
+1. **Laagste latentie**: Apparaten worden ingericht voor een IoT-hub op basis van de hub met de laagste latentie voor het apparaat.
 
-2. **Gelijk gewogen distributie** (standaardinstelling): gekoppelde IoT-hubs hebben evenveel kans dat apparaten voor ze worden ingericht. Dit is de standaardinstelling. Als u apparaten voor slechts één IoT-hub inricht, kunt u deze instelling bewaren. 
+2. **Gelijk gewogen distributie** (standaard): Gekoppelde IoT-hubs hebben evenveel kans dat apparaten die voor hen ingericht. Dit is de standaardinstelling. Als u apparaten voor slechts één IoT-hub inricht, kunt u deze instelling bewaren. 
 
-3. **Statische configuratie via de lijst inschrijving**: specificatie van de gewenste IoT-hub in de registratielijst heeft voorrang boven het toewijzingsbeleid op het niveau van de Device Provisioning Service.
+3. **Statische configuratie via de registratielijst**: Specificatie van de gewenste IoT-hub in de registratielijst heeft voorrang boven het toewijzingsbeleid Device Provisioning Service-niveau.
 
 Als u het toewijzingsbeleid wilt instellen, klikt u op de pagina Device Provisioning Service op **Toewijzingsbeleid beheren**. Zorg ervoor dat het toewijzingsbeleid is ingesteld op **Gelijk gewogen distributie** (de standaardinstelling). Als u geen wijzigingen aanbrengt, klikt u op **Opslaan** wanneer u klaar bent.
 

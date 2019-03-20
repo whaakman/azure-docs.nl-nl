@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ce48e9a17ab6b63c7fb8caa752258e218ca51ba3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 74329624b6e0f1b105349d87a6d166efad520076
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226380"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010921"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS-VM’s (Amazon Web Services) migreren naar Azure
 
@@ -33,12 +33,12 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 - Zorg ervoor dat de VM’s die u wilt migreren, worden uitgevoerd met een ondersteunde versie van het besturingssysteem. Ondersteunde versies zijn onder andere: 
-      - Windows Server 2016 
-      - Windows Server 2012 R2
-      - Windows Server 2012 
-      - 64-bits versie van Windows Server 2008 R2 SP1 of later
-      - Red Hat Enterprise Linux 6.4–6.10, 71 –7.6 (alleen gevirtualiseerde HVM-instanties) *(Instanties met RedHat PV-stuurprogramma’s worden niet ondersteund.)*
-      - CentOS 6.4–6.10 7.1–7.6 (alleen gevirtualiseerde HVM-instanties)
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - 64-bits versie van Windows Server 2008 R2 SP1 of later
+  - Red Hat Enterprise Linux 6.4–6.10, 71 –7.6 (alleen gevirtualiseerde HVM-instanties) *(Instanties met RedHat PV-stuurprogramma’s worden niet ondersteund.)*
+  - CentOS 6.4–6.10 7.1–7.6 (alleen gevirtualiseerde HVM-instanties)
  
 - De Mobility-service moet worden geïnstalleerd op elke VM die u wilt repliceren. 
 
@@ -172,39 +172,39 @@ Schakel replicatie in voor elke VM die u wilt migreren. Wanneer replicatie is in
 1. Ga naar de [Azure Portal](https://portal.azure.com).
 1. Selecteer op de pagina voor uw kluis, onder **Aan de slag**, de optie **Site Recovery**.
 2. Selecteer onder **Voor on-premises machines en Azure-VM's** de optie **Stap 1: Toepassing repliceren**. Voltooi de pagina’s van de wizard met de volgende informatie. Selecteer **OK** op elke pagina wanneer u gereed bent:
-    - 1: Bron configureren
+   - 1: Bron configureren
 
-    |  |  |
-    |-----|-----|
-    | Bron: | Selecteer **On-premises**.|
-    | Bronlocatie:| Voer de naam in van de EC2-instantie van de configuratieserver.|
-    |Machinetype: | Selecteer **Fysieke machines**.|
-    | Processerver: | Selecteer de configuratieserver in de vervolgkeuzelijst.|
+     |  |  |
+     |-----|-----|
+     | Bron: | Selecteer **On-premises**.|
+     | Bronlocatie:| Voer de naam in van de EC2-instantie van de configuratieserver.|
+     |Machinetype: | Selecteer **Fysieke machines**.|
+     | Processerver: | Selecteer de configuratieserver in de vervolgkeuzelijst.|
 
-    - 2: Doel configureren
+   - 2: Doel configureren
 
-    |  |  |
-    |-----|-----|
-    | Doel: | Laat de standaardinstelling staan.|
-    | Abonnement: | Selecteer het Azure-abonnement dat u hebt gebruikt.|
-    | Resourcegroep na failover:| Gebruik de resourcegroep die u hebt gemaakt in [Azure-resources voorbereiden](#prepare-azure-resources).|
-    | Implementatiemodel na failover: | Selecteer **Resource Manager**.|
-    | Opslagaccount: | Selecteer het opslagaccount dat u hebt gemaakt in [Azure-resources voorbereiden](#prepare-azure-resources).|
-    | Azure-netwerk: | Selecteer **Configureer deze nu voor geselecteerde machines**.|
-    | Azure-netwerk na failover: | Kies het netwerk dat u hebt gemaakt in [Azure-resources voorbereiden](#prepare-azure-resources).|
-    | Subnet: | Selecteer de **standaardinstelling** in de vervolgkeuzelijst.|
+     |  |  |
+     |-----|-----|
+     | Doel: | Laat de standaardinstelling staan.|
+     | Abonnement: | Selecteer het Azure-abonnement dat u hebt gebruikt.|
+     | Resourcegroep na failover:| Gebruik de resourcegroep die u hebt gemaakt in [Azure-resources voorbereiden](#prepare-azure-resources).|
+     | Implementatiemodel na failover: | Selecteer **Resource Manager**.|
+     | Opslagaccount: | Selecteer het opslagaccount dat u hebt gemaakt in [Azure-resources voorbereiden](#prepare-azure-resources).|
+     | Azure-netwerk: | Selecteer **Configureer deze nu voor geselecteerde machines**.|
+     | Azure-netwerk na failover: | Kies het netwerk dat u hebt gemaakt in [Azure-resources voorbereiden](#prepare-azure-resources).|
+     | Subnet: | Selecteer de **standaardinstelling** in de vervolgkeuzelijst.|
 
-    - 3: Fysieke machines selecteren
+   - 3: Fysieke machines selecteren
 
-      Selecteer **Fysieke machine** en voer vervolgens de **Naam**, het **IP-adres** en het **Type besturingssysteem** in van de EC2-instantie die u wilt migreren. Selecteer **OK**.
+     Selecteer **Fysieke machine** en voer vervolgens de **Naam**, het **IP-adres** en het **Type besturingssysteem** in van de EC2-instantie die u wilt migreren. Selecteer **OK**.
 
-    - 4: Eigenschappen configureren
+   - 4: Eigenschappen configureren
 
-      Selecteer het account dat u hebt gemaakt op de configuratieserver. Selecteer vervolgens **OK**.
+     Selecteer het account dat u hebt gemaakt op de configuratieserver. Selecteer vervolgens **OK**.
 
-    - 5: Replicatie-instellingen configureren
+   - 5: Replicatie-instellingen configureren
 
-      Zorg ervoor dat het replicatiebeleid **myReplicationPolicy** is geselecteerd in de vervolgkeuzelijst. Selecteer vervolgens **OK**.
+     Zorg ervoor dat het replicatiebeleid **myReplicationPolicy** is geselecteerd in de vervolgkeuzelijst. Selecteer vervolgens **OK**.
 
 3. Wanneer de wizard is voltooid, selecteert u **Replicatie inschakelen**.
 
@@ -245,10 +245,10 @@ Voer een werkelijke failover voor de EC2-instanties uit om deze naar Azure-VM’
 1. Controleer of de VM wordt weergegeven in **Gerepliceerde items**.
 2. Klik met de rechtermuisknop op elke VM, en selecteer vervolgens **Migratie voltooien**. Er gebeurt nu het volgende:
 
-    - Hiermee wordt het migratieproces voltooid, de replicatie voor de AWS-VM gestopt en Site Recovery-facturering voor de virtuele machine gestopt.
-    - Met deze stap worden de replicatiegegevens opgeschoond. De gemigreerde VM's worden niet verwijderd. 
+   - Hiermee wordt het migratieproces voltooid, de replicatie voor de AWS-VM gestopt en Site Recovery-facturering voor de virtuele machine gestopt.
+   - Met deze stap worden de replicatiegegevens opgeschoond. De gemigreerde VM's worden niet verwijderd. 
 
-    ![Migratie voltooien](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![Migratie voltooien](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > *Annuleer nooit een failover die wordt uitgevoerd*. De VM-replicatie wordt gestopt voordat de failover is gestart. Als u een failover annuleert die wordt uitgevoerd, wordt de failover gestopt, maar wordt de VM niet nogmaals gerepliceerd.  

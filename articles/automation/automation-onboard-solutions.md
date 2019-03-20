@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 5cf09753645d8238232e064af2ba1a301a2a7217
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
-ms.translationtype: HT
+ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41919511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082191"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Onboarding van oplossingen voor updates en het bijhouden van wijzigingen voor Azure Automation
 
@@ -81,7 +81,7 @@ Nu de oplossingen zijn ingeschakeld, kunt u een Azure-VM toevoegen voor de onboa
    ![Update-oplossing voor de virtuele machine inschakelen](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Als u niet wacht totdat de installatie van de andere oplossing is voltooid, wordt bij het inschakelen van de volgende oplossing een bericht weergegeven dat de *installatie van een andere oplossing wordt uitgevoerd op deze of een andere virtuele machine. Pas wanneer die installatie is voltooid, wordt de knop Inschakelen beschikbaar en kunt u de installatie van de oplossing op deze virtuele machine aanvragen.*
+> Als u niet tot de andere oplossing is voltooid wachten, wordt bij het inschakelen van de volgende oplossing ontvangt u een bericht weergegeven: *De installatie van een andere oplossing wordt uitgevoerd op deze of een andere virtuele machine. Pas wanneer die installatie is voltooid, wordt de knop Inschakelen beschikbaar en kunt u de installatie van de oplossing op deze virtuele machine aanvragen.*
 
 ## <a name="install-and-update-modules"></a>Modules installeren en bijwerken
 
@@ -105,7 +105,7 @@ Selecteer op de pagina **Modules** de optie **Bladeren in galerie** om de module
 1. Selecteer **Bladeren in galerie**.
 1. Zoek **bijwerken en wijzigingen bijhouden**, klik op het runbook en selecteer **Importeren** op de pagina **Bron weergeven**. Selecteer **OK** om het runbook in het Automation-account te importeren.
 
-  ![Onboarding-runbook importeren](media/automation-onboard-solutions/import-from-gallery.png)
+   ![Onboarding-runbook importeren](media/automation-onboard-solutions/import-from-gallery.png)
 
 1. Selecteer **Bewerken** op de pagina **Runbook** en selecteer vervolgens **Publiceren**. Selecteer **Ja** in het dialoogvenster **Runbook publiceren** om het runbook te publiceren.
 

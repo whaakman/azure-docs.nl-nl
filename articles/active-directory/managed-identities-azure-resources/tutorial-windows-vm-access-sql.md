@@ -1,5 +1,5 @@
 ---
-title: Een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure SQL
+title: een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure SQL
 description: Een zelfstudie die u helpt bij het doorlopen van het proces voor het gebruiken van een door het Windows-VM-systeem toegewezen beheerde identiteit om toegang te krijgen tot Azure SQL.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/07/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbb7684f3d684588ab4263683806e602e1346d5d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 57905b3d3c062c299a0f414ae6110dd0b6249198
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217799"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848027"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Zelfstudie: een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure SQL
 
@@ -40,12 +40,12 @@ Deze zelfstudie laat zien hoe u toegang krijgt tot een Azure SQL-server met een 
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Uw virtuele machine toegang verlenen tot een database op een Azure SQL-server
 
-Als u uw virtuele machine toegang wilt verlenen tot een database in een Azure SQL-server, kunt u een bestaande SQL-server gebruiken of een nieuwe server maken.  Voor het maken van een nieuwe server en database met behulp van Azure Portal, volgt u deze [Azure SQL-snelstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Er zijn ook snelstarts in de [documentatie over Azure SQL](https://docs.microsoft.com/azure/sql-database/) voor het gebruik van Azure CLI en Azure Powershell.
+Als u uw virtuele machine toegang wilt verlenen tot een database in een Azure SQL-server, kunt u een bestaande SQL-server gebruiken of een nieuwe server maken. Voor het maken van een nieuwe server en database met behulp van Azure Portal, volgt u deze [Azure SQL-snelstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Er zijn ook snelstarts in de [documentatie over Azure SQL](https://docs.microsoft.com/azure/sql-database/) voor het gebruik van Azure CLI en Azure Powershell.
 
 U moet twee stappen uitvoeren om uw virtuele machine toegang te verlenen tot een database:
 
-1.  Schakel Azure AD-verificatie in voor de SQL-server.
-2.  Maak een **ingesloten gebruiker** in de database die staat voor de door de systeem toegewezen id van de VM.
+1. Schakel Azure AD-verificatie in voor de SQL-server.
+2. Maak een **ingesloten gebruiker** in de database die staat voor de door de systeem toegewezen id van de VM.
 
 ## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Azure AD-verificatie inschakelen voor de SQL-server
 
@@ -65,45 +65,45 @@ Voor de volgende stap hebt u [Microsoft SQL Server Management Studio](https://do
 - [Universele verificatie met SQL Database en SQL Data Warehouse (SSMS-ondersteuning voor MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [Azure Active Directory-verificatie configureren en beheren met SQL Database of SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
-Voor SQL DB zijn unieke AAD-weergavenamen vereist. Hiermee moeten de AAD-accounts, zoals gebruikers, groepen en service-principals (toepassingen), en VM-namen die voor een beheerde identiteit zijn ingeschakeld, voor wat betreft de weergavenamen uniek zijn gedefinieerd in AAD. In SQL DB wordt de AAD-weergavenaam gecontroleerd tijdens het maken van dergelijke gebruikers met T-SQL. Als de naam niet uniek is, kan er geen unieke AAD-weergavenaam voor een bepaald account worden aangevraagd.
+Voor SQL DB zijn unieke AAD-weergavenamen vereist. Hiermee moeten de AAD-accounts, zoals gebruikers, groepen en service-principals (toepassingen), en VM-namen die voor een beheerde identiteit zijn ingeschakeld, voor wat betreft de weergavenamen uniek zijn gedefinieerd in AAD. SQL-database controleert de weergavenaam van de AAD tijdens het maken van dergelijke gebruikers T-SQL en als deze niet uniek is, mislukt de opdracht vraagt om een unieke AAD-weergavenaam voor een bepaald account invoeren.
 
-1.  Start SQL Server Management Studio.
-2.  Voer in het dialoogvenster **Verbinding maken met server** de naam van de SQL-server in het veld **Servernaam** in.
-3.  Selecteer in het veld **Verificatie** **Active Directory - Universeel met ondersteuning voor MFA**.
-4.  Voer in het veld **Gebruikersnaam** de naam in van het Azure AD-account dat u hebt ingesteld als de beheerder van de server, bijvoorbeeld helen@woodgroveonline.com
-5.  Klik op **Opties**.
-6.  Voer in het veld **Verbinding maken met database** de naam in van de niet-systeemdatabase die u wilt configureren.
-7.  Klik op **Verbinden**.  Voltooi het aanmeldingsproces.
-8.  Vouw in **Objectverkenner** de map **Databases** uit.
-9.  Klik met de rechtermuisknop op een gebruikersdatabase en klik op **Nieuwe query**.
+1. Start SQL Server Management Studio.
+2. Voer in het dialoogvenster **Verbinding maken met server** de naam van de SQL-server in het veld **Servernaam** in.
+3. Selecteer in het veld **Verificatie** **Active Directory - Universeel met ondersteuning voor MFA**.
+4. Voer in het veld **Gebruikersnaam** de naam in van het Azure AD-account dat u hebt ingesteld als de beheerder van de server, bijvoorbeeld helen@woodgroveonline.com
+5. Klik op **Opties**.
+6. Voer in het veld **Verbinding maken met database** de naam in van de niet-systeemdatabase die u wilt configureren.
+7. Klik op **Verbinden**. Voltooi het aanmeldingsproces.
+8. Vouw in **Objectverkenner** de map **Databases** uit.
+9. Klik met de rechtermuisknop op een gebruikersdatabase en klik op **Nieuwe query**.
 10. Voer in het queryvenster de volgende regel in en klik op **Uitvoeren** in de werkbalk:
 
     > [!NOTE]
     > `VMName` in de volgende opdracht staat de naam van de VM waarvoor u door het systeem toegewezen id's hebt ingeschakeld in het gedeelte met vereisten.
     
-     ```
-     CREATE USER [VMName] FROM EXTERNAL PROVIDER
-     ```
+    ```
+    CREATE USER [VMName] FROM EXTERNAL PROVIDER
+    ```
     
-     De opdracht voor het maken van de ingesloten gebruiker voor de door het systeem toegewezen id voor de VM wordt uitgevoerd.
-11.  Wis het queryvenster, voer de volgende regel in en klik op **Uitvoeren** in de werkbalk:
+    De opdracht voor het maken van de ingesloten gebruiker voor de door het systeem toegewezen id voor de VM wordt uitgevoerd.
+11. Wis het queryvenster, voer de volgende regel in en klik op **Uitvoeren** in de werkbalk:
 
     > [!NOTE]
     > `VMName` in de volgende opdracht staat de naam van de VM waarvoor u door het systeem toegewezen id's hebt ingeschakeld in het gedeelte met vereisten.
-     
-     ```
-     ALTER ROLE db_datareader ADD MEMBER [VMName]
-     ```
+    
+    ```
+    ALTER ROLE db_datareader ADD MEMBER [VMName]
+    ```
 
-     De opdracht wordt uitgevoerd en de ingesloten gebruiker heeft nu leestoegang tot de gehele database.
+    De opdracht wordt uitgevoerd en de ingesloten gebruiker heeft nu leestoegang tot de gehele database.
 
 Code die wordt uitgevoerd op de VM kan nu een token verkrijgen via de door het systeem toegewezen beheerde identiteit en het token gebruiken voor verificatie bij de SQL-server.
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-sql"></a>Een toegangstoken ophalen met behulp van de door het systeem toegewezen beheerde identiteit van de VM en dit gebruiken om Azure SQL aan te roepen 
+## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-sql"></a>Een toegangstoken ophalen met behulp van de door het systeem toegewezen beheerde identiteit van de VM en dit gebruiken om Azure SQL aan te roepen
 
-Azure SQL biedt systeemeigen ondersteuning voor Azure AD-verificatie, zodat toegangstokens die zijn verkregen met behulp van beheerde identiteiten voor Azure-resources direct kunnen worden geaccepteerd.  U gebruikt de toegangsmethode met het **toegangstoken** voor het maken van een verbinding met SQL.  Dit maakt deel uit van de integratie van Azure SQL met Azure AD en wijkt af van het opgeven van referenties in de verbindingsreeks.
+Azure SQL biedt systeemeigen ondersteuning voor Azure AD-verificatie, zodat toegangstokens die zijn verkregen met behulp van beheerde identiteiten voor Azure-resources direct kunnen worden geaccepteerd. U gebruikt de toegangsmethode met het **toegangstoken** voor het maken van een verbinding met SQL. Dit maakt deel uit van de integratie van Azure SQL met Azure AD en wijkt af van het opgeven van referenties in de verbindingsreeks.
 
-Hier volgt een voorbeeld van .NET-code voor het openen van een verbinding met SQL met behulp van een toegangstoken.  Deze code moet worden uitgevoerd op de virtuele machine om toegang te krijgen tot het eindpunt van de door het systeem toegewezen beheerde identiteit van de virtuele machine.  **.NET framework 4.6** of hoger is vereist voor het gebruik van de toegangsmethode met een toegangstoken.  Vervang AZURE-SQL-SERVERNAME en DATABASE door de benodigde waarden.  De resource-id voor Azure SQL is https://database.windows.net/.
+Hier volgt een voorbeeld van .NET-code van het openen van een verbinding met SQL met behulp van een toegangstoken. Deze code moet worden uitgevoerd op de virtuele machine om toegang te krijgen tot het eindpunt van de door het systeem toegewezen beheerde identiteit van de virtuele machine. **.NET framework 4.6** of hoger is vereist voor het gebruik van de methode van de access-token. Vervang AZURE-SQL-SERVERNAME en DATABASE door de benodigde waarden. Houd er rekening mee de resource-ID voor Azure SQL is `https://database.windows.net/`.
 
 ```csharp
 using System.Net;
@@ -125,7 +125,7 @@ try
     HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
     // Pipe response Stream to a StreamReader and extract access token.
-    StreamReader streamResponse = new StreamReader(response.GetResponseStream()); 
+    StreamReader streamResponse = new StreamReader(response.GetResponseStream());
     string stringResponse = streamResponse.ReadToEnd();
     JavaScriptSerializer j = new JavaScriptSerializer();
     Dictionary<string, string> list = (Dictionary<string, string>) j.Deserialize(stringResponse, typeof(Dictionary<string, string>));
@@ -149,13 +149,13 @@ if (accessToken != null) {
 
 Met PowerShell kunt u snel de end-to-end-instellingen testen zonder een app te hoeven schrijven en implementeren op de virtuele machine.
 
-1.  Navigeer in Azure Portal naar **Virtuele machines**, ga naar uw virtuele Windows-machine en klik op de pagina **Overzicht** op **Verbinden**. 
-2.  Voer uw referenties (**gebruikersnaam** en **wachtwoord**) in die u hebt toegevoegd bij het maken van de virtuele Windows-machine. 
-3.  Nu u een **Verbinding met extern bureaublad** met de virtuele machine hebt gemaakt, opent u **PowerShell** in de externe sessie. 
+1.  Navigeer in Azure Portal naar **Virtuele machines**, ga naar uw virtuele Windows-machine en klik op de pagina **Overzicht** op **Verbinden**.
+2.  Voer uw referenties (**gebruikersnaam** en **wachtwoord**) in die u hebt toegevoegd bij het maken van de virtuele Windows-machine.
+3.  Nu u een **Verbinding met extern bureaublad** met de virtuele machine hebt gemaakt, opent u **PowerShell** in de externe sessie.
 4.  Verstuur met de cmdlet `Invoke-WebRequest` van Powershell een aanvraag naar het lokale eindpunt van de beheerde identiteit om een toegangstoken voor Azure SQL op te halen.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
+        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     Converteer de reactie van een JSON-object naar een PowerShell-object. 
@@ -170,7 +170,7 @@ Met PowerShell kunt u snel de end-to-end-instellingen testen zonder een app te h
     $AccessToken = $content.access_token
     ```
 
-5.  Open een verbinding met de SQL-server. Vervang de waarden voor AZURE-SQL-SERVERNAME en DATABASE.
+5. Open een verbinding met de SQL-server. Vervang de waarden voor AZURE-SQL-SERVERNAME en DATABASE.
     
     ```powershell
     $SqlConnection = New-Object System.Data.SqlClient.SqlConnection
@@ -179,7 +179,7 @@ Met PowerShell kunt u snel de end-to-end-instellingen testen zonder een app te h
     $SqlConnection.Open()
     ```
 
-    Maak vervolgens een query en verzend de query naar de server.  Vergeet niet de waarde voor TABLE te vervangen.
+    Maak vervolgens een query en verzend de query naar de server. Vergeet niet de waarde voor TABLE te vervangen.
 
     ```powershell
     $SqlCmd = New-Object System.Data.SqlClient.SqlCommand
@@ -195,7 +195,7 @@ Bekijk de waarde van `$DataSet.Tables[0]` om de resultaten van de query weer te 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd om met een door het systeem toegewezen beheerde identiteit toegang te krijgen tot Azure SQL Server.  Zie voor meer informatie over Azure SQL Server:
+In deze zelfstudie hebt u geleerd om met een door het systeem toegewezen beheerde identiteit toegang te krijgen tot Azure SQL Server. Zie voor meer informatie over Azure SQL Server:
 
 > [!div class="nextstepaction"]
->[Azure SQL Database Service](/azure/sql-database/sql-database-technical-overview)
+> [Azure SQL Database Service](/azure/sql-database/sql-database-technical-overview)

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 83f4ebd9c3f5ad05173b045b3fa15804ddc88df6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 08d0a446fc29bf58da2583cbee8576831914ac09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157561"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862709"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI Workspace Collections Veelgestelde vragen
 
@@ -77,7 +77,7 @@ Er is geen expliciete vereiste hebben uw klanten in Azure AD-tenants in de Power
 Ontwikkelaars/werknemers op werkt, of het bouwen van uw toepassing moet een AAD-gebruikersaccount hebben wanneer ze worden uitgevoerd op uw Azure-abonnement en Werkruimteverzamelingen beheren via de Azure portal. Programmatische API's waarmee ontwikkelaars rapporten importeren, verbindingsreeksen aanpassen en URL's gebruikmaken van App-Tokens voor verificatie in plaats daarvan insluiten en als gevolg hiervan een AAD niet vereist.
 
 ## <a name="where-can-i-learn-more"></a>Waar vind ik meer informatie?
-U kunt de [documentatiepagina van Power BI Workspace Collections](get-started.md). U kunt bijhouden over deze service door naar de pagina de [Power BI-blog](https://powerbi.microsoft.com/blog/) of door naar de Power BI-ontwikkelaarscentrum op dev.powerbi.com te gaan. U kunt ook vragen op [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi).
+U kunt de [documentatiepagina van Power BI Workspace Collections](get-started.md). U kunt bijhouden over deze service door naar de pagina de [Power BI-blog](https://powerbi.microsoft.com/blog/) of door naar de Power BI-ontwikkelaarscentrum op dev.powerbi.com te gaan. U kunt ook vragen op [Stack Overflow](https://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>Hoe ga ik aan de slag?
 U kunt nu aan de slag gratis! Als u een Azure-abonnement hebt, kunt u nu inrichten Power BI Workspace Collections vanuit Azure portal rechtstreeks. U kunt ook maken uw [gratis Azure-account](https://azure.microsoft.com/free/). Zodra u de Power BI Workspace Collections-service hebt ingericht, u kunt eenvoudig rechtstreeks gebruik van Power BI REST-API's of ontwikkelaar van de SDK is beschikbaar op [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). Voorbeelden vindt u op hoe u kunt gebruikmaken van de ontwikkelaar van de SDK.
@@ -89,5 +89,5 @@ U kunt nu aan de slag gratis! Als u een Azure-abonnement hebt, kunt u nu inricht
 [aan de slag met voorbeeld](get-started-sample.md)   
 [Voorbeeld van ingesloten JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Nog vragen? [Probeer de Power BI-community](http://community.powerbi.com/)
+Nog vragen? [Probeer de Power BI-community](https://community.powerbi.com/)
 

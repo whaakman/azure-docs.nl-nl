@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a05021255c6226329f1d7a3f0e7fa8c9be756646
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c9be377dc74ac936aa3139d395b6a02f3b3192eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546718"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084358"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Zelfstudie: hybride cloud-connectiviteit configureren met Azure en Azure Stack
 
@@ -152,12 +152,12 @@ Gebruik de volgende stappen maakt u een virtuele netwerkgateway in Azure.
 3. In **gateway van virtueel netwerk**, selecteer **maken** openen de **virtuele netwerkgateway maken** pagina.
 4. Op **virtuele netwerkgateway maken**, geef de waarden voor de gateway van uw netwerk, zoals wordt weergegeven in **voorbeeld van de zelfstudie waarden**, en de volgende aanvullende waarden:
 
-    - **SKU**: basic
-    - **Virtueel netwerk**: Selecteer het Virtueelnetwerk dat u eerder hebt gemaakt. Het gatewaysubnet dat u hebt gemaakt, wordt automatisch geselecteerd.
-    - **Eerste IP-configuratie**:  Dit is het openbare IP-adres van uw Gateway.
-        - Selecteer **gateway IP-configuratie maken**, die gaat u naar de **openbare IP-adres kiezen** pagina.
-        - Selecteer **+ nieuwe maken** openen de **openbare IP-adres maken** pagina.
-        - Voer een **naam** voor uw openbare IP-adres. Laat SKU staan **Basic**, en selecteer vervolgens **OK** uw wijzigingen op te slaan.
+   - **SKU**: basic
+   - **Virtueel netwerk**: Selecteer het Virtueelnetwerk dat u eerder hebt gemaakt. Het gatewaysubnet dat u hebt gemaakt, wordt automatisch geselecteerd.
+   - **Eerste IP-configuratie**:  Dit is het openbare IP-adres van uw Gateway.
+     - Selecteer **gateway IP-configuratie maken**, die gaat u naar de **openbare IP-adres kiezen** pagina.
+     - Selecteer **+ nieuwe maken** openen de **openbare IP-adres maken** pagina.
+     - Voer een **naam** voor uw openbare IP-adres. Laat SKU staan **Basic**, en selecteer vervolgens **OK** uw wijzigingen op te slaan.
 
        > [!Note]
        > VPN-Gateway ondersteunt momenteel alleen dynamische openbare IP-adrestoewijzing. Echter, betekent dit niet dat het IP-adres verandert nadat deze toegewezen aan uw VPN-gateway. Het openbare IP-adres verandert alleen wanneer de gateway wordt verwijderd en opnieuw wordt gemaakt. Vergroten of verkleinen, opnieuw wordt ingesteld of andere interne onderhoud of upgrades worden uitgevoerd op uw VPN-gateway niet het IP-adres te wijzigen.

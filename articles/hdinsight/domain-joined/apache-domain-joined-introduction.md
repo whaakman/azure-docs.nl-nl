@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d1d515786fde06f4622402f2c1d0c3add7cd8843
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: f3d9a2447bdbc2a1a5ce930ffa161d5a9e30069b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913141"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225056"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Een inleiding tot Apache Hadoop-beveiliging met Enterprise-beveiligingspakket
 
 In het verleden, Azure HDInsight slechts één gebruiker ondersteund: lokale beheerder. Dit werkte heel goed voor kleinere toepassingsteams of afdelingen. Als Apache Hadoop gebaseerde workloads opgedaan populairder in de enterprise-sector, de noodzaak voor ondersteuning van geavanceerde mogelijkheden, zoals Active Directory gebaseerde verificatie, meerdere gebruikers, en op rollen gebaseerd toegangsbeheer steeds belangrijker. 
 
-U kunt een HDInsight-cluster maken met Enterprise Security Package (ESP) die lid van een Active Directory-domein is. U kunt vervolgens een lijst met werknemers van de onderneming die zich via Azure Active Directory verifiëren kunnen voor aanmelding bij het HDInsight-cluster configureren. Niemand van buiten de onderneming kunt aanmelden of toegang tot het HDInsight-cluster. 
+U kunt een HDInsight-cluster maken met Enterprise Security Package (ESP) die lid van een Active Directory-domein is. U kunt vervolgens een lijst met werknemers van de onderneming die zich via Azure Active Directory verifiëren kunnen te melden bij het HDInsight-cluster configureren. Niemand van buiten de onderneming kunt aanmelden of toegang tot het HDInsight-cluster. 
 
 De enterprise-beheerder op rollen gebaseerd toegangsbeheer (RBAC) kunt configureren voor Apache Hive-beveiliging met behulp van [Apache Ranger](https://hortonworks.com/apache/ranger/). RBAC configureren toegang wordt beperkt tot gegevens alleen wat u nodig hebt. De beheerder kan ten slotte de toegang tot de gegevens door werknemers en eventuele wijzigingen worden aangebracht aan het beleid voor toegangsbeheer controleren. De beheerder kan vervolgens een hoge mate van beheer van hun bedrijfsbronnen behalen.
 
@@ -36,10 +36,10 @@ Perimeterbeveiliging in HDInsight wordt bereikt door middel van virtuele netwerk
 
 Een andere perimeterbeveiligingslaag wordt bereikt via de VPN-Gateway-service. De gateway fungeert als eerste verdedigingslinie voor elke inkomende aanvraag voor het HDInsight-cluster. Deze worden aanvragen geaccepteerd, wordt deze gevalideerd en alleen vervolgens kan de aanvraag worden doorgegeven aan de andere knooppunten in het cluster. De gateway biedt op deze manier perimeterbeveiliging naar een andere naam- en gegevensknooppunten in het cluster.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 Een bedrijfsbeheerder een HDInsight-cluster kunt maken met ESP in een [virtueel netwerk](https://azure.microsoft.com/services/virtual-network/). Alle knooppunten van het HDInsight-cluster zijn gekoppeld aan het domein dat wordt beheerd via het bedrijf. Dit wordt bereikt met behulp van [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-Met deze instelling kunnen enterprise werknemers aanmelden bij de clusterknooppunten met behulp van hun domeinreferenties. Ze kunnen hun domeinreferenties ook gebruiken om te verifiëren bij andere goedgekeurde eindpunten, zoals Apache Ambari-weergaven, ODBC, JDBC, PowerShell en REST-API's om te communiceren met het cluster. De beheerder heeft volledige controle over het beperken van het aantal gebruikers die met het cluster via deze eindpunten werken.
+Met deze instelling kunnen enterprise werknemers zich aanmelden op de clusterknooppunten met behulp van hun domeinreferenties. Ze kunnen hun domeinreferenties ook gebruiken om te verifiëren bij andere goedgekeurde eindpunten, zoals Apache Ambari-weergaven, ODBC, JDBC, PowerShell en REST-API's om te communiceren met het cluster. De beheerder heeft volledige controle over het beperken van het aantal gebruikers die met het cluster via deze eindpunten werken.
 
 ## <a name="authorization"></a>Autorisatie
 Een best practice die volgen op de meeste bedrijven is ervoor te zorgen dat niet alle werknemers toegang tot alle bedrijfsresources heeft. De beheerder kan ook op rollen gebaseerd beleid voor toegangsbeheer voor de clusterresources definiëren. 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
-ms.openlocfilehash: 599372bccc7465bfea0387dedd8dfd63b8a61060
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4755eeda6a254389f0e0fbceec602fef718a9c45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100169"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Een toepassingsgateway configureren met een interne load balancer (ILB)-eindpunt
 
@@ -42,14 +42,14 @@ Er is een virtueel netwerk nodig voor communicatie tussen de resources die u maa
    - 10.0.0.0/16* - voor de adresruimte van het virtuele netwerk.
    - *myAGSubnet* als de naam van het subnet.
    - *10.0.0.0/24* als de adresruimte van het subnet.  
-   ![privé-frontendip-1](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-1.png)
+     ![privé-frontendip-1](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-1.png)
 6. Klik op **OK** om het virtuele netwerk en subnet te maken.
 7. Kiest u de Frontend-IP-configuratie als persoonlijk en standaard is de toewijzing van een dynamische IP-adres. Het eerste beschikbare adres van het gekozen Subnet worden toegewezen als de front-end-IP-adres.
 8. Als u wilt een privé IP-adres kiezen uit het adresbereik van het subnet (statische toewijzing), klikt u op het vak **kiest u een specifiek privé IP-adres** en geeft u het IP-adres.
    > [!NOTE]
    > Toegewezen, kan het type IP-adres (statische of dynamische) kan niet later worden gewijzigd.
 9. Kies uw listenerconfiguratie voor het protocol en de poort, de configuratie van de WAF (indien nodig) en klik op OK.
-    ![privé-frontendip-2](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-2.png)
+    ![privé-frontendip-2](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-2.png)
 10. Controleer de instellingen op de pagina Samenvatting en klik vervolgens op **OK** om de netwerkbronnen en de application gateway te maken. Het duurt enkele minuten voor de toepassingsgateway worden gemaakt, wacht totdat de implementatie is voltooid voordat u doorgaat met de volgende sectie.
 
 ## <a name="add-backend-pool"></a>Een back-endpool toevoegen
@@ -78,7 +78,7 @@ De back-endpool wordt gebruikt voor het routeren van aanvragen naar de back-ends
 ### <a name="install-iis"></a>IIS installeren
 
 1. Open de interactieve shell en zorg ervoor dat deze is ingesteld op **PowerShell**.
-    ![private-frontendip-3](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-3.png)
+    ![private-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Voer de volgende opdracht uit om IIS op de virtuele machine te installeren:
 
    ```azurepowershell
@@ -107,13 +107,13 @@ De back-endpool wordt gebruikt voor het routeren van aanvragen naar de back-ends
 1. Click **All resources**, and then click **myAppGateway**.
 2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
 3. Click **Add target** to add each virtual machine that you created to the backend pool.
-   ![private-frontendip-4](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-4.png)
+   ![private-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 4. Click **Save.**
 
 ## Test the application gateway
 
 1. Check your frontend IP that got assigned by clicking the **Frontend IP Configurations** blade in the portal.
-    ![private-frontendip-5](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-5.png)
+    ![private-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copy the private IP address, and then paste it into the address bar of your browser of a VM in the same VNet or on-premises which has connectivity to this VNet and try to access the Application Gateway.
 
 ## Next steps

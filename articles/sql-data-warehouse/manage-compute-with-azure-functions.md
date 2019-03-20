@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0832fbcacd8b58ffaf36ce2e55e3add151a881db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470192"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870927"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Gebruik Azure Functions voor het beheren van rekenresources in Azure SQL Data Warehouse
 
@@ -57,14 +57,14 @@ Nadat u de sjabloon hebt geïmplementeerd, vindt u drie nieuwe resources: een gr
 
 4. Voeg in het gedeelte met de planning de tijd toe die door de CRON-expressie moet worden uitgedrukt. Deze tijd geeft aan hoe vaak u SQL Data Warehouse omhoog wilt schalen. 
 
-  ![Functieplanning wijzigen](media/manage-compute-with-azure-functions/change-schedule.png)
+   ![Functieplanning wijzigen](media/manage-compute-with-azure-functions/change-schedule.png)
 
-  De waarde voor `schedule` is een [CRON-expressie](http://en.wikipedia.org/wiki/Cron#CRON_expression) die de volgende zes velden omvat: 
-  ```json
-  {second} {minute} {hour} {day} {month} {day-of-week}
-  ```
+   De waarde voor `schedule` is een [CRON-expressie](https://en.wikipedia.org/wiki/Cron#CRON_expression) die de volgende zes velden omvat: 
+   ```json
+   {second} {minute} {hour} {day} {month} {day-of-week}
+   ```
 
-  Bijvoorbeeld, *"0 30 9 ** 1-5"* geven een trigger elke weekdag om 9:30 uur. Ga naar Azure Functions [Voorbeelden van de planning][schedule examples] voor meer informatie.
+   Bijvoorbeeld, *"0 30 9 ** 1-5"* geven een trigger elke weekdag om 9:30 uur. Ga naar Azure Functions [Voorbeelden van de planning][schedule examples] voor meer informatie.
 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Wijzigen van de tijd van de schaalbewerking

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 56f1769d601df6292decc46c9470768eac29102c
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: d9bce32e87984193938099b96a358cc4495fd0c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119724"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Gegevens laden in Azure Data Lake Storage Gen1 met behulp van Azure Data Factory
 
@@ -26,10 +26,10 @@ Azure Data Factory is een volledig beheerde cloud-gebaseerde service voor gegeve
 
 Azure Data Factory biedt de volgende voordelen voor het laden van gegevens in Data Lake Storage Gen1:
 
-* **Eenvoudig**: een intuïtieve wizard 5-stap geen scripts vereist.
-* **Uitgebreide ondersteuning voor gegevensopslag**: ingebouwde ondersteuning voor een uitgebreide set on-premises en cloud-gebaseerde gegevensarchieven. Zie de tabel van voor een gedetailleerde lijst [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
-* **Beveiligd en compatibel**: gegevens worden overgedragen via HTTPS of ExpressRoute. De aanwezigheid van de algemene service zorgt ervoor dat uw gegevens nooit de geografische grens verlaat.
-* **Hoge prestaties**: maximaal 1-GB/s-gegevens snelheid in Data Lake Storage Gen1 te laden. Zie voor meer informatie, [prestaties van de Kopieeractiviteit](copy-activity-performance.md).
+* **Eenvoudig**: Een intuïtieve 5-stap-wizard met geen scripts vereist.
+* **Uitgebreide gegevens store ondersteunen**: Ingebouwde ondersteuning voor een uitgebreide set on-premises en cloud-gebaseerde gegevensarchieven. Zie de tabel van voor een gedetailleerde lijst [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Beveiligd en compatibel**: Gegevens worden overgedragen via HTTPS of ExpressRoute. De aanwezigheid van de algemene service zorgt ervoor dat uw gegevens nooit de geografische grens verlaat.
+* **Hoge prestaties**: Maximaal laadsnelheid 1-GB/s-gegevens in Data Lake Storage Gen1. Zie voor meer informatie, [prestaties van de Kopieeractiviteit](copy-activity-performance.md).
 
 Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van gegevens naar _laden van gegevens vanaf Amazon S3 in Data Lake Storage Gen1_. U kunt uitvoeren van gelijksoortige stappen als u wilt kopiëren van gegevens van andere soorten gegevensarchieven.
 
@@ -38,9 +38,9 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Azure-abonnement: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
-* Data Lake Storage Gen1-account: als u niet een Gen1 van Data Lake Storage-account hebt, raadpleegt u de instructies in [een Gen1 van Data Lake Storage-account maken](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
-* Amazon S3: In dit artikel ziet u hoe het kopiëren van gegevens vanaf Amazon S3. U kunt andere gegevensarchieven gebruiken door gelijksoortige stappen te volgen.
+* Azure-abonnement: Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
+* Data Lake Storage Gen1-account: Als u niet een Gen1 van Data Lake Storage-account hebt, raadpleegt u de instructies in [een Gen1 van Data Lake Storage-account maken](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
+* Amazon S3: In dit artikel laat zien hoe het kopiëren van gegevens vanaf Amazon S3. U kunt andere gegevensarchieven gebruiken door gelijksoortige stappen te volgen.
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
@@ -54,7 +54,7 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
     * **Naam**: Voer een unieke naam op voor uw Azure-gegevensfactory. Als u de foutmelding ' naam Data factory \"LoadADLSG1Demo\" is niet beschikbaar, "Voer een andere naam voor de data factory. Bijvoorbeeld, kunt u de naam van de  _**uwnaam**_**ADFTutorialDataFactory**. Probeer het opnieuw maken van de data factory. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
     * **Abonnement**: Selecteer uw Azure-abonnement waarin u wilt maken van de data factory. 
     * **Resourcegroep**: Selecteer een bestaande resourcegroep in de vervolgkeuzelijst of Selecteer de **nieuw** optie en voer de naam van een resourcegroep. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-    * **Versie**: Selecteer **V2**.
+    * **Version**: Selecteer **V2**.
     * **Locatie**: Selecteer de locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven die worden gebruikt door data factory, kunnen zich in andere locaties of regio's. Deze gegevensarchieven bevatten Azure Data Lake Storage Gen1, Azure Storage en Azure SQL Database.
 
 3. Selecteer **Maken**.
@@ -85,7 +85,7 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
    2. Geef de **geheime toegangssleutel** waarde.
    3. Selecteer **Voltooien**.
    
-     ![Amazon S3-account opgeven](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+      ![Amazon S3-account opgeven](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
    4. Hier ziet u een nieuwe verbinding. Selecteer **Volgende**.
    

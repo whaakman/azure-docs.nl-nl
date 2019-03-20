@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 502ccf15fe3e2f803febb711d4ea8850abbaea85
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 0166622539a439a99aef7e476519881518baa0b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116582"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106335"
 ---
-# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Overzicht: Exporteren naar SQL van Application Insights met behulp van Stream Analytics
+# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Walkthrough: Exporteren naar SQL van Application Insights met behulp van Stream Analytics
 Dit artikel wordt beschreven hoe u uw telemetriegegevens van verplaatst [Azure Application Insights] [ start] in een Azure SQL-database met behulp van [continue Export] [ export] en [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 Continue export worden de telemetriegegevens verplaatst naar Azure Storage in JSON-indeling. We parseren van de JSON-objecten met behulp van Azure Stream Analytics en rijen in een databasetabel maken.
@@ -181,8 +181,8 @@ Als u de naam en sleutel van uw Application Insights-resource, open Essentials o
 > De voorbeeld-functie gebruiken om te controleren of u het invoerpad juist zijn ingesteld. Als dit mislukt: Controleer of er gegevens in de opslag voor de voorbeeld-tijdsbereik dat u hebt gekozen. De definitie van de invoer bewerken en controleer u de storage-account, het padvoorvoegsel instellen en datumnotatie voor de juiste manier.
 > 
 > 
-## <a name="set-query"></a>Set-query
-Open de querysectie:
+> ## <a name="set-query"></a>Set-query
+> Open de querysectie:
 
 Vervang de standaardquery met:
 

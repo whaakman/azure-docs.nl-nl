@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: ca951c813554ae253cbd572e03c53b8687499af9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 94bdc0670fb63b1b4c306a5af3357f437784338c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000162"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007926"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Verzamelen van IIS-logboeken in Azure Monitor
 Internet Information Services (IIS) slaat gebruikersactiviteit in logboekbestanden die kunnen worden verzameld door Azure Monitor en opgeslagen als [logboekgegevens](data-collection.md).
@@ -72,7 +72,7 @@ De volgende tabel bevat voorbeelden van Logboeken-query's die IIS logboekrecords
 | W3CIISLog |Alle IIS-logboek records. |
 | W3CIISLog &#124; where scStatus==500 |Alle IIS-logboek records met een status van het resultaat van 500. |
 | W3CIISLog &#124; count() samenvatten op overschrijving |Telling van IIS-logboekvermeldingen op client-IP-adres. |
-| W3CIISLog &#124; waar csHost == 'www.contoso.com' &#124; count() samenvatten op csUriStem |Telling van IIS logboekvermeldingen op URL voor de host www.contoso.com. |
+| W3CIISLog &#124; waar csHost == "www\.contoso.com" &#124; count() samenvatten op csUriStem |Telling van IIS-logboekvermeldingen op URL voor de host www\.contoso.com. |
 | W3CIISLog &#124; sum(csBytes) per Computer samenvatten &#124; 500000 nemen |Totaal aantal bytes dat is ontvangen door elke IIS-computer. |
 
 ## <a name="next-steps"></a>Volgende stappen

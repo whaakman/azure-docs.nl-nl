@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: e0e25a9a1e70575d862374da0fb3097408b002e7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: be6b50b5cb4ea7d32f47d6eb0e19ba43a3217cb6
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714624"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202687"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installeren en Hue gebruiken op HDInsight Hadoop-clusters
 
@@ -143,7 +143,6 @@ SSH-Tunneling is de enige manier om de Hue op het cluster toegang heeft wanneer 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Apache Giraph installeren op HDInsight-clusters](hdinsight-hadoop-giraph-install-linux.md). Aanpassing van de cluster Giraph installeren op HDInsight Hadoop-clusters gebruiken. Giraph kunt u met behulp van Hadoop graph-verwerking uit te voeren en deze kan worden gebruikt met Azure HDInsight.
-* [Apache Solr installeren op HDInsight-clusters](hdinsight-hadoop-solr-install-linux.md). Aanpassing van de cluster Solr installeren op HDInsight Hadoop-clusters gebruiken. Solr kunt u krachtige zoek-bewerkingen voor opgeslagen gegevens uit te voeren.
 * [R installeren op HDInsight-clusters](hdinsight-hadoop-r-scripts-linux.md). Aanpassing van de cluster R installeren op HDInsight Hadoop-clusters gebruiken. R is een open source-taal en omgeving voor statistische computing. Het bevat honderden ingebouwde statistische functies en een eigen programmeertaal die aspecten van het programmeren van functionele en objectgeoriënteerde combineert. Het biedt ook uitgebreide grafische mogelijkheden.
 
 [powershell-install-configure]: install-configure-powershell-linux.md

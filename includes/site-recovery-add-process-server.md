@@ -4,24 +4,24 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: b6e3abb56ebd02131fac78c2a8f03ddcbf50958a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c9a0d4387511bbfa033bcb90d9f83e1a7bb39719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166475"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124673"
 ---
 1. De Azure Site Recovery UnifiedSetup.exe starten
 2. In **Voordat u begint** selecteert u **Add additional process servers to scale out deployment** (Extra processervers toevoegen om implementatie uit te schalen).
 
-  ![Processerver toevoegen](./media/site-recovery-add-process-server/ps-page-1.png)
+   ![Processerver toevoegen](./media/site-recovery-add-process-server/ps-page-1.png)
 
 3. Bij **Configuration Server Details** (Serverconfiguratiedetails) geeft u het IP-adres van de configuratieserver en de wachtwoordzin op.
 
-  ![Processerver 2 toevoegen](./media/site-recovery-add-process-server/ps-page-2.png)
+   ![Processerver 2 toevoegen](./media/site-recovery-add-process-server/ps-page-2.png)
 4. Geef bij **Internetinstellingen** op hoe de provider die op de configuratieserver wordt uitgevoerd, via internet verbinding moet maken met Azure Site Recovery.
 
-  ![Processerver 3 toevoegen](./media/site-recovery-add-process-server/ps-page-3.png)
+   ![Processerver 3 toevoegen](./media/site-recovery-add-process-server/ps-page-3.png)
 
    * Als u verbinding wilt maken met de proxy die momenteel op de computer is ingesteld, selecteert u **Verbinding maken met bestaande proxyinstellingen**.
    * Als u wilt dat de provider rechtstreeks verbinding maakt, selecteert u **Rechtstreeks verbinden zonder proxy**.

@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 6ee05af0391311b4782211807f41ce099a6c24a2
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5dfe768ddb3509f896b90f913ffecdf33907357a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876677"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - een migratie-infrastructuur implementeren
 
@@ -101,10 +101,10 @@ Contoso moet na betalen voor Azure, om te achterhalen hoe u Azure-abonnementen b
 - Een Azure Enterprise-inschrijving wordt gedefinieerd hoe een bedrijf vormen en Azure-services gebruikt, en definieert een bestuursstructuur core.
 - Als een eerste stap heeft Contoso vastgesteld dat een structuur (bekend als een enterprise-platform voor Enterprise-inschrijving. Contoso gebruikt [in dit artikel](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance) om te begrijpen en ontwerpen van een scaffold.
 - Contoso heeft nu besloten om een functionele benadering gebruiken om abonnementen te beheren.
-    - Binnen het bedrijf wordt, een enkel IT-afdeling die het budget van de Azure bepaalt gebruikt. Dit is de enige groep met abonnementen.
-    - Contoso wordt dit model uitbreiden in de toekomst, zodat andere zakelijke groepen kunnen deelnemen aan als afdelingen in de Enterprise-inschrijving.
-    - Contoso heeft twee abonnementen, productie en ontwikkeling gestructureerde binnen de IT-afdeling.
-    - Als u Contoso vereist extra abonnementen in de toekomst, moet deze voor het beheren van toegang, beleid en naleving voor deze abonnementen. Contoso doet dat door de introductie van [Azure beheergroepen](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), als een extra beveiligingslaag boven abonnementen.
+  - Binnen het bedrijf wordt, een enkel IT-afdeling die het budget van de Azure bepaalt gebruikt. Dit is de enige groep met abonnementen.
+  - Contoso wordt dit model uitbreiden in de toekomst, zodat andere zakelijke groepen kunnen deelnemen aan als afdelingen in de Enterprise-inschrijving.
+  - Contoso heeft twee abonnementen, productie en ontwikkeling gestructureerde binnen de IT-afdeling.
+  - Als u Contoso vereist extra abonnementen in de toekomst, moet deze voor het beheren van toegang, beleid en naleving voor deze abonnementen. Contoso doet dat door de introductie van [Azure beheergroepen](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), als een extra beveiligingslaag boven abonnementen.
 
     ![Enterprise-structuur](./media/contoso-migration-infrastructure/enterprise-structure.png) 
 
@@ -146,7 +146,7 @@ Verlenen en beheren van gebruikerstoegang tot Azure-resources met beheer van ide
 
 Contoso maakt gebruik van de gratis versie van Azure AD die is opgenomen met een Azure-abonnement. Beheerders van Contoso een AD-directory als volgt instellen:
 
-1. In de [Azure-portal](http://portal.azure.com/), ze gaat u naar **een resource maken** > **identiteit** > **Azure Active Directory**.
+1. In de [Azure-portal](https://portal.azure.com/), ze gaat u naar **een resource maken** > **identiteit** > **Azure Active Directory**.
 2. In **map maken**, ze Geef een naam voor de map, een initiële domeinnaam en de regio waarin de Azure AD-directory moet worden gemaakt.
 
     ![Azure AD maken](./media/contoso-migration-infrastructure/azure-ad-create.png) 
@@ -581,18 +581,18 @@ Beheerders van Contoso zijn na het bijwerken van netwerkinstellingen, gereed voo
 
 1. In de Azure-portal implementeren ze een nieuwe virtuele machine voor Windows-Server op het betreffende VNet.
 2. Beschikbaarheidssets maken ze op elke locatie voor de virtuele machine. Beschikbaarheidssets doen het volgende:
-    - Zorg ervoor dat de Azure-infrastructuur worden gescheiden voor de virtuele machines in verschillende infrastructuur in de Azure-regio. 
-    -  Hiermee kunt u Contoso in aanmerking komt voor de SLA van 99,95% voor virtuele machines in Azure.  [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
+   - Zorg ervoor dat de Azure-infrastructuur worden gescheiden voor de virtuele machines in verschillende infrastructuur in de Azure-regio. 
+   - Hiermee kunt u Contoso in aanmerking komt voor de SLA van 99,95% voor virtuele machines in Azure.  [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
 
-    ![Beschikbaarheidsgroep](./media/contoso-migration-infrastructure/availability-group.png) 
+     ![Beschikbaarheidsgroep](./media/contoso-migration-infrastructure/availability-group.png) 
 3. Nadat de virtuele machine is geïmplementeerd, openen de netwerkinterface ze voor de virtuele machine. Ze het privé IP-adres instellen in statisch en geef een geldig adres.
 
     ![VM NIC](./media/contoso-migration-infrastructure/vm-nic.png)
 
 4. Nu dat ze een nieuwe gegevensschijf koppelen aan de virtuele machine. Deze schijf bevat het Active Directory-database en de sysvol-share. 
-    - De grootte van de schijf bepaalt het aantal IOP's worden ondersteund.
-    - Na verloop van tijd mogelijk de grootte van de schijf te verhogen als de omgeving groeit.
-    - Het station mag niet worden ingesteld op lezen/schrijven voor opslaan in cache. Active Directory-databases kan dit niet ondersteund.
+   - De grootte van de schijf bepaalt het aantal IOP's worden ondersteund.
+   - Na verloop van tijd mogelijk de grootte van de schijf te verhogen als de omgeving groeit.
+   - Het station mag niet worden ingesteld op lezen/schrijven voor opslaan in cache. Active Directory-databases kan dit niet ondersteund.
 
      ![Active Directory-schijf](./media/contoso-migration-infrastructure/ad-disk.png)
 

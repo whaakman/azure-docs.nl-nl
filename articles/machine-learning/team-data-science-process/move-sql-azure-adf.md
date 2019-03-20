@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 08c3511b3efc7ee2e21ef5847976357292bf95bb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888396"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Gegevens verplaatsen van een on-premises SQL server naar SQL Azure met Azure Data Factory
 
@@ -61,7 +61,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u hebt:
 >
 
 ## <a name="upload-data"></a> De gegevens uploaden naar uw on-premises SQL-Server
-We gebruiken de [NYC Taxi gegevensset](http://chriswhong.com/open-data/foil_nyc_taxi/) ter illustratie van het migratieproces. De gegevensset NYC over taxi's is beschikbaar, zoals beschreven in dit item, op Azure blob-opslag [NYC Taxi gegevens](http://www.andresmh.com/nyctaxitrips/). De gegevens heeft twee bestanden, het bestand trip_data.csv, dat de details van de fietstocht bevat, en het bestand trip_far.csv details van het tarief voor elke reis betaald bevat. Een voorbeeld en een beschrijving van deze bestanden zijn beschikbaar in [NYC Taxi Trips gegevensset beschrijving](sql-walkthrough.md#dataset).
+We gebruiken de [NYC Taxi gegevensset](https://chriswhong.com/open-data/foil_nyc_taxi/) ter illustratie van het migratieproces. De gegevensset NYC over taxi's is beschikbaar, zoals beschreven in dit item, op Azure blob-opslag [NYC Taxi gegevens](https://www.andresmh.com/nyctaxitrips/). De gegevens heeft twee bestanden, het bestand trip_data.csv, dat de details van de fietstocht bevat, en het bestand trip_far.csv details van het tarief voor elke reis betaald bevat. Een voorbeeld en een beschrijving van deze bestanden zijn beschikbaar in [NYC Taxi Trips gegevensset beschrijving](sql-walkthrough.md#dataset).
 
 U kunt aanpassen van de procedure die hier beschikbaar zijn op een set van uw eigen gegevens of volg de stappen beschreven met behulp van de NYC Taxi-gegevensset. Als u wilt uploaden de gegevensset NYC over taxi's in uw on-premises SQL Server-database, volgt u de procedure wordt beschreven in [bulksgewijs importeren van gegevens in SQL Server-Database](sql-walkthrough.md#dbload). Deze instructies zijn voor een SQL-Server op een Azure-Machine, maar de procedure voor het uploaden naar de on-premises SQL-Server is hetzelfde.
 

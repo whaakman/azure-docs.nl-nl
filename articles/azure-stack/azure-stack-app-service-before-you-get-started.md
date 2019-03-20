@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: e39904378edd9583cd7802d0a75f2f365a35d2b6
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791950"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088431"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
@@ -76,7 +76,7 @@ Wanneer u de volgende PowerShell-opdracht uitvoert, hebt u voor het eindpunt van
 
 De *maken AppServiceCerts.ps1* script werkt met de Azure Stack-CA te maken van de vier certificaten die App Service nodig heeft.
 
-| Bestandsnaam | Gebruik |
+| Bestandsnaam | Gebruiken |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | Het standaard-SSL-certificaatbestand voor App Service |
 | api.appservice.local.azurestack.external.pfx | App Service API-SSL-certificaat |
@@ -112,7 +112,7 @@ Het certificaat van het standaarddomein wordt geplaatst op de Front-End-rol. Geb
 
 Het certificaat in PFX-indeling moet worden en moet een certificaat met jokertekens drie-onderwerp. Deze vereiste kan een certificaat van toepassing op zowel het standaarddomein en de SCM-eindpunt voor bewerkingen voor beheer van gegevensbron.
 
-| Notatie | Voorbeeld |
+| Indeling | Voorbeeld |
 | --- | --- |
 | \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
 | \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
@@ -122,7 +122,7 @@ Het certificaat in PFX-indeling moet worden en moet een certificaat met jokertek
 
 De API-certificaat is op de beheerrol geplaatst. De resourceprovider gebruikt om u te helpen bij de beveiligde API-aanroepen. Het certificaat voor publicatie moet een onderwerpnaam die overeenkomt met de API-DNS-vermelding bevatten.
 
-| Notatie | Voorbeeld |
+| Indeling | Voorbeeld |
 | --- | --- |
 | api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
@@ -130,7 +130,7 @@ De API-certificaat is op de beheerrol geplaatst. De resourceprovider gebruikt om
 
 Het certificaat voor de rol van de uitgever beveiligt het FTPS-verkeer voor toepassingseigenaren van wanneer ze inhoud uploaden. Het certificaat voor publicatie moet een onderwerpnaam die overeenkomt met de FTPS DNS-vermelding bevatten.
 
-| Notatie | Voorbeeld |
+| Indeling | Voorbeeld |
 | --- | --- |
 | ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
@@ -143,7 +143,7 @@ Het certificaat voor de identiteitstoepassing kunt:
 
 Het certificaat voor de id moet een onderwerpnaam die overeenkomt met de volgende indeling bevatten.
 
-| Notatie | Voorbeeld |
+| Indeling | Voorbeeld |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
@@ -304,10 +304,10 @@ Voor productie en hoge beschikbaarheid, u moet een volledige versie van SQL Serv
 
 De SQL Server-exemplaar voor Azure App Service in Azure Stack moet toegankelijk zijn vanuit alle App Service-rollen. U kunt SQL Server binnen het abonnement van de Provider standaard in Azure Stack implementeren. U kunt ook het gebruik van de bestaande infrastructuur binnen uw organisatie (zolang er een verbinding met Azure Stack is). Als u een Azure Marketplace-installatiekopie, moet u de firewall dienovereenkomstig configureren.
 
->[!NOTE]
+> [!NOTE]
 > Een aantal SQL IaaS-installatiekopieën voor virtuele machines zijn beschikbaar via de Marketplace-Management-functie. Zorg ervoor dat u altijd de nieuwste versie van de SQL IaaS-extensie downloaden voordat u een virtuele machine met behulp van een Marketplace-item implementeert. De SQL-installatiekopieën zijn hetzelfde als de SQL-VM's die beschikbaar in Azure zijn. Voor SQL-VM's gemaakt op basis van deze installatiekopieën, de IaaS-extensie en de bijbehorende portal verbeteringen bieden functies zoals automatische toepassing van patches en back-mogelijkheden.
->
-Voor een van de SQL Server-rollen, kunt u een standaardexemplaar of een benoemd exemplaar. Als u een benoemd exemplaar gebruikt, moet u handmatig de SQL Server Browser-service starten en-poort 1434 openen.
+> 
+> Voor een van de SQL Server-rollen, kunt u een standaardexemplaar of een benoemd exemplaar. Als u een benoemd exemplaar gebruikt, moet u handmatig de SQL Server Browser-service starten en-poort 1434 openen.
 
 Het App Service-installatieprogramma wordt gecontroleerd of dat de SQL Server database containment ingeschakeld heeft. Als u database containment op de SQL-Server die als host de App Service-databases fungeert, voert u deze SQL-opdrachten:
 

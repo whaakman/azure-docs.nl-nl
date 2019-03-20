@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d7fc01e0869462928e28c01e51c91ae93fa5a8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e540eeecf49f8fb00df4a03de95c5063da360229
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171941"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124045"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>De infrastructuur van uw extern bureaublad-Gateway met behulp van de extensie voor Network Policy Server (NPS) en Azure AD integreren
 
@@ -124,7 +124,7 @@ Als onderdeel van de configuratie van de NPS-extensie moet u beheerdersreferenti
 1. Selecteer **eigenschappen**.
 1. Klik op de blade eigenschappen naast de map-ID, de **kopie** pictogram, zoals hieronder aangegeven, de ID naar Klembord kopiëren.
 
- ![Properties](./media/howto-mfa-nps-extension-rdg/image1.png)
+   ![Properties](./media/howto-mfa-nps-extension-rdg/image1.png)
 
 ### <a name="install-the-nps-extension"></a>De NPS-extensie installeren
 
@@ -139,11 +139,11 @@ Installeer de NPS-extensie op een server waarop de rol Network Policy and Access
 1. Dubbelklik op de NPS-server op **NpsExtnForAzureMfaInstaller.exe**. Als u hierom wordt gevraagd, klikt u op **uitvoeren**.
 1. In de NPS-extensie voor Azure MFA instellen in het dialoogvenster, controleert u de licentievoorwaarden voor software controleren **ik ga akkoord met de licentievoorwaarden en voorwaarden**, en klikt u op **installeren**.
 
-  ![Azure MFA-instellingen](./media/howto-mfa-nps-extension-rdg/image2.png)
+   ![Azure MFA-instellingen](./media/howto-mfa-nps-extension-rdg/image2.png)
 
 1. Klik in het dialoogvenster NPS-extensie voor Azure MFA instellen op **sluiten**.
 
-  ![NPS-extensie voor Azure MFA](./media/howto-mfa-nps-extension-rdg/image3.png)
+   ![NPS-extensie voor Azure MFA](./media/howto-mfa-nps-extension-rdg/image3.png)
 
 ### <a name="configure-certificates-for-use-with-the-nps-extension-using-a-powershell-script"></a>Configureren van certificaten voor gebruik met de NPS-extensie met een PowerShell-script
 
@@ -165,19 +165,19 @@ Voor het gebruik van het script, voorzien van de extensie Azure AD-beheerdersref
 1. Typ het volgende achter de PowerShell-prompt `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`, en druk op **ENTER**.
 1. Type `.\AzureMfaNpsExtnConfigSetup.ps1`, en druk op **ENTER**. Het script wordt gecontroleerd of de Azure Active Directory PowerShell-module is geïnstalleerd. Als niet is geïnstalleerd, installeert u de module met het script voor u.
 
-  ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
+   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
 1. Nadat het script wordt gecontroleerd door de installatie van de PowerShell-module, wordt deze weergegeven in het dialoogvenster voor Azure Active Directory PowerShell-module. Voer in het dialoogvenster uw referenties voor Azure AD-beheerder en het wachtwoord in en klikt u op **aanmelden**.
 
-  ![Open Powershell-account](./media/howto-mfa-nps-extension-rdg/image5.png)
+   ![Open Powershell-account](./media/howto-mfa-nps-extension-rdg/image5.png)
 
 1. Wanneer u hierom wordt gevraagd, plakt u de tenant-ID die u eerder hebt naar het Klembord gekopieerd en druk op **ENTER**.
 
-  ![Tenant-ID invoeren](./media/howto-mfa-nps-extension-rdg/image6.png)
+   ![Tenant-ID invoeren](./media/howto-mfa-nps-extension-rdg/image6.png)
 
 1. Het script wordt een zelfondertekend certificaat gemaakt en andere wijzigingen in de configuratie wordt uitgevoerd. De uitvoer moet zoals in de afbeelding hieronder wordt weergegeven.
 
-  ![Zelfondertekend certificaat](./media/howto-mfa-nps-extension-rdg/image7.png)
+   ![Zelfondertekend certificaat](./media/howto-mfa-nps-extension-rdg/image7.png)
 
 ## <a name="configure-nps-components-on-remote-desktop-gateway"></a>NPS-onderdelen op de extern bureaublad-Gateway configureren
 
@@ -192,26 +192,26 @@ Verbinding met extern bureaublad-autorisatiebeleid (RD CAP's) worden de vereiste
 1. Open op de server extern bureaublad-Gateway **Serverbeheer**.
 1. In het menu, klikt u op **extra**, wijst u **extern bureaublad-Services**, en klik vervolgens op **extern bureaublad-gatewaybeheer**.
 
-  ![Externe bureaubladservices](./media/howto-mfa-nps-extension-rdg/image8.png)
+   ![Externe bureaubladservices](./media/howto-mfa-nps-extension-rdg/image8.png)
 
 1. In de RD-gatewaybeheer met de rechtermuisknop op  **\[servernaam\] (lokaal)**, en klikt u op **eigenschappen**.
 
-  ![Servernaam](./media/howto-mfa-nps-extension-rdg/image9.png)
+   ![Servernaam](./media/howto-mfa-nps-extension-rdg/image9.png)
 
 1. Selecteer in het dialoogvenster Eigenschappen van de **RD CAP Store** tabblad.
 1. Selecteer op het tabblad RD CAP Store **centrale server waarop NPS wordt uitgevoerd**. 
 1. In de **Voer een naam of IP-adres voor de server met NPS** veld, typt u het IP-adres of de naam van de server waarop u de NPS-extensie geïnstalleerd.
 
-  ![Voer de naam of IP-adres](./media/howto-mfa-nps-extension-rdg/image10.png)
+   ![Voer de naam of IP-adres](./media/howto-mfa-nps-extension-rdg/image10.png)
   
 1. Klik op **Add**.
 1. In de **gedeeld geheim** in het dialoogvenster, Geef een gedeeld geheim, en klik vervolgens op **OK**. Zorg ervoor dat u dit gedeelde geheim en het veilig opslaan van de record.
 
- >[!NOTE]
- >Gedeeld geheim wordt gebruikt om de vertrouwensrelatie tussen de RADIUS-servers en clients. Een lange en complexe geheim maken.
- >
+   >[!NOTE]
+   >Gedeeld geheim wordt gebruikt om de vertrouwensrelatie tussen de RADIUS-servers en clients. Een lange en complexe geheim maken.
+   >
 
- ![Gedeeld geheim](./media/howto-mfa-nps-extension-rdg/image11.png)
+   ![Gedeeld geheim](./media/howto-mfa-nps-extension-rdg/image11.png)
 
 1. Klik op **OK** om het dialoogvenster te sluiten.
 
@@ -222,23 +222,23 @@ Verificatie in twee stappen uitvoeren om te controleren of er voldoende tijd voo
 1. Open Serverbeheer op de RD-Gateway-server. In het menu, klikt u op **extra**, en klik vervolgens op **Network Policy Server**. 
 1. In de **NPS (lokaal)** console, vouw **RADIUS-Clients en Servers**, en selecteer **externe RADIUS-Server**.
 
- ![Externe RADIUS-Server](./media/howto-mfa-nps-extension-rdg/image12.png)
+   ![Externe RADIUS-Server](./media/howto-mfa-nps-extension-rdg/image12.png)
 
 1. Dubbelklik in het deelvenster met details op **TS-GATEWAYSERVERGROEP**.
 
- >[!NOTE]
- >Deze RADIUS-Server-groep is gemaakt tijdens het configureren van de centrale server voor NPS-beleid. De RD-Gateway stuurt de RADIUS-berichten op deze server of de groep servers, als meer dan één in de groep.
- >
+   >[!NOTE]
+   >Deze RADIUS-Server-groep is gemaakt tijdens het configureren van de centrale server voor NPS-beleid. De RD-Gateway stuurt de RADIUS-berichten op deze server of de groep servers, als meer dan één in de groep.
+   >
 
 1. In de **groepseigenschappen van TS GATEWAY SERVER** dialoogvenster vak, selecteert u het IP-adres of de naam van de NPS-server die u hebt geconfigureerd voor het opslaan van RD CAP's, en klik vervolgens op **bewerken**. 
 
- ![Groep TS-gatewayserver](./media/howto-mfa-nps-extension-rdg/image13.png)
+   ![Groep TS-gatewayserver](./media/howto-mfa-nps-extension-rdg/image13.png)
 
 1. In de **RADIUS-Server bewerken** in het dialoogvenster, selecteer de **Load Balancing** tabblad.
 1. In de **Load Balancing** tabblad, in de **aantal seconden zonder reactie voordat een aanvraag wordt beschouwd als een genegeerde** veld, wijzigt u de standaardwaarde van 3 op een waarde tussen 30 en 60 seconden.
 1. In de **aantal seconden tussen aanvragen wanneer de server is geïdentificeerd als niet beschikbaar** veld, de standaardwaarde van 30 seconden wijzigen op een waarde die gelijk is aan of groter is dan de waarde die u hebt opgegeven in de vorige stap.
 
- ![RADIUS-Server bewerken](./media/howto-mfa-nps-extension-rdg/image14.png)
+   ![RADIUS-Server bewerken](./media/howto-mfa-nps-extension-rdg/image14.png)
 
 1. Klik op **OK** twee keer om de dialoogvensters te sluiten.
 
@@ -251,7 +251,7 @@ Standaard, dat bij het configureren van de RD-Gateway met een centrale beleidsar
 1. In de **TS GATEWAY-AUTORISATIEBELEID eigenschappen** in het dialoogvenster, klikt u op de **instellingen** tabblad.
 1. Op **instellingen** klikt u op tabblad onder de verbindingsaanvraag **verificatie**. RADIUS-client is geconfigureerd om aanvragen doorsturen voor verificatie.
 
- ![Verificatie-instellingen](./media/howto-mfa-nps-extension-rdg/image15.png)
+   ![Verificatie-instellingen](./media/howto-mfa-nps-extension-rdg/image15.png)
 
 1. Klik op **annuleren**.
 
@@ -268,7 +268,7 @@ Werkt alleen goed in dit scenario, als moet de NPS-server worden geregistreerd i
 1. In de console van Network Policy Server met de rechtermuisknop op **NPS (lokaal)**, en klik vervolgens op **server registreren in Active Directory**.
 1. Klik op **OK** twee keer.
 
- ![Server registreren in AD](./media/howto-mfa-nps-extension-rdg/image16.png)
+   ![Server registreren in AD](./media/howto-mfa-nps-extension-rdg/image16.png)
 
 1. Laat de console geopend voor de volgende procedure.
 
@@ -278,12 +278,12 @@ Extern bureaublad-Gateway moet worden geconfigureerd als een RADIUS-client naar 
 
 1. Op de NPS-server waarop de NPS-extensie is geïnstalleerd, in de **NPS (lokaal)** console, met de rechtermuisknop op **RADIUS-Clients** en klikt u op **nieuw**.
 
- ![Nieuwe RADIUS-Clients](./media/howto-mfa-nps-extension-rdg/image17.png)
+   ![Nieuwe RADIUS-Clients](./media/howto-mfa-nps-extension-rdg/image17.png)
 
 1. In de **nieuwe RADIUS-Client** dialoogvenster vak, Geef een beschrijvende naam, zoals _Gateway_, en het IP-adres of de DNS-naam van de extern bureaublad-Gateway-server. 
 1. In de **gedeeld geheim** en de **Bevestig het gedeelde geheim** velden, Voer hetzelfde geheim dat u eerder hebt gebruikt.
 
- ![Naam en adres](./media/howto-mfa-nps-extension-rdg/image18.png)
+   ![Naam en adres](./media/howto-mfa-nps-extension-rdg/image18.png)
 
 1. Klik op **OK** te sluiten van het dialoogvenster Nieuwe RADIUS-Client.
 
@@ -294,28 +294,28 @@ Intrekken dat de NPS-server met de Azure MFA-extensie het aangewezen centrale be
 1. Open de console NPS (lokaal) op de NPS-Server uit, vouw **beleid**, en klikt u op **netwerkbeleid**.
 1. Met de rechtermuisknop op **verbindingen met andere servers voor clienttoegang**, en klikt u op **beleid dupliceren**.
 
- ![Dupliceerbeleid](./media/howto-mfa-nps-extension-rdg/image19.png)
+   ![Dupliceerbeleid](./media/howto-mfa-nps-extension-rdg/image19.png)
 
 1. Met de rechtermuisknop op **kopie van verbindingen met andere servers voor clienttoegang**, en klikt u op **eigenschappen**.
 
- ![Netwerkeigenschappen](./media/howto-mfa-nps-extension-rdg/image20.png)
+   ![Netwerkeigenschappen](./media/howto-mfa-nps-extension-rdg/image20.png)
 
 1. In de **kopie van verbindingen met andere servers voor clienttoegang** in het dialoogvenster **beleidsnaam**, voer een passende naam, zoals _RDG_CAP_. Controleer **beleid is ingeschakeld**, en selecteer **toegang verlenen**. (Optioneel) in **Type netwerktoegangsserver**, selecteer **extern bureaublad-Gateway**, of u kunt dit laten staan als **niet opgegeven**.
 
- ![Kopie van verbindingen](./media/howto-mfa-nps-extension-rdg/image21.png)
+   ![Kopie van verbindingen](./media/howto-mfa-nps-extension-rdg/image21.png)
 
 1. Klik op de **beperkingen** tabblad en Controleer **toestaan dat clients verbinding kunnen maken zonder een verificatiemethode te onderhandelen**.
 
- ![Clients toestaan verbinding te](./media/howto-mfa-nps-extension-rdg/image22.png)
+   ![Clients toestaan verbinding te](./media/howto-mfa-nps-extension-rdg/image22.png)
 
 1. Klik desgewenst op de **voorwaarden** tabblad en voorwaarden waaraan moeten worden voldaan voor de verbinding moet worden gemachtigd, bijvoorbeeld, het lidmaatschap van een specifieke Windows-groep toevoegen.
 
- ![Voorwaarden](./media/howto-mfa-nps-extension-rdg/image23.png)
+   ![Voorwaarden](./media/howto-mfa-nps-extension-rdg/image23.png)
 
 1. Klik op **OK**. Wanneer u hierom wordt gevraagd om de bijbehorende Help-onderwerp weer te geven, klikt u op **Nee**.
 1. Zorg ervoor dat het nieuwe beleid boven aan de lijst, dat het beleid is ingeschakeld, en dat deze toegang wordt verleend.
 
- ![Beleid voor netwerken](./media/howto-mfa-nps-extension-rdg/image24.png)
+   ![Beleid voor netwerken](./media/howto-mfa-nps-extension-rdg/image24.png)
 
 ## <a name="verify-configuration"></a>Configuratie controleren
 

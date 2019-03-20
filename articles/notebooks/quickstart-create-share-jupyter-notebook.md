@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 584d59592158ccf542dbb05486b159a5e34ffbc3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3f03202d0f4416b3bf08a33e5d997d7149eda9f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759099"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104400"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Quickstart: Een notebook maken en delen
 
@@ -34,12 +34,12 @@ ms.locfileid: "57759099"
 
 1. In de **nieuw Project maken** pop-upvenster dat wordt weergegeven, invoeren of stel de volgende details en selecteer vervolgens **maken**:
 
-    - **Naam van het project**: Hello World in Python
-    - **Project-ID**: hello-world-python
-    - **Openbare project**: (uitgeschakeld)
-    - **Maken van een README.md**: (uitgeschakeld)
+   - **Naam van het project**: Hello World in Python
+   - **Project-ID**: hello-world-python
+   - **Openbare project**: (uitgeschakeld)
+   - **Maken van een README.md**: (uitgeschakeld)
 
-    ![Nieuw Project met ingevulde details](media/quickstarts/new-project-popup.png)
+     ![Nieuw Project met ingevulde details](media/quickstarts/new-project-popup.png)
 
 1. Na enkele ogenblikken navigeert Azure notitieblokken u naar het nieuwe project. Een notitieblok toevoegen aan het project door het selecteren van de **+ nieuw** vervolgkeuzelijst (die mogelijk weergegeven als alleen **+**), vervolgens de optie **Notebook**:
 

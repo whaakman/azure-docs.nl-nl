@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 77f6a48402aef5b493b115d2137ccb6a507050b7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b34a1716d077aeead572c60d0c6b9bcad60a5b1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760202"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005431"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -133,7 +133,7 @@ Raadpleeg voor het gebruik van een certificaat met de klassieke Azure-implementa
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Veelvoorkomende fouten bij het werken met runbooks
 
-###<a name="child-runbook-object"></a>Onderliggend runbook foutmelding wanneer de uitvoerstroom objecten in plaats van eenvoudige gegevenstypen bevat
+### <a name="child-runbook-object"></a>Onderliggend runbook foutmelding wanneer de uitvoerstroom objecten in plaats van eenvoudige gegevenstypen bevat
 
 #### <a name="issue"></a>Probleem
 
@@ -303,7 +303,7 @@ Deze fout treedt op vanwege een van de volgende problemen:
 
 3. Module die incompatibel is. Deze fout kan optreden als de module-afhankelijkheden niet juist zijn en als ze niet, uw runbook retourneert doorgaans een '-opdracht niet gevonden' of 'Kan niet binden parameter'-bericht.
 
-4. Uw runbook heeft geprobeerd om aan te roepen een een uitvoerbaar bestand of subproces in een runbook dat wordt uitgevoerd in een sandbox met Azure. In dit scenario wordt niet ondersteund in Azure-sandboxes geladen.
+4. Uw runbook poging tot het aanroepen van een uitvoerbaar bestand of subprocess in een runbook dat wordt uitgevoerd in een sandbox met Azure. In dit scenario wordt niet ondersteund in Azure-sandboxes geladen.
 
 #### <a name="resolution"></a>Oplossing
 
@@ -463,7 +463,7 @@ De webhook die u probeert om aan te roepen is uitgeschakeld of is verlopen.
 
 Als de webhook is uitgeschakeld, kunt u de webhook via Azure portal opnieuw inschakelen. Wanneer een webhook is verlopen, wordt de webhook moet worden verwijderd en opnieuw worden gemaakt. U kunt alleen [vernieuwen van een webhook](../automation-webhooks.md#renew-webhook) als deze nog niet is verlopen.
 
-### <a name="429"></a>Scenario: 429: Het aantal verwerkte aanvragen is momenteel te groot. Probeer het opnieuw
+### <a name="429"></a>Scenario: 429: The request rate is currently too large. Probeer het opnieuw
 
 #### <a name="issue"></a>Probleem
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8ef70088d904720a81ac558206a3140d7bbecd6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 1894fc1823772c27f37829b9b27ec515dcb841b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269994"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861057"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Het starten/stoppen van VM's uit uur oplossing oplossen
 
@@ -141,7 +141,7 @@ Bekijk de volgende lijst voor mogelijke oplossingen voor uw probleem of plaatsen
 
 * Om te starten en stoppen van VM's, moet het RunAs-account voor het Automation-account de juiste machtigingen voor de virtuele machine hebben. Zie voor informatie over het controleren van de machtigingen voor een resource, [Quick Start: Rollen die zijn toegewezen aan een gebruiker met behulp van de Azure-portal weergeven](../../role-based-access-control/check-access.md). U moet voor de toepassings-Id voor de service-principal die worden gebruikt door het uitvoeren als-Account. U kunt deze waarde wordt opgehaald door te gaan naar uw Automation-Account in Azure portal, selecteren **Run as-accounts** onder **Accountinstellingen** en te klikken op de juiste uitvoeren als-Account.
 
-* Als de virtuele machine is een probleem opgetreden bij het starten of de toewijzing ongedaan maken, kan dit probleem worden veroorzaakt door een probleem op de virtuele machine zelf. Sommige voorbeelden of potentiële problemen zijn, een update wordt toegepast wanneer u wilt afsluiten, een service vastloopt, en meer). Navigeer naar uw VM-resource en controleer de **activiteitenlogboeken** om te zien of er fouten zijn opgetreden in de logboeken. U kunt ook proberen om aan te melden bij de VM om te zien of er fouten zijn opgetreden in de gebeurtenislogboeken.
+* Als de virtuele machine is een probleem opgetreden bij het starten of de toewijzing ongedaan maken, kan dit probleem worden veroorzaakt door een probleem op de virtuele machine zelf. Sommige voorbeelden of potentiële problemen zijn, een update wordt toegepast wanneer u wilt afsluiten, een service vastloopt, en meer). Navigeer naar uw VM-resource en controleer de **activiteitenlogboeken** om te zien of er fouten zijn opgetreden in de logboeken. U kunt ook proberen om aan te melden bij de VM om te zien of er fouten zijn opgetreden in de gebeurtenislogboeken. Zie voor meer informatie over het oplossen van uw virtuele machine, [probleemoplossing voor Azure virtual machines](../../virtual-machines/troubleshooting/index.md)
 
 ## <a name="custom-runbook"></a>Scenario: Mijn aangepaste runbook kan niet worden mijn VMs starten en stoppen
 

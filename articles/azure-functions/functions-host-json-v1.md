@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: ee82aab37973117b0c1960d8b75a29bfad38b7c7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6f93bbceacff3731206e5f98ba9a252d6a046ac4
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252164"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200069"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>naslaginformatie over host.JSON voor Azure Functions 1.x
 
-> [!div class="op_single_selector" title1="Selecteer de versie van de Azure Functions runtime die u gebruikt: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versie 1:](functions-host-json-v1.md)
 > * [Versie 2](functions-host-json.md)
 
@@ -113,7 +113,7 @@ De volgende secties van dit artikel wordt uitgelegd dat elke eigenschap op het h
 
 [!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
 
-## <a name="applicationinsights"></a>Application Insights
+## <a name="applicationinsights"></a>applicationInsights
 
 [!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
 
@@ -163,13 +163,13 @@ Configuratie-instellingen voor [health monitor voor de Host](https://github.com/
 }
 ```
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
 |ingeschakeld|true|Hiermee geeft u op of de functie is ingeschakeld. | 
 |healthCheckInterval|10 seconden|Het tijdsinterval tussen de periodieke achtergrond-status wordt gecontroleerd. | 
 |healthCheckWindow|2 minuten|Een verschuivend tijdvenster gebruikt in combinatie met de `healthCheckThreshold` instelling.| 
 |healthCheckThreshold|6|Maximum aantal keren dat de statuscontrole kan mislukken voordat het recyclen van een host wordt gestart.| 
-|counterThreshold|0,80|De drempelwaarde waarmee een prestatiemeteritem wordt beschouwd als niet in orde.| 
+|counterThreshold|0.80|De drempelwaarde waarmee een prestatiemeteritem wordt beschouwd als niet in orde.| 
 
 ## <a name="http"></a>http
 
@@ -191,7 +191,7 @@ Als u een opslagaccount voor meerdere functie-apps deelt, zorg ervoor dat elke f
 }
 ```
 
-## <a name="logger"></a>Logger
+## <a name="logger"></a>logger
 
 Besturingselementen voor filteren voor logboeken die is geschreven door een [ILogger object](functions-monitoring.md#write-logs-in-c-functions) of door [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
@@ -210,17 +210,35 @@ Besturingselementen voor filteren voor logboeken die is geschreven door een [ILo
 }
 ```
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
 |categoryFilter|N.v.t.|Hiermee geeft u filteren op categorie| 
 |defaultLevel|Informatie|Voor de categorieën die niet is opgegeven in de `categoryLevels` matrix kunnen logboeken op dit niveau en hoger verzenden naar Application Insights.| 
 |categoryLevels|N.v.t.|Een matrix van categorieën die Hiermee geeft u het minimale logboek-niveau te verzenden naar Application Insights voor elke categorie. Alle categorieën die met dezelfde waarde beginnen Hiermee beheert u de categorie die u hier opgeeft, en meer waarden hebben voorrang. In het voorgaande voorbeeld *host.json* -bestand, alle categorieën die beginnen met "Host.Aggregator" log op `Information` niveau. Alle andere categorieën die beginnen met 'Host', zoals "Host.Executor", zich aanmelden `Error` niveau.| 
 
-## <a name="queues"></a>wachtrijen
+## <a name="queues"></a>queues
 
 Configuratie-instellingen voor [Storage queue-triggers en bindingen](functions-bindings-storage-queue.md).
 
-[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
+```json
+{
+    "queues": {
+      "maxPollingInterval": 2000,
+      "visibilityTimeout" : "00:00:30",
+      "batchSize": 16,
+      "maxDequeueCount": 5,
+      "newBatchThreshold": 8
+    }
+}
+```
+
+|Eigenschap  |Standaard | Description |
+|---------|---------|---------| 
+|maxPollingInterval|60000|Het maximale interval in milliseconden tussen de wachtrij worden opgevraagd.| 
+|visibilityTimeout|0|Het tijdsinterval tussen nieuwe pogingen bij het verwerken van een bericht is mislukt.| 
+|batchSize|16|Het aantal Wachtrijberichten waarmee de Functions-runtime gelijktijdig worden opgehaald en parallel worden verwerkt. Als het getal dat wordt verwerkt opgehaald omlaag naar de `newBatchThreshold`, de runtime opgehaald van een andere batch en start deze berichten worden verwerkt. Zodat het maximum aantal gelijktijdige berichten worden verwerkt per functie `batchSize` plus `newBatchThreshold`. Deze limiet geldt afzonderlijk voor elke wachtrij-geactiveerde functie. <br><br>Als u voorkomen dat de parallelle uitvoering voor berichten in een wachtrij ontvangen wilt, kunt u instellen `batchSize` op 1. Deze instelling elimineert echter gelijktijdigheid alleen zo lang uw functie-app wordt uitgevoerd op een enkele virtuele machine (VM). Als de functie-app wordt geschaald naar meerdere virtuele machines, kan één exemplaar van elke wachtrij-geactiveerde functie uitvoeren in elke virtuele machine.<br><br>De maximale `batchSize` is 32. | 
+|maxDequeueCount|5|Het aantal keren dat probeert een bericht verwerken voordat u deze verplaatst naar de wachtrij onverwerkbare.| 
+|newBatchThreshold|batchSize/2|Wanneer het aantal berichten gelijktijdig worden verwerkt met deze eigenschap omlaag naar het volgende nummer, wordt een andere batch in de runtime opgehaald.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -228,7 +246,7 @@ Configuratie-instelling voor [Service Bus-triggers en bindingen](functions-bindi
 
 [!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
-## <a name="singleton"></a>Singleton
+## <a name="singleton"></a>singleton
 
 Configuratie-instellingen voor het gedrag van Singleton vergrendelen. Zie voor meer informatie, [GitHub-probleem over de ondersteuning van singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
@@ -244,7 +262,7 @@ Configuratie-instellingen voor het gedrag van Singleton vergrendelen. Zie voor m
 }
 ```
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|De periode die functie niveau vergrendelingen voor worden uitgevoerd. De vergrendelingen voor automatisch verlengen.| 
 |listenerLockPeriod|00:01:00|De periode die listener vergrendelingen voor worden uitgevoerd.| 
@@ -267,7 +285,7 @@ Configuratie-instellingen voor logboeken die u met behulp van maakt een `TraceWr
 }
 ```
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
 |consoleLevel|informatie|Het traceringsniveau bepaald voor console-aanmelding. Opties zijn: `off`, `error`, `warning`, `info`, en `verbose`.|
 |fileLoggingMode|debugOnly|Het traceringsniveau bepaald voor logboekregistratie. Opties zijn `never`, `always`, `debugOnly`.| 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 0d092b6dfbd453d5583fed8d993da6aec633ac1b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 013902927e0b59e5c1723868f7a3b3d553412000
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731494"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183064"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Quickstart: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met Node.js
 
@@ -88,6 +88,8 @@ node get-languages.js
 Als u uw code graag wilt vergelijken met de onze, kunt u het volledige voorbeeld vinden op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
 
 ## <a name="sample-response"></a>Voorbeeldantwoord
+
+De afkorting van land/regio niet vinden in dit [lijst met talen](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 Dit voorbeeld is ingekort en u ziet een fragment van het resultaat:
 

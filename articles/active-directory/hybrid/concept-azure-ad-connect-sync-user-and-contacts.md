@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7605a8cee265822f133b3f72ce5de90add5fc0d0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993375"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect-synchronisatie: Inzicht krijgen in gebruikers, groepen en contactpersonen
 Er zijn verschillende redenen waarom zijn er meerdere Active Directory-forests en er zijn diverse verschillende implementatietopologieën. Algemene modellen omvatten de implementatie van een account-resource en GAL sync'ed forests na een fusie & overname. Maar zelfs als er pure modellen, hybride modellen ook algemene zijn. De standaardconfiguratie in Azure AD Connect-synchronisatie niet wordt ervan uitgegaan een bepaald model, maar afhankelijk van hoe overeenkomende gebruiker is geselecteerd in de installatiehandleiding, verschillend gedrag kunnen worden waargenomen.
@@ -51,9 +51,9 @@ Belangrijke punten om rekening mee bij het synchroniseren van groepen uit Active
     
       * Een Active Directory-groep waarvan proxyAddress-kenmerk heeft de waarde *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* niet meer worden e-mailadres in Azure AD. Er is geen een SMTP-adres.
       
-      * Een Active Directory-groep waarvan proxyAddress-kenmerk waarden heeft *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* worden e-mailadres in Azure AD.
+      * Een Active Directory-groep waarvan proxyAddress-kenmerk waarden heeft *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe\@contoso.com"}* worden e-mailadres in Azure AD.
       
-      * Een Active Directory-groep waarvan proxyAddress-kenmerk waarden heeft *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* worden ook het e-mailadres in Azure AD.
+      * Een Active Directory-groep waarvan proxyAddress-kenmerk waarden heeft *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe\@contoso.com"}* worden ook het e-mailadres in Azure AD.
 
 ## <a name="contacts"></a>Contactpersonen
 Contactpersonen die een gebruiker in een ander forest dat is gebruikelijk na een fusie & aanschaf waarbij een oplossing GALSync twee of meer Exchange-forests is bridging. Het contact-object is altijd van het connectorgebied toevoegen aan de metaverse met behulp van het e-mailkenmerk. Als er al een contact- of gebruikersobject met hetzelfde e-mailadres, de objecten aan elkaar worden gekoppeld. Dit is geconfigureerd in de regel **In uit Active Directory: Neem contact op met Join**. Er is ook een regel met de naam **In uit Active Directory: Neem contact op met algemene** met een kenmerkstroom met het metaverse-kenmerk **sourceObjectType** met de constante **Neem contact op met**. Deze regel bevat een zeer lage prioriteit, als een gebruikersobject is toegevoegd aan de dezelfde metaverse-object, wordt de regel **In uit Active Directory-gebruiker algemene** telt mee voor de waarde die gebruiker moet dit kenmerk. Dit kenmerk wordt met deze regel hebben de waarde Contact als er geen gebruiker is toegevoegd en de waarde gebruiker als ten minste één gebruiker is gevonden.

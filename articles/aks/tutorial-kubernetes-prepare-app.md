@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b529af1db6d72d87abc25eb37f2f1c39216a0ba4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 9212e065ff7f6b0e3df1b90296f54159762bdaf9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724161"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002005"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Zelfstudie: Toepassing voorbereiden voor AKS (Azure Kubernetes Service)
 
-In deze zelfstudie, deel een van zeven, wordt een toepassing met meerdere containers voorbereid voor gebruik in Kubernetes. Bestaande ontwikkelprogramma's, zoals Docker Compose, worden gebruikt voor het lokaal bouwen en testen van een toepassing. In deze zelfstudie leert u procedures om het volgende te doen:
+In deze zelfstudie, deel 1 van 7, wordt een toepassing met meerdere containers voorbereid op gebruik in Kubernetes. Bestaande ontwikkelprogramma's, zoals Docker Compose, worden gebruikt voor het lokaal bouwen en testen van een toepassing. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een voorbeeld van een toepassingsbron klonen vanuit GitHub
@@ -89,7 +89,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Toepassing lokaal testen
 
-Als u wilt zien hoe de toepassing wordt uitgevoerd, typt u http://localhost:8080 in een lokale browser. De voorbeeldtoepassing wordt dan geladen, zoals wordt weergegeven in het volgende voorbeeld:
+Als u wilt zien hoe de toepassing wordt uitgevoerd, typt u `http://localhost:8080` in een lokale browser. De voorbeeldtoepassing wordt dan geladen, zoals wordt weergegeven in het volgende voorbeeld:
 
 ![Afbeelding van Kubernetes-cluster in Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 

@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: fc56fe3a5bdfa0f5e1ef4bc309932cb7f57cf27d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978090"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530957"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Zelfstudie: een Azure DNS-aliasrecord configureren om het gebruik van hoofddomeinnaam met Traffic Manager te ondersteunen 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Zelfstudie: Een alias-record ter ondersteuning van het toppunt van domeinnamen met Traffic Manager configureren 
 
 U kunt een aliasrecord maken voor uw hoofddomeinnaam om te verwijzen naar een Azure Traffic Manager-profiel. Bijvoorbeeld: contoso.com. In plaats van hiervoor een omleidingsservice te gebruiken, kunt u Azure DNS zo configureren dat deze rechtstreeks vanuit uw zone naar een Traffic Manager-profiel verwijst. 
 
@@ -33,13 +33,13 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 ## <a name="prerequisites"></a>Vereisten
 U moet een beschikbare domeinnaam hebben die u in Azure DNS kunt hosten om te testen. U moet het volledige beheer over dit domein hebben. Volledig beheer betekent ook de mogelijkheid om naamserverrecords (NS) voor het domein in te stellen.
 
-Zie voor instructies voor het hosten van uw domein in Azure DNS [Zelfstudie: Uw domein in Azure DNS hosten](dns-delegate-domain-azure-dns.md).
+Zie voor instructies over hoe u uw domein in Azure DNS hosten [zelfstudie: Uw domein hosten in Azure DNS](dns-delegate-domain-azure-dns.md) voor meer informatie.
 
 Het voorbeelddomein dat wordt gebruikt voor deze zelfstudie is contoso.com, maar u moet uw eigen domeinnaam gebruiken.
 
 ## <a name="create-the-network-infrastructure"></a>De netwerkinfrastructuur maken
 Maak eerst een virtueel netwerk en een subnet waaraan u de webservers gaat toevoegen.
-1. Meld u aan bij Azure Portal op http://portal.azure.com.
+1. Meld u aan bij Azure Portal op https://portal.azure.com.
 2. Selecteer helemaal linksboven in de portal **Een resource maken**. Typ *resourcegroep* in het zoekvak en maak een resourcegroep met de naam **RG-DNS-Alias-TM**.
 3. Selecteer **Een resource maken** > **Netwerken** > **Virtueel netwerk**.
 4. Maak een virtueel netwerk met de naam **VNet-Servers**. Plaats het in de resourcegroep **RG-DNS-Alias-TM** en geef het subnet de naam **SN-Web**.

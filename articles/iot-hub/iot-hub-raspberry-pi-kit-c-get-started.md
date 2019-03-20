@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: 562dc32f6dd40e6b0103fcc255ceafe829e2265d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4f092f2d290138e48068141113b184d8e856bee7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529647"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103210"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi verbinden met Azure IoT Hub (C)
 
@@ -156,8 +156,8 @@ Pi inschakelen met behulp van de micro USB-kabel en de voeding. De Ethernet-kabe
    **Mac- en Ubuntu-gebruikers**
    
    Gebruik de ingebouwde SSH-client op Ubuntu- of Mac OS. Mogelijk moet u uitvoeren `ssh pi@<ip address of pi>` om Pi via SSH verbinding te maken.
-   > [!NOTE] 
-   De standaardgebruikersnaam is `pi` , en het wachtwoord is `raspberry`.
+   > [!NOTE]
+   > De standaardgebruikersnaam is `pi` , en het wachtwoord is `raspberry`.
 
 
 ### <a name="configure-the-sample-application"></a>De voorbeeld-App configureren

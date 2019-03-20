@@ -16,12 +16,12 @@ ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: f874be6081a1ea01ecf616c9b97db878554d441c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f3fdfcc6a2fbb527582d4bf242c039a778b84ed1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242413"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877986"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack-implementatie planningsoverwegingen
 Voordat u de Azure Stack Development Kit (ASDK) implementeert, controleert u uw development kit host-computer voldoet aan de vereisten die worden beschreven in dit artikel.
@@ -77,13 +77,13 @@ U normaal gesproken implementeren de development kit met een internetverbinding,
 
 Als uw omgeving niet is verbonden met internet, of als u niet wilt dat Azure AD gebruiken, kunt u Azure Stack implementeren met behulp van Active Directory Federation Services (AD FS). De development kit bevat een eigen AD FS- en Active Directory Domain Services-instanties. Als u implementeert met behulp van deze optie, hebt u geen accounts vooraf instellen.
 
->[!NOTE]
-Als u implementeert met behulp van de AD FS-optie, moet u opnieuw implementeren met Azure Stack om over te schakelen naar Azure AD.
+> [!NOTE]
+> Als u implementeert met behulp van de AD FS-optie, moet u opnieuw implementeren met Azure Stack om over te schakelen naar Azure AD.
 
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory-accounts
 Voor het Azure Stack implementeren met behulp van een Azure AD-account, moet u een Azure AD-account voorbereiden voordat u de PowerShell-script-implementatie uitvoert. Dit account wordt de globale beheerder voor de Azure AD-tenant. Het wordt gebruikt voor het inrichten en het delegeren van toepassingen en service-principals voor alle Azure Stack-services die interactie met Azure Active Directory en Graph API hebben. Het wordt ook gebruikt als de eigenaar van de provider standaardabonnement (die u kunt later wijzigen). U kunt aanmelden bij uw Azure Stack-systeem beheerdersportal met behulp van dit account.
 
-1. Maak een Azure AD-account dat mapbeheerder is voor ten minste één Azure AD. Als u er al een hebt, kunt u die gebruiken. Anders kunt u een gratis op [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/pricing/free/) (in China, gaat u naar <https://go.microsoft.com/fwlink/?LinkID=717821> in plaats daarvan). Als u van plan later bent [Azure Stack registreren bij Azure](asdk-register.md), moet u ook een abonnement hebben in dit zojuist gemaakte account.
+1. Maak een Azure AD-account dat mapbeheerder is voor ten minste één Azure AD. Als u er al een hebt, kunt u die gebruiken. Anders kunt u een gratis op [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/free/) (in China, gaat u naar <https://go.microsoft.com/fwlink/?LinkID=717821> in plaats daarvan). Als u van plan later bent [Azure Stack registreren bij Azure](asdk-register.md), moet u ook een abonnement hebben in dit zojuist gemaakte account.
    
     Sla deze referenties voor gebruik als de service-beheerder. Dit account kunt configureren en beheren van resourceclouds, gebruikersaccounts, tenantplannen, quota en prijzen. In de portal kunnen ze websiteclouds, persoonlijke clouds voor virtuele machines en plannen maken en gebruikersabonnementen beheren.
 1. Maak ten minste één test-gebruikersaccount in uw Azure AD zodat u kunt zich aanmelden als tenant development kit.

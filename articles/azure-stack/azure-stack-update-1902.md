@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/13/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 66dfdf3a88a4bacdc118fed00d79f02b22da7869
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.lastreviewed: 03/13/2019
+ms.openlocfilehash: cccedaf8664ae504890d519c8b1aa57533592845
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792460"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188285"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902-update
 
@@ -57,7 +57,7 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 ## <a name="prerequisites"></a>Vereisten
 
 > [!IMPORTANT]
-- Installeer de [meest recente Azure Stack-hotfix](#azure-stack-hotfixes) voor 1901 (indien aanwezig) voordat u bijwerkt naar 1902.
+> - Installeer de [meest recente Azure Stack-hotfix](#azure-stack-hotfixes) voor 1901 (indien aanwezig) voordat u bijwerkt naar 1902.
 
 - Voordat u begint met de installatie van deze update, voert u [Test AzureStack](azure-stack-diagnostic-test.md) met de volgende parameters om te valideren van de status van uw Azure-Stack en los eventuele operationele problemen gevonden, met inbegrip van alle waarschuwingen en fouten. Ook actieve waarschuwingen bekijken en op te lossen die actie is vereist:
 
@@ -84,23 +84,49 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 1398818 3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context   PNU
 1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
 -->
-- Ter verbetering van pakket integriteit en beveiliging, evenals eenvoudiger beheer voor offline opname, is Microsoft de indeling van het updatepakket uit .exe en .bin bestanden gewijzigd in een ZIP-bestand. De nieuwe indeling wordt toegevoegd voor aanvullende betrouwbaarheid van het unpacking proces dat soms kan leiden tot de voorbereiding van de update negatieve invloed op i/o. De indeling van hetzelfde pakket geldt ook voor het bijwerken van pakketten van uw OEM.
-- Om te verbeteren de ervaring van de Azure Stack-operator bij het uitvoeren van Test-AzureStack, operators kunnen nu gewoon gebruiken, ' Test-AzureStack-groep UpdateReadiness ' in plaats van tien extra parameters doorgeven na een Include-instructie.
+- Ter verbetering van pakket integriteit en beveiliging en eenvoudiger beheer voor offline opname, is Microsoft de indeling van het updatepakket uit .exe en .bin bestanden gewijzigd in een ZIP-bestand. De nieuwe indeling voegt extra betrouwbaarheid toe aan de unpacking proces dat soms kan leiden tot de voorbereiding van de update negatieve invloed op i/o. De indeling van hetzelfde pakket geldt ook voor het bijwerken van pakketten van uw OEM.
+
+- Voor het verbeteren van de ervaring van de Azure Stack-operator bij het uitvoeren van **Test AzureStack**, operators kunnen nu gewoon gebruiken `Test-AzureStack -Group UpdateReadiness` in plaats van het doorgeven van tien extra parameters na een `include` instructie. Bijvoorbeeld:
 
   ```powershell
-    Test-AzureStack -Group UpdateReadiness  
-  ```  
-  
-- Ter verbetering van op de algehele betrouwbaarheid en beschikbaarheid van core infrastructuurservices tijdens het bijwerken, de systeemeigen Update-resourceprovider als onderdeel van de update-actieplan detecteert en aanroepen van de automatische algemene herstelbewerkingen zo nodig. Globale herstel 'herstellen' werkstromen zijn onder andere:
-    - Controleren op infrastructuur-VM's die zich in een niet-optimale status en proberen te herstellen van deze zo nodig 
-    - Controleren op problemen met de SQL-service als onderdeel van het besturingselement-plan en proberen te herstellen van deze zo nodig
-    - Controleer de status van de Software Load Balancer (SLB)-service als onderdeel van de netwerkcontroller (NC) en probeert deze zo nodig herstellen
-    - Controleer de status van de netwerkcontroller (NC)-service en probeert te herstellen indien nodig
-    - Controleer de status van de EMS Recovery Console Service (ERCS) service fabric-knooppunten en ze herstellen indien nodig
-    - Controleer de status van de XRP service fabric-knooppunten en ze herstellen indien nodig
-    - Controleer de status van de Azure consistente opslag (ACS) service fabric-knooppunten en ze herstellen indien nodig
+  Test-AzureStack -Group UpdateReadiness  
+  ```
 
+- Ter verbetering van de algehele betrouwbaarheid en beschikbaarheid van core infrastructuurservices tijdens het updateproces, bijwerken de native-resourceprovider als onderdeel van de update-actieplan kan worden gedetecteerd en automatische globale herstelbewerkingen aanroepen naar behoefte. Globale herstel 'herstellen' werkstromen zijn onder andere:
 
+  - Controleer voor infrastructuur voor virtuele machines die zich in een niet-optimale status en proberen te herstellen ze indien nodig.
+  - Controleren op problemen met de SQL-service als onderdeel van het besturingselement-plan en proberen te herstellen ze indien nodig.
+  - Controleer de status van de Software Load Balancer (SLB)-service als onderdeel van de netwerkcontroller (NC) en proberen te herstellen ze indien nodig.
+  - Controleer de status van de netwerkcontroller (NC)-service en proberen te herstellen indien nodig.
+  - Controleer de status van de EMS Recovery Console Service (ERCS) service fabric-knooppunten en deze herstellen indien nodig.
+  - Controleer de status van de XRP service fabric-knooppunten en deze herstellen indien nodig.
+  - Controleer de status van de Azure consistente opslag (ACS) service fabric-knooppunten en deze herstellen indien nodig.
+
+<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
+- Verbeteringen in de betrouwbaarheid van capaciteitsuitbreiding tijdens toevoegen knooppunt wanneer u overschakelt van de status van de eenheid schaal van 'Expanding opslag' in de status actief.    
+
+<!-- 
+1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
+1396607 3796092: Move Blob services log from Storage role to ACSBlob role to reduce the log size of Storage Diagnostics
+1404529 3835749: Enable Group Policy Diagnostic Logs    Diagnostics
+1436561 Bug 3949187: [Bug Fix] Remove AzsStorageSvcsSummary test from SecretRotationReadiness Test-AzureStack flag  Diagnostics
+1404512 3849946: Get-AzureStackLog should collect all child folders from c:\Windows\Debug   Diagnostics 
+-->
+- Verbeteringen in Azure stack diagnostische hulpprogramma's voor het logboek verzameling betrouwbaarheid en prestaties verbeteren. Aanvullende logboekregistratie voor netwerk-en identiteitsservices. 
+
+<!-- 1384958    Adding a Test-AzureStack group for Secret Rotation  Diagnostics -->
+- Verbeteringen in de betrouwbaarheid van **Test AzureStack** geheime rotatie readiness te testen.
+
+<!-- 1404751    3617292: Graph: Remove dependency on ADWS.  Identity -->
+- Verbeteringen in AD Graph-betrouwbaarheid te vergroten bij het communiceren met de Active Directory-omgeving van een klant.
+
+<!-- 1391444    [ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info   System info -->
+- Verbeteringen voor hardware-inventaris verzameling in **Get-AzureStackStampInformation**.
+
+- Als u wilt de betrouwbaarheid van bewerkingen die worden uitgevoerd op ERCS infrastructuur, wordt het geheugen voor elk exemplaar ERCS verhoogd van 8 GB tot 12 GB. De installatie van een geïntegreerde Azure Stack-systemen resulteert dit in een toename van 12 GB algemene.
+
+> [!IMPORTANT]
+> Als u wilt controleren of het patch- en bijwerkproces zo min mogelijk tenant uitvaltijd leidt, zorg ervoor dat uw Azure Stack-stempel heeft meer dan 12 GB aan beschikbare ruimte in de **capaciteit** blade. U ziet dit geheugen verhogen blijkt uit de **capaciteit** blade na een geslaagde installatie van de update.
 
 ## <a name="common-vulnerabilities-and-exposures"></a>Veelvoorkomende beveiligingsproblemen en risico 's
 
@@ -135,7 +161,6 @@ Deze update installeert de volgende beveiligingsupdates:
 - [CVE-2019-0660](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0660)
 - [CVE-2019-0662](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0662)
 - [CVE-2019-0663](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0663)
-
 
 Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveiligingslekken of Zie Microsoft Knowledge Base-artikelen [4487006](https://support.microsoft.com/en-us/help/4487006).
 
@@ -195,11 +220,20 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 - Een Ubuntu-18.04 VM gemaakt met SSH-verificatie ingeschakeld kunt u de SSH-sleutels gebruiken om aan te melden. Als tijdelijke oplossing, gebruik van VM-toegang voor de Linux-extensie voor het implementeren van SSH-sleutels na het inrichten of verificatie op basis van wachtwoord gebruiken.
 
-- Bouw 1902, het geheugen dat vereist is door de infrastructuur ERCS VM is verhoogd van 8 GB tot 12 GB in. Op een ASDK resulteert dit in een toename van 4 GB. Het is een toename van 12 GB voor de installatie van een geïntegreerde Azure Stack-systemen.
+- Als u nog geen een Hardware Lifecycle Host (HLH): Voordat u build 1902, moest u het Groepsbeleid instellen **Computerconfiguratie\Windows-instellingen\Beveiligingsinstellingen\Lokaal Beleid\beveiligingsopties** naar **verzenden LM en NTLM-gebruik NTLMv2-sessiebeveiliging als heeft onderhandeld over**. Sinds build 1902, moet u deze als laten **niet gedefinieerd** of stel deze in op **alleen verzenden NTLMv2-antwoord** (dit is de standaardwaarde). Anders kan niet u een externe PowerShell-sessie tot stand brengen en u ontvangt een **toegang is geweigerd** fout:
 
-   Als u wilt controleren of het patch- en bijwerkproces zo min mogelijk tenant uitvaltijd leidt, zorg ervoor dat uw Azure Stack-stempel heeft meer dan 12 GB aan beschikbare ruimte in de **capaciteit** blade. U ziet dit geheugen verhogen blijkt uit de **capaciteit** blade na een geslaagde installatie van de update.
+   ```shell
+   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
+   New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
+   about_Remote_Troubleshooting Help topic.
+   At line:1 char:12
+   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
+      + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
+   ```
 
-### <a name="networking"></a>Netwerk  
+### <a name="networking"></a>Netwerken  
 
 <!-- 3239127 - IS, ASDK -->
 - In de Azure Stack-portal, wanneer u een statisch IP-adres voor een IP-configuratie die is gekoppeld aan een netwerkadapter die is gekoppeld aan een VM-exemplaar, ziet u een waarschuwingsbericht wordt weergegeven waarin wordt aangegeven 
@@ -220,19 +254,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - Netwerkbeveiligingsgroepen (nsg's) werken niet in Azure Stack in de dezelfde manier als globale Azure. In Azure, kunt u meerdere poorten instellen op een NSG-regel (met behulp van de portal, PowerShell en Resource Manager-sjablonen). In Azure Stack kan niet u echter meerdere poorten op een NSG-regel via de portal instellen. Als tijdelijke oplossing voor dit probleem, moet u een Resource Manager-sjabloon of PowerShell gebruiken om in te stellen deze aanvullende regels.
 
 <!-- 3203799 - IS, ASDK -->
-- Azure Stack biedt geen ondersteuning voor het koppelen van meer dan 4-netwerkinterfaces (NIC's) op een VM-exemplaren vandaag de dag, ongeacht de grootte van het exemplaar.
-
-- Een probleem is geïdentificeerd waarbij pakketten meer dan 1450 bytes aan een interne Load Balancer (ILB) verwijderd. Het probleem wordt veroorzaakt door van de MTU-instelling op de host wordt te laag voor VXLAN encapsulated pakketten die passeren van de rol, die vanaf 1901 is verplaatst naar de host. Er zijn ten minste twee scenario's die u kunt tegenkomen waarin we dit probleem zelf manifest hebben gezien:
-
-  - SQL-query's met SQL Always-On die achter een interne Load Balancer (ILB), en meer dan 660 bytes zijn.
-  - Kubernetes-implementaties mislukken als u probeert in te schakelen van meerdere modellen.  
-
-  Het probleem treedt op wanneer er communicatie tussen een virtuele machine en een ILB in hetzelfde virtuele netwerk, maar op verschillende subnetten. U kunt dit probleem omzeilen door het uitvoeren van de volgende opdrachten in een opdrachtprompt met verhoogde bevoegdheid op de host ASDK:
-
-  ```shell
-  netsh interface ipv4 set sub "hostnic" mtu=1660
-  netsh interface ipv4 set sub "management" mtu=1660
-  ```
+- Azure Stack biedt geen ondersteuning voor het koppelen van meer dan 4-netwerkinterfaces (NIC's) met een VM-exemplaar vandaag de dag, ongeacht de grootte van het exemplaar.
 
 <!-- ### SQL and MySQL-->
 

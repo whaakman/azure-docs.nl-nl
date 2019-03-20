@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194866"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077816"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Zelfstudie: Tableau Online configureren voor het automatisch inrichten van gebruikers
 
@@ -106,13 +106,13 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 5. Onder de **beheerdersreferenties** sectie, voer de **domein**, **Admin Username**, **beheerderswachtwoord**, en **inhoud URL** van uw Tableau Online-account:
 
-    *   In de **domein** veld, vullen subdomein op basis van stap 6.
+   * In de **domein** veld, vullen subdomein op basis van stap 6.
 
-    *   In de **Admin Username** veld, de gebruikersnaam van het beheerdersaccount dat op uw Clarizen Tenant vullen. Voorbeeld: admin@contoso.com.
+   * In de **Admin Username** veld, de gebruikersnaam van het beheerdersaccount dat op uw Clarizen Tenant vullen. Voorbeeld: admin@contoso.com.
 
-    *   In de **beheerderswachtwoord** veld, het wachtwoord van het beheerdersaccount dat overeenkomt met de gebruikersnaam van beheerder vullen.
+   * In de **beheerderswachtwoord** veld, het wachtwoord van het beheerdersaccount dat overeenkomt met de gebruikersnaam van beheerder vullen.
 
-    *   In de **inhouds-URL** veld, vullen subdomein op basis van stap 6.
+   * In de **inhouds-URL** veld, vullen subdomein op basis van stap 6.
 
 6. Na het aanmelden bij uw account met beheerdersrechten voor Online Tableau de waarden voor **domein** en **inhouds-URL** kunnen worden geëxtraheerd uit de URL van de beheerpagina.
 

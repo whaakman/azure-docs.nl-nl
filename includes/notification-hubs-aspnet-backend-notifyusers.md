@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9a94f76e2d1fe930d2d6d43e81a756f0cb15d23d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 8413044beff68390dbccdf16c4477e113a85f81b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453066"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125241"
 ---
 ## <a name="create-the-webapi-project"></a>Het WebAPI-project maken
 
 In de volgende secties wordt het maken van een nieuwe ASP.NET WebAPI-back-end besproken. Dit proces heeft drie hoofddoelen:
 
-- **Clients verifiëren**: u voegt een berichtenhandler toe om aanvragen van clients te verifiëren en de gebruiker te koppelen aan de aanvraag.
-- **Registreren voor meldingen met behulp van de WebAPI-back-end**: u voegt een controller toe voor het afhandelen van nieuwe registraties voor een clientapparaat om meldingen te ontvangen. De naam van de geverifieerde gebruiker wordt automatisch aan de registratie toegevoegd als een [tag](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
-- **Meldingen verzenden naar clients**: u voegt een controller toe om gebruikers een manier te bieden voor het activeren van een beveiligde push naar apparaten en clients die zijn gekoppeld aan de tag.
+- **Clients verifiëren**: U toevoegen een berichtenhandler om te verifiëren van aanvragen van clients en de gebruiker koppelen aan de aanvraag.
+- **Registreren voor meldingen met behulp van de WebAPI-back-end**: U voegt een controller voor het afhandelen van nieuwe registraties voor een clientapparaat voor het ontvangen van meldingen toe. De naam van de geverifieerde gebruiker wordt automatisch aan de registratie toegevoegd als een [tag](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
+- **Meldingen verzenden naar clients**: U voegt een controller om aan te bieden een manier voor gebruikers voor het activeren van een beveiligde push naar apparaten en clients die zijn gekoppeld aan de tag toe.
 
 Maak de nieuwe ASP.NET WebAPI-back-end door de volgende acties uit te voeren:
 
@@ -55,7 +55,7 @@ Maak de nieuwe ASP.NET WebAPI-back-end door de volgende acties uit te voeren:
     * Selecteer een App Service-plan dat u al hebt gemaakt.
     * Selecteer **Een nieuw App Service-plan maken**, en maak er vervolgens een.
 
-  U hebt geen database nodig voor deze zelfstudie. Nadat u uw App Service-plan hebt geselecteerd, selecteert u **OK** om het project te maken.
+   U hebt geen database nodig voor deze zelfstudie. Nadat u uw App Service-plan hebt geselecteerd, selecteert u **OK** om het project te maken.
 
     ![Het venster Microsoft Azure Web App configureren][B5]
 
@@ -84,9 +84,9 @@ In deze sectie maakt u een nieuwe berichtenhandlerklasse met de naam **Authentic
    * De aanvraag maakt gebruik van *basis*verificatie.
    * De gebruikersnaamtekenreeks en de wachtwoordtekenreeks zijn dezelfde tekenreeks.
 
-  Anders wordt de aanvraag geweigerd. Deze verificatie is geen bestaande benadering op verificatie en autorisatie. Dit is slechts een eenvoudig voorbeeld voor deze zelfstudie.
+   Anders wordt de aanvraag geweigerd. Deze verificatie is geen bestaande benadering op verificatie en autorisatie. Dit is slechts een eenvoudig voorbeeld voor deze zelfstudie.
 
-  Als het aanvraagbericht is geverifieerd en geautoriseerd door `AuthenticationTestHandler`, wordt de basisverificatiegebruiker toegevoegd aan de huidige aanvraag in [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Gebruikersgegevens in HttpContext worden later gebruikt door een andere controller (RegisterController) om een [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) toe te voegen aan de aanvraag voor meldingen van registraties.
+   Als het aanvraagbericht is geverifieerd en geautoriseerd door `AuthenticationTestHandler`, wordt de basisverificatiegebruiker toegevoegd aan de huidige aanvraag in [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Gebruikersgegevens in HttpContext worden later gebruikt door een andere controller (RegisterController) om een [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) toe te voegen aan de aanvraag voor meldingen van registraties.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler
@@ -138,7 +138,7 @@ In deze sectie maakt u een nieuwe berichtenhandlerklasse met de naam **Authentic
     ```
 
     > [!NOTE]
-    > Opmerking over beveiliging: de klasse `AuthenticationTestHandler` biedt geen echte verificatie. Het wordt alleen gebruikt om basisverificatie na te bootsen en is niet beveiligd. U moet een veilig verificatiemechanisme implementeren in uw productietoepassingen en -services.
+    > Opmerking over beveiliging: De `AuthenticationTestHandler` klasse biedt geen echte verificatie. Het wordt alleen gebruikt om basisverificatie na te bootsen en is niet beveiligd. U moet een veilig verificatiemechanisme implementeren in uw productietoepassingen en -services.
 5. Voeg de volgende code toe aan het einde van de `Register`-methode in de klasse **App_Start/WebApiConfig.cs** om de berichtenhandler te registreren:
 
     ```csharp

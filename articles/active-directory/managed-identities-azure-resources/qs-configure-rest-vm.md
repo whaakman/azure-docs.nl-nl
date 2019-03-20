@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09bdffbceafc11d99889cbda1461e4af4d89168e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 778897e1a146abd0655d76ef157f64522681cb0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444613"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889672"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configureren van beheerde identiteiten voor een Azure-resources op een Azure-VM met behulp van REST-API aanroepen
 
@@ -63,7 +63,7 @@ Voor het maken van een Azure-VM met de ingeschakeld door het systeem toegewezen 
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Een Bearer-toegangstoken, waarmee u uw virtuele machine maken met een door het systeem toegewezen beheerde identiteit gebruikt in de volgende stap in de autorisatie-header ophalen.
+3. Een Bearer-toegangstoken, waarmee u uw virtuele machine maken met een door het systeem toegewezen beheerde identiteit gebruikt in de volgende stap in de autorisatie-header ophalen.
 
    ```azurecli-interactive
    az account get-access-token
@@ -80,6 +80,7 @@ Voor het maken van een Azure-VM met de ingeschakeld door het systeem toegewezen 
    ```
    
    **Aanvraagheaders**
+   
    |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
@@ -168,6 +169,7 @@ Om in te schakelen door het systeem toegewezen beheerde identiteit op een virtue
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    **Aanvraagheaders**
+
    |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
@@ -239,6 +241,7 @@ Om in te schakelen door het systeem toegewezen beheerde identiteit op een virtue
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        | 
+
    **Aanvraagtekst**
 
    ```JSON
@@ -314,7 +317,7 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Een Bearer-toegangstoken, waarmee u uw virtuele machine maken met een door het systeem toegewezen beheerde identiteit gebruikt in de volgende stap in de autorisatie-header ophalen.
+3. Een Bearer-toegangstoken, waarmee u uw virtuele machine maken met een door het systeem toegewezen beheerde identiteit gebruikt in de volgende stap in de autorisatie-header ophalen.
 
    ```azurecli-interactive
    az account get-access-token
@@ -507,6 +510,7 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
    **Aanvraagheaders**
+
    |Aanvraagheader  |Description  |
    |---------|---------|
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.
@@ -675,6 +679,7 @@ Als u wilt verwijderen van een gebruiker toegewezen identiteit aan een virtuele 
    ```
 
    **Aanvraagheaders**
+
    |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |

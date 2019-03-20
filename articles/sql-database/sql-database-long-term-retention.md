@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 68bcddeee2cec1a77f20f8f470669f170fa50743
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 85757ace20501bea1db22ecfdd2fdb63284038d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108743"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL Database-back-ups voor maximaal 10 jaar Store
 
@@ -56,22 +56,20 @@ W = 12 weken (84 dagen), M = 12 maanden (365 dagen), Y = 10 jaar (3650 dagen), W
    ![ltr-voorbeeld](./media/sql-database-long-term-retention/ltr-example.png)
 
 
- 
+
 Als u zou het bovenstaande beleid wijzigen en set W = 0 (geen wekelijkse back-ups), de frequentie van back-ups gewijzigd zou worden als die wordt weergegeven in de bovenstaande tabel op de gemarkeerde datums. De hoeveelheid opslagruimte die nodig zijn voor deze back-ups behouden zou dienovereenkomstig verminderen. 
 
 > [!NOTE]
-1. De LTR-exemplaren worden gemaakt door Azure storage-service, zodat het kopieerproces geen invloed op de prestaties op de bestaande database heeft.
-2. Het beleid is van toepassing op de toekomstige back-ups. Bijvoorbeeld Als de opgegeven WeekOfYear in het verleden wanneer het beleid is geconfigureerd is, wordt de eerste LTR back-up gemaakt van volgend jaar. 
-3. Database herstellen vanuit de LTR-opslag, kunt u een specifieke back-up op basis van de tijdstempel.   De database kan worden hersteld op een bestaande server onder hetzelfde abonnement als de oorspronkelijke database. 
-> 
+> 1. De LTR-exemplaren worden gemaakt door Azure storage-service, zodat het kopieerproces geen invloed op de prestaties op de bestaande database heeft.
+> 2. Het beleid is van toepassing op de toekomstige back-ups. Bijvoorbeeld Als de opgegeven WeekOfYear in het verleden wanneer het beleid is geconfigureerd is, wordt de eerste LTR back-up gemaakt van volgend jaar. 
+> 3. Database herstellen vanuit de LTR-opslag, kunt u een specifieke back-up op basis van de tijdstempel.   De database kan worden hersteld op een bestaande server onder hetzelfde abonnement als de oorspronkelijke database. 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Geo-replicatie en langetermijnretentie
 
 Als u actieve geo-replicatie of failover-groepen als uw zakelijke continuïteit-oplossing u moet voorbereiden op het uiteindelijke failovers en de dezelfde LTR-beleid configureren op de geo-secundaire database gebruiken. Dit naarmate niet uw opslagkosten LTR-back-ups zijn niet gegenereerd op basis van de secundaire replica's. Alleen wanneer de secundaire primaire wordt wordt de back-ups worden gemaakt. Op deze manier garandeert u generatie van de LTR back-ups niet onderbroken wanneer de failover wordt geactiveerd en de primaire worden verplaatst naar de secundaire regio. 
 
 > [!NOTE]
-Wanneer de oorspronkelijke primaire database wordt hersteld na de storing waardoor er failover plaatsvindt, wordt er een nieuwe secundaire. Daarom het back-up maken wordt niet voortgezet en het bestaande LTR-beleid wordt pas van kracht totdat deze opnieuw de primaire verandert. 
-> 
+> Wanneer de oorspronkelijke primaire database wordt hersteld na de storing waardoor er failover plaatsvindt, wordt er een nieuwe secundaire. Daarom het back-up maken wordt niet voortgezet en het bestaande LTR-beleid wordt pas van kracht totdat deze opnieuw de primaire verandert. 
 
 ## <a name="configure-long-term-backup-retention"></a>Langetermijnretentie van back-ups configureren
 

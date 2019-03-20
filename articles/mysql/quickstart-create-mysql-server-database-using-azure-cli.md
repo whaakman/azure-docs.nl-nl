@@ -8,14 +8,18 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: c9944aeae425d3173fa4700caa004097d29d417d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 10acb353e282508c838bee89b131d94dcd3fa7ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870058"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877816"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Quickstart: Een Azure-database voor MySQL-server maken met behulp van Azure CLI
+
+> [!TIP]
+> Overweeg het gebruik van de meest eenvoudige [az mysql van](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI-opdracht (momenteel in Preview-versie). Probeer de [snelstartgids](./quickstart-create-server-up-azure-cli.md).
+
 In deze Quick Start wordt beschreven hoe u Azure CLI gebruikt om binnen ongeveer vijf minuten een Azure-database voor MySQL-server in een Azure-resourcegroep te maken. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -45,7 +49,7 @@ Maak een Azure Database for MySQL-server met de opdracht **[az mysql server crea
 ---|---|---
 naam | mydemoserver | Kies een unieke naam ter identificatie van de Azure Database voor MySQL-server. De servernaam mag alleen kleine letters, cijfers en het koppelteken (-) bevatten. en moet 3 tot 63 tekens lang zijn.
 resource-group | myResourceGroup | Geef de naam op van de Azure-resourcegroep.
-sku-name | GP_Gen4_2 | De naam van de SKU. Volgt de verkorte notatie voor conventie {prijscategorie}_{compute-generatie}_{vCores}. Onder deze tabel vindt u meer informatie over de parameter sku-name.
+sku-name | GP_Gen5_2 | De naam van de SKU. Volgt de verkorte notatie voor conventie {prijscategorie}\_{compute-generatie}\_{vCores}. Onder deze tabel vindt u meer informatie over de parameter sku-name.
 backup-retention | 7 | Hoe lang een back-up moet worden bewaard. De eenheid is dagen. Het bereik is 7-35. 
 geo-redundant-backup | Uitgeschakeld | Of geografisch redundante back-ups moeten worden ingeschakeld voor deze server. Toegestane waarden: Ingeschakeld, Uitgeschakeld.
 location | westus | De Azure-locatie voor de server.
@@ -57,7 +61,7 @@ admin-password | *veilig wachtwoord* | Het wachtwoord van het beheerdersaccount.
 
 
 De parameterwaarde voor de sku-naam volgt de conventie {prijscategorie} \_{compute-generatie}\_{vCores}, zoals in de onderstaande voorbeelden:
-+ `--sku-name B_Gen4_1` komt overeen met Basic, Gen 4 en 1 vCore. Deze optie is de kleinst beschikbare SKU.
++ `--sku-name B_Gen5_1` komt overeen met Basic, Gen 5 en 1 vCore. Deze optie is de kleinst beschikbare SKU.
 + `--sku-name GP_Gen5_32` komt overeen met Algemeen gebruik, Gen 5 en 32 vCores.
 + `--sku-name MO_Gen5_2` komt overeen met Geoptimaliseerd voor geheugen, Gen 5 en 2 vCores.
 
@@ -66,7 +70,7 @@ Raadpleeg de documentatie over [prijscategorieën](./concepts-pricing-tiers.md) 
 In het volgende voorbeeld wordt een MySQL 5.7-server in US - west gemaakt met de naam `mydemoserver` in uw resourcegroep `myresourcegroup` met aanmeldgegevens van de serverbeheerder `myadmin`. Dit is een **Gen 4**-server voor **algemeen gebruik** met twee **vCores**. Vervang het `<server_admin_password>` door uw eigen waarde.
 
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 
 > [!NOTE]
@@ -116,8 +120,8 @@ Het resultaat wordt in JSON-indeling weergegeven. Noteer de **fullyQualifiedDoma
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -140,15 +144,15 @@ Maak verbinding met de server met behulp van het opdrachtregelprogramma **mysql.
 Typ de volgende opdrachten: 
 
 1. Maak verbinding met de server met behulp van het opdrachtregelprogramma **mysql**:
-```bash
- mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
-```
+   ```bash
+   mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
+   ```
 
 2. Bekijk de status van de server:
-```sql
- mysql> status
-```
-Als alles goed gaat, geeft het opdrachtregelprogramma de volgende tekst weer:
+   ```sql
+   mysql> status
+   ```
+   Als alles goed gaat, geeft het opdrachtregelprogramma de volgende tekst weer:
 
 ```dos
 C:\Users\>mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
@@ -194,9 +198,9 @@ mysql>
 > Zie [hoofdstuk 4.5.1 in de Engelstalige naslaghandleiding van MySQL 5.7](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) voor aanvullende opdrachten.
 
 ## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>Maak verbinding met de server met het MySQL Workbench GUI-hulpprogramma
-1.  Start de toepassing MySQL Workbench op uw clientcomputer. U kunt MySQL Workbench [hier](https://dev.mysql.com/downloads/workbench/) downloaden en installeren.
+1. Start de toepassing MySQL Workbench op uw clientcomputer. U kunt MySQL Workbench [hier](https://dev.mysql.com/downloads/workbench/) downloaden en installeren.
 
-2.  In het dialoogvenster **Nieuwe verbinding instellen** voert u de volgende gegevens in op het tabblad **Parameters**:
+2. In het dialoogvenster **Nieuwe verbinding instellen** voert u de volgende gegevens in op het tabblad **Parameters**:
 
    ![nieuwe verbinding instellen](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 

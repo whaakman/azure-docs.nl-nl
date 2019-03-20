@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f2f4fb04ac483f7716c0b7a0fb1f87843d8b817f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821355"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995305"
 ---
 # <a name="table-design-patterns"></a>Tabelontwerppatronen
 Dit artikel beschrijft enkele patronen die geschikt is voor gebruik met oplossingen voor tabel-service. Ook ziet u hoe u enkele van de problemen en wisselwerking besproken in de andere artikelen van tabel storage ontwerp nagenoeg kunt oplossen. Het volgende diagram geeft een overzicht van de relaties tussen de verschillende patronen:  
@@ -588,7 +588,7 @@ var employees = query.Execute();
 
 U ziet hoe in de query is zowel een **RowKey** en een **PartitionKey** om betere prestaties te garanderen.  
 
-Het volgende codevoorbeeld toont dezelfde functionaliteit met de fluent API (Zie voor meer informatie over de fluent API's in het algemeen [aanbevolen procedures voor het ontwerpen van een Fluent API](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+Het volgende codevoorbeeld toont dezelfde functionaliteit met de fluent API (Zie voor meer informatie over de fluent API's in het algemeen [aanbevolen procedures voor het ontwerpen van een Fluent API](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(

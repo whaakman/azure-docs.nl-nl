@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 8b37f86706e47e3998a4ba85e4416ce1a8a44c22
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567077"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834214"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar specifieke iOS-apparaten met Azure Notification Hubs
 
@@ -49,14 +49,14 @@ De eerste stap is de UI-elementen toevoegen aan uw bestaande storyboard waarmee 
 
 1. In uw **MainStoryboard_iPhone.storyboard** Voeg de volgende onderdelen van de objectbibliotheek:
 
-    * Een label met de tekst "Belangrijke nieuws",
-    * Labels met Categorieteksten "Wereld", 'Politiek', 'Zakelijke', "-technologie", "Wetenschap", 'Sport'
-    * Zes switches, één per categorie, stelt elke switch **status** moet **uit** standaard.
-    * Een knop met het label "Subscribe"
+   * Een label met de tekst "Belangrijke nieuws",
+   * Labels met Categorieteksten "Wereld", 'Politiek', 'Zakelijke', "-technologie", "Wetenschap", 'Sport'
+   * Zes switches, één per categorie, stelt elke switch **status** moet **uit** standaard.
+   * Een knop met het label "Subscribe"
 
-    Uw storyboard moet er als volgt uitzien:
+     Uw storyboard moet er als volgt uitzien:
 
-    ![Xcode-interface builder][3]
+     ![Xcode-interface builder][3]
 
 2. In de editor assistent verkooppunten voor alle schakelopties maken en het aanroepen van "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
 3. Maak een actie voor de knop met de naam `subscribe`; uw `ViewController.h` mag de volgende code:
@@ -242,7 +242,7 @@ De app kan nu een set categorieën opslaan in de lokale opslag van apparaat word
 
 ## <a name="optional-send-tagged-notifications"></a>(optioneel) Met tags meldingen verzenden
 
-Als u geen toegang tot Visual Studio, kunt u direct doorgaan naar de volgende sectie en meldingen verzenden vanuit de app zelf. U kunt ook de juiste sjabloon melding verzenden de [Azure Portal] met behulp van het foutopsporingstabblad voor uw notification hub.
+Als u geen toegang tot Visual Studio, kunt u direct doorgaan naar de volgende sectie en meldingen verzenden vanuit de app zelf. U kunt ook de juiste sjabloon melding verzenden de [Azure-portal] met behulp van het foutopsporingstabblad voor uw notification hub.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -359,11 +359,11 @@ In deze zelfstudie, kunt u meldingen uitgezonden naar specifieke iOS-apparaten d
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
 
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: https://msdn.microsoft.com/library/jj927168.aspx
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
+[Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Azure Portal]: https://portal.azure.com
+[Azure-portal]: https://portal.azure.com

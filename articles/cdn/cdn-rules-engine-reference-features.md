@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: d6d898b93af6c03b313ec2340eb076de85877155
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 205a8dae55394a82a60f54ed32bad95324a59517
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530991"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996938"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Functies Azure CDN-regelengine
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare functies voor Azure Content Delivery Network (CDN) [regels-Engine](cdn-rules-engine.md).
@@ -76,7 +76,7 @@ Deze functie is ontworpen om aanvullende gegevens in een regel.
 Name | Doel
 -----|--------
 [Opmerking](#comment) | Hiermee kunt een opmerking in een regel worden toegevoegd.
- 
+ 
 ## <a name="header-features"></a>Header-functies
 
 Deze functies zijn ontworpen voor het toevoegen, wijzigen of verwijderen van headers van de aanvraag of antwoord.
@@ -126,7 +126,7 @@ Enabled|Indicates that the request is eligible for Edge Optimizer processing.
 Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
 
 **Default Behavior:** Disabled
- 
+ 
 
 ### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
@@ -164,7 +164,7 @@ Name | Doel
 [Cache-instantie aanvraaggrootte](#cacheable-request-body-size) | Hiermee definieert u de drempelwaarde voor het bepalen of een POST-antwoord kan worden opgeslagen in de cache.
 [Variabele van de gebruiker](#user-variable) | Alleen voor intern gebruik.
 
- 
+ 
 ## <a name="url-features"></a>URL-functies
 
 Deze functies kunnen een aanvraag om te worden omgeleid of herschreven naar een andere URL.
@@ -182,6 +182,7 @@ Name | Doel
 ---
 ### <a name="age-response-header"></a>Leeftijd Response-Header
 **Doel**: Bepaalt of een leeftijd response-header is opgenomen in het antwoord verzonden naar de aanvrager.
+
 Value|Resultaat
 --|--
 Ingeschakeld | De leeftijd response-header is opgenomen in het antwoord verzonden naar de aanvrager.
@@ -191,7 +192,7 @@ Uitgeschakeld | De leeftijd response-header is uitgesloten van het antwoord verz
 
 [Terug naar boven](#azure-cdn-rules-engine-features)
 
-</br>
+<br>
 
 ---
 ### <a name="bandwidth-parameters"></a>Bandbreedte-Parameters
@@ -394,6 +395,7 @@ Optie|Description
 --|--
 Oorspronkelijke pad| Het relatieve pad op van het type van de aanvragen waarvan Cachesleutel wordt herschreven definiëren. Een relatief pad worden gedefinieerd met een basis oorsprongpad selecteren en vervolgens een reguliere-expressiepatroon te definiëren.
 Nieuw pad|Het relatieve pad voor de nieuwe cache-sleutel definiëren. Een relatief pad worden gedefinieerd met een basis oorsprongpad selecteren en vervolgens een reguliere-expressiepatroon te definiëren. Het relatieve pad kan dynamisch worden samengesteld met behulp van [HTTP-variabelen](cdn-http-variables.md).
+
 **Standaardgedrag:** Cachesleutel van een aanvraag wordt bepaald door de aanvraag-URI.
 
 [Terug naar boven](#azure-cdn-rules-engine-features)
@@ -473,6 +475,7 @@ text/html| HTML-bestanden
 text/css|Cascading Style Sheets (CSS)
 application/x-javascript|Javascript
 application/javascript|Javascript
+
 Belangrijke informatie:
 
 - Geef meerdere mediatypen van Internet door die begrenst elkaar met een spatie. 
@@ -1024,6 +1027,7 @@ Value|Resultaat
 --|--
 Ingeschakeld|Zorgt ervoor dat de POP opnieuw ophalen van de activa van de oorspronkelijke server.
 Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om te fungeren voor geldige cache activa op aanvraag.
+
 Deze functie is niet vereist voor de juiste caching en levering van inhoud, maar zijn mogelijk nuttig zijn als tijdelijke oplossing. Dynamische inhoud generatoren van bronservers kunnen bijvoorbeeld per ongeluk resulteren in 0-byte-antwoorden aan de POP's worden verzonden. Deze typen antwoorden zijn meestal in cache opgeslagen door de POP's. Als u weet dat een 0-byte-antwoord nooit een geldige reactie is 
 
 voor dergelijke inhoud vervolgens deze functie kunt voorkomen dat deze typen van de activa die worden geleverd aan uw clients.
@@ -1279,6 +1283,7 @@ Optie|Description
 -|-
  Bron & patroon | Deze instellingen geven aan een aanvraag-URI-patroon dat het type aanvragen dat kan worden herschreven. Er wordt alleen aanvragen waarvan de URL voldoet aan beide van de volgende criteria worden herschreven: <br/><br/>  - **Bron (of inhoud toegangspunt):** een relatief pad waarmee een bronserver selecteren. Dit pad wordt de _/XXXX/_ sectie en de naam van uw eindpunt. <br/><br/> - **Bron (patroon):** een patroon dat aanvragen worden aangeduid met het relatieve pad moet worden gedefinieerd. Dit patroon van gewone expressie moet een pad dat begint direct na de toegang tot de eerder geselecteerde inhoud verwijzen (Zie hierboven) definiëren. <br/> Controleer of dat de aanvraag-URI (dat wil zeggen, bron & patroon) eerder gedefinieerde criteria niet conflicteert met een van de criteria voor overeenkomst gedefinieerd voor deze functie. Geef een patroon; Als u een lege waarde als het patroon, worden alle tekenreeksen worden vergeleken. 
  Doel  |Definieer de relatieve URL waarnaar de bovenstaande aanvragen worden herschreven door: <br/>    1. Een punt voor toegang tot inhoud waarmee een bronserver selecteren. <br/>    2. Definieert een relatief pad gebruiken: <br/>        -Een reguliere-expressiepatroon <br/>        - [HTTP-variabelen](cdn-http-variables.md) <br/> <br/> Vervang de waarden die zijn vastgelegd in het bron-patroon in de doel-patroon met $_n_ waar _n_ geeft een waarde door de volgorde waarin deze is vastgelegd. $1 vertegenwoordigt bijvoorbeeld de eerste waarde die is vastgelegd in het bron-patroon, terwijl $2 geeft aan dat de tweede waarde. 
+
  Deze functie kunt de POP's te herschrijven van de URL zonder het uitvoeren van een traditionele omleiding. Dat wil zeggen, ontvangt de aanvrager de dezelfde responscode alsof de rewritten URL heeft aangevraagd.
 
 **Voorbeeldscenario 1**

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 3b27fe0bec4ec23739e3cff02d6aed667f1d3e1d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650100"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226824"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Een Apache HBase-cluster migreren naar een nieuwe versie
 
@@ -199,15 +199,21 @@ De volgende scenario is voor het upgraden van HDInsight 3.4 naar 3.6 (beide word
 
     ![In de Ambari, wijzigt u de containernaam](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. Sla uw wijzigingen op.
-9. Alle benodigde services opnieuw starten zoals aangegeven door Ambari.
-10. Wijs de toepassing naar het nieuwe cluster.
+8. **Als u niet van HBase-clusters met de functie uitgebreide schrijft gebruikmaakt, kunt u deze stap overslaan. Dit alleen nodig voor HBase-clusters met functie uitgebreid schrijft.**
+   
+   Wijzig het pad hbase.rootdir om te verwijzen naar de container van het oorspronkelijke cluster.
+
+    ![In de Ambari, wijzigt u de containernaam voor hbase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    
+9. Sla uw wijzigingen op.
+10. Alle benodigde services opnieuw starten zoals aangegeven door Ambari.
+11. Wijs de toepassing naar het nieuwe cluster.
 
     > [!NOTE]  
     > De statische DNS-server voor uw wijzigingen in de toepassing bij een upgrade. In plaats van hard-coding DNS, kunt u een CNAME in DNS-instellingen voor uw domeinnaam die verwijst naar de naam van het cluster configureren. Een andere optie is het gebruik van een configuratiebestand voor uw toepassing die u zonder opnieuw te implementeren bijwerken kunt.
 
-11. Start de opname van gegevens om te zien als alles werkt zoals verwacht.
-12. Als het nieuwe cluster voldoende is, verwijdert u het oorspronkelijke cluster.
+12. Start de opname van gegevens om te zien als alles werkt zoals verwacht.
+13. Als het nieuwe cluster voldoende is, verwijdert u het oorspronkelijke cluster.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: aschhab
-ms.openlocfilehash: 44601d069f8c93e6101b5856e49ecf8c4b519e78
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4862377a8441d5ec920d6b52dbed8ad405144227
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569073"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857960"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Service Bus-onderwerpen en abonnementen gebruiken met PHP
 
@@ -35,7 +35,7 @@ Dit artikel leest u hoe het gebruik van Service Bus-onderwerpen en abonnementen.
 De enige vereiste voor het maken van een PHP-toepassing die toegang heeft tot de Azure Blob-service is om te verwijzen naar klassen in de [Azure SDK voor PHP](../php-download-sdk.md) uit vanuit uw code. Alle hulpprogramma's voor ontwikkeling kunt u maken van uw toepassing of Kladblok.
 
 > [!NOTE]
-> Uw PHP-installatie moet ook beschikken over de [OpenSSL-extensie](http://php.net/openssl) geïnstalleerd en ingeschakeld.
+> Uw PHP-installatie moet ook beschikken over de [OpenSSL-extensie](https://php.net/openssl) geïnstalleerd en ingeschakeld.
 > 
 > 
 
@@ -341,5 +341,5 @@ Zie voor meer informatie, [wachtrijen, onderwerpen en abonnementen][Queues, topi
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
-[require-once]: http://php.net/require_once
+[require-once]: https://php.net/require_once
 [Service Bus quotas]: service-bus-quotas.md

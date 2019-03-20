@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf2e1b97d228de47634e570a407ec03d7a13e540
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4c831a5a939e946d7189e4d35eaf051508e904a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199634"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999525"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Foutberichten van de NPS-extensie voor Azure multi-factor Authentication oplossen
 
@@ -68,7 +68,7 @@ Uw gebruikers kunnen soms berichten ophalen van multi-factor Authentication omda
 
 | Foutcode | Foutbericht | Aanbevolen stappen | 
 | ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | Verkeerde code entered\OATH Code onjuist | Geen fout, de gebruiker heeft verkeerde code ingevoerd. | De gebruiker heeft de verkeerde code ingevoerd. Vraagt u deze opnieuw om door een nieuwe code aanvragen of meldt u zich opnieuw. | 
+| **OathCodeIncorrect** | Verkeerde code entered\OATH Code onjuist | De gebruiker heeft de verkeerde code ingevoerd. Vraagt u deze opnieuw om door een nieuwe code aanvragen of meldt u zich opnieuw. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Maximale toegestane code opnieuw proberen is bereikt | De gebruiker is te vaak mislukt de verificatie-uitdaging. Afhankelijk van uw instellingen, ze mogelijk moeten worden geblokkeerd door een beheerder nu.  |
 | **SMSAuthFailedWrongCodeEntered** | Onjuist code ingevoerd/tekst bericht OTP onjuist | De gebruiker heeft de verkeerde code ingevoerd. Vraagt u deze opnieuw om door een nieuwe code aanvragen of meldt u zich opnieuw. |
 

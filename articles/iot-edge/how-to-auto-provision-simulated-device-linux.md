@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a1dba3b497807841f9b86d685f5bb560ebdd9316
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9a549221a9e1864e1b7565f35139cb4c2a6ca65e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532422"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093123"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Een IoT Edge-apparaat met een virtuele TPM op een Linux-machine maken en inrichten
 
@@ -234,17 +234,17 @@ U kunt TPM toegang verlenen tot de IoT Edge-runtime door te overschrijven de ins
 
 11. Controleren of de onderdrukking geslaagd is.
 
-   ```bash
-   sudo systemctl cat iotedge.service
-   ```
+    ```bash
+    sudo systemctl cat iotedge.service
+    ```
 
-   Geslaagde uitvoer wordt weergegeven de **iotedge** standaard variabelen voor de service en geeft u vervolgens de omgevingsvariabele op de dat u instelt **override.conf**. 
+    Geslaagde uitvoer wordt weergegeven de **iotedge** standaard variabelen voor de service en geeft u vervolgens de omgevingsvariabele op de dat u instelt **override.conf**. 
 
 12. De instellingen voor laden.
 
-   ```bash
-   sudo systemctl daemon-reload
-   ```
+    ```bash
+    sudo systemctl daemon-reload
+    ```
 
 ## <a name="restart-the-iot-edge-runtime"></a>Opnieuw opstarten van de IoT Edge-runtime
 

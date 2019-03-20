@@ -14,18 +14,18 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2d58ea2a7b25648dbecfefb882f71137096bff7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: a01bd205ad26169ab0a21345a2246eb12dca6645
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169997"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180888"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Beveiligen van bevoegde toegang voor cloud- en hybride implementaties in Azure AD
 
 De beveiliging van de meeste of alle bedrijfsassets in de moderne organisatie, is afhankelijk van de integriteit van de bevoegde accounts waarmee IT-systemen worden beheerd. Kwaadwillende actoren vaak met inbegrip van cyberaanvallers richten beheerdersaccounts en andere elementen van bevoegde toegang proberen te snel toegang krijgen tot gevoelige gegevens en systemen met behulp van referentie diefstal aanvallen. Zijn de gezamenlijke verantwoordelijkheden van de cloudserviceprovider en de klant voor cloud services, voorkomen en de reactie. Zie voor meer informatie over de nieuwste bedreigingen van eindpunten en de cloud, de [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report). In dit artikel kunt u bij ontwikkelen van een schema voor het sluiten van de tussenruimte tussen uw huidige plannen en de richtlijnen die hier worden beschreven.
 
-> [!NOTE] 
+> [!NOTE]
 > Microsoft streeft naar het hoogste niveau van vertrouwen, transparantie, conformiteit met de normen en naleving van regelgeving. Meer informatie over hoe het team van Microsoft wereldwijd reageren op incidenten vermindert de gevolgen van aanvallen op cloudservices en hoe de beveiliging is ingebouwd in zakelijke Microsoft-producten en cloudservices op [Microsoft Trust Center - beveiliging](https://www.microsoft.com/trustcenter/security)en Microsoft naleving doelen op [Microsoft Trust Center - naleving](https://www.microsoft.com/trustcenter/compliance).
 
 <!--## Risk management, incident response, and recovery preparation
@@ -101,7 +101,7 @@ De eerste persoon die het gebruik van Azure AD Privileged Identity Management in
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Identificeren en categoriseren accounts in maximaal bevoorrechte rollen 
 
-Na het inschakelen van Azure AD Privileged Identity Management, bekijk de gebruikers die zich in de directory-rollen globale beheerder, beheerder met bevoorrechte rol, beheerder van Exchange Online en SharePoint Online-beheerder. Als u geen Azure AD PIM in uw tenant, kunt u de [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Starten met de rol globale beheerder, omdat deze rol generiek is: een gebruiker aan wie deze beheerdersrol is toegewezen, heeft dezelfde machtigingen van alle cloudservices waarop uw organisatie is geabonneerd, ongeacht of ze hebben deze rol is toegewezen in de Office 365-beheerportal , de Azure portal of met behulp van de Azure AD-module voor Microsoft PowerShell. 
+Na het inschakelen van Azure AD Privileged Identity Management, bekijk de gebruikers die zich in de directory-rollen globale beheerder, beheerder met bevoorrechte rol, beheerder van Exchange Online en SharePoint Online-beheerder. Als u geen Azure AD PIM in uw tenant, kunt u de [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Starten met de rol globale beheerder, omdat deze rol generiek is: een gebruiker aan wie deze beheerdersrol is toegewezen, heeft dezelfde machtigingen voor alle cloud-services waarvoor uw organisatie is geabonneerd, ongeacht of ze deze rol in de Microsoft 365 bent toegewezen -beheercentrum, de Azure portal of met behulp van de Azure AD-module voor Microsoft PowerShell. 
 
 Verwijder alle accounts die niet meer nodig zijn in deze rollen. Categoriseren vervolgens de resterende accounts die zijn toegewezen aan beheerdersrollen:
 
@@ -138,7 +138,7 @@ Met de toename in bring-your-own-device (BYOD) en werk van startpagina beleid en
 
 * Identificeer de gebruikers die hebben beheerdersrollen en -services waar ze kunnen beheren.
 * Azure AD PIM gebruiken om erachter te komen welke gebruikers in uw organisatie beheerderstoegang tot Azure AD hebben, met inbegrip van aanvullende functies dan die in fase 1 worden weergegeven.
-* Buiten de rollen gedefinieerd in Azure AD, bevat Office 365 een reeks beheerdersrollen die u aan gebruikers in uw organisatie toewijzen kunt. Elke beheerdersrol is toegewezen aan algemene zakelijke functies, en geeft personen in uw Organisatiemachtigingen voor het uitvoeren van bepaalde taken in het Office 365-beheercentrum. Gebruik de Office-beheercentrum om erachter te komen welke gebruikers in uw organisatie beheerderstoegang tot Office 365 hebben, onder andere via de rollen niet worden beheerd in Azure AD. Zie voor meer informatie, [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) en [aanbevolen beveiligingsprocedures voor Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3).
+* Buiten de rollen gedefinieerd in Azure AD, bevat Office 365 een reeks beheerdersrollen die u aan gebruikers in uw organisatie toewijzen kunt. Elke beheerdersrol toegewezen aan algemene zakelijke functies, en geeft personen in uw Organisatiemachtigingen voor het uitvoeren van bepaalde taken de [Microsoft 365-beheercentrum](https://admin.microsoft.com). Gebruik het Microsoft 365-beheercentrum om erachter te komen welke gebruikers in uw organisatie beheerderstoegang tot Office 365 hebben, onder andere via de rollen niet worden beheerd in Azure AD. Zie voor meer informatie, [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) en [aanbevolen beveiligingsprocedures voor Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3).
 * De inventarisatie uitvoeren in andere services die uw organisatie wordt gebruikt, zoals Azure, Intune of Dynamics 365.
 * Zorg ervoor dat uw beheerdersaccounts (accounts die worden gebruikt voor beheerdoeleinden, niet alleen dagelijkse gebruikersaccounts) hebt die is gekoppeld aan deze e-mailadressen werken en voor Azure MFA hebt geregistreerd of MFA on-premises gebruiken.
 * Gebruikers vragen om hun zakelijke rechtvaardiging voor beheerderstoegang.
@@ -168,9 +168,7 @@ Azure AD wordt aanbevolen dat u multi-factor authentication (MFA) voor al uw geb
 
 Schakel in:
 
-* [MFA voor high-blootstelling accounts](../authentication/multi-factor-authentication-security-best-practices.md) , zoals voor managers in een organisatie-accounts 
-* [MFA voor elke beheerdersaccount dat is gekoppeld aan een afzonderlijke gebruiker](../authentication/howto-mfa-userstates.md) voor andere SaaS-apps die zijn verbonden 
-* MFA voor alle beheerders voor Microsoft SaaS-apps, inclusief beheerders voor rollen beheerd in Exchange Online en de Office-portal
+* [MFA-beleid voor voorwaardelijke toegang met](../authentication/howto-mfa-getstarted.md) voor alle gebruikers in uw organisatie.
 
 Als u Windows Hello voor bedrijven, kan de MFA-vereiste worden voldaan met behulp van het Windows Hello-teken in ervaring. Zie voor meer informatie, [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
 
@@ -186,10 +184,9 @@ Beveilig Score zoekt uit welke Office 365-services u gebruikt (zoals OneDrive, S
 
 De [plan voor beveiliging en naleving](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) geeft een overzicht van de werkwijze voor hoe Office 365-klant moet configureren van het Office 365 en gebruikmaken van andere mogelijkheden van EMS. Klik, revisie 3-6 van hoe u stappen [toegang tot gegevens en services in Office 365 beveiligen](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) en de handleiding voor informatie over het [beveiliging en naleving in Office 365 controleren](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
-
 #### <a name="configure-office-365-activity-monitoring-if-using-office-365"></a>Office 365 Activiteitenbewaking te configureren (als u Office 365)
 
-U kunt controleren hoe mensen in uw organisatie zijn Office 365-services, zodat u kunt gebruikers die een Administrator-account hebben en die mogelijk niet Office 365 toegang nodig omdat u niet aanmelden bij de portals identificeren. Zie voor meer informatie, [aanmeldactiviteitenrapporten in de Office 365-beheercentrum](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
+U kunt controleren hoe mensen in uw organisatie zijn Office 365-services, zodat u kunt gebruikers die een Administrator-account hebben en die mogelijk niet Office 365 toegang nodig omdat u niet aanmelden bij de portals identificeren. Zie voor meer informatie, [aanmeldactiviteitenrapporten in de Microsoft 365-beheercentrum](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### <a name="establish-incidentemergency-response-plan-owners"></a>Eigenaren van incident/emergency response-plan maken
 
@@ -394,47 +391,47 @@ Zie voor meer informatie over hoe Microsoft Office 365 beveiligingsincidenten ve
 ## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>FAQ: Veelgestelde vragen die wij over het beveiligen van bevoegde toegang ontvangen  
 
 
-**VRAAG:** Wat moet ik doen als ik alle onderdelen van beveiligde toegang nog niet hebt geïmplementeerd?
+**V:** Wat moet ik doen als ik alle onderdelen van beveiligde toegang nog niet hebt geïmplementeerd?
 
 **Antwoord:** Ten minste twee break-glas account definiëren, MFA toewijzen aan uw bevoegde beheerdersaccounts en afzonderlijke accounts van globale beheerdersaccounts.
 
 
-**VRAAG:** Wat is het belangrijkste probleem dat u moet eerst worden verholpen na een inbreuk?
+**V:** Wat is het belangrijkste probleem dat u moet eerst worden verholpen na een inbreuk?
 
 **Antwoord:** Zorg ervoor dat u bent de sterkste verificatie vereist voor personen maximaal beschikbaar gemaakt.
 
 
-**VRAAG:** Wat gebeurt er als onze bevoorrechte beheerders zijn uitgeschakeld?
+**V:** Wat gebeurt er als onze bevoorrechte beheerders zijn uitgeschakeld?
 
 **Antwoord:** Maak een globale beheerder-account dat altijd up-to-date wordt gehouden.
 
 
-**VRAAG:** Wat gebeurt er als er slechts één globale beheerder links en ze kunnen niet worden bereikt? 
+**V:** Wat gebeurt er als er slechts één globale beheerder links en ze kunnen niet worden bereikt? 
 
 **Antwoord:** Gebruik een van uw accounts break om onmiddellijke bevoegde toegang te krijgen.
 
 
-**VRAAG:** Hoe kan ik beheerders beveiligen in mijn organisatie?
+**V:** Hoe kan ik beheerders beveiligen in mijn organisatie?
 
 **Antwoord:** Hebben beheerders hun dagelijkse zaken als "niet-gemachtigd" standaardgebruikers altijd doen.
  
 
-**VRAAG:** Wat zijn de aanbevolen procedures voor het maken van beheerdersaccounts in Azure AD?
+**V:** Wat zijn de aanbevolen procedures voor het maken van beheerdersaccounts in Azure AD?
 
 **Antwoord:** Reserve bevoegde toegang voor specifieke beheertaken.
 
 
-**VRAAG:** Welke hulpprogramma's bestaan voor het verminderen van permanente beheerderstoegang?
+**V:** Welke hulpprogramma's bestaan voor het verminderen van permanente beheerderstoegang?
 
 **Antwoord:** Privileged Identity Management (PIM) en Azure AD-beheerdersrollen.
 
 
-**VRAAG:** Wat is de positie van Microsoft voor het synchroniseren van beheerdersaccounts naar Azure AD?
+**V:** Wat is de positie van Microsoft voor het synchroniseren van beheerdersaccounts naar Azure AD?
 
 **Antwoord:** Laag 0-beheerdersaccounts (inclusief accounts, groepen en andere activa die directe of indirecte beheer van de AD-forest, domeinen of domeincontrollers hebt en alle activa) worden gebruikt voor on-premises AD-accounts en zijn doorgaans niet gesynchroniseerd voor Azure AD voor de cloud. 
 
 
-**VRAAG:** Hoe houd we beheerders willekeurige beheerderstoegang in de portal worden toegewezen?
+**V:** Hoe houd we beheerders willekeurige beheerderstoegang in de portal worden toegewezen?
 
 **Antwoord:** Niet-gemachtigde accounts gebruiken voor alle gebruikers en de meeste beheerders. Gestart door de ontwikkeling van een footprint van de organisatie om te bepalen welke paar beheerdersaccounts moeten bevoegdheden. En controleer het zojuist gemaakte gebruikers met beheerrechten.
 

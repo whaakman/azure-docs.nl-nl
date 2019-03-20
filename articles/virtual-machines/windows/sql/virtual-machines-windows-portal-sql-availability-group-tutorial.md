@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 9242edb8ea08b858ae6ad092f4d855483e72d0bf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777461"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003450"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Zelfstudie: Configure AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
@@ -415,6 +415,7 @@ Voor het configureren van de load balancer, moet u een back-endadresgroep, een t
 1. Klik op de load balancer, **Taakverdelingsregels**, en klikt u op **+ toevoegen**.
 
 1. De listener-load balancer-regels als volgt instellen.
+
    | Instelling | Description | Voorbeeld
    | --- | --- |---
    | **Naam** | Tekst | SQLAlwaysOnEndPointListener |
@@ -455,6 +456,7 @@ Het WSFC-IP-adres moet ook worden op de load balancer.
 1. Stel de load balancer-regels. Klik op **Taakverdelingsregels**, en klikt u op **+ toevoegen**.
 
 1. Het cluster core IP-adres load balancer-regels als volgt instellen.
+
    | Instelling | Description | Voorbeeld
    | --- | --- |---
    | **Naam** | Tekst | WSFCEndPoint |
@@ -505,15 +507,15 @@ De verbinding wilt testen:
 
 1. Gebruik **sqlcmd** hulpprogramma om de verbinding te testen. Bijvoorbeeld, het volgende script maakt een **sqlcmd** verbinding met de primaire replica met de listener met de Windows-verificatie:
 
-  ```cmd
-  sqlcmd -S <listenerName> -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName> -E
+   ```
 
-  Als de listener met behulp van een andere poort dan de standaardwaarde standaardpoort (1433), de poort in de verbindingsreeks opgeven. Bijvoorbeeld, de volgende sqlcmd-opdracht is verbonden met een listener op poort 1435:
+   Als de listener met behulp van een andere poort dan de standaardwaarde standaardpoort (1433), de poort in de verbindingsreeks opgeven. Bijvoorbeeld, de volgende sqlcmd-opdracht is verbonden met een listener op poort 1435:
 
-  ```cmd
-  sqlcmd -S <listenerName>,1435 -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName>,1435 -E
+   ```
 
 De SQLCMD-verbinding wordt automatisch verbinding met elk exemplaar van SQL Server als host fungeert voor de primaire replica.
 

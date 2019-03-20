@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 8c66b603bd8c974bcaa63ee2aad58f7fd8fe04e6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003681"
 ---
 # <a name="azure-signalr-service-authentication"></a>verificatie van Azure SignalR Service
 
@@ -61,9 +61,9 @@ U hebt het volgende nodig om deze zelfstudie te voltooien:
     | Naam van instelling | Voorgestelde waarde | Description |
     | ------------ | --------------- | ----------- |
     | De naam van de toepassing | *Azure SignalR Chat* | De GitHub-gebruiker moet de app waarmee hij of zij verificatie uitvoert, kunnen herkennen en vertrouwen.   |
-    | Homepage URL | *http://localhost:5000/home* | |
+    | Homepage URL | `http://localhost:5000/home` | |
     | Application description | *Een voorbeeld van een chatruimte die Azure SignalR Service gebruikt voor GitHub-verificatie* | Een zinvolle beschrijving van de toepassing zodat de gebruikers van uw toepassing de context begrijpen waarin de verificatie wordt gebruikt. |
-    | Authorization callback URL | *http://localhost:5000/signin-github* | Deze instelling is de belangrijkste instelling voor uw OAuth-toepassing. Dit is de callback-URL waarnaar de gebruiker door GitHub wordt omgeleid na een geslaagde authenticatie. In deze zelfstudie moet u de standaard-callback-URL voor het pakket *AspNet.Security.OAuth.GitHub* gebruiken, te weten */signin-github*.  |
+    | Authorization callback URL | `http://localhost:5000/signin-github` | Deze instelling is de belangrijkste instelling voor uw OAuth-toepassing. Dit is de callback-URL waarnaar de gebruiker door GitHub wordt omgeleid na een geslaagde authenticatie. In deze zelfstudie moet u de standaard-callback-URL voor het pakket *AspNet.Security.OAuth.GitHub* gebruiken, te weten */signin-github*.  |
 
 4. Zodra de registratie van de nieuwe OAuth-app is voltooid, voegt u de *Client ID* en *Client Secret* toe aan Secret Manager. Gebruik hiervoor de volgende opdrachten. Vervang *Your_GitHub_Client_Id* en *Your_GitHub_Client_Secret* door de waarden voor uw OAuth-app.
 

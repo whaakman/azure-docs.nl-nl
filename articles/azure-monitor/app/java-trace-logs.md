@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d8344177fc5895451cf876f5aa581baa1fed52e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266191"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001865"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Java in Application Insights traceerlogboeken verkennen
 Als u Logback en Log4J (versie 1.2 of 2.0) voor tracering, kunt u uw logboeken met traceringen automatisch verzonden naar Application Insights waar u kunt verkennen en zoeken op deze hebt.
@@ -158,7 +158,7 @@ Nu dat u uw project voor het verzenden van traceringen naar Application Insights
 
 Uitzonderingen die zijn ingediend via kunt wordt weergegeven op de portal als Uitzonderingstelemetrie.
 
-![Open in de Application Insights-portal zoeken](./media/java-trace-logs/10-diagnostics.png)
+![Open in de Application Insights-portal zoeken](./media/java-trace-logs/01-diagnostics.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 [Diagnostische gegevens doorzoeken][diagnostic]

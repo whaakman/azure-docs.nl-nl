@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 8bc2d655f7c6b20cabfadbf9dffca8622a24674f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9154add96084142ca1f93ad61c6418e3b487fb83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778656"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090913"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Momentopnamen beheren met behulp van Azure NetApp bestanden
 
@@ -77,9 +77,9 @@ Op dit moment kunt u een momentopname alleen naar een nieuw volume herstellen.
     * **Subnet**  
         Geef het subnet op dat u wilt gebruiken voor het volume.  
         Het subnet dat u opgeeft moet worden overgedragen naar de service Azure NetApp bestanden. U kunt een nieuw subnet maken door het selecteren van **nieuw** onder het veld Subnet.  
-<!--
+   <!--
     ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
--->
+   -->
 
 5. Klik op **OK**.   
     Het nieuwe volume waarop de momentopname is teruggezet, wordt weergegeven in de blade Volumes.

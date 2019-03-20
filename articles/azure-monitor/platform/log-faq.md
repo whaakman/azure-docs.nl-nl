@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 1c145f100e22dbb268a7cd491eb8a43b51988c69
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315806"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002336"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 
@@ -72,7 +72,7 @@ A: Voor toegang tot een werkruimte in Azure, moet u toegewezen Azure-machtiginge
 A: Weergaveontwerper is alleen beschikbaar in Logboeken voor gebruikers die zijn toegewezen met machtigingen van de inzender of hoger.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>V. Kan ik nog steeds de Analytics-portal buiten Azure gebruiken?
-A. Ja, de pagina Logboeken in Azure en de portal Advanced Analytics zijn gebaseerd op de dezelfde code. Log Analytics wordt als een functie in Azure Monitor een meer uniform bewakingservaring geïntegreerd. U kunt nog steeds toegang tot Analytics-portal met behulp van de URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+A. Ja, de pagina Logboeken in Azure en de portal Advanced Analytics zijn gebaseerd op de dezelfde code. Log Analytics wordt als een functie in Azure Monitor een meer uniform bewakingservaring geïntegreerd. U kunt nog steeds toegang tot Analytics-portal met behulp van de URL: https:\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 
@@ -84,7 +84,7 @@ A: De lijst met geïnstalleerde oplossingen en weergaven zijn beschikbaar in Azu
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>V. Waarom kan ik werkruimten maken in de regio West-Centraal VS? 
 
-A: Deze regio heeft tijdelijk de capaciteitslimiet bereikt. De limiet is gepland om te worden behandeld in de eerste helft van 2019.
+A: Deze regio heeft tijdelijk de capaciteitslimiet bereikt. Deze limiet zal in de eerste helft van 2019 worden aangepakt.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>V. Log Analytics maakt gebruik dezelfde agent als Azure Security Center?

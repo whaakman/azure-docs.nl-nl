@@ -13,65 +13,74 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 03/14/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62ef6cad2f1c8f8f871043a8d1f70cbd08ccd65f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5ff8beb1995359bad93449744718091c338e4994
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729384"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226552"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Een virtuele Linux-machine maken met Azure Resource Manager-sjablonen
-
-In dit artikel wordt beschreven hoe u snel een Linux virtuele machine (VM) implementeren met Azure Resource Manager-sjablonen en Azure CLI. U kunt ook deze stappen uitvoeren met de [Azure klassieke CLI](create-ssh-secured-vm-from-template-nodejs.md).
-
 
 In dit artikel wordt beschreven hoe u snel een Linux virtuele machine (VM) implementeren met Azure Resource Manager-sjablonen en Azure CLI. 
 
 ## <a name="templates-overview"></a>Overzicht van sjablonen
-Azure Resource Manager-sjablonen zijn JSON-bestanden die u de infrastructuur en configuratie van uw Azure-oplossing definieert. Door het gebruik van een sjabloon kunt u gedurende de levenscyclus de oplossing herhaaldelijk implementeren en erop vertrouwen dat uw resources consistent worden geïmplementeerd. Zie voor meer informatie over de indeling van de sjabloon en hoe u deze samenstelt, [uw eerste Azure Resource Manager-sjabloon maken](../../azure-resource-manager/resource-manager-create-first-template.md). Als u de JSON-syntaxis voor resourcetypen wilt bekijken, raadpleegt u [Define resources in Azure Resource Manager templates](/azure/templates/) (Resources definiëren in Azure Resource Manager-sjablonen).
 
-## <a name="create-a-resource-group"></a>Een resourcegroep maken
-Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Voordat een virtuele machine wordt gemaakt, moet een resourcegroep worden gemaakt. Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupVM* in de *eastus* regio:
-
-```azurecli
-az group create --name myResourceGroup --location eastus
-```
+Azure Resource Manager-sjablonen zijn JSON-bestanden die u de infrastructuur en configuratie van uw Azure-oplossing definieert. Door het gebruik van een sjabloon kunt u gedurende de levenscyclus de oplossing herhaaldelijk implementeren en erop vertrouwen dat uw resources consistent worden geïmplementeerd. Zie voor meer informatie over de indeling van de sjabloon en hoe u deze samenstelt, [Quick Start: Azure Resource Manager-sjablonen maken en implementeren via Azure Portal](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md). Als u de JSON-syntaxis voor resourcetypen wilt bekijken, raadpleegt u [Define resources in Azure Resource Manager templates](/azure/templates/microsoft.compute/allversions) (Resources definiëren in Azure Resource Manager-sjablonen).
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
-Het volgende voorbeeld wordt een virtuele machine via [deze Azure Resource Manager-sjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) met [az group deployment maken](/cli/azure/group/deployment). Alleen SSH-verificatie is toegestaan. Als u hierom wordt gevraagd, geeft u de waarde van uw eigen openbare SSH-sleutel, zoals de inhoud van *~/.ssh/id_rsa.pub*. Als u een SSH-sleutelpaar maken wilt, Zie [maken en gebruiken van een SSH-sleutelpaar voor virtuele Linux-machines in Azure](mac-create-ssh-keys.md).
 
-```azurecli
-az group deployment create \
-    --resource-group myResourceGroup \
-    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+Het maken van een virtuele machine van Azure, meestal bestaat uit twee stappen:
+
+1. Maak een resourcegroep. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Voordat een virtuele machine wordt gemaakt, moet een resourcegroep worden gemaakt.
+1. Hiermee maakt u een virtuele machine.
+
+Het volgende voorbeeld wordt een virtuele machine via [een Azure-Quickstart-sjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Alleen SSH-verificatie is toegestaan voor deze implementatie. Als u hierom wordt gevraagd, geeft u de waarde van uw eigen openbare SSH-sleutel, zoals de inhoud van *~/.ssh/id_rsa.pub*. Als u een SSH-sleutelpaar maken wilt, Zie [maken en gebruiken van een SSH-sleutelpaar voor virtuele Linux-machines in Azure](mac-create-ssh-keys.md). Hier volgt een kopie van de sjabloon:
+
+[!code-json[create-linux-vm](~/quickstart-templates/101-vm-sshkey/azuredeploy.json)]
+
+Als u wilt de CLI-script uitvoeren, selecteert u **uitproberen** openen van de Azure Cloud shell. Als u het script, met de rechtermuisknop op de shell en selecteer vervolgens **plakken**:
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+echo "Enter the project name (used for generating resource names):" &&
+read projectName &&
+echo "Enter the administrator username:" &&
+read username &&
+echo "Enter the SSH public key:" &&
+read key &&
+az group create --name $resourceGroupName --location "$location" &&
+az group deployment create --resource-group $resourceGroupName --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json --parameters projectName=$projectName adminUsername=$username adminPublicKey='$key' &&
+az vm show --resource-group $resourceGroupName --name "$projectName-vm" --show-details --query publicIps --output tsv
 ```
+
+De laatste Azure CLI-opdracht laat zien dat het openbare IP-adres van de zojuist gemaakte virtuele machine. U moet het openbare IP-adres verbinding maken met de virtuele machine. Zie de volgende sectie van dit artikel.
 
 In het vorige voorbeeld, maar u hebt opgegeven een sjabloon die is opgeslagen in GitHub. U kunt ook downloaden of een sjabloon maken en geef het lokale pad op met de `--template-file` parameter.
 
+Hier volgen enkele aanvullende resources:
+
+- Zie voor meer informatie over het ontwikkelen van Resource Manager-sjablonen, [Azure Resource Manager-documentatie](/azure/azure-resource-manager/).
+- Zie voor de virtuele machine van Azure-schema's [Azure sjabloonverwijzing](/azure/templates/microsoft.compute/allversions).
+- Zie voor meer voorbeelden van de virtuele machine-sjabloon [Azure Quickstart-sjablonen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
 ## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
-Voor SSH naar uw virtuele machine, verkrijgen van het openbare IP-adres met [az vm show](/cli/azure/vm#az-vm-show):
-
-```azurecli
-az vm show \
-    --resource-group myResourceGroup \
-    --name sshvm \
-    --show-details \
-    --query publicIps \
-    --output tsv
-```
 
 U kunt vervolgens SSH met uw virtuele machine normaal. Geef u eigen openbare IP-adres uit de voorgaande opdracht:
 
 ```bash
-ssh azureuser@<ipAddress>
+ssh <adminUsername>@<ipAddress>
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit voorbeeld moet u een eenvoudige Linux-VM gemaakt. Ga voor meer Resource Manager-sjablonen die toepassingsframeworks of meer complexe omgevingen maken, de [galerie van Azure-quickstart-sjablonen](https://azure.microsoft.com/documentation/templates/).
+
+In dit voorbeeld moet u een eenvoudige Linux-VM gemaakt. Ga voor meer Resource Manager-sjablonen die toepassingsframeworks of meer complexe omgevingen maken, de [Azure Quickstart-sjablonen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
 Weergeven voor meer informatie over het maken van sjablonen, de eigenschappen voor de resources typen die u hebt geïmplementeerd en JSON-syntaxis:
 

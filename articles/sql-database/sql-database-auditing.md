@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7069114a8cb63b8b166bc29e92d8f355c49824bb
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: ce691ec0622749f1cb7252e237dae25b2657d115
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010524"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -130,11 +130,11 @@ Als u ervoor hebt gekozen auditlogboeken schrijven naar Azure Monitor-Logboeken:
 Als u ervoor hebt gekozen auditlogboeken naar Event Hub schrijven:
 
 - Als u wilt controleren Logboeken gegevens uit Event Hub gebruiken, moet u voor het instellen van een stroom gebeurtenissen gebruiken en te schrijven naar een doel. Zie voor meer informatie, [documentatie over Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
-- Auditlogboeken in Event Hub worden vastgelegd in de hoofdtekst van [Apache Avro](http://avro.apache.org/) gebeurtenissen en opgeslagen met behulp van JSON opmaak met UTF-8-codering. De om controlelogboeken te lezen, kunt u [Avro-hulpprogramma's](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) of een vergelijkbaar hulpprogramma's waarmee deze indeling worden verwerkt.
+- Auditlogboeken in Event Hub worden vastgelegd in de hoofdtekst van [Apache Avro](https://avro.apache.org/) gebeurtenissen en opgeslagen met behulp van JSON opmaak met UTF-8-codering. De om controlelogboeken te lezen, kunt u [Avro-hulpprogramma's](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) of een vergelijkbaar hulpprogramma's waarmee deze indeling worden verwerkt.
 
 Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschillende methoden die u gebruiken kunt om de logboeken weer te geven:
 
-- Auditlogboeken worden samengevoegd in het account dat u hebt gekozen tijdens de installatie. U kunt de logboeken voor controle verkennen met behulp van een hulpprogramma zoals [Azure Storage Explorer](http://storageexplorer.com/). In Azure storage controleren logboeken worden opgeslagen als een verzameling van blob-bestanden in een container met de naam **sqldbauditlogs**. Zie voor meer informatie over de hiërarchie van de map storage naamgevingsregels en logboekindeling, de [Blobverwijzing Audit Log indeling](https://go.microsoft.com/fwlink/?linkid=829599).
+- Auditlogboeken worden samengevoegd in het account dat u hebt gekozen tijdens de installatie. U kunt de logboeken voor controle verkennen met behulp van een hulpprogramma zoals [Azure Storage Explorer](https://storageexplorer.com/). In Azure storage controleren logboeken worden opgeslagen als een verzameling van blob-bestanden in een container met de naam **sqldbauditlogs**. Zie voor meer informatie over de hiërarchie van de map storage naamgevingsregels en logboekindeling, de [Blobverwijzing Audit Log indeling](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Gebruik de [Azure-portal](https://portal.azure.com).  Open de betreffende database. Aan de bovenkant van de database **controle** pagina, klikt u op **auditlogboeken weergeven**.
 
@@ -161,7 +161,7 @@ Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschill
     4. Het samengevoegde bestand wordt geopend in SSMS, waar u kunt weergeven en analyseren, evenals het exporteren naar een xel-bestand of een CSV-bestand, of naar een tabel.
 
 - Power BI gebruiken. U kunt bekijken en analyseren van logboekgegevens audit in Power BI. Zie voor meer informatie en voor toegang tot een sjabloon downloaden [analyseren audit log-gegevens in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
-- Downloaden van de logboekbestanden van uw Azure Storage blob-container via de portal of met behulp van een hulpprogramma zoals [Azure Storage Explorer](http://storageexplorer.com/).
+- Downloaden van de logboekbestanden van uw Azure Storage blob-container via de portal of met behulp van een hulpprogramma zoals [Azure Storage Explorer](https://storageexplorer.com/).
   - Nadat u een logboekbestand lokaal hebt gedownload, dubbelklikt u op het bestand te openen, weergeven en analyseren van de logboeken in SSMS.
   - U kunt ook meerdere bestanden tegelijkertijd via Azure Storage Explorer downloaden. Om dit te doen met de rechtermuisknop op een specifieke submap en selecteer **opslaan als** om op te slaan in een lokale map.
 

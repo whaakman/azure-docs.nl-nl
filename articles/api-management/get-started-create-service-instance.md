@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4a9ffdd9f81a7d46d3476f3395a4456dea6c0341
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: ef874e5d773e87963b6de8371986ac2196fc38f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156728"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901386"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Een nieuw exemplaar van de API Management-service maken
 
@@ -45,14 +45,14 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
     ![nieuw exemplaar](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
 
-    | Instelling                 | Voorgestelde waarde                               | Beschrijving                                                                                                                                                                                                                                                                                                                         |
+    | Instelling                 | Voorgestelde waarde                               | Description                                                                                                                                                                                                                                                                                                                         |
 |-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Naam**                | Een unieke naam voor de API Management-service | De naam kan later niet meer worden gewijzigd. De servicenaam wordt gebruikt om een standaarddomeinnaam te genereren in de notatie: *{name}.azure-api.net.* Zie [Een aangepast domein configureren](configure-custom-domain.md) als u een aangepaste domeinnaam wilt gebruiken. <br/> De servicenaam wordt gebruikt om naar de service en de bijbehorende Azure-resource te verwijzen. |
 | **Abonnement**        | Uw abonnement                             | Het abonnement waarin dit nieuwe service-exemplaar wordt gemaakt. U kunt het abonnement selecteren in een van de verschillende Azure-abonnementen waartoe u toegang hebt.                                                                                                                                                            |
 | **Resourcegroep**      | *apimResourceGroup*                           | U kunt een nieuwe of bestaande resource selecteren. Een resourcegroep is een verzameling resources met dezelfde levenscyclus, dezelfde machtigingen en hetzelfde beleid. Klik [hier](../azure-resource-manager/resource-group-overview.md#resource-groups) voor meer informatie.                                                                                                  |
 | **Locatie**            | *US - west*                                    | Selecteer de geografische regio bij u in de buurt. Alleen de beschikbare regio’s voor de API Management-service worden weergegeven in de vervolgkeuzelijst.                                                                                                                                                                                                          |
 | **Naam van de organisatie**   | De naam van uw organisatie                 | Deze naam wordt op een aantal plekken gebruikt, onder andere in de titel van de ontwikkelaarsportal en als afzender bij e-mailmeldingen.                                                                                                                                                                                                             |
-| **E-mailadres van de beheerder** | *admin@org.com*                               | Vast e-mailadres waarnaar alle meldingen afkomstig van **API Management** worden verzonden.                                                                                                                                                                                                                                              |
+| **E-mailadres van de beheerder** | *admin\@org.com*                               | Vast e-mailadres waarnaar alle meldingen afkomstig van **API Management** worden verzonden.                                                                                                                                                                                                                                              |
 | **Prijscategorie**        | *Developer*                                   | Vaste **Developer**-laag om de service te evalueren. Deze laag is niet bedoeld voor productie. Zie [bijwerken en schalen](upgrade-and-scale.md) voor meer informatie over het schalen van API Management-lagen.                                                                                                                                    |
 
 3. Kies **Maken**.

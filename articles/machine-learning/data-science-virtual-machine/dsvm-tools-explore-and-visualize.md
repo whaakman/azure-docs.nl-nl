@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: a243ac45ce29ae824c8f38036d4387da3b1cff8f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855483"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Gegevens verkennen en visualiseren hulpprogramma's op de Data Science Virtual Machine
 
@@ -43,7 +43,7 @@ Er is een belangrijke stap in de data science om te begrijpen van de gegevens. V
 | Ondersteunde DSVM-edities     | Windows, Linux     |
 | Wordt doorgaans gebruikt      | Algemene ML-hulpprogramma     |
 | Hoe kan ik gebruik / uitvoeren?      | Op Windows, zoeken naar Weka in het Menu Start. Aanmelden op Linux met X2Go en navigeer naar toepassingen -> ontwikkeling Weka ->. |
-| Koppelingen naar voorbeelden      | [Voorbeelden van weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Koppelingen naar voorbeelden      | [Voorbeelden van weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Meer hulpprogramma's op de DSVM      |LightGBM, ratel, Xgboost   |
 
 ## <a name="rattle"></a>Rammelaar

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e56dc54c2c296ee17b04070ac8ee68d2180b7046
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7b458632ddb6e23ab1ddf642752aa0cbfc11f1ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183442"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839065"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Zelfstudie: Azure Active Directory-integratie met Picturepark
 
@@ -224,7 +224,7 @@ Als u wilt inschakelen in Azure AD-gebruikers zich aanmelden bij Picturepark, mo
    
     ![Create User](./media/picturepark-tutorial/ic795069.png "Create User")
    
-    a. In de **e-mailadres** tekstvak, type de **e-mailadres** van de gebruiker **BrittaSimon@contoso.com**.  
+    a. In de **e-mailadres** tekstvak, type de **e-mailadres** van de gebruiker **BrittaSimon\@contoso.com**.  
    
     b. In de **wachtwoord** en **wachtwoord bevestigen** tekstvakken, type de **wachtwoord** van BrittaSimon. 
    
@@ -286,7 +286,7 @@ Wanneer u op de tegel Picturepark in het toegangsvenster, u moet u automatisch a
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

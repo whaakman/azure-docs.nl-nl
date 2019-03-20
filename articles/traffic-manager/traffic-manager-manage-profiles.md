@@ -1,6 +1,6 @@
 ---
 title: Azure Traffic Manager-profielen beheren | Microsoft Docs
-description: In dit artikel wordt uitgelegd hoe u een Azure Traffic Manager-profiel maakt, uitschakelt, inschakelt en verwijdert.
+description: Dit artikel helpt u bij het maken, uitschakelen, inschakelen en verwijderen van een Azure Traffic Manager-profiel.
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: 11e63f95067a9ad6bb61a91da56fe22dc4962ae5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7b52d07db076b62845465ee9f22a3d794c8cdf76
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778465"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839522"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Een Azure Traffic Manager-profiel beheren
 
@@ -29,7 +29,7 @@ U kunt via Azure Portal een Traffic Manager-profiel maken. Zodra u het profiel h
 
 ### <a name="to-create-a-traffic-manager-profile"></a>Een Traffic Manager-profiel maken
 
-1. Meld u vanuit een browser aan bij [Azure Portal](http://portal.azure.com). Als u nog geen account hebt, kunt u zich registreren voor een [gratis proefversie van één maand](https://azure.microsoft.com/free/). 
+1. Meld u vanuit een browser aan bij [Azure Portal](https://portal.azure.com). Als u nog geen account hebt, kunt u zich registreren voor een [gratis proefversie van één maand](https://azure.microsoft.com/free/). 
 2. Klik op **Een resource maken** > **Netwerken** > **Traffic Manager-profiel** > **Maken**.
 4. Vul het volgende in bij **Traffic Manager-profiel maken**:
     1. In **Naam** geeft u een naam op voor het profiel. Deze naam moet uniek zijn binnen de zone trafficmanager.net. De naam wordt gebruikt voor de DNS-naam <name>, trafficmanager.net, die wordt gebruikt voor het openen van uw Traffic Manager-profiel.
@@ -48,14 +48,14 @@ U kunt een bestaand profiel uitschakelen zodat Traffic Manager geen gebruikersaa
 
 1. Als u een aangepaste domeinnaam gebruikt, wijzigt u de CNAME-record op de Internet-DNS-server zodanig dat deze niet langer naar uw Traffic Manager-profiel wijst.
 2. Het verkeer wordt niet meer via de Traffic Manager-profielinstellingen omgeleid naar de eindpunten.
-3. Meld u vanuit een browser aan bij [Azure Portal](http://portal.azure.com).
+3. Meld u vanuit een browser aan bij [Azure Portal](https://portal.azure.com).
 2. Zoek in de zoekbalk van de portal naar de naam van het **Traffic Manager-profiel** dat u wilt wijzigen, en klik vervolgens in de weergegeven resultaten op het Traffic Manager-profiel.
 3. Klik op **Overzicht** > **Uitschakelen**.
 4. Bevestig dat u het Traffic Manager-profiel wilt uitschakelen.
 
 ### <a name="to-enable-a-profile"></a>Een profiel inschakelen
 
-1. Meld u vanuit een browser aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u vanuit een browser aan bij [Azure Portal](https://portal.azure.com).
 2. Zoek in de zoekbalk van de portal naar de naam van het **Traffic Manager-profiel** dat u wilt wijzigen, en klik vervolgens in de weergegeven resultaten op het Traffic Manager-profiel.
 3. Klik op **Overzicht** > **Inschakelen**.
 1. Als u een aangepaste domeinnaam gebruikt, maakt u een CNAME-resourcerecord op de Internet-DNS-server zodat deze naar de domeinnaam van uw Traffic Manager-profiel wijst.

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: d751d4898be3fd19f9e6f5d03e9313e9d98e9dd2
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 6c5e0e47f006c6be170bdbf6fee431bfd3b6df0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446090"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105053"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS-server registreert alias overzicht
 
@@ -58,7 +58,7 @@ Deze beperking geeft een probleem voor toepassingseigenaren van een die beschikk
 
 Dit probleem kan worden opgelost met aliasrecords. In tegenstelling tot de CNAME-records, aliasrecords kunnen worden gemaakt in de apex van de zone en toepassingseigenaren kunnen deze gebruiken om hun apexrecord zone verwijzen naar een Traffic Manager-profiel met externe eindpunten. Toepassingseigenaren van de kunnen verwijzen naar dezelfde Traffic Manager-profiel dat wordt gebruikt voor andere domeinen in hun DNS-zone.
 
-Bijvoorbeeld: contoso.com en www.contoso.com kunnen verwijzen naar dezelfde Traffic Manager-profiel. Voor meer informatie over het gebruik van de aliasrecords met Azure Traffic Manager-profielen, Zie het gedeelte volgende stappen.
+Bijvoorbeeld: contoso.com en een www\.contoso.com kan verwijzen naar dezelfde Traffic Manager-profiel. Voor meer informatie over het gebruik van de aliasrecords met Azure Traffic Manager-profielen, Zie het gedeelte volgende stappen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

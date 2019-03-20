@@ -6,18 +6,21 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/4/2019
+ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0eb19ba8278df2d77466e5be13731723557e85a8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082072"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199241"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Een Recovery Services-kluis verplaatsen tussen Azure-abonnementen en resourcegroepen (beperkte openbare preview-versie)
 
 In dit artikel wordt uitgelegd hoe u een Recovery Services-kluis geconfigureerd voor Azure Backup voor Azure-abonnementen of naar een andere resourcegroep in hetzelfde abonnement verplaatsen. U kunt de Azure portal of PowerShell gebruiken om te verplaatsen van een Recovery Services-kluis.
+
+> [!NOTE]
+> Als u wilt een Recovery Services-kluis en alle bijbehorende resources verplaatsen naar andere resourcegroep, moet u eerst [registreren van het bronabonnement](#register-the-source-subscription-to-move-your-recovery-services-vault).
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Vereisten voor het verplaatsen van een kluis
 
@@ -37,7 +40,7 @@ In dit artikel wordt uitgelegd hoe u een Recovery Services-kluis geconfigureerd 
 -   Als u een kluis back-upgegevens van virtuele machine, met verschillende abonnementen, moet u uw virtuele machines verplaatsen naar het hetzelfde abonnement en de dezelfde doelresourcegroep gebruiken om door te gaan van de back-ups.<br>
 
 > [!NOTE]
-> 
+>
 > Recovery Services-kluizen geconfigureerd voor gebruik met **Azure Site Recovery** kan niet worden verplaatst, nog. Als u virtuele machines hebt geconfigureerd (Azure IaaS, Hyper-V, VMware) of fysieke machines voor het gebruik van disaster recovery de **Azure Site Recovery**, de verplaatsing worden geblokkeerd. De functie voor het verplaatsen van resources voor Site Recovery-service is nog niet beschikbaar.
 
 ## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>Registratie van het bronabonnement voor het verplaatsen van uw Recovery Services-kluis

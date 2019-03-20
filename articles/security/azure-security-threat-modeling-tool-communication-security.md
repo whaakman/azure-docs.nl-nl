@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3f4e87e5602b3c77178ab5bc842705cfedf64af2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8534f30c17208e77adfa47ea41506a3a61d3548d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448370"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897296"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Beveiliging-Frame: Communicatiebeveiliging | Oplossingen 
 | Product/Service | Artikel |
@@ -146,7 +146,7 @@ Deze regel werkt door een HTTP-statuscode 301 (permanente omleiding) wanneer de 
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Overzichtskaart OWASP HTTP strikte Transport Security](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Stappen** | <p>HTTP strikte Transport Security (HSTS) is een beveiligingsuitbreiding van opt-in voor die is opgegeven door een web-App door het gebruik van een speciale response-header. Wanneer een ondersteunde browser, deze header ontvangt wordt deze browser wordt voorkomen dat alle communicatie via HTTP worden verzonden naar het opgegeven domein en ontvangt alle communicatie via HTTPS in plaats daarvan. Dit voorkomt ook dat HTTPS klik door de aanwijzingen in browsers.</p><p>Voor het implementeren van HSTS, heeft de volgende response-header moet worden geconfigureerd voor een website wereldwijd in code of in de configuratie. Strikt-Transport-Security: max-age = 300; includeSubDomains HSTS adressen bedreigingen voor de volgende:</p><ul><li>Bladwijzers van de gebruiker of handmatig typen http://example.com en is onderworpen aan een aanvaller man-in-the-middle: HTTP-aanvragen omleidt naar HTTPS voor het doeldomein HSTS automatisch</li><li>Web-App die is bedoeld voor alleen HTTPS per ongeluk worden HTTP-koppelingen bevat of waarvoor inhoud via HTTP: HTTP-aanvragen omleidt naar HTTPS voor het doeldomein HSTS automatisch</li><li>Een aanvaller man-in-the-middle probeert te onderscheppen verkeer van een gebruiker van het slachtoffer met behulp van een ongeldig certificaat en hoopt accepteert de gebruiker het ongeldige certificaat: HSTS staat niet toe dat een gebruiker het bericht ongeldig certificaat negeren</li></ul>|
+| **Stappen** | <p>HTTP strikte Transport Security (HSTS) is een beveiligingsuitbreiding van opt-in voor die is opgegeven door een web-App door het gebruik van een speciale response-header. Wanneer een ondersteunde browser, deze header ontvangt wordt deze browser wordt voorkomen dat alle communicatie via HTTP worden verzonden naar het opgegeven domein en ontvangt alle communicatie via HTTPS in plaats daarvan. Dit voorkomt ook dat HTTPS klik door de aanwijzingen in browsers.</p><p>Voor het implementeren van HSTS, heeft de volgende response-header moet worden geconfigureerd voor een website wereldwijd in code of in de configuratie. Strikt-Transport-Security: max-age = 300; includeSubDomains HSTS adressen bedreigingen voor de volgende:</p><ul><li>Bladwijzers van de gebruiker of handmatig typen https://example.com en is onderworpen aan een aanvaller man-in-the-middle: HTTP-aanvragen omleidt naar HTTPS voor het doeldomein HSTS automatisch</li><li>Web-App die is bedoeld voor alleen HTTPS per ongeluk worden HTTP-koppelingen bevat of waarvoor inhoud via HTTP: HTTP-aanvragen omleidt naar HTTPS voor het doeldomein HSTS automatisch</li><li>Een aanvaller man-in-the-middle probeert te onderscheppen verkeer van een gebruiker van het slachtoffer met behulp van een ongeldig certificaat en hoopt accepteert de gebruiker het ongeldige certificaat: HSTS staat niet toe dat een gebruiker het bericht ongeldig certificaat negeren</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Zorg ervoor dat SQL server-verbinding versleuteling en certificaat-validatie
 
@@ -339,7 +339,7 @@ string GetData(int value);
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | MVC5, MVC6 |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [Afdwingen van SSL in een Web-API-Controller](http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
+| **Verwijzingen**              | [Afdwingen van SSL in een Web-API-Controller](https://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
 | **Stappen** | Als een toepassing zowel een HTTPS- en een HTTP-binding heeft, kunnen clients nog steeds HTTP gebruiken voor toegang tot de site. U kunt dit voorkomen door een actiefilter te gebruiken om ervoor te zorgen dat aanvragen voor beveiligde API's altijd via HTTPS zijn.|
 
 ### <a name="example"></a>Voorbeeld 

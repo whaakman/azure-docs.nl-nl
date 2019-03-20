@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 6bb37008b6a8b37e575dcf83dffcf57ab08996fd
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9008c98a086ed2d45b7339fa3f76b33240789db8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539991"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102448"
 ---
 # <a name="data-management-gateway"></a>Gegevensbeheergateway
 > [!NOTE]
@@ -93,7 +93,7 @@ Data management gateway kan worden geïnstalleerd op de volgende manieren:
 
 ### <a name="install-the-gateway-from-download-center"></a>De gateway van het Downloadcentrum installeren
 1. Navigeer naar [downloadpagina van Microsoft Data Management Gateway](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Klik op **downloaden**, selecteer de juiste versie (**32-bits** vs. **64-bits**), en klikt u op **volgende**.
+2. Klik op **downloaden**, selecteer de **64-bits** versie (32-bits wordt niet meer ondersteund), en klikt u op **volgende**.
 3. Voer de **MSI** rechtstreeks of sla deze op uw harde schijf en uitvoeren.
 4. Op de **Welkom** weergeeft, schakelt een **taal** klikt u op **volgende**.
 5. **Accepteer** de gebruiksrechtovereenkomst en klik op **volgende**.
@@ -291,7 +291,7 @@ U kunt in-/ uitschakelen de functie voor automatisch bijwerken door de volgende 
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
-[Voor de maximaal beschikbare en schaalbare gateway met meerdere knooppunten](data-factory-data-management-gateway-high-availability-scalability.md)
+   [Voor de maximaal beschikbare en schaalbare gateway met meerdere knooppunten](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Start Windows PowerShell op de gatewaycomputer.
 2. Ga naar de map C:\Program Files\Microsoft integratie Runtime\3.0\PowerShellScript\.
 3. Voer de volgende opdracht om het automatisch bijwerken inschakelen functie uit te schakelen.
@@ -467,7 +467,7 @@ Voor het versleutelen van referenties in de Data Factory-Editor, voer de volgend
         }
     }
     ```
-Als u toegang de portal van een virtuele machine die verschilt van het gateway-apparaat tot, moet u ervoor zorgen dat de toepassing Referentiebeheer verbinding met het gateway-apparaat maken kunt. Als de toepassing het gateway-apparaat niet bereiken kan, is het niet kunt u referenties instellen voor de gegevensbron en om verbinding met de gegevensbron te testen.
+   Als u toegang de portal van een virtuele machine die verschilt van het gateway-apparaat tot, moet u ervoor zorgen dat de toepassing Referentiebeheer verbinding met het gateway-apparaat maken kunt. Als de toepassing het gateway-apparaat niet bereiken kan, is het niet kunt u referenties instellen voor de gegevensbron en om verbinding met de gegevensbron te testen.
 
 Wanneer u gebruikt de **instelling referenties** toepassing, de portal versleutelt de referenties met het certificaat dat is opgegeven in de **certificaat** tabblad van de **Gateway Configuration Manager**  op de gatewaycomputer.
 
@@ -511,7 +511,7 @@ In deze sectie wordt beschreven hoe u maken en registreren van een gateway met b
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Ga naar de map in Azure PowerShell: **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Voer **RegisterGateway.ps1** die zijn gekoppeld aan de lokale variabele **$Key** zoals wordt weergegeven in de volgende opdracht uit. Met dit script registreert de clientagent geïnstalleerd op uw computer met de logische gateway die u eerder hebt gemaakt.
+1. Ga naar de map in Azure PowerShell: **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\\**. Voer **RegisterGateway.ps1** die zijn gekoppeld aan de lokale variabele **$Key** zoals wordt weergegeven in de volgende opdracht uit. Met dit script registreert de clientagent geïnstalleerd op uw computer met de logische gateway die u eerder hebt gemaakt.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -529,7 +529,7 @@ In deze sectie wordt beschreven hoe u maken en registreren van een gateway met b
     ```PowerShell        
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
-Kunt u een gateway met de **Remove-AzDataFactoryGateway** cmdlet, update en beschrijving voor het gebruik van een gateway de **Set AzDataFactoryGateway** cmdlets. Zie voor de syntaxis en andere informatie over deze cmdlets, Data Factory Cmdlet Reference.  
+   Kunt u een gateway met de **Remove-AzDataFactoryGateway** cmdlet, update en beschrijving voor het gebruik van een gateway de **Set AzDataFactoryGateway** cmdlets. Zie voor de syntaxis en andere informatie over deze cmdlets, Data Factory Cmdlet Reference.  
 
 ### <a name="list-gateways-using-powershell"></a>Lijst met gateways met behulp van PowerShell
 

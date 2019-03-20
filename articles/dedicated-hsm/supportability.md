@@ -2,7 +2,7 @@
 title: Ondersteuning - Azure toegewezen HSM | Microsoft Docs
 description: Ondersteuningsopties en verantwoordelijkheidsgebieden ten opzichte van voor Azure toegewezen HSM in verschillende scenario 's
 services: dedicated-hsm
-author: barclayn
+author: johndaw
 manager: barbkess
 ms.service: key-vault
 ms.workload: identity
@@ -10,24 +10,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 23c509f6f219b708fc259ee123d73948ebe50773
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8e4bbe3a5e2de8ba919cf0b641ee4e6776c5e8d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114481"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225549"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Azure toegewezen HSM-ondersteuning
 
 De Azure toegewezen HSM-Service biedt een fysiek apparaat voor gebruik door de enige klant met volledige controle en beheer van beheertaken. Het apparaat beschikbaar gesteld is een [Gemalto SafeNet Luna 7 HSM model A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). Microsoft heeft geen beheerderstoegang tot één keer worden ingericht door een klant, dan fysieke seriële poort bijlage als een controle rol.  Zonder toegang tot kan Microsoft zijn geen lopende software niveau onderhoud of het systeem beheer verantwoordelijk voor de. Als gevolg hiervan zijn klanten verantwoordelijk voor normale operationele activiteiten.
 Klanten zijn zelf verantwoordelijk voor toepassingen die gebruikmaken van de HSM's en moeten werken met Gemalto voor ondersteuning of op basis van consulting assistentie. Vanwege de omvang van de klant eigendom van operationele hygiëne is het niet mogelijk voor Microsoft te bieden van welke aard dan ook van hoge beschikbaarheidsgarantie voor deze service. Het is de verantwoordelijkheid van de klant om te controleren of hun toepassingen correct zijn geconfigureerd voor het bereiken van hoge beschikbaarheid. Microsoft zal bewaken en onderhouden van apparaat status en de netwerkverbinding.
 
+## <a name="getting-support"></a>Ondersteuning zoeken
+
+Klantenondersteuning voor toegewezen HSM is een gezamenlijke inspanning tussen Microsoft en Gemalto. Eventuele hardwareproblemen of het pad van de netwerkverbinding wordt verholpen door Microsoft en iets te doen met de werkelijke HSM, zoals configuratie, software, firmware en de toepassing ontwikkelen, door Gemalto wordt verholpen. Dit ondersteuningsmodel zorgt ervoor dat de snelste route naar de meest effectieve ondersteuning. Bij twijfel met een bepaald probleem verhogen met Microsoft ondersteuning aan te vragen we zorgt u ervoor dat u op de juiste wijze worden doorgestuurd. Microsoft blijft betrokken in alle scenario's voor ondersteuning en streven naar de beste ondersteuningservaring voor onze klanten.
+
 ## <a name="gemalto-support"></a>Ondersteuning voor Gemalto
 
-Klanten die gebruikmaken van de toegewezen HSM-service moet een ondersteuning bij Gemalto-contract. Als onderdeel van hun ondersteuningscontract ontvangen klanten richtlijnen, ondersteuning en services rechtstreeks vanuit Gemalto. Het mechanisme voor ondersteuning krijgen van Gemalto is via hun [ondersteuning klantportal](https://supportportal.gemalto.com/csm/).
-Gemalto biedt een software-onderdelen die vereist voor het gebruik van de HSM (bijvoorbeeld client toegang tot software en SDK's). Ze zullen ook ondersteuning voor configuratie en adviesservices voor het ontwerp, ontwikkeling en implementatie van toepassingen met behulp van de HSM SafeNet Luna 7 bieden.
+Klanten die gebruikmaken van de toegewezen HSM-service in aanmerking komen voor ondersteuning van Gemalto aan de hand van hun Plus-Ondersteuningsabonnement. Dit moet een registratieproces met behulp van de portal Gemalto-ondersteuning. Een klant-ID en instructies wordt dit als onderdeel van de eerste samenwerking met Microsoft toegang te krijgen tot de toegewezen HSM-service worden opgegeven. Het mechanisme voor ondersteuning krijgen van Gemalto is via hun [ondersteuning klantportal](https://supportportal.gemalto.com/csm/).
+Een belangrijk punt van opmerking is dat Gemalto biedt alle software en documentatie die zijn vereist voor het gebruik van de HSM (bijvoorbeeld client toegang tot software en SDK's) via downloaden op de portal voor ondersteuning van klanten.
 
 ### <a name="software-components"></a>Software-onderdelen
 
@@ -51,7 +55,7 @@ Voor elke hulp bij het ontwerp, ontwikkeling en implementatie van aangepaste toe
 
 ## <a name="microsoft-support"></a>Microsoft Ondersteuning
 
-Microsoft is verantwoordelijk voor het garanderen van fysieke HSM-apparaten zijn bereikbaar is en de operationele status voor exclusief gebruik van één klant. Klanten zijn verantwoordelijk voor en het beheer van het apparaat. De verantwoordelijkheden van Microsoft zijn onder andere:
+Microsoft zorgt ervoor dat de fysieke apparaten van de HSM zijn netwerk toegankelijk is en de operationele status voor exclusief gebruik van één klant. Klanten zijn verantwoordelijk voor de configuratie, beheer en beheer van het apparaat. De verantwoordelijkheden van Microsoft zijn onder andere:
 
 * Ervoor dat het apparaat voeding heeft en koeling, zodat
 * Onderhoud van de operationele status van de HSM (bijvoorbeeld ondersteuning voor probleemoplossing scenario's)
@@ -72,7 +76,7 @@ Nadat een klant een goedgekeurde registratie voor de toegewezen HSM-service heef
 
 ### <a name="hardware-issues"></a>Hardwareproblemen
 
-De HSM-apparaat heeft redundante en replaceable voedingen en fan-eenheden. Ventilator eenheid verwijderen wordt een gebeurtenis onrechtmatige wijzigingen veroorzaken als verwijderd wanneer het apparaat wordt ingeschakeld. Wanneer een onderdeelfout optreedt, wordt Microsoft het meest geschikte proces gebruiken om het probleem met serveronderdeel niveau op een manier die ervoor zorgt minimale onderbreking en het laagste risico op de beschikbaarheid van onze klanten-services dat.
+De HSM-apparaat heeft redundante en replaceable voedingen en fan-eenheden.  Ventilator eenheid verwijdering wordt echter nog steeds een gebeurtenis onrechtmatige wijzigingen veroorzaken. Wanneer een onderdeelfout optreedt, wordt Microsoft het meest geschikte proces gebruiken om het probleem met serveronderdeel niveau op een manier die ervoor zorgt minimale onderbreking en het laagste risico op de beschikbaarheid van onze klanten-services dat.
 Een ernstige fout van het apparaat zal leiden tot dat apparaat wordt vervangen door een nieuwe naam van de groep met gratis. De klant bevat gewoon het nieuwe apparaat in het bestaande HA-paar voor het synchroniseren en gaat u terug naar volledige operationele status. Het mislukte apparaat heeft de gegevens die zijn voorzien van apparaten verwijderd en versnipperde op site in het datacenter. Alleen het chassis naar Gemalto geretourneerd voor hergebruik.
 
 

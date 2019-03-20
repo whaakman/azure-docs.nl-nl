@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 875548b8277e50ccb813cf6b36541a053abdbb70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: c91fa2c269b507988d2bdefcd2882b2ab55fec35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222062"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094862"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Servers waarop Windows Server 2008 wordt uitgevoerd, naar Azure migreren
 
@@ -51,6 +51,8 @@ Voordat u begint, is het handig om de Azure Site Recovery-architectuur te contro
 Voor het migreren van virtuele Hyper-V-machines waarop Windows Server 2008 of Windows Server 2008 R2 wordt uitgevoerd, volgt u de stappen in de zelfstudie [On-premises machines migreren naar Azure](migrate-tutorial-on-premises-azure.md).
 
 In het vervolg van deze zelfstudie kunt u zien hoe u on-premises virtuele VMware-machines en fysieke servers kunt migreren waarop Windows Server 2008 of 2008 R2 wordt uitgevoerd.
+> [!TIP]
+> Zoek naar een zonder agent manier voor het migreren van virtuele VMware-machines naar Azure? [Klik hier](https://aka.ms/migrateVMs-signup)
 
 
 ## <a name="limitations-and-known-issues"></a>Beperkingen en bekende problemen

@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473762"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002948"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin Resource Sharing (CORS) ondersteuning voor de Azure Storage-Services
-Vanaf versie 15-08-2013, ondersteuning de Azure storage-services Cross-Origin Resource Sharing (CORS) voor de services Blob, Table, Queue en bestand. CORS is een HTTP-functie waarmee een webtoepassing die wordt uitgevoerd in een bepaald domein te krijgen tot bronnen in een ander domein. Webbrowsers een beveiligingsbeperking wel geïmplementeerd [beleid voor zelfde oorsprong](http://www.w3.org/Security/wiki/Same_Origin_Policy) die voorkomt dat een webpagina van aanroepen van API's in een ander domein; CORS biedt een veilige manier om toe te staan van een domein (het domein van oorsprong) API's aanroepen in een ander domein. Zie de [CORS-specificatie](http://www.w3.org/TR/cors/) voor meer informatie over CORS.
+Vanaf versie 15-08-2013, ondersteuning de Azure storage-services Cross-Origin Resource Sharing (CORS) voor de services Blob, Table, Queue en bestand. CORS is een HTTP-functie waarmee een webtoepassing die wordt uitgevoerd in een bepaald domein te krijgen tot bronnen in een ander domein. Webbrowsers een beveiligingsbeperking wel geïmplementeerd [beleid voor zelfde oorsprong](https://www.w3.org/Security/wiki/Same_Origin_Policy) die voorkomt dat een webpagina van aanroepen van API's in een ander domein; CORS biedt een veilige manier om toe te staan van een domein (het domein van oorsprong) API's aanroepen in een ander domein. Zie de [CORS-specificatie](https://www.w3.org/TR/cors/) voor meer informatie over CORS.
 
 U kunt CORS-regels instellen voor elk van de storage-services, door het aanroepen van [Blob Service-eigenschappen instellen](https://msdn.microsoft.com/library/hh452235.aspx), [Queue-Service-eigenschappen instellen](https://msdn.microsoft.com/library/hh452232.aspx), en [tabel-Service-eigenschappeninstellen](https://msdn.microsoft.com/library/hh452240.aspx). Nadat u de CORS-regels voor de service hebt ingesteld, klikt u vervolgens een goed geautoriseerde aanvraag indient voor de service uitgevoerd vanaf een ander domein geëvalueerd om te bepalen of het is toegestaan volgens de regels die u hebt opgegeven.
 
@@ -29,7 +29,7 @@ U kunt CORS-regels instellen voor elk van de storage-services, door het aanroepe
 ## <a name="understanding-cors-requests"></a>Inzicht krijgen in de CORS-aanvragen
 Een CORS-aanvraag van een domein van oorsprong kan bestaan uit twee afzonderlijke aanvragen:
 
-* Een voorbereidende aanvraag, die de CORS-beperkingen die zijn opgelegd door de service. De voorbereidende aanvraag is vereist, tenzij de aanvraag is een [eenvoudige methode](http://www.w3.org/TR/cors/), wat betekent dat GET, HEAD of POST.
+* Een voorbereidende aanvraag, die de CORS-beperkingen die zijn opgelegd door de service. De voorbereidende aanvraag is vereist, tenzij de aanvraag is een [eenvoudige methode](https://www.w3.org/TR/cors/), wat betekent dat GET, HEAD of POST.
 * De werkelijke aanvraag ten opzichte van de gewenste resource.
 
 ### <a name="preflight-request"></a>Voorbereidende aanvraag
@@ -146,7 +146,7 @@ De derde aanvraag komt overeen met de tweede regel in het domein van oorsprong e
 > 
 
 ## <a name="understanding-how-the-vary-header-is-set"></a>Informatie over hoe de header variëren is ingesteld
-De *variëren* -header is een standaard HTTP/1.1-header die bestaan uit een set velden van de aanvraag-headers toe om de agent browser of de gebruiker over de criteria die zijn geselecteerd door de server om de aanvraag te verwerken. De *variëren* koptekst wordt hoofdzakelijk gebruikt voor het opslaan in cache op proxy's, browsers en CDN's, die deze gebruiken om te bepalen hoe het antwoord moet worden opgeslagen in de cache. Zie voor meer informatie, de specificatie voor de [variëren header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+De *variëren* -header is een standaard HTTP/1.1-header die bestaan uit een set velden van de aanvraag-headers toe om de agent browser of de gebruiker over de criteria die zijn geselecteerd door de server om de aanvraag te verwerken. De *variëren* koptekst wordt hoofdzakelijk gebruikt voor het opslaan in cache op proxy's, browsers en CDN's, die deze gebruiken om te bepalen hoe het antwoord moet worden opgeslagen in de cache. Zie voor meer informatie, de specificatie voor de [variëren header](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 Als de browser of een andere gebruikersagent plaatst het antwoord van een CORS-aanvraag, het oorspronkelijke domein is in de cache opgeslagen als de oorsprong toegestaan. Wanneer een tweede domein dezelfde aanvraag voor een opslagresource, uitgeeft terwijl de cache actief is, haalt de gebruikersagent het domein van oorsprong in de cache. Het tweede domein komt niet overeen met het domein in de cache, zodat de aanvraag is mislukt als deze anders zou slagen. Azure Storage wordt in bepaalde gevallen de variëren-header ingesteld op **oorsprong** om te geven van de gebruikersagent naar de volgende CORS-aanvraag verzenden naar de service wanneer het aanvragende domein wijkt af van de oorsprong in de cache.
 
@@ -162,7 +162,7 @@ Houd er rekening mee dat met behulp van andere methoden dan GET/HEAD-aanvragen, 
 De volgende tabel geeft aan hoe Azure-opslag reageren op GET/HEAD-aanvragen op basis van de eerder genoemde cases:
 
 | Aanvraag | Instellingen van een account en het resultaat van evaluatie van de regel |  |  | Antwoord |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | **Aanwezig is op verzoek-header van oorsprong** |**CORS (s) is opgegeven voor deze service** |**Overeenkomende regel bestaat waarmee alle origins(*)** |**Overeenkomende regel bestaat voor de oorsprong exacte overeenkomst** |**Antwoord bevat variëren-header ingesteld op de oorsprong** |**Antwoord bevat Access-Control-toegestaan-Origin: "*"** |**Antwoord bevat Access-Control-blootgesteld-Headers** |
 | Nee |Nee |Nee |Nee |Nee |Nee |Nee |
 | Nee |Ja |Nee |Nee |Ja |Nee |Nee |
@@ -184,5 +184,5 @@ Mislukte voorbereidende aanvragen wordt niet in rekening gebracht.
 
 [Tabel-Service-eigenschappen instellen](https://msdn.microsoft.com/library/hh452240.aspx)
 
-[W3C Cross-Origin Resource Sharing specificatie](http://www.w3.org/TR/cors/)
+[W3C Cross-Origin Resource Sharing specificatie](https://www.w3.org/TR/cors/)
 

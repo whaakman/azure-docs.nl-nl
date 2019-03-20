@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9d7e6f7505b8af76ff6c42c040918a274d89c3c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2a6896e2b9633b8de679e8d14a7957dc0e3229e7
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407926"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226722"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Schakel gecombineerd security informatie registratie (preview)
 
@@ -44,6 +44,12 @@ Volg de volgende stappen voor het gecombineerde registratie inschakelen:
 
 > [!NOTE]
 > Nadat u gecombineerde registratie inschakelen, gebruikers registreren of bevestigen dat hun telefoonnummer of mobiele app via de nieuwe ervaring voor ze kunt gebruiken voor MFA en SSPR, als deze methoden zijn ingeschakeld in het beleid voor MFA en Self-service voor Wachtwoordherstel. Als u deze vervolgens uitschakelt, wordt gebruikers die gaat u naar de SSPR-registratie in de vorige pagina op `https:/aka.ms/ssprsetup` moeten multi-factor authentication uitvoeren voordat ze krijgen de pagina tot toegang.
+
+Als u de site aan de lijst van zonetoewijzingen hebt geconfigureerd in Internet Explorer op de volgende websites moeten zich in dezelfde zone:
+
+* [https://login.microsoftonline.com](https://login.microsoftonline.com)
+* [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
+* [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
 ## <a name="next-steps"></a>Volgende stappen
 

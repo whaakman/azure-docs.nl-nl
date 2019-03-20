@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 44252274cc3c0050ba138c3115deeceb2f06f8d8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121533"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Een aangepaste domeinnaam voor Azure App Service kopen
 
@@ -146,7 +146,7 @@ U ziet ook de geselecteerde hostnamen in de **aangepaste domeinen** pagina, in d
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
-Als u wilt de hostnamen testen, gaat u naar de vermelde hostnamen in de browser. In het voorbeeld in de vorige schermafbeelding, gaat u naar _kontoso.net_ en _www.kontoso.net_.
+Als u wilt de hostnamen testen, gaat u naar de vermelde hostnamen in de browser. In het voorbeeld in de vorige schermafbeelding, gaat u naar _kontoso.net_ en _www\.kontoso.net_.
 
 ## <a name="assign-hostnames-to-app"></a>Hostnamen toewijzen aan app
 
@@ -177,7 +177,7 @@ Selecteer **Hostnaam toevoegen**.
 In de **hostnaam toevoegen** dialoogvenster, typ de volledig gekwalificeerde domeinnaam van uw App Service-domein of elk subdomein. Bijvoorbeeld:
 
 - kontoso.net
-- www.kontoso.net
+- www\.kontoso.net
 - abc.kontoso.net
 
 Wanneer u klaar bent, selecteert u **valideren**. De hostnaam recordtype is automatisch voor u geselecteerd.

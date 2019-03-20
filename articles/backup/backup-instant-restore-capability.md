@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 7d54e137cbfb35c84173c79e65a1070eabb52e78
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: a618482b73e8e423bc00b7c9010c9282da69cd3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731642"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844705"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ophalen van verbeterde back-up en herstellen van de prestaties met mogelijkheid Azure back-up direct herstellen
 
 > [!NOTE]
 > Op basis van feedback van gebruikers naam **VM-back-upstack V2** naar **direct herstellen** aan de voorkoming van verwarring met Azure Stack-functionaliteit.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Het nieuwe model voor direct terugzetten biedt de volgende verbeteringen:
 
@@ -27,7 +29,6 @@ Het nieuwe model voor direct terugzetten biedt de volgende verbeteringen:
 * Ondersteunt schijf de grootte van maximaal 4 TB.
 * Standard-SSD-schijven ondersteunt.
 *   Mogelijkheid om te gebruiken van een niet-beheerde virtuele machine oorspronkelijk opslagaccounts (per schijf), bij het herstellen. Deze mogelijkheid bestaat, zelfs wanneer de virtuele machine heeft schijven die zijn verdeeld over de storage-accounts. Het downloadproces versneld herstelbewerkingen voor een groot aantal VM-configuraties
-
 
 
 ## <a name="whats-new-in-this-feature"></a>Wat is er nieuw in deze functie
@@ -91,19 +92,19 @@ Als u wilt de self-service voor stroomactiviteitvoortgang en een upgrade naar di
 1.  Meld u aan bij uw Azure-account:
 
     ```
-    PS C:> Connect-AzureRmAccount
+    PS C:> Connect-AzAccount
     ```
 
 2.  Selecteer het abonnement dat u wilt registreren:
 
     ```
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    PS C:>  Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
     ```
 
 3.  Dit abonnement registreren:
 
     ```
-    PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+    PS C:>  Register-AzProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
 ## <a name="upgrade-to-instant-restore-using-cli"></a>Een upgrade uitvoert naar direct herstellen met behulp van CLI
@@ -134,7 +135,7 @@ Voer de volgende opdrachten uit vanuit een shell:
 Voer de volgende cmdlet vanaf een verhoogde PowerShell terminal:
 
 ```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
+Get-AzProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
 ```
 
 ### <a name="cli"></a>CLI

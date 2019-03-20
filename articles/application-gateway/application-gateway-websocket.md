@@ -1,25 +1,18 @@
 ---
 title: WebSocket-ondersteuning in Azure Application Gateway | Microsoft Docs
 description: Deze pagina bevat een overzicht van de Application Gateway WebSocket-ondersteuning.
-documentationcenter: na
-services: application-gateway
 author: amsriva
-manager: rossort
-editor: amsriva
-ms.assetid: 8968dac1-e9bc-4fa1-8415-96decacab83f
-ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/08/2017
 ms.author: amsriva
-ms.openlocfilehash: cc6e2480ea117a288ae94c9cd66be6a354d8230f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.service: application-gateway
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 03/18/2019
+ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168116"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Overzicht van de WebSocket-ondersteuning in Application Gateway
 
@@ -29,7 +22,15 @@ WebSocket-protocol in gestandaardiseerd [RFC6455](https://tools.ietf.org/html/rf
 
 U kunt met behulp van een standaard HTTP-listener op poort 80 of 443 om WebSocket-verkeer te ontvangen. WebSocket-verkeer wordt vervolgens omgeleid naar de WebSocket-ingeschakelde back-endserver met behulp van de juiste back-endpool die zijn opgegeven in regels voor application gateway. De back-endserver moet reageren op de application gateway-tests, die worden beschreven in de [health test overzicht](application-gateway-probe-overview.md) sectie. Application gateway statuscontroles zijn alleen HTTP/HTTPS. Elke back-endserver moet reageren op HTTP-tests voor application gateway voor het WebSocket-verkeer routeren naar de server.
 
-## <a name="listener-configuration-element"></a>Configuratie-element Listener
+Het wordt gebruikt in apps die baat bij snelle, realtime communicatie, zoals chat, dashboard en game-apps hebben.
+
+## <a name="how-does-websocket-work"></a>Hoe werkt de WebSocket
+
+Als u wilt een WebSocket-verbinding tot stand brengen, wordt een specifieke HTTP-gebaseerde handshake uitgewisseld tussen de client en de server. Als dit lukt, is application layer protocol 'bijgewerkt' van HTTP naar WebSockets, met behulp van de eerder vastgestelde TCP-verbinding. Wanneer dit gebeurt, is HTTP volledig buiten de afbeelding. gegevens kunnen worden verzonden of ontvangen met behulp van de WebSocket-protocol door beide eindpunten, totdat de WebSocket-verbinding is gesloten. 
+
+![addcert](./media/application-gateway-websocket/websocket.png)
+
+### <a name="listener-configuration-element"></a>Configuratie-element Listener
 
 Een bestaande HTTP-listener kan worden gebruikt ter ondersteuning van WebSocket-verkeer. Hier volgt een fragment van een httpListeners-element van een voorbeeldbestand van de sjabloon. U moet zowel HTTP als HTTPS listeners ter ondersteuning van WebSocket en beveiligde WebSocket-verkeer. Op deze manier kunt u de [portal](application-gateway-create-gateway-portal.md) of [PowerShell](application-gateway-create-gateway-arm.md) voor het maken van een toepassingsgateway met listeners op poort 80/443 ter ondersteuning van WebSocket-verkeer.
 

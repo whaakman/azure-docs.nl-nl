@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: 7dee92ffd183b852d48bcb150ba3c1ba8d5d0380
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569050"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093552"
 ---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Een externe verbinding maken met een Kubernetes-, DC/OS- of Docker Swarm-cluster
 Nadat u een Azure Container Service-cluster hebt gemaakt, moet u het cluster verbinden om workloads te kunnen implementeren en beheren. In dit artikel wordt beschreven hoe u vanaf een externe computer verbinding maakt met de hoofd-VM van het cluster. 
@@ -113,11 +113,11 @@ Het eerste wat u doet wanneer u een SSH-tunnel in Linux of macOS maakt, is het l
     ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com
     ```
   
-  > [!NOTE]
-  > De poort voor de SSH-verbinding is 2200 en niet de standaardpoort 22. In een cluster met meerdere hoofd-VM's is dit de verbindingspoort naar de eerste hoofd-VM.
-  > 
+   > [!NOTE]
+   > De poort voor de SSH-verbinding is 2200 en niet de standaardpoort 22. In een cluster met meerdere hoofd-VM's is dit de verbindingspoort naar de eerste hoofd-VM.
+   > 
 
-  De opdracht retourneert geen uitvoer.
+   De opdracht retourneert geen uitvoer.
 
 Zie de voorbeelden voor DC/OS en Swarm in de volgende secties.    
 
@@ -181,16 +181,16 @@ Er zijn meerdere opties voor het maken van SSH-tunnels in Windows. Als u Bash ui
 
 5. Selecteer **SSH > Tunnels** en configureer de volgende doorgestuurde poorten:
 
-    * **Bronpoort:** gebruik 80 voor DC/OS of 2375 voor Swarm.
-    * **Doelpoort:** gebruik localhost:80 voor DC/OS of localhost:2375 voor Swarm.
+   * **Bronpoort:** Gebruik 80 voor DC/OS of 2375 voor Swarm.
+   * **Bestemming:** Gebruik localhost: 80 voor DC/OS of localhost: 2375 voor Swarm.
 
-    Het volgende voorbeeld is geconfigureerd voor DC/OS, maar ziet er ongeveer hetzelfde uit voor Docker Swarm.
+     Het volgende voorbeeld is geconfigureerd voor DC/OS, maar ziet er ongeveer hetzelfde uit voor Docker Swarm.
 
-    > [!NOTE]
-    > Poort 80 mag niet in gebruik zijn wanneer u deze tunnel maakt.
-    > 
+     > [!NOTE]
+     > Poort 80 mag niet in gebruik zijn wanneer u deze tunnel maakt.
+     > 
 
-    ![PuTTY-configuratie 3](./media/container-service-connect/putty3.png)
+     ![PuTTY-configuratie 3](./media/container-service-connect/putty3.png)
 
 6. Wanneer u klaar bent, klikt u op **Sessie > Opslaan** om de verbindingsconfiguratie op te slaan.
 

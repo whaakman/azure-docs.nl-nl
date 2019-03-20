@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 39864b629d41f0921c80736042ca5f8938376297
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: c51cb797ff4465f4efcbc526444cddeb5b923262
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650991"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225254"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Aangepaste Apache Hadoop-toepassingen installeren op Azure HDInsight
 
@@ -36,15 +36,15 @@ HDInsight-toepassingen kunnen worden geïnstalleerd wanneer u een cluster maakt 
 
 De bestanden die nodig zijn voor het implementeren van deze toepassing (Hue):
 
-* [azuredeploy.JSON](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): De Resource Manager-sjabloon voor het installeren van HDInsight-toepassing. Zie [MSDN: Een HDInsight-toepassing installeren](https://msdn.microsoft.com/library/mt706515.aspx) voor het ontwikkelen van uw eigen Resource Manager-sjabloon.
-* [HUE-install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): De scriptactie die wordt aangeroepen door de Resource Manager-sjabloon voor het configureren van het edge-knooppunt.
+* [azuredeploy.json](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): De Resource Manager-sjabloon voor het installeren van HDInsight-toepassing. Zie [MSDN: Een HDInsight-toepassing installeren](https://msdn.microsoft.com/library/mt706515.aspx) voor het ontwikkelen van uw eigen Resource Manager-sjabloon.
+* [hue-install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): De scriptactie die wordt aangeroepen door de Resource Manager-sjabloon voor het configureren van het edge-knooppunt.
 * [HUE-binaries.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): Het binaire hue-bestand dat wordt aangeroepen vanuit hui-install_v0.sh.
 * [HUE-binaries-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): Het binaire hue-bestand dat wordt aangeroepen vanuit hui-install_v0.sh.
 * [webwasb-tomcat.tar.gz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/webwasb-tomcat.tar.gz): Een voorbeeld van web-App (Tomcat) die wordt aangeroepen vanuit hui-install_v0.sh.
 
 **Hue installeren op een bestaand HDInsight-cluster**
 
-1. Klik op de volgende afbeelding om u aan te melden bij Azure en de Resource Manager-sjabloon in de Azure Portal te openen.
+1. Klik op de volgende afbeelding om u aan te melden bij Azure en de Resource Manager-sjabloon in Azure Portal te openen.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -59,7 +59,7 @@ De bestanden die nodig zijn voor het implementeren van deze toepassing (Hue):
 
 **Hue installeren tijdens het maken van een cluster**
 
-1. Klik op de volgende afbeelding om u aan te melden bij Azure en de Resource Manager-sjabloon in de Azure Portal te openen.
+1. Klik op de volgende afbeelding om u aan te melden bij Azure en de Resource Manager-sjabloon in Azure Portal te openen.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

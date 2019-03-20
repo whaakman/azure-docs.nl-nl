@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16763827c043d56ea9a3d461873dc78456cf678d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4df8f329a135683ea68896605a0a1c6f3ee45984
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164921"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084078"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Koptekst gebaseerde verificatie voor eenmalige aanmelding met de toepassingsproxy en PingAccess
 
@@ -76,8 +76,8 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer gedetailleerd ov
 5. Vul de vereiste velden met informatie over de nieuwe app. Gebruik de volgende richtlijnen voor de instellingen:
    - **Interne URL**: Normaal gesproken bieden u de URL die u naar de aanmeldingspagina van de app gaat wanneer u zich in het bedrijfsnetwerk bevinden. Voor dit scenario moet de connector de proxy PingAccess behandelen als de front-pagina van de app. Gebruik de volgende notatie: `https://<host name of your PA server>:<port>`. De poort is 3000 standaard, maar u kunt deze configureren in PingAccess.
 
-    > [!WARNING]
-    > Voor dit type eenmalige aanmelding, de interne URL moet gebruikmaken van https en http niet gebruiken.
+     > [!WARNING]
+     > Voor dit type eenmalige aanmelding, de interne URL moet gebruikmaken van https en http niet gebruiken.
 
    - **Methode voor verificatie vooraf**: Azure Active Directory
    - **Vertalen van URL in de Headers**: Nee
@@ -91,49 +91,49 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer gedetailleerd ov
 9. Selecteer op de blade van de app-beheer **eenmalige aanmelding**.
 10. Kies **headers gebaseerde aanmelding** uit de vervolgkeuzelijst. Selecteer **Opslaan**.
 
-   >[!TIP]
-   >Als dit de eerste keer is met behulp van headers gebaseerde eenmalige aanmelding, moet u PingAccess installeren. Als u wilt controleren of dat uw Azure-abonnement wordt automatisch gekoppeld aan uw PingAccess-installatie, gebruikt u de koppeling op deze pagina voor eenmalige aanmelding voor het downloaden van PingAccess. U kunt nu openen van de site voor het downloaden of keert u terug naar deze pagina later opnieuw. 
+    >[!TIP]
+    >Als dit de eerste keer is met behulp van headers gebaseerde eenmalige aanmelding, moet u PingAccess installeren. Als u wilt controleren of dat uw Azure-abonnement wordt automatisch gekoppeld aan uw PingAccess-installatie, gebruikt u de koppeling op deze pagina voor eenmalige aanmelding voor het downloaden van PingAccess. U kunt nu openen van de site voor het downloaden of keert u terug naar deze pagina later opnieuw. 
 
-   ![Selecteer headers gebaseerde aanmelding](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
+    ![Selecteer headers gebaseerde aanmelding](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
 
 11. Sluit de blade voor Enterprise-toepassingen of schuif helemaal naar links om terug te keren naar het menu van Azure Active Directory.
 12. Selecteer **App-registraties**.
 
-   ![App-registraties selecteren](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
+    ![App-registraties selecteren](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
 
 13. Selecteer de app die u zojuist hebt toegevoegd, klikt u vervolgens **antwoord-URL's**.
 
-   ![Antwoord-URL's selecteren](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
+    ![Antwoord-URL's selecteren](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
 
 14. Controleer om te zien of de externe URL die u hebt toegewezen aan uw app in stap 5 in de lijst met antwoord-URL's. Als dat niet het geval is, moet u deze nu toevoegen.
 15. Selecteer op de blade app-instellingen **vereiste machtigingen**.
 
-  ![Selecteer de vereiste machtigingen](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+    ![Selecteer de vereiste machtigingen](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
 16. Selecteer **Toevoegen**. Kies voor de API, **Windows Azure Active Directory**, klikt u vervolgens **Selecteer**. Voor de machtigingen, kies **lezen en schrijven van alle toepassingen** en **aanmelden en gebruikersprofiel lezen**, vervolgens **selecteren** en **gedaan**.  
 
-  ![Machtigingen selecteren](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
+    ![Machtigingen selecteren](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
 
 17. Machtigingen verlenen voordat u de machtigingen scherm sluit. 
-![Machtigingen verlenen](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
+    ![Machtigingen verlenen](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
 
 ### <a name="collect-information-for-the-pingaccess-steps"></a>Voor de stappen PingAccess informatie verzamelen
 
 1. Selecteer op de blade van uw app-instellingen **eigenschappen**. 
 
-  ![Eigenschappen selecteren](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
+   ![Eigenschappen selecteren](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
 
 2. Sla de **toepassings-Id** waarde. Dit wordt gebruikt voor de client-ID bij het configureren van PingAccess.
 3. Selecteer op de blade app-instellingen **sleutels**.
 
-  ![Selecteer sleutels](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
+   ![Selecteer sleutels](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
 
 4. Een sleutel maken door te voeren van een sleutel beschrijving en een vervaldatum te kiezen in de vervolgkeuzelijst.
 5. Selecteer **Opslaan**. Er wordt een GUID weergegeven in de **waarde** veld.
 
-  Deze waarde wordt nu, opslaan als u het niet mogelijk om te zien het opnieuw nadat u dit venster sluiten.
+   Deze waarde wordt nu, opslaan als u het niet mogelijk om te zien het opnieuw nadat u dit venster sluiten.
 
-  ![Een nieuwe sleutel maken](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
+   ![Een nieuwe sleutel maken](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
 
 6. Sluit de blade App-registraties of schuif helemaal naar links om terug te keren naar het menu van Azure Active Directory.
 7. Selecteer **eigenschappen**.

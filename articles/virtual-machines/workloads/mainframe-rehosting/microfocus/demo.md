@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 2a29b484b58b887981b1879ceba5bf7426bb6c2e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 733649c2b7f27ec5e80cb77adba708a158fb2c22
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099464"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-in-azure"></a>Micro Focus CICS BankDemo instellen voor Micro Focus Enterprise Developer 4.0 in Azure
 
@@ -69,9 +69,9 @@ Nadat u Enterprise Developer 4.0 hebt geïnstalleerd op de virtuele machine, moe
 
 7. Voor **functies**, Controleer **Microsoft .NET framework 4.6**, en controleer het volgende:
 
-    - Named Pipe-activering
-    - TCP Activation
-    - TCP-poort delen
+   - Named Pipe-activering
+   - TCP Activation
+   - TCP-poort delen
 
      ![Wizard functies en onderdelen toevoegen: Functieservices](media/01-demo-roles.png)
 

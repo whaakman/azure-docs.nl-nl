@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 56a4645c5f86e9f95e82533b7f5f81b7bca51e7b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1b6419feef96b57bafd0831531bd8cfa56142cc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245315"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089145"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Snelstartgids voor Bash in Azure Cloudshell
 
@@ -44,14 +44,14 @@ Controleer of de omgeving vervolgkeuzelijst aan de linkerkant van de shell-venst
 
 ### <a name="set-your-subscription"></a>Uw abonnement instellen
 1. Lijst met abonnementen u toegang tot hebt.
-```azurecli-interactive
-az account list
-```
+   ```azurecli-interactive
+   az account list
+   ```
 
 2. Stel het gewenste abonnement: <br>
-```azurecli-interactive
-az account set --subscription my-subscription-name`
-```
+   ```azurecli-interactive
+   az account set --subscription my-subscription-name`
+   ```
 
 > [!TIP]
 > Uw abonnement worden opgeslagen voor toekomstige sessies met behulp van `/home/<user>/.azure/azureProfile.json`.
@@ -77,26 +77,26 @@ Uw gebruikersnaam op deze virtuele machine is de gebruikersnaam die wordt gebrui
 ### <a name="ssh-into-your-linux-vm"></a>SSH in uw virtuele Linux-machine
 1. Zoeken naar de naam van uw virtuele machine in de Azure portal zoekbalk.
 2. Klik op 'Connect' als u uw VM-naam en het openbare IP-adres. <br>
-![](media/quickstart/sshcmd-copy.png)
+   ![](media/quickstart/sshcmd-copy.png)
 
 3. SSH in uw virtuele machine met de `ssh` cmd.
-```
-ssh username@ipaddress
-```
+   ```
+   ssh username@ipaddress
+   ```
 
 Bij het maken van de SSH-verbinding, ziet u de Welkom Ubuntu-prompt. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Opschonen 
 1. Sluit uw ssh sessie.
-```azurecli-interactive
-exit
-```
+   ```azurecli-interactive
+   exit
+   ```
 
 2. Verwijder de resourcegroep en alle resources daarin.
-```azurecli-interactive
-az group delete -n MyRG
-```
+   ```azurecli-interactive
+   az group delete -n MyRG
+   ```
 
 ## <a name="next-steps"></a>Volgende stappen
 [Meer informatie over het behoud van bestanden voor Bash in Cloud Shell](persisting-shell-storage.md) <br>

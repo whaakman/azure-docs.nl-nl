@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 692113257e483f67eaaee038c07d8702d95a7b31
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015519"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116806"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filteren van telemetrie in uw Java-web-app
 
@@ -186,12 +186,12 @@ Logtraceringen-filters (met behulp van het logboek geregistreerd [TrackTrace()](
 ```
 
 * `FromSeverityLevel` Geldige waarden zijn:
- *  UIT; alle traces filteren
- *  TRACE - er wordt geen filtering. gelijk aan het traceringsniveau
- *  INFO - uitfilteren traceerniveau
- *  Waarschuwing - Filter TRACE en informatie
- *  Fout - uitfilteren waarschuwen, gegevens, TRACERING
- *  KRITIEKE - filter om alle essentiële
+  *  UIT; alle traces filteren
+  *  TRACE - er wordt geen filtering. gelijk aan het traceringsniveau
+  *  INFO - uitfilteren traceerniveau
+  *  Waarschuwing - Filter TRACE en informatie
+  *  Fout - uitfilteren waarschuwen, gegevens, TRACERING
+  *  KRITIEKE - filter om alle essentiële
 
 
 ## <a name="custom-filters"></a>Aangepaste filters

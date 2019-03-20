@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 23a1b2853423dd9f2a62c32792e27e3174495aff
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 25e4c308b55b66038be6825a239f185e5e813af5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817033"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085759"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>HDInsight-clusters maken met Azure Data Lake Storage Gen1 met behulp van Azure portal
 > [!div class="op_single_selector"]
@@ -136,7 +136,7 @@ De configureert verschillen, afhankelijk van of het account wordt gebruikt als d
 
     ![Service-principal toevoegen aan HDInsight-cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "service-principal toevoegen aan HDInsight-cluster")
 
-  Standaard __lezen__, __schrijven__, en __EXECUTE__ zijn geselecteerd.
+   Standaard __lezen__, __schrijven__, en __EXECUTE__ zijn geselecteerd.
 
 3. Klik op **Selecteer** aan de onderkant van de pagina.
 4. Klik op **uitvoeren** waarmee machtigingen worden toegewezen.

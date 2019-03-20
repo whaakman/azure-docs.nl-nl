@@ -1,7 +1,7 @@
 ---
 title: V1, v2 API-migratie
 titleSuffix: Azure Cognitive Services
-description: De versie 1-eindpunt en authoring API's zijn afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2-eindpunt en API's ontwerpen.
+description: Het eindpunt van de versie 1 en ontwerpen van Language Understanding-API's zijn afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2-eindpunt en API's ontwerpen.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: dfd30ce148002e32986c58aff607e182033e02b3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087921"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1, v2-Migratiehandleiding LUIS-apps
 De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's zijn afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
 
 ## <a name="new-azure-regions"></a>Nieuwe Azure-regio 's
-LUIS heeft nieuwe [regio's](https://aka.ms/LUIS-regions) opgegeven voor de APIs LUIS. LUIS, biedt een andere website voor regiogroepen. De toepassing moet worden gemaakt in dezelfde regio die u verwacht te vragen. Toepassingen kunnen de regio's niet automatisch gemigreerd. U exporteert de app vanuit één regio en vervolgens importeren in een andere waarde voor deze beschikbaar zijn in een nieuwe regio.
+LUIS heeft nieuwe [regio's](https://aka.ms/LUIS-regions) opgegeven voor de APIs LUIS. LUIS, biedt een andere portal voor regiogroepen. De toepassing moet worden gemaakt in dezelfde regio die u verwacht te vragen. Toepassingen kunnen de regio's niet automatisch gemigreerd. U exporteert de app vanuit één regio en vervolgens importeren in een andere waarde voor deze beschikbaar zijn in een nieuwe regio.
 
 ## <a name="authoring-route-changes"></a>Routewijzigingen ontwerpen
 De ontwerphandleiding API-route gewijzigd via de **prog** route voor het gebruik van de **api** route.
@@ -35,7 +35,7 @@ De ontwerphandleiding API-route gewijzigd via de **prog** route voor het gebruik
 
 
 ## <a name="endpoint-route-changes"></a>Eindpunt Routewijzigingen
-Het API-eindpunt heeft nieuwe querystring-parameters, evenals een andere reactie. Als de uitgebreide vlag op true is ingesteld, worden alle intents, ongeacht de score, worden geretourneerd in een matrix met de naam intents, naast de topScoringIntent.
+Het API-eindpunt heeft nieuwe queryreeksparameters, evenals een andere reactie. Als de uitgebreide vlag op true is ingesteld, worden alle intents, ongeacht de score, worden geretourneerd in een matrix met de naam intents, naast de topScoringIntent.
 
 | versie | Route ophalen |
 |--|--|

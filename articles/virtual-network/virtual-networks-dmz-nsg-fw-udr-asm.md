@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: c3a5cb540843c5ec4ceaf8522e9148cc7171149c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9632bd339956aff7558461ed391cdd21c92f06ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456462"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995167"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Voorbeeld 3: een DMZ netwerken met een Firewall, UDR en NSG beschermen bouwen
 [Ga terug naar de grens Best Practices pagina][HOME]
@@ -486,7 +486,7 @@ Ook intrekken dat Netwerkbeveiligingsgroepen in-place worden voor inkomend inter
 11. AppVM01 vraagt om wachtwoord van de naam van gebruiker
 
 #### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Toegestaan) Web Server-DNS-zoekactie op DNS-server
-1. Web Server, IIS01, een gegevensfeed op www.data.gov behoeften, maar moet het adres omzetten.
+1. Web Server, IIS01, moeten een gegevensfeed op www\.data.gov, maar moet het adres omzetten.
 2. De netwerkconfiguratie voor de VNet-lijsten DNS01 (10.0.2.4 op de back-end-subnet) als de primaire DNS-server, IIS01 verzendt de DNS-aanvraag naar DNS01
 3. UDR-routes voor uitgaand verkeer naar de firewall als de volgende hop
 4. Er is geen uitgaande NSG-regels zijn gebonden aan het Frontend-subnet, is verkeer toegestaan
@@ -945,7 +945,7 @@ Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonde
 Dit xml-bestand opslaan met bijgewerkte locatie en de koppeling naar dit bestand naar de variabele $NetworkConfigFile in het bovenstaande script toevoegen.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

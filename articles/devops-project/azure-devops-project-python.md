@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 90af443621ec47400779bdc1689fc07be558e4b8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
+ms.openlocfilehash: 695056be67294c6a0787bad61bf5ee00378275b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164537"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111426"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Een CI/CD-pijplijn voor Python maken met Azure DevOps Projects
 
@@ -47,9 +47,9 @@ Als u geen Azure-abonnement hebt, kunt u er gratis een krijgen via [Visual Studi
 1. Selecteer de Python-voorbeeldtoepassing. De Python-voorbeelden omvatten een keuze uit verschillende toepassingsframeworks.
 
 1. Het standaardvoorbeeldframework is Django. Laat de standaardinstelling ongewijzigd en selecteer vervolgens **Volgende**.    
-Web App for Containers is het standaardimplementatiedoel. Het toepassingsframework dat u eerder hebt gekozen, bepaalt welk type implementatiedoel hier beschikbaar is voor de Azure-service. 
+Web App for Containers is het standaardimplementatiedoel. Het toepassingsframework, dat u eerder hebt gekozen, bepaalt welk type implementatiedoel hier beschikbaar is voor de Azure-service. 
 
-3. Laat de standaardservice ongewijzigd en selecteer vervolgens **Volgende**.
+3. Laat de standaardservice ongewijzigd en selecteer **Volgende**.
  
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps en een Azure-abonnement configureren 
 
@@ -64,7 +64,7 @@ Web App for Containers is het standaardimplementatiedoel. Het toepassingsframewo
 
     ![Dashboardweergave](_img/azure-devops-project-python/dashboardnopreview.png) 
     
- In DevOps Projects worden automatisch een CI-build en een releasetrigger geconfigureerd. U bent nu klaar om met een team samen te werken aan een Python-app met behulp van een CI/CD-proces waarmee automatisch uw meest recente werk op uw website wordt geïmplementeerd.
+   In DevOps Projects worden automatisch een CI-build en een releasetrigger geconfigureerd. U bent nu klaar om met een team samen te werken aan een Python-app met behulp van een CI/CD-proces waarmee automatisch uw meest recente werk op uw website wordt geïmplementeerd.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Codewijzigingen doorvoeren en CI/CD uitvoeren
 
@@ -80,7 +80,7 @@ U kunt uw Git-opslagplaats klonen in uw favoriete IDE.  In de volgende stappen k
 
 1. Selecteer **Bewerken** en breng een wijziging aan in de tekst. Wijzig bijvoorbeeld een stuk tekst voor een van de div-tags.
 
-1. Selecteer **Doorvoeren** en sla vervolgens de wijzigingen op.
+1. Selecteer **Doorvoeren** en sla de wijzigingen op.
 
 1. Ga in de browser naar het DevOps Projects-dashboard.   
     Als het goed is, ziet u nu dat er een build wordt gemaakt. De zojuist aangebrachte wijzigingen worden automatisch gebouwd en geïmplementeerd via een CI/CD-pijplijn.
@@ -97,12 +97,12 @@ Op een browsertabblad wordt de build-pijplijn voor het nieuwe project weergegeve
 
 1. Selecteer **Bewerken**.
 
-1. In dit deelvenster kunt u de verschillende taken voor de build-pijplijn onderzoeken.  
+1. In dit deelvenster kunt u de verschillende taken voor uw build-pijplijn onderzoeken.  
         In de build worden verschillende taken uitgevoerd, zoals het ophalen van bronnen uit de Git-opslagplaats, het herstellen van afhankelijkheden, en het publiceren van uitvoergegevens die worden gebruikt voor implementaties.
 
 1. Selecteer boven aan de build-pijplijn de naam van de build-pijplijn.
 
-1. Wijzig de naam van de build-pijplijn in een meer beschrijvende naam. Selecteer **Opslaan en wachtrij** en selecteer vervolgens **Opslaan**.
+1. Wijzig de naam van de build-pijplijn in een gebruiksvriendelijkere naam. Selecteer **Opslaan en wachtrij** en selecteer **Opslaan**.
 
 1. Selecteer onder de naam van de build-pijplijn de optie **Geschiedenis**.  
         U ziet een audittrail van recente wijzigingen voor de build.  In Azure DevOps worden alle wijzigingen in de build-pijplijn bijgehouden en krijgt u de mogelijkheid om versies te vergelijken.
@@ -137,7 +137,7 @@ De taken zijn de acties die tijdens het implementatieproces worden uitgevoerd. I
         In deze weergave worden de codedoorvoeringen getoond die zijn gekoppeld aan de specifieke implementatie. 
 
 1. Selecteer **Logboeken**.   
-De logboeken bevatten nuttige informatie over het implementatieproces. U kunt ze zowel tijdens als na de implementaties weergeven.
+De logboeken bevatten nuttige informatie over het implementatieproces. U kunt beide weergeven tijdens en na de implementaties.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

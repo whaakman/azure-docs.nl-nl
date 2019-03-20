@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9d77952a96bff6cc2d50ecbd4bde7e499f20de6d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 41b039c6598334d49b9ddb0608d7ad2ae045b223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901267"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Netwerk indringers detecteren met Network Watcher en open-sourcehulpprogramma 's
 
@@ -39,7 +39,7 @@ Beide open-sourcehulpprogramma's kunnen worden ingesteld op een Azure-VM, zodat 
 
 ### <a name="install-suricata"></a>Suricata installeren
 
-Voor alle andere methoden van installatie, gaat u naar http://suricata.readthedocs.io/en/latest/install.html
+Voor alle andere methoden van installatie, gaat u naar https://suricata.readthedocs.io/en/latest/install.html
 
 1. Voer de volgende opdrachten in de opdrachtregelterminal van uw virtuele machine:
 
@@ -58,7 +58,7 @@ In dit stadium is er geen regels voor Suricata om uit te voeren. U kunt uw eigen
 Download de regelset en kopieer deze naar de map:
 
 ```
-wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
+wget https://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
 tar zxf emerging.rules.tar.gz
 sudo cp -r rules /etc/suricata/
 ```
@@ -218,7 +218,7 @@ Raadpleeg voor verdere instructies voor installeren elastische zoeken naar de pa
 
 Voor verdere instructies over het installeren van Logstash, raadpleegt u de [officiële documentatie](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
 
-### <a name="install-kibana"></a>Kibana installeren
+### <a name="install-kibana"></a>Install Kibana
 
 1. Voer de volgende opdrachten voor het installeren van Kibana:
 

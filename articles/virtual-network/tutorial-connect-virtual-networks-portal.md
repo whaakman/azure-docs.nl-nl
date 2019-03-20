@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
-ms.translationtype: HT
+ms.openlocfilehash: e66747cd350d10a5a66ec54b9aae9e9b485b0ba2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919776"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014494"
 ---
-# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Zelfstudie: virtuele netwerken verbinden met virtueel-netwerkpeering met behulp van Azure Portal
+# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Zelfstudie: Virtuele netwerken verbinden met virtueel-netwerkpeering met behulp van de Azure portal
 
 U kunt virtuele netwerken met elkaar verbinden met virtueel-netwerk peering. Deze virtuele netwerken kunnen zich in de dezelfde regio of in andere regio's bevinden (ook wel bekend als Wereldwijd VNET-peering). Wanneer virtuele netwerken als peers zijn gekoppeld, kunnen resources in beide virtuele netwerken met elkaar communiceren met dezelfde latentie en bandbreedte als wanneer de resources zich in hetzelfde virtuele netwerk zouden bevinden. In deze zelfstudie leert u het volgende:
 
@@ -50,7 +50,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|myVirtualNetwork1|
+    |Name|myVirtualNetwork1|
     |Adresruimte|10.0.0.0/16|
     |Abonnement| Selecteer uw abonnement.|
     |Resourcegroep| Selecteer **Nieuwe maken** en voer *myResourceGroup* in.|
@@ -64,7 +64,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|myVirtualNetwork2|
+    |Name|myVirtualNetwork2|
     |Adresruimte|10.1.0.0/16|
     |Resourcegroep| Selecteer **Bestaande gebruiken** en selecteer **myResourceGroup**.|
     |Subnetadresbereik|10.1.0.0/24|
@@ -80,7 +80,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|myVirtualNetwork1-myVirtualNetwork2|
+    |Name|myVirtualNetwork1-myVirtualNetwork2|
     |Abonnement| Selecteer uw abonnement.|
     |Virtueel netwerk|myVirtualNetwork2 - selecteer het virtuele netwerk *myVirtualNetwork2* door **Virtueel netwerk** en vervolgens **myVirtualNetwork2** te selecteren. U kunt een virtueel netwerk in dezelfde regio of in een andere regio selecteren.|
 
@@ -97,7 +97,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|myVirtualNetwork2-myVirtualNetwork1|
+    |Name|myVirtualNetwork2-myVirtualNetwork1|
     |Virtueel netwerk|myVirtualNetwork1|
 
     De **PEERINGSTATUS** is *Verbonden*. Azure heeft ook de peeringstatus voor de peering *myVirtualNetwork2-myVirtualNetwork1*  gewijzigd van *Gestart* naar *Verbonden*. De virtueel-netwerkpeering is pas volledig tot stand gebracht als de peeringstatus van beide virtuele netwerken *Verbonden* is. 
@@ -121,6 +121,7 @@ Maak een VM in elk virtueel netwerk, zodat u er in een latere stap tussen kunt c
     |Locatie| Selecteer **US - oost**.|
 4. Selecteer een VM-grootte onder **Kies een grootte**.
 5. Selecteer de volgende waarden voor **Instellingen** en selecteer **OK**:
+
     |Instelling|Waarde|
     |---|---|
     |Virtueel netwerk| myVirtualNetwork1 - als dit nog niet is geselecteerd, selecteert u **Virtueel netwerk** en vervolgens **myVirtualNetwork1** onder **Virtueel netwerk kiezen**.|
@@ -136,7 +137,7 @@ Volg de stappen 1-6 nogmaals, met de volgende wijzigingen:
 
 |Instelling|Waarde|
 |---|---|
-|Naam | myVm2|
+|Name | myVm2|
 |Virtueel netwerk | myVirtualNetwork2|
 
 Het maken van de VM's duurt enkele minuten. Ga niet verder met de overige stappen voordat beide VM's zijn gemaakt.

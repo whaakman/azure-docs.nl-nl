@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 85a0c05719ba374ed213212db6f094d75e433183
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: ace32968808dfa919e6ca5d5777818d2672249fe
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073430"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224870"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Azure Key Vault met Azure Automation beheren
 
@@ -34,7 +34,7 @@ Zowel de operationele overhead en vrij IT en DevOps-personeel te concentreren op
 
 ## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>Hoe u kunt Azure Automation beheren van Azure Key Vault?
 
-Key Vault kunnen worden beheerd in Azure Automation met behulp van de [AzureRM Key Vault-cmdlets](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) en [Azure Classic Key Vault-cmdlets](https://docs.microsoft.com/powershell/module/servicemanagement/azure). De Azure-module voor het beheer van klassieke Key Vault automatisch in Azure Automation beschikbaar is en u kunt importeren de [module van AzureRM-KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) in Azure Automation, zodat u veel van uw Key Vault-beheertaken kunt uitvoeren in de service. U kunt ook deze cmdlets in Azure Automation met de cmdlets voor andere Azure-services voor het automatiseren van complexe taken in Azure-services en 3e systemen van derden worden gekoppeld.
+Key Vault kunnen worden beheerd in Azure Automation met behulp van de [AzureRM Key Vault-cmdlets](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) en [Azure Classic Key Vault-cmdlets](https://docs.microsoft.com/powershell/module/servicemanagement/azure). De Azure-module voor het beheer van klassieke Key Vault automatisch in Azure Automation beschikbaar is en u kunt importeren de [module van AzureRM-KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) in Azure Automation, zodat u veel van uw Key Vault-beheertaken kunt uitvoeren in de service. Zie voor meer informatie over het importeren van de module in Azure Automation, [modules in Azure Automation beheren](../automation/shared-resources/modules.md) u deze cmdlets in Azure Automation met de cmdlets voor andere Azure-services om complexe taken over te automatiseren kan ook worden gekoppeld Azure-services en 3e systemen van derden.
 
 Met de Azure Key Vault-cmdlets kunt u onder andere taken uitvoeren: 
 

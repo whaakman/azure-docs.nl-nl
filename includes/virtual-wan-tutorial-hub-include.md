@@ -5,22 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/12/2018
+ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f5560877d48513d5ac0b6a4842f45b2d91873e02
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 1d59c90b4f4ac7213a4bd2769a9c22cace25e9cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47004129"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124543"
 ---
-Een nieuwe hub bevat de gateway; het duurt 30 minuten om deze te maken. Zodra de hub is gemaakt, worden u kosten in rekening gebracht voor de hub, zelfs als u geen sites hebt toegevoegd. 
-1. Klik op de WAN-pagina onder **Virtual WAN-architectuur** op **Hubs** om de pagina Hubs te openen.
-2. Klik op de pagina Hubs op **+ Nieuwe hub** om de pagina **Hubs** te openen.
-3. Vul de volgende velden in op de pagina Hubs:
+Een hub bevat de gateway. Zodra de hub is gemaakt, worden u kosten in rekening gebracht voor de hub, zelfs als u geen sites hebt toegevoegd. Het duurt 30 minuten om de hub en de gateway te maken.
 
-  * Locatie
-  * Naam
-  * Privé-adresruimte van hub
-4. Klik op **Bevestigen** om de hub te maken. Klik op **Vernieuwen** om de hub op de pagina Hubs weer te geven.
+1. Ga naar de virtuele WAN die u hebt gemaakt. Op de virtuele WAN pagina, onder de **virtuele WAN-architectuur** sectie, klikt u op **Hubs**.
+2. Klik op de pagina Hubs **+ nieuwe Hub** openen de **virtuele WAN hub** pagina.
+3. Voer de volgende velden op de pagina virtuele WAN-hub:
+
+   * Locatie
+   * Name
+   * Privé-adresruimte van hub
+4. Klik op **Bevestigen** om de hub te maken. Klik op **vernieuwen** om weer te geven van de hub in de **Hubs** pagina.

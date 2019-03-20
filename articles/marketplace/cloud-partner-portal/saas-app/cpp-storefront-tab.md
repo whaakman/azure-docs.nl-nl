@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 25fdce2381cc6dd65559a2450a42de5389589863
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7c4bd326c597b8e989dfc7aac5239ddb2d38376a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196826"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884762"
 ---
 # <a name="saas-application-storefront-details-tab"></a>Tabblad van SaaS-toepassing Storefront-Details
 
@@ -37,7 +37,7 @@ De volgende tabel beschrijft de webwinkel Details die u voor de aanbieding opgev
 |  **Velden van aanbod**   |  **Beschrijving**  |
 |  ---------------   |  ---------------  |
 |      Overzicht van aanbieding              |        Samenvatting van de toegevoegde waarde van uw aanbieding. Deze wordt weergegeven op de pagina voor zoeken van uw aanbieding. Dit moet een maximum van 100 tekens.           |
-|      Beschrijving van aanbieding              |      De beschrijving die wordt weergegeven op de detailpagina van uw toepassing. Maximaal toegestane aantal is 1300 tekens. Eenvoudige HTML-markup-codes kunt u inhoud op te maken. Bijvoorbeeld, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, en &lt;li&gt;. Als u wilt zien hoe de beschrijving van de geformatteerde eruit, een online realtime HTML-hulpprogramma, zoals gebruiken http://htmledit.squarefree.com             |
+|      Beschrijving van aanbieding              |      De beschrijving die wordt weergegeven op de detailpagina van uw toepassing. Maximaal toegestane aantal is 1300 tekens. Eenvoudige HTML-markup-codes kunt u inhoud op te maken. Bijvoorbeeld, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, en &lt;li&gt;. Als u wilt zien hoe de beschrijving van de geformatteerde eruit, een online realtime HTML-hulpprogramma, zoals gebruiken https://htmledit.squarefree.com             |
 |          Bedrijfstakken          |        Selecteer de branches die uw aanbieding beste wordt uitgelijnd. Als uw app is gekoppeld aan meerdere branches, kunt u maximaal twee.           |
 |          Aanbevolen categorieën (Max. 3)         |        Selecteer de categorieën die uw aanbieding beste wordt uitgelijnd. U kunt maximaal drie categorieën selecteren.           |
 |           App-versie         |        Voer het versienummer van uw toepassing.           |
@@ -56,7 +56,7 @@ De volgende tabel beschrijft de velden voor Marketing-artefacten.
 |                    |                   |
 |                    |                   |
 |                    |                   |
-|          Logo 's          |        Als dit een verkopen via Microsoft SaaS-app, kunt u alle installatiekopieën van het logo moet opgeven. Als dit een aanbieding is, zijn alleen 2 logo's zijn vereist. Gebruik de volgende richtlijnen voor het logo's uploaden in de Cloud Partner-Portal:<br><ul><li>Houd het aantal primaire en secundaire kleuren op uw logo laag. Het Azure-ontwerp heeft een eenvoudig kleurenpalet. </li><li>Vermijd het gebruik van de zwarte of witte als de achtergrondkleur van uw logo. De themakleuren van het Azure-Portal zijn zwart-wit. In plaats daarvan gebruik kleur die uw logo opvallende in de Azure-Portal zou maken. We adviseren eenvoudige primaire kleuren. Als u gebruikmaakt van een transparante achtergrond en zorg ervoor dat zijn het logo en de tekst niet zwart-wit of blauw. </li><li>Gebruik niet een kleurovergang achtergrond op het logo. </li><li>Voorkomen dat tekst, zelfs uw bedrijf of de naam van het merk, geplaatst op het logo. Het uiterlijk van uw logo moet 'vast' en vermijd kleurovergangen.</li><li>De installatiekopie van het logo moet niet worden uitgebreid.</li></ul>            |
+|          Logos          |        Als dit een verkopen via Microsoft SaaS-app, kunt u alle installatiekopieën van het logo moet opgeven. Als dit een aanbieding is, zijn alleen 2 logo's zijn vereist. Gebruik de volgende richtlijnen voor het logo's uploaden in de Cloud Partner-Portal:<br><ul><li>Houd het aantal primaire en secundaire kleuren op uw logo laag. Het Azure-ontwerp heeft een eenvoudig kleurenpalet. </li><li>Vermijd het gebruik van de zwarte of witte als de achtergrondkleur van uw logo. De themakleuren van het Azure-Portal zijn zwart-wit. In plaats daarvan gebruik kleur die uw logo opvallende in de Azure-Portal zou maken. We adviseren eenvoudige primaire kleuren. Als u gebruikmaakt van een transparante achtergrond en zorg ervoor dat zijn het logo en de tekst niet zwart-wit of blauw. </li><li>Gebruik niet een kleurovergang achtergrond op het logo. </li><li>Voorkomen dat tekst, zelfs uw bedrijf of de naam van het merk, geplaatst op het logo. Het uiterlijk van uw logo moet 'vast' en vermijd kleurovergangen.</li><li>De installatiekopie van het logo moet niet worden uitgebreid.</li></ul>            |
 |          Video's          |         Hiermee kunt u koppelingen van video's van uw aanbieding toevoegen. U kunt koppelingen naar YouTube en/of Vimeo-video's worden weergegeven, samen met uw aanbieding aan klanten. U moet ook een miniatuur van de video met een PNG-afbeelding van 1280 x 720 pixels invoeren. U kunt maximaal vier video's per aanbieding hebben.          |
 |          Documenten          |          Hiermee kunt u marketing documenten toevoegen aan uw aanbieding. Alle documenten in PDF-indeling moeten worden en u kunt maximaal drie documenten per aanbieding hebben.         |
 |        Schermopnamen            |         Hiermee kunt u toevoegen van schermopnamen van uw aanbieding. Er is een maximum van vijf schermafbeeldingen die per aanbieding kunnen worden toegevoegd. De maximale afbeeldingsgrootte is 1280 x 720 pixels.          |
@@ -94,4 +94,4 @@ Geef de volgende informatie op:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Tabblad contactpersonen](./cpp-contacts-tab.md)
+[Tabblad Contactpersonen](./cpp-contacts-tab.md)

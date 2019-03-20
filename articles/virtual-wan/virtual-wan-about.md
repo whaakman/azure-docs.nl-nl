@@ -5,29 +5,45 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 03/04/2019
+ms.date: 03/19/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6a6fc9df2b102fd16bba03f26df4e24a1c946875
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 5c6e69e05eaa036e140d7275b4e66930a3e5be7a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409989"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225294"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Wat is Azure Virtual WAN?
 
-Azure Virtual WAN is een netwerkservice die via Azure voor een geoptimaliseerde en geautomatiseerde verbinding tussen filialen zorgt. Met Virtual WAN kunt u apparaten in filialen verbinden en configureren, zodat deze met Azure kunnen communiceren. Dit kan worden gedaan ofwel handmatig of via partner-apparaten via een virtueel WAN-partner. Partner-apparaten, kunt dat u eenvoudig gebruik, connectiviteit en beheer van de configuratie te vereenvoudigen. Zie voor meer informatie de [locaties en partners](virtual-wan-locations-partners.md) artikel. Daarnaast biedt het Azure-WAN ingebouwde dashboard direct probleemoplossing inzicht waarmee u tijd kunnen besparen en biedt u een eenvoudige manier om grootschalige connectiviteit weer te geven.
+Azure virtuele WAN is een netwerkservice, dat geoptimaliseerde en geautomatiseerde vertakking connectiviteit voor, en via Azure biedt. Azure-regio's fungeren als hubs die u kunt verbinding maken met uw vertakkingen. Zodra de filialen zijn verbonden, kunt u gebruikmaken van de Azure-backbone voor het maken van branch-naar-VNet- en vertakking op vertakking-connectiviteit.
 
-![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan.png)
+Azure virtuele WAN combineert veel Azure-cloud-connectiviteit-services zoals Site-naar-Site VPN (algemeen beschikbaar), ExpressRoute (Preview), punt-naar-Site gebruiker VPN (Preview) in één operationele interface. Verbinding met Azure vnet's tot stand is gebracht met behulp van de virtuele netwerkverbindingen.
 
-Met dit artikel krijgt u snel inzicht in de netwerkverbindingen van de workloads die u via Azure en buiten Azure uitvoert. Virtual WAN biedt de volgende voordelen:
+![Virtual WAN-diagram](./media/virtual-wan-about/vwangraphic.png)
+
+In dit artikel biedt een snel inzicht krijgt in de verbinding met het netwerk in Azure virtuele WAN. Virtual WAN biedt de volgende voordelen:
 
 * **Geïntegreerde connectiviteitsoplossingen in de hub en spoke:** Site-naar-Site-configuratie en connectiviteit tussen on-premises sites en een Azure-hub automatiseren.
 * **Geautomatiseerde spoke-installatie en configuratie:** Verbinding maken met uw virtuele netwerken en werkbelastingen naar de Azure-hub naadloos.
 * **Intuïtieve voor probleemoplossing:** U kunt zien van de end-to-end-stroom binnen Azure en deze informatie gebruiken om de vereiste actie ondernemen.
 
+## <a name="partner-region"></a>Partners en -locaties
+
+Zie voor meer informatie de [virtuele WAN-partners en locaties](virtual-wan-locations-partners.md) artikel.
+
+### <a name="partner"></a>Partners
+
+[!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
+
+### <a name="locations"></a>locaties
+
+[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
+
 ## <a name="s2s"></a>Site-naar-site-verbindingen
+
+![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan.png)
 
 Als u een verbinding tussen de verschillende locaties wilt maken met Virtual WAN, kunt u dat doen via een [Virtual WAN-partner](virtual-wan-locations-partners.md) of de verbinding handmatig tot stand brengen.
 
@@ -67,20 +83,10 @@ Als u een end-to-end virtuele WAN wilt configureren, maakt u de volgende resourc
 
 * **Routetabel hub:**  U kunt maken van een virtuele hub-route en de route van toepassing op de virtuele hub-routetabel. U kunt meerdere routes toepassen op de routetabel van de virtuele hub.
 
-## <a name="partner-region"></a>Partners en -locaties
-
-### <a name="partner"></a>Partners
-
-[!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
-
-### <a name="locations"></a>locaties
-
-[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
-
 ## <a name="faq"></a>Veelgestelde vragen
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de pagina [Virtual WAN partners and locations](virtual-wan-locations-partners.md) (Virtual WAN-partners en -locaties).
+Weergave de [virtuele WAN-partners en locaties](virtual-wan-locations-partners.md) pagina voor meer informatie over onze virtuele WAN-partners en -locaties.

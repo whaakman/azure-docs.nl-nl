@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 0bd602ff6c6d42730439dac2b898899b07dcb2cc
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 919bd20bc5650bc2a843680770fad6190ef01361
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301448"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182333"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Zelfstudie: Formaat van geüploade afbeeldingen automatisch wijzigen met Event Grid
 
@@ -49,6 +49,8 @@ In deze zelfstudie leert u het volgende:
 > * Een gebeurtenisabonnement voor Blob-opslag maken in Event Grid
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Vereisten voor het voltooien van deze zelfstudie:
 
@@ -231,7 +233,7 @@ Een gebeurtenisabonnement geeft aan welke door de provider gegenereerde gebeurte
     
     ![Een gebeurtenisabonnement maken voor de functie in Azure Portal](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
-    | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
+    | Instelling      | Voorgestelde waarde  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Naam** | imageresizersub | De naam voor het nieuwe gebeurtenisabonnement. | 
     | **Onderwerptype** |  Opslagaccounts | Kies de provider voor de gebeurtenissen van het opslagaccount. | 

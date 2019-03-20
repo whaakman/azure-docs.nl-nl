@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 94baa1235388ce99d013f8267f8410dcc206a51d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998345"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894356"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Ontwerp van een systeem van de beveiliging van inhoud met toegangsbeheer met Azure Media Services 
 
@@ -28,7 +28,7 @@ Het ontwerpen en bouwen van een subsysteem digital rights management (DRM) voor 
 
 De betreffende lezers voor dit document zijn engineers die werken in DRM subsystemen van OTT of online streaming/Graphic; oplossingen of lezers die geïnteresseerd in DRM subsystemen zijn. Verondersteld wordt dat lezers bekend met ten minste één van de DRM-technologieën op de markt, zoals PlayReady, Widevine, FairPlay of Adobe-toegang bent.
 
-In deze discussie van DRM bevatten we ook algemene versleuteling (CENC) met multi-DRM. Een belangrijke trend in online streaming en uit de branche OTT is het gebruik van CENC met meerdere systeemeigen DRM op verschillende-clientplatforms. Deze trend is een overstap van de voorgaande build is die een enkele DRM en de client-SDK voor verschillende-clientplatforms gebruikt. Wanneer u CENC met multi systeemeigen DRM, zowel PlayReady als Widevine zijn versleuteld volgens de [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specificatie.
+In deze discussie van DRM bevatten we ook algemene versleuteling (CENC) met multi-DRM. Een belangrijke trend in online streaming en uit de branche OTT is het gebruik van CENC met meerdere systeemeigen DRM op verschillende-clientplatforms. Deze trend is een overstap van de voorgaande build is die een enkele DRM en de client-SDK voor verschillende-clientplatforms gebruikt. Wanneer u CENC met multi systeemeigen DRM, zowel PlayReady als Widevine zijn versleuteld volgens de [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specificatie.
 
 De voordelen van CENC met multi-DRM zijn dat deze:
 
@@ -156,7 +156,7 @@ De volgende tabel ziet u de toewijzing.
 | **Sleutelbeheer** |Niet nodig voor de referentie-implementatie |
 | **Inhoudsbeheer** |Een C#-consoletoepassing |
 
-Met andere woorden, worden zowel de id-provider en de STS gebruikt met Azure AD. De [API van Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) wordt gebruikt voor de speler. Ondersteunen zowel Media Services en Media Player DASH en CENC met multi-DRM.
+Met andere woorden, worden zowel de id-provider en de STS gebruikt met Azure AD. De [API van Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) wordt gebruikt voor de speler. Ondersteunen zowel Media Services en Media Player DASH en CENC met multi-DRM.
 
 Het volgende diagram toont de algemene structuur en de stroom met de vorige technologie-toewijzing:
 
@@ -208,7 +208,7 @@ Implementatie omvat de volgende stappen uit:
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. Een speler maken met behulp van de [API van Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/). Gebruik de [API van Azure Media Player ProtectionInfo](http://amp.azure.net/libs/amp/latest/docs/) om op te geven welke DRM-technologie kunt gebruiken voor verschillende DRM-platforms.
+8. Een speler maken met behulp van de [API van Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Gebruik de [API van Azure Media Player ProtectionInfo](https://amp.azure.net/libs/amp/latest/docs/) om op te geven welke DRM-technologie kunt gebruiken voor verschillende DRM-platforms.
 
 9. De volgende tabel ziet u de testmatrix.
 
