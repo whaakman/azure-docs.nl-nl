@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3f72480aaa05c0f50179d4d330525b12525282bc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5f937a86e4e063ad1e8346dc629a917ae7ce8b65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077204"
 ---
 # <a name="localization-string-ids"></a>Gelokaliseerde tekenreeks id 's
 
@@ -33,7 +33,7 @@ De volgende id's worden gebruikt voor een inhoudsdefinitie met de ID van `api.si
 | **logonIdentifier_email** | E-mailadres |
 | **requiredField_email** | Voer uw e-mailadres in |
 | **invalid_email** | Voer een geldig e-mailadres in |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
 | **local_intro_username** | Aanmelden met uw gebruikersnaam |
 | **logonIdentifier_username** | Gebruikersnaam |
 | **requiredField_username** | Voer uw gebruikersnaam in |
