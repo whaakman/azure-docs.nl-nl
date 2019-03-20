@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 4dac40e9fad8361c0e6c8a8758028743f2506f56
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 95d7fc55accb163e07dcb7d103cc896794720cf4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428088"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845450"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Uw ontwikkelomgeving instellen in Mac OS X
 > [!div class="op_single_selector"]
@@ -152,7 +152,7 @@ Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fa
     node -v
     npm -v
     ```
-2. Installeer de [Yeoman](http://yeoman.io/)-sjabloongenerator op uw computer vanuit NPM:
+2. Installeer de [Yeoman](https://yeoman.io/)-sjabloongenerator op uw computer vanuit NPM:
 
     ```bash
     npm install -g yo

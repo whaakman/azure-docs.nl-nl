@@ -8,16 +8,16 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 90f89f9ffb1d55e7621c87f168375251c78d9730
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821300"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533490"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Zelfstudie: implementatie vanuit GitHub naar Azure App Service met continue integratie en implementatie in Jenkins
 
-In deze zelfstudie implementeert u een voorbeeld van een Java-web-app vanuit GitHub in [Azure App Service op Linux](/azure/app-service/containers/app-service-linux-intro) door het instellen van continue integratie (CI) en continue implementatie (CD) in Jenkins. Wanneer u de app bijwerkt door doorvoeracties te pushen naar GitHub, wordt uw app automatisch door Jenkins gecompileerd en opnieuw gepubliceerd naar Azure App Service. De voorbeeld-app in deze zelfstudie is ontwikkeld met behulp van het [Spring Boot](http://projects.spring.io/spring-boot/)-framework. 
+In deze zelfstudie implementeert u een voorbeeld van een Java-web-app vanuit GitHub in [Azure App Service op Linux](/azure/app-service/containers/app-service-linux-intro) door het instellen van continue integratie (CI) en continue implementatie (CD) in Jenkins. Wanneer u de app bijwerkt door doorvoeracties te pushen naar GitHub, wordt uw app automatisch door Jenkins gecompileerd en opnieuw gepubliceerd naar Azure App Service. De voorbeeld-app in deze zelfstudie is ontwikkeld met behulp van het [Spring Boot](https://projects.spring.io/spring-boot/)-framework. 
 
 ![Overzicht](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
 
@@ -162,7 +162,7 @@ De volgende uitvoer wordt gegenereerd door de opdracht **`create-for-rbac`**:
 
    ![Referenties voor Azure-service-principal toevoegen](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-service-principal-credentials.png)
 
-   | Eigenschap | Waarde | Beschrijving | 
+   | Eigenschap | Waarde | Description | 
    |----------|-------|-------------| 
    | **Subscription ID** | <*yourAzureSubscription-ID*> | De GUID-waarde voor uw Azure-abonnement <p>**Tip**: als u uw Azure-abonnements-id niet weet, voert u deze Azure CLI-opdracht uit vanaf de opdrachtregel of in de Cloud Shell en gebruikt u vervolgens GUID-waarde `id`: <p>`az account list` | 
    | **Client ID** | <*yourAzureServicePrincipal-ID*> | De GUID-waarde van `appId` die eerder is gegenereerd voor uw Azure-service-principal | 
@@ -193,7 +193,7 @@ Maak in Jenkins de pijplijntaak voor het compileren en implementeren van uw app.
 
    1. Voeg in het vak **Properties Content** dat nu wordt weergegeven deze omgevingsvariabelen en hun waarden toe. 
 
-      ```text
+      ```ini
       AZURE_CRED_ID=yourAzureServicePrincipalName
       RES_GROUP=yourWebAppAzureResourceGroupName
       WEB_APP=yourWebAppName
@@ -212,7 +212,7 @@ Maak nu de bestanden die Jenkins gebruikt om uw app te compileren en te implemen
 1. Maak in de GitHub-forkmap `src/main/resources/` dit app-configuratiebestand met de naam `web.config`. Dit bestand bevat deze XML, maar u dient `$(JAR_FILE_NAME)` te vervangen door `gs-spring-boot-0.1.0.jar`:
 
    ```xml
-   <?xml version="1.0" encoding="UTF-8">
+   <?xml version="1.0" encoding="UTF-8"?>
    <configuration>
       <system.webServer>
          <handlers>
@@ -225,7 +225,7 @@ Maak nu de bestanden die Jenkins gebruikt om uw app te compileren en te implemen
 
 1. Maak in de hoofdmap van de GitHub-fork dit build- en implementatiescript met de naam `Jenkinsfile`. Dit bestand bevat deze tekst ([hier bron in GitHub](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/doc/resources/jenkins/Jenkinsfile-webapp-se)):
 
-   ```text  
+   ```groovy
    node {
       stage('init') {
          checkout scm

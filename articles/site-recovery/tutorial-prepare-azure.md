@@ -2,18 +2,18 @@
 title: Azure voorbereiden op herstel na noodgevallen van on-premises machines met Azure Site Recovery | Microsoft Docs
 description: Informatie over het voorbereiden van Azure op herstel na noodgevallen van on-premises machines met Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/08/2019
-ms.author: raynew
+ms.date: 03/03/2019
+ms.author: mayg
 ms.custom: MVC
-ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 5168fc28952631f00c2415d6bc171a130dc85dfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159006"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838558"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Azure-resources voorbereiden op herstel na noodgevallen van on-premises machines
 
@@ -28,7 +28,6 @@ Dit artikel laat zien hoe u Azure-onderdelen voorbereidt wanneer u on-premises V
 
 > [!div class="checklist"]
 > * Controleren of uw Azure-account replicatiemachtigingen heeft.
-> * Een Azure-opslagaccount maken. Installatiekopieën van gerepliceerde machines worden hierin opgeslagen.
 > * Maak een Recovery Services-kluis. Een kluis bevat metagegevens en configuratiegegevens voor VM’s, en andere replicatieonderdelen.
 > * Stel een Azure-netwerk in. Wanneer de Azure VM's zijn gemaakt na de failover, worden ze gekoppeld aan dit Azure-netwerk.
 
@@ -36,7 +35,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij [Azure Portal](http://portal.azure.com).
+Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 ## <a name="verify-account-permissions"></a>Accountmachtigingen controleren
 
@@ -44,27 +43,11 @@ Als u net pas uw gratis Azure-account hebt gemaakt, bent u de beheerder van uw a
 
 - Het maken van een VM in de geselecteerde resourcegroep.
 - Het maken van een VM in het geselecteerde virtuele netwerk.
-- Schrijven naar het geselecteerde opslagaccount.
+- Schrijven naar storage-account.
+- Schrijven naar een beheerde schijf.
 
 U kunt deze taken alleen uitvoeren als aan uw account de ingebouwde rol van Inzender voor virtuele machines is toegewezen. En als u Site Recovery-bewerkingen wilt beheren in een kluis, moet aan uw account ook de ingebouwde rol van Site Recovery-inzender zijn toegewezen.
 
-## <a name="create-a-storage-account"></a>Create a storage account
-
-Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. Azure VM's worden gemaakt vanuit de opslag wanneer u een failover van on-premises naar Azure uitvoert. Het opslagaccount moet zich in dezelfde regio bevinden als de Recovery Services-kluis. In deze zelfstudie gebruiken we Europa - west.
-
-1. Selecteer in het menu van [Azure Portal](https://portal.azure.com) achtereenvolgens **Een resource maken** > **Opslag** > **Opslagaccount - blob, bestand, tabel, wachtrij**.
-2. Voer in **Opslagaccount maken** een naam voor het account in. Voor deze zelfstudies gebruiken we **contosovmsacct1910171607**. De naam die u selecteert moet uniek zijn in Azure, tussen de 3 en 24 tekens lang zijn en mag alleen cijfers en kleine letters bevatten.
-3. Selecteer bij **implementatiemodel** **Resource Manager**.
-4. Selecteer bij **Soort account** de optie **Opslag (algemeen gebruik v1)**. Selecteer niet blob-opslag.
-5. Selecteer bij **Replicatie** de standaardoptie **Geografisch redundante opslag met leestoegang** voor opslagredundantie. **Veilige overdracht vereist** laten we **Uitgeschakeld**.
-6. Selecteer in **Prestaties** **Standaard** en in **Toegangslaag** de standaardoptie **Dynamisch**.
-7. Selecteer bij **Abonnement** het abonnement waarin u het nieuwe opslagaccount wilt maken.
-8. Geef bij **Resourcegroep** een nieuwe resourcegroep op. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Voor deze zelfstudies maken gebruiken we **ContosoRG**.
-9. Selecteer bij **Locatie** de geografische locatie voor het opslagaccount. 
-
-   ![Create a storage account](media/tutorial-prepare-azure/create-storageacct.png)
-
-9. Selecteer **Maken** om het opslagaccount te maken.
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
@@ -81,7 +64,7 @@ Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. 
 
 ## <a name="set-up-an-azure-network"></a>Een Azure-netwerk instellen
 
-Wanneer de Azure VM's zijn gemaakt vanuit de opslag na de failover, worden ze gekoppeld aan dit netwerk.
+Wanneer Azure-VM's zijn gemaakt op basis van beheerde schijven na een failover, worden ze gekoppeld aan dit netwerk.
 
 1. Selecteer in [Azure Portal](https://portal.azure.com) **Een resource maken** > **Netwerken** > **Virtueel netwerk**.
 2. Laat **Resource Manager** geselecteerd als het implementatiemodel.
@@ -100,8 +83,7 @@ Wanneer de Azure VM's zijn gemaakt vanuit de opslag na de failover, worden ze ge
 ## <a name="useful-links"></a>Handige koppelingen
 
 - [Meer informatie](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) over Azure-netwerken.
-- [Meer informatie](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) over typen Azure-opslag.
-- [Meer informatie](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) over opslagredundantie en [veilige overdracht](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) voor opslag.
+- [Meer informatie over](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) beheerde schijven.
 
 
 

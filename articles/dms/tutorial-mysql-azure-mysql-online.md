@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: 52346e25c0b0e1b1b0c0befb6b5285f66b9a95d7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/12/2019
+ms.openlocfilehash: 4bfcef3b033f26b667319d5d20b295443dbd5bf7
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724569"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792001"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Zelfstudie: MySQL online migreren naar Azure Database for MySQL met behulp van DMS
 U kunt de Azure Database Migration Service gebruiken om de databases met minimale downtime te migreren van een on-premises MySQL-exemplaar naar [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/). Met andere woorden, de migratie is mogelijk met minimale downtime van de toepassing. In deze studieles migreert u de voorbeelddatabase **Werknemers** van een on-premises exemplaar van MySQL 5.7 naar Azure Database for MySQL met behulp van een online migratieactiviteit in de Azure Database Migration Service.
@@ -40,8 +40,17 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 - Download en installeer [MySQL-communityversie](https://dev.mysql.com/downloads/mysql/) 5.6 of 5.7. De on-premises MySQL-versie moet overeenkomen met de Azure Database for MySQL-versie. MySQL 5.6 kan bijvoorbeeld alleen migreren naar Azure Database for MySQL 5.6 en kan niet worden geüpgraded naar 5.7.
 - [Maak een exemplaar in Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal). Raadpleeg het artikel [MySQL Workbench gebruiken om verbinding te maken en gegevens op te vragen](https://docs.microsoft.com/azure/mysql/connect-workbench) voor informatie over hoe u een database verbindt en maakt met behulp van de Azure-portal.  
-- Maak een VNET voor de Azure Database Migration Service met behulp van het Azure Resource Manager-implementatiemodel. Dit geeft site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Zorg ervoor dat uw Azure Virtual Network (VNET) Network Security Group-regels de volgende communicatiepoorten niet blokkeren: 443, 53, 9354, 445, 12000. Zie voor meer informatie over verkeer filteren van Azure VNET NSG het artikel [Netwerkverkeer filteren met netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+- Maak een Azure Virtual Network (VNET) voor de Azure Database Migration Service met behulp van het Azure Resource Manager-implementatiemodel. Dit geeft site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+    > [!NOTE]
+    > Tijdens de installatie van de VNET, als u ExpressRoute gebruikt met het naar Microsoft-netwerkpeering, voeg de volgende service [eindpunten](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) aan het subnet waarin de service worden ingericht:
+    > - Doel-database-eindpunt (bijvoorbeeld SQL-eindpunt, Cosmos DB-eindpunt, enzovoort)
+    > - Opslageindpunt
+    > - Service bus-eindpunt
+    >
+    > Deze configuratie is nodig omdat de Azure Database Migration Service beschikt niet over de verbinding met internet.
+ 
+- Zorg ervoor dat uw Netwerkbeveiligingsgroep VNET-regels niet die zijn de volgende blokkeert communicatiepoorten 443, 53, 9354, 445, 12000. Zie voor meer informatie over verkeer filteren van Azure VNET NSG het artikel [Netwerkverkeer filteren met netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 - Configureer uw [Windows Firewall voor toegang tot de database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Stel uw Windows-firewall open voor toegang van de Azure Database Migration Service tot de brondatabase van MySQL Server. Standaard verloopt dit via TCP-poort 3306.
 - Wanneer u een firewallapparaat gebruikt voor de brondatabase(s), moet u mogelijk firewallregels toevoegen om voor de Azure Database Migration Service toegang tot de brondatabase(s) voor de migratie toe te staan.
@@ -59,7 +68,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
         Bijvoorbeeld: log-bin = E:\MySQL_logs\BinLog
     - **binlog_format** = row
-    - **Expire_logs_days** = 5 (het wordt aanbevolen om niet nul te gebruiken; alleen relevant voor MySQL 5.6)
+    - **Expire_logs_days** = 5 (het is raadzaam gebruik niet nul zijn; alleen relevant voor MySQL 5.6)
     - **Binlog_row_image** = full (alleen relevant voor MySQL 5.6)
     - **log_slave_updates** = 1
  
@@ -152,7 +161,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     Zie voor meer informatie over de kosten en prijscategorieën de [Pagina met prijzen](https://aka.ms/dms-pricing).
 
-    Als u hulp nodig hebt bij het kiezen van de juiste Azure Database Migration Service-categorie, raadpleegt u de aanbevelingen in de blogpost [Choosing an Azure Database Migration Service (Azure DMS) tier](https://go.microsoft.com/fwlink/?linkid=861067) (Een Azure Database Migration Service-categorie (Azure DMS) kiezen). 
+    Als u hulp nodig bij het kiezen van de juiste laag van Azure Database Migration Service, raadpleegt u de aanbevelingen in het blogartikel bevat [kiezen van een Azure Database Migration Service (Azure DMS) laag](https://go.microsoft.com/fwlink/?linkid=861067). 
 
      ![Instellingen configureren van een Azure Database Migration Service-exemplaar](media/tutorial-mysql-to-azure-mysql-online/dms-settings3.png)
 

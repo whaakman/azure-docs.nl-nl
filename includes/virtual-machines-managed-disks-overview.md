@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 10afad7f782d1a98dfde5f7d708477375af54597
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 287ae3b8122dd2a1e43c31055ac0ea5b04dddb07
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330963"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190677"
 ---
 ## <a name="benefits-of-managed-disks"></a>Voordelen van beheerde schijven
 
@@ -53,7 +53,7 @@ Deze schijf heeft een maximale capaciteit van 2048 GiB.
 
 ### <a name="temporary-disk"></a>Tijdelijke schijf
 
-Elke virtuele machine bevat een tijdelijke schijf, niet een beheerde schijf is. De tijdelijke schijf opslag op korte termijn biedt voor toepassingen en processen en is bedoeld voor het opslaan van gegevens, zoals pagina-of wisselbestanden alleen. Op de tijdelijke schijf mogelijk gegevens verloren tijdens een [onderhoudsgebeurtenis](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) of wanneer u een virtuele machine opnieuw implementeren. Tijdens een standaard opnieuw opstarten van de virtuele machine behouden de gegevens op de tijdelijke schijf. Er zijn echter gevallen waar de gegevens niet zich blijven voordoen kunnen, zoals het verplaatsen naar een nieuwe host. Alle gegevens op het tijdelijke station mag daarom geen gegevens die essentieel is voor het systeem.
+Elke virtuele machine bevat een tijdelijke schijf, niet een beheerde schijf is. De tijdelijke schijf opslag op korte termijn biedt voor toepassingen en processen en is bedoeld voor het opslaan van gegevens, zoals pagina-of wisselbestanden alleen. Op de tijdelijke schijf mogelijk gegevens verloren tijdens een [onderhoudsgebeurtenis](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) gebeurtenis of wanneer u [een virtuele machine opnieuw implementeren](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Tijdens een geslaagde standaard opnieuw opstarten van de virtuele machine blijft de gegevens op de tijdelijke schijf. 
 
 ## <a name="managed-disk-snapshots"></a>Momentopnamen van de beheerde schijf
 

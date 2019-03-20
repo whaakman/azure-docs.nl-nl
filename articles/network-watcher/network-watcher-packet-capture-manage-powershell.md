@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 27062d4c0af36f9f9590e07c80e64ea407e6b8c8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 01efbd928630b491419f6231007590c4f0fb0b22
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449441"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888482"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Pakketopname beheren met Azure Network Watcher met behulp van PowerShell
 
@@ -266,7 +266,7 @@ Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -Packe
 
 ## <a name="download-a-packet-capture"></a>Een pakketopname downloaden
 
-Zodra uw pakket opnamesessie is voltooid, kan de capture-bestand worden geüpload naar blob-opslag of naar een lokaal bestand op de virtuele machine. De opslaglocatie van de pakketopname is gedefinieerd tijdens het maken van de sessie. Een handig hulpmiddel voor toegang tot deze bestanden opgeslagen in een storage-account is Microsoft Azure Storage Explorer, die hier kan worden gedownload:  http://storageexplorer.com/
+Zodra uw pakket opnamesessie is voltooid, kan de capture-bestand worden geüpload naar blob-opslag of naar een lokaal bestand op de virtuele machine. De opslaglocatie van de pakketopname is gedefinieerd tijdens het maken van de sessie. Een handig hulpmiddel voor toegang tot deze bestanden opgeslagen in een storage-account is Microsoft Azure Storage Explorer, die hier kan worden gedownload:  https://storageexplorer.com/
 
 Als een storage-account is opgegeven, worden pakketten vastleggen van bestanden worden opgeslagen in een storage-account op de volgende locatie:
 

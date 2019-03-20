@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 52524e6291faae8ccc27c0d53e9e38ab63a4c8d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296916"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58132426"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer met TCP-opnieuw instellen op niet-actieve (openbare Preview)
 
@@ -27,7 +27,7 @@ U kunt [Standard Load Balancer](load-balancer-standard-overview.md) TCP opnieuw 
 ![Load Balancer TCP opnieuw instellen](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->Load Balancer met TCP-opnieuw instellen van een time-out voor inactiviteit-functionaliteit is beschikbaar als openbare Preview op dit moment en beschikbaar in een beperkt aantal [regio's](#regions). Deze preview wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. De reden hiervoor is dat bepaalde functies mogelijk niet worden ondersteund of beperkte mogelijkheden hebben. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Load Balancer met TCP-opnieuw instellen van een time-out voor inactiviteit-functionaliteit is beschikbaar als openbare preview-versie op dit moment. Deze preview wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. De reden hiervoor is dat bepaalde functies mogelijk niet worden ondersteund of beperkte mogelijkheden hebben. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 U kunt dit standaardgedrag en inschakelen verzenden van TCP-wordt opnieuw ingesteld op de time-out voor inactiviteit op inkomende NAT-regels, load balancer-regels, wijzigen en [regels voor uitgaand verkeer](https://aka.ms/lboutboundrules).  Wanneer dit wordt ingeschakeld per regel, Load Balancer wordt verzonden in twee richtingen TCP (TCP RST pakketten) opnieuw instellen naar de client- en eindpunten op het moment van time-out voor inactiviteit voor alle overeenkomende stromen.
 

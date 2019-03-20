@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4f1c4e7695e0c260b6486b3c3d4d0bd8b3f951f6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342612"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004056"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Trainen PyTorch-modellen met Azure Machine Learning-service
 
@@ -42,6 +42,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 Hier geeft u de volgende parameters voor de PyTorch-constructor:
+
 Parameter | Description
 --|--
 `source_directory` |  Lokale map waarin alle uw code die nodig zijn voor de trainingstaak. Deze map wordt op uw lokale machine gekopieerd naar de externe compute
@@ -82,6 +83,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 ```
 
 Deze code wordt aangegeven dat de volgende nieuwe parameters voor de PyTorch-constructor:
+
 Parameter | Description | Standaard
 --|--|--
 `node_count` |  Het aantal knooppunten moet worden gebruikt voor de trainingstaak. | `1`

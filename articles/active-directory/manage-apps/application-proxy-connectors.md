@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907511b7f20311479e7b11a30f3d5719daea3f87
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 4f96a67fecead65af28a975267590ebb08c715d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301465"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853002"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Meer informatie over Azure AD Application Proxy connectors
 
@@ -93,7 +93,8 @@ Het is belangrijk om te controleren of dat u voldoende capaciteit tussen connect
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Deze machine gebruikt een aangepaste instelling om te verheffen enkele van de standaardlimieten voor de verbinding dan de aanbevolen instellingen voor .net. Het is raadzaam om een test uitgevoerd met de standaardinstellingen voor het contact opnemen met ondersteuning om deze limiet voor uw tenant is gewijzigd.
+
+\* Deze machine gebruikt een aangepaste instelling om te verheffen enkele van de standaardlimieten voor de verbinding dan de aanbevolen instellingen voor .NET. Het is raadzaam om een test uitgevoerd met de standaardinstellingen voor het contact opnemen met ondersteuning om deze limiet voor uw tenant is gewijzigd.
  
 >[!NOTE]
 >Er is veel prioriteitsbereik bij met de maximale TPS 4, 8 en 16 kernen-machines. Het belangrijkste verschil tussen die zich in de verwachte latentie.  

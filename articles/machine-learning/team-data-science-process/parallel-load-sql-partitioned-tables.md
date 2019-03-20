@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f1a5f54e520cdabd49e1ca69626e1c693bc1ee19
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 253f73cc58292778d88417b693c157fcbd7d92bd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470022"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853032"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Bouw en tabellen voor het snel parallelle importeren van gegevens in een SQL Server op een virtuele Azure-machine optimaliseren
 
@@ -95,7 +95,7 @@ Zie voor meer informatie, [gepartitioneerde tabellen maken en indexen](https://m
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>De gegevens voor elke afzonderlijke partitietabel bulkimport
 
-* U kunt BCP, BULK INSERT of andere methoden, zoals [SQL Server Migration Wizard](http://sqlazuremw.codeplex.com/). Het voorbeeld maakt gebruik van de BCP-methode.
+* U kunt BCP, BULK INSERT of andere methoden, zoals [SQL Server Migration Wizard](https://sqlazuremw.codeplex.com/). Het voorbeeld maakt gebruik van de BCP-methode.
 * [De database wijzigen](https://msdn.microsoft.com/library/bb522682.aspx) transactie logboekregistratie schema wijzigen in BULK_LOGGED te minimaliseren overhead van logboekregistratie, bijvoorbeeld:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED

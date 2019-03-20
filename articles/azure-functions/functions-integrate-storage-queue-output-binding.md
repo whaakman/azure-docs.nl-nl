@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 15ef1905562d04c2732016dfd1340910b3a8f699
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 381eecefbba238e712820a09c8ec489706ef3751
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900354"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106454"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Berichten aan een Azure Storage-wachtrij toevoegen met behulp van Functions
 
@@ -55,7 +55,7 @@ In deze sectie gebruikt u de gebruikersinterface van de portal om een Queue Stor
 
     ![Voeg een Queue Storage-uitvoerbinding toe aan een functie in Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
-    | Instelling      |  Voorgestelde waarde   | Beschrijving                              |
+    | Instelling      |  Voorgestelde waarde   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Naam van de berichtparameter** | outputQueueItem | De naam van de uitvoerbindingparameter. | 
     | **Opslagaccountverbinding** | AzureWebJobsStorage | U kunt de opslagaccountverbinding gebruiken die al door de functie-app wordt gebruikt of u kunt een nieuwe maken.  |
@@ -122,7 +122,7 @@ Wanneer de uitvoerbinding voor het eerst wordt gebruikt, wordt er door de runtim
 
 Sla deze sectie over als u Storage Explorer al hebt geïnstalleerd en hebt verbonden met het opslagaccount dat u gebruikt voor deze snelstartgids.
 
-2. Voer het hulpprogramma [Microsoft Azure Storage Explorer](https://storageexplorer.com/) uit, selecteer het verbindingspictogram aan de linkerkant, kies **Een opslagaccountnaam en -sleutel gebruiken** en selecteer **Volgende**.
+1. Voer het hulpprogramma [Microsoft Azure Storage Explorer](https://storageexplorer.com/) uit, selecteer het verbindingspictogram aan de linkerkant, kies **Een opslagaccountnaam en -sleutel gebruiken** en selecteer **Volgende**.
 
     ![Voer het hulpprogramma Storage Account Explorer uit.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -140,13 +140,13 @@ Sla deze sectie over als u Storage Explorer al hebt geïnstalleerd en hebt verbo
  
 1. Klik op het pictogram weergeven/verbergen naast **Accountsleutel** om de waarde weer te geven. Kopieer vervolgens de waarde **Accountsleutel** en plak deze in het vak **Accountsleutel** in Storage Explorer.
   
-3. Selecteer **Volgende > Verbinding maken**.
+1. Selecteer **Volgende > Verbinding maken**.
 
    ![Plak de opslagreferenties en maak verbinding.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 ### <a name="examine-the-output-queue"></a>De uitvoerwachtrij controleren
 
-4. Selecteer in Storage Explorer het opslagaccount dat u gebruikt voor deze snelstartgids.
+1. Selecteer in Storage Explorer het opslagaccount dat u gebruikt voor deze snelstartgids.
 
 1. Vouw het knooppunt **Wachtrijen** uit en selecteer vervolgens de wachtrij met de naam **outqueue**. 
 
@@ -154,7 +154,7 @@ Sla deze sectie over als u Storage Explorer al hebt geïnstalleerd en hebt verbo
 
     ![Wachtrijbericht weergegeven in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-2. Voer de functie opnieuw uit. Er wordt nu een nieuw bericht weergegeven in de wachtrij.  
+1. Voer de functie opnieuw uit. Er wordt nu een nieuw bericht weergegeven in de wachtrij.  
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

@@ -12,18 +12,19 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: f9e57c00744301fefed32ed3e6526d3c1f52b362
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5014a9cdf9a8811aa6081476f9ec6c41be0ff906
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012939"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Power BI-App biedt vereisten
 
-Dit artikel vindt u de technische en zakelijke vereisten die u nodig hebt om te voldoen aan voordat u een Power BI-App kunt publiceren naar de AppSource-marketplace bieden.
+Dit artikel vindt u de technische en zakelijke vereisten die u nodig hebt om te voldoen aan voordat u een Power BI-App kunt publiceren naar de AppSource-marketplace bieden.  Als u hebt nog niet gedaan, raadpleegt u de [Office 365, Dynamics 365, PowerApps en Power BI bieden Publicatiehandleiding voor](../../appsource-offer-publishing-guide.md).
+
 
 ## <a name="technical-requirements"></a>Technische vereisten
 
@@ -33,16 +34,16 @@ Nadat uw service-toepassing is gemaakt en in Power BI getest, moet u de URL van 
 
 ## <a name="business-requirements"></a>Zakelijke vereisten
 
-De zakelijke vereisten zijn onder andere procedurele, contractuele en wettelijke verplichtingen:
+De zakelijke vereisten bevatten procedures, contractuele en wettelijke verplichtingen.  U moet:
 
--   U moet een geregistreerde cloud-marketplace-uitgever. Als u niet bent geregistreerd, volg de stappen in [geworden van een Cloud-Marketplace-uitgever](../../become-publisher.md).
+- Een geregistreerde cloud-marketplace-uitgever worden. Als u niet bent geregistreerd, volg de stappen in [geworden van een Cloud-Marketplace-uitgever](../../become-publisher.md).
 
     > [!NOTE] 
     > Hetzelfde account van de registratie van Microsoft Developer Center gebruiken voor aanmelding bij de [Cloud Partner-Portal](https://cloudpartner.azure.com). U mag slechts één Microsoft-account hebben voor uw aanbiedingen op AppSource. Accounts mag niet zijn specifiek voor afzonderlijke services of aanbiedingen.
  
--   U bent verantwoordelijk voor het maken van technische ondersteuning beschikbaar voor klanten in een commercieel redelijke manier.
--   Inhoud die voldoet aan de criteria voor uw aanbieding wilt laten vermelden op AppSource, moet u opgeven. Zie voor meer informatie, [hebt u een app aan lijst op AppSource? Hier volgt hoe](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
--   U moet voldoen aan de [privacyverklaring van Microsoft](https://privacy.microsoft.com/privacystatement).
+- Klanten moeten op een commercieel redelijke wijze toegang hebben tot technische ondersteuning.
+- Geef de inhoud die voldoet aan de criteria voor uw aanbieding wilt laten vermelden op AppSource. Zie voor meer informatie, [hebt u een app aan lijst op AppSource? Hier volgt hoe](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
+- Voldoen aan de [privacyverklaring van Microsoft](https://privacy.microsoft.com/privacystatement).
 
 
 ## <a name="next-steps"></a>Volgende stappen

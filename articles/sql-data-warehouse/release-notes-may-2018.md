@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 45a391f45d11d968818bafc97a705411a133b273
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c17cb13bff0ea9eb3b0bb2caf5bb527fa3958428
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57430846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852607"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Mei 2018 
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in mei 2018. 
@@ -44,7 +44,7 @@ Als een best practice en richtlijnen, is het raadzaam instellen `AUTO_CREATE_STA
 Zie de [ALTER DATABASE SET Options](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) artikel voor meer informatie.
 
 ## <a name="rejected-row-support"></a>Ondersteuning voor rij geweigerd
-Klanten gebruiken vaak [PolyBase (externe tabellen) om gegevens te laden](design-elt-data-loading.md) in SQL Data Warehouse vanwege de hoge prestaties, parallelle aard van het laden van gegevens. PolyBase is het standaardmodel laden bij het laden van gegevens via [Azure Data Factory](http://azure.com/adf) ook. 
+Klanten gebruiken vaak [PolyBase (externe tabellen) om gegevens te laden](design-elt-data-loading.md) in SQL Data Warehouse vanwege de hoge prestaties, parallelle aard van het laden van gegevens. PolyBase is het standaardmodel laden bij het laden van gegevens via [Azure Data Factory](https://azure.com/adf) ook. 
 
 SQL Data Warehouse voegt de mogelijkheid voor het definiëren van een geweigerde rij locatie via de `REJECTED_ROW_LOCATION` parameter met de [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) instructie. Na het uitvoeren van een [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) rijen met kunnen niet worden geladen vanuit de externe tabel worden opgeslagen in een bestand in de buurt van de bron voor verder onderzoek. 
 
@@ -144,7 +144,7 @@ Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [maken v
 [Teamblogs met adviezen voor klanten]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Succesverhalen van klanten]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Functieverzoeken]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow-forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video's]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

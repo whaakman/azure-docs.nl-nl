@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 12056ebec0f0a23ed255532a8ba27b130ecb81d1
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750443"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094157"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Gebeurtenisraster voor Azure Functions
 
@@ -321,7 +321,7 @@ Zie voor een compleet voorbeeld C# voorbeeld.
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand. Er zijn geen parameters van constructor of de eigenschappen instellen in de `EventGridTrigger` kenmerk.
 
 |de eigenschap Function.JSON |Description|
-|---------|---------|----------------------|
+|---------|---------|
 | **type** | Vereist: moet worden ingesteld op `eventGridTrigger`. |
 | **direction** | Vereist: moet worden ingesteld op `in`. |
 | **De naam** | Vereist: de naam van de variabele die wordt gebruikt in functiecode aan te geven voor de parameter die gegevens van de gebeurtenis ontvangt. |
@@ -396,7 +396,7 @@ Als u deze koppeling selecteren, de portal wordt geopend de **gebeurtenisabonnem
 
 Zie voor meer informatie over het maken van abonnementen met behulp van de Azure-portal [aangepaste gebeurtenis maken - Azure-portal](../event-grid/custom-event-quickstart-portal.md) in de documentatie voor Event Grid.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure-CLI
 
 Een abonnement maken met behulp van [de Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), gebruikt u de [az eventgrid gebeurtenisabonnement maken](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) opdracht.
 
@@ -484,10 +484,10 @@ U kunt ook kunt u een HTTP PUT om op te geven van de sleutelwaarde uzelf verzend
 
 Als u wilt testen van een trigger Gebeurtenisraster lokaal hebt om op te halen van Event Grid HTTP-aanvragen die worden geleverd bij de oorsprong in de cloud naar uw lokale computer. Eén manier om dat te doen is door het vastleggen van aanvragen voor online- en handmatig opnieuw verzenden van deze op uw lokale computer:
 
-2. [Een viewer voor web-app maken](#create-a-viewer-web-app) die berichten voor gebeurtenissen worden vastgelegd.
-3. [Een Event Grid-abonnement maken](#create-an-event-grid-subscription) die gebeurtenissen naar de viewer-app verzonden.
-4. [Een aanvraag genereert](#generate-a-request) en kopieer de aanvraagtekst van de viewer-app.
-5. [De aanvraag voor het handmatig boeken](#manually-post-the-request) functie activeren in de localhost-URL van uw Event Grid.
+1. [Een viewer voor web-app maken](#create-a-viewer-web-app) die berichten voor gebeurtenissen worden vastgelegd.
+1. [Een Event Grid-abonnement maken](#create-an-event-grid-subscription) die gebeurtenissen naar de viewer-app verzonden.
+1. [Een aanvraag genereert](#generate-a-request) en kopieer de aanvraagtekst van de viewer-app.
+1. [De aanvraag voor het handmatig boeken](#manually-post-the-request) functie activeren in de localhost-URL van uw Event Grid.
 
 Wanneer u klaar bent testen, kunt u hetzelfde abonnement voor de productie door het eindpunt bij te werken. Gebruik de [az eventgrid gebeurtenisabonnement update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI-opdracht.
 
@@ -557,10 +557,10 @@ De functie Event Grid-trigger wordt uitgevoerd en toont de logboeken die lijkt o
 
 Een andere manier voor het testen van een Event Grid-trigger lokaal is voor het automatiseren van de HTTP-verbinding tussen Internet en de ontwikkelcomputer. U kunt dit doen met een open-source-hulpprogramma met de naam [ngrok](https://ngrok.com/):
 
-3. [Maak een eindpunt ngrok](#create-an-ngrok-endpoint).
-4. [Uitvoeren van de functie van de trigger Gebeurtenisraster](#run-the-event-grid-trigger-function).
-5. [Een Event Grid-abonnement maken](#create-a-subscription) die gebeurtenissen naar het eindpunt ngrok verzonden.
-6. [Een gebeurtenis activeren](#trigger-an-event).
+1. [Maak een eindpunt ngrok](#create-an-ngrok-endpoint).
+1. [Uitvoeren van de functie van de trigger Gebeurtenisraster](#run-the-event-grid-trigger-function).
+1. [Een Event Grid-abonnement maken](#create-a-subscription) die gebeurtenissen naar het eindpunt ngrok verzonden.
+1. [Een gebeurtenis activeren](#trigger-an-event).
 
 Wanneer u klaar bent testen, kunt u hetzelfde abonnement voor de productie door het eindpunt bij te werken. Gebruik de [az eventgrid gebeurtenisabonnement update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI-opdracht.
 

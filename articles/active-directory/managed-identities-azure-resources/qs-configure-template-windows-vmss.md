@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 075672fb6d132258b04936aa20129fa6f8c82572
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d6ad683af5597be746524a360d438a06b2e429b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847253"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Configureren van beheerde identiteiten voor Azure-resources op een virtuele machine van Azure-schaal met behulp van een sjabloon
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configureren van beheerde identiteiten voor Azure-resources op de schaal van een virtuele machine van Azure met behulp van een sjabloon
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -320,7 +320,7 @@ In deze sectie maakt toewijzen u een gebruiker toegewezen beheerde identiteit aa
         }
     ]
    ```
-### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Verwijder de gebruiker toegewezen beheerde identiteit van een schaalset voor virtuele Azure-machine
+   ### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Verwijder de gebruiker toegewezen beheerde identiteit van een schaalset voor virtuele Azure-machine
 
 Als u een virtuele-machineschaalset die een gebruiker toegewezen beheerde identiteit niet meer nodig hebt:
 

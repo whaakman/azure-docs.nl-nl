@@ -12,14 +12,14 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: 9d2fe2c18452537f734a8bf176130e1ad68d40e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: e1d845d1d90a3a70590778013504fea7c0aec85c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231029"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097658"
 ---
-# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snelstart: Maken en automatiseren van taken, processen en werkstromen met Azure Logic Apps in Visual Studio
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Quickstart: Maken en automatiseren van taken, processen en werkstromen met Azure Logic Apps - Visual Studio
 
 Met [Azure Logic Apps](../logic-apps/logic-apps-overview.md) en Visual Studio kunt u werkstromen maken voor het automatiseren van taken en processen om apps, gegevens, systemen en services van bedrijven en organisaties te integreren. Deze snelstart toont u hoe u deze werkstromen kunt ontwerpen en compileren door het maken van logische apps in Visual Studio en hoe u deze apps kunt implementeren naar <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> in de cloud. Hoewel u deze taken kunt uitvoeren in <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, kunt u met Visual Studio logische apps toevoegen aan het besturingselement voor de gegevensbron, verschillende versies publiceren en Azure Resource Manager-sjablonen maken voor verschillende implementatieomgevingen. 
 
@@ -61,7 +61,7 @@ Om te beginnen, maakt u een [Azure-resourcegroepproject](../azure-resource-manag
 
 1. Start Visual Studio en meld u aan met uw Azure-account.
 
-2. In het menu **File** selecteert u **New** > **Project**. (toetsenbord: Ctrl+Shift+N)
+2. In het menu **File** selecteert u **New** > **Project**. (Toetsenbord: Ctrl+Shift+N)
 
    ![In het menu File selecteert u New > Project](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
 
@@ -83,17 +83,19 @@ Om te beginnen, maakt u een [Azure-resourcegroepproject](../azure-resource-manag
 
 Nadat u uw Azure-resourcegroep-project hebt gemaakt, maakt en compileert u uw logische app vanaf het **Lege logische app**-sjabloon.
 
-1. Open in Solution Explorer het snelmenu voor het bestand **LogicApp.json**. Selecteer **Openen met Logic App-ontwerpfunctie**. (toetsenbord: Ctrl+L)
+1. Open in Solution Explorer het snelmenu voor het bestand **LogicApp.json**. 
+   Selecteer **Openen met Logic App-ontwerpfunctie**. (Toetsenbord: Ctrl+L)
 
    ![Open het .json-bestand van de logische app met de Logic App-ontwerpfunctie](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
-2. Selecteer bij **Abonnement** het Azure-abonnement dat u wilt gebruiken. Voor **Resourcegroep**, selecteert u **Nieuwe maken...**, waarbij automatisch een nieuwe Azure-resourcegroep wordt gemaakt. 
+2. Selecteer bij **Abonnement** het Azure-abonnement dat u wilt gebruiken. 
+   Voor **Resourcegroep**, selecteert u **Nieuwe maken...**, waarbij automatisch een nieuwe Azure-resourcegroep wordt gemaakt. 
 
    ![Azure-abonnement, resourcegroep en resourcelocatie selecteren](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
    Visual Studio heeft uw Azure-abonnement en een resourcegroep nodig voor het maken en implementeren van resources die zijn gekoppeld aan uw logische app en verbindingen. 
 
-   | Instelling | Voorbeeldwaarde | Beschrijving | 
+   | Instelling | Voorbeeldwaarde | Description | 
    | ------- | ------------- | ----------- | 
    | Lijst met gebruikersprofielen | Contoso <br> jamalhartnett@contoso.com | Standaard het account dat u gebruikt voor aanmelden | 
    | **Abonnement** | Betalen per gebruik <br> (jamalhartnett@contoso.com) | De naam voor uw Azure-abonnement en het bijbehorende account |
@@ -101,7 +103,8 @@ Nadat u uw Azure-resourcegroep-project hebt gemaakt, maakt en compileert u uw lo
    | **Locatie** | MyLogicApp-RG2 <br> (US - west) | Een andere locatie als u de locatie van de resourcegroep niet wilt gebruiken |
    ||||
 
-3. De Logic Apps-ontwerpfunctie wordt geopend en u ziet een pagina met een inleidende video en veelgebruikte triggers. Scrol voorbij de video en triggers. Kies onder **Sjablonen** de optie **Lege logische app**.
+3. De Logic Apps-ontwerpfunctie wordt geopend en u ziet een pagina met een inleidende video en veelgebruikte triggers. 
+   Scrol voorbij de video en triggers. Kies onder **Sjablonen** de optie **Lege logische app**.
 
    ![Selecteer Lege logische app](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 
@@ -109,7 +112,7 @@ Nadat u uw Azure-resourcegroep-project hebt gemaakt, maakt en compileert u uw lo
 
 Vervolgens voegt u een [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) toe die wordt geactiveerd zodra er een nieuw RSS-feeditem wordt weergegeven. Elke logische app moet beginnen met een trigger, die wordt geactiveerd wanneer aan specifieke criteria wordt voldaan. Telkens wanneer de trigger wordt geactiveerd, maakt de Logic Apps-engine een instantie van een logische app die de werkstroom uitvoert.
 
-1. Typ 'rss' in het zoekvak van de Logic App-ontwerpfunctie. Selecteer de volgende trigger: **Wanneer een feeditem wordt gepubliceerd**
+1. Typ 'rss' in het zoekvak van de Logic App-ontwerpfunctie. Selecteer deze trigger: **Wanneer een feeditem wordt gepubliceerd**
 
    ![Uw logische app bouwen door toevoeging van een trigger en acties](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
@@ -123,7 +126,7 @@ Vervolgens voegt u een [trigger](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Voltooide logische app](./media/quickstart-create-logic-apps-with-visual-studio/finished-logic-app.png)
 
-3. Sla uw Visual Studio-oplossing op om uw logische app op te slaan. (toetsenbord: Ctrl + S)
+3. Sla uw Visual Studio-oplossing op om uw logische app op te slaan. (Toetsenbord: Ctrl + S)
 
 Implementeer uw app nu in Azure, zodat u uw logische app kunt testen.
 

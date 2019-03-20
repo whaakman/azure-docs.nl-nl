@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9b8b92b7a672a4d344b17d4ade497749766f8a91
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7d8a654b6b2f429119323fa5d18eb0596f63e6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719690"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105264"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Apache Ambari-weergaven gebruiken om op te sporen Apache Tez-taken in HDInsight
 
@@ -90,14 +90,14 @@ Gebruik de volgende stappen uit om uit te voeren van een Hive-query die gebruikm
 
 5. De tabbladen op deze pagina kunnen u de volgende informatie bekijken:
 
-    * **Querydetails**: Als u meer informatie over de Hive-query.
-    * **Tijdlijn**: Informatie over hoe lang duurde in elke fase van de verwerking.
-    * **Configuraties**: De configuratie voor deze query gebruikt.
+   * **Querydetails**: Als u meer informatie over de Hive-query.
+   * **Tijdlijn**: Informatie over hoe lang duurde in elke fase van de verwerking.
+   * **Configuraties**: De configuratie voor deze query gebruikt.
 
-    Van __Querydetails__ kunt u de koppelingen naar meer informatie over de __toepassing__ of de __DAG__ voor deze query.
+     Van __Querydetails__ kunt u de koppelingen naar meer informatie over de __toepassing__ of de __DAG__ voor deze query.
     
-    * De __toepassing__ koppeling geeft informatie weer over de YARN-toepassing voor deze query. Hier kunt u toegang tot de YARN-toepassingslogboeken.
-    * De __DAG__ koppeling geeft informatie weer over de gerichte acyclische grafiek voor deze query. Hier vindt u een grafische weergave van de DAG. U vindt hier ook informatie op de hoekpunten in de DAG.
+   * De __toepassing__ koppeling geeft informatie weer over de YARN-toepassing voor deze query. Hier kunt u toegang tot de YARN-toepassingslogboeken.
+   * De __DAG__ koppeling geeft informatie weer over de gerichte acyclische grafiek voor deze query. Hier vindt u een grafische weergave van de DAG. U vindt hier ook informatie op de hoekpunten in de DAG.
 
 ## <a name="next-steps"></a>Volgende stappen
 

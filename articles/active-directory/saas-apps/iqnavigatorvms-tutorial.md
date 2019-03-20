@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee936d174aa3e221bbeb0823ba1503c7cb64a9d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f5a0700a63d21d089573f757716e08fb03665b28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185159"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58164991"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Zelfstudie: Azure Active Directory-integratie met IQNavigator VMS
 
@@ -175,7 +175,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     d. Klik op **Create**.
 
-### <a name="creating-a-iqnavigator-vms-test-user"></a>Het maken van een testgebruiker IQNavigator VMS
+### <a name="creating-an-iqnavigator-vms-test-user"></a>Het maken van een testgebruiker IQNavigator VMS
 
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in IQNavigator VMS. Werken met [IQNavigator VMS ondersteuningsteam](https://www.beeline.com/iqn-product-support/) om toe te voegen de gebruikers in het account IQNavigator VMS.
 
@@ -218,7 +218,7 @@ Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

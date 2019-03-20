@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 49e78f1774a2998de7070453f7c098aef1761242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408932"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093225"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Snelstartgids: Een cluster maken voor Batch AI-trainingstaken met Azure Portal
 
@@ -59,7 +59,7 @@ Maak eerst een Batch AI-werkruimte waarin u uw Batch AI-resources kunt organiser
 
 3. Geef waarden op voor **Naam van de werkruimte** en **Resourcegroep**. Indien gewenst kunt u andere opties selecteren voor het **Abonnement** en de **Locatie** voor de werkruimte. Selecteer **Werkruimte maken**.
 
-  ![Batch AI-werkruimte maken](./media/quickstart-create-cluster-portal/create-workspace.png)
+   ![Batch AI-werkruimte maken](./media/quickstart-create-cluster-portal/create-workspace.png)
 
 Wanneer het bericht **Implementatie is voltooid** wordt weergegeven, gaat u naar de resource die u hebt gemaakt en selecteert u de werkruimte.
 
@@ -73,7 +73,7 @@ Een Batch AI-bestandsserver is een NFS met één knooppunt dat automatisch kan w
 
 3. Geef een **Gebruikersnaam van beheerder** op en kopieer de inhoud van uw openbare SSH-sleutelbestand naar **SSH-sleutel**. Accepteer de standaardinstellingen voor de overige waarden en selecteer **Bestandsserver maken**.
 
-  ![Een Batch AI-bestandsserver maken](./media/quickstart-create-cluster-portal/create-file-server.png)
+   ![Een Batch AI-bestandsserver maken](./media/quickstart-create-cluster-portal/create-file-server.png)
 
 Het implementeren van de bestandsserver duurt enkele minuten.
 
@@ -89,7 +89,7 @@ Met de volgende stappen maakt u een cluster met één GPU-knooppunt. Het cluster
 
 2. Geef waarden op voor **Clusternaam** en de volgende instellingen. De aanbevolen VM-grootte is één NVIDIA Tesla K80 GPU.
   
-   |Instelling  |Waarde  |
+   |Instelling  |Value  |
    |---------|---------|
    |**VM-grootte**     |Standard NC6|
    |**Beoogd aantal knooppunten**     |1|

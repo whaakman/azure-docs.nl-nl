@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: d8912b67656cb9862f31b03eb9a899dfc650f377
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 1fba2c4e5191d4c827035362a8eb6876fcbb67cc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053362"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081743"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Zelfstudie: Azure-functies implementeren als IoT Edge-modules
 
@@ -27,7 +27,8 @@ U kunt Azure-functies gebruiken voor het implementeren van code die uw bedrijfsl
 > * Gefilterde gegevens weergeven.
 
 <center>
-![Diagram - zelfstudie-architectuur, functiemodule faseren en implementeren](./media/tutorial-deploy-function/functions-architecture.png)
+
+![Diagram - zelfstudie-architectuur, Faseren en functiemodule implementeren](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
@@ -67,7 +68,7 @@ U kunt een Docker-register gebruiken om de containerinstallatiekopieën op te sl
 
 2. Geef de volgende waarden op om uw containerregister te maken:
 
-   | Veld | Waarde | 
+   | Veld | Value | 
    | ----- | ----- |
    | Registernaam | Geef hier een unieke naam op. |
    | Abonnement | Selecteer een abonnement in de vervolgkeuzelijst. |
@@ -92,7 +93,7 @@ De Azure IoT-hulpprogramma's voor Visual Studio Code die u hebt geïnstalleerd a
 
 3. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Volg de aanwijzingen in het opdrachtpalet om uw oplossing te maken.
 
-   | Veld | Waarde |
+   | Veld | Value |
    | ----- | ----- |
    | Map selecteren | Kies de locatie op uw ontwikkelcomputer waar VS Code de oplossingsbestanden moet maken. |
    | Een naam opgeven voor de oplossing | Voer een beschrijvende naam voor uw oplossing in, bijvoorbeeld **FunctionSolution**, of accepteer de standaardinstelling. |

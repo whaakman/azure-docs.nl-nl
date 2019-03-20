@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6f7eaa91faabfea7bb951eb9863ffecd2f5499
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182371"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183149"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Wat is licentieverlening in Azure Active Directory op basis van groep?
 
@@ -49,7 +49,7 @@ Dit zijn de belangrijkste functies van licenties op basis van groepen:
 
 - Alle Microsoft-cloudservices waarvoor licenties op gebruikersniveau zijn vereist, worden ondersteund. Deze ondersteuning omvat alle Office 365-producten Enterprise Mobility + Security en Dynamics 365.
 
-- Licenties op basis van groepen is momenteel alleen beschikbaar via [Azure Portal](https://portal.azure.com). Als u voornamelijk andere beheerportals gebruikers voor het beheer van gebruikers en groepen, zoals de Office 365-portal, kunt u dit gewoon blijven doen. U moet Azure Portal wel gebruiken om licenties op groepsniveau te beheren.
+- Groepslicenties is momenteel alleen beschikbaar via de [Azure-portal](https://portal.azure.com). Als u voornamelijk andere beheerportals voor gebruikers- en groepsbeheer, zoals de [Microsoft 365-beheercentrum](https://admin.microsoft.com), u kunt doorgaan om dit te doen. U moet Azure Portal wel gebruiken om licenties op groepsniveau te beheren.
 
 - Wijzigingen in licenties die het resultaat zijn van wijzigingen in groepslidmaatschappen, worden automatisch beheerd in Azure AD. Wijzigingen in licenties worden meestal binnen enkele minuten na een lidmaatschapswijziging van kracht.
 

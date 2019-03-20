@@ -1,6 +1,6 @@
 ---
-title: Converteren van Azure managed disks-opslag van standard naar premium, en vice versa | Microsoft Docs
-description: Het converteren van Azure managed disks-opslag van standard naar premium, en vice versa, met behulp van Azure CLI.
+title: Converteren van Azure managed disks-opslag van Standard naar Premium- of Premium naar standaard | Microsoft Docs
+description: Het converteren van Azure managed disks-opslag van Standard naar Premium- of Premium naar standaard met behulp van de Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,28 +16,28 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 6b78027191d72c10b20c9d09a92c82be4a9e3e05
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 18730f662f36000e1efc826c35bebde79dbf0e79
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650798"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013611"
 ---
-# <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converteren van Azure managed disks-opslag van standard naar premium, en vice versa
+# <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Converteren van Azure managed disks-opslag van Standard naar Premium- of Premium naar standaard
 
-Beheerde schijven biedt vier [schijftype](disks-types.md) opties: Ultra vaste schijf (Solid-state drive), Premium-SSD, standaarden SSD en standaard harde schijf (HDD). Hiermee kunt u gemakkelijk schakelen tussen de opties met minimale downtime op basis van uw prestatiebehoeften. Dit wordt niet ondersteund voor niet-beheerde schijven. Maar u kunt eenvoudig [converteren naar managed disks](convert-unmanaged-to-managed-disks.md) eenvoudig schakelen tussen de schijftypen.
+Er zijn vier [schijftypen](disks-types.md) voor Azure beheerde schijven: Azure Ultra Disk-opslag, Premium SSD, Standard-SSD en standaard harde schijven. U kunt eenvoudig schakelen tussen Premium SSD-, Standard-SSD- en standaard harde schijven op basis van de prestatiebehoeften van uw met weinig downtime. Deze functionaliteit wordt niet ondersteund voor niet-beheerde schijven of Ultra Disk-opslag. Maar u kunt eenvoudig [converteren naar beheerde schijven niet-beheerde](convert-unmanaged-to-managed-disks.md) te kunnen schakelen tussen schijftypen.
 
-In dit artikel wordt beschreven hoe u beheerde schijven converteren van standard naar premium, en vice versa met behulp van Azure CLI. Als u wilt installeren of upgraden, raadpleegt [Azure CLI installeren](/cli/azure/install-azure-cli). 
+Dit artikel leest hoe u kunt beheerde schijven converteren van Standard naar Premium- of Premium naar standaard met behulp van de Azure CLI. Als u wilt installeren of upgraden van het hulpprogramma, Zie [Azure CLI installeren](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-* De conversie moet opnieuw worden opgestart van de virtuele machine, dus plan de migratie van uw opslag schijven tijdens een reeds bestaande onderhoudsperiode. 
-* Als u niet-beheerde schijven, eerst [converteren naar managed disks](convert-unmanaged-to-managed-disks.md) in dit artikel gebruiken om over te schakelen tussen de opties voor opslag.
+* Conversie van schijven vereist een herstart van de virtuele machine (VM), dus plan de migratie van uw disk-opslag tijdens een reeds bestaande onderhoudsperiode.
+* Voor niet-beheerde schijven, eerste [converteren naar managed disks](convert-unmanaged-to-managed-disks.md) , zodat u tussen opslagopties schakelen kunt.
 
 
-## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Alle beheerde schijven van een virtuele machine converteren van standard naar premium, en vice versa
+## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Overschakelen van alle beheerde schijven van een virtuele machine tussen Premium en Standard
 
-Het volgende voorbeeld ziet hoe u wilt overschakelen van alle schijven van een virtuele machine van standaard naar premium storage. Voor het gebruik van premium-beheerde schijven, de virtuele machine moet gebruiken een [VM-grootte](sizes.md) die ondersteuning biedt voor premium-opslag. In dit voorbeeld verandert ook in een grootte die ondersteuning biedt voor premium-opslag.
+In dit voorbeeld laat zien hoe alle schijven van een virtuele machine converteren van Standard naar Premium storage of van Premium naar Standard-opslag. Voor het gebruik van Premium-beheerde schijven, de virtuele machine moet gebruiken een [VM-grootte](sizes.md) die ondersteuning biedt voor Premium-opslag. In dit voorbeeld verandert ook in een grootte die ondersteuning biedt voor Premium-opslag.
 
  ```azurecli
 
@@ -48,7 +48,7 @@ rgName='yourResourceGroup'
 vmName='yourVM'
 
 #Premium capable size 
-#Required only if converting from standard to premium
+#Required only if converting from Standard to Premium
 size='Standard_DS2_v2'
 
 #Choose between Standard_LRS and Premium_LRS based on your scenario
@@ -57,24 +57,24 @@ sku='Premium_LRS'
 #Deallocate the VM before changing the size of the VM
 az vm deallocate --name $vmName --resource-group $rgName
 
-#Change the VM size to a size that supports premium storage 
-#Skip this step if converting storage from premium to standard
+#Change the VM size to a size that supports Premium storage 
+#Skip this step if converting storage from Premium to Standard
 az vm resize --resource-group $rgName --name $vmName --size $size
 
-#Update the sku of all the data disks 
+#Update the SKU of all the data disks 
 az vm show -n $vmName -g $rgName --query storageProfile.dataDisks[*].managedDisk -o tsv \
  | awk -v sku=$sku '{system("az disk update --sku "sku" --ids "$1)}'
 
-#Update the sku of the OS disk
+#Update the SKU of the OS disk
 az vm show -n $vmName -g $rgName --query storageProfile.osDisk.managedDisk -o tsv \
 | awk -v sku=$sku '{system("az disk update --sku "sku" --ids "$1)}'
 
 az vm start --name $vmName --resource-group $rgName
 
 ```
-## <a name="convert-a-managed-disk-from-standard-to-premium-and-vice-versa"></a>Een beheerde schijf converteren van standard naar premium, en vice versa
+## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Overschakelen van beheerde schijven van de afzonderlijke naast standaard en Premium
 
-Voor uw workload ontwikkelen en testen, kunt u de combinatie van standard en premium-schijven om uw kosten lager zijn. U kunt dit kunt uitvoeren door te upgraden naar premium-opslag, alleen de schijven die betere prestaties nodig hebben. Het volgende voorbeeld laat zien hoe om over te schakelen van één schijf van een virtuele machine van standard naar premium storage, en vice versa. Voor het gebruik van premium-beheerde schijven, de virtuele machine moet gebruiken een [VM-grootte](sizes.md) die ondersteuning biedt voor premium-opslag. In dit voorbeeld verandert ook in een grootte die ondersteuning biedt voor premium-opslag.
+Voor uw workload ontwikkelen en testen, kunt u een combinatie van standaard en Premium-schijven om uw kosten te verlagen. U kunt alleen de schijven die betere prestaties nodig een upgrade uitvoert. In dit voorbeeld laat zien hoe een enkele VM-schijf converteren van Standard naar Premium storage of van Premium naar Standard-opslag. Voor het gebruik van Premium-beheerde schijven, de virtuele machine moet gebruiken een [VM-grootte](sizes.md) die ondersteuning biedt voor Premium-opslag. In dit voorbeeld verandert ook in een grootte die ondersteuning biedt voor Premium-opslag.
 
  ```azurecli
 
@@ -85,7 +85,7 @@ rgName='yourResourceGroup'
 diskName='yourManagedDiskName'
 
 #Premium capable size 
-#Required only if converting from standard to premium
+#Required only if converting from Standard to Premium
 size='Standard_DS2_v2'
 
 #Choose between Standard_LRS and Premium_LRS based on your scenario
@@ -97,19 +97,19 @@ vmId=$(az disk show --name $diskName --resource-group $rgName --query managedBy 
 #Deallocate the VM before changing the size of the VM
 az vm deallocate --ids $vmId 
 
-#Change the VM size to a size that supports premium storage 
-#Skip this step if converting storage from premium to standard
+#Change the VM size to a size that supports Premium storage 
+#Skip this step if converting storage from Premium to Standard
 az vm resize --ids $vmId --size $size
 
-# Update the sku
+# Update the SKU
 az disk update --sku $sku --name $diskName --resource-group $rgName 
 
 az vm start --ids $vmId 
 ```
 
-## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd-and-vice-versa"></a>Een beheerde schijf converteren van standard HDD naar standard-SSD, en vice versa
+## <a name="switch-managed-disks-between-standard-hdd-and-standard-ssd"></a>Overschakelen van beheerde schijven tussen Standard HDD- en Standard-SSD
 
-Het volgende voorbeeld ziet het wijzigen van één schijf van een virtuele machine van de standaard harde schijf naar de standard-SSD.
+In dit voorbeeld laat zien hoe een enkele VM-schijf converteren van Standard-SSD in plaats van Standard HDD of Standard-SSD op standaard harde schijven.
 
  ```azurecli
 
@@ -122,34 +122,33 @@ diskName='yourManagedDiskName'
 #Choose between Standard_LRS and StandardSSD_LRS based on your scenario
 sku='StandardSSD_LRS'
 
-#Get the parent VM Id 
+#Get the parent VM ID 
 vmId=$(az disk show --name $diskName --resource-group $rgName --query managedBy --output tsv)
 
 #Deallocate the VM before changing the disk type
 az vm deallocate --ids $vmId 
 
-# Update the sku
+# Update the SKU
 az disk update --sku $sku --name $diskName --resource-group $rgName 
 
 az vm start --ids $vmId 
 ```
 
-## <a name="convert-managed-disks-between-standard-and-premium-in-azure-portal"></a>Converteren van beheerde schijven naast standaard en premium in Azure portal
+## <a name="switch-managed-disks-between-standard-and-premium-in-azure-portal"></a>Overschakelen van beheerde schijven naast standaard en Premium in Azure portal
 
-U kunt beheerde schijven naast standaard en premium in de Azure-portal kunt converteren.
+Volg deze stappen:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer de virtuele machine uit de lijst met **virtuele machines** in de portal.
-3. Als de virtuele machine niet gestopt is, klikt u op **stoppen** boven aan de blade overzicht van de virtuele machine en wacht tot de virtuele machine te stoppen.
-3. Selecteer in de blade voor de virtuele machine, **schijven** in het menu.
-4. Selecteer de schijf die u wilt converteren.
-5. Selecteer **configuratie** in het menu.
-6. Wijziging de **accounttype** van **Standard HDD** naar **Premium SSD**, en vice versa.
-7. Klik op **opslaan** en sluit de blade van de schijf.
+2. Selecteer de virtuele machine uit de lijst met **virtuele machines**.
+3. Als de virtuele machine is niet gestopt, selecteert u **stoppen** aan de bovenkant van de virtuele machine **overzicht** deelvenster en wacht tot de virtuele machine te stoppen.
+4. Selecteer in het deelvenster voor de virtuele machine, **schijven** in het menu.
+5. Selecteer de schijf die u wilt converteren.
+6. Selecteer **configuratie** in het menu.
+7. Wijziging de **accounttype** van **standaard harde schijven** te **Premium SSD** of van **Premium SSD** te **Standard HDD**.
+8. Selecteer **opslaan**, en sluit het deelvenster van de schijf.
 
-Het bijwerken van het schijftype is effectief onmiddellijk. U kunt uw virtuele machine opnieuw opstarten na de conversie.
+Het bijwerken van het schijftype is onmiddellijk. U kunt uw virtuele machine opnieuw opstarten na de conversie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Een alleen-lezen kopie van een virtuele machine maken met behulp van [momentopnamen](snapshot-copy-managed-disk.md).
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 6fd25bbf6910140a338267c51955a817d0195939
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 2aabe3d1fa8a6034c2dab38c8d6fa6da4b00ac1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247185"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080336"
 ---
 # <a name="azure-network-security-overview"></a>Overzicht van de beveiliging van Azure-netwerk
 
@@ -61,8 +61,8 @@ Azure ondersteunt verschillende soorten netwerktoegangsbeheer, zoals:
 
 Alle beveiligde implementatie vereist bepaalde meting van network access control. Het doel van netwerktoegangsbeheer is om te beperken de communicatie van de virtuele machine naar de systemen die nodig zijn. Andere communicatiepogingen worden geblokkeerd.
 
->[!NOTE]
-Storage-Firewalls worden behandeld in de [beveiligingsoverzicht voor Azure storage](security-storage-overview.md) artikel
+> [!NOTE]
+> Storage-Firewalls worden behandeld in de [beveiligingsoverzicht voor Azure storage](security-storage-overview.md) artikel
 
 #### <a name="network-security-rules-nsgs"></a>Netwerkbeveiligingsregels (nsg's)
 
@@ -365,8 +365,8 @@ Azure Network Watcher kunt u op te lossen, en biedt een geheel nieuwe set hulppr
 
 Zie voor meer informatie over Network Watcher en het starten van enkele van de functionaliteit testen in uw labs [Azure network watcher bewakingsoverzicht](../network-watcher/network-watcher-monitoring-overview.md).
 
->[!NOTE]
-Controleer voor de meest recente meldingen over de beschikbaarheid en de status van deze service, de [updates van de Azure-pagina](https://azure.microsoft.com/updates/?product=network-watcher).
+> [!NOTE]
+> Controleer voor de meest recente meldingen over de beschikbaarheid en de status van deze service, de [updates van de Azure-pagina](https://azure.microsoft.com/updates/?product=network-watcher).
 
 ### <a name="azure-security-center"></a>Azure Security Center
 

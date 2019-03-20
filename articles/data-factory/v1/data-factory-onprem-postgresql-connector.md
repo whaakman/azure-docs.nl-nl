@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e86180a643b27056edc9901d590760cedcbf259
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331874"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081828"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Gegevens verplaatsen van PostgreSQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,12 +50,12 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens uit een on-prem
 
 - De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
 - U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken:
-    - Azure Portal
-    - Visual Studio
-    - Azure PowerShell
-    - Azure Resource Manager-sjabloon
-    - .NET API
-    - REST-API
+  - Azure Portal
+  - Visual Studio
+  - Azure PowerShell
+  - Azure Resource Manager-sjabloon
+  - .NET API
+  - REST-API
 
     Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
@@ -306,46 +306,46 @@ Bij het verplaatsen van gegevens met PostgreSQL, worden de volgende toewijzingen
 
 | Type van de PostgreSQL-Database | PostgresSQL aliassen | .NET framework-type |
 | --- | --- | --- |
-| abstime | |Datum en tijd | &nbsp;
+| abstime | |Datum en tijd |
 | bigint |Int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bits [(n)] | |Byte[], String | &nbsp;
+| bits [(n)] | |Byte[], String |
 | bit verschillende [(n)] |varbit |Byte[], String |
 | booleaans |bool |Booleaans |
-| Vak | |Byte[], String |&nbsp;
-| bytea | |Byte[], String |&nbsp;
-| teken [(n)] |char [(n)] |Reeks |
-| teken uiteenlopende [(n)] |varchar [(n)] |Reeks |
-| CID | |Reeks |&nbsp;
-| CIDR | |Reeks |&nbsp;
-| Cirkel | |Byte[], String |&nbsp;
-| date | |Datum en tijd |&nbsp;
-| DateRange | |Reeks |&nbsp;
-| dubbele precisie |FLOAT8 |Double-waarde |
-| inet | |Byte[], String |&nbsp;
-| intarry | |Reeks |&nbsp;
-| int4range | |Reeks |&nbsp;
-| int8range | |Reeks |&nbsp;
+| Vak | |Byte[], String |
+| bytea | |Byte[], String |
+| teken [(n)] |char [(n)] |String |
+| teken uiteenlopende [(n)] |varchar [(n)] |String |
+| CID | |String |
+| cidr | |String |
+| Cirkel | |Byte[], String |
+| date | |Datum en tijd |
+| DateRange | |String |
+| dubbele precisie |FLOAT8 |Double |
+| inet | |Byte[], String |
+| intarry | |String |
+| int4range | |String |
+| int8range | |String |
 | geheel getal |int, int4 |Int32 |
-| interval [velden] [(p)] | |Periode |&nbsp;
-| json | |Reeks |&nbsp;
-| jsonb | |Byte[] |&nbsp;
-| Regel | |Byte[], String |&nbsp;
-| lseg | |Byte[], String |&nbsp;
-| macaddr | |Byte[], String |&nbsp;
-| money | |Decimaal |&nbsp;
-| numerieke [(p, s)] |decimale waarde [(p, s)] |Decimaal |
-| numrange | |Reeks |&nbsp;
-| OID | |Int32 |&nbsp;
-| pad | |Byte[], String |&nbsp;
-| pg_lsn | |Int64 |&nbsp;
-| Punt | |Byte[], String |&nbsp;
-| polygon | |Byte[], String |&nbsp;
-| echte |float4 |Enkelvoudig |
+| interval [velden] [(p)] | |Periode |
+| json | |String |
+| jsonb | |Byte[] |
+| lijn | |Byte[], String |
+| lseg | |Byte[], String |
+| macaddr | |Byte[], String |
+| money | |Decimal |
+| numerieke [(p, s)] |decimale waarde [(p, s)] |Decimal |
+| numrange | |String |
+| OID | |Int32 |
+| pad | |Byte[], String |
+| pg_lsn | |Int64 |
+| punt | |Byte[], String |
+| polygon | |Byte[], String |
+| echte |float4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serieel |serial4 |Int32 |
-| tekst | |Reeks |&nbsp;
+| tekst | |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kaartbron met sink-kolommen
 Zie voor meer informatie over het toewijzen van kolommen in de brongegevensset naar kolommen in de sink-gegevensset, [toewijzing van kolommen in Azure Data Factory](data-factory-map-columns.md).

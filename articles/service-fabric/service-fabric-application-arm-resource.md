@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: feb9d0a01cbba75fc9868f5a603d494c5c09ae2e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e41647140373fcf637cad55af62764bd87826a62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849343"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Toepassingen en services als Azure Resource Manager-resources beheren
 
@@ -29,7 +29,7 @@ Dit is de aanbevolen manier om een installatie, governance of Clusterbeheertoepa
 
 Indien van toepassing, beheren van uw toepassingen als Resource Manager-resources te verbeteren:
 * Audittrail: Resource Manager voert een controle uit elke bewerking en houdt een gedetailleerde *activiteitenlogboek* die kunt u alle wijzigingen aan deze toepassingen en het cluster te traceren.
-* Op rollen gebaseerd toegangsbeheer (RBAC): kan het beheer van toegang tot clusters, evenals de toepassingen die zijn geïmplementeerd op het cluster worden uitgevoerd via dezelfde Resource Manager-sjabloon.
+* Op rollen gebaseerd toegangsbeheer (RBAC): Beheer van toegang tot clusters, evenals de toepassingen die zijn geïmplementeerd op het cluster kan worden gedaan via dezelfde Resource Manager-sjabloon.
 * Azure Resource Manager (via Azure portal), wordt een one-stop-shop voor het beheren van uw cluster en implementaties van essentiële toepassingen.
 
 Het volgende fragment toont de verschillende soorten resources die kunnen worden beheerd via een sjabloon:
@@ -69,9 +69,9 @@ Het volgende fragment toont de verschillende soorten resources die kunnen worden
 3. Wanneer u welke toepassingen u wilt worden geïmplementeerd op deze manier hebt begrepen, de toepassingen moeten worden verpakt, ingepakt en plaatsen op een bestandsshare. De share moet toegankelijk zijn via een REST-eindpunt voor Azure Resource Manager te gebruiken tijdens de implementatie.
 4. In het Resource Manager-sjabloon, onder de declaratie van uw cluster, beschrijft eigenschappen van de toepassing. Deze eigenschappen zijn doelreplica of count en eventuele afhankelijkheidsketens tussen resources (andere toepassingen of services). Zie voor een lijst van uitgebreide eigenschappen, de [specificaties REST API Swagger](https://aka.ms/sfrpswaggerspec). Houd er rekening mee dat dit is geen vervanging voor de toepassing of Service zich voordoet, maar in plaats daarvan beschrijft een aantal van wat is er in als onderdeel van de Resource Manager-sjabloon van het cluster. Hier volgt een voorbeeldsjabloon met de implementatie van een staatloze service *Service1* en een stateful service *Service2* als onderdeel van *Toepassing1*:
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+   ```json
+   {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       "clusterName": {
@@ -251,11 +251,11 @@ Het volgende fragment toont de verschillende soorten resources die kunnen worden
         }
       }
     ]
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE] 
-  > De *apiVersion* moet worden ingesteld op `"2017-07-01-preview"`. Deze sjabloon kan ook onafhankelijk van het cluster worden geïmplementeerd, zolang het cluster al is geïmplementeerd.
+   > [!NOTE] 
+   > De *apiVersion* moet worden ingesteld op `"2017-07-01-preview"`. Deze sjabloon kan ook onafhankelijk van het cluster worden geïmplementeerd, zolang het cluster al is geïmplementeerd.
 
 5. Implementeer. 
 
@@ -264,7 +264,7 @@ Het volgende fragment toont de verschillende soorten resources die kunnen worden
 Als uw cluster al actief is en sommige toepassingen die u beheren als Resource Manager wilt, resources al zijn geïmplementeerd, in plaats van de toepassingen te verwijderen en opnieuw te implementeren op deze, kunt u een PUT-aanroep met behulp van dezelfde API's om de toepassingen ophalen erkend als Resource Manager-resources. 
 
 > [!NOTE]
-> De clusterupgrade van een worden niet in orde apps genegeerd zodat de klant kunt opgeven ' maxPercentUnhealthyApplications: 100 ' in de sectie ' upgradeDescription/healthPolicy'; gedetailleerde beschrijvingen voor alle instellingen zijn [documentatie over Service Fabrics REST API-Cluster Upgradebeleid](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> De clusterupgrade van een worden niet in orde apps genegeerd zodat de klant kunt opgeven ' maxPercentUnhealthyApplications: 100" in de sectie ' upgradeDescription/healthPolicy'; gedetailleerde beschrijvingen voor alle instellingen zijn [documentatie over Service Fabrics REST API-Cluster Upgradebeleid](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Volgende stappen
 

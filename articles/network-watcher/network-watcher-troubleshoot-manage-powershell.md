@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 67c34156d6a397cdeb4bb50c712b1bb651c2f257
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 51fb834c0c6a3602ed0edfee6256183eefb2026b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090425"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889485"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Problemen oplossen met de Gateway van virtueel netwerk en verbindingen met behulp van Azure Network Watcher-PowerShell
 
@@ -41,7 +41,7 @@ Voor een lijst van ondersteunde gateway typen bezoek, [ondersteund gatewaytypen]
 
 Het oplossen van resource biedt de mogelijkheid voor het oplossen van problemen die met Gateways van virtueel netwerk en verbindingen optreden. Wanneer een aanvraag wordt gedaan voor het oplossen van de resource, logboeken worden opgevraagd en geïnspecteerd. Als controle voltooid is, worden de resultaten worden geretourneerd. Aanvragen voor het oplossen van problemen worden langlopende resource aanvraagt, die meerdere minuten kan duren om een resultaat te retourneren. De logboeken van het oplossen van problemen worden opgeslagen in een container op een storage-account dat is opgegeven.
 
-## <a name="retrieve-network-watcher"></a>Network Watcher ophalen
+## <a name="retrieve-network-watcher"></a>Retrieve Network Watcher
 
 De eerste stap is om op te halen van de Network Watcher-exemplaar. De `$networkWatcher` variabele wordt doorgegeven aan de `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet in stap 4.
 
@@ -85,7 +85,7 @@ Zodra u de cmdlet uitvoert, beoordelingen Network Watcher van de resource om te 
 
 De actietekst bevat algemene richtlijnen over het probleem op te lossen. Als een actie kan worden ondernomen voor het probleem, wordt een koppeling volgen met aanvullende richtlijnen. In het geval waarbij er geen aanvullende richtlijnen, het antwoord geeft de url om een ondersteuningsaanvraag openen.  Voor meer informatie over de eigenschappen van het antwoord en wat is opgenomen, gaat u naar [overzicht van Network Watcher oplossen](network-watcher-troubleshoot-overview.md)
 
-Zie voor instructies over het downloaden van bestanden vanuit azure storage-accounts, [aan de slag met Azure Blob storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Een ander hulpmiddel dat kan worden gebruikt, is Storage Explorer. Meer informatie over Storage Explorer hier kan worden gevonden op de volgende koppeling: [Storage Explorer](http://storageexplorer.com/)
+Zie voor instructies over het downloaden van bestanden vanuit azure storage-accounts, [aan de slag met Azure Blob storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Een ander hulpmiddel dat kan worden gebruikt, is Storage Explorer. Meer informatie over Storage Explorer Hier vindt op de volgende koppeling: [Storage Explorer](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Volgende stappen
 

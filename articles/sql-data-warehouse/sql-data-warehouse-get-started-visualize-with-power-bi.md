@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: df1fe833a5b0cb65372f8df73fb17231463d4d64
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b2377466ba830eed9fed0e9a4033b3eca3d351c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466265"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834600"
 ---
 # <a name="visualize-data-with-power-bi"></a>Gegevens visualiseren met Power BI
 In deze zelfstudie leert u hoe u Power BI gebruikt om verbinding te maken met SQL Data Warehouse en hoe u enkele eenvoudige visualisaties maakt.
@@ -93,4 +93,4 @@ Als u Direct verbinding maken:
 Deze beperkingen en opmerkingen verschilt mogelijk als de ervaringen verbeteren.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u met behulp van de voorbeeldgegevens wat hebt kunnen oefenen, gaat u leren hoe u kunt [ontwikkelen](sql-data-warehouse-overview-develop.md), [laden](design-elt-data-loading.md) of [migreren](sql-data-warehouse-overview-migrate.md). Of neem eens een kijkje op de [website van Power BI](http://www.powerbi.com/).
+Nu u met behulp van de voorbeeldgegevens wat hebt kunnen oefenen, gaat u leren hoe u kunt [ontwikkelen](sql-data-warehouse-overview-develop.md), [laden](design-elt-data-loading.md) of [migreren](sql-data-warehouse-overview-migrate.md). Of neem eens een kijkje op de [website van Power BI](https://www.powerbi.com/).

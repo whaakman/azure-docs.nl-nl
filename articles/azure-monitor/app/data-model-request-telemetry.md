@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117143"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884117"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetrie van aanvraag: Application Insights-gegevensmodel
 
@@ -29,7 +29,7 @@ Aanvraag telemetrie biedt ondersteuning voor de standard uitbreidbaarheidsmodel 
 
 Naam van de aanvraag vertegenwoordigt codepad genomen om de aanvraag te verwerken. De kardinaliteit van de lage waarde om toe te staan beter groepering van aanvragen. Voor HTTP-deze aanvragen vertegenwoordigt de HTTP-methode en de sjabloon van de URL-pad, zoals `GET /values/{id}` zonder de werkelijke `id` waarde.
 
-Application Insights web SDK verzendt Aanvraagnaam "as is" met betrekking tot gebruik van hoofdletters. Groeperen op gebruikersinterface is hoofdlettergevoelig, zodat `GET /Home/Index` worden afzonderlijk gerekend vanaf `GET /home/INDEX` Hoewel vaak ze leiden tot de dezelfde controller en de actie kan worden uitgevoerd. De reden hiervoor is dat URL's in het algemeen zijn [hoofdlettergevoelig](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). U kunt om te controleren of alle `404` is er gebeurd voor de URL's in hoofdletters worden getypt. U vindt meer op de naam van verzameling van aanvragen door ASP.Net Web SDK in de [blogbericht](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Application Insights web SDK verzendt Aanvraagnaam "as is" met betrekking tot gebruik van hoofdletters. Groeperen op gebruikersinterface is hoofdlettergevoelig, zodat `GET /Home/Index` worden afzonderlijk gerekend vanaf `GET /home/INDEX` Hoewel vaak ze leiden tot de dezelfde controller en de actie kan worden uitgevoerd. De reden hiervoor is dat URL's in het algemeen zijn [hoofdlettergevoelig](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). U kunt om te controleren of alle `404` is er gebeurd voor de URL's in hoofdletters worden getypt. U vindt meer op de naam van verzameling van aanvragen door ASP.NET Web SDK in de [blogbericht](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 Maximumlengte: 1024 tekens
 

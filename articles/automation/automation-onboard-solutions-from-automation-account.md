@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: c020d3c7513efda93d7ac5d3bdd79f21f8bc77dd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0f5d36dfbe614e35256231a91a9e15055e2e81cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818473"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843620"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Onboarding updatebeheer, wijzigingen bijhouden en inventaris oplossingen
 
@@ -41,14 +41,19 @@ De volgende tabel bevat de ondersteunde toewijzingen:
 |AustraliaSoutheast|AustraliaSoutheast|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |West-Europa|West-Europa|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP en EastUS toewijzingen voor Log Analytics-werkruimten op Automation-Accounts zijn niet een exacte toewijzing van regio naar regio, maar is de juiste toewijzing.
+
+> [!NOTE]
+> Vanwege de vraag, een regio mogelijk niet beschikbaar bij het maken van uw Automation-Account of Log Analytics-werkruimte.  Als dat het geval is, controleert u of dat u gebruikmaakt van een regio in de voorgaande tabel die u resources in kunt maken.
 
 De oplossing Wijzigingen bijhouden en Inventaris biedt de mogelijkheid om [Wijzigingen bijhouden](automation-vm-change-tracking.md) en [Inventaris](automation-vm-inventory.md) uit te voeren op uw virtuele machines. In deze stap schakelt u de oplossing in op een virtuele machine.
 
@@ -91,7 +96,7 @@ Selecteer een opgeslagen zoekopdracht om de query die wordt gebruikt voor het vu
 
 Vanuit uw Automation-account selecteren **voorraad** of **bijhouden** onder **CONFIGURATIEBEHEER**, of **updatebeheer** onder **UPDATEBEHEER**.
 
-Klik op **+ Azure-VM's toevoegen**, selecteer een of meer virtuele machines in de lijst. Virtuele machines die kan niet worden ingeschakeld worden grijs weergegeven en kan niet worden geselecteerd. Op de **updatebeheer inschakelen** pagina, klikt u op **inschakelen**. Deze actie worden de geselecteerde virtuele machines toegevoegd aan de groep van de computer opgeslagen zoekopdracht voor de oplossing.
+Klik op **+ Azure-VM's toevoegen**, selecteer een of meer virtuele machines in de lijst. Virtuele machines die kan niet worden ingeschakeld worden grijs weergegeven en kan niet worden geselecteerd. Virtuele Azure-machines kunnen bestaan in andere regio's, ongeacht de locatie van uw Automation-Account. Op de **updatebeheer inschakelen** pagina, klikt u op **inschakelen**. Deze actie worden de geselecteerde virtuele machines toegevoegd aan de groep van de computer opgeslagen zoekopdracht voor de oplossing.
 
 ![Azure-VM's inschakelen](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 

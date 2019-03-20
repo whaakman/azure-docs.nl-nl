@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 2/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: a056f5df12deb50ad64f90c19201942204e774f1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: fe676cbba89a99a3dbd29609f181274062b37d86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779365"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000282"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Laden en lezen van gegevens met Azure Machine Learning
 
@@ -89,7 +89,7 @@ dflow.head(5)
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
-|0||stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
+|0|stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |1|ALABAMA|1|101710|Hale County|10171002158| |
 |2|ALABAMA|1|101710|Hale County|10171002162| |
 
@@ -103,7 +103,7 @@ dflow.head(5)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|------|-----|
+|-----|-------|---------| -------|------|-----|------|
 |0|ALABAMA|1|101710|Hale County|10171002158|29|
 |1|ALABAMA|1|101710|Hale County|10171002162|40 |
 
@@ -154,12 +154,12 @@ dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
 dflow.head(5)
 ```
 
-||Kolom1|Kolom2|Kolom3|Kolom4|Column5|Kolom6|Column7|Column8|
-|------|------|------|-----|------|-----|-------|----|-----|
-|0|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|
-|1|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|
-|2|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|
-|3|positie|Titel|Studio|Wereldwijd|Binnenlandse / %|Kolom1|LGO / %|Kolom2|Jaar ^|
+| |Kolom1|Kolom2|Kolom3|Kolom4|Column5|Kolom6|Column7|Column8| | |
+|-|-------|-------|-------|-------|-------|-------|-------|-------|-|-|
+|0|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen| |
+|1|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen| |
+|2|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen| |
+|3|positie|Titel|Studio|Wereldwijd|Binnenlandse / %|Kolom1|LGO / %|Kolom2|Jaar ^| |
 |4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009 ^|5|
 
 De uitvoer ziet u dat de gegevens in het tweede blad al drie lege rijen voordat u de headers. De `read_excel()` functie bevat de volgende optionele parameters voor het overslaan van rijen en met behulp van headers. Voer de volgende code om over te slaan van de eerste drie rijen uit en gebruik van de vierde rij als de headers.
@@ -225,8 +225,8 @@ dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dflow.head(5)
 ```
 
-||Product-id|Name|ProductNumber|Kleur|StandardCost|ListPrice|Grootte|Gewicht|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|Thumbnailphoto wordt door|ThumbnailPhotoFileName|ROWGUID|ModifiedDate|
-|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| |Product-id|Name|ProductNumber|Kleur|StandardCost|ListPrice|Grootte|Gewicht|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|Thumbnailphoto wordt door|ThumbnailPhotoFileName|ROWGUID|ModifiedDate| |
+|-|---------|----|-------------|-----|------------|---------|----|------|-----------------|--------------|-------------|-----------|----------------|--------------|----------------------|-------|------------|-|
 |0|680|HL-Fietsframe - zwart, 58|FR-R92B-58|Zwart|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00 + 00:00 uur|Geen|Geen|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461F-9069-55309d90ea7e|2008-03-11 |0:01:36.827000 + 00:00 uur|
 |1|706|HL-Fietsframe - rood, 58|FR-R92R-58|Rood|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00 + 00:00 uur|Geen|Geen|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000 + 00:00 uur|
 |2|707|Sport-100-helm, rood|HL-U509-R|Rood|13.0863|34.99|Geen|Geen|35|33|2005-07-01 00:00:00 + 00:00 uur|Geen|Geen|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|2008-03-11 |10:01:36.827000 + 00:00 uur|
@@ -307,7 +307,7 @@ dflow.to_pandas_dataframe().head()
 |----|------|-----|----|----|----|----|
 |0|1012063|Caledonië landbouwers markt Association - Danville|https://sites.google.com/site/caledoniafarmers... ||Danville|Caledonië|
 |1|1011871|Liefst in Stearns Homestead landbouwers ' markt|http://Stearnshomestead.com |6975 ridge weg|Parma|Cuyahoga|
-|2|1011878|100 mijl markt|http://www.pfcmarkets.com |507 Harrison St|Verweggistan|Verweggistan|
+|2|1011878|100 mijl markt|https://www.pfcmarkets.com |507 Harrison St|Verweggistan|Verweggistan|
 |3|1009364|106 S. Main straat landbouwers markt|http://thetownofsixmile.wordpress.com/ |106 S. Main straat|Zes mijl|||
 |4|1010691|10e straat Community landbouwers markt|https://agrimissouri.com/... |10e straat en populieren|Lamar|Barton|
 

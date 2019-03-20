@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b953d979fc5306372c1e751fbbb8942d19fed03f
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: f854c8b27065c2d2bf0c9964fe9dfce66aba423a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648911"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104502"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory
 
@@ -97,9 +97,9 @@ U kunt de fout oplossen door de volgende stappen uit:
     - Als de mijn Apps beveiligde aanmelding-extensie is geïnstalleerd, uit de **eenmalige aanmelding testen** blade, klikt u op **downloaden van het SAML-antwoord**.
     - Als de extensie is niet geïnstalleerd, gebruikt u een hulpprogramma zoals [Fiddler](https://www.telerik.com/fiddler) om op te halen van het SAML-antwoord. 
 1. U ziet deze elementen in het SAML-antwoord-token:
-    - De unieke id van de gebruiker van NameID-waarde en indeling
-    - Uitgegeven claims in het token
-    - Het certificaat is gebruikt voor het ondertekenen van het token. 
+   - De unieke id van de gebruiker van NameID-waarde en indeling
+   - Uitgegeven claims in het token
+   - Het certificaat is gebruikt voor het ondertekenen van het token. 
 
      Zie voor meer informatie over het SAML-antwoord [Single Sign-on SAML-protocol](single-sign-on-saml-protocol.md).
 

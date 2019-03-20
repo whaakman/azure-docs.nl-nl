@@ -8,24 +8,53 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 91b6808e5f74d82a980dc633b2fa2bb0fe6752f1
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: fa08d2fb2185bd4b6cd0e2e9d20e1c44a4a35eae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301346"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101479"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Opties voor opslag voor gebruik met Azure HDInsight-clusters vergelijken
 
-Microsoft Azure HDInsight-gebruikers kunnen kiezen uit een aantal verschillende opslagopties bij het maken van HDInsight-clusters:
+U kunt kiezen tussen een paar andere Azure storage-services bij het maken van HDInsight-clusters:
 
-* Azure Data Lake Storage Gen2
 * Azure Storage
+* Azure Data Lake Storage Gen2
 * Azure Data Lake Storage Gen1
 
 Dit artikel bevat een overzicht van deze opslagtypen en de bijbehorende unieke functies.
 
-## <a name="azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Azure Data Lake Storage Gen2 met Apache Hadoop in Azure HDInsight
+De volgende tabel geeft een overzicht van de Azure Storage-services die worden ondersteund met verschillende versies van HDInsight:
+
+| Opslagservice | Accounttype | Namespace-Type | Ondersteunde services | Ondersteunde prestatielagen | Ondersteunde toegangslagen | HDInsight-versie | Clustertype |
+|---|---|---|---|---|---|---|---|
+|Azure Data Lake Storage Gen2| Algemeen gebruik V2 | Hiërarchisch (bestandssysteem) | Blob | Standard | Hot, Cool en Archive | 3.6 + | Alle |
+|Azure Storage| Algemeen gebruik V2 | Object | Blob | Standard | Hot, Cool en Archive | 3.6 + | Alle |
+|Azure Storage| Algemeen gebruik V1 | Object | Blob | Standard | N/A | Alle | Alle |
+|Azure Storage| Blob Storage | Object | Blob | Standard | Hot, Cool en Archive | Alle | Alle |
+|Azure Data Lake Storage Gen1| N/A | Hiërarchisch (bestandssysteem) | N/A | N/A | N/A | Alleen 3.6 | Overal behalve HBase |
+
+Zie voor meer informatie over Azure Storage-toegangslagen [Azure Blob-opslag: Premium (preview), Hot, Cool en Archive storage-lagen](../storage/blobs/storage-blob-storage-tiers.md)
+
+U kunt een cluster met behulp van verschillende combinaties van services voor het primaire en een optionele secundaire opslag maken. De volgende tabel geeft een overzicht van de cluster-opslagconfiguraties die momenteel worden ondersteund in HDInsight:
+
+| HDInsight-versie | Primaire opslag | Secundaire opslag | Ondersteund |
+|---|---|---|---|
+| 3.6 & 4.0 | Standaard-Blob | Standaard-Blob | Ja |
+| 3.6 & 4.0 | Standaard-Blob | Data Lake Storage Gen2 | Nee |
+| 3.6 & 4.0 | Standaard-Blob | Data Lake Storage Gen1 | Ja |
+| 3.6 & 4.0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Ja |
+| 3.6 & 4.0 | Data Lake Storage Gen2 * | Standaard-Blob | Ja |
+| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Nee |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Ja |
+| 3.6 | Data Lake Storage Gen1 | Standaard-Blob | Ja |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Nee |
+| 4.0 | Data Lake Storage Gen1 | Alle | Nee |
+
+* = Dit wordt mogelijk een of meerdere accounts van Data Lake Storage Gen2, zolang ze alle ingesteld zijn met de dezelfde beheerde identiteit voor toegang tot het cluster.
+
+## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Azure Data Lake Storage Gen2 met Apache Hadoop in Azure HDInsight gebruiken
 
 Azure Data Lake Storage Gen2 duurt core functies van Azure Data Lake Storage Gen1 en ze integreert in Azure Blob-opslag. Deze functies omvatten een bestandssysteem dat compatibel is met Hadoop, Azure Active Directory (Azure AD), en POSIX gebaseerde toegangsbeheerlijsten (ACL's). Deze combinatie kunt u profiteren van de prestaties van Azure Data Lake Storage Gen1 en tegelijkertijd het beheer van de levenscyclus van opslaglagen en gegevens van Blob-opslag.
 
@@ -89,21 +118,10 @@ Zie voor meer informatie, [gebruiken de Azure Data Lake Storage Gen2 URI](../sto
 
 Azure Storage is een robuuste algemene opslagoplossing die naadloos geïntegreerd met HDInsight. HDInsight kan een blobcontainer in Azure Storage gebruiken als het standaardbestandssysteem voor het cluster. Via een HDFS-interface, kan de volledige set onderdelen in HDInsight rechtstreeks op gestructureerde of ongestructureerde gegevens als blobs werken.
 
-Bij het maken van een Azure storage-account, kunt u kiezen uit verschillende opslagaccounttypen. De volgende tabel bevat informatie over de opties die worden ondersteund met HDInsight.
-
-| **Opslagaccounttype** | **Ondersteunde services** | **Ondersteunde prestatielagen** | **Ondersteunde toegangslagen** |
-|----------------------|--------------------|-----------------------------|------------------------|
-| Algemeen gebruik V2   | Blob               | Standard                    | Hot, Cool archief *    |
-| Algemeen gebruik V1   | Blob               | Standard                    | N/A                    |
-| Blob Storage         | Blob               | Standard                    | Hot, Cool archief *    |
-
-* De Archive Storage-toegangslaag is een offline-laag waarvoor een latentie bij het ophalen van enkele uren. Gebruik deze laag niet met HDInsight. Zie voor meer informatie, [Archive Storage-toegangslaag](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
-
-> [!WARNING]  
-> U kunt beter geen standaard blob-container voor het opslaan van bedrijfsgegevens. De standaard container bevat toepassings- en systeemlogboeken. Zorg ervoor dat u de logboeken kunt ophalen voordat u de standaard-blobcontainer verwijderen. De container blog verwijderen na elke gebruik om opslagkosten te verlagen. Houd er ook rekening mee dat een blob-container kan niet worden gebruikt als het standaardbestandssysteem voor meerdere clusters.
-
+Beste afzonderlijke storage-containers voor de standaardclusteropslag en uw bedrijfsgegevens gebruiken voor het isoleren van de HDInsight-logboeken en de tijdelijke bestanden uit uw eigen zakelijke gegevens. We raden ook aan de standaard-blobcontainer, waarin toepassings- en systeemlogboeken, verwijderen na elke gebruik om te verminderen van kosten voor gegevensopslag. Breng de logboeken over naar een andere locatie voordat u de container verwijdert.
 
 ### <a name="hdinsight-storage-architecture"></a>HDInsight-opslagarchitectuur
+
 Het volgende diagram biedt een abstracte weergave van de HDInsight-architectuur van Azure Storage:
 
 ![Diagram waarin wordt getoond hoe Hadoop-clusters gebruiken de HDFS API voor toegang tot en gestructureerde en ongestructureerde gegevens opslaan in blobopslag](./media/hdinsight-hadoop-compare-storage-options/HDI.WASB.Arch.png "HDInsight-opslagarchitectuur")

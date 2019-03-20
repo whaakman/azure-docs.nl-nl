@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 9004802220f6aeb867e8a9880336416573c795fb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 31e4eb1d6493c8de99ac48e09dfb2b8b6481b70a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341523"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854276"
 ---
 # <a name="view-your-billing-accounts-in-azure-portal"></a>Bekijk uw facturering accounts in Azure portal  
 
@@ -51,4 +51,4 @@ Een scope is een knooppunt binnen een factureringsaccount die gebruikers gebruik
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

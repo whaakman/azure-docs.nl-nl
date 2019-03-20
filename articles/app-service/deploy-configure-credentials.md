@@ -10,18 +10,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/22/2018
-ms.author: cephalin
+ms.date: 03/10/2019
+ms.author: cephalin;byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d89197fad8354b0bae41ab67b9bb1dfac0a179eb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: df874ab77c88f05b048b1f9d10873943b7bebf36
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884384"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Referenties voor implementatie voor Azure App Service configureren
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) ondersteunt twee soorten referenties voor [lokale Git-implementatie](deploy-local-git.md) en [FTP/S implementatie](deploy-ftp.md). Dit zijn niet gelijk zijn aan uw Azure Active Directory-referenties.
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) ondersteunt twee soorten referenties voor [lokale Git-implementatie](deploy-local-git.md) en [FTP/S implementatie](deploy-ftp.md). Deze referenties zijn niet gelijk zijn aan uw Azure Active Directory-referenties.
 
 * **De referenties op gebruikersniveau**: één set referenties voor de gehele Azure-account. Het kan worden gebruikt voor het implementeren in App Service voor apps, in elk abonnement dat het Azure-account gemachtigd is voor toegang tot. Het is een standaardreeks die in de portal GUI wordt opgehaald (zoals de **overzicht** en **eigenschappen** van van de app [resourcepagina](../azure-resource-manager/manage-resources-portal.md#manage-resources)). Als een gebruiker is toegang tot Apps via Role-Based Access Control (RBAC) of coadmin machtigingen worden verleend, kan die gebruiker zijn of haar eigen gebruikersniveau-referenties gebruiken totdat de toegang is ingetrokken. U mag deze referenties niet delen met andere Azure-gebruikers.
 
@@ -53,6 +53,12 @@ en *FTP* gebruikersnaam van de implementatie van uw App **eigenschappen**.
 > Uw implementatiewachtwoord op gebruikersniveau niet wordt weergegeven in Azure. Als u het wachtwoord vergeet, kunt u uw referenties opnieuw instellen door de stappen in dit gedeelte te volgen.
 >
 >  
+
+## <a name="use-user-level-credentials-with-ftpftps"></a>Gebruik op gebruikersniveau referenties met FTP/FTPS
+
+Verificatie bij een FTP-/ FTPS-eindpunt met behulp van de referenties op gebruikersniveau requirers een gebruikersnaam in de volgende indeling: `<app-name>\<user-name>`
+
+Omdat op gebruikersniveau referenties zijn gekoppeld aan de gebruiker en niet op een specifieke bron, wordt de gebruikersnaam moet in deze indeling om te leiden van de actie aanmelden op de juiste app-eindpunt.
 
 ## <a name="appscope"></a>Ophalen en op app-niveau referenties opnieuw instellen
 De referenties op app-niveau ophalen:

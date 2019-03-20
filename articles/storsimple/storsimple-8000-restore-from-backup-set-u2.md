@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 57290971185d1fd64b3b5ca6ac37535070ddab9e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6a2e022697ced90d968075b7a4abe4163be7a539
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496479"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082803"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Een StorSimple-volume herstellen vanuit een back-upset
 
@@ -110,9 +110,9 @@ U kunt de **back-catalogus** blade om uw StorSimple-volume herstellen vanaf een 
    3. Kies het beleid dat volume of de back-up voor de back-up die u wilt selecteren in de vervolgkeuzelijst.
    4. Klik op **toepassen** deze query uit te voeren.
 
-    De back-ups die zijn gekoppeld aan het geselecteerde volume of back-upbeleid moet worden weergegeven in de lijst met back-upsets.
+      De back-ups die zijn gekoppeld aan het geselecteerde volume of back-upbeleid moet worden weergegeven in de lijst met back-upsets.
    
-    ![Lijst met back-upset](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
+      ![Lijst met back-upset](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
 3. Vouw de back-upset om de gekoppelde volumes weer te geven. Deze volumes moeten op de host en het apparaat offline worden gezet voordat u ze kunt herstellen. Toegang krijgen tot de volumes op de **Volumes** blade van uw apparaat, en volg de stappen in [een volume offline halen](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) offline te nemen ze.
    
@@ -127,9 +127,9 @@ U kunt de **back-catalogus** blade om uw StorSimple-volume herstellen vanaf een 
    
     ![Bevestigingspagina](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7.  Klik op **herstellen**. Hiermee initieert een hersteltaak die u door de toegang tot bekijken kunt de **taken** pagina.
+7. Klik op **herstellen**. Hiermee initieert een hersteltaak die u door de toegang tot bekijken kunt de **taken** pagina.
 
-    ![Bevestigingspagina](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Bevestigingspagina](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. Nadat het herstel voltooid is, controleert u of dat de inhoud van uw volumes worden vervangen door de volumes van de back-up.
 

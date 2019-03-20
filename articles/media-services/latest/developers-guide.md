@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 02/22/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 97123ec795353073b912bd83e0abb45e23549a75
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: b9c89b6cb6dbc6cb217be671eb0e52c0416811ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749797"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889842"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Beginnen met ontwikkelen met Media Services v3-API met behulp van SDK's/hulpprogramma's
 
@@ -95,7 +95,7 @@ Raadpleeg de [.NET-naslagdocumentatie](https://aka.ms/ams-v3-dotnet-ref) van Med
 - [Dynamische DRM-versleuteling en licentielevering gebruiken - .NET](protect-with-drm.md)
 - [Een ondertekeningssleutel ophalen uit het bestaand beleid - .NET](get-content-key-policy-dotnet-howto.md)
 - [Filters maken met Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Voorbeelden van geavanceerde video on demand van Azure Functions-v2 met Media Services v3](http://aka.ms/ams3functions)
+- [Voorbeelden van geavanceerde video on demand van Azure Functions-v2 met Media Services v3](https://aka.ms/ams3functions)
 
 ## <a name="java"></a>Java
 

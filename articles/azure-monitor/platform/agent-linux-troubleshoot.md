@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 84c6a88449844d3a2f59b3b93dd95b102b653679
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f73f6a9cf274de207305cfd90e089a549088dd06
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817611"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088737"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Het oplossen van problemen met de Log Analytics-agent voor Linux 
 
@@ -55,27 +55,27 @@ Als geen van deze stappen voor u werkt, zijn ook de volgende ondersteuningskanal
 
 ## <a name="installation-error-codes"></a>Foutcodes voor clientinstallatie
 
-| Foutcode | Betekenis |
-| --- | --- |
+| Foutcode | Betekenis | |
+| --- | --- | --- |
 | NOT_DEFINED | Omdat de vereiste afhankelijkheden niet zijn geïnstalleerd, wordt niet de auoms auditd-invoegtoepassing geïnstalleerd | Installatie van auoms is mislukt, installeer pakket auditd. |
-| 2 | Ongeldige optie opgegeven voor de shell-bundel. Voer `sudo sh ./omsagent-*.universal*.sh --help` voor gebruik |
-| 3 | Er is geen optie opgegeven voor de shell-bundel. Voer `sudo sh ./omsagent-*.universal*.sh --help` voor gebruik. |
-| 4 | Typt u het pakket is ongeldig of ongeldige proxy-instellingen. omsagent -*rpm*.sh pakketten kunnen alleen worden geïnstalleerd op de RPM-systemen, en omsagent -*deb*.sh pakketten kunnen alleen worden geïnstalleerd op Debian gebaseerde systemen. Het is raadzaam om het gebruik van de universal installer uit de [nieuwste release](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Lees ook om te controleren of de proxy-instellingen. |
-| 5 | De shell-bundel moet worden uitgevoerd als root of er is 403-fout geretourneerd tijdens onboarding. Voer uw opdracht met `sudo`. |
-| 6 | Ongeldige pakket-architectuur of er is fout 200-fout geretourneerd tijdens onboarding; omsagent -*x64.sh pakketten kunnen alleen worden geïnstalleerd op 64-bits systemen, en omsagent -* x86.sh pakketten kunnen alleen worden geïnstalleerd op 32-bits systemen. Download het juiste pakket voor de architectuur van de [nieuwste release](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
-| 17 | Installatie van de OMS-pakket is mislukt. Bekijk de uitvoer van de opdracht voor het root-mislukken. |
-| 19 | Installatie van OMI-pakket is mislukt. Bekijk de uitvoer van de opdracht voor het root-mislukken. |
-| 20 | Installatie van de SCX-pakket is mislukt. Bekijk de uitvoer van de opdracht voor het root-mislukken. |
-| 21 | Installatie van Provider kits is mislukt. Bekijk de uitvoer van de opdracht voor het root-mislukken. |
-| 22 | Installatie van gebundelde pakket is mislukt. Bekijk de uitvoer van de opdracht voor het root-fout |
-| 23 | SCX of OMI pakket is al geïnstalleerd. Gebruik `--upgrade` in plaats van `--install` voor het installeren van de shell-bundel. |
-| 30 | Fout bij het interne bundel. Bestand een [GitHub-probleem](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) met informatie uit de uitvoer. |
-| 55 | Niet-ondersteunde openssl-versie of kan geen verbinding maken met de service Log Analytics of dpkg is vergrendeld of ontbrekende curl programma. |
-| 61 | Ontbrekende Python ctypes-bibliotheek. Installeer de Python-bibliotheek voor ctypes of het pakket (python-ctypes). |
-| 62 | Ontbrekende tar programma tar installeren. |
-| 63 | Ontbrekende sed programma installeren sed. |
-| 64 | Ontbrekende curl programma installeren curl. |
-| 65 | Ontbrekende gpg programma gpg installeren. |
+| 2 | Ongeldige optie opgegeven voor de shell-bundel. Voer `sudo sh ./omsagent-*.universal*.sh --help` voor gebruik | |
+| 3 | Er is geen optie opgegeven voor de shell-bundel. Voer `sudo sh ./omsagent-*.universal*.sh --help` voor gebruik. | |
+| 4 | Typt u het pakket is ongeldig of ongeldige proxy-instellingen. omsagent -*rpm*.sh pakketten kunnen alleen worden geïnstalleerd op de RPM-systemen, en omsagent -*deb*.sh pakketten kunnen alleen worden geïnstalleerd op Debian gebaseerde systemen. Het is raadzaam om het gebruik van de universal installer uit de [nieuwste release](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Lees ook om te controleren of de proxy-instellingen. | |
+| 5 | De shell-bundel moet worden uitgevoerd als root of er is 403-fout geretourneerd tijdens onboarding. Voer uw opdracht met `sudo`. | |
+| 6 | Ongeldige pakket-architectuur of er is fout 200-fout geretourneerd tijdens onboarding; omsagent -\*x64.sh pakketten kunnen alleen worden geïnstalleerd op 64-bits systemen, en omsagent -\*x86.sh pakketten kunnen alleen worden geïnstalleerd op 32-bits systemen. Download het juiste pakket voor de architectuur van de [nieuwste release](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). | |
+| 17 | Installatie van de OMS-pakket is mislukt. Bekijk de uitvoer van de opdracht voor het root-mislukken. | |
+| 19 | Installatie van OMI-pakket is mislukt. Bekijk de uitvoer van de opdracht voor het root-mislukken. | |
+| 20 | Installatie van de SCX-pakket is mislukt. Bekijk de uitvoer van de opdracht voor het root-mislukken. | |
+| 21 | Installatie van Provider kits is mislukt. Bekijk de uitvoer van de opdracht voor het root-mislukken. | |
+| 22 | Installatie van gebundelde pakket is mislukt. Bekijk de uitvoer van de opdracht voor het root-fout | |
+| 23 | SCX of OMI pakket is al geïnstalleerd. Gebruik `--upgrade` in plaats van `--install` voor het installeren van de shell-bundel. | |
+| 30 | Fout bij het interne bundel. Bestand een [GitHub-probleem](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) met informatie uit de uitvoer. | |
+| 55 | Niet-ondersteunde openssl-versie of kan geen verbinding maken met de service Log Analytics of dpkg is vergrendeld of ontbrekende curl programma. | |
+| 61 | Ontbrekende Python ctypes-bibliotheek. Installeer de Python-bibliotheek voor ctypes of het pakket (python-ctypes). | |
+| 62 | Ontbrekende tar programma tar installeren. | |
+| 63 | Ontbrekende sed programma installeren sed. | |
+| 64 | Ontbrekende curl programma installeren curl. | |
+| 65 | Ontbrekende gpg programma gpg installeren. | |
 
 ## <a name="onboarding-error-codes"></a>Onboarding-foutcodes
 
@@ -161,17 +161,17 @@ Onder de uitvoer-invoegtoepassing, verwijder opmerkingen bij de volgende sectie 
 
 ### <a name="resolution"></a>Oplossing
 1. Reonboard naar de Log Analytics-service met de Log Analytics-agent voor Linux met behulp van de volgende opdracht uit met de optie `-v` ingeschakeld. Hiermee kunt uitgebreide uitvoer van de agent verbinding te maken via de proxy voor de service Log Analytics. 
-`/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
+   `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
-2. Raadpleeg de sectie [proxy-instellingen bijwerken](agent-manage.md#update-proxy-settings) om te controleren of de agent kan communiceren via een proxyserver goed is geconfigureerd.    
-* Controleer of de volgende Log Analytics-eindpunten opgenomen in de whitelist zijn:
+1. Raadpleeg de sectie [proxy-instellingen bijwerken](agent-manage.md#update-proxy-settings) om te controleren of de agent kan communiceren via een proxyserver goed is geconfigureerd.    
+1. Controleer of de volgende Log Analytics-eindpunten opgenomen in de whitelist zijn:
 
-    |Agentresource| Poorten | Richting |
-    |------|---------|----------|  
-    |*.ods.opinsights.azure.com | Poort 443| Binnenkomend en uitgaand |  
-    |*.oms.opinsights.azure.com | Poort 443| Binnenkomend en uitgaand |  
-    |*.blob.core.windows.net | Poort 443| Binnenkomend en uitgaand |  
-    |*.azure-automation.net | Poort 443| Binnenkomend en uitgaand | 
+     |Agentresource| Poorten | Richting |
+     |------|---------|----------|  
+     |*.ods.opinsights.azure.com | Poort 443| Binnenkomend en uitgaand |  
+     |*.oms.opinsights.azure.com | Poort 443| Binnenkomend en uitgaand |  
+     |*.blob.core.windows.net | Poort 443| Binnenkomend en uitgaand |  
+     |*.azure-automation.net | Poort 443| Binnenkomend en uitgaand | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Probleem: U ontvangt een 403-fout bij het vrijgeven
 
@@ -366,15 +366,15 @@ Deze fout geeft aan dat de Linux Diagnostic-extensie (LAD) naast de Log Analytic
 * De instelling **de volgende configuratie toepassen op mijn Linux-Servers** niet is geselecteerd.
 * omsconfig heeft niet de meest recente configuratie van het aangepaste logboek van de service opgehaald.
 * Log Analytics-agent voor Linux-gebruiker `omsagent` geen toegang krijgt tot het aangepaste logboek vanwege ontoereikende machtigingen of niet kan worden gevonden.  U ziet mogelijk de volgende fouten:
- * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
- * `[DATETIME] [error]: file not accessible by omsagent.`
+  * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
+  * `[DATETIME] [error]: file not accessible by omsagent.`
 * Bekend probleem met een zeldzame situatie vast in Log Analytics-agent voor Linux-versie 1.1.0-217
 
 ### <a name="resolution"></a>Oplossing
 1. Controleer of onboarding naar de met Log Analytics is geslaagd door te controleren of het volgende bestand bestaat: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. Als niet, beide:  
 
-  1. Via de opdrachtregel omsadmin.sh Reonboard [instructies](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
-  2. Onder **geavanceerde instellingen** in Azure portal, zorg ervoor dat de instelling **de volgende configuratie toepassen op mijn Linux-Servers** is ingeschakeld.  
+   1. Via de opdrachtregel omsadmin.sh Reonboard [instructies](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
+   2. Onder **geavanceerde instellingen** in Azure portal, zorg ervoor dat de instelling **de volgende configuratie toepassen op mijn Linux-Servers** is ingeschakeld.  
 
 2. Controleer of de `omsconfig` agent kan communiceren met de Log Analytics-service met de volgende opdracht `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Met deze opdracht retourneert de configuratie die agent ontvangt van de service, waaronder instellingen voor Syslog-, Linux-prestatiemeteritems en aangepaste logboeken. Als deze opdracht mislukt, voert u de volgende opdracht `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Met deze opdracht zorgt ervoor dat de agent omsconfig om te communiceren met de Log Analytics-service en de meest recente configuratie op te halen.
 
@@ -408,9 +408,9 @@ U kunt reonboard nadat u de `--purge` optie
 ### <a name="resolution"></a>Oplossing 
 Voer de volgende stappen uit om het probleem te verhelpen.
 1. Verwijder de extensie van Azure-portal.
-2. Installeer de agent na de [instructies](../../azure-monitor/learn/quick-collect-linux-computer.md).
-3. Start de agent opnieuw met de volgende opdracht: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-* Wacht enkele minuten en de Inrichtingsstatus is gewijzigd in **inrichting geslaagd**.
+1. Installeer de agent na de [instructies](../../azure-monitor/learn/quick-collect-linux-computer.md).
+1. Start de agent opnieuw met de volgende opdracht: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+1. Wacht enkele minuten en de Inrichtingsstatus is gewijzigd in **inrichting geslaagd**.
 
 
 ## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Probleem: De Log Analytics-agent bijwerken op aanvraag

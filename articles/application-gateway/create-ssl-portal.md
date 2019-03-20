@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 33e24a8d8715dd6f2b37ed566a1479dffd93c466
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308088"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091831"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Een toepassingsgateway met SSL-beëindiging met Azure portal configureren
 
@@ -78,12 +78,12 @@ U hebt een virtueel netwerk nodig voor communicatie tussen de resources die u ma
 4. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
 5. Klik op **Een virtueel netwerk kiezen**, klik op **Nieuw maken** en voer deze waarden in voor het virtuele netwerk:
 
-    - *myVnet* als de naam van het virtuele netwerk.
-    - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
-    - *myAGSubnet* als de naam van het subnet.
-    - *10.0.0.0/24* als de adresruimte van het subnet.
+   - *myVnet* als de naam van het virtuele netwerk.
+   - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
+   - *myAGSubnet* als de naam van het subnet.
+   - *10.0.0.0/24* als de adresruimte van het subnet.
 
-    ![Virtueel netwerk maken](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Virtueel netwerk maken](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Klik op **OK** om het virtuele netwerk en subnet te maken.
 7. Klik op **een openbaar IP-adres kiezen**, klikt u op **nieuw**, en voer de naam van het openbare IP-adres. In dit voorbeeld is de naam van het openbare IP-adres *myAGPublicIPAddress*. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
@@ -149,13 +149,13 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 
 ### <a name="add-backend-servers"></a>Back-endservers toevoegen
 
-3. Klik op **Alle resources** en vervolgens op **myAppGateway**.
-4. Klik op **Back-endpools**. Er is automatisch een standaardpool gemaakt met de toepassingsgateway. Klik op **appGatewayBackendPool**.
-5. Klik op **toevoegen doel** elke virtuele machine die u hebt gemaakt aan de back-endpool toevoegen.
+1. Klik op **Alle resources** en vervolgens op **myAppGateway**.
+1. Klik op **Back-endpools**. Er is automatisch een standaardpool gemaakt met de toepassingsgateway. Klik op **appGatewayBackendPool**.
+1. Klik op **toevoegen doel** elke virtuele machine die u hebt gemaakt aan de back-endpool toevoegen.
 
     ![Back-endservers toevoegen](./media/create-ssl-portal/application-gateway-backend.png)
 
-6. Klik op **Opslaan**.
+1. Klik op **Opslaan**.
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 

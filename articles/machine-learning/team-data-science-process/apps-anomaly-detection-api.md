@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: e407aee98bef9917a99e3305e2c99dbdd0c182e0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e5f428062155ea732dce785955ac76011f3e4678
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899346"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning-Anomaliedetectie-API
 ## <a name="overview"></a>Overzicht
@@ -32,7 +32,7 @@ Dergelijke wijzigingen in de waarden bijhouden gedurende een tijd en rapport doo
 
 De Anomaliedetectie-aanbieding wordt geleverd met handige's aan de slag te gaan.
 
-* De [webtoepassing](http://anomalydetection-aml.azurewebsites.net/) helpt u bij het evalueren en de resultaten van de anomaliedetectie-API's voor uw gegevens te visualiseren.
+* De [webtoepassing](https://anomalydetection-aml.azurewebsites.net/) helpt u bij het evalueren en de resultaten van de anomaliedetectie-API's voor uw gegevens te visualiseren.
 
 > [!NOTE]
 > Probeer **oplossing IT Anomaly Insights** mogelijk gemaakt door [deze API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
@@ -110,9 +110,9 @@ De anomaliedetectie-API biedt ondersteuning voor detectoren in 3 hoofdcategorie�
 | Categorie detector | Detector | Description | Invoerparameters | Uitvoer |
 | --- | --- | --- | --- | --- |
 | Piek detectoren |TSpike Detector |Pieken en dips n op basis van veel van de waarden afkomstig zijn van de eerste en derde kwartielen detecteren |*tspikedetector.Sensitivity:* duurt geheel getal in het bereik 1-10, standaard: 3. Hogere waarden wordt meer extreme waarden zijn waardoor er minder gevoelig zijn variabel |TSpike: binaire waarden: '1' als er een piek/dip wordt gedetecteerd, '0' anders |
-| Piek detectoren | ZSpike Detector |Pieken en dips n op basis van hoe ver de datapoints afkomstig van hun gemiddelde zijn detecteren |*zspikedetector.Sensitivity:* geheel getal in het bereik 1-10, standaard nemen: 3. Hogere waarden wordt meer extreme waarden, zodat u minder gevoelig zijn variabel |ZSpike: binaire waarden: '1' als er een piek/dip wordt gedetecteerd, '0' anders | |
+| Piek detectoren | ZSpike Detector |Pieken en dips n op basis van hoe ver de datapoints afkomstig van hun gemiddelde zijn detecteren |*zspikedetector.Sensitivity:* geheel getal in het bereik 1-10, standaard nemen: 3. Hogere waarden wordt meer extreme waarden, zodat u minder gevoelig zijn variabel |ZSpike: binaire waarden: '1' als er een piek/dip wordt gedetecteerd, '0' anders |
 | Trage Trend Detector |Trage Trend Detector |Detecteren van trage positieve trend aan de hand van de gevoeligheid instellen |*trenddetector.Sensitivity:* drempelwaarde op detector score (standaard: 3,25, 3,25 – 5 is en selecteer deze optie uit; een redelijke liggen Hoe hoger de minder gevoelig) |tscore: zwevende getal voor anomaliedetectie score op trend |
-| De detectoren niveau wijzigen | Het niveau van bidirectionele wijziging Detector |Omhoog en omlaag de wijzigingen aan de hand van de gevoeligheid instellen detecteren |*bileveldetector.Sensitivity:* drempelwaarde op detector score (standaard: 3,25, 3,25 – 5 is en selecteer deze optie uit; een redelijke liggen Hoe hoger de minder gevoelig) |rpscore: zwevende getal voor anomaliedetectie score op omhoog en omlaag niveau wijzigen | |
+| De detectoren niveau wijzigen | Het niveau van bidirectionele wijziging Detector |Omhoog en omlaag de wijzigingen aan de hand van de gevoeligheid instellen detecteren |*bileveldetector.Sensitivity:* drempelwaarde op detector score (standaard: 3,25, 3,25 – 5 is en selecteer deze optie uit; een redelijke liggen Hoe hoger de minder gevoelig) |rpscore: zwevende getal voor anomaliedetectie score op omhoog en omlaag niveau wijzigen |
 
 ### <a name="parameters"></a>Parameters
 Meer gedetailleerde informatie over deze invoerparameters die zijn opgegeven wordt in de onderstaande tabel vermeld:

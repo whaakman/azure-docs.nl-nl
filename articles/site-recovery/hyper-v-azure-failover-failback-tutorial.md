@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 03b8dd9bd0a7acc63fdae66330904142384429a8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: ead2b83fb7bf505fe4cbb5a09a383598617066a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104043"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Failover en failback voor virtuele Hyper-V-machines die zijn gerepliceerd naar Azure
 
@@ -49,13 +49,13 @@ Controleer voorafgaand aan failover de eigenschappen van de virtuele machine om 
 
 Klik in **Beveiligde items** op **Gerepliceerde items** > VM.
 
-2. In het deelvenster **Gerepliceerd item** bevindt zich een overzicht van VM-informatie, status, en de laatste beschikbare herstelpunten. Klik op **Eigenschappen** om meer details te bekijken.
+1. In het deelvenster **Gerepliceerd item** bevindt zich een overzicht van VM-informatie, status, en de laatste beschikbare herstelpunten. Klik op **Eigenschappen** om meer details te bekijken.
 
-3. In **Berekening en netwerk** kunt u de Azure-naam, de resourcegroep, de doelgrootte, [beschikbaarheidsset](../virtual-machines/windows/tutorial-availability-sets.md) en instellingen van de beheerde schijf wijzigen
+1. In **Berekening en netwerk** kunt u de Azure-naam, de resourcegroep, de doelgrootte, [beschikbaarheidsset](../virtual-machines/windows/tutorial-availability-sets.md) en instellingen van de beheerde schijf wijzigen
 
-4. U kunt de netwerkinstellingen bekijken en wijzigen, inclusief het netwerk-/subnet waarin de Azure VM zich na failover bevindt en het IP-adres dat eraan wordt toegewezen.
+1. U kunt de netwerkinstellingen bekijken en wijzigen, inclusief het netwerk-/subnet waarin de Azure VM zich na failover bevindt en het IP-adres dat eraan wordt toegewezen.
 
-5. In **Schijven** ziet u informatie over het besturingssysteem en de gegevensschijven van de VM.
+1. In **Schijven** ziet u informatie over het besturingssysteem en de gegevensschijven van de VM.
 
 ## <a name="failover-to-azure"></a>Failover naar Azure
 

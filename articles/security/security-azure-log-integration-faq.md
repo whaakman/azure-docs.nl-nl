@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: fc94208ef01e52207b6efbf88223119cf58ddb7f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4f6a724fe6c1e8668084f1c1cefbaa01cffba181
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727159"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005847"
 ---
 # <a name="azure-log-integration-faq"></a>Azure-Logboekintegratie Veelgestelde vragen
 
@@ -99,7 +99,7 @@ De **azlog createazureid** opdracht wordt geprobeerd te maken van een service-pr
 
 Fout:
 
-  *Waarschuwing roltoewijzing - AuthorizationFailed maken: De client janedo@microsoft.com' met object-id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' geen autorisatie om uit te voeren actie 'Microsoft.Authorization/roleAssignments/write' over scope '/ subscriptions/70 d 95299-d689-4 c 97-b971-0d8ff0000000'.*
+  *Waarschuwing roltoewijzing - AuthorizationFailed maken: De client-janedo\@microsoft.com' met object-id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' geen autorisatie om uit te voeren actie 'Microsoft.Authorization/roleAssignments/write' over scope ' /subscriptions/ 70d 95299-d689-4c 97-b971-0d8ff0000000'.*
 
 De **azlog autoriseren** opdracht wordt de rol van lezer toegewezen aan de service-principal voor Azure AD (die zijn gemaakt met **azlog createazureid**) naar de opgegeven abonnementen. Als de Azure-aanmelding niet een CO-beheerder of een eigenaar van het abonnement is, mislukt het met een foutbericht "Autorisatie is mislukt" weergegeven. Azure Role-Based Access Control (RBAC) van CO-beheerder of eigenaar is nodig om deze actie te voltooien.
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 4911a872a4b5479abe84c2e06573256092185cf2
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669698"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450939"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Connected Services in Visual Studio gebruiken voor verbinding met de Computer Vision-API
 
@@ -92,7 +92,7 @@ Dit artikel en de bijbehorende artikelen bieden details over het gebruik van de 
       }
    ```
 
-1. Voeg in de wwwroot-map van uw project een afbeeldingenmap toe en voeg een afbeeldingsbestand toe in de wwwroot-map. Als voorbeeld kunt u een van de afbeeldingen gebruiken op deze [Computer Vision-API-pagina](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Klik met de rechtermuisknop op een van de afbeeldingen en sla deze op uw lokale vaste schijf op. Klik in Solution Explorer met de rechtermuisknop op de afbeeldingenmap en kies **Bestaand item** > **toevoegen** om de afbeelding toe te voegen aan uw project. Uw project ziet er ongeveer als volgt uit in Solution Explorer: 
+1. Voeg in de wwwroot-map van uw project een afbeeldingenmap toe en voeg een afbeeldingsbestand toe in de wwwroot-map. Als voorbeeld kunt u een van de afbeeldingen gebruiken op deze [Computer Vision-API-pagina](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Met de rechtermuisknop op een van de installatiekopieën, opslaan op uw lokale vaste schijf en klik in Solution Explorer met de rechtermuisknop op de afbeeldingenmap en kies **toevoegen** > **bestaand Item** toe te voegen aan uw project. Uw project ziet er ongeveer als volgt uit in Solution Explorer: 
   
    ![Schermafbeelding van Solution Explorer met een afbeeldingsbestand geselecteerd](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 

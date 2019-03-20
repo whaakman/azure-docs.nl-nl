@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: dkshir
-ms.openlocfilehash: 28433f8f3f181c507521cb12f064df045ae21d9d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212189"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537453"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Zelfstudie: Azure Digital Twins implementeren en een ruimtelijke grafiek configureren
 
@@ -173,7 +173,7 @@ Sla het bestand provisionSample.yaml op en sluit het. In de volgende zelfstudie 
 
 Als u Azure Digital Twins niet verder wilt verkennen, kunt u de resources die in deze zelfstudie zijn gemaakt, gerust verwijderen:
 
-1. Klik in het linkermenu in de [Azure-portal](http://portal.azure.com) op **Alle resources**, selecteer de Digital Twins-resourcegroep en selecteer **Verwijderen**.
+1. Klik in het linkermenu in de [Azure-portal](https://portal.azure.com) op **Alle resources**, selecteer de Digital Twins-resourcegroep en selecteer **Verwijderen**.
 
     > [!TIP]
     > Als u problemen hebt bij het verwijderen van uw Digital Twins-exemplaar, is er een service-update met de oplossing hiervoor beschikbaar. Probeer opnieuw of u het exemplaar kunt verwijderen.

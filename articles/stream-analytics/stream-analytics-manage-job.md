@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: dfdccaf929aa382c8003bc4c3cc0988a7123bf2d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: d802fade0ff9c5b4bc329c7451144d8c782f8d3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097937"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Gegevens van telefoongesprekken met Stream Analytics analyseren en de resultaten visualiseren in een Power BI-dashboard
 
@@ -35,7 +35,7 @@ In deze zelfstudie leert u het volgende:
 Zorg ervoor dat u het volgende hebt voordat u begint:
 
 * Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) aan.
-* Meld u aan bij de [Azure-portal](https://portal.azure.com/).
+* Meld u aan bij [Azure Portal](https://portal.azure.com/).
 * Download de app voor het genereren van telefoongesprekken [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) in het Microsoft Downloadcentrum of haal de broncode op van [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * U hebt een Power BI-account nodig.
 
@@ -45,7 +45,7 @@ Voordat Stream Analytics de gegevensstroom van frauduleuze gesprekken kan analys
 
 Gebruik de volgende stappen voor het maken van een Event Hub en verzenden van gespreksgegevens naar die Event Hub:
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Selecteer **Een resource maken** > **Internet of Things** > **Event Hubs**.
 
    ![Azure Event Hub in de portal maken](media/stream-analytics-manage-job/find-event-hub-resource.png)
@@ -53,7 +53,7 @@ Gebruik de volgende stappen voor het maken van een Event Hub en verzenden van ge
 
    |**Instelling**  |**Voorgestelde waarde** |**Beschrijving**  |
    |---------|---------|---------|
-   |Naam     | myEventHubsNS        |  Een unieke naam voor het identificeren van de event hub-naamruimte.       |
+   |Name     | myEventHubsNS        |  Een unieke naam voor het identificeren van de event hub-naamruimte.       |
    |Abonnement     |   \<Uw abonnement\>      |   Selecteer een Azure-abonnement waarvoor u de event hub wilt maken.      |
    |Resourcegroep     |   MyASADemoRG      |  Selecteer **Nieuwe maken** en voer een naam voor de nieuwe resourcegroep voor uw account in.       |
    |Locatie     |   US - west 2      |    De locatie waar de event hub-naamruimte kan worden geïmplementeerd.     |
@@ -180,7 +180,7 @@ De laatste stap is bedoeld voor het definiëren van een uitvoerlocatie voor de t
 3. Selecteer **+ Toevoegen** > **Power BI**. Vul vervolgens het formulier in met de volgende gegevens en selecteer **Autoriseren**:
 
    |**Instelling**  |**Voorgestelde waarde**  |
-   |---------|---------|---------|
+   |---------|---------|
    |Uitvoeralias  |  MyPBIoutput  |
    |Naam van de gegevensset  |   ASAdataset  |
    |Tabelnaam |  ASATable  |
@@ -236,7 +236,7 @@ U kunt een query vanuit de query-editor testen met behulp van voorbeeldgegevens.
 
 4. Selecteer **Testen** om de query te testen. U ziet de volgende resultaten:
 
-   ![Uitvoer van test van Stream Analytics-query](media/stream-analytics-manage-job/sample-test-output-restuls.png)
+   ![Uitvoer van Stream Analytics query testen](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## <a name="start-the-job-and-visualize-output"></a>De taak starten en uitvoer visualiseren
 

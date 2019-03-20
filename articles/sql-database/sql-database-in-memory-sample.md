@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 9551f07efa9d388da69b6474f6a2dd5af947ff2c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767648"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005737"
 ---
 # <a name="in-memory-sample"></a>In-Memory-voorbeeld
 
@@ -190,11 +190,11 @@ Zie voor meer informatie:
 <!--
 dn511655.aspx is for SQL 2014,
 [Extensions to AdventureWorks to Demonstrate In-Memory OLTP]
-(http://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
+(https://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
 
 whereas for SQL 2016+
 [Sample Database for In-Memory OLTP]
-(http://msdn.microsoft.com/library/mt465764.aspx)
+(https://msdn.microsoft.com/library/mt465764.aspx)
 -->
 
 
@@ -244,9 +244,9 @@ Nadat u het resultaat van hebt de *_inmem* uitvoeren, voert u de volgende stappe
 
 
 1. Opnieuw instellen van de database met de volgende opdracht in SSMS om alle gegevens te verwijderen die door de vorige uitvoering is ingevoegd:
-```sql
-EXECUTE Demo.usp_DemoReset;
-```
+   ```sql
+   EXECUTE Demo.usp_DemoReset;
+   ```
 
 2. Bewerken van de opdrachtregel ostress.exe vervangen van alle *_inmem* met *_ondisk*.
 
@@ -277,13 +277,13 @@ Realtime analyses over een OLTP-werkbelasting is het vaak het beste een niet-gec
 
 
 1. De Azure portal gebruiken voor het maken van een nieuwe AdventureWorksLT-database van het voorbeeld.
- - Gebruikt deze naam.
- - Kies een Premium-servicelaag.
+   - Gebruikt deze naam.
+   - Kies een Premium-servicelaag.
 
 2. Kopieer de [sql_in memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) naar het Klembord.
- - De T-SQL-script maakt u de objecten die nodig zijn In-Memory in de AdventureWorksLT-voorbeelddatabase die u in stap 1 hebt gemaakt.
- - Het script maakt u de dimensietabel en twee feitentabellen. De feitentabellen worden ingevuld met 3,5 miljoen rijen.
- - Het script kan 15 minuten duren.
+   - De T-SQL-script maakt u de objecten die nodig zijn In-Memory in de AdventureWorksLT-voorbeelddatabase die u in stap 1 hebt gemaakt.
+   - Het script maakt u de dimensietabel en twee feitentabellen. De feitentabellen worden ingevuld met 3,5 miljoen rijen.
+   - Het script kan 15 minuten duren.
 
 3. Plak de T-SQL-script in SSMS en vervolgens het script wordt uitgevoerd. De **COLUMNSTORE** sleutelwoord in de **CREATE INDEX** instructie is van cruciaal belang, zoals in:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 

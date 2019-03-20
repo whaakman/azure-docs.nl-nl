@@ -1,18 +1,18 @@
 ---
 title: Bijlage - Azure Disk Encryption voor IaaS-VM's | Microsoft Docs
 description: Dit artikel is de bijlage voor Microsoft Azure Disk Encryption voor Windows en Linux IaaS-VM's.
-author: mestew
+author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/06/2019
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6632647c7782411d0d124c325f9bf0afff7e699d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5152058643b97e11c7487d470d4f7d3fc9d96b6e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767785"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878122"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Bijlage voor Azure Disk Encryption 
 
@@ -130,7 +130,7 @@ De volgende tabel ziet u welke parameters kunnen worden gebruikt in het PowerShe
 - [Schijfversleuteling voor de bestaande of het uitvoeren van IaaS Windows-VM's inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)
 - [Schijfversleuteling voor de bestaande of het uitvoeren van IaaS Windows-VM's uitschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)
 - [Schijfversleuteling voor een bestaande of actieve IaaS virtuele Linux-machine inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
- -  [Schakel versleuteling uit op een actieve Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
+  - [Schakel versleuteling uit op een actieve Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Als u versleuteling uitschakelt is alleen toegestaan op gegevensvolumes voor virtuele Linux-machines.  
 
 ### <a name="encrypt-or-decrypt-vm-scale-sets"></a>Versleutelen of ontsleutelen van VM-schaalsets
@@ -139,9 +139,9 @@ De volgende tabel ziet u welke parameters kunnen worden gebruikt in het PowerShe
 
 - [Schijfversleuteling op een actieve virtuele-machineschaalset met Windows inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 
- - [Een VM Scale instellen van virtuele Linux-machines met een jumpbox en kunnen versleuteling voor VMSS Linux implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+  - [Een VM Scale instellen van virtuele Linux-machines met een jumpbox en kunnen versleuteling voor VMSS Linux implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
- - [Een virtuele machine Schaalsets van Windows van virtuele machines met een jumpbox en kunnen versleuteling voor VMSS Windows implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+  - [Een virtuele machine Schaalsets van Windows van virtuele machines met een jumpbox en kunnen versleuteling voor VMSS Windows implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
 - [Schijfversleuteling op een actieve Linux virtuele-machineschaalset uitschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
@@ -215,22 +215,22 @@ Gebruik de [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx)
 ### <a name="steps"></a>Stappen
 1. Een virtuele machine maken met behulp van een van de distributies die eerder zijn opgegeven.
 
- OS-schijfversleuteling wordt ondersteund voor 7.2 CentOS, via een speciale installatiekopie. Geef voor het gebruik van deze installatiekopie, "7.2n' als de SKU bij het maken van de virtuele machine:
+   OS-schijfversleuteling wordt ondersteund voor 7.2 CentOS, via een speciale installatiekopie. Geef voor het gebruik van deze installatiekopie, "7.2n' als de SKU bij het maken van de virtuele machine:
 
- ```powershell
+   ```powershell
     Set-AzVMSourceImage -VM $VirtualMachine -PublisherName "OpenLogic" -Offer "CentOS" -Skus "7.2n" -Version "latest"
- ```
+   ```
 2. Configureer de virtuele machine op basis van uw behoeften. Als u schijven voor het versleutelen van alle de (OS + gegevens), de gegevensstations moeten worden opgegeven en koppelbaar uit/etc/fstab gaan.
 
- > [!NOTE]
- > Gebruik de UUID =... om op te geven gegevensstations in/etc/fstab in plaats van de apparaatnaam blokkeren (bijvoorbeeld/dev/sdb1) op te geven. Tijdens het versleutelen wijzigt de volgorde van de stations op de virtuele machine. Als uw virtuele machine is afhankelijk van een specifieke volgorde van de blokapparaten, mislukt dit ze na versleuteling te koppelen.
+   > [!NOTE]
+   > Gebruik de UUID =... om op te geven gegevensstations in/etc/fstab in plaats van de apparaatnaam blokkeren (bijvoorbeeld/dev/sdb1) op te geven. Tijdens het versleutelen wijzigt de volgorde van de stations op de virtuele machine. Als uw virtuele machine is afhankelijk van een specifieke volgorde van de blokapparaten, mislukt dit ze na versleuteling te koppelen.
 
 3. Afmelden bij de SSH-sessies.
 
 4. Geef voor het versleutelen van het besturingssysteem, volumeType als **alle** of **OS** wanneer u versleuteling inschakelt.
 
- > [!NOTE]
- > Alle gebruikersruimte processen die niet worden uitgevoerd als `systemd` services moeten worden afgesloten met een `SIGKILL`. Start opnieuw op de virtuele machine. Wanneer u versleuteling van OS-schijf op een actieve virtuele machine inschakelt, plan dan op downtime van VM's.
+   > [!NOTE]
+   > Alle gebruikersruimte processen die niet worden uitgevoerd als `systemd` services moeten worden afgesloten met een `SIGKILL`. Start opnieuw op de virtuele machine. Wanneer u versleuteling van OS-schijf op een actieve virtuele machine inschakelt, plan dan op downtime van VM's.
 
 5. Controleer regelmatig de voortgang van versleuteling met behulp van de instructies in de [volgende sectie](#monitoring-os-encryption-progress).
 
@@ -244,7 +244,7 @@ Gebruik de [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx)
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, reboot the VM
     ```
-Voordat u het opnieuw opstarten, wordt aangeraden dat u opslaat [diagnostische gegevens over opstarten](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) van de virtuele machine.
+   Voordat u het opnieuw opstarten, wordt aangeraden dat u opslaat [diagnostische gegevens over opstarten](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) van de virtuele machine.
 
 ## <a name="monitoring-os-encryption-progress"></a>Voortgang van de OS-versleuteling controleren
 U kunt de OS-versleuteling wordt uitgevoerd op drie manieren controleren:
@@ -256,14 +256,14 @@ U kunt de OS-versleuteling wordt uitgevoerd op drie manieren controleren:
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk encryption started
     ```
- Wanneer de virtuele machine bereikt 'OS-schijf versleuteling aan de slag', duurt het ongeveer 40 tot 50 minuten back virtuele machine op een Premium-opslag.
+  Wanneer de virtuele machine bereikt 'OS-schijf versleuteling aan de slag', duurt het ongeveer 40 tot 50 minuten back virtuele machine op een Premium-opslag.
 
- Vanwege [uitgeven #388](https://github.com/Azure/WALinuxAgent/issues/388) in WALinuxAgent, `OsVolumeEncrypted` en `DataVolumesEncrypted` weergegeven als `Unknown` in bepaalde distributies. Met versie 2.1.5 WALinuxAgent en later, dit probleem automatisch is opgelost. Als u ziet `Unknown` in de uitvoer kunt u schijfversleuteling status controleren met behulp van Azure Resource Explorer.
+  Vanwege [uitgeven #388](https://github.com/Azure/WALinuxAgent/issues/388) in WALinuxAgent, `OsVolumeEncrypted` en `DataVolumesEncrypted` weergegeven als `Unknown` in bepaalde distributies. Met versie 2.1.5 WALinuxAgent en later, dit probleem automatisch is opgelost. Als u ziet `Unknown` in de uitvoer kunt u schijfversleuteling status controleren met behulp van Azure Resource Explorer.
 
- Ga naar [Azure Resource Explorer](https://resources.azure.com/), en vouw vervolgens deze hiërarchie in het deelvenster selectie op links:
+  Ga naar [Azure Resource Explorer](https://resources.azure.com/), en vouw vervolgens deze hiërarchie in het deelvenster selectie op links:
 
- ~~~~
- |-- subscriptions
+  ~~~~
+  |-- subscriptions
      |-- [Your subscription]
           |-- resourceGroups
                |-- [Your resource group]
@@ -272,11 +272,11 @@ U kunt de OS-versleuteling wordt uitgevoerd op drie manieren controleren:
                               |-- virtualMachines
                                    |-- [Your virtual machine]
                                         |-- InstanceView
-~~~~                
+  ~~~~                
 
- Schuif omlaag om te zien van de coderingsstatus van uw schijven in de InstanceView.
+  Schuif omlaag om te zien van de coderingsstatus van uw schijven in de InstanceView.
 
- ![Instantieweergave van virtuele machine](./media/azure-security-disk-encryption/vm-instanceview.png)
+  ![Instantieweergave van virtuele machine](./media/azure-security-disk-encryption/vm-instanceview.png)
 
 * Bekijk [diagnostische gegevens over opstarten](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Berichten van de extensie ADE moeten worden voorafgegaan door `[AzureDiskEncryption]`.
 
@@ -284,7 +284,7 @@ U kunt de OS-versleuteling wordt uitgevoerd op drie manieren controleren:
 
     /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
- We raden aan dat u niet aanmelden bij de virtuele machine terwijl OS-versleuteling uitgevoerd wordt. Kopieer de logboeken alleen als de andere twee methoden zijn mislukt.
+  We raden aan dat u niet aanmelden bij de virtuele machine terwijl OS-versleuteling uitgevoerd wordt. Kopieer de logboeken alleen als de andere twee methoden zijn mislukt.
 
 ## <a name="bkmk_preLinux"></a> Vooraf gecodeerde Linux-VHD voorbereiden
 De voorbereiding voor vooraf gecodeerde VHD's kan variëren afhankelijk van de distributie. Voorbeelden over het voorbereiden van [Ubuntu 16](#bkmk_Ubuntu), [openSUSE 13.2](#bkmk_openSUSE), en [CentOS 7](#bkmk_CentOS) beschikbaar zijn. 
@@ -294,23 +294,23 @@ Versleuteling tijdens de installatie van de distributie configureren met de volg
 
 1. Selecteer **configureren van versleutelde volumes** wanneer u de schijven partitioneren.
 
- ![Ubuntu 16.04 instellen - versleutelde volumes configureren](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+   ![Ubuntu 16.04 instellen - versleutelde volumes configureren](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2. Maak een afzonderlijke opstartstation, die niet moet worden versleuteld. Codeer uw basisstation.
 
- ![Ubuntu 16.04-installatie - optie apparaten voor het versleutelen van](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+   ![Ubuntu 16.04-installatie - optie apparaten voor het versleutelen van](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3. Geef een wachtwoordzin. Dit is de wachtwoordzin op die u hebt geüpload naar de key vault.
 
- ![Ubuntu 16.04 instellen - wachtwoordzin opgeven](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+   ![Ubuntu 16.04 instellen - wachtwoordzin opgeven](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4. Voltooi partitioneren.
 
- ![Ubuntu 16.04 instellen - partitionering voltooien](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+   ![Ubuntu 16.04 instellen - partitionering voltooien](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5. Wanneer u de virtuele machine worden opgestart en wordt gevraagd een wachtwoordzin, gebruikt u de wachtwoordzin die u hebt opgegeven in stap 3.
 
- ![Ubuntu 16.04 instellen - wachtwoordzin opgeven bij het opstarten](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+   ![Ubuntu 16.04 instellen - wachtwoordzin opgeven bij het opstarten](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
 6. De virtuele machine voorbereiden voor het uploaden naar Azure met [deze instructies](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). De laatste stap (opheffen van inrichting van de virtuele machine) worden niet uitgevoerd nog.
 
@@ -351,32 +351,32 @@ Configureren van versleuteling voor Azure door de volgende stappen:
      else
         echo "Success loading keyfile!" >&2
     fi
-```
+   ```
 
 2. Wijzigen van de configuratie van de crypt in */etc/crypttab*. Dit ziet er als volgt uit:
- ```
+   ```
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
 
 3. Als u wilt bewerken *azure_crypt_key.sh* in Windows en u hebt gekopieerd naar Linux voert `dos2unix /usr/local/sbin/azure_crypt_key.sh`.
 
 4. Uitvoerbare machtigingen toevoegen aan het script:
- ```
+   ```
     chmod +x /usr/local/sbin/azure_crypt_key.sh
- ```
+   ```
 5. Bewerken */etc/initramfs-tools/modules* door regels toe te voegen:
- ```
+   ```
     vfat
     ntfs
     nls_cp437
     nls_utf8
     nls_iso8859-1
-```
+   ```
 6. Voer `update-initramfs -u -k all` om bij te werken van de initramfs waarmee de `keyscript` van kracht.
 
 7. Nu kunt u de virtuele machine inrichting.
 
- ![Ubuntu 16.04 Setup - update-initramfs](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+   ![Ubuntu 16.04 Setup - update-initramfs](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 8. Ga door met de volgende stap en uw VHD uploaden naar Azure.
 
@@ -384,11 +384,11 @@ Configureren van versleuteling voor Azure door de volgende stappen:
 Voer de volgende stappen uit voor het configureren van versleuteling tijdens de installatie van softwaredistributie:
 1. Wanneer u de schijven partitioneren, selecteert u **Volumegroep versleutelen**, en voer een wachtwoord. Dit is het wachtwoord die u naar de sleutelkluis uploaden gaat.
 
- ![openSUSE 13.2 Setup - Volumegroep versleutelen](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
+   ![openSUSE 13.2 Setup - Volumegroep versleutelen](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
 2. Start de virtuele machine met behulp van uw wachtwoord.
 
- ![openSUSE 13.2 instellen - wachtwoordzin opgeven bij het opstarten](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
+   ![openSUSE 13.2 instellen - wachtwoordzin opgeven bij het opstarten](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
 3. De virtuele machine voorbereiden voor het uploaden naar Azure door de instructies in [een SLES of opensuse gebaseerde virtuele machine voor Azure voorbereiden](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). De laatste stap (opheffen van inrichting van de virtuele machine) worden niet uitgevoerd nog.
 
@@ -398,7 +398,7 @@ Voor het configureren van versleuteling met Azure werkt, moet u de volgende stap
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
     ```
 2. Opmerkingen bij de volgende regels aan het einde van het bestand /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
- ```bash
+   ```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -408,20 +408,20 @@ Voor het configureren van versleuteling met Azure werkt, moet u de volgende stap
     #        $systemdsystemunitdir/sysinit.target.wants/cryptsetup.target \
     #        systemd-ask-password systemd-tty-ask-password-agent
     #        inst_script "$moddir"/crypt-run-generator.sh /sbin/crypt-run-generator
- ```
+   ```
 
 3. De volgende regel aan het begin van het bestand /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh toevoegen:
- ```bash
+   ```bash
     DRACUT_SYSTEMD=0
- ```
-En wijzig alle instanties van:
- ```bash
+   ```
+   En wijzig alle instanties van:
+   ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
- ```
-in:
-```bash
+   ```
+   in:
+   ```bash
     if [ 1 ]; then
-```
+   ```
 4. Bewerk /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh en voegt deze toe aan '# Open LUKS apparaat':
 
     ```bash
@@ -452,19 +452,19 @@ in:
 Voer de volgende stappen uit voor het configureren van versleuteling tijdens de installatie van softwaredistributie:
 1. Selecteer **mijn gegevens versleutelen** wanneer u schijven partitioneren.
 
- ![CentOS 7 Setup - installatie van doel](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
+   ![CentOS 7 Setup - installatie van doel](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
 
 2. Zorg ervoor dat **versleutelen** is geselecteerd als de hoofdpartitie.
 
- ![CentOS 7 Setup - selecteren voor hoofdpartitie versleutelen](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
+   ![CentOS 7 Setup - selecteren voor hoofdpartitie versleutelen](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
 
 3. Geef een wachtwoordzin. Dit is de wachtwoordzin op die u naar de sleutelkluis uploaden gaat.
 
- ![Installatie van centOS 7 - wachtwoordzin opgeven](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
+   ![Installatie van centOS 7 - wachtwoordzin opgeven](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
 
 4. Wanneer u de virtuele machine worden opgestart en wordt gevraagd een wachtwoordzin, gebruikt u de wachtwoordzin die u hebt opgegeven in stap 3.
 
- ![CentOS 7 instellen - wachtwoordzin invoeren op opstartstatus](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
+   ![CentOS 7 instellen - wachtwoordzin invoeren op opstartstatus](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
 5. De virtuele machine voorbereiden voor het uploaden naar Azure met behulp van de instructies "CentOS 7.0 +" in [een CentOS gebaseerde virtuele machine voor Azure voorbereiden](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). De laatste stap (opheffen van inrichting van de virtuele machine) worden niet uitgevoerd nog.
 
@@ -478,7 +478,7 @@ Voor het configureren van versleuteling met Azure werkt, moet u de volgende stap
     ```
 
 2. Opmerkingen bij de volgende regels aan het einde van het bestand /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
-```bash
+   ```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -488,20 +488,20 @@ Voor het configureren van versleuteling met Azure werkt, moet u de volgende stap
     #        $systemdsystemunitdir/sysinit.target.wants/cryptsetup.target \
     #        systemd-ask-password systemd-tty-ask-password-agent
     #        inst_script "$moddir"/crypt-run-generator.sh /sbin/crypt-run-generator
-```
+   ```
 
 3. De volgende regel aan het begin van het bestand /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh toevoegen:
-```bash
+   ```bash
     DRACUT_SYSTEMD=0
-```
-En wijzig alle instanties van:
-```bash
+   ```
+   En wijzig alle instanties van:
+   ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
-```
-tot
-```bash
+   ```
+   tot
+   ```bash
     if [ 1 ]; then
-```
+   ```
 4. Bewerk /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh en voegt u het volgende na het '# Open LUKS apparaat':
     ```bash
     MountPoint=/tmp-keydisk-mount

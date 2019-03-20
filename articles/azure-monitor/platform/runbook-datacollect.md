@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 4f6076407ea4745556e59d44bd37ab85288e6bd2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102581"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Gegevens verzamelen in Log Analytics met een Azure Automation-runbook
 
@@ -131,13 +131,13 @@ Azure Automation bevat een omgeving te [test uw runbook](../../automation/automa
 
 ![Runbook-test](media/runbook-datacollect/test-runbook.png)
 
-6. Klik op **opslaan** om op te slaan van het runbook.
+1. Klik op **opslaan** om op te slaan van het runbook.
 1. Klik op **testvenster** openen van het runbook in de testomgeving.
-3. Omdat het runbook parameters heeft, wordt u gevraagd waarden op te geven voor hen. Voer de naam van de resourcegroep en het automation-account dat uw gaan voor het verzamelen van informatie over de taak uit.
-4. Klik op **Start** aan het begin van het runbook.
-3. Het runbook wordt gestart met de status van **in de wachtrij geplaatst** voordat deze gaat u naar **met**.
-3. Het runbook moet uitgebreide uitvoer worden weergegeven met de taken die worden verzameld in json-indeling. Als er geen taken worden weergegeven, klikt u vervolgens er mogelijk is er geen taken in het automation-account in het afgelopen uur gemaakt. Probeer een runbook starten in het automation-account en klikt u vervolgens de test opnieuw uitvoeren.
-4. Zorg ervoor dat de uitvoer naar Log Analytics eventuele fouten niet wordt weergegeven in de post-opdracht. U hebt een bericht dat lijkt op het volgende.
+1. Omdat het runbook parameters heeft, wordt u gevraagd waarden op te geven voor hen. Voer de naam van de resourcegroep en het automation-account dat uw gaan voor het verzamelen van informatie over de taak uit.
+1. Klik op **Start** aan het begin van het runbook.
+1. Het runbook wordt gestart met de status van **in de wachtrij geplaatst** voordat deze gaat u naar **met**.
+1. Het runbook moet uitgebreide uitvoer worden weergegeven met de taken die worden verzameld in json-indeling. Als er geen taken worden weergegeven, klikt u vervolgens er mogelijk is er geen taken in het automation-account in het afgelopen uur gemaakt. Probeer een runbook starten in het automation-account en klikt u vervolgens de test opnieuw uitvoeren.
+1. Zorg ervoor dat de uitvoer naar Log Analytics eventuele fouten niet wordt weergegeven in de post-opdracht. U hebt een bericht dat lijkt op het volgende.
 
     ![Post-uitvoer](media/runbook-datacollect/post-output.png)
 
@@ -189,9 +189,9 @@ De meest voorkomende manier om een runbook die worden verzameld van bewakingsgeg
 
 Zodra de planning is gemaakt, moet u instellen de parameterwaarden die telkens wanneer die deze planning het runbook begint worden gebruikt.
 
-6. Klik op **configureren parameters en uitvoerinstellingen**.
-7. Vul de waarden voor uw **ResourceGroupName** en **AutomationAccountName**.
-8. Klik op **OK**.
+1. Klik op **configureren parameters en uitvoerinstellingen**.
+1. Vul de waarden voor uw **ResourceGroupName** en **AutomationAccountName**.
+1. Klik op **OK**.
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Controleer of u runbook wordt gestart volgens planning
 Telkens wanneer een runbook wordt gestart, [wordt een taak gemaakt](../../automation/automation-runbook-execution.md) en eventuele uitvoer in het logboek geregistreerd. Dit zijn in feite dezelfde taken die het runbook worden verzameld. U kunt controleren of dat het runbook wordt gestart zoals verwacht door het controleren van de taken voor het runbook nadat de begintijd voor de planning is verstreken.

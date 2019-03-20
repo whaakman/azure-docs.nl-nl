@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
-ms.openlocfilehash: b617ccee1826dfcc05ca7131d1eb04fd98b6b627
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a52f42fb194d2f39861a57c95a664ad57b4f91d1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811151"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895869"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Back-up van een SharePoint-farm in Azure Stack
 U back-up van een SharePoint-farm in Azure Stack bij Microsoft Azure met behulp van Microsoft Azure Backup-Server (MABS) op ongeveer dezelfde manier dat u back-up van gegevens van andere bronnen. Azure Backup biedt flexibiliteit in de back-upschema maken het dagelijkse, wekelijkse, maandelijkse of jaarlijkse back-up verwijst en biedt u de bewaarperiode beleidsopties voor verschillende back-uppunten. Het biedt ook mogelijkheden voor het opslaan van kopieën van de lokale schijf voor snelle doelstellingen voor hersteltijd (RTO) en voor het opslaan van kopieën naar Azure voor het bewaren van voordelige, op de lange termijn.
@@ -222,10 +222,10 @@ In het volgende voorbeeld wordt de *herstellen van SharePoint-item* per ongeluk 
 5. Op dit moment, volg de procedure eerder in dit artikel om te herstellen van een SharePoint-inhoudsdatabase van schijf.
 
 ## <a name="faqs"></a>Veelgestelde vragen
-VRAAG: Kan ik een SharePoint-item naar de oorspronkelijke locatie herstellen als SharePoint is geconfigureerd met behulp van SQL AlwaysOn (met beveiliging op schijf)?<br>
+V: Kan ik een SharePoint-item naar de oorspronkelijke locatie herstellen als SharePoint is geconfigureerd met behulp van SQL AlwaysOn (met beveiliging op schijf)?<br>
 A: Ja, het item kan worden hersteld naar de oorspronkelijke SharePoint-site.
 
-VRAAG: Kan ik een SharePoint-database naar de oorspronkelijke locatie herstellen als SharePoint met behulp van SQL AlwaysOn is geconfigureerd?<br>
+V: Kan ik een SharePoint-database naar de oorspronkelijke locatie herstellen als SharePoint met behulp van SQL AlwaysOn is geconfigureerd?<br>
 A: Omdat SharePoint-databases zijn geconfigureerd in de SQL AlwaysOn, kan ze niet worden gewijzigd, tenzij de beschikbaarheidsgroep wordt verwijderd. MABS kan niet als gevolg hiervan, een database herstellen naar de oorspronkelijke locatie. U kunt een SQL Server-database naar een ander exemplaar van SQL Server herstellen.
 
 ## <a name="next-steps"></a>Volgende stappen

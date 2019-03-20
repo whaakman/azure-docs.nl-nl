@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e79fdf2d7d680b3a229385c0fd96d844b3425b18
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 1d886e146e9e18eb735e6f88d2cb2c1a4a472924
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992478"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996872"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Gegevens terugzetten vanaf een back-up in Azure Cosmos DB 
 
-Als u per ongeluk de database of een container verwijdert, kunt u [een ondersteuningsticket]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) of [contact opnemen met ondersteuning voor Azure]( https://azure.microsoft.com/support/options/) om terug te zetten van de gegevens van automatische online back-ups. Azure-ondersteuning is alleen beschikbaar voor geselecteerde abonnementen zoals **Standard**, ** Developer en hoger is dan deze abonnementen. Azure-ondersteuning is niet beschikbaar bij **Basic** plan. Zie voor meer informatie over de verschillende ondersteuningsplannen, de [ondersteuningsabonnementen voor Azure](https://azure.microsoft.com/support/plans/) pagina. 
+Als u per ongeluk de database of een container verwijdert, kunt u [een ondersteuningsticket]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) of [contact opnemen met ondersteuning voor Azure]( https://azure.microsoft.com/support/options/) om terug te zetten van de gegevens van automatische online back-ups. Azure-ondersteuning is alleen beschikbaar voor geselecteerde abonnementen zoals **Standard**, **Developer**, en hoger is dan deze abonnementen. Azure-ondersteuning is niet beschikbaar bij **Basic** plan. Zie voor meer informatie over de verschillende ondersteuningsplannen, de [ondersteuningsabonnementen voor Azure](https://azure.microsoft.com/support/plans/) pagina. 
 
 Voor het herstellen van een momentopname van de back-up van een specifieke Azure Cosmos DB is vereist dat de gegevens beschikbaar voor de duur van de back-cyclus die momentopname te maken zijn.
 

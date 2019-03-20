@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7db08cde0df1ba3d9bc227758ab3ad00c1fc422
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2f569b497afe01db0fc4c3aa29589e6f2c538faf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207367"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108658"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Quickstart: Een ontwikkelaarsomgeving instellen
 
@@ -55,8 +55,8 @@ Veel ontwikkelaars hebben al tenants via services of abonnementen die zijn gekop
 
 > [!TIP]
 > Als u de tenant-id wilt zoeken, kunt u:
-* De muisaanwijzer op uw accountnaam houden om de directory/tenant-ID te zien, of
-* **Azure Active Directory > Eigenschappen > Directory-ID** selecteren in Azure Portal.
+> * De muisaanwijzer op uw accountnaam houden om de directory/tenant-ID te zien, of
+> * **Azure Active Directory > Eigenschappen > Directory-ID** selecteren in Azure Portal.
 
 Als er geen bestaande tenant is gekoppeld aan uw account, ziet u een GUID onder de accountnaam. U moet dan eerst een nieuwe tenant maken voordat u bewerkingen kunt uitvoeren zoals het registreren van apps. Daarvoor volgt u de stappen in het volgende gedeelte.
 

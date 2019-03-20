@@ -10,19 +10,18 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: e89593e33dd7330ce64c46c826c9d0437c4c27d2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 08dca771050f1b62cd85208a4b8f3d39340fb97d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738042"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834287"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Quickstart: De Translator Text-API gebruiken om een tekenreeks te vertalen met Node.js
 
 In deze snelstart leert u hoe u een tekenreeks van het Engels naar het Italiaans en Duits vertaalt met Node.js en de Translator Text REST API.
 
 Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
-
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,7 +32,7 @@ Voor deze snelstart zijn de volgende zaken vereist:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Een project maken en de vereiste modules importeren
 
-Maak een nieuw project met uw favoriete IDE of editor. Kopieer dit codefragment naar uw project in een bestand met de naam `translate-text.js`.
+Maak een nieuw project met behulp van uw favoriete IDE of editor of een nieuwe map met een bestand met de naam `translate-text.js` op uw bureaublad. Kopieer vervolgens dit codefragment in het projectbestand:
 
 ```javascript
 const request = require('request');
@@ -93,7 +92,7 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 
 U kunt aanvragen het eenvoudigst verifiëren door uw abonnementssleutel op te geven als `Ocp-Apim-Subscription-Key`-header. Dat doen we in dit voorbeeld dan ook. Als alternatief kunt u in plaats van uw abonnementssleutel een toegangstoken gebruiken en het toegangstoken opgeven als `Authorization`-header voor het valideren van uw aanvraag. Zie [Verificatie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) voor meer informatie.
 

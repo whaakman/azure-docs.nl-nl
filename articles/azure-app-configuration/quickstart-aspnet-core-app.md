@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ce19041b29d567f061dde59fbe041adf61f889a0
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 6d41b6e4ab6ea01017f39762e7d022d61350d21a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961479"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998438"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Een ASP.NET Core-app maken met Azure-app-configuratie
 
@@ -89,7 +89,7 @@ Voeg het [hulpprogramma Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
     Secret Manager wordt alleen gebruikt om de web-app lokaal te testen. Wanneer de app is geïmplementeerd (bijvoorbeeld naar [Azure App Service](https://azure.microsoft.com/services/app-service/web)), gaat u een toepassingsinstelling (bijvoorbeeld **Verbindingsreeksen** in App Service) gebruiken in plaats van de verbindingsreeks op te slaan met Secret Manager.
 
-    Dit geheim is toegankelijk met de configuratie-API. Een dubbele punt (:) werkt in de configuratienaam met de configuratie-API op alle ondersteunde platforms, zie [Configuratie per omgeving](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment).
+    Dit geheim is een toegankelijk met de configuratie-API. Een dubbele punt (:) werkt in de configuratienaam met de configuratie-API op alle ondersteunde platforms, zie [Configuratie per omgeving](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
 4. Open *Program.cs* en werk de methode `CreateWebHostBuilder` bij voor het gebruik van app-configuratie door de methode `config.AddAzureAppConfiguration()` aan te roepen.
 

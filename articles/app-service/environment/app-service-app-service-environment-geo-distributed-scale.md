@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 769e6b9936ad6d3cb963e208cec4c49813f2b6d3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113690"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188319"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Geografisch gedistribueerde schaal met App Service-omgevingen
 ## <a name="overview"></a>Overzicht
@@ -46,7 +46,7 @@ De rest van dit onderwerp worden de stappen beschreven die betrokken zijn bij he
 ## <a name="planning-the-topology"></a>Planning van de topologie
 Voordat u het opzetten van een distributed app footprint kunt zo u een aantal onderdelen gestroomlijnder wanneer u gegevens hebt.
 
-* **Het aangepaste domein voor de app:**  Wat is de aangepaste domeinnaam dat klanten toegang tot de app wordt gebruikt?  Voor de voorbeeld-app de aangepaste domeinnaam is *www.scalableasedemo.com*
+* **Het aangepaste domein voor de app:**  Wat is de aangepaste domeinnaam dat klanten toegang tot de app wordt gebruikt?  Voor de voorbeeld-app is de aangepaste domeinnaam `www.scalableasedemo.com`
 * **Traffic Manager-domein:**  De naam van een domein moet worden gekozen bij het maken van een [Azure Traffic Manager-profiel][AzureTrafficManagerProfile].  Deze naam wordt gecombineerd met de *trafficmanager.net* achtervoegsel voor het registreren van een domein-item dat wordt beheerd door Traffic Manager.  Voor de voorbeeld-app, is het de naam van de gekozen *schaalbare-as-omgeving-demo*.  De volledige domeinnaam die wordt beheerd door Traffic Manager is daardoor *schaalbare-as-omgeving-demo.trafficmanager.net*.
 * **Strategie voor het schalen van de app-voetafdruk:**  De footprint van de toepassing worden verdeeld over meerdere App Service-omgevingen in één regio?  Meerdere regio's?  Een en-combineren van beide methoden?  De beslissing moet worden gebaseerd op de verwachtingen van waaruit klantenverkeer wordt uitgevoerd, evenals hoe goed de rest van de back-endinfrastructuur voor ondersteuning van van een app kunt schalen.  Bijvoorbeeld, met een 100% staatloze toepassingen, kan een app worden zeer geschaald met behulp van een combinatie van meerdere App Service-omgevingen per Azure-regio, vermenigvuldigd met App Service-omgevingen in meerdere Azure-regio's.  Klanten met 15 + openbare Azure-regio's beschikbaar om de verkeersbelasting, kunnen echt een footprint wereldwijd grootschalige toepassingen bouwen.  Voor de voorbeeldapp die wordt gebruikt voor dit artikel, zijn drie App Service-omgevingen gemaakt in één Azure-regio (Zuid-centraal VS).
 * **De naamconventie voor de App Service-omgevingen:**  Elke App Service-omgeving moet een unieke naam.  Meer dan één of twee App Service-omgevingen is het handig om een naamconventie gebruikt voor het identificeren van elke App Service-omgeving.  Een eenvoudige naamconventie is voor de voorbeeld-app gebruikt.  De namen van de drie App Service-omgevingen zijn *fe1ase*, *fe2ase*, en *fe3ase*.
@@ -87,7 +87,7 @@ U ziet hoe er wordt één aanroep naar *toevoegen AzureTrafficManagerEndpointCon
 Alle van de drie eindpunten gebruik dezelfde waarde (10) voor de *gewicht* parameter.  Dit resulteert in Traffic Manager het spreiden van klantaanvragen voor alle drie app-instanties relatief gelijk. 
 
 ## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Aangepast domein in het Traffic Manager-domein van de App aan te wijzen
-De laatste stap nodig is zodat het aangepaste domein van de app op het Traffic Manager-domein.  Voor de voorbeeld-app betekent dit dat wijzen *www.scalableasedemo.com* op *schaalbare-as-omgeving-demo.trafficmanager.net*.  Deze stap moet worden voltooid met de domeinregistrar waarmee het aangepaste domein wordt beheerd.  
+De laatste stap nodig is zodat het aangepaste domein van de app op het Traffic Manager-domein.  Voor de voorbeeld-app betekent dit dat wijzen `www.scalableasedemo.com` op `scalable-ase-demo.trafficmanager.net`.  Deze stap moet worden voltooid met de domeinregistrar waarmee het aangepaste domein wordt beheerd.  
 
 Met behulp van beheerhulpprogramma's van uw registrar domein, registreert een CNAME moet worden gemaakt die het aangepaste domein in het Traffic Manager-domein verwijst.  De volgende afbeelding toont een voorbeeld van hoe deze configuratie CNAME uitziet:
 
@@ -95,16 +95,16 @@ Met behulp van beheerhulpprogramma's van uw registrar domein, registreert een CN
 
 Hoewel in dit onderwerp niet wordt gedekt, houd er rekening mee dat elke afzonderlijke app-instantie moet het aangepaste domein dat is geregistreerd bij deze ook zijn.  Anders als een aanvraag het om een app-exemplaar is en de toepassing heeft geen het aangepaste domein dat is geregistreerd bij de app, wordt de aanvraag mislukt.  
 
-In dit voorbeeld het aangepaste domein is *www.scalableasedemo.com*, en elk exemplaar heeft het aangepaste domein is gekoppeld.
+In dit voorbeeld het aangepaste domein is `www.scalableasedemo.com`, en elk exemplaar heeft het aangepaste domein is gekoppeld.
 
-![Aangepast domain][CustomDomain] 
+![Aangepast domein][CustomDomain] 
 
 Zie het volgende artikel voor een samenvatting van het registreren van een aangepast domein met Azure App Service-apps, op [registreren van aangepaste domeinen][RegisterCustomDomain].
 
 ## <a name="trying-out-the-distributed-topology"></a>Proberen van de gedistribueerde topologie
-Het eindresultaat van de Traffic Manager- en DNS-configuratie is dat aanvragen voor *www.scalableasedemo.com* worden overgebracht via de volgende volgorde:
+Het eindresultaat van de Traffic Manager- en DNS-configuratie is dat aanvragen voor `www.scalableasedemo.com` worden overgebracht via de volgende volgorde:
 
-1. Een browser of apparaat wordt een DNS-zoekopdracht maken voor *www.scalableasedemo.com*
+1. Een browser of apparaat wordt een DNS-zoekopdracht maken voor `www.scalableasedemo.com`
 2. De CNAME-vermelding op de domeinregistrar zorgt ervoor dat de DNS-zoekactie worden omgeleid naar Azure Traffic Manager.
 3. Een DNS-zoekopdracht wordt gemaakt voor *schaalbare-as-omgeving-demo.trafficmanager.net* op basis van een van de Azure Traffic Manager-DNS-servers.
 4. Op basis van de load balancer-beleid (de *TrafficRoutingMethod* parameter eerder hebt gebruikt bij het maken van Traffic Manager-profiel), Traffic Manager Selecteer een van de geconfigureerde eindpunten en de FQDN-naam van dat eindpunt om te retourneren de browser of apparaat.

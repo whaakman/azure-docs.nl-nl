@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: f12f5f1f7791fa09b07c3035db65f2f488f36d7f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776577"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076340"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Een Azure-bestandsshare gebruiken met Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen probleemloos worden gebruikt in Windows en Windows Server. In dit artikel worden de overwegingen besproken voor het gebruik van een Azure-bestandsshare met Windows en Windows Server.
@@ -303,5 +303,5 @@ Nadat u deze registersleutel hebt gemaakt, moet u uw server opnieuw opstarten om
 ## <a name="next-steps"></a>Volgende stappen
 Raadpleeg de volgende koppelingen voor meer informatie over Azure Files:
 - [Implementatie van Azure Files plannen](storage-files-planning.md)
-* [Veelgestelde vragen](../storage-files-faq.md)
-* [Problemen oplossen in Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [Veelgestelde vragen](../storage-files-faq.md)
+- [Problemen oplossen in Windows](storage-troubleshoot-windows-file-connection-problems.md)      

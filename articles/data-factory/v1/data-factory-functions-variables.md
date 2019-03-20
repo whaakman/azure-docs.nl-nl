@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a82d871ea232b31b31cfc24585af672141617d88
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5293c44a3e4494593e069ab45fbc38806c6999ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353003"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57976773"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - functies en systeemvariabelen
 > [!NOTE]
@@ -27,6 +27,7 @@ ms.locfileid: "54353003"
 Dit artikel bevat informatie over functies en variabelen die worden ondersteund door Azure Data Factory.
 
 ## <a name="data-factory-system-variables"></a>Data Factory-systeemvariabelen
+
 | De naam van variabele | Description | Bereik van het object | JSON-bereik en Use-Cases |
 | --- | --- | --- | --- |
 | WindowStart |Begin van het tijdsinterval voor het huidige venster de uitvoering van activiteiten |activiteit |<ol><li>Geef gegevensselectiequery's. Zie de artikelen van connector waarnaar wordt verwezen in de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.</li> |
@@ -94,7 +95,7 @@ De volgende tabellen worden de functies in Azure Data Factory:
 | Date |EndOfDay(X) |X: DateTime |Hiermee haalt u de datum / tijd die het einde van de dag (dagonderdeel) x vertegenwoordigt.<br/><br/>Voorbeeld: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | Date |EndOfMonth(X) |X: DateTime |Hiermee haalt u het einde van de maand wordt vertegenwoordigd door het maandgedeelte van de parameter X. <br/><br/>Voorbeeld: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (datum en tijd die het einde van de maand September) |
 | Date |StartOfDay(X) |X: DateTime |Hiermee haalt u het begin van de dag wordt vertegenwoordigd door het dagonderdeel van de parameter X.<br/><br/>Voorbeeld: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| DateTime |FROM(X) |X: Reeks |Parseren van tekenreeks X naar een datum-tijd. |
+| DateTime |FROM(X) |X: String |Parseren van tekenreeks X naar een datum-tijd. |
 | DateTime |Ticks(X) |X: DateTime |Hiermee haalt u de ticks eigenschap van de X-parameter. Een tick is gelijk aan 100 nanoseconden. De waarde van deze eigenschap geeft het aantal maatstreepjes dat is verstreken sinds 12:00:00 middernacht, 1 januari 0001. |
 | Tekst |Format(X) |X: String-variabele |Hiermee wordt de tekst (Gebruik `\\'` combinatie als escape voor `'` tekens).|
 

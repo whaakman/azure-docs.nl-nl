@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 44056ae1bca2595965abd3a47b4a2aa29d221623
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cec8ab9d678ff559176580fa8eccc261f449f4c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255230"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012880"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Aan de slag met Azure table storage en Visual Studio verbonden services (cloudserviceprojecten)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,12 +29,12 @@ De Azure Table storage-service kunt u voor het opslaan van grote hoeveelheden ge
 
 Als u wilt beginnen, moet u eerst een tabel maken in uw storage-account. We laten u over het maken van een Azure-tabel in de code, en ook eenvoudige tabel en bewerkingen van de entiteit, zoals het toevoegen, wijzigen, lezen en lezen van de tabelentiteiten uitvoeren. De voorbeelden zijn geschreven in C\# code en gebruik de [Microsoft Azure Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-**Opmerking:** enkele van de API's die het uitvoeren van aanroepen uit naar Azure storage zijn asynchroon. Zie [asynchrone programmering met Async en Await](https://msdn.microsoft.com/library/hh191443.aspx) voor meer informatie. De onderstaande code wordt ervan uitgegaan dat asynchrone programmering methoden worden gebruikt.
+**OPMERKING:** Enkele van de API's die het uitvoeren van aanroepen uit naar Azure storage zijn asynchroon. Zie [asynchrone programmering met Async en Await](https://msdn.microsoft.com/library/hh191443.aspx) voor meer informatie. De onderstaande code wordt ervan uitgegaan dat asynchrone programmering methoden worden gebruikt.
 
 * Zie [aan de slag met Azure Table storage met .NET](../storage/storage-dotnet-how-to-use-tables.md) voor meer informatie over het bewerken van programmatisch tabellen.
 * Zie [documentatie voor Storage](https://azure.microsoft.com/documentation/services/storage/) voor algemene informatie over Azure Storage.
 * Zie [documentatie voor Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/) voor algemene informatie over Azure-cloudservices.
-* Zie [ASP.NET](http://www.asp.net) voor meer informatie over het programmeren van ASP.NET-toepassingen.
+* Zie [ASP.NET](https://www.asp.net) voor meer informatie over het programmeren van ASP.NET-toepassingen.
 
 ## <a name="access-tables-in-code"></a>Toegang tot tabellen in code
 Voor toegang tot tabellen in de cloud service-projecten, moet u de volgende items naar de C# bronbestanden die toegang hebben tot Azure-tabelopslag opnemen.

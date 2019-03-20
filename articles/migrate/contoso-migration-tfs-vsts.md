@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 20c1e2a4394c249b410a1253356d0ef96c30e970
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8098196abc415dedba392737fc17a4de5739339d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100237"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migratie van Contoso:  Een Team Foundation Server-implementatie herstructureren in Azure DevOps Services
 
@@ -225,11 +225,11 @@ Met de validatie is voltooid, Contoso-beheerders het TFS-hulpprogramma voor migr
 
 6. Ze bekijkt u de identiteit kaart logboekbestand waarin de accounts die tijdens het importeren in Azure DevOps-Services worden gebracht. 
 
-    - Actieve identiteiten verwijzen naar identiteiten die gebruikers in Azure DevOps-Services na het importeren worden.
-    - Op Azure DevOps-Services, deze identiteiten in licentie wordt gegeven, en als een gebruiker in de organisatie na de migratie.
-    - Deze identiteiten zijn gemarkeerd als **Active** in de **Importstatus verwacht** kolom in het bestand.
+   - Actieve identiteiten verwijzen naar identiteiten die gebruikers in Azure DevOps-Services na het importeren worden.
+   - Op Azure DevOps-Services, deze identiteiten in licentie wordt gegeven, en als een gebruiker in de organisatie na de migratie.
+   - Deze identiteiten zijn gemarkeerd als **Active** in de **Importstatus verwacht** kolom in het bestand.
 
-    ![Voorbereiden](./media/contoso-migration-tfs-vsts/prep6.png)
+     ![Voorbereiden](./media/contoso-migration-tfs-vsts/prep6.png)
 
 
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 01/28/2019
-ms.openlocfilehash: 47afcf98b27faca6d12aec96d648a0b42c28855a
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.openlocfilehash: ca5d0602948a0abe689578fad1508d8f3b3d5198
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888964"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443538"
 ---
 # <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>Wat is Azure HDInsight en de Apache Hadoop-technologiestack?
 
@@ -39,7 +39,7 @@ Big data wordt verzameld in steeds sneller groeiende volumes, met een steeds hog
 In deze sectie worden de mogelijkheden van Azure HDInsight toegelicht.
 
 
-|Mogelijkheid  |Beschrijving  |
+|Mogelijkheid  |Description  |
 |---------|---------|
 |Cloudeigen     |     Met Azure HDInsight kunt u geoptimaliseerde clusters maken voor [Hadoop](apache-hadoop-linux-tutorial-get-started.md), [Apache Spark](../spark/apache-spark-jupyter-spark-sql.md), [interactieve query’s (LLAP)](../interactive-query/apache-interactive-query-get-started.md), [Kafka](../kafka/apache-kafka-get-started.md), [ Storm](../storm/apache-storm-tutorial-get-started-linux.md), [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) en [ML Services](../r-server/r-server-get-started.md) in Azure. HDInsight Biedt tevens een end-to-end SLA voor al uw productieworkloads.  |
 |Voordelig en schaalbaar     | Met HDInsight kunt u [workloads](../hdinsight-administer-use-portal-linux.md#scale-clusters)  vergroten/verkleinen. U kunt de kosten verlagen door [clusters op aanvraag te maken](../hdinsight-hadoop-create-linux-clusters-adf.md) en uitsluitend te betalen voor wat u gebruikt. U kunt ook gegevenspijplijnen maken om uw taken operationeel maken. Rekenwerk en opslag zijn niet langer gekoppeld, voor betere prestaties en flexibiliteit. |

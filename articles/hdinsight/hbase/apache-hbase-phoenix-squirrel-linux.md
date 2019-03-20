@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 51707baeba4a511d2766161afacd512a4338cf24
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: MT
+ms.openlocfilehash: f2034124c3500f289457f06d19b76c6878877e93
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653982"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863386"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Apache Phoenix gebruiken met Apache HBase op basis van Linux-clusters in HDInsight
 Meer informatie over het gebruik van [Apache Phoenix](https://phoenix.apache.org/) in Azure HDInsight en SQLLine gebruiken. Zie voor meer informatie over Phoenix [Apache Phoenix in 15 minuten of minder](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Zie voor de grammatica Phoenix [Apache Phoenix grammatica](https://phoenix.apache.org/language/index.html).
@@ -39,7 +39,7 @@ Wanneer u verbinding met een HBase-cluster maakt, moet u verbinding maken met ee
 1. Open [Apache Ambari](https://ambari.apache.org/) door te bladeren naar **https://\<clusternaam\>. azurehdinsight.net**.
 2. Als u wilt aanmelden, voer de gebruikersnaam van HTTP (cluster) en het wachtwoord.
 3. Selecteer in het menu links **ZooKeeper**. Drie **ZooKeeper Server** exemplaren worden vermeld.
-4. Selecteer een van de **ZooKeeper Server** exemplaren. Op de **samenvatting** in het deelvenster Zoeken de **hostnaam**. Het lijkt op *zk1 jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
+4. Selecteer een van de **ZooKeeper Server** exemplaren. Op de **samenvatting** in het deelvenster Zoeken de **hostnaam**. It looks similar to *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 
 **SQLLine gebruiken**
 
@@ -47,7 +47,7 @@ Wanneer u verbinding met een HBase-cluster maakt, moet u verbinding maken met ee
 
 2. Gebruik de volgende opdrachten om uit te voeren SQLLine in SSH:
 
-        cd /usr/hdp/2.2.9.1-7/phoenix/bin
+        cd /usr/hdp/current/phoenix/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. Als u een HBase-tabel maken en voeg enkele gegeven in, voer de volgende opdrachten:
 
@@ -64,7 +64,7 @@ Wanneer u verbinding met een HBase-cluster maakt, moet u verbinding maken met ee
 Zie voor meer informatie de [SQLLine handmatig](http://sqlline.sourceforge.net/#manual) en [Apache Phoenix grammatica](https://phoenix.apache.org/language/index.html).
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe u Apache Phoenix gebruiken in HDInsight. Voor meer informatie, Zie de volgende artikelen:
+In dit artikel hebt u geleerd hoe u Apache Phoenix gebruiken in HDInsight. Zie voor meer informatie de volgende artikelen:
 
 * [Overzicht van HDInsight HBase][hdinsight-hbase-overview].
   Apache HBase is een Apache, open-source NoSQL-database gebouwd op Apache Hadoop. deze willekeurige toegang en sterke consistentie voor grote hoeveelheden ongestructureerde en semigestructureerde gegevens biedt.

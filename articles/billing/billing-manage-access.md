@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: cd137f8fb44b20c9a1b3a506ad2703fc780bae89
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 8c2843840790d1e0dbfd4a789775c6c7ceb51a54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806646"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838252"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Beheer de toegang tot factureringsgegevens voor Azure
 
@@ -106,4 +106,4 @@ De accountbeheerder is de juridische eigenaar van het abonnement. De persoon die
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

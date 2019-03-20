@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.date: 01/25/2019
+ms.date: 03/12/2019
 manager: craigg
-ms.openlocfilehash: cb892ddf6414b270d891042c9849137f1e2fdb35
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5f089148bafbab21721c83c0d4b6977a7db86320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307765"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834588"
 ---
 # <a name="connect-to-azure-sql-database-with-active-directory-mfa"></a>Verbinding maken met Azure SQL Database met Active Directory-MFA
 
@@ -99,7 +99,7 @@ Zie voor meer informatie over Azure AD-beheerders en gebruikers voor Azure SQL D
 
 Een Azure AD-beheerder voor een SQL Database-server kan worden uitgevoerd de C# voorbeeldprogramma. Een Azure AD-gebruiker kan het programma uitvoeren als ze zich in de database. Een Azure AD-SQL-beheerder of een Azure AD-gebruiker die al bestaat in de database en heeft de `ALTER ANY USER` machtiging voor de database een gebruiker kunt toevoegen.
 
-U kunt een gebruiker toevoegen aan de database met behulp van de SQL [ `Create User` ](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=sql-server-2017) opdracht. Bijvoorbeeld `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
+U kunt een gebruiker toevoegen aan de database met behulp van de SQL [ `Create User` ](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) opdracht. Bijvoorbeeld `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
 Zie voor meer informatie, [gebruik Azure Active Directory-verificatie voor verificatie met SQL Database Managed Instance of SQL Data Warehouse](sql-database-aad-authentication.md).
 
@@ -126,7 +126,7 @@ Voor de C# programma moeten worden uitgevoerd, moet u de juiste waarden toewijze
 | Statische veldnaam | Voorbeeldwaarde | Waar in Azure portal |
 | :---------------- | :------------ | :-------------------- |
 | Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **SQL-servers** > **filteren op naam** |
-| AzureAD_UserID | "auser@abc.onmicrosoft.com" | **Azure Active Directory** > **gebruiker** > **nieuwe gastgebruiker** |
+| AzureAD_UserID | "auser\@abc.onmicrosoft.com" | **Azure Active Directory** > **gebruiker** > **nieuwe gastgebruiker** |
 | Initial_DatabaseName | "myDatabase" | **SQL-servers** > **SQL-databases** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **App-registraties** > **zoeken op naam** > **toepassings-ID** |
 | RedirectUri | nieuwe Uri ("https://mywebserver.com/") | **Azure Active Directory** > **App-registraties** > **zoeken op naam** > *[Your-App-Gereg]*  >  **Instellingen** > **RedirectURIs**<br /><br />In dit artikel is geldige waarde is prima voor RedirectUri, zoals het hier niet wordt gebruikt. |
@@ -342,5 +342,7 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 ## <a name="next-steps"></a>Volgende stappen
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 - [Get-AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)

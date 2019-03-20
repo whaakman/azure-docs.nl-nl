@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 132cbecdad8303414f15ff3f18caaccd6d430ded
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ef39c09d4fc411937fdd6f4b5b5aec491efd0c5f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154913"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994550"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>De gewogen verkeersrouteringsmethode configureren in Traffic Manager
 
@@ -27,7 +27,7 @@ Verkeer routeren methode gebruikelijk is het bieden van een set identieke eindpu
 
 ## <a name="to-configure-the-weighted-traffic-routing-method"></a>Het configureren van de gewogen verkeersrouteringsmethode
 
-1. Meld u vanuit een browser aan bij [Azure Portal](http://portal.azure.com). Als u nog geen account hebt, kunt u zich registreren voor een [gratis proefversie van één maand](https://azure.microsoft.com/free/). 
+1. Meld u vanuit een browser aan bij [Azure Portal](https://portal.azure.com). Als u nog geen account hebt, kunt u zich registreren voor een [gratis proefversie van één maand](https://azure.microsoft.com/free/). 
 2. Zoek in de zoekbalk van de portal, de **Traffic Manager-profielen** en klik vervolgens op de naam van het profiel dat u wilt de routeringsmethode voor configureren.
 3. In de **Traffic Manager-profiel** blade controleren of de cloudservices en de websites die u wilt opnemen in uw configuratie weergegeven worden.
 4. In de **instellingen** sectie, klikt u op **configuratie**, en klik in de **configuratie** blade voltooid zijn als volgt te werk:

@@ -11,22 +11,23 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 7a83153d4439fe25d92f149b7efe5231151b4dc4
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 1dc2f4e80e5b1c4fa1fb6f09e769a116516dc71c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390727"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840610"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>PowerShell gebruiken voor het bijwerken van het synchronisatieschema in een bestaande synchronisatiegroep
 
 Met dit PowerShell-voorbeeld werkt u het synchronisatieschema bij in een bestaande synchronisatiegroep van SQL Data Sync. Wanneer u meerdere tabellen synchroniseert, helpt dit script u om het synchronisatieschema efficiënt bij te werken. In dit voorbeeld wordt het gebruik van het script **UpdateSyncSchema** gedemonstreerd, dat beschikbaar is op GitHub als [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Als u ervoor kiest om PowerShell lokaal te installeren en te gebruiken, moet u moduleversie 5.7.0 of hoger van Azure PowerShell gebruiken voor deze zelfstudie. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u ervoor kiest om te installeren en lokaal gebruik van PowerShell, voor deze zelfstudie vereist AZ PowerShell 1.4.0 of hoger. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](../sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
 
@@ -76,11 +77,11 @@ Het script **UpdateSyncSchema** gebruikt de volgende opdrachten. Elke opdracht i
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Get-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncgroup) | Retourneert informatie over een synchronisatiegroep. |
-| [Update-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncgroup) | Werkt een synchronisatiegroep bij. |
-| [Get-AzureRmSqlSyncMember](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncmember) | Retourneert informatie over een synchronisatielid. |
-| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncschema) | Retourneert informatie over een synchronisatieschema. |
-| [Update-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncschema) | Werkt een synchronisatieschema bij. |
+| [Get-AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncgroup) | Retourneert informatie over een synchronisatiegroep. |
+| [Update-AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncgroup) | Werkt een synchronisatiegroep bij. |
+| [Get-AzSqlSyncMember](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncmember) | Retourneert informatie over een synchronisatielid. |
+| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncschema) | Retourneert informatie over een synchronisatieschema. |
+| [Update-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncschema) | Werkt een synchronisatieschema bij. |
 |||
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -99,7 +100,7 @@ Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:
         -  [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](sql-database-sync-data-between-azure-onprem.md)
 -   Data Sync-agent: [Data Sync-agent voor Azure SQL Data Sync](../sql-database-data-sync-agent.md)
 -   Best practices: [Best practices voor Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
--   Bewaken: [SQL Data Sync bewaken met Log Analytics](../sql-database-sync-monitor-oms.md)
+-   Monitor - [SQL Data Sync bewaken met Azure Monitor-Logboeken](../sql-database-sync-monitor-oms.md)
 -   Problemen oplossen: [Problemen met Azure SQL Data Sync oplossen](../sql-database-troubleshoot-data-sync.md)
 -   Het synchronisatieschema bijwerken
     -   Met Transact-SQL: [De replicatie van schemawijzigingen in Azure SQL Data Sync automatiseren](../sql-database-update-sync-schema.md)

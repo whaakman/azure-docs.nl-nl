@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: d2bf5194a3fd4398927d0ee95d89e44db1c1ca15
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b01b68964600f6162512d4405fddbaf125e7e76d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542638"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082719"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Met behulp van een token inzichten om inzichten over een afbeelding te verkrijgen
 
@@ -373,19 +373,19 @@ Volg deze stappen om deze toepassing uit te voeren:
 1. Maak een map voor het project (of gebruik uw favoriete IDE of editor).
 2. Navigeer vanuit een opdrachtprompt of terminal naar de map die u zojuist hebt gemaakt.
 3. Installeer de aanvraagmodules:  
-  ```  
-  npm install request  
-  ```  
+   ```  
+   npm install request  
+   ```  
 3. Installeer de formuliergegevensmodules:  
-  ```  
-  npm install form-data  
-  ```  
+   ```  
+   npm install form-data  
+   ```  
 4. Maak een bestand met de naam GetVisualInsights.js en voeg de volgende code toe.
 5. Vervang de waarde van `subscriptionKey` door uw abonnementssleutel.
 7. Voer het programma uit.  
-  ```
-  node GetVisualInsights.js
-  ```
+   ```
+   node GetVisualInsights.js
+   ```
 
 ```javascript
 var request = require('request');

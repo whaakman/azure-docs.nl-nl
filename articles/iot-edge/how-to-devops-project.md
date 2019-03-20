@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881866"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122889"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Een CI/CD-pijplijn maken voor IoT Edge met Azure DevOps Projects (Preview)
 
@@ -127,7 +127,7 @@ In de vorige secties, Azure DevOps Projects automatisch geconfigureerd voor een 
 
 12. Selecteer in het menu voor uw release-pijplijn **taken** en kies vervolgens de **dev** fase in de vervolgkeuzelijst. DevOps Projects een release-fase voor u gemaakt dat een IoT-hub maakt, maakt u een IoT Edge-apparaat in de hub, de voorbeeldmodule op basis van de build-pijplijn implementeert en richt een virtuele machine uit te voeren als uw IoT Edge-apparaat. Zie voor meer informatie over Azure IoT Edge-taken voor CD, [configureren Azure pijplijnen voor continue implementatie](how-to-ci-cd.md#configure-continuous-deployment).
 
-   ![Continue implementatie-taken weergeven](media/how-to-devops-project/dev-release.png)
+    ![Continue implementatie-taken weergeven](media/how-to-devops-project/dev-release.png)
 
 13. Selecteer aan de rechterkant **Releases weergeven**. In deze weergave wordt een versiesgeschiedenis weergegeven.
 

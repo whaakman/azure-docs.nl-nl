@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe472a45d99f966c851934ea44a346326cb4201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b85284a5c2c3017e7ccc0a7e06a712e41c2a9561
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175146"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215588"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Zelfstudie: Een pilot van een Azure AD-selfservice voor wachtwoordherstel uitrollen
 
@@ -42,8 +42,8 @@ Het is belangrijk dat het testen van de selfservice voor wachtwoordherstel wordt
       * Zorg ervoor dat de gebruikers in de groep die u hebt gekozen de juiste licentie hebben.
    * Klik op **Opslaan**.
 1. Op de pagina **Verificatiemethoden**
-   * Stel **Het aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen** in op **2**
-   * Kies welke **Methoden voor gebruikers** uw organisatie wil toestaan. Schakel voor deze zelfstudie de selectievakjes **E-mail**, **Mobiele telefoon** en **Telefoon (werk)** in.
+   * Stel de **aantal methoden dat is vereist om opnieuw in te** naar **1**
+   * Kies welke **Methoden voor gebruikers** uw organisatie wil toestaan. Schakel de selectievakjes om in te schakelen voor deze zelfstudie **e** en **mobiele app-code (preview)**.
    * Klik op **Opslaan**.
 1. Op de pagina **Registratie**
    * Selecteer **Ja** bij **Vereisen dat gebruiker zich bij aanmelding registreren**.

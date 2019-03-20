@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6c97289cd1ad406769613621afdc16c8096f4aeb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116164"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110304"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>On-premises machines migreren naar Azure
 
@@ -36,6 +36,8 @@ Dit is de derde zelfstudie in een reeks. In deze zelfstudie wordt ervan uitgegaa
 
 Voordat u begint, is het handig om de architectuur voor noodherstel van [VMware](vmware-azure-architecture.md) of [Hyper-V](hyper-v-azure-architecture.md) te bekijken.
 
+> [!TIP]
+> Zoek naar een zonder agent manier voor het migreren van virtuele VMware-machines naar Azure? [Klik hier](https://aka.ms/migrateVMs-signup)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -54,7 +56,6 @@ Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's word
    ![Nieuwe kluis](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
 De nieuwe kluis wordt toegevoegd op het **Dashboard** onder **Alle resources** en op de hoofdpagina van **Recovery Services-kluizen**.
-
 
 
 ## <a name="select-a-replication-goal"></a>Een replicatiedoel selecteren
@@ -112,10 +113,10 @@ Een failover uitvoeren voor de machines die u wilt migreren.
 5. Controleer of de virtuele Azure-machine in Azure wordt weergegeven zoals verwacht.
 6. Klik in **Gerepliceerde items** met de rechtermuisknop op de virtuele machine > **Migratie voltooien**. Er gebeurt nu het volgende:
 
-    - Het migratieproces wordt voltooid, de replicatie voor de AWS-VM wordt gestopt en Site Recovery-facturering voor de virtuele machine wordt gestopt.
-    - Met deze stap worden de replicatiegegevens opgeschoond. De gemigreerde VM's worden niet verwijderd.
+   - Het migratieproces wordt voltooid, de replicatie voor de AWS-VM wordt gestopt en Site Recovery-facturering voor de virtuele machine wordt gestopt.
+   - Met deze stap worden de replicatiegegevens opgeschoond. De gemigreerde VM's worden niet verwijderd.
 
-    ![Migratie voltooien](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![Migratie voltooien](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]

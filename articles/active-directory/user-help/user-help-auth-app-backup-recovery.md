@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1927e9b4aeec6f424c69632d8811c49c97d3aad1
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9634e2578ea256d1dec71389f676ee53627e6272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961547"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077765"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Back-up en herstel van accountreferenties met de Microsoft Authenticator-app
 
@@ -27,9 +27,9 @@ ms.locfileid: "56961547"
 
 De Microsoft Authenticator-app back-ups van uw accountreferenties en de bijbehorende appinstellingen, zoals de volgorde van uw accounts, naar de cloud. Na de back-up, kunt u de app ook gebruiken om te herstellen van uw gegevens op een nieuw apparaat mogelijk vermijden ophalen vergrendeld out- of accounts opnieuw hoeft te.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > U moet een persoonlijk Microsoft-account en een iCloud-account voor elke back-upopslag-locatie. Maar binnen die opslaglocatie back-up van diverse accounts. U kunt bijvoorbeeld een persoonlijk account, een school-account en een account van derden, zoals Facebook, Google, enzovoort.
-
+> 
 > Alleen de referenties van uw persoonlijke en 3rd derden account zijn opgeslagen, waaronder de naam van de gebruiker en de verificatiecode van account die vereist zijn om uw identiteit te bewijzen. We geen andere gegevens die zijn gekoppeld aan uw accounts, met inbegrip van e-mailberichten of bestanden op te slaan. We geen ook koppelen of delen van uw accounts op geen enkele manier of met een ander product of service. En ten slotte uw IT-beheerder geen informatie over elk van deze accounts wordt niet ophalen.
 
 ## <a name="back-up-your-account-credentials"></a>Back-up van uw accountreferenties

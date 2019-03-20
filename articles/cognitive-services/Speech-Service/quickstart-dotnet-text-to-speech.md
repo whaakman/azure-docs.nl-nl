@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 656ed50b9104fec48ff3eddb3c291608f8f87294
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cbc28ce13d08ee8665be642d9db6b1f236b380d3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870126"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Quickstart: Converteert tekst naar spraak met behulp van .NET Core
 
 In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van .NET Core en de tekst naar spraak REST-API. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md), waarmee u de spraak en taal van het antwoord te kiezen.
 
-Deze snelstartgids moet een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een resource Speech-Service. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
+Deze snelstartgids moet een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een resource Speech Services. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -70,9 +70,9 @@ using System.Threading.Tasks;
 
 ## <a name="create-a-class-for-token-exchange"></a>Maak een klasse voor token uitwisseling
 
-De Text to Speech REST-API is een toegangstoken voor verificatie vereist. Als u een toegangstoken, is een exchange vereist. In dit voorbeeld uitwisselt uw abonnementssleutel Spraakservice voor een access token met de `issueToken` eindpunt.
+De Text to Speech REST-API is een toegangstoken voor verificatie vereist. Als u een toegangstoken, is een exchange vereist. In dit voorbeeld uitwisselt uw abonnementssleutel Speech Services voor een access token met de `issueToken` eindpunt.
 
-In dit voorbeeld wordt ervan uitgegaan dat uw spraak-Service-abonnement in de regio VS-West. Als u een andere regio, werk de waarde voor `FetchTokenUri`. Zie voor een volledige lijst [regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+In dit voorbeeld wordt ervan uitgegaan dat uw abonnement spraakservices in de regio VS-West. Als u een andere regio, werk de waarde voor `FetchTokenUri`. Zie voor een volledige lijst [regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 ```csharp
 public class Authentication

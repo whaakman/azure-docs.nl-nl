@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: f7e500fb5856c7eec48a371042244b44dd944779
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1bbd481218128c482769cd6a28910e135c1ce16d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001045"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Verificatie toevoegen aan uw Xamarin Forms-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -132,7 +132,7 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
         public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
 5. Update de **MainActivity** klasse door toe te voegen een **MobileServiceUser** veld en een **verifiëren** methode, die vereist wordt door de **IAuthenticate** interface, als volgt:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -192,7 +192,7 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
 
 **De toepassing is vastgelopen met `Java.Lang.NoSuchMethodError: No static method startActivity`**
 
-In sommige gevallen, veroorzaakt een conflict in de voor ondersteuningspakketten die weergegeven als slechts een waarschuwing in de Visual studio, maar het vastlopen van de toepassing met deze uitzondering tijdens runtime. In dit geval moet u ervoor zorgen dat alle ondersteuningspakketten waarnaar wordt verwezen in uw project beschikt over dezelfde versie. De [Azure Mobile Apps NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) heeft `Xamarin.Android.Support.CustomTabs` afhankelijkheid voor Android-platform, dus als uw project gebruikmaakt van nieuwere ondersteuning u pakketten moet dit pakket installeren met de vereiste versie rechtstreeks op het voorkomen van conflicten.
+In sommige gevallen, veroorzaakt een conflict in de voor ondersteuningspakketten die weergegeven als slechts een waarschuwing in de Visual studio, maar het vastlopen van de toepassing met deze uitzondering tijdens runtime. In dit geval moet u ervoor zorgen dat alle ondersteuningspakketten waarnaar wordt verwezen in uw project beschikt over dezelfde versie. Het [Azure Mobile Apps NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) heeft `Xamarin.Android.Support.CustomTabs`-afhankelijkheid voor het Android-platform, dus als uw project gebruikmaakt van nieuwere ondersteuningspakketten, moet u dit pakket met de vereiste versie rechtstreeks installeren om conflicten te voorkomen.
 
 ## <a name="add-authentication-to-the-ios-app"></a>Verificatie toevoegen aan de iOS-app
 Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface in het iOS-app-project. Als u iOS-apparaten niet ondersteunt, kunt u deze sectie overslaan.
@@ -208,7 +208,7 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
         public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
 5. Update de **AppDelegate** klasse door toe te voegen een **MobileServiceUser** veld en een **verifiëren** methode, die vereist wordt door de **IAuthenticate** interface, als volgt:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -279,7 +279,7 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
         public sealed partial class MainPage : IAuthenticate
 5. Update de **MainPage** klasse door toe te voegen een **MobileServiceUser** veld en een **verifiëren** methode, die vereist wordt door de **IAuthenticate**interface, als volgt:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5b958a8d7aa8566c62d5fdaf6b5b51064e4e5123
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549014"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183744"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -230,7 +230,7 @@ Met de optie **Aanmeldingen** krijgt u een volledig overzicht van alle aanmeldin
 
 ## <a name="office-365-activity-logs"></a>Office 365-activiteitenlogboeken
 
-Vindt u Office 365-activiteitenlogboeken van de [Office 365-beheercentrum](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Hoewel Office 365-activiteit en Azure AD-activiteit logboeken delen veel directoryresources, alleen de Office 365-beheercentrum biedt een volledig overzicht van de Office 365-activiteitenlogboeken. 
+Vindt u Office 365-activiteitenlogboeken van de [Microsoft 365-beheercentrum](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Hoewel Office 365-activiteit en Azure AD-activiteit logboeken delen veel directoryresources, alleen de Microsoft 365-beheercentrum biedt een volledig overzicht van de Office 365-activiteitenlogboeken. 
 
 U kunt ook toegang tot de Office 365-activiteitenlogboeken programmatisch met behulp van de [Management API's van Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

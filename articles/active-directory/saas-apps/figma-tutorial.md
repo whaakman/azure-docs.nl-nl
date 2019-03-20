@@ -7,20 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8569cae1-87dd-4c40-9bbb-527ac80d6a96
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfdd76e171ed237e3e87c98f6596634784faea1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: f95eac0cdb0fa7d5f9a2882138affc09ff489956
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865311"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900316"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Zelfstudie: Azure Active Directory-integratie met Figma
 
@@ -32,14 +31,16 @@ De integratie van Figma met Azure AD biedt de volgende voordelen:
 * U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
-Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met Figma hebt u de volgende zaken nodig:
 
 * Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
-* Een abonnement op Figma waarvoor eenmalige aanmelding is ingeschakeld
+* A Figma Organization Plan
+
+>[!NOTE]
+>Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving. Nieuwe klanten en actieve abonnees van Figma Professional-Team contact opnemen met Figma om te upgraden van hun abonnement op de [Figma organisatie van Plan.](https://www.figma.com/pricing/)
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
@@ -55,7 +56,7 @@ Voor het configureren van de integratie van Figma met Azure AD moet u Figma uit 
 
 **Als u Figma vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -107,31 +108,28 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Figma moet u de volg
 
     ![Informatie over eenmalige aanmelding bij het Figma-domein en Figma-URL's](common/idp-intiated.png)
 
-    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>`
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://www.figma.com/saml/<TENANT ID>`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/consume`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://www.figma.com/saml/<TENANT ID>/consume`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
     ![Informatie over eenmalige aanmelding bij het Figma-domein en Figma-URL's](common/metadata-upload-additional-signon.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/start`
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://www.figma.com/saml/<TENANT ID>/start`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met het [ondersteuningsteam van Figma](mailto:support@figma.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. U krijgt de `TENANT ID` uit stap #11 van Figma van artikel [configureren van Azure Active Directory SAML SSO-proces](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
 
-6. In de Figma-toepassing worden de SAML-asserties in een specifieke indeling verwacht. Hiervoor moet u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van uw SAML-tokenkenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram Bewerken om de kenmerken toe te voegen.
+6. In de Figma-toepassing worden de SAML-asserties in een specifieke indeling verwacht. Hiervoor moet u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van uw SAML-tokenkenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op **bewerken** pictogram openen **gebruikerskenmerken** dialoogvenster.
 
     ![image](common/edit-attribute.png)
 
 7. Bovendien verwacht de Figma-toepassing nog enkele kenmerken die als SAML-antwoord moeten worden doorgestuurd. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
 
-    | Naam | Bronkenmerk|
+    | Name | Bronkenmerk|
     | ---------------| --------- |
     | `externalId` | `user.mailnickname` |
-    | `displayName` | `user.displayname` |
-    | `title` | `user.jobtitle` |
-    | `emailaddress` | `user.mail` |
     | `familyName` | `user.surname` |
     | `givenName` | `givenName` |
     | `userName` | `user.userprincipalname` |
@@ -157,10 +155,26 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Figma moet u de volg
 8. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 
     ![De link om het certificaat te downloaden](common/copy-metadataurl.png)
-
+  
 ### <a name="configure-figma-single-sign-on"></a>Eenmalige aanmelding voor Figma configureren
 
-Als u eenmalige aanmelding aan de zijde van Figma wilt configureren, vult u dit formulier in: [ https://goo.gl/forms/XkRB1z5ed4eVUzXn2 ](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). U kunt hiervoor uw waarde van **App-Url voor federatieve metagegevens** uit stap 8 gebruiken.
+1. Open in een ander browservenster van de Figma site [hier](https://goo.gl/forms/XkRB1z5ed4eVUzXn2) als beheerder.
+
+2. Op de **Figma SAML SSO-configuratie** pagina, voert u de volgende stappen uit:
+
+    ![Eenmalige aanmelding configureren](./media/figma-tutorial/configure01.png)
+
+    a. In **e-mailadres** tekst vak, voer het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
+
+    b. In **uw naam** tekst voert u de naam van gebruiker, zoals **Brittasimon**.
+
+    c. Selecteer de gewenste optie op basis van Figma organisatie.
+
+    d. In **de naam van uw organisatie op Figma** tekstvak typt u de organisatienaam van uw.
+
+    e. In **metagegevens-URL van id-Provider (IDP)** tekstvak, plak de **App-Url voor federatieve metagegevens** die u hebt gekopieerd vanuit Azure portal.
+
+    f. Klik op **indienen**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
@@ -178,9 +192,9 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon** in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veld, typt u **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -219,7 +233,7 @@ In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in Figma. Fi
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u in het toegangsvenster op de tegel Figma klikt, wordt u als het goed is automatisch aangemeld bij de instantie van Figma waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
@@ -230,3 +244,4 @@ Wanneer u in het toegangsvenster op de tegel Figma klikt, wordt u als het goed i
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
-ms.openlocfilehash: 759f5e8441ec62ef11d4be93921e3c4f2629145c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774159"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895580"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Routeringsoverzicht van op URL-pad gebaseerde inhoud van de Azure-toepassingsgateway
 
@@ -29,7 +29,7 @@ In het volgende voorbeeld fungeert Application Gateway bijvoorbeeld verkeer voor
 
 ![imageURLroute](./media/url-route-overview/figure1.png)
 
-Aanvragen voor http://contoso.com/video/* worden doorgestuurd naar VideoServerPool, en http://contoso.com/images/* worden doorgestuurd naar ImageServerPool. Als geen van de padpatronen overeenkomen, wordt DefaultServerPool geselecteerd.
+Aanvragen voor <http://contoso.com/video/*> worden gerouteerd naar VideoServerPool, en <http://contoso.com/images/*> worden gerouteerd naar ImageServerPool. Als geen van de padpatronen overeenkomen, wordt DefaultServerPool geselecteerd.
 
 > [!IMPORTANT]
 > Regels worden verwerkt in de volgorde die wordt weergegeven in de portal. Het is raadzaam om eerst listeners voor meerdere locaties te configureren voordat u een basislistener configureert.  Dit zorgt ervoor dat verkeer naar de juiste back-end wordt geleid. Als een basislistener als eerste wordt weergegeven en overeenkomt met een inkomende aanvraag, wordt deze door die listener verwerkt.

@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c7c7236b54ef44b0cc8602c0dce531c09f7d29
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3afe915f4fa1d9c1c36860d23912ac0e01088724
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169595"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093504"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Het gebruik van toegang tot Self-servicetoepassingen
 
@@ -49,25 +49,25 @@ Toegang tot Self-servicetoepassingen is een uitstekende manier om toe te staan g
 
 Om in te schakelen Self-servicetoepassingen toegang tot een toepassing, de volgende stappen uit te voeren:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1. Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** boven aan het navigatiemenu links belangrijkste.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** boven aan het navigatiemenu links belangrijkste.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linker navigatie.
+4. Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linker navigatie.
 
-5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
+   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
 
-6.  Selecteer de toepassing die u wilt inschakelen, selfservice toegang tot in de lijst.
+6. Selecteer de toepassing die u wilt inschakelen, selfservice toegang tot in de lijst.
 
-7.  Nadat de toepassing wordt geladen, klikt u op **selfservice** vanuit navigatiemenu voor links van de toepassing.
+7. Nadat de toepassing wordt geladen, klikt u op **selfservice** vanuit navigatiemenu voor links van de toepassing.
 
-8.  Om in te schakelen toegang tot Self-servicetoepassingen voor deze toepassing, schakelt u de **toestaan dat gebruikers toegang tot deze toepassing aanvragen?** overzet naar **Ja.**
+8. Om in te schakelen toegang tot Self-servicetoepassingen voor deze toepassing, schakelt u de **toestaan dat gebruikers toegang tot deze toepassing aanvragen?** overzet naar **Ja.**
 
-9.  Klik vervolgens op de selector naast het label te selecteren in de groep waaraan de gebruikers die aanvragen toegang tot deze toepassing moet worden toegevoegd, **aan welke groep moeten toegewezen gebruikers worden toegevoegd?** en selecteert u een groep.
+9. Klik vervolgens op de selector naast het label te selecteren in de groep waaraan de gebruikers die aanvragen toegang tot deze toepassing moet worden toegevoegd, **aan welke groep moeten toegewezen gebruikers worden toegevoegd?** en selecteert u een groep.
 
 10. **Optioneel:** Als u wilt een zakelijke goedkeuring vereisen voordat gebruikers toegang hebben, stelt u de **goedkeuring vereisen voordat het verlenen van toegang tot deze toepassing?** overzet naar **Ja**.
 
@@ -75,7 +75,7 @@ Om in te schakelen Self-servicetoepassingen toegang tot een toepassing, de volge
 
 12. **Optioneel:** Als u wilt de fiatteur die gemachtigd zijn om goed te keuren toegang tot deze toepassing opgeven, klikt u op de kiezer naast het label **die is toegestaan toegang tot deze toepassing goedkeuren?** maximaal 10 afzonderlijke fiatteur selecteren.
 
-   * Groepen worden niet ondersteund.
+    * Groepen worden niet ondersteund.
 
 13. **Optioneel:** **Voor toepassingen waardoor rollen worden blootgesteld**, als u wilt Self-service goedgekeurde gebruikers toewijzen aan een rol, klik op de selector naast de **aan welke rol moeten gebruikers worden toegewezen in deze toepassing?** die de rol selecteren Deze gebruikers moeten worden toegewezen.
 

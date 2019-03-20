@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 8a67b94c7f2355872b243a05a7908604e88cf778
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ae3b4787928b3a578df30dd7f8a2791ce487305d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433787"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100493"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -115,8 +115,8 @@ Gebruik de stappen in deze sectie om te ontdekken hoe u een nieuw HDInsight toev
     * [Maken van HDInsight met behulp van de klassieke Azure-CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [HDInsight met behulp van een Azure Resource Manager-sjabloon maken](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]  
-  > HDInsight toe te voegen aan een virtueel netwerk is een optionele configuratie-stap. Zorg ervoor dat het virtuele netwerk selecteert wanneer het cluster te configureren.
+   > [!IMPORTANT]  
+   > HDInsight toe te voegen aan een virtueel netwerk is een optionele configuratie-stap. Zorg ervoor dat het virtuele netwerk selecteert wanneer het cluster te configureren.
 
 ## <a id="multinet"></a>Meerdere netwerken met elkaar verbinden
 
@@ -128,8 +128,8 @@ Azure biedt naamomzetting voor Azure-services die zijn geïnstalleerd in een vir
 
 * Een resource die zich in hetzelfde Azure virtuele netwerk, met behulp van de __interne DNS-naam__ van de resource. Bijvoorbeeld, wanneer u de standaard-naamomzetting, zijn de volgende voorbeeld van de interne DNS-namen die aan HDInsight worker-knooppunten zijn toegewezen:
 
-    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Deze beide knooppunten kunnen communiceren rechtstreeks met elkaar en andere knooppunten in HDInsight, met behulp van de interne DNS-namen.
 
@@ -148,29 +148,29 @@ Om in te schakelen naamomzetting tussen het virtuele netwerk en de resources in 
 
 4. Doorsturen van tussen de DNS-servers configureren. De configuratie, is afhankelijk van het type van het externe netwerk.
 
-    * Als het externe netwerk een on-premises netwerk is, configureren van DNS als volgt:
+   * Als het externe netwerk een on-premises netwerk is, configureren van DNS als volgt:
         
-        * __Aangepaste DNS__ (in het virtuele netwerk):
+     * __Aangepaste DNS__ (in het virtuele netwerk):
 
-            * Aanvragen doorsturen voor de DNS-achtervoegsel van het virtuele netwerk naar de conflictoplosser Azure recursieve (168.63.129.16). Azure regelt aanvragen voor bronnen in het virtuele netwerk
+         * Aanvragen doorsturen voor de DNS-achtervoegsel van het virtuele netwerk naar de conflictoplosser Azure recursieve (168.63.129.16). Azure regelt aanvragen voor bronnen in het virtuele netwerk
 
-            * Alle andere verzoeken naar de lokale DNS-server doorsturen. De on-premises DNS verwerkt alle andere aanvragen voor naamomzetting, zelfs aanvragen voor resources op internet, zoals Microsoft.com.
+         * Alle andere verzoeken naar de lokale DNS-server doorsturen. De on-premises DNS verwerkt alle andere aanvragen voor naamomzetting, zelfs aanvragen voor resources op internet, zoals Microsoft.com.
 
-        * __On-premises DNS__: Aanvragen doorsturen voor het virtuele netwerk DNS-achtervoegsel voor de aangepaste DNS-server. De aangepaste DNS-server stuurt vervolgens door naar de Azure recursieve naamomzetting.
+     * __On-premises DNS__: Aanvragen doorsturen voor het virtuele netwerk DNS-achtervoegsel voor de aangepaste DNS-server. De aangepaste DNS-server stuurt vervolgens door naar de Azure recursieve naamomzetting.
 
-        Deze configuratie routes aanvragen voor FQDN-namen die het DNS-achtervoegsel van het virtuele netwerk naar het aangepaste DNS-server bevatten. Alle andere aanvragen (zelfs voor openbare internet-adressen) worden verwerkt door de on-premises DNS-server.
+       Deze configuratie routes aanvragen voor FQDN-namen die het DNS-achtervoegsel van het virtuele netwerk naar het aangepaste DNS-server bevatten. Alle andere aanvragen (zelfs voor openbare internet-adressen) worden verwerkt door de on-premises DNS-server.
 
-    * Als het externe netwerk een ander Virtueelnetwerk van Azure is, configureren van DNS als volgt:
+   * Als het externe netwerk een ander Virtueelnetwerk van Azure is, configureren van DNS als volgt:
 
-        * __Aangepaste DNS__ (in elk virtueel netwerk):
+     * __Aangepaste DNS__ (in elk virtueel netwerk):
 
-            * Aanvragen voor de DNS-achtervoegsel van de virtuele netwerken worden doorgestuurd naar de aangepaste DNS-servers. De DNS-server in elk virtueel netwerk is verantwoordelijk voor het oplossen van resources in het netwerk.
+         * Aanvragen voor de DNS-achtervoegsel van de virtuele netwerken worden doorgestuurd naar de aangepaste DNS-servers. De DNS-server in elk virtueel netwerk is verantwoordelijk voor het oplossen van resources in het netwerk.
 
-            * Alle andere aanvragen doorsturen naar de Azure recursieve naamomzetting. De recursieve naamomzetting is verantwoordelijk voor het omzetten van lokale en resources op internet.
+         * Alle andere aanvragen doorsturen naar de Azure recursieve naamomzetting. De recursieve naamomzetting is verantwoordelijk voor het omzetten van lokale en resources op internet.
 
-        De DNS-server voor elk netwerk stuurt aanvragen door naar de andere, op basis van DNS-achtervoegsel. Andere aanvragen worden omgezet met behulp van de Azure recursieve naamomzetting.
+       De DNS-server voor elk netwerk stuurt aanvragen door naar de andere, op basis van DNS-achtervoegsel. Andere aanvragen worden omgezet met behulp van de Azure recursieve naamomzetting.
 
-    Zie voor een voorbeeld van elke configuratie, de [voorbeeld: Aangepaste DNS](#example-dns) sectie.
+     Zie voor een voorbeeld van elke configuratie, de [voorbeeld: Aangepaste DNS](#example-dns) sectie.
 
 Zie voor meer informatie de [naamomzetting voor VM's en Rolexemplaren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
@@ -647,9 +647,9 @@ In dit voorbeeld wordt de volgende veronderstellingen:
     };
     ```
     
-    * Vervang de `10.0.0.0/16` en `10.1.0.0/16` waarden met IP-adresbereiken van uw virtuele netwerken. Deze vermelding kan resources in elk netwerk om aan te vragen van de DNS-servers.
+   * Vervang de `10.0.0.0/16` en `10.1.0.0/16` waarden met IP-adresbereiken van uw virtuele netwerken. Deze vermelding kan resources in elk netwerk om aan te vragen van de DNS-servers.
 
-    Alle aanvragen die niet voor de DNS-achtervoegsels van de virtuele netwerken (bijvoorbeeld microsoft.com) wordt verwerkt door de Azure recursieve naamomzetting.
+     Alle aanvragen die niet voor de DNS-achtervoegsels van de virtuele netwerken (bijvoorbeeld microsoft.com) wordt verwerkt door de Azure recursieve naamomzetting.
 
 4. Opnieuw opstarten binding voor het gebruik van de configuratie. Bijvoorbeeld, `sudo service bind9 restart` op beide DNS-servers.
 

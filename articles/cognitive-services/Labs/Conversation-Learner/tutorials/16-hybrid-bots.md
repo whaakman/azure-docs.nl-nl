@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 17be364959c5cdc1beaf48aa86966ede5c7c7309
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219359"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117435"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Conversatiecursist gebruiken met andere technologieën bouwen bot
 
@@ -119,11 +119,11 @@ In tegenstelling tot één conversatie Leaner model bots niet mogelijk om dit te
 2. Voer 'Hallo'.  Omdat `isOpen` waarde niet is ingesteld, wordt de bot dicteert 'Ik ben je er nu gesloten' en de sessie beëindigen.
 
 #### <a name="scenario-2-store-is-open"></a>Scenario 2: Store is geopend
-3. Voer 'open store'.  Dit stelt de `isOpen` op ' True '.
-4. Voer 'shop'.
-5. Voer 'Hallo'.  Omdat `isOpen` waarde is ingesteld op true, de bot dicteert "Wat wilt u kopen?"
-6. Voer 'voorzitterschap'. 'stoel' wordt opgeslagen in het geheugen als de entiteit CL `purchaseItem`. De callback van de sessie beëindigen wordt aangeroepen die deze waarde opgehaald uit naar de conversatie-store.
-7. Voer 'Geschiedenis.  De bot wordt bijvoorbeeld 'U hebt gekocht stoel' als dit uw laatste is `purchaseItem`.
+1. Voer 'open store'.  Dit stelt de `isOpen` op ' True '.
+1. Voer 'shop'.
+1. Voer 'Hallo'.  Omdat `isOpen` waarde is ingesteld op true, de bot dicteert "Wat wilt u kopen?"
+1. Voer 'voorzitterschap'. 'stoel' wordt opgeslagen in het geheugen als de entiteit CL `purchaseItem`. De callback van de sessie beëindigen wordt aangeroepen die deze waarde opgehaald uit naar de conversatie-store.
+1. Voer 'Geschiedenis.  De bot wordt bijvoorbeeld 'U hebt gekocht stoel' als dit uw laatste is `purchaseItem`.
 
 ## <a name="conclusion"></a>Conclusie
 

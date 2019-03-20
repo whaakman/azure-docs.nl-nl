@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 44b0f8b3d11b737ad88f7d33b036b52d24b70e33
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dec0b8bcd5a0e0d20ead5b149405e3716589ba53
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960324"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995726"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installeren en configureren van extern bureaublad verbinding maken met een Linux-VM in Azure
 Linux virtuele machines (VM's) in Azure worden meestal beheerd vanaf de opdrachtregel met behulp van een secure shell (SSH)-verbinding. Wanneer er nieuwe voor Linux, of om snel oplossen van problemen met scenario's, kan het gebruik van extern bureaublad eenvoudiger zijn. Dit artikel wordt uitgelegd hoe u kunt installeren en configureren van een bureaublad-omgeving ([xfce](https://www.xfce.org)) en extern bureaublad ([xrdp](http://www.xrdp.org)) voor uw Linux-VM met het Resource Manager-implementatiemodel.
@@ -103,7 +103,7 @@ Na verificatie, wordt de desktopomgeving xfce laden en het volgende voorbeeld al
 
 ![xfce desktopomgeving via xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
 
-Als uw lokale RDP-client gebruikmaakt van verificatie op netwerkniveau (NLA), moet u mogelijk om uit te schakelen die instelling. XRDP biedt momenteel geen ondersteuning voor NLA. U kunt ook zoeken op alternatieve RDP-oplossingen die ondersteuning voor NLA, zoals bieden [FreeRDP](http://www.freerdp.com).
+Als uw lokale RDP-client gebruikmaakt van verificatie op netwerkniveau (NLA), moet u mogelijk om uit te schakelen die instelling. XRDP biedt momenteel geen ondersteuning voor NLA. U kunt ook zoeken op alternatieve RDP-oplossingen die ondersteuning voor NLA, zoals bieden [FreeRDP](https://www.freerdp.com).
 
 
 ## <a name="troubleshoot"></a>Problemen oplossen

@@ -3,20 +3,20 @@ title: Artikel over bekende problemen/migratiebeperkingen met online migratie na
 description: Meer informatie over bekende problemen/migratiebeperkingen met online migratie naar Azure SQL Database.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/05/2019
-ms.openlocfilehash: 2261e2143a460bad812a49ba9d8a593c3f3b7b00
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792103"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091491"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Bekende problemen/migratiebeperkingen met online migratie naar Azure SQL DB
 
@@ -42,7 +42,7 @@ Als uw brondatabase uit een of meer tijdelijke tabellen bestaat, uw databasemigr
 
 3. De migratieactiviteit opnieuw.
 
-**Resources**
+**Bronnen**
 
 Zie voor meer informatie het artikel [tijdelijke tabellen](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
  
@@ -62,9 +62,9 @@ Mogelijk ziet u een SQL-uitzondering voorstellen 'ntext is niet compatibel met h
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
- 2. Uitsluiten van deze tabellen vanuit de **migratie-instellingen configureren** blade waarop u tabellen voor migratie opgeven.
+   1. Uitsluiten van deze tabellen vanuit de **migratie-instellingen configureren** blade waarop u tabellen voor migratie opgeven.
 
- 3. De migratieactiviteit opnieuw.
+   1. De migratieactiviteit opnieuw.
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Migratie-fouten met verschillende integriteit schendingen met actieve triggers in het schema tijdens "alle gegevens worden geladen" of "incrementele gegevenssynchronisatie"
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 961f231f9d8ab339d06e9521830c58d175c4a9e3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 8a7c722944aacaca9780939a1726c6e47be79be1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492909"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112038"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Een back-up van een virtuele machine maken in Azure met de CLI
 De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. U kunt uw gegevens beschermen door regelmatig back-ups te maken. Gebruik Azure Backup om herstelpunten te maken die kunnen worden opgeslagen in geografisch redundante kluizen van Recovery Services. In dit artikel wordt uitgelegd hoe u een back-up van een virtuele machine (VM) maakt in Azure met Azure CLI. U kunt deze stappen ook uitvoeren met [Azure PowerShell](quick-backup-vm-powershell.md) of in [Azure Portal](quick-backup-vm-portal.md).
@@ -58,7 +58,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!NOTE]
-Als de VM zich niet in dezelfde resourcegroep bevindt als de kluis, verwijst myResourceGroup naar de resourcegroep waarin de kluis is gemaakt. Geef de VM-id op (in plaats van de naam van de VM), zoals hieronder wordt aangegeven.
+> Als de VM zich niet in dezelfde resourcegroep bevindt als de kluis, verwijst myResourceGroup naar de resourcegroep waarin de kluis is gemaakt. Geef de VM-id op (in plaats van de naam van de VM), zoals hieronder wordt aangegeven.
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \

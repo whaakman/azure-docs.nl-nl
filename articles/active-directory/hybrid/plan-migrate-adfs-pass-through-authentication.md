@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7406758a5e5c345aee4165139242025b8ceb4d18
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534715"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076459"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migreren van Federatie naar pass-through-verificatie voor Azure Active Directory
 
@@ -260,11 +260,11 @@ Wijzig eerst de aanmeldingsmethode:
    ![Schermafbeelding van de pagina gereed voor configuratie](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)<br />
 7. Selecteer in de Azure AD-portal, **Azure Active Directory**, en selecteer vervolgens **Azure AD Connect**.
 8. Controleer of deze instellingen:
-  * **Federatieve** is ingesteld op **uitgeschakelde**.
-  * **Naadloze eenmalige aanmelding** is ingesteld op **ingeschakeld**.
-  * **Pass through-verificatie** is ingesteld op **ingeschakeld**.<br />
+   * **Federatieve** is ingesteld op **uitgeschakelde**.
+   * **Naadloze eenmalige aanmelding** is ingesteld op **ingeschakeld**.
+   * **Pass through-verificatie** is ingesteld op **ingeschakeld**.<br />
 
-  ![Schermafbeelding van de instellingen in de sectie van de aanmelding gebruiker](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
+   ![Schermafbeelding van de instellingen in de sectie van de aanmelding gebruiker](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
 
 Volgende. aanvullende verificatiemethoden implementeren:
 
@@ -272,16 +272,16 @@ Volgende. aanvullende verificatiemethoden implementeren:
 2. Op de **Pass through-verificatie** weergeeft, schakelt de **downloaden** knop.
 3. Op de **downloaden agent** weergeeft, schakelt **voorwaarden accepteren en downloaden**.
 
-  Aanvullende verificatie-agents te downloaden. De secundaire verificatie-agent installeren op een server voor het domein. 
+   Aanvullende verificatie-agents te downloaden. De secundaire verificatie-agent installeren op een server voor het domein. 
 
-  > [!NOTE]
-  > De eerste agent is geïnstalleerd op de Azure AD Connect-server zelf als onderdeel van de configuratiewijzigingen de **aanmelden van gebruikers** gedeelte van het hulpprogramma Azure AD Connect. Installeer eventuele aanvullende verificatie-agents op een afzonderlijke server. Het is raadzaam dat u twee of drie extra authenticatie-agenten die beschikbaar zijn. 
+   > [!NOTE]
+   > De eerste agent is geïnstalleerd op de Azure AD Connect-server zelf als onderdeel van de configuratiewijzigingen de **aanmelden van gebruikers** gedeelte van het hulpprogramma Azure AD Connect. Installeer eventuele aanvullende verificatie-agents op een afzonderlijke server. Het is raadzaam dat u twee of drie extra authenticatie-agenten die beschikbaar zijn. 
 
 4. Voer de installatie van de verificatie-agent. Tijdens de installatie, moet u de referenties van een globale beheerdersaccount.
 
-  ![Schermafbeelding van de knop installeren op de pagina voor Microsoft Azure AD Connect Authentication-Agentpakket](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Schermafbeelding van de knop installeren op de pagina voor Microsoft Azure AD Connect Authentication-Agentpakket](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-  ![Schermafbeelding van de aanmeldingspagina opgeven](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Schermafbeelding van de aanmeldingspagina opgeven](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. Wanneer de verificatie-agent is geïnstalleerd, kunt u terugkeren naar de Pass through-verificatie-agent health-pagina om te controleren of de status van de extra agents.
 

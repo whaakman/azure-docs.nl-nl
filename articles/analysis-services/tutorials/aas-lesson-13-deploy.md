@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 780853644125c8fa6d5edcef642cfad724516ef2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 72fa9bf211139b971afa443af812d644c76062fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188382"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123467"
 ---
 # <a name="deploy"></a>Implementeren
 
@@ -49,15 +49,15 @@ Dit artikel maakt deel uit van een zelfstudie over het ontwerpen van een tabella
   
 #### <a name="to-deploy-the-adventure-works-internet-sales"></a>Het model Adventure Works Internet Sales implementeren:
   
-1.  Klik in **Solution Explorer** met de rechtermuisknop op het project **AW Internet Sales** > **Build**.  
+1. Klik in **Solution Explorer** met de rechtermuisknop op het project **AW Internet Sales** > **Build**.  
 
-2.  Klik met de rechtermuisknop op het project **AW Internet Sales** > **Deploy**.
+2. Klik met de rechtermuisknop op het project **AW Internet Sales** > **Deploy**.
 
-    Als u implementeert naar Azure Analysis Services, wordt u mogelijk gevraagd om uw account. Voer in dat geval uw organisatieaccount en het bijbehorende wachtwoord in, zoals nancy@adventureworks.com. Dit account moet een beheerdersaccount zijn op de server.
+   Als u implementeert naar Azure Analysis Services, wordt u mogelijk gevraagd om uw account. Voer in dat geval uw organisatieaccount en het bijbehorende wachtwoord in, zoals nancy@adventureworks.com. Dit account moet een beheerdersaccount zijn op de server.
   
-    Het dialoogvenster Deploy wordt weergegeven en toont de implementatiestatus van de metagegevens en tabellen die zijn opgenomen in het model.  
+   Het dialoogvenster Deploy wordt weergegeven en toont de implementatiestatus van de metagegevens en tabellen die zijn opgenomen in het model.  
     
-    ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
+   ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
   
 3. Als de implementatie is voltooid, kunt u op **Close** klikken.  
   

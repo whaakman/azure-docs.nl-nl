@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
-ms.reviewer: sgilley
-author: hning86
-ms.author: haining
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9d441ed408f9c9348ba091178cf6ce84d67abb3a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: a7665066a28343f1d2ca46d5210b210f8f103abd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672930"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896667"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Snelstart: Azure Portal gebruiken om aan de slag te gaan met Azure Machine Learning
 
@@ -25,8 +24,8 @@ Gebruik de Azure-portal om een Azure Machine Learning-werkruimte te maken. Deze 
 In deze snelstart voert u de volgende acties uit:
 
 * Een werkruimte maken in uw Azure-abonnement.
-* Deze proberen met Python in een Jupyter-notebook en waarden vastleggen voor meerdere iteraties.
-* De vastgelegde waarden in uw werkruimte weergeven.
+* Probeer het nu met Python in een Jupyter-notebook. De notebook bevat code voor een schatting van pi en logboeken voor fouten bij elke iteratie. 
+* Bekijk de geregistreerde foutwaarden in uw werkruimte.
 
 De volgende Azure-resources worden automatisch toegevoegd aan uw werkruimte wanneer deze regionaal beschikbaar zijn:
 
@@ -37,7 +36,7 @@ De volgende Azure-resources worden automatisch toegevoegd aan uw werkruimte wann
 
 De resources die u hebt gemaakt, kunnen worden gebruikt als vereisten voor andere zelfstudies en artikelen met procedures voor de Machine Learning-service. Net als bij andere Azure-services gelden er limieten voor bepaalde resources die zijn gekoppeld aan Machine Learning. Een voorbeeld is de grootte van het rekencluster. Lees meer over [de standaardlimieten en hoe u uw quotum kunt vergroten](how-to-manage-quotas.md).
 
-Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
+Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 
 ## <a name="create-a-workspace"></a>Een werkruimte maken 
@@ -65,11 +64,11 @@ Dit is een voorbeeld van hoe de werkruimte u kan helpen bij het bijhouden van in
 
 1. Selecteer **De werkruimte voor de Azure Machine Learning Service verkennen** op de pagina met de werkruimte.
 
- ![De werkruimte verkennen](./media/quickstart-get-started/explore_aml.png)
+   ![De werkruimte verkennen](./media/quickstart-get-started/explore_aml.png)
 
 1. Selecteer **Azure Notebooks openen** om uw eerste experiment in Azure Notebooks uit te voeren.  Azure Notebooks is een afzonderlijke service waarmee u Jupyter-notebooks gratis kunt uitvoeren in de cloud.  Wanneer u deze koppeling naar de service gebruikt, wordt informatie over hoe u verbinding maakt met uw werkruimte toegevoegd aan de bibliotheek die u in Azure Notebooks maakt.
 
- ![Azure Notebooks openen](./media/quickstart-get-started/explore_ws.png)
+   ![Azure Notebooks openen](./media/quickstart-get-started/explore_ws.png)
 
 1. Meld u aan bij Azure Notebooks.  Meld u aan met hetzelfde account dat u hebt gebruikt om u aan te melden bij de Microsoft Azure-portal. Mogelijk moet in uw organisatie [beheerderstoestemming](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) worden verkregen voordat u zich kunt aanmelden.
 
@@ -79,7 +78,7 @@ Dit is een voorbeeld van hoe de werkruimte u kan helpen bij het bijhouden van in
 
 1. Selecteer **Klonen**.
 
- ![Een bibliotheek klonen](./media/quickstart-get-started/clone.png)
+   ![Een bibliotheek klonen](./media/quickstart-get-started/clone.png)
 
 1. Als u ziet dat de projectstatus is gestopt, klikt u op **Uitvoeren op gratis computer** om de gratis notebookserver te gebruiken.
 

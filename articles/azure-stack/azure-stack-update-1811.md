@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 0e14e7eb20e87f5555fa6b494c0d09ccde08d2dd
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: ddcf3428f32698c9825f13975929bc4677139acf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731650"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081046"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 update
 
@@ -122,13 +122,13 @@ Deze update bevat de volgende nieuwe functies en verbeteringen voor Azure Stack:
 - Deze versie introduceert waarschuwing **herstellen** acties voor de Azure Stack-operators. Sommige waarschuwingen in 1811 bieden een **herstellen** knop in de waarschuwing die u selecteren kunt om het probleem te verhelpen. Zie voor meer informatie, [status en waarschuwingen in Azure Stack controleren](azure-stack-monitor-health.md).
 
 - Updates voor de update-ervaring in Azure Stack. De update verbeteringen zijn onder andere: 
-    - De tabbladen die splitsen van de Updates van de geschiedenis van updates voor betere bijhouden updates worden uitgevoerd en die updates voltooid.
-    - Status van uitgebreide visualisaties in de sectie essentials met nieuwe pictogrammen en lay-out voor de huidige en OEM-versie, evenals de laatste datum bijgewerkt.
-    - **Weergave** koppeling voor de Release-opmerkingen bij de kolom de gebruiker rechtstreeks naar de documentatie van specifieke naar die update in plaats van de pagina algemene update wordt.
-    - De **bijwerken geschiedenis** tabblad gebruikt om te bepalen uitvoeringstijden voor elk van de updates, evenals filtermogelijkheden verbeterd.  
-    - Azure Stack-schaaleenheden die zijn verbonden ontvangt nog steeds automatisch **Update beschikbaar** zodra deze beschikbaar komen.
-    - Azure Stack-schaaleenheden die niet zijn verbonden kunnen net als de updates importeren voordat. 
-    - Er zijn geen wijzigingen in het proces voor het downloaden van de JSON-logboeken via de portal. Azure Stack-operators ziet stappen uitgevoerd uitdrukken uitbreiden.
+  - De tabbladen die splitsen van de Updates van de geschiedenis van updates voor betere bijhouden updates worden uitgevoerd en die updates voltooid.
+  - Status van uitgebreide visualisaties in de sectie essentials met nieuwe pictogrammen en lay-out voor de huidige en OEM-versie, evenals de laatste datum bijgewerkt.
+  - **Weergave** koppeling voor de Release-opmerkingen bij de kolom de gebruiker rechtstreeks naar de documentatie van specifieke naar die update in plaats van de pagina algemene update wordt.
+  - De **bijwerken geschiedenis** tabblad gebruikt om te bepalen uitvoeringstijden voor elk van de updates, evenals filtermogelijkheden verbeterd.  
+  - Azure Stack-schaaleenheden die zijn verbonden ontvangt nog steeds automatisch **Update beschikbaar** zodra deze beschikbaar komen.
+  - Azure Stack-schaaleenheden die niet zijn verbonden kunnen net als de updates importeren voordat. 
+  - Er zijn geen wijzigingen in het proces voor het downloaden van de JSON-logboeken via de portal. Azure Stack-operators ziet stappen uitgevoerd uitdrukken uitbreiden.
 
     Zie voor meer informatie, [toepassen van updates in Azure Stack](azure-stack-apply-updates.md).
 
@@ -256,17 +256,17 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 <!-- 1264761 - IS ASDK -->  
 - Mogelijk ziet u waarschuwingen voor de **Health controller** onderdeel waarvoor u de volgende gegevens:  
 
-    - Waarschuwing #1:
-       - NAAM:  De functie van de infrastructuur is niet in orde
-       - ERNST: Waarschuwing
-       - COMPONENT: De gezondheid van controller
-       - BESCHRIJVING: De health-controller Heartbeat-Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.  
+  - Waarschuwing #1:
+     - NAAM:  De functie van de infrastructuur is niet in orde
+     - ERNST: Waarschuwing
+     - COMPONENT: De gezondheid van controller
+     - BESCHRIJVING: De health-controller Heartbeat-Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.  
 
-    - Waarschuwing #2:
-       - NAAM:  De functie van de infrastructuur is niet in orde
-       - ERNST: Waarschuwing
-       - COMPONENT: De gezondheid van controller
-       - BESCHRIJVING: De health-controller fouttolerantie Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.
+  - Waarschuwing #2:
+     - NAAM:  De functie van de infrastructuur is niet in orde
+     - ERNST: Waarschuwing
+     - COMPONENT: De gezondheid van controller
+     - BESCHRIJVING: De health-controller fouttolerantie Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.
 
     Beide waarschuwingen kunnen worden genegeerd. Ze worden automatisch gesloten na verloop van tijd.  
 
@@ -346,7 +346,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - Tijdens de Azure Stack *geheim rotatie*, er is een periode waarin openbare IP-adressen niet bereikbaar voor twee tot vijf minuten zijn.
 
 <!-- 2664148 - IS ASDK --> 
--   Kunnen optreden in scenario's waar de tenant er toegang virtuele machines tot heeft met behulp van een S2S-VPN-tunnel, een scenario waarbij verbindingspogingen mislukt als de on-premises-subnet is toegevoegd aan de lokale netwerkgateway nadat de gateway is al gemaakt. 
+- Kunnen optreden in scenario's waar de tenant er toegang virtuele machines tot heeft met behulp van een S2S-VPN-tunnel, een scenario waarbij verbindingspogingen mislukt als de on-premises-subnet is toegevoegd aan de lokale netwerkgateway nadat de gateway is al gemaakt. 
 
 - In de Azure Stack-portal, wanneer u een statisch IP-adres voor een IP-configuratie die is gekoppeld aan een netwerkadapter die is gekoppeld aan een VM-exemplaar, ziet u een waarschuwingsbericht wordt weergegeven waarin wordt aangegeven 
 
@@ -358,9 +358,9 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 - In de portal, als u een inkomende beveiligingsregel toevoegen en selecteer **servicetag** als de bron, verschillende opties worden weergegeven in de **Brontag** lijst die niet beschikbaar voor Azure Stack. Alleen de opties die geldig in Azure Stack zijn zijn als volgt:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     De andere opties worden niet ondersteund als bron labels in Azure Stack. Op dezelfde manier als u een uitgaande beveiligingsregel toevoegen en selecteer **servicetag** als doel, dezelfde lijst met opties voor **Brontag** wordt weergegeven. De enige geldige opties zijn hetzelfde als voor **Brontag**, zoals beschreven in de vorige lijst.
 

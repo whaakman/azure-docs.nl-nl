@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 76cc22f614b7877db54fb5af0e58ff90105a8194
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d921d0907d7481b842fd98db2c0d7cb5f402f24f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961768"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835974"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Gegevens verkennen in Azure blob-opslag met pandas
 
-In dit artikel wordt uitgelegd hoe u gegevens die zijn opgeslagen in Azure blob-container met verkennen [pandas](http://pandas.pydata.org/) Python-pakket.
+In dit artikel wordt uitgelegd hoe u gegevens die zijn opgeslagen in Azure blob-container met verkennen [pandas](https://pandas.pydata.org/) Python-pakket.
 
 Deze taak is een stap in de [Team Data Science Process](overview.md).
 
@@ -53,7 +53,7 @@ t2=time.time()
 print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 ```
 
-2. De gegevens in een pandas DataFrame uit het gedownloade bestand gelezen.
+1. De gegevens in een pandas DataFrame uit het gedownloade bestand gelezen.
 
 ```python
 #LOCALFILE is the file path
@@ -71,7 +71,7 @@ Hier volgen enkele voorbeelden van manieren om met pandas gegevens te verkennen:
 print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 ```
 
-2. **Inspecteer** de eerste of laatste paar **rijen** in de volgende gegevensset:
+1. **Inspecteer** de eerste of laatste paar **rijen** in de volgende gegevensset:
 
 ```python
 dataframe_blobdata.head(10)
@@ -79,33 +79,33 @@ dataframe_blobdata.head(10)
 dataframe_blobdata.tail(10)
 ```
 
-3. Controleer de **gegevenstype** elke kolom is geïmporteerd als het gebruik van de volgende voorbeeldcode
+1. Controleer de **gegevenstype** elke kolom is geïmporteerd als het gebruik van de volgende voorbeeldcode
 
 ```python
 for col in dataframe_blobdata.columns:
     print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
 ```
 
-4. Controleer de **elementaire statistieken** voor de kolommen in de gegevens als volgt instellen
+1. Controleer de **elementaire statistieken** voor de kolommen in de gegevens als volgt instellen
 
 ```python
 dataframe_blobdata.describe()
 ```
 
-5. Het aantal vermeldingen voor elke waarde in de kolom als volgt bekijken
+1. Het aantal vermeldingen voor elke waarde in de kolom als volgt bekijken
 
 ```python
 dataframe_blobdata['<column_name>'].value_counts()
 ```
 
-6. **Ontbrekende waarden tellen** versus het werkelijke aantal vermeldingen in elke kolom met behulp van de volgende voorbeeldcode
+1. **Ontbrekende waarden tellen** versus het werkelijke aantal vermeldingen in elke kolom met behulp van de volgende voorbeeldcode
 
 ```python
 miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
 print miss_num
 ```
 
-7. Als u hebt **ontbrekende waarden** voor een bepaalde kolom in de gegevens, u kunt neerzetten ze als volgt:
+1. Als u hebt **ontbrekende waarden** voor een bepaalde kolom in de gegevens, u kunt neerzetten ze als volgt:
 
 ```python
 dataframe_blobdata_noNA = dataframe_blobdata.dropna()
@@ -118,7 +118,7 @@ Een andere manier om de ontbrekende waarden vervangen is met de modusfunctie:
 dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})
 ```
 
-8. Maak een **histogram** tekenen met behulp van het nummer van de variabele van de opslaglocaties voor het tekenen van de distributie van een variabele
+1. Maak een **histogram** tekenen met behulp van het nummer van de variabele van de opslaglocaties voor het tekenen van de distributie van een variabele
 
 ```python
 dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
@@ -126,7 +126,7 @@ dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
 np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
 ```
 
-9. Bekijk **correlaties** tussen variabelen met behulp van een teststappen of de ingebouwde correlatiefunctie
+1. Bekijk **correlaties** tussen variabelen met behulp van een teststappen of de ingebouwde correlatiefunctie
 
 ```python
 #relationship between column_a and column_b using scatter plot

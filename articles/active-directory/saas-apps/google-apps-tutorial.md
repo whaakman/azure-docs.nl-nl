@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be5023696d6aa937672482d618294102505f9f91
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 78e395db2f8ccaf4fbe9fb64b0faf9ac70c1b21c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Zelfstudie: Azure Active Directory-integratie met G Suite
 
@@ -95,7 +95,7 @@ Als u de integratie van G Suite in Azure AD wilt configureren, moet u G Suite va
 
 **Voer de volgende stappen uit om G Suite toe te voegen vanuit de galerie:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -150,12 +150,13 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voe
     a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. In het tekstvak **Id** typt u een URL met het volgende patroon:
+
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `http://google.com` |
-    | `http://google.com/a/<yourdomain.com>` |
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met het [Ondersteuningsteam voor G Suite](https://www.google.com/contact/) om deze waarden op te halen.
@@ -167,12 +168,13 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voe
     a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. In het tekstvak **Id** typt u een URL met het volgende patroon:
+    
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `http://google.com` |
-    | `http://google.com/a/<yourdomain.com>` |
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
     
     > [!NOTE] 
     > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met het [Ondersteuningsteam voor G Suite](https://www.google.com/contact/) om deze waarden op te halen.
@@ -183,7 +185,7 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voe
 
 7. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
 
-    | Naam | Bronkenmerk |
+    | Name | Bronkenmerk |
     | ---------------| --------------- |
     | Unieke gebruikers-id | User.mail |
 
@@ -221,7 +223,7 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voe
 
 ### <a name="configure-g-suite-single-sign-on"></a>G Suite-eenmalige aanmelding configureren
 
-1. Open een nieuw tabblad in uw browser en meld u met uw beheerdersaccount aan bij de [G Suite-beheerconsole](http://admin.google.com/).
+1. Open een nieuw tabblad in uw browser en meld u met uw beheerdersaccount aan bij de [G Suite-beheerconsole](https://admin.google.com/).
 
 2. Klik op **Beveiliging**. Als u de koppeling niet ziet, is deze mogelijk verborgen in het menu **Meer besturingselementen** onder aan het scherm.
 
@@ -267,7 +269,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -312,7 +314,7 @@ Het doel van dit gedeelte is om een gebruiker met de naam Britta Simon te maken 
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel G Suite in het toegangsvenster klikt, wordt u automatisch aangemeld bij het G Suite-exemplaar waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

@@ -16,16 +16,16 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: jeconnoc
 ms.custom: seodec18
-ms.openlocfilehash: 90eaf7f57f524cb6e47d9d0f4e160855acd6daf5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 67e4f99046820aa21392ff1238318e1b48bb5354
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633654"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901080"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Een App Service-app maken met continue implementatie met behulp van Azure CLI
 
-In dit voorbeeldscript wordt een app gemaakt in App Service met de bijbehorende resources en wordt er vervolgens continue implementatie vanuit een Azure DevOps-opslagplaats ingesteld. Voor dit voorbeeld hebt u het volgende nodig:
+Met dit voorbeeldscript maakt u een app in App Service met de bijbehorende resources, en vervolgens stelt u continue implementatie vanuit een Azure DevOps-opslagplaats. Voor dit voorbeeld hebt u het volgende nodig:
 
 * Een Azure DevOps-opslagplaats met toepassingscode, waarvoor u beheerdersbevoegdheden hebt.
 * Een [persoonlijk toegangstoken (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) voor uw Azure DevOps-organisatie.

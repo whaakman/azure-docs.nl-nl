@@ -15,12 +15,12 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87c92387c14cd0b82ec26acb411609c794c2601e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ee09526c2bf1ebf9821e1f84dc99bfc8635b9ee2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171261"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086187"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Azure-resource-rollen in PIM toewijzen
 
@@ -32,8 +32,8 @@ Azure AD PIM kunt beheren de ingebouwde Azure-resourcerollen, evenals aangepaste
 - Beveiligingsbeheerder
 - Beveiligingsbeheer en meer
 
->[!NOTE]
-Gebruikers of leden van een groep die is toegewezen aan de rollen eigenaar of Administrator voor gebruikerstoegang en globale beheerders waarmee beheer van abonnementen in Azure AD zijn Resource-beheerders. Deze beheerders kunnen rollen toewijzen, configureren van instellingen voor de sitesysteemrol en toegang met behulp van PIM voor Azure-resources beoordelen. De lijst weergeven met [ingebouwde rollen voor Azure-resources](../../role-based-access-control/built-in-roles.md).
+> [!NOTE]
+> Gebruikers of leden van een groep die is toegewezen aan de rollen eigenaar of Administrator voor gebruikerstoegang en globale beheerders waarmee beheer van abonnementen in Azure AD zijn Resource-beheerders. Deze beheerders kunnen rollen toewijzen, configureren van instellingen voor de sitesysteemrol en toegang met behulp van PIM voor Azure-resources beoordelen. De lijst weergeven met [ingebouwde rollen voor Azure-resources](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-a-role"></a>Een rol toewijzen
 

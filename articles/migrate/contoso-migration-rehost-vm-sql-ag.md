@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 84a2ef60c9f6aa4270c3fc4f83327070b298b8b2
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 535ba0049e91e09de3d1dcf05fc8ede80ef403ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697184"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088057"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migratie van Contoso: Een on-premises-app op Azure VM's en SQL Server AlwaysOn-beschikbaarheidsgroep rehost
 
@@ -286,7 +286,7 @@ Ze maken als volgt de load balancer:
 
 Nadat de interne load balancer is geïmplementeerd, moeten ze instellen. Ze maken van een back-endadresgroep, een statustest instellen en configureren van een regel voor taakverdeling.
 
-### <a name="add-a-backend-pool"></a>Een back-endgroep toevoegen
+### <a name="add-a-backend-pool"></a>Een back-endpool toevoegen
 
 Voor het distribueren van verkeer naar de virtuele machines in het cluster, Contoso-beheerders instellen van een back-end-adresgroep met de IP-adressen van de NIC's voor virtuele machines die worden ontvangen van netwerkverkeer van de load balancer.
 
@@ -704,10 +704,10 @@ Het Contoso security team controleert de Azure VM's WEBVM, SQLAOG1 en SQLAOG2 om
 ## <a name="bcdr"></a>BCDR
 
  Voor bedrijfscontinuïteit en herstel na noodgevallen (BCDR) voert Contoso de volgende acties uit:
- - Gegevens veilig te houden: Contoso back-ups van de gegevens op WEBVM, SQLAOG1 en SQLAOG2 VM's met behulp van de Azure Backup-service. [Meer informatie].
-(https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- Contoso wordt ook meer informatie over het Azure Storage gebruiken voor het back-up van SQL Server rechtstreeks naar de blob-opslag. [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore).
-- Houd apps ingesteld en geactiveerd: Contoso repliceert de virtuele machines in Azure-app naar een secundaire regio met behulp van Site Recovery. [Meer informatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
+- Gegevens veilig te houden: Contoso back-ups van de gegevens op WEBVM, SQLAOG1 en SQLAOG2 VM's met behulp van de Azure Backup-service. [Meer informatie].
+  (https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+  - Contoso wordt ook meer informatie over het Azure Storage gebruiken voor het back-up van SQL Server rechtstreeks naar de blob-opslag. [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore).
+  - Houd apps ingesteld en geactiveerd: Contoso repliceert de virtuele machines in Azure-app naar een secundaire regio met behulp van Site Recovery. [Meer informatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
 
 
 ### <a name="licensing-and-cost-optimization"></a>Licentie- en kosten optimaliseren

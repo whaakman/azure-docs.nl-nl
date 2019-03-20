@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: f5d75e817da843e0b6a8e86fb055cc723e45a2bb
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: e46dae199f4d45c325e41fa5432e98cba9a2f4ae
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108891"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449594"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Gebruik Application Insights om inzicht te krijgen in de wijze waarop klanten van uw app gebruikmaken
 
@@ -86,7 +86,7 @@ Het deelvenster **Sessies** lijkt op het deelvenster **Gebruikers**.  Terwijl **
     ![Sessietijdlijn](media/tutorial-users/SessionsTimeline.png)
 
 ## <a name="group-together-similar-users"></a>Vergelijkbare gebruikers groeperen
-Een **Cohort** is een set gebruikers die zijn gegroepeerd op vergelijkbare kenmerken.  U kunt cohorten gebruiken om gegevens in andere deelvensters te filteren zodat u bepaalde groepen gebruikers kunt analyseren.  U wilt bijvoorbeeld alleen gebruikers analyseren die een aankoop hebben voltooid.
+Een **Cohort** is een set gebruikers die worden gegroepeerd met vergelijkbare kenmerken.  U kunt cohorten gebruiken om gegevens in andere deelvensters te filteren zodat u bepaalde groepen gebruikers kunt analyseren.  U wilt bijvoorbeeld alleen gebruikers analyseren die een aankoop hebben voltooid.
 
 1.  Selecteer **Cohorten** in het menu.
 2.  Klik op **Nieuw** om een nieuw cohort te maken.

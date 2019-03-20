@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 256d709ac976736715f441ecde5eee22a6d86fa6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512241"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009082"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Maximaal beschikbare toepassingen met RA-GRS ontwerpen
 
@@ -203,7 +203,7 @@ De volgende tabel ziet u een voorbeeld van wat er gebeuren kan wanneer u de deta
 | T0       | Transactie A: <br> Werknemer invoegen <br> entiteit in primaire |                                   |                    | Transactie een ingevoegd op primaire,<br> nog niet gerepliceerd. |
 | T1       |                                                            | Een transactie <br> gerepliceerd naar<br> secundair | T1 | Een transactie is gerepliceerd naar de secundaire. <br>Tijd van laatste synchronisatie bijgewerkt.    |
 | T2       | Transactie B:<br>Update<br> Werknemer-entiteit<br> in de primaire  |                                | T1                 | Transactie B naar primair, geschreven<br> nog niet gerepliceerd.  |
-| T3       | Transactie C:<br> Update <br>de beheerder<br>entiteit in rol<br>primair |                    | T1                 | Transactie geschreven naar primair, C<br> nog niet gerepliceerd.  |
+| T3       | Transactie C:<br> Update <br>beheerder<br>entiteit in rol<br>primair |                    | T1                 | Transactie geschreven naar primair, C<br> nog niet gerepliceerd.  |
 | *T4*     |                                                       | Transactie C <br>gerepliceerd naar<br> secundair | T1         | Transactie C gerepliceerd naar de secundaire.<br>Niet bijgewerkt omdat LastSyncTime <br>transactie B is nog niet gerepliceerd.|
 | *T5*     | Entiteiten lezen <br>uit de secundaire regio                           |                                  | T1                 | U krijgt de verouderde waarde voor werknemer <br> entiteit omdat transactie B nog niet <br> nog gerepliceerd. U krijgt de nieuwe waarde voor<br> Administrator-rol entiteit omdat er voor C<br> gerepliceerd. Tijd van laatste synchronisatie is nog niet<br> is bijgewerkt, omdat de transactie B<br> nog niet is gerepliceerd. U kunt zien de<br>Administrator-rol entiteit komt niet overeen <br>omdat de entiteit-datum/tijd na <br>de tijd van laatste synchronisatie. |
 | *T6*     |                                                      | Transactie B<br> gerepliceerd naar<br> secundair | T6                 | *T6* – alle transacties via C <br>zijn gerepliceerd, tijd van laatste synchronisatie<br> is bijgewerkt. |
@@ -216,7 +216,7 @@ Voor het herkennen van of er mogelijk inconsistente gegevens, de client gebruikt
 
 Het is belangrijk om te testen of uw toepassing werkt zoals verwacht, wanneer het herstelbare fouten tegenkomt. Bijvoorbeeld, moet u testen of de schakelopties voor de toepassing naar de secundaire en in de modus alleen-lezen wanneer deze een probleem detecteert en verandert back-ups maken wanneer de primaire regio weer beschikbaar. Om dit te doen, moet u een manier om herstelbare fouten en hoe vaak ze voorkomen besturingselement te simuleren.
 
-U kunt [Fiddler](http://www.telerik.com/fiddler) te onderscheppen en HTTP-antwoorden in een script wijzigen. Met dit script kunt identificeren antwoorden die afkomstig van uw primaire eindpunt zijn en de HTTP-statuscode wijzigen dat de Opslagclientbibliotheek wordt herkend als een herstelbare fout. Dit codefragment toont een eenvoudig voorbeeld van een Fiddler-script waarmee antwoorden om te lezen aanvragen op basis van de **employeedata** tabel een 502 status moet worden geretourneerd:
+U kunt [Fiddler](https://www.telerik.com/fiddler) te onderscheppen en HTTP-antwoorden in een script wijzigen. Met dit script kunt identificeren antwoorden die afkomstig van uw primaire eindpunt zijn en de HTTP-statuscode wijzigen dat de Opslagclientbibliotheek wordt herkend als een herstelbare fout. Dit codefragment toont een eenvoudig voorbeeld van een Fiddler-script waarmee antwoorden om te lezen aanvragen op basis van de **employeedata** tabel een 502 status moet worden geretourneerd:
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -228,7 +228,7 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-U kunt dit voorbeeld voor een groot aantal aanvragen worden onderschept en alleen wijzigen uitbreiden de **responseCode** op een aantal ze beter een Praktijkscenario te simuleren. Zie voor meer informatie over het aanpassen van Fiddler scripts [wijzigen van een aanvraag of antwoord](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) in de documentatie van Fiddler.
+U kunt dit voorbeeld voor een groot aantal aanvragen worden onderschept en alleen wijzigen uitbreiden de **responseCode** op een aantal ze beter een Praktijkscenario te simuleren. Zie voor meer informatie over het aanpassen van Fiddler scripts [wijzigen van een aanvraag of antwoord](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) in de documentatie van Fiddler.
 
 Als u de drempelwaarden voor het schakelen tussen uw toepassing in de modus alleen-lezen configureerbare hebt aangebracht, wordt het gemakkelijker om te testen het gedrag met niet-productie-transactie-volumes zijn.
 

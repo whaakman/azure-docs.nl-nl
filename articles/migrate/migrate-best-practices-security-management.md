@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 8b895580f2edc0b7af1c6195212490ce083208ad
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 0bd19492c844e217dc520ae0c189ca467bb7ac0a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991152"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011085"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Aanbevolen procedures voor het beveiligen en beheren van werkbelastingen naar Azure gemigreerd
 
@@ -267,7 +267,7 @@ Vaak wordt niet met behulp van alleen een Resourcegroepnaam met betrekking tot d
 
 - [Meer informatie over](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) tagging en beperkingen taggen.
 - [Beoordeling](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#powershell) PowerShell en CLI-voorbeelden voor het instellen van tags en tags wilt toepassen vanuit een resourcegroep op de bijbehorende resources.
-- [Lezen](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) codering van best practices voor Azure.
+- [Lezen](https://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) codering van best practices voor Azure.
 
 
 ## <a name="best-practice-implement-blueprints"></a>Aanbevolen: Blauwdrukken implementeren

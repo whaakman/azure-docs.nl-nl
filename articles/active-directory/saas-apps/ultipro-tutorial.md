@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: afc0f2b9-2eac-47ec-af04-65ed0fb0ca5a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1152ff23db9c53ef36db537acdd75acb19223b2a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 77d2312c5a20aa6b90586d47ee120593e807295e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873182"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893574"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Zelfstudie: Azure Active Directory-integratie met UltiPro
 
@@ -53,7 +53,7 @@ Voor het configureren van de integratie van UltiPro in Azure AD moet u UltiPro u
 
 **Voer de volgende stappen uit om UltiPro toe te voegen vanuit de galerie:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -106,6 +106,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij UltiPro te con
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij UltiPro](common/sp-identifier-reply.png)
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
+
     | |
     |--|
     | `https://<companyname>.ultipro.com/`|
@@ -113,6 +114,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij UltiPro te con
     | ` https://<companyname>.ultipro.ca`|
     
     b. In het tekstvak **Id** typt u een URL met het volgende patroon:
+
     | |
     |--|
     | `https://<companyname>.ultipro.com/adfs/services/trust`|
@@ -120,6 +122,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij UltiPro te con
     | `https://<companyname>.ultipro.ca/adfs/services/trust`|
     
     c. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie:
+    
     | |
     |--|
     | `https://<companyname>.ultipro.com/<instancename>`|
@@ -165,7 +168,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -204,7 +207,7 @@ In dit gedeelte maakt u in UltiPro een gebruiker met de naam Britta Simon. Werk 
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel UltiPro in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van UltiPro waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

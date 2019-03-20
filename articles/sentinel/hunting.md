@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 24792a0099d4e45e100fa6cf0b211c62fc8630de
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: adedc8bc1f574ae089f2a11033fab4f390c57a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242316"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087020"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Hunt voor bedreigingen met Azure Sentinel Preview-versie
 
@@ -128,19 +128,19 @@ Maak een nieuwe jacht-query:
 1. Klik op **nieuwe query** en selecteer **opslaan**.
 2. Vul in de lege velden in en selecteer **opslaan**.
 
- ![Nieuwe query](./media/tutorial-hunting/new-query.png)
+   ![Nieuwe query](./media/tutorial-hunting/new-query.png)
 
 Klonen en wijzig een bestaande jacht-query:
 
 1. Selecteer de query van zoeken in de tabel die u wilt wijzigen.
 2. Selecteer het beletselteken (...) in de regel van de query die u wilt wijzigen, en selecteer **query klonen**.
 
- ![query klonen](./media/tutorial-hunting/clone-query.png)
+   ![query klonen](./media/tutorial-hunting/clone-query.png)
  
 
-3.  Wijzigen van de query en selecteert u **maken**.
+3. Wijzigen van de query en selecteert u **maken**.
 
- ![aangepaste query](./media/tutorial-hunting/custom-query.png)
+   ![aangepaste query](./media/tutorial-hunting/custom-query.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe u een onderzoek jacht uitvoert met Azure Sentinel. Zie voor meer informatie over Azure Sentinel, de volgende artikelen:

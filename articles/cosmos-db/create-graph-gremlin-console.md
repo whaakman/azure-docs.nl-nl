@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b431d1b739342c54cbc218efdfded1ee516ecaa7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 06601fbad43b3daf00e06efbe95a092e76559e36
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586389"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849819"
 ---
-# <a name="quickstart-create-query-and-traverse-a-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Quickstart: Gebruik de Gremlin-console om een Azure Cosmos DB grafiekdatabase te maken, er query’s op uit te voeren en erdoorheen te gaan
+# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Quickstart: Maken, opzoeken en doorzoeken van een Azure Cosmos DB-grafiekdatabase met behulp van de Gremlin-console
 
 > [!div class="op_single_selector"]
 > * [Gremlin-console](create-graph-gremlin-console.md)
@@ -53,7 +53,7 @@ U moet ook de [Gremlin-console](https://tinkerpop.apache.org/) installeren. Gebr
 1. Voordat u de Gremlin-console start, moet u het configuratiebestand remote-secure.yaml in de map `apache-tinkerpop-gremlin-console-3.2.5/conf` maken of wijzigen.
 2. Vul uw *host-*, *poort-*, *gebruikersnaam-*, *wachtwoord-*, *connectionPool-* en *serializer-* configuraties in zoals in de volgende tabel is gedefinieerd:
 
-    Instelling|Voorgestelde waarde|Beschrijving
+    Instelling|Voorgestelde waarde|Description
     ---|---|---
     hosts|[*account-name*.gremlin.cosmosdb.azure.com] of [*account-name*.graphs.azure.com] voor accounts die zijn gemaakt vóór 20 december 2017|Zie de volgende schermafbeelding. Dit is de Gremlin URI-waarde op de pagina Overzicht van Azure Portal tussen vierkante haken, waarbij de afsluitende: 443/ is verwijderd.
     poort|443|Ingesteld op 443.
@@ -81,13 +81,13 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 zorg dat u de waarde van parameter hosts tussen vierkante haken [] plaatst. 
 
-3. Voer in de terminal `bin/gremlin.bat` of `bin/gremlin.sh` uit of start de [Gremlinc-console](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
-4. Voer in de terminal `:remote connect tinkerpop.server conf/remote-secure.yaml` uit om verbinding te maken met uw appservice.
+1. Voer in de terminal `bin/gremlin.bat` of `bin/gremlin.sh` uit of start de [Gremlinc-console](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
+1. Voer in de terminal `:remote connect tinkerpop.server conf/remote-secure.yaml` uit om verbinding te maken met uw appservice.
 
     > [!TIP]
     > Als u de foutmelding `No appenders could be found for logger` ontvangt, moet u controleren of u de serialisatiefunctiewaarde in het bestand afstand secure.yaml hebt bijgewerkt, zoals beschreven in stap 2. 
 
-5. Voer vervolgens `:remote console` uit om alle consoleopdrachten om te leiden naar de externe server.
+1. Voer vervolgens `:remote console` uit om alle consoleopdrachten om te leiden naar de externe server.
 
    > [!NOTE]
    > Als u de `:remote console` opdracht niet uitvoert maar alle consoleopdrachten naar de externe server wilt omleiden, moet u opdracht vooraf laten gaan door `:>`. Voer de opdracht bijvoorbeeld uit als `:> g.V().count()`. Dit voorvoegsel is onderdeel van de opdracht, en is belangrijk bij het gebruiken van de Gremlin-console met Azure Cosmos DB. Als u het voorvoegsel weglaat, laat u de console de opdracht lokaal uitvoeren, vaak op basis van een graaf in het geheugen. Door het voorvoegsel `:>` te gebruiken, laat u de console een externe opdracht uitvoeren, in dit geval op Azure Cosmos DB (de localhost-emulator of een Azure-instantie).

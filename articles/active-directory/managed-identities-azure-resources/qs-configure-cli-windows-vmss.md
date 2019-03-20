@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/15/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6457a04419012ef80432d8603caae21bbacde59b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 34cd03ad6640ac809ce8ac2e8f4fc1070246df27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170955"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886861"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configureren van beheerde identiteiten voor Azure-resources op een VM-schaalset met behulp van Azure CLI
 
@@ -168,13 +168,10 @@ In deze sectie helpt u bij het maken van een VMSS en de toewijzing van een behee
 
 1. Maak een door de gebruiker toegewezen beheerde identiteit met [az identity create](/cli/azure/identity#az-identity-create).  De parameter `-g` geeft de resourcegroep aan waarin de door de gebruiker toegewezen beheerde identiteit wordt gemaakt en de parameter `-n` geeft de naam ervan aan. Vervang de parameterwaarden `<RESOURCE GROUP>` en `<USER ASSIGNED IDENTITY NAME>` door uw eigen waarden:
 
-    > [!IMPORTANT]
-    > Het maken van beheerde identiteiten gebruiker toegewezen met speciale tekens (dat wil zeggen onderstrepingstekens) in de naam is momenteel niet ondersteund. Gebruik alfanumerieke tekens. Controleer later op updates.  Zie voor meer informatie [Veelgestelde vragen en bekende problemen](known-issues.md)
-
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
     ```
-Het antwoord bevat details voor de gebruiker toegewezen beheerde identiteit gemaakt, vergelijkbaar met de volgende.
+   Het antwoord bevat details voor de gebruiker toegewezen beheerde identiteit gemaakt, vergelijkbaar met de volgende.
 
    ```json
    {

@@ -4,18 +4,18 @@ ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: b099f5ff7e43f2deeb3b8c41adcb802cd431a65a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: fa0edaaa3ee785f89faceb51419d360752bb9825
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53636000"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58051797"
 ---
 De Azure File Sync-agent wordt bijgewerkt regelmatig nieuwe functionaliteit toe te voegen en om problemen te verhelpen. Het is raadzaam om dat u bij het configureren van Microsoft Update om updates voor de Azure File Sync-agent als ze beschikbaar.
 
 #### <a name="major-vs-minor-agent-versions"></a>Primaire en secundaire agent-versies
-* Primaire agent-versies zijn vaak bevat nieuwe functies en steeds meer hebben als het eerste deel van het versienummer. Bijvoorbeeld: *2.\*.\**
-* Secundaire agent-versies worden ook 'patches' genoemd en vaker dan primaire versies worden uitgebracht. Ze bevatten vaak bugfixes en verbeteringen in kleinere, maar er zijn geen nieuwe functies. Bijvoorbeeld:  *\*.3.\**
+* Primaire agent-versies zijn vaak bevat nieuwe functies en steeds meer hebben als het eerste deel van het versienummer. Bijvoorbeeld: \*2.\*.\*\*
+* Secundaire agent-versies worden ook 'patches' genoemd en vaker dan primaire versies worden uitgebracht. Ze bevatten vaak bugfixes en verbeteringen in kleinere, maar er zijn geen nieuwe functies. Bijvoorbeeld: \* \*.3.\*\*
 
 #### <a name="upgrade-paths"></a>Upgradepaden
 Er zijn vier goedgekeurd en getest manieren om de Azure File Sync-agent-updates te installeren. 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/7/2018
 ms.author: victorh
-ms.openlocfilehash: 7aac6cfca3b5b6f36810d1fd88939929c14ac63b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308734"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119629"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Een toepassingsgateway maken met HTTP naar HTTPS-omleiding via Azure portal
 
@@ -72,20 +72,20 @@ U hebt een virtueel netwerk nodig voor communicatie tussen de resources die u ma
 3. Selecteer **Netwerken** en vervolgens **Application Gateway** in de lijst Aanbevolen.
 4. Voer deze waarden in voor de toepassingsgateway:
 
-    - *myAppGateway* als de naam van de toepassingsgateway.
-    - *myResourceGroupAG* als de nieuwe resourcegroep.
+   - *myAppGateway* als de naam van de toepassingsgateway.
+   - *myResourceGroupAG* als de nieuwe resourcegroep.
 
-    ![Nieuwe toepassingsgateway maken](./media/create-url-route-portal/application-gateway-create.png)
+     ![Nieuwe toepassingsgateway maken](./media/create-url-route-portal/application-gateway-create.png)
 
 5. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
 6. Klik op **Een virtueel netwerk kiezen**, klik op **Nieuw maken** en voer deze waarden in voor het virtuele netwerk:
 
-    - *myVnet* als de naam van het virtuele netwerk.
-    - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
-    - *myAGSubnet* als de naam van het subnet.
-    - *10.0.1.0/24* : voor het subnet een adresruimte.
+   - *myVnet* als de naam van het virtuele netwerk.
+   - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
+   - *myAGSubnet* als de naam van het subnet.
+   - *10.0.1.0/24* : voor het subnet een adresruimte.
 
-    ![Virtueel netwerk maken](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![Virtueel netwerk maken](./media/create-url-route-portal/application-gateway-vnet.png)
 
 7. Klik op **OK** om het virtuele netwerk en subnet te maken.
 8. Onder **Frontend-IP-configuratie**, zorg ervoor dat **type IP-adres** is **openbare**, en **nieuw** is geselecteerd. Voer *myAGPublicIPAddress* voor de naam. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.

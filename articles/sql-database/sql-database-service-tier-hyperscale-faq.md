@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: d94bc570f47d71a7e2b626041acd4bb6e84d0dc1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 36b2f3817c7e96a35c1e8f3aba22db201224ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075932"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Veelgestelde vragen over zeer grootschalige Azure-SQL-databases
 
@@ -45,7 +45,7 @@ Het vCore-gebaseerde service lagen voornamelijk worden onderscheiden, is afhanke
 - De laag bedrijfskritiek-service is geschikt voor workloads van bedrijven waar i/o-latentie is een prioriteit.
 
 | | Resourcetype | Algemeen doel |  Hyperscale | Bedrijfskritiek |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---|:---:|:---:|:---:|:---:|
 | **Het meest geschikt voor** |Alle|  Meeste zakelijke workloads. Aanbiedingen budget documentgeoriënteerde met gelijke taakverdeling reken- en opties. | Data-toepassingen met capaciteitsvereisten voor grote hoeveelheden gegevens en de mogelijkheid om opslag van automatisch schalen en schaal compute soepel. | OLTP-toepassingen met hoge Transactiesnelheid en de laagste latentie i/o. Biedt de hoogste veerkracht tijdens storingen met behulp van verschillende geïsoleerde replica's.|
 |  **Resourcetype** ||Individuele database / elastische pool / beheerd exemplaar | Individuele database | Individuele database / elastische pool / beheerd exemplaar |
 | **COMPUTE-grootte**|Individuele database / elastische pool * | 1 en 80 vCores | 1 en 80 vCores * | 1 en 80 vCores |

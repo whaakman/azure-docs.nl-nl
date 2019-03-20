@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dd988004112fa4f420af7d0149bde19fdc06bfc
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 1b578c0187f7b804b6261fec9d299f83d7dc1832
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958338"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015136"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Procedure: Risico-beleid configureren in Azure Active Directory identity protection (vernieuwd)
 
@@ -32,7 +32,9 @@ Azure AD detecteert risicogebeurtenissen die indicatoren voor mogelijk verdachte
 - Met het beleid voor aanmeldingsrisico, kunt u een reactie op realtime risicogebeurtenissen die zijn gedetecteerd tijdens de aanmelding van een gebruiker configureren. 
 - Met het beleid voor gebruikersrisico's, kunt u een reactie op alle actieve gebruiker risico's die zijn gedetecteerd voor een gebruiker na verloop van tijd configureren.  
 
-> [!VIDEO https://youtu.be/zEsbbik-BTE]
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
+
+
 ## <a name="what-is-the-sign-in-risk-policy"></a>Wat is het beleid voor aanmeldingsrisico?
 
 Azure AD analyseert elke aanmelding van een gebruiker. Het doel van de analyse is voor het detecteren van verdachte activiteit die afkomstig, samen met de aanmelding zijn. Bijvoorbeeld, is de aanmelding uitgevoerd met behulp van een anoniem IP-adres of is de aanmelding die afkomstig zijn van een onbekende locatie? De verdachte activiteit die kan worden gedetecteerd door het systeem zijn in Azure AD, ook wel bekend als risicogebeurtenissen. Op basis van de risicogebeurtenissen die zijn gedetecteerd tijdens de aanmelding, Azure AD een waarde wordt berekend. De waarde vertegenwoordigt de kans (laag, Gemiddeld, hoog) dat de aanmelding wordt niet uitgevoerd door de bevoegde gebruiker. De kans op heet **niveau van aanmeldingsrisico**.

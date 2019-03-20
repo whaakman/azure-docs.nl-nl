@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
 ms.author: banders
-ms.openlocfilehash: 36ce4d96e02bac1eae1791acf811da468726b4a6
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 16feb41707e5afa07054d20b620f5822eedad773
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902700"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858909"
 ---
 # <a name="understand-your-bill-for-azure-customers-with-an-enterprise-agreement"></a>Meer informatie over uw factuur voor Azure-klanten met een Enterprise Agreement
 
@@ -77,7 +77,7 @@ Uw totale gebruiksbedrag van de Enterprise-portal in vergelijken **rapporten** >
 
 ### <a name="review-marketplace-invoice"></a>Marketplace-factuur controleren
 
-Vergelijk het totaal op Azure Marketplace **rapporten** > **Gebruiksoverzicht** in de Enterprise-portal met uw marketplace-factuur. De marketplace-factuur is alleen voor Azure Marketplace-aankopen en het gebruik. De bedragen op de **Gebruiksoverzicht** zijn exclusief btw. 
+Vergelijk het totaal op Azure Marketplace **rapporten** > **Gebruiksoverzicht** in de Enterprise-portal met uw marketplace-factuur. De Marketplace-factuur betreft alleen Azure Marketplace-aankopen en -gebruik. De bedragen op de **Gebruiksoverzicht** zijn exclusief btw. 
 
 1. Aanmelden bij de [Enterprise portal](https://ea.azure.com).
 1. Selecteer **rapporten**.
@@ -92,4 +92,4 @@ Vergelijk het totaal op Azure Marketplace **rapporten** > **Gebruiksoverzicht** 
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

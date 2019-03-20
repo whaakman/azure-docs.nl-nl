@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: b41fbc3e834c7740d435e30a571d2a00671bfa64
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 682aac8ec6716ac59c6bdc0710065c916a0c41b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316401"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084926"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Een toepassingsgateway maken met de Azure Resource Manager-sjabloon
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
+> * [Azure-portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
@@ -60,16 +60,16 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
 1. Open het bestand dat u hebt opgeslagen en bekijk de inhoud onder **parameters** in regel
 1. Azure Resource Manager-sjabloonparameters bieden een tijdelijke aanduiding voor waarden die kunnen worden ingevuld tijdens de implementatie.
 
-  | Parameter | Description |
-  | --- | --- |
-  | **subnetPrefix** |CIDR-blokkering voor het subnet van de gateway. |
-  | **applicationGatewaySize** | Grootte van de toepassingsgateway.  WAF kan alleen middelgrote en grote. |
-  | **backendIpaddress1** |IP-adres van de eerste webserver. |
-  | **backendIpaddress2** |IP-adres van de tweede webserver. |
-  | **wafEnabled** | Als u op of de WAF is ingeschakeld.|
-  | **wafMode** | Modus van de web application firewall.  De beschikbare opties zijn **preventie** of **detectie**.|
-  | **wafRuleSetType** | RuleSet-type voor WAF.  OWASP is momenteel de enige ondersteunde optie. |
-  | **wafRuleSetVersion** |RuleSet-versie. OWASP CRS 2.2.9 en 3.0 zijn momenteel de ondersteunde opties. |
+   | Parameter | Description |
+   | --- | --- |
+   | **subnetPrefix** |CIDR-blokkering voor het subnet van de gateway. |
+   | **applicationGatewaySize** | Grootte van de toepassingsgateway.  WAF kan alleen middelgrote en grote. |
+   | **backendIpaddress1** |IP-adres van de eerste webserver. |
+   | **backendIpaddress2** |IP-adres van de tweede webserver. |
+   | **wafEnabled** | Als u op of de WAF is ingeschakeld.|
+   | **wafMode** | Modus van de web application firewall.  De beschikbare opties zijn **preventie** of **detectie**.|
+   | **wafRuleSetType** | RuleSet-type voor WAF.  OWASP is momenteel de enige ondersteunde optie. |
+   | **wafRuleSetVersion** |RuleSet-versie. OWASP CRS 2.2.9 en 3.0 zijn momenteel de ondersteunde opties. |
 
 1. Controleer de inhoud onder **resources** en ziet u de volgende eigenschappen:
 
@@ -82,44 +82,44 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
 1. Sla het bestand op in een lokale map op uw computer.
 1. Open het bestand dat u hebt opgeslagen en bewerk de waarden voor de parameters. Gebruik de volgende waarden voor het implementeren van de toepassingsgateway die in ons scenario wordt beschreven.
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "addressPrefix": {
-            "value": "10.0.0.0/16"
-            },
-            "subnetPrefix": {
-            "value": "10.0.0.0/28"
-            },
-            "applicationGatewaySize": {
-            "value": "WAF_Medium"
-            },
-            "capacity": {
-            "value": 2
-            },
-            "backendIpAddress1": {
-            "value": "10.0.1.10"
-            },
-            "backendIpAddress2": {
-            "value": "10.0.1.11"
-            },
-            "wafEnabled": {
-            "value": true
-            },
-            "wafMode": {
-            "value": "Detection"
-            },
-            "wafRuleSetType": {
-            "value": "OWASP"
-            },
-            "wafRuleSetVersion": {
-            "value": "3.0"
-            }
-        }
-    }
-    ```
+     ```json
+     {
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+             "addressPrefix": {
+             "value": "10.0.0.0/16"
+             },
+             "subnetPrefix": {
+             "value": "10.0.0.0/28"
+             },
+             "applicationGatewaySize": {
+             "value": "WAF_Medium"
+             },
+             "capacity": {
+             "value": 2
+             },
+             "backendIpAddress1": {
+             "value": "10.0.1.10"
+             },
+             "backendIpAddress2": {
+             "value": "10.0.1.11"
+             },
+             "wafEnabled": {
+             "value": true
+             },
+             "wafMode": {
+             "value": "Detection"
+             },
+             "wafRuleSetType": {
+             "value": "OWASP"
+             },
+             "wafRuleSetVersion": {
+             "value": "3.0"
+             }
+         }
+     }
+     ```
 
 1. Sla het bestand op. U kunt de JSON-sjabloon en parametersjabloon testen met online JSON-validatiehulpprogramma’s zoals [JSlint.com](https://www.jslint.com/).
 

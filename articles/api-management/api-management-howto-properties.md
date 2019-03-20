@@ -13,32 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 829d6bc6cb3f8e78d065d7aaca4937634e7349c8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437062"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082701"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Over het gebruik van waarden met de naam in Azure API Management-beleidsregels
 API Management-beleidsregels zijn een krachtige mogelijkheid van het systeem waarmee de Azure-portal om het gedrag van de API via configuratie te wijzigen. Beleidsregels zijn een verzameling instructies die sequentieel worden uitgevoerd op de aanvraag of het antwoord van een API. Beleidsinstructies kunnen worden samengesteld met behulp van letterlijke waarden, beleidsexpressies, en met de naam waarden. 
 
 Elk exemplaar van API Management-service heeft een verzameling eigenschappen van sleutel/waarde-paren, die wordt aangeroepen met de naam waarden, die zijn van toepassing op het service-exemplaar. Deze waarden met de naam kan worden gebruikt voor het beheren van constante tekenreekswaarden met alle configuratie-API en beleidsregels. Elke eigenschap kan de volgende kenmerken hebben:
 
-| Kenmerk | Type | Beschrijving |
+| Kenmerk | Type | Description |
 | --- | --- | --- |
-| Weergavenaam |tekenreeks |Een alfanumerieke tekenreeks die wordt gebruikt om naar de eigenschap te verwijzen in de beleidsregels. |
-| Waarde |tekenreeks |De waarde van de eigenschap. Het kan niet leeg zijn of alleen uit witruimte bestaan. |
+| Weergavenaam |string |Een alfanumerieke tekenreeks die wordt gebruikt om naar de eigenschap te verwijzen in de beleidsregels. |
+| Value |string |De waarde van de eigenschap. Het kan niet leeg zijn of alleen uit witruimte bestaan. |
 |Geheim|booleaans|Bepaalt of de waarde is van een geheim en moet worden versleuteld of niet.|
-| Tags |matrix van tekenreeks |Optioneel tags die de opgegeven kan worden gebruikt voor het filteren van de lijst met eigenschappen. |
+| Tags |tekenreeksmatrix |Optioneel tags die de opgegeven kan worden gebruikt voor het filteren van de lijst met eigenschappen. |
 
 ![Benoemde waarden](./media/api-management-howto-properties/named-values.png)
 
 Eigenschapswaarden letterlijke tekenreeksen kunnen bevatten en [beleidsexpressies](https://msdn.microsoft.com/library/azure/dn910913.aspx). Bijvoorbeeld, de waarde van `ExpressionProperty` is een beleidsexpressie die retourneert een tekenreeks met de huidige datum en tijd. De eigenschap `ContosoHeaderValue` is gemarkeerd als een geheim, zodat de waarde wordt niet weergegeven.
 
-| Naam | Waarde | Geheim | Tags |
+| Name | Value | Geheim | Tags |
 | --- | --- | --- | --- |
-| ContosoHeader |trackingId |False |Contoso |
+| ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
 | ExpressionProperty |@(DateTime.Now.ToString()) |False | |
 
@@ -50,7 +50,7 @@ Eigenschapswaarden letterlijke tekenreeksen kunnen bevatten en [beleidsexpressie
 2. Selecteer **benoemde waarden**.
 3. Druk op **+ toevoegen**.
 
-  Naam en waarde worden de vereiste waarden. Als de waarde van deze eigenschap een geheim is, controleert u dat de dit is een geheim selectievakje. Voer een of meer optionele labels om te helpen bij het organiseren van uw naamwaarden en klikt u op opslaan.
+   Naam en waarde worden de vereiste waarden. Als de waarde van deze eigenschap een geheim is, controleert u dat de dit is een geheim selectievakje. Voer een of meer optionele labels om te helpen bij het organiseren van uw naamwaarden en klikt u op opslaan.
 4. Klik op **Create**.
 
 Als de eigenschap is gemaakt, kunt u deze bewerken door te klikken op de eigenschap. Als u de naam van de eigenschap wijzigt, worden alle beleidsregels die verwijzen naar die eigenschap automatisch bijgewerkt voor het gebruik van de nieuwe naam.

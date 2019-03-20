@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 35abc43b60f31d94e8c4221137ad5437366b3489
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 52469cb2735b2270815191ec0815daee350882a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547858"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108862"
 ---
 # <a name="how-traffic-manager-works"></a>How Traffic Manager Works
 
@@ -39,8 +39,8 @@ Contoso Corp hebben een nieuwe partner-portal ontwikkeld. De URL voor deze porta
 Voor het bereiken van deze configuratie, uitvoeren ze de volgende stappen:
 
 1. Drie exemplaren van de service implementeren. De DNS-namen van deze implementaties zijn 'contoso-us.cloudapp .net', 'contoso-eu.cloudapp .net' en 'contoso-asia.cloudapp .net'.
-2. Maak een Traffic Manager-profiel met de naam 'contoso.trafficmanager.net', en configureer deze voor het gebruik van de methode 'Prestaties' Routering van verkeer voor de drie eindpunten.
-* De aangepaste domeinnaam, 'partners.contoso.com', om te verwijzen naar contoso.trafficmanager.net, met behulp van een DNS CNAME-record configureren.
+1. Maak een Traffic Manager-profiel met de naam 'contoso.trafficmanager.net', en configureer deze voor het gebruik van de methode 'Prestaties' Routering van verkeer voor de drie eindpunten.
+1. De aangepaste domeinnaam, 'partners.contoso.com', om te verwijzen naar contoso.trafficmanager.net, met behulp van een DNS CNAME-record configureren.
 
 ![Traffic Manager-DNS-configuratie][1]
 

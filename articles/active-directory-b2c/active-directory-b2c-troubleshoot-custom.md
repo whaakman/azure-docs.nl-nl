@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1133bdb3c5d708710a556f68e4ac5c57d2dc3dc9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a6ec4c7d239754fe3211b528dd0ac64ee150ad3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153243"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089366"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Verzamelen van Logboeken
 
@@ -44,31 +44,31 @@ Azure AD B2C ondersteunt een functie voor het verzenden van gegevens naar Applic
 1. Open het RP-bestand (bijvoorbeeld SignUpOrSignin.xml).
 1. De volgende kenmerken toevoegen aan de `<TrustFrameworkPolicy>` element:
 
-  ```XML
-  DeploymentMode="Development"
-  UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
-  ```
+   ```XML
+   DeploymentMode="Development"
+   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
+   ```
 
 1. Als deze niet al bestaat, Voeg een onderliggend knooppunt `<UserJourneyBehaviors>` naar de `<RelyingParty>` knooppunt. Deze moeten zich direct na de `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
 2. Het volgende knooppunt toevoegen als een onderliggende site van de `<UserJourneyBehaviors>` element. Vervang `{Your Application Insights Key}` met de **Instrumentatiesleutel** die u hebt verkregen vanuit Application Insights in de vorige sectie.
 
-  ```XML
-  <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
-  ```
+   ```XML
+   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+   ```
 
-  * `DeveloperMode="true"` Geeft aan Application Insights te bekorten de telemetrie via de verwerkings-pipeline goed voor ontwikkeling, maar beperkte bij hoge volumes.
-  * `ClientEnabled="true"` verzendt het Application Insights-client-side-script voor het bijhouden van pagina-fouten bekijken en aan de clientzijde (niet nodig).
-  * `ServerEnabled="true"` de bestaande UserJourneyRecorder JSON verzonden als een aangepaste gebeurtenis naar Application Insights.
-Voorbeeld:
+   * `DeveloperMode="true"` Geeft aan Application Insights te bekorten de telemetrie via de verwerkings-pipeline goed voor ontwikkeling, maar beperkte bij hoge volumes.
+   * `ClientEnabled="true"` verzendt het Application Insights-client-side-script voor het bijhouden van pagina-fouten bekijken en aan de clientzijde (niet nodig).
+   * `ServerEnabled="true"` de bestaande UserJourneyRecorder JSON verzonden als een aangepaste gebeurtenis naar Application Insights.
+   Voorbeeld:
 
-  ```XML
-  <TrustFrameworkPolicy
+   ```XML
+   <TrustFrameworkPolicy
     ...
     TenantId="fabrikamb2c.onmicrosoft.com"
     PolicyId="SignUpOrSignInWithAAD"
     DeploymentMode="Development"
     UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
-  >
+   >
     ...
     <RelyingParty>
       <DefaultUserJourney ReferenceId="UserJourney ID from your extensions policy, or equivalent (for example: SignUpOrSigninWithAzureAD)" />
@@ -76,8 +76,8 @@ Voorbeeld:
         <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
       ...
-  </TrustFrameworkPolicy>
-  ```
+   </TrustFrameworkPolicy>
+   ```
 
 3. Upload het beleid.
 
@@ -91,7 +91,7 @@ Voorbeeld:
 1. Open een nieuw tabblad in Application Insights.
 1. Hier volgt een lijst met query's die kunt u de logboeken
 
-| Query’s uitvoeren | Beschrijving |
+| Query’s uitvoeren | Description |
 |---------------------|--------------------|
 traceringen | Zie alle logboeken die worden gegenereerd door Azure AD B2C |
 traceringen \| waar tijdstempel > ago(1d) | Zie alle logboeken die worden gegenereerd door Azure AD B2C voor de laatste dag

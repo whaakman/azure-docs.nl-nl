@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5588d2bd6cf2098d8744479c2bf2d308c9bf8f0d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b275f23209979e1a8068ecd99465f7b52392bc6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460434"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082905"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Aanbevelingen voor SQL datawarehouse
 
@@ -63,4 +63,3 @@ Op dit moment wordt Advisor alleen weergegeven maximaal vier gerepliceerde tabel
 
 > [!IMPORTANT]
 > De aanbeveling gerepliceerde tabel is niet volledig bewijs en hierbij wordt geen rekening gegevensverplaatsingsbewerkingen account. Er wordt gewerkt aan toe te voegen als een heuristiek, maar in de tussentijd kunt u altijd uw workload moet valideren nadat de aanbeveling is toegepast. Neem contact op met sqldwadvisor@service.microsoft.com als u gerepliceerde tabel aanbevelingen die ervoor zorgt dat uw workload ontdekt aan gaat. Voor meer informatie over gerepliceerde tabellen, gaat u naar de volgende [documentatie](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table).
->

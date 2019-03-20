@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 474ebaad60328b011e91337c46040ae37c603e21
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731052"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103907"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Gegevens kopiëren van SAP Business Warehouse via Open-Hub met behulp van Azure Data Factory
 
@@ -55,7 +55,7 @@ Over het algemeen bestaat de extractie van InfoProviders SAP op Azure Data Facto
 
 1. **Het kopiëren van gegevens ADF** In deze stap in de tabel Open Hub kan worden gelezen door de ADF-Connector 
 
-![Delta-extractie stroom](media\connector-sap-business-warehouse-open-hub\delta-extraction-flow.png)
+![Delta-extractie stroom](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
 
 In de eerste stap van wordt een DTP uitgevoerd. Elke uitvoering wordt gemaakt van een nieuwe SAP-aanvraag-ID. De aanvraag-ID is opgeslagen in de tabel Open Hub en wordt vervolgens gebruikt door de ADF-connector voor het identificeren van de verschillen. De twee stappen asynchroon uitvoeren: de DTP wordt geactiveerd door SAP en het kopiëren van de ADF-gegevens wordt geactiveerd door ADF. 
 

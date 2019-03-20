@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fea950e2c13d9b5ce0c3619990961e611edd6626
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 78dc759632c4fc3116a59ea1e5bc0b93200bca45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207374"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168184"
 ---
 # <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Over het gebruik van Negatable entiteiten met een Model van de cursist gesprek
 
@@ -26,7 +26,7 @@ In deze zelfstudie ziet u de eigenschap "Negatable" van entiteiten.
 [![Zelfstudie negatable entiteiten-Preview](https://aka.ms/cl_Tutorial_v3_NegatableEntities_Preview)](https://aka.ms/cl_Tutorial_v3_NegatableEntities)
 
 ## <a name="requirements"></a>Vereisten
-In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
+In deze zelfstudie is vereist dat de algemene zelfstudie Bot wordt uitgevoerd
 
     npm run tutorial-general
 
@@ -35,65 +35,64 @@ De eigenschap 'Negatable' van een entiteit kunt u beide normaal (positief) een l
 
 ## <a name="steps"></a>Stappen
 
+Start op de startpagina in de Web-UI.
+
 ### <a name="create-the-model"></a>Het Model maken
 
-1. In de Web-gebruikersinterface, klikt u op "Nieuwe Model."
-2. Typ in het veld 'Name', 'NegatableEntity' en druk op enter.
-3. Klik op de knop 'Maken'.
+1. Selecteer **nieuw Model**.
+2. Voer **NegatableEntity** voor **naam**.
+3. Selecteer **Maken**.
 
 ### <a name="entity-creation"></a>Entiteit maken
 
-1. In het linkerdeelvenster klikt u op "Entiteiten" en vervolgens de knop 'Nieuwe entiteit'.
-2. Selecteer 'Aangepast' voor het "entiteitstype'.
-3. Typ 'naam' voor "Naam van de entiteit."
-4. Schakel het selectievakje 'Negatable'.
-    - Controle van deze eigenschap kan de gebruiker de entiteitswaarde van een opgeven, of Stel dat er iets is *niet* de entiteitswaarde van een. In dat geval wordt is het resultaat van het verwijderen van de overeenkomende entiteitswaarde.
-5. Klik op de knop 'Maken'.
+1. Selecteer **entiteiten** in het linker deelvenster, klikt u vervolgens **nieuwe entiteit**.
+2. Selecteer **aangepaste getraind** voor **entiteitstype**.
+3. Voer **naam** voor **entiteitnaam**.
+4. Controleer **Negatable** zodat gebruikers kunnen de entiteitswaarde van een opgeven, of Stel dat er is iets *niet* een entiteit waarde waardoor de overeenkomstige entiteitswaarde verwijderen.
+5. Selecteer **Maken**.
 
-![](../media/tutorial5_entities.PNG)
+![](../media/T06_entity_create.png)
 
 ### <a name="create-the-first-action"></a>De eerste actie maken
 
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-2. In de 'van de Bot response...' veld, typt u "Ik weet niet de naam van uw."
-3. Typ in het veld "Diskwalificeren voorziet", "naam".
-4. Klik op de knop 'Maken'.
+1. Selecteer **acties** in het linker deelvenster, klikt u vervolgens **nieuwe actie**.
+2. Voer **ik weet niet uw naam.** voor **van Bot-antwoord...** .
+3. Voer **naam** voor **diskwalificeren voorziet**.
+4. Selecteer **Maken**.
+
+![](../media/T06_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>De tweede actie maken
 
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-2. In de 'van de Bot response...' veld, typt u 'Ik weet dat uw naam. Het is $name."
-3. Klik op de knop 'Maken'.
+1. Selecteer **acties** in het linker deelvenster, klikt u vervolgens **nieuwe actie**.
+2. Voer **ik weet dat uw naam. Het is $name.** voor **van Bot-antwoord...** .
+3. Selecteer **Maken**.
 
 > [!NOTE]
-> De entiteit 'naam' automatisch is toegevoegd als een 'vereist entiteiten' verwezen in het antwoord.
+> De **naam** entiteit is automatisch toegevoegd als een **vereist entiteiten** verwezen in de reactie utterance.
 
 U hebt nu twee acties.
 
-![](../media/tutorial5_actions.PNG)
+![](../media/T06_action_create_2.png)
 
 ### <a name="train-the-model"></a>Het Model te trainen
 
-1. In het linkerdeelvenster klikt u op "Train-dialoogvensters" en vervolgens de knop 'Nieuwe Train dialoogvenster'.
-2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Hallo".
-3. Klik op de knop 'Acties Score'.
-4. Selecteer het antwoord, "Ik weet niet de naam van uw."
-    - Het percentiel is 100%, omdat de enige geldige actie op basis van de beperkingen.
-5. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Mijn naam is Frank"
-6. Selecteer 'Frank', en kies het label "+ naam"
-    - Er zijn twee exemplaren voor de entiteit "naam": '+ naam' en '-naam '.  (+) Plus toegevoegd of de waarde wordt overschreven. (-) Min Hiermee verwijdert u de waarde.
-7. Klik op de knop 'Acties Score'.
-    - Nu de 'naam' entiteit gedefinieerd als "Jaap" in het geheugen van het Model, dus de 'Ik weet dat uw naam. Het is $name"-actie is beschikbaar.
-8. Selecteer het antwoord, "Ik weet dat uw naam. Het is $name."
-9. In het deelvenster chat, waarbij de status "Typ uw bericht …", typ "Mijn naam is niet Frank."
-10. Selecteer 'Frank' en kies het label '-name "
-    - Selecteert u '-naam ' de huidige waarde van de entiteit te wissen.
-11. Klik op de knop 'Acties Score'.
-12. Selecteer het antwoord, "Ik weet niet de naam van uw."
-13. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Mijn naam is Susan."
-14. Selecteer 'Susan', en kies het label "+ naam"
+1. Selecteer **Train-dialoogvensters** in het linker deelvenster, klikt u vervolgens **nieuwe dialoogvenster van de trein**.
+2. Voer **hello** voor utterance van de gebruiker in het deelvenster links chat.
+3. Selecteer **Score acties**.
+4. Selecteer **ik weet niet uw naam.** uit de lijst met acties. Het percentiel is 100% als de enige geldige actie op basis van de beperkingen.
+5. Voer **mijn naam is Frank** voor utterance van de gebruiker in het deelvenster links chat.
+6. Markeer **Frank** Selecteer **+ naam**. Negatable entiteiten hebben twee instanties: (+) plus wordt toegevoegd of overschrijft de waarde; (-) min Hiermee verwijdert u de waarde.
+7. Selecteer **Score acties**. De **naam** nu entiteit wordt gedefinieerd als **Frank** in het geheugen van het Model, waardoor de **ik weet dat uw naam. Het is $name** actie beschikbaar is.
+8. Selecteer **ik weet dat uw naam. Het is $name.** uit de lijst met acties.
+9. Voer **mijn naam is geen Frank.** voor utterance van de gebruiker in het deelvenster links chat.
+10. Markeer **Frank** Selecteer **-naam** om te wissen van de waarde van de **naam** entiteit.
+11. Selecteer **Score acties**.
+12. Selecteer **ik weet niet uw naam.** uit de lijst met acties.
+13. Voer **Susan, Mijn naam is.** voor de derde utterance van de gebruiker in het deelvenster links chat.
+14. Markeer **Susan** vervolgens **+ naam** 
 
-![](../media/tutorial5_dialogs.PNG)
+![](../media/T06_training.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

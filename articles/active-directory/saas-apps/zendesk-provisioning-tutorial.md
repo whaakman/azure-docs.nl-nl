@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445539"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097988"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Zelfstudie: Zendesk voor het automatisch inrichten van gebruikers configureren
 
@@ -111,12 +111,12 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 5. Onder de **beheerdersreferenties** sectie, voer de **Admin Username**, **geheim Token**, en **domein** van van uw Zendesk-account. Voorbeelden van deze waarden zijn:
 
-    *   In de **Admin Username** veld, de gebruikersnaam van het beheerdersaccount dat op uw Zendesk-tenant te vullen. Voorbeeld: admin@contoso.com.
+   * In de **Admin Username** veld, de gebruikersnaam van het beheerdersaccount dat op uw Zendesk-tenant te vullen. Voorbeeld: admin@contoso.com.
 
-    *   In de **geheim Token** veld, vul het token voor geheim zoals beschreven in stap 6.
+   * In de **geheim Token** veld, vul het token voor geheim zoals beschreven in stap 6.
 
-    *   In de **domein** veld, vullen het subdomein van uw Zendesk-tenant.
-    Voorbeeld: Voor een account met een tenant-URL van https://my-tenant.zendesk.com, zou uw subdomein **mijn tenant**.
+   * In de **domein** veld, vullen het subdomein van uw Zendesk-tenant.
+     Voorbeeld: Voor een account met een tenant-URL van https://my-tenant.zendesk.com, zou uw subdomein **mijn tenant**.
 
 6. De **geheim Token** voor uw Zendesk-account zich bevindt in **Admin > API > instellingen**.
    Zorg ervoor dat **tokentoegang** is ingesteld op **ingeschakeld**.

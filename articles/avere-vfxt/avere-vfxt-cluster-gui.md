@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 30c03d52e31f70448eef07b4567083061605d8dd
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300469"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856838"
 ---
 # <a name="access-the-vfxt-cluster"></a>Toegang tot het cluster vFXT
 
@@ -31,7 +31,7 @@ Voordat u verbinding maakt, zorg ervoor dat het SSH openbaar/persoonlijk sleutel
 
 Als een client op basis van Linux, gebruikt u een SSH-opdracht met dit formulier tunneling: 
 
-ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*@*controller_public_IP*
+ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
 Deze opdracht maakt verbinding met van het cluster management IP-adres via het IP-adres van de domeincontroller van het cluster.
 
@@ -47,7 +47,7 @@ Verificatie wordt automatisch als u uw openbare SSH-sleutel gebruikt om het clus
 
 In dit voorbeeld wordt de algemene Windows-terminal hulpprogramma, PuTTY.
 
-Vul in de PuTTY **hostnaam** veld met de gebruikersnaam van het cluster netwerkcontroller en het IP-adres: *your_username*@*controller_public_IP*.
+Vul in de PuTTY **hostnaam** veld met de gebruikersnaam van het cluster netwerkcontroller en het IP-adres: *your_username*\@*controller_public_IP*.
 
 Voorbeeld: ``azureuser@203.0.113.51``
 
@@ -69,7 +69,7 @@ Verificatie wordt automatisch als u uw openbare SSH-sleutel gebruikt om het clus
 
 Deze stap maakt gebruik van een webbrowser verbinding maken met het hulpprogramma voor configuratie uitgevoerd op het cluster vFXT.
 
-* Voor de verbinding van een SSH-tunnel, open uw webbrowser en navigeer naar https://127.0.0.1:8443. 
+* Voor de verbinding van een SSH-tunnel, open uw webbrowser en navigeer naar `https://127.0.0.1:8443`. 
 
   U verbinding met het cluster-IP-adres tijdens het maken van de tunnel, zodat u alleen wilt gebruiken van het localhost IP-adres in de browser. Als u een andere lokale poort dan 8443 gebruikt, in plaats daarvan uw poortnummer gebruiken.
 

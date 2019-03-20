@@ -6,21 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/19/2018
+ms.date: 03/14/2019
 ms.author: raynew
-ms.openlocfilehash: 7f25f26ac1cefa0f2dc3b9b7e30f4a4fc2901c9f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1712e46494796e563c26316b4f45d968872c304f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996763"
 ---
-# <a name="restore-sql-server-databases-on-azure-vms"></a>Herstellen van SQL Server-databases op Azure Virtual machines 
+# <a name="restore-sql-server-databases-on-azure-vms"></a>Herstellen van SQL Server-databases op Azure Virtual machines
 
 In dit artikel wordt beschreven hoe u een SQL Server-database die wordt uitgevoerd op een Azure-machine (VM) die de [Azure Backup](backup-overview.md) service heeft een back-up naar een Azure Backup Recovery Services-kluis.
-
-> [!NOTE]
-> Back-up van SQL Server-databases die worden uitgevoerd op een Azure-virtuele machine die gebruikmaakt van Azure Backup is momenteel in openbare preview.
 
 In dit artikel wordt beschreven hoe u SQL Server-databases te herstellen. Zie voor meer informatie, [maakt u een Back-up van SQL Server-databases op Azure Virtual machines](backup-azure-sql-database.md).
 
@@ -53,7 +50,7 @@ Als u wilt herstellen, moet u de volgende machtigingen:
 * **Inzender (schrijven)** toegang tot de bron-VM waarvan een back-up wordt gemaakt.
 * **Inzender (schrijven)** toegang tot de doel-VM:
     - Als u naar dezelfde virtuele machine herstellen wilt, is dit de bron-VM.
-    - Als u naar een alternatieve locatie herstellen bent, is dit de nieuwe doel-VM. 
+    - Als u naar een alternatieve locatie herstellen bent, is dit de nieuwe doel-VM.
 
 Als volgt herstellen:
 1. Open de kluis waarin de SQL Server-VM is geregistreerd.
@@ -66,24 +63,24 @@ Als volgt herstellen:
 
     ![De te herstellen database selecteren](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
-5. Bekijk het databasemenu. Het biedt informatie over de databaseback-up, met inbegrip van: 
+5. Bekijk het databasemenu. Het biedt informatie over de databaseback-up, met inbegrip van:
 
     * De oudste en meest recente herstelpunten.
     * De status van back-logboek voor de afgelopen 24 uur voor databases die zijn opgenomen in de modus voor volledige en bulksgewijs geregistreerde herstel en die zijn geconfigureerd voor transactionele logboekback-ups.
 
-6. Selecteer **Restore DB**. 
+6. Selecteer **Restore DB**.
 
     ![DB herstellen selecteren](./media/backup-azure-sql-database/restore-db-button.png)
 
 7. In **configuratie herstellen**, Geef op waar om de gegevens te herstellen:
-    - **Alternatieve locatie**: De database herstellen naar een alternatieve locatie en houd de oorspronkelijke brondatabase.
-    - **DB overschrijven**: De gegevens herstellen naar hetzelfde exemplaar van SQL Server als de oorspronkelijke bron. Deze optie wordt de oorspronkelijke database overschreven.
+   - **Alternatieve locatie**: De database herstellen naar een alternatieve locatie en houd de oorspronkelijke brondatabase.
+   - **DB overschrijven**: De gegevens herstellen naar hetzelfde exemplaar van SQL Server als de oorspronkelijke bron. Deze optie wordt de oorspronkelijke database overschreven.
 
-    > [!Important]
-    > Als de geselecteerde database bij een AlwaysOn-beschikbaarheidsgroep hoort, niet de database worden overschreven door SQL Server toegestaan. Alleen **alternatieve locatie** beschikbaar is.
-    >
+     > [!Important]
+     > Als de geselecteerde database bij een AlwaysOn-beschikbaarheidsgroep hoort, niet de database worden overschreven door SQL Server toegestaan. Alleen **alternatieve locatie** beschikbaar is.
+     >
 
-    ![Het menu Configuratie herstellen](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
+     ![Het menu Configuratie herstellen](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
 
 ### <a name="restore-to-an-alternate-location"></a>Herstellen naar een alternatieve locatie
 
@@ -98,7 +95,7 @@ Als volgt herstellen:
 2. In **herstelpunt selecteren**, selecteert of [herstellen naar een bepaald punt in tijd](#restore-to-a-specific-point-in-time) of [herstellen naar een specifiek herstelpunt](#restore-to-a-specific-restore-point).
 
     > [!NOTE]
-    > De point-in-time-restore is alleen beschikbaar voor logboekback-ups voor databases die zich in de volledige en bulksgewijs geregistreerde herstelmodus. 
+    > De point-in-time-restore is alleen beschikbaar voor logboekback-ups voor databases die zich in de volledige en bulksgewijs geregistreerde herstelmodus.
 
 ### <a name="restore-and-overwrite"></a>Terugzetten en overschrijven
 
@@ -109,7 +106,7 @@ Als volgt herstellen:
 2. In **herstelpunt selecteren**, selecteer **Logboeken (tijdstip)** naar [herstellen naar een bepaald punt in tijd](#restore-to-a-specific-point-in-time). Of selecteer **volledig en differentieel** om te herstellen naar een [specifieke herstelpunt](#restore-to-a-specific-restore-point).
 
     > [!NOTE]
-    > De point-in-time-restore is alleen beschikbaar voor logboekback-ups voor databases die zich in de volledige en bulksgewijs geregistreerde herstelmodus. 
+    > De point-in-time-restore is alleen beschikbaar voor logboekback-ups voor databases die zich in de volledige en bulksgewijs geregistreerde herstelmodus.
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Herstellen naar een bepaald punt in tijd
 
@@ -125,7 +122,7 @@ Als u hebt geselecteerd **Logboeken (tijdstip)** als het type herstel het volgen
 
     ![Selecteer een tijdstip herstellen](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 
- 
+
 1. Op de **Advanced Configuration** menu, als u wilt de database niet werkt behouden na het herstel inschakelen **herstellen met GEENHERSTEL**.
 1. Als u wijzigen van de locatie voor terugzetten op de doelserver wilt, voert u een nieuw doelpad.
 1. Selecteer **OK**.
@@ -144,9 +141,9 @@ Als u hebt geselecteerd **volledig en differentieel** als het type herstel het v
 1. Selecteer een herstelpunt in de lijst en selecteer **OK** om de procedure voor het herstelpunt te voltooien.
 
     ![Een volledig herstelpunt kiezen](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
-        
+
 1. Op de **Advanced Configuration** menu, als u wilt de database niet werkt behouden na het herstel inschakelen **herstellen met GEENHERSTEL**.
-1. Als u wijzigen van de locatie voor terugzetten op de doelserver wilt, voert u een nieuw doelpad. 
+1. Als u wijzigen van de locatie voor terugzetten op de doelserver wilt, voert u een nieuw doelpad.
 1. Selecteer **OK**.
 
     ![Het menu Geavanceerde configuratie](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)

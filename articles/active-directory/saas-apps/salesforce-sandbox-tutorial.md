@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feb6cebca0fe165315215813eb939dc2d5d120cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6794d7eaccb488bb345227161f0bca02f14bc518
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177324"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Zelfstudie: Azure Active Directory-integratie met Salesforce-Sandbox
 
@@ -259,7 +259,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
@@ -309,7 +309,7 @@ Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 * [Inrichten van gebruikers configureren](salesforce-sandbox-provisioning-tutorial.md)
 

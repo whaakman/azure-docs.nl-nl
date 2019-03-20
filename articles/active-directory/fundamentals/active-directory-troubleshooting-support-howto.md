@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb89d3eee87c0796bcd21914e719784756bc288e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 548ea67092a2cdb8cedeed869becd8933c08c5c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165736"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181789"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Hulp zoeken en openen van een ondersteuningsticket voor Azure Active Directory
 Microsoft biedt wereldwijde technische, voorverkoop, facturering en ondersteuning voor abonnementen voor Azure Active Directory (Azure AD). Ondersteuning is online en telefonisch voor Microsoft Azure betaalde en proefabonnementen beschikbaar. Telefonische ondersteuning en Onlineondersteuning facturering zijn beschikbaar in extra talen. 
@@ -41,7 +41,7 @@ Als u geen antwoorden kunt vinden met behulp van bronnen voor zelfhulp, kunt u e
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Hoe u een ondersteuningsticket maken voor Azure AD in Azure portal
 
 > [!NOTE]
-> Voor problemen met facturering en abonnementen, moet u [het Office 365-beheercentrum](https://portal.office.com).
+> Voor problemen met facturering en abonnementen, moet u de [Microsoft 365-beheercentrum](https://admin.microsoft.com).
 > 
 
 1. Aanmelden bij [de Azure-portal](https://portal.azure.com) en open **Azure Active Directory**.
@@ -61,22 +61,21 @@ Als u geen antwoorden kunt vinden met behulp van bronnen voor zelfhulp, kunt u e
 8. Geef uw contactgegevens en selecteer **maken**.
   ![probleem categorie zelfhulp-schermafbeelding](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
-### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-office-365-portal"></a>Hoe u een ondersteuningsticket maken voor Azure AD in de Office 365-beheerportal
+### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Hoe u een ondersteuningsticket maken voor Azure AD in het Microsoft 365-beheercentrum
 
 > [!NOTE]
-> Ondersteuning voor Azure AD in het Office 365-beheercentrum wordt aangeboden alleen voor beheerders.
+> Ondersteuning voor Azure AD in de [Microsoft 365-beheercentrum](https://admin.microsoft.com) alleen voor beheerders wordt aangeboden.
 > 
 
-1. Aanmelden bij [het Office 365-beheercentrum](https://portal.office.com) met een account met een Enterprise Mobility + Security (EMS)-licentie.
+1. Aanmelden bij de [Microsoft 365-beheercentrum](https://admin.microsoft.com) met een account met een Enterprise Mobility + Security (EMS)-licentie.
 
-2. Op de **ondersteuning** tegel, selecteer **nieuwe serviceaanvraag**: ![Schermafbeelding van Office 365-portal](./media/active-directory-troubleshooting-support-howto/office-portal.png)
+2. Op de **ondersteuning** tegel, selecteer **nieuwe serviceaanvraag**:
 
-3. Op de **overzicht van** weergeeft, schakelt **identiteitsbeheer** of **beheer van gebruikers en domein**: ![Schermopname van Azure AD-ondersteuning categorieën](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. Op de **overzicht van** weergeeft, schakelt **identiteitsbeheer** of **beheer van gebruikers en domein**:
 
 4. Voor **functie**, selecteert u de Azure AD-functie waarvoor u ondersteuning wilt.
 
 5. Voor **symptoom**, selecteer een geschikte symptoom, vat uw probleem samen en relevante gegevens en selecteer vervolgens **volgende**.
-  ![functie en symptoom zelfhulp-schermafbeelding](./media/active-directory-troubleshooting-support-howto/open-service-request.png)
 
 6. Selecteer een van de resources die worden aangeboden zelfhulp of selecteer **Ja, Ga verder** of **Nee, de aanvraag annuleren**.
 

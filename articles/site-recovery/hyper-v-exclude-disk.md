@@ -8,17 +8,18 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
-ms.openlocfilehash: a1b35d4c10246af7e4dab36585c2bb9b72fd0c01
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216962"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992331"
 ---
 # <a name="exclude-disks-from-replication"></a>Schijven uitsluiten van replicatie
 In dit artikel wordt beschreven hoe u schijven uitsluit van replicatie. Door schijven uit te sluiten, kunt u de verbruikte replicatiebandbreedte optimaliseren of de resources aan de doelzijde waarvan deze schijven gebruikmaken, optimaliseren.
 
 ## <a name="supported-scenarios"></a>Ondersteunde scenario's
+
 **Functie** | **VMware naar Azure** | **Hyper-V naar Azure** | **Azure naar Azure**| **Hyper-V naar Hyper-V** 
 --|--|--|--|--
 Schijf uitsluiten | Ja | Ja | Nee | Nee
@@ -72,7 +73,7 @@ De schijven op de virtuele bronmachine zijn de volgende:
 DB-Disk0-OS | DISK0 | C:\ | Besturingssysteemschijf
 DB-Disk1| Disk1 | D:\ | SQL-systeemdatabase en gebruikersdatabase1
 DB-Disk2 (de schijf is uitgesloten van beveiliging) | Disk2 | E:\ | Tijdelijke bestanden
-DB-Disk3 (de schijf is uitgesloten van beveiliging) | Disk3 | F:\ | SQL-tempdb-database (mappad (F:\MSSQL\Data\) </br /> </br />Noteer het mappad voordat de failover wordt uitgevoerd.
+DB-Disk3 (de schijf is uitgesloten van beveiliging) | Disk3 | F:\ | SQL-tempdb-database (mappad (F:\MSSQL\Data\) <br /> <br />Noteer het mappad voordat de failover.
 DB-Disk4 | Disk4 |G:\ |Gebruikersdatabase2
 
 Omdat het gegevensverloop op twee schijven van de virtuele machine tijdelijk is, sluit u Disk2 en Disk3 uit van replicatie terwijl u de virtuele SalesDB-machine beveiligt. Azure Site Recovery repliceert deze schijven niet. Bij een failover zijn deze schijven niet aanwezig op de virtuele failover-machine in Azure.
@@ -82,7 +83,7 @@ De schijven op de virtuele Azure-machine na de failover zijn de volgende:
 **Gastbesturingssysteemschijf#** | **Stationsletter** | **Gegevenstype op de schijf**
 --- | --- | ---
 DISK0 | C:\ | Besturingssysteemschijf
-Disk1 | E:\ | Tijdelijke opslag</br /> </br />Azure voegt deze schijf toe en wijst de eerste beschikbare stationsletter toe.
+Disk1 | E:\ | Tijdelijke opslag<br /> <br />Azure voegt deze schijf en wijst de eerste beschikbare stationsletter toe.
 Disk2 | D:\ | SQL-systeemdatabase en gebruikersdatabase1
 Disk3 | G:\ | Gebruikersdatabase2
 
@@ -146,7 +147,7 @@ De configuratie van de Azure-VM-schijven in het vorige voorbeeld:
 **Gastbesturingssysteemschijf#** | **Stationsletter** | **Gegevenstype op de schijf**
 --- | --- | ---
 DISK0 | C:\ | Besturingssysteemschijf
-Disk1 | E:\ | Tijdelijke opslag</br /> </br />Azure voegt deze schijf toe en wijst de eerste beschikbare stationsletter toe.
+Disk1 | E:\ | Tijdelijke opslag<br /> <br />Azure voegt deze schijf en wijst de eerste beschikbare stationsletter toe.
 Disk2 | D:\ | SQL-systeemdatabase en gebruikersdatabase1
 Disk3 | G:\ | Gebruikersdatabase2
 
@@ -186,7 +187,7 @@ Schijven op de virtuele Azure-machine na een failover van de virtuele machine va
 **Schijfnaam** | **Gastbesturingssysteemschijf#** | **Stationsletter** | **Gegevenstype op de schijf**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | Besturingssysteemschijf
-DB-Disk1 | Disk1 | D:\ | Tijdelijke opslag</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Tijdelijke opslag<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Gebruikersgegevens 1
 DB-Disk3 | Disk3 | F:\ | Gebruikersgegevens 2
 
@@ -213,10 +214,10 @@ Dit zijn de instellingen voor het wisselbestand op de on-premises virtuele machi
 
 Schijven op de virtuele Azure-machine na een failover van de virtuele machine van Hyper-V naar Azure:
 
-**Schijfnaam**| **Gastbesturingssysteemschijf#**| **Stationsletter** | **Gegevenstype op de schijf**
+**Schijfnaam** | **Gastbesturingssysteemschijf#** | **Stationsletter** | **Gegevenstype op de schijf**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |Besturingssysteemschijf
-DB-Disk1 | Disk1 | D:\ | Tijdelijke opslag</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Tijdelijke opslag<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Gebruikersgegevens 1
 DB-Disk3 | Disk3 | F:\ | Gebruikersgegevens 2
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2187d0e986a173e1b8dc37fd0abdfa3bfd9e9505
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 64aebaedd9221b2570b66bdb8550bff36b54492c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168984"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084756"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Zelfstudie: Azure Active Directory-integratie met SpringCM
 
@@ -200,7 +200,7 @@ Als u wilt dat Azure Active Directory-gebruikers zich aanmelden bij SpringCM, mo
    
     ![Create User](./media/spring-cm-tutorial/ic797054.png "Create User")
 
-1. Klik op **gebruiker maken**.
+1. Klik op **Gebruiker maken**.
 
 1. Selecteer een **gebruikersrol**.
 
@@ -212,9 +212,9 @@ Als u wilt dat Azure Active Directory-gebruikers zich aanmelden bij SpringCM, mo
 
 1. Klik op **Opslaan**.
 
-  >[!NOTE]
-  >U kunt alle andere SpringCM gebruiker-account maken van hulpprogramma's of API's geleverd door SpringCM aan inrichten AAD-gebruikersaccounts.  
-  > 
+   >[!NOTE]
+   >U kunt alle andere SpringCM gebruiker-account maken van hulpprogramma's of API's geleverd door SpringCM aan inrichten AAD-gebruikersaccounts.  
+   > 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
@@ -249,14 +249,14 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
- 
+ 
 Wanneer u op de tegel SpringCM in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing SpringCM.
 
 Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster. 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

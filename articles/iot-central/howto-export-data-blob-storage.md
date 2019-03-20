@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: ae1e71170952a2f05e371de68b519eba522e3298
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 43fda73b1bd410c3e754316bb8bf8c7e1c744e58
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318698"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005339"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Uw gegevens worden geëxporteerd naar Azure Blob Storage
 
@@ -32,9 +32,9 @@ In dit artikel dives dieper in het gebruik van de continue export-functie in Azu
 ## <a name="export-to-azure-blob-storage"></a>Exporteren naar Azure Blob-opslag
 
 Metingen, apparaten en sjablonen apparaatgegevens worden geëxporteerd naar uw opslagaccount eenmaal per minuut, met elk bestand met de batch wijzigingen sinds de laatste bestand geëxporteerd. De geëxporteerde gegevens [Apache Avro](https://avro.apache.org/docs/current/index.html) formatteren en aan drie mappen worden geëxporteerd. De standaardpaden in uw storage-account zijn:
-    - Berichten: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - Apparaten: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - Apparaatsjablonen: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Berichten: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Apparaten: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Apparaatsjablonen: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ### <a name="measurements"></a>Metingen
 

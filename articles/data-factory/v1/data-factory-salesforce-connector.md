@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3689c93c392d910d6b3979291bc5a6c81080418c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 63fd8f75cb22a4dec888b7765c7515bfb68a4a6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551803"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999024"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Gegevens verplaatsen van Salesforce worden met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -283,6 +283,7 @@ Zie [RelationalSource typeproperties](#copy-activity-properties) voor de lijst m
 
 
 ### <a name="type-mapping-for-salesforce"></a>Toewijzing van het type voor Salesforce
+
 | Salesforce-type | . NET op basis van type |
 | --- | --- |
 | Automatisch nummer |String |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 946af124c5e16620c5052ac32d47ddb5fe4537d2
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 41b80e3914c93a4baeb39f35c7281f8fe81ff37c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835313"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Veelgestelde vragen over Traffic Analytics
 
@@ -120,6 +120,12 @@ Nee. U kunt de onbewerkte Logboeken opslaan in een storage-account waarop een NS
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Wat gebeurt er als ik kan een NSG voor traffic analytics vanwege een fout 'Niet gevonden' niet configureren?
 
 Selecteer een ondersteunde regio. Als u een niet-ondersteunde regio selecteert, ontvangt u een foutbericht 'Niet gevonden'. De ondersteunde regio's worden eerder in dit artikel vermeld.
+
+## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>Waarom krijg ik de fout 'mislukt om bij te werken instellingen voor stroomlogboeken voor... InternalServerError...' bij het inschakelen van NSG van in de VS (overheid) Virginia?
+
+Dit komt door een bug 'Microsoft.Network-resourceprovider waar niet opnieuw geregistreerd voor een abonnement in de VS (overheid) Virginia is. Het team werkt aan de oplossing voor dit. Als tijdelijke oplossing, moet u [handmatig opnieuw registreren 'Microsoft.Network' RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
+
+Neem contact op met ondersteuning als het probleem zich blijft voordoen. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Wat gebeurt er als ik krijg de status 'kan niet laden,' onder de NSG stroom logboeken pagina?
 

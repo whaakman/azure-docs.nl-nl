@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 4cd7c61903bad5c0f1d6c41165e9bd7ff61a6d09
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 01edd378ee85a3e209892250788fd3a26c628648
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213429"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090828"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Zelfstudie: SQL Data Sync tussen Azure SQL Database en SQL Server instellen met on-premises
 
@@ -45,21 +45,21 @@ Zie voor voorbeelden van PowerShell voor het configureren van SQL Data Sync [syn
 
 1. Op de **synchroniseren met andere databases** weergeeft, schakelt **nieuwe Synchronisatiegroep**. De **nieuwe synchronisatiegroep** pagina wordt geopend met **synchronisatiegroep maken (stap 1)** gemarkeerd.
 
-  ![Stap 1-instellingen](media/sql-database-get-started-sql-data-sync/stepone.png)
+   ![Stap 1-instellingen](media/sql-database-get-started-sql-data-sync/stepone.png)
 
-  Op de **Gegevenssynchronisatiegroep maken** pagina, wijzigt u de volgende instellingen:
+   Op de **Gegevenssynchronisatiegroep maken** pagina, wijzigt u de volgende instellingen:
 
-  | Instelling                        | Description |
-  | ------------------------------ | ------------------------------------------------- |
-  | **Naam van Synchronisatiegroep** | Voer een naam voor de nieuwe groep voor synchronisatie. Deze naam is niet hetzelfde als van de naam van de database zelf. |
-  | **Metagegevensdatabase voor synchronisatie** | Kies een database (aanbevolen) te maken of een bestaande database wilt gebruiken.<br/><br/>Als u ervoor kiest **nieuwe database**, selecteer **nieuwe database maken.** Klik op de **SQL-Database** pagina, een naam en het configureren van de nieuwe database en selecteer **OK**.<br/><br/>Als u ervoor kiest **bestaande database gebruiken**, selecteert u de database uit de lijst. |
-  | **Automatische synchronisatie** | Selecteer **op** of **uit**.<br/><br/>Als u ervoor kiest **op**, voer een getal in en selecteert u **seconden**, **minuten**, **uur**, of **dagen** in de **Synchronisatiefrequentie** sectie. |
-  | **Conflictoplossing** | Selecteer **Hub win** of **lid win**.<br/><br/>**Hub win** betekent dat wanneer conflicten optreden, gegevens in de hubdatabase conflicterende gegevens in de liddatabase worden overschreven.<br/><br/>**Lid win** betekent dat wanneer conflicten optreden, gegevens in de liddatabase overschrijft conflicterende gegevens in de hubdatabase. |
+   | Instelling                        | Description |
+   | ------------------------------ | ------------------------------------------------- |
+   | **Naam van Synchronisatiegroep** | Voer een naam voor de nieuwe groep voor synchronisatie. Deze naam is niet hetzelfde als van de naam van de database zelf. |
+   | **Metagegevensdatabase voor synchronisatie** | Kies een database (aanbevolen) te maken of een bestaande database wilt gebruiken.<br/><br/>Als u ervoor kiest **nieuwe database**, selecteer **nieuwe database maken.** Klik op de **SQL-Database** pagina, een naam en het configureren van de nieuwe database en selecteer **OK**.<br/><br/>Als u ervoor kiest **bestaande database gebruiken**, selecteert u de database uit de lijst. |
+   | **Automatische synchronisatie** | Selecteer **op** of **uit**.<br/><br/>Als u ervoor kiest **op**, voer een getal in en selecteert u **seconden**, **minuten**, **uur**, of **dagen** in de **Synchronisatiefrequentie** sectie. |
+   | **Conflictoplossing** | Selecteer **Hub win** of **lid win**.<br/><br/>**Hub win** betekent dat wanneer conflicten optreden, gegevens in de hubdatabase conflicterende gegevens in de liddatabase worden overschreven.<br/><br/>**Lid win** betekent dat wanneer conflicten optreden, gegevens in de liddatabase overschrijft conflicterende gegevens in de hubdatabase. |
 
-  > [!NOTE]
-  > Microsoft raadt aan om te maken van een nieuwe, lege database voor gebruik als de **metagegevensdatabase voor synchronisatie**. Gegevenssynchronisatie tabellen in deze database maakt en een frequente werkbelasting wordt uitgevoerd. Deze database wordt gedeeld als de **metagegevensdatabase voor synchronisatie** voor alle synchronisatiegroepen in een geselecteerde regio en u de database of de naam niet wijzigen zonder het verwijderen van alle synchronisatiegroepen en Synchronisatieagents in de regio.
+   > [!NOTE]
+   > Microsoft raadt aan om te maken van een nieuwe, lege database voor gebruik als de **metagegevensdatabase voor synchronisatie**. Gegevenssynchronisatie tabellen in deze database maakt en een frequente werkbelasting wordt uitgevoerd. Deze database wordt gedeeld als de **metagegevensdatabase voor synchronisatie** voor alle synchronisatiegroepen in een geselecteerde regio en u de database of de naam niet wijzigen zonder het verwijderen van alle synchronisatiegroepen en Synchronisatieagents in de regio.
 
-  Selecteer **OK** en wacht tot de groep voor synchronisatie moet worden gemaakt en geïmplementeerd.
+   Selecteer **OK** en wacht tot de groep voor synchronisatie moet worden gemaakt en geïmplementeerd.
 
 ## <a name="add-sync-members"></a>Synchronisatieleden toevoegen
 
@@ -95,28 +95,28 @@ In de **Liddatabase** sectie, optioneel een on-premises SQL-Server toevoegen aan
 
 1. Selecteer **de Synchronisatieagentgateway kiezen**. De **synchronisatieagent selecteren** pagina wordt geopend.
 
-  ![Het maken van een sync-agent](media/sql-database-get-started-sql-data-sync/steptwo-agent.png)
+   ![Het maken van een sync-agent](media/sql-database-get-started-sql-data-sync/steptwo-agent.png)
 
 1. Op de **kiest u de Sync-Agent** pagina, kies of u wilt gebruikmaken van een bestaande agent of maken van een agent.
 
-  Als u ervoor kiest **bestaande agents**, selecteert u de bestaande agent uit de lijst.
+   Als u ervoor kiest **bestaande agents**, selecteert u de bestaande agent uit de lijst.
 
-  Als u ervoor kiest **maken van een nieuwe agent**, doe dan het volgende:
+   Als u ervoor kiest **maken van een nieuwe agent**, doe dan het volgende:
 
-    1. De data sync-agent downloaden via de koppeling en installeer deze op de computer waar de SQL-Server zich bevindt. U kunt ook de agent rechtstreeks vanuit downloaden [SQL Azure Data Sync-Agent](https://www.microsoft.com/download/details.aspx?id=27693).
+   1. De data sync-agent downloaden via de koppeling en installeer deze op de computer waar de SQL-Server zich bevindt. U kunt ook de agent rechtstreeks vanuit downloaden [SQL Azure Data Sync-Agent](https://www.microsoft.com/download/details.aspx?id=27693).
 
       > [!IMPORTANT]
       > U moet uitgaande TCP-poort 1433 openen in de firewall zodat de clientagent communiceren met de server.
 
-    1. Voer een naam voor de agent.
+   1. Voer een naam voor de agent.
 
-    1. Selecteer **maken en genereren van de sleutel** en de agentsleutel kopiëren naar het Klembord.
+   1. Selecteer **maken en genereren van de sleutel** en de agentsleutel kopiëren naar het Klembord.
 
-    1. Selecteer **OK** sluiten de **synchronisatieagent selecteren** pagina.
+   1. Selecteer **OK** sluiten de **synchronisatieagent selecteren** pagina.
 
 1. Zoek in de SQL Server-computer en de synchronisatieagent van Client-app uitvoeren.
 
-  ![De gegevens synchroniseren agent-client-app](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
+   ![De gegevens synchroniseren agent-client-app](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
 
     1. Selecteer in de app sync-agent **Agentsleutel indienen**. De **synchroniseren metagegevens databaseconfiguratie** in het dialoogvenster wordt geopend.
 

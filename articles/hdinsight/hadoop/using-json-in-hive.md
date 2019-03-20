@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: b174b1279a2e93560932334c9ae1e926c1eeca3c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 4d2e238182ec37a2ac652806bb1eed18110759de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897160"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Verwerken en analyseren van JSON-documenten met behulp van Apache Hive in Azure HDInsight
 
@@ -57,7 +57,7 @@ Informatie over het verwerken en analyseren van JavaScript Object Notation (JSON
 }
 ```
 
-Het bestand kan worden gevonden op **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Zie voor meer informatie over het gebruik van Azure Blob storage met HDInsight [gebruik HDFS-compatibele Azure Blob-opslag met Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). U kunt het bestand kopiëren naar de standaardcontainer van uw cluster.
+Het bestand kan worden gevonden op **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. Zie voor meer informatie over het gebruik van Azure Blob storage met HDInsight [gebruik HDFS-compatibele Azure Blob-opslag met Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). U kunt het bestand kopiëren naar de standaardcontainer van uw cluster.
 
 In deze zelfstudie gebruikt u de Apache Hive-console. Zie voor instructies over het openen van de Hive-console, [gebruik Apache Ambari Hive-weergave met Apache Hadoop in HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
@@ -83,7 +83,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-De onbewerkte JSON-bestand bevindt zich op **wasb://processjson@hditutorialdata.blob.core.windows.net/**. De **StudentsRaw** Hive-tabel verwijst naar de onbewerkte JSON-document dat niet wordt afgevlakt.
+De onbewerkte JSON-bestand bevindt zich op **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. De **StudentsRaw** Hive-tabel verwijst naar de onbewerkte JSON-document dat niet wordt afgevlakt.
 
 De **StudentsOneLine** Hive-tabel de gegevens worden opgeslagen in het HDInsight-standaardbestandssysteem onder de **/json/studenten/** pad.
 
