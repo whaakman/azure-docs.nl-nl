@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 48ccbedd6e3a7da0ec487f27709a47f9364f7da3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 3d95a9ea555cceda82530eb5c487eeb993c1a678
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100054"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188557"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Werken met een virtueel netwerk-TAP met de Azure CLI
 
@@ -28,7 +28,7 @@ Met Azure virtual network TAP (Terminal Access Point) kunt u continu stroom netw
 
 ## <a name="create-a-virtual-network-tap-resource"></a>Een virtueel netwerk-TAP-resource maken
 
-Lezen [vereisten](virtual-network-tap-overview.md#prerequisites) voordat u een virtueel netwerk-TAP-resource maken. U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de Azure-opdrachtregelinterface (CLI) van uw computer. De Azure Cloud Shell is een gratis interactieve shell, waarvoor de Azure CLI installeren op uw computer. U moet zich aanmelden bij Azure met een account met de juiste [machtigingen](virtual-network-tap-overview.md#permissions). In dit artikel gebruikmaken van Azure CLI versie 2.0.46 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` voor het maken van een verbinding met Azure.
+Lezen [vereisten](virtual-network-tap-overview.md#prerequisites) voordat u een virtueel netwerk-TAP-resource maken. U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de Azure-opdrachtregelinterface (CLI) van uw computer. De Azure Cloud Shell is een gratis interactieve shell, waarvoor de Azure CLI installeren op uw computer. U moet zich aanmelden bij Azure met een account met de juiste [machtigingen](virtual-network-tap-overview.md#permissions). In dit artikel gebruikmaken van Azure CLI versie 2.0.46 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Virtueel netwerk-TAP is momenteel beschikbaar als een uitbreiding. Voor het installeren van de extensie die u wilt uitvoeren `az extension add -n virtual-network-tap`. Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` voor het maken van een verbinding met Azure.
 
 1. De ID van uw abonnement in een variabele die wordt gebruikt in een latere stap ophalen:
 

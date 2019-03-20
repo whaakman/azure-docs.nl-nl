@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3dda16450f5454b4fae6d18235b05b7bb29a8b91
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4b622a5925aebd140fed2ac74eaf7cc186803b90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018855"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113753"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Hive-activiteit in Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -81,7 +81,7 @@ De HDInsight Hive-activiteit in een Data Factory [pijplijn](data-factory-create-
 | invoer |Invoer gebruikt door de Hive-activiteit |Nee |
 | uitvoer |Uitvoer geproduceerd door de Hive-activiteit |Ja |
 | linkedServiceName |Verwijzing naar het HDInsight-cluster dat is geregistreerd als een gekoppelde service in Data Factory |Ja |
-| script |Geef de inline Hive-script |Nee |
+| Script |Geef de inline Hive-script |Nee |
 | pad naar script |Het Hive-script Store in een Azure blob-opslag en het pad naar het bestand opgeven. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. De bestandsnaam is hoofdlettergevoelig. |Nee |
 | Hiermee worden gedefinieerd |Geef parameters op als sleutel/waarde-paren voor verwijzende binnen het Hive-script met behulp van 'hiveconf' |Nee |
 
@@ -242,7 +242,7 @@ Als u wilt gebruiken met parameters Hive-script, doet u het volgende
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-## <a name="see-also"></a>Zie ook
+  ## <a name="see-also"></a>Zie ook
 * [Pig-activiteit](data-factory-pig-activity.md)
 * [MapReduce-activiteit](data-factory-map-reduce.md)
 * [Hadoop-Streamingactiviteit](data-factory-hadoop-streaming-activity.md)

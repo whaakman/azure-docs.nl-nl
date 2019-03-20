@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3ab98669e01c9cfb2d4f46b8ddd83ff69653337b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a5b4e0465e83dec5620954998db329e7902fb59c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434169"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106046"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Een VM implementeren vanaf uw VHD 's
 
@@ -51,13 +51,13 @@ U wilt de volgende stappen uit om te maken en implementeren van een gebruiker VM
 
 Nadat de virtuele machine is geïmplementeerd, bent u klaar om [certificeren van uw VM-installatiekopie](./cpp-certify-vm.md).
 
-2.  Klik op **nieuw** en zoek naar de **sjabloonimplementatie**en selecteer vervolgens **bouw uw eigen sjabloon in de Editor**.  <br/>
-  ![Sjabloon van de VHD-implementatie in Azure portal maken](./media/publishvm_021.png)
+1. Klik op **nieuw** en zoek naar de **sjabloonimplementatie**en selecteer vervolgens **bouw uw eigen sjabloon in de Editor**.  <br/>
+   ![Sjabloon van de VHD-implementatie in Azure portal maken](./media/publishvm_021.png)
 
-3. Kopieer en plak dit [JSON-sjabloon](./cpp-deploy-json-template.md) in de editor en klik op **opslaan**. <br/>
-  ![VHD-implementatiesjabloon opslaan in Azure portal](./media/publishvm_022.png)
+1. Kopieer en plak dit [JSON-sjabloon](./cpp-deploy-json-template.md) in de editor en klik op **opslaan**. <br/>
+   ![VHD-implementatiesjabloon opslaan in Azure portal](./media/publishvm_022.png)
 
-4. Geef de parameterwaarden voor de weergegeven **aangepaste implementatie** eigenschappenpagina's.
+1. Geef de parameterwaarden voor de weergegeven **aangepaste implementatie** eigenschappenpagina's.
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
@@ -79,7 +79,7 @@ Nadat de virtuele machine is geïmplementeerd, bent u klaar om [certificeren van
    | VHD-URL                     | Volledige URL van de Besturingssysteemschijf VHD                                                     |
    |  |  |
             
-5. Nadat u deze waarden opgeven, klikt u op **aankoop**. 
+1. Nadat u deze waarden opgeven, klikt u op **aankoop**. 
 
 Azure wordt begint met implementeren: een nieuwe virtuele machine wordt gemaakt met de opgegeven niet-beheerde VHD in het pad van het opgegeven opslagaccount.  U kunt de voortgang volgen in Azure portal door te klikken op **virtuele Machines** aan de linkerkant van de portal.  Wanneer de virtuele machine is gemaakt, de status wordt gewijzigd van `Starting` naar `Running`. 
 

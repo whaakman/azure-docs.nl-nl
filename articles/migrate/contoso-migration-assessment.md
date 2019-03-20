@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: df3ae6fbeceb85df6d6e5245a5bbad517179733c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 4739308d301291bf88e8ae547ba85f9648339c4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991356"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118456"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migratie van Contoso: On-premises workloads evalueren voor migratie naar Azure
 
@@ -159,15 +159,15 @@ Contoso Voer nu een evaluatie voor het analyseren van de on-premises SQL Server-
 
     ![Data Migration Assistant - bron selecteren](./media/contoso-migration-assessment/dma-assessment-1.png)
 
-    > [!NOTE]
-      Op dit moment Data Migration Assistant biedt geen ondersteuning voor evaluatie voor het migreren naar een Azure SQL Database Managed Instance. Als tijdelijke oplossing, Contoso maakt gebruik van SQL Server op een Azure-VM als de veronderstelde doel voor de evaluatie.
+   > [!NOTE]
+   >    Op dit moment Data Migration Assistant biedt geen ondersteuning voor evaluatie voor het migreren naar een Azure SQL Database Managed Instance. Als tijdelijke oplossing, Contoso maakt gebruik van SQL Server op een Azure-VM als de veronderstelde doel voor de evaluatie.
 
 3. In **doelversie selecteren**, Contoso SQL Server 2017 geselecteerd als de doelversie. Contoso moet deze versie selecteert, omdat dit de versie die wordt gebruikt door de SQL Database Managed Instance.
 4. Contoso selecteert rapporten om u te helpen bij het detecteren van informatie over de compatibiliteit en nieuwe functies:
-    - **Compatibiliteitsproblemen** Houd er rekening mee wijzigingen die kan defect raken migratie of waarvoor een kleine aanpassing vóór de migratie. Dit rapport houdt Contoso op de hoogte van alle functies die momenteel in gebruik die zijn afgeschaft. Problemen zijn op compatibiliteitsniveau ingedeeld.
-    - **Aanbeveling voor nieuwe functies** opmerkingen bij de nieuwe functies in de doel-SQL Server-platform die kunnen worden gebruikt voor de database na de migratie. Nieuwe functieaanbevelingen wat zijn ingedeeld in de rubrieken **prestaties**, **Security**, en **opslag**.
+   - **Compatibiliteitsproblemen** Houd er rekening mee wijzigingen die kan defect raken migratie of waarvoor een kleine aanpassing vóór de migratie. Dit rapport houdt Contoso op de hoogte van alle functies die momenteel in gebruik die zijn afgeschaft. Problemen zijn op compatibiliteitsniveau ingedeeld.
+   - **Aanbeveling voor nieuwe functies** opmerkingen bij de nieuwe functies in de doel-SQL Server-platform die kunnen worden gebruikt voor de database na de migratie. Nieuwe functieaanbevelingen wat zijn ingedeeld in de rubrieken **prestaties**, **Security**, en **opslag**.
 
-    ![Data Migration Assistant - compatibiliteitsproblemen en nieuwe functies](./media/contoso-migration-assessment/dma-assessment-2.png)
+     ![Data Migration Assistant - compatibiliteitsproblemen en nieuwe functies](./media/contoso-migration-assessment/dma-assessment-2.png)
 
 2. In **verbinding maken met een server**, Contoso de naam van de virtuele machine waarop de database en de referenties voor toegang tot deze wordt ingevoerd. Contoso selecteert **servercertificaat vertrouwen** om ervoor te zorgen dat de virtuele machine toegang tot de SQL Server. Vervolgens selecteert u Contoso **Connect**.
 
@@ -186,13 +186,13 @@ Resultaten worden weergegeven zodra ze beschikbaar zijn. Als Contoso problemen o
 
 1. In de **compatibiliteitsproblemen** rapporteren, Contoso wordt gecontroleerd of er problemen zijn op elk compatibiliteitsniveau. Compatibiliteitsniveaus worden als volgt aan SQL Server-versies toegewezen:
 
-    - 100: SQL Server 2008/Azure SQL Database
-    - 110: SQL Server 2012/Azure SQL Database
-    - 120: SQL Server 2014/Azure SQL Database
-    - 130: SQL Server 2016/Azure SQL Database
-    - 140: SQL Server 2017/Azure SQL Database
+   - 100: SQL Server 2008/Azure SQL Database
+   - 110: SQL Server 2012/Azure SQL Database
+   - 120: SQL Server 2014/Azure SQL Database
+   - 130: SQL Server 2016/Azure SQL Database
+   - 140: SQL Server 2017/Azure SQL Database
 
-    ![Data Migration Assistant - compatibiliteit van rapport](./media/contoso-migration-assessment/dma-assessment-5.png)
+     ![Data Migration Assistant - compatibiliteit van rapport](./media/contoso-migration-assessment/dma-assessment-5.png)
 
 2. In de **Functieaanbevelingen** rapporteren, Contoso weergaven functies voor prestaties, beveiliging en opslag die door de evaluatie wordt aanbevolen na de migratie. Tal van functies worden aanbevolen, waaronder In-Memory OLTP, columnstore-indexen, Stretch Database, Always Encrypted, dynamische gegevensmaskering en transparante gegevensversleuteling.
 
@@ -403,14 +403,14 @@ Contoso wordt de installatie uitgevoerd op elke virtuele machine.
 
     `sudo -i`
 3. De MMA, installeert Contoso:
-    - Contoso voert de werkruimte-ID en de sleutel in de opdracht.
-    - Opdrachten zijn voor 64-bits.
-    - De werkruimte-ID en primaire sleutel bevinden zich in de Log Analytics-werkruimte in de Azure-portal. Selecteer **instellingen**, en selecteer vervolgens de **verbonden bronnen** tabblad.
-    - Voer de volgende opdrachten de Log Analytics-agent downloaden, het valideren van de controlesom en het installeren en vrijgeven de agent:
+   - Contoso voert de werkruimte-ID en de sleutel in de opdracht.
+   - Opdrachten zijn voor 64-bits.
+   - De werkruimte-ID en primaire sleutel bevinden zich in de Log Analytics-werkruimte in de Azure-portal. Selecteer **instellingen**, en selecteer vervolgens de **verbonden bronnen** tabblad.
+   - Voer de volgende opdrachten de Log Analytics-agent downloaden, het valideren van de controlesom en het installeren en vrijgeven de agent:
 
-    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
-    ```
+     ```
+     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
+     ```
 
 #### <a name="install-the-dependency-agent-on-linux-vms"></a>Installeer de Agent voor afhankelijkheden op virtuele Linux-machines
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 3cac893fcaafd4fe8d35aab2a10da92019d3ed42
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 114f4ccccaa861928263eb59b4e43379989abcca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698955"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077850"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migratie van Contoso: On-premises Linux-apps opnieuw hosten op Azure-VM’s en Azure MySQL
 
@@ -127,7 +127,7 @@ Hier ziet u hoe Contoso-beheerders de migratie wordt voltooid:
 > [!div class="checklist"]
 > * **Stap 1: Azure voorbereiden voor Site Recovery**: Ze maken Azure storage-account die bevatten de gerepliceerde gegevens en maak een Recovery Services-kluis.
 > * **Stap 2: On-premises VMware voorbereiden voor Site Recovery**: Deze accounts voor VM-detectie- en agent-installatie voorbereiden en voorbereidingen voor het verbinding maken met virtuele Azure-machines na een failover.
- * **Stap 3: Inrichting van de database]**: In Azure inrichten het van een exemplaar van Azure MySQL-database.
+>   * **Stap 3: Inrichting van de database]**: In Azure inrichten het van een exemplaar van Azure MySQL-database.
 > * **Stap 4: Virtuele machines repliceren**: Ze configureert u de omgeving van bron- en Site Recovery, een replicatiebeleid instellen en beginnen met het repliceren van virtuele machines naar Azure storage.
 > * **Stap 5: Migreren van de database**: Zij instellen-migratie met MySQL-hulpprogramma's.
 > * **Stap 6: Migreren van de virtuele machines met Site Recovery**: Ten slotte ze voert een testfailover uit om te controleren of dat alles goed werkt, en voer een volledige failover voor de virtuele machines migreren naar Azure.
@@ -147,10 +147,10 @@ De Contoso-beheerders een storage-account maken en kluis als volgt:
 
 1. Maken van een storage-account (**contosovmsacc20180528**) in de regio VS-Oost 2.
 
-    - Het opslagaccount moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
-    - Ze een algemeen gebruik-account gebruiken met de standard-opslag en LRS-replicatie.
+   - Het opslagaccount moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
+   - Ze een algemeen gebruik-account gebruiken met de standard-opslag en LRS-replicatie.
 
-    ![Site Recovery-opslag](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
+     ![Site Recovery-opslag](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
 
 3. Met de netwerk- en storage-account in plaats ze een kluis (ContosoMigrationVault) maken en plak deze in de **ContosoFailoverRG** resourcegroep in de primaire regio in de VS-Oost 2.
 

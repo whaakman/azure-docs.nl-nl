@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3883ddcad1c41e131d52016e4fa94a3e668adcd1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 93b59a108d5d87479c12174e97713d4c12d84f2e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209724"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200052"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Zelfstudie: Automatisch groepsleden toevoegen of verwijderen
 
@@ -28,7 +28,7 @@ In Azure Active Directory (Azure AD) kunt u automatisch gebruikers aan beveiligi
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
-> * Een automatisch ingevulde groep gastgebruikers van een bepaald partnerbedrijf maken
+> * Een automatisch ingevulde groep van gastgebruikers ook kunnen maken van een partnerbedrijf
 > * Licenties aan de groep toewijzen voor de partnerspecifieke functies die toegankelijk moeten zijn voor de gastgebruikers
 > * Optioneel: de groep **Alle gebruikers** beveiligen door gastgebruikers te verwijderen zodat bijvoorbeeld alleen lidgebruikers toegang hebben tot interne sites
 
@@ -36,7 +36,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze functie moet u, als globale beheerder van de tenant, beschikken over een Microsoft Azure Active Directory Premium-licentie. Als u nog geen licentie hebt, selecteert u in Microsoft Azure Active Directory **Licenties** > **Producten** > **Proberen/kopen**.
+Deze functie moet een Azure AD Premium-licentie voor u als globale beheerder van de tenant. Als u nog geen licentie hebt, selecteert u in Microsoft Azure Active Directory **Licenties** > **Producten** > **Proberen/kopen**.
 
 U bent niet verplicht licenties aan de gebruikers toe te wijzen om ze op te nemen als leden in dynamische groepen. U hebt slechts het minimum aantal beschikbare licenties voor Microsoft Azure Active Directory Premium P1 in de tenant nodig voor dergelijke gebruikers. 
 
@@ -44,15 +44,15 @@ U bent niet verplicht licenties aan de gebruikers toe te wijzen om ze op te neme
 
 Eerst maakt u een groep voor uw gastgebruikers, die alle afkomstig zijn van één partnerbedrijf. Omdat zij speciale licenties nodig hebben, is het vaak efficiënter om een groep te maken voor dit doel.
 
-1. Meld u bij Azure Portal aan (https://portal.azure.com) met het account van de globale beheerder voor de tenant.
+1. Meld u aan bij Azure portal (https://portal.azure.com) met een account dat de globale beheerder voor uw tenant.
 2. Selecteer **Azure Active Directory** > **Groepen** > **Nieuwe groep**.
-  ![De opdracht Nieuwe groep selecteren](./media/groups-dynamic-tutorial/new-group.png)
+   ![opdracht voor het starten van een nieuwe groep selecteren](./media/groups-dynamic-tutorial/new-group.png)
 3. Ga als volgt te werk op de blade **Groep**:
   
-  * Selecteer **Beveiliging** als het groepstype
-  * Voer `Guest users Contoso` in als de naam en beschrijving voor de groep
-  * Wijzig het **lidmaatschapstype** in **Dynamische gebruiker**
-  * Selecteer **Dynamische query toevoegen**
+   * Selecteer **Beveiliging** als het groepstype
+   * Voer `Guest users Contoso` in als de naam en beschrijving voor de groep
+   * Wijzig het **lidmaatschapstype** in **Dynamische gebruiker**
+   * Selecteer **Dynamische query toevoegen**
   
 4. Selecteer **Geavanceerde regel** en geef het volgende op in het vak **Geavanceerde regel**: `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
 5. Selecteer **Query toevoegen** om de blade te sluiten.

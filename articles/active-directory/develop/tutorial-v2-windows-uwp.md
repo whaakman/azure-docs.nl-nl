@@ -4,7 +4,7 @@ description: Hoe Universal Windows Platform-toepassingen (UWP) een API die token
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/18/2019
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e130da9bf12d25cc5c77c825512717bdf2ba5a1
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: b00a4f9ee561e8e9356b36d4a14b4bcb4f9a3357
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408813"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202857"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API aanroepen vanuit een Universal Windows Platform-toepassing (XAML)
 
@@ -37,7 +37,7 @@ Aan het einde van deze handleiding, worden in uw toepassing een beveiligde API a
 
 ## <a name="how-this-guide-works"></a>De werking van deze handleiding
 
-![De werking van deze handleiding op grafiek](./media/tutorial-v2-windows-uwp/uwp-intro.png)
+![Laat zien hoe de voorbeeld-app die is gegenereerd door deze zelfstudie werkt](./media/tutorial-v2-windows-uwp/uwp-intro-updated.png)
 
 Deze handleiding UWP met een voorbeeldtoepassing die query's van Microsoft Graph API of een Web-API die tokens van het Azure Active Directory v2.0-eindpunt accepteert gemaakt. Voor dit scenario wordt een token toegevoegd aan de HTTP-aanvragen via de autorisatie-header. Microsoft Authentication Library (MSAL) wordt gebruikt voor token-aankopen en vernieuwingen.
 

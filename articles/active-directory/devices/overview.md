@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3711f2b2901ddbe49b4d6a49cabef12ac5dab3e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b303841dffd09e2c2f8250e4a7885fda36ab4a38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192469"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168602"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Wat is apparaatbeheer in Azure Active Directory?
 
@@ -89,7 +89,7 @@ Azure AD-koppeling kan via een van de volgende methoden worden geïmplementeerd:
 
 Door Azure AD-gekoppelde apparaten te implementeren, profiteert u van de volgende voordelen:
 
-- **Eenmalige aanmelding** bij uw Azure-beheerde SaaS-apps en -services. Uw gebruikers zien geen aanvullende verificatieprompts wanneer ze werkbronnen openen. De functionaliteit voor eenmalige aanmelding is zelfs beschikbaar wanneer ze geen verbinding met het domeinnetwerk hebben.
+- **Eenmalige aanmelding** bij uw Azure-beheerde SaaS-apps en -services. Uw gebruikers zien geen aanvullende verificatieprompts wanneer ze werkbronnen openen. De SSO-functionaliteit is beschikbaar, zelfs als uw gebruikers niet zijn verbonden met het domeinnetwerk.
 
 - **Enterprise Compliant Roaming** van gebruikersinstellingen op alle gekoppelde apparaten. Gebruikers hoeven geen Microsoft-account (bijvoorbeeld Hotmail) te verbinden om instellingen op alle apparaten te kunnen zien.
 

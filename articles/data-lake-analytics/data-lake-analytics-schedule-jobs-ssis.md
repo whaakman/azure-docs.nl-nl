@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5393e202c7b5005552f164c9c6f55da92fc82572
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104434"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>U-SQL-taken met behulp van SQL Server Integration Services (SSIS) plannen
 
@@ -93,16 +93,16 @@ In de ontwerpweergave van SSIS-pakket toevoegen een **systeemtaak van Azure Data
     
     Dit bestand om verbinding te maken:
 
-    1. Kies **<New Connection...>** in FileConnection instelling.
-    2. Stel **gebruikstype** te **bestaand bestand**, en stel de **bestand** naar een bestaand bestand bestandspad.
+   1. Kies **<New Connection...>** in FileConnection instelling.
+   2. Stel **gebruikstype** te **bestaand bestand**, en stel de **bestand** naar een bestaand bestand bestandspad.
 
-        ![Foreach-lus Container configureren](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Foreach-lus Container configureren](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-    3. In **Connection Managers** weergeven, met de rechtermuisknop op de verbinding van de bestanden die zojuist hebt gemaakt en kies **eigenschappen**.
+   3. In **Connection Managers** weergeven, met de rechtermuisknop op de verbinding van de bestanden die zojuist hebt gemaakt en kies **eigenschappen**.
 
-    4. In de **eigenschappen** venster, vouw **expressies**, en stel **ConnectionString** aan de variabele die is gedefinieerd in Foreach-lus Container, bijvoorbeeld `@[User::FileName]`.
+   4. In de **eigenschappen** venster, vouw **expressies**, en stel **ConnectionString** aan de variabele die is gedefinieerd in Foreach-lus Container, bijvoorbeeld `@[User::FileName]`.
 
-        ![Foreach-lus Container configureren](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
+       ![Foreach-lus Container configureren](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 
 3. Stel **AzureDataLakeAnalyticsConnection** bij het Azure Data Lake Analytics-account dat u wilt verzenden van taken naar. Meer informatie over [Azure Data Lake Analytics Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
 

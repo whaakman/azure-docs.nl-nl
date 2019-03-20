@@ -10,16 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0c31d895c453a8272c337b78f01dc8342a4d0765
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672505"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996468"
 ---
-# <a name="monitor-docker-applications-in-application-insights"></a>Docker-toepassingen bewaken in Application Insights
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Docker-toepassingen bewaken in Application Insights (afgeschaft)
+
+> [!NOTE]
+> Deze oplossing is afgeschaft. Voor meer informatie over onze huidige investeringen in de containerbewaking aangeraden uitchecken [Azure Monitor voor containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 Levenscyclus van gebeurtenissen en prestaties van tellers van [Docker](https://www.docker.com/) containers kunnen worden uitgezet op Application Insights. Installeer de [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) installatiekopie in een container in de host en prestatiemeteritems worden weergegeven voor de host, evenals voor de andere afbeeldingen.
 
@@ -30,9 +33,6 @@ Bij het uitvoeren van de [Application Insights-installatiekopie](https://hub.doc
 * Levenscyclus van telemetrie over alle containers die worden uitgevoerd op de host - starten, stoppen, enzovoort.
 * Prestatiemeteritems voor alle containers. CPU, geheugen, netwerkgebruik en meer.
 * Als u [geïnstalleerd van Application Insights-SDK voor Java](../../azure-monitor/app/java-get-started.md) in de apps die worden uitgevoerd in de containers, de telemetrie van deze apps hebben extra eigenschappen voor het identificeren van de container en host-machine. Als u exemplaren van een app die wordt uitgevoerd in meer dan één host hebt, kunt u bijvoorbeeld eenvoudig de telemetrie van uw app door de host filteren.
-
-> [!NOTE]
-> Deze oplossing is afgeschaft. Voor meer informatie over onze huidige investeringen in de containerbewaking aangeraden uitchecken [Azure Monitor voor containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 ## <a name="set-up-your-application-insights-resource"></a>Uw Application Insights-resource instellen
 

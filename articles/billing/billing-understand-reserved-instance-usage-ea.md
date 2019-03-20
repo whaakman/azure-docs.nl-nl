@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: banders
-ms.openlocfilehash: 0f29544890fe10f4914de393a4b153cfe393a2ec
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 66fd42e5aa110b4c9ef686b1d66429ff7dbaf550
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904298"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857688"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Informatie over Azure-reservering gebruik voor uw Enterprise-inschrijving
 
@@ -31,7 +31,7 @@ Als u de reservering in een context van de betalen per gebruik facturering hebt 
 
 Voor de volgende secties wordt ervan uitgegaan dat u een Windows Standard_D1_v2 VM worden uitgevoerd in de regio VS-Oost en uw reservering informatie er ongeveer zo uitziet als de volgende tabel:
 
-| Veld | Waarde |
+| Veld | Value |
 |---| --- |
 |ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
 |Hoeveelheid |1|
@@ -57,7 +57,7 @@ De volgende secties voor het gebruik van Azure SQL Database als voorbeeld voor h
 
 Wordt ervan uitgegaan dat u een SQL-Database Gen 4 worden uitgevoerd in de regio VS-Oost en uw reservering informatie er ongeveer zo uitziet als de volgende tabel:
 
-| Veld | Waarde |
+| Veld | Value |
 |---| --- |
 |ReservationId |8244e673-83e9-45ad-b54b-3f5295d37cae|
 |Hoeveelheid |2|
@@ -95,5 +95,5 @@ Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
 

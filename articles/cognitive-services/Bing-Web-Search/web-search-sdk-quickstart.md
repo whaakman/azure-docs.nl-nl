@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 848f319836e492e486bfdcb3c9080860144a7e68
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3424137b36e4e277a8914ab04cdf7097660930e3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869395"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860751"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Quickstart: De Bing Web Search SDK voor C# gebruiken
 
@@ -39,7 +39,7 @@ Voordat u verdergaat met deze snelstart moet u beschikken over:
 > [!TIP]
 > Haal de nieuwste code als Visual Studio-oplossing op uit [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-De eerste stap bestaat uit het maken van een nieuw consoleproject. Als u hulp nodig hebt bij het opzetten van een consoleproject, raadpleegt u [Hello World: uw eerste programma (C#-programmeerhandleiding)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Als u de Bing Web Search SDK wilt gebruiken in uw toepassing, moet u `Microsoft.Azure.CognitiveServices.Search.WebSearch` installeren met behulp van NuGet Package Manager.
+De eerste stap bestaat uit het maken van een nieuw consoleproject. Als u hulp bij het instellen van een console-project, Zie [Hello World - uw eerste programma (C# -programmeergids)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Als u de Bing Web Search SDK wilt gebruiken in uw toepassing, moet u `Microsoft.Azure.CognitiveServices.Search.WebSearch` installeren met behulp van NuGet Package Manager.
 
 Met het [Web Search SDK-pakket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) wordt ook het volgende geïnstalleerd:
 
@@ -61,7 +61,7 @@ using System.Linq;
 
 ## <a name="create-project-scaffolding"></a>Een projectopzet maken
 
-Wanneer u het nieuwe consoleproject hebt gemaakt, moeten er een naamruimte en klasse voor uw toepassing zijn gemaakt. Uw programma moet er als volgt uitzien:
+Wanneer u het nieuwe consoleproject hebt gemaakt, moeten er een naamruimte en klasse voor uw toepassing zijn gemaakt. Uw programma moet eruitzien als in dit voorbeeld:
 
 ```csharp
 namespace WebSearchSDK
@@ -101,7 +101,7 @@ public static void WebResults(WebSearchAPI client)
 
 ## <a name="handle-the-response"></a>Het antwoord verwerken
 
-Laten we vervolgens code toevoegen voor het parseren van het antwoord en het weergeven van de resultaten. De `name` en `url` voor de eerste webpagina, de eerste afbeelding, het eerste nieuwsartikel en de eerste video worden weergegeven wanneer ze voorkomen in het antwoordobject.
+Laten we vervolgens code toevoegen voor het parseren van het antwoord en het weergeven van de resultaten. De `Name` en `Url` voor de eerste webpagina, de eerste afbeelding, het eerste nieuwsartikel en de eerste video worden weergegeven wanneer ze voorkomen in het antwoordobject.
 
 ```csharp
 if (webData?.WebPages?.Value?.Count > 0)
@@ -234,9 +234,10 @@ Nu u voor het eerst de Bing Webzoekopdrachten-API hebt aangeroepen, kunnen we en
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Het aantal resultaten beperken dat door Bing wordt geretourneerd
 
-In dit voorbeeld worden de parameters `count` en `offset` gebruikt voor het beperken van het aantal resultaten dat voor 'Beste restaurants in Seattle' wordt geretourneerd. De `name` en `URL` voor het eerste resultaat worden weergegeven.
+In dit voorbeeld worden de parameters `count` en `offset` gebruikt voor het beperken van het aantal resultaten dat voor 'Beste restaurants in Seattle' wordt geretourneerd. De `Name` en `Url` voor het eerste resultaat worden weergegeven.
 
 1. Voeg deze code toe aan uw consoleproject:
+
     ```csharp
     public static void WebResultsWithCountAndOffset(WebSearchAPI client)
     {
@@ -271,7 +272,9 @@ In dit voorbeeld worden de parameters `count` en `offset` gebruikt voor het bepe
         }
     }
     ```
+
 2. Voeg `WebResultsWithCountAndOffset` toe aan `main`:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -285,13 +288,15 @@ In dit voorbeeld worden de parameters `count` en `offset` gebruikt voor het bepe
         Console.ReadKey();
     }
     ```
+
 3. Voer de toepassing uit.
 
 ### <a name="filter-for-news"></a>Filteren op nieuws
 
-In dit voorbeeld wordt de parameter `response_filter` gebruikt om zoekresultaten te filteren. De geretourneerde zoekresultaten zijn beperkt tot nieuwsartikelen voor 'Microsoft'. De `name` en `URL` voor het eerste resultaat worden weergegeven.
+In dit voorbeeld wordt de parameter `response_filter` gebruikt om zoekresultaten te filteren. De geretourneerde zoekresultaten zijn beperkt tot nieuwsartikelen voor 'Microsoft'. De `Name` en `Url` voor het eerste resultaat worden weergegeven.
 
 1. Voeg deze code toe aan uw consoleproject:
+
     ```csharp
     public static void WebSearchWithResponseFilter(WebSearchAPI client)
     {
@@ -328,7 +333,9 @@ In dit voorbeeld wordt de parameter `response_filter` gebruikt om zoekresultaten
         }
     }
     ```
+
 2. Voeg `WebResultsWithCountAndOffset` toe aan `main`:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -344,13 +351,15 @@ In dit voorbeeld wordt de parameter `response_filter` gebruikt om zoekresultaten
         Console.ReadKey();
     }
     ```
+
 3. Voer de toepassing uit.
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Gebruik de parameters voor veilig zoeken, aantal antwoorden en het filter voor het promoten van zoekresultaten
 
-In dit voorbeeld worden de parameters `answer_count`, `promote`, en `safe_search` gebruikt om de zoekresultaten voor 'muziekvideo's' te filteren. De `name` en `URL` voor het eerste resultaat worden weergegeven.
+In dit voorbeeld worden de parameters `answer_count`, `promote`, en `safe_search` gebruikt om de zoekresultaten voor 'muziekvideo's' te filteren. De `Name` en `ContentUrl` voor het eerste resultaat worden weergegeven.
 
 1. Voeg deze code toe aan uw consoleproject:
+
     ```csharp
     public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
     {
@@ -386,7 +395,9 @@ In dit voorbeeld worden de parameters `answer_count`, `promote`, en `safe_search
         }
     }
     ```
+
 2. Voeg `WebResultsWithCountAndOffset` toe aan `main`:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -404,6 +415,7 @@ In dit voorbeeld worden de parameters `answer_count`, `promote`, en `safe_search
         Console.ReadKey();
     }
     ```
+
 3. Voer de toepassing uit.
 
 ## <a name="clean-up-resources"></a>Resources opschonen

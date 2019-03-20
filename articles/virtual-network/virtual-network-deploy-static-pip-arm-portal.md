@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: jdial
-ms.openlocfilehash: 9b6db45e38267c70adef3f5a341b8b918b9e78fb
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 42e035b9dca6168fe77e6982505692cf18bfcb40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106420"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Een virtuele machine maken met een statisch openbaar IP-adres met behulp van de Azure portal
 
@@ -38,7 +38,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|myVM|
+    |Name|myVM|
     |Gebruikersnaam| Voer een gebruikersnaam naar keuze in.|
     |Wachtwoord| Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Selecteer uw abonnement.|
@@ -58,7 +58,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
    ![Selecteer een poort](./media/virtual-network-deploy-static-pip-arm-portal/select-port.png)
 
 7. Accepteer de overige standaardinstellingen en selecteer **OK**.
-8. Op de **samenvatting** weergeeft, schakelt **maken**. De virtuele machine duurt een paar minuten om te implementeren.
+8. Op de pagina**Overzicht** selecteert u **Maken**. De virtuele machine duurt een paar minuten om te implementeren.
 9. Wanneer de virtuele machine is geïmplementeerd, voer *myPublicIpAddress* in het zoekvak boven aan de portal. Wanneer **myPublicIpAddress** wordt weergegeven in de zoekresultaten, selecteert u dit.
 10. U vindt het openbare IP-adres dat is toegewezen en dat het adres is toegewezen aan de **myVM** virtuele machine, zoals wordt weergegeven in de volgende afbeelding:
 
@@ -71,7 +71,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
     ![Het openbare IP-adres weergeven](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
 
 > [!WARNING]
-De instellingen voor het IP-adres binnen het besturingssysteem van de virtuele machine mag niet worden gewijzigd. Het besturingssysteem is geen informatie over Azure openbare IP-adressen. Hoewel u privé IP-adresinstellingen aan het besturingssysteem toevoegen kunt, wordt aangeraden niet te doen, tenzij die nodig zijn, en niet pas na het lezen [een privé IP-adres toevoegen aan een besturingssysteem](virtual-network-network-interface-addresses.md#private).
+> De instellingen voor het IP-adres binnen het besturingssysteem van de virtuele machine mag niet worden gewijzigd. Het besturingssysteem is geen informatie over Azure openbare IP-adressen. Hoewel u privé IP-adresinstellingen aan het besturingssysteem toevoegen kunt, wordt aangeraden niet te doen, tenzij die nodig zijn, en niet pas na het lezen [een privé IP-adres toevoegen aan een besturingssysteem](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

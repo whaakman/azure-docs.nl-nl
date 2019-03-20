@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: b46a89e331c63aadc76b856b56b7b40bbc626193
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 922e01c26a2cfe24c8b8a32bb8037d9b3b3384c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109117"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema en voor gegevensaggregatie in Traffic Analytics
 
@@ -61,7 +61,7 @@ Hieronder ziet u de velden in het schema en wat ze geven
 | DestIP_s | IP-adres van doel | In het geval van AzurePublic leeg en ExternalPublic stromen |
 | VMIP_s | IP-adres van de virtuele machine | Gebruikt voor AzurePublic en ExternalPublic stromen |
 | PublicIP_S | Openbare IP-adressen | Gebruikt voor AzurePublic en ExternalPublic stromen |
-| DestPort_d | |Doelpoort| Poort waarmee verkeer inkomend is | 
+| DestPort_d | Doelpoort | Poort waarmee verkeer inkomend is | 
 | L4Protocol_s  | * T <br> * U  | Transport Protocol. T = TCP <br> U = UDP | 
 | L7Protocol_s  | Protocolnaam | Afgeleid van doelpoort |
 | FlowDirection_s | * Ik = inkomend<br> * O = uitgaande | Richting van de stroom in/uit NSG aan de hand van stroomlogboek | 
@@ -111,16 +111,16 @@ Hieronder ziet u de velden in het schema en wat ze geven
 ### <a name="notes"></a>Opmerkingen
     
 1. In het geval van AzurePublic en ExternalPublic stromen, de klant die eigendom zijn dat IP-Adressen van Azure VM is ingevuld in VMIP_s veld, terwijl de openbare IP-adressen worden ingevuld in het veld PublicIPs_s. Voor deze stroomtypen twee, moeten we VMIP_s en PublicIPs_s gebruiken in plaats van SrcIP_s en DestIP_s velden. Voor AzurePublic en ExternalPublicIP-adressen, we statistische-meer, zodat het aantal records die worden opgenomen in log analytics-werkruimte van de klant minimaal is. (Dit veld wordt binnenkort worden afgeschaft en we moeten worden met behulp van SrcIP_ en DestIP_s, afhankelijk van of virtuele machines van azure de bron of de bestemming in de stroom is) 
-2. Details voor flow typen: Op basis van de IP-adressen die betrokken zijn bij de stroom, categoriseren we van de stromen in met de volgende stroomtypen: 
-* IntraVNet: zowel de IP-adressen in de stroom zich bevinden in hetzelfde Azure-netwerk. 
-* InterVNet - IP-adressen in de stroom zich bevinden in de twee virtuele netwerken van verschillende Azure. 
-* S2S-(Site-naar-Site) een van de IP-adressen behoort tot Azure Virtual Network terwijl de andere IP-adres tot klantnetwerk (Site behoort) die zijn verbonden met het Azure-netwerk via VPN-gateway of Express Route. 
-* P2S - (punt-naar-Site) een van de IP-adressen met Azure-netwerk behoort, terwijl de andere IP-adres tot klantnetwerk (Site behoort) die zijn verbonden met het Azure-netwerk via VPN-gateway.
-* AzurePublic - een van de IP-adressen met Azure Virtual Network bij hoort terwijl de andere IP-adres tot Azure interne openbare IP-adressen die zijn eigendom van Microsoft behoort. Klanten die eigendom zijn openbare IP-adressen niet deel uit van dit stroomtype. Bijvoorbeeld, eigendom elke klant met een VM die verkeer verzenden naar een Azure-Service (opslageindpunt) onder dit stroomtype zou worden gecategoriseerd. 
-* ExternalPublic - behoort een van de IP-adressen met Azure-netwerk terwijl de andere IP-adres een openbare IP-adres dat zich niet in Azure is, wordt niet gerapporteerd als in de ASC-feeds die Traffic Analytics voor het verwerkingsinterval voor tussen verbruikt schadelijke " FlowIntervalStartTime_t' en 'FlowIntervalEndTime_t'. 
-* MaliciousFlow - een van de IP-adressen deel uitmaken van azure-netwerk terwijl de andere IP-adres is een openbare IP-adres dat zich niet in Azure en wordt gerapporteerd als in de ASC-feeds die Traffic Analytics voor het verwerkingsinterval voor tussen verbruikt schadelijke" FlowIntervalStartTime_t' en 'FlowIntervalEndTime_t'. 
-* UnknownPrivate - een van de IP-adressen deel uitmaken van Azure Virtual Network terwijl de andere IP-adres behoort tot de privé IP-adresbereik, zoals gedefinieerd in RFC 1918 en kan niet door Traffic Analytics worden toegewezen aan een site of Azure Virtual Network van klanten.
-* Onbekend: kan geen om toe te wijzen op een van de IP-adressen in de stromen met de klant-topologie in zowel Azure als on-premises (site).
+1. Details voor flow typen: Op basis van de IP-adressen die betrokken zijn bij de stroom, categoriseren we van de stromen in met de volgende stroomtypen: 
+1. IntraVNet: zowel de IP-adressen in de stroom zich bevinden in hetzelfde Azure-netwerk. 
+1. InterVNet - IP-adressen in de stroom zich bevinden in de twee virtuele netwerken van verschillende Azure. 
+1. S2S-(Site-naar-Site) een van de IP-adressen behoort tot Azure Virtual Network terwijl de andere IP-adres tot klantnetwerk (Site behoort) die zijn verbonden met het Azure-netwerk via VPN-gateway of Express Route. 
+1. P2S - (punt-naar-Site) een van de IP-adressen met Azure-netwerk behoort, terwijl de andere IP-adres tot klantnetwerk (Site behoort) die zijn verbonden met het Azure-netwerk via VPN-gateway.
+1. AzurePublic - een van de IP-adressen met Azure Virtual Network bij hoort terwijl de andere IP-adres tot Azure interne openbare IP-adressen die zijn eigendom van Microsoft behoort. Klanten die eigendom zijn openbare IP-adressen niet deel uit van dit stroomtype. Bijvoorbeeld, eigendom elke klant met een VM die verkeer verzenden naar een Azure-Service (opslageindpunt) onder dit stroomtype zou worden gecategoriseerd. 
+1. ExternalPublic - behoort een van de IP-adressen met Azure-netwerk terwijl de andere IP-adres een openbare IP-adres dat zich niet in Azure is, wordt niet gerapporteerd als in de ASC-feeds die Traffic Analytics voor het verwerkingsinterval voor tussen verbruikt schadelijke " FlowIntervalStartTime_t' en 'FlowIntervalEndTime_t'. 
+1. MaliciousFlow - een van de IP-adressen deel uitmaken van azure-netwerk terwijl de andere IP-adres is een openbare IP-adres dat zich niet in Azure en wordt gerapporteerd als in de ASC-feeds die Traffic Analytics voor het verwerkingsinterval voor tussen verbruikt schadelijke" FlowIntervalStartTime_t' en 'FlowIntervalEndTime_t'. 
+1. UnknownPrivate - een van de IP-adressen deel uitmaken van Azure Virtual Network terwijl de andere IP-adres behoort tot de privé IP-adresbereik, zoals gedefinieerd in RFC 1918 en kan niet door Traffic Analytics worden toegewezen aan een site of Azure Virtual Network van klanten.
+1. Onbekend: kan geen om toe te wijzen op een van de IP-adressen in de stromen met de klant-topologie in zowel Azure als on-premises (site).
 
 ### <a name="next-steps"></a>Volgende stappen
 Vindt u antwoorden op veelgestelde vragen, [Traffic analytics Veelgestelde vragen over](traffic-analytics-faq.md) Zie voor meer informatie over de functionaliteit van [Traffic analytics-documentatie](traffic-analytics.md)

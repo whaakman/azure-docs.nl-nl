@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa9872ef76264956430bb69856a197042c196dfd
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6399f5b208bc4d7182622f29bd522cfc9a088e9d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550187"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224546"
 ---
 # <a name="combined-security-information-registration-preview"></a>Gecombineerde security informatie registratie (preview)
 
@@ -68,11 +68,11 @@ Naarmate er steeds meer verificatiemethoden dergelijke toevoegen aan Azure AD, i
 
 ## <a name="combined-registration-modes"></a>Gecombineerde registratie modi
 
-Er zijn twee "modi' van de gecombineerde inschrijving: onderbreken en te beheren. 
+Er zijn twee "modi' van de gecombineerde inschrijving: onderbreken en te beheren.
 
-Interrupt-modus, wordt een wizard-achtige ervaring, die wordt weergegeven aan een gebruiker wanneer ze registreren of hun beveiligingsgegevens bij het aanmelden vernieuwen. 
+Interrupt-modus, wordt een wizard-achtige ervaring, die wordt weergegeven aan een gebruiker wanneer ze registreren of hun beveiligingsgegevens bij het aanmelden vernieuwen.
 
-Beheren van modus is onderdeel van het gebruikersprofiel en kunnen ze hun beveiligingsgegevens beheren. 
+Beheren van modus is onderdeel van het gebruikersprofiel en kunnen ze hun beveiligingsgegevens beheren.
 
 Voor beide modi wordt als een gebruiker heeft eerder een methode die kan worden gebruikt voor MFA, geregistreerd moet ze uit te voeren MFA voordat ze krijgen hun beveiligingsgegevens tot toegang.
 

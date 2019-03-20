@@ -9,13 +9,14 @@ ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8417e2118de01d00e8b0450374a9b10bff40221f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 7b9274652b7164a4aef71499912cb8b38ace29ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675140"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57854446"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Quickstart: Een gastgebruiker toevoegen met PowerShell
 
@@ -73,7 +74,7 @@ Voer uw referenties in wanneer dit wordt gevraagd.
 
 ## <a name="send-an-invitation"></a>Een uitnodiging verzenden
 
-1. Voor het verzenden van een uitnodiging voor uw test e-mailaccount, voer de volgende PowerShell-opdracht uit (vervang **"Sanda"** en **sanda@fabrikam.com** met uw test e-mailaccount en e-mailadres): 
+1. Voor het verzenden van een uitnodiging voor uw test-e-mailaccount, voer de volgende PowerShell-opdracht (Vervang **"Sanda"** en **sanda\@fabrikam.com** met uw test e-account en het e-mailadres): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
@@ -89,7 +90,7 @@ Voer uw referenties in wanneer dit wordt gevraagd.
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Controleer de uitvoer om ervoor te zorgen dat de gebruiker die u hebt uitgenodigd wordt weergegeven, met een user principal name (UPN) in de indeling *e-mailadres*#EXT #@*domein*. Bijvoorbeeld, *sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com*, waarbij contoso.onmicrosoft.com staat voor de organisatie waarvan u de uitnodigingen hebt verzonden.
+3. Controleer de uitvoer om ervoor te zorgen dat de gebruiker die u hebt uitgenodigd wordt weergegeven, met een user principal name (UPN) in de indeling *emailaddress*EXT #\@*domein*. Bijvoorbeeld, *sanda_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, waarbij contoso.onmicrosoft.com staat voor de organisatie waarvan u de uitnodigingen verzonden.
 
    ![PowerShell-uitvoer met weergave van gastgebruiker toegevoegd](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 

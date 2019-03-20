@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62d8236abb2b5f21bdb4111480d95376faa2e379
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 90d1d752481ada33c038ab563f6bd0d3bf5fad08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432597"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086799"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Een virtuele machine maken vanaf een gespecialiseerde VHD in een storage-account
 
@@ -212,10 +212,10 @@ Maak de vNet en subNet van de [virtueel netwerk](../../virtual-network/virtual-n
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-### <a name="create-the-network-security-group-and-an-rdp-rule"></a>De netwerkbeveiligingsgroep en een RDP-regel maken
-Als u zich aanmelden bij uw virtuele machine via RDP, moet u hebt een beveiligingsregel om RDP-toegang op poort 3389. Omdat de VHD voor de nieuwe virtuele machine is gemaakt op basis van een bestaande kunt gespecialiseerde VM, nadat de virtuele machine u maakt een bestaand account van de virtuele bronmachine met machtiging voor aanmelding met behulp van RDP gebruiken.
-Dit moet worden uitgevoerd vóór het maken van de netwerkinterface die zal worden gekoppeld.  
-In het volgende voorbeeld wordt de naam van de NSG op **myNsg** en de naam van de RDP-regel op **myRdpRule**.
+   ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>De netwerkbeveiligingsgroep en een RDP-regel maken
+   Als u zich aanmelden bij uw virtuele machine via RDP, moet u hebt een beveiligingsregel om RDP-toegang op poort 3389. Omdat de VHD voor de nieuwe virtuele machine is gemaakt op basis van een bestaande kunt gespecialiseerde VM, nadat de virtuele machine u maakt een bestaand account van de virtuele bronmachine met machtiging voor aanmelding met behulp van RDP gebruiken.
+   Dit moet worden uitgevoerd vóór het maken van de netwerkinterface die zal worden gekoppeld.  
+   In het volgende voorbeeld wordt de naam van de NSG op **myNsg** en de naam van de RDP-regel op **myRdpRule**.
 
 ```powershell
 $nsgName = "myNsg"

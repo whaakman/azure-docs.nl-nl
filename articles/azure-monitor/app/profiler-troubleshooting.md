@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 7d0743c09adf1c50d888d2e279ba85a8369bf286
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991617"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855670"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemen oplossen in- of Application Insights Profiler weergeven
 
@@ -36,11 +36,11 @@ Profiler schrijft traceringsberichten en aangepaste gebeurtenissen naar uw Appli
     ```
     De volgende afbeelding geeft twee voorbeelden van zoekopdrachten uit twee AI-resources: 
     
-    * Aan de linkerkant is niet de toepassing aanvragen ontvangen terwijl Profiler wordt uitgevoerd. Het bericht wordt uitgelegd dat het uploaden is geannuleerd omdat er geen activiteit. 
+   * Aan de linkerkant is niet de toepassing aanvragen ontvangen terwijl Profiler wordt uitgevoerd. Het bericht wordt uitgelegd dat het uploaden is geannuleerd omdat er geen activiteit. 
 
-    * Aan de rechterkant Profiler gestart en aangepaste gebeurtenissen gedetecteerd aanvragen die hebben plaatsgevonden terwijl Profiler werd uitgevoerd verzonden. Als het aangepaste gebeurtenis ServiceProfilerSample wordt weergegeven, betekent dit dat Profiler een tracering gekoppeld aan een aanvraag en vindt u de tracering in de **Insights de prestaties van toepassingen** deelvenster.
+   * Aan de rechterkant Profiler gestart en aangepaste gebeurtenissen gedetecteerd aanvragen die hebben plaatsgevonden terwijl Profiler werd uitgevoerd verzonden. Als het aangepaste gebeurtenis ServiceProfilerSample wordt weergegeven, betekent dit dat Profiler een tracering gekoppeld aan een aanvraag en vindt u de tracering in de **Insights de prestaties van toepassingen** deelvenster.
 
-    Als er geen telemetrie wordt weergegeven, worden Profiler wordt niet uitgevoerd. Zie de secties voor probleemoplossing voor uw specifieke app-type verderop in dit artikel om op te lossen.  
+     Als er geen telemetrie wordt weergegeven, worden Profiler wordt niet uitgevoerd. Zie de secties voor probleemoplossing voor uw specifieke app-type verderop in dit artikel om op te lossen.  
 
      ![Profiler telemetrie zoeken][profiler-search-telemetry]
 
@@ -90,7 +90,7 @@ Als u Profiler configureert, zijn er updates naar de web-app-instellingen. Als u
 
 1. In de **Web App-beheer** geopend deelvenster **instellingen**.
 
-1. Stel **.Net Framework-versie** naar **v4.6**.
+1. Stel **.NET Framework-versie** naar **v4.6**.
 
 1. Stel **AlwaysOn** naar **op**.
 
@@ -124,7 +124,7 @@ Profiler wordt uitgevoerd als een continue webjob in de web-app. U kunt openen d
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Oplossen van problemen met de Profiler en Azure Diagnostics
 
-  >**Er is een fout in de profiler dat wordt meegeleverd met de nieuwste versie van WAD voor Cloud Services.** Als u wilt profiler gebruiken met een cloudservice, ondersteunt deze alleen AI SDK maximaal versie 2.7.2. Als u een nieuwere versie van de AI-SDK gebruikt, hebt u terugkeren naar 2.7.2 als u wilt de profiler gebruiken.
+  >**Er is een fout in de profiler dat wordt meegeleverd met de nieuwste versie van WAD voor Cloud Services.** Als u wilt profiler gebruiken met een cloudservice, ondersteunt deze alleen AI SDK maximaal versie 2.7.2. Als u een nieuwere versie van de AI-SDK gebruikt, hebt u terugkeren naar 2.7.2 als u wilt de profiler gebruiken. Als u Visual Studio te downgraden van de versie van de App Insights-SDK, krijgt u mogelijk een binding omleidings-fout tijdens runtime. Dit komt doordat de "newVersion' in het bestand web.config voor Microsoft.ApplicationInsights moet worden ingesteld op '2.7.2.0' nadat downgraden van de AI-SDK, maar deze niet automatisch bijgewerkt.
 
 Als u wilt zien of de Profiler juist is geconfigureerd door Azure Diagnostics, moet u de volgende drie dingen doen: 
 1. Controleer eerst of de inhoud van de Azure Diagnostics-configuratie die zijn geïmplementeerd zijn wat u verwacht. 

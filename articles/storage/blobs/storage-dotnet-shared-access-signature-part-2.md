@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9c5f32bb1b4f335fab11f0fd865421f2eec5eee9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5dcb9f16b589b8332d5fcf35c9d8b4cd914460f2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244909"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012543"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Shared Access Signatures, deel 2: Maken en een SAS gebruiken met Blob-opslag
 
@@ -33,7 +33,7 @@ In deze zelfstudie maken we twee consoletoepassingen die laten zien van het make
 **Toepassing 2**: De clienttoepassing. Toegang tot container- en blobnaam resources met behulp van de handtekeningen voor gedeelde toegang gemaakt met de eerste toepassing. Maakt gebruik van alleen de handtekeningen voor gedeelde toegang tot toegang tot container en blobbronnen--doet *niet* de toegangssleutel voor opslagaccount bevatten.
 
 ## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>Deel 1: Maak een consoletoepassing voor het genereren van handtekeningen voor gedeelde toegang
-Eerst voor zorgen dat u de Azure Storage-clientbibliotheek voor .NET geïnstalleerd hebt. U kunt installeren de [NuGet-pakket](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet-pakket") met de meest recente assembly's voor de clientbibliotheek. Dit is de aanbevolen methode om ervoor te zorgen dat u de meest recente oplossingen hebt. U kunt ook de clientbibliotheek downloaden als onderdeel van de meest recente versie van de [Azure SDK voor .NET](https://azure.microsoft.com/downloads/).
+Eerst voor zorgen dat u de Azure Storage-clientbibliotheek voor .NET geïnstalleerd hebt. U kunt installeren de [NuGet-pakket](https://nuget.org/packages/WindowsAzure.Storage/ "NuGet-pakket") met de meest recente assembly's voor de clientbibliotheek. Dit is de aanbevolen methode om ervoor te zorgen dat u de meest recente oplossingen hebt. U kunt ook de clientbibliotheek downloaden als onderdeel van de meest recente versie van de [Azure SDK voor .NET](https://azure.microsoft.com/downloads/).
 
 Maak een nieuwe Windows-consoletoepassing in Visual Studio en noem dit **GenerateSharedAccessSignatures**. Verwijzingen toevoegen aan [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) en [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) met behulp van een van de volgende methoden:
 

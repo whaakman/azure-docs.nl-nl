@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 9fc20c97e19ef3a651bc6df36118bc85fefcaec3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118728"
+ms.locfileid: "58199627"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>VPN-gatewayoverdracht configureren voor peering voor virtuele netwerken
 
@@ -37,8 +37,8 @@ In dit document worden twee scenario's beschreven:
 1. Beide virtuele netwerken gebruiken het implementatiemodel van Resource Manager
 2. Het spoke virtuele netwerk is Classic en het hub virtuele netwerk met de gateway is in de Resource Manager
 
-> [!IMPORTANT]
-> Gatewayoverdracht wordt momenteel niet ondersteund met globale peering van virtuele netwerken.
+> [!IMPORTANT]  
+> Gateway-doorvoer wordt momenteel ondersteund met wereldwijde vnet-peering in preview. De Preview-versie is beschikbaar in alle Azure-regio's, China-cloud-regio's en Government cloud-regio's, maar niet tussen clouds. Er is geen opname in de whitelist is vereist. U kunt in de Preview-versie via de CLI, PowerShell, sjablonen of API testen. Portal wordt niet ondersteund in de Preview-versie. 
 
 ## <a name="requirements"></a>Vereisten
 

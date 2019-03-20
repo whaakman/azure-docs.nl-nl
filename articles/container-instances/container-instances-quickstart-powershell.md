@@ -1,6 +1,6 @@
 ---
-title: 'Snelstartgids: Een toepassing uitvoeren in Azure Container Instances - PowerShell'
-description: In deze snelstartgids gebruikt u Azure PowerShell om een Docker-containertoepassing te implementeren in Azure Container Instances met Azure PowerShell
+title: Snelstartgids - Docker-container implementeren in Azure Container Instances - PowerShell
+description: In deze snelstartgids gebruikt u Azure PowerShell snel een beperkte web-app die wordt uitgevoerd in een geïsoleerde Azure containerexemplaar implementeren
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8cb84523288f45dfb719d69e4f7d227039598a9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: HT
+ms.openlocfilehash: 00f5f8e045a2ec78751d115db3d9d75ec76189e8
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806909"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732303"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Snelstartgids: Een containertoepassing uitvoeren in Azure Container Instances met Azure PowerShell
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Quickstart: Implementeren van een containerinstantie in Azure met behulp van Azure PowerShell
 
-Gebruik Azure Container Instances om Docker-containers in Azure snel en eenvoudig uit te voeren. U hoeft geen virtuele machines te implementeren en u hoeft geen volledig container-indelingsplatform zoals Kubernetes te gebruiken. In deze snelstart gebruikt u Azure Portal om een Windows-container te maken in Azure en maakt u de bijbehorende toepassing beschikbaar met een FQDN (Fully Qualified Domain Name). Een paar seconden nadat u één implementatieopdracht hebt uitgevoerd, kunt u bladeren naar de toepassing die wordt uitgevoerd:
+Gebruik Azure Container Instances om uit te voeren zonder server Docker-containers in Azure met de eenvoud en snelheid. Een toepassing implementeren in een container-exemplaar op aanvraag wanneer u niet nodig voor een volledige container-orchestration-platform, zoals Azure Kubernetes Service hebt.
+
+In deze snelstartgids gebruikt u Azure PowerShell een geïsoleerde Windows-container implementeren en de toepassing beschikbaar met een volledig gekwalificeerde domeinnaam (FQDN). Een paar seconden nadat u een met één implementatieopdracht uitvoeren, kunt u bladeren naar de toepassing die wordt uitgevoerd in de container:
 
 ![App die is geïmplementeerd in Azure Container Instances, weergegeven in de browser][qs-powershell-01]
 
@@ -45,7 +47,7 @@ Nu u een resourcegroep hebt, kunt u een container in Azure uitvoeren. Als u een 
 
 Als u uw containers beschikbaar wilt maken op internet, moet u een of meer poorten om te openen of een DNS-naamlabel opgeven, of beide. In deze quickstart implementeert u een container met een DNS-naamlabel zodat IIS openbaar bereikbaar is.
 
-Voer de volgende opdracht uit om een exemplaar van de container te starten. De waarde `-DnsNameLabel` moet uniek zijn voor de Azure-regio waar u het exemplaar maakt. Als u een foutbericht 'DNS-naamlabel niet beschikbaar' ontvangt, probeert u een ander DNS-naamlabel.
+Voer een vergelijkbaar met de volgende opdracht om een containerexemplaar te starten. Stel een `-DnsNameLabel` waarde die uniek is binnen de Azure-regio waar u het exemplaar maakt. Als u een foutbericht 'DNS-naamlabel niet beschikbaar' ontvangt, probeert u een ander DNS-naamlabel.
 
  ```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win

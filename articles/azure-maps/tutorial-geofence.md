@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670890"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085317"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Een geofence instellen met behulp van Azure Maps
 
@@ -25,11 +25,11 @@ Zie [Wat is Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overvi
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-* Een geofence-gebied uploaden in de gegevensservices van Azure Maps met behulp van de Data Upload-API.
-*   Een Event Grid instellen voor het afhandelen van geofence-gebeurtenissen.
-*   Stel een Geofence-gebeurtenis-handler in.
-*   Logic Apps gebruiken om waarschuwingen in te stellen als reactie op geofence-gebeurtenissen.
-*   De geofence-service-API's van Azure Maps gebruiken om te volgen of een bouwmachine zich op het bouwterrein bevindt.
+> * Een geofence-gebied uploaden in de gegevensservices van Azure Maps met behulp van de Data Upload-API.
+> *   Een Event Grid instellen voor het afhandelen van geofence-gebeurtenissen.
+> *   Stel een Geofence-gebeurtenis-handler in.
+> *   Logic Apps gebruiken om waarschuwingen in te stellen als reactie op geofence-gebeurtenissen.
+> *   De geofence-service-API's van Azure Maps gebruiken om te volgen of een bouwmachine zich op het bouwterrein bevindt.
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -150,9 +150,9 @@ Open de Postman-app en volg de volgende stappen om de geofence van de bouwplaats
 
 5. Klik op Send en controleer de reactieheader. De locatieheader bevat de URI waar u de gegevens voor toekomstig gebruik kunt vinden en downloaden. Deze bevat ook een unieke `udId` voor de geüploade gegevens.
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 ## <a name="set-up-an-event-handler"></a>Een gebeurtenis-handler instellen
 
@@ -163,15 +163,15 @@ U kun alle [ondersteunde gebeurtenis-handlers](https://docs.microsoft.com/azure/
 
 1. Een Logic App maken in Azure-portal
 
-  ![Logic Apps maken](./media/tutorial-geofence/logic-app.png)
+   ![Logic Apps maken](./media/tutorial-geofence/logic-app.png)
 
 2. Selecteer een HTTP-aanvraagtrigger en selecteer vervolgens de actie ‘E-mail verzenden’ in de outlook-connector
   
-  ![Logic Apps-schema](./media/tutorial-geofence/logic-app-schema.png)
+   ![Logic Apps-schema](./media/tutorial-geofence/logic-app-schema.png)
 
 3. Sla de logische app op om het HTTP-URL-eindpunt te genereren en de HTTP-URL te kopiëren.
 
-  ![Logic Apps-eindpunt](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Logic Apps-eindpunt](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Een abonnement maken op Azure Maps-evenementen
@@ -208,53 +208,53 @@ Hieronder vindt u vijf GET HTTP Geofencing API-aanvragen, met verschillende corr
  
 1. Locatie 1:
     
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
-  ![Geofence-query 1](./media/tutorial-geofence/geofence-query1.png)
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
+   ![Geofence-query 1](./media/tutorial-geofence/geofence-query1.png)
 
-  In bovenstaande reactie betekent de negatieve afstand ten opzichte van de hoofd-geofence dat de apparatuur zich binnen de geofence bevindt. De positieve afstand ten opzichte van de sublocatie-geofence betekent dat de apparatuur zich buiten de geofence van de sublocatie bevindt. 
+   In bovenstaande reactie betekent de negatieve afstand ten opzichte van de hoofd-geofence dat de apparatuur zich binnen de geofence bevindt. De positieve afstand ten opzichte van de sublocatie-geofence betekent dat de apparatuur zich buiten de geofence van de sublocatie bevindt. 
 
 2. Locatie 2: 
    
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
     
-  ![Geofence-query 2](./media/tutorial-geofence/geofence-query2.png)
+   ![Geofence-query 2](./media/tutorial-geofence/geofence-query2.png)
 
-  Als u de voorgaande JSON-reactie zorgvuldig bekijkt, ziet u dat de apparatuur zich buiten de sublocatie maar binnen de hoofdomheining bevindt. Er wordt geen gebeurtenis geactiveerd en geen e-mailbericht verzonden.
+   Als u de voorgaande JSON-reactie zorgvuldig bekijkt, ziet u dat de apparatuur zich buiten de sublocatie maar binnen de hoofdomheining bevindt. Er wordt geen gebeurtenis geactiveerd en geen e-mailbericht verzonden.
 
 3. Locatie 3: 
   
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Geofence-query 3](./media/tutorial-geofence/geofence-query3.png)
+   ![Geofence-query 3](./media/tutorial-geofence/geofence-query3.png)
 
-  Er is een statuswijziging opgetreden en de apparatuur bevindt zich nu binnen de geofence van de hoofdlocatie en de sublocatie. Nu wordt er een gebeurtenis gepubliceerd en wordt er via e-mail een melding naar de Operations Manager verzonden.
+   Er is een statuswijziging opgetreden en de apparatuur bevindt zich nu binnen de geofence van de hoofdlocatie en de sublocatie. Nu wordt er een gebeurtenis gepubliceerd en wordt er via e-mail een melding naar de Operations Manager verzonden.
 
 4. Locatie 4: 
 
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
   
-  ![Geofence-query 4](./media/tutorial-geofence/geofence-query4.png)
+   ![Geofence-query 4](./media/tutorial-geofence/geofence-query4.png)
 
    Als u de desbetreffende reactie zorgvuldig observeert, ziet u dat er hier geen gebeurtenis wordt gepubliceerd terwijl de apparatuur de geofence van de sublocatie wel heeft verlaten. Als u de tijd bekijkt die de gebruiker in de GET-aanvraag heeft opgegeven, ziet u dat de geofence van de sublocatie is verlopen en de apparatuur zich nog steeds in de geofence van de hoofdlocatie bevindt. U ziet ook dat de geometrie-id van de geofence van de sublocatie zich bevindt onder `expiredGeofenceGeometryId` in de hoofdtekst van de reactie.
 
 
 5. Locatie 5:
       
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Geofence-query 5](./media/tutorial-geofence/geofence-query5.png)
+   ![Geofence-query 5](./media/tutorial-geofence/geofence-query5.png)
 
-  U kunt zien dat de apparatuur de geofence van de hoofdbouwplaats heeft verlaten. Hiermee wordt een gebeurtenis gepubliceerd; het is een ernstige schending en er wordt een e-mail met een kritieke waarschuwing verzonden naar de Operations Manager.
+   U kunt zien dat de apparatuur de geofence van de hoofdbouwplaats heeft verlaten. Hiermee wordt een gebeurtenis gepubliceerd; het is een ernstige schending en er wordt een e-mail met een kritieke waarschuwing verzonden naar de Operations Manager.
 
 ## <a name="next-steps"></a>Volgende stappen
 

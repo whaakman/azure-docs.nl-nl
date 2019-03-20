@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 7939de5cf45535dc911c25ae8fa8c914a214fa3c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458054"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995823"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Een service voor het verplaatsen van gegevens tussen de shard-databases voor splitsen en samenvoegen implementeren
 
 Het hulpprogramma voor splitsen en samenvoegen kunt u gegevens verplaatsen tussen shard-databases. Zie [om gegevens te verplaatsen tussen uitgeschaalde clouddatabases](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## <a name="download-the-split-merge-packages"></a>Downloaden van de pakketten splitsen en samenvoegen
-1. Download de nieuwste versie van NuGet van [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
+1. Download de nieuwste versie van NuGet van [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 2. Open een opdrachtprompt en navigeer naar de map waar u nuget.exe gedownload. De download bevat onder andere PowerShell-opdrachten.
 3. Download de meest recente pakket met splitsen en samenvoegen in de huidige map met de onderstaande opdracht:
    ```

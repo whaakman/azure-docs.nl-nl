@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: e2f0fb6333f3786b29c2a7516e46a4599d6e89ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851343"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Het opslaan en het configureren van de configuratie van uw API Management-service met behulp van Git
 
@@ -53,9 +53,9 @@ Als u wilt weergeven en configureren uw Git-configuratie-instellingen, klikt u o
 ![Inschakelen van GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Geen geheimen die niet zijn gedefinieerd als eigenschappen worden opgeslagen in de opslagplaats en in de geschiedenis tot u blijven uitschakelen en weer inschakelen Git-toegang. Eigenschappen bieden een veilige plaats voor het beheren van constante tekenreekswaarden geheimen, waaronder in alle configuratie-API en het beleid, zodat u hoeft voor het opslaan van deze rechtstreeks in de beleidsinstructies van uw. Zie voor meer informatie, [Dubbeleigenschappen gebruiken in Azure API Management-beleidsregels](api-management-howto-properties.md).
-> 
-> 
+> Geen geheimen die niet zijn gedefinieerd als met de naam waarden worden opgeslagen in de opslagplaats en blijft in de geschiedenis totdat u uitschakelen en weer Git-toegang inschakelen. Benoemde waarden bieden een veilige plaats voor het beheren van constante tekenreekswaarden, met inbegrip van geheimen, met alle configuratie-API en beleid, zodat u hoeft deze rechtstreeks in de beleidsinstructies van uw opslaan. Zie voor meer informatie, [over het gebruik van waarden met de naam in Azure API Management-beleidsregels](api-management-howto-properties.md).
+>
+>
 
 Zie voor meer informatie over het inschakelen of uitschakelen van Git-toegang met behulp van de REST-API [in- of uitschakelen van de Git-toegang met behulp van de REST-API](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
@@ -73,13 +73,13 @@ Zie voor informatie over het uitvoeren van deze bewerking via de REST API, [door
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Kloon de opslagplaats naar uw lokale computer
 
-Als u wilt een opslagplaats klonen, moet u de URL naar uw opslagplaats en de naam van een gebruiker een wachtwoord. Als u de gebruikersnaam van de en andere referenties, klikt u op **toegangsreferenties** bovenaan de pagina.  
- 
+Als u wilt een opslagplaats klonen, moet u de URL naar uw opslagplaats en de naam van een gebruiker een wachtwoord. Als u de gebruikersnaam van de en andere referenties, klikt u op **toegangsreferenties** bovenaan de pagina.
+
 Voor het genereren van een wachtwoord, eerst voor zorgen dat de **verlopen** is ingesteld op de gewenste datum en tijd, en klik vervolgens op **genereren**.
 
 > [!IMPORTANT]
 > Noteer dit wachtwoord. Nadat u deze pagina verlaat wordt het wachtwoord niet opnieuw weergegeven.
-> 
+>
 
 De volgende voorbeelden gebruiken de Git Bash-hulpprogramma van [Git voor Windows](https://www.git-scm.com/downloads) maar kunt u een Git-hulpprogramma dat u bekend met bent.
 
@@ -149,7 +149,7 @@ Zie voor informatie over het uitvoeren van deze bewerking via de REST API, [impl
 
 De bestanden en mappen in de lokale git-opslagplaats bevatten de configuratie-informatie over het service-exemplaar.
 
-| Item | Beschrijving |
+| Item | Description |
 | --- | --- |
 | hoofdmap van de api-beheer |Op het hoogste niveau van de configuratie voor de service-exemplaar bevat |
 | map van de API 's |Bevat de configuratie voor de API's in het service-exemplaar |
@@ -164,7 +164,7 @@ Elke map kan een of meer bestanden bevatten, en in sommige gevallen een of meer 
 | Bestandstype | Doel |
 | --- | --- |
 | json |Configuratie-informatie over de respectieve entiteit |
-| HTML-code |Informatie over de entiteit, vaak weergegeven in de portal voor ontwikkelaars |
+| html |Informatie over de entiteit, vaak weergegeven in de portal voor ontwikkelaars |
 | xml |Beleidsinstructies |
 | CSS |Opmaakmodellen voor ontwikkelaars van de portal aanpassen |
 
@@ -172,12 +172,12 @@ Deze bestanden kunnen worden gemaakt, verwijderd, bewerkt en beheerd op het loka
 
 > [!NOTE]
 > De volgende entiteiten zijn niet opgenomen in de Git-opslagplaats en kunnen niet worden geconfigureerd met behulp van Git.
-> 
-> * Gebruikers
-> * Abonnementen
-> * Eigenschappen
+>
+> * [Gebruikers](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
+> * [Abonnementen](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
+> * [Benoemde waarden](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
 > * Developer portal entiteiten dan stijlen
-> 
+>
 
 ### <a name="root-api-management-folder"></a>hoofdmap van de api-beheer
 De hoofdmap `api-management` map bevat een `configuration.json` bestand die op het hoogste niveau informatie over de service-exemplaar in de volgende notatie bevat.
@@ -223,7 +223,7 @@ De instelling van de laatste `$ref-policy`, toegewezen aan het globale beleid in
 ### <a name="apis-folder"></a>map van de API 's
 De `apis` een map bevat voor elke API in het service-exemplaar dat de volgende items bevat.
 
-* `apis\<api name>\configuration.json` -Dit is de configuratie voor de API en bevat informatie over de URL van de back-end-service en de bewerkingen. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen [ophalen van een bepaalde API](https://docs.microsoft.com/rest/api/apimanagement/api/get) met `export=true` in `application/json` indeling.
+* `apis\<api name>\configuration.json` -Dit is de configuratie voor de API en bevat informatie over de URL van de back-end-service en de bewerkingen. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen [ophalen van een bepaalde API](https://docs.microsoft.com/rest/api/apimanagement/apis/get) met `export=true` in `application/json` indeling.
 * `apis\<api name>\api.description.html` -Dit is de beschrijving van de API en komt overeen met de `description` eigenschap van de [API-entiteit](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
 * `apis\<api name>\operations\` -Deze map bevat `<operation name>.description.html` bestanden die zijn toegewezen aan de bewerkingen in de API. Elk bestand bevat de beschrijving van een enkele bewerking in de API, die wordt toegewezen aan de `description` eigenschap van de [bewerking entiteit](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) in de REST-API.
 

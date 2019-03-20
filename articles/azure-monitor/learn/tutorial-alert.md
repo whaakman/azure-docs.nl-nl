@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 300f0ddc8b738b5fd8578ed0b33cc15000c1098a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 70a11867dded3b7156f6b212ceb4756ee7c287f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101782"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079159"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Toepassingsstatus bewaken en waarschuwingen erover verzenden met Azure Application Insights
 
@@ -69,18 +69,18 @@ Met beschikbaarheidstests in Application Insights kunt u uw toepassing automatis
 ## <a name="create-an-alert-from-metrics"></a>Een waarschuwing maken vanuit metrische gegevens
 Naast het verzenden van waarschuwingen vanuit een beschikbaarheidstest, kunt u een waarschuwing maken vanuit metrische prestatiegegevens die worden verzameld voor de toepassing.
 
-2. Selecteer in het menu **Configureren** de optie **Waarschuwingen**.  Hiermee wordt het paneel Azure-waarschuwingen geopend.  Mogelijk zijn hier andere waarschuwingsregels geconfigureerd voor andere services.
-3. Klik op **Waarschuwing voor metrische gegevens toevoegen**.  Hiermee wordt het paneel geopend voor het maken van een nieuwe waarschuwingsregel.
+1. Selecteer in het menu **Configureren** de optie **Waarschuwingen**.  Hiermee wordt het paneel Azure-waarschuwingen geopend.  Mogelijk zijn hier andere waarschuwingsregels geconfigureerd voor andere services.
+1. Klik op **Waarschuwing voor metrische gegevens toevoegen**.  Hiermee wordt het paneel geopend voor het maken van een nieuwe waarschuwingsregel.
 
     ![Metrische waarschuwing toevoegen](media/tutorial-alert/add-metric-alert.png)
 
-4. Typ een **Naam** voor de waarschuwingsregel en selecteer uw toepassing in de vervolgkeuzelijst voor **Resource**.
-5. Selecteer een **Metrisch gegeven** om een steekproef op uit te voeren.  Er wordt een grafiek weergegeven om de waarde van deze aanvraag in de afgelopen 24 uur aan te geven.  Dit helpt u om de voorwaarde voor dit metrisch gegeven in te stellen.
+1. Typ een **Naam** voor de waarschuwingsregel en selecteer uw toepassing in de vervolgkeuzelijst voor **Resource**.
+1. Selecteer een **Metrisch gegeven** om een steekproef op uit te voeren.  Er wordt een grafiek weergegeven om de waarde van deze aanvraag in de afgelopen 24 uur aan te geven.  Dit helpt u om de voorwaarde voor dit metrisch gegeven in te stellen.
 
     ![Waarschuwingsregel toevoegen](media/tutorial-alert/add-alert-01.png)
 
-6. Geen een **Voorwaarde** en **Drempelwaarde** op voor de waarschuwing. Dit is het aantal keer dat het metrische gegeven moet worden overschreden om een waarschuwing te activeren. 
-6. Schakel onder **Melden via** het vak **Eigenaars, bijdragers en lezers van e-mail** in om een e-mailbericht naar deze gebruikers te verzenden wanneer wordt voldaan aan de waarschuwingscriteria, en voeg de e-mailadressen van eventuele extra ontvangers toe.  U kunt hier ook een webhook of logische app opgeven die wordt uitgevoerd wanneer wordt voldaan aan de voorwaarde.  Deze kunnen worden gebruikt om te proberen het gedetecteerde probleem te verhelpen of 
+1. Geen een **Voorwaarde** en **Drempelwaarde** op voor de waarschuwing. Dit is het aantal keer dat het metrische gegeven moet worden overschreden om een waarschuwing te activeren. 
+1. Schakel onder **Melden via** het vak **Eigenaars, bijdragers en lezers van e-mail** in om een e-mailbericht naar deze gebruikers te verzenden wanneer wordt voldaan aan de waarschuwingscriteria, en voeg de e-mailadressen van eventuele extra ontvangers toe.  U kunt hier ook een webhook of logische app opgeven die wordt uitgevoerd wanneer wordt voldaan aan de voorwaarde.  Deze kunnen worden gebruikt om te proberen het gedetecteerde probleem te verhelpen of 
 
     ![Waarschuwingsregel toevoegen](media/tutorial-alert/add-alert-02.png)
 

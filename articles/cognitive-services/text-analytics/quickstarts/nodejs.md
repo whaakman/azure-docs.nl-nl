@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: e11e4a59e447a8befcfaedb7ddedbb9aabdfaa28
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 61cfb5fa78a735d2ef542c30b445f3200f256d7c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330695"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226926"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Node.js gebruiken om de Text Analytics Cognitive Service aan te roepen  
 <a name="HOLTop"></a>
@@ -28,7 +28,7 @@ Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor tec
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-U moet ook [het eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u zijn gegenereerd tijdens de registratie. 
+U moet ook [het eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u zijn gegenereerd tijdens de registratie.
 
 <a name="Detect"></a>
 
@@ -36,11 +36,11 @@ U moet ook [het eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to
 
 Met de Language Detection-API wordt de taal van een tekstdocument gedetecteerd met behulp van de [methode Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
-1. Maak een nieuw Node.js-project in uw favoriete IDE.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `accessKey` door een geldige toegangssleutel voor uw abonnement.
+1. Een nieuwe Node.JS-project maken in uw favoriete IDE of een map op uw bureaublad.
+2. Voeg de code hieronder vindt u een nieuwe `.js` bestand.
+3. Vervang de `accessKey` waarde met een abonnementssleutel van de Text Analytics-resource in Azure.
 4. Vervang de locatie `uri` (momenteel `westus`) door de regio waarvoor u zich hebt geregistreerd.
-5. Voer het programma uit.
+5. Het programma uitvoeren vanuit uw IDE of vanaf de opdrachtregel, bijvoorbeeld `npm start` of `node detect.js`.
 
 ```javascript
 'use strict';
@@ -156,13 +156,13 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="analyze-sentiment"></a>Stemming analyseren
 
-Met de Sentiment Analysis-API wordt het gevoel in een set tekstrecords gedetecteerd met behulp van de [methode Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). In het volgende voorbeeld worden twee documenten beoordeeld, één in het Engels en één in het Spaans.
+Met de Sentiment Analysis-API wordt een set tekstrecords gedetecteerd met behulp van de [methode Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Sentimentanalyse kan worden gebruikt om erachter te komen hoe klanten van uw merk of onderwerp denken door onbewerkte tekst of er aanwijzingen over positief of negatief gevoel analyseren. Het volgende voorbeeld biedt scores voor de twee documenten, één in het Engels en andere in het Spaans.
 
-1. Maak een nieuw Node.js-project in uw favoriete IDE.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `accessKey` door een geldige toegangssleutel voor uw abonnement.
+1. Een nieuwe Node.JS-project maken in uw favoriete IDE of een map op uw bureaublad.
+2. Voeg de code hieronder vindt u een nieuwe `.js` bestand.
+3. Vervang de `accessKey` waarde met een abonnementssleutel van de Text Analytics-resource in Azure.
 4. Vervang de locatie `uri` (momenteel `westus`) door de regio waarvoor u zich hebt geregistreerd.
-5. Voer het programma uit.
+5. Het programma uitvoeren vanuit uw IDE of vanaf de opdrachtregel, bijvoorbeeld `npm start` of `node sentiment.js`.
 
 ```javascript
 'use strict';
@@ -229,7 +229,8 @@ get_sentiments (documents);
 
 **Antwoord bij sentimentanalyse**
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
+Het resultaat wordt gemeten als positief als deze dichter bij 1.0 en negatieve wordt berekend als het dichter beoordeeld op 0.0.
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld:
 
 ```json
 {
@@ -251,13 +252,13 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="extract-key-phrases"></a>Belangrijke woordgroepen herkennen
 
-Met de Key Phrase Extraction-API worden sleuteltermen opgehaald uit een tekstdocument met behulp van de [methode Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). In het volgende voorbeeld worden sleuteltermen opgehaald voor zowel de Engelse als Spaanse documenten.
+Met de Key Phrase Extraction-API worden sleuteltermen opgehaald uit een tekstdocument met behulp van de [methode Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Sleuteltermextractie wordt snel identificeren van de belangrijkste punten van een document of de tekst gebruikt. In het volgende voorbeeld worden sleuteltermen opgehaald voor zowel de Engelse als Spaanse documenten.
 
-1. Maak een nieuw Node.js-project in uw favoriete IDE.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `accessKey` door een geldige toegangssleutel voor uw abonnement.
+1. Een nieuwe Node.JS-project maken in uw favoriete IDE of een map op uw bureaublad.
+2. Voeg de code hieronder vindt u een nieuwe `.js` bestand.
+3. Vervang de `accessKey` waarde met een abonnementssleutel van de Text Analytics-resource in Azure.
 4. Vervang de locatie `uri` (momenteel `westus`) door de regio waarvoor u zich hebt geregistreerd.
-5. Voer het programma uit.
+5. Het programma uitvoeren vanuit uw IDE of vanaf de opdrachtregel, bijvoorbeeld `npm start` of `node key-phrases.js`.
 
 ```javascript
 'use strict';
@@ -367,13 +368,13 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="identify-linked-entities"></a>Gekoppelde entiteiten identificeren
 
-De Entities-API identificeert bekende entiteiten in een tekstdocument, met behulp van de [methode Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). In het volgende voorbeeld worden entiteiten geïdentificeerd voor Engelse documenten.
+De Entities-API identificeert bekende entiteiten in een tekstdocument, met behulp van de [methode Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). [Entiteiten](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) woorden extraheren uit tekst, zoals 'VS', en vervolgens geeft u het type en/of de Wikipedia-koppeling voor deze woorden. Het type voor "Verenigde Staten" `location`, terwijl de koppeling naar Wikipedia `https://en.wikipedia.org/wiki/United_States`.  In het volgende voorbeeld worden entiteiten geïdentificeerd voor Engelse documenten.
 
-1. Maak een nieuw Node.js-project in uw favoriete IDE.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `accessKey` door een geldige toegangssleutel voor uw abonnement.
+1. Een nieuwe Node.JS-project maken in uw favoriete IDE of een map op uw bureaublad.
+2. Voeg de code hieronder vindt u een nieuwe `.js` bestand.
+3. Vervang de `accessKey` waarde met een abonnementssleutel van de Text Analytics-resource in Azure.
 4. Vervang de locatie `uri` (momenteel `westus`) door de regio waarvoor u zich hebt geregistreerd.
-5. Voer het programma uit.
+5. Het programma uitvoeren vanuit uw IDE of vanaf de opdrachtregel, bijvoorbeeld `npm start` of `node entities.js`.
 
 ```javascript
 'use strict';
@@ -440,7 +441,7 @@ get_entities (documents);
 
 **Antwoord bij extraheren van entiteiten**
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld:
 
 ```json
 {

@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: bdc98a87a71dc7f8552f4bf869ec035409e0535e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 9692d495ada8a311fd5037a4f17f24ed6da9243a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843671"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Wat is een netwerk voor contentlevering in Azure?
 Een netwerk voor contentlevering (CDN) is een gedistribueerd netwerk van servers dat webinhoud efficiënt aan gebruikers kan leveren. In CDN's wordt gecachede inhoud opgeslagen op randservers in aanwezigheidspunt (POP)-locaties in de buurt van eindgebruikers om de latentie zo klein mogelijk te maken. 
@@ -59,7 +59,7 @@ Elk Azure-abonnement kent standaardlimieten voor de volgende resources:
  - Het aantal eindpunten dat kan worden gemaakt in een CDN-profiel. 
  - Het aantal aangepaste domeinen dat kan worden toegewezen aan een eindpunt.
 
-Zie [CDN-limieten](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits) voor meer informatie over limieten van CDN-abonnementen.
+Zie [CDN-limieten](https://docs.microsoft.com/azure/azure-subscription-service-limits) voor meer informatie over limieten van CDN-abonnementen.
     
 ## <a name="azure-cdn-features"></a>Functies van Azure CDN
 Azure CDN biedt de volgende belangrijke functies:
@@ -79,4 +79,3 @@ Zie [Azure CDN-producteigenschappen vergelijken](cdn-features.md) voor een compl
 - Meer informatie over hoe u Azure CDN kunt automatiseren met [.NET](cdn-app-dev-net.md) of [Node.js](cdn-app-dev-node.md).
 - Bekijk de [Azure-video's](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest) als u Azure CDN in actie wilt zien.
 - Zie het [Azure CDN-blog](https://azure.microsoft.com/blog/tag/azure-cdn/) voor informatie over de nieuwste Azure CDN-functies.
-

@@ -4,259 +4,238 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: aa3109b8-bdbe-45ae-933a-2eb4dc03855c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/23/2018
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1346ce0526a6b45b6bca0f15c2b5e71afc4ae381
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2cdadb8345f88c8d6f5960d1951c1368c666430b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204625"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189271"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Zelfstudie: Azure Active Directory-integratie met Infogix Data3Sixty beheren
 
 In deze zelfstudie leert u over het integreren van Infogix Data3Sixty beheren met Azure Active Directory (Azure AD).
-
 Infogix Data3Sixty regelen integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot Infogix Data3Sixty beheren heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Infogix Data3Sixty beheren (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt beheren in Azure AD die toegang tot Infogix Data3Sixty beheren heeft.
+* U kunt uw gebruikers worden automatisch aangemeld Infogix Data3Sixty beheren (Single Sign-On) inschakelen met hun Azure AD-accounts.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met Infogix Data3Sixty beheren, moet u de volgende items:
 
-- Een Azure AD-abonnement
-- Een Infogix Data3Sixty regelen eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Infogix Data3Sixty regelen eenmalige aanmelding ingeschakeld abonnement
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Toe te voegen Infogix Data3Sixty beheren vanuit de galerie
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
+
+* Biedt ondersteuning voor Infogix Data3Sixty regelen **SP en IDP** gestart door SSO
+* Biedt ondersteuning voor Infogix Data3Sixty regelen **Just In Time** inrichten van gebruikers
 
 ## <a name="adding-infogix-data3sixty-govern-from-the-gallery"></a>Toe te voegen Infogix Data3Sixty beheren vanuit de galerie
+
 Voor het configureren van de integratie van Infogix Data3Sixty beheren in Azure AD, moet u Infogix Data3Sixty beheren vanuit de galerie aan uw lijst met beheerde SaaS-apps toevoegen.
 
 **Als u wilt toevoegen Infogix Data3Sixty beheren vanuit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![De knop Nieuwe toepassing][3]
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Typ in het zoekvak **Infogix Data3Sixty bepalen**, selecteer **Infogix Data3Sixty regelen** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Infogix Data3Sixty beheren in de lijst met resultaten](./media/infogix-tutorial/tutorial_infogix_addfromgallery.png)
+4. Typ in het zoekvak **Infogix Data3Sixty bepalen**, selecteer **Infogix Data3Sixty regelen** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+
+     ![Infogix Data3Sixty beheren in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Infogix Data3Sixty bepalen op basis van een testgebruiker 'Julia steen' genoemd.
-
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Infogix Data3Sixty beheren in Azure AD aan een gebruiker is. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Infogix Data3Sixty bepalen tot stand worden gebracht.
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Infogix Data3Sixty bepalen op basis van een testgebruiker met de naam **Britta Simon**.
+Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Infogix Data3Sixty bepalen tot stand worden gebracht.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Infogix Data3Sixty beheren, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker Infogix Data3Sixty regelen](#create-an-infogix-data3sixty-govern-test-user)**  : als u wilt een equivalent van Britta Simon in Infogix Data3Sixty beheren die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+2. **[Configureer Infogix Data3Sixty regelen Single Sign-On](#configure-infogix-data3sixty-govern-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Maak testgebruiker Infogix Data3Sixty regelen](#create-infogix-data3sixty-govern-test-user)**  : als u wilt een equivalent van Britta Simon in Infogix Data3Sixty beheren die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Infogix Data3Sixty beheren.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Infogix Data3Sixty beheren, moet u de volgende stappen uitvoeren:**
+Voor het configureren van Azure AD eenmalige aanmelding met Infogix Data3Sixty beheren, moet u de volgende stappen uitvoeren:
 
-1. In de Azure-portal op de **Infogix Data3Sixty regelen** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/)op de **Infogix Data3Sixty regelen** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/infogix-tutorial/tutorial_infogix_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **Infogix Data3Sixty regelen domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Infogix Data3Sixty regelen domein en URL's, eenmalige aanmelding informatie](./media/infogix-tutorial/tutorial_infogix_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. In de **id** tekstvak, een URL typen: `https://data3sixty.com/ui`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<subdomain>.data3sixty.com/sso/acs`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+    ![Infogix Data3Sixty regelen domein en URL's, eenmalige aanmelding informatie](common/idp-intiated.png)
 
-    ![Infogix Data3Sixty regelen domein en URL's, eenmalige aanmelding informatie](./media/infogix-tutorial/tutorial_infogix_url1.png)
+    a. In het tekstvak **Id** typt u een URL: `https://data3sixty.com/ui`
 
-    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<subdomain>.data3sixty.com`
-     
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de echte antwoord-URL en aanmeldings-URL. Neem contact op met [Infogix Data3Sixty regelen Client ondersteuningsteam](mailto:data3sixtysupport@infogix.com) om deze waarden te verkrijgen.
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<subdomain>.data3sixty.com/sso/acs`
 
-1. Toepassing Infogix Data3Sixty regelen wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. In de volgende schermopname ziet u een voorbeeld hiervan.
-    
-    ![Single Sign-On attb configureren](./media/infogix-tutorial/tutorial_infogix_attribute.png)
-    
-1. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en voer de volgende stappen uit:
-    
-    | Naam kenmerk | Waarde kenmerk |
-    | ------------------- | -------------------- |    
-    | firstname           | user.givenname |
-    | lastname        | user.surname |
-    | gebruikersnaam       | user.mail    |
-    
-    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    ![Configureren van eenmalige aanmelding toevoegen](./media/infogix-tutorial/tutorial_attribute_04.png)
+    ![Infogix Data3Sixty regelen domein en URL's, eenmalige aanmelding informatie](common/metadata-upload-additional-signon.png)
 
-    ![Single Sign-On Addattb configureren](./media/infogix-tutorial/tutorial_attribute_05.png)
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<subdomain>.data3sixty.com`
+
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de echte antwoord-URL en aanmeldings-URL. Neem contact op met [Infogix Data3Sixty regelen Client ondersteuningsteam](mailto:data3sixtysupport@infogix.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+
+6. Toepassing Infogix Data3Sixty regelen wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
+
+    ![image](common/edit-attribute.png)
+
+7. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
+
+    | Name | Bronkenmerk|
+    | -----------| -------------- |
+    | firstname  | user.givenname |
+    | lastname   | user.surname |
+    | gebruikersnaam   | user.mail    |
+
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
 
     b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    c. Laat **Naamruimte** leeg.
 
-    d. Laat **Naamruimte** leeg.
-    
-    e. Klik op **OK**.
+    d. Selecteer Bron bij **Kenmerk**.
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Raw)** en slaat u het certificaatbestand op uw computer.
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
-    ![De link om het certificaat te downloaden](./media/infogix-tutorial/tutorial_infogix_certificate.png)
+    f. Klik op **OK**.
 
-1. Klik op **opslaan** knop.
+    g. Klik op **Opslaan**.
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/infogix-tutorial/tutorial_general_400.png)
-    
-1. Op de **Infogix Data3Sixty beheren configuratie** sectie, klikt u op **configureren Infogix Data3Sixty regelen** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+8. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Raw)** te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![Infogix Data3Sixty beheren configuratie](./media/infogix-tutorial/tutorial_infogix_configure.png) 
+    ![De link om het certificaat te downloaden](common/certificateraw.png)
 
-1. Het configureren van eenmalige aanmelding op **Infogix Data3Sixty regelen** zijde, moet u voor het verzenden van de gedownloade **certificaat (Raw), URL van de afmelding, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [ Ondersteuningsteam Infogix Data3Sixty regelen](mailto:data3sixtysupport@infogix.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+9. Op de **instellen Infogix Data3Sixty regelen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+    a. Aanmeldings-URL
 
-   ![Maak een testgebruiker Azure AD][100]
+    b. Azure AD-id
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    c. Afmeldings-URL
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+### <a name="configure-infogix-data3sixty-govern-single-sign-on"></a>Configureren van Infogix Data3Sixty regelen Single Sign-On
 
-    ![De Azure Active Directory-knop](./media/infogix-tutorial/create_aaduser_01.png)
+Het configureren van eenmalige aanmelding op **Infogix Data3Sixty regelen** zijde, moet u voor het verzenden van de gedownloade **certificaat (Raw)** en toepassing van de gekopieerde URL's van Azure portal om te [Infogix Data3Sixty Beheren van ondersteuningsteam](mailto:data3sixtysupport@infogix.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/infogix-tutorial/create_aaduser_02.png)
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    ![De knop toevoegen](./media/infogix-tutorial/create_aaduser_03.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het dialoogvenster gebruiker](./media/infogix-tutorial/create_aaduser_04.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    a. In de **naam** in het vak **BrittaSimon**.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
+
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-an-infogix-data3sixty-govern-test-user"></a>Maak een testgebruiker Infogix Data3Sixty beheren
-
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Infogix Data3Sixty beheren. Infogix Data3Sixty regelen biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Infogix Data3Sixty beheren als deze nog niet bestaat.
-
->[!Note]
->Als u maken van een gebruiker handmatig wilt, neem dan contact op met [ondersteuningsteam Infogix Data3Sixty regelen](mailto:data3sixtysupport@infogix.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
 In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen om te bepalen van Infogix Data3Sixty.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Infogix Data3Sixty bepalen**.
 
-**Als u wilt toewijzen Britta Simon om te bepalen van Infogix Data3Sixty, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer in de lijst met toepassingen, **Infogix Data3Sixty regelen**.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling Infogix Data3Sixty beheren in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Infogix Data3Sixty regelen**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling Infogix Data3Sixty beheren in de lijst met toepassingen](./media/infogix-tutorial/tutorial_infogix_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-infogix-data3sixty-govern-test-user"></a>Maak testgebruiker Infogix Data3Sixty beheren
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
+In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in Infogix Data3Sixty beheren. Infogix Data3Sixty regelen biedt ondersteuning voor just-in-time-gebruikersinrichting, dat standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet in Infogix Data3Sixty beheren bestaat, wordt een nieuw gemaakt nadat verificatie.
+
+> [!Note]
+> Als u maken van een gebruiker handmatig wilt, neem dan contact op met [ondersteuningsteam Infogix Data3Sixty regelen](mailto:data3sixtysupport@infogix.com).
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel Infogix Data3Sixty beheren in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Infogix Data3Sixty beheren.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel Infogix Data3Sixty beheren in het toegangsvenster, moet u worden automatisch aangemeld bij de Infogix Data3Sixty beheren waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/infogix-tutorial/tutorial_general_01.png
-[2]: ./media/infogix-tutorial/tutorial_general_02.png
-[3]: ./media/infogix-tutorial/tutorial_general_03.png
-[4]: ./media/infogix-tutorial/tutorial_general_04.png
-
-[100]: ./media/infogix-tutorial/tutorial_general_100.png
-
-[200]: ./media/infogix-tutorial/tutorial_general_200.png
-[201]: ./media/infogix-tutorial/tutorial_general_201.png
-[202]: ./media/infogix-tutorial/tutorial_general_202.png
-[203]: ./media/infogix-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

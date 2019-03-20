@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81d0590215f92f7b3d1c2ad0bbbc509da31c2fd1
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011621"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079803"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Download en installeer de Microsoft Authenticator-app
 >[!Important]
@@ -34,13 +34,13 @@ U kunt de Microsoft Authenticator-app op meerdere manieren gebruiken, bijvoorbee
 
 - **Genereren van code.** Als de codegenerator voor andere accounts die ondersteuning bieden voor verificator-apps.
 
->[!Important]
->De Microsoft Authenticator-app werkt met een account die gebruikmaakt van tweeledige verificatie en biedt ondersteuning voor de standaarden op basis van tijd eenmalig wachtwoord (mobiele TOTP).
-
->Uw organisatie moet u mogelijk gebruik van een verificator-app aanmelden en toegang tot uw gegevens van de organisatie en documenten. Hoewel uw gebruikersnaam wordt in de app weergegeven mogelijk, het account wordt niet daadwerkelijk ingesteld om te fungeren als een verificatiemethode totdat u het registratieproces. Zie voor meer informatie, [uw werk- of schoolaccount toevoegen](user-help-auth-app-add-work-school-account.md).
-
->[!NOTE]
->Als u problemen ondervindt met aanmelden bij uw account, gaat u naar [Wanneer u zich niet kunt aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429) voor hulp.  Bekijk meer informatie over wat u kunt doen wanneer het bericht ['Dat Microsoft-account bestaat niet'](https://support.microsoft.com/help/13811) wordt weergegeven wanneer u zich aanmeldt bij uw Microsoft-account.
+> [!Important]
+> De Microsoft Authenticator-app werkt met een account die gebruikmaakt van tweeledige verificatie en biedt ondersteuning voor de standaarden op basis van tijd eenmalig wachtwoord (mobiele TOTP).
+> 
+> Mogelijk moet u voor uw organisatie gebruikmaken van een verificator-app om u aan te melden en de gegevens en documenten van uw organisatie te openen. Hoewel uw gebruikersnaam mogelijk in de app wordt weergegeven, wordt het account pas echt ingesteld om te fungeren als een verificatiemethode wanneer u het registratieproces voltooit. Zie [Uw werk- of schoolaccount toevoegen](user-help-auth-app-add-work-school-account.md) voor meer informatie.
+> 
+> [!NOTE]
+> Als u problemen ondervindt met aanmelden bij uw account, gaat u naar [Wanneer u zich niet kunt aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429) voor hulp.  Bekijk meer informatie over wat u kunt doen wanneer het bericht ['Dat Microsoft-account bestaat niet'](https://support.microsoft.com/help/13811) wordt weergegeven wanneer u zich aanmeldt bij uw Microsoft-account.
 
 ## <a name="download-and-install-the-app"></a>De app downloaden en installeren
 Installeer de nieuwste versie van de Microsoft Authenticator-app op basis van uw besturingssysteem:
@@ -49,7 +49,8 @@ Installeer de nieuwste versie van de Microsoft Authenticator-app op basis van uw
 
 - **Apple iOS.** Op uw Apple iOS-apparaat, gaat u naar de App Store naar [downloaden en installeren van de Microsoft Authenticator-app](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
->[Belangrijk] Als u niet die momenteel op uw mobiele apparaat bent, kunt u nog steeds de Microsoft Authenticator-app downloaden door te sturen zelf een downloadkoppeling van de [Microsoft Authenticator pagina](https://www.microsoft.com/en-us/account/authenticator).
+>[!Important]
+>Als u niet die momenteel op uw mobiele apparaat bent, kunt u nog steeds de Microsoft Authenticator-app downloaden door te sturen zelf een downloadkoppeling van de [Microsoft Authenticator pagina](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: een CI/CD-pijplijn voor Java maken met Azure DevOps Projects'
+title: 'Quickstart: Een CI/CD-pijplijn voor Java maken met Azure DevOps Projects'
 description: Met DevOps Projects kunt u eenvoudig aan de slag met Azure. Hiermee kunt u een web-app voor een Azure-service van uw keuze starten in slechts enkele stappen.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4f3f82f329e3ac8774978f6116629a4928c142ad
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261323"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093562"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Een CI/CD-pijplijn voor Java maken met Azure DevOps Projects
 
@@ -65,7 +65,7 @@ De Java-voorbeelden omvatten een keuze uit verschillende toepassingsframeworks.
 
     ![Dashboardweergave](_img/azure-devops-project-java/dashboardnopreview.png) 
     
- In DevOps Projects worden automatisch een CI-build en een releasetrigger geconfigureerd.  U bent nu klaar om samen met een team te werken aan uw Java-app met een CI/CD-proces dat automatisch uw meest recente werk in uw website implementeert.
+   In DevOps Projects worden automatisch een CI-build en een releasetrigger geconfigureerd.  U bent nu klaar om samen met een team te werken aan uw Java-app met een CI/CD-proces dat automatisch uw meest recente werk in uw website implementeert.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Codewijzigingen doorvoeren en CI/CD uitvoeren
 
@@ -134,7 +134,7 @@ De taken zijn de acties die tijdens het implementatieproces worden uitgevoerd. I
 In deze weergave wordt een versiesgeschiedenis weergegeven.
 
 1. Selecteer het beletselteken (...) naast een van de releases en selecteer vervolgens **Openen**.  
-Er zijn verschillende menu's die u kunt verkennen, zoals een versieoverzicht, gekoppelde werkitems en tests.
+U kunt verschillende menu's verkennen, zoals een releaseoverzicht, gekoppelde werkitems en tests.
 
 1. Selecteer **Doorvoeringen**.   
 In deze weergave worden de codedoorvoeringen weergegeven die zijn gekoppeld aan deze implementatie. 
@@ -148,7 +148,7 @@ U kunt Azure App Service en andere gerelateerde resources verwijderen wanneer u 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De build en pijplijnen zijn automatisch gemaakt toen u uw CI/CD-proces configureerde. U kunt deze build- en release-pipelines desgewenst wijzigen in overeenstemming met de behoeften van uw team. Voor meer informatie over de CI/CD-pijplijn, zie:
+De build en pijplijnen zijn automatisch gemaakt toen u het CI/CD-proces configureerde. U kunt deze build- en release-pipelines desgewenst wijzigen in overeenstemming met de behoeften van uw team. Voor meer informatie over de CI/CD-pijplijn raadpleegt u:
 
 > [!div class="nextstepaction"]
 > [CD-proces aanpassen](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

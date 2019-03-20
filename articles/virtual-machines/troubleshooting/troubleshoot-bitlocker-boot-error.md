@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 1cfba4bf824d381e1b40ea0228ee902a1d6b5a9a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a7bd812d3aadfd3c358c8d0aeccf0e92ed474a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993211"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Opstartfouten BitLocker op een Azure VM
 
@@ -32,7 +32,7 @@ ms.locfileid: "57763211"
 
 - Sluit het USB-stuurprogramma dat beschikt over de BitLocker-sleutel
 
-- U bent vergrendeld! Geef de herstelsleutel opnieuw aan de slag (indeling: Verenigde Staten) de verkeerde aanmelden informatie is te vaak ingevoerd, zodat uw PC is vergrendeld om uw privacy te beschermen. Als u wilt ophalen van de herstelsleutel, gaat u naar http://windows.microsoft.com/recoverykeyfaq van een andere PC of mobiel apparaat. Als u deze nodig hebt, de sleutel-ID is XXXXXXX. Of u kunt de PC opnieuw instellen.
+- U bent vergrendeld! Geef de herstelsleutel opnieuw aan de slag (indeling: Verenigde Staten) de verkeerde aanmelden informatie is te vaak ingevoerd, zodat uw PC is vergrendeld om uw privacy te beschermen. Als u wilt ophalen van de herstelsleutel, gaat u naar https://windows.microsoft.com/recoverykeyfaq van een andere PC of mobiel apparaat. Als u deze nodig hebt, de sleutel-ID is XXXXXXX. Of u kunt de PC opnieuw instellen.
 
 - Voer het wachtwoord voor het ontgrendelen van deze schijf [] Druk op de sleutel invoegen om te zien van het wachtwoord, terwijl u typt.
 - Voer uw herstelsleutel de herstelsleutel laden vanaf een USB-apparaat.

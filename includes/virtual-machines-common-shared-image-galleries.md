@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: f8122f35ac6d604908fc31dcece7dfb53dd50286
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 8c7da8d04b456642b158dda77d9c745891aa18e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985405"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58051767"
 ---
 Gedeelde afbeeldingengalerie is een service waarmee u structuur en de organisatie om uw aangepaste beheerde VM-installatiekopieën maken. U kunt met behulp van de galerie met installatiekopieën van een gedeelde afbeeldingen aan andere gebruikers, service-principals of AD-groepen delen binnen uw organisatie. Gedeelde afbeeldingen kunnen worden gerepliceerd naar meerdere regio's voor het sneller schalen van uw implementaties.
 
@@ -128,18 +128,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
  
  A. Als u wilt weergeven van alle galerie met installatiekopieën van gedeelde resources tussen abonnementen dat u toegang tot op de Azure-portal hebben, de volgende stappen uit te voeren:
 
- 1. Open de [Azure Portal](https://portal.azure.com).
- 1. Ga naar **alle Resources**.
- 1. Selecteer alle abonnementen op grond waarvan u wilt weergeven van alle resources.
- 1. Zoeken naar resources van het type **privégalerie**.
+1. Open de [Azure Portal](https://portal.azure.com).
+1. Ga naar **alle Resources**.
+1. Selecteer alle abonnementen op grond waarvan u wilt weergeven van alle resources.
+1. Zoeken naar resources van het type **privégalerie**.
  
- Als u wilt zien de definities van de installatiekopie en de versies van een installatiekopie, moet u ook selecteren **verborgen typen weergeven**.
+   Als u wilt zien de definities van de installatiekopie en de versies van een installatiekopie, moet u ook selecteren **verborgen typen weergeven**.
  
- Als u de galerie met installatiekopieën van gedeelde resources tussen abonnementen waarvoor u machtigingen hebt, gebruik de volgende opdracht in de Azure CLI:
+   Als u de galerie met installatiekopieën van gedeelde resources tussen abonnementen waarvoor u machtigingen hebt, gebruik de volgende opdracht in de Azure CLI:
 
- ```bash
- az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
- ```
+   ```bash
+   az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
+   ```
 
 
 **V:** Hoe moet ik mijn installatiekopieën delen tussen abonnementen?
@@ -155,9 +155,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 
  Scenario 2: Als u een niet-beheerde gegeneraliseerde installatiekopie hebt, kunt u een beheerde installatiekopie maken op basis van deze en maakt u een definitie van de installatiekopie en de versie van installatiekopie van het. 
 
- Scenario 3: Als u een VHD in het lokale bestandssysteem hebt, moet u de VHD te uploaden, een beheerde installatiekopie maken en vervolgens kunt u maken en definitie- en image-versie van deze afbeelding. 
-    - Als de VHD van een Windows-VM, Zie [een gegeneraliseerde VHD uploaden](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-    - Als de VHD voor een Linux-VM is, Zie [een VHD uploaden](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+ Scenario 3: Als u een VHD in het lokale bestandssysteem hebt, moet u de VHD te uploaden, een beheerde installatiekopie maken en vervolgens kunt u maken en definitie- en image-versie van deze afbeelding.
+- Als de VHD van een Windows-VM, Zie [een gegeneraliseerde VHD uploaden](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+- Als de VHD voor een Linux-VM is, Zie [een VHD uploaden](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 
 **V:** Kan ik de versie van een installatiekopie maken van een gespecialiseerde schijf?

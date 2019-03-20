@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 60617261e14b77e9ef3a2968dc37159e961bb947
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735380"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861907"
 ---
-# <a name="azure-data-factory-mapping-data-flow-window-transformation"></a>Azure Data Factory gegevenstransformatie stroom venster toewijzen
+# <a name="azure-data-factory-window-transformation"></a>Azure Data Factory-venster transformatie
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -46,3 +46,6 @@ Gebruik ten slotte de opbouwfunctie voor expressies voor het definiëren van de 
 
 De volledige lijst van aggregatie en analytische functies die beschikbaar zijn voor gebruik in de ADF gegevens Flow expressietaal via de opbouwfunctie voor expressies worden hier weergegeven: https://aka.ms/dataflowexpressions.
 
+## <a name="next-steps"></a>Volgende stappen
+
+Als u een eenvoudige groeperen op aggregatie zoekt, gebruikt u de [transformatie samenvoegen](data-flow-aggregate.md)

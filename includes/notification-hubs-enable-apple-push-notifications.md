@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2fc4f26f187301ea7a7a1e3051038f75da728547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264251"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125199"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Het bestand met de aanvraag voor certificaatondertekening genereren
 
@@ -47,17 +47,17 @@ U moet u app bij Apple registreren en u voor pushmeldingen registeren om pushmel
 
 2. Werk de volgende drie velden voor uw nieuwe app bij en klik vervolgens op **Doorgaan**:
 
-    * **Naam**: typ een beschrijvende naam voor uw app in het veld **Naam** in de sectie **Beschrijving app-id**.
-    * **Bundel-id**: onder de sectie **Expliciete app-id** typt u een **bundel-id** in het formulier `<Organization Identifier>.<Product Name>` zoals vermeld in de [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a) (Gids voor apps-distributie). De *organisatie-id* en *productnaam* die u gebruikt, moeten overeenkomen met de organisatie-id en productnaam die u gebruikt als u een XCode-project gaat maken. In de volgende schermopname wordt *NotificationHubs* gebruikt als de organisatie-id en *GetStarted* als de productnaam. Door ervoor te zorgen dat deze waarde overeenkomt met de waarde die u gaat gebruiken in uw XCode-project, is het mogelijk om het juiste publicatieprofiel met XCode te gebruiken.
-    * **Pushmeldingen**: selecteer de optie **Pushmeldingen** in de sectie **App Services**.
+   * **Naam**: Typ een beschrijvende naam voor uw app in de **naam** veld in de **beschrijving App-ID** sectie.
+   * **Bundel-id**: Onder de **expliciete App-ID** sectie, voer een **bundel-id** in het formulier `<Organization Identifier>.<Product Name>` zoals vermeld in de [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). De *organisatie-id* en *productnaam* die u gebruikt, moeten overeenkomen met de organisatie-id en productnaam die u gebruikt als u een XCode-project gaat maken. In de volgende schermopname wordt *NotificationHubs* gebruikt als de organisatie-id en *GetStarted* als de productnaam. Door ervoor te zorgen dat deze waarde overeenkomt met de waarde die u gaat gebruiken in uw XCode-project, is het mogelijk om het juiste publicatieprofiel met XCode te gebruiken.
+   * **Pushmeldingen verzenden**: Controleer de **Pushmeldingen** optie in de **App Services** sectie.
 
-    ![Formulier voor het registreren van een nieuwe app-id](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+     ![Formulier voor het registreren van een nieuwe app-id](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    Met deze actie wordt uw app-id gegenereerd en wordt u gevraagd de gegevens te bevestigen. Klik op **Registreren** om de nieuwe app-id te bevestigen.
+     Met deze actie wordt uw app-id gegenereerd en wordt u gevraagd de gegevens te bevestigen. Klik op **Registreren** om de nieuwe app-id te bevestigen.
 
-    Nadat u op **Registreren** hebt geklikt, wordt het scherm **Registratie voltooid** weergegeven, zoals u op de volgende afbeelding ziet. Klik op **Gereed**.
+     Nadat u op **Registreren** hebt geklikt, wordt het scherm **Registratie voltooid** weergegeven, zoals u op de volgende afbeelding ziet. Klik op **Gereed**.
 
-    ![App-id-registratie voltooid met rechten](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+     ![App-id-registratie voltooid met rechten](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 3. Ga in het Developer Center onder de app-id’s naar de app-id die u hebt gemaakt en klik op de rij van die id.
 

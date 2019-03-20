@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9edd243c47c7c0eeeff3b875fccede01806862a7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d89886e7cc5fe47013902b281c490b79a07e7641
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452674"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888107"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Met Spark gebouwde machine learning-modellen
 
@@ -190,9 +190,9 @@ Deze sectie wordt beschreven hoe u indexeren, coderen en schalen van categorisch
 ### <a name="feature-transformation-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>Functie transformatie: te indexeren en categorische functies voor invoer in modellen voor het scoren coderen
 Deze sectie wordt beschreven hoe om te indexeren categorische gegevens met behulp van een `StringIndexer` en het coderen van functies met `OneHotEncoder` in de modellen ingevoerd.
 
-De [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) codeert een kolom met tekenreeksen van labels aan een kolom van het label indexen. De indexen zijn geordend op label frequenties. 
+De [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) codeert een kolom met tekenreeksen van labels aan een kolom van het label indexen. De indexen zijn geordend op label frequenties. 
 
-De [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) een kolom van het label indexen wordt toegewezen aan een kolom van de binaire vectoren, met maximaal één één-waarde. Deze codering kunt algoritmen die verwacht dat de continue belangrijke functies, zoals logistieke regressie, moet worden toegepast op categorische functies.
+De [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) een kolom van het label indexen wordt toegewezen aan een kolom van de binaire vectoren, met maximaal één één-waarde. Deze codering kunt algoritmen die verwacht dat de continue belangrijke functies, zoals logistieke regressie, moet worden toegepast op categorische functies.
 
     #INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
 
@@ -257,7 +257,7 @@ De [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.prep
 Gebruikte tijd voor het uitvoeren van boven cel: 5,37 seconden
 
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>RDD-objecten met een functie-matrices voor invoer in modellen maken
-In deze sectie bevat de code die laat hoe u categorische gegevens als een object RDD index en deze een hot coderen zien, zodat deze kan worden gebruikt om te trainen en testen MLlib logistieke regressie en modellen op basis van een structuur. De geïndexeerde gegevens worden opgeslagen in [Resilient Distributed gegevensset (RDD)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objecten. Dit zijn de fundamentele abstrahering in Spark. Een RDD-object vertegenwoordigt een onveranderbare, gepartitioneerde verzameling van elementen die kunnen worden uitgevoerd op in combinatie met Spark.
+In deze sectie bevat de code die laat hoe u categorische gegevens als een object RDD index en deze een hot coderen zien, zodat deze kan worden gebruikt om te trainen en testen MLlib logistieke regressie en modellen op basis van een structuur. De geïndexeerde gegevens worden opgeslagen in [Resilient Distributed gegevensset (RDD)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objecten. Dit zijn de fundamentele abstrahering in Spark. Een RDD-object vertegenwoordigt een onveranderbare, gepartitioneerde verzameling van elementen die kunnen worden uitgevoerd op in combinatie met Spark.
 
 Het bevat ook code die laat hoe u zien voor het schalen van gegevens met de `StandardScalar` geleverd door MLlib voor gebruik in de lineaire regressie met stochastische kleurovergang afkomst (SGD), een populaire algoritme voor het trainen van een breed scala aan machine learning-modellen. De [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) wordt gebruikt voor het schalen van de functies verschillen eenheid. Functie schalen, ook wel bekend als de gegevens normaliseren, weet u zeker dat functies met veel betaald waarden zijn niet opgegeven overmatige wegen de servicedoelstelling functie. 
 
@@ -397,9 +397,9 @@ Gebruikte tijd voor het uitvoeren van boven cel: 16.63 seconden
 ## <a name="score-classification-and-regression-random-forest-models"></a>Classificatie- en regressiemodellen willekeurige Forest-modellen te beoordelen
 De code in deze sectie wordt uitgelegd hoe de opgeslagen classificatie worden geladen en Regressiemodellen willekeurige Forest die zijn opgeslagen in Azure blob-opslag, hun prestaties met een standard-classificatie en regressie maatregelen te beoordelen en de resultaten vervolgens terug naar de blob-opslag opslaan.
 
-[Willekeurige forests](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) ensembles van beslissingsstructuren zijn.  Ze combineren veel beslissingsstructuren om het risico te beperken. Categorische functies kunnen worden verwerkt door willekeurige forests uitbreiden naar de instelling voor multiklassen classificatie, vereisen geen functie schaalaanpassing en kunnen niet-mogelijkheid tot vastleggen en functie van interacties. Willekeurige forests vormen een van de meest succesvolle machine learning-modellen voor classificatie- en regressiemodellen.
+[Willekeurige forests](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) ensembles van beslissingsstructuren zijn.  Ze combineren veel beslissingsstructuren om het risico te beperken. Categorische functies kunnen worden verwerkt door willekeurige forests uitbreiden naar de instelling voor multiklassen classificatie, vereisen geen functie schaalaanpassing en kunnen niet-mogelijkheid tot vastleggen en functie van interacties. Willekeurige forests vormen een van de meest succesvolle machine learning-modellen voor classificatie- en regressiemodellen.
 
-[Spark.mllib](http://spark.apache.org/mllib/) willekeurige forests voor binaire en multiklassen classificatie en voor regressie, met behulp van doorlopende en categorische functies ondersteunt. 
+[Spark.mllib](https://spark.apache.org/mllib/) willekeurige forests voor binaire en multiklassen classificatie en voor regressie, met behulp van doorlopende en categorische functies ondersteunt. 
 
     # SCORE RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -445,7 +445,7 @@ De code in deze sectie wordt beschreven hoe classificatie- en regressiemodellen 
 
 **Spark.mllib** GBTs voor binaire classificatie en voor regressie, met behulp van doorlopende en categorische functies ondersteunt. 
 
-[Gradient Boosting structuren](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) ensembles van beslissingsstructuren zijn. GBTs trainen beslisbomen iteratief te minimaliseren, een functie verloren gaan. GBTs categorische functies kunnen worden verwerkt, vereisen geen functie schaalaanpassing en kunnen niet-mogelijkheid tot vastleggen en functie van interacties. Ze kunnen ook worden gebruikt in een multiklasse-classificatie.
+[Gradient Boosting structuren](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) ensembles van beslissingsstructuren zijn. GBTs trainen beslisbomen iteratief te minimaliseren, een functie verloren gaan. GBTs categorische functies kunnen worden verwerkt, vereisen geen functie schaalaanpassing en kunnen niet-mogelijkheid tot vastleggen en functie van interacties. Ze kunnen ook worden gebruikt in een multiklasse-classificatie.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: a481f5b073b7e8db9135d7b10cf602168290738a
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 2df0fea4d1dbdfb532cff663ceabfef80d61fe45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331364"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994405"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gebruikers beheren in Azure Blockchain Workbench
 
@@ -89,7 +89,7 @@ Gebruik de Blockchain Workbench-toepassing voor het beheren van gebruikers en or
 
     ![Leden toevoegen](./media/manage-users/application-add-members.png)
 
-3. Zoeken naar de naam van de gebruiker.  Alleen de Azure AD-gebruikers die zijn opgenomen in de tenant Blockchain Workbench worden weergegeven. Als de gebruiker niet wordt gevonden, moet u [Azure AD-gebruikers toevoegen](#add-azure-ad-users).
+3. Zoeken naar de naam van de gebruiker.  Alleen Azure AD-gebruikers die voorkomen in de Blockchain Workbench-tenant staan vermeld. Als de gebruiker niet wordt gevonden, moet u [Azure AD-gebruikers toevoegen](#add-azure-ad-users).
 
     ![Leden toevoegen](./media/manage-users/find-user.png)
 

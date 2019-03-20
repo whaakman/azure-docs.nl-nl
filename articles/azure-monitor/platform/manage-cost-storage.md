@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5c6cda735f946fc510129f688ebedf85dd054d0c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a1d8984b8c9d0859ff754e3d5bfb35bd98236b54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734248"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098556"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gebruik en kosten voor Log Analytics beheren
 
@@ -163,7 +163,7 @@ Voor meer informatie over het aantal computers (knooppunten) waarvoor gegevens e
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Voor een lijst van computers die verzenden **kosten in rekening gebracht gegevenstypen** (bepaalde gegevenstypen zijn gratis), gebruikmaken van de [_IsBillable](log-standard-properties.md#isbillable) eigenschap:
+Voor een lijst van computers die verzenden **kosten in rekening gebracht gegevenstypen** (bepaalde gegevenstypen zijn gratis), gebruikmaken van de [_IsBillable](log-standard-properties.md#_isbillable) eigenschap:
 
 `union withsource = tt * 
 | where _IsBillable == true 

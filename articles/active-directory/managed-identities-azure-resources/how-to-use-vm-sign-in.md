@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761843aad24dc89131079eb59954bd17883e595d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2dfbb618bafd9ae3cbb0c691e63a243ab2c2c31e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178393"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996535"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM voor aanmelden 
 
@@ -87,7 +87,7 @@ Zie [Azure-services die ondersteuning voor Azure AD-verificatie](services-suppor
 Antwoorden, zoals het volgende kunnen duiden dat de beheerde identiteit van de virtuele machine voor Azure-resources niet correct geconfigureerd:
 
 - PowerShell: *Invoke-WebRequest: Kan geen verbinding maken met de externe server*
-- CLI: *MSI: Kan niet ophalen van een token van 'http://localhost:50342/oauth2/token' met een fout van ' HTTPConnectionPool (host = 'localhost', poort = 50342)* 
+- CLI: *MSI: Kan niet ophalen van een token van `http://localhost:50342/oauth2/token` met een fout van ' HTTPConnectionPool (host = 'localhost', poort = 50342)* 
 
 Als u een van deze fouten ontvangt, terug naar de Azure-VM in de [Azure-portal](https://portal.azure.com) en:
 

@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: HT
+ms.openlocfilehash: 288a6e1b1d88fcef6fbd5554ba811acc1dab776e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994257"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
@@ -54,7 +54,7 @@ Maak eerst een resourcegroep met de resources die nodig zijn om de firewall te i
 
 De resourcegroep bevat alle resources voor de zelfstudie.
 
-1. Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
+1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 2. Klik op de startpagina van de Azure-portal op **Resourcegroepen** > **Toevoegen**.
 3. Bij **Resourcegroepnaam** typt u **Test-FW-RG**.
 4. Bij **Abonnement** selecteert u uw abonnement.
@@ -109,12 +109,12 @@ Maak nu de virtuele jump- en workloadmachines en plaats ze in de toepasselijke s
 4. Klik voor **Openbare binnenkomende poorten** onder **Regels voor binnenkomende poort** op **Geselecteerde poorten toestaan**.
 5. Selecteer **RDP (3389)** voor **Binnenkomende poorten selecteren**.
 
-6. Accepteer de overige standaardwaarden en klik op **Next: Disks**.
-7. Accepteer de overige standaardwaarden en klik op **Next: Networking**.
+6. Accepteer de overige standaardwaarden en klik op **Volgende: Schijven**.
+7. Accepteer de standaardwaarden voor schijven en klik op **Volgende: Netwerken**.
 8. Zorg ervoor dat **Test-FW-VN** is geselecteerd voor het virtuele netwerk en dat het subnet **Jump-SN** is.
 9. Klik voor **Openbaar IP** op **Nieuwe maken**.
 10. Typ **Srv-Jump-PIP** voor de naam van het openbare IP-adres en klik op **OK**.
-11. Accepteer de overige standaardwaarden en klik op **Next: Management**.
+11. Accepteer de overige standaardwaarden en klik op **Volgende: Beheer**.
 12. Klik op **Uit** om diagnostische gegevens over opstarten uit te schakelen. Accepteer de overige standaardwaarden en klik op **Review + create**.
 13. Controleer de instellingen op de overzichtspagina en klik op **Maken**.
 
@@ -122,7 +122,7 @@ Herhaal dit proces om nog een virtuele machine te maken, genaamd **Srv-Work**.
 
 Gebruik de informatie in de volgende tabel om de virtuele machine Srv-Work te configureren. De rest van de configuratie is hetzelfde als voor de virtuele machine Srv-Jump.
 
-|Instelling  |Waarde  |
+|Instelling  |Value  |
 |---------|---------|
 |Subnet|Workload-SN|
 |Openbare IP|Geen|
@@ -139,11 +139,11 @@ Implementeer de firewall in het VNet.
 
    |Instelling  |Waarde  |
    |---------|---------|
-   |Naam     |Test-FW01|
+   |Name     |Test-FW01|
    |Abonnement     |\<uw abonnement\>|
-   |Resourcegroep     |**Bestaande gebruiken**: Test-FW-RG |
+   |Resourcegroep     |**Gebruik bestaande**: Test-FW-RG |
    |Locatie     |Selecteer dezelfde locatie die u eerder hebt gebruikt|
-   |Een virtueel netwerk kiezen     |**Bestaande gebruiken**: Test-FW-VN|
+   |Een virtueel netwerk kiezen     |**Gebruik bestaande**: Test-FW-VN|
    |Openbaar IP-adres     |**Nieuwe maken**. Het openbare IP-adres moet van het type Standaard-SKU zijn.|
 
 5. Klik op **Controleren + maken**.
@@ -168,7 +168,7 @@ Voor het subnet **Workload-SN** configureert u de standaardroute voor uitgaand v
 9. Klik op **Vernieuwen** en klik vervolgens op de routetabel **Firewall-route**.
 10. Klik op **Subnetten** > **Koppelen**.
 11. Klik op **Virtueel netwerk** > **Test-FW-VN**.
-12. Klik bij **Subnet** op **Workload-SN**. Zorg ervoor dat u alleen het subnet **Workload-SN** selecteert voor deze route, anders werkt de firewall niet correct.
+12. Klik bij **Subnet** op **Workload-SN**. Zorg ervoor dat u alleen selecteert de **Workload-SN** subnet voor deze route, anders uw firewall werkt niet correct.
 
 13. Klik op **OK**.
 14. Klik op **Routes** > **Toevoegen**.
@@ -218,7 +218,7 @@ Dit is de netwerkregel waarmee uitgaande toegang tot twee IP-adressen op poort 5
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Het primaire en secundaire DNS-adres voor de netwerkinterface **Srv-Work** wijzigen
 
-Voor testdoeleinden in deze zelfstudie configureert u het primaire en secundaire DNS-adres. Dit is geen algemene Azure Firewall-vereiste.
+Voor testdoeleinden in deze zelfstudie configureert u het primaire en secundaire DNS-adres. Dit is een algemene vereiste voor de Firewall van Azure niet.
 
 1. Open de resourcegroep **Test-FW-RG** in de Azure-portal.
 2. Klik op de netwerkinterface voor de virtuele machine **Srv-Work**.
@@ -235,16 +235,16 @@ Test nu de firewall om te controleren of deze werkt zoals verwacht.
 1. Controleer in de Azure-portal de netwerkinstellingen voor de virtuele machine **Srv-Work** en noteer het privé-IP-adres.
 2. Verbind een extern bureaublad met de virtuele machine **Srv-Jump** en open van daaruit een externe bureaubladverbinding met het privé-IP-adres van **Srv-Work**.
 
-3. Open Internet Explorer en blader naar http://msn.com.
+3. Open Internet Explorer en blader naar https://msn.com.
 4. Klik op **OK** > **Sluiten** bij de beveiligingswaarschuwingen.
 
    U zou nu de startpagina van MSN moeten zien.
 
-5. Blader naar http://www.msn.com.
+5. Blader naar https://www.msn.com.
 
    U zou nu door de firewall moeten worden geblokkeerd.
 
-Nu u hebt geverifieerd dat de firewallregels werken:
+U hebt nu gecontroleerd of de firewall-regels zijn werken:
 
 - Kunt u bladeren naar de enige toegestane FQDN, maar niet naar andere.
 - Kunt u DNS-namen omzetten met behulp van de geconfigureerde externe DNS-server.

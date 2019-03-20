@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 680c10d8402853f1ac2f519b8f07f81b9718ab9e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866993"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855721"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Zelfstudie: Intenties van gesproken inhoud herkennen met de Speech SDK voor C#
 
@@ -45,9 +45,9 @@ Zorg dat u over het volgende beschikt voordat u met deze zelfstudie begint.
 
 ## <a name="luis-and-speech"></a>LUIS en spraakherkenning
 
-LUIS kan worden geïntegreerd met de Speech-service voor het herkennen van intenties van spraak. U hebt geen abonnement op de Speech-service nodig, alleen op LUIS.
+LUIS kan worden geïntegreerd met de Speech Services voor het herkennen van intenties van spraak. U hoeft geen een abonnement Speech Services alleen LUIS.
 
-LUIS maakt gebruik van twee soorten sleutels: 
+LUIS maakt gebruik van twee soorten sleutels:
 
 |Type sleutel|Doel|
 |--------|-------|
@@ -56,7 +56,7 @@ LUIS maakt gebruik van twee soorten sleutels:
 
 De endpoint-sleutel is de LUIS-sleutel die nodig is voor deze zelfstudie. In deze zelfstudie wordt gebruikgemaakt van de voorbeeld-app Home Automation van LUIS. Deze app kunt u maken aan de hand van de instructies in [Snelstart: Een vooraf gemaakte app voor huisautomatisering gebruiken](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Als u de beschikking hebt over een andere LUIS-app, kunt u die ook gebruiken.
 
-Wanneer u een LUIS-app maakt, wordt er automatisch een starter-sleutel gegenereerd, zodat u de app kunt testen met tekstquery's. Deze sleutel zorgt er overigens niet voor dat de integratie van de Speech-service wordt ingeschakeld en werkt ook niet met deze zelfstudie. U moet een LUIS-resource maken in het Azure-dashboard maken en deze toewijzen aan de LUIS-app. U kunt de gratis versie van het abonnement gebruiken voor deze zelfstudie. 
+Wanneer u een LUIS-app maakt, wordt er automatisch een starter-sleutel gegenereerd, zodat u de app kunt testen met tekstquery's. Deze sleutel is niet ingeschakeld voor de Speech Services-integratie en werkt niet met deze zelfstudie. U moet een LUIS-resource maken in het Azure-dashboard maken en deze toewijzen aan de LUIS-app. U kunt de gratis versie van het abonnement gebruiken voor deze zelfstudie.
 
 Na het maken van de LUIS-resource in het Azure-dashboard, meldt u zich aan bij de [LUIS-portal](https://www.luis.ai/home), kiest u uw toepassing op de pagina My Apps en gaat u naar de pagina Manage van de app. Klik hier op **Keys and Endpoints** in de zijbalk.
 
@@ -123,7 +123,7 @@ In de volgende secties wordt dieper ingegaan op de code.
 De eerste stap bij het herkennen intenties in spraak is het maken van een spraakconfiguratie op basis van de eindpuntsleutel en regio van LUIS. Spraakconfiguraties kunnen worden gebruikt voor het maken van mechanismen voor intentieherkenning voor de verschillende mogelijkheden van de Speech SDK. Er zijn verschillende manieren om in de spraakconfiguratie het abonnement op te geven dat u wilt gebruiken. In dit voorbeeld gebruiken we `FromSubscription`, waarbij de abonnementssleutel en de regio worden opgehaald.
 
 > [!NOTE]
-> Gebruik de sleutel en de regio van uw LUIS-abonnement en niet van een Speech Service-abonnement.
+> Gebruik de sleutel en de regio van uw LUIS-abonnement, niet van een abonnement Speech Services.
 
 Maak vervolgens een mechanisme voor intentieherkenning met behulp van `new IntentRecognizer(config)`. Aangezien de configuratie al weet welk abonnement moet worden gebruikt, is het niet nodig om de abonnementssleutel en het eindpunt opnieuw op te geven bij het maken van het mechanisme.
 
@@ -174,7 +174,7 @@ De volgende code illustreert twee aanvullende mogelijkheden van intentieherkenni
 
 De andere mogelijkheid is het lezen van de audio met de spraak die moet worden verwerkt uit een WAV-bestand. Hiervoor is het nodig om een audioconfiguratie te maken die kan worden gebruikt bij het maken van het mechanisme voor intentieherkenning. Het bestand moet éénkanaals (mono) zijn met een samplefrequentie van 16 kHz.
 
-Als u deze functies wilt uitproberen, vervangt u de hoofdtekst van de methode `RecognizeIntentAsync()` door de volgende code. 
+Als u deze functies wilt uitproberen, vervangt u de hoofdtekst van de methode `RecognizeIntentAsync()` door de volgende code.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

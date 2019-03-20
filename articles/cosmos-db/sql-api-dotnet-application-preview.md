@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie voor het ontwikkelen van een ASP.NET MVC-webtoepassing met Azure Cosmos DB met behulp van de .Net SDK (preview).
-description: In deze zelfstudie wordt uitgelegd hoe u een ASP.NET MVC-webtoepassing kunt maken met Azure Cosmos DB. U gaat JSON-gegevens opslaan en openen vanuit een taken-app die wordt gehost op Azure.
+title: Zelfstudie voor het ontwikkelen van preview een ASP.NET MVC-webtoepassing met Azure Cosmos DB met behulp van .NET-SDK.
+description: In deze zelfstudie wordt beschreven hoe u een ASP .NET MVC-webtoepassing maken met behulp van Azure Cosmos DB. U gaat JSON-gegevens opslaan en openen vanuit een taken-app die wordt gehost op Azure.
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: e3ad852246b4b78d5ed7ac938348e59e9b7e6ce0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: bf1da7e8a1041b15076ebda6eeac9b0a75c567c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037120"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857161"
 ---
-# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Zelfstudie: een ASP.NET MVC-webtoepassing ontwikkelen met Azure Cosmos DB met behulp van de .NET SDK (preview) 
+# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Zelfstudie: Een ASP.NET MVC-webtoepassing met Azure Cosmos DB ontwikkelen met behulp van de preview van de .NET SDK 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -26,9 +26,9 @@ ms.locfileid: "54037120"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 
-In deze zelfstudie wordt uitgelegd hoe u Azure Cosmos DB gebruikt om gegevens uit een ASP.NET MVC-toepassing die wordt gehost op Azure op te slaan en te openen. In deze zelfstudie gebruikt u de .Net SDK V3, momenteel in preview. De volgende afbeelding toont de webpagina die u gaat bouwen met behulp van het voorbeeld in dit artikel:
+In deze zelfstudie wordt uitgelegd hoe u Azure Cosmos DB gebruikt om gegevens uit een ASP.NET MVC-toepassing die wordt gehost op Azure op te slaan en te openen. In deze zelfstudie gebruikt u de .NET SDK V3 die momenteel in preview. De volgende afbeelding toont de webpagina die u gaat bouwen met behulp van het voorbeeld in dit artikel:
  
-![Schermopname van de takenlijst MVC-webtoepassing die is gemaakt met deze zelfstudie - Stapsgewijze zelfstudie voor ASP NET MVC.](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
+![Schermafbeelding van de takenlijst MVC-webtoepassing die is gemaakt door deze zelfstudie - ASP NET MVC zelfstudie stapsgewijs](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 
 Als u geen tijd hebt om de zelfstudie te voltooien, kunt u het volledige voorbeeldproject uit [GitHub][GitHub] downloaden. 
 
@@ -55,7 +55,7 @@ Voordat u de instructies in dit artikel uitvoert, moet u beschikken over de volg
 
 * Microsoft Azure SDK voor .NET voor Visual Studio 2017 is beschikbaar via het Visual Studio-installatieprogramma.
 
-Alle schermopnamen in dit artikel zijn gemaakt met Microsoft Visual Studio Community 2017. Als uw systeem is geconfigureerd met een andere versie, is het mogelijk dat de schermen en opties niet volledig overeenkomen. Als u echter aan de bovenstaande vereisten voldoet, moet deze oplossing werken.
+De schermafbeeldingen in dit artikel zijn gemaakt met behulp van Microsoft Visual Studio Community 2017. Als uw systeem is geconfigureerd met een andere versie, is het mogelijk dat de schermen en opties niet volledig overeenkomen. Als u echter aan de bovenstaande vereisten voldoet, moet deze oplossing werken.
 
 ## <a name="create-an-azure-cosmos-account"></a>Stap 1: Een Azure Cosmos-account maken
 
@@ -77,7 +77,7 @@ In het volgende gedeelte maakt u een nieuwe ASP.NET MVC-toepassing.
 
 3. Typ in het vak **Naam** de naam van het project. In deze zelfstudie wordt de naam 'todo' gebruikt. Als u een andere naam gebruikt, moet u waar in deze zelfstudie over de naamruimte todo wordt gesproken, de codevoorbeelden aanpassen met de naam die u voor uw toepassing gebruikt. 
 
-4. Selecteer **Bladeren** om naar de map te navigeren waarin u het project wilt maken en kies vervolgens **.Net Framework 4.6.1** of hoger. Selecteer **OK**. 
+4. Selecteer **Bladeren** om te navigeren naar de map waar u graag wilt maken van het project en kies vervolgens **.NET framework 4.6.1** of hoger. Selecteer **OK**. 
 
 5. Het dialoogvenster **Nieuwe ASP.NET-webtoepassing** wordt weergegeven. Selecteer in het deelvenster met sjablonen **MVC**.
 
@@ -129,7 +129,7 @@ U kunt nu de modellen, weergaven en controllers toevoegen aan deze MVC-toepassin
 
 1. Selecteer **MVC 5 Controller - Empty** (MVC 5-controller - Leeg) en selecteer vervolgens **Toevoegen**.
 
-   ![Schermopname van het dialoogvenster Add Scaffold met de optie MVC 5 Controller - Empty gemarkeerd](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
+   ![Schermafbeelding van het dialoogvenster Add Scaffold met MVC 5 Controller - leeg-optie is gemarkeerd](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
 
 1. Noem uw nieuwe controller **ItemController, en vervang de code in het bestand door de volgende code:
 
@@ -151,7 +151,7 @@ Vervolgens gaat u de volgende drie weergaven maken:
 
 1. Vouw in **Solution Explorer** de map **Weergaven** uit en klik met de rechtermuisknop op de lege map **Item** die Visual Studio voor u heeft gemaakt toen u **ItemController** hebt toegevoegd. Klik vervolgens op **Toevoegen** en **Weergave**.
    
-   ![Schermopname van Solution Explorer waarin de map Item wordt weergegeven die Visual Studio heeft gemaakt en waarin de opdrachten voor het toevoegen van een weergave zijn gemarkeerd](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
+   ![Schermopname van Solution Explorer met de map die Visual Studio heeft gemaakt met de opdrachten van de weergave toevoegen gemarkeerd](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
 
 2. Werk in het dialoogvenster **Weergave toevoegen** de volgende waarden bij:
    
@@ -160,7 +160,7 @@ Vervolgens gaat u de volgende drie weergaven maken:
    * Selecteer in het vak **Modelklasse** de optie ***Item (todo.Models)***.
    * Typ in het veld voor de indelingspagina ***~/Views/Shared/_Layout.cshtml***.
      
-   ![Schermopname van het dialoogvenster Weergave toevoegen](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view-dialog.png)
+   ![Schermopname van het dialoogvenster weergave toevoegen](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view-dialog.png)
 
 3. Zodra u deze waarden hebt toegevoegd, klikt u op **Toevoegen** en wordt er een nieuwe sjabloonweergave in Visual Studio gemaakt. Zodra dit klaar is, wordt het nieuwe cshtml-bestand geopend. U kunt dit bestand in Visual Studio voorlopig sluiten, aangezien dit pas later aan bod komt.
 
@@ -235,13 +235,13 @@ Allereerst moet u een klasse toevoegen die de logica bevat voor de verbinding me
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
    ```
 
-  Met deze code stelt u in dat ASP.NET MVC niet **Home** maar **Item** als controller gebruikt en **Index** als weergave gebruikt als u in de URL geen waarde hebt opgegeven voor het routeringsgedrag.
+   Met deze code stelt u in dat ASP.NET MVC niet **Home** maar **Item** als controller gebruikt en **Index** als weergave gebruikt als u in de URL geen waarde hebt opgegeven voor het routeringsgedrag.
 
 Als u de toepassing nu uitvoert, wordt uw **ItemController** aangeroepen die de GetItems-methoden aanroepen vanaf de TodoItemService-klasse die u in het volgende gedeelte definieert. 
 
 Als u dit project nu maakt en uitvoert, ziet u iets dat vergelijkbaar is met het volgende.    
 
-![Schermopname van de takenlijstwebtoepassing die is gemaakt met deze databasezelfstudie](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
+![Schermafbeelding van de takenlijstwebtoepassing die zijn gemaakt door deze databasezelfstudie](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
 
 
 ## <a name="run-the-application"></a>Stap 6: De toepassing lokaal uitvoeren
@@ -250,17 +250,17 @@ Volg deze stappen als u de toepassing wilt testen op een lokale machine:
 
 1. Druk in Visual Studio op F5 om de toepassing in de foutopsporingsmodus op te bouwen. De toepassing wordt opgebouwd en wordt er een browser gestart met het lege rasterpagina dat we eerder hebben gezien:
    
-   ![Schermopname van de takenlijstwebtoepassing die is gemaakt met deze databasezelfstudie](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
+   ![Schermafbeelding van de takenlijstwebtoepassing die zijn gemaakt door deze databasezelfstudie](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
        
 2. Klik op de koppeling **Nieuw maken** en voeg waarden toe aan de velden **Naam** en **Beschrijving**. Schakel het selectievakje **Voltooid** niet in, anders wordt het nieuwe item toegevoegd met een onvoltooide status en wordt het niet weergegeven in de aanvankelijke lijst.
    
 3. Als u op **Maken** klikt, keert u terug naar de weergave **Index** en wordt uw item in de lijst weergegeven. U kunt eventueel nog enkele items aan uw takenlijst toevoegen.
 
-    ![Schermopname van de weergave Index](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item.png)
+    ![Schermafbeelding van de weergave Index](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item.png)
   
 4. Klik op **Bewerken** naast een **Item** in de lijst, zodat u wordt omgeleid naar de weergave **Bewerken**. Hier kunt u de eigenschappen van uw object bijwerken, inclusief de vlag **Voltooid**. Als u de vlag **Voltooid** markeert en op **Opslaan** klikt, wordt het **Item** verwijderd uit de lijst met onvolledige taken.
    
-   ![Schermopname van de weergave Index met het selectievakje Voltooid ingeschakeld](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-completed-item.png)
+   ![Schermafbeelding van de weergave Index met het selectievakje voltooid ingeschakeld](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-completed-item.png)
 
 5. Zodra u de app hebt getest, drukt u op Ctrl + F5 om de foutopsporing voor de app te stoppen. U kunt de app nu implementeren.
 
@@ -282,7 +282,7 @@ Nu de volledige toepassing correct werkt met Azure Cosmos DB, kunt u de web-app 
 Over een paar seconden zal Visual Studio uw webtoepassing publiceren en een browser starten waarin u kunt zien hoe uw project in Azure wordt uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u een ASP.NET MVC-webtoepassing maakt die toegang tot gegevens die zijn opgeslagen in Azure Cosmos DB kan krijgen. U kunt nu verdergaan met het volgende artikel:
+In deze zelfstudie hebt u geleerd over het bouwen van een ASP.NET MVC-webtoepassing die toegang gegevens die zijn opgeslagen in Azure Cosmos DB tot krijgen. U kunt nu verdergaan met het volgende artikel:
 
 > [!div class="nextstepaction"]
 > [Een Java-toepassing maken voor toegang tot gegevens die zijn opgeslagen in een SQL-API-account van Azure Cosmos DB]( sql-api-java-application.md)

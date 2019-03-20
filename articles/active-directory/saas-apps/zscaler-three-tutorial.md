@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5739c878812c09a8f2646320df4b1069dfa8810e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: eced1b92aba24c8083cbdc2ece099fab95567db7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Zelfstudie: Azure Active Directory-integratie met drie Zscaler
 
@@ -159,43 +159,43 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>Configureer Zscaler drie Single Sign-On
 
-9. In een ander browservenster aanmelden bij uw Zscaler drie bedrijf site als beheerder.
+1. In een ander browservenster aanmelden bij uw Zscaler drie bedrijf site als beheerder.
 
-10. Ga naar **Beheer > Verificatie > Verificatie-instellingen** en voer de volgende stappen uit:
+1. Ga naar **Beheer > Verificatie > Verificatie-instellingen** en voer de volgende stappen uit:
    
-    ![Beheer](./media/zscaler-three-tutorial/ic800206.png "Beheer")
+   ![Beheer](./media/zscaler-three-tutorial/ic800206.png "Beheer")
 
-    a. Kies onder Verificatietype de optie **SAML**.
+   a. Kies onder Verificatietype de optie **SAML**.
 
-    b. Klik op **SAML configureren**.
+   b. Klik op **SAML configureren**.
 
-11. Voer in het venster **SAML bewerken** de volgende stappen uit en klik op Opslaan.  
+1. Voer in het venster **SAML bewerken** de volgende stappen uit en klik op Opslaan.  
             
-    ![Manage Users & Authentication](./media/zscaler-three-tutorial/ic800208.png "Manage Users & Authentication")
+   ![Manage Users & Authentication](./media/zscaler-three-tutorial/ic800208.png "Manage Users & Authentication")
     
-    a. Plak in het tekstvak **SAML Portal URL** de **aanmeldings-URL** die u in de Azure-portal hebt gekopieerd.
+   a. Plak in het tekstvak **SAML Portal URL** de **aanmeldings-URL** die u in de Azure-portal hebt gekopieerd.
 
-    b. Voer in het tekstvak **Login Name Attribute** **NameID** in.
+   b. Voer in het tekstvak **Login Name Attribute** **NameID** in.
 
-    c. Klik op **Uploaden** om het Azure SAML-ondertekeningscertificaat te uploaden dat u in de Azure-portal in het **openbare SSL-certificaat** hebt gedownload.
+   c. Klik op **Uploaden** om het Azure SAML-ondertekeningscertificaat te uploaden dat u in de Azure-portal in het **openbare SSL-certificaat** hebt gedownload.
 
-    d. Schakel **Enable SAML Auto-Provisioning** in.
+   d. Schakel **Enable SAML Auto-Provisioning** in.
 
-    e. Voer in het tekstvak **User Display Name Attribute** **displayName** in als u automatische inrichting van SAML wilt inschakelen voor displayName-kenmerken.
+   e. Voer in het tekstvak **User Display Name Attribute** **displayName** in als u automatische inrichting van SAML wilt inschakelen voor displayName-kenmerken.
 
-    f. Voer in het tekstvak **Group Name Attribute** **memberOf** in als u automatische inrichting van SAML wilt inschakelen voor memberOf-kenmerken.
+   f. Voer in het tekstvak **Group Name Attribute** **memberOf** in als u automatische inrichting van SAML wilt inschakelen voor memberOf-kenmerken.
 
-    g. Voer in het tekstvak **Department Name Attribute** **department** in als u automatische inrichting van SAML wilt inschakelen voor department-kenmerken.
+   g. Voer in het tekstvak **Department Name Attribute** **department** in als u automatische inrichting van SAML wilt inschakelen voor department-kenmerken.
 
-    i. Klik op **Opslaan**.
+   i. Klik op **Opslaan**.
 
-12. Voer in het dialoogvenster **Configure User Authentication** de volgende stappen uit:
+1. Voer in het dialoogvenster **Configure User Authentication** de volgende stappen uit:
 
-    ![Beheer](./media/zscaler-three-tutorial/ic800207.png)
+   ![Beheer](./media/zscaler-three-tutorial/ic800207.png)
 
-    a. Beweeg de muisaanwijzer boven het menu **Activering** linksonder.
+   a. Beweeg de muisaanwijzer boven het menu **Activering** linksonder.
 
-    b. Klik op **Activeren**.
+   b. Klik op **Activeren**.
 
 ## <a name="configuring-proxy-settings"></a>Proxyinstellingen configureren
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>De proxyinstellingen configureren in Internet Explorer
@@ -244,9 +244,9 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het maken van een Azure AD-testgebruiker](common/create_aaduser_02.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon** in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veld, typt u **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
@@ -300,7 +300,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 8ed148dfd6441d05891ef38934123a9cd3827b8b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 290141136672729060f5156d645c47ac303fa0c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538541"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110967"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(AFGESCHAFT) Een Azure Container Service DC/OS-cluster bewaken met Log Analytics
 
@@ -41,18 +41,18 @@ In dit artikel wordt ervan uitgegaan dat u een DC/OS hebt geconfigureerd en eenv
    >[!NOTE]
    >OMS wordt nu aangeduid als Log Analytics.
 
- ![](media/container-service-monitoring-oms/image2.png)
+   ![](media/container-service-monitoring-oms/image2.png)
 
 2. Klik op **Install**. U ziet een pop-upvenster met de versie-informatie en een **pakket installeren** of **geavanceerde installatie** knop. Wanneer u klikt op **geavanceerde installatie**, die leidt u naar de **OMS specifieke configuratie-eigenschappen** pagina.
 
- ![](media/container-service-monitoring-oms/image3.png)
+   ![](media/container-service-monitoring-oms/image3.png)
 
- ![](media/container-service-monitoring-oms/image4.png)
+   ![](media/container-service-monitoring-oms/image4.png)
 
 3. Hier kunt u wordt gevraagd om in te voeren de `wsid` (de Log Analytics-werkruimte-ID) en `wskey` (de primaire sleutel voor de werkruimte-ID). Om op te halen beide `wsid` en `wskey` u wilt maken van een account bij <https://mms.microsoft.com>.
-Volg de stappen om een account te maken. Wanneer u klaar bent het account te maken, moet u eerst uw `wsid` en `wskey` door te klikken op **instellingen**, klikt u vervolgens **verbonden bronnen**, en vervolgens **Linux-Servers**, zoals hieronder weergegeven.
+   Volg de stappen om een account te maken. Wanneer u klaar bent het account te maken, moet u eerst uw `wsid` en `wskey` door te klikken op **instellingen**, klikt u vervolgens **verbonden bronnen**, en vervolgens **Linux-Servers**, zoals hieronder weergegeven.
 
- ![](media/container-service-monitoring-oms/image5.png)
+   ![](media/container-service-monitoring-oms/image5.png)
 
 4. Selecteer het aantal exemplaren dat u wilt en klik op de knop 'Bekijken en installeren'. Meestal zult u het aantal exemplaren gelijk zijn aan het aantal VM's in uw cluster agent hebt. Log Analytics-agent voor Linux installeert als afzonderlijke containers op elke virtuele machine die het bedrijf wil verzamelen informatie voor bewaking en logboekregistratie.
 

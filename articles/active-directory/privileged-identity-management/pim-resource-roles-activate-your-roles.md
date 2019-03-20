@@ -15,12 +15,12 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6bf5ae22fe8bf06d29c8c812a18cffcef14865c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b574e538c407040518f3905f8fbd9fa91d5dd067
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002050"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Mijn Azure-resource-rollen in PIM activeren
 
@@ -36,9 +36,13 @@ Wanneer u nodig hebt om de rol van een Azure-resource te, kunt u activering aanv
 
 1. Open **Azure AD Privileged Identity Management**. Zie voor meer informatie over het toevoegen van de PIM-tegel aan uw dashboard [beginnen met PIM](pim-getting-started.md).
 
-1. Klik op **mijn rollen** voor een overzicht van uw in aanmerking komende Azure AD-directory-rollen en functies van Azure-resource.
+1. Klik op **mijn rollen**.
 
     ![Azure AD-directory-rollen en functies van Azure-resource - rollen](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+
+1. Klik op **Azure-resourcerollen** voor een overzicht van uw in aanmerking komende Azure-resource-rollen.
+
+   ![Azure-resourcerollen](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
 
 1. In de **Azure-resourcerollen** lijst, het vinden van de rol die u wilt activeren.
 

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3fe549a63f0fb4662ba5beb2e28f1ca72fcc1ee4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55855880"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193735"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Zelfstudie: Indelingen voor sjabloon-utterances van algemene patronen toevoegen
 
@@ -221,22 +221,7 @@ Om ervoor te zorgen dat een patroon overeenkomt met een utterance, moeten eerst 
 
 **Hoewel u voor patronen minder voorbeeld-utterances hoeft op te geven, komt het patroon niet overeen als de entiteiten niet worden gedetecteerd.**
 
-In deze zelfstudie voegt u twee nieuwe intenties toe: `OrgChart-Manager` en `OrgChart-Reports`. 
-
-|Intentie|Utterance|
-|--|--|
-|OrgChart-Manager|Aan wie moet Jill Jones verantwoording afleggen?|
-|OrgChart-Reports|Wie legt er verantwoording af aan Jill Jones?|
-
-Nadat LUIS een voorspelling naar de client-app heeft geretourneerd, kan de naam van de intent als functienaam in de client-app worden gebruikt en de werknemer-entiteit kan worden gebruikt als parameter voor deze functie.
-
-```javascript
-OrgChartManager(employee){
-    ///
-}
-```
-
-Houd er rekening mee dat werknemers werden gemaakt in de [zelfstudie voor de lijstentiteit](luis-quickstart-intent-and-list-entity.md).
+## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>De patronen voor het doel organigram-Manager toevoegen
 
 1. Selecteer **Build** in het bovenste menu.
 
@@ -259,7 +244,7 @@ Houd er rekening mee dat werknemers werden gemaakt in de [zelfstudie voor de lij
 
     [![Schermafbeelding van het invoeren van sjabloon-utterances voor intent](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Selecteer de intent **OrgChart-Reports** en voer de volgende sjabloon-utterances in:
+4. Terwijl u nog op de pagina patronen, selecteer de **organigram-rapporten** doel, voert u de volgende sjabloon uitingen:
 
     |Sjabloon-utterances|
     |:--|
@@ -272,11 +257,13 @@ Houd er rekening mee dat werknemers werden gemaakt in de [zelfstudie voor de lij
 
 ## <a name="query-endpoint-when-patterns-are-used"></a>Query uitvoeren op eindpunt wanneer patronen worden gebruikt
 
+Nu dat de patronen zijn toegevoegd aan de app, trainen, publiceren en query uitvoeren op de app op het eindpunt van de runtime voorspelling.
+
 1. De app opnieuw trainen en publiceren.
 
-2. Browsertabbladen terugzetten naar het tabblad van de eindpunt-URL.
+1. Browsertabbladen terugzetten naar het tabblad van de eindpunt-URL.
 
-3. Ga naar het einde van de URL in het adres en voer `Who is the boss of Jill Jones?` in als utterance. De laatste parameter van de queryreeks is `q`, de utterance **query**. 
+1. Ga naar het einde van de URL in het adres en voer `Who is the boss of Jill Jones?` in als utterance. De laatste parameter van de queryreeks is `q`, de utterance **query**. 
 
     ```json
     {
@@ -362,11 +349,11 @@ Houd er rekening mee dat werknemers werden gemaakt in de [zelfstudie voor de lij
     }
     ```
 
-De intentvoorspelling is nu aanzienlijk hoger.
+De intentie voorspelling is nu aanzienlijk meer vertrouwen hebben.
 
 ## <a name="working-with-optional-text-and-prebuilt-entities"></a>Werken met optionele tekst en voorafgemaakte entiteiten
 
-De vorige patroonsjabloon-utterances in deze zelfstudie hadden enkele voorbeelden van optionele tekst `'s`, zoals het gebruik van het vraagteken, `?`. Stel dat de eindpunt-utterances laten zien dat managers en Human Resources-medewerkers op zoek zijn naar historische gegevens en naar geplande overplaatsingen van werknemers binnen het bedrijf die nog moeten plaatsvinden.
+De vorige patroonsjabloon-utterances in deze zelfstudie hadden enkele voorbeelden van optionele tekst `'s`, zoals het gebruik van het vraagteken, `?`. Stel dat u wilt toestaan voor de huidige en toekomstige datums in het tekstvak utterance.
 
 Voorbeelden van utterances zijn:
 
@@ -379,23 +366,22 @@ Voorbeelden van utterances zijn:
 
 In elk van deze voorbeelden wordt gebruikgemaakt van een werkwoordsvorm, `was`, `is`, `will be`, evenals een datum, `March 3`, `now`, en `in a month`, die LUIS correct moet voorspellen. U ziet dat in de laatste twee voorbeelden bijna dezelfde tekst wordt gebruikt, behalve voor `in` en `on`.
 
-Voorbeeld van sjabloon-utterances:
+Voorbeeld van de sjabloon-uitingen die voor deze optionele informatie zorgen: 
+
 |Intentie|Voorbeeld-utterances met optionele tekst en voorafgemaakte entiteiten|
 |:--|:--|
 |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
 
 Dankzij het gebruik van de optionele syntaxis met vierkante haken, `[]`, kan deze optionele tekst eenvoudig worden toegevoegd aan de sjabloon-utterance en worden genest tot het tweede niveau met `[[]]`, en kunnen entiteiten of tekst worden opgenomen.
 
-**Vraag: Waarom konden de laatste twee voorbeeld-utterances niet worden samengevoegd tot één sjabloon-utterance?** De patroonsjabloon biedt geen ondersteuning voor de OR-syntaxis. Om zowel de `in`- als de `on`-versie te kunnen afvangen, moet elk daarvan een afzonderlijke sjabloon-utterance zijn.
 
 **Vraag: Waarom zijn alle letters `w`, als eerste letter in elke sjabloon-utterance, kleine letters? Moeten die niet naar keuze hoofdletters of kleine letters kunnen zijn?** De utterance die door de clienttoepassing naar het query-eindpunt wordt verzonden, wordt omgezet in kleine letters. De sjabloon-utterance kan uit hoofdletters of kleine letters bestaan en dat geldt ook voor de eindpunt-utterance. De vergelijking wordt altijd uitgevoerd na de conversie naar kleine letters.
 
 **Vraag: Waarom maakt het vooraf gemaakte getal geen deel uit van de sjabloon-utterance als 3 maart wordt voorspeld als het getal `3` en als de datum `March 3`?** De sjabloon-utterance maakt contextueel gebruik van een datum, letterlijk zoals in `March 3`, of figuurlijk zoals `in a month`. Een datum kan een waarde bevatten, maar een getal hoeft niet per se als een datum te worden beschouwd. Gebruik altijd de entiteit die het beste het type aangeeft dat u wilt laten retourneren in de JSON-voorspellingsresultaten.  
 
-**Vraag: Hoe zit het met slecht geformuleerde utterances zoals `Who will {Employee}['s] manager be on March 3?`.** Grammaticaal verschillende werkwoordsvormen, zoals deze waarbij `will` en `be` van elkaar zijn gescheiden, moeten als een nieuwe sjabloon-utterance worden ingesteld. De bestaande sjabloon-utterance zal een dergelijke werkwoordsvorm niet herkennen. Het doel van de utterance is weliswaar niet veranderd, maar dat geldt wel voor de woordplaatsing in de utterance. Deze wijziging heeft gevolgen voor de voorspelling in LUIS.
+**Vraag: Hoe zit het met slecht geformuleerde utterances zoals `Who will {Employee}['s] manager be on March 3?`.** Grammaticaal verschillende werkwoordsvormen, zoals deze waarbij `will` en `be` van elkaar zijn gescheiden, moeten als een nieuwe sjabloon-utterance worden ingesteld. De bestaande sjabloon-utterance zal een dergelijke werkwoordsvorm niet herkennen. Het doel van de utterance is weliswaar niet veranderd, maar dat geldt wel voor de woordplaatsing in de utterance. Deze wijziging heeft gevolgen voor de voorspelling in LUIS. U kunt [groep en of](#use-the-or-operator-and-groups) werkwoordtijden deze uitingen combineren. 
 
 **Houd er rekening mee dat als eerste entiteiten worden gevonden, waarna het patroon wordt vergeleken.**
 
@@ -403,11 +389,9 @@ Dankzij het gebruik van de optionele syntaxis met vierkante haken, `[]`, kan dez
 
 1. Selecteer op de website LUIS de optie **Build** in het bovenste menu en selecteer **Patterns** in het menu links. 
 
-2. Zoek de bestaande sjabloon-utterance, `Who is {Employee}['s] manager[?]`, en selecteer het weglatingsteken (***...*** ) aan de rechterkant. 
+1. Zoek naar de bestaande sjabloon utterance, `Who is {Employee}['s] manager[?]`, en selecteer het weglatingsteken (***...*** ) aan de rechterkant, selecteert u vervolgens **bewerken** in het pop-upmenu. 
 
-3. Selecteer **Edit** in het pop-upmenu. 
-
-4. Wijzig de sjabloon-utterance in: `who is {Employee}['s] manager [[on]{datetimeV2}?]]`
+1. Wijzig de sjabloon-utterance in: `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ## <a name="add-new-pattern-template-utterances"></a>Nieuwe patroonsjabloon-utterances toevoegen
 
@@ -416,7 +400,6 @@ Dankzij het gebruik van de optionele syntaxis met vierkante haken, `[]`, kan dez
     |Intentie|Voorbeeld-utterances met optionele tekst en voorafgemaakte entiteiten|
     |--|--|
     |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
@@ -426,7 +409,7 @@ Dankzij het gebruik van de optionele syntaxis met vierkante haken, `[]`, kan dez
 
 4. Voer verschillende test-utterances in om te controleren of het patroon overeenkomt en de intentiescore hoog genoeg is. 
 
-    Nadat u de eerste utterance hebt ingevoerd, selecteert u **Inspect** onder het resultaat zodat u alle voorspellingsresultaten kunt zien.
+    Nadat u de eerste utterance hebt ingevoerd, selecteert u **Inspect** onder het resultaat zodat u alle voorspellingsresultaten kunt zien. Elke utterance moet de **organigram-Manager** doel en de waarden voor de entiteiten van de werknemer en datetimeV2 moet ophalen.
 
     |Utterance|
     |--|
@@ -438,6 +421,51 @@ Dankzij het gebruik van de optionele syntaxis met vierkante haken, `[]`, kan dez
     |Wie wordt Jill Jones' manager over een maand?|
 
 Voor al deze utterances zijn de daarin opgenomen entiteiten gevonden en daarom komen ze overeen met hetzelfde patroon en hebben ze een hoge voorspellingsscore.
+
+## <a name="use-the-or-operator-and-groups"></a>Gebruik de OR-operator en groepen
+
+Aantal van de vorige sjabloon uitingen zijn zeer sluiten. Gebruik de **groep** `()` en **of** `|` syntaxis voor het verminderen van de sjabloon-uitingen. 
+
+De volgende 2 patronen kunnen combineren in een enkel patroon met behulp van de groep `()` en `|` syntaxis.
+
+|Intentie|Voorbeeld-utterances met optionele tekst en voorafgemaakte entiteiten|
+|--|--|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+De nieuwe sjabloon utterance zijn: 
+
+`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
+
+Dit maakt gebruik van een **groep** rond de tijd van de vereiste bewerking en de optionele `in` en `on` met een **of** pipe tussen beide. 
+
+1. Op de **patronen** weergeeft, schakelt de **organigram-Manager** filter. De lijst verfijnen door te zoeken naar `manager`. 
+
+    ![Zoek term 'manager' in de intentie patronen organigram-Manager](./media/luis-tutorial-pattern/search-patterns.png)
+
+1. Behoud één versie van de sjabloon utterance (om te bewerken in de volgende stap) en de andere variaties verwijderen. 
+
+1. De sjabloon utterance te wijzigen: 
+
+    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+
+1. Train de app.
+
+1. Gebruik het testvenster versies van de utterance testen:
+
+    |Uitingen in te voeren in testvenster|
+    |--|
+    |`Who is Jill Jones manager this month`|
+    |`Who is Jill Jones manager on July 5th`|
+    |`Who was Jill Jones manager last month`|
+    |`Who was Jill Jones manager on July 5th`|    
+    |`Who will be Jill Jones manager in a month`|
+    |`Who will be Jill Jones manager on July 5th`|
+
+
+## <a name="use-the-utterance-beginning-and-ending-anchors"></a>Gebruik de utterance begint en eindigt ankers
+
+De syntaxis van de patroon biedt begint en eindigt utterance anker syntaxis van een caret-teken, `^`. Het begin en einde utterance ankers kunnen samen worden gebruikt voor doel zeer specifieke en mogelijk letterlijke utterance of apart gebruikt voor het doel intents. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

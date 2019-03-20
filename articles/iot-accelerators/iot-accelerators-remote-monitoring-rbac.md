@@ -6,14 +6,14 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 08/06/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820219"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180752"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Op rollen gebaseerd toegangsbeheer in de oplossingsverbetering voor externe controle configureren
 
@@ -21,7 +21,7 @@ In dit artikel bevat informatie over het configureren van op rollen gebaseerd to
 
 ## <a name="default-settings"></a>Standaardinstellingen
 
-Wanneer u eerst de oplossing voor externe controle implementeert, zijn er twee rollen: **Admin** en **alleen-lezen**.
+Wanneer u eerst de oplossing voor externe controle implementeert, zijn er twee rollen: **Beheerder** en **alleen-lezen**.
 
 Een gebruiker in de **Admin** rol heeft volledige toegang tot de oplossing, met inbegrip van de volgende machtigingen hieronder. Een gebruiker in de **alleen-lezen** rol hebben alleen toegang tot de oplossing bekijken.
 

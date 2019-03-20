@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 3981ae197515803821891402e525852901963f63
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5f421c8949efae5a2488d5bf156a5d3571401bcc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871594"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996445"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>De Azure IoT Edge-runtime installeren op Windows
 
@@ -25,8 +25,8 @@ Zie voor meer informatie over IoT Edge-runtime, [inzicht in de Azure IoT Edge-ru
 
 In dit artikel vindt u de stappen voor het installeren van de Azure IoT Edge-runtime op uw Windows x64 (AMD/Intel) systeem. Windows-ondersteuning is momenteel in Preview.
 
->[!NOTE]
-Met behulp van Linux-containers op Windows-systemen is geen aanbevolen of ondersteund productieconfiguratie voor Azure IoT Edge. Het kan echter worden gebruikt voor ontwikkeling en tests.
+> [!NOTE]
+> Met behulp van Linux-containers op Windows-systemen is geen aanbevolen of ondersteund productieconfiguratie voor Azure IoT Edge. Het kan echter worden gebruikt voor ontwikkeling en tests.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -52,6 +52,8 @@ Zie voor meer informatie over wat inbegrepen in de meest recente versie van IoT 
 
 Azure IoT Edge is afhankelijk van een [OCI-compatibele](https://www.opencontainers.org/) container-engine. Voor productiescenario's, de Moby-engine die is opgenomen in het script voor installatie voor Windows-containers op uw Windows-apparaat te gebruiken. Voor het ontwikkelen en testen, kunt u Linux-containers uitvoeren op uw Windows-apparaat, maar u moet installeren en configureren van een container-engine voor de installatie van IoT Edge. Voor beide scenario's, Zie de volgende secties voor vereisten voor het voorbereiden van het apparaat. 
 
+Als u installeren van IoT Edge op een virtuele machine wilt, geneste virtualisatie inschakelen en ten minste 2 GB geheugen toewijzen. Hoe het inschakelen van geneste virtualisatie verschilt afhankelijk van de hypervisor het gebruik. Voor Hyper-V geneste virtuele machines van generatie 2 virtualisatie is standaard ingeschakeld. Voor VMWare is er een in-/ uitschakelen om in te schakelen van de functie op uw virtuele machine. 
+
 #### <a name="moby-engine-for-windows-containers"></a>Moby engine voor het Windows-containers
 
 Moby is voor Windows-apparaten met IoT Edge in productiescenario's, de enige officieel ondersteunde container-engine. Het script voor installatie installeert automatisch de Moby-engine op uw apparaat voor de installatie van IoT Edge. Voorbereiden van het apparaat door het inschakelen van de Containers-functie. 
@@ -64,7 +66,7 @@ Moby is voor Windows-apparaten met IoT Edge in productiescenario's, de enige off
 
 Als u Windows gebruikt om te ontwikkelen en testen van containers voor Linux-apparaten, kunt u [Docker voor Windows](https://www.docker.com/docker-windows) als uw container-engine. Docker kan worden geconfigureerd voor [Linux-containers gebruiken](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). U moet Docker installeren en configureren voor de installatie van IoT Edge. Linux-containers worden niet ondersteund op Windows-apparaten in productie. 
 
-Als uw IoT Edge-apparaat een Windows-computer is, controleert u of het voldoet aan de [systeemvereisten](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) voor Hyper-V. Als het een virtuele machine is, schakelt u [geneste virtualisatie](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) in en wijst u ten minste 2 GB geheugen toe.
+Als uw IoT Edge-apparaat een Windows-computer is, controleert u of het voldoet aan de [systeemvereisten](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) voor Hyper-V.
 
 ## <a name="install-iot-edge-on-a-new-device"></a>IoT Edge op een nieuw apparaat installeren
 

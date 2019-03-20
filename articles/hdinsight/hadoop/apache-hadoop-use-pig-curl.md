@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 52ad40a2521f21efee3b9f98b46c2e2e6343b656
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715423"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098301"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Apache Pig-taken uitvoeren met Apache Hadoop op HDInsight met behulp van REST
 
@@ -32,7 +32,7 @@ Leer hoe u Apache Pig Latin-taken uitvoert door REST-aanvragen met een Azure HDI
   > [!IMPORTANT]  
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-* [CURL](https://curl.haxx.se/)
+* [Curl](https://curl.haxx.se/)
 
 * [jq](https://stedolan.github.io/jq/)
 
@@ -58,8 +58,8 @@ Leer hoe u Apache Pig Latin-taken uitvoert door REST-aanvragen met een Azure HDI
 
     In deze opdracht worden de volgende parameters gebruikt:
 
-    * **-u**: De gebruikersnaam en wachtwoord voor het verifiëren van de aanvraag
-    * **-G**: Geeft aan dat deze aanvraag een GET-aanvraag is
+   * **-u**: De gebruikersnaam en wachtwoord voor het verifiëren van de aanvraag
+   * **-G**: Geeft aan dat deze aanvraag een GET-aanvraag is
 
      Het begin van de URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is hetzelfde voor alle aanvragen. Het pad **status**, geeft aan dat de aanvraag is de status van WebHCat (ook wel bekend als Templeton) moet worden geretourneerd voor de server.
 
@@ -71,18 +71,18 @@ Leer hoe u Apache Pig Latin-taken uitvoert door REST-aanvragen met een Azure HDI
 
     In deze opdracht worden de volgende parameters gebruikt:
 
-    * **-d**: Omdat `-G` niet wordt gebruikt, de aanvraag standaard ingesteld op de POST-methode. `-d` Hiermee geeft u de waarden die worden verzonden met de aanvraag.
+   * **-d**: Omdat `-G` niet wordt gebruikt, de aanvraag standaard ingesteld op de POST-methode. `-d` Hiermee geeft u de waarden die worden verzonden met de aanvraag.
 
-    * **User.name**: De gebruiker die de opdracht wordt uitgevoerd
-    * **Voer**: De Pig Latin-instructies uit te voeren
-    * **statusdir**: De map die de status voor deze taak worden geschreven naar
+   * **User.name**: De gebruiker die de opdracht wordt uitgevoerd
+   * **execute**: De Pig Latin-instructies uit te voeren
+   * **statusdir**: De map die de status voor deze taak worden geschreven naar
 
-    > [!NOTE]  
-    > U ziet dat de spaties in Pig Latin-instructies zijn vervangen door de `+` gebruikt in combinatie met Curl teken.
+     > [!NOTE]  
+     > U ziet dat de spaties in Pig Latin-instructies zijn vervangen door de `+` gebruikt in combinatie met Curl teken.
 
-    Met deze opdracht moet een taak-ID die kan worden gebruikt om te controleren op de status van de taak, bijvoorbeeld retourneren:
+     Met deze opdracht moet een taak-ID die kan worden gebruikt om te controleren op de status van de taak, bijvoorbeeld retourneren:
 
-        {"id":"job_1415651640909_0026"}
+       {"id":"job_1415651640909_0026"}
 
 3. Gebruik de volgende opdracht om te controleren of de status van de taak,
 

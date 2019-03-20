@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: 250931c9b53692dff4006a0114b6da20948b3f59
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 87f608163e20d98179eb6c666158386a99858eeb
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096667"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188378"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Service Fabric-invoegtoepassing voor de ontwikkeling van Eclipse Java-toepassingen
 Eclipse is een van de meest gebruikte Integrated Development Environments (IDE's) voor Java-ontwikkelaars. In dit artikel wordt beschreven hoe u een Eclipse-ontwikkelomgeving instelt voor gebruik met Azure Service Fabric. Ontdek hoe u de Service Fabric-invoegtoepassing installeert en een Service Fabric-toepassing implementeert in een lokaal of extern Service Fabric-cluster in Eclipse. 
@@ -41,7 +41,7 @@ Installeer Eclipse Neon of hoger vanaf de [Eclipse-site](https://www.eclipse.org
 -   Als u updates voor Eclipse wilt zoeken en installeren, gaat u naar **Help** > **Check for Updates**.
 
 Als u de Service Fabric-invoegtoepassing wilt installeren, gaat u in Eclipse naar **Help** > **Install New Software**.
-1. In het vak **Work with** voert u **http://dl.microsoft.com/eclipse** in.
+1. In de **werken met** voert u https:\//dl.microsoft.com/eclipse.
 2. Klik op **Add**.
 
    ![De Service Fabric-invoegtoepassing voor Eclipse][sf-eclipse-plugin-install]
@@ -54,7 +54,7 @@ Als u de Service Fabric-invoegtoepassing al hebt geïnstalleerd, zorgt u ervoor 
 3. Als u de Service Fabric-invoegtoepassing bijwerkt, moet u ook het Gradle-project vernieuwen.  Klik met de rechtermuisknop op **build.gradle** en selecteer vervolgens **Vernieuwen**.
 
 > [!NOTE]
-> Als de installatie of update van de Service Fabric-invoegtoepassing traag verloopt, kan dit het gevolg zijn van een instelling in Eclipse. Eclipse verzamelt metagegevens over alle wijzigingen in updatesites die zijn geregistreerd bij uw exemplaar van Eclipse. Als u het proces voor het controleren op en installeren van updates van Service Fabric-invoegtoepassingen wilt versnellen, gaat u naar **Available Software Sites**. Schakel de selectievakjes uit voor alle sites, behalve voor de site die verwijst naar de locatie van de Service Fabric-invoegtoepassing (http://dl.microsoft.com/eclipse/azure/servicefabric)).
+> Als de installatie of update van de Service Fabric-invoegtoepassing traag verloopt, kan dit het gevolg zijn van een instelling in Eclipse. Eclipse verzamelt metagegevens over alle wijzigingen in updatesites die zijn geregistreerd bij uw exemplaar van Eclipse. Als u het proces voor het controleren op en installeren van updates van Service Fabric-invoegtoepassingen wilt versnellen, gaat u naar **Available Software Sites**. Schakel de selectievakjes uit voor alle sites, behalve voor de site die verwijst naar de locatie van de Service Fabric-invoegtoepassing (https://dl.microsoft.com/eclipse/azure/servicefabric)).
 
 > [!NOTE]
 >Als Eclipse op uw Mac niet werkt zoals u verwacht of als u het moet uitvoeren als supergebruiker), gaat u naar de map **ECLIPSE_INSTALLATION_PATH** en vervolgens naar de submap **Eclipse.app/Contents/MacOS**. Start Eclipse door `./eclipse` uit te voeren.
@@ -141,8 +141,8 @@ Volg deze stappen voor het publiceren van uw toepassing in de cloud:
    - De `ClientKey` veld moet verwijzen naar een PEM-indeling PEM- of .key-bestand op uw lokale computer met de persoonlijke sleutel voor het certificaat van de client of het cluster.
    - De `ClientCert` veld moet verwijzen naar een PEM-indeling PEM- of .crt-bestand op uw lokale computer met de gegevens van het certificaat voor de client of het cluster. het certificaat. 
 
-    ```bash
-    {
+     ```bash
+     {
          "ClusterConnectionParameters":
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
@@ -150,8 +150,8 @@ Volg deze stappen voor het publiceren van uw toepassing in de cloud:
             "ClientKey": "[path_to_your_pem_file_on_local_machine]",
             "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
-    }
-    ```
+     }
+     ```
 
 2. Met de rechtermuisknop op uw Service Fabric-toepassing en selecteer vervolgens **Service Fabric**.
 3. Klik in het contextmenu op **Publish Application...** .
@@ -159,8 +159,8 @@ Volg deze stappen voor het publiceren van uw toepassing in de cloud:
 
     ![Het dialoogvenster Publiceren voor Cloud](./media/service-fabric-get-started-eclipse/cloudjson.png)
 
-4.  U kunt de voortgang van de bewerking publiceren in het consolevenster op te volgen.
-5.  Als u wilt controleren of uw toepassing wordt uitgevoerd, Service Fabric Explorer te openen op uw Azure-cluster in een browservenster. Voor het bovenstaande voorbeeld zou dit: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Vouw de **toepassingen** knooppunt en zorg ervoor dat uw toepassing wordt uitgevoerd. 
+4. U kunt de voortgang van de bewerking publiceren in het consolevenster op te volgen.
+5. Als u wilt controleren of uw toepassing wordt uitgevoerd, Service Fabric Explorer te openen op uw Azure-cluster in een browservenster. Voor het bovenstaande voorbeeld zou dit: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Vouw de **toepassingen** knooppunt en zorg ervoor dat uw toepassing wordt uitgevoerd. 
 
 
 Op een beveiligd Linux-clusters, als uw toepassing Reliable Services-services bevat, wordt ook moet u een certificaat configureren dat uw services gebruiken kunnen om aan te roepen van Service Fabric runtime-API's. Zie voor meer informatie, [een Reliable Services-app uit te voeren op Linux-clusters configureren](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).

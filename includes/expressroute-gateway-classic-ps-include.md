@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2457ef2843b0d16359b7e47fc54c58e2ef5e6034
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429947"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125086"
 ---
 > [!NOTE]
 > Deze voorbeelden niet van toepassing op S2S en ExpressRoute-configuraties naast elkaar bestaan.
@@ -28,8 +28,8 @@ Als u een gateway aan een virtueel netwerk met behulp van de klassieke resource-
 1. Download het netwerkconfiguratiebestand met behulp van de stappen in [netwerkconfiguratiebestand](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) artikel. Open het bestand met een teksteditor.
 2. Een lokale netwerksite toevoegen aan het bestand. U kunt een ongeldig adresvoorvoegsel. U kunt een geldig IP-adres voor de VPN-gateway kunt toevoegen. De waarden in deze sectie worden niet gebruikt voor bewerkingen voor ExpressRoute, maar zijn vereist voor validatie van het bestand. In het voorbeeld is 'branch1' de naam van de site. U kunt een andere naam gebruiken, maar zorg ervoor dat u dezelfde waarde in de sectie van de Gateway van het bestand.
 
-  ```
-  <VirtualNetworkConfiguration>
+   ```
+   <VirtualNetworkConfiguration>
     <Dns />
     <LocalNetworkSites>
       <LocalNetworkSite name="branch1">
@@ -38,15 +38,15 @@ Als u een gateway aan een virtueel netwerk met behulp van de klassieke resource-
         </AddressSpace>
         <VPNGatewayAddress>3.2.1.4</VPNGatewayAddress>
     </LocalNetworkSite>
-  ```
+   ```
 3. Navigeer naar de VirtualNetworkSites en de velden wijzigen.
 
-  * Controleer of het Gatewaysubnet voor het virtuele netwerk bestaat. Als dit niet het geval is, kunt u een op dit moment kunt toevoegen. De naam moet 'GatewaySubnet'.
-  * Controleer of dat de Gateway-sectie van het bestand bestaat. Als dat niet het geval is, deze toevoegen. Dit is vereist voor het virtuele netwerk koppelen aan de lokale netwerksite (die vertegenwoordigt het netwerk waarmee u verbinding maakt).
-  * Controleer of dat de verbindingstype Dedicated =. Dit is vereist voor ExpressRoute-verbindingen.
+   * Controleer of het Gatewaysubnet voor het virtuele netwerk bestaat. Als dit niet het geval is, kunt u een op dit moment kunt toevoegen. De naam moet 'GatewaySubnet'.
+   * Controleer of dat de Gateway-sectie van het bestand bestaat. Als dat niet het geval is, deze toevoegen. Dit is vereist voor het virtuele netwerk koppelen aan de lokale netwerksite (die vertegenwoordigt het netwerk waarmee u verbinding maakt).
+   * Controleer of dat de verbindingstype Dedicated =. Dit is vereist voor ExpressRoute-verbindingen.
 
-  ```
-  </LocalNetworkSites>
+   ```
+   </LocalNetworkSites>
     <VirtualNetworkSites>
       <VirtualNetworkSite name="myAzureVNET" Location="East US">
         <AddressSpace>
@@ -69,9 +69,9 @@ Als u een gateway aan een virtueel netwerk met behulp van de klassieke resource-
         </Gateway>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
-  </VirtualNetworkConfiguration>
-  </NetworkConfiguration>
-  ```
+   </VirtualNetworkConfiguration>
+   </NetworkConfiguration>
+   ```
 4. Sla het bestand en upload deze naar Azure.
 
 ### <a name="create-the-gateway"></a>De gateway maken
@@ -90,7 +90,7 @@ Gebruik de volgende opdracht om te controleren dat de gateway is gemaakt. Met de
 Get-AzureVNetGateway
 ```
 
-## <a name="resize-a-gateway"></a>Formaat van een gateway
+## <a name="resize-a-gateway"></a>Het formaat van een gateway wijzigen
 
 Er zijn een aantal [Gateway-SKU's](../articles/expressroute/expressroute-about-virtual-network-gateways.md). De volgende opdracht kunt u de Gateway-SKU op elk gewenst moment wijzigen.
 

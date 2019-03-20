@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: 0d9de6e5cfa8ffa0c5f67607a60d930b623413cf
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5452a1adb419a2f57e2124d5aac49f9cdcff615a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247270"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111664"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Azure-beveiliging en naleving blauwdruk: PaaS-Web-App voor het PCI DSS
 
@@ -228,10 +228,10 @@ Deze Azure-beveiliging en naleving blauwdruk Automation bestaat uit JSON-configu
 2. 0-Setup-AdministrativeAccountAndPermission.md bekijken en de opgegeven opdrachten.
 
 3. Implementeer een testoplossing met voorbeeldgegevens voor Contoso of pilot een initiële productie-omgeving.
-  - 1A-ContosoWebStoreDemoAzureResources.ps1
-    - Dit script implementeert Azure-resources voor een demonstratie van een webwinkel met Contoso-voorbeeldgegevens.
-  - 1-DeployAndConfigureAzureResources.ps1
-    - Dit script implementeert de Azure-resources die nodig zijn voor de ondersteuning voor een productie-omgeving voor een webtoepassing met klanten. Deze omgeving moet verder worden aangepast door de klant op basis van de vereisten van de organisatie.
+   - 1A-ContosoWebStoreDemoAzureResources.ps1
+     - Dit script implementeert Azure-resources voor een demonstratie van een webwinkel met Contoso-voorbeeldgegevens.
+   - 1-DeployAndConfigureAzureResources.ps1
+     - Dit script implementeert de Azure-resources die nodig zijn voor de ondersteuning voor een productie-omgeving voor een webtoepassing met klanten. Deze omgeving moet verder worden aangepast door de klant op basis van de vereisten van de organisatie.
 
 ## <a name="guidance-and-recommendations"></a>Richtlijnen en aanbevelingen
 

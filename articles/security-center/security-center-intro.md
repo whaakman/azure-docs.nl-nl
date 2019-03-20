@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 16473b7814763d80f7e850acf44839f5ef640a18
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109041"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242034"
 ---
 # <a name="what-is-azure-security-center"></a>Wat is Azure Security Center?
 
@@ -128,7 +128,7 @@ Security Center beschikt over mogelijkheden waarmee u de gegevens in Azure SQL a
 
 ## <a name="get-secure-faster"></a>Uw infrastructuur sneller beveiligen
 
-De systeemeigen Azure-integratie (waaronder Azure Policy en Log Analytics) in combinatie met een naadloze integratie met andere Microsoft-beveiligingsoplossingen, zoals Microsoft Cloud App Security en Windows Defender Advanced Threat Protection zorgen ervoor dat uw beveiligingsoplossing allesomvattend is en eenvoudig kan worden toegevoegd en in gebruik genomen kan worden.
+Systeemeigen integratie van Azure (met inbegrip van Logboeken voor Azure Policy en Azure Monitor) gecombineerd met naadloze integratie met andere beveiligingsoplossingen van Microsoft, zoals Microsoft Cloud App Security en Windows Defender Advanced Threat Protection ervoor te zorgen dat uw beveiligingsoplossing is uitgebreid, evenals eenvoudige zorgen voor onboarding en worden uitgerold.
 
 Bovendien kunt u de volledige oplossing tot buiten Azure uitbreiden naar workloads die worden uitgevoerd in andere clouds en on-premises datacenters.
 

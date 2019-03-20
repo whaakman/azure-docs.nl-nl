@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338594"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863760"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Zelfstudie: Live streamen met Azure Media Services v3 met behulp van .NET
 
@@ -33,7 +33,7 @@ In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 > * Downloaden van de voorbeeld-app zoals beschreven in het onderwerp
 > * De code bestuderen die live streamen uitvoert
-> * Bekijk de gebeurtenis met [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) op http://ampdemo.azureedge.net
+> * Bekijk de gebeurtenis met [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) op https://ampdemo.azureedge.net
 > * Resources opschonen
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -81,9 +81,9 @@ Als u wilt starten met Media Services API's met .NET, moet u een **AzureMediaSer
 
 ### <a name="create-a-live-event"></a>Een livegebeurtenis maken
 
-In deze sectie wordt beschreven hoe u een livegebeurtenis van het type **pass-through** maakt (LiveEventEncodingType ingesteld op None). Als u een livegebeurtenis wilt maken dat geschikt is voor Live Encoding, stelt u LiveEventEncodingType in op **Standard**. 
-
-Er zijn een aantal andere zaken die u kunt opgeven bij het maken van de livegebeurtenis:
+In deze sectie wordt beschreven hoe u een livegebeurtenis van het type **pass-through** maakt (LiveEventEncodingType ingesteld op None). Zie voor meer informatie over de beschikbare typen Live gebeurtenissen [Live gebeurtenistypen](live-events-outputs-concept.md#live-event-types). 
+ 
+Er zijn enkele dingen die u opgeven wilt misschien bij het maken van de live-gebeurtenis:
 
 * Media Services-locatie 
 * Het streaming-protocol voor de livegebeurtenis (momenteel worden de protocollen RTMP en Smooth Streaming ondersteund).<br/>U kunt de protocoloptie niet wijzigen terwijl de livegebeurtenis of de daaraan gekoppelde live-uitvoer worden uitgevoerd. Als u verschillende protocollen nodig hebt, maakt u voor elk streaming-protocol een afzonderlijke livegebeurtenis.  
@@ -166,7 +166,7 @@ In de volgende code ziet u hoe u alle livegebeurtenissen uit uw account verwijde
 
 ## <a name="watch-the-event"></a>De gebeurtenis bekijken
 
-Als u de gebeurtenis wilt bekijken, kopieert u de streaming-URL die u hebt verkregen toen u de code uitvoerde, beschreven in Een streaming-locator maken, en gebruikt u een speler van uw keuze. U kunt [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) gebruiken om uw stream te testen op http://ampdemo.azureedge.net. 
+Als u de gebeurtenis wilt bekijken, kopieert u de streaming-URL die u hebt verkregen toen u de code uitvoerde, beschreven in Een streaming-locator maken, en gebruikt u een speler van uw keuze. U kunt [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) gebruiken om uw stream te testen op https://ampdemo.azureedge.net. 
 
 De livegebeurtenis wordt automatisch geconverteerd naar inhoud op aanvraag wanneer deze wordt gestopt. Zelfs na het stoppen en verwijderen van de gebeurtenis kunnen gebruikers de gearchiveerde inhoud als video op aanvraag streamen, mits u de asset niet hebt verwijderd. Een asset kan niet worden verwijderd als deze wordt gebruikt door een gebeurtenis. U moet eerst de gebeurtenis verwijderen. 
 

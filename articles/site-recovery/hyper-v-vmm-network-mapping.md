@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 3ca3222f47b6a728905f895007269e3c22acd66d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: cefde79cf8c544a6900b1efa5dbcefbc43638d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789939"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009965"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Netwerktoewijzing voorbereiden voor noodherstel van Hyper-V-VM naar Azure
 
@@ -24,8 +24,8 @@ Dit artikel helpt u om te begrijpen en voorbereiden op netwerktoewijzing wanneer
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Netwerktoewijzing voorbereiden voor replicatie naar Azure
 
 Als u repliceert naar Azure, koppelingen van Netwerktoewijzingen tussen VM-netwerken op een bron-VMM-server en virtuele netwerken van Azure als doel. Bij toewijzing gebeurt het volgende:
-    -  **Netwerkverbinding**, zorgt u ervoor dat de gerepliceerde Azure-VM's zijn verbonden met het toegewezen netwerk. Alle machines die failover wordt uitgevoerd in hetzelfde netwerk kunnen verbinding maken met elkaar worden verbonden, zelfs als ze in verschillende herstelplan een failover.
-    - **Netwerkgateway**: als een netwerkgateway is ingesteld op de doel-Azure-netwerk, virtuele machines worden verbonden met andere on-premises virtuele machines.
+-  **Netwerkverbinding**, zorgt u ervoor dat de gerepliceerde Azure-VM's zijn verbonden met het toegewezen netwerk. Alle machines die failover wordt uitgevoerd in hetzelfde netwerk kunnen verbinding maken met elkaar worden verbonden, zelfs als ze in verschillende herstelplan een failover.
+- **Netwerkgateway**: als een netwerkgateway is ingesteld op de doel-Azure-netwerk, virtuele machines worden verbonden met andere on-premises virtuele machines.
 
 Netwerktoewijzing werkt als volgt:
 
@@ -56,8 +56,8 @@ Hier volgt een voorbeeld ter illustratie van dit mechanisme. We gaan een organis
 
 **Locatie** | **VMM-server** | **VM-netwerken** | **Toegewezen aan**
 ---|---|---|---
-New York | VMM-NewYork| VMNetwork1 NewYork | Toegewezen aan VMNetwork1 Chicago
- |  | VMNetwork2 NewYork | Niet toegewezen
+New York | VMM-NewYork| VMNetwork1-NewYork | Toegewezen aan VMNetwork1 Chicago
+ |  | VMNetwork2-NewYork | Niet toegewezen
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Toegewezen aan VMNetwork1 NewYork
  | | VMNetwork2-Chicago | Niet toegewezen
 
@@ -81,7 +81,7 @@ SilverCloud2 | <p>N.v.t.</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNe
 
 **Locatie** | **Logisch netwerk** | **Gekoppelde VM-netwerk**
 ---|---|---
-New York | LogicalNetwork1-NewYork | VMNetwork1 NewYork
+New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
 Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
  | LogicalNetwork2Chicago | VMNetwork2-Chicago
 

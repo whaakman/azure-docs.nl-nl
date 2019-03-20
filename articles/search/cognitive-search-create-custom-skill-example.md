@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 892e47d87fef482c6f655473278baeb5525ee09e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760024"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883624"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Voorbeeld: Een aangepaste vaardigheden met behulp van de tekst vertalen API maken
 
@@ -39,7 +39,7 @@ Hoewel dit voorbeeld wordt een Azure-functie voor het hosten van een web-API geb
 
 1. Selecteer in het dialoogvenster Nieuw Project **geïnstalleerde**, vouw **Visual C#** > **Cloud**, selecteer **Azure Functions**, typ een Naam voor uw project en selecteer **OK**. De functie-appnaam moet geldig zijn als een C#-naamruimte. Gebruik dus geen onderstrepingstekens, afbreekstreepjes of andere niet-alfanumerieke tekens.
 
-1. Selecteer **Azure Functions-v2 (.Net Core)**. U kunt het ook doen met versie 1, maar de code hieronder is gebaseerd op de v2-sjabloon.
+1. Selecteer **Azure Functions-v2 (.NET Core)**. U kunt het ook doen met versie 1, maar de code hieronder is gebaseerd op de v2-sjabloon.
 
 1. Selecteer het type moet **HTTP-Trigger**
 

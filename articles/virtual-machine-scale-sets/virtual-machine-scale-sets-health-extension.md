@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 34f1b023b2ea2451f3308666d156278e92afb4aa
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565969"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084392"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uitbreiding met de virtuele-machineschaalset wordt ingesteld met behulp van de status van de toepassing
 Bewaking van de toepassingsstatus van uw is een belangrijk signaal voor het beheren en upgraden van uw implementatie. Virtuele Azure-machine-schaalsets bieden ondersteuning voor [rolling upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) inclusief [automatische upgrades van de installatiekopie van het besturingssysteem](virtual-machine-scale-sets-automatic-upgrade.md), die afhankelijk zijn van statuscontrole van de afzonderlijke exemplaren om te upgraden van uw implementatie .
@@ -64,7 +64,7 @@ De volgende JSON ziet u het schema voor de extensie van de status van de toepass
 ### <a name="property-values"></a>Waarden van eigenschappen
 
 | Name | Waarde / voorbeeld | Gegevenstype
-| ---- | ---- | ---- | ----
+| ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | Uitgever | `Microsoft.ManagedServices` | string |
 | type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |

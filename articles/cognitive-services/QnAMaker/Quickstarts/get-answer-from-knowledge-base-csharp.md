@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: f2b5089f1ec334f80ccb4ce80ba9b512f3305859
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2d011dffa4db68a0cdf6ac3415ff1316906a4e87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861116"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883998"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Antwoorden vinden op vragen met behulp van een knowledge base met C#
 
-In deze quickstart wordt beschreven hoe u programmatisch een antwoord uit een gepubliceerde QnA Maker-knowledge base kunt ophalen. Met QnA Maker worden automatisch vragen en antwoorden opgehaald uit semi-gestructureerde inhoud, zoals veelgestelde vragen, vanuit [gegevensbronnen](../Concepts/data-sources-supported.md). De vraag wordt in de JSON-indeling verzonden in de hoofdtekst van de API-aanvraag. 
+In deze quickstart wordt beschreven hoe u programmatisch een antwoord uit een gepubliceerde QnA Maker-knowledge base kunt ophalen. De knowledge base bevat vragen en antwoorden uit [gegevensbronnen](../Concepts/data-sources-supported.md) zoals veelgestelde vragen over. De [vraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) wordt verzonden naar de QnA Maker-service. De [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) bevat het antwoord boven voorspeld. 
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -37,7 +37,7 @@ De code voor deze quickstart bevindt zich in de opslagplaats [https://github.com
 ## <a name="create-a-knowledge-base-project"></a>Een project met knowledge base maken
 
 1. Open Visual Studio 2017 Community Edition.
-1. Maak een nieuw consoletoepassingsproject (.NET Core) en noem het project QnaMakerQuickstart. Accepteer de standaardwaarden voor de overige instellingen.
+1. Maak een nieuw project-consoletoepassing (.NET Core) en de naam van het project QnaMakerQuickstart. Accepteer de standaardwaarden voor de overige instellingen.
 
 ## <a name="add-the-required-dependencies"></a>De vereiste afhankelijkheden toevoegen
 
@@ -58,6 +58,8 @@ Met de volgende code wordt een HTTPS-aanvraag naar de QnA Maker-API verzonden om
 [!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=32-57 "Add a POST request to send question to knowledge base")]
 
 De waarde van de header van `Authorization` bevat de tekenreeks `EndpointKey `. 
+
+Meer informatie over de [aanvraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request) en [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response). 
 
 ## <a name="build-and-run-the-program"></a>Het programma bouwen en uitvoeren
 

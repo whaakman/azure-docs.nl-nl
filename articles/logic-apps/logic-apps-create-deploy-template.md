@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 8714c91079d087b16a62af4af8b381edf6871f8b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3d32b180f7d841c36f8ae03aa94956c6da00c6fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065729"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883437"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Azure Resource Manager-sjablonen voor het implementeren van logische apps maken
 
@@ -63,7 +63,7 @@ Ook kunt u de PowerShell-module handmatig:
 1. Download de nieuwste release van de [logic app-sjabloon ontwikkelaar](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
 2. Pak de map van uw PowerShell-module (meestal `%UserProfile%\Documents\WindowsPowerShell\Modules`).
 
-Voor de module om te werken met elke tenant en hetzelfde abonnement access token, raden wij aan dat u met de [ARMClient](https://github.com/projectkudu/ARMClient) opdrachtregel-hulpprogramma.  Dit [blogbericht](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) ARMClient vindt u meer details.
+Voor de module om te werken met elke tenant en hetzelfde abonnement access token, raden wij aan dat u met de [ARMClient](https://github.com/projectkudu/ARMClient) opdrachtregel-hulpprogramma.  Dit [blogbericht](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) ARMClient vindt u meer details.
 
 ### <a name="generate-a-logic-app-template-by-using-powershell"></a>Een sjabloon voor logische app genereren met behulp van PowerShell
 Nadat u PowerShell hebt geïnstalleerd, kunt u een sjabloon kunt genereren met behulp van de volgende opdracht uit:

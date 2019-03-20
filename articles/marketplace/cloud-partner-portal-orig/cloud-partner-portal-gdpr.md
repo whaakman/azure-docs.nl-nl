@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1cd9e99d9f530abb34ff072a740d89bc511c64ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4e6f5095081f0549bc127b9b6949908a64214aee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241511"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857807"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Cloud Partner Portal GDPR-naleving
 ====================================
 
-[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)is een Europese Unie (EU) beveiliging en privacy wet. De AVG legt de regels voor bedrijven, overheidsinstellingen worden gesteld, non-profitorganisaties en andere organisaties die goederen en diensten aan mensen in de EU, of die aanbieden verzamelen en analyseren van gegevens van inwoners van de EU.
+[General Data Protection Regulation (GDPR)](https://ec.europa.eu/justice/data-protection/reform/index_en.htm)is een Europese Unie (EU) beveiliging en privacy wet. De AVG legt de regels voor bedrijven, overheidsinstellingen worden gesteld, non-profitorganisaties en andere organisaties die goederen en diensten aan mensen in de EU, of die aanbieden verzamelen en analyseren van gegevens van inwoners van de EU.
 
 Cloud Partner-Portal bevat gedetailleerde informatie met betrekking tot de verwerking van de klant, gegevens en de beveiligingsmaatregelen die is gebruikt voor het beveiligen van gegevens. Deze informatie is toegankelijk via de ervaringen in het product.
 

@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7818d184cd74da43ceac008331b4436979152557
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201259"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Wat is selfserviceregistratie voor Azure Active Directory?
 
-In dit artikel wordt uitgelegd Self-serviceregistratie en hoe u voor de ondersteuning in Azure Active Directory (Azure AD). Als u wilt een domeinnaam overnemen van een niet-beheerde Azure AD-tenant, Zie [overnemen van een niet-beheerde adreslijst als administrator](domains-admin-takeover.md).
+In dit artikel wordt uitgelegd hoe u aanmelding via selfservice voor het vullen van een organisatie in Azure Active Directory (Azure AD) gebruiken. Als u wilt een domeinnaam overnemen van een niet-beheerde Azure AD-organisatie, Zie [overnemen van een niet-beheerde adreslijst als administrator](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-signup"></a>Waarom Self-serviceregistratie gebruiken?
 * Breng uw klanten naar services die ze sneller willen
@@ -71,7 +71,7 @@ Deze twee parameters kunnen worden gebruikt in combinatie meer nauwkeurige contr
 
 Het volgende stroomdiagram wordt uitgelegd voor de verschillende combinaties van deze parameters en de resulterende voorwaarden voor de directory en self-serviceregistratie.
 
-![Meld u aan selfservice-besturingselementen](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+![Stroomdiagram van selfservice aanmelding besturingselementen](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 Zie voor meer informatie en voorbeelden van het gebruik van deze parameters [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 

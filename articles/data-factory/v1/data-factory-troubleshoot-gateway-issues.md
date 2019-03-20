@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813837"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119340"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Problemen oplossen met behulp van Data Management Gateway
 In dit artikel bevat informatie over het oplossen van problemen bij het gebruik van Data Management Gateway.
@@ -169,8 +169,8 @@ Gateway kan geen verbinding maken met de cloudservice via Service Bus.
 Volg deze stappen voor het ophalen van de gateway weer online te zetten:
 
 1. IP-adres van regels voor uitgaand verkeer op de gatewaycomputer en de firewall van het bedrijf toestaan. U kunt IP-adressen vinden van het Windows-gebeurtenislogboek (ID == 401): Er is geprobeerd toegang tot een socket op een manier die is niet toegestaan volgens de toegangsmachtigingen XX. XX. XX. XX:9350.
-* Proxy-instellingen configureren op de gateway. Zie de sectie Proxy server overwegingen voor meer informatie.
-* Schakel uitgaande poort 5671 en 9350-9354 op zowel de Windows Firewall op de gatewaycomputer en de firewall van het bedrijf. Zie de poorten en firewall-gedeelte voor meer informatie. Deze stap is optioneel, maar we raden aan ter overweging voor prestaties.
+1. Proxy-instellingen configureren op de gateway. Zie de sectie Proxy server overwegingen voor meer informatie.
+1. Schakel uitgaande poort 5671 en 9350-9354 op zowel de Windows Firewall op de gatewaycomputer en de firewall van het bedrijf. Zie de poorten en firewall-gedeelte voor meer informatie. Deze stap is optioneel, maar we raden aan ter overweging voor prestaties.
 
 ### <a name="3-problem"></a>3. Probleem
 Ziet u de volgende fout.
@@ -184,7 +184,7 @@ Een tijdelijke fout in verbinding met het netwerk.
 Volg deze stappen voor het ophalen van de gateway weer online te zetten:
 
 1. Wacht enkele minuten, de verbinding wordt automatisch worden hersteld als de fout is verdwenen.
-* Als de fout zich blijft voordoen, start u de gatewayservice.
+1. Als de fout zich blijft voordoen, start u de gatewayservice.
 
 ## <a name="failed-to-author-linked-service"></a>Kan geen gekoppelde service maken
 ### <a name="problem"></a>Probleem
@@ -282,6 +282,6 @@ U vindt gedetailleerde gateway-logboekgegevens in de Windows-gebeurtenislogboeke
 1. Start Windows **logboeken**.
 2. Ga naar Logboeken in de **logboeken toepassingen en Services** > **Data Management Gateway** map.
 
- Als u problemen met problemen met de gateway, zoekt u op gebeurtenissen op foutniveau in de event viewer.
+   Als u problemen met problemen met de gateway, zoekt u op gebeurtenissen op foutniveau in de event viewer.
 
 ![Data Management Gateway-Logboeken in Logboeken](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

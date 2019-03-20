@@ -9,14 +9,14 @@ ms.reviewer: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 63ce3587a2c48e7e03503e50a548ed372f511e37
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 9458903378576a50db9be92b9377987829e1ba41
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082055"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200154"
 ---
 # <a name="load-data-from-sap-business-warehouse-bw-by-using-azure-data-factory"></a>Het laden van de gegevens van SAP Business Warehouse (BW) met behulp van Azure Data Factory
 
@@ -84,7 +84,7 @@ In Azure portal, Ga naar uw data factory -> Selecteer **Author & Monitor** om de
 
    ![ADLS Gen2 gekoppelde service maken](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
-   1. Selecteer uw Data Lake Storage Gen2 geschikt account van de "naam van het Opslagaccount" vervolgkeuzelijst.
+   1. Selecteer uw Data Lake Storage Gen2 geschikt account uit de vervolgkeuzelijst 'Opslagaccountnaam'.
    2. Selecteer **voltooien** om de verbinding te maken. Selecteer vervolgens **Volgende**.
 
 9. In de **uitvoerbestand of uitvoermap kiezen** pagina, voert u 'copyfromopenhub' als de naam van de uitvoer-map en selecteer **volgende**.
@@ -126,59 +126,67 @@ In Azure portal, Ga naar uw data factory -> Selecteer **Author & Monitor** om de
 ## <a name="incremental-copy-from-sap-bw-open-hub"></a>Incrementele kopie van SAP BW Open Hub
 
 > [!TIP]
-> 
-> Raadpleeg [SAP BW Open Hub connector delta-extractie stroom](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) voor meer informatie over de werking van ADF kopieeractiviteit voor het kopiëren van incrementele gegevens van SAP BW.
+>
+> Raadpleeg [SAP BW Open Hub connector delta-extractie stroom](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) voor meer informatie over de werking van ADF SAP BW Open Hub connector u incrementeel gegevens kopiëren van SAP BW en Lees dit artikel vanaf het begin naar de basisbeginselen van de connector die betrekking hebben configuraties.
 
 Nu gaat u verder naar de incrementele kopie van SAP BW Open Hub configureren. 
 
-De incrementele kopie maakt gebruik van bovengrens mechanisme op basis van aanvraag-ID wordt automatisch gegenereerd in SAP BW Open Hub doel door DTP. De werkstroom voor deze benadering wordt verduidelijkt in het volgende diagram:
+De incrementele kopie wordt met behulp van bovengrens mechanisme op basis van **aanvraag-ID** automatisch gegenereerde in SAP BW Open Hub doel door DTP. De werkstroom voor deze benadering wordt verduidelijkt in het volgende diagram:
 
 ![Werkstroom van de incrementele kopie](media/load-sap-bw-data/incremental-copy-workflow.png)
 
-Op de UI ADF **aan de slag** weergeeft, schakelt **pijplijn maken**. 
+Op de UI ADF **aan de slag** weergeeft, schakelt **pijplijn maken met sjabloon** gebruikmaken van de ingebouwde sjabloon. 
 
-1. Sleep de drie activiteiten - **opzoeken, kopiëren van gegevens en Web** : naar het canvas en maken ze on-success gekoppeld. In dit scenario gebruiken we Azure-Blob voor het opslaan van de bovengrens - max gekopieerde aanvraag-ID. U kunt ook SQL-database gebruiken om op te slaan, en Stored Procedure-activiteit gebruiken in plaats van webactiviteit bij te werken.
+1. Zoeken naar "SAP BW' om te zoeken en selecteer de sjabloon met de naam **incrementeel kopiëren van SAP BW naar Azure Data Lake Storage Gen2**. Deze sjabloon worden gegevens gekopieerd naar ADLS Gen2, kunt u later de vergelijkbare stroom om te kopiëren naar de andere typen sink volgen.
 
-   ![De pijplijn incrementele kopie](media/load-sap-bw-data/incremental-copy-pipeline.png)
+2. Op de hoofdpagina van de sjabloon selecteren of maak de volgende drie verbindingen en selecteer vervolgens **Gebruik deze sjabloon** aan de onderkant rechts.
 
-2. Lookup-activiteit kunt configureren:
+   - **Azure Blob**: in dit scenario gebruiken we Azure-Blob voor het opslaan van de bovengrens, de maximale gekopieerde aanvraag-ID is.
+   - **SAP BW Open Hub**: de bron om te kopiëren van gegevens uit. Raadpleeg de vorige volledige kopie-overzicht van vindt u gedetailleerde configuraties.
+   - **ADLS Gen2**: uw sink gegevens te kopiëren. Raadpleeg de vorige volledige kopie-overzicht van vindt u gedetailleerde configuraties.
 
-   1. In de Lookup-activiteit **instellingen** tabblad controle **First row alleen** optie.
+   ![Incrementele kopie van SAP BW-sjabloon](media/load-sap-bw-data/incremental-copy-from-sap-bw-template.png)
 
-      ![Lookup-instellingen](media/load-sap-bw-data/lookup-settings.png)
+3. Deze sjabloon wordt gegenereerd voor een pijplijn met drie activiteiten - **opzoeken, kopiëren van gegevens en Web** - en zorgt ervoor dat ze in een keten op geslaagde pogingen. Ga naar de pijplijn **Parameters** tabblad ziet u alle configuraties die u moet opgeven.
 
-   2. Configureer **brongegevensset** als een Blob-gegevensset in de **bestandspad**, wijst u naar de blob waar u de maximale gekopieerde aanvraag-ID als de bovengrens worden opgeslagen en houdt u de indeling als de indeling tekst.
+   ![Incrementele kopie van SAP BW-config](media/load-sap-bw-data/incremental-copy-from-sap-bw-pipeline-config.png)
 
-      ![Instellingen voor BLOB-gegevensset](media/load-sap-bw-data/blob-dataset.png)
+   - **SAPOpenHubDestinationName**: Geef de naam van de Open Hub-tabel om te kopiëren van gegevens uit.
 
-   3. In het bijbehorende blobpad, een blob te maken met inhoud 0.
+   - **ADLSGen2SinkPath**: Geef het doelpad ADLS Gen2 als u wilt kopiëren van gegevens. Als het pad niet bestaat, maakt ADF-kopieeractiviteit een tijdens de uitvoering.
+
+   - **HighWatermarkBlobPath**: Geef het pad voor het opslaan van de bovengrenswaarde bijvoorbeeld `container/path`. 
+
+   - **HighWatermarkBlobName**: Geef de naam van de blob voor het opslaan van de bovengrenswaarde bijvoorbeeld `requestIdCache.txt`. In de blob-opslag, op het bijbehorende pad van HighWatermarkBlobPath + HighWatermarkBlobName bijvoorbeeld '*container/path/requestIdCache.txt*', een blob maken met inhoud 0. 
 
       ![Blobinhoud](media/load-sap-bw-data/blob.png)
 
-3. Configureer de Kopieeractiviteit: 
+   - **LogicAppURL**: in deze sjabloon, gebruiken we webactiviteit voor het aanroepen van Logic Apps om in te stellen de bovengrenswaarde in Blob-opslag. U kunt ook ook SQL-database te bewaren en Stored Procedure-activiteit gebruiken voor het bijwerken van de waarde gebruiken. 
 
-   1. In **bron** tabblad, configureer dan **brongegevensset** als een gegevensset SAP BW Open Hub. 
-
-   2. Bewerk de **SAP BW Open Hub gegevensset**:
-
-      1. In **Parameters** tabblad, stelt u een parameter met de naam "requestId"
-      2. In **verbinding** tabblad, Geef een naam voor de Open-Hub, behouden 'Uitsluiten laatste aanvraag-ID' geselecteerd en stel Base aanvraag-ID te gebruiken expressie (dynamische inhoud toevoegen) `@dataset().requestId`.
-
-   3. Ga terug naar activiteit kopiëren **bron** tabblad, configureer dan de waarde 'requestId' voor het gebruik van de expressie (dynamische inhoud toevoegen) `@{activity('<look up activity name>').output.firstRow.Prop_0}`. Het 'uiterlijk van de naam van de activiteit"in deze expressie dienovereenkomstig wijzigen.
-
-      ![Broninstellingen kopiëren](media/load-sap-bw-data/copy-source.png)
-
-4. Webactiviteit configureren: deze Web-activiteit moet worden gebeld logische App voor het opslaan van maximale gekopieerde aanvraag-ID in de blob.
-
-   1. Ga naar Azure portal-Nieuw -> een **logische App** met een **HTTP-aanvraag** en één **blob maken** als volgt. Gebruik de dezelfde blob-bestand dat is geconfigureerd in de bron van de bovenstaande Lookup-activiteit. En kopieer de **URL voor HTTP POST** die worden gebruikt voor de webactiviteit.
+      Hier moet u eerst maken een logische App als het volgende, kopieer vervolgens de **URL voor HTTP POST** in dit veld. 
 
       ![Logic App-configuratie](media/load-sap-bw-data/logic-app-config.png)
 
-   2. Ga terug naar het bewerken van de ADF **activiteit Web** instellingen zoals hieronder. De hoofdtekst als expressie configureren (dynamische inhoud toevoegen) `{"sapOpenHubMaxRequestId":"@{activity('CopyFromSap').output.sapOpenHubMaxRequestId}"}`.
+      1. Ga naar Azure portal-Nieuw -> een **Logic Apps** service -> Klik **+ lege logische App** naar **ontwerper van logische Apps**.
 
-      ![Instellingen voor web-activiteit](media/load-sap-bw-data/web-activity-settings.png)
+      2. Maken van een trigger van **wanneer een HTTP-aanvraag wordt ontvangen**. Geef de hoofdtekst van de HTTP-aanvraag als volgt:
 
-5. Vervolgens kunt u op **Debug** Valideer de configuratie, of selecteer **Alles publiceren** naar alle wijzigingen publiceren en klik vervolgens op **Trigger** voor het uitvoeren van een uitvoering.
+         ```json
+         {
+            "properties": {
+               "sapOpenHubMaxRequestId": {
+                  "type": "string"
+               },
+               "type": "object"
+            }
+         }
+         ```
+
+      3. Toevoegen van een actie van het **blob maken**. Gebruik de dezelfde waarde die is geconfigureerd in de bovenstaande HighWatermarkBlobPath en HighWatermarkBlobName voor "Mappad" en "Blob-name".
+
+      4. Klik op **opslaan**, en kopieer vervolgens de waarde van **URL voor HTTP POST** te gebruiken in ADF-pijplijn.
+
+4. Nadat u alle waarden voor pijplijnparameters ADF opgeeft, klikt u op **Debug** -> **voltooien** om aan te roepen een uitvoering voor het valideren van de configuratie. U kunt ook selecteren **Alles publiceren** voor het publiceren van alle wijzigingen, klikt u vervolgens op **Trigger** voor het uitvoeren van een uitvoering.
 
 ## <a name="sap-bw-open-hub-destination-configurations"></a>Configuraties van SAP BW Open Hub bestemming
 
@@ -190,7 +198,7 @@ Als u zowel historische kopiëren en incrementele kopie of alleen incrementele k
 
 1. De bestemming Open Hub (OHD) maken
 
-   U kunt de OHD in SAP transactie RSA1 maken. Dit maakt automatisch de vereiste transformatie- en Data Transfer proces (DTP). Gebruik de volgende instellingen:
+   U kunt de OHD in SAP transactie RSA1, waarmee automatisch wordt gemaakt van de vereiste transformatie- en Data Transfer proces (DTP) maken. Gebruik de volgende instellingen:
 
    - Objecttype kan zijn. We gebruiken hier InfoCube als voorbeeld.
    - **Het doeltype:** *Database-tabel*
@@ -213,9 +221,9 @@ Als u zowel historische kopiëren en incrementele kopie of alleen incrementele k
 
 ### <a name="configure-full-extraction-in-sap-bw"></a>Volledige extractie in SAP BW configureren
 
-Naast de extractie verschillen, is het raadzaam om een volledige extractie van de dezelfde InfoProvider. Dit geldt doorgaans als u wilt kopiëren zonder incrementele volledig of u wilt [opnieuw synchroniseren van delta-extractie](#re-sync-delta-extraction).
+Naast de extractie verschillen, is het raadzaam om een volledige extractie van de dezelfde InfoProvider. Gewoonlijk van toepassing als u wilt kopiëren zonder incrementele volledig of u wilt [opnieuw synchroniseren van delta-extractie](#re-sync-delta-extraction).
 
-U moet meer dan één DTP hebt voor de dezelfde OHD. Daarom moet u een extra OHD dan delta-extractie maken.
+U moet meer dan één DTP hebt voor de dezelfde OHD. Daarom moet u een extra OHD en delta-extractie maken.
 
 ![create-sap-bw-ohd-full](media/load-sap-bw-data/create-sap-bw-ohd-full.png)
 
@@ -229,11 +237,11 @@ Kies andere opties dan delta-extractie voor een volledig laden OHD:
 
 - In ADF SAP BW Open Hub-connector: Schakel de optie '*uitsluiten laatste aanvraag*'. Anders zou er niets worden geëxtraheerd. 
 
-U doorgaans uitvoeren de volledige DTP handmatig. Of u kunt ook een procesketen maken voor de volledige DTP - dit is meestal een afzonderlijk procesketen onafhankelijk van uw bestaande proces ketens. In beide gevallen moet u **Zorg ervoor dat de DTP is voltooid voordat u begint met de extractie met ADF-kopie**, anders gedeeltelijke gegevens worden gekopieerd.
+U doorgaans uitvoeren de volledige DTP handmatig. Of u kunt ook een procesketen maken voor de volledige DTP - meestal een afzonderlijk procesketen onafhankelijk van uw bestaande proces ketens zou zijn. In beide gevallen moet u **Zorg ervoor dat de DTP is voltooid voordat u begint met de extractie met ADF-kopie**, anders gedeeltelijke gegevens worden gekopieerd.
 
 ### <a name="run-delta-extraction-the-first-time"></a>Delta-extractie, de eerste keer uitvoeren
 
-De eerste Delta-extractie is technisch gezien een **volledige extractie**. Houd er rekening mee door standaard Open Hub van ADF SAP BW-connector niet van toepassing op de laatste aanvraag bij het kopiëren van de gegevens. In het geval van delta-extractie voor de eerste keer in ADF kopiëren activtiy, er worden geen gegevens worden geëxtraheerd totdat er verdere DTP genereert delta-gegevens in de tabel met afzonderlijke aanvraag-ID. Terwijl er twee manieren zijn om te voorkomen dat dit scenario:
+De eerste Delta-extractie is technisch gezien een **volledige extractie**. Houd er rekening mee door standaard Open Hub van ADF SAP BW-connector niet van toepassing op de laatste aanvraag bij het kopiëren van de gegevens. In het geval van delta-extractie voor de eerste keer in de kopieeractiviteit ADF, er worden geen gegevens worden geëxtraheerd totdat er verdere DTP genereert delta-gegevens in de tabel met afzonderlijke aanvraag-ID. Er zijn twee manieren om te voorkomen dat dit scenario:
 
 1. Schakel de optie 'Uitsluiten laatste aanvraag' voor de eerste Delta-extractie In dit geval moet u om ervoor te zorgen dat de eerste Delta DTP is voltooid voordat u begint met de eerste keer dat de Delta-extractie
 2. Gebruik de procedure voor het opnieuw synchroniseren van de Delta-extractie zoals hieronder wordt beschreven.

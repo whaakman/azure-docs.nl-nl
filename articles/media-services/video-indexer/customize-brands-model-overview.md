@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 48255614291086fe85666bec407ea62f7a365410
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 15f4b8b6d4a27e721dfcaed8b9dd700e87e3a257
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237362"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872876"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Een model merken in Video Indexer aanpassen
 
@@ -28,7 +28,7 @@ In de [Microsoft Build 2017 dag 2](https://www.videoindexer.ai/media/ed6ede78ad/
 
 ![Overzicht van merken](./media/content-model-customization/brands-overview.png)
 
-Praten over windows in de context van de bouw, wordt het woord 'Windows' als een onderdeel, en dezelfde voor Box, Apple, Fox, enz., op basis van geavanceerde Machine Learning-algoritmen die weet hoe dubbelzinnigheid van context niet detecteren. Merk detectie werkt voor onze ondersteunde talen. Klik hier voor [volledige Microsoft Build 2017 dag 2 inleidende video en index](http://www.videoindexer.ai/media/ed6ede78ad/).
+Praten over windows in de context van de bouw, wordt het woord 'Windows' als een onderdeel, en dezelfde voor Box, Apple, Fox, enz., op basis van geavanceerde Machine Learning-algoritmen die weet hoe dubbelzinnigheid van context niet detecteren. Merk detectie werkt voor onze ondersteunde talen. Klik hier voor [volledige Microsoft Build 2017 dag 2 inleidende video en index](https://www.videoindexer.ai/media/ed6ede78ad/).
 
 Bekijk de volgende stappen om uw eigen merken.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 138367eb7eb0d4be2e0a7bec57d1bce551a5e829
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266990"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107049"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Gebruik Resource Manager verificatie-API voor toegang tot abonnementen
 
@@ -234,7 +234,8 @@ U hoeft alleen een toegangstoken voor Azure Resource Manager - moet u een nieuw 
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Alleen app-toegangstoken verkrijgen voor Azure AD Graph API
-Om te verifiëren van uw app en een Azure AD Graph API-token verkrijgen, geven u een tokenaanvraag voor Client referentie verlenen OAuth 2.0-stroom aan Azure AD-token-eindpunt (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
+
+Om te verifiëren van uw app en een Azure AD Graph API-token verkrijgen, geven u een tokenaanvraag voor Client referentie verlenen OAuth 2.0-stroom aan Azure AD-token-eindpunt (**https:\//login.microsoftonline.com/{directory_domain_name}/OAuth2/Token** ).
 
 De [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) methode van de ASP.net MVC-voorbeeldtoepassing krijgt een app alleen-lezen toegang token voor Graph API met behulp van de Active Directory Authentication Library voor .NET.
 

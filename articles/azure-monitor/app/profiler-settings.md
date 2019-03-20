@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 7f864c90b8279f315fc0dbe96f41bfd03be7cebc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8c9fba14bd3f7d3b55a245f8e647f0eae1f8ef83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883363"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118422"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler configureren
 
@@ -111,11 +111,11 @@ Als een van de bovenstaande waarden niet zijn ingesteld, moet u de meest recente
     ![Wijzigen en opslaan van app insights][change-and-save-appinsights]
 
 1. Ga terug naar **App-instellingen** deelvenster voor het App Service om ervoor te zorgen dat de volgende waarden zijn ingesteld:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Vervangen door de juiste instrumentatiesleutel voor application insights.
-    * **APPINSIGHTS_PORTALINFO**: ASP.NET 
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
+   * **APPINSIGHTS_INSTRUMENTATIONKEY**: Vervangen door de juiste instrumentatiesleutel voor application insights.
+   * **APPINSIGHTS_PORTALINFO**: ASP.NET 
+   * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-    ![App-instellingen voor Profiler][app-settings-for-profiler]
+     ![App-instellingen voor Profiler][app-settings-for-profiler]
 
 1. Selecteer desgewenst **extensies**, en controleer de versie van de extensie en bepalen of een update beschikbaar is.
 

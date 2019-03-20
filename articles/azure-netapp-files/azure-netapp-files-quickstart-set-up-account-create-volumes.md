@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstarts
 ms.date: 2/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 76c1543f5d9979d46b303f12c495dcaa403cef1d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 363589116cc7b936358ce0b16cbaba9a42c66234
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078071"
 ---
 # <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Azure NetApp Files instellen en een volume maken 
 
@@ -56,14 +56,14 @@ Voor deze taak moet u deel uitmaken van het Openbare Preview-programma en toegan
      ![Nieuw NetApp-account maken](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
 
 3. Geef de volgende informatie in het venster Nieuw NetApp-Account: 
-    1. Voer **myaccount1** voor de accountnaam. 
-    2. Selecteer uw abonnement.
-    3. Selecteer **nieuw** om nieuwe resourcegroep te maken. Voer **myRG1** voor naam van de resourcegroep. Klik op **OK**. 
-    4. Selecteer de accountlocatie van uw.  
+   1. Voer **myaccount1** voor de accountnaam. 
+   2. Selecteer uw abonnement.
+   3. Selecteer **nieuw** om nieuwe resourcegroep te maken. Voer **myRG1** voor naam van de resourcegroep. Klik op **OK**. 
+   4. Selecteer de accountlocatie van uw.  
 
-    ![Nieuw venster van de NetApp-Account](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
+      ![Nieuw venster van de NetApp-Account](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
 
-    ![Resource group-venster](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
+      ![Resource group-venster](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
 
 4. Klik op **maken** om uw nieuwe NetApp-account te maken.
 
@@ -99,22 +99,22 @@ Voor deze taak moet u deel uitmaken van het Openbare Preview-programma en toegan
     ![Klik op de volumes toevoegen](../media/azure-netapp-files/azure-netapp-files-click-add-volumes.png)  
 
 3. Geef in het maken van een venster van het Volume, informatie voor het volume: 
-    1. Voer **myvol1** als naam van het volume. 
-    2. Voer **myfilepath1** als het bestandspad dat wordt gebruikt voor het maken van het pad voor exporteren voor het volume.
-    3. Selecteer de capaciteit van toepassingen (**mypool1**).
-    4. Gebruik de standaardwaarde voor quotum. 
-    5. Onder het virtuele netwerk, klikt u op **nieuw** te maken van een nieuwe Azure-netwerk (Vnet).  Vul vervolgens de volgende informatie:
-        * Voer **myvnet1** als de Vnet-naam.
-        * Geef een adresruimte, bijvoorbeeld 10.7.0.0/16.
-        * Voer **myANFsubnet** als naam van het subnet.
-        * Geef het adresbereik van subnet, bijvoorbeeld 10.7.0.0/24.
-        * Selecteer **Microsoft.NetApp/volumes** voor subnet overdracht.
-        * Klik op **OK** om het Vnet te maken.
-    6. In het subnet, selecteert u het zojuist gemaakte Vnet (**myvnet1**) als het subnet gemachtigde.
+   1. Voer **myvol1** als naam van het volume. 
+   2. Voer **myfilepath1** als het bestandspad dat wordt gebruikt voor het maken van het pad voor exporteren voor het volume.
+   3. Selecteer de capaciteit van toepassingen (**mypool1**).
+   4. Gebruik de standaardwaarde voor quotum. 
+   5. Onder het virtuele netwerk, klikt u op **nieuw** te maken van een nieuwe Azure-netwerk (Vnet).  Vul vervolgens de volgende informatie:
+       * Voer **myvnet1** als de Vnet-naam.
+       * Geef een adresruimte, bijvoorbeeld 10.7.0.0/16.
+       * Voer **myANFsubnet** als naam van het subnet.
+       * Geef het adresbereik van subnet, bijvoorbeeld 10.7.0.0/24.
+       * Selecteer **Microsoft.NetApp/volumes** voor subnet overdracht.
+       * Klik op **OK** om het Vnet te maken.
+   6. In het subnet, selecteert u het zojuist gemaakte Vnet (**myvnet1**) als het subnet gemachtigde.
 
-    ![Maken van een volume-venster](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
+      ![Maken van een volume-venster](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
 
-    ![Venster virtuele netwerk maken](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
+      ![Venster virtuele netwerk maken](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
 4. Klik op **Controleren + maken**.
 
@@ -127,5 +127,5 @@ Voor deze taak moet u deel uitmaken van het Openbare Preview-programma en toegan
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-* [Inzicht in de hiërarchie van de opslag van Azure NetApp bestanden](azure-netapp-files-understand-storage-hierarchy.md)
+* [Informatie over de opslaghiërarchie van Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Volumes beheren met behulp van Azure NetApp bestanden](azure-netapp-files-manage-volumes.md) 

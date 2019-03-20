@@ -17,12 +17,12 @@ ms.author: negoe
 ms.reviewer: negoe,andret,saeeda,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a487c233e7bb71f05c6f2181d9c822ca508a583c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4feaf97de7b833514113af6c91b3745be0503eff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192945"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113684"
 ---
 # <a name="national-clouds"></a>Nationale clouds
 
@@ -44,10 +44,10 @@ De volgende tabel bevat de basis-URL's voor de Azure Active Directory (Azure AD)
 
 | Nationale cloud | Azure AD portal-eindpunt
 | --- | --- |
-| Azure AD voor de Amerikaanse overheid |https://portal.azure.us
-|Azure AD Germany |https://portal.microsoftazure.de
-|Azure AD-China, uitgevoerd door 21Vianet |https://portal.azure.cn
-|Azure AD (global service)|https://portal.azure.com 
+| Azure AD voor de Amerikaanse overheid |`https://portal.azure.us`
+|Azure AD Germany |`https://portal.microsoftazure.de`
+|Azure AD-China, uitgevoerd door 21Vianet |`https://portal.azure.cn`
+|Azure AD (global service)|`https://portal.azure.com` 
 
 ## <a name="azure-ad-authentication-endpoints"></a>Azure AD-verificatie-eindpunten
 
@@ -78,8 +78,8 @@ Voor meer informatie over het aanroepen van de Microsoft Graph-API's in national
 
 
 
->[!IMPORTANT]
-Bepaalde services en functies die zich in specifieke gebieden van de algemene service mogelijk niet beschikbaar in alle van de nationale clouds. Om erachter te komen welke services beschikbaar zijn. Ga naar [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
+> [!IMPORTANT]
+> Bepaalde services en functies die zich in specifieke gebieden van de algemene service mogelijk niet beschikbaar in alle van de nationale clouds. Om erachter te komen welke services beschikbaar zijn. Ga naar [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
 ## <a name="next-steps"></a>Volgende stappen
 

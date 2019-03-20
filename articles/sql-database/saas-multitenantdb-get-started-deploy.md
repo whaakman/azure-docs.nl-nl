@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567380"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994909"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Een shard multitenant-toepassing implementeren en verkennen
 
@@ -66,9 +66,9 @@ Kies de namen van de nu en schrijf ze op.
 ### <a name="steps"></a>Stappen
 
 1. Klik op de volgende blauwe **implementeren in Azure** knop.
-    - De Azure-portal wordt het geopend met een sjabloon voor de implementatie van de Wingtip Tickets SaaS.
+   - De Azure-portal wordt het geopend met een sjabloon voor de implementatie van de Wingtip Tickets SaaS.
 
-    [![Knop voor het implementeren in Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Knop voor het implementeren in Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. Voer de vereiste parameterwaarden voor de implementatie.
 
@@ -125,9 +125,9 @@ Elke venue krijgt een eigen web-app te vermelden van hun evenementen en tickets 
 Een centraal **Events Hub** webpagina bevat een lijst met koppelingen naar de tenants in uw specifieke implementatie. Gebruik de volgende stappen om de **Events Hub** webpagina en een afzonderlijke web-app:
 
 1. Open de **Events Hub** in uw webbrowser:
-    - http://events.wingtip-mt.&lt; gebruiker&gt;. trafficmanager.net &nbsp; *(Vervang &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie.)*
+   - http://events.wingtip-mt.&lt; gebruiker&gt;. trafficmanager.net &nbsp; *(Vervang &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie.)*
 
-    ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Klik in de **Events Hub** op **Fabrikam Jazz Club**.
 
@@ -208,7 +208,7 @@ We richten vervolgens dit moment in een eigen database een andere tenant:
 
 Nu kijken we naar enkele van de resources die zijn geïmplementeerd:
 
-1. In de [Azure-portal](http://portal.azure.com), blader naar de lijst met resourcegroepen. Open de resourcegroep die u hebt gemaakt toen u de toepassing is geïmplementeerd.
+1. In de [Azure-portal](https://portal.azure.com), blader naar de lijst met resourcegroepen. Open de resourcegroep die u hebt gemaakt toen u de toepassing is geïmplementeerd.
 
    ![resourcegroep](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
@@ -275,7 +275,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 -->
 
-[link-aka-ms-deploywtp-mtapp-52k]: http://aka.ms/deploywtp-mtapp
+[link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
 [link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
@@ -286,7 +286,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 <!--  Image references.
 
-[image-deploy-to-azure-blue-48d]: http://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
+[image-deploy-to-azure-blue-48d]: https://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Knop voor het implementeren op Azure."

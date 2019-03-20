@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: bb2ebeedb1b34288a3d402ffdf4df80aa3be83cd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1102a8c80b0040c7044d64c674d956d339238623
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154072"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086646"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Een virtuele Red Hat Enterprise Linux 7-machine toevoegen aan een beheerd domein
 Dit artikel ziet u hoe u een virtuele machine van Red Hat Enterprise Linux (RHEL) 7 koppelen aan een beheerd domein van Azure AD Domain Services.
@@ -38,7 +38,7 @@ Als u de taken die in dit artikel worden vermeld, hebt u het volgende nodig:
 
 ## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Een Red Hat Enterprise Linux-machine inrichten
 Een RHEL 7-machine inrichten in Azure met behulp van een van de volgende methoden:
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure-portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure-CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -86,12 +86,11 @@ Nu dat de vereiste pakketten zijn geïnstalleerd op de Linux-machine, bestaat de
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE]
-     > **Problemen oplossen:** Als *realm detecteren* is niet gevonden van uw beheerde domein:
-     * Zorg ervoor dat het domein bereikbaar is vanaf de virtuele machine (probeer ping).
-     * Controleer dat de virtuele machine inderdaad is geïmplementeerd voor hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is.
-     * Controleert u of u de DNS-serverinstellingen voor het virtuele netwerk om te verwijzen naar de domeincontrollers van het beheerde domein hebt bijgewerkt.
-     >
+   > [!NOTE]
+   > **Problemen oplossen:** Als *realm detecteren* is niet gevonden van uw beheerde domein:
+   >   * Zorg ervoor dat het domein bereikbaar is vanaf de virtuele machine (probeer ping).
+   >   * Controleer dat de virtuele machine inderdaad is geïmplementeerd voor hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is.
+   >   * Controleert u of u de DNS-serverinstellingen voor het virtuele netwerk om te verwijzen naar de domeincontrollers van het beheerde domein hebt bijgewerkt.
 
 2. Initialiseren van Kerberos. Typ de volgende opdracht in uw terminal SSH:
 

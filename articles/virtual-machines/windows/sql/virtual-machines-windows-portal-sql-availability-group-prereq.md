@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: abe211ad4745564cb2698aa1261a1aeb6dd63af7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781728"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995191"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Voldoen aan de vereisten voor het maken van AlwaysOn-beschikbaarheidsgroepen op Azure virtual machines
 
@@ -42,7 +42,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van SQL Serv
 U hebt een Azure-account nodig. U kunt [een gratis Azure-account openen](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) of [voordelen voor Visual Studio-abonnee activeren](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
-1. Meld u aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **+** naar een nieuw object maakt in de portal.
 
    ![Nieuw object](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -292,14 +292,14 @@ Nadat de primaire domeincontroller opnieuw is opgestart, kunt u de tweede domein
 15. Klik op de **meer** koppeling op de gele balk van de waarschuwing.
 16. In de **actie** kolom van de **alle Server-taakdetails** dialoogvenster, klikt u op **deze server verhogen naar een domeincontroller**.
 17. Onder **implementatieconfiguratie**, selecteer **een domeincontroller toevoegen aan een bestaand domein**.
-   ![Implementatieconfiguratie](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
+    ![Implementatieconfiguratie](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. Klik op **Selecteren**.
 19. Verbinding maken met behulp van het administrator-account (**CORP. Contoso.COM\domainadmin**) en het wachtwoord (**Contoso! 0000**).
 20. In **Selecteer een domein in het forest**, klikt u op uw domein en klik vervolgens op **OK**.
 21. In **opties voor domeincontroller**, gebruikt u de standaardwaarden en een DSRM-wachtwoord instellen.
 
-   >[!NOTE]
-   >De **DNS-opties** pagina mogelijk waarschuwt u dat een overdracht voor deze DNS-server kan niet worden gemaakt. U kunt deze waarschuwing in niet-productieomgevingen negeren.
+    >[!NOTE]
+    >De **DNS-opties** pagina mogelijk waarschuwt u dat een overdracht voor deze DNS-server kan niet worden gemaakt. U kunt deze waarschuwing in niet-productieomgevingen negeren.
 22. Klik op **volgende** totdat het dialoogvenster de **vereisten** controleren. Klik vervolgens op **Installeren**.
 
 Nadat de server klaar is met de wijzigingen in de configuratie, moet u de server opnieuw opstarten.

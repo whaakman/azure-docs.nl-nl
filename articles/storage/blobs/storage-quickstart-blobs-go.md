@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 5bafceca09cfe5a981365a39e4f3803b5865ce73
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: 69895fff5e1daaf02caec54a6d38052e36ad8d49
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754812"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999055"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Quickstart: blobs downloaden, uploaden en vermelden met behulp van Go
 
@@ -89,7 +89,7 @@ Press the enter key to delete the sample files, example container, and exit the 
 Wanneer u op een willekeurige toets drukt om door te gaan, worden de opslagcontainer en de bestanden door het voorbeeldprogramma verwijderd. 
 
 > [!TIP]
-> U kunt ook een hulpprogramma zoals [Azure Storage Explorer](http://storageexplorer.com) gebruiken om de bestanden in de Blob-opslag te bekijken. Azure Storage Explorer is een gratis hulpprogramma voor meerdere platforms waarmee u toegang hebt tot de gegevens van uw opslagaccount. 
+> U kunt ook een hulpprogramma zoals [Azure Storage Explorer](https://storageexplorer.com) gebruiken om de bestanden in de Blob-opslag te bekijken. Azure Storage Explorer is een gratis hulpprogramma voor meerdere platforms waarmee u toegang hebt tot de gegevens van uw opslagaccount. 
 >
 
 ## <a name="understand-the-sample-code"></a>De voorbeeldcode begrijpen
@@ -208,7 +208,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### <a name="download-the-blob"></a>De blob downloaden
 
-Download blobs met de **Download**-functie op laag niveau in een BlobURL. Dit resulteert in een **DownloadResponse**-struct. Voer de functie **Body** uit in de struct om een **RetryReader**-stroom op te halen voor het lezen van gegevens. Als een verbinding mislukt tijdens het lezen, worden aanvullende aanvragen gedaan om opnieuw een verbinding tot stand te brengen en door te gaan met lezen. Wanneer een RetryReaderOption met MaxRetryRequests die is ingesteld op 0 (standaard) wordt opgegeven, wordt de oorspronkelijke hoofdtekst van de reactie geretourneerd en worden geen nieuwe pogingen uitgevoerd. U kunt ook de API's op hoog niveau **DownloadBlobToBuffer** of **DownloadBlobToFile** gebruiken om uw code te vereenvoudigen.
+Download blobs met de **Download**-functie op laag niveau in een BlobURL. Dit resulteert in een **DownloadResponse**-struct. Voer de functie **Body** uit in de struct om een **RetryReader**-stroom op te halen voor het lezen van gegevens. Als een verbinding is mislukt tijdens het lezen, wordt er aanvullende aanvragen opnieuw een verbinding tot stand te brengen en doorgaan met lezen. Wanneer een RetryReaderOption met MaxRetryRequests die is ingesteld op 0 (standaard) wordt opgegeven, wordt de oorspronkelijke hoofdtekst van de reactie geretourneerd en worden geen nieuwe pogingen uitgevoerd. U kunt ook de API's op hoog niveau **DownloadBlobToBuffer** of **DownloadBlobToFile** gebruiken om uw code te vereenvoudigen.
 
 Met de volgende code wordt de blob gedownload met behulp van de functie **Download**. De inhoud van de blob wordt naar een buffer geschreven en weergegeven in de console.
 

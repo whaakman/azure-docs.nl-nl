@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 2b9426043619887d99003677fd6e8488cb56cce2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075762"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Controle en het verwerken van beveiligingsgebeurtenissen in Azure Security Center
 Het dashboard gebeurtenissen bevat een overzicht van het aantal beveiligingsgebeurtenissen verzameld voor tijd en een lijst van gebeurtenissen die aandacht vereisen die uw aandacht nodig hebben.  
@@ -57,30 +57,30 @@ De **gebeurtenissendashboard** biedt een overzicht van het aantal verwerkte gebe
 1. Onder de **Security Center** hoofdmenu, selecteer **gebeurtenissen**.
 2. De **gebeurtenissendashboard** werkruimteselector kan worden geopend. Als u slechts één werkruimte hebt, wordt deze werkruimteselector niet weergegeven. Als u meer dan één werkruimte hebt, moet u Selecteer een werkruimte om de details van de verwerkte gebeurtenis weer te geven. Selecteer een werkruimte in de lijst hebt u meer dan één werkruimte.
 
-  ![Lijst met werkruimten][3]
+   ![Lijst met werkruimten][3]
 
 3. De **gebeurtenissendashboard** wordt geopend met de details van de gebeurtenis voor de geselecteerde werkruimte. U kunt de gebeurtenissen die aandacht vereisen en alle gebeurtenissen per type weergeven.  In dit voorbeeld wordt geselecteerd **gebeurtenissen die aandacht vereisen**.
 
-  ![Gebeurtenis die aandacht vereist][4]
+   ![Gebeurtenis die aandacht vereist][4]
 
 4. U kunt een query voor meer gegevens onder de werkruimte door een gebeurtenistype te selecteren. In dit voorbeeld wordt geselecteerd **SecurityEvent**.
 
-  ![Een gebeurtenistype selecteren][5]
+   ![Een gebeurtenistype selecteren][5]
 
 5. **Zoeken in logboeken** wordt geopend met aanvullende informatie over het gebeurtenistype.
 
-  ![Zoekopdrachten in logboeken][6]
+   ![Zoekopdrachten in logboeken][6]
 
 ## <a name="add-a-notable-event"></a>Een gebeurtenis die aandacht vereist toevoegen
 Security Center biedt gebeurtenissen die aandacht vereisen voor out-of-the-box. U kunt gebeurtenissen die aandacht vereisen op basis van uw eigen query met toevoegen de [Kusto-querytaal](../log-analytics/log-analytics-search-reference.md). Wordt geretourneerd en wordt naar de **gebeurtenissendashboard** om toe te voegen een gebeurtenis die aandacht vereist.
 
 1. Selecteer **gebeurtenis die aandacht vereist toevoegen**.
 
-  ![Een gebeurtenis die aandacht vereist toevoegen][7]
+   ![Een gebeurtenis die aandacht vereist toevoegen][7]
 
 2. **Aangepaste gebeurtenis die aandacht vereist toevoegen** wordt geopend.  Onder **weergavenaam**, voer een naam voor de gebeurtenis die aandacht vereist. Onder **zoekquery**, voer de query voor de gebeurtenis.
 
-  ![Voer uw query][8]
+   ![Voer uw query][8]
 
 4. Selecteer **OK**.
 
@@ -104,19 +104,19 @@ Als de rij van de werkruimte:
 1. Selecteer een werkruimte die **moet worden bijgewerkt**.
 2. **Upgrade zoeken** wordt geopend. Selecteer **nu een upgrade uitvoeren**.
 
-  ![Nu upgraden][10]
+   ![Nu upgraden][10]
 
 ## <a name="upgrade-to-security-centers-standard-tier"></a>Een upgrade uitvoert naar Standard-laag van Security Center
 1. Selecteer een werkruimte met **UPGRADE abonnement**.
 2. **Gebeurtenissendashboard** wordt geopend. Selecteer **gebeurtenissendashboard proberen**.
 
-  ![Probeer het dashboard][11]
+   ![Probeer het dashboard][11]
 
 3. Onder **Onboarding naar geavanceerde beveiliging**, selecteer de werkruimte die u wilt bijwerken.
 4. Onder **prijzen**, selecteer **Standard**.
 5. Selecteer **Opslaan**.
 
-  ![Een upgrade uitvoert naar Standard-laag][12]
+   ![Een upgrade uitvoert naar Standard-laag][12]
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe u Event-dashboard van Security Center bevinden. Zie voor meer informatie over de werking van het dashboard en het schrijven van uw eigen query's van gebeurtenis:

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
-ms.openlocfilehash: 4f72def4d81f51fcf1bedbeb83798b16ebb6eb32
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888658"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123042"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Zelfstudie: gegevensanomalieën binnen in realtime naar Azure Event Hubs verzonden gebeurtenissen visualiseren
 
@@ -328,10 +328,10 @@ Klik in de Stream Analytics-taak op **Start**, vervolgens op **Nu**  en daarna o
     > Wanneer u de voorbeeldtoepassing uitvoert en gegevens naar de hub van het evenement streamt, verandert het nummer op deze tegel snel (elke seconde). Dat komt doordat de Stream Analytics-query de waarde **elke seconde** bijwerkt. Update de query naar een tumblingvenster van 3 minuten om het totaal van de laatste minuten te zien. 
 11. Voeg nog een visualisatie toe. Herhaal de eerste paar stappen:
 
-   * Klik op **Tegel toevoegen**.
-   * Selecteer **Aangepaste streaminggegevens**. 
-   * Klik op **Volgende**.
-   * Selecteer uw gegevensset en klik op **Volgende**. 
+    * Klik op **Tegel toevoegen**.
+    * Selecteer **Aangepaste streaminggegevens**. 
+    * Klik op **Volgende**.
+    * Selecteer uw gegevensset en klik op **Volgende**. 
 
 12. Selecteer onder **Type visualisatie** de optie **Lijndiagram**.
 

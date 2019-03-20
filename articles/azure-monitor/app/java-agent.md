@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: b7710b081668bf07d40718baf1d84314246861f5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412392"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004046"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Afhankelijkheden, uitzonderingen onderschept en methode uitvoertijd in Java-web-apps bewaken
 
@@ -73,7 +73,6 @@ Hiermee stelt u de inhoud van het xml-bestand. Het volgende voorbeeld als u wilt
                reportCaughtExceptions="true"
                reportExecutionTime="true"
                />
-
            <!-- Report on the particular signature
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
@@ -90,12 +89,26 @@ U moet inschakelen rapporten uitzondering en de timing van de methode voor de af
 
 Standaard `reportExecutionTime` is ingesteld op true en `reportCaughtExceptions` is ingesteld op false.
 
-### <a name="spring-boot-agent-additional-config"></a>Spring Boot-Agent aanvullende configuratie
+## <a name="additional-config-spring-boot"></a>Aanvullende configuratie (Spring Boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
+Voor Azure App Services het volgende doen:
+
+* Selecteer Instellingen > Toepassingsinstellingen
+* Voeg een nieuw sleutelwaardepaar toe bij App-instellingen:
+
+Sleutel: `JAVA_OPTS` Waarde: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
+
+Controleer de versies voor de meest recente versie van de Java-agent [hier](https://github.com/Microsoft/ApplicationInsights-Java/releases
+). 
+
+De agent moet worden verpakt als een resource in uw project, zodat het einde van in de map D:/home/site/wwwroot/map. U kunt bevestigen dat de agent zich in de juiste App Service-map door te gaan naar **ontwikkeltools** > **geavanceerde hulpmiddelen** > **Foutopsporingsconsole**en onderzoek van de inhoud van de map van de site.    
+
+* Sla de instellingen op en start de app opnieuw. (Deze stappen alleen van toepassing op App-Services die worden uitgevoerd op Windows.)
+
 > [!NOTE]
-> AI-Agent.xml en de agent jar-bestand moeten zich in dezelfde map. Ze worden vaak samen geplaatst de `/resources` map van het project. 
+> AI-Agent.xml en de agent jar-bestand moeten zich in dezelfde map. Ze worden vaak samen geplaatst de `/resources` map van het project.  
 
 ### <a name="spring-rest-template"></a>Spring Rest-sjabloon
 

@@ -9,15 +9,15 @@ ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f701642c76446049ad2868ae59a03370e798b6a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453683"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014913"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>De elementen van de B2B-samenwerking uitnodigingse-mail - Azure Active Directory
 
@@ -32,7 +32,7 @@ We kijken naar enkele elementen van het e-mailbericht, zodat u hoe het beste wee
 Het onderwerp van het e-mailbericht heeft het volgende patroon: U bent uitgenodigd voor de &lt;tenantname&gt; organisatie
 
 ### <a name="from-address"></a>Van adres
-We gebruiken een LinkedIn-patroon voor het adres van de afzender.  U moet wissen die de afzender van de uitnodiging is en waaruit de bedrijfsportal, en ook verduidelijken dat de e-mail afkomstig is van een Microsoft e-mailadres. De indeling is: &lt;Weergavenaam van de afzender van de uitnodiging&gt; van &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
+We gebruiken een LinkedIn-patroon voor het adres van de afzender.  U moet wissen die de afzender van de uitnodiging is en waaruit de bedrijfsportal, en ook verduidelijken dat de e-mail afkomstig is van een Microsoft e-mailadres. De indeling is: Microsoft Invitations <invites@microsoft.com> of &lt;weergavenaam op van de afzender van de uitnodiging&gt; van &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
 
 ### <a name="reply-to"></a>Antwoorden op
 Het antwoordadres e-mailbericht is ingesteld op van de afzender van de uitnodiging e indien beschikbaar, zodat u het e-mailbericht beantwoordt een e-mailbericht naar de afzender van de uitnodiging verzendt.
@@ -56,8 +56,12 @@ Als u uw eigen profielfoto nog hebt ingesteld, ziet u een pictogram met de initi
 ### <a name="body"></a>Hoofdtekst
 De hoofdtekst bevat het bericht dat de afzender van de uitnodiging stelt wanneer bericht [uitnodigen van een gastgebruiker naar de directory, groep of app](add-users-administrator.md) of [met behulp van de uitnodiging API](customize-invitation-api.md). Dit is een tekstgebied zodat HTML-codes uit veiligheidsoverwegingen worden niet verwerkt.
 
+  ![afbeelding van de hoofdtekst van e-mail](media/invitation-email-elements/invitation-email-body.png)
+
 ### <a name="footer-section"></a>Voettekst
-De voettekst bevat de huisstijl van het Microsoft-bedrijf en kan de geadresseerde weten als het e-mailbericht is verzonden vanaf een niet-gecontroleerde alias. Speciale gevallen:
+De voettekst bevat de huisstijl van het Microsoft-bedrijf en kan de geadresseerde weten als het e-mailbericht is verzonden vanaf een niet-gecontroleerde alias. 
+
+Speciale gevallen:
 
 - De afzender van de uitnodiging geen een e-mailadres in de uitnodigende tenancy
 

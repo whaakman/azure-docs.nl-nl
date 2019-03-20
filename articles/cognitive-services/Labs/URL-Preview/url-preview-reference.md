@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: da23d8037f37174826a2b9662c39bb507367a6ae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537804"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104706"
 ---
 # <a name="project-url-preview-v7-reference"></a>Naslaggids voor project URL-voorbeeld voor Bing versie 7
 
@@ -56,7 +56,7 @@ Zie voor meer informatie over het toegestane gebruik en weergave van resultaten 
 > Sommige aanvraagheaders die relevant zijn voor andere search API's zijn niet van invloed op URL-voorbeeld
 > - Pragma – de oproepende functie heeft geen controle over of URL-voorbeeld maakt gebruik van cache
 > - Gebruikersagent – voorlopig Url Preview-API biedt geen verschillende reacties voor aanroepen afkomstig van pc's, Laptop of Mobile.
-
+> 
 > Bovendien sommige parameters zijn niet op dit moment zinvol is voor de Preview-API-URL, maar kunnen worden gebruikt in de toekomst bevindt voor verbeterde globalisatie.
 
 ## <a name="headers"></a>Headers

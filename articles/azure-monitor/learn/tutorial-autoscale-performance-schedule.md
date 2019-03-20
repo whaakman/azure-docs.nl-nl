@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 9c8803ff73b3e70c19a409ef6c1e072b5f7c8b53
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 44fecf47ccd1ce07c7e51f7bcf51ef7823f2cf97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734265"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088346"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Een instelling maken voor automatisch schalen van Azure-resources op basis van prestatiegegevens of een planning
 
@@ -60,7 +60,7 @@ De volgende stappen helpen u met het invullen van het scherm Automatisch schalen
 2. In het standaardprofiel zorgt u ervoor dat de **Schaalmodus** is ingesteld op 'Schalen naar een specifiek aantal instanties'.
 3. Stel het aantal instanties in op **1**. Deze instelling zorgt ervoor dat, wanneer er geen ander profiel actief is, of in feite in het standaardprofiel is geselecteerd, het aantal instanties op 1 wordt gezet.
 
-  ![Navigeer naar de instellingen voor Automatisch schalen](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![Navigeer naar de instellingen voor Automatisch schalen](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>Terugkeerpatroonprofiel maken

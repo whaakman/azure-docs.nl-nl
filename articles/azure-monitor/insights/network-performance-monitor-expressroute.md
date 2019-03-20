@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d0819b57307fc037b3be6ab04ed9ec6c8720a618
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747455"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103584"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute-bewaking
 
@@ -55,7 +55,7 @@ Zie voor meer informatie over nsg's [Netwerkbeveiligingsgroepen](../../virtual
 
     ![Configuratie van ExpressRoute](media/network-performance-monitor-expressroute/expressroute-configure.png)
  
- Nadat de detectie voltooid is, worden de gedetecteerde privé-peeringverbindingen in een tabel weergegeven. De bewaking voor deze peerings is in eerste instantie een uitgeschakelde status. 
+   Nadat de detectie voltooid is, worden de gedetecteerde privé-peeringverbindingen in een tabel weergegeven. De bewaking voor deze peerings is in eerste instantie een uitgeschakelde status. 
 
 ### <a name="enable-monitoring-of-the-expressroute-peering-connections"></a>Schakel de bewaking van de ExpressRoute-peering-verbindingen 
 

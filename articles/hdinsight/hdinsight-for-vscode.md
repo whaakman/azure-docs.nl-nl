@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight-Tools - Visual Studio Code gebruiken voor Hive, LLAP of PySpark | Microsoft Docs
 description: Informatie over het gebruik van de Azure HDInsight Tools voor Visual Studio Code maken en verzenden van query's en scripts.
-Keywords: Visual Studio Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
+Keywords: Visual Studio Code, Azure HDInsight-hulpprogramma's, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, Interactive Query
 services: HDInsight
 documentationcenter: ''
 author: hrasheed-msft
@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 3301f3cdea1795db3b17bc2fa7da05bf362c744d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 71e12e661c704af028ac4dc48f255bdee980619c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100323"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight-hulpprogramma's voor Visual Studio Code gebruiken
 
@@ -81,7 +81,7 @@ Voordat u scripts naar HDInsight-clusters vanuit Visual Studio Code verzendt kun
 
         ![Meld u instructies voor de andere omgeving](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
- Nadat u verbonden bent, wordt de naam van uw Azure-account wordt weergegeven op de statusbalk in de linkerbenedenhoek van het venster Visual Studio Code.  
+   Nadat u verbonden bent, wordt de naam van uw Azure-account wordt weergegeven op de statusbalk in de linkerbenedenhoek van het venster Visual Studio Code.  
   
 
 <h2 id="linkcluster">Koppeling maken: Azure HDInsight</h2>
@@ -334,7 +334,7 @@ Een bestand verzendt, ziet u dat de map .vscode wordt automatisch toegevoegd aan
     | id | De sessie-id | int | 
     | appId | De toepassings-id van deze sessie |  String |
     | appInfo | De gedetailleerde toepassingsinfo | Kaart van sleutel = val |
-    | log | De regels van het logboek | lijst met tekenreeksen |
+    | logboek | De regels van het logboek | lijst met tekenreeksen |
     | state |   De batch-status | string |
 
 >[!NOTE]

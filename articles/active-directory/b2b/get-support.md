@@ -11,31 +11,31 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d64e1ec4dcf2103c7635b69510f818480d83a6d6
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: b0ab999e2b2a8465b110874cca3d478c60c18099
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673627"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091134"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Ondersteuning krijgen voor B2B-samenwerking
 
 U hebt gelezen door de documentatie, u hebt de juiste dingen gedaan, maar lukt het niet om iets te werken? Open een ondersteuningsticket (een ondersteuningsplan vereist):
 
 1. In [de Azure-portal](https://portal.azure.com), gaat u naar de blade Help en ondersteuning, en selecteer nieuwe ondersteuningsaanvraag:
-  - Type probleem: Technisch
-  - Abonnement: Betrokken abonnement kiezen
-    - Service: Active Directory
-    - Ondersteuningsplan: Relevante ondersteuningsplan kiezen
+   - Type probleem: Technisch
+   - Abonnement: Betrokken abonnement kiezen
+     - Service: Active Directory
+     - Ondersteuningsplan: Relevante ondersteuningsplan kiezen
 
-  ![Nieuwe ondersteuningsaanvraag](media/get-support/new-support-request.png)
+   ![Nieuwe ondersteuningsaanvraag](media/get-support/new-support-request.png)
 
 2. Beschrijving van uw probleem:
-  - Kies de juiste ernst die u aangeeft moet.
-  - Kies probleemtype als gebruikers- en groepsbeheer
-  - Kies de categorie toe te voegen gebruikers (B2B)
-  - Eventuele foutberichten zoals CorrelationID en betrokken gebruikers bevatten.
+   - Kies de juiste ernst die u aangeeft moet.
+   - Kies probleemtype als gebruikers- en groepsbeheer
+   - Kies de categorie toe te voegen gebruikers (B2B)
+   - Eventuele foutberichten zoals CorrelationID en betrokken gebruikers bevatten.
 
-  ![ondersteuning voor beschrijving van het probleem ticket](media/get-support/problem-description.png)
+   ![ondersteuning voor beschrijving van het probleem ticket](media/get-support/problem-description.png)
 
 3. Voor een ondersteuningsmedewerker voor meer informatie contact met u, uw contactgegevens toevoegen.

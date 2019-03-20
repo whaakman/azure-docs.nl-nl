@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 2f5f57f0978adbdf33ed4ce25ba9b32247ea0484
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: dcfb50c58f1205a5ab31c3fc6b9b22fdb503e4ec
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455973"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588955"
 ---
 # <a name="what-is-the-azure-face-api"></a>Wat is de Azure Face-API?
 
@@ -26,12 +26,12 @@ De Face-API biedt verschillende functies die elk in de volgende secties worden b
 
 De Face APi is in staat om menselijke gezichten te detecteren op een afbeelding en de locatiecoördinaten van de gezichtsrechthoek te retourneren. Gezichtsdetectie kan een reeks gezichtsgerelateerde kenmerken extraheren (optioneel), zoals houding, hoofdhouding, geslacht, leeftijd, emotie, gezichtshaar en bril.
 
+> [!NOTE] 
+> De gezichtsdetectiefunctie is ook beschikbaar via de [Computer Vision-API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), maar als u meer bewerkingen wilt uitvoeren met gezichtsgegevens, moet u de Face-API (deze service) gebruiken.
+
 ![Een afbeelding van een vrouw en een man met rechthoeken getekend rond de gezichten, en de leeftijd en het geslacht weergegeven](./Images/Face.detection.jpg)
 
-> [!NOTE] 
-> De gezichtsdetectiefunctie is ook beschikbaar via de [Computer Vision-API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), maar als u meer bewerkingen wilt uitvoeren met gezichtsgegevens, moet u de Face-API (deze service) gebruiken. 
-
-Zie de [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor meer informatie over gezichtsdetectie.
+Zie voor meer informatie over gezichtsdetectie, de [Gezichtsdetectie gebruiksaanwijzing](face-api-how-to-topics/howtodetectfacesinimage.md), of blader de [API detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) verwijzen naar documentatie.
 
 ## <a name="face-verification"></a>Gezichtsverificatie
 

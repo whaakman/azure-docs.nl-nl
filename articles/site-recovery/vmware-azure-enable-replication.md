@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 3/6/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 26b0370af900e1c29bf11606339487cf27f88039
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 41ff32f840b7a0e9e5fa5d8f7bf25a93fa679955
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533422"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098692"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Schakel replicatie naar Azure voor VMware-VM 's
 
@@ -72,7 +72,7 @@ Bij het repliceren van virtuele VMware-machines:
 12. Schakel **Multi-VM-consistentie** als u wilt verzamelen van computers in een replicatiegroep. Geef een naam voor de groep en klik vervolgens op **OK**. 
 
     > [!NOTE]
-
+    > 
     >    * Machines in een replicatiegroep tegelijkertijd gerepliceerd en gedeelde crash-consistente en app-consistente herstelpunten bij failover.
     >    * Verzamelen van virtuele machines en fysieke servers samen zodat ze uw workloads. Inschakelen van multi-VM-consistentie kan invloed hebben op prestaties van de werkbelastingen. Gebruik alleen als machines dezelfde werkbelasting worden uitgevoerd en u consistentie.
 
@@ -87,17 +87,17 @@ Vervolgens maakt controleren u de eigenschappen van de bronmachine. Houd er reke
 1. Klik op **instellingen** > **gerepliceerde items** >, en selecteer vervolgens de machine. De **Essentials** pagina geeft informatie weer over de machine-instellingen en status.
 2. In **Eigenschappen** kunt u de replicatie- en failoverinformatie van de virtuele machine weergeven.
 3. In **berekening en netwerk** > **Rekeneigenschappen**, kunt u meerdere VM-propoerties wijzigen:
-    * Virtuele Azure-machine name - de naam om te voldoen aan vereisten voor Azure, indien nodig wijzigen
-    * Doel-VM-grootte of VM-type - standaard VM-grootte wordt gekozen op basis van de bron-VM-grootte. U kunt een andere VM-grootte op basis van de behoeften van elk gewenst moment voordat de failover selecteren. Houd er rekening mee dat de grootte van de VM-schijf is ook gebaseerd op de grootte van de bronschijf en deze alleen gewijzigd na failover worden kan. Meer informatie over schijven en IOPS in onze [schaalbaarheidsdoelen voor schijven](../virtual-machines/windows/disk-scalability-targets.md) artikel.
+   * Virtuele Azure-machine name - de naam om te voldoen aan vereisten voor Azure, indien nodig wijzigen
+   * Doel-VM-grootte of VM-type - standaard VM-grootte wordt gekozen op basis van de bron-VM-grootte. U kunt een andere VM-grootte op basis van de behoeften van elk gewenst moment voordat de failover selecteren. Houd er rekening mee dat de grootte van de VM-schijf is ook gebaseerd op de grootte van de bronschijf en deze alleen gewijzigd na failover worden kan. Meer informatie over schijven en IOPS in onze [schaalbaarheidsdoelen voor schijven](../virtual-machines/windows/disk-scalability-targets.md) artikel.
 
-    ![COMPUTE en netwerk-eigenschappen](./media/vmware-azure-enable-replication/vmproperties.png)
+     ![COMPUTE en netwerk-eigenschappen](./media/vmware-azure-enable-replication/vmproperties.png)
 
-    *  Resource-Group - kunt u een [resourcegroep](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) uit die een virtuele machine deel uit van een post-failover maakt. U kunt deze instelling op elk gewenst moment voordat de failover. Na een failover, als u de machine naar een andere resourcegroep, de beveiligingsinstellingen voor het einde van deze machine migreert.
-    * Beschikbaarheidsset - kunt u een [beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) als uw computer moet deel uitmaken van een post-failover. Terwijl u een beschikbaarheidsset selecteren, houd er rekening mee dat:
+   * Resource-Group - kunt u een [resourcegroep](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) uit die een virtuele machine deel uit van een post-failover maakt. U kunt deze instelling op elk gewenst moment voordat de failover. Na een failover, als u de machine naar een andere resourcegroep, de beveiligingsinstellingen voor het einde van deze machine migreert.
+   * Beschikbaarheidsset - kunt u een [beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) als uw computer moet deel uitmaken van een post-failover. Terwijl u een beschikbaarheidsset selecteren, houd er rekening mee dat:
 
-        * Alleen beschikbaarheidssets die behoren tot de opgegeven resourcegroep worden weergegeven.  
-        * Machines met verschillende virtuele netwerken mag niet een deel van dezelfde beschikbaarheidsset.
-        * Alleen virtuele machines van dezelfde grootte kunnen een deel uitmaken van een beschikbaarheidsset.
+       * Alleen beschikbaarheidssets die behoren tot de opgegeven resourcegroep worden weergegeven.  
+       * Machines met verschillende virtuele netwerken mag niet een deel van dezelfde beschikbaarheidsset.
+       * Alleen virtuele machines van dezelfde grootte kunnen een deel uitmaken van een beschikbaarheidsset.
 4. U kunt ook bekijken en informatie over het doelnetwerk, het subnet en het IP-adres toegewezen aan de Azure VM toevoegen.
 5. In **schijven**, ziet u het besturingssysteem en gegevensschijven op de virtuele machine worden gerepliceerd.
 

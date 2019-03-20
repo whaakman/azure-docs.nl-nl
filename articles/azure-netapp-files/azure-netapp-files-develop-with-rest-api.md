@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: b-juche
-ms.openlocfilehash: b67f7a613cd72e7a69b40741d971382276a38334
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 56667b9a47411b2abae30ff159fa6bc555fec070
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768056"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104621"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Ontwikkelen voor Azure NetApp-bestanden met de REST-API 
 
@@ -29,23 +29,23 @@ De REST-API voor de service Azure NetApp Files definieert HTTP-bewerkingen op re
 
 1. [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) als u nog niet hebt gedaan.
 2. Maak een service-principal in uw Azure Active Directory (Azure AD):
-    1. Controleer of u [voldoende machtigingen](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+   1. Controleer of u [voldoende machtigingen](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-    1. Voer de volgende opdracht in Azure CLI in:  
+   1. Voer de volgende opdracht in Azure CLI in:  
 
-            az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
+           az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
 
-    Uitvoer van de opdracht is vergelijkbaar met het volgende voorbeeld:  
+      Uitvoer van de opdracht is vergelijkbaar met het volgende voorbeeld:  
 
-            { 
-                "appId": "appIDgoeshere", 
-                "displayName": "APPNAME", 
-                "name": "http://APPNAME", 
-                "password": "supersecretpassword", 
-                "tenant": "tenantIDgoeshere" 
-            } 
+           { 
+               "appId": "appIDgoeshere", 
+               "displayName": "APPNAME", 
+               "name": "http://APPNAME", 
+               "password": "supersecretpassword", 
+               "tenant": "tenantIDgoeshere" 
+           } 
 
-    Houd de uitvoer van de opdracht.  U moet de `appId`, `password`, en `tenant` waarden. 
+      Houd de uitvoer van de opdracht.  U moet de `appId`, `password`, en `tenant` waarden. 
 
 3. Een OAuth-toegangstoken aanvragen:
 

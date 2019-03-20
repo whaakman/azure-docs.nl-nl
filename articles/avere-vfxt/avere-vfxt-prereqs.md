@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0fedfdbb04dd7aa3ff077c13653a22ed710aff9f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 5642f3acd108d0d3f504fc132522936d1b5ab870
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405314"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082582"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Voorbereiden op het maken van de Avere vFXT
 
@@ -173,7 +173,7 @@ Het storage-service-eindpunt van de Azure-portal maken.
 1. De service als ``Microsoft.Storage`` en kies subnet van het cluster.
 1. Klik onderaan op **toevoegen**.
 
-  ![Schermafbeelding van Azure portal met aantekeningen voor de stappen voor het maken van het service-eindpunt](media/avere-vfxt-service-endpoint.png)
+   ![Schermafbeelding van Azure portal met aantekeningen voor de stappen voor het maken van het service-eindpunt](media/avere-vfxt-service-endpoint.png)
 
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Volgende stap: Maken van het cluster vFXT

@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: e12ca7561181412318fa594093b047cd95e4e6bc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448030"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894390"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Ondersteuningsmatrix voor de back-up met de Microsoft Azure Recovery Services agent (MARS)
 
@@ -26,9 +26,7 @@ Azure Backup gebruikt de MARS-agent om back-ups van on-premises machines en virt
 - Uitgevoerd op Windows-VM's zodat ze kunnen back-up rechtstreeks naar een kluis.
 - Uitgevoerd op Microsoft Azure Backup-Server (MABS) of een server met System Center Data Protection Manager (DPM). In dit scenario back computers en werkbelastingen-up naar MABS of naar de DPM-server. De MARS-agent en de back-up van deze server naar een kluis in Azure. 
 
-Uw back-upopties, is afhankelijk van de waarop de agent is geïnstalleerd. Zie voor meer informatie, [Azure Backup-architectuur met behulp van de MARS-agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders). Zie voor meer informatie over de architectuur van MABS en DPM back-up [back-up op de DPM- of MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Zie ook [vereisten](backup-support-matrix-mabs-dpm.md) voor de back-architectuur.
-
-## <a name="supported-installations"></a>Ondersteunde installaties
+Uw back-upopties, is afhankelijk van de waarop de agent is geïnstalleerd. Zie voor meer informatie, [Azure Backup-architectuur met behulp van de MARS-agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Zie voor meer informatie over de architectuur van MABS en DPM back-up [back-up op de DPM- of MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Zie ook [vereisten](backup-support-matrix-mabs-dpm.md) voor de back-architectuur.
 
 **Installatie** | **Details**
 --- | ---
@@ -139,14 +137,12 @@ Azure Backup ondersteunt *offline seeding* om over te dragen van eerste back-upg
 
 Offline back-up kan niet worden gebruikt voor systeemstatusbestanden.
 
-
 ## <a name="support-for-data-restoration"></a>Ondersteuning voor gegevens worden hersteld
 
 Met behulp van de [direct herstellen](backup-instant-restore-capability.md) functie van Azure Backup, kunt u gegevens terugzetten voordat deze wordt gekopieerd naar de kluis. De computer die u een back-up moet worden uitgevoerd op .NET Framework 4.5.2 of hoger.
 
 Back-ups kunnen niet worden hersteld naar een doel-VM die een eerdere versie van het besturingssysteem wordt uitgevoerd. Bijvoorbeeld, kan een back-up van een computer met Windows 7 worden hersteld op Windows 8 of hoger. Maar een back-up van een computer met Windows 8 kan niet worden hersteld op een computer waarop Windows 7 wordt uitgevoerd.
 
-
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [back-up van de architectuur die gebruikmaakt van de MARS-agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders).
+- Meer informatie over [back-up van de architectuur die gebruikmaakt van de MARS-agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 - Informatie over wat er is ondersteund wanneer u [de MARS-agent worden uitgevoerd op MABS of een DPM-server](backup-support-matrix-mabs-dpm.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 9b36332382de1317e386af59695f993efb233e79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428634"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108440"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric-clusterbeveiligingsscenario 's
 Een Azure Service Fabric-cluster is een resource waarvan u eigenaar bent. Het is uw verantwoordelijkheid voor het beveiligen van uw clusters om te voorkomen dat onbevoegde gebruikers verbinding maken met deze. Een beveiligd cluster is vooral belangrijk wanneer u bij het uitvoeren van productieworkloads op het cluster. Hoewel het mogelijk te maken van een niet-beveiligd cluster als-beheereindpunten met het openbare internet wordt aangegeven dat het cluster, anonieme gebruikers verbinding mee kunnen maken. Niet-beveiligde clusters worden niet ondersteund voor productieworkloads. 
@@ -66,16 +66,16 @@ Zie voor meer informatie over het instellen van de Certificaatbeveiliging in een
 Zie voor meer informatie over het instellen van de Certificaatbeveiliging in een cluster voor een zelfstandige Windows Server-cluster, [een zelfstandige cluster beveiligen op Windows met behulp van X.509-certificaten](service-fabric-windows-cluster-x509-security.md).
 
 ### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Client-naar-knooppunt Azure Active Directory-beveiliging op Azure
-Azure AD kan organisaties (bekend als tenants) voor het beheren van toegang tot toepassingen. Toepassingen worden onderverdeeld in die een webgebaseerde UI voor aanmelden en die met een systeemeigen client-ervaring. Als u nog geen een tenant hebt gemaakt, starten door te lezen [hoe u een Azure Active Directory-tenant verkrijgen][active-directory-howto-tenant].
+Azure Active Directory maakt het beheren van toegang tot toepassingen door organisaties (bekend als tenants) mogelijk. Toepassingen worden onderverdeeld in die een webgebaseerde UI voor aanmelden en die met een systeemeigen client-ervaring. Als u nog geen een tenant hebt gemaakt, starten door te lezen [hoe u een Azure Active Directory-tenant verkrijgen][active-directory-howto-tenant].
 
 Een Service Fabric-cluster biedt verschillende toegangspunten bij de management-functionaliteit, met inbegrip van de webconsole [Service Fabric Explorer] [ service-fabric-visualizing-your-cluster] en [Visual Studio] [ service-fabric-manage-application-in-visual-studio]. Als gevolg hiervan, maakt u twee Azure AD-toepassingen voor het beheren van toegang tot het cluster, een webtoepassing en een systeemeigen toepassing.
 
 Voor clusters die worden uitgevoerd op Azure kunt kunt u ook beveiligen de toegang tot eindpunten voor beheer met behulp van Azure Active Directory (Azure AD). Voor meer informatie over het maken van de vereiste Azure AD-artefacten en hoe u deze invullen bij het maken van het cluster, Zie [instellen van Azure AD om clients te verifiëren](service-fabric-cluster-creation-setup-aad.md).
 
 ## <a name="security-recommendations"></a>Aanbevelingen voor beveiliging
-Voor Service Fabric-clusters die zijn geïmplementeerd in een openbaar netwerk die wordt gehost op Azure, is de aanbeveling voor wederzijdse verificatie van client-naar-knooppunt:
+Voor Service Fabric-clusters die zijn geïmplementeerd in een openbaar netwerk dat wordt gehost op Azure, is de aanbeveling voor wederzijdse verificatie van client-naar-knooppunt:
 *   Azure Active Directory gebruiken voor de identiteit van de client
-*   Een certificaat voor de identiteit van server- en SSL-codering van http-communicatie
+*   Een certificaat voor de identiteit van de server en SSL-codering van HTTP-communicatie
 
 Voor Service Fabric-clusters die zijn geïmplementeerd in een openbaar netwerk die wordt gehost op Azure, is de aanbeveling voor de beveiliging van knooppunt-naar-knooppunt knooppunten verifiëren met een clustercertificaat. 
 
@@ -112,7 +112,7 @@ Het certificaat moet voldoen aan de volgende vereisten:
 
 Aantal andere zaken te overwegen:
 
-* De **onderwerp** veld meerdere waarden kan hebben. Elke waarde wordt voorafgegaan door een initialisatie om aan te geven van het type. De initialisatie is meestal **CN** (voor *algemene naam*), bijvoorbeeld **CN = www.contoso.com**. 
+* De **onderwerp** veld meerdere waarden kan hebben. Elke waarde wordt voorafgegaan door een initialisatie om aan te geven van het type. De initialisatie is meestal **CN** (voor *algemene naam*), bijvoorbeeld **CN = www\.contoso.com**. 
 * De **onderwerp** veld mag leeg zijn. 
 * Als de optionele **alternatieve naam voor onderwerp** veld wordt ingevuld, moet de algemene naam van het certificaat en één vermelding per SAN hebben. Deze worden ingevoerd als **DNS-naam** waarden. Zie voor informatie over het genereren van certificaten met SAN's, [een alternatieve naam voor onderwerp toevoegen aan een certificaat voor secure LDAP](https://support.microsoft.com/kb/931351).
 * De waarde van de **beoogde doeleinden** veld van het certificaat moet een geschikte waarde, zoals bevatten **serververificatie** of **clientverificatie**.

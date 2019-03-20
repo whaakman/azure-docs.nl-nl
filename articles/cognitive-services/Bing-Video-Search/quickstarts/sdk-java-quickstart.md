@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: ff214a545023364b09a0e757462a1b3f3d963d44
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d421abf0a3cc402cf8d040363dfe79b07b66bf95
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885018"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105706"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Quickstart: Video's zoeken met de Bing Video Search-SDK voor Java
 
@@ -41,7 +41,7 @@ Installeer de afhankelijkheden van Bing Video Search SDK met Maven, Gradle of ee
   </dependencies> 
 ```
 
-## <a name="create-and-initalize-a-project"></a>Een project maken en initialiseren
+## <a name="create-and-initialize-a-project"></a>Een project maken en initialiseren
 
 
 Maak een nieuw Java-project in uw favoriete IDE of editor en importeer de volgende bibliotheken.
@@ -61,7 +61,7 @@ Maak een nieuw Java-project in uw favoriete IDE of editor en importeer de volgen
 
 ## <a name="create-a-search-client"></a>Een zoekclient maken
 
-2. Implementeer de client `VideoSearchAPIImpl`, die uw API-eindpunt en een exemplaar van de klasse `ServiceClientCredentials` vereist.
+1. Implementeer de client `VideoSearchAPIImpl`, die uw API-eindpunt en een exemplaar van de klasse `ServiceClientCredentials` vereist.
 
     ```java
     public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
@@ -115,7 +115,7 @@ Maak een nieuw Java-project in uw favoriete IDE of editor en importeer de volgen
         //...
         ```
 
-## <a name="send-a-search-request-and-recieve-the-response"></a>Een zoekopdracht verzenden en het antwoord ontvangen 
+## <a name="send-a-search-request-and-receive-the-response"></a>Een zoekaanvraag verzendt en ontvangt van het antwoord 
 
 1. Maak een functie met de naam `VideoSearch()` die uw abonnementssleutel als een tekenreeks neemt. Instantieer de zoekclient die eerder is gemaakt.
     

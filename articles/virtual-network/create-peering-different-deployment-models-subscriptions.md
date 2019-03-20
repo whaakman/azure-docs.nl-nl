@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: cd0493d4fd126175acafce050394e65a47e9bda9
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: c9247b37e1e475892a1561c5667dc25275f67327
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104111"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Maak een virtueel-netwerkpeering - verschillende implementatiemodellen en -abonnementen
 
@@ -60,7 +60,7 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
 10. Meld u af bij de portal aan als UserA en meld u aan als UserB.
 11. Klik op **+ nieuw**, type *virtueel netwerk* in de **Marketplace doorzoeken** vak en klik vervolgens op **virtueel netwerk** in de lijst met zoekresultaten.
 12. In de **Virtueelnetwerk** blade die wordt weergegeven, selecteer **klassieke** in de **een implementatiemodel selecteren** vak en klik vervolgens op **maken**.
-13.   Voer de volgende waarden in het virtuele netwerk (klassiek) vak maken die wordt weergegeven:
+13. Voer de volgende waarden in het virtuele netwerk (klassiek) vak maken die wordt weergegeven:
 
     - **Name**: *myVnetB*
     - **Adresruimte**: *10.1.0.0/16*

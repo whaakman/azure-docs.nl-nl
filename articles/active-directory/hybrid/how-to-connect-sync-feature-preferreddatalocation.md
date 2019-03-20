@@ -16,12 +16,12 @@ ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe9a10c85efa2f52a04f5c2fab87421a08f0a16
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199796"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118439"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synchronisatie: Gewenste gegevenslocatie voor Office 365-resources configureren
 Het doel van dit onderwerp wordt u stapsgewijs door het kenmerk voor de gewenste gegevenslocatie configureren in Azure Active Directory (Azure AD) Connect-synchronisatie. Wanneer iemand maakt gebruik van meerdere geografische gebieden mogelijkheden in Office 365, gebruikt u dit kenmerk om de geo-locatie van Office 365-gegevens van de gebruiker toe te wijzen. (De voorwaarden *regio* en *geo* door elkaar worden gebruikt.)
@@ -192,8 +192,8 @@ In het algemeen is de volledige synchronisatiecyclus vereist. Dit is omdat u heb
    3. Selecteer in het dialoogvenster **volledige Import**, en selecteer **OK**.
    4. Wacht tot de bewerking is voltooid.
 
-    > [!NOTE]
-    > Als het bronkenmerk al in de lijst met geïmporteerde kenmerken opgenomen is, kunt u de volledige import overslaan op de on-premises Active Directory-Connector. Met andere woorden, hebt u geen op een wijziging aanbrengt tijdens stap 2 eerder in dit artikel.
+      > [!NOTE]
+      > Als het bronkenmerk al in de lijst met geïmporteerde kenmerken opgenomen is, kunt u de volledige import overslaan op de on-premises Active Directory-Connector. Met andere woorden, hebt u geen op een wijziging aanbrengt tijdens stap 2 eerder in dit artikel.
 
 2. Voer **volledige import** op de Azure AD-Connector:
 

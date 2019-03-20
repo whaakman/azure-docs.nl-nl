@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2687a64bfd952888086862d929a3e5869aee5a4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478184"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003439"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Gebruik Azure Container Instances als een Jenkins build-agent
 
@@ -73,7 +73,7 @@ Zie voor meer informatie over Azure Container Instances [over Azure Container In
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-5. Laat de SSH-sessie en tunnel uitgevoerd en gaat u naar http://localhost:8080 in een browser. Plak het eerste beheerderswachtwoord in het vak en selecteer vervolgens **doorgaan**.
+5. Laat de SSH-sessie en tunnel uitgevoerd en gaat u naar `http://localhost:8080` in een browser. Plak het eerste beheerderswachtwoord in het vak en selecteer vervolgens **doorgaan**.
 
    ![Scherm met het selectievakje in voor het beheerderswachtwoord "Jenkins ontgrendelen"](./media/container-instances-jenkins/jenkins-portal-05.png)
 

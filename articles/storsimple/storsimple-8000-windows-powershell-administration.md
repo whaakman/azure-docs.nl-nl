@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 449c65d0ed746664b75bf8775dda695f569b3eb0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228382"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003121"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Windows PowerShell voor StorSimple gebruiken voor het beheren van uw apparaat
 
@@ -47,7 +47,7 @@ U kunt toegang tot de Windows PowerShell voor StorSimple met behulp van een van 
 
 ## <a name="connect-to-windows-powershell-for-storsimple-via-the-device-serial-console"></a>Verbinding maken met Windows PowerShell voor StorSimple via de seriële console van het apparaat
 
-U kunt [download PuTTY](http://www.putty.org/) of vergelijkbare terminalemulatiesoftware verbinding maakt met Windows PowerShell voor StorSimple. U moet PuTTY specifiek voor toegang tot de Microsoft Azure StorSimple-apparaat configureren. De volgende onderwerpen bevatten gedetailleerde stappen over het configureren van PuTTy en maak verbinding met het apparaat. Verschillende menu-opties in de seriële console worden ook beschreven.
+U kunt [download PuTTY](https://www.putty.org/) of vergelijkbare terminalemulatiesoftware verbinding maakt met Windows PowerShell voor StorSimple. U moet PuTTY specifiek voor toegang tot de Microsoft Azure StorSimple-apparaat configureren. De volgende onderwerpen bevatten gedetailleerde stappen over het configureren van PuTTy en maak verbinding met het apparaat. Verschillende menu-opties in de seriële console worden ook beschreven.
 
 ### <a name="putty-settings"></a>Instellingen voor PuTTY
 
@@ -62,7 +62,7 @@ Zorg ervoor dat u de volgende instellingen voor PuTTY gebruiken om te verbinden 
    | --- | --- |
    | BACKSPACE sleutel |Controle-? (127) |
    | Start en End-sleutels |Standard |
-   | Functietoetsen en het toetsenblok |ESC [n ~ |
+   | Functietoetsen en het toetsenblok |ESC[n~ |
    | Initiële status van de cursor sleutels |Normaal |
    | Initiële status van het numerieke toetsenblok |Normaal |
    | Extra toetsenbord-functies inschakelen |CTRL + ALT + wijkt af van AltGr |
@@ -110,8 +110,8 @@ U kunt kiezen uit de volgende instellingen:
    * Updates toepassen
    * Installeren van hotfixes
 
-    > [!NOTE]
-    > Dit is de beste optie als u het beheerderswachtwoord voor het apparaat vergeten bent en kan geen verbinding met behulp van de optie 1 of 2 maken.
+     > [!NOTE]
+     > Dit is de beste optie als u het beheerderswachtwoord voor het apparaat vergeten bent en kan geen verbinding met behulp van de optie 1 of 2 maken.
 
 4. **Taal wijzigen** deze optie kunt u de weergavetaal van de Windows PowerShell-interface wijzigen. De ondersteunde talen zijn Engels, Japans, Russisch, Frans, Zuid-Korea, Spaans, Italiaans, Duits, Chinees en Portugees (Brazilië).
 
@@ -159,7 +159,7 @@ De volgende tabel bevat een overzicht van de algemene beheertaken en complexe we
 
 In Windows PowerShell voor StorSimple is de cmdlet Help beschikbaar. Een actuele versie van deze Help-informatie is ook beschikbaar, die u kunt gebruiken om bij te werken van de Help op uw systeem.
 
-Help-informatie in deze interface is vergelijkbaar met die in Windows PowerShell en de meeste van de Help-gerelateerde cmdlets werkt. U kunt de Help voor Windows PowerShell online vinden in de TechNet Library: [met Windows PowerShell-scripts](https://go.microsoft.com/fwlink/?LinkID=108518).
+Help-informatie in deze interface is vergelijkbaar met die in Windows PowerShell en de meeste van de Help-gerelateerde cmdlets werkt. Help voor Windows PowerShell online vindt u in de TechNet-bibliotheek: [Met Windows PowerShell-scripts](https://go.microsoft.com/fwlink/?LinkID=108518).
 
 Hier volgt een korte beschrijving van de typen van de Help voor deze Windows PowerShell-interface, met inbegrip van de Help-informatie bijwerken.
 

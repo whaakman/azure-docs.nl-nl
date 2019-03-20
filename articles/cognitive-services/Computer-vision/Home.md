@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453049"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432104"
 ---
 # <a name="what-is-computer-vision"></a>Wat is Computer Vision?
 
@@ -28,7 +28,7 @@ U kunt Computer Vision in uw toepassing gebruiken met behulp van een systeemeige
 
 U kunt afbeeldingen analyseren om inzicht te krijgen in de visuele kenmerken en eigenschappen van die afbeeldingen. Alle functies in de onderstaande tabel worden geleverd door de [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API.
 
-| Bewerking | Beschrijving |
+| Bewerking | Description |
 | ------ | ----------- |
 |**[Visuele kenmerken taggen](concept-tagging-images.md)**|Identificeer en tag visuele kenmerken in een afbeelding op basis van een set met duizenden herkenbare objecten, levende wezens, landschappen en acties. Als de tags dubbelzinnig of niet algemeen bekend zijn, worden via de API-reactie tips gegeven om de betekenis van de tag in de context van een bekende situatie te verduidelijken. U kunt tagging niet alleen gebruiken voor het hoofdonderwerp, zoals een persoon op de voorgrond, maar ook voor de omgeving (binnen of buiten), meubels, gereedschap, planten, dieren, accessoires, gadgets en enzovoort.|
 |**[Objecten detecteren](concept-object-detection.md)**| Objectdetectie is vergelijkbaar met het gebruik van tags, maar de API retourneert de coördinaten van de omsluitende box voor elke tag die wordt toegepast. Als een afbeelding bijvoorbeeld een hond, kat en persoon bevat, zal de detectiebewerking deze objecten vermelden, samen met hun coördinaten in de afbeelding. U kunt deze functie gebruiken om verdere relaties tussen de objecten in een afbeelding te verwerken. Ook weet u daardoor wanneer er meerdere exemplaren van dezelfde tag in een afbeelding voorkomen.|
@@ -42,12 +42,11 @@ U kunt afbeeldingen analyseren om inzicht te krijgen in de visuele kenmerken en 
 |**[Een miniatuur genereren](concept-generating-thumbnails.md)**|Analyseer de inhoud van een afbeelding om een geschikte miniatuur voor deze afbeelding te genereren. Computer Vision genereert eerst een miniatuur van hoge kwaliteit, waarna de objecten in de afbeelding worden geanalyseerd om het *interessegebied* te bepalen. Computer Vision past de afbeelding vervolgens aan de vereisten van het interessegebied aan. De gegenereerde miniatuur kan worden weergegeven met een andere hoogte-breedteverhouding dan wordt gebruikt in de oorspronkelijke afbeelding, afhankelijk van uw behoeften.|
 |**[Interessegebied ophalen](concept-generating-thumbnails.md#area-of-interest)**|Analyseer de inhoud van een afbeelding om de coördinaten van het *interessegebied* te retourneren. Deze functie wordt ook gebruikt om een miniatuur te genereren, maar in plaats van de afbeelding bij te snijden retourneert Computer Vision de coördinaten van het omsluitende vak van de regio, zodat de aanroepende toepassing de oorspronkelijke afbeelding naar wens kan wijzigen.|
 
-
 ## <a name="extract-text-from-images"></a>Extraheren van tekst uit afbeeldingen
 
-U kunt Computer Vision gebruiken om [tekst uit een afbeelding met OCR te extraheren](concept-extracting-text-ocr.md) in een tekenstroom die door een machine kan worden gelezen. Via OCR wordt zo nodig de draaiing van de herkende tekst gecorrigeerd en worden de framecoördinaten van elk woord weergegeven. OCR ondersteunt 25 talen en detecteert automatisch de taal van de herkende tekst.
+U kunt de Computer Vision gebruiken om tekst te extraheren uit een afbeelding in een machineleesbare teken stream met [optische tekenherkenning (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Via OCR wordt zo nodig de draaiing van de herkende tekst gecorrigeerd en worden de framecoördinaten van elk woord weergegeven. OCR ondersteunt 25 talen en detecteert automatisch de taal van de herkende tekst.
 
-U kunt ook [gedrukte en handgeschreven tekst](concept-recognizing-text.md) in een afbeelding herkennen. Met Computer Vision kan zowel gedrukte als handgeschreven tekst worden gedetecteerd en geëxtraheerd uit afbeeldingen van verschillende objecten met verschillende oppervlakken en achtergronden, zoals bonnetjes, posters, visitekaartjes, brieven en whiteboards. Momenteel is het herkennen van gedrukte en handgeschreven tekst in preview en is Engels de enige ondersteunde taal. 
+U kunt ook de [lezen API](concept-recognizing-text.md#read-api) voor het extraheren van afdrukken en handgeschreven tekst uit afbeeldingen en tekst maken veel documenten. De lezen-API maakt gebruik van bijgewerkte modellen en werkt voor een verschillende objecten met verschillende oppervlakken en achtergronden, zoals ontvangstbevestigingen voor e-mails, posters, visitekaartjes, letters en whiteboards. Op dit moment de lezen-API is beschikbaar als preview en Engels is de enige ondersteunde taal.
 
 ## <a name="moderate-content-in-images"></a>Beheren van inhoud in afbeeldingen
 

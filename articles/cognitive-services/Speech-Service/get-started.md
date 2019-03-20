@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342674"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103720"
 ---
 # <a name="try-speech-services-for-free"></a>Speech Services gratis uitproberen
 
@@ -87,19 +87,19 @@ Een resource Speech Services (gratis of betaalde laag) toevoegen aan uw Azure-ac
 
 1. Onder **maken**, invoeren:
 
-    * Een naam voor de nieuwe resource. De naam van de kunt u onderscheid maken tussen meerdere abonnementen voor dezelfde service.
-    * Kies het Azure-abonnement waaraan de nieuwe resource is gekoppeld om te bepalen hoe de kosten worden in rekening gebracht.
-    * Kies de regio waarin de resource zal worden gebruikt. De Speech Services is momenteel beschikbaar in regio's Oost-Azië, Noord-Europa en VS-West.
-    * Op een gratis of betaalde prijscategorie kiezen. Klik op **volledige prijsgegevens weergeven** voor volledige informatie over prijzen en gebruik quota's voor elke laag.
-    * Maak een nieuwe resourcegroep voor dit abonnement spraak of het abonnement toewijzen aan een bestaande resourcegroep. Resourcegroepen houdt u uw verschillende Azure-abonnementen ingedeeld.
-    * Voor een gemakkelijke manier toegang tot uw abonnement in de toekomst, selecteert u de **vastmaken aan dashboard** selectievakje.
-    * Selecteer **maken.**
+   * Een naam voor de nieuwe resource. De naam van de kunt u onderscheid maken tussen meerdere abonnementen voor dezelfde service.
+   * Kies het Azure-abonnement waaraan de nieuwe resource is gekoppeld om te bepalen hoe de kosten worden in rekening gebracht.
+   * Kies de regio waarin de resource zal worden gebruikt. De Speech Services is momenteel beschikbaar in regio's Oost-Azië, Noord-Europa en VS-West.
+   * Op een gratis of betaalde prijscategorie kiezen. Klik op **volledige prijsgegevens weergeven** voor volledige informatie over prijzen en gebruik quota's voor elke laag.
+   * Maak een nieuwe resourcegroep voor dit abonnement spraak of het abonnement toewijzen aan een bestaande resourcegroep. Resourcegroepen houdt u uw verschillende Azure-abonnementen ingedeeld.
+   * Voor een gemakkelijke manier toegang tot uw abonnement in de toekomst, selecteert u de **vastmaken aan dashboard** selectievakje.
+   * Selecteer **maken.**
 
-    ![Selecteer de knop maken](media/index/try-speech-api-create-speech4.png)
+     ![Selecteer de knop maken](media/index/try-speech-api-create-speech4.png)
 
-    Het duurt even om te maken en implementeren van uw nieuwe spraak-resource. Selecteer **snelstartgids** voor informatie over de nieuwe resource.
+     Het duurt even om te maken en implementeren van uw nieuwe spraak-resource. Selecteer **snelstartgids** voor informatie over de nieuwe resource.
 
-    ![Snelstartgids-Configuratiescherm](media/index/try-speech-api-create-speech5.png)
+     ![Snelstartgids-Configuratiescherm](media/index/try-speech-api-create-speech5.png)
 
 1. Onder **snelstartgids**, klikt u op de **sleutels** koppeling onder stap 1 om de abonnementssleutels van uw weer te geven. Elk abonnement heeft twee sleutels; u kunt beide sleutels gebruiken in uw toepassing. Selecteer de knop naast elke sleutel te kopiëren naar het Klembord plakken in uw code.
 

@@ -8,18 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
-ms.openlocfilehash: 5ef9d61e880d3252eae2d8ef924ff39a5d2f6acf
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 639ccb2a0680793b50af52dc16c6d06505d5079b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497907"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899533"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Met behulp van PowerShell back-ups implementeren en beheren in Azure voor Data Protection Manager (DPM)-servers
 In dit artikel leest u hoe u PowerShell gebruikt tot het instellen van Azure Backup op een DPM-server en voor het beheren van back-up en herstel.
 
 ## <a name="setting-up-the-powershell-environment"></a>Instellen van de PowerShell-omgeving
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Voordat u PowerShell gebruiken kunt voor het beheren van back-ups van Data Protection Manager naar Azure, moet u de juiste omgeving hebt in PowerShell. Aan het begin van de PowerShell-sessie, zorg ervoor dat u de volgende opdracht voor het importeren van de juiste modules en kunt u goed verwijzen naar de DPM-cmdlets uitvoert:
 
@@ -37,14 +36,10 @@ Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## <a name="setup-and-registration"></a>Installatie en registratie
-Om te beginnen met:
 
-1. [Download de nieuwste versie van PowerShell](https://github.com/Azure/azure-powershell/releases) (minimaal vereiste versie is: 1.0.0)
-2. De Azure Backup-commandlets inschakelen bij het overstappen naar *AzureResourceManager* modus met behulp van de **Switch-AzureMode** commandlet:
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-```
-PS C:\> Switch-AzureMode AzureResourceManager
-```
+Om te beginnen, [download de nieuwste Azure PowerShell](/powershell/azure/install-az-ps).
 
 De volgende installatie en registratie van taken kunnen worden geautomatiseerd met PowerShell:
 
@@ -57,20 +52,20 @@ De volgende installatie en registratie van taken kunnen worden geautomatiseerd m
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 De volgende stappen leiden u bij het maken van een Recovery Services-kluis. Een Recovery Services-kluis is anders dan een back-upkluis.
 
-1. Als u Azure Backup voor de eerste keer gebruikt, moet u de **Register-AzureRMResourceProvider** cmdlet voor het registreren van de Azure Recovery Service-provider met uw abonnement.
+1. Als u Azure Backup voor de eerste keer gebruikt, moet u de **registreren AzResourceProvider** cmdlet voor het registreren van de Azure Recovery Service-provider met uw abonnement.
 
     ```
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 2. De Recovery Services-kluis is een ARM-resource, dus u moet dit binnen een resourcegroep te plaatsen. U kunt een bestaande resourcegroep gebruiken, of een nieuwe maken. Bij het maken van een nieuwe resourcegroep, geef de naam en locatie voor de resourcegroep.  
 
     ```
-    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
+    PS C:\> New-AzResourceGroup –Name "test-rg" –Location "West US"
     ```
-3. Gebruik de **New-AzureRmRecoveryServicesVault** cmdlet voor het maken van een nieuwe kluis. Zorg ervoor dat de dezelfde locatie voor de kluis opgeven dat werd gebruikt voor de resourcegroep.
+3. Gebruik de **New-AzRecoveryServicesVault** cmdlet voor het maken van een nieuwe kluis. Zorg ervoor dat de dezelfde locatie voor de kluis opgeven dat werd gebruikt voor de resourcegroep.
 
     ```
-    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
+    PS C:\> New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 4. Geef het type opslagredundantie moet gebruiken. u kunt [lokaal redundante opslag (LRS)](../storage/common/storage-redundancy-lrs.md) of [geografisch redundante opslag (GRS)](../storage/common/storage-redundancy-grs.md). Het volgende voorbeeld ziet dat de optie - BackupStorageRedundancy voor testVault is ingesteld op GeoRedundant.
 
@@ -80,17 +75,17 @@ De volgende stappen leiden u bij het maken van een Recovery Services-kluis. Een 
    >
 
     ```
-    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
-    PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+    PS C:\> $vault1 = Get-AzRecoveryServicesVault –Name "testVault"
+    PS C:\> Set-AzRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
 ## <a name="view-the-vaults-in-a-subscription"></a>De kluizen in een abonnement weergeven
-Gebruik **Get-AzureRmRecoveryServicesVault** om de lijst met alle kluizen in het huidige abonnement weer te geven. U kunt deze opdracht gebruiken om te controleren of een nieuwe kluis is gemaakt, of om te zien welke kluizen zijn beschikbaar in het abonnement.
+Gebruik **Get-AzRecoveryServicesVault** om de lijst met alle kluizen in het huidige abonnement weer te geven. U kunt deze opdracht gebruiken om te controleren of een nieuwe kluis is gemaakt, of om te zien welke kluizen zijn beschikbaar in het abonnement.
 
-Voert u de opdracht Get-AzureRmRecoveryServicesVault, en alle kluizen in het abonnement worden weergegeven.
+Voert u de opdracht Get-AzRecoveryServicesVault, en alle kluizen in het abonnement worden weergegeven.
 
 ```
-PS C:\> Get-AzureRmRecoveryServicesVault
+PS C:\> Get-AzRecoveryServicesVault
 Name              : Contoso-vault
 ID                : /subscriptions/1234
 Type              : Microsoft.RecoveryServices/vaults
@@ -143,7 +138,7 @@ Nadat u de Recovery Services-kluis gemaakt, de meest recente agent en de kluisre
 
 ```
 PS C:\> $credspath = "C:\downloads"
-PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
+PS C:\> $credsfilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
 PS C:\> $credsfilename
 C:\downloads\testvault\_Sun Apr 10 2016.VaultCredentials
 ```
@@ -252,7 +247,7 @@ De lijst met servers waarop de DPM-Agent is geïnstalleerd en wordt beheerd door
 PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”}
 ```
 
-Nu de lijst met gegevensbronnen ophalen op ```$server``` met behulp van de [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) cmdlet. In dit voorbeeld zijn we filteren op het volume * D:\* die we willen configureren voor back-up. Deze gegevensbron wordt vervolgens toegevoegd aan de beveiligingsgroep toe met behulp van de [toevoegen DPMChildDatasource](https://technet.microsoft.com/library/hh881732) cmdlet. Houd er rekening mee te gebruiken de *kan worden gewijzigd* protection groepsobject ```$MPG``` waarmee de toevoegingen.
+Nu de lijst met gegevensbronnen ophalen op ```$server``` met behulp van de [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) cmdlet. In dit voorbeeld zijn we filteren op het volume *D:\\*  die we willen configureren voor back-up. Deze gegevensbron wordt vervolgens toegevoegd aan de beveiligingsgroep toe met behulp van de [toevoegen DPMChildDatasource](https://technet.microsoft.com/library/hh881732) cmdlet. Houd er rekening mee te gebruiken de *kan worden gewijzigd* protection groepsobject ```$MPG``` waarmee de toevoegingen.
 
 ```
 PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Name -contains “D:\” }

@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: c7c23352cea4f9e79b371f38112fb66ac31ac849
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b3bfc3072f819a92bdceb1721bb7737a3dc04cf8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078853"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>API-versieprofielen gebruiken met Python in Azure Stack
 
@@ -57,8 +57,59 @@ Als u wilt de Azure-SDK voor Python gebruiken met Azure Stack, moet u de volgend
 | Client-id | AZURE_CLIENT_ID | De service principal toepassings-ID opgeslagen bij het service-principal is gemaakt in de vorige sectie van dit artikel. |
 | Abonnements-id | AZURE_SUBSCRIPTION_ID | De [abonnements-ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) is hoe u toegang hebben tot aanbiedingen in Azure Stack. |
 | Clientgeheim | AZURE_CLIENT_SECRET | De service principal toepassingsgeheim opgeslagen wanneer de service-principal is gemaakt. |
-| Resource Manager-eindpunt | ARM_ENDPOINT | Zie de [Azure Stack resource manager-eindpunt](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Resource Manager-eindpunt | ARM_ENDPOINT | Zie de [Azure Stack Resource Manager-eindpunt](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Resourcelocatie | AZURE_RESOURCE_LOCATION | De Resourcelocatie van uw Azure Stack-omgeving.
+
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Vertrouwen van de Azure Stack-CA-basiscertificaat
+
+Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer vertrouwt. U moet niet om dit te doen met de geïntegreerde systemen.
+
+#### <a name="windows"></a>Windows
+
+1. Zoek de python certificaatarchieflocatie op uw computer. De locatie kan variëren, afhankelijk van waar u Python hebt geïnstalleerd. Open een opdrachtprompt of een PowerShell-prompt met verhoogde bevoegdheid en typ de volgende opdracht:
+
+    ```PowerShell  
+      python -c "import certifi; print(certifi.where())"
+    ```
+
+    Maak een notitie van het certificaat locatie opslaan. Bijvoorbeeld, *~/lib/python3.5/site-packages/certifi/cacert.pem*. Het pad voor de desbetreffende, is afhankelijk van uw besturingssysteem en de versie van Python gebruikt die u hebt geïnstalleerd.
+
+2. De Azure Stack-CA-basiscertificaat door deze toe te voegen aan het bestaande Python-certificaat vertrouwen.
+
+    ```powershell
+    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
+
+    $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+    $root.Import($pemFile)
+
+    Write-Host "Extracting required information from the cert file"
+    $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
+    $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
+    $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
+
+    $issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
+    $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
+    $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
+    $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
+    $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
+    $sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
+    $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
+    $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
+
+    $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
+    $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
+
+    Write-Host "Adding the certificate content to Python Cert store"
+    Add-Content "${env:ProgramFiles(x86)}\Python35\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
+
+    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+
+    ```
+
+> [!NOTE]  
+> Als u van virtualenv gebruikmaakt voor het ontwikkelen met Python-SDK, zoals hieronder wordt beschreven, moet u de bovenstaande certificaat toevoegen aan de virtuele omgeving certificatenstore ook. Het pad kan er ongeveer als volgt: ".. \mytestenv\Lib\site-packages\certifi\cacert.PEM"
+
+
 
 ## <a name="python-samples-for-azure-stack"></a>Python-voorbeelden voor Azure Stack
 
@@ -133,7 +184,7 @@ Elke bewerking wordt duidelijk aangegeven met een opmerking en een functie print
     export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
-8. Om uit te voeren in dit voorbeeld, moet Ubuntu 16.04-LTS en WindowsServer 2012 R2 Datacenter afbeeldingen aanwezig zijn in de Azure Stack marketplace. Dit kunnen zijn [gedownload van Azure](../azure-stack-download-azure-marketplace-item.md), of toegevoegd aan de [Platform Image Repository](../azure-stack-add-vm-image.md).
+8. Om uit te voeren in dit voorbeeld, moet Ubuntu 16.04-LTS en WindowsServer 2012 R2 DataCenter afbeeldingen aanwezig zijn in de Azure Stack marketplace. Dit kunnen zijn [gedownload van Azure](../azure-stack-download-azure-marketplace-item.md), of toegevoegd aan de [Platform Image Repository](../azure-stack-add-vm-image.md).
 
 9. Voer het voorbeeld uit:
 

@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 23cce4d846cdf183f41b25663ba21d3bf1d27013
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 03/18/2019
+ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165093"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Logische apps met Hiermee mock-gegevens door het instellen van statische resultaten testen
 
@@ -67,9 +67,7 @@ Bijvoorbeeld, als u statische resultaten voor de Outlook 365 actie e-mail verzen
 
    ![Pictogram weergeven statische resultaten ingeschakeld](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
-   Nadat uw logische app wordt uitgevoerd, in de uitvoeringsgeschiedenis van uw logische app, de **statische resultaten** kolom wordt weergegeven of een specifieke uitvoering is inbegrepen bij acties waarvoor statische resultaten die zijn ingeschakeld, bijvoorbeeld:
-
-   ![Uitvoeringsgeschiedenis - statische resultatenkolom](./media/test-logic-apps-mock-data-static-results/run-history.png)
+   Vorige uitvoeringen die Hiermee mock-gegevens gebruiken, Zie [uitvoeringen die gebruikmaken van statische resultaten vinden](#find-runs-mock-data) verderop in dit onderwerp.
 
 <a name="reuse-sample-outputs"></a>
 
@@ -79,7 +77,7 @@ Als uw logische app een vorige is kunt uitvoeren met uitvoer die u opnieuw als m
 
 1. Als u dat nog niet gedaan hebt, in de [Azure-portal](https://portal.azure.com), opent u uw logische app in de ontwerper van logische Apps.
 
-1. Selecteer in het hoofdmenu van uw logische app, **overzicht**. 
+1. Selecteer in het hoofdmenu van uw logische app, **overzicht**.
 
 1. In de **geschiedenis van uitvoeringen** sectie, selecteer de logische app die u wilt.
 
@@ -106,6 +104,26 @@ Als uw logische app een vorige is kunt uitvoeren met uitvoer die u opnieuw als m
    ![JSON-modus](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
 1. Wanneer u klaar bent, kiest u **Gereed**. Of, als u wilt terugkeren naar de ontwerpfunctie, kiezen **Switch bewerkingsmodus** (![kiezen "Bewerkingsmodus Switch"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+
+<a name="find-runs-mock-data"></a>
+
+## <a name="find-runs-that-use-static-results"></a>Wordt uitgevoerd die gebruikmaken van statische resultaten vinden
+
+Geschiedenis van uitvoeringen van uw logische app identificeert de uitgevoerd waarbij de acties die gebruik maken van statische resultaten. U vindt deze wordt uitgevoerd, de volgende stappen uit:
+
+1. Selecteer in het hoofdmenu van uw logische app, **overzicht**. 
+
+1. In het rechterdeelvenster onder **geschiedenis van uitvoeringen**, vinden de **statische resultaten** kolom. 
+
+   Elke run met acties met resultaten heeft de **statische resultaten** kolom is ingesteld op **ingeschakeld**, bijvoorbeeld:
+
+   ![Uitvoeringsgeschiedenis - statische resultatenkolom](./media/test-logic-apps-mock-data-static-results/run-history.png)
+
+1. Wilt acties die gebruikmaken van statische resultaten weergeven, selecteert u de uitvoering u waar u wilt de **statische resultaten** kolom is ingesteld op **ingeschakeld**.
+
+   Acties die gebruikmaken van statische resultaten weergeven in het bekerglas test (![pictogram voor statische resultaten](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)) pictogram, bijvoorbeeld:
+
+   ![Geschiedenis - acties die gebruikmaken van statische resultaten uitvoeren](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
 
 ## <a name="disable-static-results"></a>Statische resultaten uitschakelen
 

@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/04/2019
+ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c8b25c0caf71835ccb5a055956d73a713efa5da0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 77f18a80c094fbaf58cfb09df38e5fa1c924329a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541210"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856189"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
-U kunt de oplossing Update Management in Azure Automation gebruiken voor het beheren van besturingssysteemupdates voor uw Windows- en Linux-computers die zijn geïmplementeerd in Azure, on-premises omgevingen of andere cloudproviders. U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
+U kunt de oplossing Update Management in Azure Automation gebruiken voor het beheren van besturingssysteemupdates voor uw Windows- en Linux-computers in Azure, on-premises omgevingen en andere cloudproviders. U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
 
 U kunt updatebeheer inschakelen voor virtuele machines rechtstreeks vanuit uw Azure Automation-account. Zie voor informatie over het inschakelen van updatebeheer voor virtuele machines vanaf uw Automation-account, [beheren van updates voor meerdere virtuele machines](manage-update-multi.md). U kunt ook de updatebeheer inschakelen voor een virtuele machine op de pagina van de virtuele machine in Azure portal. In dit scenario is beschikbaar voor [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) en [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuele machines.
 
@@ -35,7 +35,7 @@ Computers die worden beheerd door de Update Management gebruiken de volgende con
 
 Het volgende diagram ziet u een conceptueel overzicht van het gedrag en de gegevensstroom van hoe de oplossing beoordeelt en beveiligingsupdates geldt voor alle verbonden Windows Server en Linux-computers in een werkruimte:
 
-![Processtroom voor het beheer van bijwerken](media/automation-update-management/update-mgmt-updateworkflow.png)
+![Processtroom voor het beheer van bijwerken](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
 Updatebeheer kan worden gebruikt om systeemeigen Onboarding van machines in meerdere abonnementen in dezelfde tenant.
 
@@ -295,7 +295,7 @@ sudo yum -q --security check-update
 
 Er is momenteel geen ondersteunde methode waarmee de beschikbaarheid van de systeemeigen classificatie-gegevens op CentOS. Op dit moment worden alleen best-effort-ondersteuning is beschikbaar voor klanten die mogelijk zijn ingeschakeld deze op hun eigen.
 
-## <a name="firstparty-predownload"></a>Eerste partij toepassen van patches en vooraf downloaden
+## <a name="firstparty-predownload"></a>Geavanceerde instellingen
 
 Beheer van updates is afhankelijk van Windows Update voor Windows-Updates downloaden en installeren. Als gevolg hiervan respecteren we veel van de instellingen die door Windows Update. Als u instellingen voor niet-Windows-updates inschakelen, wordt deze updates ook updatebeheer kunnen beheren. Als u inschakelen updates downloaden wilt voordat er een update-implementatie optreedt, kunnen de update-implementaties gaat sneller en minder waarschijnlijk het onderhoudsvenster overschrijden.
 
@@ -311,9 +311,18 @@ $WUSettings.NotificationLevel = 3
 $WUSettings.Save()
 ```
 
+### <a name="disable-automatic-installation"></a>Schakel de automatische installatie
+
+Azure virtuele machines hebben automatische installatie van updates standaard ingeschakeld. Dit kan leiden tot updates moeten worden geïnstalleerd voordat u ze moet worden geïnstalleerd door beheer van updates te plannen. U kunt dit gedrag uitschakelen door in te stellen de `NoAutoUpdate` registersleutel in op `1`. De volgende PowerShell-codefragment toont één manier om dit te doen.
+
+```powershell
+$AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
+Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
+```
+
 ### <a name="enable-updates-for-other-microsoft-products"></a>Updates voor andere Microsoft-producten inschakelen
 
-Standaard biedt Windows Update alleen updates voor Windows. Als u inschakelt **updates ontvangen voor andere Microsoft-producten als ik Windows update**, krijgt u updates voor andere producten, met inbegrip van dergelijke dingen beveiligingspatches voor SQL Server of andere eerste software van derden. Deze optie kan niet worden geconfigureerd door Groepsbeleid. De volgende PowerShell ook uitvoeren op de systemen die u andere eerste partij patches inschakelen wilt op en beheer van updates wordt geacht deze instelling.
+Standaard biedt Windows Update alleen updates voor Windows. Als u inschakelt **updates ontvangen voor andere Microsoft-producten als ik Windows update**, krijgt u updates voor andere producten, met inbegrip van beveiligingspatches voor SQL Server of andere eerste software van derden. Deze optie kan niet worden geconfigureerd door Groepsbeleid. De volgende PowerShell ook uitvoeren op de systemen die u andere eerste partij patches inschakelen wilt op en beheer van updates wordt geacht deze instelling.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -601,7 +610,7 @@ De naam van het pakket om uit te sluiten is in Red Hat Enterprise Linux, Red Hat
 
 Wanneer u updates voor een Linux-machine implementeert, kunt u de updateclassificaties selecteren. Hiermee worden de updates die worden toegepast op de computer en die voldoen aan de opgegeven criteria gefilterd. Dit filter is lokaal toegepast op de computer wanneer de update wordt geïmplementeerd.
 
-Omdat update verrijking updatebeheer in de cloud uitvoert, kunnen voor sommige updates worden gemarkeerd in Update Management dat gevolgen voor de beveiliging, zelfs als de lokale computer beschikt niet over die informatie. Als gevolg hiervan, als u essentiële updates op een Linux-machine toepassen, zijn er updates die niet zijn gemarkeerd als gevolgen voor de beveiliging op machine en de updates worden niet toegepast.
+Omdat update verrijking updatebeheer in de cloud uitvoert, voor sommige updates kunnen bijvoorbeeld worden gemarkeerd in de Update Management dat gevolgen voor de beveiliging, zelfs als de lokale computer beschikt niet over die informatie. Als gevolg hiervan, als u essentiële updates op een Linux-machine toepassen, zijn er updates die niet zijn gemarkeerd als gevolgen voor de beveiliging op machine en de updates worden niet toegepast.
 
 Updatebeheer kunnen echter nog steeds melden die machine als niet-compatibele omdat er extra informatie over de betreffende update.
 
@@ -614,10 +623,6 @@ Een virtuele machine verwijderen uit het beheer van de Update:
 * In uw Log Analytics-werkruimte, verwijdert u de virtuele machine van de opgeslagen zoekopdracht voor de Bereikconfiguratie `MicrosoftDefaultScopeConfig-Updates`. Opgeslagen zoekopdrachten kunnen u vinden onder **algemene** in uw werkruimte.
 * Verwijder de [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) of de [Log Analytics-agent voor Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
-## <a name="troubleshoot"></a>Problemen oplossen
-
-Zie voor informatie over het oplossen van uw updatebeheer, [updatebeheer oplossen van problemen](troubleshoot/update-management.md)
-
 ## <a name="next-steps"></a>Volgende stappen
 
 Doorgaan naar de zelfstudie voor informatie over het beheren van updates voor uw virtuele machines van Windows.
@@ -629,4 +634,4 @@ Doorgaan naar de zelfstudie voor informatie over het beheren van updates voor uw
 * [Waarschuwingen maken](automation-tutorial-update-management.md#configure-alerts) voor de status van de implementatie.
 
 * Zie voor meer informatie over de communicatie met updatebeheer via de REST-API, [configuraties van Software-Update](/rest/api/automation/softwareupdateconfigurations)
-
+* Zie voor informatie over het oplossen van uw updatebeheer, [updatebeheer oplossen van problemen](troubleshoot/update-management.md)

@@ -1,5 +1,5 @@
 ---
-title: Snelstartgids voor het weergeven van de groepen en leden van uw organisatie - Azure Active Directory | Microsoft Docs
+title: 'Snelstartgids voor het weergeven van groepen en leden zijn: Azure Active Directory | Microsoft Docs'
 description: Instructies voor het zoeken en weergeven van uw organisatiegroepen en hun toegewezen leden.
 services: active-directory
 author: eross-msft
@@ -10,15 +10,15 @@ ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: lizross
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 621ee02944e32a11a3749d6730b9263254fa9bda
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8eef6f7a363fe7b020a3ef18ae26799d7d5452ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183272"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881007"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -61,7 +61,7 @@ Maak een nieuwe gebruiker met de naam _Alain Charon_. Een gebruiker moet bestaan
 
     - **Naam:** Voer _Alain Charon_ in.
 
-    - **Gebruikersnaam:** Voer *alain@contoso.com* in.
+    - **Gebruikersnaam:** Type *alain\@contoso.com*.
 
 3. Kopieer het automatisch gegenereerde wachtwoord in het vak **Wachtwoord** en selecteer vervolgens **Maken**.
 

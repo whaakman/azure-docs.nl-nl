@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 003d5da137c88097d9555a9884286251af92d6f0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310995"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996710"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -71,7 +71,7 @@ De eerste stap is het maken van een toepassing in Azure Active Directory dat doo
 1. Klik op **Nieuwe toepassing registreren**.
 
     ![App-registratie toevoegen](media/solution-office-365/add-app-registration.png)
-1. Voer een toepassing **naam** en **aanmeldings-URL**.  De naam moet beschrijvend zijn.  Gebruik _http://localhost_ voor de URL en blijf _Web-app / API_ voor de **toepassingstype**
+1. Voer een toepassing **naam** en **aanmeldings-URL**.  De naam moet beschrijvend zijn.  Gebruik `http://localhost` voor de URL en blijf _Web-app / API_ voor de **toepassingstype**
     
     ![App maken](media/solution-office-365/create-application.png)
 1. Klik op **maken** en informatie over de toepassing te valideren.
@@ -91,11 +91,11 @@ De eerste stap is het maken van een toepassing in Azure Active Directory dat doo
     ![API selecteren](media/solution-office-365/select-api.png)
 
 1. Onder **machtigingen selecteren** selecteert u de volgende opties voor beide **Toepassingsmachtigingen** en **overgedragen machtigingen**:
-    - Gegevens over de servicestatus van uw organisatie lezen
-    - Activiteitengegevens van uw organisatie lezen
-    - Activiteitenrapporten van uw organisatie lezen
+   - Gegevens over de servicestatus van uw organisatie lezen
+   - Activiteitengegevens van uw organisatie lezen
+   - Activiteitenrapporten van uw organisatie lezen
 
-    ![API selecteren](media/solution-office-365/select-permissions.png)
+     ![API selecteren](media/solution-office-365/select-permissions.png)
 
 1. Klik op **Selecteer** en vervolgens **gedaan**.
 1. Klik op **machtigingen verlenen** en klik vervolgens op **Ja** wanneer u wordt gevraagd om te verifiëren.
@@ -524,7 +524,7 @@ De volgende eigenschappen gelden voor alle Office 365-records.
 | ResultStatus | Geeft aan of de actie (opgegeven in de eigenschap Operation) geslaagd of mislukt is. Mogelijke waarden zijn Succeeded, gedeeltelijk geslaagd heeft of mislukt. Voor een beheeractiviteit voor Exchange, is de waarde True of False. |
 | UserId | De UPN (User Principal Name) van de gebruiker die de actie die heeft geresulteerd in de record is vastgelegd, heeft uitgevoerd bijvoorbeeld, my_name@my_domain_name. Houd er rekening mee dat records voor de activiteit uitgevoerd door systeemaccounts (zoals SHAREPOINT\system of NTAUTHORITY\SYSTEM) ook opgenomen worden. | 
 | UserKey | Een alternatieve ID voor de gebruiker die u in de eigenschap gebruikers-id.  Bijvoorbeeld: deze eigenschap wordt gevuld met de unieke ID voor passport (PUID) voor gebeurtenissen die worden uitgevoerd door gebruikers in SharePoint, OneDrive voor bedrijven en Exchange. Deze eigenschap kan ook dezelfde waarde opgeven als de gebruikers-id-eigenschap voor gebeurtenissen in andere services en gebeurtenissen die worden uitgevoerd door systeemaccounts|
-| UserType | Het type van de gebruiker die de bewerking heeft uitgevoerd.<br><br>beheerder<br>Toepassing<br>DcAdmin<br>Normaal<br>Gereserveerd<br>ServicePrincipal<br>Systeem |
+| UserType | Het type van de gebruiker die de bewerking heeft uitgevoerd.<br><br>Gemeente<br>Toepassing<br>DcAdmin<br>Normaal<br>Gereserveerd<br>ServicePrincipal<br>Systeem |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory-basis
@@ -592,7 +592,7 @@ Deze records worden gemaakt wanneer er wijzigingen zijn aangebracht aan de confi
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Hiermee geeft u op of de cmdlet is uitgevoerd door een gebruiker in uw organisatie, door medewerkers van Microsoft-datacenter of in een datacenter-service-account, of door een gedelegeerd beheerder. De waarde False geeft aan dat de cmdlet is uitgevoerd door iemand in uw organisatie. De waarde waar geeft aan dat de cmdlet is uitgevoerd door datacenter personeel, een datacenter-service-account of een gedelegeerde beheerder. |
 | ModifiedObjectResolvedName |  Dit is de beschrijvende naam van het object dat door de cmdlet is gewijzigd. Dit wordt alleen weergegeven als het object Hiermee wijzigt u de cmdlet vastgelegd. |
-| Organisatienaam | De naam van de tenant. |
+| OrganizationName | De naam van de tenant. |
 | OriginatingServer | De naam van de server van waaruit u de cmdlet is uitgevoerd. |
 | Parameters | De naam en waarde voor alle parameters die zijn gebruikt met de cmdlet die wordt geïdentificeerd in de Operations-eigenschap. |
 
@@ -705,7 +705,7 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 | Query’s uitvoeren | Description |
 | --- | --- |
 |Telling van alle bewerkingen op uw Office 365-abonnement |OfficeActivity &#124; count() by bewerking samenvatten |
-|Gebruik van SharePoint-sites|OfficeActivity &#124; waar OfficeWorkload = ~ 'sharepoint' &#124; count() by SiteUrl samenvatten | sorteren op aantal asc|
+|Gebruik van SharePoint-sites|OfficeActivity &#124; waar OfficeWorkload = ~ 'sharepoint' &#124; samenvatten count() by SiteUrl \| sorteren op aantal asc|
 |Toegang van bestandsbewerkingen elk type gebruiker|zoeken in (OfficeActivity) OfficeWorkload = ~ "azureactivedirectory" en "MyTest"|
 |Zoekt u met een bepaald trefwoord|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Externe acties van de monitor voor Exchange|OfficeActivity &#124; waar OfficeWorkload = ~ 'exchange' en ExternalAccess == true|

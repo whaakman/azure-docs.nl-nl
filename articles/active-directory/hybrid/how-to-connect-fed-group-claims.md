@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 12ccb4978a8cfbaa7dede8d0093c78da05295fec
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 622a3ce0f80bd09bd09fa7ff097f68155318142d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410006"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080353"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configureren van groepclaims voor toepassingen met Azure Active Directory (openbare Preview)
 
@@ -111,60 +111,60 @@ Sommige toepassingen vereisen de gegevens van het groepslidmaatschap wordt weerg
 
 Groepclaims kunnen ook worden geconfigureerd de [optionele Claims](../../active-directory/develop/active-directory-optional-claims.md) sectie van de [Manifest van de toepassing](../../active-directory/develop/reference-app-manifest.md).
 
- 1. In de portal -> Azure Active Directory -> Application rapporten -> Selecteer Application Manifest ->
+1. In de portal -> Azure Active Directory -> Application rapporten -> Selecteer Application Manifest ->
 
- 2. Groepslidmaatschap claims inschakelen door het veranderen van de groupMembershipClaim
+2. Groepslidmaatschap claims inschakelen door het veranderen van de groupMembershipClaim
 
-    De geldige waarden zijn:
+   De geldige waarden zijn:
 
-    - 'Alle'
-    - "SecurityGroup"
-    - "DistributionList"
-    - "DirectoryRole"
+   - 'Alle'
+   - "SecurityGroup"
+   - "DistributionList"
+   - "DirectoryRole"
 
-    Bijvoorbeeld:
+   Bijvoorbeeld:
 
-    ```json
-    "groupMembershipClaims": "SecurityGroup"
-    ```
+   ```json
+   "groupMembershipClaims": "SecurityGroup"
+   ```
 
-    Standaard die groep objectid's wordt verzonden in de groep claimwaarde.  Voor het wijzigen van de waarde van de claim bevat op de lokale groepskenmerken of te wijzigen van het claimtype rol, moet u OptionalClaims configuratie als volgt gebruiken:
+   Standaard die groep objectid's wordt verzonden in de groep claimwaarde.  Voor het wijzigen van de waarde van de claim bevat op de lokale groepskenmerken of te wijzigen van het claimtype rol, moet u OptionalClaims configuratie als volgt gebruiken:
 
- 3. De naam van configuratie optioneel groepclaims instellen.
+3. De naam van configuratie optioneel groepclaims instellen.
 
-    Als u groepen in het token bevat de on-premises AD-groepskenmerken in de sectie optionele claims welke tokentype optioneel claim moet worden toegepast opgeven op, de naam van de optionele claim aangevraagd en eventuele aanvullende eigenschappen gewenst.  Meerdere typen tokens kunnen worden weergegeven:
+   Als u groepen in het token bevat de on-premises AD-groepskenmerken in de sectie optionele claims welke tokentype optioneel claim moet worden toegepast opgeven op, de naam van de optionele claim aangevraagd en eventuele aanvullende eigenschappen gewenst.  Meerdere typen tokens kunnen worden weergegeven:
 
-    - idToken voor het token OIDC-ID
-    - accessToken voor de OAuth/OIDC-toegangstoken
-    - Saml2Token voor SAML-tokens.
+   - idToken voor het token OIDC-ID
+   - accessToken voor de OAuth/OIDC-toegangstoken
+   - Saml2Token voor SAML-tokens.
 
-    > [!NOTE]
-    > Het type Saml2Token is van toepassing op zowel SAML1.1 en SAML2.0 indeling tokens
+   > [!NOTE]
+   > Het type Saml2Token is van toepassing op zowel SAML1.1 en SAML2.0 indeling tokens
 
-    Voor elke relevante tokentype, wijzigt u de claim groepen naar de sectie OptionalClaims in het manifest gebruiken. Het schema OptionalClaims is als volgt:
+   Voor elke relevante tokentype, wijzigt u de claim groepen naar de sectie OptionalClaims in het manifest gebruiken. Het schema OptionalClaims is als volgt:
 
- ```json
- {
-    "name": "groups",
-    "source": null,
-    "essential": false,
-    "additionalProperties": []
- }
- ```
+   ```json
+   {
+   "name": "groups",
+   "source": null,
+   "essential": false,
+   "additionalProperties": []
+   }
+   ```
 
- | Optionele Claims Schema | Value |
- |----------|-------------|
- | **Naam:** | Moet 'groepen' |
- | **Bron:** | Niet gebruikt. Weglaat of geef null-waarde |
- | **essential:** | Niet gebruikt. Weglaat of ONWAAR opgeven |
- | **additionalProperties:** | Lijst met extra eigenschappen.  Valid options are "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”, "emit_as_roles" |
+   | Optionele Claims Schema | Value |
+   |----------|-------------|
+   | **Naam:** | Moet 'groepen' |
+   | **Bron:** | Niet gebruikt. Weglaat of geef null-waarde |
+   | **essential:** | Niet gebruikt. Weglaat of ONWAAR opgeven |
+   | **additionalProperties:** | Lijst met extra eigenschappen.  Valid options are "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”, "emit_as_roles" |
 
- In additionalProperties slechts één 'sam_account_name","dns_domain_and_sam_account_name", zijn"netbios_domain_and_sam_account_name"vereist.  Als meer dan één aanwezig is, wordt de eerste wordt gebruikt en alle andere genegeerd.
+   In additionalProperties slechts één 'sam_account_name","dns_domain_and_sam_account_name", zijn"netbios_domain_and_sam_account_name"vereist.  Als meer dan één aanwezig is, wordt de eerste wordt gebruikt en alle andere genegeerd.
 
- Sommige toepassingen vereisen groepsinformatie over de gebruiker in de rol-claim.  Het claimtype om toe te voegen uit een groepclaim op een claim rol, "emit_as_roles" om aanvullende eigenschappen te wijzigen.  De waarden van de groep wordt in de claim rol worden verzonden.
+   Sommige toepassingen vereisen groepsinformatie over de gebruiker in de rol-claim.  Het claimtype om toe te voegen uit een groepclaim op een claim rol, "emit_as_roles" om aanvullende eigenschappen te wijzigen.  De waarden van de groep wordt in de claim rol worden verzonden.
 
- > [!NOTE]
- > Als 'emit_as_roles' wordt gebruikt een toepassingsrollen geconfigureerd dat de gebruiker wordt toegewezen niet wordt weergegeven in de claim rol
+   > [!NOTE]
+   > Als 'emit_as_roles' wordt gebruikt een toepassingsrollen geconfigureerd dat de gebruiker wordt toegewezen niet wordt weergegeven in de claim rol
 
 ### <a name="examples"></a>Voorbeelden
 

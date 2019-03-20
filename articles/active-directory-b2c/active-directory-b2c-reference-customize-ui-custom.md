@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d222e398653487cb87525ac13ebe682e9c8a26ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122923"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>De gebruikersinterface van een gebruikersbeleving met aangepast beleid aanpassen
 
@@ -66,7 +66,7 @@ Om ervoor te zorgen dat alles werkt zoals verwacht, moet u:
 - Zorg ervoor dat uw inhoud is HTML5 compatibel is en toegankelijk is
 - Zorg ervoor dat uw server voor webinhoud is ingeschakeld voor CORS.
 - Inhoud leveren via HTTPS.
-- Gebruik de absolute URL's, zoals https://yourdomain/content voor alle koppelingen en CSS-inhoud.
+- Gebruik de absolute URL's, zoals `https://yourdomain/content` voor alle koppelingen en CSS-inhoud.
 
 > [!TIP]
 > Controleer of de site die u bij het hosten van uw inhoud op heeft CORS is ingeschakeld en testen van CORS-aanvragen, kunt u de site https://test-cors.org/. Dankzij deze site, kunt u de CORS-aanvraag verzenden naar een externe server (om te testen, als u CORS wordt ondersteund) of de CORS-aanvraag verzenden naar een testserver (voor bepaalde functies van CORS verkennen).
@@ -121,16 +121,16 @@ Om te controleren of de opslag die u bij het hosten van uw inhoud op CORS ingesc
 
 1. Open een browsersessie en navigeer naar de pagina *unified.html* met behulp van de volledige URL van de locatie in uw opslagaccount `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Bijvoorbeeld https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
 2. Navigeer naar https://test-cors.org. Deze site kunt u controleren of de pagina die u met CORS ingeschakeld heeft.  
-<!--
-![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
--->
+   <!--
+   ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
+   -->
 
 3. In **externe URL**, voer de volledige URL voor uw inhoud unified.html en klikt u op **aanvraag verzenden**.
 4. Controleer de uitvoer in de **resultaten** sectie bevat *XHR status: 200*, wat aangeeft dat CORS is ingeschakeld.
-<!--
-![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
--->
-Het opslagaccount moet nu een blobcontainer met de naam bevatten *b2c* in de afbeelding met de volgende wingtiptoys sjablonen van de *Beginnerspakket*.
+   <!--
+   ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
+   -->
+   Het opslagaccount moet nu een blobcontainer met de naam bevatten *b2c* in de afbeelding met de volgende wingtiptoys sjablonen van de *Beginnerspakket*.
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)
@@ -138,7 +138,7 @@ Het opslagaccount moet nu een blobcontainer met de naam bevatten *b2c* in de afb
 
 De volgende tabel beschrijft het doel van de voorgaande HTML5-pagina's.
 
-| HTML5-sjabloon | Beschrijving |
+| HTML5-sjabloon | Description |
 |----------------|-------------|
 | *phonefactor.html* | Deze pagina kan worden gebruikt als een sjabloon voor een multi-factor authentication-pagina. |
 | *resetpassword.html* | Deze pagina kan worden gebruikt als een sjabloon voor een pagina voor vergeten wachtwoorden. |
@@ -154,7 +154,7 @@ De aangepaste sjablonen die HTML5/CSS gebruiken in de gebruikersbeleving moeten 
 
 De volgende tabel beschrijft de set met inhoud roldefinitie-id's wordt herkend door de identiteit van de Azure AD B2C-engine en het type van pagina's dat is gekoppeld aan deze optreden.
 
-| De definitie van de inhoud-ID | Beschrijving |
+| De definitie van de inhoud-ID | Description |
 |-----------------------|-------------|
 | *api.error* | **Foutpagina**. Deze pagina wordt weergegeven wanneer er een uitzondering of een fout is opgetreden. |
 | *api.idpselections* | **Pagina voor het id-provider selecteren**. Deze pagina bevat een lijst met id-providers die de gebruiker uit tijdens het aanmelden kiezen kan. Deze providers zijn enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts (op basis van e-mailadres of gebruikersnaam naam). |

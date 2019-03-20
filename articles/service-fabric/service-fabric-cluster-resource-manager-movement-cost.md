@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 58147f5c0c3c7203aa6978e284cf5bdc90fa6971
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a4431f1d2e9a63ee7797100cc1092244d9a8b880
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737771"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101513"
 ---
 # <a name="service-movement-cost"></a>Verplaatsingskosten van services
 Een van meerdere factoren die de Service Fabric Cluster Resource Manager acht bij een poging om te bepalen welke wijzigingen aanbrengen in een cluster zijn de kosten van deze wijzigingen. Het concept van "kosten" wordt verhandeld uitschakelen op basis van hoeveel van het cluster kan worden verbeterd. Kosten zijn meeberekend bij het verplaatsen van services voor taakverdeling, defragmentatie en andere vereisten. Het doel is om te voldoen aan de vereisten in de minste verstorende of dure manier. 
@@ -79,6 +79,7 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 MoveCost heeft vier niveaus: Nul, laag, gemiddeld en hoog. MoveCosts zijn ten opzichte van elkaar worden verbonden, met uitzondering van nul. Kosten verplaatsen betekent dat verkeer gratis is en moet niet meegeteld in de score van de oplossing. Instellen van uw kosten verbonden aan het hoge heeft verplaatsing *niet* garantie dat de replica op één plek blijft.
 
 <center>
+
 ![Kosten verplaatsen als factor bij het selecteren van replica's voor gegevensverplaatsing][Image1]
 </center>
 

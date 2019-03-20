@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 11b89cd33346c2d6da2269bbc2a4b9550f3120b3
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 1589c938e635ccff02f94a176b7fc886dbccb779
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587382"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455765"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Quickstart: een ASP.NET-web-app maken met behulp van een Azure Cosmos DB SQL API-account
 
@@ -140,12 +140,12 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op het nieuwe consoletoepassingsproject. Dit bevindt zich onder de Visual Studio-oplossing. Klik vervolgens op **Manage NuGet Packages...**
     
-    ![Schermopname van het rechtsklikmenu voor het project](./media/create-sql-api-dotnet/manage-nuget-package.png)
+    ![Schermafbeelding van het rechtsklikmenu voor het project](./media/create-sql-api-dotnet/manage-nuget-package.png)
 1. Klik op het tabblad **NuGet** op **Browse** en typ **Microsoft.Azure.Cosmos** in het zoekvak.
 1. Zoek **Microsoft.Azure.Cosmos** in de resultaten en klik op **Install**.
    De pakket-id voor de Azure Cosmos DB SQL-API-clientbibliotheek is [Microsoft Azure Cosmos DB-clientbibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
 
-   ![Schermopname van het NuGet-menu voor het zoeken naar de Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Schermopname van het NuGet-Menu voor het vinden van Azure Cosmos DB-Client-SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     Als u een bericht ontvangt over het controleren van wijzigingen in de oplossing, klikt u op **OK**. Als u een bericht ontvangt over het accepteren van de licentie, klikt u op **Accepteren**.
 

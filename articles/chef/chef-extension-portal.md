@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 02a2e9a6d513db5ac82b7bde5c8d3f0ca187ad15
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533949"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084739"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>De Chef-client installeren vanuit de Azure-portal
 U kunt de uitbreiding voor de Chef-client rechtstreeks naar een Linux- of Windows-machine toevoegen vanuit de Azure-portal. Dit artikel begeleidt u bij het proces met behulp van een nieuwe virtuele Linux-machine.
@@ -52,31 +52,31 @@ In deze sectie gaat u eerst de Azure-portal gebruiken om een Linux-machine te ma
 
 1. Op de **basisbeginselen** tabblad, geef de volgende waarden en selecteer vervolgens **OK**.
 
-    - **Naam** -Voer een naam voor de nieuwe virtuele machine.
-    - **VM-schijftype** -opgeven of **SSD** of **HDD** voor het opslagtype voor de schijf. Zie het artikel voor meer informatie over schijftypen van de virtuele machine op Azure, [Selecteer een schijftype](../virtual-machines/windows/disks-types.md).
-    - **Gebruikersnaam** -Voer een gebruikersnaam die wordt verleend beheerdersbevoegdheden op de virtuele machine.
-    - **Verificatietype** : Selecteer **wachtwoord**. U kunt ook selecteren **openbare SSH-sleutel**, en een openbare SSH-sleutelwaarde hebt opgegeven. Ten behoeve van deze demo (en in de schermafbeeldingen) **wachtwoord** is geselecteerd.
-    - **Wachtwoord** en **wachtwoord bevestigen** -Geef een wachtwoord voor de gebruiker.
-    - **Meld u aan met Azure Active Directory** : Selecteer **uitgeschakelde**.
-    - **Abonnement** -Selecteer de gewenste Azure-abonnement, als u meer dan één hebt.
-    - **Resourcegroep** -Voer een naam voor de resourcegroep.
-    - **Locatie**: selecteer **US - oost**.
+   - **Naam** -Voer een naam voor de nieuwe virtuele machine.
+   - **VM-schijftype** -opgeven of **SSD** of **HDD** voor het opslagtype voor de schijf. Zie het artikel voor meer informatie over schijftypen van de virtuele machine op Azure, [Selecteer een schijftype](../virtual-machines/windows/disks-types.md).
+   - **Gebruikersnaam** -Voer een gebruikersnaam die wordt verleend beheerdersbevoegdheden op de virtuele machine.
+   - **Verificatietype** : Selecteer **wachtwoord**. U kunt ook selecteren **openbare SSH-sleutel**, en een openbare SSH-sleutelwaarde hebt opgegeven. Ten behoeve van deze demo (en in de schermafbeeldingen) **wachtwoord** is geselecteerd.
+   - **Wachtwoord** en **wachtwoord bevestigen** -Geef een wachtwoord voor de gebruiker.
+   - **Meld u aan met Azure Active Directory** : Selecteer **uitgeschakelde**.
+   - **Abonnement** -Selecteer de gewenste Azure-abonnement, als u meer dan één hebt.
+   - **Resourcegroep** -Voer een naam voor de resourcegroep.
+   - **Locatie**: selecteer **US - oost**.
 
-    ![Tabblad van de basisbeginselen voor het maken van een virtuele machine](./media/chef-extension-portal/add-vm-basics.png)
+     ![Tabblad van de basisbeginselen voor het maken van een virtuele machine](./media/chef-extension-portal/add-vm-basics.png)
 
 1. Op de **Kies een grootte** tabblad, selecteert u de grootte voor de virtuele machine en selecteer vervolgens **Selecteer**.
 
 1. Op de **instellingen** tabblad en de meeste van de waarden worden ingevuld op basis van de waarden die u hebt geselecteerd in de vorige tabbladen. Selecteer **Extensies**.
 
-    ![Extensies zijn toegevoegd aan virtuele machines via het tabblad instellingen](./media/chef-extension-portal/add-vm-select-extensions.png)
+     ![Extensies zijn toegevoegd aan virtuele machines via het tabblad instellingen](./media/chef-extension-portal/add-vm-select-extensions.png)
 
 1. Op de **extensies** tabblad **-extensie toevoegen**.
 
-    ![Extensie toevoegen aan een extensie toevoegen aan een virtuele machine selecteren](./media/chef-extension-portal/add-vm-add-extension.png)
+     ![Extensie toevoegen aan een extensie toevoegen aan een virtuele machine selecteren](./media/chef-extension-portal/add-vm-add-extension.png)
 
 1. Op de **nieuwe resource** tabblad **Linux Chef-extensie (1.2.3)**.
 
-    ![Chef heeft uitbreidingen voor virtuele machines met Linux en Windows](./media/chef-extension-portal/select-linux-chef-extension.png)
+     ![Chef heeft uitbreidingen voor virtuele machines met Linux en Windows](./media/chef-extension-portal/select-linux-chef-extension.png)
 
 1. Op de **Linux Chef extensie** tabblad **maken**.
 
@@ -94,7 +94,7 @@ In deze sectie gaat u eerst de Azure-portal gebruiken om een Linux-machine te ma
     - **Versleuteld Databag geheim** -Selecteer een bestand met de geheime sleutel voor de Databag versleuteld deze machine toegang tot moeten hebben. Dit kan leeg worden gelaten.
     - **Chef-Server SSL-certificaat** -selecteert u het SSL-certificaat dat is toegewezen aan uw Chef-Server. Dit kan leeg worden gelaten.
 
-    ![Installatie van de Chef-Server op een Linux-machine](./media/chef-extension-portal/install-extension.png)
+      ![Installatie van de Chef-Server op een Linux-machine](./media/chef-extension-portal/install-extension.png)
 
 1. Als u terugkeert naar de **extensies** tabblad **OK**.
 

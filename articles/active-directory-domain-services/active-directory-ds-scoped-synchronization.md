@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: e3d13082e3c076061b8d343827266ec04ae80646
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ac11244b87c87285722b4922da69530fab98c299
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180684"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117605"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Scoped synchronisatie van Azure AD met uw beheerde domein configureren
 In dit artikel leest u hoe het configureren van alleen specifieke gebruikersaccounts uit uw Azure AD-directory worden gesynchroniseerd met uw Azure AD Domain Services beheerde domein.
@@ -39,12 +39,10 @@ De volgende tabel kunt u bepalen hoe u binnen het bereik synchronisatie:
 
 > [!WARNING]
 > **Wijzigen van het bereik van de synchronisatie zorgt ervoor dat uw beheerde domein te doorlopen opnieuw synchroniseren.**
->
- * Wanneer u het synchronisatie-bereik voor een beheerd domein wijzigt, wordt een volledige hersynchronisatie uitgevoerd.
- * Objecten die niet langer in het beheerde domein vereist zijn worden verwijderd. Nieuwe objecten worden gemaakt in het beheerde domein.
- * Hersynchronisatie kan lang duren om uit te voeren, afhankelijk van het aantal objecten (gebruikers, groepen en groepslidmaatschappen) in uw beheerde domein en uw Azure AD-directory. Opnieuw synchroniseren kan een paar dagen duren voor grote mappen met veel honderden of duizenden objecten.
->
->
+> 
+>  * Wanneer u het synchronisatie-bereik voor een beheerd domein wijzigt, wordt een volledige hersynchronisatie uitgevoerd.
+>  * Objecten die niet langer in het beheerde domein vereist zijn worden verwijderd. Nieuwe objecten worden gemaakt in het beheerde domein.
+>  * Hersynchronisatie kan lang duren om uit te voeren, afhankelijk van het aantal objecten (gebruikers, groepen en groepslidmaatschappen) in uw beheerde domein en uw Azure AD-directory. Opnieuw synchroniseren kan een paar dagen duren voor grote mappen met veel honderden of duizenden objecten.
 
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Een nieuwe beheerde domein maken en op basis van een groep binnen het bereik synchronisatie met Azure portal inschakelen
@@ -58,46 +56,46 @@ PowerShell gebruiken voor het voltooien van deze reeks stappen. Raadpleeg de ins
 Voer de volgende stappen uit als u wilt configureren op basis van een groep binnen het bereik synchronisatie met uw beheerde domein:
 
 1. De volgende taken uitvoeren:
-  * [Taak 1: Installeer de vereiste PowerShell-modules](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
-  * [Taak 2: De vereiste service-principal maken in uw Azure AD-directory](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-  * [Taak 3: Maken en configureren van de groep 'AAD DC Administrators'](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-  * [Taak 4: Registreer de resourceprovider van Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-  * [Taak 5: Maak een resourcegroep](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
-  * [Taak 6: Maken en configureren van het virtuele netwerk](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
+   * [Taak 1: Installeer de vereiste PowerShell-modules](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
+   * [Taak 2: De vereiste service-principal maken in uw Azure AD-directory](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
+   * [Taak 3: Maken en configureren van de groep 'AAD DC Administrators'](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
+   * [Taak 4: Registreer de resourceprovider van Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
+   * [Taak 5: Maak een resourcegroep](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
+   * [Taak 6: Maken en configureren van het virtuele netwerk](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
 
 2. Selecteer de groepen die u wilt synchroniseren en geef de weergavenaam van de groepen die u wilt synchroniseren met uw beheerde domein.
 
 3. Sla de [script in de volgende sectie](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) naar een bestand met de naam ```Select-GroupsToSync.ps1```. Voer het script, zoals hieronder:
 
-  ```powershell
-  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
-  ```
+   ```powershell
+   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
+   ```
 
-  > [!WARNING]
-  > **Vergeet niet om op te nemen van de groep 'AAD DC Administrators'.**
-  >
-  > U moet de groep 'AAD DC Administrators' opnemen in de lijst van groepen die zijn geconfigureerd voor synchronisatie van binnen het bereik. Als u deze groep niet opgeeft, wordt het beheerde domein onbruikbaar worden.
-  >
+   > [!WARNING]
+   > **Vergeet niet om op te nemen van de groep 'AAD DC Administrators'.**
+   >
+   > U moet de groep 'AAD DC Administrators' opnemen in de lijst van groepen die zijn geconfigureerd voor synchronisatie van binnen het bereik. Als u deze groep niet opgeeft, wordt het beheerde domein onbruikbaar worden.
+   >
 
 4. Nu het beheerde domein maken en inschakelen van binnen het bereik synchronisatie op basis van een groep voor het beheerde domein. De eigenschap ```"filteredSync" = "Enabled"``` in de ```Properties``` parameter. Bijvoorbeeld, Zie het volgende fragment van het script opgehaald uit [taak 7: Inrichten van het Azure AD Domain Services beheerde domein](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
-  ```powershell
-  $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-  $ManagedDomainName = "contoso100.com"
-  $ResourceGroupName = "ContosoAaddsRg"
-  $VnetName = "DomainServicesVNet_WUS"
-  $AzureLocation = "westus"
+   ```powershell
+   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+   $ManagedDomainName = "contoso100.com"
+   $ResourceGroupName = "ContosoAaddsRg"
+   $VnetName = "DomainServicesVNet_WUS"
+   $AzureLocation = "westus"
 
-  # Enable Azure AD Domain Services for the directory.
-  New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
+   # Enable Azure AD Domain Services for the directory.
+   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+   -Location $AzureLocation `
+   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -ApiVersion 2017-06-01 -Force -Verbose
-  ```
+   -ApiVersion 2017-06-01 -Force -Verbose
+   ```
 
-  > [!TIP]
-  > Vergeet niet om op te nemen ```"filteredSync" = "Enabled"``` in de ```-Properties``` parameter, dus binnen het bereik synchronisatie is ingeschakeld voor het beheerde domein.
+   > [!TIP]
+   > Vergeet niet om op te nemen ```"filteredSync" = "Enabled"``` in de ```-Properties``` parameter, dus binnen het bereik synchronisatie is ingeschakeld voor het beheerde domein.
 
 
 ## <a name="script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1"></a>Script groepen moeten worden gesynchroniseerd met het beheerde domein (Select-GroupsToSync.ps1) selecteren

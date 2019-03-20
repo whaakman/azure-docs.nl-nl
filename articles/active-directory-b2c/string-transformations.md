@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9504a710711ba10d72c3f87045f498b652cfea44
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 32acee78b1aadbe5a461de6ea4475cf28503c325
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193434"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113024"
 ---
 # <a name="string-claims-transformations"></a>Tekenreeks claims transformaties
 
@@ -78,10 +78,10 @@ De zelf-gecontroleerde technisch profiel roept de validatie **aanmelding niet-in
 ### <a name="example"></a>Voorbeeld
 
 - Invoerclaims:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
- - Invoerparameters die zijn opgegeven:
-    - **stringComparison**: ordinalIgnoreCase
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
+    - Invoerparameters die zijn opgegeven:
+  - **stringComparison**: ordinalIgnoreCase
 - Resultaat: Fout opgetreden
 
 ## <a name="changecase"></a>ChangeCase 
@@ -113,11 +113,11 @@ Deze claimtransformatie gebruiken om elke tekenreeks ClaimType te verlagen of ho
 ### <a name="example"></a>Voorbeeld
 
 - Invoerclaims:
-    - **e-mailbericht**: SomeOne@contoso.com
+  - **e-mailbericht**: SomeOne@contoso.com
 - Invoerparameters die zijn opgegeven:
     - **toCase**: LOWER
 - Uitvoerclaims:
-    - **e-mailbericht**: someone@contoso.com
+  - **e-mailbericht**: someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim 
 
@@ -181,8 +181,8 @@ Gebruik die deze transformatie om te controleren als een claim gelijk aan een an
 ### <a name="example"></a>Voorbeeld
 
 - Invoerclaims:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Invoerparameters die zijn opgegeven:
     - **operator**:  NIET GELIJK AAN
     - **ignoreCase**: true
@@ -321,7 +321,7 @@ Gebruik deze transformatie naar een tekenreeks met één parameter-indeling vord
 - Invoerparameters die zijn opgegeven:
     - **stringFormat**:  cpim_{0}@{RelyingPartyTenantId}
 - Uitvoerclaims:
-    - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -494,7 +494,7 @@ Gebruik dit claims transformatie voor het parseren van de naam van het domein na
 ### <a name="example"></a>Voorbeeld
 
 - Invoerclaims:
-    - **emailAddress**: joe@outlook.com
+  - **emailAddress**: joe@outlook.com
 - Uitvoerclaims:
     - **domein**: outlook.com
 

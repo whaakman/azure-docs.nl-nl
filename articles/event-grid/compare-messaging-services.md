@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297103"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540802"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Kiezen tussen berichtenservices van Azure - Event Grid, Event Hubs en Service Bus
 
@@ -34,7 +34,7 @@ Er is een belangrijk verschil tussen services die een gebeurtenis bezorgen en se
 
 Een gebeurtenis is een lichtgewicht melding van een voorwaarde of een statuswijziging. De uitgever van de gebeurtenis heeft geen verwachting over hoe de gebeurtenis wordt afgehandeld. De consument van de gebeurtenis bepaalt wat er met de melding gebeurt. Gebeurtenissen kunnen afzonderlijke eenheden zijn of deel uitmaken van een reeks.
 
-Afzonderlijke gebeurtenissen melden statuswijzigingen naar aanleiding waarvan acties kunnen worden uitgevoerd. Om de volgende stap te zetten, hoeft de consument alleen te weten dat er iets is gebeurd. De gebeurtenisgegevens bevatten informatie over wat er is gebeurd, maar bevatten niet de gegevens die de gebeurtenis hebben geactiveerd. Zo kan een gebeurtenis consumenten ervan op de hoogte stellen dat er een bestand is gemaakt. De gebeurtenis kan algemene informatie over het bestand bevatten, maar niet het bestand zelf. Afzonderlijke gebeurtenissen zijn ideaal voor [serverloze](http://azure.com/serverless) oplossingen die moeten worden geschaald.
+Afzonderlijke gebeurtenissen melden statuswijzigingen naar aanleiding waarvan acties kunnen worden uitgevoerd. Om de volgende stap te zetten, hoeft de consument alleen te weten dat er iets is gebeurd. De gebeurtenisgegevens bevatten informatie over wat er is gebeurd, maar bevatten niet de gegevens die de gebeurtenis hebben geactiveerd. Zo kan een gebeurtenis consumenten ervan op de hoogte stellen dat er een bestand is gemaakt. De gebeurtenis kan algemene informatie over het bestand bevatten, maar niet het bestand zelf. Afzonderlijke gebeurtenissen zijn ideaal voor [serverloze](https://azure.com/serverless) oplossingen die moeten worden geschaald.
 
 Reeksgebeurtenissen rapporteren een voorwaarde en zijn analyseerbaar. De gebeurtenissen zijn chronologisch geordend en zijn met elkaar verbonden. De consument heeft de geordende reeks gebeurtenissen nodig om te kunnen analyseren wat is er gebeurd.
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964811"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181619"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Instellingen voor het gebruik en het beleid configureren
 In dit artikel wordt beschreven hoe u gebruikers toevoegen aan het lab, ze geregistreerd bij de testomgeving, bepalen het aantal uren dat de virtuele machine, en meer kan worden gebruikt. 
@@ -30,7 +30,7 @@ Als u hebt de **toegang beperken** ingeschakeld, gebruikers (e-mailadressen) toe
 1. Selecteer **Gebruikers** in het menu links.
 2. Selecteer **Gebruikers toevoegen** op de werkbalk. 
 
-    ![Knop voor gebruikers toevoegen](../media/how-to-configure-student-usage/add-users-button.png)
+    ![Knop Gebruikers toevoegen](../media/how-to-configure-student-usage/add-users-button.png)
 1. Op de pagina **Gebruikers toevoegen** voert u e-mailadressen van gebruikers in op afzonderlijke regels of op één regel gescheiden door puntkomma's. 
 
     ![E-mailadressen van gebruikers toevoegen](../media/how-to-configure-student-usage/add-users-email-addresses.png)
@@ -38,9 +38,22 @@ Als u hebt de **toegang beperken** ingeschakeld, gebruikers (e-mailadressen) toe
 
     ![Lijst met gebruikers](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="send-registration-link-to-students"></a>Registratiekoppeling naar studenten verzenden
-De volgende procedure bevat stappen voor het verzenden van een registratiekoppeling voor gebruikers. Als de **toegang beperken** is ingeschakeld voor de testomgeving, alleen gebruikers in de lijst met gebruikers de registratiekoppeling gebruiken kunnen om u te registreren met het lab. 
+## <a name="share-registration-link-with-students"></a>Registratie met koppeling delen met studenten
+Voor het verzenden van de registratiekoppeling voor studenten, een van de volgende methoden te gebruiken. De eerste methode laat zien hoe u e-mailberichten voor studenten met de registratiekoppeling en een optioneel bericht verzenden. De tweede methode laat zien hoe de registratiekoppeling die kunt u elke gewenste manier kunt u met anderen delen. 
 
+Als de **toegang beperken** is ingeschakeld voor de testomgeving, alleen gebruikers in de lijst met gebruikers de registratiekoppeling gebruiken kunnen om u te registreren met het lab. Deze optie is standaard ingeschakeld. 
+
+### <a name="send-email-to-users"></a>E-mailbericht verzenden naar gebruikers
+1. Schakel over naar de weergave **Gebruikers** als u nog niet op die pagina bent. 
+2. Selecteer specifieke of alle gebruikers in de lijst. Selecteer specifieke gebruikers, schakel selectievakjes in de eerste kolom van de lijst. Selecteer alle gebruikers, schakel het selectievakje voor de titel van de eerste kolom (**naam**) of selecteert u alle selectievakjes uit voor alle gebruikers in de lijst.
+3. Selecteer **uitnodiging verzenden** op de werkbalk. U kunt ook Beweeg de muisaanwijzer over een Studentnaam in de lijst en het e-mailpictogram te verzenden. 
+
+    ![Registratiekoppeling per e-mail verzenden](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Op de **registratiekoppeling verzenden via e-mail** pagina, als volgt te werk: 
+    1. Typ een **optioneel bericht** die u wilt verzenden naar de studenten. Het e-mailbericht omvat automatisch de registratiekoppeling. 
+    2. Op de **registratiekoppeling verzenden via e-mail** weergeeft, schakelt **verzenden**. 
+
+## <a name="get-registration-link"></a>Registratiekoppeling ophalen
 1. Schakel over naar de **gebruikers** weergeven door te selecteren **gebruikers** in het menu links. 
 2. Selecteer de tegel **Registratiekoppeling ophalen**.
 
@@ -49,11 +62,7 @@ De volgende procedure bevat stappen voor het verzenden van een registratiekoppel
 
     ![Registratiekoppeling voor studenten](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. Selecteer in het dialoogvenster **Gebruikersregistratie** de optie **Sluiten**. 
-4. Deel de registratielink met een student zodat de student zich voor de les kan registreren. Als u de instelling **Optie beperken** hebt ingeschakeld en een lijst met gebruikers in de lijst hebt, voert u de volgende acties uit:
-    1. Selecteer het **e-mailadres** van de gebruiker in de lijst. 
-    2. U ziet een venster van uw standaard-e-mailprogramma met het **Aan**-adres ingevuld. 
-    3. Plak de **registratie-URL** die u eerder hebt gekopieerd in het bericht. 
-    4. Verzend het **e-mailbericht**. 
+4. Share de **registratiekoppeling** met een student zodat de student voor de klasse registreren kan. 
 
 ## <a name="view-users-registered-with-the-lab"></a>Gebruikers weergeven die zijn geregistreerd bij het lab
 

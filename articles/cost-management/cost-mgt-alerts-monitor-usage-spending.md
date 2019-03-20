@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: d6f7a597ff5737bb5e9a3f07122ece313bd432ff
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337770"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991936"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Gebruik waarschuwingen van de kosten voor gebruik en uitgaven bewaken
 
@@ -49,7 +49,7 @@ Ondersteuning voor waarschuwingstypen, is afhankelijk van het type Azure-account
 
 ## <a name="view-cost-alerts"></a>Waarschuwingen weergeven
 
-Klik in Azure Portal, in de lijst met services, op **Cost Management en facturering**. Klik in de lijst onder **Cost Management**, selecteer **kosten waarschuwingen**.
+Kosten als waarschuwingen wilt bekijken, opent u het gewenste bereik in de Azure portal en selecteer **budgetten** in het menu. Gebruik de **bereik** pill om over te schakelen naar een ander bereik. Selecteer **kosten waarschuwingen** in het menu. Zie voor meer informatie over bereiken [begrijpen en werk met een bereik](understand-work-scopes.md).
 
 ![Van de voorbeeldafbeelding van waarschuwingen wordt weergegeven in Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
