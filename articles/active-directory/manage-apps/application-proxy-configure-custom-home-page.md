@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fc6b9ad5227bc5bffd1f44f664351843896aec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8017049218bed5a1b1bd86b68dc4342b4044723
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109777"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Een aangepaste startpagina voor gepubliceerde apps instellen met behulp van Azure AD-toepassingsproxy
 
@@ -30,10 +30,10 @@ In dit artikel wordt beschreven hoe u apps voor gebruikers naar de startpagina v
 Wanneer gebruikers de app starten, worden ze omgeleid standaard naar de hoofdmap domein-URL voor de gepubliceerde app. De startpagina is standaard ingesteld als de URL van startpagina. Gebruik de Azure AD PowerShell-module voor het definiëren van aangepaste startpagina-URL's als u wilt dat appgebruikers op een specifieke pagina in de app. 
 
 Hier volgt een voorbeeld van waarom een bedrijf een aangepaste startpagina wordt ingesteld:
-- Binnen uw bedrijfsnetwerk gebruikers gaan naar *https://ExpenseApp/login/login.aspx* aanmelden en toegang tot uw app.
-- Omdat er andere activa, zoals afbeeldingen die Application Proxy moet toegang hebben tot op het hoogste niveau van de mapstructuur, publiceert u de app met *https://ExpenseApp* als de interne URL.
-- Is de standaard-URL voor externe *https://ExpenseApp-contoso.msappproxy.net*, die uw gebruikers naar de aanmeldingspagina niet uitvoeren.  
-- Stel *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* als de URL van startpagina. 
+- Binnen uw bedrijfsnetwerk gebruikers gaan naar `https://ExpenseApp/login/login.aspx` aanmelden en toegang tot uw app.
+- Omdat er andere activa, zoals afbeeldingen die Application Proxy moet toegang hebben tot op het hoogste niveau van de mapstructuur, publiceert u de app met `https://ExpenseApp` als de interne URL.
+- Is de standaard-URL voor externe `https://ExpenseApp-contoso.msappproxy.net`, die uw gebruikers naar de aanmeldingspagina niet uitvoeren.  
+- Stel `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` als de URL van startpagina. 
 
 >[!NOTE]
 >Wanneer u gebruikers toegang tot gepubliceerde apps verleent, de apps worden weergegeven in de [Azure AD-Toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md) en de [startprogramma voor Office 365](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
@@ -113,7 +113,7 @@ De URL van startpagina maken en bijwerken van uw toepassing met de waarde. Ga do
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
- Nu dat u hebt vastgesteld dat de app, u kunt als volgt bijwerken van de startpagina.
+   Nu dat u hebt vastgesteld dat de app, u kunt als volgt bijwerken van de startpagina.
 
 2. Maak een lege toepassingsobject voor het opslaan van de wijzigingen die u wilt maken. Deze variabele bevat de waarden die u wilt bijwerken. Niets is in deze stap gemaakt.
 

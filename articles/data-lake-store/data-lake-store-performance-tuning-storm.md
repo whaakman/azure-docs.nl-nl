@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: aa4d42a53e6fb8ea236a9d544102aab3dff19013
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129230"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084807"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Richtlijnen voor Storm op HDInsight en Azure Data Lake Storage Gen1 afstemmen van prestaties
 
@@ -82,7 +82,7 @@ U kunt de volgende instellingen voor het afstemmen van de spout wijzigen.
 
 - **Maximum aantal spout in behandeling: topology.max.spout.pending**. Deze instelling bepaalt het aantal tuples die in vlucht (nog niet bevestigd op alle knooppunten in de topologie) per spout-thread op elk gewenst moment.
 
- Er is een goede berekening te doen om in te schatten van de grootte van elk van uw tuples. Vervolgens bepaalt hoeveel geheugen een spout-thread heeft. Het totale geheugen toegewezen aan een thread, gedeeld door deze waarde geeft de bovengrens voor de maximale spout in afwachting van parameter.
+  Er is een goede berekening te doen om in te schatten van de grootte van elk van uw tuples. Vervolgens bepaalt hoeveel geheugen een spout-thread heeft. Het totale geheugen toegewezen aan een thread, gedeeld door deze waarde geeft de bovengrens voor de maximale spout in afwachting van parameter.
 
 ## <a name="tune-the-bolt"></a>De bolt afstemmen
 Bij het schrijven naar Data Lake Storage Gen1, moet u het beleid in een grootte-synchronisatie (buffer aan de clientzijde) instellen op 4 MB. Een leegmaken of hsync() wordt vervolgens uitgevoerd alleen wanneer de buffergrootte is de op deze waarde. Het Data Lake Storage Gen1-stuurprogramma op de worker-virtuele machine wordt automatisch deze buffer, tenzij u expliciet een hsync() uitvoeren.
@@ -98,7 +98,7 @@ In Storm houdt een spout een tuple totdat deze expliciet wordt bevestigd door de
 Voor de beste prestaties op Data Lake Storage Gen1, hebt u de bolt 4 MB aan gegevens van de tuple van de buffer. Vervolgens terug te schrijven naar het Data Lake Storage Gen1 end als een schrijfbewerking van 4 MB. Nadat de gegevens is geschreven naar het archief (aanroepende hflush()) de bolt kunt erkent de gegevens terug naar de spout. Dit is wat de voorbeeld-bolt hier opgegeven doet. Het is ook aanvaardbaar is voor het opslaan van een groter aantal tuples voordat de aanroep hflush() is uitgevoerd en de tuples bevestigd. Dit verhoogt echter het aantal tuples in vertragingen van vluchten dat de spout nodig heeft om op te slaan, en daarom verhoogt de hoeveelheid geheugen die vereist is per JVM.
 
 > [!NOTE]
-Toepassingen hebben een vereiste voor het bevestigen van tuples vaker (bij gegevensgroottes kleiner is dan 4 MB) voor andere niet-prestaties. Echter dat mogelijk invloed hebben op de i/o-doorvoer naar de back-end van de opslag. Zorgvuldig afwegen dit negatieve gevolgen voor de op basis van de bolt i/o-prestaties.
+> Toepassingen hebben een vereiste voor het bevestigen van tuples vaker (bij gegevensgroottes kleiner is dan 4 MB) voor andere niet-prestaties. Echter dat mogelijk invloed hebben op de i/o-doorvoer naar de back-end van de opslag. Zorgvuldig afwegen dit negatieve gevolgen voor de op basis van de bolt i/o-prestaties.
 
 Als de frequentie van binnenkomst van tuples niet hoog is, is zodat de buffer 4 MB lang duurt om in te vullen, houd rekening met beperkende dit door:
 * Het aantal bolts te verminderen, dus er zijn minder buffers in te vullen.

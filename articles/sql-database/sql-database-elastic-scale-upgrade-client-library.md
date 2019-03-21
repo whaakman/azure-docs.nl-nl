@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 395aff83c8983c4f61ca0b1fd1da276de17ec98b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 02c09e5a2ad0c3e23fe641bf445a646477f7db2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190050"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993974"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Een app voor het gebruik van de meest recente-clientbibliotheek voor elastic database upgraden
 
@@ -47,7 +47,7 @@ Deze stappen uitvoert in volgorde zorgt ervoor dat oude versies van de clientbib
 
 ***Optie 1: Metagegevens met behulp van PowerShell bijwerken***
 
-1. Download de meest recente opdrachtregel-hulpprogramma voor NuGet van [hier](http://nuget.org/nuget.exe) en op te slaan naar een map.
+1. Download de meest recente opdrachtregel-hulpprogramma voor NuGet van [hier](https://nuget.org/nuget.exe) en op te slaan naar een map.
 2. Open een opdrachtprompt en navigeer naar dezelfde map met de opdracht: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
 3. Navigeer naar de submap met de nieuwe client-dll-versie die u hebt zojuist hebt gedownload, bijvoorbeeld: `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
 4. Downloaden van de elastic database client upgrade-script uit de [Script Center](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9), en sla deze op in dezelfde map met de DLL-bestand.

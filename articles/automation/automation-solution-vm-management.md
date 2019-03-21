@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 22347ce7296dc55d98f1ee6d4458fa6d7c5a21e6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551250"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902243"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -73,7 +73,7 @@ De volgende stappen uitvoeren om de VM's starten/stoppen buiten kantooruren oplo
 6. Op de **oplossing toevoegen** weergeeft, schakelt **Automation-account**. Als u een nieuwe Log Analytics-werkruimte maakt, kunt u een nieuw Automation-account worden gekoppeld aan het maken of Selecteer een bestaand Automation-Account die nog niet is gekoppeld aan een Log Analytics-werkruimte. Selecteer een bestaand Automation-Account of klik op **maken van een Automation-account**, en klik op de **Automation-account toevoegen** pagina, geef de volgende informatie:
    - Voer in het veld **Naam** de naam van het Automation-account in.
 
-    Alle andere opties worden automatisch ingevuld op basis van de geselecteerde Log Analytics-werkruimte. Deze opties worden niet gewijzigd. Een Uitvoeren als-account voor Azure is de standaardmethode voor verificatie voor de runbooks die zijn opgenomen in deze oplossing. Nadat u op **OK**, worden de configuratieopties gevalideerd en het Automation-account wordt gemaakt. U kunt de voortgang bijhouden onder **Meldingen** in het menu.
+     Alle andere opties worden automatisch ingevuld op basis van de geselecteerde Log Analytics-werkruimte. Deze opties worden niet gewijzigd. Een Uitvoeren als-account voor Azure is de standaardmethode voor verificatie voor de runbooks die zijn opgenomen in deze oplossing. Nadat u op **OK**, worden de configuratieopties gevalideerd en het Automation-account wordt gemaakt. U kunt de voortgang bijhouden onder **Meldingen** in het menu.
 
 7. Ten slotte op de **oplossing toevoegen** weergeeft, schakelt **configuratie**. De **Parameters** pagina wordt weergegeven.
 
@@ -95,7 +95,7 @@ De volgende stappen uitvoeren om de VM's starten/stoppen buiten kantooruren oplo
 8. Nadat u de oorspronkelijke instellingen vereist voor de oplossing hebt geconfigureerd, klikt u op **OK** sluiten de **Parameters** pagina en selecteer **maken**. Nadat u alle instellingen worden gevalideerd, wordt de oplossing wordt geïmplementeerd op uw abonnement. Dit proces duurt enkele seconden om te voltooien en u kunt de voortgang bijhouden onder **meldingen** in het menu.
 
 > [!NOTE]
-> Als u een Azure Cloud Solution Provider (Azure CSP)-abonnement, hebt nadat de implementatie is voltooid in uw Automation-Account, gaat u naar **variabelen** onder **gedeelde bronnen** en stel de [ **External_EnableClassicVMs** ](#variables) variabele **False**. Hierdoor wordt voorkomen dat de oplossing van het zoeken naar klassieke VM-resources.
+> Als u een Azure Cloud Solution Provider (Azure CSP)-abonnement hebt na de implementatie is voltooid in uw Automation-Account, gaat u naar **variabelen** onder **gedeelde bronnen** en stel de [ **External_EnableClassicVMs** ](#variables) variabele **False**. Hierdoor wordt voorkomen dat de oplossing van het zoeken naar klassieke VM-resources.
 
 ## <a name="scenarios"></a>Scenario's
 
@@ -289,8 +289,8 @@ De volgende tabel bevat voorbeeldzoekopdrachten in logboeken voor taakrecords di
 
 |Query’s uitvoeren | Description|
 |----------|----------|
-|Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | waar (ResultType == "Voltooid")  | samenvatten |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sorteren op TimeGenerated desc'' '|
-|Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | waar (ResultType == "Voltooid") | samenvatten |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sorteren op TimeGenerated desc'' '|
+|Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
 
 ## <a name="viewing-the-solution"></a>De oplossing bekijken
 

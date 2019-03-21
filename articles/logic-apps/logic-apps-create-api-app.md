@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600712"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895852"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Aangepaste API's die u vanuit Azure Logic Apps aanroepen kunt maken
 
@@ -25,7 +25,7 @@ Hoewel Azure Logic Apps biedt [meer dan 100 ingebouwde connectors](../connectors
 * Help klanten uw service gebruiken voor het beheren van professionele of persoonlijke taken.
 * Vouw in het bereik, zichtbaarheid en gebruik voor uw service.
 
-In principe zijn connectors web-API's die gebruikmaken van REST voor pluggable interfaces [Swagger-metagegevensindeling](http://swagger.io/specification/) voor documentatie en JSON als de exchange-indeling van gegevens. Omdat de connectors zijn REST-API's die via HTTP-eindpunten communiceren, kunt u elke taal, zoals .NET, Java of Node.js, gebruiken voor het bouwen van connectors. U kunt ook uw API's hosten op [Azure App Service](../app-service/overview.md), een platform-as-a-service (PaaS) dat een van de beste, eenvoudigste en meest schaalbare manier biedt voor het hosten van de API. 
+In principe zijn connectors web-API's die gebruikmaken van REST voor pluggable interfaces [Swagger-metagegevensindeling](https://swagger.io/specification/) voor documentatie en JSON als de exchange-indeling van gegevens. Omdat de connectors zijn REST-API's die via HTTP-eindpunten communiceren, kunt u elke taal, zoals .NET, Java of Node.js, gebruiken voor het bouwen van connectors. U kunt ook uw API's hosten op [Azure App Service](../app-service/overview.md), een platform-as-a-service (PaaS) dat een van de beste, eenvoudigste en meest schaalbare manier biedt voor het hosten van de API. 
 
 Aangepaste API's om te werken met logic apps, uw API kan bieden [ *acties* ](./logic-apps-overview.md#logic-app-concepts) die specifieke taken uitvoeren in logic app workflows. Uw API kan ook fungeren als een [ *trigger* ](./logic-apps-overview.md#logic-app-concepts) die een werkstroom voor logische Apps begint wanneer er nieuwe gegevens of een gebeurtenis aan een opgegeven voorwaarde voldoet. Dit onderwerp worden algemene patronen die u volgen kunt voor het bouwen van acties en triggers in uw API, op basis van het gedrag op dat u wilt dat uw API te geven.
 
@@ -41,11 +41,11 @@ U kunt uw API's hosten op [Azure App Service](../app-service/overview.md), een p
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> Voor voorbeelden van API-App die is gebouwd voor logische apps, gaat u naar de [Azure Logic Apps-GitHub-opslagplaats](http://github.com/logicappsio) of [blog](https://aka.ms/logicappsblog).
+> Voor voorbeelden van API-App die is gebouwd voor logische apps, gaat u naar de [Azure Logic Apps-GitHub-opslagplaats](https://github.com/logicappsio) of [blog](https://aka.ms/logicappsblog).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Hoe verschillen aangepaste API's van aangepaste connectors?
 
-Aangepaste API's en [aangepaste connectors](../logic-apps/custom-connector-overview.md) zijn web-API's die gebruikmaken van REST voor pluggable interfaces [Swagger-metagegevensindeling](http://swagger.io/specification/) voor documentatie en JSON als de exchange-indeling van gegevens. En omdat deze API's en connectors REST-API's die via HTTP-eindpunten communiceren zijn, kunt u elke taal, zoals .NET, Java of Node.js, voor het bouwen van aangepaste API's en connectors.
+Aangepaste API's en [aangepaste connectors](../logic-apps/custom-connector-overview.md) zijn web-API's die gebruikmaken van REST voor pluggable interfaces [Swagger-metagegevensindeling](https://swagger.io/specification/) voor documentatie en JSON als de exchange-indeling van gegevens. En omdat deze API's en connectors REST-API's die via HTTP-eindpunten communiceren zijn, kunt u elke taal, zoals .NET, Java of Node.js, voor het bouwen van aangepaste API's en connectors.
 
 Aangepaste API's kunt u bij het aanroepen van API's die niet connectors zijn en eindpunten die u kunt aanroepen voorzien van HTTP + Swagger, Azure API Management of App-Services. Aangepaste connectors werken zoals aangepaste API's, maar hebt ook deze kenmerken:
 
@@ -63,7 +63,7 @@ Zie voor meer informatie over aangepaste connectors.
 
 ## <a name="helpful-tools"></a>Nuttige hulpmiddelen
 
-Een aangepaste API werkt het beste met logic apps als de API ook is een [Swagger-document](http://swagger.io/specification/) met de beschrijving van de bewerkingen en parameters van de API.
+Een aangepaste API werkt het beste met logic apps als de API ook is een [Swagger-document](https://swagger.io/specification/) met de beschrijving van de bewerkingen en parameters van de API.
 Veel bibliotheken, zoals [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle), kan het Swagger-bestand automatisch genereren voor u. Als u wilt aantekeningen toevoegen aan het Swagger-bestand voor weergavenamen, eigenschaptypen, enzovoort, u kunt ook [TRex](https://github.com/nihaue/TRex) zodat uw Swagger-bestand goed met logic apps werkt.
 
 <a name="actions"></a>
@@ -106,7 +106,7 @@ Dit zijn de specifieke stappen voor uw API te volgen, vanuit het perspectief van
    
    * *Vereiste*: Een `location` -header die Hiermee geeft u het absolute pad naar een URL waar de Logic Apps-engine de status van uw API's kan controleren
 
-   * *Optionele*: Een `retry-after` -header het aantal seconden dat de engine wachten geeft voordat het controleren van moet de `location` URL voor de status van taak. 
+   * *Optioneel*: Een `retry-after` -header het aantal seconden dat de engine wachten geeft voordat het controleren van moet de `location` URL voor de status van taak. 
 
      De engine controleert standaard elke 20 seconden. Als u een ander interval, bevatten de `retry-after` header en het aantal seconden tot de volgende poll.
 

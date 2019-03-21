@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: 64e8f9d1fb29718b0a3d4655c739abc93ecb088c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f317c061c66a344731172f83e1c85dc5487379d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763837"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005183"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure Queue storage bewerkingen uitvoeren met Azure PowerShell
 
@@ -122,7 +122,7 @@ $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQ
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
-Als u de [Azure Storage Explorer](http://storageexplorer.com), u kunt verbinding maken met uw Azure-account en de wachtrijen weergeven in de storage-account en Zoom in op een wachtrij om de berichten in de wachtrij weer te geven. 
+Als u de [Azure Storage Explorer](https://storageexplorer.com), u kunt verbinding maken met uw Azure-account en de wachtrijen weergeven in de storage-account en Zoom in op een wachtrij om de berichten in de wachtrij weer te geven. 
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Lees een bericht uit de wachtrij verwijderen
 

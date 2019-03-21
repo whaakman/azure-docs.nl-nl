@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db4c2fc0781225af6cc59df72467a69e0ba73e1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0fc2aca2b785329b6faebd37c94493269d65c22b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189550"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182979"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Gebruikers herstellen voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal
 
@@ -46,7 +46,7 @@ Zie voor meer informatie, [gebruikers die zijn gemarkeerd voor risico's beveilig
 
 U kunt ook uw Office 365-referenties gebruiken voor toegang tot de **Azure-beheercentrum**. Nadat u de toegang tot Azure AD hebt geactiveerd, wordt u doorgestuurd naar de Azure AD-portal. Bij een basisabonnement worden minder details in rapporten verstrekt. Aanvullende gegevens en analyses zijn verkrijgbaar voor abonnees van Azure Premium.
 
-Toegang krijgen tot de **gebruikers die zijn gemarkeerd voor risico's** rapporten in de Office 365-beheercentrum:
+Toegang krijgen tot de **gebruikers die zijn gemarkeerd voor risico's** rapporten in de Microsoft 365-beheercentrum:
 
 1.  Selecteer in het navigatiemenu aan de linkerkant, **beheercentrums**. 
 2.  Selecteer **Azure AD**.

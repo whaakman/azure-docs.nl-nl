@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b503c7f0693a90d438fcec3ecae335fd349b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187998"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996334"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect-aanmelden-gebruikersopties
 Azure Active Directory (Azure AD) Connect kan uw gebruikers zich aanmelden bij zowel cloud en on-premises resources met behulp van dezelfde wachtwoorden. Dit artikel beschrijft de belangrijkste concepten voor elk identiteitsmodel aan bij het kiezen van de identiteit die u gebruiken wilt voor aanmelding bij Azure AD.
@@ -75,7 +75,9 @@ Zie voor meer informatie:
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>Federation die gebruikmaakt van een nieuwe of bestaande-farm met AD FS in Windows Server 2012 R2
 Uw gebruikers kunnen met federatieve aanmelding zich aanmelden met Azure AD gebaseerde services met hun on-premises wachtwoorden. Terwijl ze op het bedrijfsnetwerk bevinden, hoeft deze zelfs te voeren hun wachtwoord. Met de optie Federatie met AD FS, kunt u een nieuwe of bestaande farm met AD FS in Windows Server 2012 R2 implementeren. Als u ervoor kiest om op te geven van een bestaande farm, configureert Azure AD Connect het vertrouwen tussen uw farm en Azure AD, zodat uw gebruikers kunnen zich aanmelden.
 
-<center>![Federatie met AD FS in Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
+<center>
+
+![Federatie met AD FS in Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
 
 #### <a name="deploy-federation-with-ad-fs-in-windows-server-2012-r2"></a>Federatie met AD FS in Windows Server 2012 R2 implementeren
 
@@ -152,6 +154,7 @@ Het is heel belangrijk om te begrijpen van de relatie tussen de statussen van he
 Voor de volgende informatie, gaan we ervan uit dat we betrokken zijn bij het UPN-achtervoegsel contoso.com, die wordt gebruikt in de on-premises directory als onderdeel van de UPN: bijvoorbeeld user@contoso.com.
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Express-instellingen/wachtwoord-hashsynchronisatie
+
 | Status | Effect op de ervaring van gebruiker aanmelden bij Azure |
 |:---:|:--- |
 | Niet toegevoegd |In dit geval is geen aangepast domein voor contoso.com toegevoegd in de Azure AD-directory. Gebruikers die beschikken over UPN on-premises met het achtervoegsel @contoso.com is niet mogelijk met hun on-premises UPN kunt aanmelden bij Azure. Ze hebt in plaats daarvan gebruik van een nieuwe UPN die voor hen wordt geleverd door Azure AD door het achtervoegsel voor de standaard Azure AD-map toe te voegen. Bijvoorbeeld, als u gebruikers aan de Azure AD-directory azurecontoso.onmicrosoft.com en vervolgens de on-premises gebruiker synchroniseert user@contoso.com de UPN-krijgt user@azurecontoso.onmicrosoft.com. |

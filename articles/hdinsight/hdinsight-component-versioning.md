@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 4b305087c0c755254d72811fb9275c509343c87e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 0e15f3dc448ba218ebdfe309c4308bbc789ef5be
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878394"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226261"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de Apache Hadoop-onderdelen en versies die beschikbaar met HDInsight?
 
@@ -75,7 +75,7 @@ De volgende tabellen worden de versies van HDInsight. De HDP-versies die met elk
 
 ### <a name="available-versions"></a>Beschikbare versies
 
-De volgende tabel bevat de versies van HDInsight die beschikbaar in de Azure-Portal, evenals andere methoden voor het implementeren, zoals PowerShell en .NET SDK zijn.
+De volgende tabel bevat de versies van HDInsight die beschikbaar in de Azure-portal, evenals andere methoden voor het implementeren, zoals PowerShell en .NET SDK zijn.
 
 | HDInsight-versie | HDP-versie | VM OS | Releasedatum | Datum van afloop voor ondersteuning | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -91,7 +91,7 @@ De volgende tabel bevat de versies van HDInsight die beschikbaar in de Azure-Por
 
 ### <a name="retired-versions"></a>Buiten gebruik gestelde versies
 
-De volgende tabel bevat de versies van HDInsight die **niet** beschikbaar in de Azure-Portal.
+De volgende tabel bevat de versies van HDInsight die **niet** beschikbaar in de Azure portal.
 
 | HDInsight-versie | HDP-versie | VM OS | Releasedatum | Datum van afloop voor ondersteuning | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |

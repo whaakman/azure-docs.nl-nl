@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: fb9ee97726632b7eeccc923596c1f5527a7c95bd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961604"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118626"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Netwerkprestatiemeter configureren voor ExpressRoute
 
@@ -62,17 +62,17 @@ Een werkruimte maken in het abonnement waaraan de VNets koppelen aan het Express
 2. Aan de onderkant van de belangrijkste **Network Performance Monitor** pagina, klikt u op **maken** openen **Network Performance Monitor - de nieuwe oplossing maken** pagina. Klik op **Log Analytics-werkruimte - Selecteer een werkruimte** de werkruimten-pagina te openen. Klik op **+ nieuwe werkruimte maken** om de pagina van de werkruimte te openen.
 3. Op de **Log Analytics-werkruimte** weergeeft, schakelt **nieuw**, klikt u vervolgens de volgende instellingen configureren:
 
-  * Log Analytics-werkruimte: Typ een naam voor uw werkruimte.
-  * Abonnement: als u meerdere abonnementen hebt, kiest u het abonnement die u wilt koppelen aan de nieuwe werkruimte.
-  * Resourcegroep - Maak een resourcegroep of gebruik een bestaande resourcegroep.
-  * Locatie - deze locatie wordt gebruikt om op te geven van de locatie van het opslagaccount dat wordt gebruikt voor de agent verbinding-Logboeken.
-  * Prijscategorie: Selecteer de prijscategorie.
+   * Log Analytics-werkruimte: Typ een naam voor uw werkruimte.
+   * Abonnement: als u meerdere abonnementen hebt, kiest u het abonnement die u wilt koppelen aan de nieuwe werkruimte.
+   * Resourcegroep - Maak een resourcegroep of gebruik een bestaande resourcegroep.
+   * Locatie - deze locatie wordt gebruikt om op te geven van de locatie van het opslagaccount dat wordt gebruikt voor de agent verbinding-Logboeken.
+   * Prijscategorie: Selecteer de prijscategorie.
   
-    >[!NOTE]
-    >Het ExpressRoute-circuit is overal ter wereld. Dit hoeft niet te worden in dezelfde regio als de werkruimte.
-    >
+     >[!NOTE]
+     >Het ExpressRoute-circuit is overal ter wereld. Dit hoeft niet te worden in dezelfde regio als de werkruimte.
+     >
   
-    ![werkruimte](./media/how-to-npm/4.png)<br><br>
+     ![werkruimte](./media/how-to-npm/4.png)<br><br>
 4. Klik op **OK** opslaan en implementeren van de instellingen-sjabloon. Nadat de sjabloon wordt gevalideerd, klikt u op **maken** implementeren van de werkruimte.
 5. Nadat de werkruimte is geïmplementeerd, gaat u naar de **NetworkMonitoring(name)** resource die u hebt gemaakt. Het valideren van de instellingen en klik vervolgens op **oplossing is aanvullende configuratie vereist**.
 
@@ -86,7 +86,7 @@ Een werkruimte maken in het abonnement waaraan de VNets koppelen aan het Express
 2. Kopieer vervolgens de **werkruimte-ID** en **primaire sleutel** naar Kladblok.
 3. Uit de **Log Analytics-Agents configureren voor bewaking met TCP-protocol** sectie, het Powershell-Script downloaden. Het PowerShell-script kunt u de relevante firewallpoort voor de TCP-transacties openen.
 
-  ![PowerShell-script](./media/how-to-npm/7.png)
+   ![PowerShell-script](./media/how-to-npm/7.png)
 
 ### <a name="installagent"></a>2.2: Een bewakingsagent installeren op elke controleserver (op elke VNET die u wilt bewaken)
 
@@ -102,15 +102,15 @@ Het is raadzaam dat u ten minste twee agents op elke zijde van de ExpressRoute-v
 4. Op de **doelmap** pagina, wijzigen of desgewenst de standaardinstallatiemap en klik vervolgens op **volgende**.
 5. Op de **installatieopties voor Agent** pagina die u kunt kiezen om de agent verbinden met Azure Monitor-Logboeken of Operations Manager. Of u kunt de opties leeg laten als u wilt configureren van de agent later opnieuw. Nadat u uw selection(s), klikt u op **volgende**.
 
-  * Als u wilt verbinding maken met **Azure Log Analytics**, plak de **werkruimte-ID** en **Werkruimtesleutel** (primaire sleutel) die u in Kladblok in de vorige sectie hebt gekopieerd. Klik op **Volgende**.
+   * Als u wilt verbinding maken met **Azure Log Analytics**, plak de **werkruimte-ID** en **Werkruimtesleutel** (primaire sleutel) die u in Kladblok in de vorige sectie hebt gekopieerd. Klik op **Volgende**.
 
-    ![ID en -sleutel](./media/how-to-npm/8.png)
-  * Als u wilt verbinding maken met **Operations Manager**op de **Beheergroepconfiguratie** pagina, typt u de **Beheergroepsnaam**, **Management Server** , en de **Beheerserverpoort**. Klik op **Volgende**.
+     ![ID en -sleutel](./media/how-to-npm/8.png)
+   * Als u wilt verbinding maken met **Operations Manager**op de **Beheergroepconfiguratie** pagina, typt u de **Beheergroepsnaam**, **Management Server** , en de **Beheerserverpoort**. Klik op **Volgende**.
 
-    ![Operations Manager](./media/how-to-npm/9.png)
-  * Op de **actie-Account van Agent** pagina, kiest u de **lokaal systeem** -account, of **domein of lokaal computeraccount**. Klik op **Volgende**.
+     ![Operations Manager](./media/how-to-npm/9.png)
+   * Op de **actie-Account van Agent** pagina, kiest u de **lokaal systeem** -account, of **domein of lokaal computeraccount**. Klik op **Volgende**.
 
-    ![Account](./media/how-to-npm/10.png)
+     ![Account](./media/how-to-npm/10.png)
 6. Op de **gereed voor installatie** pagina, Controleer uw keuzes en klik vervolgens op **installeren**.
 7. Klik op de pagina **Configuratie voltooid** op **Voltooien**.
 8. Als u klaar bent, is de Microsoft Monitoring Agent wordt weergegeven in het Configuratiescherm. U kunt de configuratie controleren en verifiëren dat de agent is verbonden met Azure Monitor-Logboeken. Wanneer verbinding is gemaakt, wordt de agent een bericht weergegeven: **De Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite service**.
@@ -128,7 +128,7 @@ Proxy-instellingen voor de Microsoft Monitoring Agent via het Configuratiescherm
 3. Klik op het tabblad **Proxyinstellingen**.
 4. Selecteer **een proxyserver gebruiken** en typ de URL en het poortnummer, wanneer u een nodig hebt. Als er voor uw proxyserver verificatie is vereist, voert u de gebruikersnaam en het wachtwoord in om de proxyserver te openen.
 
-  ![Proxy](./media/how-to-npm/11.png)
+   ![Proxy](./media/how-to-npm/11.png)
 
 ### <a name="verifyagent"></a>2.4: Controleer de verbinding van de agent
 
@@ -139,7 +139,7 @@ U kunt eenvoudig controleren of uw agents communiceren.
 3. Klik op de **Azure Log Analytics** tabblad.
 4. In de **Status** kolom ziet u dat de agent is verbonden met Azure Monitor-Logboeken.
 
-  ![status](./media/how-to-npm/12.png)
+   ![status](./media/how-to-npm/12.png)
 
 ### <a name="firewall"></a>2.5: Open de firewallpoorten op de monitoring agentservers
 
@@ -172,16 +172,16 @@ Zie voor meer informatie over NSG [Netwerkbeveiligingsgroepen](../virtual-networ
 
 1. Navigeer naar de overzichtstegel van Network Performance Monitor door te gaan naar de **alle Resources** pagina en klik vervolgens op de goedgekeurde lijst NPM-werkruimte.
 
-  ![npm-werkruimte](./media/how-to-npm/npm.png)
+   ![npm-werkruimte](./media/how-to-npm/npm.png)
 2. Klik op de **Network Performance Monitor** overzichtstegel om het dashboard. Het dashboard bevat een ExpressRoute-pagina, die laat zien dat ExpressRoute in een niet-geconfigureerde status'. Klik op **functie instellen** om de configuratiepagina van Network Performance Monitor te openen.
 
-  ![functie instellen](./media/how-to-npm/npm2.png)
+   ![functie instellen](./media/how-to-npm/npm2.png)
 3. Navigeer naar het tabblad ExpressRoute-Peerings, zich in het deelvenster links op de configuratiepagina. Klik vervolgens op **nu detecteren**.
 
-  ![detecteren](./media/how-to-npm/13.png)
+   ![detecteren](./media/how-to-npm/13.png)
 4. Wanneer detectie is voltooid, ziet u een lijst met de volgende items:
-  * Alle van de Microsoft-peering-verbindingen in de ExpressRoute-circuit die gekoppeld aan dit abonnement zijn.
-  * Alle van de privé-peeringverbindingen die verbinding met de VNets maken die zijn gekoppeld aan dit abonnement.
+   * Alle van de Microsoft-peering-verbindingen in de ExpressRoute-circuit die gekoppeld aan dit abonnement zijn.
+   * Alle van de privé-peeringverbindingen die verbinding met de VNets maken die zijn gekoppeld aan dit abonnement.
             
 ## <a name="configmonitor"></a>Stap 5: Monitors configureren
 
