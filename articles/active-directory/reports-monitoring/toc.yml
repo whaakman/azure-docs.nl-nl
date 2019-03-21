@@ -30,8 +30,6 @@ items:
     items:
     - name: Toegang krijgen tot de API voor rapportage met behulp van certificaten
       href: tutorial-access-api-with-certificates.md
-    - name: Een script genereren om aanmeldingslogboeken te downloaden
-      href: tutorial-signin-logs-download-script.md
   - name: Bewaking
     items:
     - name: Logboeken naar Event Hub streamen
@@ -120,9 +118,9 @@ items:
     - name: Schema van aanmeldingslogboek
       href: reference-azure-monitor-sign-ins-log-schema.md
   expanded: true
-ms.openlocfilehash: e14fac6ff115951ca46995d7973e919e6a774b8c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 746e3834189b9c0c478f7bbcd8b72e6760c288f6
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819374"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293767"
