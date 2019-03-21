@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1d81426853a9a8e28fa04e34fada3ce64798ccfd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 73dcddf796faa3b39dbb124fe6c528bb19eda3a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958147"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841222"
 ---
 # <a name="about-the-speech-sdk"></a>Informatie over de Speech-SDK
 
-De spraak Software Development Kit (SDK) biedt uw toepassingen systeemeigen toegang tot de functies van de spraak-service, waardoor het gemakkelijker wordt om software te ontwikkelen. De SDK biedt op dit moment toegang tot **spraak naar tekst**, **Spraakomzetting**, en **bedoeling erkenning**.
+Spraak Software Development Kit (SDK) biedt uw toepassingen toegang tot de functies van de Services Speech, waardoor het gemakkelijker wordt om spraak ingeschakelde software te ontwikkelen. Op dit moment de SDK's bieden toegang tot **spraak naar tekst**, **Spraakomzetting**, en **bedoeling erkenning**. Een algemeen overzicht over de mogelijkheden en ondersteunde platforms kunt u vinden op de documentatie [vermelding pagina](https://aka.ms/csspeech).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

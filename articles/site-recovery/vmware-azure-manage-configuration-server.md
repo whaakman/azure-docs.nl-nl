@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 9aa6b9dc26b53315957b7ddbb113d1d129dcc1da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: da7750198f76bc9e17c23b1347e9fc78262aa06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109160"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086952"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>De configuratieserver voor VMware-VM-noodherstel beheren
 
@@ -93,25 +93,25 @@ De Open Virtualization Format (OVF)-sjabloon implementeert de configuratieserver
 Als u wilt, kunt u de configuratieserver in dezelfde kluis registreren. Hebt u een extra proces server virtuele machine, naast de standaard-processerver die wordt uitgevoerd op de servercomputer van de configuratie opnieuw registreren op beide machines.
 
 
-  1. Open in de kluis **beheren** > **Site Recovery-infrastructuur** > **configuratieservers**.
-  2. In **Servers**, selecteer **registratiesleutel downloaden** voor het downloaden van het bestand met kluisreferenties.
-  3. Aanmelden bij de configuratie van server-machine.
-  4. In **%ProgramData%\ASR\home\svsystems\bin**, open **cspsconfigtool.exe**.
-  5. Op de **kluis registratie** tabblad **Bladeren**, en Ga naar het bestand met kluisreferenties die u hebt gedownload.
-  6. Indien nodig, bieden u proxy-server-gegevens. Selecteer vervolgens **Registreren**.
-  7. Open een admin PowerShell-opdrachtvenster en voer de volgende opdracht uit:
+1. Open in de kluis **beheren** > **Site Recovery-infrastructuur** > **configuratieservers**.
+2. In **Servers**, selecteer **registratiesleutel downloaden** voor het downloaden van het bestand met kluisreferenties.
+3. Aanmelden bij de configuratie van server-machine.
+4. In **%ProgramData%\ASR\home\svsystems\bin**, open **cspsconfigtool.exe**.
+5. Op de **kluis registratie** tabblad **Bladeren**, en Ga naar het bestand met kluisreferenties die u hebt gedownload.
+6. Indien nodig, bieden u proxy-server-gegevens. Selecteer vervolgens **Registreren**.
+7. Open een admin PowerShell-opdrachtvenster en voer de volgende opdracht uit:
    ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
-      >[!NOTE]
-      >Om **ophalen van de meest recente certificaten** Voer de opdracht uit vanaf de configuratieserver naar uitbreidbare processerver *"< installatie Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe >"--registermt uit*
+    >[!NOTE]
+    >Om **ophalen van de meest recente certificaten** Voer de opdracht uit vanaf de configuratieserver naar uitbreidbare processerver *"< installatie Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe >"--registermt uit*
 
-  8. Ten slotte de obengine opnieuw door de volgende opdracht wordt uitgevoerd.
-  ```
-          net stop obengine
-          net start obengine
+8. Ten slotte de obengine opnieuw door de volgende opdracht wordt uitgevoerd.
+   ```
+        net stop obengine
+        net start obengine
    ```
 
 

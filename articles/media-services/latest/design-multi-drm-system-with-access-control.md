@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 40e7f257df41fa4836b9df692be48a4b6c57fc80
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ef695d913c73f0a4266b20f21f1008108b85b4d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812994"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893013"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Ontwerp van een multi-DRM-beveiliging van inhoud-systeem met toegangsbeheer 
 
@@ -29,7 +29,7 @@ Het ontwerpen en bouwen van een subsysteem Digital Rights Management (DRM) voor 
 
 De betreffende lezers voor dit document zijn engineers die werken in DRM subsystemen van OTT of online streaming/Graphic; oplossingen of lezers die geïnteresseerd in DRM subsystemen zijn. Verondersteld wordt dat lezers bekend met ten minste één van de DRM-technologieën op de markt, zoals PlayReady, Widevine, FairPlay of Adobe-toegang bent.
 
-In deze discussie door multi-DRM nemen we de 3 DRM's ondersteund door Azure Media Services: Algemene versleuteling (CENC) voor PlayReady en Widevine, FairPlay, evenals de AES-128 clear key-versleuteling. Een belangrijke trend in online streaming en uit de branche OTT is het gebruik van systeemeigen DRM's op verschillende-clientplatforms. Deze trend is een overstap van de voorgaande build is die een enkele DRM en de client-SDK voor verschillende-clientplatforms gebruikt. Wanneer u CENC met multi systeemeigen DRM, zowel PlayReady als Widevine zijn versleuteld volgens de [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specificatie.
+In deze discussie door multi-DRM nemen we de 3 DRM's ondersteund door Azure Media Services: Algemene versleuteling (CENC) voor PlayReady en Widevine, FairPlay, evenals de AES-128 clear key-versleuteling. Een belangrijke trend in online streaming en uit de branche OTT is het gebruik van systeemeigen DRM's op verschillende-clientplatforms. Deze trend is een overstap van de voorgaande build is die een enkele DRM en de client-SDK voor verschillende-clientplatforms gebruikt. Wanneer u CENC met multi systeemeigen DRM, zowel PlayReady als Widevine zijn versleuteld volgens de [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specificatie.
 
 De voordelen van het gebruik van systeemeigen multi-DRM voor inhoudsbeveiliging zijn dat deze:
 
@@ -49,7 +49,7 @@ De doelstellingen van dit artikel zijn:
 De volgende tabel geeft een overzicht van de systeemeigen DRM-ondersteuning op verschillende platforms en EME ondersteuning in verschillende browsers.
 
 | **Clientplatform** | **Systeemeigen DRM** | **EME** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Smart-tv's, STB 's** | PlayReady, Widevine en/of andere | Ingesloten browser/EME voor PlayReady en/of Widevine|
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 voor PlayReady|
 | **Android-apparaten (telefoon, tablet, tv-programma's)** |Widevine |Chrome for Widevine |
@@ -145,7 +145,7 @@ De volgende tabel ziet u de toewijzing.
 | **Sleutelbeheer** |Niet nodig voor de referentie-implementatie |
 | **Inhoudsbeheer** |Een C#-consoletoepassing |
 
-Met andere woorden, worden zowel de id-provider en de STS geleverd door Azure AD. De [API van Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) wordt gebruikt voor de speler. Zowel Azure Media Services en Azure Media Player ondersteunt CENC via DASH, FairPlay via HLS, PlayReady in smooth streaming en een AES-128-versleuteling voor DASH, HLS en smooth.
+Met andere woorden, worden zowel de id-provider en de STS geleverd door Azure AD. De [API van Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) wordt gebruikt voor de speler. Zowel Azure Media Services en Azure Media Player ondersteunt CENC via DASH, FairPlay via HLS, PlayReady in smooth streaming en een AES-128-versleuteling voor DASH, HLS en smooth.
 
 Het volgende diagram toont de algemene structuur en de stroom met de vorige technologie-toewijzing:
 
@@ -199,7 +199,7 @@ Implementatie omvat de volgende stappen uit:
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. Een speler maken met behulp van de [API van Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/). Gebruik de [API van Azure Media Player ProtectionInfo](http://amp.azure.net/libs/amp/latest/docs/) om op te geven welke DRM-technologie kunt gebruiken voor verschillende DRM-platforms.
+8. Een speler maken met behulp van de [API van Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Gebruik de [API van Azure Media Player ProtectionInfo](https://amp.azure.net/libs/amp/latest/docs/) om op te geven welke DRM-technologie kunt gebruiken voor verschillende DRM-platforms.
 
 9. De volgende tabel ziet u de testmatrix.
 
@@ -365,7 +365,7 @@ Er zijn twee soorten sleutels:
 
 > [!NOTE]
 > Als u .NET Framework / C# als uw ontwikkelplatform, de X509 certificaat dat wordt gebruikt voor een asymmetrische beveiligingssleutel moet een sleutellengte van ten minste 2048 hebben. Dit is een vereiste van de klasse System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Anders is de volgende uitzondering opgetreden:
-
+> 
 > IDX10630: De System.IdentityModel.Tokens.X509AsymmetricSecurityKey voor het ondertekenen van mag niet kleiner dan '2048-bits.
 
 ## <a name="the-completed-system-and-test"></a>Het voltooide systeem en de test

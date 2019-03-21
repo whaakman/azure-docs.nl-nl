@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e34856704b474ac1b7d25d589be5f98be2b113cc
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 02f973af71f0ee7e1fd1bcf712a08e001ec41667
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671553"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224954"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Zelfstudie: De runtime van een Service Fabric-cluster upgraden in Azure
 
-Deze zelfstudie is deel drie uit een reeks. Hierin ziet u hoe u de Service Fabric-runtime kunt upgraden op een Azure Service Fabric-cluster. Dit deel van de zelfstudie is geschreven voor Service Fabric-clusters die worden uitgevoerd in Azure en is niet van toepassing op zelfstandige Service Fabric-clusters.
+Deze zelfstudie is deel vier van een reeks en ziet u hoe u de Service Fabric-runtime upgraden op een Azure Service Fabric-cluster. Dit deel van de zelfstudie is geschreven voor Service Fabric-clusters die worden uitgevoerd in Azure en is niet van toepassing op zelfstandige Service Fabric-clusters.
 
 > [!WARNING]
 > Voor dit deel van de zelfstudie is PowerShell vereist. De Azure CLI-hulpprogramma's bieden nog geen ondersteuning voor het upgraden van de clusterruntime. Een cluster kan ook worden geüpgraded in de portal. Zie [Een Azure Service Fabric-cluster upgraden](service-fabric-cluster-upgrade.md) voor meer informatie.
@@ -40,6 +40,7 @@ In deze zelfstudie leert u het volgende:
 In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
 > * Een beveiligd [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) maken in Azure met behulp van een sjabloon
+> * [Een cluster bewaken](service-fabric-tutorial-monitor-cluster.md)
 > * [Een cluster in- of uitschalen](service-fabric-tutorial-scale-cluster.md)
 > * De runtime van een cluster upgraden
 > * [Een cluster verwijderen](service-fabric-tutorial-delete-cluster.md)

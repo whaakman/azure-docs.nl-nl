@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 7a83a56a63fbd8a74e6a7e6d6f5158e3b5a8c2a4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: ecf73b08755f548c5506888a8113ad53fd8987ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232726"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877969"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Een rapport insluiten in Power BI-Werkruimteverzamelingen
 
@@ -157,4 +157,4 @@ Het rapport wordt automatisch op basis van de grootte van de container worden in
 [Git-opslagplaats voor Power BI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Git-opslagplaats voor Power BI-knooppunt](https://github.com/Microsoft/PowerBI-Node)  
 
-Nog vragen? [Probeer de Power BI-community](http://community.powerbi.com/)
+Nog vragen? [Probeer de Power BI-community](https://community.powerbi.com/)

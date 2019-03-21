@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 045a8fc3723c7bae176f0b99a83965bb2bef721d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a83661a63f784f62bf46ce75b8b4f47c57c87b19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242935"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840440"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Experimenten en inferentietaken in een Azure-netwerk veilig uitvoeren
 
@@ -60,15 +60,17 @@ Voor het gebruik van Azure Machine Learning-Computing in een virtueel netwerk, g
 
     - Een load balancer
 
-   De beperkingen die voor deze resources gelden, worden bepaald door de [resourcequota](https://docs.microsoft.com/azure/azure-subscription-service-limits) van het abonnement.
+  De beperkingen die voor deze resources gelden, worden bepaald door de [resourcequota](https://docs.microsoft.com/azure/azure-subscription-service-limits) van het abonnement.
 
 ### <a id="mlcports"></a> Vereiste poorten
 
 Machine Learning-Computing, gebruikt momenteel de Azure Batch-service voor het inrichten van virtuele machines in de opgegeven virtuele netwerk. Het subnet moet binnenkomende communicatie van de Batch-service toestaan. Deze communicatie wordt gebruikt om te plannen wordt uitgevoerd op de Machine Learning-Computing-knooppunten en om te communiceren met Azure Storage en andere bronnen. Batch voegt nsg's toe op het niveau van netwerkinterfaces (NIC's) die zijn gekoppeld aan virtuele machines. Met deze netwerkbeveiligingsgroepen worden automatisch binnenkomende en uitgaande regels geconfigureerd om het volgende verkeer toe te staan:
 
-- Binnenkomend TCP-verkeer op de poorten 29876 en 29877 van IP-adressen van Batch-servicerollen.
+- Binnenkomend TCP-verkeer op poort 29876 en 29877 uit een __servicetag__ van __BatchNodeManagement__.
+
+    ![Afbeelding van de Azure-portal geeft een binnenkomende regel met behulp van de servicetag BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
  
-- Binnenkomend TCP-verkeer op poort 22 om externe toegang te verlenen.
+- (optioneel) Binnenkomend TCP-verkeer op poort 22 om externe toegang te verlenen. Dit is alleen nodig als u wilt verbinding maken met behulp van SSH op het openbare IP-adres.
  
 - Uitgaand verkeer op een willekeurige poort naar het virtuele netwerk.
 

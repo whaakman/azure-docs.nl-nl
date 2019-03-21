@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/16/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5f8dffa01b2d7dd7fa966d2b417019f1d2afb1bc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 25dda12ca33165cfc64ffd949a2068acb5150b84
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867011"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097146"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Zelfstudie: Gekoppelde Azure Resource Manager-sjablonen maken
 
 Informatie over het maken van gekoppelde Azure Resource Manager-sjablonen. Met gekoppelde sjablonen kunt u een sjabloon een andere sjabloon laten aanroepen. Dit is handig om sjablonen te modulariseren. In deze zelfstudie gebruikt u dezelfde sjabloon als in [Zelfstudie: Azure Resource Manager-sjablonen maken met afhankelijke resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md) voor het maken van een virtuele machine, een virtueel netwerk en andere afhankelijke resources, waaronder een opslagaccount. U verplaatst de gemaakte resource van het opslagaccount naar een gekoppelde sjabloon.
+
+Het aanroepen van een gekoppelde sjabloon is zoals het maken van een aanroep van de functie.  U leert ook hoe u parameterwaarden doorgeven aan de gekoppelde sjabloon en hoe u 'retourwaarden' van de gekoppelde sjabloon.
 
 Deze zelfstudie bestaat uit de volgende taken:
 
@@ -34,6 +36,8 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * Afhankelijkheid configureren
 > * De sjabloon implementeren
 > * Aanvullende procedures
+
+Zie voor meer informatie, [gekoppelde en geneste sjablonen bij het implementeren van Azure-resources](./resource-group-linked-templates.md).
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -67,95 +71,97 @@ Azure-snelstartsjablonen is een opslagplaats voor Resource Manager-sjablonen. In
 3. Selecteer **Openen** om het bestand te openen.
 4. Er worden vijf resources gedefinieerd met de sjabloon:
 
-    * `Microsoft.Storage/storageAccounts`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
-    * `Microsoft.Network/publicIPAddresses`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
-    * `Microsoft.Network/virtualNetworks`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
-    * `Microsoft.Network/networkInterfaces`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
-    * `Microsoft.Compute/virtualMachines`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
+   * [`Microsoft.Network/publicIPAddresses`](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+   * [`Microsoft.Network/virtualNetworks`](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
+   * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
+   * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
-    Het is handig om enige basiskennis te hebben van de sjabloon voordat u de sjabloon gaat aanpassen.
+     Het is handig om op te halen van enige basiskennis van het sjabloonschema voor het aanpassen van de sjabloon.
 5. Selecteer **Bestand**>**Opslaan als** om het bestand op uw lokale computer op te slaan als **azuredeploy.json**.
 6. Selecteer **Bestand**>**Opslaan als** om nog een exemplaar te maken van het bestand met de naam **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>De gekoppelde sjabloon maken
 
-De gekoppelde sjabloon maakt een opslagaccount. De gekoppelde sjabloon is bijna identiek aan de zelfstandige sjabloon die een opslagaccount maakt. In deze zelfstudie moet de gekoppelde sjabloon een waarde teruggeven aan de hoofdsjabloon. Deze waarde is gedefinieerd in het element `outputs`.
+De gekoppelde sjabloon maakt een opslagaccount. De gekoppelde sjabloon kan worden gebruikt als een zelfstandige-sjabloon om een opslagaccount te maken. In deze zelfstudie wordt in de gekoppelde sjabloon twee parameters zijn vereist, en hoe een waarde terug naar de belangrijkste sjabloon. Deze waarde 'return' is gedefinieerd in de `outputs` element.
 
-1. Open linkedTemplate.json in Visual Studio Code als het bestand nog niet is geopend.
+1. Open **linkedTemplate.json** in Visual Studio-Code als het bestand is niet geopend.
 2. Breng de volgende wijzigingen aan:
 
-    * Verwijder alle resources behalve het opslagaccount. U moet in totaal vier resources verwijderen.
+    * Verwijder alle parameters dan **locatie**.
+    * Voeg een parameter met de naam **storageAccountName** toe. 
+        ```json
+        "storageAccountName":{
+          "type": "string",
+          "metadata": {
+              "description": "Azure Storage account name."
+          }
+        },
+        ```
+        De naam van het opslagaccount en de locatie worden van de belangrijkste sjabloon naar de gekoppelde sjabloon als parameters doorgegeven.
+        
+    * Het element **variables** en alle variabeledefinities te verwijderen.
+    * Verwijder alle resources dan de storage-account. U moet in totaal vier resources verwijderen.
     * Werk de waarde van het element **name** van de opslagaccount-resource om:
 
         ```json
           "name": "[parameters('storageAccountName')]",
         ```
-    * Het element **variables** en alle variabeledefinities te verwijderen.
-    * Alle parameters te verwijderen, behalve **location**.
-    * Voeg een parameter met de naam **storageAccountName** toe. De naam van het opslagaccount wordt als een parameter van de hoofdsjabloon doorgegeven aan de gekoppelde sjabloon.
 
-        ```json
-        "storageAccountName":{
-        "type": "string",
-        "metadata": {
-            "description": "Azure Storage account name."
-        }
-        },
-        ```
     * Werk het element **outputs** zo bij dat het er als volgt uitziet:
-
+    
         ```json
         "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
+          "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+            }
         }
         ```
-        **storageUri** is vereist voor de resourcedefinitie van de virtuele machine in de hoofdsjabloon.  U kunt de waarde als een uitvoerwaarde teruggeven aan de hoofdsjabloon.
+       **storageUri** is vereist voor de resourcedefinitie van de virtuele machine in de hoofdsjabloon.  U kunt de waarde als een uitvoerwaarde teruggeven aan de hoofdsjabloon.
 
-    Wanneer u klaar bent, ziet de sjabloon er als volgt uit:
+        Wanneer u klaar bent, ziet de sjabloon er als volgt uit:
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-          "storageAccountName":{
-            "type": "string",
-            "metadata": {
-              "description": "Azure Storage account name."
+        ```json
+        {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "storageAccountName": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure Storage account name."
+              }
+            },
+            "location": {
+              "type": "string",
+              "defaultValue": "[resourceGroup().location]",
+              "metadata": {
+                "description": "Location for all resources."
+              }
             }
           },
-          "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-              "description": "Location for all resources."
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[parameters('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                "name": "Standard_LRS"
+              },
+              "kind": "Storage",
+              "properties": {}
+            }
+          ],
+          "outputs": {
+            "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
             }
           }
-        },
-        "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageAccountName')]",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "sku": {
-              "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-          }
-        ],
-        "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
         }
-    }
-    ```
+        ```
 3. Sla de wijzigingen op.
 
 ## <a name="upload-the-linked-template"></a>De gekoppelde sjabloon uploaden
@@ -227,7 +233,7 @@ In de praktijk genereert u een SAS-token wanneer u de hoofdsjabloon implementeer
 
 De hoofdsjabloon heet azuredeploy.json.
 
-1. Open azuredeploy.json in Visual Studio Code als het bestand nog niet is geopend.
+1. Open **azuredeploy.json** in Visual Studio-Code als deze niet is geopend.
 2. Verwijder de resourcedefinitie van het opslagaccount uit de sjabloon:
 
     ```json
@@ -302,8 +308,6 @@ Omdat het opslagaccount nu is gedefinieerd in de gekoppelde sjabloon, moet u de 
     *linkedTemplate* is de naam van de implementatieresource.  
 3. Werk **properties/diagnosticsProfile/bootDiagnostics/storageUri** bij zoals is weergegeven in de vorige schermafbeelding.
 4. Sla de bijgewerkte sjabloon op.
-
-Voor meer informatie raadpleegt u [Use linked and nested templates when deploying Azure resources](./resource-group-linked-templates.md) (Gekoppelde en geneste sjablonen gebruiken bij het implementeren van Azure-resources)
 
 ## <a name="deploy-the-template"></a>De sjabloon implementeren
 

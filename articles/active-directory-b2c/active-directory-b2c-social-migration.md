@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d6f857e926343c4c3c26d746134bbb9d94754c12
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a1ecc4de9475e735cd17286826c1d8cea05904ab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089349"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Gebruikers met sociale identiteiten migreren
 Wanneer u van plan bent om te migreren van uw id-provider naar Azure AD B2C, moet u mogelijk ook gebruikers met sociale identiteiten migreren. Dit artikel wordt uitgelegd hoe u voor het migreren van bestaande accounts voor sociale identiteiten, zoals: Facebook, LinkedIn, Microsoft en Google-accounts aan Azure AD B2C. In dit artikel geldt ook voor federatieve identiteiten, maar deze migraties minder gangbaar zijn.
@@ -32,14 +32,14 @@ Dit artikel is een vervolg van het artikel van de migratie van gebruiker en is g
 * **Lokaal account worden gecombineerd met sociale id**. Zoals gezegd, worden lokaal account aanmelden namen en sociale account-id's worden opgeslagen in verschillende kenmerken. `signInNames` wordt gebruikt voor het lokale account, terwijl `userIdentities` voor sociaal account. Één Azure AD B2C-account, kan een lokaal account alleen zijn en sociaal account alleen, of een lokaal account worden gecombineerd met sociale id in een gebruikersrecord. Dit gedrag kunt u voor het beheren van één account, terwijl een gebruiker kan zich aanmelden met de credential(s) lokaal account of met de sociale identiteiten.
 
 * `UserIdentity` Type - informatie bevat over de identiteit van een gebruiker sociaal account in een Azure AD B2C-tenant:
-    * `issuer` De tekenreeksweergave van de id-provider die de gebruikers-id, zoals facebook.com heeft uitgegeven.
-    * `issuerUserId` De unieke gebruikers-id die wordt gebruikt door de sociale id-provider in Base 64-indeling.
+  * `issuer` De tekenreeksweergave van de id-provider die de gebruikers-id, zoals facebook.com heeft uitgegeven.
+  * `issuerUserId` De unieke gebruikers-id die wordt gebruikt door de sociale id-provider in Base 64-indeling.
 
     ```JSON
     "userIdentities": [{
-            "issuer": "Facebook.com",
-            "issuerUserId": "MTIzNDU2Nzg5MA=="
-        }
+          "issuer": "Facebook.com",
+          "issuerUserId": "MTIzNDU2Nzg5MA=="
+      }
     ]
     ```
 

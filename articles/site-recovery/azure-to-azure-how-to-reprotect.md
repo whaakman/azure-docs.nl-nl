@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0b5fe1b1df306bf0930715bc6cfb586e5445f85c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110491"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Azure-VM's opnieuw beveiligen een failover naar de primaire regio
 
@@ -35,12 +35,12 @@ Wanneer u [failover](site-recovery-failover.md) Azure VM's van de ene regio voor
 
 1. In **kluis** > **gerepliceerde items**, met de rechtermuisknop op de mislukte uitvoert voor virtuele machine en selecteert u **opnieuw beveiligen**. De richting opnieuw beveiligen moet van de secundaire naar primaire weergeven.
 
-  ![Opnieuw beveiligen](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Opnieuw beveiligen](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 2. Controleer in het resource-groep, het netwerk, opslag en beschikbaarheid wordt ingesteld. Klik vervolgens op **OK**. Als er resources gemarkeerd als nieuw zijn, worden ze gemaakt als onderdeel van het proces opnieuw beveiligen.
 3. De taak opnieuw beveiligen seeding van de doelsite van de meest recente gegevens. Nadat die is voltooid, wordt de replicatie van verschillen plaatsvindt. Vervolgens kunt u failover naar de primaire site. U kunt het storage-account selecteren of het netwerk die u wilt gebruiken tijdens het opnieuw beveiligen, met de optie aanpassen.
 
-  ![Optie aanpassen](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
+   ![Optie aanpassen](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
 ### <a name="customize-reprotect-settings"></a>Instellingen voor opnieuw beveiligen aanpassen
 
@@ -54,7 +54,7 @@ U kunt de volgende eigenschappen van het doel VMe aanpassen tijdens het opnieuw 
 |Virtueel doelnetwerk     | Het doelnetwerk kan niet worden gewijzigd tijdens het opnieuw beveiligen. Als u wilt wijzigen van het netwerk, de netwerktoewijzing bij het opnieuw.         |
 |Doel-Opslagaccount (secundaire virtuele machine gebruikt geen beheerde schijven)     | U kunt de storage-account dat gebruikmaakt van de virtuele machine na een failover kunt wijzigen.         |
 |Beheerde replicaschijven (secundaire virtuele machine maakt gebruik van beheerde schijven)    | Site Recovery maakt beheerde replicaschijven in de primaire regio voor het spiegelen van beheerde schijven van de secundaire virtuele machine.         |
-|Cacheopslag     | U kunt een cache-opslagaccount tijdens replicatie moet worden gebruikt. Standaard is een nieuw cache-opslagaccount worden gemaakt, als deze niet bestaat.         |
+|Cache Storage     | U kunt een cache-opslagaccount tijdens replicatie moet worden gebruikt. Standaard is een nieuw cache-opslagaccount worden gemaakt, als deze niet bestaat.         |
 |Beschikbaarheidsset     |Als de virtuele machine in de secundaire regio deel van een beschikbaarheidsset uitmaakt, kunt u een beschikbaarheidsset voor de doel-VM in de primaire regio. Standaard, Site Recovery probeert te vinden van de bestaande beschikbaarheidsset in de primaire regio, en deze gebruiken. Aangepast, kunt u een nieuwe beschikbaarheidsset.         |
 
 

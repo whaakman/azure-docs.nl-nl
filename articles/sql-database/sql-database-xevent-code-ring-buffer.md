@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: b15a884821fa067c329766169cb4c704e9ed069a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f47c6b63ce5f18aa896b086ec884b9a3020cadd2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993276"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Doelcode ringbuffer voor uitgebreide gebeurtenissen in SQL-Database
 
@@ -57,7 +57,7 @@ In dit onderwerp wordt een voorbeeld van de Transact-SQL-code die:
 
 Met zeer kleine wijziging, kan het volgende voorbeeld ringbuffer op Azure SQL Database of Microsoft SQL Server worden uitgevoerd. Het verschil is de aanwezigheid van het knooppunt '_database' naam van een dynamische beheerweergave (DMV's), die wordt gebruikt in de component FROM in stap 5. Bijvoorbeeld:
 
-* sys.dm_xe **_database**_session_targets
+* sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
 
 &nbsp;

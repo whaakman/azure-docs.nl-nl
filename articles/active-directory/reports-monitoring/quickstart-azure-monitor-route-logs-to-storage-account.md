@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b50b8f6c54cbefde2120dd61643c23f5175927c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e8706e839005d43ab9fa2662d13d7d3c3994c136
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211747"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077748"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Zelfstudie: Azure AD-logboeken archiveren in een Azure-opslagaccount (preview)
 
@@ -45,11 +45,11 @@ U hebt het volgende nodig om deze functie te gebruiken:
 3. Selecteer **Exportinstellingen**. 
 
 4. In het deelvenster **Diagnostische instellingen** voert u een van de volgende handelingen uit:
-    * Selecteer **Instelling bewerken** als u bestaande instellingen wilt wijzigen.
-    * Selecteer **Diagnostische instelling toevoegen** als u nieuwe instellingen wilt toevoegen.  
-      Er zijn maximaal drie instellingen. 
+   * Selecteer **Instelling bewerken** als u bestaande instellingen wilt wijzigen.
+   * Selecteer **Diagnostische instelling toevoegen** als u nieuwe instellingen wilt toevoegen.  
+     Er zijn maximaal drie instellingen. 
 
-    ![Exportinstellingen](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
+     ![Exportinstellingen](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
 5. Voer een beschrijvende naam in voor de instelling om het doel ervan makkelijker te kunnen onthouden (bijvoorbeeld *Verzenden naar Azure-opslagaccount*). 
 

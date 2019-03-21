@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 875e823aa2958ee38b3510e93ffac7918be661cb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: cb5b64869a26133e1c08095a816c2d2854f85b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774010"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103499"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Capaciteit van het fysieke geheugen voor Azure Stack beheren
 
@@ -39,11 +39,11 @@ Het volgende stroomdiagram ziet u het algemene proces geheugen toevoegen aan elk
 ## <a name="add-memory-to-an-existing-node"></a>Geheugen aan een bestaand knooppunt toevoegen
 De volgende stappen bevatten een overzicht op hoog niveau van het toevoegproces-geheugen. 
 
-> [!Warning]  
-Volg deze stappen niet zonder te verwijzen naar de OEM-documentatie.
-
-> [!Warning]  
-De volledige schaaleenheid moet worden afgesloten, zoals een rolling geheugenupgrade wordt niet ondersteund.
+> [!Warning]
+> Volg deze stappen niet zonder te verwijzen naar de OEM-documentatie.
+> 
+> [!Warning]
+> De volledige schaaleenheid moet worden afgesloten, zoals een rolling geheugenupgrade wordt niet ondersteund.
 
 1. Stoppen van de Azure Stack met behulp van de stappen die zijn beschreven de [starten en stoppen Azure Stack](azure-stack-start-and-stop.md) artikel.
 2. De hoeveelheid geheugen op elke fysieke computer met behulp van de documentatie van de hardwarefabrikant van uw een upgrade uitvoert.

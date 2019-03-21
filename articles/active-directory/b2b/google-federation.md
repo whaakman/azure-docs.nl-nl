@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe259b6a0f45828e100de33f533e370323128eef
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.openlocfilehash: 8c1d6f541123a3f31c22352d646d701c37356e51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821693"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088312"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google als id-provider voor B2B-gastgebruikers toevoegen
 
@@ -62,8 +62,8 @@ Maak eerst een nieuw project in de Google-ontwikkelaars-Console om op te halen v
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(waarbij `<directory id>` is uw directory-ID)
    
-    > [!NOTE]
-    > Uw directory als ID wilt vinden, gaat u naar https://portal.azure.com, en klikt u onder **Azure Active Directory**, kiest u **eigenschappen** en kopieer de **map-ID**.
+     > [!NOTE]
+     > Uw directory als ID wilt vinden, gaat u naar https://portal.azure.com, en klikt u onder **Azure Active Directory**, kiest u **eigenschappen** en kopieer de **map-ID**.
 
    ![OAuth-client-ID maken](media/google-federation/google-create-oauth-client-id.png)
 
