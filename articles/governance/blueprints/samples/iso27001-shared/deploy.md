@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 64259d029ce67ecfd5db4b97fc165be0ee391ab8
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
-ms.translationtype: HT
+ms.openlocfilehash: 7fea9b0d00d92c63bb4c8bbdadada9e8eb6a05fe
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58008078"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202500"
 ---
 # <a name="deploy-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Het voorbeeld van de blauwdruk Azure blauwdrukken ISO 27001 gedeelde Services implementeren
 
@@ -97,7 +97,7 @@ Nadat de kopie van het voorbeeld van de blauwdruk is **gepubliceerd**, deze kan 
 
      De gedefinieerde parameters in deze sectie zijn van toepassing op het artefact waarin deze gedefinieerd. Deze parameters zijn [dynamische parameters](../../concepts/parameters.md#dynamic-parameters) omdat ze tijdens de toewijzing van de blauwdruk zijn gedefinieerd. Zie voor een volledige lijst of artefact parameters en de bijbehorende beschrijvingen, [artefact parameters tabel](#artifact-parameters-table).
 
-1. Zodra alle parameters hebt ingevoerd, selecteert u **toewijzen** aan de onderkant van de pagina.
+1. Zodra alle parameters hebt ingevoerd, selecteert u **toewijzen** aan de onderkant van de pagina. De blauwdruktoewijzing is gemaakt en artefact-implementatie begint. De implementatie duurt ongeveer een uur. Als u wilt controleren op de status van implementatie, de blauwdruktoewijzing te openen.
 
 > [!WARNING]
 > De blauwdrukken voor Azure-service en de ingebouwde blauwdruk voorbeelden zijn **gratis**. Azure-resources zijn [prijs per product](https://azure.microsoft.com/en-us/pricing/). Gebruik de [prijscalculator](https://azure.microsoft.com/pricing/calculator/) om in te schatten van de kosten van het uitvoeren van de resources die zijn geïmplementeerd door deze blauwdruk-voorbeeld.
@@ -165,10 +165,10 @@ Nu dat u de stappen voor het implementeren van het voorbeeld van de blauwdruk IS
 > [ISO 27001 gedeelde Services blauwdruk - overzicht](./index.md)
 > [ISO 27001 gedeelde Services blauwdruk - besturingselement toewijzing](./control-mapping.md)
 
-Toevoeging artikelen over blauwdrukken en hoe ze te gebruiken:
+Aanvullende artikelen over blauwdrukken en het gebruik hiervan:
 
-- Meer informatie over de [blauwdruk levenscyclus](../../concepts/lifecycle.md).
-- Meer informatie over het gebruik van [statische en dynamische parameters](../../concepts/parameters.md).
-- Meer informatie over het aanpassen van de [blauwdruk volgorde](../../concepts/sequencing-order.md).
-- Ontdek hoe u het gebruik van [blauwdruk resource vergrendelen](../../concepts/resource-locking.md).
-- Meer informatie over het [bijwerken, bestaande toewijzingen](../../how-to/update-existing-assignments.md).
+- Meer informatie over de [levenscyclus van een blauwdruk](../../concepts/lifecycle.md).
+- Meer informatie over hoe u [statische en dynamische parameters](../../concepts/parameters.md) gebruikt.
+- Meer informatie over hoe u de [blauwdrukvolgorde](../../concepts/sequencing-order.md) aanpast.
+- Meer informatie over hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](../../concepts/resource-locking.md).
+- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](../../how-to/update-existing-assignments.md).
