@@ -10,19 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/27/2018
+ms.date: 03/05/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9f548fbb9611b6d4b16efe5c4d26db73d85c9654
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: c9cdac53e43d57feb0d2dc5a8a7153dc05be8a7d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170629"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Zelfstudie: Azure Deployment Manager gebruiken met Resource Manager-sjablonen (beperkte preview)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Meer informatie over het gebruik van [Azure Deployment Manager](./deployment-manager-overview.md) om uw toepassingen in meerdere regio's te implementeren. Als u Deployment Manager wilt gebruiken, moet u twee sjablonen maken:
 
@@ -59,6 +57,13 @@ Als u dit artikel wilt voltooien, hebt u het volgende nodig:
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
+
+    Als u de Az van Azure PowerShell-module geïnstalleerd hebt, moet u twee extra switches:
+
+    ```powershell
+    Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease -AllowClobber -Force
+    ```
+
 * [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Azure Storage Explorer is niet vereist, maar maakt het wat gemakkelijker.
 
 ## <a name="understand-the-scenario"></a>Inzicht in het scenario
@@ -204,9 +209,6 @@ Op de volgende schermafbeelding ziet u alleen bepaalde onderdelen van de definit
 - **dependsOn**: alle servicetopologieresources zijn afhankelijk van de artefactbron.
 - **artefacten** verwijzen naar de sjabloonartefacten.  Hier worden relatieve paden gebruikt. Het volledige pad wordt samengesteld door het samenvoegen van artifactSourceSASLocation (gedefinieerd in de artefactbron), artifactRoot (gedefinieerd in de artefactbron) en templateArtifactSourceRelativePath (of parametersArtifactSourceRelativePath).
 
-> [!NOTE]
-> De namen van de service-eenheden mogen maximaal 31 tekens bevatten. 
-
 ### <a name="topology-parameters-file"></a>Topologieparameterbestand
 
 U maakt een parameterbestand dat wordt gebruikt in combinatie met de topologiesjabloon.
@@ -294,13 +296,13 @@ Azure PowerShell kan worden gebruikt om de sjablonen te implementeren.
 
 1. Voer het script uit om de servicetopologie te implementeren.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location "$location"
     
     # Create the service topology
     New-AzureRmResourceGroupDeployment `
@@ -317,7 +319,7 @@ Azure PowerShell kan worden gebruikt om de sjablonen te implementeren.
 
 3. <a id="deploy-the-rollout-template"></a>De implementatiesjabloon implementeren:
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
@@ -327,19 +329,60 @@ Azure PowerShell kan worden gebruikt om de sjablonen te implementeren.
 
 4. Controleer de voortgang van de implementatie met behulp van het volgende PowerShell-script:
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
-        -Name $rolloutName
+        -Name $rolloutName `
+        -Verbose
     ```
 
-    De Deployment Manager PowerShell-cmdlets moeten worden geïnstalleerd voordat u deze cmdlet kunt uitvoeren. Zie Vereisten.
+    De Deployment Manager PowerShell-cmdlets moeten worden geïnstalleerd voordat u deze cmdlet kunt uitvoeren. Zie Vereisten. De - uitgebreide switch kan worden gebruikt om te zien van de hele uitvoer.
 
     Het volgende voorbeeld toont de actieve status:
     
     ```
+    VERBOSE: 
+    
+    Status: Succeeded
+    ArtifactSourceId: /subscriptions/<AzureSubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
+    BuildVersion: 1.0.0.0
+    
+    Operation Info:
+        Retry Attempt: 0
+        Skip Succeeded: False
+        Start Time: 03/05/2019 15:26:13
+        End Time: 03/05/2019 15:31:26
+        Total Duration: 00:05:12
+    
+    Service: adm0925ServiceEUS
+        TargetLocation: EastUS
+        TargetSubscriptionId: <AzureSubscriptionID>
+    
+        ServiceUnit: adm0925ServiceEUSStorage
+            TargetResourceGroup: adm0925ServiceEUSrg
+    
+            Step: Deploy
+                Status: Succeeded
+                StepGroup: stepGroup3
+                Operation Info:
+                    DeploymentName: 2F535084871E43E7A7A4CE7B45BE06510adm0925ServiceEUSStorage
+                    CorrelationId: 0b6f030d-7348-48ae-a578-bcd6bcafe78d
+                    Start Time: 03/05/2019 15:26:32
+                    End Time: 03/05/2019 15:27:41
+                    Total Duration: 00:01:08
+                Resource Operations:
+    
+                    Resource Operation 1:
+                    Name: txq6iwnyq5xle
+                    Type: Microsoft.Storage/storageAccounts
+                    ProvisioningState: Succeeded
+                    StatusCode: OK
+                    OperationId: 64A6E6EFEF1F7755
+
+    ...
+
     ResourceGroupName       : adm0925rg
     BuildVersion            : 1.0.0.0
     ArtifactSourceId        : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout

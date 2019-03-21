@@ -160,7 +160,7 @@ items:
       href: backup-azure-central-reporting-updates.md
   - name: Data Protection Manager
     items:
-    - name: DPM-workloads voorbereiden in Azure Portal
+    - name: DPM-workloads voorbereiden in de Azure-portal
       href: backup-azure-dpm-introduction.md
     - name: DPM gebruiken om back-ups te maken van een Exchange-server
       href: backup-azure-backup-exchange-server.md
@@ -172,14 +172,16 @@ items:
       href: backup-azure-backup-sharepoint.md
   - name: Azure PowerShell gebruiken
     items:
-    - name: Virtuele Azure-machines in Azure Portal
+    - name: Virtuele Azure-machines in de Azure-portal
       href: backup-azure-vms-automation.md
-    - name: DPM in Azure Portal
+    - name: DPM in de Azure-portal
       href: backup-dpm-automation.md
-    - name: Windows Server in Azure Portal
+    - name: Windows Server in de Azure-portal
       href: backup-client-automation.md
-    - name: Azure-bestandsshares in Azure Portal
+    - name: Azure-bestandsshares in de Azure-portal
       href: backup-azure-afs-automation.md
+    - name: SQL in back-ups van virtuele Azure-machines
+      href: backup-azure-sql-automation.md
   - name: Azure Backup REST API gebruiken
     items:
     - name: Een Recovery Services-kluis maken
@@ -195,7 +197,7 @@ items:
   - name: Back-ups maken van SQL Server-databases in virtuele Azure-machines
     items:
     - name: Over SQL Server-back-ups in virtuele Azure-machines
-      href: backup-sql-server-azure-vms.md
+      href: backup-azure-sql-database.md
     - name: Back-ups maken van SQL Server-databases in virtuele Azure-machines
       href: backup-sql-server-database-azure-vms.md
     - name: SQL Server-databases herstellen in virtuele Azure-machines
@@ -278,9 +280,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: 033235611271b00275a0ef759af80f2c8c9a2474
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb58460b2331ab867e064235d5a2536809b28021
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014656"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284966"
