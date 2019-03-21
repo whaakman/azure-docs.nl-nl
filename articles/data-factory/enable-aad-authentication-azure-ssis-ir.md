@@ -12,12 +12,12 @@ ms.date: 3/11/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 787c436261635376ff82e8762cbc1469f4375e6b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729954"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848725"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure Active Directory-verificatie inschakelen voor Azure-SSIS Integration Runtime
 
@@ -76,37 +76,55 @@ U kunt een bestaande Azure AD-groep of maak een nieuwe Azure AD PowerShell gebru
 
 U kunt [configureren en beheren van Azure AD-verificatie met behulp van SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) met behulp van de volgende stappen uit:
 
-1.  Selecteer in Azure portal, **alle services** -> **SQL-servers** in de navigatie aan de linkerkant.
+1.  Selecteer in Azure portal, **alle services** -> **SQL-servers** in de navigatie aan de linkerkant.
 
 2.  Selecteer uw Azure SQL Database-server kan worden geconfigureerd met Azure AD-verificatie.
 
-3.  In de **instellingen** sectie van de blade, selecteer **Active Directory-beheerder**.
+3.  In de **instellingen** sectie van de blade, selecteer **Active Directory-beheerder**.
 
-4.  Selecteer in de opdrachtbalk **beheerder instellen**.
+4.  Selecteer in de opdrachtbalk **beheerder instellen**.
 
-5.  Selecteer een Azure AD-gebruikersaccount moet de beheerder van de server worden gemaakt en selecteer vervolgens **selecteren.**
+5.  Selecteer een Azure AD-gebruikersaccount moet de beheerder van de server worden gemaakt en selecteer vervolgens **selecteren.**
 
-6.  Selecteer in de opdrachtbalk **opslaan.**
+6.  Selecteer in de opdrachtbalk **opslaan.**
 
 ### <a name="create-a-contained-user-in-azure-sql-database-server-representing-the-azure-ad-group"></a>Een contained-gebruiker maken in Azure SQL Database-server die de Azure AD-groep
 
 Voor deze stap moet u [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-1.  Start SSMS.
+1. Start SSMS.
 
-2.  In de **verbinding maken met Server** dialoogvenster, geef de naam van uw Azure SQL Database-server in de **servernaam** veld.
+2. In de **verbinding maken met Server** dialoogvenster, geef de naam van uw Azure SQL Database-server in de **servernaam** veld.
 
-3.  In de **verificatie** veld **Active Directory - Universal met ondersteuning voor MFA** (u kunt ook de andere twee typen van Active Directory-verificatie, Zie [ Configureren en beheren van Azure AD-verificatie met behulp van SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
+3. In de **verificatie** veld **Active Directory - Universal met ondersteuning voor MFA** (u kunt ook de andere twee typen van Active Directory-verificatie, Zie [configureren en beheren Azure AD-verificatie met behulp van SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
 
-4.  In de **gebruikersnaam** en voer de naam van Azure AD-account die u hebt ingesteld als de beheerder van de server, bijvoorbeeld testuser@xxxonline.com.
+4. In de **gebruikersnaam** en voer de naam van Azure AD-account die u hebt ingesteld als de beheerder van de server, bijvoorbeeld testuser@xxxonline.com.
 
-5.  Selecteer **Connect** en het aanmeldingsproces te voltooien.
+5. Selecteer **Connect** en het aanmeldingsproces te voltooien.
 
-6.  In de **Objectverkenner**, vouw de **Databases** -> **systeemdatabases** map.
+6. In de **Objectverkenner**, vouw de **Databases** -> **systeemdatabases** map.
 
-7.  Met de rechtermuisknop op **master** database en selecteer **nieuwe query**.
+7. Met de rechtermuisknop op **master** database en selecteer **nieuwe query**.
 
-8.  Voer in het queryvenster de volgende T-SQL-opdracht, en selecteer **Execute** op de werkbalk.
+8. Voer in het queryvenster de volgende T-SQL-opdracht, en selecteer **Execute** op de werkbalk.
+
+   ```sql
+   CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+   ```
+
+   De opdracht voltooid is, het maken van een contained-gebruiker om weer te geven van de groep.
+
+9. Schakelt u het queryvenster, voer de volgende T-SQL-opdracht, en selecteer **Execute** op de werkbalk.
+
+   ```sql
+   ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+   ```
+
+   De opdracht voltooid is, de mogelijkheid om een database (SSISDB) te maken van de ingesloten gebruiker verlenen.
+
+10. Als uw SSISDB is gemaakt met behulp van SQL-verificatie en u overschakelen wilt voor het gebruik van Azure AD-verificatie voor uw Azure-SSIS IR om deze te openen, met de rechtermuisknop op **SSISDB** database en selecteer **nieuwe query**.
+
+11. Voer in het queryvenster de volgende T-SQL-opdracht, en selecteer **Execute** op de werkbalk.
 
     ```sql
     CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
@@ -114,25 +132,7 @@ Voor deze stap moet u [Microsoft SQL Server Management Studio](https://docs.mic
 
     De opdracht voltooid is, het maken van een contained-gebruiker om weer te geven van de groep.
 
-9.  Schakelt u het queryvenster, voer de volgende T-SQL-opdracht, en selecteer **Execute** op de werkbalk.
-
-    ```sql
-    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
-    ```
-
-    De opdracht voltooid is, de mogelijkheid om een database (SSISDB) te maken van de ingesloten gebruiker verlenen.
-
-10.  Als uw SSISDB is gemaakt met behulp van SQL-verificatie en u overschakelen wilt voor het gebruik van Azure AD-verificatie voor uw Azure-SSIS IR om deze te openen, met de rechtermuisknop op **SSISDB** database en selecteer **nieuwe query**.
-
-11.  Voer in het queryvenster de volgende T-SQL-opdracht, en selecteer **Execute** op de werkbalk.
-
-    ```sql
-    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
-    ```
-
-    De opdracht voltooid is, het maken van een contained-gebruiker om weer te geven van de groep.
-
-12.  Schakelt u het queryvenster, voer de volgende T-SQL-opdracht, en selecteer **Execute** op de werkbalk.
+12. Schakelt u het queryvenster, voer de volgende T-SQL-opdracht, en selecteer **Execute** op de werkbalk.
 
     ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
@@ -191,9 +191,9 @@ Voor deze stap moet u [Microsoft SQL Server Management Studio](https://docs.mic
     
     De opdracht voltooid is, de beheerde identiteit verlening voor uw ADF de mogelijkheid om een database (SSISDB) te maken.
 
-8.  Als uw SSISDB is gemaakt met behulp van SQL-verificatie en u overschakelen wilt voor het gebruik van Azure AD-verificatie voor uw Azure-SSIS IR om deze te openen, met de rechtermuisknop op **SSISDB** database en selecteer **nieuwe query**.
+8.  Als uw SSISDB is gemaakt met behulp van SQL-verificatie en u overschakelen wilt voor het gebruik van Azure AD-verificatie voor uw Azure-SSIS IR om deze te openen, met de rechtermuisknop op **SSISDB** database en selecteer **nieuwe query**.
 
-9.  Voer in het queryvenster de volgende T-SQL-opdracht, en selecteer **Execute** op de werkbalk.
+9.  Voer in het queryvenster de volgende T-SQL-opdracht, en selecteer **Execute** op de werkbalk.
 
     ```sql
     CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo

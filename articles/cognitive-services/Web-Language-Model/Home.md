@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4228692d707f0cff8be0d76bc70794f48d944143
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 751b6e5979174eae9bc815061f16bf99bd0899cf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878762"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534783"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Wat is de Web Language Model API? (Preview)
 
@@ -44,7 +44,7 @@ De Web Language Model API ondersteunt vier opzoekbewerkingen:
 1. Abonneren op de service.
 2. Download de [SDK](https://www.github.com/microsoft/cognitive-weblm-windows).
 3. Voer de SDK-voorbeeldcode uit.
-4. Raadpleeg de [API-referentie](http://web.archive.org/web/20170503191852/westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51) voor volledige details over de eindpunten, met inbegrip van codefragmenten in diverse talen.
+4. Raadpleeg de [API-referentie](https://web.archive.org/web/20170503191852/westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51) voor volledige details over de eindpunten, met inbegrip van codefragmenten in diverse talen.
 
 ## <a name="underlying-technology"></a>Onderliggende technologie
 

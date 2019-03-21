@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 62d19432cba431bce4485aaa2af3e0a23ad8b5f6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 657c23ad410d7aade17b3153f02ba0138edf4250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970971"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104094"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>De Container Network Interface-invoegtoepassing (CNI) Azure Virtual Network implementeren
 
@@ -31,7 +31,7 @@ De Container Network Interface-invoegtoepassing (CNI) Azure Virtual Network word
 
 De ACS-Engine implementeert een Kubernetes-cluster met behulp van een Azure Resource Manager-sjabloon. De configuratie van het cluster is opgenomen in een JSON-bestand dat aan het hulpprogramma wordt doorgegeven bij het genereren van de sjabloon. Zie [Microsoft Azure Container Service Engine - Cluster Definition](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md) (Microsoft Azure Container Service Engine - Clusterdefinitie) voor de volledige lijst met ondersteunde clusterinstellingen en de bijbehorende beschrijvingen. De invoegtoepassing is de standaardnetwerkinvoegtoepassing voor clusters die zijn gemaakt met de ACS-Engine. De volgende instellingen voor de netwerkconfiguratie zijn belangrijk bij het configureren van de invoegtoepassing:
 
-  | Instelling                              | Beschrijving                                                                                                           |
+  | Instelling                              | Description                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
   | firstConsecutiveStaticIP             | Het IP-adres dat wordt toegewezen aan het hoofdknooppunt. Dit is een verplichte instelling.                                     |
   | clusterSubnet onder kubernetesConfig | CIDR van het subnet van het virtuele netwerk waar het cluster wordt geïmplementeerd, en van waaruit IP-adressen worden toegewezen aan Pods   |
@@ -95,10 +95,10 @@ Voltooi de volgende stappen om de invoegtoepassing te installeren op elke virtue
 1. [Download en installeer de invoegtoepassing](#download-and-install-the-plug-in).
 2. Wijs op elke virtuele machine van waaruit IP-adressen worden toegewezen aan Pods vooraf een groep met IP-adressen voor het virtuele netwerk toe. Elke virtuele Azure-machine wordt geleverd met een primair privé-IP-adres voor een virtueel netwerk op elke netwerkinterface. De groep met IP-adressen voor Pods wordt toegevoegd als secundaire adressen (*ipconfigs*) op de netwerkinterface van de virtuele machine, met behulp van een van de volgende opties:
 
-   - **CLI**: [meerdere IP-adressen toewijzen met de Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
-   - **PowerShell**: [meerdere IP-adressen toewijzen met behulp van PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-   - **Portal**: [meerdere IP-adressen toewijzen met behulp van de Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
-   - **Azure Resource Manager-sjabloon**: [meerdere IP-adressen toewijzen met behulp van sjablonen](virtual-network-multiple-ip-addresses-template.md)
+   - **CLI**: [meerdere IP-adressen met de Azure CLI toewijzen](virtual-network-multiple-ip-addresses-cli.md)
+   - **PowerShell**: [meerdere IP-adressen met behulp van PowerShell toewijzen](virtual-network-multiple-ip-addresses-powershell.md)
+   - **Portal**: [meerdere IP-adressen met behulp van de Azure portal toewijzen](virtual-network-multiple-ip-addresses-portal.md)
+   - **Azure Resource Manager-sjabloon**: [meerdere IP-adressen met behulp van sjablonen toewijzen](virtual-network-multiple-ip-addresses-template.md)
 
    Zorg ervoor dat u voldoende IP-adressen toevoegt voor alle Pods die u verwacht te gebruiken op de virtuele machine.
 
@@ -106,13 +106,13 @@ Voltooi de volgende stappen om de invoegtoepassing te installeren op elke virtue
 4. Als u wilt dat uw Pods toegang hebben tot het internet, voegt u de volgende *iptables*-regel toe op uw virtuele Linux-machines om 'source NAT' toe te passen op internetverkeer. In het volgende voorbeeld is het opgegeven IP-adresbereik 10.0.0.0/8.
 
    ```bash
-   iptables -t nat -A POSTROUTING -m iprange ! --dst-range 168.63.129.16 -m
+   iptables -t nat -A POSTROUTING -m iprange ! --dst-range 168.63.129.16 -m
    addrtype ! --dst-type local ! -d 10.0.0.0/8 -j MASQUERADE
    ```
 
    De regels blokkeren NAT-verkeer dat niet is bestemd voor de opgegeven IP-adresbereiken. De aanname is dat al het verkeer buiten de vorige bereiken internetverkeer is. U kunt ervoor kiezen om de IP-bereiken van het virtuele netwerk van de virtuele machine op te geven, van virtuele netwerken met peering en van on-premises netwerken.
 
-  Virtuele Windows-machines passen automatisch 'source NAT' toe op verkeer met een bestemming buiten het subnet van de virtuele machine. Het is niet mogelijk om aangepaste IP-adresbereiken op te geven.
+   Virtuele Windows-machines passen automatisch 'source NAT' toe op verkeer met een bestemming buiten het subnet van de virtuele machine. Het is niet mogelijk om aangepaste IP-adresbereiken op te geven.
 
 Na het voltooien van de vorige stappen, krijgen Pods die worden toegevoegd op de virtuele machines met de Kubernetes-agent automatisch privé-IP-adressen uit het virtuele netwerk.
 
@@ -157,12 +157,12 @@ Het netwerkconfiguratiebestand van CNI heeft de JSON-indeling. Het bestand bevin
 
 #### <a name="settings-explanation"></a>Uitleg van instellingen
 
-- **cniVersion**: de CNI-invoegtoepassing Azure Virtual Network ondersteunt versies 0.3.0 en 0.3.1 van de [CNI-specificatie](https://github.com/containernetworking/cni/blob/master/SPEC.md).
-- **name**: naam van het netwerk. Deze eigenschap kan worden ingesteld op elke unieke waarde.
-- **type**: naam van de netwerkinvoegtoepassing. Ingesteld op *azure-vnet*.
-- **mode**: operationele modus. Dit veld is optioneel. De enige modus die wordt ondersteund is 'bridge'. Zie [Operational modes](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md) (Operationele modi) voor meer informatie.
-- **bridge**: naam van de brug die wordt gebruikt om containers te verbinden met een virtueel netwerk. Dit veld is optioneel. Als u dit weglaat, kiest de invoegtoepassing automatisch een unieke naam op basis van de hoofdindex van de interface.
-- **ipam-type**: naam van de IPAM-invoegtoepassing. Altijd ingesteld op *azure-vnet-ipam*.
+- **cniVersion**: De Azure Virtual Network CNI plug-ins ondersteuning voor versies 0.3.0 en 0.3.1 van de [CNI spec](https://github.com/containernetworking/cni/blob/master/SPEC.md).
+- **name**: Naam van het netwerk. Deze eigenschap kan worden ingesteld op elke unieke waarde.
+- **type**: Naam van de invoegtoepassing. Ingesteld op *azure-vnet*.
+- **Modus**: Operationele modus. Dit veld is optioneel. De enige modus die wordt ondersteund is 'bridge'. Zie voor meer informatie, [bedrijfsmodi](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
+- **bridge**: De naam van de brug die wordt gebruikt om containers verbinden met een virtueel netwerk. Dit veld is optioneel. Als u dit weglaat, kiest de invoegtoepassing automatisch een unieke naam op basis van de hoofdindex van de interface.
+- **IPAM-type**: De naam van de IPAM-invoegtoepassing. Altijd ingesteld op *azure-vnet-ipam*.
 
 ## <a name="download-and-install-the-plug-in"></a>De invoegtoepassing downloaden en installeren
 

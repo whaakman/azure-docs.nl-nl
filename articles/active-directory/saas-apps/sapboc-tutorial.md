@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c397cd3b535c7bf918eac2ac1e9ae1f967d7b95a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: c64fb2dc4c494252f0078b8d23e05b15f07ebe00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877500"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894560"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Zelfstudie: Azure Active Directory-integratie met SAP Business Object Cloud
 
@@ -53,7 +53,7 @@ Voor het configureren van de integratie van SAP Business Object Cloud met Azure 
 
 **Ga als volgt te werk om SAP Business Object Cloud vanuit de galerie toe te voegen:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -106,12 +106,14 @@ Voor het configureren van Azure AD-eenmalige aanmelding met SAP Business Object 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij SAP Business Object Cloud](common/sp-identifier.png)
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
+
     | |
     |-|-|
     | `https://<sub-domain>.sapanalytics.cloud/` |
     | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon:
+    
     | |
     |-|-|
     | `<sub-domain>.sapbusinessobjects.cloud` |
@@ -178,7 +180,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -237,7 +239,7 @@ Ga als volgt te werk om een gebruikersaccount in te richten:
 
     d. Voer in het vak **DISPLAY NAME** de volledige naam van de gebruiker in, zoals **Britta Simon**.
 
-    e. Voer in het vak **E-MAIL** het e-mailadres van de gebruiker in, zoals **brittasimon@contoso.com**.
+    e. In de **e** voert u het e-mailadres van de gebruiker, zoals **brittasimon\@contoso.com**.
 
     f. Selecteer op de pagina **Select Roles** de juiste rol voor de gebruiker en selecteer vervolgens **OK**.
 
@@ -247,7 +249,7 @@ Ga als volgt te werk om een gebruikersaccount in te richten:
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel SAP Business Object Cloud klikt in het toegangsvenster, wordt u automatisch aangemeld bij het exemplaar van SAP Business Object Cloud waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5266ca3f50a2d8163dbab95109cb967fb5a63ed8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ebe23c606d95baa6c79c668fc929177c8bc37e44
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474578"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862944"
 ---
 # <a name="create-a-storage-account"></a>Create a storage account
 
@@ -55,6 +55,10 @@ Met de knop start u een interactieve shell waarmee u alle stappen in deze snelst
 
 U kunt Azure CLI ook lokaal installeren en gebruiken. Voor deze snelstartgids moet u de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
 
+# <a name="templatetabtemplate"></a>[Sjabloon](#tab/template)
+
+Geen.
+
 ---
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
@@ -80,6 +84,10 @@ Als u zich wilt aanmelden bij de lokale installatie van de CLI, voert u de opdra
 ```cli
 az login
 ```
+
+# <a name="templatetabtemplate"></a>[Sjabloon](#tab/template)
+
+N/A
 
 ---
 
@@ -170,6 +178,33 @@ Om een v2-opslagaccount voor algemeen gebruik te maken met zone-redundante opsla
 |Geografisch redundante opslag (GRS)     |Standard_GRS         |
 |Geografisch redundante opslag met leestoegang (GRS)     |Standard_RAGRS         |
 
+# <a name="templatetabtemplate"></a>[Sjabloon](#tab/template)
+
+U kunt Azure Powershell of Azure CLI gebruiken voor het implementeren van een Resource Manager-sjabloon voor het maken van een storage-account. De sjabloon die wordt gebruikt in deze Quick Start is afkomstig van [Azure Quickstart-sjablonen](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Als u wilt de scripts uitvoeren, selecteert u **uitproberen** openen van de Azure Cloud shell. Als u het script, met de rechtermuisknop op de shell en selecteer vervolgens **plakken**.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+az group create --name $resourceGroupName --location "$location" &&
+az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+Voor informatie over het maken van sjablonen, Zie:
+
+- [Documentatie voor Azure Resource Manager](/azure/azure-resource-manager/).
+- [Naslaginformatie voor Storage-account sjabloon](/azure/templates/microsoft.storage/allversions).
+- [Voorbeeldsjablonen van extra opslag account](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
+
 ---
 
 Zie [Storage-replicatieopties](storage-redundancy.md) voor meer informatie over beschikbare replicatieopties.
@@ -202,6 +237,21 @@ Gebruik de opdracht [az group delete](/cli/azure/group#az_group_delete) om de re
 az group delete --name storage-quickstart-resource-group
 ```
 
+# <a name="templatetabtemplate"></a>[Sjabloon](#tab/template)
+
+Als u wilt verwijderen van de resourcegroep en alle bijbehorende resources, met inbegrip van het nieuwe opslagaccount, Azure PowerShell of Azure CLI te gebruiken.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName
+```
+
 ---
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -222,5 +272,10 @@ In deze snelstart hebt u een standaardopslagaccount voor algemeen gebruik (v2) g
 
 > [!div class="nextstepaction"]
 > [Werken met blobs met behulp van Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
+
+# <a name="templatetabtemplate"></a>[Sjabloon](#tab/template)
+
+> [!div class="nextstepaction"]
+> [Werken met blobs met behulp van de Azure-portal](../blobs/storage-quickstart-blobs-portal.md)
 
 ---

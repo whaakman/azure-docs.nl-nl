@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 03/14/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 0902e3fb64a73a095b457306aa561c13519e4066
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117099"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000611"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Quickstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van de Azure Portal
 
@@ -28,7 +28,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij Azure Portal op http://portal.azure.com.
+Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Een kluis maken
 
@@ -43,7 +43,6 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
     - **Abonnement**: Kies een abonnement.
     - Kies **Nieuw** bij **Resourcegroep** en voer de naam van een resourcegroep in.
     - Kies een locatie in de vervolgkeuzelijst **Locatie**.
-    - Schakel het selectievakje bij **Vastmaken aan dashboard** in.
     - Houd voor de overige opties de standaardwaarden aan.
 6. Selecteer na het opgeven van de bovenstaande gegevens **Maken**.
 
@@ -70,7 +69,11 @@ Als u een geheim wilt toevoegen aan de kluis, hoeft u maar een paar extra stappe
 
 Zodra u het bericht ontvangt dat het geheim met succes is gemaakt, kunt u erop klikken in de lijst. Vervolgens ziet u enkele van de eigenschappen. Als u op de huidige versie klikt, ziet u de waarde die u hebt opgegeven in de vorige stap.
 
-![Geheimeigenschappen](./media/quick-create-portal/version.png)
+![Geheimeigenschappen](./media/quick-create-portal/current-version-hidden.png)
+
+Op de knop 'Geheim waarde weergeven' in het rechter deelvenster klikt, ziet u de verborgen waarde. 
+
+![Geheime waarde wordt weergegeven](./media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

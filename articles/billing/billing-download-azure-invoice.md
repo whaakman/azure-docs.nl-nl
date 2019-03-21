@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 74274d6f901a2c02fb526a9bdce85771a9764f53
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6b82c0d2d4a5e22094bf0a408d6a42f17bb3bea4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57248974"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839811"
 ---
-# <a name="view-and-download-your-microsoft-azure-invoice"></a>Weergeven en uw Microsoft Azure-factuur downloaden
+# <a name="view-and-download-your-microsoft-azure-invoice"></a>Uw Microsoft Azure-factuur weergeven en downloaden
 
 Voor de meeste abonnementen, kunt u uw factuur op basis van de [Azure-portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) of wordt verzonden in e-mailbericht. Als u een Azure-klant met een Enterprise Agreement (EA-klant), kunt u niet van uw organisatie facturen downloaden. Facturen worden verzonden naar degene die is ingesteld voor het ontvangen van facturen voor de inschrijving.
 
@@ -32,7 +32,7 @@ Als u hebt een [Microsoft KLANTOVEREENKOMST](#Check-your-access-to-a-Microsoft-C
 
 ## <a name="download-your-azure-invoices-pdf"></a>Uw Azure-facturen (PDF) downloaden
 
-Voor de meeste abonnementen, kunt u uw factuur downloaden vanuit de Azure-portal. Als u een KLANTOVEREENKOMST van Microsoft hebt, raadpleegt u [downloaden van facturen voor een profiel voor facturering](#download-invoices-for-a-billing-profile).
+Voor de meeste abonnementen, kunt u uw factuur downloaden vanuit de Azure-portal. Als u een KLANTOVEREENKOMST van Microsoft hebt, raadpleegt u downloaden van facturen voor een profiel voor facturering.
 
 ### <a name="download-invoices-for-an-individual-subscription"></a>Downloaden van facturen voor een afzonderlijk abonnement
 
@@ -69,7 +69,7 @@ Als er geen een factuur voor de afgelopen betalingsperiode, Zie [waarom zie ik g
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Uw factuur in e-mailbericht (PDF) niet ophalen
 
-U kunt ervoor kiezen en configureren van extra ontvangers voor het ontvangen van uw Azure facturen in een e-mailbericht. Deze functie mogelijk niet beschikbaar voor bepaalde abonnementen, zoals ondersteuning biedt, Enterprise Agreements of Azure in Open. Als u een overeenkomst met Microsoft Customer hebt, raadpleegt u [uw facturen profiel ophalen in e-mailbericht](#get-your-billing-profile-invoices-in-email).
+U kunt ervoor kiezen en configureren van extra ontvangers voor het ontvangen van uw Azure facturen in een e-mailbericht. Deze functie mogelijk niet beschikbaar voor bepaalde abonnementen, zoals ondersteuning biedt, Enterprise Agreements of Azure in Open. Als u een overeenkomst voor Microsoft Customer hebt, raadpleegt u uw factureringsprofiel in e-mailbericht facturen ophalen.
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>Ophalen van uw abonnement facturen in e-mailbericht
 
@@ -89,7 +89,7 @@ Als u niet een e-mail ontvangen nadat de stappen hebt uitgevoerd, controleert u 
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>Afmelden voor facturen van uw abonnement ophalen in e-mailbericht
 
-U kunt uw factuur per e-mail aan met de volgende stappen hierboven en klik op Afmelden **afmelden voor facturen per e-mail**. Deze optie verwijdert alle e-mailadressen die is ingesteld op facturen in e-mailbericht ontvangt. U kunt de ontvangers opnieuw te configureren als u zich opnieuw aan.
+U kunt uw factuur per e-mail aan met de volgende stappen hierboven en klik op Afmelden **afmelden voor facturen per e-mail**. Met deze optie worden alle e-mailadressen verwijderd die zijn ingesteld voor het ontvangen van facturen via e-mail. U kunt de ontvangers opnieuw te configureren als u zich opnieuw aan.
 
  ![Schermafbeelding van de stroom opt-out](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
@@ -129,7 +129,7 @@ Er kunnen verschillende redenen voor zijn dat u geen factuur ziet:
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Contact opnemen
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Volgende stappen
 

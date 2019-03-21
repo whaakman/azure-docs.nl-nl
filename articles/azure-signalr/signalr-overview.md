@@ -1,19 +1,19 @@
 ---
-title: Wat is Azure SignalR
-description: Een overzicht van de service Azure SignalR.
+title: Wat is Azure SignalR Service?
+description: Een overzicht van de Azure SignalR-Service.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
-ms.date: 09/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: e66326c6c4d93a92c579255cb00b6614ecc03b8c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 198eb0ff6c9f8de311cc2d39ba8fb7c8b6ed3a11
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255173"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552079"
 ---
-# <a name="what-is-azure-signalr-service"></a>Wat is de service Azure SignalR
+# <a name="what-is-azure-signalr-service"></a>Wat is Azure SignalR Service?
 
 Met de service Azure SignalR wordt het proces van het toevoegen van realtimewebfunctionaliteit aan toepassingen via HTTP vereenvoudigd. Dankzij deze realtimefunctionaliteit kunnen via de service inhoudsupdates worden gepusht naar verbonden clients, zoals een enkele webpagina of mobiele toepassing. Zo worden clients bijgewerkt zonder de server te hoeven pollen of nieuwe HTTP-bijwerkaanvragen te hoeven verzenden.
 
@@ -36,6 +36,6 @@ Daarnaast biedt SignalR een programmeermodel voor realtimetoepassingen dat de se
 
 Er zijn momenteel drie manieren om de service Azure SignalR te gebruiken:
 
-- **[Een ASP.NET Core SignalR-app schalen](signalr-overview-scale-aspnet-core.md)**: integreer de service Azure SignalR met een ASP.NET Core SignalR-toepassing om uit te schalen naar duizenden verbindingen.
-- **[Serverloze realtimeapps bouwen](signalr-overview-azure-functions.md)**: gebruik de integratie van Azure Functions met de service Azure SignalR om serverloze realtimetoepassingen te bouwen in talen zoals JavaScript, C# en Java.
+- **[Een ASP.NET Core SignalR-app schalen](signalr-concept-scale-aspnet-core.md)**: integreer de service Azure SignalR met een ASP.NET Core SignalR-toepassing om uit te schalen naar duizenden verbindingen.
+- **[Serverloze realtimeapps bouwen](signalr-concept-azure-functions.md)**: gebruik de integratie van Azure Functions met de service Azure SignalR om serverloze realtimetoepassingen te bouwen in talen zoals JavaScript, C# en Java.
 - **[Berichten van de server verzenden naar clients via REST API](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)**: de service Azure SignalR biedt REST API waarmee via toepassingen berichten kunnen worden verzonden naar clients die zijn verbonden met de service SignalR, in elke programmeertaal die compatibel is met REST.

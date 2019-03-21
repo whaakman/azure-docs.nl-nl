@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732701"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100289"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Zelfstudie: namen extraheren met de entiteit Simple en een woordenlijst
 
@@ -127,7 +127,7 @@ Eenvoudige entiteiten hebben veel voorbeelden nodig om voorspellingen van hoge b
     |Solliciteren als tegelzetter.|tegelzetter|
     |Bijgevoegd cv voor landschapsarchitect.|landschapsarchitect|
     |Mijn cv voor de functie als biologiedocent is bijgesloten.|biologiedocent|
-    |Ik wil graag solliciteren naar een functie binnen het vakgebied fotografie.|fotografie|git 
+    |Ik wil graag solliciteren naar een functie binnen het vakgebied fotografie.|fotografie|
 
 ## <a name="mark-job-entity-in-other-intents"></a>Taakentiteit in andere intenties markeren
 

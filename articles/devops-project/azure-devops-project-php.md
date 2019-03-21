@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 24a957260e3e3f161ce9e2e61b746f9b052e784d
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 82310857276c53c85af033ae32a3aeef4f33c8da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264366"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109372"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-projects"></a>Een CI/CD-pijplijn voor PHP maken met Azure DevOps Projects
 
@@ -65,7 +65,7 @@ Als u geen Azure-abonnement hebt, kunt u er gratis een krijgen via [Visual Studi
 
     ![Dashboardweergave](_img/azure-devops-project-php/dashboardnopreview.png) 
     
- In DevOps Projects worden automatisch een CI-build en een releasetrigger geconfigureerd.  U bent nu klaar om samen met een team te werken aan uw PHP-app met een CI/CD-proces dat automatisch uw meest recente werk aan uw website implementeert.
+   In DevOps Projects worden automatisch een CI-build en een releasetrigger geconfigureerd.  U bent nu klaar om samen met een team te werken aan uw PHP-app met een CI/CD-proces dat automatisch uw meest recente werk aan uw website implementeert.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Codewijzigingen doorvoeren en CI/CD uitvoeren
 
@@ -81,7 +81,7 @@ Als u geen Azure-abonnement hebt, kunt u er gratis een krijgen via [Visual Studi
 
 1. Selecteer **Bewerken** en breng een wijziging aan in de tekst.  Wijzig bijvoorbeeld een stuk tekst voor een van de div-tags.
 
-1. Selecteer **Doorvoeren** en sla vervolgens de wijzigingen op.
+1. Selecteer **Doorvoeren** en sla de wijzigingen op.
 
 1. Ga in de browser naar het DevOps Projects-dashboard.  
 Als het goed is, ziet u nu dat er een build wordt gemaakt. De zojuist aangebrachte wijzigingen worden automatisch gebouwd en geïmplementeerd via een CI/CD-pijplijn.
@@ -98,7 +98,7 @@ Als het goed is, ziet u nu dat er een build wordt gemaakt. De zojuist aangebrach
 
 1. Selecteer **Bewerken**.
 
-1. In dit deelvenster kunt u de verschillende taken voor de build-pijplijn onderzoeken.  
+1. In dit deelvenster kunt u de verschillende taken voor uw build-pijplijn onderzoeken.  
     In de build worden verschillende taken uitgevoerd, zoals het ophalen van bronnen uit de Git-opslagplaats, het herstellen van afhankelijkheden, en het publiceren van uitvoergegevens die worden gebruikt voor implementaties.
 
 1. Selecteer boven aan de build-pijplijn de naam van de build-pijplijn.
@@ -106,7 +106,7 @@ Als het goed is, ziet u nu dat er een build wordt gemaakt. De zojuist aangebrach
 1. Wijzig de naam van de build-pijplijn in een meer beschrijvende naam. Selecteer **Opslaan en wachtrij** en selecteer vervolgens **Opslaan**.
 
 1. Selecteer onder de naam van de build-pijplijn de optie **Geschiedenis**.   
-    In het deelvenster **Geschiedenis** ziet u een audittrail van recente wijzigingen voor de build. Azure Pipelines houdt alle wijzigingen in de build-pipeline bij en biedt de mogelijkheid om versies te vergelijken.
+    In het deelvenster **Geschiedenis** ziet u een audittrail van recente wijzigingen voor de build. Azure Pipelines houdt alle wijzigingen in de build-pijplijn bij en biedt de mogelijkheid om versies te vergelijken.
 
 1. Selecteer **Triggers**.  
       In DevOps Projects is automatisch een CI-trigger gemaakt en met elke doorvoering naar de opslagplaats wordt een nieuwe build gestart. U kunt desgewenst kiezen of u vertakkingen van het CI-proces wilt opnemen of uitsluiten.
@@ -135,7 +135,7 @@ Als het goed is, ziet u nu dat er een build wordt gemaakt. De zojuist aangebrach
         Er zijn verschillende menu's die u in deze weergave kunt verkennen, zoals een versieoverzicht, gekoppelde werkitems en tests.
 
 1. Selecteer **Doorvoeringen**.  
-        In deze weergave worden codedoorvoeringen getoond die zijn gekoppeld aan de specifieke implementatie. 
+        In deze weergave worden de codedoorvoeringen weergegeven die zijn gekoppeld aan deze implementatie. 
 
 1. Selecteer **Logboeken**.  
         De logboeken bevatten nuttige informatie over het implementatieproces. Ze kunnen worden weergegeven tijdens en na de implementaties.

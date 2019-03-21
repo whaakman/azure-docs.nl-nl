@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 97261535-7a2d-4d73-94c8-38116b8a776e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 3142f52d43cd884d11a40431d23120cc8a6ee8c3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 11021562cd34f31564e6b4c22fcd64aac25d3469
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878299"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862060"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-cloud"></a>Zelfstudie: Azure Active Directory-integratie met webMethods Integration Cloud
 
@@ -54,7 +54,7 @@ Voor het configureren van de integratie van webMethods Integration Cloud met Azu
 
 **Als u webMethods vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -107,6 +107,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met webMethods Integrati
     ![Informatie over eenmalige aanmelding bij het webMethods Integration Cloud-domein en webMethods Integration Cloud-URL's](common/idp-intiated.png)
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon:
+
     | |
     |--|
     | `<SUBDOMAIN>.webmethodscloud.com` |
@@ -114,6 +115,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met webMethods Integrati
     | `<SUBDOMAIN>.webmethodscloud.de` |
 
     b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon:
+
     | |
     |--|
     | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse` |
@@ -125,6 +127,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met webMethods Integrati
     ![Informatie over eenmalige aanmelding bij het webMethods Integration Cloud-domein en webMethods Integration Cloud-URL's](common/metadata-upload-additional-signon.png)
 
     Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon:
+    
     | |
     |--|
     | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest` |
@@ -170,7 +173,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -209,7 +212,7 @@ In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in webMethod
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u in het toegangsvenster op de tegel webMethods Integration Cloud klikt, wordt u als het goed is automatisch aangemeld bij het exemplaar van webMethods Integration Cloud waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

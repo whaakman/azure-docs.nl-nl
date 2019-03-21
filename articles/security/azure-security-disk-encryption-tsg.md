@@ -1,18 +1,18 @@
 ---
 title: Probleemoplossing - Azure Disk Encryption voor IaaS-VM's | Microsoft Docs
 description: Dit artikel vindt tips voor probleemoplossing voor Microsoft Azure Disk Encryption voor Windows en Linux IaaS-VM's.
-author: mestew
+author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/04/2019
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7e2fa8c526a1016e5b8157f5f8b3ecb38bf8ef15
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 48cf0f2e219d141a039f508f0ea948aa5c78b882
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779960"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838269"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Disk Encryption
 
@@ -112,15 +112,15 @@ Als tijdelijke oplossing voor dit probleem, kopieert u de volgende vier bestande
    \windows\system32\en-US\bdehdcfg.exe.mui
    ```
 
-   2. Voer de volgende opdracht in:
+1. Voer de volgende opdracht in:
 
    ```
    bdehdcfg.exe -target default
    ```
 
-   3. Deze opdracht maakt een systeempartitie 550 MB. Het systeem opnieuw opstarten.
+1. Deze opdracht maakt een systeempartitie 550 MB. Het systeem opnieuw opstarten.
 
-   4. Gebruik DiskPart om te controleren van de volumes en ga daarna verder.  
+1. Gebruik DiskPart om te controleren van de volumes en ga daarna verder.  
 
 Bijvoorbeeld:
 

@@ -12,12 +12,12 @@ ms.date: 11/09/2018
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2488cb085c3be68265a787bd062028598c9243b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4e00ecde5550b5ef4f1698fa879a039dee8aad12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190021"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181721"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Ervaringen van eindgebruikers voor toepassingen in Azure Active Directory
 Azure Active Directory (Azure AD) biedt aanpasbare manieren voor het implementeren van toepassingen voor eindgebruikers in uw organisatie:
@@ -39,23 +39,21 @@ Het toegangsvenster is gescheiden van de Azure-portal en hoeft geen gebruikers h
 Zie voor meer informatie over de Azure AD-toegangspaneel, de [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="office-365-application-launcher"></a>Startprogramma voor Office 365-toepassingen
-Voor organisaties die Office 365 hebt geïmplementeerd, toepassingen die zijn toegewezen aan gebruikers via Azure AD ook worden weergegeven in de Office 365-portal op https://portal.office.com/myapps. Dit maakt het gemakkelijk en handig voor gebruikers in een organisatie hun apps starten zonder gebruik te maken van een tweede portal en is de aanbevolen app starten oplossing voor organisaties met behulp van Office 365.
+Voor organisaties die Office 365 hebt geïmplementeerd, toepassingen die zijn toegewezen aan gebruikers via Azure AD ook worden weergegeven in de Office 365-portal op [ https://portal.office.com/myapps ](https://portal.office.com/myapps). Dit maakt het gemakkelijk en handig voor gebruikers in een organisatie hun apps starten zonder gebruik te maken van een tweede portal en is de aanbevolen app starten oplossing voor organisaties met behulp van Office 365.
 
-![](./media/what-is-single-sign-on/officeapphub.png)
+![Office 365-portal](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
 Zie voor meer informatie over het startprogramma voor Office 365-toepassingen, [uw App worden weergegeven in het startprogramma voor Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Directe aanmelding bij federatieve apps
 Meest federatieve toepassingen die ondersteuning bieden voor SAML 2.0, WS-Federation en OpenID connect ook ondersteuning voor de mogelijkheid voor gebruikers om te beginnen bij de toepassing en vervolgens u aangemeld via Azure AD door automatische omleiding of door te klikken op een koppeling aan te melden bij. Dit staat bekend als serviceprovider-aanmelding wordt gestart en meest federatieve toepassingen in de Azure AD-toepassingsgalerie ondersteuning bieden voor deze (Zie de documentatie gekoppeld aan de app configuratie voor eenmalige aanmelding wizard in de Azure-portal voor meer informatie).
 
-![](./media/what-is-single-sign-on/workdaymobile.png)
+![](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Directe aanmelding koppelingen
 Azure AD biedt ook ondersteuning voor directe eenmalige aanmelding in koppelingen naar afzonderlijke toepassingen die ondersteuning op basis van wachtwoorden eenmalige aanmelding, gekoppelde eenmalige aanmelding en een vorm van federatieve eenmalige aanmelding bieden.
 
-Deze koppelingen zijn speciaal ontworpen URL's die een gebruiker door het proces voor aanmelding bij Azure AD voor een bepaalde toepassing verzenden zonder de gebruiker start ze vanuit de Azure AD toegang tot deelvenster of Office 365. Deze één aanmeldings-URL's kan worden gevonden op het tabblad Dashboard van vooraf geïntegreerde toepassingen in de sectie Active Directory van Azure portal, zoals wordt weergegeven in de onderstaande schermafbeelding.
-
-![](./media/what-is-single-sign-on/deeplink.png)
+Deze koppelingen zijn speciaal ontworpen URL's die een gebruiker door het proces voor aanmelding bij Azure AD voor een bepaalde toepassing verzenden zonder de gebruiker start ze vanuit de Azure AD toegang tot deelvenster of Office 365. Deze **gebruiker toegang krijgen tot URL's** kunt u vinden onder de eigenschappen van de beschikbare bedrijfstoepassingen onder Azure Active Directory in Azure portal.
 
 Deze koppelingen kan worden gekopieerd en geplakt waar die u wilt een koppeling aanmelding aan de geselecteerde toepassing wilt opgeven. Dit wordt mogelijk in een e-mailbericht, of in een aangepaste web-portal op basis van die u hebt ingesteld voor toegang tot de toepassing van gebruiker. Hier volgt een voorbeeld van een Azure AD direct één aanmeldings-URL voor Twitter:
 

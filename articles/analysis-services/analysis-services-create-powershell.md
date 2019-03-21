@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 571cce2fafe1d19653dfa1e3d9a91042584621eb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: fedc053d7869d9d5e85f890dcc707852a27df089
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735938"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011378"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Snelstartgids: Een server maken - PowerShell
 
@@ -37,7 +37,7 @@ Import-Module Az.AnalysisServices
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij uw Azure-abonnement met behulp van de opdracht [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount). Volg de aanwijzingen op het scherm.
+Meld u aan bij uw Azure-abonnement met behulp van de opdracht [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Volg de aanwijzingen op het scherm.
 
 ```powershell
 Connect-AzAccount

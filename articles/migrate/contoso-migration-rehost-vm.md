@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4a6ed900753747c1d5bf394aced54da11177320f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694496"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118388"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migratie van Contoso: Een on-premises app opnieuw hosten op Azure-VM's
 
@@ -168,10 +168,10 @@ Ze stelt deze als volgt:
     - De virtuele machine (SQLVM) van de app-database worden gemigreerd naar de database-subnet (PROD-DB-EUS2), in het productienetwerk.
 
 2. Instellen van een storage-account-Contoso Hiermee maakt u een Azure storage-account (contosovmsacc20180528) in de primaire regio.
-    - Het opslagaccount moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
-    - Ze gebruiken een account voor algemeen gebruik met de standard-opslag en LRS-replicatie.
+   - Het opslagaccount moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
+   - Ze gebruiken een account voor algemeen gebruik met de standard-opslag en LRS-replicatie.
 
-    ![Site Recovery-opslag](./media/contoso-migration-rehost-vm/asr-storage.png)
+     ![Site Recovery-opslag](./media/contoso-migration-rehost-vm/asr-storage.png)
 
 3. Een kluis met de netwerk- en storage-account maken in plaats, Contoso nu maakt u een Recovery Services-kluis (ContosoMigrationVault) en plaatst het in de resourcegroep ContosoFailoverRG in de primaire regio in de VS-Oost 2.
 
@@ -221,15 +221,15 @@ Na een failover wil Contoso verbinding maken met de Azure VM's. U doet dit door 
 
 1. Voor toegang via internet ze:
 
- - Hiermee schakelt u RDP in op de on-premises virtuele machine voordat de failover.
- - Zorg ervoor dat TCP en UDP-regels worden toegevoegd voor de **openbare** profiel.
- - Controleer of RDP is toegestaan in **Windows Firewall** > **Apps toegestaan** voor alle profielen.
+   - Hiermee schakelt u RDP in op de on-premises virtuele machine voordat de failover.
+   - Zorg ervoor dat TCP en UDP-regels worden toegevoegd voor de **openbare** profiel.
+   - Controleer of RDP is toegestaan in **Windows Firewall** > **Apps toegestaan** voor alle profielen.
 
 2. Voor toegang via site-naar-site VPN, ze:
 
- - Schakelt u RDP in op de on-premises machine.
- - Toestaan dat RDP in de **Windows Firewall** -> **toegestane apps en functies**, voor **domein en privé** netwerken.
- - SAN-beleid van het besturingssysteem instellen op de on-premises virtuele machine om **OnlineAll**.
+   - Schakelt u RDP in op de on-premises machine.
+   - Toestaan dat RDP in de **Windows Firewall** -> **toegestane apps en functies**, voor **domein en privé** netwerken.
+   - SAN-beleid van het besturingssysteem instellen op de on-premises virtuele machine om **OnlineAll**.
 
 Wanneer ze een failover uitvoert moeten ze bovendien controleert u het volgende:
 
@@ -341,10 +341,10 @@ Beheerders van Contoso kunt met alles in plaats nu inschakelen replicatie voor d
 
 4. Ze selecteren **WebVM** controleren van het replicatiebeleid voor replicatie en replicatie inschakelen.
 
-    - In dit stadium ze alleen selecteert WEBVM omdat VNet en subnet moeten worden geselecteerd en de VM's van de app wordt geplaatst in verschillende subnetten.
-    - Site Recovery installeert automatisch de Mobility-service op de virtuele machine wanneer replicatie is ingeschakeld.
+   - In dit stadium ze alleen selecteert WEBVM omdat VNet en subnet moeten worden geselecteerd en de VM's van de app wordt geplaatst in verschillende subnetten.
+   - Site Recovery installeert automatisch de Mobility-service op de virtuele machine wanneer replicatie is ingeschakeld.
 
-    ![Replicatie inschakelen](./media/contoso-migration-rehost-vm/enable-replication3.png)
+     ![Replicatie inschakelen](./media/contoso-migration-rehost-vm/enable-replication3.png)
 
 5. Volgen ze Replicatievoortgang gedurende **taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
 6. In **Essentials** in Azure portal, zien ze de structuur voor de virtuele machines repliceren naar Azure.

@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 268efa35f63ac8b9e0c6ea3f22a71242a2984726
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
-ms.translationtype: HT
+ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756748"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180701"
 ---
-# <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Zelfstudie: Een nieuwe IoT-apparaatsimulatie maken en uitvoeren
+# <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Zelfstudie: Maken en uitvoeren van een IoT-apparaat simuleren
 
 In deze zelfstudie gebruikt u Apparaatsimulatie om met behulp van een of meer gesimuleerde apparaten een nieuwe IoT-simulatie te maken en uit te voeren.
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 006286b492b7431ca15b8a2dc9ac5b4116f7d1b1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: bc712885169730aa9cbbd8de35b96e645ff1cea2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876266"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087122"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Zelfstudie: Gegevens streamen naar Azure Databricks met behulp van Event Hubs
 
@@ -39,6 +39,10 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * Tweets lezen van Event Hubs
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+
+> [!Note]
+> In deze zelfstudie niet kan worden uitgevoerd met behulp van **Azure gratis proefabonnement**.
+> Als u een gratis account wilt gebruiken om het Azure Databricks-cluster te maken, gaat u voordat het cluster is gemaakt naar uw profiel en wijzigt u uw abonnement in **betalen per gebruik**. Zie [Gratis Azure-account](https://azure.microsoft.com/free/) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -96,11 +100,11 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
     Accepteer alle andere standaardwaarden, anders dan de volgende:
 
-    * Voer een naam in voor het cluster.
-    * Voor dit artikel maakt u een cluster met een **4.0**-runtime.
-    * Zorg ervoor dat u het selectievakje **Beëindigen na\_\_ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
+   * Voer een naam in voor het cluster.
+   * Voor dit artikel maakt u een cluster met een **4.0**-runtime.
+   * Zorg ervoor dat u het selectievakje **Beëindigen na\_\_ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
 
-    Selecteer **Cluster maken**. Zodra het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Spark-taken uitvoeren.
+     Selecteer **Cluster maken**. Zodra het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Spark-taken uitvoeren.
 
 ## <a name="create-a-twitter-application"></a>Een Twitter-toepassing maken
 
@@ -124,16 +128,16 @@ Sla de waarden op die u hebt opgehaald voor de Twitter-toepassing. U hebt deze w
 
 In deze zelfstudie gebruikt u de Twitter-API's om tweets te verzenden naar Event Hubs. U gebruikt ook de [Apache Spark Event Hubs-connector](https://github.com/Azure/azure-event-hubs-spark) om gegevens naar Azure Event Hubs te lezen en schrijven. Als u deze API's wilt gebruiken als onderdeel van uw cluster, kunt u ze als bibliotheken toevoegen aan Azure Databricks en ze vervolgens aan uw Apache Spark-cluster koppelen. De volgende instructies laten zien hoe de bibliotheek wordt toegevoegd aan de map **Gedeeld** in uw werkruimte.
 
-1.  Selecteer **Werkruimte** in de Azure Databricks-werkruimte en klik vervolgens met de rechtermuisknop op **Gedeeld**. Selecteer **Bibliotheek** > **maken** in het contextmenu.
+1. Selecteer **Werkruimte** in de Azure Databricks-werkruimte en klik vervolgens met de rechtermuisknop op **Gedeeld**. Selecteer **Bibliotheek** > **maken** in het contextmenu.
 
-    ![Dialoogvenster Bibliotheek toevoegen](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Dialoogvenster Bibliotheek toevoegen")
+   ![Dialoogvenster Bibliotheek toevoegen](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Dialoogvenster Bibliotheek toevoegen")
 
 2. Op de pagina Nieuwe bibliotheek selecteert u bij **Bron** de optie **Maven-coördinaat**. Voer bij **Coördinaat** de coördinaat in voor het pakket dat u wilt toevoegen. Dit zijn de Maven-coördinaten voor de bibliotheken die in deze zelfstudie worden gebruikt:
 
-    * Apache Spark Event Hubs-connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
-    * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
+   * Apache Spark Event Hubs-connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
+   * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
 
-    ![Maven-coördinaten opgeven](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Maven-coördinaten opgeven")
+     ![Maven-coördinaten opgeven](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Maven-coördinaten opgeven")
 
 3. Selecteer **Bibliotheek maken**.
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673748"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900825"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Zelfstudie: Translator Speech-toepassing in C#
 
@@ -40,7 +40,7 @@ Met de Visual Studio-oplossing wordt ook een installatieprogramma voor de toepas
 
 U hebt ook een abonnementssleutel nodig voor de Translator Speech-service. Deze kunt u verkrijgen via het Microsoft Azure-dashboard. Er is een gratis prijslaag beschikbaar waarmee u gratis maximaal 10 uur spraak per maand kunt vertalen. Deze laag is voldoende voor deze zelfstudie.
 
-De [JSON.Net-bibliotheek](https://www.newtonsoft.com/json) van derden (Newtonsoft) is ook vereist. Deze assembly wordt automatisch geïnstalleerd met NuGet als beide selectievakjes voor Pakket herstellen zijn ingeschakeld in de Visual Studio-opties.
+De derde partij [JSON.NET bibliotheek](https://www.newtonsoft.com/json) (van Newtonsoft) is ook vereist. Deze assembly wordt automatisch geïnstalleerd met NuGet als beide selectievakjes voor Pakket herstellen zijn ingeschakeld in de Visual Studio-opties.
 
 ## <a name="trying-the-translation-app"></a>De vertaal-app uitproberen
 

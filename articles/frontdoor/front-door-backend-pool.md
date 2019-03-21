@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 14cc87e8691c859274495a13cc0b73fa29ad22df
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 228ed5c54a382db7b47d19adacf9e5db398c53ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726886"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123688"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-ends en back-end-pools in Azure voordeur Service
 In dit artikel worden de verschillende concepten met betrekking tot hoe u de implementatie van uw toepassing met de voordeur kunt toewijzen. Ook wordt uitgelegd wat de verschillende voorwaarden voor configuratie van de deur over back-end toepassing aan de hand.
@@ -62,7 +62,7 @@ Wanneer u een back-end in een back-endpool van de voordeur toevoegt, moet u Vul 
 Aanvragen die door de voordeur doorgestuurd naar een back-end hebben een veld van de Host-header die de back-end gebruikt voor het ophalen van de betreffende resource. De waarde voor dit veld wordt meestal afkomstig is van de back-end van de URI en heeft de host en poort. Bijvoorbeeld: een verzoek voor `www.contoso.com` heeft de Host-header `www.contoso.com`. Als u uw back-end met behulp van Azure portal configureert, is de standaardwaarde voor dit veld wordt ingevuld de hostnaam van de back-end. Bijvoorbeeld, als uw back-end is `contoso-westus.azurewebsites.net`, wordt in Azure portal de waarde automatisch ingevuld voor back-end host-header `contoso-westus.azurewebsites.net`. 
 </br>Echter, als u van Resource Manager-sjablonen gebruikmaakt of andere manier en u niet in dit veld expliciet instellen voordeur verzendt vervolgens de naam van de binnenkomende host als de waarde voor de Host-header. Bijvoorbeeld, als de aanvraag is gedaan voor `www.contoso.com`, en uw back-end `contoso-westus.azurewebsites.net` met het back-end host-header-veld als leeg, klikt u vervolgens voordeur wordt ingesteld als de Host-header `www.contoso.com`.
 
-De meeste back-ends (zoals Web-Apps, Blob Storage en Cloud Services) vereisen dat de hostheader overeenkomt met het domein van de back-end. De frontend-host die naar uw back-end worden doorgestuurd hebben echter een andere hostnaam, zoals www.contoso.azurefd.net. Als de back-end die u instelt, de hostheader overeenkomt met de hostnaam van de back-end moet, moet u ervoor zorgen dat de 'back-end host-header' ook heeft voor de hostnaam van de back-end.
+De meeste back-ends (zoals Web-Apps, Blob Storage en Cloud Services) vereisen dat de hostheader overeenkomt met het domein van de back-end. De frontend-host die u routes naar uw back-end heeft echter een andere hostnaam, zoals www\.contoso.azurefd.net. Als de back-end die u instelt, de hostheader overeenkomt met de hostnaam van de back-end moet, moet u ervoor zorgen dat de 'back-end host-header' ook heeft voor de hostnaam van de back-end.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>Configureren van de back-end-host-header voor de back-end
 Het veld 'Host-header van back-end' kan worden geconfigureerd voor een back-end in de sectie van de back-end-toepassingen.

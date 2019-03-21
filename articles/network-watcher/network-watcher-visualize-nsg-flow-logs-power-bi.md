@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913297"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079023"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Stroomlogboeken van Netwerkbeveiligingsgroep visualizing met Power BI
 
@@ -56,10 +56,10 @@ U moet ook de Power BI Desktop-client geïnstalleerd op uw computer en voldoende
 
 1. Downloaden en openen van de volgende Power BI-sjabloon in de Power BI Desktop-toepassing [Power BI netwerk-Watcher-stroomlogboeken sjabloon](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. Voer de vereiste parameters voor de Query
-    1. **StorageAccountName** – Hiermee geeft u op de naam van het opslagaccount met de NSG-stroomlogboeken die u wilt laden en visualiseren.
-    1. **NumberOfLogFiles** – Hiermee geeft u het nummer van de logboekbestanden die u wilt downloaden en visualiseren in Power BI. Bijvoorbeeld, als 50 is opgegeven, de meest recente 50 logboekbestanden. Als we 2 nsg's ingeschakeld en geconfigureerd voor het verzenden van NSG-stroomlogboeken aan dit account hebt, kan de laatste 25 minuten aan logboeken worden weergegeven.
+   1. **StorageAccountName** – Hiermee geeft u op de naam van het opslagaccount met de NSG-stroomlogboeken die u wilt laden en visualiseren.
+   1. **NumberOfLogFiles** – Hiermee geeft u het nummer van de logboekbestanden die u wilt downloaden en visualiseren in Power BI. Bijvoorbeeld, als 50 is opgegeven, de meest recente 50 logboekbestanden. Als we 2 nsg's ingeschakeld en geconfigureerd voor het verzenden van NSG-stroomlogboeken aan dit account hebt, kan de laatste 25 minuten aan logboeken worden weergegeven.
 
-    ![hoofdvenster van Power BI][2]
+      ![hoofdvenster van Power BI][2]
 
 1. Voer de toegangssleutel voor uw opslagaccount. U kunt geldige toegangssleutels vinden door te navigeren naar uw opslagaccount in Azure portal en vervolgens **toegangssleutels** in het menu instellingen. Klik op **Connect** wijzigingen vervolgens toepassen.
 
@@ -67,7 +67,7 @@ U moet ook de Power BI Desktop-client geïnstalleerd op uw computer en voldoende
 
     ![toegang tot de sleutel 2][4]
 
-4.  Uw logboeken worden gedownload en geparseerd en u kunt nu gebruikmaken van de vooraf gemaakte visuele elementen.
+4. Uw logboeken worden gedownload en geparseerd en u kunt nu gebruikmaken van de vooraf gemaakte visuele elementen.
 
 ## <a name="understanding-the-visuals"></a>Inzicht krijgen in de visuele elementen
 

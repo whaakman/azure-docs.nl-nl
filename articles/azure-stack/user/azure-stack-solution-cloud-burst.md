@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a8c4ef5df586c87862ea8e1634e9a72356401d0b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bcb538cf2e546e4913ccb223e143c2343e114de7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247422"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896191"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Zelfstudie: Cross-cloud vergroten/verkleinen oplossingen maken met Azure
 
@@ -128,7 +128,7 @@ Azure Repos
 
 1. Meld u aan bij Azure pijplijnen om te bevestigen van de mogelijkheid om te maken, bouwen definities.
 
-2. Voeg **win10 - r-x64** code. Dit is nodig voor het activeren van een onafhankelijke implementatie met .net Core.
+2. Voeg **win10 - r-x64** code. Dit is nodig voor het activeren van een onafhankelijke implementatie met .NET Core.
 
     ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image4.png)
 
@@ -266,7 +266,7 @@ Nu informatie over het eindpunt bestaat, de Azure-pijplijnen op Azure Stack-verb
 
 Gebruik [Azure Resource Manager-sjablonen, zoals web](https://azure.microsoft.com/resources/templates/) app-code uit Azure-opslagplaatsen om te implementeren voor beide clouds.
 
-### <a name="add-code-to-a-azure-repos-project"></a>Voeg code toe aan een Azure-opslagplaatsen-project
+### <a name="add-code-to-an-azure-repos-project"></a>Voeg code toe aan een Azure-opslagplaatsen-project
 
 1.  Meld u aan Azure-opslagplaatsen met een account met rechten voor het project maken in Azure Stack. De volgende schermopname ziet hoe u verbinding maken met de HybridCICD-project.
 
@@ -286,7 +286,7 @@ Gebruik [Azure Resource Manager-sjablonen, zoals web](https://azure.microsoft.co
 
 2.  Navigeer naar de **webtoepassing bouwen** pagina voor het project.
 
-3.  In **argumenten**, toevoegen **win10 - r-x64** code. Dit is vereist voor het activeren van een onafhankelijke implementatie met .net Core.
+3.  In **argumenten**, toevoegen **win10 - r-x64** code. Dit is vereist voor het activeren van een onafhankelijke implementatie met .NET Core.
 
 4.  De build worden uitgevoerd. De [onafhankelijke implementatie build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) proces artefacten die kunnen worden uitgevoerd op Azure en Azure Stack zal publiceren.
 

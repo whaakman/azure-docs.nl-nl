@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: a8c3bc7a3a659809f1602ffae303f9bd26f2c35a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: aafa115ee1e270b903e958e5b43826dfb4ff8bdb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857780"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435223"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Verbinding maken met de Cognitive Service Face-API met behulp van Connected Services in Visual Studio
 
@@ -79,7 +79,7 @@ Dit artikel en de bijbehorende artikelen bieden details voor het gebruik van de 
       }
    ```
 
-1. Voeg in de wwwroot-map van uw project een afbeeldingenmap toe en voeg een afbeeldingsbestand toe aan de wwwroot-map. Een voorbeeld: u kunt een van de installatiekopieën gebruiken op deze [Face-API-pagina](https://azure.microsoft.com/services/cognitive-services/face/). Klik met de rechtermuisknop op een van de installatiekopieën, sla dit op op uw lokale vaste schijf. Klik in Solution Explorer met de rechtermuisknop op de afbeeldingenmap en kies **Toevoegen** > **Bestaand item** om toe te voegen aan uw project. Uw project ziet er ongeveer als volgt uit in Solution Explorer:
+1. Voeg in de wwwroot-map van uw project een afbeeldingenmap toe en voeg een afbeeldingsbestand toe aan de wwwroot-map. Een voorbeeld: u kunt een van de installatiekopieën gebruiken op deze [Face-API-pagina](https://azure.microsoft.com/services/cognitive-services/face/). Klik met de rechtermuisknop op een van de installatiekopieën, opslaan op uw lokale vaste schijf en klik in Solution Explorer met de rechtermuisknop op de afbeeldingenmap en kies **toevoegen** > **bestaand Item** toe te voegen aan uw project. Uw project ziet er ongeveer als volgt uit in Solution Explorer:
  
    ![afbeeldingenmap met afbeeldingsbestand](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 

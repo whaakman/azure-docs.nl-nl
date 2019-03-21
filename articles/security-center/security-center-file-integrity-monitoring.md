@@ -3,23 +3,23 @@ title: Bestandsintegriteit controleren in Azure Security Center | Microsoft Docs
 description: " Informatie over het inschakelen van de functie bestandsintegriteit controleren in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
-editor: ''
+editor: monhaber
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
-ms.author: rkarlin
-ms.openlocfilehash: bb987bcc38dee1f3d4ea2fce19e5e546ebfc8f7c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.date: 03/13/2019
+ms.author: monhaber
+ms.openlocfilehash: f8bc10edcdc31dd2ae3995dcb8321a5523e1e51c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240232"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901577"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Bestandsintegriteit controleren in Azure Security Center
 Informatie over het configureren van bestand integriteit controleren (FIM) in Azure Security Center gebruikt deze stapsgewijze kennismaking.
@@ -36,15 +36,12 @@ Security Center bestandsintegriteit controleren de integriteit van Windows-besta
 Security Center raadt entiteiten te bewaken, die u kunt eenvoudig FIM inschakelen op. U kunt ook uw eigen beleid FIM of entiteiten voor het bewaken van definiëren. In deze procedure ziet u hoe.
 
 > [!NOTE]
-> De functie bestand integriteit controleren (FIM) werkt voor Windows en Linux-computers en VM's en is beschikbaar op de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
-FIM worden gegevens geüpload naar de Log Analytics-werkruimte. Gegevens in rekening gebracht, op basis van de hoeveelheid gegevens die u uploadt. Zie [prijzen voor log analytics](https://azure.microsoft.com/pricing/details/log-analytics/) voor meer informatie.
->
->
+> De functie bestand integriteit controleren (FIM) werkt voor Windows en Linux-computers en VM's en is beschikbaar op de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center. FIM worden gegevens geüpload naar de Log Analytics-werkruimte. Gegevens in rekening gebracht, op basis van de hoeveelheid gegevens die u uploadt. Zie [Log Analytics-prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) voor meer informatie.
+
+FIM maakt gebruik van de oplossing wijzigingen bijhouden in Azure bij te houden en wijzigingen in uw omgeving identificeren. Wanneer de functie bestandsintegriteit controleren is ingeschakeld, hebt u een **bijhouden** resource van het type **oplossing**. Zie voor informatie over gegevens verzameling frequentie, [details van gegevens verzameling bijhouden](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) voor het bijhouden van Azure.
 
 > [!NOTE]
-> FIM maakt gebruik van de oplossing wijzigingen bijhouden in Azure bij te houden en wijzigingen in uw omgeving identificeren. Wanneer de functie bestandsintegriteit controleren is ingeschakeld, hebt u een **bijhouden** resource van het type oplossing. Als u verwijdert de **bijhouden** resource dat u de integriteit van de functie in Security Center bewaken uitschakelen.
->
->
+> Als u verwijdert de **bijhouden** resource, wordt u ook de integriteit van de functie in Security Center bewaken uitschakelen.
 
 ## <a name="which-files-should-i-monitor"></a>Welke bestanden moet ik bewaak?
 U moet doen met de bestanden die essentieel zijn voor uw systeem en de toepassingen zijn bij het kiezen van welke bestanden om te controleren. Houd rekening met bestanden die u waarschijnlijk niet wijzigen zonder de planning te kiezen. Kiezen-bestanden die vaak worden gewijzigd door toepassingen of -besturingssysteem (zoals logboekbestanden en tekstbestanden) maken een groot aantal ruis waardoor het moeilijk om een aanval worden geïdentificeerd.
@@ -134,15 +131,15 @@ De **wijzigingen** tabblad (Zie hieronder) bevat alle wijzigingen in de werkruim
 
 1. Ga terug naar de **dashboard voor bestandsintegriteit controleren** en selecteer **instellingen**.
 
-  ![Instellingen][11]
+   ![Instellingen][11]
 
-  **Configuratie van de werkruimte** wordt geopend drie tabbladen: **Windows-register**, **Windows bestanden**, en **Linux-bestanden**. Elk tabblad geeft een lijst van de entiteiten die u in die categorie kunt bewerken. Voor elke entiteit die worden vermeld, Security Center wordt geïdentificeerd als FIM is ingeschakeld (true) of niet (ONWAAR) is ingeschakeld.  De entiteit bewerken, kunt u in- of uitschakelen van FIM.
+   **Configuratie van de werkruimte** wordt geopend drie tabbladen: **Windows-register**, **Windows bestanden**, en **Linux-bestanden**. Elk tabblad geeft een lijst van de entiteiten die u in die categorie kunt bewerken. Voor elke entiteit die worden vermeld, Security Center wordt geïdentificeerd als FIM is ingeschakeld (true) of niet (ONWAAR) is ingeschakeld.  De entiteit bewerken, kunt u in- of uitschakelen van FIM.
 
-  ![Werkruimteconfiguratie][12]
+   ![Werkruimteconfiguratie][12]
 
-2. Selecteer een identityprotection. In dit voorbeeld wordt een item hebt geselecteerd onder Windows-register. **Voor het bijhouden van wijzigingen bewerken** wordt geopend.
+2. Selecteer een identiteitsbeveiliging. In dit voorbeeld wordt een item hebt geselecteerd onder Windows-register. **Voor het bijhouden van wijzigingen bewerken** wordt geopend.
 
-  ![Bewerken of wijzigingen bijhouden][13]
+   ![Bewerken of wijzigingen bijhouden][13]
 
 Onder **voor het bijhouden van wijzigingen bewerken** kunt:
 
@@ -155,11 +152,11 @@ Onder **voor het bijhouden van wijzigingen bewerken** kunt:
 1. Ga terug naar de **bestandsintegriteit controleren dashboard** en selecteer **instellingen** aan de bovenkant. **Configuratie van de werkruimte** wordt geopend.
 2. Onder **Werkruimteconfiguratie**, selecteer het tabblad voor het type entiteit die u wilt toevoegen: Windows-register, bestanden van Windows of Linux-bestanden. In dit voorbeeld wordt geselecteerd **Linux-bestanden**.
 
-  ![Toevoegen van een nieuw item controleren][14]
+   ![Toevoegen van een nieuw item controleren][14]
 
 3. Selecteer **Toevoegen**. **Toevoegen voor wijzigingen bijhouden** wordt geopend.
 
-  ![Voer de gevraagde informatie][15]
+   ![Voer de gevraagde informatie][15]
 
 4. Op de **toevoegen** pagina, typt u de gevraagde informatie op en selecteer **opslaan**.
 
@@ -167,19 +164,19 @@ Onder **voor het bijhouden van wijzigingen bewerken** kunt:
 1. Ga terug naar de **bestandsintegriteit controleren** dashboard.
 2. Selecteer een werkruimte waar FIM is momenteel ingeschakeld. Een werkruimte is ingeschakeld voor FIM als er de knop inschakelen of Upgrade abonnement ontbreekt.
 
-  ![Selecteer een werkruimte waar FIM is ingeschakeld][16]
+   ![Selecteer een werkruimte waar FIM is ingeschakeld][16]
 
 3. Selecteer onder de functie bestandsintegriteit controleren, **instellingen**.
 
-  ![instellingen selecteren][17]
+   ![instellingen selecteren][17]
 
 4. Onder **Werkruimteconfiguratie**, selecteert u een groep waarin **ingeschakeld** is ingesteld op true.
 
-  ![Werkruimteconfiguratie][18]
+   ![Werkruimteconfiguratie][18]
 
 5. Onder **voor het bijhouden van wijzigingen bewerken** venster set **ingeschakeld** op False.
 
-  ![Ingeschakeld ingesteld op false][19]
+   ![Ingeschakeld ingesteld op false][19]
 
 6. Selecteer **Opslaan**.
 
@@ -198,7 +195,7 @@ U kunt FIM uitschakelen. FIM maakt gebruik van de oplossing wijzigingen bijhoude
 2. Selecteer een werkruimte.
 3. Onder **bestandsintegriteit controleren**, selecteer **uitschakelen**.
 
-  ![FIM uitschakelen][20]
+   ![FIM uitschakelen][20]
 
 4. Selecteer **verwijderen** om uit te schakelen.
 

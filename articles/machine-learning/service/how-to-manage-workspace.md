@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: b65bc1dc510a02144e57e9d057254963d0c398ed
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c7dd2fba852881680b43ceabafec2ac6b2751df4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244331"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839590"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Maken en beheren van Azure Machine Learning-service werkruimten
 
@@ -24,7 +24,7 @@ In dit artikel, zult u maken, weergeven en verwijderen [ **Azure Machine Learnin
 
 ## <a name="create-a-workspace"></a>Een werkruimte maken 
 
-Een werkruimte te maken, moet u een Azure-abonnement. Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
+Een werkruimte te maken, moet u een Azure-abonnement. Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 

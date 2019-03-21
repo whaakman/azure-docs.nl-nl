@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1022ce74fd5514b274f498a4d4f764393e6428
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7cd986544dfb1472f5cc8a013fec951dca42a59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185771"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Zelfstudie: Azure Active Directory-integratie met Workteam
 
@@ -200,7 +200,7 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij Workteam, moeten ze
 
     a. In de **naam** tekst voert u de voornaam van de gebruiker, zoals **Brittasimon**.
 
-    b. In **e** tekst vak, voer het e-mailadres van gebruiker, zoals **Brittasimon@contoso.com**.
+    b. In **e** tekst vak, voer het e-mailadres van gebruiker, zoals **Brittasimon\@contoso.com**.
 
     c. Klik op **OK**.
 
@@ -243,7 +243,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 80c9944628eaa828a34ea16eb9f79271d6cd5728
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 79f0474950cf1f48f3552b1ae843a29b5d8dbb24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729207"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883369"
 ---
 # <a name="what-is-translator-text-api"></a>Wat is de Translator Text API?
 
@@ -28,7 +28,7 @@ De Translator Text-API is onderdeel van de Azure [Cognitive Services API](https:
 
 Microsoft Translator is een cloudservice voor machinevertaling. De basis van deze service is de Translator Text-API, die een aantal Microsoft-producten en -services aanstuurt en die door duizenden bedrijven over de hele wereld wordt gebruikt in hun toepassingen en werkstromen, zodat hun inhoud beschikbaar wordt gemaakt voor een wereldwijd publiek.
 
-Spraakomzetting, mogelijk gemaakt door de Translator Text-API, is ook beschikbaar via de [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). In spraakomzetting worden functionaliteit van de Translator Speech-API, Bing Speech-API en Custom Speech Service (preview) gecombineerd tot een geïntegreerde en volledig aan te passen service. Speech Service vervangt de Translator Speech-API, die buiten bedrijf wordt genomen op 15 oktober 2019.
+Spraakomzetting, mogelijk gemaakt door de Translator Text-API, is ook beschikbaar via de [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Het combineert de functionaliteit van de Translator Speech-API en de Custom Speech Service in een uniforme en volledig aanpasbare-service. Speech Service vervangt de Translator Speech-API, die buiten bedrijf wordt genomen op 15 oktober 2019.
 
 ## <a name="language-support"></a>Taalondersteuning
 

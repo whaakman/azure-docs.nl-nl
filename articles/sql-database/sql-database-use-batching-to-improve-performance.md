@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 76b53132cca536f66aa2f739b27d74b08a3f16cf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781388"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997699"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Batchverwerking gebruiken voor het verbeteren van de prestaties van toepassingen voor SQL-Database
 
@@ -298,7 +298,7 @@ De **DataAdapter** klasse kunt u aanpassen een **gegevensset** object en vervolg
 
 ### <a name="entity-framework"></a>Entity framework
 
-Entity Framework ondersteunt momenteel geen batchverwerking. Andere ontwikkelaars in de community om te demonstreren oplossingen, zoals onderdrukking hebt geprobeerd de **SaveChanges** methode. Maar de oplossingen zijn normaal complexe en afgestemd op de toepassing en het gegevensmodel. Het Entity Framework codeplex project heeft momenteel een discussiepagina voor deze functieaanvraag. Als u deze discussie, Zie [notulen ontwerp - en met 2 augustus 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+Entity Framework ondersteunt momenteel geen batchverwerking. Andere ontwikkelaars in de community om te demonstreren oplossingen, zoals onderdrukking hebt geprobeerd de **SaveChanges** methode. Maar de oplossingen zijn normaal complexe en afgestemd op de toepassing en het gegevensmodel. Het Entity Framework codeplex project heeft momenteel een discussiepagina voor deze functieaanvraag. Als u deze discussie, Zie [notulen ontwerp - en met 2 augustus 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
 

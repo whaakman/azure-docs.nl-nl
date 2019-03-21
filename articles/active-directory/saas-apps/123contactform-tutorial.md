@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5211910a-ab96-4709-959a-524c4d57c43e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2450548858d3b7eab3fda11b7f309519f6b871c8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 768afe007141eacbcea1560d3ec1676d9a7d2867
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Zelfstudie: Azure Active Directory-integratie met 123ContactForm
 
@@ -54,7 +54,7 @@ Als u de integratie van 123ContactForm met Azure AD wilt configureren, moet u 12
 
 **Als u 123ContactForm wilt toevoegen vanuit de galerie, voert u de volgende stappen uit:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -139,7 +139,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD met 123Contact
 
     ![Eenmalige aanmelding configureren](./media/123contactform-tutorial/submit.png) 
 
-    a. Typ in het tekstvak **Email** het e-mailadres van de gebruiker, bijvoorbeeld **BrittaSimon@Contoso.com**.
+    a. In de **e** tekstvak, typ het e-mailadres van de gebruiker, zoals **BrittaSimon\@Contoso.com**.
 
     b. Klik op **Upload** en blader naar het gedownloade XML-bestand met metagegevens dat u hebt gedownload vanuit de Azure-portal.
 
@@ -173,7 +173,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -212,7 +212,7 @@ In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in 123Contac
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel 123ContactForm in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van 123ContactForm waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

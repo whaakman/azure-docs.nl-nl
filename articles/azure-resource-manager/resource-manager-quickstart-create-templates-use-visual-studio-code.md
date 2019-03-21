@@ -10,19 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 33bc10bb601fa14a34b6032c54b0c751a3608ccc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: c73084b03736a422e5e3b617ec058ade1de0fbb9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823651"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317115"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Quickstart: Azure Resource Manager-sjablonen maken met Visual Studio Code
 
 Leer hoe u Visual Studio Code en de Azure Resource Manager Tools-extensie gebruikt om Azure Resource Manager-sjablonen te maken en te bewerken. U kunt Resource Manager-sjablonen maken in Visual Studio Code zonder de extensie, maar de extensie biedt opties voor automatisch aanvullen die het ontwikkelen van sjablonen eenvoudiger maken. Zie [Overzicht van Azure Resource Manager](resource-group-overview.md) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen.
+
+In deze zelfstudie implementeert u een storage-account:
+
+![diagram van resource manager-sjabloon Quick Start visual studio code](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -90,15 +94,24 @@ Als u wilt ervaren hoe u een sjabloon met behulp van Visual Studio Code bewerkt,
 
 ## <a name="deploy-the-template"></a>De sjabloon implementeren
 
-Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze snelstart gebruikt u Azure Cloud Shell. De Cloud Shell is een webtoepassing, die geen configuratie vereist. Het ondersteunt zowel Azure CLI als Azure PowerShell.
+Er bestaan meerdere methoden voor het implementeren van sjablonen. Azure cloudshell wordt gebruikt in deze Quick Start. De cloudshell ondersteunt zowel Azure CLI en Azure PowerShell. Gebruik de tabselector om te kiezen tussen CLI en PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-
 1. Meld u aan bij [Azure Cloud Shell](https://shell.azure.com)
 
+2. Kies uw favoriete omgeving erin **PowerShell** of **Bash**(CLI) in de linkerbovenhoek.  U moet de shell opnieuw starten wanneer u overschakelt.
+
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+
     ![Cloud Shell CLI in Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-2. Kies uw favoriete omgeving door in de linkerbovenhoek **PowerShell** of **Bash** te selecteren. Als u CLI wilt gebruiken, moet u een Bash-sessie openen. Als u Azure PowerShell wilt uitvoeren, moet u een PowerShell-sessie openen. Selecteer de pijl-omlaag om te schakelen tussen de Bash en PowerShell. Zie de vorige schermafbeelding. U moet de shell opnieuw starten wanneer u overschakelt.
+
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+
+    ![Azure portal cloudshell PowerShell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
+
+    ---
+
 3. Selecteer **Upload/download files** en selecteer **Uploaden**.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)

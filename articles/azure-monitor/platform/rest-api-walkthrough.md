@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: 2ba0ea64aab67221aa1ee3a87ad35ce7d5516167
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 12c0ee08435ca4b3077bc3a8c28b217ebaf70e08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310043"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993323"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST-API-overzicht
 
@@ -98,7 +98,7 @@ Gebruik de [definities voor metrische gegevens van Azure Monitor REST-API](https
 
 **Methode**: GET
 
-**Aanvraag-URI**: https://management.azure.com/subscriptions/ *{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
+**Aanvraag-URI**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{ apiVersion}*
 
 Bijvoorbeeld, als u wilt ophalen van de metrische definities voor een Azure Storage-account, zou de aanvraag er als volgt uitzien:
 
@@ -242,7 +242,7 @@ Gebruik van de metrische gegevens de naam 'value' (niet de ' localizedValue') vo
 
 **Methode**: GET
 
-**Aanvraag-URI**: https://management.azure.com/subscriptions/ *{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-naamruimte}* / *{resourcetype}*/*{resourcenaam}*/providers/microsoft.insights/metrics?metricnames=*{metriek}*& timespan =*{starttime/endtime}*& $filter =*{filter}*& resultType = metagegevens & api-version =*{apiVersion}*
+**Aanvraag-URI**: https\://management.azure.com/subscriptions/*{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/*{ resource-provider-naamruimte}*/*{resourcetype}*/*{resourcenaam}*/providers/microsoft.insights/metrics? metricnames =*{metriek}*& timespan =*{starttime/endtime}*& $filter =*{filter}*& resultType = metagegevens & api-version = *{apiVersion}*
 
 Bijvoorbeeld, om op te halen van de lijst met dimensiewaarden die voor de 'naam van de API-dimensie' voor de metriek "Transacties" zijn verzonden, waarbij de dimensie GeoType = 'Primaire' tijdens de opgegeven periode, de aanvraag zou als volgt:
 
@@ -394,7 +394,7 @@ Gebruik de [definities voor metrische gegevens van Azure Monitor REST-API](https
 
 **Methode**: GET
 
-**Aanvraag-URI**: https://management.azure.com/subscriptions/ *{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
+**Aanvraag-URI**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{ apiVersion}*
 
 Bijvoorbeeld, als u wilt ophalen van de metrische definities voor een logische App van Azure, zou de aanvraag er als volgt uitzien:
 

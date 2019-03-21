@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: d13e0ea365b25bc17ff2d23dfaf86bc057774744
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: f7ee53c10c6597dbf98f8f85fc31fe789137471e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415490"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996318"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Configuratiescripts voor VPN-apparaat voor S2S-VPN-verbindingen downloaden
 
@@ -53,7 +53,7 @@ Maak een Azure VPN-gateway, lokale netwerkgateway en de resource van een verbind
 
 Zodra de resource van de verbinding is gemaakt, volg de onderstaande instructies voor het downloaden van de configuratiescripts voor VPN-apparaten:
 
-1. Vanuit een browser, Ga naar de [Azure-portal](http://portal.azure.com) en, indien nodig, meld u aan met uw Azure-account
+1. Vanuit een browser, Ga naar de [Azure-portal](https://portal.azure.com) en, indien nodig, meld u aan met uw Azure-account
 2. Ga naar de resource van de verbinding die u hebt gemaakt. U kunt de lijst met alle verbindingsresources vinden door te klikken op 'Alle services', en vervolgens "Netwerken" en "Verbindingen".
 
     ![lijst met verbindingen](./media/vpn-gateway-download-vpndevicescript/connectionlist.png)

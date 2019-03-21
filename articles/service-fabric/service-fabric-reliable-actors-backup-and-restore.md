@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/29/2018
 ms.author: vturecek
-ms.openlocfilehash: d5922e21dd464b8cbd0075e7bd2515ffa73607e6
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c16e3ed140284422f3b62669fed1f8fb4dd681f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726930"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872236"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementeren van Reliable Actors back-up en herstellen
 
@@ -123,7 +123,7 @@ Lees de volgende artikelen voor meer informatie over Reliable Actors:
 * [Actor-levenscyclus en garbagecollection verzameling](service-fabric-reliable-actors-lifecycle.md)
 * [Actoren API-referentiedocumentatie](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET-voorbeeldcode](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java-voorbeeldcode](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java-voorbeeldcode](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

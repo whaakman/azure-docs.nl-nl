@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: d0b171f05bb2243da83509348b099bebcb44ebc7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 81407a298ccfe1b9884fc5d5b815ac8c18ffee6a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508705"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094674"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Ontwikkelen van een C# IoT Edge-module voor het verplaatsen van bestanden op gegevens in Edge (Preview)
 
@@ -71,14 +71,14 @@ Een Azure-containerregister is een persoonlijk Docker-register in Azure waar u u
 2. Selecteer **een resource maken > Containers > Container Registry**. Klik op **Create**.
 3. Provide:
 
-    1. Een unieke **registernaam** in Azure met 5 tot 50 alfanumerieke tekens.
-    2. Kies een **abonnement**.
-    3. Maak een nieuwe of kies een bestaande **resourcegroep**.
-    4. Selecteer een **locatie**. Het is raadzaam dat deze locatie hetzelfde zijn als dat is gekoppeld aan de gegevens in het Edge-resource.
-    5. Stel de **Gebruiker met beheerdersrechten** in op **Inschakelen**.
-    6. De SKU ingesteld op **Basic**.
+   1. Een unieke **registernaam** in Azure met 5 tot 50 alfanumerieke tekens.
+   2. Kies een **abonnement**.
+   3. Maak een nieuwe of kies een bestaande **resourcegroep**.
+   4. Selecteer een **locatie**. Het is raadzaam dat deze locatie hetzelfde zijn als dat is gekoppeld aan de gegevens in het Edge-resource.
+   5. Stel de **Gebruiker met beheerdersrechten** in op **Inschakelen**.
+   6. De SKU ingesteld op **Basic**.
 
-    ![Containerregister maken](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![Containerregister maken](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. Selecteer **Maken**.
 5. Nadat het containerregister is gemaakt, bladert u ernaartoe en selecteert u **Toegangssleutels**.

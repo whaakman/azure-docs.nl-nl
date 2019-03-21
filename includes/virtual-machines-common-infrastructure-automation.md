@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: efca5c4155372456100126671e7d5cd1ccf0cbbc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d8ada53082b0ccc95d472b43a0ae2ff63cd76a3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53027924"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124998"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Infrastructuur automatiseringsprogramma's gebruiken met virtuele machines in Azure
 Als u wilt maken en beheren van virtuele Azure-machines (VM's) op een consistente manier op schaal, een vorm van automatisering doorgaans gewenst. Er zijn veel hulpprogramma's en oplossingen waarmee u kunt de volledige Azure-infrastructuur-implementatie en beheer van levenscyclus automatiseren. In dit artikel worden enkele van de infrastructuur voor automation-hulpprogramma's die u in Azure gebruiken kunt. Deze hulpprogramma's wordt vaak aanpassen aan een van de volgende methoden:
@@ -60,7 +60,7 @@ Cloud-init werkt ook in distributies. U gebruikt bijvoorbeeld niet **apt-get ins
  We zijn actief werkt met onze onderschreven Linux-distributie partners om cloud-init ingeschakeld installatiekopieën die beschikbaar zijn in de Azure marketplace. Deze installatiekopieën maken uw cloud-init-implementaties en configuraties naadloos werken met virtuele machines en virtuele-machineschaalsets. De volgende tabel geeft een overzicht van de huidige beschikbaarheid van de installatiekopieën van cloud-init ingeschakeld op het Azure-platform:
 
 | Uitgever | Aanbieding | SKU | Versie | cloud-init gereed
-|:--- |:--- |:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |:--- |:--- 
 |Canonical |UbuntuServer |16.04-LTS |meest recente |ja | 
 |Canonical |UbuntuServer |14.04.5-LTS |meest recente |ja |
 |CoreOS |CoreOS |Stabiel |meest recente |ja |

@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b346ac0ac456b7f6af078496e8dd1cb738caab67
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d3cea9f3bc5645aeaefc5bb376557d365681df56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530191"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994113"
 ---
 # <a name="media-services-concepts"></a>Media Services-concepten
 
@@ -82,7 +82,7 @@ U kunt Media Services gebruiken **dynamische manifesten** alleen een specifieke 
 
 ## <a name="live-streaming"></a>Live streamen
 
-Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. **Live gebeurtenissen** zijn verantwoordelijk voor het opnemen en verwerken van de live-videofeeds. Bij het maken van een **Live gebeurtenis**, een invoereindpunt waarmee u kunt een live signaal verzenden vanaf een externe coderingsprogramma wordt gemaakt. Zodra u de stroom doorgestuurd hebt naar de **Live gebeurtenis**, kunt u de streaminggebeurtenis starten door het maken van een **Asset**, **uitvoer Live**, en **Streaming-Locator gemaakt** . **Live uitvoer** worden gearchiveerd de stroom in de **Asset** en het beschikbaar maken voor gebruikers via de **Streaming Endpoid**. Een **Live gebeurtenis** kan bestaan uit een van de twee typen: **pass-through** en **van realtime codering**.
+Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. **Live gebeurtenissen** zijn verantwoordelijk voor het opnemen en verwerken van de live-videofeeds. Bij het maken van een **Live gebeurtenis**, een invoereindpunt waarmee u kunt een live signaal verzenden vanaf een externe coderingsprogramma wordt gemaakt. Zodra u de stroom doorgestuurd hebt naar de **Live gebeurtenis**, kunt u de streaminggebeurtenis starten door het maken van een **Asset**, **uitvoer Live**, en **Streaming-Locator gemaakt** . **Live uitvoer** worden gearchiveerd de stroom in de **Asset** en het beschikbaar maken voor gebruikers via de **Streaming-eindpunt**. Een **Live gebeurtenis** kan bestaan uit een van de twee typen: **pass-through** en **van realtime codering**.
 
 De volgende afbeelding illustreert de werkstroom van Pass Through-type:
 

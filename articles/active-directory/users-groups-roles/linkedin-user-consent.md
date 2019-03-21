@@ -1,5 +1,5 @@
 ---
-title: LinkedIn-voor het delen van gegevens van integratie en toestemming - Azure Active Directory | Microsoft Docs
+title: LinkedIn-voor het delen van gegevens van verbindingen en toestemming - Azure Active Directory-account | Microsoft Docs
 description: Wordt uitgelegd hoe de gegevens via Microsoft-apps in Azure Active Directory voor het delen van LinkedIn-integratie
 services: active-directory
 author: curtand
@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71eeed62c6de2a3771909e8489ca816930993435
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4e6e24f4e726e25ae65ecceaeb161f8e16d61721
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442219"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200443"
 ---
-# <a name="linkedin-integration-data-sharing-and-consent"></a>Delen van gegevens van LinkedIn integratie en toestemming
+# <a name="linkedin-account-connections-data-sharing-and-consent"></a>Gegevensdeling voor LinkedIn account verbindingen en toestemming
 
-Als beheerder van Azure Active Directory (Azure AD) kunt u gebruikers in uw organisatie toe te staan verbinding maken met hun Microsoft-werk- of schoolaccount met hun LinkedIn-account. Wanneer gebruikers hun accounts koppelen, zijn informatie en hoogtepunten van LinkedIn beschikbaar in bepaalde Microsoft-apps en services. Gebruikers kunnen ook hun netwerkervaring verwachten op LinkedIn worden verbeterd en verrijkt met informatie van Microsoft.
+U kunt gebruikers in uw organisatie Active Directory (Azure AD) toe te staan verbinding maken met hun Microsoft-werk- of schoolaccount met hun LinkedIn-account. Nadat een gebruiker verbinding hun accounts, zijn informatie en hoogtepunten van LinkedIn beschikbaar in bepaalde Microsoft-apps en services. Gebruikers kunnen ook hun netwerkervaring verwachten op LinkedIn worden verbeterd en verrijkt met informatie van Microsoft.
 
 LinkedIn-gegevens in Microsoft-apps en -services wilt bekijken, moeten gebruikers toestemming geven voor het verbinding maken met hun eigen Microsoft en LinkedIn-accounts. Gebruikers wordt gevraagd naar hun accounts koppelen de eerste keer dat ze op iemands LinkedIn om informatie te zien op een Profielkaart in Outlook, OneDrive of SharePoint Online. LinkedIn-accountverbindingen zijn niet volledig ingeschakeld voor uw gebruikers totdat ze toestemming geven de ervaring en hun accounts koppelen.
 
@@ -32,13 +32,13 @@ LinkedIn-gegevens in Microsoft-apps en -services wilt bekijken, moeten gebruiker
 
 Toegang tot de gegevens van LinkedIn binnen Microsoft-apps en services maakt het gemakkelijker voor uw gebruikers te verbinden, betrekken en professionele relaties bouwen met collega's, klanten en partners binnen en buiten uw organisatie. Nieuwe gebruikers kunnen krijgen op weg te helpen sneller door verbinding te maken met collega's, meer informatie over deze en eenvoudige toegang tot meer informatie. Hier volgt een voorbeeld van hoe LinkedIn-informatie wordt weergegeven op de Profielkaart in Microsoft-apps:
 
-![LinkedIn-integratie inschakelen](./media/linkedin-user-consent/display-example.png)
+![In uw organisatie LinkedIn-integratie inschakelen](./media/linkedin-user-consent/display-example.png)
 
 ## <a name="enable-and-announce-linkedin-integration"></a>Inschakelen en LinkedIn-integratie aankondigen
 
 U moet een Azure Active Directory-beheerder voor het beheren van de instelling voor uw organisatie. U kunt deze inschakelen voor alle gebruikers, of voor een specifieke set gebruikers.
 
-1. Als u wilt in- of uitschakelen van de integratie, volg de stappen in [LinkedIn-integratie](linkedin-integration.md).
+1. Als u wilt in- of uitschakelen van de integratie, volg de stappen in [instemmen met LinkedIn-integratie voor uw Azure AD-organisatie](linkedin-integration.md).
 2. Wanneer u de LinkedIn-integratie in uw organisatie aankondigen, wijst u uw gebruikers de veelgestelde vragen over [LinkedIn-gegevens in Microsoft-apps en services](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). Het artikel vindt u informatie over waar LinkedIn-informatie wordt weergegeven, hoe u verbinding maakt accounts en meer.
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Gebruiker toestemming geven voor toegang tot gegevens in Microsoft en LinkedIn

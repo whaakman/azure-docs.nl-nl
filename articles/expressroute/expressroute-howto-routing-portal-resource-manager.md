@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 0cc0068f9e1d836800aa77b3057815962581d47b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 401827f3fa5eb6d364d0f133d8cd672cf8968031
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243365"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103176"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Peering voor een ExpressRoute-circuit maken en wijzigen
 
@@ -57,37 +57,37 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de c
 
 1. Configureer het ExpressRoute-circuit. Zorg dat het circuit volledig is ingericht door de connectiviteitsprovider voordat u verder gaat. Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen van Microsoft-peering voor u vragen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit blijven echter de configuratie met behulp van de volgende stappen.
 
-  ![lijst met Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   ![lijst met Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Configureer Microsoft-peering voor het circuit. Zorg ervoor dat u over de volgende informatie beschikt voordat u verder gaat.
 
-  * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt.
-  * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt. Voor zowel de primaire en secundaire koppelingen moet u de dezelfde VLAN-ID.
-  * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
-  * Geadverteerde voorvoegsels: U kunt een lijst van alle voorvoegsels die u van plan bent om te adverteren via de BGP-sessie moet opgeven. Alleen openbare IP-adresvoorvoegsels worden geaccepteerd. Als u van plan bent om een set voorvoegsels te verzenden, kunt u een door komma's gescheiden lijst verzenden. Deze voorvoegsels moeten voor u zijn geregistreerd in een RIR/IRR.
-  * **Optioneel:** klant-ASN: Als u voorvoegsels adverteert die niet zijn geregistreerd op de AS-nummer peering, kunt u het AS-nummer waaraan ze zijn geregistreerd.
-  * Naam van Routeringsregister: U kunt het RIR / IRR op basis waarvan het AS-nummer en de voorvoegsels zijn geregistreerd.
-  * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
+   * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt.
+   * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt.
+   * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt. Voor zowel de primaire en secundaire koppelingen moet u de dezelfde VLAN-ID.
+   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
+   * Geadverteerde voorvoegsels: U kunt een lijst van alle voorvoegsels die u van plan bent om te adverteren via de BGP-sessie moet opgeven. Alleen openbare IP-adresvoorvoegsels worden geaccepteerd. Als u van plan bent om een set voorvoegsels te verzenden, kunt u een door komma's gescheiden lijst verzenden. Deze voorvoegsels moeten voor u zijn geregistreerd in een RIR/IRR.
+   * **Optioneel:** klant-ASN: Als u voorvoegsels adverteert die niet zijn geregistreerd op de AS-nummer peering, kunt u het AS-nummer waaraan ze zijn geregistreerd.
+   * Naam van Routeringsregister: U kunt het RIR / IRR op basis waarvan het AS-nummer en de voorvoegsels zijn geregistreerd.
+   * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
 3. U kunt selecteren om de peering die u configureren, wilt zoals wordt weergegeven in het volgende voorbeeld. Selecteer de rij voor Microsoft-peering.
 
-  ![Selecteer de rij voor Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)
+   ![Selecteer de rij voor Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)
 4. Configureer Microsoft-peering. De volgende afbeelding toont een configuratievoorbeeld van een:
 
-  ![Microsoft-peering configureren](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
+   ![Microsoft-peering configureren](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
 5. Sla de configuratie op wanneer u alle parameters hebt opgegeven.
 
-  Als uw circuit opgehaald voor een 'validatie vereist' status (zoals weergegeven in de afbeelding), moet u een ondersteuningsticket om aan te tonen dat u eigenaar bent van de voorvoegsels aan ons ondersteuningsteam openen.
+   Als uw circuit opgehaald voor een 'validatie vereist' status (zoals weergegeven in de afbeelding), moet u een ondersteuningsticket om aan te tonen dat u eigenaar bent van de voorvoegsels aan ons ondersteuningsteam openen.
 
-  ![Configuratie van de Microsoft-peering opslaan](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
+   ![Configuratie van de Microsoft-peering opslaan](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
 
-  U kunt een ondersteuningsticket rechtstreeks vanuit de portal, zoals wordt weergegeven in het volgende voorbeeld:
+   U kunt een ondersteuningsticket rechtstreeks vanuit de portal, zoals wordt weergegeven in het volgende voorbeeld:
 
-  ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
+   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
 
 1. Nadat de configuratie is geaccepteerd, ziet u iets die vergelijkbaar is met de volgende afbeelding:
 
-  ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
+   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
 ### <a name="getmsft"></a>Details van Microsoft-peering weergeven
 
@@ -115,23 +115,23 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 1. Configureer het ExpressRoute-circuit. Zorg dat het circuit volledig is ingericht door de connectiviteitsprovider voordat u verder gaat. Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen persoonlijke Azure-peering voor u vragen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit blijven echter de configuratie met behulp van de volgende stappen.
 
-  ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Configureer persoonlijke Azure-peering voor het circuit. Zorg ervoor dat u de volgende items hebt voordat u verdergaat met de volgende stappen:
 
-  * Een /30-subnet voor de primaire koppeling. Het subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt.
-  * Een /30-subnet voor de secundaire koppeling. Het subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt. Voor zowel de primaire en secundaire koppelingen moet u de dezelfde VLAN-ID.
-  * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken. U kunt een persoonlijke AS-nummer voor deze peering, met uitzondering van het nummer van 65515 tot 65520, liggen.
-  * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
+   * Een /30-subnet voor de primaire koppeling. Het subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt.
+   * Een /30-subnet voor de secundaire koppeling. Het subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt.
+   * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt. Voor zowel de primaire en secundaire koppelingen moet u de dezelfde VLAN-ID.
+   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken. U kunt een persoonlijke AS-nummer voor deze peering, met uitzondering van het nummer van 65515 tot 65520, liggen.
+   * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
 3. Selecteer de rij voor persoonlijke Azure-peering, zoals wordt weergegeven in het volgende voorbeeld:
 
-  ![persoonlijk](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
+   ![persoonlijk](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
 4. Configureer persoonlijke Azure-peering. De volgende afbeelding toont een configuratievoorbeeld van een:
 
-  ![Configureer persoonlijke Azure-peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+   ![Configureer persoonlijke Azure-peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
 5. Sla de configuratie op wanneer u alle parameters hebt opgegeven. Nadat de configuratie is geaccepteerd, ziet er ongeveer uitzien als in het volgende voorbeeld:
 
-  ![Sla persoonlijke peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+   ![Sla persoonlijke peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
 ### <a name="getprivate"></a>Details van een Azure private peering weergeven
 
@@ -164,23 +164,23 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 1. Configureer het ExpressRoute-circuit. Zorg dat het circuit volledig is ingericht door de connectiviteitsprovider voordat u verder gaat. Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen openbare Azure-peering voor u vragen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit blijven echter de configuratie met behulp van de volgende stappen.
 
-  ![lijst met openbare peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   ![lijst met openbare peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Configureer openbare Azure-peering voor het circuit. Zorg ervoor dat u de volgende items hebt voordat u verdergaat met de volgende stappen:
 
-  * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt. 
-  * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt. Voor zowel de primaire en secundaire koppelingen moet u de dezelfde VLAN-ID.
-  * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
-  * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
+   * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt. 
+   * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt.
+   * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt. Voor zowel de primaire en secundaire koppelingen moet u de dezelfde VLAN-ID.
+   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
+   * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
 3. Selecteer het Azure rij openbare peering, zoals wordt weergegeven in de volgende afbeelding:
 
-  ![Selecteer de rij voor openbare peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
+   ![Selecteer de rij voor openbare peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
 4. Configureer openbare Azure-peering. De volgende afbeelding toont een configuratievoorbeeld van een:
 
-  ![Configureer openbare Azure-peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
+   ![Configureer openbare Azure-peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
 5. Sla de configuratie op wanneer u alle parameters hebt opgegeven. Nadat de configuratie is geaccepteerd, ziet er ongeveer uitzien als in het volgende voorbeeld:
 
-  ![Openbare peering-configuratie op te slaan](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
+   ![Openbare peering-configuratie op te slaan](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
 ### <a name="getpublic"></a>Details van een Azure openbare peering weergeven
 

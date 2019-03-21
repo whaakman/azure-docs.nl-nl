@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4af7c5721458e36a1efa27c9696feaa3dbf043e4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3621bbce0128fbd173120ae2a327065ee2e84e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186986"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878445"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Oplossen van self-service voor wachtwoord opnieuw instellen
 
@@ -101,7 +101,7 @@ Er is een best practice bij het oplossen van problemen met wachtwoord terugschri
 | Code | Naam of het bericht | Description |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "Een beperking voorkomt dat het wachtwoord wordt gewijzigd in de huidige versie die is opgegeven." | Deze gebeurtenis treedt op wanneer de service wachtwoord terugschrijven wordt geprobeerd om in te stellen van een wachtwoord op uw lokale directory die niet voldoet aan de leeftijd van wachtwoord, geschiedenis, complexiteit of filteren van de vereisten van het domein. <br> <br> Als u een minimale wachtwoordduur en het wachtwoord in die periode onlangs hebt gewijzigd, bent u niet kunt wijzigen van het wachtwoord opnieuw totdat de opgegeven leeftijd in uw domein is bereikt. Voor testdoeleinden, de minimale ouderdom van moet worden ingesteld op 0. <br> <br> Als u vereisten voor wachtwoordgeschiedenis ingeschakeld hebt, dan moet u een wachtwoord dat niet is gebruikt in de laatste *N* keer, waar u *N* is de instelling van de geschiedenis van wachtwoorden. Als u een wachtwoord dat is gebruikt in de afgelopen selecteert *N* time-out, ziet u een fout in dit geval. Voor testdoeleinden beschikt, moet de geschiedenis van apparaatwachtwoorden worden ingesteld op 0. <br> <br> Als u vereisten voor wachtwoordcomplexiteit hebt, worden ze allemaal afgedwongen wanneer de gebruiker probeert te wijzigen of opnieuw instellen van een wachtwoord. <br> <br> Als u wachtwoord schrijffilters zijn ingeschakeld en een gebruiker een wachtwoord selecteert dat voldoet niet aan de filtercriteria, klikt u vervolgens het opnieuw instellen of wijzigingsbewerking is mislukt. |
-| 6329 | MMS(3040): admaexport.cpp(2837): De server bevat het hulpprogramma voor het beleid van de LDAP-wachtwoordbeheer. | Dit probleem treedt op als LDAP_SERVER_POLICY_HINTS_OID besturingselement (1.2.840.113556.1.4.2066) is niet ingeschakeld op de DC's. Voor het gebruik van de wachtwoordfunctie terugschrijven van wachtwoorden, moet u het besturingselement inschakelen. Om dit te doen, moet de DC's op Windows Server 2008 (met de meest recente SP) of later. Als uw DC's op 2008 (pre-R2 worden), dan moet u hotfix toepassen [KB2386717](https://support.microsoft.com/kb/2386717). |
+| 6329 | MMS(3040): admaexport.cpp(2837): De server bevat het hulpprogramma voor het beleid van de LDAP-wachtwoordbeheer. | Dit probleem treedt op als LDAP_SERVER_POLICY_HINTS_OID besturingselement (1.2.840.113556.1.4.2066) is niet ingeschakeld op de DC's. Voor het gebruik van de wachtwoordfunctie terugschrijven van wachtwoorden, moet u het besturingselement inschakelen. Om dit te doen, moet de DC's in Windows Server 2008R2 of hoger. |
 | HR 8023042 | Synchronisatie-Engine heeft een fout hr geretourneerd = 80230402, bericht = een poging om op te halen van een object is mislukt, omdat er dubbele vermeldingen met de dezelfde anker zijn. | Deze fout treedt op wanneer de dezelfde gebruikers-ID is ingeschakeld in meerdere domeinen. Een voorbeeld is als u account- en -forests synchroniseert en de dezelfde gebruikers-ID aanwezig zijn en zijn ingeschakeld in elk forest hebben. <br> <br> Deze fout kan ook optreden als u een niet-unieke ankerkenmerk, zoals een alias of UPN en twee gebruikers die dezelfde ankerkenmerk delen. <br> <br> U lost dit probleem, moet u ervoor te zorgen dat er geen dubbele gebruikers binnen uw domeinen en dat u een unieke ankerkenmerk voor elke gebruiker gebruiken. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Als de bron van de gebeurtenis PasswordResetService is
@@ -179,10 +179,10 @@ Voor meer informatie, Controleer de vereisten van de verbinding in de [vereisten
 
 U lost problemen met de netwerkverbinding of andere tijdelijke problemen met de service door de Azure AD Connect Sync-service opnieuw te starten:
 
-   1. Als beheerder, selecteer **Start** op de server met Azure AD Connect.
-   1. ENTER **services.msc** in het zoekveld en selecteer **Enter**.
-   1. Zoek de **Microsoft Azure AD Sync** vermelding.
-   1. Met de rechtermuisknop op de servicevermelding, selecteert u **opnieuw**, en wacht totdat de bewerking is voltooid.
+1. Als beheerder, selecteer **Start** op de server met Azure AD Connect.
+1. ENTER **services.msc** in het zoekveld en selecteer **Enter**.
+1. Zoek de **Microsoft Azure AD Sync** vermelding.
+1. Met de rechtermuisknop op de servicevermelding, selecteert u **opnieuw**, en wacht totdat de bewerking is voltooid.
 
    ![De Azure AD Sync-service opnieuw starten][Service restart]
 
@@ -272,13 +272,13 @@ Goed om u te helpen, vragen we u om zoveel mogelijk details mogelijk te bieden b
 * **Algemene beschrijving van de fout**: Wat is de fout? Wat is het gedrag op dat is gezien? Hoe kunnen we de fout optreedt? Geef zoveel mogelijk details mogelijk.
 * **Page**: Welke pagina u op wanneer u de fout opgemerkt waren? De URL als kunt u of een schermafbeelding van de pagina bevatten.
 * **Ondersteuningscode**: Wat was de ondersteuningscode die is gegenereerd toen de gebruiker zag de fout?
-    * Deze code vindt de fout optreedt, en selecteer vervolgens de **ondersteuningscode** koppelen aan de onderkant van het scherm en de GUID die het resultaat is van de ondersteuningstechnicus verzenden.
+  * Deze code vindt de fout optreedt, en selecteer vervolgens de **ondersteuningscode** koppelen aan de onderkant van het scherm en de GUID die het resultaat is van de ondersteuningstechnicus verzenden.
 
     ![Zoek de ondersteuningscode aan de onderkant van het scherm][Support code]
 
-    * Als u een pagina zonder de een ondersteuningscode onderaan, F12 en zoek naar de beveiligings-id en de CID selecteren en deze twee resultaten verzenden naar de ondersteuningstechnicus.
+  * Als u een pagina zonder de een ondersteuningscode onderaan, F12 en zoek naar de beveiligings-id en de CID selecteren en deze twee resultaten verzenden naar de ondersteuningstechnicus.
 * **Datum, tijd en tijdzone**: De exacte datum en tijd zijn *met de tijdzone* die de fout is opgetreden.
-* **Gebruikers-ID**: Wie is de gebruiker die de fout hebt gezien? Een voorbeeld is *user@contoso.com*.
+* **Gebruikers-ID**: Wie is de gebruiker die de fout hebt gezien? Een voorbeeld is *gebruiker\@contoso.com*.
     * Is dit een federatieve gebruiker?
     * Is dit een Pass through-verificatie-gebruiker?
     * Is dit een wachtwoord-hash gesynchroniseerde gebruiker?

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: e35de707abe04702201969fdfd008fc9713fc391
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 45769a2285965395d113f026f0ffc171873a5a99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309737"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842597"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Elastische pools in Azure SQL Database maken en beheren
 
@@ -40,6 +40,8 @@ Hier kunt u een combinatie van de volgende wijzigingen en sla ze allemaal op Ã©Ã
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Elastische pools en gepoolde databases beheren
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 Als u wilt maken en beheren van SQL Database elastische pools en gepoolde databases met Azure PowerShell, gebruikt u de volgende PowerShell-cmdlets. Als u wilt installeren of upgraden van PowerShell, Zie [Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u wilt maken en beheren van de SQL Database-servers voor een elastische pool, Zie [maken en beheren van SQL Database-servers](sql-database-servers.md). Als u wilt maken en beheren van firewall-regels, Zie [maken en beheren van firewallregels met behulp van PowerShell](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell).
 

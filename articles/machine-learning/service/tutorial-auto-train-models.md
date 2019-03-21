@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c064874c7eeeae0ae0b1176e3756be24f225e7fb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1f9265567ea23b7a3f47c995474ee1328ebaae2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818626"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878411"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Zelfstudie: Geautomatiseerde machine learning gebruiken om uw regressiemodel te bouwen
 
@@ -35,7 +35,7 @@ In deze zelfstudie leert u het volgende:
 > * Het model lokaal uitvoeren met aangepaste parameters
 > * De resultaten verkennen
 
-Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
+Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 >[!NOTE]
 > Code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.0.
@@ -82,18 +82,19 @@ Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.
 
     ```shell
     jupyter notebook
+    ```
 
-## <a name="start"></a>Set up your development environment
+## <a name="start"></a>De ontwikkelomgeving instellen
 
-All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+De configuratie van uw ontwikkelomgeving kan worden uitgevoerd met een Python-notebook. De configuratie bestaat uit de volgende acties:
 
-* Install the SDK
-* Import Python packages
-* Configure your workspace
+* De SDK installeren
+* Python-pakketten importeren
+* Uw werkruimte configureren
 
-### Install and import packages
+### <a name="install-and-import-packages"></a>Installeren en importeren van pakketten
 
-If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+Als u de zelfstudie in uw eigen Python-omgeving volgt, gebruikt u het volgende om de benodigde pakketten te installeren.
 
 ```shell
 pip install azureml-sdk[automl,notebooks] matplotlib
@@ -111,7 +112,7 @@ import os
 
 ### <a name="configure-workspace"></a>Werkruimte configureren
 
-Maak een werkruimte-object van de bestaande werkruimte. `Workspace` is een klasse die uw Azure-abonnement en resourcegegevens accepteert. Hier wordt ook een cloudresource gemaakt om de uitvoeringen van uw model te controleren en bij te houden.
+Maak een werkruimte-object van de bestaande werkruimte. Een [werkruimte](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py) is een klasse die uw Azure-abonnement en resourcegroep gegevens accepteert. Hier wordt ook een cloudresource gemaakt om de uitvoeringen van uw model te controleren en bij te houden.
 
 `Workspace.from_config()` leest het bestand **aml_config/config.json** en laadt de gegevens in een object met de naam `ws`.  `ws` wordt gebruikt in de rest van de code in deze zelfstudie.
 
@@ -661,7 +662,7 @@ Als u automatisch een model wilt trainen, voert u de volgende stappen uit:
 Definieer de experimentparameter en modelinstellingen voor automatisch genereren en afstemmen. Bekijk de volledige lijst met [instellingen](how-to-configure-auto-train.md). Het verzenden van het experiment met deze standaardinstellingen duurt ongeveer 10-15 minuten. Als u een kortere uitvoeringstijd wilt, verkleint u de waarde van `iterations` of `iteration_timeout_minutes`.
 
 
-|Eigenschap| Waarde in deze zelfstudie |Beschrijving|
+|Eigenschap| Waarde in deze zelfstudie |Description|
 |----|----|---|
 |**iteration_timeout_minutes**|10|Tijdslimiet in minuten voor elke iteratie. Verklein deze waarde als u de totale uitvoeringstijd wilt verminderen.|
 |**iterations**|30|Aantal iteraties. Bij elke iteratie wordt een nieuw Machine Learning-model getraind met uw gegevens. Dit is de primaire waarde die van invloed is op de totale uitvoeringstijd.|

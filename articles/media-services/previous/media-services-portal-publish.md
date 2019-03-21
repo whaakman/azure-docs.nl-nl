@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 884f9025f4152c391b4b59384bc94b2136daa916
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.openlocfilehash: 1f7e108b4410ba62060dd4411e4b28b896e93d58
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240742"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834418"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Inhoud publiceren in Azure portal  
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ Selecteer de video en selecteer vervolgens de knop **Afspelen**.
 Hierbij geldt het volgende:
 
 * De video moet zijn gepubliceerd.
-* Met de mediaspeler in Azure Portal wordt inhoud afgespeeld vanaf het standaardstreaming-eindpunt. Als u inhoud vanaf een ander streaming-eindpunt wilt afspelen, selecteert en kopieert u de URL en plak u deze in een andere speler. U kunt uw video bijvoorbeeld in de [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) testen.
+* Met de mediaspeler in Azure Portal wordt inhoud afgespeeld vanaf het standaardstreaming-eindpunt. Als u inhoud vanaf een ander streaming-eindpunt wilt afspelen, selecteert en kopieert u de URL en plak u deze in een andere speler. U kunt uw video bijvoorbeeld in de [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) testen.
 * Het streaming-eindpunt van waaruit u streaming moet worden uitgevoerd.  
 
 ## <a name="provide-feedback"></a>Feedback geven

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 3541a5b33aa0bb98d9381b51caefc63b6aa677ad
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377545"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850901"
 ---
 # <a name="handling-event-grid-events"></a>Event Grid-gebeurtenissen verwerken
 
@@ -24,26 +24,9 @@ Media Services-gebeurtenissen kunnen toepassingen om te reageren op verschillend
 
 De beschikbaarheid van Media Services-gebeurtenissen is gekoppeld aan Event Grid [beschikbaarheid](../../event-grid/overview.md) en worden pas beschikbaar in andere regio's als Event Grid.  
 
-## <a name="available-media-services-events"></a>Beschikbare Media Services-gebeurtenissen
+## <a name="media-services-events-and-schemas"></a>Media Services-gebeurtenissen en schema 's
 
-Maakt gebruik van Event grid [gebeurtenisabonnementen](../../event-grid/concepts.md#event-subscriptions) gebeurtenis om berichten te routeren voor abonnees.  Media Services-gebeurtenisabonnementen kunnen op dit moment de volgende gebeurtenissen omvatten:  
-
-|Naam van de gebeurtenis|Beschrijving|
-|----------|-----------|
-| Microsoft.Media.JobStateChange| Treedt op wanneer een status van de wijzigingen van de taak. |
-| Microsoft.Media.LiveEventConnectionRejected | Codering van is verbinding geweigerd. |
-| Microsoft.Media.LiveEventEncoderConnected | Coderingsprogramma maakt verbinding met live-gebeurtenis. |
-| Microsoft.Media.LiveEventEncoderDisconnected | Coderingsprogramma wordt verbroken. |
-| Microsoft.Media.LiveEventIncomingDataChunkDropped | Gegevenssegment van Media-server wordt geweigerd omdat het te laat is of een tijdstempel in de overlappende (tijdstempel van nieuwe gegevenssegment is kleiner dan de eindtijd van het vorige gegevenssegment). |
-| Microsoft.Media.LiveEventIncomingStreamReceived | Media-server ontvangt de eerste gegevenssegment voor elk nummer in de stroom of de verbinding. |
-| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Media-server detecteert audio en video-streams, is niet gesynchroniseerd. Als een waarschuwing gebruiken, omdat de gebruikerservaring wordt mogelijk niet beïnvloed. |
-| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Media-server detecteert dat een van de twee video stromen die afkomstig zijn van externe encoders zijn niet synchroon. Als een waarschuwing gebruiken, omdat de gebruikerservaring wordt mogelijk niet beïnvloed. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Elke 20 seconden voor elk nummer gepubliceerd bij het uitvoeren van live-gebeurtenis. Biedt statussamenvatting opnemen. |
-| Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media-server detecteert onderbreking in de binnenkomende bijhouden. |
-
-## <a name="event-schema"></a>Gebeurtenisschema
-
-Media Services-gebeurtenissen bevatten alle informatie die u nodig hebt om te reageren op wijzigingen in uw gegevens.  Omdat de eigenschap type gebeurtenis begint met "Microsoft.Media.", kunt u een Media Services-gebeurtenis identificeren.
+Maakt gebruik van Event grid [gebeurtenisabonnementen](../../event-grid/concepts.md#event-subscriptions) gebeurtenis om berichten te routeren voor abonnees. Media Services-gebeurtenissen bevatten alle informatie die u nodig hebt om te reageren op wijzigingen in uw gegevens. Omdat de eigenschap type gebeurtenis begint met "Microsoft.Media.", kunt u een Media Services-gebeurtenis identificeren.
 
 Zie voor meer informatie, [Media Services-gebeurtenisschema](media-services-event-schemas.md).
 

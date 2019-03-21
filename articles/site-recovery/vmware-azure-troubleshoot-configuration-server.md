@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: a81bcf26234f3b7840a75e7134596cb777071e8f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432769"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107590"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Problemen met configuratie-server
 
@@ -25,9 +25,9 @@ De bronmachine wordt geregistreerd bij de configuratieserver bij de installatie 
 1. Open the C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log file. (De map ProgramData mogelijk een verborgen map. Als u de map ProgramData in Windows Verkenner, niet ziet op de **weergave** tabblad, in de **weergeven/verbergen** sectie, selecteer de **verborgen items** selectievakje in.) Fouten kunnen worden veroorzaakt door verschillende problemen.
 
 2. De zoekreeks **geen geldig IP-adres gevonden**. Als de tekenreeks wordt gevonden:
-    1. Controleer of de aangevraagde host-ID is gelijk aan de host-ID van de bronmachine.
-    2. Controleer of de bronmachine heeft ten minste één IP-adres toegewezen aan de fysieke netwerkadapter. Voor de agentregistratie met de configuratieserver te voltooien, moet de bronmachine ten minste één geldig IP v4-adres toegewezen aan de fysieke netwerkadapter.
-    3. Voer een van de volgende opdrachten op de broncomputer om op te halen van alle IP-adressen van de bronmachine:
+   1. Controleer of de aangevraagde host-ID is gelijk aan de host-ID van de bronmachine.
+   2. Controleer of de bronmachine heeft ten minste één IP-adres toegewezen aan de fysieke netwerkadapter. Voor de agentregistratie met de configuratieserver te voltooien, moet de bronmachine ten minste één geldig IP v4-adres toegewezen aan de fysieke netwerkadapter.
+   3. Voer een van de volgende opdrachten op de broncomputer om op te halen van alle IP-adressen van de bronmachine:
       - Voor Windows: `> ipconfig /all`
       - Voor Linux: `# ifconfig -a`
 

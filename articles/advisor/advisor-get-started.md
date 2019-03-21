@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: aabb316cf564520e6ea5e8689f1c18c98b94ab3c
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a7e82fffdd9c865de6040c05ec28bc8bd2dced61
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488472"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111392"
 ---
 # <a name="get-started-with-azure-advisor"></a>Aan de slag met Azure Advisor
 
@@ -35,7 +35,7 @@ Leer hoe u toegang tot Advisor via Azure portal, ontvang aanbevelingen en implem
 
 1. Als u aanbevelingen voor een specifieke categorie, klikt u op een van de tabbladen: **Hoge beschikbaarheid**, **Security**, **prestaties**, of **kosten**. 
 
-  ![Azure Advisor-dashboard](./media/advisor-overview/advisor-dashboard.png)
+   ![Azure Advisor-dashboard](./media/advisor-overview/advisor-dashboard.png)
 
 ## <a name="get-recommendation-details-and-implement-a-solution"></a>Details van de aanbeveling ophalen en implementeren van een oplossing
 

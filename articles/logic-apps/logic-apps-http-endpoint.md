@@ -16,12 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: 7920fee1bacf569ac41c36142fc68080b4de5780
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230485"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904368"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Aanroepen, trigger of nesten van werkstromen met HTTP-eindpunten in logische apps
 
@@ -71,7 +71,7 @@ Voeg een trigger die inkomende aanvragen kan ontvangen voor het maken van een HT
 
     > [!TIP]
     > 
-    > U kunt een schema voor een voorbeeld-JSON-nettolading genereren op basis van een hulpprogramma zoals [jsonschema.net](http://jsonschema.net/), of in de **aanvragen** trigger door te kiezen **voorbeeldnettolading gebruiken voor het genereren van schema**. 
+    > U kunt een schema voor een voorbeeld-JSON-nettolading genereren op basis van een hulpprogramma zoals [jsonschema.net](https://jsonschema.net/), of in de **aanvragen** trigger door te kiezen **voorbeeldnettolading gebruiken voor het genereren van schema**. 
     > Voer de voorbeeldnettolading in en kies **gedaan**.
 
     Bijvoorbeeld: in dit voorbeeld van payload:
@@ -245,7 +245,7 @@ U kunt meer dan één kop- en elk type inhoud opnemen in de hoofdtekst van de re
 
 Antwoorden op hebben deze eigenschappen:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | statusCode |Hiermee geeft u de HTTP-statuscode voor het reageren op de inkomende aanvraag. Deze code kan geen geldige statuscode die met 2xx, 4xx of 5xx begint zijn. 3xx statuscodes zijn echter niet toegestaan. |
 | Headers |Hiermee definieert u een willekeurig aantal headers om op te nemen in het antwoord. |
@@ -275,9 +275,9 @@ Hier volgt de JSON-schema eruit nu voor de **antwoord** actie:
 
 ## <a name="q--a"></a>Vragen en antwoorden
 
-#### <a name="q-what-about-url-security"></a>V: wat over URL-beveiliging?
+#### <a name="q-what-about-url-security"></a>V: Hoe zit het met URL-beveiliging?
 
-A: azure genereert veilig logic app callback-URL's met behulp van een Shared Access Signature (SAS). Deze handtekening wordt doorgegeven via een query-parameter en moet worden gevalideerd voordat uw logische app kan worden gestart. Azure genereert de handtekening met behulp van een unieke combinatie van een geheime sleutel per logische app, de naam van de trigger en de bewerking die wordt uitgevoerd. Als iemand anders toegang tot de geheime logic app-sleutel heeft, kunnen geen ze dus geen geldige handtekening genereren.
+A: Azure genereert veilig logic app callback-URL's met behulp van een Shared Access Signature (SAS). Deze handtekening wordt doorgegeven via een query-parameter en moet worden gevalideerd voordat uw logische app kan worden gestart. Azure genereert de handtekening met behulp van een unieke combinatie van een geheime sleutel per logische app, de naam van de trigger en de bewerking die wordt uitgevoerd. Als iemand anders toegang tot de geheime logic app-sleutel heeft, kunnen geen ze dus geen geldige handtekening genereren.
 
    > [!IMPORTANT]
    > Voor productie en beveiligde systemen, wordt aangeraden op basis van uw logische app aanroepen rechtstreeks vanuit de browser, omdat:
@@ -285,16 +285,16 @@ A: azure genereert veilig logic app callback-URL's met behulp van een Shared Acc
    > * De gedeelde toegangssleutel wordt weergegeven in de URL.
    > * U kunt geen beveiligde inhoud beleidsregels vanwege gedeelde domeinen beheren voor klanten van de logische App.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>V: kan ik meer HTTP-eindpunten configureren?
+#### <a name="q-can-i-configure-http-endpoints-further"></a>V: Kan ik meer HTTP-eindpunten configureren?
 
-A: Ja, de meer geavanceerde configuratie via voor het ondersteunen van HTTP-eindpunten [ **API Management**](../api-management/api-management-key-concepts.md). Deze service biedt ook de mogelijkheid om u consistent al uw API's, met inbegrip van logische apps beheren, instellen van aangepaste domeinnamen, gebruik meer verificatiemethoden, en meer, bijvoorbeeld:
+A: Ja, HTTP-eindpunten ondersteunen geavanceerde configuratie via [ **API Management**](../api-management/api-management-key-concepts.md). Deze service biedt ook de mogelijkheid om u consistent al uw API's, met inbegrip van logische apps beheren, instellen van aangepaste domeinnamen, gebruik meer verificatiemethoden, en meer, bijvoorbeeld:
 
 * [De aanvraagmethode wijzigen](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [De URL-segmenten van de aanvraag wijzigen](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
 * Instellen van uw API Management-domeinen in de [Azure-portal](https://portal.azure.com/ "Azure-portal")
 * Beleid instellen om te controleren voor basisverificatie
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>V: wat gewijzigd wanneer het schema van de preview 1 December 2014 gemigreerd?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>V: Wat gewijzigd wanneer het schema van de preview 1 December 2014 gemigreerd?
 
 A: Hier volgt een samenvatting over deze wijzigingen:
 

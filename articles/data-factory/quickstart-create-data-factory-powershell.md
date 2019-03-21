@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 0e6db6ad4d2f3dfdf6aa95c0ee2255328de7e4ef
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b675ab9663be674ec2439bfe9139b7c79c144cbd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996318"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453385"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Quickstart: Een data factory in Azure maken met behulp van PowerShell
 
@@ -35,7 +35,9 @@ In deze snelstartgids wordt beschreven hoe u PowerShell kunt gebruiken om een Az
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/install-Az-ps).
 
 #### <a name="log-in-to-powershell"></a>Aanmelden bij PowerShell
 
@@ -44,19 +46,19 @@ Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure Pow
 2. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal:
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven:
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
 4. Als u meerdere abonnementen hebt, voert u de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **SubscriptionId** door de id van uw Azure-abonnement:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"
     ```
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
@@ -72,7 +74,7 @@ Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure Pow
 2. Voer de volgende opdracht uit om de resourcegroep te maken:
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+    $ResGrp = New-AzResourceGroup $resourceGroupName -location 'East US'
     ```
 
     Als de resourcegroep al bestaat, wilt u waarschijnlijk niet dat deze wordt overschreven. Wijs een andere waarde toe aan de `$ResourceGroupName`-variabele en voer de opdracht opnieuw uit.
@@ -86,10 +88,10 @@ Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure Pow
     $dataFactoryName = "ADFQuickStartFactory";
     ```
 
-4. Voer de volgende cmdlet **Set-AzureRmDataFactoryV2** uit om de data factory te maken met de eigenschap Location en ResourceGroupName van de variabele $ResGrp:
+4. Voor het maken van de data factory, voer de volgende **Set AzDataFactoryV2** cmdlet, met behulp van de eigenschap Location en ResourceGroupName van de variabele $ResGrp:
 
     ```powershell
-    $DataFactory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName `
+    $DataFactory = Set-AzDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName `
         -Location $ResGrp.Location -Name $dataFactoryName
     ```
 
@@ -137,10 +139,10 @@ Maak gekoppelde services in een data factory om uw gegevensarchieven en compute-
     Set-Location 'C:\ADFv2QuickStartPSH'
     ```
 
-3. Voer de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service te maken: **AzureStorageLinkedService**.
+3. Voer de **Set AzDataFactoryV2LinkedService** cmdlet voor het maken van de gekoppelde service: **AzureStorageLinkedService**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName `
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureStorageLinkedService" `
         -DefinitionFile ".\AzureStorageLinkedService.json"
     ```
@@ -181,10 +183,10 @@ Tijdens deze stap gaat u een gegevensset definiëren die de gegevens vertegenwoo
     }
     ```
 
-2. De gegevensset maken: Om **BlobDataset** te maken, voert u de cmdlet **Set-AzureRmDataFactoryV2Dataset** uit.
+2. De gegevensset maken: **BlobDataset**, run the **Set-AzDataFactoryV2Dataset** cmdlet.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
+    Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" `
         -DefinitionFile ".\BlobDataset.json"
     ```
@@ -253,10 +255,10 @@ In deze QuickStart gaat u een pijplijn maken met één activiteit waarvoor twee 
     }
     ```
 
-2. De pijplijn maken: Om **Adfv2QuickStartPipeline** te maken, voert u de cmdlet **Set-AzureRmDataFactoryV2Pipeline** uit.
+2. De pijplijn maken: **Adfv2QuickStartPipeline**, voert de **Set AzDataFactoryV2Pipeline** cmdlet.
 
     ```powershell
-    $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline `
+    $DFPipeLine = Set-AzDataFactoryV2Pipeline `
         -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName `
         -Name "Adfv2QuickStartPipeline" `
@@ -275,10 +277,10 @@ In deze stap stelt u de waarden voor de pijpelijnparameters **inputPath** en **o
         "outputPath": "adftutorial/output"
     }
     ```
-2. Voer de cmdlet **Invoke-AzureRmDataFactoryV2Pipeline** uit om een pijplijn uitvoering te maken en de parameterwaarden door te geven. De cmdlet retourneert de id voor de pijplijnuitvoering voor toekomstige controle.
+2. Voer de **Invoke-AzDataFactoryV2Pipeline** cmdlet om een pijplijn te maken, uitvoeren en in de parameterwaarden doorgeven. De cmdlet retourneert de id voor de pijplijnuitvoering voor toekomstige controle.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline `
+    $RunId = Invoke-AzDataFactoryV2Pipeline `
         -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName `
         -PipelineName $DFPipeLine.Name `
@@ -291,7 +293,7 @@ In deze stap stelt u de waarden voor de pijpelijnparameters **inputPath** en **o
 
     ```powershell
     while ($True) {
-        $Run = Get-AzureRmDataFactoryV2PipelineRun `
+        $Run = Get-AzDataFactoryV2PipelineRun `
             -ResourceGroupName $ResGrp.ResourceGroupName `
             -DataFactoryName $DataFactory.DataFactoryName `
             -PipelineRunId $RunId
@@ -356,7 +358,7 @@ In deze stap stelt u de waarden voor de pijpelijnparameters **inputPath** en **o
 
     ```powershell
     Write-Output "Activity run details:"
-    $Result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineRunId $RunId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $Result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineRunId $RunId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $Result
 
     Write-Output "Activity 'Output' section:"

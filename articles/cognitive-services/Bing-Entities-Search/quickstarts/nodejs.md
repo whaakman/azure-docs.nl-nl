@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 87afdd9e949ec866c6ee962c2b68af42590bee67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 8007d576a6b896f12423087cfd4a483d9171abc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878711"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104366"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Quickstart: een zoekaanvraag verzenden naar de Bing Entiteiten zoeken-REST API met Node.js
 
@@ -74,7 +74,7 @@ Hoewel deze toepassing in JavaScript is geschreven, is de API een RESTful-webser
         });
         ```
 
-    3. Wanneer een **end**-vlag wordt gesignaleerd, parseert u het JSON-bestand en drukt u dit af.
+    3. Wanneer een **end** markering wordt doorgegeven, de JSON parseren en af te drukken.
 
         ```javascript
         response.on ('end', function () {
@@ -87,24 +87,24 @@ Hoewel deze toepassing in JavaScript is geschreven, is de API een RESTful-webser
 
 1. Maak een functie met de naam `Search` om een zoekaanvraag te verzenden. Voer hierin de volgende stappen uit.
 
-    1. Maak een JSON-object die uw aanvraagparameters bevat: gebruik `Get` voor de methode en voeg de gegevens over uw host en pad in. Voeg uw abonnementssleutel toe aan de `Ocp-Apim-Subscription-Key`-header. 
-    2. Gebruik `https.request()` om de aanvraag te verzenden met de antwoordhandler die u eerder hebt gemaakt, en met de zoekparameters.
+   1. Maak een JSON-object die uw aanvraagparameters bevat: gebruik `Get` voor de methode en voeg de gegevens over uw host en pad in. Voeg uw abonnementssleutel toe aan de `Ocp-Apim-Subscription-Key`-header. 
+   2. Gebruik `https.request()` om de aanvraag te verzenden met de antwoordhandler die u eerder hebt gemaakt, en met de zoekparameters.
     
-    ```javascript
-    let Search = function () {
-        let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + query,
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
+      ```javascript
+      let Search = function () {
+       let request_params = {
+           method : 'GET',
+           hostname : host,
+           path : path + query,
+           headers : {
+               'Ocp-Apim-Subscription-Key' : subscriptionKey,
+           }
+       };
     
-        let req = https.request (request_params, response_handler);
-        req.end ();
-    }
-    ```
+       let req = https.request (request_params, response_handler);
+       req.end ();
+      }
+      ```
 
 2. Roep de functie `Search()` aan.
 
@@ -148,7 +148,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

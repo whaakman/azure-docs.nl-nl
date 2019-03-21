@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: b78c19d4fa6b2e5b69e5d7f46cea51d943b808fa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882145"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121414"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Zelfstudie: Een knowledge base maken en vervolgens een vraag beantwoorden via de QnA Maker-portal
 
@@ -25,12 +25,12 @@ In deze zelfstudie gaat u een kennisdatabase maken en publiceren en vervolgens e
 In deze zelfstudie leert u het volgende: 
 
 > [!div class="checklist"]
-* Een knowledge base maken in de QnA Maker-portal
-* De knowledge base controleren, opslaan en trainen
-* De knowledge base publiceren
-* Curl gebruiken om een query uit te voeren op de knowledge base
-
-> [!NOTE] 
+> * Een knowledge base maken in de QnA Maker-portal
+> * De knowledge base controleren, opslaan en trainen
+> * De knowledge base publiceren
+> * Curl gebruiken om een query uit te voeren op de knowledge base
+> 
+> [!NOTE]
 > De programmaversie van deze zelfstudie is beschikbaar met een volledige oplossing in de GitHub-opslagplaats [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## <a name="prerequisites"></a>Vereisten

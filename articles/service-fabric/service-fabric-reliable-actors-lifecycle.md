@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: dbd9551027744d443613e32e0a082c10d4f357d5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 10f78b3b78e90fbb4f1d50cf581bfbce263f44aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872718"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Actor-levenscyclus, automatische garbagecollection en handmatig verwijderen
 Een actor is de eerste keer die wordt een aanroep uitgevoerd naar een van de bijbehorende methoden geactiveerd. Een actor is gedeactiveerd (garbagecollection die worden verzameld door de runtime actoren) als deze niet is gebruikt gedurende een configureerbare tijd. Een actor en de status kunnen ook handmatig worden verwijderd op elk gewenst moment.
@@ -58,7 +58,7 @@ Wat telt als 'wordt gebruikt' voor het deactiveren en garbagecollection?
 
 Voordat we de details van de deactivering, is het belangrijk om te definiëren van de volgende voorwaarden:
 
-* *Controle-interval*. Dit is het interval waarmee de runtime actoren scant de tabel Active actoren op actoren die kunnen worden gedeactiveerd en garbagecollection die worden verzameld. De standaardwaarde voor deze is 1 minuut.
+* *Scan interval*. Dit is het interval waarmee de runtime actoren scant de tabel Active actoren op actoren die kunnen worden gedeactiveerd en garbagecollection die worden verzameld. De standaardwaarde voor deze is 1 minuut.
 * *Time-out voor inactiviteit*. Dit is de hoeveelheid tijd die een actor moet blijven ongebruikte (inactief) voordat deze kan worden gedeactiveerd en garbagecollection die worden verzameld. De standaardwaarde voor deze is 60 minuten.
 
 Normaal gesproken hoeft u niet te deze standaardinstellingen wijzigen. Indien nodig, deze intervallen kunnen echter worden gewijzigd via `ActorServiceSettings` bij het registreren van uw [Actorservice](service-fabric-reliable-actors-platform.md):
@@ -123,7 +123,7 @@ Garbagecollection van gedeactiveerde actoren alleen opschonen van de actorobject
 * [Actor-diagnose en bewaking van toepassingsprestaties](service-fabric-reliable-actors-diagnostics.md)
 * [Actor-API-referentiedocumentatie](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Voorbeeld van C#-code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java-voorbeeldcode](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java-voorbeeldcode](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

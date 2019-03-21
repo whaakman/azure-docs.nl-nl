@@ -15,12 +15,12 @@ ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: ae4b19e9a4f11d84dddd7ec3b129cc5d575b75cb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ccf3beaacd15ad7d3e9177614bb62b0050bd8d5c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767394"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109153"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een virtuele machine beschikbaar maken in Azure Stack
 
@@ -39,8 +39,8 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
    - Azure Stack alleen ondersteunt generatie virtuele machine één (1) in de vaste schijf VHD-indeling. De vaste indeling structuren de logische schijf lineair binnen het bestand, zodat de schijf-offset X wordt opgeslagen op blob-offset X. Een kleine voettekst aan het einde van de blob beschrijft de eigenschappen van de VHD. Om te bevestigen of de schijf is opgelost, gebruikt u de [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell-opdracht.  
 
-    > [!IMPORTANT]  
-    >  Azure Stack biedt geen ondersteuning voor dynamische schijf VHD's. Formaat van een dynamische schijf die is gekoppeld aan een virtuele machine laat u de virtuele machine in een foutstatus. Risico's te beperken, door de virtuele machine te verwijderen zonder te verwijderen van de VM schijf, een VHD-blob in een storage-account. Het omzetten van de VHD van een dynamische schijf naar een vaste schijf en de virtuele machine opnieuw te maken.
+     > [!IMPORTANT]  
+     >  Azure Stack biedt geen ondersteuning voor dynamische schijf VHD's. Formaat van een dynamische schijf die is gekoppeld aan een virtuele machine laat u de virtuele machine in een foutstatus. Risico's te beperken, door de virtuele machine te verwijderen zonder te verwijderen van de VM schijf, een VHD-blob in een storage-account. Het omzetten van de VHD van een dynamische schijf naar een vaste schijf en de virtuele machine opnieuw te maken.
 
    - Is het efficiënter een afbeelding uploaden naar Azure Stack blob-opslag dan naar Azure blob-opslag omdat kost het minder tijd aan de installatiekopie pushen naar de opslagplaats voor installatiekopieën van Azure Stack.
 
@@ -50,9 +50,9 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
    - Als u de blob anoniem toegankelijk is, gaat u naar de storage-account blob-container waarnaar de VHD van de VM-installatiekopie is geüpload. Selecteer **Blob**, en selecteer vervolgens **toegangsbeleid**. U kunt eventueel genereren van een shared access signature voor de container en opnemen als onderdeel van de blob-URI. Deze stap zorgt ervoor dat de blob is beschikbaar om te worden gebruikt voor het toevoegen van dit als een afbeelding. Als de blob niet anoniem toegankelijk is, wordt de VM-installatiekopie te worden gemaakt in een foutstatus.
 
-    ![Ga naar opslagaccountblobs](./media/azure-stack-add-vm-image/image1.png)
+     ![Ga naar opslagaccountblobs](./media/azure-stack-add-vm-image/image1.png)
 
-    ![Blob-toegang instellen op openbaar](./media/azure-stack-add-vm-image/image2.png)
+     ![Blob-toegang instellen op openbaar](./media/azure-stack-add-vm-image/image2.png)
 
 2. Meld u met Azure Stack als operator. Selecteer in het menu **alle services** > **installatiekopieën** onder **Compute** > **toevoegen**.
 
@@ -83,42 +83,42 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
 3. Open PowerShell met een opdrachtprompt en voer:
 
-  ```PowerShell  
+   ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
       -version "<#.#.#>” `
       -OSType "<ostype>" `
       -OSUri "<osuri>"
-  ```
+   ```
 
-  De **toevoegen AzsPlatformimage** cmdlet Hiermee geeft u waarden die worden gebruikt door de Azure Resource Manager-sjablonen om te verwijzen naar de VM-installatiekopie. De waarden zijn:
-  - **publisher**  
-    Bijvoorbeeld: `Canonical`  
-    Het segment van de naam van uitgever van de VM-installatiekopie die gebruikers gebruiken wanneer ze de installatiekopie implementeren. Een voorbeeld is **Microsoft**. Geen een spatie of andere speciale tekens in dit veld.  
-  - **offer**  
-    Bijvoorbeeld: `UbuntuServer`  
-    Het segment van de naam van aanbieding van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Een voorbeeld is **WindowsServer**. Geen een spatie of andere speciale tekens in dit veld.  
-  - **sku**  
-    Bijvoorbeeld: `14.04.3-LTS`  
-    De SKU-naam-segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Een voorbeeld is **Datacenter2016**. Geen een spatie of andere speciale tekens in dit veld.  
-  - **Versie**  
-    Bijvoorbeeld: `1.0.0`  
-    De versie van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Deze versie is in de indeling  *\#.\#. \#*. Een voorbeeld is **1.0.0**. Geen een spatie of andere speciale tekens in dit veld.  
-  - **osType**  
-    Bijvoorbeeld: `Linux`  
-    Het besturingssysteemtype van de afbeelding moet een **Windows** of **Linux**.  
-  - **OSUri**  
-    Bijvoorbeeld: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
-    Kunt u een blob storage-URI voor een `osDisk`.  
+   De **toevoegen AzsPlatformimage** cmdlet Hiermee geeft u waarden die worden gebruikt door de Azure Resource Manager-sjablonen om te verwijzen naar de VM-installatiekopie. De waarden zijn:
+   - **publisher**  
+     Bijvoorbeeld: `Canonical`  
+     Het segment van de naam van uitgever van de VM-installatiekopie die gebruikers gebruiken wanneer ze de installatiekopie implementeren. Een voorbeeld is **Microsoft**. Geen een spatie of andere speciale tekens in dit veld.  
+   - **offer**  
+     Bijvoorbeeld: `UbuntuServer`  
+     Het segment van de naam van aanbieding van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Een voorbeeld is **WindowsServer**. Geen een spatie of andere speciale tekens in dit veld.  
+   - **sku**  
+     Bijvoorbeeld: `14.04.3-LTS`  
+     De SKU-naam-segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Een voorbeeld is **Datacenter2016**. Geen een spatie of andere speciale tekens in dit veld.  
+   - **Versie**  
+     Bijvoorbeeld: `1.0.0`  
+     De versie van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Deze versie is in de indeling  *\#.\#. \#*. Een voorbeeld is **1.0.0**. Geen een spatie of andere speciale tekens in dit veld.  
+   - **osType**  
+     Bijvoorbeeld: `Linux`  
+     Het besturingssysteemtype van de afbeelding moet een **Windows** of **Linux**.  
+   - **OSUri**  
+     Bijvoorbeeld: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
+     Kunt u een blob storage-URI voor een `osDisk`.  
 
-    Zie voor meer informatie, de PowerShell-referentie voor de [toevoegen AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet en de [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
+     Zie voor meer informatie, de PowerShell-referentie voor de [toevoegen AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet en de [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>Een aangepaste VM-installatiekopie toevoegen aan de Marketplace met behulp van PowerShell
  
 1. [Installeren van PowerShell voor Azure Stack](azure-stack-powershell-install.md).
 
-  ```PowerShell  
+   ```PowerShell  
     # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
     Add-AzureRMEnvironment `
       -Name "AzureStackAdmin" `
@@ -135,19 +135,19 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
-  ```
+   ```
 
 2. Als u **Active Directory Federation Services**, gebruik de volgende cmdlet:
 
-  ```PowerShell
-  # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+   ```PowerShell
+   # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-  # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAudience endpoint for your environment>"
+   # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+   $GraphAudience = "<GraphAudience endpoint for your environment>"
 
-  # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-  Add-AzureRMEnvironment `
+   # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+   Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
     -ArmEndpoint $ArmEndpoint
     ```
@@ -158,24 +158,24 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
 5. Voorbereiden van de installatiekopie voor een Windows of Linux-besturingssysteem in VHD-indeling (de VHDX niet), de installatiekopie uploaden naar uw storage-account en de URI waar de VM-installatiekopie kan worden opgehaald door PowerShell.  
 
-  ```PowerShell  
+   ```PowerShell  
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
-  ```
+   ```
 
 6. (Optioneel) U kunt een matrix van gegevensschijven die als onderdeel van de VM-installatiekopie uploaden. De gegevensschijven van uw met behulp van de cmdlet New-DataDiskObject maken. Open PowerShell uit vanaf een opdrachtprompt en voer:
 
-  ```PowerShell  
+   ```PowerShell  
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
-  ```
+   ```
 
 7. Open PowerShell met een opdrachtprompt en voer:
 
-  ```PowerShell  
+   ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
-  ```
+   ```
 
     Zie voor meer informatie over de cmdlet Add-AzsPlatformimage en de cmdlet New-DataDiskObject, de Microsoft PowerShell [module-documentatie voor Azure Stack-operators](https://docs.microsoft.com/powershell/module/).
 
@@ -189,28 +189,28 @@ Wanneer u de installatiekopie van de virtuele machine die u hebt geüpload niet 
 
 3. Open PowerShell met een opdrachtprompt en voer:
 
-  ```PowerShell  
-  Remove-AzsPlatformImage `
+   ```PowerShell  
+   Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
     -sku "<sku>" `
     -version "<version>" `
-  ```
-  De **Remove-AzsPlatformImage** cmdlet Hiermee geeft u waarden die worden gebruikt door de Azure Resource Manager-sjablonen om te verwijzen naar de VM-installatiekopie. De waarden zijn:
-  - **publisher**  
-    Bijvoorbeeld: `Canonical`  
-    Het segment van de naam van uitgever van de VM-installatiekopie die gebruikers gebruiken wanneer ze de installatiekopie implementeren. Een voorbeeld is **Microsoft**. Geen een spatie of andere speciale tekens in dit veld.  
-  - **offer**  
-    Bijvoorbeeld: `UbuntuServer`  
-    Het segment van de naam van aanbieding van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Een voorbeeld is **WindowsServer**. Geen een spatie of andere speciale tekens in dit veld.  
-  - **sku**  
-    Bijvoorbeeld: `14.04.3-LTS`  
-    De SKU-naam-segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Een voorbeeld is **Datacenter2016**. Geen een spatie of andere speciale tekens in dit veld.  
-  - **Versie**  
-    Bijvoorbeeld: `1.0.0`  
-    De versie van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Deze versie is in de indeling  *\#.\#. \#*. Een voorbeeld is **1.0.0**. Geen een spatie of andere speciale tekens in dit veld.  
+   ```
+   De **Remove-AzsPlatformImage** cmdlet Hiermee geeft u waarden die worden gebruikt door de Azure Resource Manager-sjablonen om te verwijzen naar de VM-installatiekopie. De waarden zijn:
+   - **publisher**  
+     Bijvoorbeeld: `Canonical`  
+     Het segment van de naam van uitgever van de VM-installatiekopie die gebruikers gebruiken wanneer ze de installatiekopie implementeren. Een voorbeeld is **Microsoft**. Geen een spatie of andere speciale tekens in dit veld.  
+   - **offer**  
+     Bijvoorbeeld: `UbuntuServer`  
+     Het segment van de naam van aanbieding van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Een voorbeeld is **WindowsServer**. Geen een spatie of andere speciale tekens in dit veld.  
+   - **sku**  
+     Bijvoorbeeld: `14.04.3-LTS`  
+     De SKU-naam-segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Een voorbeeld is **Datacenter2016**. Geen een spatie of andere speciale tekens in dit veld.  
+   - **Versie**  
+     Bijvoorbeeld: `1.0.0`  
+     De versie van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Deze versie is in de indeling  *\#.\#. \#*. Een voorbeeld is **1.0.0**. Geen een spatie of andere speciale tekens in dit veld.  
     
-    Zie voor meer informatie over de cmdlet Remove-AzsPlatformImage, de Microsoft PowerShell [module-documentatie voor Azure Stack-operators](https://docs.microsoft.com/powershell/module/).
+     Zie voor meer informatie over de cmdlet Remove-AzsPlatformImage, de Microsoft PowerShell [module-documentatie voor Azure Stack-operators](https://docs.microsoft.com/powershell/module/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

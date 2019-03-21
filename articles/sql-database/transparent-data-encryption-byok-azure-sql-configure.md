@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 6669be82877ae5d9465e23dad3c8b310cf24af89
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: c42c6175512105de38a29be260c370851e152137
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576766"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871636"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell en CLI: Transparent Data Encryption inschakelen met de klant beheerde sleutel uit Azure Key Vault
 
@@ -26,16 +26,18 @@ Dit artikel helpt bij het gebruik van een sleutel uit Azure Key Vault voor trans
 ## <a name="prerequisites-for-powershell"></a>Vereisten voor PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 - U moet een Azure-abonnement hebt en een beheerder zijn op dat aan het abonnement.
 - [Aanbevolen maar niet vereist] Een hardware security module (HSM) of de lokale sleutel opslaan voor het maken van een lokale kopie van het sleutelmateriaal TDE-beveiliging hebben.
 - Azure PowerShell installeren en uitvoeren, moet u hebben. 
 - Maak een Azure Key Vault en de sleutel moet worden gebruikt voor TDE.
-   - [PowerShell-instructies uit Key Vault](../key-vault/key-vault-overview.md)
-   - [Instructies voor het gebruik van een hardware security module (HSM) en Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
- - De key vault moet beschikken over de volgende eigenschap moet worden gebruikt voor TDE:
-   - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
-   - [De Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
+  - [PowerShell-instructies uit Key Vault](../key-vault/key-vault-overview.md)
+  - [Instructies voor het gebruik van een hardware security module (HSM) en Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+    - De key vault moet beschikken over de volgende eigenschap moet worden gebruikt voor TDE:
+  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
+  - [De Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
 - De sleutel moet de volgende kenmerken moet worden gebruikt voor TDE hebben:
    - Er is geen vervaldatum
    - Niet uitgeschakeld
@@ -175,7 +177,7 @@ Gebruik de [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sq
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 Controleer het volgende als er een probleem optreedt:
-- Als de key vault kan niet worden gevonden, controleert u of u bent in het juiste abonnement met de [Get-AzSubscription](/powershell/module/az.account/get-azsubscription) cmdlet.
+- Als de key vault kan niet worden gevonden, controleert u of u bent in het juiste abonnement met de [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet.
 
    ```powershell
    Get-AzSubscription `
@@ -195,13 +197,13 @@ Controleer het volgende als er een probleem optreedt:
 
 - U moet een Azure-abonnement hebt en een beheerder zijn op dat aan het abonnement.
 - [Aanbevolen maar niet vereist] Een hardware security module (HSM) of de lokale sleutel opslaan voor het maken van een lokale kopie van het sleutelmateriaal TDE-beveiliging hebben.
-- Opdrachtregelinterface versie 2.0 of hoger. Zie voor het installeren van de meest recente versie en verbinding maken met uw Azure-abonnement, [installeren en configureren van de Azure platformoverschrijdende opdrachtregelinterface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+- Opdrachtregelinterface versie 2.0 of hoger. Zie voor het installeren van de meest recente versie en verbinding maken met uw Azure-abonnement, [installeren en configureren van de Azure platformoverschrijdende opdrachtregelinterface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 - Maak een Azure Key Vault en de sleutel moet worden gebruikt voor TDE.
-   - [Beheren van Key Vault met behulp van CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
-   - [Instructies voor het gebruik van een hardware security module (HSM) en Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
- - De key vault moet beschikken over de volgende eigenschap moet worden gebruikt voor TDE:
-   - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
-   - [De Key Vault-functie voor voorlopig verwijderen gebruiken met CLI](../key-vault/key-vault-soft-delete-cli.md) 
+  - [Beheren van Key Vault met behulp van CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
+  - [Instructies voor het gebruik van een hardware security module (HSM) en Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+    - De key vault moet beschikken over de volgende eigenschap moet worden gebruikt voor TDE:
+  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
+  - [De Key Vault-functie voor voorlopig verwijderen gebruiken met CLI](../key-vault/key-vault-soft-delete-cli.md) 
 - De sleutel moet de volgende kenmerken moet worden gebruikt voor TDE hebben:
    - Er is geen vervaldatum
    - Niet uitgeschakeld
@@ -263,11 +265,11 @@ De database of het datawarehouse is nu TDE is ingeschakeld met een door de klant
 
 ## <a name="sql-cli-references"></a>Verwijzingen van de SQL-CLI
 
-https://docs.microsoft.com/cli/azure/sql?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql 
 
-https://docs.microsoft.com/cli/azure/sql/server/key?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/server/key 
 
-https://docs.microsoft.com/cli/azure/sql/server/tde-key?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/server/tde-key 
 
-https://docs.microsoft.com/cli/azure/sql/db/tde?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/db/tde 
 

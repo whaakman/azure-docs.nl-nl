@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 13ec97a8356bb24fbbc2098f1249ae8fa5b6e3ce
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905151"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Handleiding voor het Net # neurale-netwerkspecificatie voor Azure Machine Learning Studio
 
@@ -216,17 +216,16 @@ Er zijn twee sets van eigenschappen die regelen opvulling, de eigenschappen word
 + **UpperPad** en **LowerPad**: (optioneel) Geef meer controle over de hoeveelheid opvulling te gebruiken. **Belangrijk:** Deze kenmerken kunnen worden gedefinieerd als en alleen als de **opvulling** eigenschap hierboven is ***niet*** gedefinieerd. De waarden moet tuples integer-waarde met een lengte die de specifikaci van de bundel. Wanneer deze kenmerken zijn opgegeven, wordt "dummy" knooppunten worden toegevoegd aan het einde van het onderste en bovenste van elke dimensie van de invoer-laag. Het aantal knooppunten die zijn toegevoegd aan het einde van het onderste en bovenste in elke dimensie wordt bepaald door **LowerPad**[i] en **UpperPad**[i] respectievelijk.
 
     Om ervoor te zorgen dat de kernels alleen naar 'echte' knooppunten en niet naar "dummy" knooppunten overeenkomen, moeten de volgende voorwaarden worden voldaan:
-      - Elk onderdeel van **LowerPad** moet strikt minder dan `KernelShape[d]/2`.
-      - Elk onderdeel van **UpperPad** mag niet langer zijn dan `KernelShape[d]/2`.
-      - De standaardwaarde van deze kenmerken is een tuple met alle onderdelen die gelijk zijn aan 0.
+  - Elk onderdeel van **LowerPad** moet strikt minder dan `KernelShape[d]/2`.
+  - Elk onderdeel van **UpperPad** mag niet langer zijn dan `KernelShape[d]/2`.
+  - De standaardwaarde van deze kenmerken is een tuple met alle onderdelen die gelijk zijn aan 0.
 
     De instelling **opvulling** = true kunt zoveel opvulling als nodig is voor het behouden van de 'center' van de kernel in de 'realtime' invoer. Hiermee wordt een en ander voor het berekenen van de uitvoergrootte van de gewijzigd. Over het algemeen de uitvoergrootte *D* wordt berekend als `D = (I - K) / S + 1`, waarbij `I` is de invoergrootte `K` is de grootte kernel `S` is de stride en `/` delen door geheel getal (afronden op nul is ). Als u UpperPad = [1, 1], de grootte van de invoer `I` is in feite 29, en dus `D = (29 - 5) / 2 + 1 = 13`. Echter, wanneer **opvulling** = true, in feite `I` opgehaald tegenaan omhoog door `K - 1`; daarom `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. Door op te geven waarden voor **UpperPad** en **LowerPad** krijgt u veel meer controle over de opvulling aan dan als u stelt **opvulling** = true.
 
 Zie voor meer informatie over convolutional netwerken en hun toepassingen, de volgende artikelen:
 
 + [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
-+ [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
-+ [http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)
++ [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## <a name="pooling-bundles"></a>Bundels groeperen
 
@@ -252,13 +251,13 @@ hidden P1 [5, 12, 12]
 
 Zie de volgende artikelen voor meer informatie over groepsgewijze verbindingen lagen:
 
-+ [http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Sectie 3.4)
-+ [http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
-+ [http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
++ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Sectie 3.4)
++ [https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
++ [https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 
 ## <a name="response-normalization-bundles"></a>Antwoord normalisering bundels
 
-**Antwoord normalisering** is een lokale normalisering schema die is geïntroduceerd door Geoffrey Hinton, et al., in het document [ImageNet classificatie met Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
+**Antwoord normalisering** is een lokale normalisering schema die is geïntroduceerd door Geoffrey Hinton, et al., in het document [ImageNet classificatie met Deep Convolutional Neural Networks](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
 
 Antwoord normalisering wordt gebruikt om u te helpen generalisatie in neurale netwerken. Wanneer één neuron wordt uitgevoerd op het Activeringsniveau van een zeer hoge, wordt in een lokale antwoord normalisering laag het Activeringsniveau van de omringende neurons onderdrukt. Dit wordt gedaan met behulp van de drie parameters (`α`, `β`, en `k`) en een convolutional structuur (of de groep vorm). Elke neuron in de doellaag **y** komt overeen met een neuron **x** in de bronlaag. Het Activeringsniveau van **y** wordt bepaald door de volgende formule, waarbij `f` is het Activeringsniveau van een neuron en `Nx` is de kernel (of de set met de neurons in de groep van **x**), zoals gedefinieerd door de volgende convolutional structuur:
 
@@ -463,4 +462,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>Bevestigingen
 
-De Net #-taal voor het aanpassen van de architectuur van neurale netwerken is bij Microsoft ontwikkeld door Shon Katzenberger (Architect, Machine Learning) en Alexey Kamenev (Software Engineer, Microsoft Research). Het wordt intern gebruikt voor machine learning-projecten en toepassingen, variërend van detectie van de installatiekopie met text analytics. Zie voor meer informatie, [Neurale netwerken in Azure Machine Learning studio - Inleiding tot Net #](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+De Net #-taal voor het aanpassen van de architectuur van neurale netwerken is bij Microsoft ontwikkeld door Shon Katzenberger (Architect, Machine Learning) en Alexey Kamenev (Software Engineer, Microsoft Research). Het wordt intern gebruikt voor machine learning-projecten en toepassingen, variërend van detectie van de installatiekopie met text analytics. Zie voor meer informatie, [Neurale netwerken in Azure Machine Learning studio - Inleiding tot Net #](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)

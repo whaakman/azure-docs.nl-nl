@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10a1f38b2c793bffb6061c6eefdccef7ac5c57b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7f7418c16d5d5312d2a9a7913da49941ef0a7870
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204522"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090454"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Probleem opgetreden bij het aanmelden bij de website van het toegangsvenster
 
@@ -168,23 +168,23 @@ Volg deze implementatiestappen om in te schakelen Self-service voor wachtwoord o
 
 Als u wilt controleren van een gebruiker multi-factor authentication-status, de volgende stappen uit:
 
-1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **gebruikers en groepen** in het navigatiemenu.
+4. Klik op **gebruikers en groepen** in het navigatiemenu.
 
-5.  Klik op **alle gebruikers**.
+5. Klik op **alle gebruikers**.
 
-6.  Klik op de **multi-Factor Authentication** knop aan de bovenkant van het deelvenster.
+6. Klik op de **multi-Factor Authentication** knop aan de bovenkant van het deelvenster.
 
-7.  Zodra de **multi-factor Authentication-beheerportal** belastingen, zorg ervoor dat u zich op de **gebruikers** tabblad.
+7. Zodra de **multi-factor Authentication-beheerportal** belastingen, zorg ervoor dat u zich op de **gebruikers** tabblad.
 
-8.  Zoek de gebruiker in de lijst van gebruikers door te zoeken, filteren of sorteren.
+8. Zoek de gebruiker in de lijst van gebruikers door te zoeken, filteren of sorteren.
 
-9.  Selecteer de gebruiker in de lijst met gebruikers en **inschakelen**, **uitschakelen**, of **afdwingen** meervoudige verificatie naar wens.
+9. Selecteer de gebruiker in de lijst met gebruikers en **inschakelen**, **uitschakelen**, of **afdwingen** meervoudige verificatie naar wens.
 
    >[!NOTE]
    >Als een gebruiker zich in een **afgedwongen** staat, deze kan worden ingesteld op **uitgeschakelde** tijdelijk wilt laten terug bij hun account. Nadat zij zich terug in, kunt u vervolgens hun status om te wijzigen **ingeschakeld** opnieuw voor moet de gebruiker opnieuw registreren hun contactgegevens tijdens de volgende aanmelding. U kunt ook u kunt de stappen in de [contactgegevens voor verificatie van een gebruiker controleren](#check-a-users-authentication-contact-info) om te controleren of instellen dat deze gegevens voor hen.

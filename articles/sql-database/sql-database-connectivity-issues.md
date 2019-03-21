@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 0377f192ea9bc6502065fa037704ec8461ce1447
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311098"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007459"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Werken met SQL Database-verbindingsproblemen en tijdelijke fouten
 
@@ -356,7 +356,7 @@ Hier zijn enkele koppelingen naar informatie over EntLib60:
 
 - Gratis eBook downloaden: [Ontwikkelaarshandleiding voor Microsoft Enterprise Library, 2e editie](https://www.microsoft.com/download/details.aspx?id=41145).
 - Aanbevolen procedures: [Algemene richtlijnen voor opnieuw proberen](../best-practices-retry-general.md) is een uitstekende uitgebreide beschrijving van de logica voor opnieuw proberen.
-- Downloaden van NuGet: [Enterprise Library - tijdelijke fouten afhandelen Application Block 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- Downloaden van NuGet: [Enterprise Library - tijdelijke fouten afhandelen Application Block 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 

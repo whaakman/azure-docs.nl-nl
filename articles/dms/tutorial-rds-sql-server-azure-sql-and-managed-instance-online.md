@@ -3,20 +3,20 @@ title: 'Zelfstudie: Azure Database Migration Service gebruiken om uit te voeren 
 description: Leer hoe u een online migratie uitvoeren van extern bureaublad-services SQL Server naar Azure SQL Database of een beheerd exemplaar voor Azure SQL Database met behulp van de Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 95ce91edcd1273f0fdf7c1e710d19d717eb34e80
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: HT
+ms.openlocfilehash: 5b91e3082dba2ac8ea19606f4269e65a0f537ce1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792154"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183132"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Zelfstudie: SQL-Server voor extern bureaublad-services migreren naar Azure SQL Database of een Azure SQL-Database beheerd exemplaar online met behulp van DMS
 U kunt de Azure Database Migration Service gebruiken voor het migreren van de databases van een extern bureaublad-services SQL Server-exemplaar naar [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) of een [Azure SQL Database managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) met minimale downtime. In deze zelfstudie, migreert u de **Adventureworks2012** database hersteld naar een extern bureaublad-services SQL Server exemplaar van SQL Server 2012 (of hoger) naar Azure SQL Database of een Azure SQL-Database beheerd exemplaar met behulp van de Azure Database Migration De service.

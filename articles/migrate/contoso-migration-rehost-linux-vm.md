@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 5f6cb29d8fb3fd1c3b75e18330e3ad2711a61aab
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d7f3c8d8efbdc658e4f7621a0606cb7fd92c88d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444919"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103482"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migratie van Contoso: Een on-premises Linux-app op Azure VM's opnieuw hosten
 
@@ -314,17 +314,17 @@ Nu de Contoso-beheerders kunt beginnen met het repliceren van de **OSTICKETWEB**
 
 3. Ze selecteert de **OSTICKETWEB** VM voor replicatie. 
 
-    - In dit stadium ze selecteren **OSTICKETWEB** alleen, omdat de VNet en subnet moeten beide zijn ingeschakeld en de virtuele machines worden niet in hetzelfde subnet.
-    - Site Recovery installeert automatisch de Mobility-service wanneer replicatie is ingeschakeld voor de virtuele machine.
+   - In dit stadium ze selecteren **OSTICKETWEB** alleen, omdat de VNet en subnet moeten beide zijn ingeschakeld en de virtuele machines worden niet in hetzelfde subnet.
+   - Site Recovery installeert automatisch de Mobility-service wanneer replicatie is ingeschakeld voor de virtuele machine.
 
-    ![Replicatie inschakelen](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
+     ![Replicatie inschakelen](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
 
 4. In de VM-eigenschappen selecteert ze het account dat wordt gebruikt door de processerver voor de Mobility-Service automatisch te installeren op de machine.
 
      ![Mobility-service](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
 5. in **replicatie-instellingen** > **replicatie-instellingen configureren**, ze controleren of het juiste replicatiebeleid toegepast, en selecteer is **inschakelen replicatie**.
-6.  Volgen ze Replicatievoortgang gedurende **taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
+6. Volgen ze Replicatievoortgang gedurende **taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
 
 
 

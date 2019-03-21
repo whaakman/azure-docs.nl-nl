@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6037d6a1b418a4241f1133b8ca7d89764da22f61
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571368"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136475"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Voorbeelden van eenvoudige syntaxis voor het bouwen van query's in Azure Search
 
@@ -195,7 +195,7 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
       "count": "true"
     }
 ```
-Zoekresultaten zijn voor een beter leesbare resultaten bijgesneden om op te nemen van een taak-id, de functie en de werklocatie. De eerste coördinaten zijn verkregen vanuit een willekeurige document in de index (in dit geval voor een werklocatie op Staten eiland.
+Zoekresultaten zijn voor een beter leesbare resultaten bijgesneden om op te nemen van een taak-ID, de functie en de werklocatie. De eerste coördinaten zijn verkregen vanuit een willekeurige document in de index (in dit geval voor een werklocatie op Staten eiland.
 
 U kunt dit ook proberen om in Postman met behulp van GET:
 
@@ -273,7 +273,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Probeer de query's in uw code op te geven. De volgende koppelingen wordt uitgelegd hoe het instellen van zoekquery's voor .NET en de REST-API met behulp van de standaard eenvoudige syntaxis.
 
 * [Query uitvoeren op uw Azure Search-Index met de .NET SDK](search-query-dotnet.md)
-* [Query uitvoeren op uw Azure Search-Index met behulp van de REST-API](search-query-rest-api.md)
+* [Query uitvoeren op uw Azure Search-Index met behulp van de REST-API](search-create-index-rest-api.md)
 
 Naslaginformatie over aanvullende syntaxis voor query-architectuur en voorbeelden vindt u in de volgende koppelingen:
 

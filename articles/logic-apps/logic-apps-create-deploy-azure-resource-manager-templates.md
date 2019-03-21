@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 3abe7bae5506b721d4baf1e18da390b3e67977d8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 5a1cae376ab9db2b0c4b5e0e5514bf7745593433
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894577"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Logische apps met Azure Resource Manager-sjablonen maken en implementeren
 
@@ -82,7 +82,7 @@ Hier volgen beschrijvingen voor de parameters in de sjabloon:
 | Parameter | Description | Voorbeeld van JSON-definitie | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Hiermee definieert u de naam van de logische app die sjabloon wordt gemaakt. | "logicAppName": {"type": "string", "metagegevens": {'description': "myExampleLogicAppName"}} |
-| `testUri` | Definieert de locatie voor het testen van ping. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
+| `testUri` | Definieert de locatie voor het testen van ping. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
 ||||
 
 Meer informatie over [REST-API voor Logic Apps-werkstroom-definitie en eigenschappen](https://docs.microsoft.com/rest/api/logic/workflows) en [bouwen op definities voor logische Apps met JSON](logic-apps-author-definitions.md).

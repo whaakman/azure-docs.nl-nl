@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bd085804f532811e71d421e3f683c50c1c3416cb
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575468"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096568"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Een Azure-compatibele VHD maken
 
@@ -55,18 +55,18 @@ In de Microsoft [Azure-portal](https://ms.portal.azure.com/), maken van de basis
     ![COMPUTE-blade van de nieuwe virtuele machine](./media/publishvm_014.png)
 
 5. Nadat u de installatiekopie van het juiste virtuele hebt geselecteerd, geeft u de volgende waarden:
-  * Op de **basisbeginselen** blade, voer een **naam** voor de virtuele machine, tussen 1-15 alfanumerieke tekens. (In dit voorbeeld wordt `DemoVm009`.)
-  * Voer een **gebruikersnaam** en een sterk **wachtwoord**, die worden gebruikt om te maken van een lokaal account op de virtuele machine.  (Hier `adminUser` wordt gebruikt.)  Het wachtwoord moet 8 tot 123 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie voor meer informatie, [gebruikersnaam en wachtwoord vereisten](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
-  * Selecteer de resourcegroep die u hebt gemaakt (hier `DemoResourceGroup`).
-  * Selecteer een Azure-Datacenter **locatie** (hier `West US`).
-  * Klik op **OK** deze waarden worden opgeslagen. 
+   * Op de **basisbeginselen** blade, voer een **naam** voor de virtuele machine, tussen 1-15 alfanumerieke tekens. (In dit voorbeeld wordt `DemoVm009`.)
+   * Voer een **gebruikersnaam** en een sterk **wachtwoord**, die worden gebruikt om te maken van een lokaal account op de virtuele machine.  (Hier `adminUser` wordt gebruikt.)  Het wachtwoord moet 8 tot 123 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie voor meer informatie, [gebruikersnaam en wachtwoord vereisten](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Selecteer de resourcegroep die u hebt gemaakt (hier `DemoResourceGroup`).
+   * Selecteer een Azure-Datacenter **locatie** (hier `West US`).
+   * Klik op **OK** deze waarden worden opgeslagen. 
 
-6.  Selecteer de grootte van de virtuele machine te implementeren met behulp van de volgende aanbevelingen:
-  * Als u van plan de VHD bent op locatie ontwikkelen, is de grootte niet van belang. Overweeg het gebruikt van een van de kleinere VM's.
-  * Als u van plan bent de installatiekopie in Azure te ontwikkelen, kunt u het gebruik van een van de aanbevolen VM-groottes voor de geselecteerde installatiekopie overwegen.
-  * Raadpleeg voor informatie over de prijzen, de **aanbevolen Prijscategorieën** selector weergegeven op de portal. De drie aanbevolen groottes die is geleverd door de uitgever worden weergegeven. (Hier is de uitgever van Microsoft.)
+6. Selecteer de grootte van de virtuele machine te implementeren met behulp van de volgende aanbevelingen:
+   * Als u van plan de VHD bent op locatie ontwikkelen, is de grootte niet van belang. Overweeg het gebruikt van een van de kleinere VM's.
+   * Als u van plan bent de installatiekopie in Azure te ontwikkelen, kunt u het gebruik van een van de aanbevolen VM-groottes voor de geselecteerde installatiekopie overwegen.
+   * Raadpleeg voor informatie over de prijzen, de **aanbevolen Prijscategorieën** selector weergegeven op de portal. De drie aanbevolen groottes die is geleverd door de uitgever worden weergegeven. (Hier is de uitgever van Microsoft.)
 
-    ![Blade grootte van de nieuwe virtuele machine](./media/publishvm_015.png)
+   ![Blade grootte van de nieuwe virtuele machine](./media/publishvm_015.png)
 
 7. In de **instellingen** blade, stel de **gebruik beheerde schijf** optie naar **geen**.  Hiermee kunt u de nieuwe VHD handmatig beheren. (De **instellingen** blade kunt u andere wijziging wijzigen ook de opslag- en netwerkopties, bijvoorbeeld selecteren **Premium (SSD)** in **schijftype**.)  Klik op **OK** om door te gaan.
 

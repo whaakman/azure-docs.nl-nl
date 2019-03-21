@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 3310dc5d72284e8d94b95b855fee90d560205fa4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 480e21994846f5b2adb85bcf846df2a7cdda4bda
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884385"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444460"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exporteren vanuit een Azure-app-configuratiearchief
 
@@ -31,7 +31,7 @@ Met dit voorbeeldscript exporteert u sleutelwaarden vanuit een Azure-app-configu
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli).
 
-U moet eerst de CLI-extensie voor het Azure-app-configuratiearchief installeren door de volgende opdracht uit te voeren:
+U moet eerst de CLI-extensie voor het Azure App Configuration-archief installeren door de volgende opdracht uit te voeren:
 
         az extension add -n appconfig
 
@@ -52,10 +52,10 @@ Dit script maakt gebruik van de volgende opdrachten om een app-configuratiearchi
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az appconfig export](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-export) | Hiermee wordt geëxporteerd vanuit een app-configuratiearchiefresource. |
+| [az appconfig export](/cli/azure/ext/appconfig/appconfig) | Hiermee wordt geëxporteerd vanuit een app-configuratiearchiefresource. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Raadpleeg de [documentatie van Azure CLI](/cli/azure) voor meer informatie over de Azure CLI.
 
-Meer voorbeelden van CLI-scripts voor een app-configuratiearchief vindt u in de [documentatie over Azure-app-configuratie](../cli-samples.md).
+Meer voorbeelden van CLI-scripts voor een App Configuration-archief vindt u in de [documentatie over Azure App-configuratie](../cli-samples.md).

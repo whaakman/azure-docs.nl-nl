@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7829627352815bc96a7a81bcbbc7e51240c858e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9cfff565dec0d6f9d2bbea8edf39f180d4b63fd9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870853"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993175"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Veelgestelde vragen en bekende problemen met beheerde identiteiten voor Azure-resources
 
@@ -55,17 +55,17 @@ De beveiligingsgrens van de identiteit is de resource waaraan deze is gekoppeld.
 Bij gebruik van beheerde identiteiten voor Azure-resources met virtuele machines, wordt u aangeraden het IMDS-eindpunt. De Azure Instance Metadata Service is een toegankelijk is voor alle IaaS-VM's die zijn gemaakt via de Azure Resource Manager REST-eindpunt. 
 
 Enkele van de voordelen van het gebruik van beheerde identiteiten voor Azure-resources via IMDS zijn:
-    - Alle besturingssystemen van Azure IaaS ondersteund kunt beheerde identiteiten gebruiken voor Azure-resources via IMDS.
-    - Niet meer hoeft te installeren van een uitbreiding op de virtuele machine om in te schakelen van beheerde identiteiten voor Azure-resources. 
-    - De certificaten die op beheerde identiteiten voor Azure-resources zijn niet meer aanwezig zijn in de virtuele machine.
-    - Het eindpunt IMDS is een bekende niet-routeerbare IP-adres, alleen beschikbaar vanuit de virtuele machine.
-    - 1000 toegewezen gebruiker beheerde identiteiten kunnen worden toegewezen aan een enkele virtuele machine. 
+- Alle besturingssystemen van Azure IaaS ondersteund kunt beheerde identiteiten gebruiken voor Azure-resources via IMDS.
+- Niet meer hoeft te installeren van een uitbreiding op de virtuele machine om in te schakelen van beheerde identiteiten voor Azure-resources. 
+- De certificaten die op beheerde identiteiten voor Azure-resources zijn niet meer aanwezig zijn in de virtuele machine.
+- Het eindpunt IMDS is een bekende niet-routeerbare IP-adres, alleen beschikbaar vanuit de virtuele machine.
+- 1000 toegewezen gebruiker beheerde identiteiten kunnen worden toegewezen aan een enkele virtuele machine. 
 
 De beheerde identiteiten voor VM-extensie voor Azure-resources is nog steeds beschikbaar. Er zijn echter niet meer nieuwe functionaliteit in deze gewerkt. Het is raadzaam om voor het gebruik van het eindpunt IMDS overschakelen. 
 
 Enkele van de beperkingen van het gebruik van de VM-extensie-eindpunt zijn:
-    - Beperkte ondersteuning voor Linux-distributies: Stable van CoreOS, CentOS 7.1, 7.2 van Red Hat, Ubuntu 15.04, Ubuntu 16.04
-    - Alleen 32 gebruiker toegewezen beheerde identiteiten kunnen worden toegewezen aan de virtuele machine.
+- Beperkte ondersteuning voor Linux-distributies: Stable van CoreOS, CentOS 7.1, 7.2 van Red Hat, Ubuntu 15.04, Ubuntu 16.04
+- Alleen 32 gebruiker toegewezen beheerde identiteiten kunnen worden toegewezen aan de virtuele machine.
 
 
 Opmerking: De beheerde identiteiten voor VM-extensie voor Azure-resources worden ondersteuning vervalt over januari 2019. 
@@ -75,8 +75,8 @@ Zie voor meer informatie over Azure Instance Metadata Service [IMDS-documentatie
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Beheerde identiteiten worden opnieuw gemaakt automatisch als ik een abonnement naar een andere directory verplaatst?
 
 Nee. Als u een abonnement naar een andere map verplaatst, moet u handmatig opnieuw te maken en Azure RBAC-roltoewijzingen opnieuw verlenen.
-    - Voor het systeem beheerde identiteiten toegewezen: uitschakelen en weer inschakelen. 
-    - Voor de gebruiker toegewezen beheerde identiteiten: verwijderen, opnieuw te maken en ze opnieuw koppelen aan de benodigde resources (bijvoorbeeld virtuele machines)
+- Voor het systeem beheerde identiteiten toegewezen: uitschakelen en weer inschakelen. 
+- Voor de gebruiker toegewezen beheerde identiteiten: verwijderen, opnieuw te maken en ze opnieuw koppelen aan de benodigde resources (bijvoorbeeld virtuele machines)
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Kan ik een beheerde identiteit gebruiken voor toegang tot een bron in een andere directory/tenant?
 

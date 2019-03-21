@@ -8,14 +8,14 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d10d39a65acd3664c99e8b5aa5cc015a76d9d1aa
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 89ae8bd4139623cfafe811b7c82433cfb8400611
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189662"
 ---
-# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Problemen oplossen: Geen verbinding maken met een cluster in Azure Data Explorer
+# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Problemen oplossen: Kan geen verbinding maken met een cluster in Azure Data Explorer
 
 Als u niet alleen verbinding maken met een cluster in Azure Data Explorer, volg deze stappen.
 
@@ -27,7 +27,7 @@ Als u niet alleen verbinding maken met een cluster in Azure Data Explorer, volg 
 
 1. Controleer of het cluster nog niet is verwijderd: Controleer het activiteitenlogboek in uw abonnement.
 
-1. Controleer de [Azure service health-dashboard](https://azure.microsoft.com/status/>). Zoek naar de status van Azure Data Explorer in de regio waar u wilt verbinding maken met een cluster.
+1. Controleer de [Azure service health-dashboard](https://azure.microsoft.com/status/). Zoek naar de status van Azure Data Explorer in de regio waar u wilt verbinding maken met een cluster.
 
     Als de status niet **goede** (groen vinkje), maak verbinding met het cluster nadat de status wordt verbeterd.
 
