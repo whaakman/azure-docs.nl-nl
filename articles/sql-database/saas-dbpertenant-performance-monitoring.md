@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: df54f9dd4047fffb578a1a95a2edc47cba711ba1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100425"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Prestaties van Azure SQL-databases en pools in een multitenant SaaS-app controleren en beheren
 
@@ -28,7 +28,7 @@ De Wingtip Tickets SaaS Database Per Tenant-app gebruikt een gegevensmodel van Ã
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-
+> 
 > * Gebruik op de tenantdatabases simuleren door het uitvoeren van een geleverde load-generator
 > * De tenant-databases bewaken terwijl ze reageren op de toename in load
 > * Omhoog schalen van de elastische pool als reactie op de verhoogde databaseload
@@ -171,17 +171,17 @@ In plaats van de pool omhoog te schalen, kunt u ook een tweede pool maken en dat
 1. Klik op **+ nieuwe pool** een groep maken op de huidige server.
 1. Op de **elastische pool** sjabloon:
 
-    1. Stel **naam** naar *Pool2*.
-    1. Laat de prijscategorie op **Standaardpool** staan.
-    1. Klik op **Groep configureren**.
-    1. Stel **groeps-eDTU** naar *50 eDTU*.
-    1. Klik op **databases toevoegen** voor een overzicht van databases op de server die kan worden toegevoegd aan *Pool2*.
-    1. Selecteer elke 10 databases die deze verplaatsen naar de nieuwe groep en klik vervolgens op **Selecteer**. Als u de load-generator uitvoert hebt, wordt de service al weet dat uw prestatieprofiel een grotere groep dan de standaardgrootte voor de 50 edtu's vereist en raadt aan te beginnen met een 100 eDTU-instelling.
+   1. Stel **naam** naar *Pool2*.
+   1. Laat de prijscategorie op **Standaardpool** staan.
+   1. Klik op **Groep configureren**.
+   1. Stel **groeps-eDTU** naar *50 eDTU*.
+   1. Klik op **databases toevoegen** voor een overzicht van databases op de server die kan worden toegevoegd aan *Pool2*.
+   1. Selecteer elke 10 databases die deze verplaatsen naar de nieuwe groep en klik vervolgens op **Selecteer**. Als u de load-generator uitvoert hebt, wordt de service al weet dat uw prestatieprofiel een grotere groep dan de standaardgrootte voor de 50 edtu's vereist en raadt aan te beginnen met een 100 eDTU-instelling.
 
-    ![aanbeveling](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![aanbeveling](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
-    1. Voor deze zelfstudie laat u de standaard op 50 edtu's en klikt u op **Selecteer** opnieuw.
-    1. Selecteer **OK** om de nieuwe pool te maken en aan de geselecteerde databases hiernaartoe verplaatsen.
+   1. Voor deze zelfstudie laat u de standaard op 50 edtu's en klikt u op **Selecteer** opnieuw.
+   1. Selecteer **OK** om de nieuwe pool te maken en aan de geselecteerde databases hiernaartoe verplaatsen.
 
 Het maken van de groep en verplaatsen van de databases duurt een paar minuten. Als u databases worden verplaatst dat ze online en volledig toegankelijk blijven totdat het laatste moment, waarna worden alle open verbindingen gesloten. Als u bepaalde logica voor opnieuw proberen hebt, wordt vervolgens clients verbinding met de database in de nieuwe pool.
 

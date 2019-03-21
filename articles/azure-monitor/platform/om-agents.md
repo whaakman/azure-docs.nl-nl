@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 722712d1e38efa3e1accc41abca5c9d88b3c1229
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21294f61c77f0267601c5d0fc1fc9dcf213008e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095922"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258819"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager verbinden met Log Analytics
 Voor het onderhouden van uw bestaande investeringen in [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) en uitgebreide mogelijkheden met Log Analytics gebruiken, kunt u Operations Manager integreren met uw Log Analytics-werkruimte. Zo profiteert u van de mogelijkheden van Log Analytics, maar kunt u Operations Manager nog steeds gebruiken voor het volgende:
@@ -132,7 +132,7 @@ Voer de volgende stappen uit als een interne proxyserver tussen de beheergroep e
 1. Open de Operations Manager-console en selecteer de werkruimte **Beheer**.
 1. Vouw Operations Management Suite uit en klik op **Verbindingen**.
 1. Klik in de weergave OMS-verbinding op **Proxyserver configureren**.
-1. Op **Wizard Operations Management Suite: Proxyserver** weergeeft, schakelt **een proxyserver gebruiken voor toegang tot de Operations Management Suite**, en typ vervolgens de URL het poortnummer, bijvoorbeeld <http://corpproxy:80> en klik vervolgens op **voltooien** .
+1. Op **Wizard Operations Management Suite: Proxyserver** weergeeft, schakelt **een proxyserver gebruiken voor toegang tot de Operations Management Suite**, en typ vervolgens de URL het poortnummer, bijvoorbeeld: http:\//corpproxy:80 en klik vervolgens op  **Voltooien**.
 
 Als uw proxyserver verificatie is vereist, moet u de volgende stappen voor het configureren van referenties en instellingen die moet worden doorgegeven aan beheerde computers die in de beheergroep met Log Analytics-rapporten uitvoeren.
 

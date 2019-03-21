@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: roiyz
-ms.openlocfilehash: ddb999c252f0802ef57942de694340ae29f2d8ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0bb49d3d75b88f197a42e02f03f89480563537ef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240355"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005474"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Trend Micro Deep Security installeren en configureren als een service op een Windows VM
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -34,7 +34,7 @@ Als u een abonnement van Trend Micro voor een on-premises oplossing hebt, kunt u
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>De Deep Security-Agent installeren op een nieuwe virtuele machine
 
-De [Azure-portal](http://portal.azure.com) kunt u de Trend Micro-security-extensie installeren wanneer u een installatiekopie van het **Marketplace** te maken van de virtuele machine. Als u één virtuele machine maakt, is met behulp van de portal een eenvoudige manier om de beveiliging van Trend Micro toevoegen.
+De [Azure-portal](https://portal.azure.com) kunt u de Trend Micro-security-extensie installeren wanneer u een installatiekopie van het **Marketplace** te maken van de virtuele machine. Als u één virtuele machine maakt, is met behulp van de portal een eenvoudige manier om de beveiliging van Trend Micro toevoegen.
 
 Met behulp van een item in de **Marketplace** een wizard waarmee u bij het helpt van de virtuele machine instellen wordt geopend. U gebruikt de **instellingen** blade, het derde venster van de wizard voor het installeren van de beveiligingsuitbreiding Trend Micro.  Raadpleeg voor algemene instructies [maken van een virtuele machine waarop Windows wordt uitgevoerd in Azure portal](../windows/classic/tutorial.md).
 
@@ -94,4 +94,4 @@ Het duurt enkele minuten om de agent te starten met het uitvoeren als deze is ge
 
 <!-- Link references -->
 [Hoe u aan te melden met een virtuele machine met Windows Server]:../windows/classic/connect-logon.md
-[Azure VM-extensies en functies]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Azure VM-extensies en functies]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

@@ -16,16 +16,16 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3918030925022ac20144f9adac6e7683bac64aa4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 05c537b061619aa458663a9dcfcc97155d8a6614
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181759"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106794"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Werken met aangepaste domeinen in Azure AD-toepassingsproxy
 
-Wanneer u een toepassing via Azure Active Directory Application Proxy publiceert, maakt u een externe URL voor uw gebruikers kunnen raadplegen wanneer ze extern werken. Deze URL wordt het standaarddomein *yourtenant.msappproxy.net*. Bijvoorbeeld, als u gepubliceerd een app met de naam van de kosten en uw tenant is met de naam Contoso, bedragen de externe URL https://expenses-contoso.msappproxy.net. Als u uw eigen domeinnaam gebruiken wilt, moet u een aangepast domein voor uw toepassing configureren. 
+Wanneer u een toepassing via Azure Active Directory Application Proxy publiceert, maakt u een externe URL voor uw gebruikers kunnen raadplegen wanneer ze extern werken. Deze URL wordt het standaarddomein *yourtenant.msappproxy.net*. Bijvoorbeeld, als u gepubliceerd een app met de naam van de kosten en uw tenant is met de naam Contoso, bedragen de externe URL `https://expenses-contoso.msappproxy.net`. Als u uw eigen domeinnaam gebruiken wilt, moet u een aangepast domein voor uw toepassing configureren. 
 
 U wordt aangeraden dat instellen van aangepaste domeinen voor uw toepassingen zo veel mogelijk. De voordelen van aangepaste domeinen zijn onder andere:
 

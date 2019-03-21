@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 13042a25a0bf106dd579e7d5e8cf8553a79c8f00
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: bf2f2db57f33645389fd751c8c00f9f135416c50
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002080"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864130"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine streaming voor Android  
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versie 3](../latest/offline-widevine-for-android.md)
+> * [Versie 2](offline-widevine-for-android.md)
 
 Naast het beveiligen van inhoud voor het streamen van online inhoud media abonnement en verhuur services aanbieding downloadbare inhoud die werkt als u niet met internet verbonden bent. U moet mogelijk voor het downloaden van inhoud naar uw telefoon of tablet om te worden afgespeeld in vliegtuigmodus wanneer voor een paar dagen losgekoppeld van het netwerk. Aanvullende scenario's, waarin u wilt mogelijk om inhoud te downloaden:
 

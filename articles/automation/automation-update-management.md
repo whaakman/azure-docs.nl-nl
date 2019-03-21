@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 77f18a80c094fbaf58cfb09df38e5fa1c924329a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 85b920767cbdc5ba60c2046563c32e87f6ad7ef8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856189"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259394"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -567,7 +567,7 @@ Update
 
 ## <a name="using-dynamic-groups"></a>Met behulp van dynamische groepen (preview)
 
-Updatebeheer biedt de mogelijkheid om u te richten op een dynamische groep virtuele Azure-machines voor update-implementaties. Deze groepen zijn gedefinieerd door een query, wanneer een update-implementatie begint, de leden van die groep worden geëvalueerd. Bij het definiëren van uw query, kunnen de volgende items samen worden gebruikt voor het vullen van de dynamische groep
+Updatebeheer biedt de mogelijkheid om u te richten op een dynamische groep virtuele Azure-machines voor update-implementaties. Deze groepen zijn gedefinieerd door een query, wanneer een update-implementatie begint, de leden van die groep worden geëvalueerd. Dynamische groepen werken niet met klassieke virtuele machines. Bij het definiëren van uw query, kunnen de volgende items samen worden gebruikt voor het vullen van de dynamische groep
 
 * Abonnement
 * Resourcegroepen

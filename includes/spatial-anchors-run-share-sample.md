@@ -4,55 +4,53 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 5f1e0153b1f919bc9d7e921d2a1b3ae745b2b01f
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: 563c2bd561328561d30acee6910b70d53ef64c6b
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753474"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305135"
 ---
-## <a name="open-the-sample-project-in-unity"></a>Het voorbeeldproject openen in Unity
+## <a name="set-up-your-device"></a>Uw apparaat instellen
 
-[!INCLUDE [Clone Sample Repo](spatial-anchors-clone-sample-repository.md)]
-
-## <a name="to-set-up-for-an-android-device"></a>Instellen voor een Android-apparaat
+### <a name="set-up-an-android-device"></a>Een Android-apparaat instellen
 
 [!INCLUDE [Android Unity Build Settings](spatial-anchors-unity-android-build-settings.md)]
 
-## <a name="to-set-up-for-an-ios-device"></a>Instellen voor een iOS-apparaat
+### <a name="set-up-an-ios-device"></a>Instellen van een iOS-apparaat
 
 [!INCLUDE [iOS Unity Build Settings](spatial-anchors-unity-ios-build-settings.md)]
 
-## <a name="configure-account-identifier-and-key"></a>Account-id en -sleutel configureren
+## <a name="configure-the-account-identifier-and-key"></a>De account-id en sleutel configureren
 
 Ga in het deelvenster **Project** naar `Assets/AzureSpatialAnchorsPlugin/Examples` en open het scènebestand `AzureSpatialAnchorsLocalSharedDemo.unity`.
 
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
 
-Voer in het deelvenster **Inspector** de `Sharing Anchors Service url` (van uw ASP.NET-web-app-implementatie in Azure) als de waarde voor `Base Sharing Url`, waarbij u `index.html` door `api/anchors` vervangt. Het zou er dus als volgt uit moeten zien: `https://<app_name>.azurewebsites.net/api/anchors`.
+In de **Inspector** deelvenster, voer de `Sharing Anchors Service url` (van uw ASP.NET-webtoepassing Azure-implementatie) als de waarde voor `Base Sharing Url`, waarbij `index.html` met `api/anchors`. Het moet er als volgt: `https://<app_name>.azurewebsites.net/api/anchors`.
 
-Sla de scène op door **File** -> **Save** te selecteren.
+Sla de scène op door **Bestand** > **Opslaan** te selecteren.
 
-## <a name="to-deploy-to-an-android-device"></a>Android-apparaat implementeren
+## <a name="to-deploy-the-app-to-an-android-device"></a>De app implementeren op een Android-apparaat
 
-Start het Android-apparaat, meld u aan en maak verbinding met de pc via een USB-kabel.
+Meld u aan op uw Android-apparaat en deze op uw computer verbinding maken met behulp van een USB-kabel.
 
-Open **Build Settings** door **File** -> **Build Settings** te selecteren.
+Open **Build Settings** door **File** > **Build Settings** te selecteren.
 
-Plaats een vinkje onder **Scenes In Build**, naast de `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo`-scène en wis de vinkjes voor alle overige scènes.
+Onder **schermen In bouwt**, schakel het selectievakje naast de `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` scène en schakel het selectievakje markeert van alle andere schermen.
 
-Controleer of er geen vinkje staat voor **Export Project**. Klik op **Build And Run**. U wordt gevraag het `.apk`-bestand op te slaan. Geef het een willekeurige naam.
+Zorg ervoor dat **Project exporteren** geen een vinkje. Selecteer **bouwen en uitvoeren**. U wordt gevraagd om op te slaan uw `.apk` bestand. U kunt een willekeurige naam voor het kiezen.
 
-Volg de instructies in de app. U kunt kiezen voor **Create & Share Anchor** of **Locate Shared Anchor**. Met de eerste optie kunt u een anker maken dat later op hetzelfde of een ander apparaat kan worden gevonden. Met de tweede optie kunt u, indien u de app eerder hebt uitgevoerd (op hetzelfde of op een ander apparaat), eerder gedeelde ankers vinden.
+Volg de instructies in de app. U kunt selecteren **maken en delen anker** of **gedeeld anker Zoek**. De eerste optie kunt u een anker die later op hetzelfde apparaat of op een ander account worden kan maken. De tweede optie, kunt als u de app al hebt uitgevoerd op hetzelfde apparaat of op een ander account, u eerder hebt gedeeld ankers vinden.
 
-## <a name="to-deploy-to-an-ios-device"></a>Implementeren op een iOS-apparaat
+## <a name="to-deploy-the-app-to-an-ios-device"></a>De app implementeert in een iOS-apparaat
 
-Open **Build Settings** door **File** -> **Build Settings** te selecteren.
+Open **Build Settings** door **File** > **Build Settings** te selecteren.
 
-Plaats een vinkje onder **Scenes In Build**, naast de `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo`-scène en wis de vinkjes voor alle overige scènes.
+Onder **schermen In bouwt**, schakel het selectievakje naast de `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` scène en schakel het selectievakje markeert van alle andere schermen.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Volg de instructies in de app. U kunt kiezen voor **Create & Share Anchor** of **Locate Shared Anchor**. Met de eerste optie kunt u een anker maken dat later op hetzelfde of een ander apparaat kan worden gevonden. Met de tweede optie kunt u, indien u de app eerder hebt uitgevoerd (op hetzelfde of op een ander apparaat), eerder gedeelde ankers vinden.
+Volg de instructies in de app. U kunt selecteren **maken en delen anker** of **gedeeld anker Zoek**. De eerste optie kunt u een anker die later op hetzelfde apparaat of op een ander account worden kan maken. De tweede optie, kunt als u de app al hebt uitgevoerd op hetzelfde apparaat of op een ander account, u eerder hebt gedeeld ankers vinden.
 
-In Xcode: stop de app door op **Stop** te drukken.
+In Xcode, stopt u de app door te selecteren **stoppen**.

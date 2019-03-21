@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd57b753a4e59f2fb9590f081345d7af0de9124d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bb244cb03ed5419762541e93784bb72fcf252676
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451466"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258051"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Over het beheren van apparaten met behulp van de Azure-portal
 
@@ -83,7 +83,7 @@ De instellingenpagina voor het apparaat kunt u configureren:
 
 - **Gebruikers kunnen instellingen en app-gegevens synchroniseren via apparaten** -deze instelling is standaard ingesteld op **NONE**. Specifieke gebruikers of groepen of alle selecteren, kunt van de gebruiker instellingen en app-gegevens kunnen synchroniseren via hun Windows 10-apparaten. Meer informatie over de werking van synchronisatie in Windows 10.
 Deze optie is een premium-capaciteit beschikbaar via producten, zoals Azure AD Premium of Enterprise Mobility Suite (EMS).
- 
+
 
 
 
@@ -119,7 +119,7 @@ Voor sommige iOS-apparaten kunnen de namen van apostroffen met verschillende tek
 
 ## <a name="device-management-tasks"></a>Beheertaken voor apparaat
 
-Als een globale beheerder, kunt u de geregistreerde of gekoppelde apparaten beheren. Er kunnen beheerders van de Intune-Service:
+Als een globale beheerder of cloud-apparaatbeheerder, kunt u de geregistreerde of gekoppelde apparaten beheren. Er kunnen beheerders van de Intune-Service:
  
 - Update-apparaten - voorbeelden zijn dagelijkse bewerkingen zoals het inschakelen/uitschakelen van apparaten
 
@@ -151,7 +151,7 @@ Als u wilt inschakelen / uitschakelen van een apparaat, hebt u twee opties:
 
 **Opmerking:**
 
-- U moet een globale beheerder in Azure AD inschakelen / uitschakelen van een apparaat. 
+- U moet een globale beheerder of apparaatbeheerder van het in Azure AD inschakelen / uitschakelen van een apparaat in de cloud. 
 - Als u een apparaat uitschakelt, wordt voorkomen dat een apparaat is verificatie met Azure AD, waardoor het apparaat toegang krijgen tot uw Azure AD-resources die zijn beveiligd door apparaat CA of met behulp van de referenties van uw WH4B. 
 
 

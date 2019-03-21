@@ -6,15 +6,15 @@ keywords: codering; coderingsprogramma's; media
 author: dbgeorge
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/09/2019
+ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 76c5c5d90045e1697f698895e522ffda47d47565
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447718"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295365"
 ---
 # <a name="recommended-on-premises-encoders"></a>Aanbevolen on-premises coderingsprogramma 's
 Wanneer een live streamen met Azure Media Services, kunt u opgeven hoe u wilt dat het kanaal voor het ontvangen van de invoerstroom. Als u gebruiken van een on-premises-codering met een live codering wilt, moet uw encoder een hoge kwaliteit single-bitrate stream pushen als uitvoer. Als u kiest voor het gebruik van een on-premises-codering met een pass through-kanaal, moet uw encoder een multi-bitrate stream pushen als uitvoer met alle kenmerken van de gewenste uitvoer. Zie voor meer informatie, [Live streamen met-premises coderingsprogramma's](media-services-live-streaming-with-onprem-encoders.md).

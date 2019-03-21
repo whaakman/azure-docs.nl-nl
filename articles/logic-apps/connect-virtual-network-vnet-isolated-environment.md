@@ -8,20 +8,20 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/11/2019
-ms.openlocfilehash: c31d260c99707f4231a6833479517b9b69575d55
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/12/2019
+ms.openlocfilehash: 8bbbe7a924c98c9628ce967892177599a1d13017
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778906"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854990"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps met behulp van een integratie van service-omgeving (ISE)
 
 > [!NOTE]
 > Deze mogelijkheid is in [ *openbare preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Voor scenario's waar uw logic apps en de integratieaccounts toegang hebben tot moeten een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md), maak een [ *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Een ISE is een privé- en geïsoleerde omgeving die gebruikmaakt van opslagruimte en andere resources geïsoleerd van de openbare of 'global' Logic Apps-service. Dankzij deze scheiding vermindert ook eventuele gevolgen die andere Azure-tenants op de prestaties van uw apps hebben kunnen. Is voor uw ISE *geïnjecteerd* in met uw Azure-netwerk, die vervolgens implementeert u de Logic Apps-service in uw virtuele netwerk. Wanneer u een logische app of integratie-account maakt, selecteert u deze ISE als hun locatie. Uw logische app of integratie-account kan vervolgens rechtstreeks toegang tot resources, zoals virtuele machines (VM's), servers, systemen en services in uw virtuele netwerk.
+Voor scenario's waar uw logic apps en de integratieaccounts toegang hebben tot moeten een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md), maak een [ *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Een ISE is een privé- en geïsoleerde omgeving die gebruikmaakt van opslagruimte en andere bronnen die zijn geïsoleerd van de openbare of 'global' Logic Apps-service. Dankzij deze scheiding vermindert ook eventuele gevolgen die andere Azure-tenants op de prestaties van uw apps hebben kunnen. Is voor uw ISE *geïnjecteerd* in met uw Azure-netwerk, die vervolgens implementeert u de Logic Apps-service in uw virtuele netwerk. Wanneer u een logische app of integratie-account maakt, selecteert u deze ISE als hun locatie. Uw logische app of integratie-account kan vervolgens rechtstreeks toegang tot resources, zoals virtuele machines (VM's), servers, systemen en services in uw virtuele netwerk.
 
 ![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
@@ -50,7 +50,7 @@ Zie voor meer informatie over de integratie van service-omgevingen, [toegang tot
 
   * Zorg ervoor dat uw virtuele netwerk [maakt deze poorten beschikbaar](#ports) , zodat uw ISE correct werkt en toegankelijk blijft.
 
-* Een of meer aangepaste DNS-servers gebruiken voor het implementeren van uw Azure-netwerk, [instellen die servers die deze richtlijnen te volgen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) voordat u uw ISE implementeert in uw virtuele netwerk. Anders wordt hebt telkens wanneer u uw DNS-server, u ook opnieuw opstarten van uw ISE, dit is een functie die beschikbaar is in openbare preview van ISE.
+* Als u wilt gebruiken van aangepaste DNS-servers voor uw Azure-netwerk, [die servers instellen door de volgende stappen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) voordat u uw ISE op uw virtuele netwerk implementeert. Anders wordt hebt telkens wanneer u uw DNS-server, u ook opnieuw opstarten van uw ISE, dit is een functie die beschikbaar is in openbare preview van ISE.
 
 * Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -60,10 +60,10 @@ Zie voor meer informatie over de integratie van service-omgevingen, [toegang tot
 
 Voor het goed werkt en blijven toegankelijk is, moet de integratie van service-omgeving (ISE) specifieke poorten zijn beschikbaar in het virtuele netwerk. Anders als een van deze poorten niet beschikbaar zijn, u mogelijk geen toegang meer voor uw ISE, te werken. Wanneer u een ISE in een virtueel netwerk gebruikt, is een veelvoorkomend probleem voor setup heeft een of meer geblokkeerde poorten. Voor verbindingen tussen uw ISE en het doelsysteem, de connector die u mogelijk ook een eigen port requirements for Windows. Bijvoorbeeld, als u met een FTP-systeem kunnen communiceren met behulp van de FTP-connector, zorg ervoor dat de poort die u op dat de FTP-systeem, zoals poort 21 voor het verzenden van opdrachten, beschikbaar is.
 
-Voor het beheren van de binnenkomend en uitgaand verkeer via subnetten van het virtuele netwerk waarin u uw ISE implementeren, kunt u instellen [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) voor deze subnetten Learning [filteren van netwerkverkeer tussen subnetten](../virtual-network/tutorial-filter-network-traffic.md). Deze tabellen beschrijven de poorten in het virtuele netwerk dat gebruikmaakt van uw ISE en waar deze poorten ophalen gebruikt. De [servicetag](../virtual-network/security-overview.md#service-tags) vertegenwoordigt een groep IP-adresvoorvoegsels die helpen bij het minimaliseren van complexiteit bij het maken van beveiligingsregels. 
+Voor het beheren van het verkeer tussen subnetten van het virtuele netwerk waarin u uw ISE implementeren, kunt u instellen [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) voor deze subnetten door [netwerkverkeer filteren tussen subnetten](../virtual-network/tutorial-filter-network-traffic.md). Deze tabellen beschrijven de poorten in het virtuele netwerk dat gebruikmaakt van uw ISE en waar deze poorten ophalen gebruikt. De [servicetag](../virtual-network/security-overview.md#service-tags) vertegenwoordigt een groep IP-adresvoorvoegsels die helpen bij het minimaliseren van complexiteit bij het maken van beveiligingsregels.
 
 > [!IMPORTANT]
-> Voor de interne communicatie binnen de subnetten van ISE vereist is dat u alle poorten binnen deze subnetten openen. 
+> Voor de interne communicatie binnen de subnetten van ISE vereist is dat u alle poorten binnen deze subnetten openen.
 
 | Doel | Richting | Poorten | Bronservicetag | Doelservicetag | Opmerkingen |
 |---------|-----------|-------|--------------------|-------------------------|-------|
@@ -122,10 +122,10 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
 
    **Subnet maken**
 
-   Uw ISE vereist is vier *leeg* subnetten die *worden niet overgedragen* voor elke service voor het maken van resources in uw omgeving. 
-   U *kan niet worden gewijzigd* deze subnetadressen nadat u uw omgeving hebt gemaakt. Elk subnet moet voldoen aan deze criteria voldoen:
+   Voor het maken van resources in uw omgeving, moet uw ISE vier *leeg* subnetten die niet worden gedelegeerd naar elke service. 
+   U *kan geen* deze subnetadressen wijzigen nadat u uw omgeving hebt gemaakt. Elk subnet moet voldoen aan deze criteria voldoen:
 
-   * Maakt gebruik van een naam die niet met een getal of een afbreekstreepje begint.
+   * Heeft een naam die begint met een letter of onderstrepingsteken en heeft deze tekens: `<`, `>`, `%`, `&`, `\\`, `?`, `/`
 
    * Maakt gebruik van de [notatie (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) en de adresruimte van een klasse B.
 
@@ -180,7 +180,7 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
 
 ### <a name="add-capacity"></a>Toevoegen van capaciteit
 
-De basiseenheid voor uw ISE-capaciteit, is opgelost, zodat als u meer doorvoer nodig hebt, kunt u meer schaaleenheden toevoegen. U kunt geen met automatisch schalen op basis van metrische gegevens voor prestaties of op basis van een bepaald aantal verwerkingseenheden. Als u automatisch schalen op basis van metrische gegevens, kunt u kiezen uit verschillende criteria en geef de voorwaarden van de drempelwaarde voor het voldoen aan deze criteria.
+De basiseenheid voor uw ISE-capaciteit, is opgelost, zodat als u meer doorvoer nodig hebt, kunt u meer schaaleenheden toevoegen. U kunt automatisch schalen op basis van metrische gegevens voor prestaties of op basis van een aantal verwerkingseenheden. Als u automatisch schalen op basis van metrische gegevens, kunt u kiezen uit verschillende criteria en geef de voorwaarden van de drempelwaarde voor het voldoen aan deze criteria.
 
 1. In de Azure-portal zoeken uw ISE.
 

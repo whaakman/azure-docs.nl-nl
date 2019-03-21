@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14957a94dbe8330553a4090e22d80d6cc2ee06eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 70513675d09a663c65c6f5b3e18059467a8ba388
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217323"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109321"
 ---
 # <a name="managing-access-to-apps"></a>Toegang tot apps beheren
 Beheer van continue toegang, gebruik evaluatie en rapportage blijven lastig zijn om nadat een app is geïntegreerd in identiteitssysteem van uw organisatie. In veel gevallen hebben IT-beheerders of de helpdesk te nemen van een doorlopende actieve rol bij het beheren van toegang tot uw apps. Toewijzing wordt soms uitgevoerd door een algemene of divisie IT-team. Vaak de beslissing van de toewijzing is bedoeld om te worden overgedragen aan de zakelijke besluitvormer, waarvoor ze worden goedgekeurd voordat IT heeft de toewijzing.  Andere organisaties investeren in integratie met een bestaande geautomatiseerde identiteits- en toegangsbeheer management-systeem, zoals Role-Based Access Control (RBAC) of op kenmerken gebaseerde Access Control (ABAC). De integratie en de ontwikkeling van de regel zijn meestal gespecialiseerde en dure. Controleren of rapportage over beide benaderingen management is een eigen afzonderlijke, dure en complexe investering.
@@ -29,7 +29,7 @@ Beheer van continue toegang, gebruik evaluatie en rapportage blijven lastig zijn
 
 * [Toevoegen van nieuwe of bestaande toepassingen](configure-single-sign-on-portal.md)
 
- Toewijzing van de Azure AD-toepassing is gericht op twee modi van de primaire toewijzing:
+  Toewijzing van de Azure AD-toepassing is gericht op twee modi van de primaire toewijzing:
 
 * **Individuele toewijzing** een IT-beheerder met de globale beheerdersmachtigingen directory kunt selecteren van afzonderlijke gebruikersaccounts en hun toegang tot de toepassing wordt verleend.
 * **Toewijzing op basis van een groep (Azure AD alleen betaald)** een IT-beheerder met de globale beheerdersmachtigingen directory een groep kunt toewijzen aan de toepassing. Specifieke gebruikers toegang wordt bepaald door of ze leden van de groep op het moment dat ze proberen zijn te krijgen tot de toepassing. Een beheerder kan met andere woorden, een regel voor de toewijzing met vermelding van "alle huidige leden van de toegewezen groep heeft toegang tot de toepassing" effectief maken. Met deze optie toewijzing, beheerders kunnen profiteren van een van de Azure AD-groep beheeropties, met inbegrip van [dynamische groepen op basis van een kenmerk](../fundamentals/active-directory-groups-create-azure-portal.md), extern systeemgroepen (bijvoorbeeld on-premises Active Directory of Workday) of de beheerder of de zelf-Self-service beheerd groepen. Een groep kan worden eenvoudig toegewezen aan meerdere apps ervoor te zorgen dat toepassingen met toewijzing affiniteit toewijzingsregels, kunnen delen de complexiteit van het totale beheer verminderen. Houd er rekening mee dat genest groepslidmaatschap worden niet ondersteund voor toewijzing op basis van een groep aan een toepassing op dit moment.

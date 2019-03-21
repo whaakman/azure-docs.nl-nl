@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/20/2019
 ms.author: mayg
-ms.openlocfilehash: 6065d83cf74b6bb7c3d80d4e452df8377dc9823e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732650"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286496"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Rapport van de Azure Site Recovery-Implementatieplanner analyseren
 In dit artikel worden de werkbladen in het Excel-rapport behandeld dat door de Azure Site Recovery-implementatieplanner voor Hyper-V naar Azure is gegenereerd.
@@ -275,7 +275,7 @@ De volgende tabel bevat de Site Recovery-limieten. Deze limieten zijn gebaseerd 
 ---|---|---|---
 Standard Storage | 8 kB | 2 MB/s per VM | 168 GB per VM
 Premium Storage | 8 kB  | 5 MB/s per VM | 421 GB per VM
-Premium Storage | 16 kB of hoger| 10 MB/s per VM | 842 GB per VM
+Premium Storage | 16 kB of hoger| 20 MB/s per virtuele machine | 1684 GB per virtuele machine
 
 Deze limieten zijn gemiddelden uitgaande van een I/O-overlapping van 30%. Site Recovery kan een hogere doorvoer verwerken op basis van overlappingsverhouding, grotere schrijfgrootten en daadwerkelijk workload-I/O-gedrag. De bovenstaande waarden zijn gebaseerd op een typische backlog van ongeveer vijf minuten. Dat wil zeggen dat de gegevens na het uploaden binnen vijf minuten worden verwerkt en er een herstelpunt is gemaakt.
 

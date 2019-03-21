@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 03/20/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: a1d8984b8c9d0859ff754e3d5bfb35bd98236b54
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098556"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295671"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gebruik en kosten voor Log Analytics beheren
 
@@ -112,13 +112,13 @@ Als uw Log Analytics-werkruimte toegang tot de oudere Prijscategorieën heeft, t
 3. Onder **prijscategorie**, selecteer een prijscategorie en klik vervolgens op **Selecteer**.  
     ![Prijsplan geselecteerd](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Als u verplaatsen van uw werkruimte in de huidige prijscategorie wilt, moet u [wijzigen van uw abonnement controleren prijsmodel in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) die de prijscategorie van alle werkruimten in dat abonnement wordt gewijzigd.
+Als u verplaatsen van uw werkruimte in de huidige prijscategorie wilt, moet u [wijzigen van uw abonnement controleren prijsmodel in Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model) die de prijscategorie van alle werkruimten in dat abonnement wordt gewijzigd.
 
 > [!NOTE]
 > Als de werkruimte is gekoppeld aan een Automation-account, moet u vóórdat u de prijscategorie *Zelfstandig (per GB)* kunt selecteren eerst alle oplossingen **Automation and Control** verwijderen en het Automation-account loskoppelen. Klik op de blade van de werkruimte onder **Algemeen** op **Oplossingen** om oplossingen te bekijken en te verwijderen. Klik op de blade **Prijscategorie** op de naam van het Automation-account om het Automation-account los te koppelen.
 
 > [!NOTE]
-> Vindt u meer informatie over [instellen van de prijscategorie via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace) en hoe u om ervoor te zorgen dat uw implementatie ARM slaagt, ongeacht of het abonnement is in de oude of nieuwe prijsmodel. 
+> Vindt u meer informatie over [instellen van de prijscategorie via ARM](template-workspace-configuration.md#create-a-log-analytics-workspace) en hoe u om ervoor te zorgen dat uw implementatie ARM slaagt, ongeacht of het abonnement is in de oude of nieuwe prijsmodel. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Het oplossen van waarom Log Analytics is niet meer gegevens verzamelen
@@ -138,24 +138,12 @@ Als u wilt worden gewaarschuwd wanneer het verzamelen van gegevens wordt gestopt
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Het oplossen van problemen met een hoger gebruik dan verwacht
 Hoger gebruik wordt veroorzaakt door een of beide volgende oorzaken:
-- Er worden meer gegevens dan verwacht verzonden naar Log Analytics
 - Er worden meer knooppunten dan verwacht verzonden naar Log Analytics
+- Er worden meer gegevens dan verwacht verzonden naar Log Analytics
 
-### <a name="data-volume"></a>Gegevensvolume 
-Op de **gebruik en geschatte kosten** pagina, de *opname van gegevens per oplossing* grafiek toont de totale hoeveelheid gegevens die worden verzonden en hoeveel er worden verzonden door elke oplossing. Hiermee kunt u bepalen trends, zoals of de algehele gegevensgebruik (of het gebruik door een bepaalde oplossing) groeit, stabiel blijft of afneemt. De query die wordt gebruikt voor het genereren van dit is
+De volgende secties explor
 
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-Houd er rekening mee dat de component "waar IsBillable = true" gegevenstypen van bepaalde oplossingen waarvoor er geen kosten opname zijn filtert. 
-
-U kunt inzoomen verder Zie gegevenstrends voor specifieke gegevenstypen, bijvoorbeeld als u wilt kijken naar de gegevens vanwege een IIS-logboeken:
-
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-### <a name="nodes-sending-data"></a>Knooppunten die gegevens verzenden
+## <a name="understanding-nodes-sending-data"></a>Knooppunten die gegevens verzenden
 
 Voor meer informatie over het aantal computers (knooppunten) waarvoor gegevens elke dag in de afgelopen maand zijn gerapporteerd, gebruiken
 
@@ -171,9 +159,9 @@ Voor een lijst van computers die verzenden **kosten in rekening gebracht gegeven
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Gebruik deze `union withsource = tt *` spaarzaam scans in verschillende gegevenstypen zijn duur in het uitvoeren van query's. 
+Gebruik deze `union withsource = tt *` spaarzaam scans in verschillende gegevenstypen zijn duur in het uitvoeren van query's. Deze query vervangt de oude manier van het uitvoeren van query's informatie per-computer met het gegevenstype van het gebruik.  
 
-Dit kan worden uitgebreid om terug te keren de telling van computers per uur die verzenden in rekening gebracht gegevenstypen:
+Dit kan worden uitgebreid om terug te keren de telling van computers per uur die verzenden gefactureerd gegevenstypen (dit is hoe factureerbare knooppunten in Log Analytics wordt berekend voor het knooppunt voor verouderde Per prijscategorie):
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -181,13 +169,30 @@ Dit kan worden uitgebreid om terug te keren de telling van computers per uur die
 | where computerName != ""
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
-Om te zien de **grootte** van factureerbare gebeurtenissen die per computer, gebruikt u de `_BilledSize` eigenschap waarmee u de grootte in bytes:
+## <a name="understanding-ingested-data-volume"></a>Inzicht in het opgenomen gegevensvolume 
+
+Op de **gebruik en geschatte kosten** pagina, de *opname van gegevens per oplossing* grafiek toont de totale hoeveelheid gegevens die worden verzonden en hoeveel er worden verzonden door elke oplossing. Hiermee kunt u bepalen trends, zoals of de algehele gegevensgebruik (of het gebruik door een bepaalde oplossing) groeit, stabiel blijft of afneemt. De query die wordt gebruikt voor het genereren van dit is
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+Houd er rekening mee dat de component "waar IsBillable = true" gegevenstypen van bepaalde oplossingen waarvoor er geen kosten opname zijn filtert. 
+
+U kunt inzoomen verder Zie gegevenstrends voor specifieke gegevenstypen, bijvoorbeeld als u wilt kijken naar de gegevens vanwege een IIS-logboeken:
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| where DataType == "W3CIISLog"
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+### <a name="data-volume-by-computer"></a>Gegevensvolume per computer
+
+Om te zien de **grootte** van factureerbare gebeurtenissen die per computer, gebruikt u de `_BilledSize` eigenschap ([log-standaard-properties #_billedsize.md](learn more)) waarmee u de grootte in bytes:
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
 
-Deze query vervangt de oude manier om deze query's uitvoeren met het gegevenstype van het gebruik. 
+De `_IsBillable` -eigenschap geeft op of de opgenomen gegevens kosten in rekening gebracht ([log-standaard-properties.md #_isbillable](Learn more).)
 
 Om te zien de **aantal** van gebeurtenissen die per computer, gebruikt u het volgende:
 
@@ -207,8 +212,29 @@ Als u zien van de aantallen voor factureerbare gegevenstypen zijn gegevens te ve
 | where _IsBillable == true 
 | summarize count() by tt | sort by count_ nulls last `
 
+### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Gegevensvolume per Azure-resource, resourcegroep of abonnement
+
+Voor gegevens van de knooppunten die worden gehost in Azure krijgt u de **grootte** factureerbare gebeurtenissen die zijn opgenomen __per computer__, gebruikt u de `_ResourceId` eigenschap waarmee u het volledige pad naar de resource ([ logboek-standaard-properties.md #_resourceid](learn more)):
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+
+Voor gegevens van de knooppunten die worden gehost in Azure krijgt u de **grootte** factureerbare gebeurtenissen die zijn opgenomen __per Azure-abonnement__, parseren de `_ResourceId` eigenschap:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+
+Wijzigen van `subscriptionId` naar `resourceGroup` factureerbare opgenomen gegevensvolume per Azure resouurce groep wordt weergegeven. 
+
+
 > [!NOTE]
 > Sommige van de velden van het gegevenstype gebruik terwijl u nog steeds in het schema zijn afgeschaft en wordt dat niet meer door hun waarden worden ingevuld. Dit zijn **Computer** en de velden met betrekking tot de opname (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** en **AverageProcessingTimeMs**.
+
+### <a name="querying-for-common-data-types"></a>Query's uitvoeren voor veelvoorkomende gegevenstypen
 
 Om u te verdiepen in de bron van gegevens voor een bepaald type, volgen hier enkele handige voorbeelden van query's:
 
@@ -241,7 +267,7 @@ Enkele suggesties voor het verminderen van het volume van de logboeken die worde
 | AzureDiagnostics           | Wijzig de resourcelogboekverzameling om: <br> - Het aantal resources dat logboeken naar Log Analytics verzendt te verkleinen <br> - Alleen vereiste logboeken te verzamelen |
 | Oplossingsgegevens van computers die de oplossing niet nodig hebben | Gebruik [oplossingstargeting](../insights/solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers. |
 
-### <a name="getting-node-counts"></a>Telt het aantal aan knooppunt 
+### <a name="getting-security-and-automation-node-counts"></a>Aan beveiligings- en Automation-knooppunt wordt geteld 
 
 Als u op 'Per knooppunt (OMS)' prijscategorie, wordt in gebracht rekening op basis van het aantal knooppunten en oplossingen u gebruikt, het aantal inzichten en analyseknooppunten waarvoor u worden kosten in rekening gebracht in de tabel worden weergegeven op de **gebruik en geschatte kosten**pagina.  
 
@@ -282,6 +308,7 @@ Als u wilt zien van het aantal afzonderlijke knooppunten voor automatisering, ge
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Een waarschuwing instellen wanneer de gegevensverzameling groter is dan verwacht
+
 In deze sectie wordt beschreven hoe u een waarschuwing instelt als:
 - Het gegevensvolume groter is dan een opgegeven hoeveelheid.
 - Het gegevensvolume naar verwachting een opgegeven hoeveelheid gaat overschrijden.

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284309"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295739"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Begrijpen en gebruiken van moduledubbels in IoT Hub
 
@@ -93,7 +93,7 @@ Het volgende voorbeeld ziet u een moduledubbel JSON-document:
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": 55,
             "$metadata" : {...},
             "$version": 4
@@ -174,43 +174,43 @@ De back-end van de oplossing is van invloed op de moduledubbel met behulp van de
 
 * **Dubbele meldingen ontvangen**. Met deze bewerking kunt de back-end oplossing om te worden geïnformeerd wanneer het dubbele wordt gewijzigd. Om dit te doen, moet uw IoT-oplossing een route te maken en in te stellen de gegevensbron gelijk zijn aan *twinChangeEvents*. Standaard geen dubbele meldingen worden verzonden, dat wil zeggen, er zijn geen dergelijke routes vooraf bestaan. Als de wijzigingssnelheid te hoog is, of om andere redenen, zoals interne fouten, worden de IoT-Hub slechts één melding alle wijzigingen bevat verzonden. Als uw toepassing moet betrouwbare controle en logboekregistratie van alle tussenliggende statussen, moet u apparaat-naar-cloud-berichten. Het meldingsbericht dubbele bevat eigenschappen en de hoofdtekst.
 
-    - Eigenschappen
+  - Properties
 
-    | Naam | Waarde |
+    | Name | Value |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
     $iothub-bericht-bron | twinChangeEvents |
-    $content-codering | utf-8 |
+    $content-encoding | utf-8 |
     deviceId | ID van het apparaat |
     moduleId | ID van de module |
-    HubName | Naam van IoT Hub |
+    hubName | Naam van IoT Hub |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp van bewerking |
     iothub-bericht-schema | deviceLifecycleNotification |
     opType | "replaceTwin" of "updateTwin" |
 
     Systeemeigenschappen bericht worden voorafgegaan door de `$` symbool.
 
-    - Hoofdtekst
+  - Hoofdtekst
         
     Deze sectie bevat alle wijzigingen in de apparaatdubbel in een JSON-indeling. Het maakt gebruik van dezelfde indeling als een patch, met het verschil dat deze alle dubbele secties kan bevatten: labels, properties.reported, properties.desired en dat deze de elementen '$metadata bevat'. Bijvoorbeeld:
 
     ```json
     {
-        "properties": {
-            "desired": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            },
-            "reported": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            }
-        }
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
     }
     ```
 
@@ -300,7 +300,7 @@ Bijvoorbeeld:
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": "55%",
             "$metadata": {
                 "telemetryConfig": {
@@ -309,7 +309,7 @@ Bijvoorbeeld:
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
                     },
                     "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                }
+                },
                 "batteryLevel": {
                     "$lastUpdated": "2016-04-01T16:35:48.789Z"
                 },

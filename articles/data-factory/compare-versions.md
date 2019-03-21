@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: f898b21e84cc57327991c97d2694e9e44e608417
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014893"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432699"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Azure Data Factory vergelijken met Data Factory-versie 1
 In dit artikel wordt Data Factory vergeleken met Data Factory-versie 1. Zie [Inleiding tot Data Factory](introduction.md) voor een inleiding tot Data Factory. Zie [Inleiding tot Azure Data Factory](v1/data-factory-introduction.md) voor een inleiding tot Data Factory-versie 1. 
@@ -67,12 +67,12 @@ Pijplijnen kunnen op aanvraag (op basis van een gebeurtenis, ofwel blob-bericht)
 De [activiteit Execute Pipeline](control-flow-execute-pipeline-activity.md) stelt een Data Factory-pijplijn in staat om een andere pijplijn aan te roepen.
 
 ### <a name="delta-flows"></a>Deltastromen
-Een belangrijke use case in ETL-patronen zijn 'deltaladingen', waarin alleen gegevens worden geladen die zijn gewijzigd sinds de laatste iteratie van een pijplijn. Nieuwe mogelijkheden in de huidige versie, zoals de [activiteit lookup](control-flow-lookup-activity.md), flexibele planning en controlestroom maken deze use case op een natuurlijke manier mogelijk. Zie [Zelfstudie: stapsgewijs kopiëren](tutorial-incremental-copy-powershell.md) voor een zelfstudie met stapsgewijze instructies. 
+Een belangrijke use case in ETL-patronen zijn 'deltaladingen', waarin alleen gegevens worden geladen die zijn gewijzigd sinds de laatste iteratie van een pijplijn. Nieuwe mogelijkheden in de huidige versie, zoals de [activiteit lookup](control-flow-lookup-activity.md), flexibele planning en controlestroom maken deze use case op een natuurlijke manier mogelijk. Zie voor een zelfstudie met stapsgewijze instructies [zelfstudie: Incrementele kopie](tutorial-incremental-copy-powershell.md).
 
 ### <a name="other-control-flow-activities"></a>Andere controlestroomactiviteiten
 Hier volgen nog enkele controlestroomactiviteiten die worden ondersteund in de huidige versie van Data Factory. 
 
-Controleactiviteit | Beschrijving
+Controleactiviteit | Description
 ---------------- | -----------
 [Activiteit ForEach](control-flow-for-each-activity.md) | Deze activiteit definieert een herhalende controlestroom in de pijplijn. Deze activiteit wordt gebruikt om een verzameling te herhalen en voert opgegeven activiteiten uit in een lus. De lusimplementatie van deze activiteit is vergelijkbaar met Foreach-lusstructuur in computertalen.
 [Activiteit Web](control-flow-web-activity.md) | Deze roept een aangepast REST-eindpunt aan vanaf een Data Factory-pijplijn. U kunt gegevenssets en gekoppelde services doorgeven die moten worden verbruikt door en die toegankelijk zijn voor de activiteit. 
@@ -118,7 +118,7 @@ Zie [Verschil tussen aangepaste activiteiten in Data Factory en versie 1](transf
 
 - **.NET SDK**: de .NET SDK is bijgewerkt in de huidige versie.
 
-- **PowerShell**: de PowerShell-cmdlets zijn bijgewerkt in de huidige versie. In de huidige versie is **DataFactoryV2** opgenomen in de namen van de cmdlets, bijvoorbeeld: Get-AzureRmDataFactoryV2. 
+- **PowerShell**: de PowerShell-cmdlets zijn bijgewerkt in de huidige versie. In de huidige versie is **DataFactoryV2** opgenomen in de namen van de cmdlets, bijvoorbeeld: Get-AzDataFactoryV2. 
 
 - **Python SDK**: deze SDK is nieuw in de huidige versie.
 

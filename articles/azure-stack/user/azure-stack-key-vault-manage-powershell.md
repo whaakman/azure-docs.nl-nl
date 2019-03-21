@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b5c43215ce1800ac162c8b5d19ba4d4c987a3bac
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445803"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258748"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Key Vault in Azure Stack met behulp van PowerShell beheren
 
@@ -92,7 +92,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ![Nieuwe key vault](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-De uitvoer van deze opdracht worden de eigenschappen van de sleutelkluis die u hebt gemaakt. Wanneer een toepassing toegang heeft tot deze kluis, moet deze gebruiken de **Vault URI** eigenschap, die is 'https://vault01.vault.local.azurestack.external' in dit voorbeeld.
+De uitvoer van deze opdracht worden de eigenschappen van de sleutelkluis die u hebt gemaakt. Wanneer een toepassing toegang heeft tot deze kluis, moet deze gebruiken de **Vault URI** eigenschap, die is ' https:\//vault01.vault.local.azurestack.external "in dit voorbeeld.
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Implementatie van Active Directory Federation Services (AD FS)
 
@@ -127,8 +127,8 @@ De **bestemming** parameter wordt gebruikt om op te geven dat de sleutel softwar
 
 U kunt nu verwijzen naar de sleutel gemaakt met behulp van de URI. Als u maken of importeren van een sleutel die dezelfde naam als een bestaande sleutel heeft, wordt de oorspronkelijke sleutel wordt bijgewerkt met de opgegeven waarden in de nieuwe sleutel. U kunt toegang tot de vorige versie met behulp van de URI van de specifieke versies van de sleutel. Bijvoorbeeld:
 
-* Gebruik 'https://vault10.vault.local.azurestack.external:443/keys/key01' aan het altijd kunnen genieten van de huidige versie.
-* Gebruik 'https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a' voor deze specifieke versie.
+* Gebruik ' https:\//vault10.vault.local.azurestack.external:443/keys/key01 ' aan het altijd kunnen genieten van de huidige versie.
+* Gebruik ' https:\//vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a "voor deze specifieke versie.
 
 ### <a name="get-a-key"></a>Een sleutel ophalen
 

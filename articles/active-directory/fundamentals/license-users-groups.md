@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10346ea0aa292be33f820bd4e92434e2c58a89ab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194305"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286853"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Wijs toe of verwijder licenties met behulp van de Azure Active Directory-portal
 Veel services van Azure Active Directory (Azure AD) moeten u een Azure AD-product te activeren en licenties voor elk van uw gebruikers of groepen (en bijbehorende leden) voor dat product. Alleen gebruikers met actieve licenties kunnen openen en gebruiken de gelicentieerde Azure AD-services.
@@ -47,7 +47,7 @@ U kunt uw beschikbare producten, met inbegrip van de afzonderlijke licenties wee
 
     De **licenties** pagina wordt weergegeven.
 
-    ![Licenties pagina, met het aantal aangeschafte producten en toegewezen licenties](media/license-users-groups/license-details-blade.png)
+    ![De pagina licenties met het aantal aangeschafte producten en toegewezen licenties](media/license-users-groups/license-details-blade.png)
     
 3. Selecteer de **aangeschafte producten** koppeling om weer te geven de **producten** pagina en ziet u de **toegewezen**, **beschikbaar**, en  **Verloopt binnenkort** details voor elke specifieke product-editie.
 
@@ -76,7 +76,7 @@ Zorg ervoor dat iedereen die gebruik van een gelicentieerde Azure AD-service de 
 
 4. Selecteer **toewijzingsopties**, zorg ervoor dat u hebt de juiste licentie-opties die zijn ingeschakeld en selecteer vervolgens **OK**.
 
-    ![Licentie optie-pagina met alle van de beschikbare opties in de editie](media/license-users-groups/license-option-blade-assignments.png)
+    ![Licentie optie pagina, met alle beschikbare opties in de editie](media/license-users-groups/license-option-blade-assignments.png)
 
     De **licentie toewijzen** pagina updates om weer te geven dat een gebruiker is geselecteerd en of de toewijzingen zijn geconfigureerd.
 
@@ -102,7 +102,7 @@ Zorg ervoor dat iedereen die gebruik van een gelicentieerde Azure AD-service de 
 
 4. Selecteer **toewijzingsopties**, zorg ervoor dat u hebt de juiste licentie-opties die zijn ingeschakeld en selecteer vervolgens **OK**.
 
-    ![Licentie optie-pagina met alle van de beschikbare opties in de editie](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![Licentie optie pagina, met alle beschikbare opties in de editie](media/license-users-groups/license-option-blade-group-assignments.png)
 
     De **licentie toewijzen** pagina updates om weer te geven dat een gebruiker is geselecteerd en of de toewijzingen zijn geconfigureerd.
 
@@ -112,7 +112,6 @@ Zorg ervoor dat iedereen die gebruik van een gelicentieerde Azure AD-service de 
 5. Selecteer **Toewijzen**.
 
     De groep wordt toegevoegd aan de lijst met groepen met licenties en alle leden van de hebben toegang tot de Azure AD-services.
-
 
 ## <a name="remove-a-license"></a>Een licentie verwijderen
 U kunt een licentie verwijderen uit een gebruiker of een groep in de **licenties** pagina.

@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 12/26/2018
 ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: 5695dbf020a72860bd86a8d55a59a5e5b67e3741
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: f000f10a3b20fda04c908a6dea0cc9799b49ef76
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363874"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57457991"
 ---
 1. Meld u in een nieuw venster aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik in het menu links op **Een resource maken**, klik op **Databases** en klik vervolgens onder **Azure Cosmos DB** op **Maken**.
    
-   ![Schermopname van Azure Portal waarbij Meer services en Azure Cosmos DB zijn gemarkeerd](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
+   ![Schermafbeelding van de Azure portal waarbij meer Services en Azure Cosmos DB zijn gemarkeerd](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
 
 3. Voer op de pagina **Azure Cosmos DB-account maken** de instellingen in voor het nieuwe Azure Cosmos DB-account. 
  
-    Instelling|Waarde|Beschrijving
+    Instelling|Waarde|Description
     ---|---|---
     Abonnement|Uw abonnement|Selecteer het Azure-abonnement dat u voor dit Azure Cosmos DB-account wilt gebruiken. 
     Resourcegroep|Nieuwe maken<br><br>Voer de unieke naam in die u in ID hebt opgegeven|Selecteer **Nieuw maken**. Voer daarna een nieuwe resourcegroepnaam in voor het account. Gebruik voor het gemak dezelfde naam als uw id. 

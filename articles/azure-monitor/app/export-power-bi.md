@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 13156b3419d961850c8e4e408a9cf565a5f957ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086391"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260055"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI-kanaal van Application Insights
 [Power BI](https://www.powerbi.com/) is een suite met hulpprogramma's voor business die helpt u bij het analyseren van gegevens en inzichten te delen. Uitgebreide dashboards zijn beschikbaar op elk apparaat. U kunt gegevens uit verschillende bronnen, met inbegrip van Analytics-query's uit combineren [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -105,8 +105,8 @@ Als het verminderen van de gegevensset die afkomstig zijn van de Analytics-query
 
 1. Maak een [API-sleutel](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Werk het Power BI-M-script dat u hebt geëxporteerd uit Analytics door de Azure Resource Manager-URL vervangen door de Application Insights-API.
-   * Vervang  **https://management.azure.com/subscriptions/...**
-   * met  **https://api.applicationinsights.io/beta/apps/...**
+   * Vervang **https:\//management.azure.com/subscriptions/...**
+   * with, **https:\//api.applicationinsights.io/beta/apps/...**
 3. Ten slotte de referenties bijwerken naar een standaardschijf en gebruik van uw API-sleutel.
 
 **Bestaand script**

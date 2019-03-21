@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: fe1f08b7b597a2e521f2b13af1d0a4a4d7d4b7a2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 7e14b5f2c5f84c4f1f21454f733987df6933f0c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213998"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886623"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portal naar Azure verplaatsen
 
@@ -26,7 +26,7 @@ ms.locfileid: "54213998"
 
 De Azure-portal is de hub voor alle Azure-services en biedt een uitgebreide beheerervaring, met mogelijkheden zoals dashboards om vast te zetten resources, intelligent zoeken naar resources zoeken en labels voor resourcebeheer. Om te consolideren en de controle en beheer de werkstroom te stroomlijnen, begonnen we met het toevoegen van de OMS-portal-mogelijkheden in Azure portal. Alle functies van de OMS-portal zijn nu onderdeel van de Azure-portal. Enkele van de nieuwe functies zoals Traffic Analytics zijn in feite alleen beschikbaar in Azure portal. U wordt mogelijk zijn om uit te voeren van alles wat die je mee bezig was in de OMS-portal met de Azure-portal en meer. Als u dit nog niet hebt gedaan, leest u eerst met behulp van de Azure-portal vandaag nog!
 
-**De OMS-portal officieel wordt beëindigd op 15 januari 2019** voor commerciële Azure-cloud en Azure US Government-cloud, de OMS-portal **op 30 maart 2019 officieel stopgezet.** We zijn trots te verplaatsen naar de Azure portal en de overgang naar eenvoudig worden verwacht. Maar we begrijpen dat wijzigingen zijn moeilijk en kunnen worden ervaren. Verzenden van eventuele vragen, feedback of opmerkingen aan **LAUpgradeFeedback@microsoft.com**. De rest van dit artikel gaat over de belangrijkste scenario's en het schema voor deze overgang.
+**De OMS-portal officieel wordt beëindigd op 15 januari 2019** voor commerciële Azure-cloud en Azure US Government-cloud, de OMS-portal **op 30 maart 2019 officieel stopgezet.** We zijn trots te verplaatsen naar de Azure portal en de overgang naar eenvoudig worden verwacht. Maar we begrijpen dat wijzigingen zijn moeilijk en kunnen worden ervaren. Verzenden van eventuele vragen, feedback of opmerkingen aan **LAUpgradeFeedback\@microsoft.com**. De rest van dit artikel gaat over de belangrijkste scenario's en het schema voor deze overgang.
 
 ## <a name="what-is-changing"></a>Wat is gewijzigd? 
 De volgende wijzigingen zijn met de afschaffing van de OMS-portal wordt aangekondigd. Elk van deze wijzigingen wordt beschreven in de secties hieronder in meer detail.
@@ -47,7 +47,7 @@ Hoewel de meeste functies werken blijven zonder dat u een migratie uitvoert, hoe
 - U moet [migreren van uw gebruikersmachtigingen](#user-access-and-role-migration) naar de Azure-portal.
 - Zie [uw OMS-Update-implementaties te migreren naar Azure](../../automation/migrate-oms-update-deployments.md) voor meer informatie over het overstappen van de oplossing Update Management.
 
-Raadpleeg [Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal voor gebruikers van de Log Analytics](oms-portal-faq.md) voor informatie over het overstappen naar de Azure-portal. Alle feedback, vragen of opmerkingen aan verzenden **LAUpgradeFeedback@microsoft.com**.
+Raadpleeg [Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal voor gebruikers van de Log Analytics](oms-portal-faq.md) voor informatie over het overstappen naar de Azure-portal. Alle feedback, vragen of opmerkingen aan verzenden **LAUpgradeFeedback\@microsoft.com**.
 
 ## <a name="user-access-and-role-migration"></a>Toegang en de rol gebruikersmigratie
 Beheer van Azure portal toegang is een uitgebreidere en krachtiger zijn dan de toegangsbeheer in de OMS-Portal. Zie [werkruimten beheren](manage-access.md#manage-accounts-and-users) voor meer informatie over toegangsbeheer in Log Analytics.

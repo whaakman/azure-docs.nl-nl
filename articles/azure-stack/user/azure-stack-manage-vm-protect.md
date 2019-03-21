@@ -15,24 +15,19 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 50b3499a52ac646b6c896dd79b2191651c5b277e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 3/19/2018
+ms.openlocfilehash: de57ebbf0c0c4e8a18c955200d1692ea4ae9afae
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782935"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295008"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Beveiligen van virtuele machines die worden geïmplementeerd in Azure Stack
 
 Gebruik dit artikel als richtlijn bij het ontwikkelen van een plan voor het beveiligen van virtuele machines (VM's) die uw gebruikers in Azure Stack implementeren.
 
-Ter bescherming tegen gegevensverlies en niet-geplande uitvaltijd, moet u een plan voor herstel van back-up of herstel na noodgevallen voor gebruikerstoepassingen en hun gegevens te implementeren. Dit plan kan zijn uniek voor elke toepassing, maar volgt een framework dat tot stand gebracht door uw organisatie uitgebreide zakelijke continuïteit en noodherstelplan (BC/DR). Is een goed uitgangspunt [flexibele toepassingen ontwerpen voor Azure](https://docs.microsoft.com/azure/architecture/resiliency), waarmee u algemene patronen en procedures voor de beschikbaarheid en tolerantie.
-
->[!IMPORTANT]
-> Test uw plannen voor herstel van back-up en herstel na noodgevallen regelmatig. U moet dit om ervoor te zorgen dat:
-> * De abonnementen werken
-> * De abonnementen is nog steeds voldoen aan de behoeften die voor zijn ontworpen.
+Ter bescherming tegen gegevensverlies en niet-geplande uitvaltijd, moet u een plan voor herstel van back-up of herstel na noodgevallen voor gebruikerstoepassingen en hun gegevens te implementeren. Dit plan kan zijn uniek voor elke toepassing, maar volgt een framework dat tot stand gebracht door uw organisatie uitgebreide zakelijke continuïteit en noodherstelplan (BC/DR). Is een goed uitgangspunt [Azure Stack: Overwegingen voor zakelijke continuïteit en herstel na noodgevallen](https://aka.ms/azurestackbcdrconsiderationswp).
 
 ## <a name="azure-stack-infrastructure-recovery"></a>Herstel van Azure Stack-infrastructuur
 
@@ -47,6 +42,9 @@ Als de Azure Stack-cloud voor een langere periode offline is of permanent niet k
 * Hiermee kunnen toepassingen voor het onderhoud van aanvragen van gebruikers behouden
 
 De beheerder van de Azure Stack-cloud is verantwoordelijk voor het maken van een herstelplan voor de onderliggende Azure Stack-infrastructuur en services. Lees voor meer informatie het artikel [herstel na onherstelbare gegevensverlies](https://docs.microsoft.com/azure/azure-stack/azure-stack-backup-recover-data).
+
+## <a name="considerations-for-iaas-vms"></a>Overwegingen voor IaaS-VM 's
+Het besturingssysteem is geïnstalleerd in de IaaS-VM wordt beperkt welke producten die u gebruiken kunt om de gegevens te beveiligen die deze bevat. Voor Windows op basis van IaaS-VM's, kunt u producten van Microsoft en partners om gegevens te beveiligen. Voor IaaS-VM's op basis van Linux, wordt de enige optie is het gebruik van producten van partners. Raadpleeg [dit gegevensblad voor alle BC-/ DR-partners met gevalideerde producten voor Azure Stack](https://aka.ms/azurestackbcdrpartners).
 
 ## <a name="sourcetarget-combinations"></a>Bron-/ doelopslagaccount combinaties
 

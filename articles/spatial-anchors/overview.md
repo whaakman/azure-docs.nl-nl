@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f5d54f90c0b53105953726b1f26dab98192b40a6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: 24a35b387a8b47d44f742303ddde0a0e8fb47fe6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752599"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833795"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Overzicht van Azure Spatial Anchors
 
@@ -30,7 +30,7 @@ Enkele voorbeelden van gebruik dat mogelijk wordt gemaakt door Spatial Anchors z
 
 - [Way-finding](concepts/anchor-relationships-way-finding.md). Ontwikkelaars kunnen Spatial Anchors ook samen verbinden en er relaties tussen maken. Een app kan bijvoorbeeld een ervaring bevatten die twee of meer interessante locaties heeft waarmee een gebruiker moet communiceren om een taak te voltooien. Deze interessante locaties kunnen met elkaar worden verbonden. Later, wanneer de gebruiker de uit meerdere stappen bestaande taak heeft voltooid, kan de app vragen om ankers die zich in de buurt van het huidige bevinden om de gebruiker naar de volgende stap in de taak te leiden.
 
-- [Virtuele inhoud toepassen op de realiteit](concepts/create-locate-anchors-unity.md#creating-a-cloud-spatial-anchor). Een app kan toestaan dat een gebruiker een virtuele agenda op een prikbord in een conferentieruimte plaatst, die mensen kunnen zien met een telefoon-app of een HoloLens-apparaat. In een industriële omgeving kan een gebruiker contextuele informatie over een machine ontvangen door er met een ondersteunde apparaatcamera op te wijzen.
+- [Virtuele inhoud toepassen op de realiteit](concepts/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). Een app kan toestaan dat een gebruiker een virtuele agenda op een prikbord in een conferentieruimte plaatst, die mensen kunnen zien met een telefoon-app of een HoloLens-apparaat. In een industriële omgeving kan een gebruiker contextuele informatie over een machine ontvangen door er met een ondersteunde apparaatcamera op te wijzen.
 
 Azure Spatial Anchors bestaat uit een beheerde service en client-SDK's voor ondersteunde apparaatplatforms. De volgende secties bevatten informatie over hoe u aan de slag kunt gaan met het bouwen van apps met behulp van Azure Spatial Anchors.
 

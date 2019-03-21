@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 62a3169257001f64e3103cc079e544449ac59663
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328381"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087105"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot in Node.js met Bot Framework 3.x en de Azure-Web-app-bot
 
@@ -45,16 +45,16 @@ De bot reageert op intents van het domein HomeAutomation die zich in de LUIS-app
     ![Web app-bot om te beginnen met het aanmaakproces resource selecteren](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
 3. In de **Bot Service** blade, geef de vereiste gegevens op en selecteer **maken**. Hiermee maakt en implementeert de botservice en LUIS-app in Azure. Als u wilt gebruiken [spraak voorbereiden](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), Bekijk [regio vereisten](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming) voordat het maken van uw bot. 
-    * Stel **appnaam** op de naam van uw bot. De naam wordt gebruikt als het subdomein wanneer uw bot wordt geïmplementeerd naar de cloud (bijvoorbeeld mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Selecteer het abonnement [resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan en [locatie](https://azure.microsoft.com/regions/).
-    * Voor **Bot sjabloon**selecteert:
-        * **SDK-v3**
-        * **Node.js**
-        * **Taalbegrip**
-    * Selecteer de **LUIS-App locatie**. Dit is het ontwerpen van [regio] [ LUIS] in de app is gemaakt.
-    * Selecteer het selectievakje bevestiging voor de juridische kennisgeving. De voorwaarden van de juridische kennisgeving staan hieronder het selectievakje in.
+   * Stel **appnaam** op de naam van uw bot. De naam wordt gebruikt als het subdomein wanneer uw bot wordt geïmplementeerd naar de cloud (bijvoorbeeld mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * Selecteer het abonnement [resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan en [locatie](https://azure.microsoft.com/regions/).
+   * Voor **Bot sjabloon**selecteert:
+       * **SDK-v3**
+       * **Node.js**
+       * **Taalbegrip**
+   * Selecteer de **LUIS-App locatie**. Dit is het ontwerpen van [regio] [ LUIS] in de app is gemaakt.
+   * Selecteer het selectievakje bevestiging voor de juridische kennisgeving. De voorwaarden van de juridische kennisgeving staan hieronder het selectievakje in.
 
-    ![Bot-Service-blade](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
+     ![Bot-Service-blade](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
 
 4. Bevestig dat de botservice is geïmplementeerd.
@@ -247,7 +247,8 @@ Meer informatie over [Bot Framework](https://dev.botframework.com/) en de [3.x](
 
 ## <a name="next-steps"></a>Volgende stappen
 
-<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> U kunt andere intents, zoals Help, annuleren en begroeting, toevoegen aan de LUIS-app. Vervolgens dialoogvensters voor de nieuwe intents toevoegen en testen met behulp van de bot. 
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.-->
+U kunt andere intents, zoals Help, annuleren en begroeting, toevoegen aan de LUIS-app. Vervolgens dialoogvensters voor de nieuwe intents toevoegen en testen met behulp van de bot. 
 
 <!-- 
 > [!NOTE] 

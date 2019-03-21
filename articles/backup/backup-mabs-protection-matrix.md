@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: e7bcd5438738399d187bc158948364a44c46348c
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652413"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094640"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Beveiligingsmatrix voor Azure Backup Server
 
@@ -23,7 +23,7 @@ In dit artikel bevat de verschillende servers en werkbelastingen die u met Azure
 ## <a name="protection-support-matrix"></a>Ondersteuningsmatrix voor beveiliging
 
 |Workload|Versie|Azure Backup-server</br> installation|Azure Backup</br> Server V3|Azure Backup</br> Server V2|Beveiliging en herstel|
-|------------|-----------|---------------|--------------|---------------|-----------------|---------------------------|
+|------------|-----------|---------------|--------------|---------------|-----------------|
 |Client-computers (64-bits en 32-bits)|Windows 10|Fysieke server<br /><br />Virtuele Hyper-V-machine <br /><br />Virtuele VMware-machine|J|J|Volume, share, map, bestanden, ontdubbelde volumes<br /><br />Beveiligde volumes moeten NTFS zijn. FAT en FAT32 worden niet ondersteund.<br /><br />Volumes moeten ten minste 1 GB. DPM maakt gebruik van Volume Shadow Copy Service (VSS) naar de momentopname van de gegevens en de momentopname werkt alleen als het volume ten minste 1 GB is.|
 |Client-computers (64-bits en 32-bits)|Windows 8.1|Fysieke server<br /><br />Virtuele Hyper-V-machine |J|J|Bestanden<br /><br />Beveiligde volumes moeten NTFS zijn. FAT en FAT32 worden niet ondersteund.<br /><br />Volumes moeten ten minste 1 GB. DPM maakt gebruik van Volume Shadow Copy Service (VSS) naar de momentopname van de gegevens en de momentopname werkt alleen als het volume ten minste 1 GB is.|
 |Client-computers (64-bits en 32-bits)|Windows 8.1|Windows virtuele machine in VMWare (beveiligt werkbelasting die wordt uitgevoerd op Windows-machine in VMWare)|J|J|Volume, share, map, bestanden, ontdubbelde volumes<br /><br />Beveiligde volumes moeten NTFS zijn. FAT en FAT32 worden niet ondersteund.<br /><br />Volumes moeten ten minste 1 GB. DPM maakt gebruik van Volume Shadow Copy Service (VSS) naar de momentopname van de gegevens en de momentopname werkt alleen als het volume ten minste 1 GB is.|

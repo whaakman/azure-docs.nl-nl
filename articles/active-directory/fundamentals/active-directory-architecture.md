@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4185f4ad83d083ab1a15208361ee7b44e118c68e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 12819bdc20dea57a8a114bb4ff311f828be8b15a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168303"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286208"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Wat is de Azure Active Directory-architectuur?
 Met Azure AD (Azure Active Directory) kunt u veilig de toegang tot Azure-services en -resources beheren voor uw gebruikers. Azure AD omvat een volledige suite met mogelijkheden voor identiteitsbeheer. Zie [Wat is Azure Active Directory?](active-directory-whatis.md) voor meer informatie over de functies van Azure AD.
@@ -39,7 +39,7 @@ De meest voorkomende manier om te bouwen, een toegankelijk en kan worden gebruik
 
 De gegevenslaag heeft meerdere front-end-services die mogelijkheden bieden voor lezen/schrijven. Het volgende diagram laat zien hoe de onderdelen van een partitie met één map worden geleverd in de gehele geografisch gedistribueerde datacenters. 
 
-  ![Partities met één map](./media/active-directory-architecture/active-directory-architecture.png)
+  ![Diagram van de partitie met één map](./media/active-directory-architecture/active-directory-architecture.png)
 
 De onderdelen van Azure AD-architectuur omvatten een primaire replica en secundaire replica's.
 

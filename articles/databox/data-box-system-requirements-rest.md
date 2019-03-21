@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 4ad607ad7ef1ee91ea9c886a76faabb0f304969d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5770cd9a4955013100b7e58698eed77da10c0583
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012254"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Vereisten voor Azure Data Box-Blob-opslag
 
@@ -96,7 +96,7 @@ Uitvoeren: php composer.phar installeren.
 
 ### <a name="endpoint-declaration"></a>De declaratie van eindpunt
 
-Een Azure Data Box Blob storage-eindpunt bestaat uit twee onderdelen: de naam van een regio en het domein van de Data Box. In de gegevens in Blob storage-SDK, het standaardeindpunt is <serial no. of the device>. microsoftdatabox.com.  Voor meer informatie over het eindpunt van blob service, gaat u naar [verbinding maken via de gegevens in Blob-opslag](data-box-deploy-copy-data-via-rest.md).
+Een Azure Data Box Blob storage-eindpunt bestaat uit twee onderdelen: de naam van een regio en het domein van de Data Box. In de gegevens in Blob storage-SDK, het standaardeindpunt is \<serienummer. van het apparaat >. microsoftdatabox.com.  Voor meer informatie over het eindpunt van blob service, gaat u naar [verbinding maken via de gegevens in Blob-opslag](data-box-deploy-copy-data-via-rest.md).
  
 ## <a name="examples"></a>Voorbeelden
 

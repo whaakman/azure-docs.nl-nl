@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ca7f5d47d75e80a583b6613eb36fd3da9c61d707
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 28b6732745947043847ce944243bc87398e159fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761477"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892144"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Bestanden uploaden naar een Media Services-account met behulp van de service Aspera Server On Demand in Azure 
 
@@ -89,44 +89,44 @@ Nadat u zich hebt aangemeld bij Azure Marketplace, volgt u deze eenvoudige stapp
 
     In de volgende schermafbeelding ziet u hoe toegang maken in zijn werk gaat. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
 
     In de volgende schermafbeelding ziet u de interfaces voor gebruiksrapporten in de portal. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
 
 ## <a name="upload-files-with-aspera"></a>Bestanden uploaden met Aspera
 
 1. Download en installeer de clientsoftware van Aspera:
     
-    * [Invoegtoepassing browser](http://downloads.asperasoft.com/connect2/)
-    * [Rich client](http://downloads.asperasoft.com/en/downloads/2)
+    * [Invoegtoepassing browser](https://downloads.asperasoft.com/connect2/)
+    * [Rich client](https://downloads.asperasoft.com/en/downloads/2)
 
 2. Voer uw eerste overdracht uit. Voer het volgende uit om de Aspera-client te gebruiken om overdrachten uit te voeren met de Aspera-overdrachtsservice: 
 
-    1. Maak een toegangstoets via de Aspera-portal.  
-    2. Download, installeer en licentieer de Aspera-client (de software vindt u in de Aspera-portal).  
+   1. Maak een toegangstoets via de Aspera-portal.  
+   2. Download, installeer en licentieer de Aspera-client (de software vindt u in de Aspera-portal).  
 
-    >[!NOTE]
-    >Lees de gids van de Aspera-client voor informatie over de configuratie.
+      >[!NOTE]
+      >Lees de gids van de Aspera-client voor informatie over de configuratie.
     
-    3. Haal bepaalde gegevens van uw opslagaccount op die zijn gekoppeld aan uw Azure-media-account met behulp van [Azure Portal](https://portal.azure.com/). Specifiek gaat het om de naam en sleutel, en de naam van de opslag-blob-container waarin u uw inhoud wilt plaatsen. 
+   3. Haal bepaalde gegevens van uw opslagaccount op die zijn gekoppeld aan uw Azure-media-account met behulp van [Azure Portal](https://portal.azure.com/). Specifiek gaat het om de naam en sleutel, en de naam van de opslag-blob-container waarin u uw inhoud wilt plaatsen. 
 
-        * Opslaggegevens ophalen uit de portal: zoek uw opslagaccount, klik op de toegangstoetsen en kopieer de naam en sleutel van uw account.
-        * De containernaam ophalen: zoek uw opslagaccount, selecteer **Blobs**, selecteer de naam van de container waarnaar u de inhoud wilt uploaden. 
+       * Opslaggegevens ophalen uit de portal: zoek uw opslagaccount, klik op de toegangstoetsen en kopieer de naam en sleutel van uw account.
+       * De containernaam ophalen: zoek uw opslagaccount, selecteer **Blobs**, selecteer de naam van de container waarnaar u de inhoud wilt uploaden. 
 
-    Hieronder ziet u een schermafbeelding van **Verbindingsbeheer** van de Aspera-client waarin u het type Azure-opslag en referenties dient op te geven, evenals de blob-container.
+      Hieronder ziet u een schermafbeelding van **Verbindingsbeheer** van de Aspera-client waarin u het type Azure-opslag en referenties dient op te geven, evenals de blob-container.
 
-    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
+      ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
 ## <a name="resources"></a>Resources
 
 De volgende resources zijn vermeld in dit artikel. 
 
-* [Connect Browser Plugin](http://downloads.asperasoft.com/connect2/)
-* [Connect-handleiding](http://downloads.asperasoft.com/en/documentation/8)
-* [Aspera-client](http://downloads.asperasoft.com/en/downloads/2)
-* [Clienthandleiding](http://downloads.asperasoft.com/en/documentation/2)
+* [Connect Browser Plugin](https://downloads.asperasoft.com/connect2/)
+* [Connect-handleiding](https://downloads.asperasoft.com/en/documentation/8)
+* [Aspera-client](https://downloads.asperasoft.com/en/downloads/2)
+* [Clienthandleiding](https://downloads.asperasoft.com/en/documentation/2)
 
 ## <a name="next-steps"></a>Volgende stappen
 

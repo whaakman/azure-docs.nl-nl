@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: dwgeo
-ms.openlocfilehash: 6fc13010d5dd888f28b5634b1f70aaa3326e54cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 71925a1ee67956df45901950b2a59fa4c1b458a7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837504"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260075"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Informatie over hoe clients tokens doorgeven aan de sleutel leveringsservice voor Azure Media Services
 Klanten vragen vaak hoe een speler kunt doorgeven tokens aan de sleutel leveringsservice voor Azure Media Services om te verifiëren, zodat de speler de sleutel kunt verkrijgen. Media Services biedt ondersteuning voor het simple webtoken (SWT) en JSON Web Token (JWT) geformatteerd. Tokenverificatie wordt toegepast op elk type sleutel, ongeacht of u algemene versleuteling of Advanced Encryption Standard (AES) envelop versleuteling in het systeem.

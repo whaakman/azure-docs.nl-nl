@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: b1ea195ab0b06c4ca0fab37fe7e5701229b34938
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 01d36188c1684eae8303cb20ba0fd0c708ff91ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079909"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>De nieuwe verificatie voor uw StorSimple gebruiken
 
@@ -47,7 +47,7 @@ Als u met behulp van StorSimple 8000-serie, zorgt u ervoor dat de volgende URL w
 
 | URL-patroon                         | Cloud | Onderdeel/functionaliteit         |
 |------------------------------------|-------|----------------------------------|
-| `https://login.windows.net`        | Azure openbaar |AAD authentication-service      |
+| `https://login.windows.net`        | Azure Public |AAD authentication-service      |
 | `https://login.microsoftonline.us` | Amerikaanse overheid |AAD authentication-service      |
 
 Voor een volledige lijst van URL voor apparaten uit de StorSimple 8000-serie patronen, gaat u naar [URL-patronen voor firewallregels](storsimple-8000-system-requirements.md#url-patterns-for-firewall-rules).
@@ -59,9 +59,9 @@ Als de verificatie-URL niet in de firewallregels voorbij de afschaffing datum op
 Als een apparaat voor StorSimple 8000-serie gebruikt, gebruikt u de volgende tabel om te bepalen welke actie u dient te ondernemen op basis van de software-versie van het apparaat die wordt uitgevoerd.
 
 | Als uw apparaat wordt uitgevoerd| De volgende actie ondernemen                                    |
-|--------------------------|------------------------|--------------------|--------------------------------------------------------------|
+|--------------------------|------------------------|
 | Update 5 of hoger en het apparaat is offline. <br> U ziet een waarschuwing die URL is niet opgenomen in de whitelist.|1. Wijzig de firewall-regels zodanig dat de verificatie-URL. Zie [verificatie-URL's](#url-changes-for-aad-authentication).<br>2. [De registratiesleutel AAD ophalen van de service](#aad-based-registration-keys).<br>3. [Verbinding maken met de Windows PowerShell-interface van de StorSimple 8000-apparaat](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Gebruik `Redo-DeviceRegistration` cmdlet voor het registreren van het apparaat via de Windows PowerShell. Geef de sleutel die u hebt verkregen in de vorige stap.|
-| Update 5 of hoger en het apparaat online.| Er is geen actie vereist.                                       |
+| Update 5 of hoger en het apparaat online.| Geen actie vereist.                                       |
 | Update 4 of een eerdere versie en het apparaat is offline. |1. Wijzig de firewall-regels zodanig dat de verificatie-URL.<br>2. [Update 5 downloaden via catalogusserver](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Update 5 toepassen via de methode hotfix](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [De registratiesleutel AAD ophalen van de service](#aad-based-registration-keys).<br>5. [Verbinding maken met de Windows PowerShell-interface van de StorSimple 8000-apparaat](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Gebruik `Redo-DeviceRegistration` cmdlet voor het registreren van het apparaat via de Windows PowerShell. Geef de sleutel die u hebt verkregen in de vorige stap.|
 | Update 4 of een eerdere versie en het apparaat is online. |Wijzig de firewall-regels zodanig dat de verificatie-URL.<br> Update 5 installeren via de Azure-portal.              |
 | Fabrieksinstellingen terugzetten naar een versie voordat u Update 5.      |De portal ziet u een basis van AAD-registratiesleutel terwijl het apparaat oudere software wordt uitgevoerd. Volg de stappen in het voorgaande scenario voor wanneer het apparaat Update 4 of ouder wordt uitgevoerd.              |

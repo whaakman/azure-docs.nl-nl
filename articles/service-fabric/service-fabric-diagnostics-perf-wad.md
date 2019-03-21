@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 12ea25b9f1b9f13c153348c285ee6641a69909f0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0ab14d41c149ec6e0ce76d24afb0e88a6af53935
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823175"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884554"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Prestatiebewaking met de Windows Azure Diagnostics-extensie
 
@@ -192,15 +192,15 @@ Hier volgt een voorbeeld van een configuratie met de teller voor het *totale pro
  >[!NOTE]
  >Hoewel u kunt `*` als u groepen van prestatiemeteritems die op dezelfde manier worden genoemd, geen prestatiemeteritems verzenden via een sink (naar Application Insights) vereist dat ze afzonderlijk worden gedeclareerd. 
 
-4. Nadat u de juiste prestatiemeteritems die moeten worden verzameld hebt toegevoegd, moet u uw cluster-bron upgraden zodat deze wijzigingen worden doorgevoerd in uw cluster wordt uitgevoerd. Sla uw gewijzigde `template.json` en open PowerShell. U kunt upgraden uw cluster met `New-AzureRmResourceGroupDeployment`. De aanroep van de naam van de resourcegroep, de bijgewerkte sjabloon-bestand en het parameterbestand vereist en wordt gevraagd om Resource Manager kan de benodigde wijzigingen aanbrengen in de resources die u hebt bijgewerkt. Zodra u zich hebt aangemeld bij uw account en het juiste abonnement, gebruikt u de volgende opdracht om uit te voeren van de upgrade:
+1. Nadat u de juiste prestatiemeteritems die moeten worden verzameld hebt toegevoegd, moet u uw cluster-bron upgraden zodat deze wijzigingen worden doorgevoerd in uw cluster wordt uitgevoerd. Sla uw gewijzigde `template.json` en open PowerShell. U kunt upgraden uw cluster met `New-AzureRmResourceGroupDeployment`. De aanroep van de naam van de resourcegroep, de bijgewerkte sjabloon-bestand en het parameterbestand vereist en wordt gevraagd om Resource Manager kan de benodigde wijzigingen aanbrengen in de resources die u hebt bijgewerkt. Zodra u zich hebt aangemeld bij uw account en het juiste abonnement, gebruikt u de volgende opdracht om uit te voeren van de upgrade:
 
     ```sh
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Zodra de upgrade is voltooid moet (duurt tussen 15 tot 45 minuten afhankelijk van of het de eerste implementatie en de grootte van uw resourcegroep), uitrollen met WAD de prestatiemeteritems verzamelen en deze te verzenden naar de tabel met de naam WADPerformanceCountersTable in het opslagaccount dat is gekoppeld aan het cluster. Zie de prestatiemeteritems in Application Insights door [de AI-Sink toe te voegen aan de Resource Manager-sjabloon](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
+1. Zodra de upgrade is voltooid moet (duurt tussen 15 tot 45 minuten afhankelijk van of het de eerste implementatie en de grootte van uw resourcegroep), uitrollen met WAD de prestatiemeteritems verzamelen en deze te verzenden naar de tabel met de naam WADPerformanceCountersTable in het opslagaccount dat is gekoppeld aan het cluster. Zie de prestatiemeteritems in Application Insights door [de AI-Sink toe te voegen aan de Resource Manager-sjabloon](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Verzamelen van meer prestatiemeteritems voor uw cluster. Zie [maatstaven voor prestaties](service-fabric-diagnostics-event-generation-perf.md) voor een lijst met items die u moet verzamelen.
 * [Gebruik controle en diagnostische gegevens met een Windows-VM en Azure Resource Manager-sjablonen](../virtual-machines/windows/extensions-diagnostics-template.md) naar verdere wijzigingen aanbrengen in uw `WadCfg`, inclusief het configureren van extra opslagaccounts voor het verzenden van diagnostische gegevens.
-* Ga naar de [WadCfg builder](http://azure.github.io/azure-diagnostics-tools/config-builder/) bouwen van een sjabloon maken en zorg ervoor dat de syntaxis juist is.
+* Ga naar de [WadCfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) bouwen van een sjabloon maken en zorg ervoor dat de syntaxis juist is.

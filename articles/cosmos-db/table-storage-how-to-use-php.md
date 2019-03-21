@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
-ms.openlocfilehash: 3ec91b564647e4eda4696a249c77739daff2ece3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: aac6755ed90c795b8fff09d9ffde33878ad21a32
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111494"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>De Azure Storage-tabelservice of de Azure Cosmos DB Table-API gebruiken in PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -44,19 +44,19 @@ In deze handleiding gebruikt u de Azure Storage-tabelservice of Azure Cosmos DB-
 ## <a name="get-the-client-library"></a>De clientbibliotheek ophalen
 
 1. Maak een bestand met de naam composer.json in de hoofdmap van uw project en voeg de volgende code toe:
-```json
-{
-  "require": {
+   ```json
+   {
+   "require": {
     "microsoft/azure-storage-table": "*"
-  }
-}
-```
+   }
+   }
+   ```
 2. Download [composer.phar](https://getcomposer.org/composer.phar) naar de hoofdmap. 
 3. Open een opdrachtprompt en voer de volgende opdracht uit in de hoofdmap van uw project:
-```
-php composer.phar install
-```
-U kunt ook naar de [clientbibliotheek voor PHP voor Azure Storage-tabellen](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) op GitHub gaan om de broncode te klonen.
+   ```
+   php composer.phar install
+   ```
+   U kunt ook naar de [clientbibliotheek voor PHP voor Azure Storage-tabellen](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) op GitHub gaan om de broncode te klonen.
 
 
 ## <a name="add-required-references"></a>Vereiste verwijzingen toevoegen

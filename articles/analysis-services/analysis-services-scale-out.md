@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eae1569cf6f7ada89f64b96fe81b154b84932a12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182843"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293903"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-uitschalen
 
@@ -46,6 +46,8 @@ Wanneer u de volgende scale-out-bewerking uitvoert, bijvoorbeeld zijn het aantal
 * Synchronisatie is toegestaan, zelfs wanneer er zich geen replica's in de query-groep. Als u horizontaal van nul tot een of meer replica's met nieuwe gegevens uit een verwerking op de primaire server schalen worden, eerst de synchronisatie wordt uitgevoerd met geen replica's in de query-groep, en vervolgens scale-out. Synchroniseren voordat horizontaal schalen, voorkomt u redundante hydration van de zojuist toegevoegde replica's.
 
 * Bij het verwijderen van een modeldatabase van de primaire server, deze wordt niet automatisch worden verwijderd uit replica's in de query-groep. U moet een synchronisatiebewerking die Hiermee verwijdert u het bestand/s voor die database van de gedeelde blob-opslaglocatie van de replica en verwijdert vervolgens de modeldatabase op de replica's in de groep query uitvoeren.
+
+* Wanneer de naam van een database op de primaire server, is er een extra stap die nodig zijn om te controleren of dat de database correct wordt gesynchroniseerd met alle replica's. Voer een synchronisatie op te geven na het wijzigen van de naam, de `-Database` parameter met de naam van de oude database. Deze synchronisatie Hiermee verwijdert u de database en de bestanden met de oude naam van een replica's. Voer een andere synchronisatie op te geven de `-Database` parameter met de naam van de nieuwe database. De tweede synchronisatie de nieuwe naam database worden gekopieerd naar de tweede set van bestanden en hydrates alle replica's. Deze synchronisatie kunnen niet worden uitgevoerd met behulp van de opdracht Synchronize-model in de portal.
 
 ### <a name="separate-processing-from-query-pool"></a>Afzonderlijk te verwerken van de querypool
 

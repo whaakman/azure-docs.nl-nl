@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c1a9209537eaee1d107f43c8fc10ea90899c67ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4cb7d04c01ae7173e63778f2768b2f9561dff11d
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842172"
+ms.locfileid: "58200953"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Een volume op basis van Azure-bestanden in een Service Fabric-NET-toepassing koppelen 
 
@@ -119,7 +119,7 @@ Voor het koppelen van het volume in uw service, Voeg een `volumeRefs` naar de `c
       "type": "string",
       "defaultValue": "TestVolumeData",
       "metadata": {
-        "description": "Folder in which to store the state. Provide a empty value to create a unique folder for each container to store the state. A non-empty value will retain the state across deployments, however if more than one applications are using the same folder, the counter may update more frequently."
+        "description": "Folder in which to store the state. Provide an empty value to create a unique folder for each container to store the state. A non-empty value will retain the state across deployments, however if more than one applications are using the same folder, the counter may update more frequently."
       }
     }
   },

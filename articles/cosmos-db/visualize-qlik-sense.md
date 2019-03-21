@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4b37b6cd35526d6a76625dd03d1325f1688e698e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4532962b6fd9f40fad625ab000116e5a617682e5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044464"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258769"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Maak Qlik Sense verbinding met Azure Cosmos DB en Visualiseer uw gegevens
 
@@ -42,9 +42,9 @@ Voordat u de instructies in dit artikel te volgen, moet u dat u de volgende reso
 
 * Download de [videogame gegevens](https://www.kaggle.com/gregorut/videogamesales), deze voorbeeldgegevens is CSV-indeling. U deze gegevens opslaan in een Cosmos DB-account en visualiseren in Qlik Sense.
 
-* Een Azure Cosmos DB SQL API-account maken met behulp van de stappen in [maken van een account](create-sql-api-dotnet.md#create-a-database-account) gedeelte van het quickstart-artikel.
+* Een Azure Cosmos DB SQL API-account maken met behulp van de stappen in [maken van een account](create-sql-api-dotnet.md#create-account) gedeelte van het quickstart-artikel.
 
-* [Een database en een verzameling maken](create-sql-api-dotnet.md#add-a-collection) – u kunt gebruiken de doorvoercapaciteit van de verzameling ingesteld op 1000 RU/s. 
+* [Een database en een verzameling maken](create-sql-api-dotnet.md#create-collection-database) – u kunt gebruiken de doorvoercapaciteit van de verzameling ingesteld op 1000 RU/s. 
 
 * Het voorbeeld videogame verkoop gegevens laden in uw Cosmos DB-account. U kunt de gegevens importeren met behulp van Azure Cosmos DB-hulpprogramma voor migratie van gegevens, kunt u een [opeenvolgende](import-data.md#SQLSeqTarget) of een [bulkimport](import-data.md#SQLBulkTarget) van gegevens. Het duurt ongeveer 3 tot 5 minuten om de gegevens te importeren naar het Cosmos DB-account.
 

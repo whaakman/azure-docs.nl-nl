@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 39d0813eab49f526842eec171e3355326bd13c44
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 91325b7884eae4c6f4c85c142b1e81cf2121c039
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727799"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295331"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>De volgorde voor het implementeren van resources in Azure Resource Manager-sjablonen definiëren
 Voor een bepaalde resource, kunnen er andere resources die moeten bestaan voordat de resource is geïmplementeerd. Bijvoorbeeld, moet een SQL-server bestaan voordat u probeert te implementeren van een SQL-database. Deze relatie definieert u een resource als afhankelijk van de andere resource markeren. U definieert een afhankelijkheid met de **dependsOn** -element, of met behulp van de **verwijzing** functie. 
@@ -65,7 +65,7 @@ Bij het definiëren van afhankelijkheden, kunt u de naamruimte van de resource p
 Terwijl u kan worden blootgesteld aan dependsOn gebruiken voor het toewijzen van relaties tussen uw resources, is het belangrijk om te begrijpen waarom u dit doet. DependsOn om hoe resources met elkaar zijn verbonden, bijvoorbeeld niet de juiste heeft. U kunt het welke resources zijn gedefinieerd in het element dependsOn na de implementatie kan geen query uitvoeren. Met behulp van dependsOn kunt u mogelijk gevolgen hebben voor implementatietijd omdat Resource Manager niet implementeren in parallelle twee resources die afhankelijk zijn. 
 
 ## <a name="child-resources"></a>Onderliggende resources
-De eigenschap resources kunt u om op te geven van de onderliggende resources die zijn gerelateerd aan de resource wordt gedefinieerd. Onderliggende resources mag alleen bestaan uit gedefinieerde vijf niveaus. Het is belangrijk te weten dat een impliciete afhankelijkheid tussen een onderliggende resource en de bovenliggende resource is niet gemaakt. Als u de onderliggende bron om te worden geïmplementeerd nadat de bovenliggende resource nodig hebt, moet u expliciet worden vermeld die afhankelijkheid met de eigenschap DEPENDSON te maken. 
+De eigenschap resources kunt u om op te geven van de onderliggende resources die zijn gerelateerd aan de resource wordt gedefinieerd. Onderliggende resources mag alleen bestaan uit gedefinieerde vijf niveaus. Het is belangrijk te weten dat een impliciete implementatie afhankelijkheid tussen een onderliggende resource en de bovenliggende resource is niet gemaakt. Als u de onderliggende bron om te worden geïmplementeerd nadat de bovenliggende resource nodig hebt, moet u expliciet worden vermeld die afhankelijkheid met de eigenschap DEPENDSON te maken. 
 
 Elke bovenliggende resource accepteert alleen bepaalde resourcetypen als onderliggende resources. De toegestane resourcetypen zijn opgegeven in de [sjabloonschema](https://github.com/Azure/azure-resource-manager-schemas) van de bovenliggende resource. De naam van het type van onderliggende resource bevat de naam van het type van de bovenliggende resource, zoals **Microsoft.Web/sites/config** en **Microsoft.Web/sites/extensions** zijn beide onderliggende resources van de **Microsoft.Web/sites**.
 

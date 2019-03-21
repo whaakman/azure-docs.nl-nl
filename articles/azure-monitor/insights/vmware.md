@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 7d02f5b592600cf7efd0980c1284e8c724cd1f5b
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ece6c7048100a8204bfc067d9d57854b1d83c9b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195146"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074910"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>De oplossing VMware Monitoring (afgeschaft) in Azure Monitor
 
@@ -195,13 +195,13 @@ Kunnen er meerdere redenen zijn:
   1. Log Analytics luistert naar de 1514-poort. Om te controleren dat geopend is, moet u de volgende opdracht uitvoeren: `netstat -a | grep 1514`
   1. U ziet nu poort `1514/tcp` openen. Als u dit niet doet, moet u controleren of de omsagent correct is geïnstalleerd. Als u de informatie over de poort niet ziet, klikt u vervolgens is de syslog-poort niet geopend op de virtuele machine.
 
-    a. Controleren of de Log Analytics-agent wordt uitgevoerd met behulp van `ps -ef | grep oms`. Als deze niet wordt uitgevoerd, het proces starten met de opdracht ` sudo /opt/microsoft/omsagent/bin/service_control start`
+     a. Controleren of de Log Analytics-agent wordt uitgevoerd met behulp van `ps -ef | grep oms`. Als deze niet wordt uitgevoerd, het proces starten met de opdracht ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
-    b. Open het `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`-bestand.
+     b. Open het `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`-bestand.
 
-    c. Controleer of de juiste gebruiker en de instelling voor het groepsbeleid is geldig, vergelijkbaar met: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+     c. Controleer of de juiste gebruiker en de instelling voor het groepsbeleid is geldig, vergelijkbaar met: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
-    d. Als het bestand bestaat niet of de gebruiker en de instelling voor het groepsbeleid onjuist is, neemt u corrigerende maatregelen door [een Linux-server voorbereiden](#prepare-a-linux-server).
+     d. Als het bestand bestaat niet of de gebruiker en de instelling voor het groepsbeleid onjuist is, neemt u corrigerende maatregelen door [een Linux-server voorbereiden](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Gebruik [query's bijgehouden](../log-query/log-query-overview.md) in Log Analytics om gedetailleerde VMware weer te geven gegevens te hosten.

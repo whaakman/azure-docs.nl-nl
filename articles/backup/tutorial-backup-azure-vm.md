@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f923589d0ca000e7dfa8d28b1cbeeb8c6e07f25c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 85e5fc7e1c8a4561b51afaf0d665fedb6d9cde1f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835398"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258374"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Back-up van virtuele Azure-machines met PowerShell
 
@@ -87,9 +87,9 @@ Back-ups uitgevoerd volgens de planning die is opgegeven in de back-upbeleid. Al
 
 Als u wilt inschakelen en back-up maken van de Azure-VM in deze zelfstudie, doen we het volgende:
 
-1. Geef een container in de kluis waarin de back-upgegevens met [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices.backup/get-Azrecoveryservicesbackupcontainer).
-2. Elke virtuele machine voor back-up is een item. Voor het starten van een back-uptaak u informatie verkrijgen over de virtuele machine met [Get-AzRecoveryServicesBackupItem](/powershell/module/Az.RecoveryServices.Backup/Get-AzRecoveryServicesBackupItem).
-3. Uitvoeren van een ad-hoc back-up met[back-up-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices.backup/backup-Azrecoveryservicesbackupitem). 
+1. Geef een container in de kluis waarin de back-upgegevens met [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. Elke virtuele machine voor back-up is een item. Voor het starten van een back-uptaak u informatie verkrijgen over de virtuele machine met [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+3. Uitvoeren van een ad-hoc back-up met[back-up-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem). 
     - De eerste eerste back-uptaak wordt een volledig herstelpunt gemaakt.
     - Na de eerste back-up van elke back-uptaak worden incrementele herstelpunten gemaakt.
     - Incrementele herstelpunten zijn efficiënt qua opslag en tijd aangezien ze alleen wijzigingen bevatten die sinds de laatste back-up zijn doorgevoerd.

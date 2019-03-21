@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/13/2019
+ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: 96bd9e679e1766e87a0bb807204df744bb3cca95
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ae55f2abf9815174e7258c2ace949078794c380d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897704"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286190"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
@@ -31,7 +31,7 @@ Application Gateway biedt ondersteuning voor automatisch schalen, SSL-offloading
 
 ### <a name="what-is-the-difference-between-application-gateway-and-azure-load-balancer"></a>Wat is het verschil tussen de Application Gateway en Azure Load Balancer?
 
-Application Gateway is een layer 7 load balancer, wat betekent dat het werkt met alleen webverkeer (HTTP/HTTPS/WebSocket). Het ondersteunt mogelijkheden zoals SSL-beëindiging, sessieaffiniteit op basis van een cookie en round robin voor taakverdeling van verkeer. Load Balancer laden saldo verkeer op laag 4 (TCP/UDP).
+Application Gateway is een layer 7 load balancer, wat betekent dat het werkt met alleen webverkeer (HTTP/HTTPS/WebSocket/HTTP/2). Het ondersteunt mogelijkheden zoals SSL-beëindiging, sessieaffiniteit op basis van een cookie en round robin voor taakverdeling van verkeer. Load Balancer laden saldo verkeer op laag 4 (TCP/UDP).
 
 ### <a name="what-protocols-does-application-gateway-support"></a>Welke protocollen ondersteunt Application Gateway?
 
@@ -39,19 +39,11 @@ Application Gateway biedt ondersteuning voor HTTP, HTTPS, HTTP/2 en WebSocket.
 
 ### <a name="how-does-application-gateway-support-http2"></a>Hoe biedt Application Gateway ondersteuning voor HTTP/2?
 
-Ondersteuning voor HTTP/2-protocol is beschikbaar voor clients verbinding maken met application gateway alleen listeners. De communicatie met de back-endserverpools is via HTTP/1.1. 
-
-Ondersteuning voor HTTP/2 is standaard uitgeschakeld. De volgende Azure PowerShell-codefragment codevoorbeeld laat zien hoe u deze kunt inschakelen:
-
-```azurepowershell
-$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
-$gw.EnableHttp2 = $true
-Set-AzApplicationGateway -ApplicationGateway $gw
-```
+Zie [ondersteuning voor HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support) voor meer informatie over hoe Application gateway ondersteunt het HTTP/2-protocol.
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Welke bronnen worden momenteel ondersteund als onderdeel van de back-endpool?
 
-Back-endpools kunnen bestaan uit NIC's, virtuele-machineschaalsets, openbare IP-adressen, namen van interne IP-adressen, de volledig gekwalificeerde domeinnaam (FQDN) en multitenant back-ends, zoals Azure Appservice. Back-endpoolleden voor Application Gateway zijn niet gekoppeld aan een beschikbaarheidsset. Leden van de back-endpools kunnen zich in meerdere computerclusters, datacenters, of buiten Azure, zolang ze IP-connectiviteit hebben.
+Zie [ondersteund back-endresources](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pool) voor meer informatie over welke bronnen worden ondersteund door Application gateway.
 
 ### <a name="what-regions-is-the-service-available-in"></a>Welke regio's is de service beschikbaar is in?
 
@@ -104,9 +96,7 @@ Met een combinatie van Standard_v2 en Standard Application Gateway in hetzelfde 
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway biedt ondersteuning voor x doorgestuurd voor headers?
 
-Ja, voegt de Application Gateway x doorgestuurd voor x-doorgestuurd-protocol en x-doorgestuurd-poort kopteksten in de aanvraag doorgestuurd naar de back-end. De indeling voor x-doorgestuurd-voor-header is een door komma's gescheiden lijst met IP: poort. De geldige waarden voor de x-doorgestuurd-protocol zijn http of https. X-doorgestuurd-poort geeft de poort waarop de aanvraag bij de application gateway is bereikt.
-
-Application Gateway voegt ook X-oorspronkelijke-Host-header met de oorspronkelijke Host-header waarmee de aanvraag is ontvangen. Deze header is handig in scenario's zoals de integratie van Azure-Website, waar de binnenkomende host-header is gewijzigd voordat het verkeer wordt doorgestuurd naar de back-end.
+Ja. Zie [wijzigingen aan te vragen](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request) voor meer informatie over de x-doorgestuurd-voor-headers die door Application Gateway ondersteund.
 
 ### <a name="how-long-does-it-take-to-deploy-an-application-gateway-does-my-application-gateway-still-work-when-being-updated"></a>Hoe lang duurt het implementeren van een Application Gateway? Mijn Application-Gateway nog steeds werkt wanneer wordt bijgewerkt?
 
@@ -114,15 +104,47 @@ Nieuwe Application Gateway v1-SKU-implementaties kunnen maximaal 20 minuten dure
 
 V2-SKU-implementaties kunnen ongeveer vijf of zes minuten duren om in te richten.
 
+### <a name="can-exchange-server-be-used-as-backend-with-application-gateway"></a>Kan de Exchange-server worden gebruikt als back-end met Application Gateway?
+
+Application Gateway ondersteunt niet het geval is, geen e-mailprotocollen zoals SMTP, IMAP en POP3. 
+
+## <a name="performance"></a>Prestaties
+
+### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Hoe ondersteunt Application Gateway hoge beschikbaarheid en schaalbaarheid?
+
+De v1-SKU van Application Gateway biedt ondersteuning voor scenario's voor hoge beschikbaarheid als er twee of meer instanties zijn geïmplementeerd. Deze instanties verdeelt Azure over update- en foutdomeinen domeinen om ervoor te zorgen dat alle exemplaren niet op hetzelfde moment mislukken. De v1-SKU biedt ondersteuning voor schaalbaarheid door meerdere exemplaren van dezelfde gateway voor het delen van de belasting toe te voegen.
+
+De v2-SKU zorgt automatisch voor dat nieuwe exemplaren worden verdeeld over foutdomeinen en updatedomeinen. Als zoneredundantie is gekozen, worden ook de nieuwste exemplaren verdeeld in meerdere beschikbaarheidszones zonegebonden fout flexibiliteit bieden.
+
+### <a name="how-do-i-achieve-dr-scenario-across-data-centers-with-application-gateway"></a>Hoe kan ik een herstel na noodgevallen in datacenters met Application Gateway?
+
+Klanten kunnen Traffic Manager gebruiken om het verkeer verdelen over meerdere Toepassingsgateways in verschillende datacenters.
+
+### <a name="is-autoscaling-supported"></a>Is de ondersteuning voor automatisch schalen?
+
+Ja, de v2-SKU van Application Gateway biedt ondersteuning voor automatisch schalen. Zie voor meer informatie, [automatisch schalen en Zone-redundante Application Gateway (openbare Preview)](application-gateway-autoscaling-zone-redundant.md).
+
+### <a name="does-manual-scale-updown-cause-downtime"></a>Handmatig schalen wordt omhoog/omlaag oorzaak downtime?
+
+Er is geen downtime. Exemplaren worden verdeeld over upgrade-domeinen en domeinen met fouten.
+
+### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway ondersteunt verwerkingsstop?
+
+Ja. U kunt configureren als u wilt wijzigen van de leden in een back endpool zonder onderbreking Verwerkingsstop voor verbindingen. Hiermee kunt bestaande verbindingen om door te gaan naar de vorige bestemming worden verzonden totdat de verbinding is gesloten of een configureerbare time-out is verlopen. Wacht alleen Verwerkingsstop voor verbindingen voor de huidige actieve verbindingen om te voltooien. Application Gateway is niet op de hoogte van de sessiestatus van toepassing.
+
+### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Kan ik instantiegrootte van middelgrote tot grote zonder onderbreking wijzigen?
+
+Ja, wordt Azure exemplaren verspreid over update- en foutdomeinen domeinen om ervoor te zorgen dat alle exemplaren niet op hetzelfde moment mislukken. Application Gateway biedt ondersteuning voor schalen door meerdere exemplaren van dezelfde gateway voor het delen van de belasting toe te voegen.
+
 ## <a name="configuration"></a>Configuratie
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Application Gateway altijd geïmplementeerd in een virtueel netwerk?
 
-Ja, Application Gateway altijd geïmplementeerd in een subnet van een virtueel netwerk. Dit subnet mag alleen Application Gateways.
+Ja, Application Gateway altijd geïmplementeerd in een subnet van een virtueel netwerk. Dit subnet mag alleen Application Gateways. Zie [virtuele netwerk en subnet vereisten](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet) om te begrijpen van de subnet-overwegingen voor Application Gateway.
 
-### <a name="can-application-gateway-communicate-with-instances-outside-its-virtual-network"></a>Kan Application Gateway communiceren met exemplaren buiten het virtuele netwerk?
+### <a name="can-application-gateway-communicate-with-instances-outside-of-the-virtual-network-it-is-in-or-outside-of-the-subscription-it-is-in"></a>Kan Application Gateway communiceren met instanties buiten het virtuele netwerk in of buiten het abonnement dat deel uitmaakt van?
 
-Application Gateway kan communiceren met instanties buiten het virtuele netwerk dat deel uitmaakt, zolang er een IP-verbinding is. Als u van plan bent om te gebruiken van interne IP-adressen als back-endpoolleden, wordt hiervoor [VNET-Peering](../virtual-network/virtual-network-peering-overview.md) of [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Application Gateway kan communiceren met instanties buiten het virtuele netwerk dat deze zich in of buiten het abonnement dat deel uitmaakt, zolang er een IP-verbinding is. Als u van plan bent om te gebruiken van interne IP-adressen als back-endpoolleden, wordt hiervoor [VNET-Peering](../virtual-network/virtual-network-peering-overview.md) of [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Kan ik iets anders in het subnet van de gateway implementeren?
 
@@ -140,11 +162,7 @@ Netwerkbeveiligingsgroepen (nsg's) worden ondersteund op het subnet van de gatew
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>Worden de gebruiker gedefinieerde routes ondersteund op het subnet van de gateway?
 
-Gebruiker gedefinieerde routes (udr's) worden ondersteund op het subnet van de gateway, zolang ze de end-to-end verzoek/reactie-communicatie niet wijzigen.
-
-Bijvoorbeeld, u kunt een UDR in het subnet van de gateway instellen om te verwijzen naar een firewallapparaat voor pakketinspecties uitvoeren, maar moet u ervoor zorgen dat het pakket de inspectie van de bestemming van het bericht kan bereiken. Dit niet doet, kan leiden tot onjuiste health test of verkeer omleiden gedrag. Dit omvat geleerde routes of 0.0.0.0/0 standaardroutes doorgegeven door ExpressRoute of VPN-Gateways in het virtuele netwerk.
-
-Udr's op het subnet van de gateway zijn **niet** ondersteund op de v2-SKU. Zie voor meer informatie, [automatisch schalen en Zone-redundante Application Gateway (openbare Preview)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations).
+Zie [beperkingen van de gebruiker gedefinieerde routes](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet) voor meer informatie over de gebruiker gedefinieerde routes die wordt ondersteund op het subnet van de gateway.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Wat zijn de limieten in Application Gateway? Kan ik deze limieten verhogen?
 
@@ -180,51 +198,13 @@ Veld host Hiermee geeft u de naam van de test om te verzenden. Van toepassing al
 
 ### <a name="can-i-whitelist-application-gateway-access-to-a-few-source-ips"></a>Kan ik de lijst met toegestane adressen Application Gateway toegang tot een paar bron-IP's?
 
-In dit scenario kan worden gedaan met nsg's op het subnet van de gateway. De volgende beperkingen moeten worden geplaatst op het subnet in de vermelde volgorde van prioriteit:
-
-* Toestaan van binnenkomend verkeer van bron-IP/IP-bereik.
-
-* Toestaan van binnenkomende aanvragen van alle bronnen op poorten 65503 65534 voor [back-end health communicatie](application-gateway-diagnostics.md). Dit poortbereik is vereist voor communicatie met Azure-infrastructuur. Ze zijn beveiligd (vergrendeld) met Azure-certificaten. Zonder de juiste certificaten kunnen zich externe entiteiten, inclusief de klanten van deze gateways, niet kunnen initiëren wijzigingen op de eindpunten.
-
-* Toestaan van binnenkomende Azure Load Balancer-tests (tag AzureLoadBalancer) en binnenkomend verkeer in virtuele netwerken (VirtualNetwork-tag) op de [NSG](../virtual-network/security-overview.md).
-
-* Alle andere binnenkomende verkeer met een weigeren alle regel blokkeren.
-
-* Sta uitgaand verkeer naar internet voor alle bestemmingen.
+Ja. Zie [toegang beperken tot specifieke bron-IP-adressen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips) wilt weten hoe u om ervoor te zorgen dat alleen goedgekeurde bron-IP's toegang tot de toepassingsgateway.
 
 ### <a name="can-the-same-port-be-used-for-both-public-and-private-facing-listeners"></a>Kan de dezelfde poort worden gebruikt voor zowel openbare als persoonlijke gerichte listeners?
 
 Nee, dit wordt niet ondersteund.
 
-## <a name="performance"></a>Prestaties
-
-### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Hoe ondersteunt Application Gateway hoge beschikbaarheid en schaalbaarheid?
-
-De v1-SKU van Application Gateway biedt ondersteuning voor scenario's voor hoge beschikbaarheid als er twee of meer instanties zijn geïmplementeerd. Deze instanties verdeelt Azure over update- en foutdomeinen domeinen om ervoor te zorgen dat alle exemplaren niet op hetzelfde moment mislukken. De v1-SKU biedt ondersteuning voor schaalbaarheid door meerdere exemplaren van dezelfde gateway voor het delen van de belasting toe te voegen.
-
-De v2-SKU zorgt automatisch voor dat nieuwe exemplaren worden verdeeld over foutdomeinen en updatedomeinen. Als zoneredundantie is gekozen, worden ook de nieuwste exemplaren verdeeld in meerdere beschikbaarheidszones zonegebonden fout flexibiliteit bieden.
-
-### <a name="how-do-i-achieve-dr-scenario-across-data-centers-with-application-gateway"></a>Hoe kan ik een herstel na noodgevallen in datacenters met Application Gateway?
-
-Klanten kunnen Traffic Manager gebruiken om het verkeer verdelen over meerdere Toepassingsgateways in verschillende datacenters.
-
-### <a name="is-autoscaling-supported"></a>Is de ondersteuning voor automatisch schalen?
-
-Ja, de v2-SKU van Application Gateway biedt ondersteuning voor automatisch schalen. Zie voor meer informatie, [automatisch schalen en Zone-redundante Application Gateway (openbare Preview)](application-gateway-autoscaling-zone-redundant.md).
-
-### <a name="does-manual-scale-updown-cause-downtime"></a>Handmatig schalen wordt omhoog/omlaag oorzaak downtime?
-
-Er is geen downtime. Exemplaren worden verdeeld over upgrade-domeinen en domeinen met fouten.
-
-### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway ondersteunt verwerkingsstop?
-
-Ja. U kunt configureren als u wilt wijzigen van de leden in een back endpool zonder onderbreking Verwerkingsstop voor verbindingen. Hiermee kunt bestaande verbindingen om door te gaan naar de vorige bestemming worden verzonden totdat de verbinding is gesloten of een configureerbare time-out is verlopen. Wacht alleen Verwerkingsstop voor verbindingen voor de huidige actieve verbindingen om te voltooien. Application Gateway is niet op de hoogte van de sessiestatus van toepassing.
-
-### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Kan ik instantiegrootte van middelgrote tot grote zonder onderbreking wijzigen?
-
-Ja, wordt Azure exemplaren verspreid over update- en foutdomeinen domeinen om ervoor te zorgen dat alle exemplaren niet op hetzelfde moment mislukken. Application Gateway biedt ondersteuning voor schalen door meerdere exemplaren van dezelfde gateway voor het delen van de belasting toe te voegen.
-
-## <a name="ssl-configuration"></a>SSL-configuratie
+## <a name="configuration---ssl"></a>Configuratie - SSL
 
 ### <a name="what-certificates-are-supported-on-application-gateway"></a>Welke certificaten worden ondersteund in Application Gateway?
 
@@ -294,7 +274,11 @@ Certificaten worden maximaal 10 verificatie ondersteund met een standaardwaarde 
 
 Nee, is het niet geïntegreerd met Azure Key Vault.
 
-## <a name="web-application-firewall-waf-configuration"></a>Web Application Firewall (WAF)-configuratie
+### <a name="how-to-configure-https-listeners-for-com-and-net-sites"></a>Het configureren van HTTP-luisteraars voor .com en .net sites? 
+
+Voor meerdere op basis van een domein (op een host gebaseerde) routering, kunt u multi-site-listeners maken, kiest u HTTPS als het protocol in de listenerconfiguratie en de listeners koppelen aan de regels voor doorsturen. Zie voor meer informatie, [meerdere sites met Application Gateway hosten](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview). 
+
+## <a name="configuration---web-application-firewall-waf"></a>Configuratie - Web Application Firewall (WAF)
 
 ### <a name="does-the-waf-sku-offer-all-the-features-available-with-the-standard-sku"></a>Biedt de WAF-SKU alle functies die beschikbaar zijn met de standaard-SKU?
 

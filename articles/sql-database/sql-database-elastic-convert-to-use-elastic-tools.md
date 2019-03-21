@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 49686e407b2d733c04bad31706c6c4f315bf28bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455589"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008673"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Bestaande databases migreren voor uitschalen
 Uw bestaande uitgeschaalde shard databases met behulp van Azure SQL Database-hulpprogramma's voor databases eenvoudig te beheren (zoals de [Elastic Database-clientbibliotheek](sql-database-elastic-database-client-library.md)). Converteert u eerst een bestaande set met databases te gebruiken de [shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md). 
@@ -30,7 +30,7 @@ Voor het migreren van een bestaande shard-database:
 3. Bereid de afzonderlijke shards.  
 4. Toewijzingen toevoegen aan de shard-toewijzing.
 
-Deze technieken kunnen worden geïmplementeerd met behulp van de [.NET Framework-clientbibliotheek](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), of de PowerShell-scripts gevonden op [Azure SQL DB - scripts voor Elastic Database-hulpprogramma's](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Deze voorbeelden gebruiken de PowerShell-scripts.
+Deze technieken kunnen worden geïmplementeerd met behulp van de [.NET Framework-clientbibliotheek](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), of de PowerShell-scripts gevonden op [Azure SQL DB - scripts voor Elastic Database-hulpprogramma's](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Deze voorbeelden gebruiken de PowerShell-scripts.
 
 Zie voor meer informatie over de ShardMapManager [Shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md). Zie voor een overzicht van de hulpprogramma's voor elastische databases, [Functieoverzicht Elastic Database](sql-database-elastic-scale-introduction.md).
 

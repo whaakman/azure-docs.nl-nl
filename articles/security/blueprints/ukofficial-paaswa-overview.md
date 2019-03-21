@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7f67b7363719f544c485503e0f8207bb1f1078ce
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244703"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891100"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-beveiliging en naleving blauwdruk: PaaS-webtoepassing die als host fungeert voor de officiële Workloads groot-Brittannië
 
@@ -168,7 +168,7 @@ Gedetailleerde informatie over het beveiligen van Azure Storage vindt u de [beve
 
 ### <a name="monitoring-logging-and-audit"></a>Bewaking, logboekregistratie en controle
 
-#### <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
+#### <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 
 [Logboeken in Azure Monitor](https://azure.microsoft.com/services/log-analytics/) is een service in Azure waarmee u kunt verzamelen en analyseren van gegevens die worden gegenereerd door resources in uw cloud en on-premises omgevingen.
 
@@ -219,7 +219,7 @@ De Cloud Security Alliance (CSA) gepubliceerd bovendien de Cloud Control Matrix 
 
 Deze blauwdruk is gecontroleerd door de UK nationale Cyber Security Center (NCSC) en overeenstemt met de NCSC 14 Cloud Security Principles
 
-De automation-sjablonen zijn getest door het team UK klant succes eenheid Azure Cloud Solution Architect en onze partner van Microsoft, [Ampliphae](http://www.ampliphae.com/).
+De automation-sjablonen zijn getest door het team UK klant succes eenheid Azure Cloud Solution Architect en onze partner van Microsoft, [Ampliphae](https://www.ampliphae.com/).
 
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren

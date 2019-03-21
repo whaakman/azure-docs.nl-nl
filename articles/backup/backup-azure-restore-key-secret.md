@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
-ms.openlocfilehash: c5a26de703c97878352ff5fbffdb44f6fca682a6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d138d8a8395fc3e9523c62dfd1636fcdcb10c8c4
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875954"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258850"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Key Vault-sleutel en -geheim voor versleutelde virtuele machines met behulp van Azure back-up terugzetten
 In dit artikel vertelt over het gebruik van Azure VM Backup voor herstel van versleutelde virtuele machines van Azure uitvoeren als uw sleutel en -geheim niet bestaan in de key vault. Deze stappen kunnen ook worden gebruikt als u wilt behouden een afzonderlijk exemplaar van de sleutel (Key-versleutelingssleutel) en -geheim (BitLocker-versleutelingssleutel) voor de herstelde virtuele machine.
@@ -128,7 +128,7 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 > [!NOTE]
 > * Waarde voor $secretname kan worden verkregen door te verwijzen naar de uitvoer van $rp1. KeyAndSecretDetails.SecretUrl en tekst met na geheimen / bijvoorbeeld geheim van de uitvoer-URL is https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 en geheime naam B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * Waarde van de tag DiskEncryptionKeyFileName is gelijk aan de geheime naam.
-> * Waarde voor DiskEncryptionKeyEncryptionKeyURL kan worden verkregen vanuit key vault na het herstellen van de sleutels terug en het gebruik van [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/get-azurekeyvaultkey) cmdlet
+> * Waarde voor DiskEncryptionKeyEncryptionKeyURL kan worden verkregen vanuit key vault na het herstellen van de sleutels terug en het gebruik van [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet
 >
 >
 

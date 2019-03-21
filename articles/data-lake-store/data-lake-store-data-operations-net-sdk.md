@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 929ce0d984e53586c46f15f21b9e5c90c6a34771
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 0a6cfc5ca9a0b788075f4472649a6e1bcdf87637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402299"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119493"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Bestandssysteembewerkingen in Azure Data Lake Storage Gen1 met .NET SDK
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Dit codevoorbeeld beschikbaar [in GitHub](https://github.com/Azure-Samples/data-
 2. Klik in het menu **File** op **New** en klik vervolgens op **Project**.
 3. In **New Project** typt of selecteert u de volgende waarden:
 
-   | Eigenschap | Waarde |
+   | Eigenschap | Value |
    | --- | --- |
    | Categorie |Templates/Visual C#/Windows |
    | Template |Console Application |
@@ -62,7 +62,7 @@ Dit codevoorbeeld beschikbaar [in GitHub](https://github.com/Azure-Samples/data-
       * `Microsoft.Azure.DataLake.Store`: in deze zelfstudie wordt versie 1.0.0 gebruikt.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication`: in deze zelfstudie wordt versie 2.3.1 gebruikt.
     
-    Sluit de **NuGet Package Manager**.
+      Sluit de **NuGet Package Manager**.
 
 6. Open **Program.cs**, verwijder de bestaande code en neem de volgende instructies op om verwijzingen naar naamruimten toe te voegen.
 
@@ -90,7 +90,7 @@ Dit codevoorbeeld beschikbaar [in GitHub](https://github.com/Azure-Samples/data-
 
 In de rest van het artikel ziet u het gebruik van de beschikbare .NET-methoden voor het uitvoeren van bewerkingen, zoals verificatie, het uploaden van bestanden enzovoort.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 * Zie voor verificatie van eindgebruikers voor uw toepassing, [eindgebruikersverificatie met Data Lake Storage Gen1 met .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 * Zie voor service-naar-serviceverificatie voor uw toepassing, [Service-naar-serviceverificatie met Data Lake Storage Gen1 met .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).

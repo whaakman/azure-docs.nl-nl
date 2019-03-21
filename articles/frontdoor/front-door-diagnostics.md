@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: d409d451385ba1f88189b12cf372845e70a87429
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 5d4d591c465cae91c59e8f86ea9d3e421db0f952
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112106"
 ---
 # <a name="monitoring-metrics-for-front-door"></a>Metrische gegevens controleren voor de voordeur
 
@@ -59,7 +59,7 @@ Activiteitenlogboeken weergeven:
 3. Selecteer het gewenste filterbereik en klik op **Toepassen**.
 
 ## <a name="diagnostic-logging"></a>Diagnostische logboeken
-Diagnoselogboeken bieden uitgebreide informatie over bewerkingen en fouten die belangrijk zijn voor zowel controles als het oplossen van problemen. Diagnoselogboeken verschillen van activiteitenlogboeken. Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd op uw Azure-resources. Diagnoselogboeken bieden inzicht in bewerkingen die door de resources zelf zijn uitgevoerd. Meer informatie over [diagnostische logboeken van Azure Monitor](..\azure-monitor\platform\diagnostic-logs-overview.md). 
+Diagnoselogboeken bieden uitgebreide informatie over bewerkingen en fouten die belangrijk zijn voor zowel controles als het oplossen van problemen. Diagnoselogboeken verschillen van activiteitenlogboeken. Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd op uw Azure-resources. Diagnoselogboeken bieden inzicht in bewerkingen die door de resources zelf zijn uitgevoerd. Meer informatie over [diagnostische logboeken van Azure Monitor](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
 Diagnostische logboeken configureren voor uw voordeur:
 

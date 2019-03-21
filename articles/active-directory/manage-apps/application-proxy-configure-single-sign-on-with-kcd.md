@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b82f32477efb2e45eb95651dd21ccd2ae3095e7c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5c7744ba4ca37a2a496c75a50f274be9bf431cc5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431306"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286581"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Beperkte Kerberos-delegering voor single sign-on bij uw apps met Application Proxy
 
@@ -37,7 +37,7 @@ In dit diagram wordt de stroom uitgelegd wanneer een gebruiker probeert te krijg
 1. De gebruiker voert de URL voor toegang tot de on-premises-toepassing via Application Proxy.
 2. Application Proxy stuurt de aanvraag naar Azure AD authentication-services kunnen worden. Azure AD van toepassing op dit moment voor alle van toepassing verificatie en autorisatiebeleid, zoals meervoudige verificatie. Als de gebruiker is gevalideerd, wordt Azure AD wordt een token gemaakt en verzendt ze naar de gebruiker.
 3. De gebruiker wordt het token doorgegeven aan Application Proxy.
-4. Valideert het token Application Proxy en de User Principal Name (UPN) opgehaald uit het en stuurt de aanvraag, de UPN en de Service Principal Name (SPN) naar de Connector via een beveiligd kanaal voor zowel geverifieerde.
+4. Toepassingsproxy valideert het token en de User Principal Name (UPN) opgehaald uit het, en vervolgens de Connector haalt de UPN en de Service SPN (Principal Name) via een beveiligd kanaal voor zowel geverifieerde.
 5. De Connector wordt Kerberos-beperkte delegatie (KCD)-onderhandeling met de on-premises AD, het imiteren van de gebruiker om op te halen van een Kerberos-token naar de toepassing uitgevoerd.
 6. Active Directory, verzendt de Kerberos-token voor de toepassing naar de Connector.
 7. De Connector verzendt de oorspronkelijke aanvraag naar de application server, met behulp van het Kerberos-token dat het ontvangen van AD.

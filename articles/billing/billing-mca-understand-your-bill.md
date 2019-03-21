@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 9e43d122bfb758e2e9e14db2ef200cbf3adbefcb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f93152ae3db926fb989c219d1e515abaf0281bf4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340402"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837878"
 ---
 # <a name="understand-the-charges-on-your-microsoft-customer-agreements-invoice"></a>Meer informatie over de kosten op uw Microsoft-KLANTOVEREENKOMST factuur
 
@@ -178,7 +178,7 @@ Als u uw factuur al hebt betaald, kunt u de status van de betaling op de pagina 
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Contact opnemen
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Volgende stappen
 

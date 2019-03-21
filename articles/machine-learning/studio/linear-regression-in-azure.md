@@ -1,21 +1,21 @@
 ---
-title: Analytics vanuit Excel migreren naar Azure Machine Learning Studio
+title: Migratie-analyses voor Excel
 titleSuffix: Azure Machine Learning Studio
 description: Een vergelijking van de lineaire regressiemodellen in Excel en in Azure Machine Learning Studio
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 706fe0afb004109ee591eab0efe99cadf9045d33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447651"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864827"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Analytics vanuit Excel migreren naar Azure Machine Learning Studio
 
@@ -102,11 +102,11 @@ Onze oplossing is om onze regressiemodel Machine Learning door te maken van een 
 
 De *Web Services-Dashboard* sectie bevat een downloadbare Excel-werkmap. De werkmap wordt vooraf ingestelde geleverd met de web service-API en schema-informatie ingesloten. Wanneer u klikt op *Excel-werkmap downloaden*, wordt de werkmap geopend en kunt u deze opslaan op uw lokale computer. 
 
-![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
+![Excel-werkmap downloaden via het Web Services-Dashboard](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
 
 Met de werkmap is geopend, kopieert u de vooraf gedefinieerde parameters in de sectie blauw, zoals hieronder weergegeven. Zodra de parameters worden ingevoerd, Excel worden aangeroepen met de Machine Learning-webservice en de voorspelde scored labels worden weergegeven in de sectie met groene voorspelde waarden. De werkmap blijven maken van voorspellingen voor parameters die op basis van het getrainde model voor alle rij items ingevoerd onder Parameters. Zie voor meer informatie over het gebruik van deze functie [gebruiken van een Azure Machine Learning-webservice uit Excel](consuming-from-excel.md). 
 
-![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
+![Sjabloon Excel-werkmap verbinding maken met de geïmplementeerde webservice](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>Optimalisatie en verdere experimenten
 Nu dat we een basislijn met onze Excel-gegevensmodel hebben gehad, verplaatst we verder naar het optimaliseren van de Machine Learning-Model voor lineaire regressie. We hebben gebruikt de module [Functieselectie op basis van een Filter] [ filter-based-feature-selection] voor het verbeteren van onze selectie van de initiële gegevens-elementen en het heeft ons geholpen een prestatieverbetering van 4.6% bereiken Mean Absolute Error. We gebruiken deze functie die kan ons weken opslaan in de gegevenskenmerken te vinden van de juiste set met functies die moeten worden gebruikt voor het maken van modellering doorlopen voor toekomstige projecten. 
@@ -132,13 +132,9 @@ De mogelijkheid om over te dragen de voorspellende analytische prognoses maken v
 ## <a name="resources"></a>Resources
 Hier volgen enkele resources voor u werken met regressie te helpen: 
 
-* Regressie in Excel. Als u nooit regressie in Excel hebt geprobeerd, met deze zelfstudie kunt eenvoudig kunnen worden gebruikt: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
+* Regressie in Excel. Als u nooit regressie in Excel hebt geprobeerd, met deze zelfstudie kunt eenvoudig kunnen worden gebruikt: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
 * Regressie vs prognose. Tyler Chessman geschreven een blogartikel waarin wordt uitgelegd hoe u uitvoeren op tijden reeks prognoses in Excel, die een goede beginners beschrijving van de lineaire regressie bevat. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Ordinary Least Squares Linear Regression: Beveiligingsfouten, problemen en valkuilen. Voor een inleiding en een beschrijving van de regressie: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
-
-[1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
-[2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png
-
+* Ordinary Least Squares Linear Regression: Beveiligingsfouten, problemen en valkuilen. Voor een inleiding en een beschrijving van de regressie: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->
 [bayesian-linear-regression]: https://msdn.microsoft.com/library/azure/ee12de50-2b34-4145-aec0-23e0485da308/

@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/14/2019
+ms.date: 3/20/2019
 ms.author: mayg
-ms.openlocfilehash: cd486fa504ac819684d8c547e7a0f740b3eed4e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109624"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286343"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Rapport van de Azure Site Recovery-Implementatieplanner voor VMware naar Azure een noodgeval analyseren
 
@@ -279,7 +279,7 @@ Premium P10 of P15 schijf | 8 kB  | 2 MB/s | 168 GB per schijf
 Premium P10 of P15 schijf | 16 kB | 4 MB/s |  336 GB per schijf
 Premium P10 of P15 schijf | 32 kB of meer | 8 MB/s | 672 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 8 kB    | 5 MB/s | 421 GB per schijf
-Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |10 MB/s | 842 GB per schijf
+Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer | 20 MB/s | 1684 GB per schijf
 
 **brongegevensverloop** | **Maximumaantal**
 ---|---

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: e6d2404e6f509c03d2d3965f34d8229de25df4b7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ee28bfebb6732c7bb3b689cf08b9b876adb74b1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114617"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104672"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Quickstart: Linux-computers naar Azure Security Center onboarden
 Nadat u de onboarding van uw Azure-abonnementen hebt uitgevoerd, kunt u Security Center inschakelen voor Linux-resources die buiten Azure worden uitgevoerd, bijvoorbeeld on-premises of in andere clouds, door de Linux-agent in te richten.
@@ -37,7 +37,7 @@ U moet u zich in de Standard-prijscategorie van Security Center bevinden voordat
 1. Meld u aan bij de [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 2. Ga naar het **Microsoft Azure**-menu en selecteer **Security Center**. **Security Center - Overzicht** wordt geopend.
 
- ![Overzicht van Security Center][2]
+   ![Overzicht van Security Center][2]
 
 3. Selecteer in het hoofdmenu van Security Center de optie **Aan de slag**.
 4. Selecteer het tabblad **Aan de slag**. ![Aan de slag][3]
@@ -46,16 +46,16 @@ U moet u zich in de Standard-prijscategorie van Security Center bevinden voordat
 
     ![Niet-Azure-computer toevoegen](./media/quick-onboard-linux-computer/non-azure.png)
 
-6.  Selecteer op de pagina **Agent toewijzen** onder **AGENT VOOR LINUX DOWNLOADEN EN VRIJGEVEN** de knop **Kopiëren** om de opdracht *wget* te kopiëren.
+6. Selecteer op de pagina **Agent toewijzen** onder **AGENT VOOR LINUX DOWNLOADEN EN VRIJGEVEN** de knop **Kopiëren** om de opdracht *wget* te kopiëren.
 
-7.  Open Kladblok en plak deze opdracht. Sla dit bestand op een locatie op die toegankelijk is vanaf uw Linux-computer.
+7. Open Kladblok en plak deze opdracht. Sla dit bestand op een locatie op die toegankelijk is vanaf uw Linux-computer.
 
 ## <a name="install-the-agent"></a>De agent installeren
 
-1.  Open het bestand dat u hebt opgeslagen op uw Linux-computer. Selecteer de volledige inhoud, kopieer de inhoud, open een terminalconsole en plak de opdracht.
-2.  Zodra de installatie is voltooid, kunt u controleren of de *omsagent* is geïnstalleerd door de opdracht *pgrep* uit te voeren. De opdracht retourneert de PID (proces-id) *omsagent*, zoals hieronder wordt weergegeven:
+1. Open het bestand dat u hebt opgeslagen op uw Linux-computer. Selecteer de volledige inhoud, kopieer de inhoud, open een terminalconsole en plak de opdracht.
+2. Zodra de installatie is voltooid, kunt u controleren of de *omsagent* is geïnstalleerd door de opdracht *pgrep* uit te voeren. De opdracht retourneert de PID (proces-id) *omsagent*, zoals hieronder wordt weergegeven:
 
-  ![De agent installeren][5]
+   ![De agent installeren][5]
 
 De logboeken voor de Security Center-agent voor Linux kunt u vinden op: */var/opt/microsoft/omsagent/<workspace id>/log/*
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 7d846f28e78959b6962add51070f04857f6463d7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 201fef6b3e773daa18ae252d1d5734d8d87419b5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852804"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287125"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor verificatie en autorisatie in Azure Kubernetes Service (AKS)
 
@@ -67,7 +67,7 @@ rules:
 Een RoleBinding wordt vervolgens gemaakt dat een binding de Azure AD-gebruiker heeft *developer1\@contoso.com* naar de RoleBinding, zoals wordt weergegeven in de volgende YAML-manifest:
 
 ```yaml
-ind: RoleBinding
+kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: finance-app-full-access-role-binding
@@ -90,7 +90,7 @@ Wanneer *developer1\@contoso.com* wordt geverifieerd op basis van het AKS-cluste
 
 Wanneer schillen toegang hebben tot andere Azure-services, zoals Cosmos DB, Key Vault of Blob Storage moeten, moet de schil referenties voor toegang. Deze referenties voor toegang kunnen worden gedefinieerd met behulp van de containerinstallatiekopie of ingevoerd als een Kubernetes-geheim, maar moeten handmatig worden gemaakt en toegewezen. Vaak de referenties worden hergebruikt voor schillen en zijn niet regelmatig worden gedraaid.
 
-Beheerde identiteiten voor Azure-resources kunnen u automatisch toegang vragen tot services via Azure AD. Kunt u geen referenties handmatig definiëren voor schillen, in plaats daarvan ze een toegangstoken in realtime en deze kunt gebruiken voor toegang tot alleen de services van hun toegewezen. In AKS, worden de twee onderdelen geïmplementeerd door de cluster-operator waarmee schillen om beheerde identiteiten te gebruiken:
+Beheerde identiteiten voor Azure-resources (momenteel geïmplementeerd als een gekoppelde AKS open source-project) kunnen u automatisch toegang vragen tot services via Azure AD. Kunt u geen referenties handmatig definiëren voor schillen, in plaats daarvan ze een toegangstoken in realtime en deze kunt gebruiken voor toegang tot alleen de services van hun toegewezen. In AKS, worden de twee onderdelen geïmplementeerd door de cluster-operator waarmee schillen om beheerde identiteiten te gebruiken:
 
 * **Het knooppunt beheer van identiteit (NMI)-server** is een schil die wordt uitgevoerd als een DaemonSet op elk knooppunt in het AKS-cluster. De NMI-server luistert naar aanvragen van de schil tot Azure-services.
 * **De beheerde identiteit Controller (MIC)** is een centrale schil met machtigingen voor het opvragen van de Kubernetes API-server en wordt gecontroleerd op een Azure-identiteit toewijzen die overeenkomt met een schil.
@@ -105,6 +105,8 @@ In het volgende voorbeeld maakt u een ontwikkelaar een schil die gebruikmaakt va
 1. De NMI-server en de MIC worden geïmplementeerd voor de relay-schil verzoeken om toegangstokens aan Azure AD.
 1. Een ontwikkelaar implementeert een schil met een beheerde identiteit die een toegangstoken via de NMI-server vraagt.
 1. Het token wordt geretourneerd naar de schil en gebruikt voor toegang tot een Azure SQL Server-exemplaar.
+
+Beheerde pod identiteiten is een open-SourceProject van AKS en wordt niet ondersteund door Azure technische ondersteuning. Dit wordt geleverd met het verzamelen van fouten en feedback van onze community. Het project wordt niet aanbevolen voor gebruik in productieomgevingen.
 
 Zie voor het gebruik van de schil identiteiten [Azure Active Directory-identiteiten voor toepassingen met Kubernetes][aad-pod-identity].
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: bee4618ff08c89bbdab7413ca7f7f74a266d96dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115858"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077901"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Quickstart: Windows-computers onboarden naar Azure Security Center
 Nadat u de onboarding van uw Azure-abonnementen hebt uitgevoerd, kunt u Security Center inschakelen voor resources die buiten Azure worden uitgevoerd, bijvoorbeeld on-premises of in andere clouds, door Microsoft Monitoring Agent in te richten.
@@ -37,7 +37,7 @@ U moet u zich in de Standard-prijscategorie van Security Center bevinden voordat
 1. Meld u aan bij de [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 2. Ga naar het **Microsoft Azure**-menu en selecteer **Security Center**. **Security Center - Overzicht** wordt geopend.
 
- ![Overzicht van Security Center][2]
+   ![Overzicht van Security Center][2]
 
 3. Selecteer in het hoofdmenu van Security Center de optie **Aan de slag**.
 4. Selecteer het tabblad **Aan de slag**.
@@ -48,13 +48,13 @@ U moet u zich in de Standard-prijscategorie van Security Center bevinden voordat
 
     ![Niet-Azure-computer toevoegen](./media/quick-onboard-windows-computer/non-azure.png)
 
-  De blade **Agent toewijzen** wordt geopend, met een koppeling om een Windows-agent en sleutels voor uw werkruimte-id te downloaden, zodat u de agent kunt configureren.
+   De blade **Agent toewijzen** wordt geopend, met een koppeling om een Windows-agent en sleutels voor uw werkruimte-id te downloaden, zodat u de agent kunt configureren.
 
-6.  Selecteer de koppeling **Windows-agent downloaden** die van toepassing is op het processortype van uw computer om het installatiebestand te downloaden.
+6. Selecteer de koppeling **Windows-agent downloaden** die van toepassing is op het processortype van uw computer om het installatiebestand te downloaden.
 
-7.  Selecteer rechts van **Werkruimte-id** het kopieerpictogram en plak de id in Kladblok.
+7. Selecteer rechts van **Werkruimte-id** het kopieerpictogram en plak de id in Kladblok.
 
-8.  Selecteer rechts van **Primaire sleutel** het kopieerpictogram en plak de sleutel in Kladblok.
+8. Selecteer rechts van **Primaire sleutel** het kopieerpictogram en plak de sleutel in Kladblok.
 
 ## <a name="install-the-agent"></a>De agent installeren
 U dient nu het gedownloade bestand op de doelcomputer te installeren.
@@ -68,7 +68,7 @@ U dient nu het gedownloade bestand op de doelcomputer te installeren.
 7. Als u de computer wilt laten rapporteren bij een Log Analytics-werkruimte in de Azure Government-cloud, selecteert u **Azure US Government** in de vervolgkeuzelijst **Azure Cloud**.  Als de computer met de Log Analytics-service moet communiceren via een proxyserver, selecteert u **Geavanceerd** en geeft u de URL en het poortnummer van de proxyserver op.
 8. Selecteer **Volgende** als u de vereiste configuratie-instellingen hebt voltooid.
 
-  ![De agent installeren][5]
+   ![De agent installeren][5]
 
 9. Controleer op de pagina **Gereed om te installeren** uw keuzes en selecteer **Installeren**.
 10. Selecteer op de pagina **Configuratie voltooid** de optie **Voltooien**

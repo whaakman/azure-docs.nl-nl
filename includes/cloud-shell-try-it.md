@@ -4,16 +4,16 @@ ms.service: azure
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
-ms.openlocfilehash: d8e7aa87deaa37f6a2e2eef572b6b7f6140e3fee
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.openlocfilehash: 05d20a701b448f8986292400fa2844d20f928a70
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572042"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58261482"
 ---
 ## <a name="open-azure-cloud-shell"></a>Azure Cloud Shell openen
 
-Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. Er zijn vooraf algemene Azure-hulpprogramma's geïnstalleerd en geconfigureerd in Cloud Shell die u kunt gebruiken bij uw account. Selecteer de knop **Kopiëren** om de code te kopiëren, plak deze in Cloud Shell en druk op Enter om de code uit te voeren. U kunt Cloud Shell op verschillende manieren openen:
+Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. Er zijn vooraf algemene Azure-hulpprogramma's geïnstalleerd en geconfigureerd in Cloud Shell die u kunt gebruiken bij uw account. Selecteer **kopie** voor het kopiëren van de code, plak deze in de Cloud Shell en druk vervolgens op Enter om door te voeren. U kunt Cloud Shell op verschillende manieren openen:
 
 |  |   |
 |-----------------------------------------------|---|

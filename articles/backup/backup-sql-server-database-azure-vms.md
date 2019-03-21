@@ -6,16 +6,16 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 5fe4161c688570cc3adaacc79a0dd1fe38460142
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 6709bb2beae6dd1964f475ce2ba07b569b9ad4ab
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58118898"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285068"
 ---
-# <a name="back-up-sql-server-databases-in-azure-vms"></a>Back-up van SQL Server-databases in virtuele Azure-machines
+# <a name="back-up-sql-server-databases-in-azure-vms"></a>Back-ups maken van SQL Server-databases in virtuele Azure-machines
 
 SQL Server-databases zijn essentiële workloads waarvoor een laag Recovery Point Objective (RPO, beoogd herstelpunt) en langetermijnretentie nodig zijn. Met behulp van [Azure Backup](backup-overview.md) kunt u back-ups maken van SQL Server-databases die worden uitgevoerd op virtuele Azure-VM's.
 
@@ -31,9 +31,9 @@ In dit artikel wordt uitgelegd hoe u een back-up naar een Azure Backup Recovery 
 
 Voordat u een back-up van uw SQL Server-database maakt, controleert u de volgende voorwaarden:
 
-1. Bepalen of [maken](backup-azure-sql-database.md#create-a-recovery-services-vault) een Recovery Services-kluis in dezelfde regio of land als de virtuele machine die als host fungeert voor de SQL Server-exemplaar.
-2. [Controleer de VM-machtigingen](#fix-sql-sysadmin-permissions) die nodig zijn voor de back-up van de SQL-databases.
-3. Controleer of de virtuele machine [netwerkverbinding](backup-azure-sql-database.md#establish-network-connectivity) heeft.
+1. Bepalen of [maken](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) een Recovery Services-kluis in dezelfde regio of land als de virtuele machine die als host fungeert voor de SQL Server-exemplaar.
+2. [Controleer de VM-machtigingen](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) die nodig zijn voor de back-up van de SQL-databases.
+3. Controleer of de virtuele machine [netwerkverbinding](backup-sql-server-database-azure-vms.md#establish-network-connectivity) heeft.
 4. Controleer of de SQL Server-databases zijn benoemd in overeenstemming met de [naamgevingsrichtlijnen](#verify-database-naming-guidelines-for-azure-backup) van Azure Backup.
 5. Controleer of er geen andere back-upoplossingen zijn ingeschakeld voor de database. Schakel alle andere SQL Server-back-ups uit voordat u dit scenario instelt. U kunt zonder problemen Azure Backup inschakelen voor een Azure-VM en tegelijkertijd voor een SQL Server-database die wordt uitgevoerd op de virtuele machine.
 
@@ -60,7 +60,7 @@ Azure Backup doet een aantal dingen wanneer u een back-up voor een SQL Server-da
 - Om databases op de virtuele machine te detecteren, wordt door Azure Backup het account **NT SERVICE\AzureWLBackupPluginSvc** gemaakt. Dit account wordt gebruikt voor back-up en herstel en vereist systeembeheerdersrechten voor SQL.
 - Het account **NT AUTHORITY\SYSTEM** wordt door Azure Backup gebruikt voor databasedetectie/-aanvragen, dus dit account moet een openbare aanmelding via SQL zijn.
 
-Als u de SQL Server-VM niet hebt gemaakt vanuit de Azure Marketplace, ontvangt u mogelijk het foutbericht **UserErrorSQLNoSysadminMembership**. Volg in dit geval [deze instructies](#fix-sql-sysadmin-permissions).
+Als u de SQL Server-VM niet hebt gemaakt vanuit de Azure Marketplace, ontvangt u mogelijk het foutbericht **UserErrorSQLNoSysadminMembership**. Volg in dit geval [deze instructies](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Controleer de naamgevingsrichtlijnen voor databases van Azure Backup
 
@@ -139,7 +139,7 @@ Configureer de back-up als volgt:
 
 4. Klik op **OK** openen de **back-upbeleid** blade.
 
-    ![Automatische beveiliging voor dat exemplaar uitschakelen](./media/backup-azure-sql-database/disable-auto-protection.png)
+    ![Automatische beveiliging inschakelen voor de AlwaysOn-beschikbaarheidsgroep](./media/backup-azure-sql-database/enable-auto-protection.png)
 
 5. In **back-upbeleid kiezen**, selecteert u een beleid en klik vervolgens op **OK**.
 
@@ -233,12 +233,13 @@ In het dashboard van de kluis, gaat u naar **beheren** > **back-upbeleid** en ki
 
 ## <a name="enable-auto-protection"></a>Automatische beveiliging inschakelen  
 
-Schakel automatische beveiliging in om een automatische back-up te maken van alle bestaande databases en van databases die in de toekomst worden toegevoegd aan een zelfstandig exemplaar van SQL Server of een AlwaysOn-beschikbaarheidsgroep van SQL Server.
+Schakel automatische beveiliging automatisch back-up alle bestaande databases en databases die in de toekomst worden toegevoegd aan een zelfstandige SQL Server-exemplaar of een SQL Server Always on Availability group.
 
-  - Wanneer u automatische beveiliging inschakelt en een beleid selecteert, blijven de bestaande beveiligde databases gebruikmaken van het vorige beleid.
-  - Er is geen limiet voor het aantal databases die u voor automatische beveiliging in één go selecteren kunt.
+- Er is geen limiet voor het aantal databases die u voor automatische beveiliging in één go selecteren kunt.
+- U kan selectief beveiligen of databases uitsluiten van beveiliging in een exemplaar op het moment van het inschakelen van automatische beveiliging.
+- Als uw exemplaar al een beveiligde databases bevat, zou deze nog steeds worden beveiligd onder hun beleid, zelfs nadat u automatische beveiliging inschakelen. Alle niet-beveiligde databases en de databases die in de toekomst wordt toegevoegd heeft echter slechts één beleid die u definieert op het moment van het inschakelen van automatische beveiliging, onder **back-up configureren**. U kunt echter het beleid dat is gekoppeld aan een database automatisch beschermd later wijzigen.  
 
-Schakel automatische beveiliging als volgt in:
+Stappen voor het inschakelen van automatische beveiliging zijn als volgt:
 
   1. In **Items voor back-up** selecteert u het exemplaar waarvoor u automatische beveiliging wilt inschakelen.
   2. Selecteer de vervolgkeuzelijst onder **Automatische beveiliging** en stel deze in op **Aan**. Klik vervolgens op **OK**.
@@ -247,37 +248,9 @@ Schakel automatische beveiliging als volgt in:
 
   3. Back-up wordt voor alle databases tegelijk getriggerd en kan worden gevolgd in **Back-uptaken**.
 
-Als u automatische beveiliging uitschakelen, klikt u op de naam van het exemplaar onder **back-up configureren**, en selecteer **uitschakelen Beveilig automatisch** voor het exemplaar. Er worden continu back-ups van de databases gemaakt. Toekomstige databases worden echter niet automatisch beveiligd.
+Als u automatische beveiliging uitschakelen, klikt u op de naam van het exemplaar onder **back-up configureren**, en selecteer **uitschakelen Beveilig automatisch** voor het exemplaar. Alle databases back-up wordt voortgezet, maar toekomstige databases wordt niet automatisch worden beveiligd.
 
-
-## <a name="fix-sql-sysadmin-permissions"></a>Problemen met systeembeheerdersrechten voor SQL oplossen
-
-  Als u machtigingen nodig hebt i.v.m. een **UserErrorSQLNoSysadminMembership**-fout, gaat u als volgt te werk:
-
-  1. Meld u bij SQL Server Management Studio (SSMS) aan met een account met systeembeheerdersrechten voor SQL Server. Windows-verificatie zou moeten werken, tenzij u speciale machtigingen nodig hebt.
-  2. Open de map **Security/Logins** op de SQL-server.
-
-      ![De map Security/Logins openen om accounts te bekijken](./media/backup-azure-sql-database/security-login-list.png)
-
-  3. Klik met de rechtermuisknop op de map **Logins** en selecteer **Nieuwe aanmelding**. In **Aanmelding - Nieuw** selecteert u **Zoeken**.
-
-      ![In het dialoogvenster Aanmelding - Nieuw selecteert u Zoeken](./media/backup-azure-sql-database/new-login-search.png)
-
-  4. Het virtuele Windows-serviceaccount **NT SERVICE\AzureWLBackupPluginSvc** is gemaakt tijdens de registratie van de virtuele machine en de SQL-detectiefase. Geef de accountnaam op, zoals wordt weergegeven in **Objectnaam invoeren die moet worden geselecteerd**. Selecteer **Namen controleren** om de naam te herleiden. Klik op **OK**.
-
-      ![Namen controleren selecteren om de naam van de onbekende service te herleiden](./media/backup-azure-sql-database/check-name.png)
-
-  5. Controleer of in **Serverrollen** de rol **sysadmin** is geselecteerd. Klik op **OK**. De vereiste machtigingen moeten nu bestaan.
-
-      ![Controleren of de serverfunctie sysadmin is geselecteerd](./media/backup-azure-sql-database/sysadmin-server-role.png)
-
-  6. Koppel de database nu aan de Recovery Services-kluis. Klik in de Azure-portal in de lijst **Beschermde servers** met de rechtermuisknop op de server met een foutstatus > **DB's opnieuw detecteren**.
-
-      ![Controleren of de server de juiste machtigingen heeft](./media/backup-azure-sql-database/check-erroneous-server.png)
-
-  7. Controleer de voortgang in het gebied **Meldingen**. Wanneer de geselecteerde databases zijn gevonden, wordt er een slagingsbericht weergegeven.
-
-      ![Bericht dat de implementatie is geslaagd](./media/backup-azure-sql-database/notifications-db-discovered.png)
+![Automatische beveiliging voor dat exemplaar uitschakelen](./media/backup-azure-sql-database/disable-auto-protection.png)
 
  
 ## <a name="next-steps"></a>Volgende stappen

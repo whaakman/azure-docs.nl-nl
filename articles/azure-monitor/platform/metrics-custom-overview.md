@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: cb1d08bb7b4c64d8dbcf39a667cb037ff30c38e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467891"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287261"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Aangepaste metrische gegevens in Azure Monitor
 
@@ -29,7 +29,7 @@ Aangepaste metrische gegevens kunnen worden verzonden naar Azure Monitor via ver
 
 Wanneer u aangepaste metrische gegevens verzenden naar Azure Monitor, elk gegevenspunt of waarde, die wordt gerapporteerd, moeten de volgende informatie bevatten.
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 Om in te dienen aangepaste metrische gegevens naar Azure Monitor, de entiteit die is ingediend door de metrische gegevens moet een geldig Azure Active Directory (Azure AD)-token in de **Bearer** -header van de aanvraag. Er zijn enkele ondersteunde manieren om een geldige bearer-token verkrijgen:
 1. [Identiteiten voor een Azure-resources beheerd](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Geeft een identiteit die tot een Azure-resource zelf, zoals een virtuele machine. Beheerde Service Identity (MSI) is ontworpen om u te machtigen voor resources bepaalde bewerkingen uitvoeren. Een voorbeeld toe dat er een resource om te verzenden van metrische gegevens over zelf. Een resource of het MSI-bestand, kan worden verleend **bewaking metrische gegevens Publisher** machtigingen op een andere resource. Met deze machtiging beschikt, kan het MSI-bestand metrische gegevens voor andere resources ook verzenden.
 2. [Azure AD Service Principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In dit scenario, een Azure AD-toepassing of service, kunnen machtigingen worden toegewezen om te verzenden van metrische gegevens over een Azure-resource.
@@ -55,7 +55,7 @@ Deze eigenschap bevat wat de resource die u bij het verzenden van metrische gege
 >
 
 ### <a name="timestamp"></a>Tijdstempel
-Elk gegevenspunt verzonden naar Azure Monitor moet worden gemarkeerd met een tijdstempel. Deze timestamp bevat de datum/tijd waarop de metrische waarde wordt gemeten of verzameld. Azure Monitor worden metrische gegevens met tijdstempels die tot 20 minuten in het verleden en 5 minuten in de toekomst geaccepteerd.
+Elk gegevenspunt verzonden naar Azure Monitor moet worden gemarkeerd met een tijdstempel. Deze timestamp bevat de datum/tijd waarop de metrische waarde wordt gemeten of verzameld. Azure Monitor worden metrische gegevens met tijdstempels die tot 20 minuten in het verleden en 5 minuten in de toekomst geaccepteerd. De tijdstempel moet in ISO 8601-notatie zijn.
 
 ### <a name="namespace"></a>Naamruimte
 Naamruimten zijn een manier voor het categoriseren of vergelijkbare metrische gegevens te groeperen. U kunt met behulp van naamruimten, isolatie tussen groepen van metrische gegevens die verschillende insights of prestatie-indicatoren verzamelen mogelijk bereiken. Bijvoorbeeld, u mogelijk een naamruimte met de naam **ContosoMemoryMetrics** die gebruik van geheugen metrische gegevens die uw app-profiel wordt bijgehouden. Een andere naamruimte met de naam **ContosoAppTransaction** alle metrische gegevens over gebruikerstransacties in uw toepassing kunt bijhouden.
@@ -65,7 +65,7 @@ Naamruimten zijn een manier voor het categoriseren of vergelijkbare metrische ge
 
 ### <a name="dimension-keys"></a>Dimensiesleutels
 Een dimensie is een sleutel of de waarde-paar waarmee u kunt aanvullende kenmerken Geef een beschrijving van de metrische gegevens worden verzameld. U kunt meer informatie over de metrische gegevens, waardoor meer inzicht te krijgen verzamelen met behulp van de aanvullende kenmerken. Bijvoorbeeld, de **geheugen Bytes In gebruik** metrische gegevens mogelijk een dimensie-sleutel met de naam **proces** die worden vastgelegd met het aantal bytes van het geheugen elk proces op een virtuele machine wordt gebruikt. U kunt de metrische gegevens om te zien hoeveel geheugen specifieke processen gebruiken of voor het identificeren van de top vijf processen door geheugengebruik filteren met behulp van deze sleutel.
-Elke aangepaste metrische gegevens kan maximaal 10 dimensies hebben.
+Dimensies zijn optioneel, niet alle metrische gegevens mogelijk dimensies. Een aangepaste meetwaarde kan maximaal 10 dimensies hebben.
 
 ### <a name="dimension-values"></a>Dimensiewaarden
 Tijdens het rapporteren van een metrische gegevenspunt voor elke dimensie-sleutel op de metrische gegevens worden gerapporteerd, is er een overeenkomende dimensiewaarde. Bijvoorbeeld, als u wilt rapporteren van het geheugen dat wordt gebruikt door de ContosoApp op de virtuele machine:
@@ -75,6 +75,7 @@ Tijdens het rapporteren van een metrische gegevenspunt voor elke dimensie-sleute
 * De waarde van de dimensie **ContosoApp.exe**.
 
 Bij het publiceren van een metrische waarde, kunt u alleen een waarde van één dimensie per dimensie sleutel opgeven. Als u de dezelfde geheugengebruik voor meerdere processen op de virtuele machine hebt verzameld, kunt u meerdere metrische waarden voor tijdstempel rapporteren. Elke metrische waarde geeft de waarde van een andere dimensie voor de **proces** dimensie-sleutel.
+Dimensies zijn optioneel, niet alle metrische gegevens mogelijk dimensies. Als een metrische bericht dimensiesleutels zijn gedefinieerd, is bijbehorende dimensiewaarden zijn verplicht.
 
 ### <a name="metric-values"></a>Metrische waarden
 Azure Monitor slaat alle metrische gegevens met granulariteit van één minuut intervallen. We begrijpen dat gedurende een bepaalde minuut een metrische waarde moet mogelijk meerdere keren worden verzameld. Een voorbeeld is de CPU-gebruik. Of misschien nodig zijn voor veel afzonderlijke gebeurtenissen worden gemeten. Een voorbeeld is aanmelden transactie latenties. Als u wilt beperken het nummer van ruwe waarden die u moet verzenden en te betalen in Azure Monitor, kunt u lokaal vooraf aggregeren en hoe de waarden:
@@ -169,13 +170,13 @@ Tijdens de preview-versie is de mogelijkheid voor het publiceren van aangepaste 
 
 |Azure-regio|Regionale eindpunt voorvoegsel|
 |---|---|
-|US - oost|https://eastus.monitoring.azure.com/|
-|US - zuid-centraal|https://southcentralus.monitoring.azure.com/|
-|US - west-centraal|https://westcentralus.monitoring.azure.com/|
-|US - west 2|https://westus2.monitoring.azure.com/|
-|Azië - zuidoost|https://southeastasia.monitoring.azure.com/|
-|Europa - noord|https://northeurope.monitoring.azure.com/|
-|Europa -west|https://westeurope.monitoring.azure.com/|
+|US - oost| https:\//eastus.monitoring.azure.com/ |
+|US - zuid-centraal| https:\//southcentralus.monitoring.azure.com/ |
+|US - west-centraal| https:\//westcentralus.monitoring.azure.com/ |
+|US - west 2| https:\//westus2.monitoring.azure.com/ |
+|Azië - zuidoost| https:\//southeastasia.monitoring.azure.com/ |
+|Europa - noord| https:\//northeurope.monitoring.azure.com/ |
+|Europa -west| https:\//westeurope.monitoring.azure.com/ |
 
 ## <a name="quotas-and-limits"></a>Quota en limieten
 Azure Monitor legt de volgende limieten op aangepaste metrische gegevens:
@@ -185,6 +186,7 @@ Azure Monitor legt de volgende limieten op aangepaste metrische gegevens:
 |Actieve tijd reeks/abonnementen/regio|50,000|
 |Dimensiesleutels per metrisch gegeven|10|
 |De lengte van tekenreeks voor metrische naamruimten, metrische namen, dimensiesleutels en dimensiewaarden|256 tekens|
+
 Een reeks actieve tijd wordt gedefinieerd als een unieke combinatie van metrische gegevens, dimensie-sleutel of de waarde van de dimensie die metrische waarden die zijn gepubliceerd in de afgelopen 12 uur heeft gehad.
 
 ## <a name="next-steps"></a>Volgende stappen

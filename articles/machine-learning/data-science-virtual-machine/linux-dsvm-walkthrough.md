@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b06ca287f03c62b3947e6c37712cf491396392e0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: MT
+ms.openlocfilehash: 0ca3cee0c818bf9d5dda4a7ea8a1f356ed017973
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891083"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Gegevenswetenschap met een Linux Data Science Virtual Machine in Azure
 Deze procedure ziet u hoe u enkele algemene datatechnologietaken met de Linux Data Science VM uitvoert. De Linux Data Science Virtual Machine (DSVM) is een installatiekopie van een virtuele machine op Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning is beschikbaar. De belangrijke software-componenten zijn ingedeeld de [Linux Data Science Virtual Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie maakt het gemakkelijk om te beginnen gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk. U kunt eenvoudig opschalen van de virtuele machine, indien nodig, en stoppen wanneer deze niet in gebruik. Deze resource is zo flexibel en kostenefficiënt.
@@ -36,7 +36,7 @@ Voordat u een Linux Data Science Virtual Machine gebruiken kunt, moet u het volg
 
 * Een **Azure-abonnement**. Als u nog geen een, Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/free/).
 * Een [ **Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Zie voor meer informatie over het inrichten van deze virtuele machine [Linux Data Science Virtual Machine inrichten](linux-dsvm-intro.md).
-* [X2Go](http://wiki.x2go.org/doku.php) geïnstalleerd op uw computer en een XFCE-sessie hebt geopend. Voor informatie over het installeren en configureren van een **X2Go client**, Zie [installeren en configureren van de client X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* [X2Go](https://wiki.x2go.org/doku.php) geïnstalleerd op uw computer en een XFCE-sessie hebt geopend. Voor informatie over het installeren en configureren van een **X2Go client**, Zie [installeren en configureren van de client X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 * Voor een soepeler schuiven ervaring, uitschakelen van de vlag gfx.xrender.enabled in over:-configuratie in virtuele machines FireFox-browser. [Zie hier meer informatie. ](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Denk ook na over bij het omschakelen van *mousewheel.enable_pixel_scrolling* op False. [Hier instructies.](https://support.mozilla.org/en-US/questions/981140)
 * Een **AzureML account**. Als u niet al hebt, zich aanmelden voor nieuwe resourcegroep op de [AzureML-startpagina](https://studio.azureml.net/). Er is een laag gratis gebruik om u aan de slag te helpen.
 
@@ -52,7 +52,7 @@ Als u meer opslagruimte nodig hebt, kunt u extra schijven maakt en koppelt u ze 
 
 Als u wilt de gegevens hebt gedownload, open een terminalvenster en voer deze opdracht uit:
 
-    wget http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+    wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
 Het gedownloade bestand heeft geen een rij met kolomkoppen, laten we een ander bestand dat u beschikt over een kop maken. Voer deze opdracht maakt u een bestand met de juiste headers:
 
@@ -263,7 +263,7 @@ XGBoost kunnen ook aanroepen vanuit python of een opdrachtregel.
 Voor het ontwikkelen met behulp van Python, zijn de distributies Anaconda Python 2.7 en 3.5 geïnstalleerd in de DSVM.
 
 > [!NOTE]
-> Bevat de distributie Anaconda [Conda](http://conda.pydata.org/docs/index.html), die kan worden gebruikt om te maken van aangepaste omgevingen voor Python met verschillende versies en/of pakketten die erin zijn geïnstalleerd.
+> Bevat de distributie Anaconda [Conda](https://conda.pydata.org/docs/index.html), die kan worden gebruikt om te maken van aangepaste omgevingen voor Python met verschillende versies en/of pakketten die erin zijn geïnstalleerd.
 >
 >
 
@@ -318,21 +318,19 @@ De distributie Anaconda in de DSVM wordt geleverd met een Jupyter-notebook, een 
 
 > [!NOTE]
 > Gebruik van de Python Package Manager (via de `pip` opdracht) van een Jupyter-notebook in de huidige kernel, de volgende opdracht kan worden gebruikt in de codecel, bijvoorbeeld:
-  ```python
-   import sys
-   ! {sys.executable} -m pip install numpy -y
-  ```
->
->
-
+>   ```python
+>    import sys
+>    ! {sys.executable} -m pip install numpy -y
+>   ```
+> 
+> 
+> 
 > [!NOTE]
 > Met het Conda-installatieprogramma (via de `conda` opdracht) van een Jupyter-notebook in de huidige kernel, de volgende opdracht kan worden gebruikt in de codecel, bijvoorbeeld:
-  ```python
-   import sys
-   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-  ```
->
->
+>   ```python
+>    import sys
+>    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+>   ```
 
 Verschillende voorbeeldnotitieblokken zijn al geïnstalleerd op de virtuele machine:
 
@@ -515,7 +513,7 @@ Of wat de kenmerken van e-mailbericht dat vaak bevatten *3d*?
 
 De meeste e-mailberichten waarvoor een hoge kans *3d* zijn blijkbaar spam, zodat deze een handige functie voor het bouwen van een Voorspellend model voor het classificeren van de e-mailberichten kan worden.
 
-Als u uitvoeren van machine learning met gegevens die zijn opgeslagen in een PostgreSQL-database wilt, kunt u overwegen [MADlib](http://madlib.incubator.apache.org/).
+Als u uitvoeren van machine learning met gegevens die zijn opgeslagen in een PostgreSQL-database wilt, kunt u overwegen [MADlib](https://madlib.incubator.apache.org/).
 
 ## <a name="sql-server-data-warehouse"></a>SQL Server datawarehouse
 Azure SQL Data Warehouse is een schaalbare clouddatabase die geschikt is voor het verwerken van grote hoeveelheden relationele en/of niet-relationele gegevens. Zie voor meer informatie, [wat is Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

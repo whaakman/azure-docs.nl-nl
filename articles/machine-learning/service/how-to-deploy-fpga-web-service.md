@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: abf1ed8e06bf9f78c7df07194567ffb5bfdc2709
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 7aa0e11ed47219829830369d17b300270d3fbffb
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842716"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259411"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Een model implementeren als een webservice op een FPGA met Azure Machine Learning-service
 
@@ -45,10 +45,6 @@ U kunt een model implementeren als een webservice op [programmable gate arrays (
     ```shell
     pip install "tensorflow==1.10"
     ```
-
-### <a name="get-the-notebook"></a>De notebook ophalen
-
-Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een Jupyter-notebook. Ga als volgt de code hier of Voer de [Quick Start-notebook](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
 
 ## <a name="create-and-deploy-your-model"></a>Uw model maakt en implementeert
 Maken van een pijplijn in de afbeelding voorverwerken, kunt u een functie met ResNet 50 op een FPGA en voer de functies via een classificatie van de ImageNet-gegevensset wordt getraind.

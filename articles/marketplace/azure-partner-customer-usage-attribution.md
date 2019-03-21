@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 3f3c7523bfc800a74da56b1b3241ac5756c68d14
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: MT
+ms.openlocfilehash: ae31aa19e5905ccafcd0161ea362cc68234f8295
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215503"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294742"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner klant gebruik attribution
 
@@ -127,6 +127,8 @@ Wanneer u de Azure-CLI gebruiken voor uw GUID toevoegen, stelt de **AZURE_HTTP_U
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+Zie voor meer informatie, [Azure SDK voor Go](https://docs.microsoft.com/go/azure/).
+
 ## <a name="use-terraform"></a>Gebruik Terraform
 
 De ondersteuning voor Terraform is beschikbaar via Azure-Provider 1.21.0 release: [ https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019 ](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Deze ondersteuning geldt voor alle partners die hun oplossing via Terraform implementeren, en alle resources geïmplementeerd en wordt gemeten door de Azure-Provider (versie 1.21.0 of hoger).
@@ -280,7 +282,7 @@ Als u hulp nodig voor Onboarding van de Marketplace en/of klant gebruik attribut
    - Voor gebruik van koppeling problemen, selecteert u **andere**.
    - Voor toegang tot problemen met de Azure Marketplace-CPP, selecteert u **probleem met toegang tot**.
    
-    ![Kies de probleemcategorie](media/marketplace-publishers-guide/lu-article-incident.png)
+     ![Kies de probleemcategorie](media/marketplace-publishers-guide/lu-article-incident.png)
 
 1. Selecteer **aanvraag starten**.
 
@@ -299,7 +301,7 @@ U kunt ook technische hulp van een Microsoft-Partner technische Consultant voor 
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Hoe u een technische consultatie indienen
 
-1. Ga naar [ http://aka.ms/TechnicalJourney ](http://aka.ms/TechnicalJourney).
+1. Ga naar [ https://aka.ms/TechnicalJourney ](https://aka.ms/TechnicalJourney).
 1. Selecteer Cloud-infrastructuur- en beheer- en een nieuwe pagina wordt geopend voor u om de technische reis weer te geven.
 1. Klik in Deployment-Services, op het indienen van een knop aanvragen
 1. Meld u aan met uw beheerde Serviceaccounts (MPN-account) of uw AAD (Dashboard van de Partner account); op basis van de aanmelding referenties, wordt een online formulier geopend: 
@@ -308,7 +310,7 @@ U kunt ook technische hulp van een Microsoft-Partner technische Consultant voor 
     * Voer een titel en de beschrijving van het probleem (Geef zoveel mogelijk details).
 1. Klik op verzenden
 
-Stapsgewijze instructies met schermafbeeldingen op [ http://aka.ms/TechConsultInstructions ](http://aka.ms/TechConsultInstructions).
+Stapsgewijze instructies met schermafbeeldingen op [ https://aka.ms/TechConsultInstructions ](https://aka.ms/TechConsultInstructions).
 
 ### <a name="whats-next"></a>Wat zijn de nieuwste
 

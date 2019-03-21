@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: aljo, anmola
-ms.openlocfilehash: f5e31c6cf08ab455b835231f54b564a3e4ed8dad
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806195"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079823"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Uw Service Fabric Reliable Services en Reliable Actors op Windows in een container plaatsen
 
@@ -38,9 +38,9 @@ Dit document bevat richtlijnen voor het ophalen van de service die wordt uitgevo
 
 3. Voor ieder codepakket die u wilt in een container plaatsen, initialiseren het laadprogramma op de vermelding wordt verwijzen. De statische constructor wordt weergegeven in het volgende codefragment toe aan het bestand programma vermelding punt toevoegen.
 
-  ```csharp
-  namespace MyApplication
-  {
+   ```csharp
+   namespace MyApplication
+   {
       internal static class Program
       {
           static Program()
@@ -53,7 +53,7 @@ Dit document bevat richtlijnen voor het ophalen van de service die wordt uitgevo
           /// </summary>
           private static void Main()
           {
-  ```
+   ```
 
 4. Bouw en [pakket](service-fabric-package-apps.md#Package-App) uw project. Als u wilt bouwen en maken van een pakket, met de rechtermuisknop op het toepassingsproject in Solution Explorer en kies de **pakket** opdracht.
 
@@ -79,49 +79,49 @@ Dit document bevat richtlijnen voor het ophalen van de service die wordt uitgevo
 
 7. De ApplicationManifest.xml en ServiceManifest.xml om toe te voegen uw container-installatiekopie, gegevens-opslagplaats, registerverificatie en poort-naar-host-toewijzing wijzigen. Zie voor het wijzigen van de manifesten [een Azure Service Fabric-containertoepassing maken](service-fabric-get-started-containers.md). De definitie van de code-pakket in het servicemanifest moet worden vervangen door de bijbehorende containerinstallatiekopie. Zorg ervoor dat u de EntryPoint wijzigen in een ContainerHost-type.
 
-  ```xml
-<!-- Code package is your service executable. -->
-<CodePackage Name="Code" Version="1.0.0">
-  <EntryPoint>
+   ```xml
+   <!-- Code package is your service executable. -->
+   <CodePackage Name="Code" Version="1.0.0">
+   <EntryPoint>
     <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
     <ContainerHost>
       <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
     </ContainerHost>
-  </EntryPoint>
-  <!-- Pass environment variables to your container: -->
-</CodePackage>
-  ```
+   </EntryPoint>
+   <!-- Pass environment variables to your container: -->
+   </CodePackage>
+   ```
 
 8. De poort-naar-host-toewijzing voor de replicatie en service-eindpunt toevoegen Nadat de beide deze poorten worden toegewezen tijdens runtime door Service Fabric, worden de ContainerPort is ingesteld op nul voor het gebruik van de toegewezen poort voor de toewijzing.
 
- ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code">
     <PortBinding ContainerPort="0" EndpointRef="ServiceEndpoint"/>
     <PortBinding ContainerPort="0" EndpointRef="ReplicatorEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
- ```
+   </ContainerHostPolicies>
+   </Policies>
+   ```
 
 9. Zie voor het configureren van container-isolatiemodus [isolatiemodus configureren]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. De volgende codefragmenten laten zien hoe de isolatiemodus wordt opgegeven in het manifestbestand van de toepassing.
 
- ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
-  ...
-  </ContainerHostPolicies>
-</Policies>
- ```
-  ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
-  ...
-  </ContainerHostPolicies>
-</Policies>
- ```
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
+   ...
+   </ContainerHostPolicies>
+   </Policies>
+   ```
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+   ...
+   </ContainerHostPolicies>
+   </Policies>
+   ```
 
 10. Als u wilt testen van deze toepassing, moet u deze implementeren in een cluster met versie 5.7 of hoger. Voor runtime-versie 6.1 of lager, die u wilt bewerken en bijwerken van de clusterinstellingen voor deze preview-functie. Volg de stappen in dit [artikel](service-fabric-cluster-fabric-settings.md) om toe te voegen van de instelling van de volgende weergegeven.
-```
+    ```
       {
         "name": "Hosting",
         "parameters": [
@@ -131,7 +131,7 @@ Dit document bevat richtlijnen voor het ophalen van de service die wordt uitgevo
           }
         ]
       }
-```
+    ```
 
 11. Volgende [implementeren](service-fabric-deploy-remove-applications.md) het bewerkte toepassingspakket aan dit cluster.
 

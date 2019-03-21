@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823787"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839014"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Zelfstudie 3: Een kredietrisicomodel implementeren - Azure Machine Learning Studio
 
@@ -72,12 +72,11 @@ U moet de volgende modules verwijderen:
 
 Selecteer de modules en druk op Delete, of klik met de rechtermuisknop op de modules en selecteer **Verwijderen**. 
 
-![Het SVM-model verwijderen](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
-
+![Welke modules te verwijderen als u wilt verwijderen van het model voor Ondersteuningsvectormachines gemarkeerd](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 Het model zou er nu ongeveer zo uit moeten zien:
 
-![Het SVM-model verwijderen](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Resulterende experiment wanneer het model Support Vector Machine wordt verwijderd](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 U bent er nu klaar voor om het model te implementeren met de [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree].
 

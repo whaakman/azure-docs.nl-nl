@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 06430bf476c2e9f3af2102272fb54d201a3f1066
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 862846c8ec544cf082d45cea650269b6518a016f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790806"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003526"
 ---
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>De Mobility-service handmatig installeren op virtuele VMware-machines en fysieke servers
 
@@ -65,40 +65,42 @@ Voordat u installeert, maakt u een wachtwoordzin die wordt gebruikt tijdens de i
 
 1. Kopieer het installatieprogramma naar een lokale map (bijvoorbeeld C:\Temp) op de server die u wilt beveiligen. 
 
-  ```
-  cd C:\Temp
-  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-  MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-  cd C:\Temp\Extracted.
-  ```
+   ```
+   cd C:\Temp
+   ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
+   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
+   cd C:\Temp\Extracted.
+   ```
 2. Installeer als volgt:
 
-  ```
-  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
-  ```
+   ```
+   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+   ```
 
 3. De agent met de configuratieserver registreren.
 
-  ```
-  cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-  ```
+   ```
+   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+   UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+   ```
 
 #### <a name="installation-settings"></a>Installatie-instellingen
+
 **Instelling** | **Details**
 --- | ---
-Gebruik | / Role UnifiedAgent.exe < MS|MT > /InstallLocation <Install Location> vlag/platform "VmWare" / silent
-Setup-logboeken | Onder % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
+Gebruik | UnifiedAgent.exe /Role <MS\|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
+Setup-logboeken | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 / Rol | De van de verplichte installatieparameter. Hiermee geeft u op of de Mobility-service (MS) of een master target (MT) moet worden geïnstalleerd.
 /InstallLocation| Een optionele parameter. Hiermee geeft u de installatielocatie van de Mobility-service (een map).
 /Platform | Verplicht. Hiermee geeft u het platform waarop de Mobility-Service is geïnstalleerd. **VMware** voor VMware-machines/fysieke servers; **Azure** voor Azure VM's. 
 / Op de achtergrond| Optioneel. Geeft aan of het installatieprogramma uitvoeren in stille modus.
 
 #### <a name="registration-settings"></a>Registratie-instellingen
+
 **Instelling** | **Details**
 --- | ---
-Gebruik | UnifiedAgentConfigurator.exe /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-Agent-logboeken voor configuratie | Onder % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
+Gebruik | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+Agent-logboeken voor configuratie | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Verplichte parameter. Hiermee geeft u het IP-adres van de configuratieserver. Gebruik een geldig IP-adres.
 /PassphraseFilePath |  Verplicht. Locatie van de wachtwoordzin. Gebruik een geldig UNC- of lokaal bestandspad.
 
@@ -106,39 +108,42 @@ Agent-logboeken voor configuratie | Onder % ProgramData%\ASRSetupLogs\ASRUnified
 ### <a name="on-a-linux-machine"></a>Op een Linux-machine
 
 1. Kopieer het installatieprogramma naar een lokale map (bijvoorbeeld: map/Tmp) op de server die u wilt beveiligen. Voer de volgende opdrachten in een terminal:
-  ```
-  cd /tmp ;
+   ```
+   cd /tmp ;
 
-  tar -xvzf Microsoft-ASR_UA*release.tar.gz
-  ```
+   tar -xvzf Microsoft-ASR_UA*release.tar.gz
+   ```
 2. Installeer als volgt:
 
-  ```
-  sudo ./install -d <Install Location> -r MS -v VmWare -q
-  ```
+   ```
+   sudo ./install -d <Install Location> -r MS -v VmWare -q
+   ```
 3. Nadat de installatie is voltooid, moet de Mobility-Service zijn geregistreerd met de configuratieserver. Voer de volgende opdracht om de Mobility-Service met de configuratieserver registreren:
 
-  ```
-  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
-  ```
+   ```
+   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+   ```
 
 
 #### <a name="installation-settings"></a>Installatie-instellingen
+
 **Instelling** | **Details**
 --- | ---
-Gebruik | . / install -d <Install Location> - r < MS|MT > VmWare - v - q
+Gebruik | ./install -d <Install Location> -r <MS\|MT> -v VmWare -q
 -r | De van de verplichte installatieparameter. Hiermee geeft u op of de Mobility-service (MS) of een master target (MT) moet worden geïnstalleerd.
 -d | Een optionele parameter. Hiermee geeft u de installatielocatie van de Mobility-service: /usr/local/ASR.
 -v | Verplicht. Hiermee geeft u het platform waarop de Mobility-Service is geïnstalleerd. **VMware** voor VMware-machines/fysieke servers; **Azure** voor Azure VM's. 
 -q | Optioneel. Geeft aan of het installatieprogramma uitvoeren in stille modus.
 
 #### <a name="registration-settings"></a>Registratie-instellingen
+
 **Instelling** | **Details**
 --- | ---
-Gebruik | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> - P <PassphraseFilePath>
+Gebruik | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 -i | Verplichte parameter. Hiermee geeft u het IP-adres van de configuratieserver. Gebruik een geldig IP-adres.
 -P |  Verplicht. Volledige pad van het bestand waarin de wachtwoordzin die is opgeslagen. Gebruik een geldige map
 
 ## <a name="next-steps"></a>Volgende stappen
+
 - [Herstel na noodgevallen instellen voor VMware-VM 's](vmware-azure-tutorial.md)
 - [Herstel na noodgevallen voor fysieke servers instellen](physical-azure-disaster-recovery.md)

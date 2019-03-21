@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 03/19/2019
 ms.author: magattus
-ms.openlocfilehash: 10275b2938ce66a2816b1d4a5589a5e88ee22e80
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 3a94b8252feb7c5c345d678579c477fce02d6e03
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093915"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259734"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Azure CDN caching-gedrag met caching-regels beheren
 
@@ -27,11 +27,11 @@ ms.locfileid: "49093915"
  
 Azure Content Delivery Network (CDN) biedt twee manieren om te bepalen hoe uw bestanden in cache zijn opgeslagen: 
 
-- Regels voor caching: in dit artikel wordt beschreven hoe u netwerk voor contentlevering (CDN) regels voor caching instellen of wijzigen van standaardgedrag cache verloopt zowel wereldwijd en met aangepaste voorwaarden, zoals een URL-pad en de bestandsnaam-extensie kunt gebruiken. Azure CDN biedt twee typen regels voor opslaan in cache:
+- Regels voor opslaan in cache: Dit artikel wordt beschreven hoe u netwerk voor contentlevering (CDN) regels voor caching instellen of wijzigen van standaardgedrag cache verloopt zowel wereldwijd en met aangepaste voorwaarden, zoals een URL-pad en de bestandsnaam-extensie kunt gebruiken. Azure CDN biedt twee typen regels voor opslaan in cache:
 
-   - Globale regels voor opslaan in cache: u kunt voor elk eindpunt in uw profiel één globale regel voor opslaan in cache instellen, die geldt voor alle aanvragen op het eindpunt. De globale regel voor opslaan in cache overschrijft alle HTTP-headers met cache-instructies, indien aanwezig.
+   - Algemene regels voor opslaan in cache: U kunt één globale cacheregel voor elk eindpunt instellen in uw profiel, die invloed hebben op alle aanvragen naar het eindpunt. De globale regel voor opslaan in cache overschrijft alle HTTP-headers met cache-instructies, indien aanwezig.
 
-   - Aangepaste regels voor opslaan in cache: u kunt een of meer aangepaste regels voor opslaan in cache instellen voor elk eindpunt in uw profiel. Aangepaste regels voor opslaan in cache komen overeen met specifieke paden en bestandsextensies, worden in volgorde verwerkt en overschrijven de globale regel voor opslaan in cache, indien ingesteld. 
+   - Aangepaste cacheregels: U kunt een of meer aangepaste cacheregels voor elk eindpunt instellen in uw profiel. Aangepaste regels voor opslaan in cache komen overeen met specifieke paden en bestandsextensies, worden in volgorde verwerkt en overschrijven de globale regel voor opslaan in cache, indien ingesteld. 
 
 - Query queryreeksen opslaan in cache: U kunt aanpassen hoe het Azure CDN omgaat met aanvragen met queryreeksen opslaan in cache. Zie voor meer informatie, [Control Azure CDN caching-gedrag met queryreeksen](cdn-query-string.md). Als het bestand niet gecachet kan worden, heeft de instelling van querytekenreeksen geen effect, op basis van regels en het standaardgedrag CDN caching.
 
@@ -54,11 +54,11 @@ Zie voor meer informatie over standaard cachegedrag en opslaan in cache richtlij
 ## <a name="caching-behavior-settings"></a>Van de cache-gedraginstellingen
 Voor algemene en aangepaste cacheregels, kunt u de volgende **cachegedrag** instellingen:
 
-- **Cache overslaan**: niet in de cache en geleverde oorsprong cache-instructies headers negeren.
+- **Cache overslaan**: Niet in de cache en geleverde oorsprong cache-instructies headers negeren.
 
-- **Overschrijven**: negeren van oorsprong-opgegeven cache-instructies headers; gebruik in plaats daarvan de Cacheduur van de opgegeven.
+- **Overschrijven**: Oorsprong-voorwaarde Cacheduur; negeren Gebruik in plaats daarvan de Cacheduur van de opgegeven. Dit overschrijft geen cache-control: niet-cache.
 
-- **Instellen indien ontbrekend**: Honor geleverde oorsprong cache-instructies headers, als deze bestaan; anders gebruikt u de Cacheduur van de opgegeven.
+- **Instellen indien ontbrekend**: Headers van de cache-instructies oorsprong worden geleverd, worden gehandhaafd, indien ze bestaan; Gebruik anders de Cacheduur van de opgegeven.
 
 ![Globale regels voor opslaan in cache](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
@@ -75,9 +75,9 @@ U kunt de vervaltijd van de cache voor algemene en aangepaste cacheregels opgeve
 
 Twee identieke voorwaarden zijn beschikbaar voor cacheregels voor aangepaste:
  
-- **Pad**: dit probleem komt overeen met het pad van de URL, met uitzondering van de naam van het domein, en biedt ondersteuning voor het jokerteken (\*). Bijvoorbeeld, _/myfile.html_, _/mijn/map / *_, en _/my/images/*.jpg_. De maximumlengte is 260 tekens.
+- **Pad**: Dit probleem komt overeen met het pad van de URL, met uitzondering van de naam van het domein, en biedt ondersteuning voor het jokerteken (\*). Bijvoorbeeld, _/myfile.html_, _/mijn/map / *_, en _/my/images/*.jpg_. De maximumlengte is 260 tekens.
 
-- **Extensie**: dit probleem komt overeen met de bestandsextensie van het aangevraagde bestand. U kunt een lijst met bestandsextensies die overeenkomen met door komma's gescheiden opgeven. Bijvoorbeeld, _.jpg_, _.mp3_, of _.png_. Het maximum aantal extensies is 50 en het maximum aantal tekens per extensie is 16. 
+- **Extensie**: Dit probleem komt overeen met de bestandsextensie van het aangevraagde bestand. U kunt een lijst met bestandsextensies die overeenkomen met door komma's gescheiden opgeven. Bijvoorbeeld, _.jpg_, _.mp3_, of _.png_. Het maximum aantal extensies is 50 en het maximum aantal tekens per extensie is 16. 
 
 ## <a name="global-and-custom-rule-processing-order"></a>De verwerkingsvolgorde algemene en aangepaste regel
 Algemene en aangepaste cacheregels worden verwerkt in de volgende volgorde:
@@ -88,22 +88,22 @@ Algemene en aangepaste cacheregels worden verwerkt in de volgende volgorde:
 
 **Voorbeeld**:
 - Algemene regel voor opslaan in cache: 
-   - Cachegedrag: **overschrijven**
+   - Cachegedrag: **Override**
    - Vervaltijd van de cache: 1 dag
 
 - Aangepaste caching #1 regel:
-   - Probleem: **pad**
+   - Voorwaarde voor overeenkomst: **Pad**
    - Komt overeen met waarde:   _/home / *_
-   - Cachegedrag: **overschrijven**
+   - Cachegedrag: **Override**
    - Vervaltijd van de cache: 2 dagen
 
 - Aangepaste caching regel #2:
-   - Probleem: **extensie**
+   - Voorwaarde voor overeenkomst: **Extensie**
    - Komt overeen met waarde: _.html_
-   - Cachegedrag: **instellen indien ontbrekend**
+   - Cachegedrag: **Instellen indien ontbrekend**
    - Vervaltijd van de cache: 3 dagen
 
-Wanneer deze regels zijn ingesteld, een aanvraag voor  _&lt;hostnaam van eindpunt&gt;_.azureedge.net/home/index.html triggers aangepaste caching #2, die is ingesteld op regel: **instellen indien ontbrekend** en 3 aantal dagen. Dus als de *index.html* bestand heeft `Cache-Control` of `Expires` HTTP-headers, ze worden gebruikt; anders als deze headers zijn niet ingesteld, het bestand is opgeslagen in de cache voor 3 dagen.
+Wanneer deze regels zijn ingesteld, een aanvraag voor  _&lt;hostnaam van eindpunt&gt;_.azureedge.net/home/index.html triggers aangepaste caching #2, die is ingesteld op regel: **Instellen indien ontbrekend** en 3 dagen. Dus als de *index.html* bestand heeft `Cache-Control` of `Expires` HTTP-headers, ze worden gebruikt; anders als deze headers zijn niet ingesteld, het bestand is opgeslagen in de cache voor 3 dagen.
 
 > [!NOTE] 
 > Bestanden die in de cache voordat de wijziging van een regel opgeslagen behouden hun duur van de oorsprong cache-instelling. Als u de duur van hun cache herstellen, moet u [opschonen van het bestand](cdn-purge-endpoint.md). 

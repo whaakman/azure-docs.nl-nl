@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 018281406bb810f6357ad00948060cedae57fc6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: de80825ccdd331f57dcd31d307196dc0b45b9cc9
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003813"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294583"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedure: Uw hybride Azure Active Directory join-implementatie plannen
 
@@ -116,7 +116,8 @@ Hybride Azure AD join is een proces naar uw on-premises domein apparaten automat
 
 Als uw Windows 10 domein apparaten al zijn [geregistreerd bij Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) uw tenant, is het raadzaam deze status verwijderen voordat u Hybrid Azure AD join inschakelt. Van Windows 10 1809 release, zijn de volgende wijzigingen aangebracht om te voorkomen dat deze twee status: 
  - Eventuele bestaande geregistreerd bij Azure AD-status zou worden automatisch verwijderd nadat het apparaat is toegevoegd aan Hybrid Azure AD. 
- - U kunt voorkomen dat uw apparaat dat lid is domein wordt Azure AD geregistreerd door toe te voegen deze registersleutel - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword: 00000001
+ - U kunt voorkomen dat uw apparaat dat lid is domein wordt Azure AD geregistreerd door toe te voegen deze registersleutel - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword: 00000001.
+ - Deze wijziging is nu beschikbaar voor Windows 10-1803 release met KB4489894.
 
 FIPS-compatibele TPM's worden niet ondersteund voor hybride Azure AD join. Als uw apparaten FIPS-compatibele TPM's hebt, moet u deze uitschakelen voordat u doorgaat met Hybrid Azure AD join. Microsoft biedt niet alle hulpprogramma's voor het uitschakelen van FIPS-modus voor TPM's, zoals dit afhankelijk van de TPM-fabrikant is. Neem contact op met uw OEM-hardware voor ondersteuning.
 

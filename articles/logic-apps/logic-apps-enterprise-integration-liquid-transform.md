@@ -9,18 +9,18 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104162"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292883"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Geavanceerde JSON-transformaties met Liquid-sjablonen in Azure Logic Apps uitvoeren
 
-U kunt eenvoudige JSON-transformaties uitvoeren in uw logische apps met de eigen gegevens bewerking acties zoals **opstellen** of **JSON parseren**. Voor het uitvoeren van geavanceerde JSON-transformaties, kunt u sjablonen of kaarten met [Liquid](https://shopify.github.io/liquid/), dit is een open-source-sjabloontaal voor flexibele web-apps. Liquid sjablonen kunt u definiëren hoe het transformeren van JSON-uitvoer en ondersteunt meer complexe JSON-transformaties, zoals iteraties, beheren van stromen, variabelen, enzovoort. 
+U kunt eenvoudige JSON-transformaties uitvoeren in uw logische apps met de eigen gegevens bewerking acties zoals **opstellen** of **JSON parseren**. Voor het uitvoeren van geavanceerde JSON-transformaties, kunt u sjablonen of kaarten met [Liquid](https://shopify.github.io/liquid/), dit is een open-source-sjabloontaal voor flexibele web-apps. Een Liquid sjabloon definieert informatie over het transformeren van JSON-uitvoer en ondersteunt meer complexe JSON-transformaties, zoals iteraties, besturingselement stromen, variabelen, enzovoort. 
 
-Dus voordat u een Liquid transformatie in uw logische app uitvoeren kunt, definiëren u eerst de JSON toewijzing van JSON met Liquid-sjabloon en store die zijn toegewezen in uw integratie-account. In dit artikel leest u hoe het maken en gebruiken van deze Liquid sjabloon of de kaart. 
+Voordat u een Liquid transformatie in uw logische app uitvoeren kunt, moet u eerst de JSON definiëren de toewijzing van de JSON met Liquid-sjabloon en store die zijn toegewezen in uw integratie-account. In dit artikel leest u hoe het maken en gebruiken van deze Liquid sjabloon of de kaart. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -28,13 +28,16 @@ Dus voordat u een Liquid transformatie in uw logische app uitvoeren kunt, defini
 
 * Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Een eenvoudige [integratie-Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* Een eenvoudige [integratie-account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 * Basiskennis over [Liquid sjabloontaal.](https://shopify.github.io/liquid/)
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Liquid sjabloon of de kaart voor uw integratie-account maken
 
-1. In dit voorbeeld maakt de voorbeeldsjabloon vloeistof die worden beschreven in deze stap. In de Liquid sjabloon, kunt u [vloeistof filters](https://shopify.github.io/liquid/basics/introduction/#filters), welke gebruik [DotLiquid](https://dotliquidmarkup.org/) en C# naamconventies. Zorg ervoor dat u *filterfunctie namen beginnen met hoofdletters*, geen kleine letters. 
+1. In dit voorbeeld maakt de voorbeeldsjabloon vloeistof die worden beschreven in deze stap. In de Liquid sjabloon, kunt u [vloeistof filters](https://shopify.github.io/liquid/basics/introduction/#filters), welke gebruik [DotLiquid](https://dotliquidmarkup.org/) en C# naamconventies. 
+
+   > [!NOTE]
+   > Zorg ervoor dat de filterfunctie namen gebruiken *hetzelfde hoofdlettergebruik* in uw sjabloon. Anders wordt de filters werken niet.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}

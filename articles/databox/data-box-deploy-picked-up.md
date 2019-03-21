@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: f658b8a0530b0031f0ad22ce3c09ea7cc212430b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 72d6ce58a986ddd0d0976d99de5ca3426d78f0b9
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107066"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287159"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Zelfstudie: Azure Data Box terugsturen en de gegevens controleren die u naar Azure hebt geüpload
 
@@ -43,7 +43,13 @@ Zorg voordat u begint voor het volgende:
 
 1. Zorg ervoor dat het apparaat uit staat en de kabels zijn verwijderd. Rol het netsnoer op en plaats het veilig aan de achterzijde van het apparaat.
 2. Zorg ervoor dat het verzendlabel wordt weergegeven op het E-ink-scherm en plan met de vervoerder een tijdstip waarop het kan worden opgehaald. Neem contact op met de Microsoft-ondersteuning als het label beschadigd is of ontbreekt of niet wordt weergegeven op het e-inkscherm. Als de ondersteuning stelt en vervolgens u naar gaat **overzicht > verzendlabel downloaden** in Azure portal. Download het verzendlabel en bevestig dat op het apparaat. 
-3. Als u het apparaat retourneert, spreekt u met UPS een tijdstip af waarop het kan worden opgehaald. Om een tijdstip te plannen belt u de lokale UPS-locatie (het gratis telefoonnummer specifiek voor uw land) of brengt u de Data Box naar de dichtstbijzijnde afgiftelocatie.
+3. Als u het apparaat retourneert, spreekt u met UPS een tijdstip af waarop het kan worden opgehaald. Ophalen van objecten plannen:
+
+    - Aanroepen van de lokale Noodvoeding (landspecifieke gratis telefoonnummer).
+    - Citeren de omgekeerde verzending traceringsnummer zoals wordt weergegeven in de E-ink-weergave of uw etiket in uw aanroep.
+    - Als het volgnummer niet wordt vermeld, moet UPS u een extra kosten betalen tijdens het ophalen.
+
+    In plaats van de planning van het ophalen, kunt u ook de gegevens in de dichtstbijzijnde afgiftelocatie teruglopen.
 4. Nadat de Data Box door de vervoerder is opgehaald en gescand, verandert de orderstatus in de portal in **Opgehaald**. Er wordt ook een tracerings-id weergegeven.
 
 ## <a name="verify-data-upload-to-azure"></a>De gegevensupload naar Azure controleren

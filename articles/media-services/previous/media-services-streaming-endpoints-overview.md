@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b40a2bbfa7bbab7ffbdd4c47684eda7c954e7b77
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996930"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293801"
 ---
 # <a name="streaming-endpoints-overview"></a>Overzicht van streaming eindpunten  
 
@@ -50,8 +50,8 @@ Beginnen met de release van januari 2017 van Media Services, hebt u twee streami
 
 Type|Description
 ---|---
-**Standard**|Dit is de standaardoptie die voor het merendeel van de scenario's werken.<br/>Met deze optie krijgt u vaste/beperkt SLA, eerste 15 dagen na het starten van het streaming-eindpunt is gratis.<br/>Als u meer dan één streaming-eindpunten, maakt alleen de eerste die gratis gedurende de eerste 15 dagen is, worden de andere in rekening gebracht zodra ze worden gestart. <br/>Houd er rekening mee dat gratis proefversie alleen van toepassing op nieuwe media services-accounts en standaardstreaming-eindpunt. Bestaand streaming-eindpunten en daarnaast gemaakte streaming-eindpunten niet gratis proefperiode is afgelopen bevat zelfs ze kunnen worden bijgewerkt naar versie 2.0 of ze worden gemaakt als versie 2.0.
-**Premium**|Deze optie is geschikt voor professionele scenario's waarvoor een hogere schaal of het besturingselement.<br/>Variabele SLA die is gebaseerd op premium streaming-eenheid (SU)-capaciteit hebt aangeschaft, toegewezen streaming-eindpunten bevinden zich in de geïsoleerde omgeving en niet van invloed voor resources.
+**Standard** |Dit is de standaardoptie die voor het merendeel van de scenario's werken.<br/>Met deze optie krijgt u vaste/beperkt SLA, eerste 15 dagen na het starten van het streaming-eindpunt is gratis.<br/>Als u meer dan één streaming-eindpunten, maakt alleen de eerste die gratis gedurende de eerste 15 dagen is, worden de andere in rekening gebracht zodra ze worden gestart. <br/>Houd er rekening mee dat gratis proefversie alleen van toepassing op nieuwe media services-accounts en standaardstreaming-eindpunt. Bestaand streaming-eindpunten en daarnaast gemaakte streaming-eindpunten niet gratis proefperiode is afgelopen bevat zelfs ze kunnen worden bijgewerkt naar versie 2.0 of ze worden gemaakt als versie 2.0.
+**Premium** |Deze optie is geschikt voor professionele scenario's waarvoor een hogere schaal of het besturingselement.<br/>Variabele SLA die is gebaseerd op premium streaming-eenheid (SU)-capaciteit hebt aangeschaft, toegewezen streaming-eindpunten bevinden zich in de geïsoleerde omgeving en niet van invloed voor resources.
 
 Zie voor meer informatie, de **vergelijken Streaming typen** volgende sectie.
 

@@ -6,54 +6,51 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/15/2019
+ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 49a28901e2ea471f97270c0407e2f6c0a4a533fd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5b8ec726c81dfab710d30c37d6fb1aac97c12265
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58169150"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293972"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 
-Broncodebeheer kunt u uw runbooks behouden in uw Automation account zijn bijgewerkt met de scripts in uw GitHub- of Azure DevOps resourcebeheerbibliotheek. Broncodebeheer kunt u eenvoudig samenwerken met uw team, het bijhouden van wijzigingen en Ga terug naar de eerdere versies van uw runbooks. Broncodebeheer bijvoorbeeld, kunt u verschillende branches in broncodebeheer om uw ontwikkelings-, test- of productieomgeving Automation-accounts te synchroniseren. Hiermee kunt u eenvoudig ter bevordering van code die in uw ontwikkelomgeving, zodat uw productie-Automation-account is getest.
+Broncodebeheer kunt u uw runbooks behouden in uw Automation account zijn bijgewerkt met de scripts in uw GitHub- of Azure-opslagplaatsen resourcebeheerbibliotheek. Broncodebeheer kunt u eenvoudig samenwerken met uw team, het bijhouden van wijzigingen en Ga terug naar de eerdere versies van uw runbooks. Broncodebeheer bijvoorbeeld, kunt u verschillende branches in broncodebeheer om uw ontwikkelings-, test- of productieomgeving Automation-accounts te synchroniseren. Hiermee kunt u eenvoudig ter bevordering van code die in uw ontwikkelomgeving, zodat uw productie-Automation-account is getest. Integratie van broncodebeheer met automation biedt ondersteuning voor één richting worden gesynchroniseerd vanuit uw resourcebeheerbibliotheek.
 
 Azure Automation biedt ondersteuning voor 3 soorten of broncodebeheer:
 
 * GitHub
-* Azure DevOps (Git)
-* Azure DevOps (TFVC)
+* Azure Repos (Git)
+* Azure Repos (TFVC)
 
 ## <a name="pre-requisites"></a>Vereisten
 
-* Een opslagplaats voor bronbeheer (GitHub of Azure DevOps)
-* De juiste [machtigingen](#personal-access-token-permissions) naar de opslagplaats voor bronbeheer
-* Een [Run-As Account en -verbinding](manage-runas-account.md)
+* Een opslagplaats voor bronbeheer (GitHub of Azure-opslagplaatsen)
+* Een [Run As-Account](manage-runas-account.md)
 
 > [!NOTE]
 > Resourcebeheertaken synchronisatie uitgevoerd onder de gebruikers Automation-Account en worden gefactureerd tegen hetzelfde tarief als andere Automation-taken.
 
-## <a name="configure-source-control"></a>Configureren van broncodebeheer
+## <a name="configure-source-control---azure-portal"></a>Broncodebeheer - Azure-portal configureren
 
-Selecteer in uw Automation-Account **broncodebeheer (preview)** en klikt u op **+ toevoegen**
+Selecteer in uw Automation-Account **broncodebeheer** en klikt u op **+ toevoegen**
 
 ![Selecteer het besturingselement](./media/source-control-integration/select-source-control.png)
 
-Kies **broncodebeheer type**, klikt u op **verifiëren**.
-
-Controleer de pagina app-aanvraag machtigingen en klik op **accepteren**.
+Kies **broncodebeheer type**, klikt u op **verifiëren**. Een browservenster wordt geopend en vraagt u zich aanmelden, volgt u de stappen om verificatie te voltooien.
 
 Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens in en klikt u op **opslaan**. De volgende tabel bevat een beschrijving van de beschikbare velden.
 
 |Eigenschap  |Description  |
 |---------|---------|
 |Naam van de bron-besturingselement     | Een beschrijvende naam voor broncodebeheer        |
-|Broncodebeheertype     | Het type van de bron van het besturingselement. De volgende opties zijn beschikbaar:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
-|Opslagplaats     | De naam van de opslagplaats of het project. Deze waarde wordt opgehaald uit de opslagplaats voor bronbeheer. Example: $/ContosoFinanceTFVCExample         |
+|Broncodebeheertype     | Het type van de bron van het besturingselement. De volgende opties zijn beschikbaar:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
+|Opslagplaats     | De naam van de opslagplaats of het project. De eerste 200 opslagplaatsen worden geretourneerd. Als u wilt zoeken naar een opslagplaats, typ de naam in het veld en klikt u op **zoeken op GitHub**.|
 |Branch     | De vertakking voor het ophalen van de bronbestanden op uit. Vertakking die gericht is op is niet beschikbaar voor het type TFVC broncodebeheer.          |
-|Mappad     | De map met de runbooks om te synchroniseren. Voorbeeld: /Runbooks         |
+|Mappad     | De map met de runbooks om te synchroniseren. Voorbeeld: /Runbooks </br>*Alleen runbooks in de map die is opgegeven, worden gesynchroniseerd. Recursie wordt niet ondersteund.*        |
 |Automatisch synchroniseren     | Hiermee schakelt u in- of uitschakelen van automatische synchronisatie wanneer een wijziging wordt aangebracht in de opslagplaats voor bronbeheer         |
 |Runbook publiceren     | Indien ingesteld op **op**nadat runbooks zijn gesynchroniseerd vanuit broncodebeheer ze automatisch worden gepubliceerd.         |
 |Description     | Een tekstveld om meer duidelijkheid te geven        |
@@ -63,9 +60,64 @@ Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens 
 > [!NOTE]
 > Zorg ervoor dat u bent aangemeld met het juiste account bij het configureren van broncodebeheer. Als er een waarover twijfel bestaat, een nieuw tabblad geopend in uw browser en meld u af bij visualstudio.com of github.com en probeer het opnieuw verbinden broncodebeheer.
 
+## <a name="configure-source-control---powershell"></a>Configureren van broncodebeheer - PowerShell
+
+U kunt ook PowerShell gebruiken om te configureren van broncodebeheer in Azure Automation. Het configureren van broncodebeheer met de PowerShell-cmdlets een [persoonlijk toegangstoken (PAT)](#personal-access-token) nodig is. U gebruikt de [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) te maken van de verbinding. De cmdlet is vereist voor een beveiligde tekenreeks van het persoonlijke toegangstoken, voor informatie over het maken van een beveiligde tekenreeks, Zie [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+
+### <a name="azure-repos-git"></a>Azure Repos (Git)
+
+```powershell-interactive
+New-AzureRmAutomationSourceControl -Name SCReposGit -RepoUrl https://<account>.visualstudio.com/DefaultCollection/<project>/_git/<repository> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
+```
+
+### <a name="azure-repos-tfvc"></a>Azure Repos (TFVC)
+
+```powershell-interactive
+New-AzureRmAutomationSourceControl -Name SCReposTFVC -RepoUrl https://<account>.visualstudio.com/<projectName>/_versionControl -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
+```
+
+### <a name="github"></a>GitHub
+
+```powershell-interactive
+New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<account>/<repoName>.git -SourceType GitHub -FolderPath "/MyRunbooks" -Branch master -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
+```
+
+### <a name="personal-access-token-permissions"></a>Token Pat-machtigingen
+
+Broncodebeheer vereist minimale machtigingen voor persoonlijke toegangstokens. De volgende tabellen bevatten de minimale machtigingen die vereist zijn voor GitHub en Azure-opslagplaatsen.
+
+#### <a name="github"></a>GitHub
+
+Ga voor meer informatie over het maken van een persoonlijk toegangstoken in GitHub naar [het maken van een persoonlijk toegangstoken voor de opdrachtregel](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+
+|Bereik  |Description  |
+|---------|---------|
+|**opslagplaats**     |         |
+|status van-opslagplaats:     | Commit-toegangsstatus         |
+|repo_deployment      | Implementatie-toegangsstatus         |
+|public_repo     | Toegang tot openbare opslagplaatsen         |
+|**admin:repo_hook**     |         |
+|write:repo_hook     | Opslagplaats hooks schrijven         |
+|read:repo_hook|Opslagplaats hooks lezen|
+
+#### <a name="azure-repos"></a>Azure Repos
+
+Voor meer informatie over het maken van een persoonlijk toegangstoken in de Azure-opslagplaatsen, gaat u naar [verifiëren van toegang met persoonlijke toegangstokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+
+|Bereik  |
+|---------|
+|Code (lezen)     |
+|Project en team (lezen)|
+|Identiteit (lezen)      |
+|Gebruikersprofiel (lezen)     |
+|Werkitems (lezen)    |
+|Verbindingen met de service (lezen, query's uitvoeren en beheren)<sup>1</sup>    |
+
+<sup>1</sup>machtiging voor de verbindingen met de Service is alleen vereist als u automatische synchronisatie hebt ingeschakeld.
+
 ## <a name="syncing"></a>Synchroniseren...
 
-Automatische synchronisatie configureren bij het configureren van integratie van broncodebeheer, de initiële synchronisatie wordt automatisch gestart. Als automatische synchronisatie niet is ingesteld, selecteert u de bron uit de tabel op de **besturingselement (Preview) voor de gegevensbron** pagina. Klik op **synchronisatie starten** om de synchronisatieproces te starten.
+Selecteer de gegevensbron uit de tabel op de **broncodebeheer** pagina. Klik op **synchronisatie starten** om de synchronisatieproces te starten.
 
 U ziet de status van de huidige synchronisatietaak of vorige waarden door te klikken op de **taken synchroniseren** tabblad. Op de **broncodebeheer** vervolgkeuzelijst, selecteer een bron-besturingselement.
 
@@ -76,7 +128,7 @@ Op een taak te klikken, kunt u om de taakuitvoer weer te geven. Het volgende voo
 ```output
 ========================================================================================================
 
-Azure Automation Source Control Public Preview.
+Azure Automation Source Control.
 Supported runbooks to sync: PowerShell Workflow, PowerShell Scripts, DSC Configurations, Graphical, and Python 2.
 
 Setting AzureRmEnvironment.
@@ -106,38 +158,11 @@ Source Control Sync Summary:
 ========================================================================================================
 ```
 
-## <a name="personal-access-token-permissions"></a>Token Pat-machtigingen
-
-Broncodebeheer vereist minimale machtigingen voor persoonlijke toegangstokens. De volgende tabellen bevatten de minimale machtigingen die vereist zijn voor GitHub en DevOps met Azure.
-
-### <a name="github"></a>GitHub
-
-|Bereik  |Description  |
-|---------|---------|
-|**opslagplaats**     |         |
-|status van-opslagplaats:     | Commit-toegangsstatus         |
-|repo_deployment      | Implementatie-toegangsstatus         |
-|public_repo     | Toegang tot openbare opslagplaatsen         |
-|**admin:repo_hook**     |         |
-|write:repo_hook     | Opslagplaats hooks schrijven         |
-|read:repo_hook|Opslagplaats hooks lezen|
-
-### <a name="azure-devops"></a>Azure DevOps
-
-|Bereik  |
-|---------|
-|Code (lezen)     |
-|Project en team (lezen)|
-|Identiteit (lezen)      |
-|Gebruikersprofiel (lezen)     |
-|Werkitems (lezen)    |
-|Verbindingen met de service (lezen, query's uitvoeren en beheren)<sup>1</sup>    |
-
-<sup>1</sup>de machtiging voor verbindingen met de Service is alleen vereist als u automatische synchronisatie hebt ingeschakeld.
+Aanvullende logboekregistratie is beschikbaar door te selecteren **alle logboeken** op de **Source Control Sync taaksamenvatting** pagina. Deze extra logboekvermeldingen kunnen helpen bij het oplossen van problemen die zich voordoen kunnen bij het gebruik van broncodebeheer.
 
 ## <a name="disconnecting-source-control"></a>Verbinding met broncodebeheer verbreken
 
-Als u wilt loskoppelen van een opslagplaats voor bronbeheer, open **besturingselement (Preview) voor de gegevensbron** onder **Accountinstellingen** in uw Automation-Account.
+Als u wilt loskoppelen van een opslagplaats voor bronbeheer, open **broncodebeheer** onder **Accountinstellingen** in uw Automation-Account.
 
 Selecteer het bron-besturingselement dat u wilt verwijderen. Op de **samenvatting van de bron-besturingselement** pagina, klikt u op **verwijderen**.
 
@@ -148,4 +173,3 @@ Als meerdere personen runbooks in uw resourcebeheerbibliotheek met verschillende
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie [Azure Automation-runbooktypen](automation-runbook-types.md) voor meer informatie over runbooktypen, hun voordelen en beperkingen
-

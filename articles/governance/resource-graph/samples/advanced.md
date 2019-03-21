@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8bb1733090ac2a4f3fad837e55943706309c4a5a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842614"
 ---
 # <a name="advanced-resource-graph-queries"></a>Geavanceerde query's van Resource Graph
 
@@ -74,7 +74,7 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 ## <a name="vm-regex"></a>Virtuele machines zoeken met reguliere expressies
 
 Deze query zoekt virtuele machines die overeenkomen met een [reguliere expressie](/dotnet/standard/base-types/regular-expression-language-quick-reference) (ook wel _regex_ genoemd).
-Met de **reguliere overeenkomstexpressie @** kunt u de betreffende reguliere expressie definiëren. Deze is `^Contoso(.*)[0-9]+$`. De definitie van deze reguliere expressie wordt als volgt uitgelegd:
+De **komt overeen met reguliere expressie \@**  kunnen we voor het definiëren van de reguliere expressie overeenkomt met wat `^Contoso(.*)[0-9]+$`. De definitie van deze reguliere expressie wordt als volgt uitgelegd:
 
 - `^`: Overeenkomst moet beginnen aan het begin van de tekenreeks.
 - `Contoso`: De hoofdlettergevoelige reeks.

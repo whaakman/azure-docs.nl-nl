@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4419b68a0005ff6e0b5e46f22fba918699f3ba4f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: c0fd7dec31a2c4054c59db3bae52cdb15ba01eed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672199"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884418"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Azure Notification Hubs - Diagnose meldingen over verloren
 
@@ -271,11 +271,11 @@ Zie voor meer informatie over toegang op programmeerniveau [programmatische tele
 [Templates]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs-overzicht]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Over het FCM-berichten]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[Export and modify registrations in bulk]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
 [Code van de service Bus Explorer]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[Het apparaatregistraties weergeven voor notification hubs]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Gedetailleerde informatie over: Visual Studio 2013 Update 2 RC bijwerkt en Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[Aankondiging van de release van Visual Studio 2013 Update 3 en Azure SDK 2.4]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
+[Het apparaatregistraties weergeven voor notification hubs]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[Gedetailleerde informatie over: Visual Studio 2013 Update 2 RC bijwerkt en Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[Aankondiging van de release van Visual Studio 2013 Update 3 en Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[Programmatische telemetrie-toegang]: http://msdn.microsoft.com/library/azure/dn458823.aspx
+[Programmatische telemetrie-toegang]: https://msdn.microsoft.com/library/azure/dn458823.aspx

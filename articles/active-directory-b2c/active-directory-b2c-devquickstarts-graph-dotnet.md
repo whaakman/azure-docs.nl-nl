@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d1f1ec45e1d4fc2fc6091a2f946caf6bc59441a9
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: a516f99af05ba3f3bb7ab98d3def123a488e0d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417054"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075898"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: De Azure AD Graph API gebruiken
 
 >[!NOTE]
 > Moet u de [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) voor het beheren van gebruikers in een Azure AD B2C-directory. Dit wijkt af van de Microsoft Graph API. Klik [hier](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/) voor meer informatie.
 
-Azure Active Directory (Azure AD) B2C-tenants zijn meestal groot. Dit betekent dat veel algemene beheertaken voor tenant moeten worden uitgevoerd via een programma. Een voorbeeld van een primaire is beheer van gebruikers. Mogelijk moet u een bestaande gebruiker store migreren naar een B2C-tenant. Kunt u gebruikersregistratie op uw eigen pagina hosten en Maak gebruikersaccounts in uw Azure AD B2C-directory achter de schermen. Deze typen taken vereist de mogelijkheid om te maken, lezen, bijwerken en verwijderen van gebruikersaccounts. U kunt deze taken uitvoeren met behulp van de Azure AD Graph API.
+Azure Active Directory (Azure AD) B2C-tenants zijn meestal groot. Dit betekent dat veel algemene beheertaken voor tenant moeten worden uitgevoerd via een programma. Een goed voorbeeld is gebruikersbeheer. Mogelijk moet u een bestaande gebruiker store migreren naar een B2C-tenant. Of u wilt op de achtergrond gebruikersregistratie op uw eigen pagina hosten en gebruikersaccounts maken in uw Azure AD B2C-adreslijst. Voor dit soort taken moet u gebruikersaccounts kunnen maken, lezen, bijwerken en verwijderen. U kunt deze taken uitvoeren met behulp van de Azure AD Graph API.
 
 Voor B2C-tenants zijn er twee primaire modi voor de communicatie met de Graph API.
 
@@ -45,7 +45,7 @@ Nadat u een B2C-tenant hebt, moet u registreren van uw toepassing met de [Azure-
 3. Kies in het navigatiedeelvenster links **alle Services**, klikt u op **App-registraties**, en klikt u op **toevoegen**.
 4. Volg de aanwijzingen op het scherm en maak een nieuwe toepassing. 
     1. Selecteer **Web-App / API** als het toepassingstype.    
-    2. Geef **een aanmeldings-URL** (bijvoorbeeld https://B2CGraphAPI) omdat dit niet relevant zijn voor dit voorbeeld.  
+    2. Geef **een aanmeldings-URL** (bijvoorbeeld `https://B2CGraphAPI`) als het is niet relevant zijn voor dit voorbeeld.  
 5. De toepassing wordt nu weergegeven in de lijst met toepassingen, klikt u op het verkrijgen van de **toepassings-ID** (ook wel bekend als Client-ID). Kopieer het zoals u hebt deze nodig in een volgende sectie.
 6. Klik in het menu instellingen op **sleutels**.
 7. In de **wachtwoorden** sectie, geef de beschrijving van de sleutel en selecteer een tijdsduur en klik vervolgens op **opslaan**. Kopieer de sleutelwaarde (ook wel bekend als Clientgeheim) voor gebruik in een volgende sectie.

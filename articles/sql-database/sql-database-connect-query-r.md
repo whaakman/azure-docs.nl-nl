@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 02/12/2019
-ms.openlocfilehash: 61c4edc5ec9c690944047ce67f619f0f69f62f6c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: e15cf93514f921223fea37aa480730bba46dd195
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236733"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864946"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Quickstart: Machine Learning Services (met R) gebruiken in Azure SQL Database (preview)
 
@@ -29,8 +29,12 @@ Machine Learning-services bevatten een basisdistributie van R, overlapt met zake
 
 Als u geen Azure-abonnement hebt, [maakt u een account](https://azure.microsoft.com/free/) voordat u begint.
 
-> [!NOTE]
-> Machine Learning Services (met R) in Azure SQL Database is momenteel beschikbaar als openbare preview. [Meld u aan voor de preview-versie](sql-database-machine-learning-services-overview.md#signup).
+> [!IMPORTANT]
+> Azure SQL Database Machine Learning-Services is momenteel in openbare preview.
+> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
+> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+>
+> [Meld u aan voor de preview-versie](sql-database-machine-learning-services-overview.md#signup).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -154,7 +158,7 @@ Op dit moment kijken we alleen naar de standaardinvoer- en uitvoervariabelen van
 
     ![Uitvoer van R-script waarmee gegevens uit een tabel worden geretourneerd](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
-3. We gaan nu de naam van de invoer- en uitvoervariabelen wijzigen. Voor het bovenstaande script zijn de standaardnamen voor invoer- en uitvoervariabelen gebruikt: _InputDataSet_ en _OutputDataSet_. Als u de invoergegevens wilt definiëren die zijn gekoppeld aan _InputDatSet_, gebruikt u de variabele *@input_data_1*.
+3. We gaan nu de naam van de invoer- en uitvoervariabelen wijzigen. Voor het bovenstaande script zijn de standaardnamen voor invoer- en uitvoervariabelen gebruikt: _InputDataSet_ en _OutputDataSet_. Voor het definiëren van de ingevoerde gegevens die zijn gekoppeld aan _InputDatSet_, gebruikt u de  *\@input_data_1* variabele.
 
     In dit script zijn de namen van de invoer- en uitvoervariabelen voor de opgeslagen procedure gewijzigd in *SQL_out* en *SQL_in*:
 
@@ -170,7 +174,7 @@ Op dit moment kijken we alleen naar de standaardinvoer- en uitvoervariabelen van
 
     Let op: R is hoofdlettergevoelig. De hoofdletters en kleine letters van de invoer en uitvoervariabelen in `@input_data_1_name` en `@output_data_1_name` moeten daarom overeenkomen met die van de R-code in `@script`. 
 
-    De volgorde van de parameters is ook belangrijk. U moet eerst de vereiste parameters *@input_data_1* en *@output_data_1* opgeven om de optionele parameters *@input_data_1_name* en *@output_data_1_name* te kunnen gebruiken.
+    De volgorde van de parameters is ook belangrijk. U moet de vereiste parameters opgeven  *\@input_data_1* en  *\@output_data_1* eerste, als u wilt gebruiken de volgende optionele parameters  *\@ input_data_1_name* en  *\@output_data_1_name*.
 
     Er kan maar één invoergegevensset worden doorgegeven als parameter, en u kunt slechts één gegevensset retourneren. U kunt vanuit de R-code wel andere gegevenssets aanroepen en u kunt, naast de gegevensset, ook andere typen uitvoer retourneren. U kunt ook het uitvoertrefwoord toevoegen aan elke willekeurige parameter om deze te laten retourneren met de resultaten. 
 
@@ -271,34 +275,34 @@ U kunt een model trainen met R en dit model opslaan in een tabel in de SQL-datab
 
     De vereisten van een lineair model zijn eenvoudig:
 
-    - Definieer een formule die de relatie beschrijft tussen de afhankelijke variabele `speed` en de onafhankelijke variabele `distance`.
+   - Definieer een formule die de relatie beschrijft tussen de afhankelijke variabele `speed` en de onafhankelijke variabele `distance`.
 
-    - Bied de invoergegevens die moeten worden gebruikt om het model te trainen.
+   - Bied de invoergegevens die moeten worden gebruikt om het model te trainen.
 
-    > [!TIP]
-    > Als u uw kennis over lineaire modellen wilt opfrissen, raden we u aan deze zelfstudie te volgen, waarin het proces voor het aanpassen van een model met rxLinMod wordt beschreven: [Lineaire modellen aanpassen](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+     > [!TIP]
+     > Als u uw kennis over lineaire modellen wilt opfrissen, raden we u aan deze zelfstudie te volgen, waarin het proces voor het aanpassen van een model met rxLinMod wordt beschreven: [Lineaire modellen aanpassen](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
-    Als u het model wilt bouwen, definieert u de formule binnen de R-code en geeft u de gegevens door als invoerparameter.
+     Als u het model wilt bouwen, definieert u de formule binnen de R-code en geeft u de gegevens door als invoerparameter.
 
-    ```sql
-    DROP PROCEDURE IF EXISTS generate_linear_model;
-    GO
-    CREATE PROCEDURE generate_linear_model
-    AS
-    BEGIN
-        EXEC sp_execute_external_script
-        @language = N'R'
-        , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
-            trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
-        , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
-        , @input_data_1_name = N'CarsData'
-        , @output_data_1_name = N'trained_model'
-        WITH RESULT SETS ((model VARBINARY(max)));
-    END;
-    GO
-    ```
+     ```sql
+     DROP PROCEDURE IF EXISTS generate_linear_model;
+     GO
+     CREATE PROCEDURE generate_linear_model
+     AS
+     BEGIN
+       EXEC sp_execute_external_script
+       @language = N'R'
+       , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
+           trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
+       , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
+       , @input_data_1_name = N'CarsData'
+       , @output_data_1_name = N'trained_model'
+       WITH RESULT SETS ((model VARBINARY(max)));
+     END;
+     GO
+     ```
 
-    Het eerste argument voor rxLinMod is de *formuleparameter*, waarmee afstand wordt gedefinieerd als afhankelijk van snelheid. De invoergegevens worden opgeslagen in de variabele `CarsData`, die wordt gevuld met de SQL-query. Als u geen specifieke naam toewijst aan de invoergegevens, is de standaardnaam voor de variabele _InputDataSet_.
+     Het eerste argument voor rxLinMod is de *formuleparameter*, waarmee afstand wordt gedefinieerd als afhankelijk van snelheid. De invoergegevens worden opgeslagen in de variabele `CarsData`, die wordt gevuld met de SQL-query. Als u geen specifieke naam toewijst aan de invoergegevens, is de standaardnaam voor de variabele _InputDataSet_.
 
 2. Vervolgens maakt u een tabel waarin u het model opslaat, zodat u het opnieuw kunt trainen of kunt gebruiken voor voorspellingen. De uitvoer van een R-pakket waarmee een model wordt gebruikt, is meestal een **binair object**. De tabel moet daarom een kolom bieden van het type **VARBINARY(max)**.
 
@@ -397,23 +401,23 @@ Gebruik het model dat u in de vorige sectie hebt gemaakt, om voorspellingen te s
 
     Met het bovenstaande script worden de volgende stappen uitgevoerd:
 
-    + Gebruik de SELECT-instructie om een enkel model op te halen uit de tabel, en geef dit model door als invoerparameter.
+   + Gebruik de SELECT-instructie om een enkel model op te halen uit de tabel, en geef dit model door als invoerparameter.
 
-    + Nadat u het model hebt opgehaald uit de tabel, roept u de `unserialize`-functie van het model aan.
+   + Nadat u het model hebt opgehaald uit de tabel, roept u de `unserialize`-functie van het model aan.
 
-        > [!TIP] 
-        > Bekijk ook de nieuwe [serialisatiefuncties](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) die worden geleverd met RevoScaleR. Deze bieden ondersteuning voor scoren in realtime.
-    + Pas de `rxPredict`-functie met de juiste argumenten toe op het model en geef de nieuwe invoergegevens op.
+       > [!TIP] 
+       > Bekijk ook de nieuwe [serialisatiefuncties](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) die worden geleverd met RevoScaleR. Deze bieden ondersteuning voor scoren in realtime.
+   + Pas de `rxPredict`-functie met de juiste argumenten toe op het model en geef de nieuwe invoergegevens op.
 
-    + In het voorbeeld wordt de `str`-functie toegevoegd in de testfase om het schema te controleren van de gegevens die worden geretourneerd met R. U kunt deze instructie later verwijderen.
+   + In het voorbeeld wordt de `str`-functie toegevoegd in de testfase om het schema te controleren van de gegevens die worden geretourneerd met R. U kunt deze instructie later verwijderen.
 
-    + De kolomnamen die worden gebruikt in het R-script, worden niet per se doorgegeven aan de uitvoer van de opgeslagen procedure. Hier hebben we het WITH RESULTS-component gebruikt om een aantal nieuwe kolomnamen te definiëren.
+   + De kolomnamen die worden gebruikt in het R-script, worden niet per se doorgegeven aan de uitvoer van de opgeslagen procedure. Hier hebben we het WITH RESULTS-component gebruikt om een aantal nieuwe kolomnamen te definiëren.
 
-    **Results**
+     **Results**
 
-    ![Resultatenset voor het voorspellen van de remafstand](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+     ![Resultatenset voor het voorspellen van de remafstand](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
-    U kunt ook [PREDICT in Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) gebruiken om een voorspelde waarde of score te genereren op basis van een opgeslagen model.
+     U kunt ook [PREDICT in Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) gebruiken om een voorspelde waarde of score te genereren op basis van een opgeslagen model.
 
 <a name="add-package"></a>
 

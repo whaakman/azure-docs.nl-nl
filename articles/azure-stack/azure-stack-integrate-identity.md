@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 65e5a678b4619897930873e77208005e14c054d2
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 5f34991dca4dbb4275033c764981c44492b9920e
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410278"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257800"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Datacenter-integratie Azure Stack - identiteit
 U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. In een verbonden scenario, kunt u Azure AD of AD FS. Voor een niet-verbonden scenario wordt alleen AD FS ondersteund.
@@ -122,7 +122,7 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 |Parameter|Description|Voorbeeld|
 |---------|---------|---------|
 |CustomAdfsName|De naam van de claimprovider.<br>Op die manier op de startpagina van de AD FS wordt deze weergegeven.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Federatieve metagegevens van koppeling|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomAD<br>FSFederationMetadataEndpointUri|Federatieve metagegevens van koppeling| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Trigger automation te configureren van de vertrouwensrelatie met claimproviders in Azure Stack

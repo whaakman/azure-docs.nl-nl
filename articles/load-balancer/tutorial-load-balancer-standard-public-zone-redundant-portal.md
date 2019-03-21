@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: 912307e6509ea66be887838e875076b7a895ca94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56982790"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888146"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Zelfstudie: Met behulp van Azure Portal taakverdeling uitvoeren van virtuele machines over beschikbaarheidszones met een standaard Load Balancer
 
@@ -43,25 +43,25 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-standard-load-balancer"></a>Een Load Balancer van het type Standard maken
 
 Standard Load Balancer biedt alleen ondersteuning voor een standaard, openbaar IP-adres. Wanneer u een nieuwe openbaar IP-adres maakt tijdens het maken van de load balancer, wordt het automatisch geconfigureerd als een standaard SKU-versie en is het ook automatisch zone-redundant.
 
 1. Klik linksboven in het scherm op **Een resource maken** > **Netwerken** > **Load balancer**.
-2. Voer op het tabblad **Basis** van de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Controleren + maken**:
+2. Voer op het tabblad **Basis** van de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer vervolgens **Controleren + maken**:
 
-    | Instelling                 | Waarde                                              |
+    | Instelling                 | Value                                              |
     | ---                     | ---                                                |
     | Abonnement               | Selecteer uw abonnement.    |    
     | Resourcegroep         | Selecteer **Nieuwe maken** en typ *MyResourceGroupLBAZ* in het tekstvak.|
-    | Naam                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Regio         | Selecteer **Europa - west**.                                        |
     | Type          | Selecteer **Openbaar**.                                        |
     | SKU           | selecteer **Standaard**.                          |
     | Openbaar IP-adres | Selecteer **Nieuw maken**. |
-    | Naam openbare IP-adres              | Typ *myPublicIP* in het tekstvak.   |
+    | Naam openbaar IP-adres              | Typ *myPublicIP* in het tekstvak.   |
     |Beschikbaarheidszone| Selecteer **Zone-redundant**.    |
    
 
@@ -108,7 +108,7 @@ In deze sectie maakt u netwerkbeveiligingsgroepsregels om inkomende verbindingen
     - *Allow HTTP* als beschrijving van de taakverdelingsregel.
 4. Klik op **OK**.
  
- ![Een virtueel netwerk maken](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Een virtueel netwerk maken](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Herhaal stap 2 t/m 4 om nog een regel te maken (*myRDPRule*) om een binnenkomende RDP-verbinding toe te staan via poort 3389 met de volgende waarden:
     - *Service Tag* bij **Bron**.
     - *Internet* bij **Bronservicetag**
@@ -137,7 +137,7 @@ Maak virtuele machines in verschillende zones (zone 1, zone 2 en zone 3) voor de
 5. Klik op **Uitgeschakeld** om diagnostische gegevens over opstarten uit te schakelen.
 6. Klik op **OK**, controleer de instellingen op de overzichtspagina en klik op **Maken**.
   
- ![Een virtuele machine maken](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
+   ![Een virtuele machine maken](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
 
 7. Volg stap 1 tot en met 6 om een tweede VM te maken met de naam *VM2* in Zone 2 en een derde VM in Zone 3, en met *myVnet* als het virtuele netwerk, *myBackendSubnet* als het subnet en **myNetworkSecurityGroup* als de netwerkbeveiligingsgroep.
 

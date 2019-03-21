@@ -1,24 +1,20 @@
 ---
 title: 'Zelfstudie: Door gebruiker gedefinieerde JavaScript-functies in Azure Stream Analytics| Microsoft Docs '
 description: In deze zelfstudie voert u geavanceerde querymechanismen uit met door de gebruiker gedefinieerde JavaScript-functies
-keywords: javascript, door gebruiker gedefinieerde functies, udf
 services: stream-analytics
 author: rodrigoamicrosoft
-manager: kfile
-ms.assetid: ''
+ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.workload: data-services
-ms.author: rodrigoa
-ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088871"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192272"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Zelfstudie: Door gebruiker gedefinieerde JavaScript-functies in Azure Stream Analytics
  
@@ -50,12 +46,19 @@ Hier volgen enkele dingen die u met een door de gebruiker gedefinieerde JavaScri
 Hoewel functies als **Date.GetDate()** of **Math.random()** niet zijn geblokkeerd in de definitie van functies, kunt u ze beter niet gebruiken. Deze functies resulteren **niet** telkens wanneer u ze aanroept hetzelfde resultaat. Bovendien houdt de Azure Stream Analytics-service geen logboek bij van functieaanroepen en de geretourneerde resultaten. Als een functie verschillende resultaten voor dezelfde gebeurtenissen retourneert, wordt herhaalbaarheid niet gegarandeerd wanneer een taak door u of door de Stream Analytics-service opnieuw wordt gestart.
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Een door de gebruiker gedefinieerde JavaScript-functie toevoegen in Azure Portal
-Voer deze stappen uit als u een eenvoudige door de gebruiker gedefinieerde JavaScript-functie wilt maken onder een bestaande Stream Analytics-taak:
+Volg deze stappen voor het maken van een eenvoudige gebruiker gedefinieerde JavaScript-functie onder een bestaande Stream Analytics-taak:
+
+> [!NOTE]
+> Deze stappen werken op de Stream Analytics-taken die is geconfigureerd om te worden uitgevoerd in de cloud. Als uw Stream Analytics-taak is geconfigureerd om te worden uitgevoerd op Azure IoT Edge, in plaats daarvan gebruikt u Visual Studio en [schrijven met behulp van de gebruiker gedefinieerde functie C# ](stream-analytics-edge-csharp-udf.md).
 
 1.  Zoek uw Stream Analytics-taak in Azure Portal.
-2.  Selecteer uw functie onder **TAAKTOPOLOGIE**. Er wordt een lege functielijst weergegeven.
-3.  Selecteer **Toevoegen** als u een nieuwe, door de gebruiker gedefinieerde functie wilt toevoegen.
+
+2. Onder de **taaktopologie** kop, selecteer **functies**. Er wordt een lege functielijst weergegeven.
+
+3.  Voor het maken van een nieuwe, door de gebruiker gedefinieerde functie selecteert **+ toevoegen**.
+
 4.  Selecteer in de blade **Nieuwe functie** bij **Functietype** de optie **JavaScript**. In de editor wordt een standaardfunctiesjabloon weergegeven.
+
 5.  Voer bij **UDF-alias** **hex2Int** in en verander de functie-implementatie als volgt:
 
     ```javascript
@@ -70,7 +73,7 @@ Voer deze stappen uit als u een eenvoudige door de gebruiker gedefinieerde JavaS
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Een door de gebruiker gedefinieerde JavaScript-functie in een query aanroepen
 
-1. Selecteer in de query-editor onder **TAAKTOPOLOGIE** de optie **Query**.
+1. In de query-editor, onder de **taaktopologie** kop, selecteer **Query**.
 2.  Bewerk de query en roep de door de gebruiker gedefinieerde functie als volgt aan:
 
     ```SQL
@@ -99,7 +102,7 @@ Stream Analytics | Javascript
 bigint | Number (In JavaScript kunnen alleen gehele getallen tot exact 2^53 worden weergegeven)
 DateTime | Date (JavaScript ondersteunt alleen milliseconden)
 double | Aantal
-nvarchar(MAX) | Tekenreeks
+nvarchar(MAX) | String
 Record | Object
 Matrix | Matrix
 NULL | Null
@@ -112,7 +115,7 @@ Javascript | Stream Analytics
 --- | ---
 Aantal | Bigint (als het een rond getal tussen long.MinValue en long.MaxValue is; anders is het double)
 Date | DateTime
-Tekenreeks | nvarchar(MAX)
+String | nvarchar(MAX)
 Object | Record
 Matrix | Matrix
 Null, niet gedefinieerd | NULL

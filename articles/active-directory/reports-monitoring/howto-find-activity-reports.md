@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 65e803ca373fb9853fc23d17f1a27ecadc6a209c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533405"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295212"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Activiteitenrapporten vinden in Azure portal
 
@@ -81,12 +81,12 @@ Services omvatten:
 - B2C
 - Voorwaardelijke toegang
 - Hoofddirectory
-- Beheer van rechten
+- Rechtenbeheer
 - Identiteitsbeveiliging
 - Uitgenodigde gebruikers
 - PIM
 - Self-service voor groepsbeheer
-- Self-servicegebruikers Passord Management
+- Selfservice voor wachtwoordbeheer
 - Gebruiksvoorwaarden
 
 ## <a name="sign-ins-report"></a>Aanmeldingenrapport 
@@ -153,11 +153,11 @@ Ik heb de activiteitenlogboeken (audit of aanmeldingen) gedownload en ik zie nie
  
 #### <a name="cause"></a>Oorzaak
 
-Wanneer u activiteitenlogboeken in Azure portal downloadt, worden er maximaal 5000 records, gesorteerd op meest recente eerst. 
+Wanneer u activiteitenlogboeken in Azure portal downloadt, beperkt de schaal aan 250000 records, gesorteerd op meest recente eerst. 
 
 #### <a name="resolution"></a>Oplossing
 
-U kunt gebruikmaken van [API's van Azure AD Reporting](concept-reporting-api.md) om maximaal een miljoen records op te halen. Onze aanbevolen aanpak is het [een script uitvoeren op een gepland schema](tutorial-signin-logs-download-script.md) waarmee de rapportage-API's om records te halen in alleen de gewijzigde gedurende een bepaalde periode (bijvoorbeeld dagelijks of wekelijks) aangeroepen. 
+U kunt gebruikmaken van [API's van Azure AD Reporting](concept-reporting-api.md) om maximaal een miljoen records op te halen.
 
 ### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Ontbrekende controlegegevens voor recente acties in de Azure-portal
 

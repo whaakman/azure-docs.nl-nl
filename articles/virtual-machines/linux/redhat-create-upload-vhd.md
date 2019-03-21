@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: szark
-ms.openlocfilehash: 81327c083b9517974780ac73284259b4408c2890
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 01acdf23c3113c3c4d185263b5cab75f3efd34a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001658"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Een op Red Hat gebaseerde virtuele machine voor Azure voorbereiden
-In dit artikel leert u hoe u een virtuele machine van Red Hat Enterprise Linux (RHEL) voorbereidt voor gebruik in Azure. De versies van RHEL die worden beschreven in dit artikel zijn 6.7 + en 7.1 +. De hypervisors voor voorbereiding die worden beschreven in dit artikel zijn Hyper-V, op basis van een kernel virtuele machine (KVM) en VMware. Zie voor meer informatie over vereisten voor geschiktheid voor uw deelname aan het Red Hat Cloud Access programma [van Red Hat Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) en [RHEL uitgevoerd op Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
+In dit artikel leert u hoe u een virtuele machine van Red Hat Enterprise Linux (RHEL) voorbereidt voor gebruik in Azure. De versies van RHEL die worden beschreven in dit artikel zijn 6.7 + en 7.1 +. De hypervisors voor voorbereiding die worden beschreven in dit artikel zijn Hyper-V, op basis van een kernel virtuele machine (KVM) en VMware. Zie voor meer informatie over vereisten voor geschiktheid voor uw deelname aan het Red Hat Cloud Access programma [van Red Hat Cloud Access website](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) en [RHEL uitgevoerd op Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Een Red Hat gebaseerde virtuele machine op basis van Hyper-V Manager voorbereiden
 
@@ -517,7 +517,7 @@ In deze sectie wordt ervan uitgegaan dat u hebt al een ISO-bestand vanaf de webs
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Een Red Hat gebaseerde virtuele machine van VMware voorbereiden
 ### <a name="prerequisites"></a>Vereisten
-In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware al hebt geïnstalleerd. Zie voor meer informatie over het installeren van een besturingssysteem in VMware [installatiehandleiding voor VMware Gast-besturingssysteem](http://partnerweb.vmware.com/GOSIG/home.html).
+In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware al hebt geïnstalleerd. Zie voor meer informatie over het installeren van een besturingssysteem in VMware [installatiehandleiding voor VMware Gast-besturingssysteem](https://partnerweb.vmware.com/GOSIG/home.html).
 
 * Wanneer u de Linux-besturingssysteem installeert, raden wij aan dat u standaard partities in plaats van LVM, dit is vaak de standaardwaarde voor vele installaties. Dit voorkomt LVM naam conflicteert met de gekloonde virtuele machine, dat met name als de schijf van een besturingssysteem ooit worden gekoppeld aan een andere virtuele machine moet voor probleemoplossing. LVM of RAID kan op gegevensschijven worden gebruikt als de voorkeur.
 * Stel een swap-partitie niet op de besturingssysteemschijf. U kunt de Linux-agent voor het maken van een wisselbestand op de tijdelijke schijf configureren. Meer informatie hierover vindt u in de volgende stappen.
@@ -583,7 +583,7 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
 
 1. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten, dit doorgaans de standaardinstelling is. Wijzigen `/etc/ssh/sshd_config` om op te nemen in de volgende regel:
 
-    ' ClientAliveInterval 180 '
+    ClientAliveInterval 180
 
 1. De Azure Linux-Agent installeren met de volgende opdracht:
 

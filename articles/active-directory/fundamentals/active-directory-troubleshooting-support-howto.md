@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 548ea67092a2cdb8cedeed869becd8933c08c5c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181789"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285091"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Hulp zoeken en openen van een ondersteuningsticket voor Azure Active Directory
 Microsoft biedt wereldwijde technische, voorverkoop, facturering en ondersteuning voor abonnementen voor Azure Active Directory (Azure AD). Ondersteuning is online en telefonisch voor Microsoft Azure betaalde en proefabonnementen beschikbaar. Telefonische ondersteuning en Onlineondersteuning facturering zijn beschikbaar in extra talen. 
@@ -31,7 +31,7 @@ Bekijk voordat u een ondersteuningsticket maakt, de volgende bronnen voor antwoo
 
 * Zie voor inhoud, zoals instructies of voorbeelden van code voor IT-professionals en ontwikkelaars de [technische documentatie op docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/).
 
-* De [Microsoft Tech-Community](https://techcommunity.microsoft.com/) is de plaats voor onze IT pro-partners en klanten samenwerken, delen en meer. De [Microsoft Tech Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) wordt gebruikt voor meldingen, blogberichten, vragen-ik-alles (AMA) interacties met experts en meer. U kunt ook [deelnemen aan de community om uw ideeën](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
+* De [technische Microsoft-Community](https://techcommunity.microsoft.com/) is de plaats voor onze IT pro-partners en klanten samenwerken, delen en meer. De [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) wordt gebruikt voor meldingen, blogberichten, vragen-ik-alles (AMA) interacties met experts en meer. U kunt ook [deelnemen aan de community om uw ideeën](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
 
 ## <a name="open-a-support-ticket"></a>Open een ondersteuningsticket
@@ -64,8 +64,7 @@ Als u geen antwoorden kunt vinden met behulp van bronnen voor zelfhulp, kunt u e
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Hoe u een ondersteuningsticket maken voor Azure AD in het Microsoft 365-beheercentrum
 
 > [!NOTE]
-> Ondersteuning voor Azure AD in de [Microsoft 365-beheercentrum](https://admin.microsoft.com) alleen voor beheerders wordt aangeboden.
-> 
+> Ondersteuning voor Azure AD in de [Microsoft 365-beheercentrum](https://admin.microsoft.com) alleen voor beheerders wordt aangeboden. 
 
 1. Aanmelden bij de [Microsoft 365-beheercentrum](https://admin.microsoft.com) met een account met een Enterprise Mobility + Security (EMS)-licentie.
 

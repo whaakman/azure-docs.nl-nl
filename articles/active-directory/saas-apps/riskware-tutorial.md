@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cab9750620d6d7c34de1d6e3404b4ea721f330ed
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3de8422efdbb7802e0532503e2733518e8050f6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203910"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842529"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Zelfstudie: Azure Active Directory-integratie met Riskware
 
@@ -110,6 +110,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![Riskware domein en URL's, eenmalige aanmelding informatie](./media/riskware-tutorial/tutorial_riskware_url.png)
 
     a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon:
+
     | Omgeving| URL-patroon|
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
@@ -118,6 +119,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     |||
 
     b. In de **id (entiteits-ID)** tekstvak, een URL typen:
+    
     | Omgeving| URL-patroon|
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
@@ -247,7 +249,7 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij Riskware, moeten ze
 
     a. Onder **verificatie** sectie, selecteer de **verificatie** modus, die u hebt instellen zoals AZURE-configuratie voor eenmalige aanmelding.
 
-    b. Onder **inloggegevens** sectie in de **gebruikers-ID** tekstvak, voer het e-mailadres van gebruiker, zoals **brittasimon@contoso.com**.
+    b. Onder **inloggegevens** sectie in de **gebruikers-ID** tekstvak, voer het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
 
     c. In de **wachtwoord** tekstvak, voer het wachtwoord van de gebruiker.
 
@@ -302,7 +304,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

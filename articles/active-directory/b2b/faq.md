@@ -9,14 +9,15 @@ ms.date: 10/29/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa6f0aeaa39114efbf3bd5587eac5744db386672
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 860a059f57578965045ff8e7f404c3b072df03a1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105230"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293818"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
 
@@ -59,9 +60,9 @@ Tenzij een gebruiker de rol van beperkte beheerder of de globale beheerdersrol i
 Ja. Wanneer u dit beleid configureren, Let erop om te voorkomen dat per ongeluk blokkeren van toegang tot de leden en beheerders.
 Een gastgebruiker toegang tot blokkeren de [Azure-portal](https://portal.azure.com), gebruikt u een beleid voor voorwaardelijke toegang in de Windows Azure classic deployment model-API:
 1. Wijzig de **alle gebruikers** groeperen zodat deze alleen leden bevat.
-   ![Schermafbeelding van de groep wijzigen](media/faq/modify-all-users-group.png)
+   ![Schermafbeelding van de groep alle gebruikers waar UserType is niet gelijk zijn aan Gast ](media/faq/modify-all-users-group.png)
 2. Maak een dynamische groep met gastgebruikers die.
-   ![Schermafbeelding van de groep maken](media/faq/group-with-guest-users.png)
+   ![Schermafbeelding van een nieuwe groep voor alle gastgebruikers](media/faq/group-with-guest-users.png)
 3. Stellen beleid voor voorwaardelijke toegang voor gastgebruikers blokkeren van toegang tot de portal, zoals wordt weergegeven in de volgende video:
   
    > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 

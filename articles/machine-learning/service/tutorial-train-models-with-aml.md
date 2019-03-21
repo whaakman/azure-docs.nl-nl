@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: hning86
-ms.author: haining
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7397546d4dc576a8488f605e20a0bfe15a01d7c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: cc0631052fa915ae946e791c907e405d70713ad2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311168"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860552"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Zelfstudie: een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service
 
@@ -29,13 +28,12 @@ U leert hoe u de volgende acties uitvoert:
 > [!div class="checklist"]
 > * De ontwikkelomgeving instellen.
 > * De gegevens downloaden en controleren.
-> * Een eenvoudig logistiek regressiemodel lokaal trainen met behulp van de populaire bibliotheek voor machine learning scikit-learn. 
-> * Meerdere modellen trainen op een extern cluster.
+> * Een eenvoudige logistieke regressiemodel op een extern cluster trainen.
 > * Trainingsresultaten bekijken en het beste model registreren.
 
 In [deel twee van deze zelfstudie](tutorial-deploy-models-with-aml.md) leert u hoe u een model selecteert en dit implementeert. 
 
-Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
+Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 >[!NOTE]
 > Code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.8.

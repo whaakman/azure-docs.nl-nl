@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.openlocfilehash: 513cc1f0155c5e5499d0bf076d21aff46756d769
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 820bb22fee75e5c1159ba90f23b478339f6345b5
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312171"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201922"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Gegevens uploaden voor Apache Hadoop-taken in HDInsight
 
@@ -39,7 +39,7 @@ Microsoft biedt de volgende hulpprogramma's om te werken met Azure Storage:
 
 | Hulpprogramma | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure-portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure-CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
@@ -53,10 +53,7 @@ Microsoft biedt de volgende hulpprogramma's om te werken met Azure Storage:
 ## <a id="commandline"></a>Hadoop-opdrachtregel
 De opdrachtregel van Hadoop is alleen nuttig voor het opslaan van gegevens in Azure storage-blob, wanneer de gegevens al aanwezig op het hoofdknooppunt van het cluster is.
 
-Als u wilt de Hadoop-opdracht gebruiken, moet u eerst verbinding maken met het hoofdknooppunt met behulp van een van de volgende methoden:
-
-* **HDInsight op basis van Windows**: [Verbinding maken met behulp van extern bureaublad](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight op basis van Linux**: Verbinding maken met behulp van [SSH of PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
+Als u wilt gebruiken de Hadoop-opdracht, u moet eerst verbinding maken met het hoofdknooppunt [SSH of PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Eenmaal verbinding hebben, kunt u de volgende syntaxis voor het uploaden van een bestand naar de opslag.
 

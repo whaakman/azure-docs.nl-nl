@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 4fd701c92ea2cf1447f0c3ea14db6a968ac8910e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: fdda53172bef9fb7a4a09cbacfdc5fa4ec4c7509
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115671"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122349"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Zelfstudie: PowerShell gebruiken om HSM's te implementeren in een bestaand virtueel netwerk
 
@@ -255,8 +255,8 @@ Als u klaar bent met het HSM-apparaat, kan het als resource worden verwijderd en
 9. `syslog rotate`
 
 
->[!NOTE]
-Als u problemen hebt met de configuratie van een Gemalto-apparaat, neemt u contact op met [Gemalto-klantondersteuning](https://safenet.gemalto.com/technical-support/).
+> [!NOTE]
+> Als u problemen hebt met de configuratie van een Gemalto-apparaat, neemt u contact op met [Gemalto-klantondersteuning](https://safenet.gemalto.com/technical-support/).
 
 Als u klaar bent met resources in deze resourcegroep, kunt u ze allemaal verwijderen door de volgende opdracht uit te voeren:
 

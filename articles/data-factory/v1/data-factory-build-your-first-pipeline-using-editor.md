@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 426a8f3df67ee00ded0591024447770e4cfedc32
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020707"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535991"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Zelfstudie: uw eerste data factory bouwen met behulp van de Azure-portal
 > [!div class="op_single_selector"]
@@ -148,7 +148,7 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
 
     De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het codefragment worden gebruikt.
 
-   | Eigenschap | Beschrijving |
+   | Eigenschap | Description |
    |:--- |:--- |
    | clusterSize |Geeft de grootte van het HDInsight-cluster aan. |
    | timeToLive | Geeft aan hoelang het HDInsight-cluster inactief moet zijn voordat het wordt verwijderd. |
@@ -162,7 +162,7 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
 
      c. Het HDInsight-cluster maakt een standaardcontainer in de blobopslag die u hebt opgegeven in de JSON-eigenschap (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment wordt verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
 
-     Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers worden als volgt opgebouwd: adf**naamvanuwdatafactory**-**naamvangekoppeldeservice**-datum-/tijdstempel. Gebruik een hulpprogramma als [Azure Storage Explorer](http://storageexplorer.com/) om containers in uw blobopslag te verwijderen.
+     Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers worden als volgt opgebouwd: adf**naamvanuwdatafactory**-**naamvangekoppeldeservice**-datum-/tijdstempel. Gebruik een hulpprogramma als [Azure Storage Explorer](https://storageexplorer.com/) om containers in uw blobopslag te verwijderen.
 
      Zie voor meer informatie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
@@ -209,7 +209,7 @@ In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-ve
     ```
     De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het codefragment worden gebruikt.
 
-   | Eigenschap | Beschrijving |
+   | Eigenschap | Description |
    |:--- |:--- |
    | type |De eigenschap type wordt ingesteld op **AzureBlob**, omdat de gegevens zich in de blobopslag bevinden. |
    | linkedServiceName |Deze eigenschap verwijst naar AzureStorageLinkedService, die u eerder hebt gemaakt. |
@@ -436,7 +436,7 @@ In deze zelfstudie hebt u een data factory gemaakt voor het verwerken van gegeve
 In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDInsight-activiteit) waarvoor een Hive-script wordt uitgevoerd op een on-demand HDInsight-cluster. Voor informatie over hoe u een kopieeractiviteit gebruikt om gegevens vanuit blobopslag naar een SQL-datebase te kopiëren, raadpleegt u [Tutorial: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Zelfstudie: gegevens kopiëren vanuit blobopslag naar SQL Database).
 
 ## <a name="see-also"></a>Zie ook
-| Onderwerp | Beschrijving |
+| Onderwerp | Description |
 |:--- |:--- |
 | [Pijplijnen](data-factory-create-pipelines.md) |Met behulp van dit artikel krijgt u inzicht in de pijplijnen en activiteiten in Data Factory en in de wijze waarop u deze kunt gebruiken om end-to-end gegevensgestuurde werkstromen te maken voor uw scenario of bedrijf. |
 | [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Data Factory. |

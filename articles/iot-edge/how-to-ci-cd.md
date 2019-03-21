@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 196d08f47ddfdbb86b8e96ae0e5ca3d3e3e5917e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896225"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Continue integratie en continue implementatie voor Azure IoT Edge
 
@@ -47,7 +47,7 @@ In deze sectie maakt u een nieuwe build-pijplijn. Configureren van de pijplijn w
 >
 >Zie voor meer informatie, [maken van een build-pijplijn](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Meld u aan bij uw organisatie Azure DevOps ( **https://dev.azure.com/{your organisatie} /**) en open het project met de opslagplaats van uw IoT Edge-oplossing.
+1. Meld u aan bij uw organisatie Azure DevOps (**https:\//dev.azure.com/{your organisatie} /**) en open het project met de opslagplaats van uw IoT Edge-oplossing.
 
    In dit artikel hebben we een opslagplaats met de naam gemaakt **IoTEdgeRepo**. Deze opslagplaats bevat **IoTEdgeSolution** die is de code voor een module met de naam **filtermodule**. 
 
@@ -69,13 +69,13 @@ In deze sectie maakt u een nieuwe build-pijplijn. Configureren van de pijplijn w
 
 4. Zodra uw pijplijn is gemaakt, gaat u naar de pijplijn-editor. Kies in de beschrijving van uw pijplijn, de juiste agentpool op basis van uw doelplatform: 
     
-    * Als u maken van de modules in platform amd64 voor Linux-containers wilt, kiest u **Ubuntu 1604 die worden gehost**
+   * Als u maken van de modules in platform amd64 voor Linux-containers wilt, kiest u **Ubuntu 1604 die worden gehost**
 
-    * Als u uw modules in platform amd64 voor Windows 1809 containers maken wilt, moet u [instellen van de zelf-hostend-agent op Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Als u uw modules in platform amd64 voor Windows 1809 containers maken wilt, moet u [instellen van de zelf-hostend-agent op Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-    * Als u uw modules in platform arm32v7 voor Linux-containers maken wilt, moet u [instellen van de zelf-hostend-agent op Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
+   * Als u uw modules in platform arm32v7 voor Linux-containers maken wilt, moet u [instellen van de zelf-hostend-agent op Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
-    ![Build-agentpool configureren](./media/how-to-ci-cd/configure-env.png)
+     ![Build-agentpool configureren](./media/how-to-ci-cd/configure-env.png)
 
 5. De pijplijn is vooraf geconfigureerd met een taak met de naam **Agent-taak 1**. Selecteer het plusteken (**+**) drie taken toevoegen aan de taak: **Azure IoT Edge** twee keer, en **Build-artefacten publiceren** zodra. (Beweeg de muisaanwijzer over de naam van de afzonderlijke taken om te zien de **toevoegen** knop.)
 
@@ -158,11 +158,11 @@ Een nieuwe pijplijn maken en configureren van de eerste fase voor kwaliteit assu
 
 10. Selecteer de nieuwe Azure IoT Edge-taak en deze configureren met de volgende waarden:
 
-   * **Weergavenaam**: De weergavenaam wordt automatisch bijgewerkt wanneer het actieveld wordt gewijzigd. 
-   * **Actie**: Gebruik de vervolgkeuzelijst om te selecteren **implementeren in IoT Edge-apparaat**. De weergavenaam van de taak zodat deze overeenkomen met wijzigen van de actiewaarde wordt ook bijgewerkt.
-   * **Azure-abonnement**: Selecteer het abonnement met uw IoT-Hub.
-   * **De naam van IoT Hub**: Selecteer uw IoT-hub. 
-   * **Eén/meerdere apparaat kiezen**: Kies of u de release-pijplijn te implementeren op een of meer apparaten. 
+    * **Weergavenaam**: De weergavenaam wordt automatisch bijgewerkt wanneer het actieveld wordt gewijzigd. 
+    * **Actie**: Gebruik de vervolgkeuzelijst om te selecteren **implementeren in IoT Edge-apparaat**. De weergavenaam van de taak zodat deze overeenkomen met wijzigen van de actiewaarde wordt ook bijgewerkt.
+    * **Azure-abonnement**: Selecteer het abonnement met uw IoT-Hub.
+    * **De naam van IoT Hub**: Selecteer uw IoT-hub. 
+    * **Eén/meerdere apparaat kiezen**: Kies of u de release-pijplijn te implementeren op een of meer apparaten. 
       * Als u op één apparaat implementeert, voert u de **IoT Edge-apparaat-ID**. 
       * Als u op meerdere apparaten implementeert, geeft u het apparaat **voorwaarde als doel**. De doelvoorwaarde is een filter op dat moet overeenkomen met een set van Edge-apparaten in IoT Hub. Als u wilt de apparaat-labels gebruiken als de voorwaarde, moet u voor het bijwerken van de bijbehorende apparaten Tags met dubbele voor IoT Hub-apparaat. Update de **IoT Edge-implementatie-ID** en **IoT Edge-implementatie prioriteit** in de geavanceerde instellingen. Zie voor meer informatie over het maken van een implementatie voor meerdere apparaten [automatisch informatie over IoT Edge-implementaties](module-deployment-monitoring.md).
 

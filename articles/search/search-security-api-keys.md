@@ -8,15 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 03/19/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316913"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286598"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Api-sleutels voor Azure Search-service maken en beheren
 
@@ -42,19 +41,35 @@ Twee typen sleutels worden gebruikt voor toegang tot uw search-service: beheerde
 > [!NOTE]  
 >  Het wordt beschouwd als een slechte beveiligingsprocedure om door te geven gevoelige gegevens, zoals een `api-key` in de aanvraag-URI. Om deze reden accepteert Azure Search alleen een querysleutel als een `api-key` in de query-tekenreeks, en u dient te vermijden in dat geval, tenzij de inhoud van de index openbaar beschikbaar moet. Als in het algemeen wordt aangeraden te geven uw `api-key` als een aanvraagheader.  
 
-## <a name="find-api-keys-for-your-service"></a>Api-sleutels voor uw service vinden
+## <a name="find-existing-keys"></a>Bestaande sleutels vinden
 
 Kunt u toegangssleutels in de portal of via de [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/). Zie voor meer informatie, [admin en query-api-sleutels beheren](search-security-api-keys.md).
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Lijst met de [zoekservices](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) voor uw abonnement.
-3. Selecteer de service en zoek op de servicepagina **instellingen** >**sleutels** om admin en query sleutels weer te geven.
+3. Selecteer de service en klik op de pagina overzicht **instellingen** >**sleutels** om admin en query sleutels weer te geven.
 
-![Portal-pagina, instellingen voor gedeelde met productcodes](media/search-security-overview/settings-keys.png)
+   ![Portal-pagina, instellingen voor gedeelde met productcodes](media/search-security-overview/settings-keys.png)
+
+## <a name="create-query-keys"></a>Querysleutels maken
+
+Querysleutels worden gebruikt voor alleen-lezen toegang tot documenten in een index. Beperken van toegang en bewerkingen in client-apps is essentieel voor het beveiligen van de assets zoeken op uw service. Gebruik altijd een querysleutel in plaats van een administratorsleutel voor elke query die afkomstig zijn van een client-app.
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Lijst met de [zoekservices](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) voor uw abonnement.
+3. Selecteer de service en klik op de pagina overzicht **instellingen** >**sleutels**.
+4. Klik op **querysleutels beheren**.
+5. Gebruik de query die al worden gegenereerd voor uw service of maximaal 50 nieuwe querysleutels maken. De sleutel van de query standaard is niet met de naam, maar aanvullende querysleutels kunnen met de naam voor de beheerbaarheid.
+
+   ![Maken of de querysleutel te gebruiken](media/search-security-overview/create-query-key.png) 
+
+
+> [!Note]
+> Een voorbeeld van query-sleutelgebruik kunt u vinden in [query uitvoeren op een Azure Search-index in C# ](search-query-dotnet.md).
 
 ## <a name="regenerate-admin-keys"></a>Beheerder sleutels opnieuw genereren
 
-Twee beheersleutels gemaakt voor elke service, zodat u rollover van een primaire sleutel kunt, met behulp van de secundaire sleutel voor blijvende toegang.
+Twee beheersleutels gemaakt voor elke service, zodat u kunt een primaire sleutel draaien met behulp van de secundaire sleutel voor blijvende toegang.
 
 Als u een primaire en secundaire sleutel op hetzelfde moment genereren, worden toepassingen die gebruikmaken van beide sleutels voor toegang tot servicebewerkingen niet langer toegang tot de service hebben.
 

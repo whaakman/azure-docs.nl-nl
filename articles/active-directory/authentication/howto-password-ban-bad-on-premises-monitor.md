@@ -1,5 +1,5 @@
 ---
-title: Controle en logboekregistratie in Azure AD-wachtwoord Protection preview
+title: Controle en logboekregistratie in Azure AD-wachtwoord beveiliging
 description: Inzicht in Azure AD-wachtwoord beveiliging, controle en logboekregistratie
 services: active-directory
 ms.service: active-directory
@@ -11,23 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: b1e12addc15afe0c0745e0e8d5a9b6718483d477
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451483"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293716"
 ---
-# <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>Preview: Azure AD-wachtwoordbeveiliging bewaking en logboekregistratie
-
-|     |
-| --- |
-| Beveiliging van Azure AD-wachtwoord is een openbare preview-functie van Azure Active Directory. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD-wachtwoordbeveiliging bewaking en logboekregistratie
 
 Zijn essentiële taken na de implementatie van Azure AD-wachtwoord beveiliging, controle en rapportage. In dit artikel gaat in detail om te begrijpen van verschillende bewaking technieken, inclusief waar elke service registreert informatie en hoe u om te rapporteren over het gebruik van Azure AD-wachtwoord beveiliging.
 
-# <a name="dc-agent-event-logging"></a>Logboekregistratie van DC-agent
+## <a name="dc-agent-event-logging"></a>Logboekregistratie van DC-agent
 
 Op elke domeincontroller schrijft de DC-agentsoftware service de resultaten van elke afzonderlijke wachtwoord validatie-bewerking (en andere status) naar een lokale gebeurtenislogboek:
 

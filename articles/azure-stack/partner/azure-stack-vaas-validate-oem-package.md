@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c2b0343ff472fe380750152712ca88d9ebb404e2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: aae3ec8ff713959c5cc2485951aba025a6f89a1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782782"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113279"
 ---
 # <a name="validate-oem-packages"></a>OEM-pakketten valideren
 
@@ -185,30 +185,30 @@ De volgende tests uit zijn vereist voor validatie van de OEM-pakket:
 
     OEM-extensie pakket verificatie is opgesplitst in twee stappen: Azure Stack-Update en OEM-Update.
 
-    1. **Selecteer** 'Uitvoeren' in de gebruikersinterface van de controle vooraf script wilt uitvoeren. Dit is een geautomatiseerde test die duurt ongeveer 5 minuten om te voltooien en is geen actie vereist.
+   1. **Selecteer** 'Uitvoeren' in de gebruikersinterface van de controle vooraf script wilt uitvoeren. Dit is een geautomatiseerde test die duurt ongeveer 5 minuten om te voltooien en is geen actie vereist.
 
-    1. Als de controle vooraf script is voltooid, de handmatige stap uitvoeren: **installeren** de meest recente beschikbare Azure Stack update met behulp van de Azure Stack-portal.
+   1. Als de controle vooraf script is voltooid, de handmatige stap uitvoeren: **installeren** de meest recente beschikbare Azure Stack update met behulp van de Azure Stack-portal.
 
-    1. **Voer** Test-AzureStack op het stempel. Als er fouten optreden, ga niet verder met de test- en neem contact op met [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+   1. **Voer** Test-AzureStack op het stempel. Als er fouten optreden, ga niet verder met de test- en neem contact op met [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
 
-        Zie voor meer informatie over het uitvoeren van de opdracht Test-AzureStack [valideren Azure Stack-systeemstatus](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+       Zie voor meer informatie over het uitvoeren van de opdracht Test-AzureStack [valideren Azure Stack-systeemstatus](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
 
-    1. **Selecteer** 'Volgende' om uit te voeren van het postcheck script. Dit is een geautomatiseerde test en markeert het einde van het updateproces voor de Azure Stack.
+   1. **Selecteer** 'Volgende' om uit te voeren van het postcheck script. Dit is een geautomatiseerde test en markeert het einde van het updateproces voor de Azure Stack.
 
-    1. **Selecteer** "Uitvoeren" om uit te voeren van het script controle vooraf voor OEM-Update.
+   1. **Selecteer** "Uitvoeren" om uit te voeren van het script controle vooraf voor OEM-Update.
 
-    1. Als de controle is voltooid, de handmatige stap uitvoeren: **installeren** het OEM-uitbreidingspakket via de portal.
+   1. Als de controle is voltooid, de handmatige stap uitvoeren: **installeren** het OEM-uitbreidingspakket via de portal.
 
-    1. **Voer** Test-AzureStack op het stempel.
+   1. **Voer** Test-AzureStack op het stempel.
 
-        > [!NOTE]
-        > Als voorheen, ga niet verder met de test- en neem contact op met [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) als dit mislukt. Deze stap is kritiek omdat u bovendien een opnieuw implementeren bespaart.
+      > [!NOTE]
+      > Als voorheen, ga niet verder met de test- en neem contact op met [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) als dit mislukt. Deze stap is kritiek omdat u bovendien een opnieuw implementeren bespaart.
 
-    1. **Selecteer** 'Volgende' om uit te voeren van het postcheck script. Hiermee markeert het einde van de OEM-update-stap.
+   1. **Selecteer** 'Volgende' om uit te voeren van het postcheck script. Hiermee markeert het einde van de OEM-update-stap.
 
-    1. Alle resterende beantwoorden aan het einde van de test en **Selecteer** "Verzenden".
+   1. Alle resterende beantwoorden aan het einde van de test en **Selecteer** "Verzenden".
 
-    1. Hiermee markeert het einde van de interactieve test.
+   1. Hiermee markeert het einde van de interactieve test.
 
 5. Bekijk de resultaten voor OEM-extensie pakket verificatie. Zodra de test is geslaagd, plannen dat Cloud simulatie Engine voor uitvoering.
 

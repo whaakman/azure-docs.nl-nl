@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccad4f9aaa85d528697c1bcf34e1b034eeabe9e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: b7dcac665dadef7f3f192e7f0e359b6b7c244bde
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996005"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287023"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Onjuiste wachtwoorden in uw organisatie te elimineren
-
-|     |
-| --- |
-| Beveiliging van Azure AD-wachtwoord en de lijst met aangepaste uitgesloten wachtwoorden zijn openbare preview-functies van Azure Active Directory. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 Toonaangevende bedrijven vertellen u niet hetzelfde wachtwoord gebruiken op meerdere plaatsen, zodat complexe, en niet kunt u eenvoudig zoals/Password123. Hoe kunnen organisaties garanderen dat hun gebruikers richtlijnen volgen? Hoe kunnen ze ervoor zorgen dat gebruikers worden niet met behulp van algemene wachtwoorden of wachtwoorden die bekend is dat ze worden opgenomen in recente gegevensschendingen?
 
@@ -31,7 +26,7 @@ Toonaangevende bedrijven vertellen u niet hetzelfde wachtwoord gebruiken op meer
 
 Microsoft stelt altijd alles in het werk om cybercriminelen een stap voor te blijven. Het Azure AD Identity Protection-team zoeken daarom voortdurend voor wachtwoorden voor vaak gebruikte en waarmee is geknoeid. Ze vervolgens blokkeren deze wachtwoorden op dat te veel voorkomt in wat de lijst met algemene uitgesloten wachtwoorden heet worden geacht. Cybercriminelen maken gebruik van vergelijkbare strategieën in hun aanvallen, dus Microsoft niet publiceert de inhoud van deze lijst openbaar. Deze kwetsbare wachtwoorden worden geblokkeerd voordat ze een echte bedreiging voor klanten van Microsoft. Zie voor meer informatie over de inspanningen de [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report).
 
-## <a name="preview-custom-banned-password-list"></a>Preview: Aangepaste lijst met verboden wachtwoorden
+## <a name="custom-banned-password-list"></a>Aangepaste lijst met verboden wachtwoorden
 
 Sommige organisaties kunt voor een beveiligingsstap verder door hun eigen aanpassingen boven op de lijst met uitgesloten wachtwoorden globale toe te voegen in wat Microsoft de lijst met aangepaste uitgesloten wachtwoorden. Zakelijke klanten, zoals Contoso kiest u kan voor het blokkeren van varianten van hun merknamen, bedrijfsspecifieke termen of andere items.
 
@@ -41,7 +36,7 @@ De aangepaste uitgesloten lijst van wachtwoorden en de mogelijkheid om in te sch
 
 ## <a name="on-premises-hybrid-scenarios"></a>On-premises hybride scenario 's
 
-Beveiligen van accounts alleen in de cloud is het handig, maar in veel organisaties hebben hybride scenario's zoals on-premises Windows Server Active Directory. Het is mogelijk voor het installeren van de beveiliging van Azure AD-wachtwoord voor Windows Server Active Directory (preview) agents on-premises naar de lijsten met uitgesloten wachtwoorden met uw bestaande infrastructuur uitbreiden. Nu gebruikers en beheerders die wijzigt, instellen of opnieuw instellen van wachtwoorden is on-premises zijn vereist om te voldoen aan het beleid voor dezelfde als gebruikers alleen in de cloud.
+Beveiligen van accounts alleen in de cloud is het handig, maar in veel organisaties hebben hybride scenario's zoals on-premises Windows Server Active Directory. Het is mogelijk voor het installeren van de beveiliging van Azure AD-wachtwoord voor Windows Server Active Directory-agents on-premises naar de lijsten met uitgesloten wachtwoorden met uw bestaande infrastructuur uitbreiden. Nu gebruikers en beheerders die wijzigt, instellen of opnieuw instellen van wachtwoorden is on-premises zijn vereist om te voldoen aan het beleid voor dezelfde als gebruikers alleen in de cloud.
 
 ## <a name="how-are-passwords-evaluated"></a>Hoe worden wachtwoorden geëvalueerd
 

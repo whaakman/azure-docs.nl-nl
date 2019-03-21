@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 7/24/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 73b8dfd741543560cd6ebf26178618a70bdae5f6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b4d75c7a6db89b19d88cddcc564fd4e6a9ad0f49
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992769"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770456"
 ---
 # <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>Zelfstudie: Een Azure DNS-privézone maken met Azure PowerShell
 
@@ -53,7 +53,7 @@ New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 ## <a name="create-a-dns-private-zone"></a>Een privé-DNS-zone maken
 
-Een DNS-zone wordt gemaakt door de cmdlet `New-AzDnsZone` met de waarde *Private* te gebruiken voor de parameter **ZoneType**. In het volgende voorbeeld wordt een DNS-zone met de naam **contoso.local** gemaakt in de resourcegroep **MyAzureResourceGroup**. De DNS-zone wordt beschikbaar gesteld voor het virtuele netwerk **MyAzureVnet** .
+Een DNS-zone wordt gemaakt door de cmdlet `New-AzDnsZone` met de waarde *Private* te gebruiken voor de parameter **ZoneType**. Het volgende voorbeeld wordt een DNS-zone met de naam **private.contoso.com** in de resourcegroep met de naam **MyAzureResourceGroup** en maakt u de DNS-zone beschikbaar voor het virtuele netwerk met de naam  **MyAzureVnet**.
 
 Als de parameter **ZoneType** wordt weggelaten, wordt de zone gemaakt als een openbare zone, dus deze parameter is vereist voor het maken van een privézone. 
 
@@ -66,7 +66,7 @@ $vnet = New-AzVirtualNetwork `
   -AddressPrefix 10.2.0.0/16 `
   -Subnet $backendSubnet
 
-New-AzDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
+New-AzDnsZone -Name private.contoso.com -ResourceGroupName MyAzureResourceGroup `
    -ZoneType Private `
    -RegistrationVirtualNetworkId @($vnet.Id)
 ```
@@ -118,10 +118,10 @@ Het duurt enkele minuten voordat dit is voltooid.
 
 ## <a name="create-an-additional-dns-record"></a>Een extra DNS-record maken
 
-U kunt recordsets maken met behulp van de cmdlet `New-AzDnsRecordSet`. In het volgende voorbeeld maakt u een record met de relatieve naam **db** in de DNS-zone **contoso.local** in de resourcegroep **MyAzureResourceGroup**. De volledig gekwalificeerde naam van de recordset is **db.contoso.local**. Het recordtype is 'A', met IP-adres '10.2.0.4' en de TTL is 3600 seconden.
+U kunt recordsets maken met behulp van de cmdlet `New-AzDnsRecordSet`. Het volgende voorbeeld wordt een record met de relatieve naam **db** in de DNS-Zone **private.contoso.com**, in de resourcegroep **MyAzureResourceGroup**. De volledig gekwalificeerde naam van de recordset is **db.private.contoso.com**. Het recordtype is 'A', met IP-adres '10.2.0.4' en de TTL is 3600 seconden.
 
 ```azurepowershell
-New-AzDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
+New-AzDnsRecordSet -Name db -RecordType A -ZoneName private.contoso.com `
    -ResourceGroupName MyAzureResourceGroup -Ttl 3600 `
    -DnsRecords (New-AzDnsRecordConfig -IPv4Address "10.2.0.4")
 ```
@@ -131,13 +131,13 @@ New-AzDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
 Als u de DNS-records in uw zone wilt weergeven,voert u de volgende opdracht uit:
 
 ```azurepowershell
-Get-AzDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
+Get-AzDnsRecordSet -ZoneName private.contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 Denk eraan dat u de automatisch gemaakte A-records niet kunt zien voor uw twee virtuele testmachines.
 
 ## <a name="test-the-private-zone"></a>De privézone testen
 
-U kunt nu de naamomzetting testen voor uw **contoso.local**-privézone.
+Nu kunt u de naamomzetting voor testen uw **private.contoso.com** privézone.
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>VM’s configureren voor het toestaan van inkomende ICMP
 
@@ -156,13 +156,13 @@ Herhaal voor myVM02.
 
 1. Ping vanuit de myVM02 Windows PowerShell-opdrachtprompt myVM01 met de naam van de automatisch geregistreerde hostnaam:
    ```
-   ping myVM01.contoso.local
+   ping myVM01.private.contoso.com
    ```
    De uitvoer ziet er ongeveer als volgt uit:
    ```
-   PS C:\> ping myvm01.contoso.local
+   PS C:\> ping myvm01.private.contoso.com
 
-   Pinging myvm01.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging myvm01.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time=1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
@@ -176,13 +176,13 @@ Herhaal voor myVM02.
    ```
 2. Ping nu de **db**-naam die u eerder hebt gemaakt:
    ```
-   ping db.contoso.local
+   ping db.private.contoso.com
    ```
    De uitvoer ziet er ongeveer als volgt uit:
    ```
-   PS C:\> ping db.contoso.local
+   PS C:\> ping db.private.contoso.com
 
-   Pinging db.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging db.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128

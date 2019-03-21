@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: fc2333b6bd41b9efdd1fcafd6168906525cb537a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b422074c33f52a6819d2a05144a85768a2e484a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440570"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011918"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>MapReduce-taken uitvoeren met Apache Hadoop op HDInsight met behulp van REST
 
@@ -107,10 +107,10 @@ Informatie over het gebruik van de REST API Apache Hive-WebHCat MapReduce-taken 
     Het einde van de URI (/ mapreduce/jar) geeft WebHCat dat deze aanvraag wordt gestart voor een MapReduce-taak van een klasse in een jar-bestand. In deze opdracht worden de volgende parameters gebruikt:
 
    * **-d**: `-G` wordt niet gebruikt, zodat de aanvraag standaard ingesteld op de POST-methode. `-d` Hiermee geeft u de waarden die worden verzonden met de aanvraag.
-    * **User.name**: De gebruiker die de opdracht wordt uitgevoerd
-    * **JAR**: De locatie van de jar-bestand met de klasse die moet worden uitgevoerd
-    * **klasse**: De klasse die de MapReduce-logica bevat
-    * **func**: De argumenten worden doorgegeven aan de MapReduce-taak. In dit geval, de invoertekst-bestand en de map die worden gebruikt voor de uitvoer
+     * **User.name**: De gebruiker die de opdracht wordt uitgevoerd
+     * **JAR**: De locatie van de jar-bestand met de klasse die moet worden uitgevoerd
+     * **klasse**: De klasse die de MapReduce-logica bevat
+     * **func**: De argumenten worden doorgegeven aan de MapReduce-taak. In dit geval, de invoertekst-bestand en de map die worden gebruikt voor de uitvoer
 
    Met deze opdracht moet een taak-ID die kan worden gebruikt om te controleren of de status van de taak retourneren:
 

@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ee8dcf1488cfb407793bdb35cdbbee18b2ef15ab
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: f18b2cbf31b50b27c1ae8a6d4fa4a6510781cb12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750967"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886481"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Snelstart: Azure-bestandsshares maken en beheren met Azure CLI
+# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Quickstart: Azure-bestandsshares maken en beheren met Azure CLI
 In deze handleiding worden de basisbeginselen besproken van het werken met [Azure-bestandsshares](storage-files-introduction.md) met behulp van Azure CLI. Azure-bestandsshares zijn net als andere bestandsshares, maar worden in de cloud opgeslagen en ondersteund door het Azure-platform. Azure-bestandsshares ondersteunen het SMB-protocol volgens de industriestandaard en bieden de mogelijkheid bestanden te delen tussen meerdere computers, toepassingen en exemplaren. 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
@@ -45,12 +45,12 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>Create a storage account
 Een opslagaccount is een gedeelde opslaggroep waarin u Azure-bestandsshares of andere opslagresources, zoals blobs of wachtrijen, kunt implementeren. Een opslagaccount kan een onbeperkt aantal bestandsshares bevatten. Een share kan een onbeperkt aantal bestanden opslaan, tot de capaciteitslimiet van het opslagaccount.
 
-In het volgende voorbeeld wordt een opslagaccount gemaakt met de naam *mystorageaccount\<willekeurig nummer\>* met behulp van de opdracht [az storage account create](/cli/azure/storage/account), waarna de naam van dat opslagaccount in de variabele `$STORAGEACCT` wordt geplaatst. Namen van opslagaccounts moeten uniek zijn. Met behulp van `$RANDOM` wordt een nummer aan de naam van het opslagaccount toegevoegd om deze uniek te maken. 
+In het volgende voorbeeld wordt een opslagaccount gemaakt met de naam *mystorageaccount\<willekeurig nummer\>* met behulp van de opdracht [az storage account create](/cli/azure/storage/account), waarna de naam van dat opslagaccount in de variabele `$STORAGEACCT` wordt geplaatst. Namen van opslagaccounts moeten uniek zijn, dus zorg ervoor dat "mystorageacct" vervangen door een unieke naam.
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
-    --name "mystorageacct$RANDOM" \
+    --name "mystorageacct" \
     --location eastus \
     --sku Standard_LRS \
     --query "name" | tr -d '"')
@@ -87,12 +87,12 @@ Zie het volgende document op basis van het besturingssysteem om een bestandsshar
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Een Azure-bestandsshare gebruiken met het File REST-protocol 
-Het is mogelijk om rechtstreeks met het File REST-protocol te werken (dat wil zeggen HTTP REST-aanroepen zelf te maken). De meest voorkomende manier om het File REST-protocol te gebruiken, is echter met Azure CLI, de [Azure PowerShell-module](storage-how-to-use-files-powershell.md) of een Azure Storage-SDK, die allemaal een mooie wrapper rond het File REST-protocol bieden in de script-/programmeertaal van uw keuze.  
+Het is mogelijk werk rechtstreeks met de File REST-protocol rechtstreeks (handcrafting HTTP REST-zelf aanroepen), maar de meest voorkomende manier om het bestand REST-protocol is met de Azure CLI, de [Azure PowerShell-module](storage-how-to-use-files-powershell.md), of een Azure Storage-SDK , die allemaal bieden een mooie wrapper rond de File REST-protocol in het uitvoeren van scripts/programmeertaal van uw keuze.  
 
 In de meeste gevallen gebruikt u Azure Files en de Azure-bestandsshare via het SMB-protocol, omdat dit u de mogelijkheid biedt om de bestaande toepassingen en hulpprogramma's te gebruiken die u verwacht te kunnen gebruiken, maar er zijn diverse redenen waarom het gebruik van de File REST-API in plaats van SMB voordelen oplevert, zoals:
 
 - U bladert door uw bestandsshare via de Azure Bach Cloud Shell (die geen ondersteuning biedt voor het koppelen van bestandsshares via SMB).
-- U moet een script of toepassing uitvoeren vanaf een client die geen SMB-shares kan koppelen, zoals on-premises clients waarvoor poort 445 niet is gedeblokkeerd.
+- U moet een script of een toepassing uitvoeren vanaf een client die niet kan koppelen van een SMB-bestandsshare, zoals on-premises clients waarvoor poort 445 is geblokkeerd.
 - U profiteert van serverloze resources, zoals [Azure Functions](../../azure-functions/functions-overview.md). 
 
 In de volgende voorbeelden ziet u hoe u Azure CLI gebruikt voor het bewerken van een Azure-bestandsshare met het File REST-protocol. 

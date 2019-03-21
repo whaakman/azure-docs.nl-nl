@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 66cef8369a314a76cf619e436cd25d6bdf628c45
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: be285b6a51ae5a0f4239b841ce64100f1875d785
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076300"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294345"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Logboekgegevens en toegang tot werkruimten in Azure Monitor beheren
 Azure Monitor-winkels vastleggen gegevens in een Log Analytics-werkruimte is in wezen een container die gegevens en configuratie-informatie bevat. Voor het beheren van toegang tot gegevens vastleggen, kunt u verschillende beheertaken met betrekking tot werkruimten uitvoeren. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
@@ -136,15 +136,6 @@ Dit is de standaardinstelling voor alle werkruimten die zijn gemaakt na maart 20
 > [!NOTE]
 > Als een gebruiker alleen machtigingen voor resources in de werkruimte, ze worden pas toegang krijgen tot de werkruimte met behulp van [Resource-georiënteerde modus](#access-modes).
 
-
-### <a name="define-access-control-mode-in-azure-portal"></a>Besturingselement toegangsmodus definiëren in Azure portal
-U kunt de huidige werkruimte access control-modus weergeven op de **overzicht** -pagina voor de werkruimte in de **Log Analytics-werkruimte** menu.
-
-![Weergavemodus werkruimte access control](media/manage-access/view-access-control-mode.png)
-
-U kunt deze instelling wijzigen op de **eigenschappen** pagina voor de werkruimte. Als u de instelling wijzigt worden, uitgeschakeld als u geen machtigingen voor het configureren van de werkruimte.
-
-![Toegangsmodus voor werkruimte wijzigen](media/manage-access/change-access-control-mode.png)
 
 ### <a name="define-access-control-mode-in-azure-portal"></a>Besturingselement toegangsmodus definiëren in Azure portal
 U kunt de huidige werkruimte access control-modus weergeven op de **overzicht** -pagina voor de werkruimte in de **Log Analytics-werkruimte** menu.

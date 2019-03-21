@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: eb227b4b4cbdc40a4e708726bbe0f5d0c7eacb74
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: f791b17f2729af3efd2dff5d7884a168f8377154
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364662"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999742"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Windows-client in Azure gebruiken voor scenario's voor ontwikkelen en testen
 Kunt u Windows 7, Windows 8 of Windows 10 Enterprise (x64) in Azure voor dev/test-scenario's die dat u hebt een geschikt abonnement op Visual Studio (voorheen MSDN). In dit artikel bevat een overzicht van de vereisten voor geschiktheid voor het uitvoeren van Windows 7, Windows 8.1, Windows 10 Enterprise in Azure en het gebruik van de volgende installatiekopieën van Azure-galerie.
@@ -59,7 +59,7 @@ Als u uw aanbiedings-ID niet weet, kunt u deze kunt verkrijgen via de Azure-port
 
 - Of klik op **facturering** en klik vervolgens op uw abonnements-ID. De aanbieding ID wordt weergegeven in de *facturering* venster.
 
-U kunt ook weergeven met de aanbiedings-ID van de [tabblad 'Abonnementen'](http://account.windowsazure.com/Subscriptions) van de portal voor Azure-Account:
+U kunt ook weergeven met de aanbiedings-ID van de [tabblad 'Abonnementen'](https://account.windowsazure.com/Subscriptions) van de portal voor Azure-Account:
 
 ![Details van aanbieding-ID van de portal voor Azure-Account](./media/client-images/offer-id-azure-account-portal.png) 
 

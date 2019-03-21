@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 415cf34a8b19400091807005e1e9943aa025f244
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980020"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002733"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestaties van Azure Diagnostics VM-extensie voor Windows
 
@@ -89,7 +89,7 @@ De volgende JSON bevat het schema voor VM-extensie voor Azure prestaties diagnos
 
 Volg deze instructies voor de extensie installeren op Windows-machines:
 
-1. Meld u aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer de virtuele machine waar u deze extensie te installeren.
 
     ![Schermopname van het Azure-portal, met virtuele machines die zijn gemarkeerd](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -112,7 +112,7 @@ Volg deze instructies voor de extensie installeren op Windows-machines:
 ## <a name="remove-the-extension"></a>Verwijder de extensie
 Als u wilt verwijderen van de extensie van een virtuele machine, de volgende stappen uit:
 
-1. Aanmelden bij de [Azure-portal](http://portal.azure.com), selecteer de virtuele machine van waaruit u wilt deze extensie te verwijderen en selecteer vervolgens de **extensies** blade. 
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), selecteer de virtuele machine van waaruit u wilt deze extensie te verwijderen en selecteer vervolgens de **extensies** blade. 
 2. Selecteer de (**...** ) voor de extensie voor diagnostische gegevens van prestaties vermelding in de lijst en selecteer **verwijderen**.
 
     ![Schermafbeelding van de extensies blade verwijderen gemarkeerd](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
@@ -125,7 +125,7 @@ Extensies voor Azure virtuele machines kunnen worden geïmplementeerd met Azure 
 
 ```
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {

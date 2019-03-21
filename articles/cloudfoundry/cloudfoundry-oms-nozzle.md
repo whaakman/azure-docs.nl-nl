@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 2038ce62e252260dda73813df97a68ee4b3fff61
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6220aebdef6970f3d5f7017e4ae48f6f409ae0ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548895"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111460"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Azure Log Analytics-pijp voor Cloud Foundry systeemcontrole implementeren
 
@@ -73,10 +73,10 @@ Zie voor meer informatie, [aan de slag met Azure Monitor logboeken](https://docs
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>De Log Analytics-werkruimte via de monitoring-sjabloon maken vanuit Azure Marketplace:
 
 1. Open Azure portal.
-2. Klik op het teken '+' of 'Een resource maken' in de linkerbovenhoek.
-3. 'Cloud Foundry' typt in het zoekvenster, selecteert u 'Cloud Foundry bewaking oplossing'.
-4. De Cloud Foundry oplossing sjabloon front pagina is geladen, klikt u op 'Maken' naar de blade sjabloon geopend.
-5. Voer de vereiste parameters:
+1. Klik op het teken '+' of 'Een resource maken' in de linkerbovenhoek.
+1. 'Cloud Foundry' typt in het zoekvenster, selecteert u 'Cloud Foundry bewaking oplossing'.
+1. De Cloud Foundry oplossing sjabloon front pagina is geladen, klikt u op 'Maken' naar de blade sjabloon geopend.
+1. Voer de vereiste parameters:
     * **Abonnement**: Selecteer een Azure-abonnement voor de Log Analytics-werkruimte, meestal hetzelfde met Cloud Foundry-implementatie.
     * **Resourcegroep**: Selecteer een bestaande resourcegroep of maak een nieuw wachtwoord voor de Log Analytics-werkruimte.
     * **Locatie van de resourcegroep**: Selecteer de locatie van de resourcegroep.
@@ -84,7 +84,7 @@ Zie voor meer informatie, [aan de slag met Azure Monitor logboeken](https://docs
     * **OMS_Workspace_Region**: Selecteer de locatie voor de werkruimte.
     * **OMS_Workspace_Pricing_Tier**: Selecteer de SKU van de Log Analytics-werkruimte. Zie de [prijsinformatie](https://azure.microsoft.com/pricing/details/log-analytics/) ter referentie.
     * **Juridische voorwaarden**: Klik op de juridische voorwaarden en klik vervolgens op 'Maken' voor het accepteren van de juridische term.
-- Nadat alle parameters zijn opgegeven, klikt u op 'Maken' om de sjabloon te implementeren. Wanneer de implementatie is voltooid, wordt de status op het tabblad melding weergegeven.
+1. Nadat alle parameters zijn opgegeven, klikt u op 'Maken' om de sjabloon te implementeren. Wanneer de implementatie is voltooid, wordt de status op het tabblad melding weergegeven.
 
 
 ## <a name="deploy-the-nozzle"></a>De Nozzle implementeren

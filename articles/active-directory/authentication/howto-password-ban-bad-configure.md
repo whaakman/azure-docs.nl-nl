@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30627994a8fe8cfe73e7945dadf2153ea60860b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: ef8f66cda7e80ffdafefbbac5de24d45f01401af
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175129"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286927"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>De lijst met aangepaste uitgesloten wachtwoorden configureren
-
-|     |
-| --- |
-| Beveiliging van Azure AD-wachtwoord is een openbare preview-functie van Azure Active Directory. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 Veel organisaties zien dat gebruikers maken met behulp van algemene lokale woorden, zoals een school, sportteam of beroemde personen, zodat ze gemakkelijk te raden wachtwoorden. Lijst met aangepaste uitgesloten wachtwoorden van Microsoft, waarmee organisaties om toe te voegen tekenreeksen om te evalueren en te blokkeren, naast de globale verboden lijst met wachtwoorden, wanneer gebruikers en beheerders probeert te wijzigen of opnieuw instellen van een wachtwoord.
 
@@ -31,7 +26,7 @@ Veel organisaties zien dat gebruikers maken met behulp van algemene lokale woord
 
 De lijst met aangepaste uitgesloten wachtwoorden configureren, is een Azure Active Directory Premium P1 of P2-licentie vereist. Zie voor meer informatie over de licentieverlening voor Azure Active Directory, de [Azure Active Directory pagina met prijzen](https://azure.microsoft.com/pricing/details/active-directory/). |
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en blader naar **Azure Active Directory**, **verificatiemethoden**, klikt u vervolgens **wachtwoordbeveiliging (Preview)**.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en blader naar **Azure Active Directory**, **verificatiemethoden**, klikt u vervolgens **wachtwoordbeveiliging**.
 1. Stel de optie **afdwingen aangepaste lijst**naar **Ja**.
 1. Toevoegen van tekenreeksen die moeten worden de **aangepaste lijst met wachtwoorden verboden**, één tekenreeks per regel
    * De lijst met aangepaste uitgesloten wachtwoorden kan maximaal 1000 woorden bevatten.

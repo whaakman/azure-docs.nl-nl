@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 7daf76605d40495d6c9cb5076f0403a78819adfc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: aa97e60fe296190f3478d29bc80c70ea487e8955
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439160"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258578"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Bewaking op schaal met Azure Monitor
 
@@ -29,7 +29,7 @@ De [ingebouwde bewaking en waarschuwingen van artikel](backup-azure-monitoring-b
 ## <a name="using-log-analytics-workspace"></a>Met behulp van Log Analytics-werkruimte
 
 > [!NOTE]
-> Gegevens uit Azure-VM back-ups, MAB-Agent, System Center DPM (SC-DPM) is aan de Log Analytics-werkruimte via diagnostische instellingen worden gepompt. Ondersteuning voor SQL-back-ups in Azure VM's, back-ups van Azure File share, Microsoft Azure Backup-Server (MABS) is binnenkort beschikbaar.
+> Gegevens uit Azure-VM back-ups, MAB-Agent, System Center DPM (SC-DPM), SQL-back-ups in Azure VM's is aan de Log Analytics-werkruimte via diagnostische instellingen worden gepompt. Ondersteuning voor Azure File share back-ups, Microsoft Azure Backup-Server (MABS) is binnenkort beschikbaar.
 
 We maken gebruik van de mogelijkheden van twee Azure-services - **diagnostische instellingen** (om gegevens te verzenden vanuit meerdere Azure Resource Manager-resources naar een andere resource) en **Log Analytics** (LA - genereren aangepaste waarschuwingen waar u andere meldingskanalen met behulp van actiegroepen kunt definiëren) voor het bewaken van op grote schaal. De volgende secties details over het gebruik van LA voor het bewaken van Azure back-up op schaal.
 

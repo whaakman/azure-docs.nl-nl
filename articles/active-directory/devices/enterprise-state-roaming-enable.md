@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ce6dc4cf98f2886eb4eed7049048d67599ac42e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: adad43f337d4cf026ca8f48976a9fc713fd52200
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077408"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Enterprise state roaming inschakelen in Azure Active Directory
 Enterprise State Roaming is beschikbaar voor elke organisatie met een Azure AD Premium of Enterprise Mobility + Security (EMS)-licentie. Zie voor meer informatie over het verkrijgen van een Azure AD-abonnement, de [productpagina van Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -37,7 +37,7 @@ Wanneer u de Enterprise State Roaming inschakelt, wordt uw organisatie een grati
 
 1. Selecteer **gebruikers kunnen instellingen en app-gegevens synchroniseren via apparaten**. Zie voor meer informatie, [apparaatinstellingen configureren](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
-  ![afbeelding van de instelling van de apparaten met het label gebruikers kan instellingen en app-gegevens synchroniseren via apparaten](./media/enterprise-state-roaming-enable/device-settings.png)
+   ![afbeelding van de instelling van de apparaten met het label gebruikers kan instellingen en app-gegevens synchroniseren via apparaten](./media/enterprise-state-roaming-enable/device-settings.png)
   
 Het apparaat moet verifiëren met behulp van een Azure AD-identiteit voor een Windows 10-apparaat om de service Enterprise State Roaming te gebruiken. Voor apparaten die zijn gekoppeld aan Azure AD, is identiteit van de gebruiker primaire aanmelding hun Azure AD-identiteit, zodat er geen aanvullende configuratie vereist. Voor apparaten die gebruikmaken van on-premises Active Directory, de IT-beheerder moet [configureren hybride Azure Active Directory gekoppelde apparaten](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
@@ -64,11 +64,11 @@ Volg deze stappen om een statusrapport voor synchronisatie van per gebruiker-app
 
 1. Onder **weergeven**, selecteer **synchronisatie-instellingen en app-gegevens voor apparaten** om weer te geven van de synchronisatiestatus.
   
-  ![afbeelding van de gegevens van de Apparaatinstelling synchroniseren](./media/enterprise-state-roaming-enable/sync-status.png)
+   ![afbeelding van de gegevens van de Apparaatinstelling synchroniseren](./media/enterprise-state-roaming-enable/sync-status.png)
   
 1. Als er apparaten synchroniseren voor deze gebruiker, ziet u de apparaten, zoals hier wordt weergegeven.
   
-  ![afbeelding van het apparaat synchroniseren kolomgegevens](./media/enterprise-state-roaming-enable/device-status-row.png)
+   ![afbeelding van het apparaat synchroniseren kolomgegevens](./media/enterprise-state-roaming-enable/device-status-row.png)
 
 ## <a name="data-retention"></a>Bewaartijd van gegevens
 Gegevens die zijn gesynchroniseerd met de Microsoft-cloud met behulp van Enterprise State Roaming worden bewaard totdat deze handmatig wordt verwijderd of de desbetreffende gegevens blijkt dat het verouderd. 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2ebc0c90d62d1299c076f8d91ba9fed1998a20e5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2a425e607ea7dac394ab90a3fed4d4026056bbc1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118575"
 ---
 <a name="get-customer-leads"></a>Leads klant ophalen
 ==================
@@ -39,13 +39,13 @@ Leads zijn klanten die geïnteresseerd bent in of implementeert uw producten uit
 
 <!-- -->
 
-2.  Klant instemt met het delen van hun gegevens na het selecteren van de 'Nu ophalen'. Deze lead is een **belang voor de eerste** lead, waar we informatie over de klant die is uitgedrukt belang bij het ophalen van uw product delen. De lead is de bovenkant van de trechter overname.
+1. Klant instemt met het delen van hun gegevens na het selecteren van de 'Nu ophalen'. Deze lead is een **belang voor de eerste** lead, waar we informatie over de klant die is uitgedrukt belang bij het ophalen van uw product delen. De lead is de bovenkant van de trechter overname.
 
-    ![Deze optie nu ophalen](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
+   ![Deze optie nu ophalen](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
 
-3.  Klant 'Aankoop' selecteert de [Azure Portal](https://portal.azure.com/) om op te halen van het product. Deze lead is een **active** lead, waar we informatie over een klant die is begonnen met het implementeren van uw product delen.
+1. Klant 'Aankoop' selecteert de [Azure Portal](https://portal.azure.com/) om op te halen van het product. Deze lead is een **active** lead, waar we informatie over een klant die is begonnen met het implementeren van uw product delen.
 
-    ![Aankoopoptie](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
+   ![Aankoopoptie](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
 
 
 ### <a name="appsource"></a>AppSource

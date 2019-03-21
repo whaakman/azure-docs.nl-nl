@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 982a8b6ed67b955fcb68006072b67f7c59f29688
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 46f08aaa33563f620e7a011620730249e903f7b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010154"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086595"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Aangepaste gegevens op een kaart raster weergeven
 
@@ -135,9 +135,9 @@ U kunt ook de locatie-informatie van het pad en de pincode verkrijgen met behulp
 
 4. Selecteer **verzenden** en bekijk de antwoord-header. De location-header bevat de URI die wordt gebruikt voor toegang tot of het downloaden van de gegevens voor toekomstig gebruik. Deze bevat ook een unieke `udId` voor de geüploade gegevens.  
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 5. Gebruik de `udId` ontvangen waarde van de gegevens uploaden API om functies op de kaart weer te geven. U doet dit door een nieuw tabblad te openen in de verzameling die u in de voorgaande sectie hebt gemaakt. Selecteer de GET HTTP-methode op het tabblad builder en voer deze URL om te maken van een GET-aanvraag:
 

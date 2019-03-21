@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 7dfc4329b338a65169c81521360264753bafa9d6
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f79f94c277b02a9f377b90bf74763ac617f65c16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239913"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892894"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Beheer van Azure-beveiliging en controle-overzicht
 
@@ -50,7 +50,7 @@ Met Azure, kunt u antimalwaresoftware van belangrijke leveranciers van beveiligi
 
 Microsoft Antimalware voor Azure Cloud Services en virtuele Machines biedt u de mogelijkheid voor het installeren van een antimalware-agent voor virtuele machines en PaaS-rollen. Op basis van System Center Endpoint Protection, zorgt deze functie beproefde on-premises beveiligingstechnologie in de cloud.
 
-We bieden ook diepe integratie voor de Trend [Deep Security](http://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) en [SecureCloud](http://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) producten in de Azure-platform. Deep Security is een antivirusoplossing en SecureCloud is een oplossing voor versleuteling. Deep Security wordt geïmplementeerd in virtuele machines via een extensiemodel. Met behulp van de gebruikersinterface van Azure portal en PowerShell, kunt u het gebruik van Deep Security in nieuwe virtuele machines die zijn opvoert, of een bestaande virtuele machines die al zijn geïmplementeerd.
+We bieden ook diepe integratie voor de Trend [Deep Security](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) en [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) producten in de Azure-platform. Deep Security is een antivirusoplossing en SecureCloud is een oplossing voor versleuteling. Deep Security wordt geïmplementeerd in virtuele machines via een extensiemodel. Met behulp van de gebruikersinterface van Azure portal en PowerShell, kunt u het gebruik van Deep Security in nieuwe virtuele machines die zijn opvoert, of een bestaande virtuele machines die al zijn geïmplementeerd.
 
 Symantec Endpoint Protection (SEP) wordt ook ondersteund op Azure. Via integratie met de portal, kunt u opgeven dat u van plan bent SEP gebruiken op een virtuele machine. SEP kan worden geïnstalleerd op een nieuwe virtuele machine via de Azure-portal of deze kan worden geïnstalleerd op een bestaande virtuele machine via PowerShell.
 
@@ -144,7 +144,7 @@ Meer informatie:
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 
-Intelligent Security Graph biedt realtime threat protection in Microsoft-producten en services. Maakt gebruik van geavanceerde analyses die een enorme hoeveelheid intelligentie en beveiliging gegevens van bedreigingen voor inzichten aan de beveiliging van de organisatie kunnen versterken koppelen. Microsoft gebruikt geavanceerde analyses, verwerken van meer dan 450 miljard verificaties per maand, 400 miljard e-mailberichten voor malware en phishing scannen en één miljard apparaten bijwerken, uitgebreidere inzichten leveren. Deze inzichten kunnen helpen uw organisatie detecteren en snel reageren op aanvallen.
+Intelligent Security Graph biedt realtime threat protection in Microsoft-producten en services. Maakt gebruik van geavanceerde analyses die een enorme hoeveelheid intelligentie en beveiliging gegevens van bedreigingen voor inzichten aan de beveiliging van de organisatie kunnen versterken koppelen. Microsoft gebruikt geavanceerde analyses, verwerken van meer dan 450 miljard verificaties per maand, 400 miljard e-mailberichten voor malware en phishing scannen en één miljard apparaten bijwerken, uitgebreidere inzichten leveren. Met deze inzichten kan jouw organisatie sneller aanvallen opsporen en erop reageren.
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 

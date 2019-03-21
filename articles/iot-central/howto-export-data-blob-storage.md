@@ -8,18 +8,18 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 43fda73b1bd410c3e754316bb8bf8c7e1c744e58
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f6e44b21a2a2e174ffa49073fdeb8cc96910a69e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005339"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295076"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Uw gegevens worden geëxporteerd naar Azure Blob Storage
 
 *In dit onderwerp is bedoeld voor beheerders.*
 
-In dit artikel dives dieper in het gebruik van de continue export-functie in Azure IoT Central periodiek gegevens exporteren naar uw **Azure Blob storage-account**. U kunt exporteren **metingen**, **apparaten**, en **apparaatsjablonen** tot bestanden in Apache Avro-indeling. De geëxporteerde gegevens kunnen worden gebruikt voor analyses koude pad, zoals modellen voor training in Azure Machine Learning of op de lange termijn trendanalyse in Microsoft Power BI.
+In dit artikel wordt beschreven hoe u van de continue export-functie in Azure IoT Central periodiek gegevens exporteren naar uw **Azure Blob storage-account**. U kunt exporteren **metingen**, **apparaten**, en **apparaatsjablonen** tot bestanden in Apache Avro-indeling. De geëxporteerde gegevens kunnen worden gebruikt voor analyses koude pad, zoals modellen voor training in Azure Machine Learning of op de lange termijn trendanalyse in Microsoft Power BI.
 
 > [!Note]
 > Nogmaals, als u continue gegevensexport inschakelt, krijgt u alleen de gegevens vanaf dat moment standaardtarieven. Gegevens kunnen op dit moment niet worden hersteld gedurende een periode wanneer voortdurende gegevensexport uitgeschakeld is. Als u wilt meer historische gegevens behouden, moet u voortdurende gegevensexport vroeg inschakelen.
@@ -28,6 +28,69 @@ In dit artikel dives dieper in het gebruik van de continue export-functie in Azu
 ## <a name="prerequisites"></a>Vereisten
 
 - U moet een beheerder in uw IoT Central-toepassing
+
+
+## <a name="set-up-export-destination"></a>Export doel instellen
+
+Als u een bestaande opslag om te exporteren naar niet hebt, volgt u deze stappen:
+
+## <a name="create-storage-account"></a>Storage-account maken
+
+1. Maak een [nieuw opslagaccount in Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). U kunt meer informatie in [Azure Storage-docs](https://aka.ms/blobdocscreatestorageaccount).
+2. Kies voor het accounttype **algemeen** of **Blob storage**.
+3. Kies een abonnement. 
+
+    > [!Note] 
+    > U kunt nu gegevens exporteren naar andere abonnementen die zijn **niet hetzelfde** als voor uw betalen per gebruik IoT Central-toepassing. U verbinding maakt met een verbindingsreeks in dit geval.
+
+4. Maak een container in uw opslagaccount. Ga naar uw opslagaccount. Onder **Blob-Service**, selecteer **door Blobs Bladeren**. Selecteer **+ Container** boven aan een nieuwe container maken
+
+
+## <a name="set-up-continuous-data-export"></a>Voortdurende gegevensexport instellen
+
+Nu dat u een opslaglocatie hebt voor het exporteren van gegevens, volg deze stappen voor het instellen van continue gegevensexport. 
+
+1. Meld u aan uw IoT Central-toepassing.
+
+2. Selecteer in het menu links **continue gegevensexport**.
+
+    > [!Note]
+    > Als er geen continue Export van gegevens in het menu links, bent u niet een beheerder in uw app. Neem contact op met een beheerder voor het instellen van het exporteren van gegevens.
+
+    ![Nieuwe cde Event Hub maken](media/howto-export-data/export_menu.PNG)
+
+3. Selecteer de **+ nieuw** knop in de rechterbovenhoek. Kies **Azure Blob Storage** als de bestemming of het exporteren. 
+
+    > [!NOTE] 
+    > Het maximum aantal uitvoer per app is vijf. 
+
+    ![Maken van nieuwe voortdurende gegevensexport](media/howto-export-data/export_new.PNG)
+
+4. Selecteer in de vervolgkeuzelijst uw **Opslagaccount naamruimte**. U kunt ook de laatste optie kiezen in de lijst die is **een verbindingsreeks invoeren**. 
+
+    > [!NOTE] 
+    > U ziet alleen de naamruimten van de Storage-Accounts in de **hetzelfde abonnement als uw app IoT Central**. Als u exporteren naar een bestemming buiten dit abonnement wilt, kiest u **een verbindingsreeks invoeren** en raadpleegt u stap 5.
+
+    > [!NOTE] 
+    > Voor zeven dagen proefversie apps, de enige manier om het configureren van doorlopende gegevens exporteren, is via een verbindingsreeks. Dit komt doordat zeven dagen proefversie apps nog geen een gekoppelde Azure-abonnement.
+
+    ![Nieuwe cde Event Hub maken](media/howto-export-data/export-create-blob.png)
+
+5. (Optioneel) Als u ervoor hebt gekozen **een verbindingsreeks invoeren**, een nieuwe verschijnt u plak de verbindingsreeks. Om op te halen van de verbindingsreeks voor uw:
+    - Storage-account, gaat u naar het opslagaccount in Azure portal.
+        - Onder **instellingen**, selecteer **toegangssleutels**
+        - Kopieer de verbindingsreeks key1 of de key2-verbindingsreeks
+ 
+6. Een Container kiezen uit de vervolgkeuzelijst.
+
+7. Onder **gegevens naar de export**, elk type gegevens wilt exporteren door het type in te stellen **op**.
+
+6. Als u wilt inschakelen voortdurende gegevensexport, zorg ervoor dat **gegevensexport** is **op**. Selecteer **Opslaan**.
+
+  ![Voortdurende gegevensexport configureren](media/howto-export-data/export-list-blob.png)
+
+7. Na een paar minuten verschijnt uw gegevens in uw gekozen bestemming.
+
 
 ## <a name="export-to-azure-blob-storage"></a>Exporteren naar Azure Blob-opslag
 

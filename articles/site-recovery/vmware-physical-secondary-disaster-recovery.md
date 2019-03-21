@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 373d7d4b421b3e679a5bb0f843db47e28eebbcc1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 29ced587022bc15e82c756cb5f1b80554cfcceb2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009388"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Herstel na noodgevallen van on-premises virtuele VMware-machines of fysieke servers naar een secundaire site instellen
 
@@ -50,11 +50,11 @@ o voor fysieke computers, volgt u deze [zelfstudie](./physical-azure-disaster-re
 --|--|--
 **Vereiste onderdelen** |Mobility-service op gerepliceerde machines. On-premises configuratieserver, processerver, hoofddoelserver. Tijdelijke processerver in Azure voor failback.|Mobility-service, processerver, de configuratieserver en de Hoofddoelserver
 **Configuratie en indeling** |Recovery Services-kluis in Azure portal | Met behulp van vContinuum 
-**Gerepliceerd**|Schijf (Windows en Linux) |Volume-Windows<br> Disk-Linux
-**Gedeeld schijfcluster**|Niet ondersteund|Ondersteund
+**Gerepliceerd** |Schijf (Windows en Linux) |Volume-Windows<br> Disk-Linux
+**Gedeeld schijfcluster** |Niet ondersteund|Ondersteund
 **Gegevensverloop limieten (gemiddeld)** |Gegevens van 10 MB/s per schijf<br> Gegevens van 25MB/s per virtuele machine<br> [Meer informatie](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | Gegevens voor > 10 MB/s per schijf  <br> De gegevens > 25 MB/s per virtuele machine
 **Controle** |Vanuit Azure portal|Van CX (configuratieserver)
-**Ondersteuningsmatrix**| [Klik hier voor meer informatie](./vmware-physical-azure-support-matrix.md)|[ASR Scout compatibel matrix downloaden](https://aka.ms/asr-scout-cm)
+**Ondersteuningsmatrix** | [Klik hier voor meer informatie](./vmware-physical-azure-support-matrix.md)|[ASR Scout compatibel matrix downloaden](https://aka.ms/asr-scout-cm)
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -81,52 +81,52 @@ Als volgt te werk om de updates te installeren:
 >Updateversie alle Scout-onderdelen mogelijk niet hetzelfde als in het ZIP-bestand bijwerken. De oudere versie geven aan dat er is geen wijziging in de component sinds de vorige update voor deze update.
 
 Download de [bijwerken](https://aka.ms/asr-scout-update7) ZIP-bestand en de [MySQL en PHP upgrade](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) -configuratiebestanden. De update-ZIP-bestand bevat de alle base binaire bestanden en de cumulatieve upgrade binaire bestanden van de volgende onderdelen: 
-  - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
-  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
-  - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
-  - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
-  - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
-  - InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
-  - InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
-  - InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
-  - InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
-1. Pak de ZIP-bestanden.
-2. **RX server**: Kopie **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** naar de server RX, en pak het uit. Voer in de uitgepakte map **/Install**.
-3. **Configuratieserver en processerver**: Kopie **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** op de configuratieserver en processerver. Dubbelklik op uit te voeren.<br>
-4. **Windows hoofddoelserver**: Voor het bijwerken van de unified agent kopiëren **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** naar de server. Dubbelklik erop uit te voeren. Hetzelfde bestand kan ook worden gebruikt voor nieuwe installatie. De unified agentupdate is ook van toepassing op de bronserver.
+- InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
+- RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
+- InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
+- InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
+- InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
+- InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
+  1. Pak de ZIP-bestanden.
+  2. **RX server**: Kopie **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** naar de server RX, en pak het uit. Voer in de uitgepakte map **/Install**.
+  3. **Configuratieserver en processerver**: Kopie **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** op de configuratieserver en processerver. Dubbelklik op uit te voeren.<br>
+  4. **Windows hoofddoelserver**: Voor het bijwerken van de unified agent kopiëren **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** naar de server. Dubbelklik erop uit te voeren. Hetzelfde bestand kan ook worden gebruikt voor nieuwe installatie. De unified agentupdate is ook van toepassing op de bronserver.
   De update niet wilt toepassen op de Master target voorbereid met **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** omdat deze nieuwe algemene beschikbaarheid installatieprogramma met de meest recente wijzigingen.
-5. **vContinuum-server**:  Kopie **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** naar de server.  Zorg ervoor dat u de wizard vContinuum hebt gesloten. Dubbelklik op het bestand uit te voeren.
-6. **Linux-hoofddoelserver**: Voor het bijwerken van de unified agent kopiëren **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** naar de server voor Linux-hoofddoel en pak het uit. Voer in de uitgepakte map **/Install**.
-7. **Windows-bronserver**: Voor het bijwerken van de unified agent kopiëren **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** naar de bronserver. Dubbelklik op het bestand uit te voeren. 
-8. **Linux-bronserver**: De unified agent bijwerken, de bijbehorende versie van het bestand de unified agent kopiëren naar de Linux-server en pak het uit. Voer in de uitgepakte map **/Install**.  Voorbeeld: Voor RHEL 6.7 64-bits-server, kopie **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** naar de server, en pak het uit. Voer in de uitgepakte map **/Install**.
-9. Na de upgrade configuratieserver, processerver en RX-server met de hierboven genoemde installatieprogramma's, de PHP- en MySQL-bibliotheken moet handmatig worden bijgewerkt met de stappen in de sectie 7.4 van de [handleiding voor snelle installatie](https://aka.ms/asr-scout-quick-install-guide).
+  5. **vContinuum-server**:  Kopie **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** naar de server.  Zorg ervoor dat u de wizard vContinuum hebt gesloten. Dubbelklik op het bestand uit te voeren.
+  6. **Linux-hoofddoelserver**: Voor het bijwerken van de unified agent kopiëren **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** naar de server voor Linux-hoofddoel en pak het uit. Voer in de uitgepakte map **/Install**.
+  7. **Windows-bronserver**: Voor het bijwerken van de unified agent kopiëren **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** naar de bronserver. Dubbelklik op het bestand uit te voeren. 
+  8. **Linux-bronserver**: De unified agent bijwerken, de bijbehorende versie van het bestand de unified agent kopiëren naar de Linux-server en pak het uit. Voer in de uitgepakte map **/Install**.  Voorbeeld: Voor RHEL 6.7 64-bits-server, kopie **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** naar de server, en pak het uit. Voer in de uitgepakte map **/Install**.
+  9. Na de upgrade configuratieserver, processerver en RX-server met de hierboven genoemde installatieprogramma's, de PHP- en MySQL-bibliotheken moet handmatig worden bijgewerkt met de stappen in de sectie 7.4 van de [handleiding voor snelle installatie](https://aka.ms/asr-scout-quick-install-guide).
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
@@ -183,23 +183,23 @@ Als volgt te werk om de updates te installeren:
 >Updateversie alle Scout-onderdelen mogelijk niet hetzelfde als in het ZIP-bestand bijwerken. De oudere versie geven aan dat er is geen wijziging in de component sinds de vorige update voor deze update.
 
 Download de [bijwerken](https://aka.ms/asr-scout-update6) ZIP-bestand. Het bestand bevat de volgende onderdelen: 
-  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
-  - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
-  - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-  - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-  - UA update4 bits voor RHEL5, OL5, OL6, SUSE-10, SUSE-11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-1. Pak de ZIP-bestanden.
-2. **RX server**: Kopie **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** naar de server RX, en pak het uit. Voer in de uitgepakte map **/Install**.
-3. **Configuratieserver en processerver**: Kopie **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** op de configuratieserver en processerver. Dubbelklik op uit te voeren.<br>
-4. **Windows hoofddoelserver**: Voor het bijwerken van de unified agent kopiëren **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** naar de server. Dubbelklik erop uit te voeren. De unified agentupdate is ook van toepassing op de bronserver. Als bron nog niet is bijgewerkt naar Update 4, moet u de unified agent bijwerken.
+- RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
+- CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
+- UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
+- UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+- vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
+- UA update4 bits voor RHEL5, OL5, OL6, SUSE-10, SUSE-11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  1. Pak de ZIP-bestanden.
+  2. **RX server**: Kopie **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** naar de server RX, en pak het uit. Voer in de uitgepakte map **/Install**.
+  3. **Configuratieserver en processerver**: Kopie **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** op de configuratieserver en processerver. Dubbelklik op uit te voeren.<br>
+  4. **Windows hoofddoelserver**: Voor het bijwerken van de unified agent kopiëren **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** naar de server. Dubbelklik erop uit te voeren. De unified agentupdate is ook van toepassing op de bronserver. Als bron nog niet is bijgewerkt naar Update 4, moet u de unified agent bijwerken.
   De update niet wilt toepassen op de Master target voorbereid met **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** omdat deze nieuwe algemene beschikbaarheid installatieprogramma met de meest recente wijzigingen.
-5. **vContinuum-server**:  Copy **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** to the server.  Zorg ervoor dat u de wizard vContinuum hebt gesloten. Dubbelklik op het bestand uit te voeren.
-    De update niet wilt toepassen op de Hoofddoelserver voorbereid met **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** omdat deze nieuwe algemene beschikbaarheid installatieprogramma met de meest recente wijzigingen.
-6. **Linux-hoofddoelserver**: Voor het bijwerken van de unified agent kopiëren **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar het hoofdniveau doelserver en pak het uit. Voer in de uitgepakte map **/Install**.
-7. **Windows-bronserver**: Voor het bijwerken van de unified agent kopiëren **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** naar de bronserver. Dubbelklik op het bestand uit te voeren. 
-    U hoeft te installeren van de Update 5-agent op de bronserver als deze al is bijgewerkt naar Update 4 of bronagent is geïnstalleerd met het nieuwste installatieprogramma van base **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Linux-bronserver**: De unified agent bijwerken, de bijbehorende versie van het bestand de unified agent kopiëren naar de Linux-server en pak het uit. Voer in de uitgepakte map **/Install**.  Voorbeeld: Voor RHEL 6.7 64-bits-server, kopie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar de server, en pak het uit. Voer in de uitgepakte map **/Install**.
+  5. **vContinuum-server**:  Copy **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** to the server.  Zorg ervoor dat u de wizard vContinuum hebt gesloten. Dubbelklik op het bestand uit te voeren.
+  De update niet wilt toepassen op de Hoofddoelserver voorbereid met **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** omdat deze nieuwe algemene beschikbaarheid installatieprogramma met de meest recente wijzigingen.
+  6. **Linux-hoofddoelserver**: Voor het bijwerken van de unified agent kopiëren **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar het hoofdniveau doelserver en pak het uit. Voer in de uitgepakte map **/Install**.
+  7. **Windows-bronserver**: Voor het bijwerken van de unified agent kopiëren **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** naar de bronserver. Dubbelklik op het bestand uit te voeren. 
+  U hoeft te installeren van de Update 5-agent op de bronserver als deze al is bijgewerkt naar Update 4 of bronagent is geïnstalleerd met het nieuwste installatieprogramma van base **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
+  8. **Linux-bronserver**: De unified agent bijwerken, de bijbehorende versie van het bestand de unified agent kopiëren naar de Linux-server en pak het uit. Voer in de uitgepakte map **/Install**.  Voorbeeld: Voor RHEL 6.7 64-bits-server, kopie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar de server, en pak het uit. Voer in de uitgepakte map **/Install**.
 
 
 > [!NOTE]
@@ -276,9 +276,9 @@ Scout Update 4 is een cumulatieve update. Deze bevat alle oplossingen van Update
 
 > [!NOTE]
 > * **InMage_Scout_Standard_8.0.1_GA.zip** basispakket heeft:
-    * Het installatieprogramma voor een basis van een bijgewerkte configuratie server (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
-    * A Windows master target base installer (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
-    * Gebruik voor alle nieuwe installaties van de nieuwe configuratie- en Windows hoofddoel GA bits.
+>     * Het installatieprogramma voor een basis van een bijgewerkte configuratie server (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
+>     * A Windows master target base installer (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
+>     * Gebruik voor alle nieuwe installaties van de nieuwe configuratie- en Windows hoofddoel GA bits.
 > * Update 4 kan worden toegepast op 8.0.1 algemene beschikbaarheid.
 > * De configuratieserver en RX updates kunnen niet worden hersteld nadat ze zijn toegepast.
 

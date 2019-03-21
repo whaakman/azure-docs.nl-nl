@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: fd4c1220d0652139c247ffed80e995a90a93c5b1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 469213ae67f1f2bcece6afa5d9b7873bfdfe8d6c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780832"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095735"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Monitor op Azure Stack
 
@@ -33,8 +33,8 @@ Voor een introductie, overzicht en hoe u aan de slag met Azure Monitor, raadplee
 
 Azure Monitor is de platformservice die één bron biedt voor het bewaken van Azure-resources. Met Azure Monitor kunt u visualiseren, query's uitvoeren, routeren, archiveren en anders doen op de metrische gegevens en logboeken van resources in Azure. U kunt werken met deze gegevens met behulp van de Azure Stack-beheerportal, PowerShell-Cmdlets voor Monitor, platformoverschrijdende CLI of Azure Monitor REST API's. Zie voor de specifieke connectiviteit wordt ondersteund door Azure Stack, [bewakingsgegevens van Azure Stack gebruiken](azure-stack-metrics-monitor.md)
 
-> [!Note]  
-Diagnostische logboeken en metrische gegevens zijn niet beschikbaar voor de Azure Stack Development Kit.
+> [!Note]
+> Diagnostische logboeken en metrische gegevens zijn niet beschikbaar voor de Azure Stack Development Kit.
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Vereisten voor Azure Monitor op Azure Stack
 

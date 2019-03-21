@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 03/20/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f8941f84e85f330713cb4b263f2154acb80b520c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532393"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295263"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -65,6 +65,7 @@ Als u een Batch-account met de pooltoewijzingsmodus is ingesteld gemaakt op **ge
 | [Gelijktijdige taken](batch-parallel-node-tasks.md) per knooppunt | 4 x aantal kernen van knooppunt |
 | [Toepassingen](batch-application-packages.md) per Batch-account | 20 |
 | Toepassingspakketten per toepassing | 40 |
+| Toepassingspakketten per groep | 10 |
 | De maximale levensduur van taken | 180 dagen<sup>1</sup> |
 
 <sup>1</sup> de maximale levensduur van een taak, wanneer deze wordt toegevoegd aan de taak wanneer deze is voltooid, is 180 dagen. Voltooide taken blijven gedurende zeven dagen aanwezig; gegevens voor taken die niet binnen de maximale levensduur zijn voltooid, zijn niet toegankelijk.

@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 96040d6caeb1541eec78e57973dd9089b5a107ed
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: f3534f3001de1c3e58f0be3fb7bc9639b7dfcd03
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671842"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295417"
 ---
-# <a name="install-and-run-containers"></a>Containers installeren en uitvoeren
+# <a name="install-and-run-face-containers"></a>Installeren en uitvoeren van de Face-containers
 
 Face biedt een gestandaardiseerde Linux-container voor Docker, met de naam gezicht, detecteert menselijke gezichten in afbeeldingen en-kenmerken, zoals gezichtsoriëntatiepunten (zoals hartstukken en ogen), geslacht, leeftijd en andere machine voorspeld gezichtskenmerken identificeert. Naast detectie controleren Face of twee gezichten in dezelfde afbeelding of andere installatiekopieën zijn hetzelfde met behulp van een betrouwbaarheidsscore of gezichten op een database om te zien als een gelijkende vergelijken of identieke face al bestaat. Deze kunt soortgelijke gezichten ook organiseren in groepen, met behulp van gedeelde visuele kenmerken.
 
@@ -48,11 +48,12 @@ U moet voldoen aan de volgende vereisten voordat u met behulp van containers voo
 
 De volgende tabel beschrijft de minimale en aanbevolen CPU-kernen en geheugen toewijzen voor elke container Face-API.
 
-| Container | Minimum | Aanbevolen |
-|-----------|---------|-------------|
-|Face | 1 core, 2 GB geheugen | 1 core, 4 GB geheugen |
+| Container | Minimum | Aanbevolen | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Face | 1 core, 2 GB geheugen | 1 core, 4 GB geheugen |10, 20|
 
-Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
+* Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
+* TPS - transacties per seconde
 
 Kernen en geheugen komen overeen met de `--cpus` en `--memory` instellingen die worden gebruikt als onderdeel van de `docker run` opdracht.
 
@@ -117,7 +118,7 @@ Meer [voorbeelden](./face-resource-container-config.md#example-docker-run-comman
 
 De container biedt eindpunt van de voorspelling query op basis van REST API's. 
 
-Gebruikmaken van de host https://localhost:5000, voor de container met API's.
+Gebruikmaken van de host `https://localhost:5000`, voor de container met API's.
 
 ## <a name="stop-the-container"></a>De container stoppen
 

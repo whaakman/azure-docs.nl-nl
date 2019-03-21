@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
-ms.openlocfilehash: 00bdc5ff63e78b0f96b794ca907bc28158e62c62
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883637"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075267"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-gegevensmodel voor Azure backup-gegevens
 
@@ -172,36 +172,36 @@ Deze tabel bevat details over velden met betrekking tot de taak.
 
 Deze tabel bevat informatie over beleid-gerelateerde velden.
 
-| Veld | Gegevenstype | Description |
-| --- | --- | --- |
-| EventName_s |Tekst |Dit veld naam van deze gebeurtenis vertegenwoordigt, het is altijd AzureBackupCentralReport |
-| SchemaVersion_s |Tekst |Dit veld geeft de huidige versie van het schema, is het **V2** |
-| State_s |Tekst |Huidige status van het Groepsbeleid-object, bijvoorbeeld actief, verwijderd |
-| BackupManagementType_s |Tekst |Providertype voor de server die back-uptaak, bijvoorbeeld IaaSVM, FileFolder doen |
-| OperationName |Tekst |Dit veld vertegenwoordigt de naam van de huidige bewerking - beleid |
-| Categorie |Tekst |Dit veld categorie van diagnostische gegevens te pushen naar Azure Monitor logboeken vertegenwoordigt, is het AzureBackupReport |
-| Resource |Tekst |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
-| PolicyUniqueId_g |Tekst |De unieke Id voor het identificeren van het beleid |
-| PolicyName_s |Tekst |Naam van het beleid is gedefinieerd |
-| BackupFrequency_s |Tekst |Frequentie waarmee de back-ups worden uitgevoerd, bijvoorbeeld dagelijks, wekelijks |
-| BackupTimes_s |Tekst |Datum en tijd wanneer de back-ups zijn gepland |
-| BackupDaysOfTheWeek_s |Tekst |Dagen van de week wanneer back-ups zijn gepland |
-| RetentionDuration_s |Geheel getal |Bewaartermijn voor geconfigureerde back-ups |
-| DailyRetentionDuration_s |Geheel getal |Totale bewaartermijn in dagen voor de geconfigureerde back-ups |
-| DailyRetentionTimes_s |Tekst |Datum en tijd wanneer de dagelijkse bewaarperiode is geconfigureerd |
-| WeeklyRetentionDuration_s |Decimaal getal |Totale duur van de wekelijkse bewaren in weken voor de geconfigureerde back-ups |
-| WeeklyRetentionTimes_s |Tekst |Datum en tijd wanneer de wekelijkse bewaarperiode is geconfigureerd |
-| WeeklyRetentionDaysOfTheWeek_s |Tekst |Dagen van de week geselecteerd voor het bewaren van week |
-| MonthlyRetentionDuration_s |Decimaal getal |Totale bewaartermijn in maanden voor geconfigureerde back-ups |
-| MonthlyRetentionTimes_s |Tekst |Datum en tijd wanneer de maandelijkse bewaarperiode is geconfigureerd |
-| MonthlyRetentionFormat_s |Tekst |Type van de configuratie voor maandelijkse bewaren, bijvoorbeeld dagelijks voor per dag, per week voor op basis van de week |
-| MonthlyRetentionDaysOfTheWeek_s |Tekst |Dagen van de week geselecteerd voor het bewaren van maandelijkse |
-| MonthlyRetentionWeeksOfTheMonth_s |Tekst |Weken van de maand wanneer de maandelijkse bewaarperiode is geconfigureerd, bijvoorbeeld de eerste, laatste enzovoort. |
-| YearlyRetentionDuration_s |Decimaal getal |Totale bewaartermijn in de jaren voor geconfigureerde back-ups |
-| YearlyRetentionTimes_s |Tekst |Datum en tijd wanneer de jaarlijkse bewaarperiode is geconfigureerd |
-| YearlyRetentionMonthsOfTheYear_s |Tekst |Maanden van het jaar voor jaarlijkse retentie geselecteerd |
-| YearlyRetentionFormat_s |Tekst |Type van de configuratie voor jaarlijkse bewaren, bijvoorbeeld dagelijks voor per dag, per week voor op basis van de week |
-| YearlyRetentionDaysOfTheMonth_s |Tekst |Datums van de maand geselecteerd voor het bewaren van jaar |
+| Veld | Gegevenstype | Versies van toepassing | Description |
+| --- | --- | --- | --- |
+| EventName_s |Tekst ||Dit veld naam van deze gebeurtenis vertegenwoordigt, het is altijd AzureBackupCentralReport |
+| SchemaVersion_s |Tekst ||Dit veld geeft de huidige versie van het schema, is het **V2** |
+| State_s |Tekst ||Huidige status van het Groepsbeleid-object, bijvoorbeeld actief, verwijderd |
+| BackupManagementType_s |Tekst ||Providertype voor de server die back-uptaak, bijvoorbeeld IaaSVM, FileFolder doen |
+| OperationName |Tekst ||Dit veld vertegenwoordigt de naam van de huidige bewerking - beleid |
+| Categorie |Tekst ||Dit veld categorie van diagnostische gegevens te pushen naar Azure Monitor logboeken vertegenwoordigt, is het AzureBackupReport |
+| Resource |Tekst ||Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
+| PolicyUniqueId_g |Tekst ||De unieke Id voor het identificeren van het beleid |
+| PolicyName_s |Tekst ||Naam van het beleid is gedefinieerd |
+| BackupFrequency_s |Tekst ||Frequentie waarmee de back-ups worden uitgevoerd, bijvoorbeeld dagelijks, wekelijks |
+| BackupTimes_s |Tekst ||Datum en tijd wanneer de back-ups zijn gepland |
+| BackupDaysOfTheWeek_s |Tekst ||Dagen van de week wanneer back-ups zijn gepland |
+| RetentionDuration_s |Geheel getal ||Bewaartermijn voor geconfigureerde back-ups |
+| DailyRetentionDuration_s |Geheel getal ||Totale bewaartermijn in dagen voor de geconfigureerde back-ups |
+| DailyRetentionTimes_s |Tekst ||Datum en tijd wanneer de dagelijkse bewaarperiode is geconfigureerd |
+| WeeklyRetentionDuration_s |Decimaal getal ||Totale duur van de wekelijkse bewaren in weken voor de geconfigureerde back-ups |
+| WeeklyRetentionTimes_s |Tekst ||Datum en tijd wanneer de wekelijkse bewaarperiode is geconfigureerd |
+| WeeklyRetentionDaysOfTheWeek_s |Tekst ||Dagen van de week geselecteerd voor het bewaren van week |
+| MonthlyRetentionDuration_s |Decimaal getal ||Totale bewaartermijn in maanden voor geconfigureerde back-ups |
+| MonthlyRetentionTimes_s |Tekst ||Datum en tijd wanneer de maandelijkse bewaarperiode is geconfigureerd |
+| MonthlyRetentionFormat_s |Tekst ||Type van de configuratie voor maandelijkse bewaren, bijvoorbeeld dagelijks voor per dag, per week voor op basis van de week |
+| MonthlyRetentionDaysOfTheWeek_s |Tekst ||Dagen van de week geselecteerd voor het bewaren van maandelijkse |
+| MonthlyRetentionWeeksOfTheMonth_s |Tekst ||Weken van de maand wanneer de maandelijkse bewaarperiode is geconfigureerd, bijvoorbeeld de eerste, laatste enzovoort. |
+| YearlyRetentionDuration_s |Decimaal getal ||Totale bewaartermijn in de jaren voor geconfigureerde back-ups |
+| YearlyRetentionTimes_s |Tekst ||Datum en tijd wanneer de jaarlijkse bewaarperiode is geconfigureerd |
+| YearlyRetentionMonthsOfTheYear_s |Tekst ||Maanden van het jaar voor jaarlijkse retentie geselecteerd |
+| YearlyRetentionFormat_s |Tekst ||Type van de configuratie voor jaarlijkse bewaren, bijvoorbeeld dagelijks voor per dag, per week voor op basis van de week | |
+| YearlyRetentionDaysOfTheMonth_s |Tekst ||Datums van de maand geselecteerd voor het bewaren van jaar |
 | SynchronisationFrequencyPerDay_s |Geheel getal |v2|Aantal keren per dag die een back-up is gesynchroniseerd voor SC DPM en MABS |
 | DiffBackupFormat_s |Tekst |v2|Indeling voor differentiële back-ups voor SQL in Azure VM backup |
 | DiffBackupTime_s |Time |v2|Tijd voor differentiële back-ups voor SQL in Azure VM Backup|
@@ -209,35 +209,35 @@ Deze tabel bevat informatie over beleid-gerelateerde velden.
 | LogBackupFrequency_s |Decimaal getal |v2|Frequentie van logboekback-ups voor SQL|
 | LogBackupRetentionDuration_s |Decimaal getal |v2|Bewaartermijn voor logboekback-ups voor SQL in Azure VM Backup|
 | DiffBackupDaysofTheWeek_s |Tekst |v2|Dagen van de week voor differentiële back-ups voor SQL in Azure VM Backup|
-| SourceSystem |Tekst |Bronsysteem van de huidige gegevens - Azure |
-| ResourceId |Tekst |Resource-id voor gegevens die worden verzameld. Bijvoorbeeld: de resource-id voor Recovery Services-kluis |
-| SubscriptionId |Tekst |Abonnements-id van de resource (ex.) Recovery Services-kluis) waarvoor gegevens worden verzameld |
-| ResourceGroup |Tekst |Resourcegroep van de resource (ex.) Recovery Services-kluis) waarvoor gegevens worden verzameld |
-| ResourceProvider |Tekst |De resourceprovider waarvoor gegevens worden verzameld. Bijvoorbeeld, Microsoft.RecoveryServices |
-| ResourceType |Tekst |Het type van de resource waarvoor gegevens worden verzameld. Bijvoorbeeld-kluizen |
+| SourceSystem |Tekst ||Bronsysteem van de huidige gegevens - Azure |
+| ResourceId |Tekst ||Resource-id voor gegevens die worden verzameld. Bijvoorbeeld: de resource-id voor Recovery Services-kluis |
+| SubscriptionId |Tekst ||Abonnements-id van de resource (ex.) Recovery Services-kluis) waarvoor gegevens worden verzameld |
+| ResourceGroup |Tekst ||Resourcegroep van de resource (ex.) Recovery Services-kluis) waarvoor gegevens worden verzameld |
+| ResourceProvider |Tekst ||De resourceprovider waarvoor gegevens worden verzameld. Bijvoorbeeld, Microsoft.RecoveryServices |
+| ResourceType |Tekst ||Het type van de resource waarvoor gegevens worden verzameld. Bijvoorbeeld-kluizen |
 
 ### <a name="policyassociation"></a>PolicyAssociation
 
 Deze tabel bevat informatie over beleidskoppelingen met verschillende entiteiten.
 
-| Veld | Gegevenstype | Description |
-| --- | --- | --- |
-| EventName_s |Tekst |Dit veld naam van deze gebeurtenis vertegenwoordigt, het is altijd AzureBackupCentralReport |
-| SchemaVersion_s |Tekst |Dit veld geeft de huidige versie van het schema, is het **V2** |
-| State_s |Tekst |Huidige status van het Groepsbeleid-object, bijvoorbeeld actief, verwijderd |
-| BackupManagementType_s |Tekst |Providertype voor de server die back-uptaak, bijvoorbeeld IaaSVM, FileFolder doen |
-| OperationName |Tekst |Dit veld vertegenwoordigt naam van de huidige bewerking - PolicyAssociation |
-| Categorie |Tekst |Dit veld categorie van diagnostische gegevens te pushen naar Azure Monitor logboeken vertegenwoordigt, is het AzureBackupReport |
-| Resource |Tekst |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
-| PolicyUniqueId_g |Tekst |De unieke Id voor het identificeren van het beleid |
-| VaultUniqueId_s |Tekst |De unieke Id van de kluis waarop dit beleid behoort |
+| Veld | Gegevenstype | Versies van toepassing | Description |
+| --- | --- | --- | --- |
+| EventName_s |Tekst ||Dit veld naam van deze gebeurtenis vertegenwoordigt, het is altijd AzureBackupCentralReport |
+| SchemaVersion_s |Tekst ||Dit veld geeft de huidige versie van het schema, is het **V2** |
+| State_s |Tekst ||Huidige status van het Groepsbeleid-object, bijvoorbeeld actief, verwijderd |
+| BackupManagementType_s |Tekst ||Providertype voor de server die back-uptaak, bijvoorbeeld IaaSVM, FileFolder doen |
+| OperationName |Tekst ||Dit veld vertegenwoordigt naam van de huidige bewerking - PolicyAssociation |
+| Categorie |Tekst ||Dit veld categorie van diagnostische gegevens te pushen naar Azure Monitor logboeken vertegenwoordigt, is het AzureBackupReport |
+| Resource |Tekst ||Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
+| PolicyUniqueId_g |Tekst ||De unieke Id voor het identificeren van het beleid |
+| VaultUniqueId_s |Tekst ||De unieke Id van de kluis waarop dit beleid behoort |
 | BackupManagementServerUniqueId_s |Tekst |v2 |Veld voor het aanduiden van de back-up-Management-Server de back-upitem is beschermd met, indien van toepassing        |
-| SourceSystem |Tekst |Bronsysteem van de huidige gegevens - Azure |
-| ResourceId |Tekst |Resource-id voor gegevens die worden verzameld. Bijvoorbeeld: de resource-id voor Recovery Services-kluis |
-| SubscriptionId |Tekst |Abonnements-id van de resource (ex.) Recovery Services-kluis) waarvoor gegevens worden verzameld |
-| ResourceGroup |Tekst |Resourcegroep van de resource (ex.) Recovery Services-kluis) waarvoor gegevens worden verzameld |
-| ResourceProvider |Tekst |De resourceprovider waarvoor gegevens worden verzameld. Bijvoorbeeld, Microsoft.RecoveryServices |
-| ResourceType |Tekst |Het type van de resource waarvoor gegevens worden verzameld. Bijvoorbeeld-kluizen |
+| SourceSystem |Tekst ||Bronsysteem van de huidige gegevens - Azure |
+| ResourceId |Tekst ||Resource-id voor gegevens die worden verzameld. Bijvoorbeeld: de resource-id voor Recovery Services-kluis |
+| SubscriptionId |Tekst ||Abonnements-id van de resource (ex.) Recovery Services-kluis) waarvoor gegevens worden verzameld |
+| ResourceGroup |Tekst ||Resourcegroep van de resource (ex.) Recovery Services-kluis) waarvoor gegevens worden verzameld |
+| ResourceProvider |Tekst ||De resourceprovider waarvoor gegevens worden verzameld. Bijvoorbeeld, Microsoft.RecoveryServices |
+| ResourceType |Tekst ||Het type van de resource waarvoor gegevens worden verzameld. Bijvoorbeeld-kluizen |
 
 ### <a name="protected-container"></a>Beveiligde Container
 
@@ -355,7 +355,7 @@ Deze tabel bevat algemene beveiligde exemplaren gerelateerde velden.
 Deze tabel bevat algemene herstel gerelateerde velden verwijzen.
 
 | Veld | Gegevenstype | Description |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | BackupItemUniqueId_s |Tekst |Unieke Id gebruikt voor het identificeren van de back-upitem voor virtuele machines een back-up met behulp van DPM, MABS|
 | OldestRecoveryPointTime_s |Tekst |Datum-tijd van het oudste herstelpunt van de back-upitem|
 | OldestRecoveryPointLocation_s |Tekst |Locatie van het oudste herstelpunt van de back-upitem|

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e66c694d2bfb5497712bcf81c4d50a8e68fdcef9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122517"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293955"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Oplossen van problemen met Azure Active Directory B2B-samenwerking
 
@@ -38,7 +38,7 @@ U kunt deze functie inschakelen met behulp van de instelling 'ShowPeoplePickerSu
 
 Als u een bericht dat u bent niet gemachtigd om uit te nodigen van gebruikers, moet u controleren dat uw gebruikersaccount is gemachtigd om uit te nodigen externe gebruikers onder gebruikersinstellingen:
 
-![Instellingen voor externe gebruikers](media/troubleshoot/external-user-settings.png)
+![Schermopname van de instellingen voor externe gebruikers](media/troubleshoot/external-user-settings.png)
 
 Als u deze instellingen onlangs hebt gewijzigd of de rol Gastuitnodiging toegewezen aan een gebruiker, is er mogelijk een vertraging van 15 tot 60 minuut voordat de wijzigingen van kracht.
 
@@ -50,7 +50,7 @@ Veelvoorkomende fouten zijn onder andere:
 
 Wanneer gebruikers uitnodigen waarvan organisatie gebruikmaakt van Azure Active Directory, maar waarbij de specifieke gebruikersaccount niet bestaat (bijvoorbeeld, de gebruiker bestaat niet in Azure AD-contoso.com). De beheerder van contoso.com kan beschikken over een beleid te voorkomen dat gebruikers worden gemaakt. De gebruiker moet contact op met de beheerder om te bepalen als externe gebruikers zijn toegestaan. De beheerder van de externe gebruiker wilt toestaan dat gebruikers e-mailadres geverifieerd in een domein (Zie dit [artikel](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) op zodat gebruikers een e-mailadres geverifieerd).
 
-![Foutmelding aan dat deze tenant is niet toegestaan voor e-mailadres geverifieerde gebruikers worden toegevoegd](media/troubleshoot/allow-email-verified-users.png)
+![Fout met vermelding van dat de tenant is niet toegestaan voor e-mailadres geverifieerde gebruikers](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>Externe gebruiker bestaat niet al in een federatief domein
 

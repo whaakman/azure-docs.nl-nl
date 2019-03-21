@@ -15,18 +15,18 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 32d00a1c0daf383d41d6bbc7c9fe105b3a2a6ab1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ab867af76821f90c6a87c08d42affdef8192e201
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774912"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258136"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Maak kennis met IDN's voor Azure Stack
 
 *Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-IDN's is een Azure Stack-netwerken functie waarmee u externe DNS-namen worden omgezet (bijvoorbeeld https://www.bing.com.) ook kunt u intern virtueel netwerknamen te registreren. Op deze manier kunt u virtuele machines in hetzelfde virtuele netwerk oplossen door de naam in plaats van IP-adres. Deze aanpak wordt de noodzaak voor aangepaste DNS-serververmeldingen verwijderd. Zie voor meer informatie over DNS de [Azure DNS-overzicht](https://docs.microsoft.com/azure/dns/dns-overview).
+IDN's is een Azure Stack-netwerken functie waarmee u externe DNS-namen worden omgezet (bijvoorbeeld https:\//www.bing.com.) U kunt er ook intern virtueel netwerknamen te registreren. Op deze manier kunt u virtuele machines in hetzelfde virtuele netwerk oplossen door de naam in plaats van IP-adres. Deze aanpak wordt de noodzaak voor aangepaste DNS-serververmeldingen verwijderd. Zie voor meer informatie over DNS de [Azure DNS-overzicht](https://docs.microsoft.com/azure/dns/dns-overview).
 
 ## <a name="what-does-idns-do"></a>Wat doet IDN's?
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: d2766416c84233281e55ff6f8be8519b7aadfb8c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d35ab3f477f327cb85cd8dfebd255542489debdc
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763551"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286139"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Verbinding maken met Azure Stack naar Azure met behulp van VPN
 
@@ -92,8 +92,7 @@ Maak eerst de netwerkbronnen voor Azure. De volgende instructies laten zien hoe 
 5. Als u een virtueel netwerk, selecteert u **virtueel netwerk**. Selecteer vervolgens **AzureVnet** in de lijst.
 6. Selecteer **Openbaar IP-adres**. Wanneer de **openbare IP-adres kiezen** sectie wordt geopend, selecteer **nieuw**.
 7. In **naam**, type **Azure-GW-PiP**, en selecteer vervolgens **OK**.
-8. Standaard voor **VPN-type**, **op Route gebaseerde** is geselecteerd. Houd de **op Route gebaseerde** VPN-type.
-9. Controleer of **Abonnement** en **Locatie** juist zijn. U kunt de resource toe aan het dashboard vastmaken. Selecteer **Maken**.
+8. Controleer of **Abonnement** en **Locatie** juist zijn. U kunt de resource toe aan het dashboard vastmaken. Selecteer **Maken**.
 
 ### <a name="create-the-local-network-gateway-resource"></a>De lokale netwerkgatewayresource maken
 

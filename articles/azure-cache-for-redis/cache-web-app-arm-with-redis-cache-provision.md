@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: 52c5fb8a6da7e3f12d621406542f0e31f7ece1de
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 23b8e4e7e88f5b993f9b0f9981bbae6b884e2818
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233282"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880004"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Een Web-App en de Azure Cache voor Redis met behulp van een sjabloon maken
 
@@ -35,7 +35,7 @@ Zie voor de volledige sjabloon, [Web-App met Azure Cache voor Redis-sjabloon](ht
 In deze sjabloon, gaat u implementeren:
 
 * Azure Web App
-* Azure Cache voor Redis.
+* Azure Cache voor Redis
 
 Klik op de volgende knop om de implementatie automatisch uit te voeren:
 
@@ -86,7 +86,7 @@ De sjabloon maakt u de cache in dezelfde locatie als de resourcegroep.
 ### <a name="web-app"></a>Web-app
 De web-app maakt met de naam die is opgegeven de **Websitenaam** variabele.
 
-U ziet dat de web-app is geconfigureerd met eigenschappen van de app-instellingen waarmee het werken met de Azure-Cache voor Redis. Deze app instellingen worden dynamisch gemaakt op basis van de waarden geleverd tijdens de implementatie.
+U ziet dat de web-app is geconfigureerd met eigenschappen van de app-instellingen waarmee het werken met de Azure-Cache voor Redis. Deze app-instellingen worden dynamisch gemaakt op basis van de waarden geleverd tijdens de implementatie.
 
     {
       "apiVersion": "2015-08-01",

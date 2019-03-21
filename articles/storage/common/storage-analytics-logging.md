@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 8137e59de7ad33ea806fcc2be36bb778448c9adc
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: ab235c67e3a0e60999a0348d03a6e938944f7030
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58077272"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260180"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage analytics-Logboeken
 
@@ -37,7 +37,7 @@ Storage Analytics wordt gedetailleerde informatie over geslaagde en mislukte aan
 - Aanvragen met een Shared Access Signature (SAS) of met OAuth, met inbegrip van mislukte en geslaagde aanvragen
 - Aanvragen voor het analytics-gegevens
 
-  Aanvragen van Storage Analytics zelf, zoals logboekbestanden worden gemaakt of verwijderd, worden niet geregistreerd. Een volledige lijst van de gegevens in het logboek wordt beschreven in de [Storage Analytics geregistreerde bewerkingen en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) en [Storage Analytics logboekindeling](/rest/api/storageservices/storage-analytics-log-format.md) onderwerpen.
+  Aanvragen van Storage Analytics zelf, zoals logboekbestanden worden gemaakt of verwijderd, worden niet geregistreerd. Een volledige lijst van de gegevens in het logboek wordt beschreven in de [Storage Analytics geregistreerde bewerkingen en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) en [Storage Analytics logboekindeling](/rest/api/storageservices/storage-analytics-log-format) onderwerpen.
 
 ### <a name="logging-anonymous-requests"></a>Logboekregistratie van anonieme aanvragen
 
@@ -48,7 +48,7 @@ Storage Analytics wordt gedetailleerde informatie over geslaagde en mislukte aan
 - Time-outfouten optreden voor zowel client als server
 - GET-aanvragen is mislukt met foutcode 304 (niet gewijzigd)
 
-  Alle andere mislukte anonieme aanvragen worden niet geregistreerd. Een volledige lijst van de gegevens in het logboek wordt beschreven in de [Storage Analytics geregistreerde bewerkingen en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) en [Storage Analytics logboekindeling](/rest/api/storageservices/storage-analytics-log-format.md) onderwerpen.
+  Alle andere mislukte anonieme aanvragen worden niet geregistreerd. Een volledige lijst van de gegevens in het logboek wordt beschreven in de [Storage Analytics geregistreerde bewerkingen en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) en [Storage Analytics logboekindeling](/rest/api/storageservices/storage-analytics-log-format) onderwerpen.
 
 ## <a name="how-logs-are-stored"></a>Hoe de logboeken worden opgeslagen
 
@@ -200,9 +200,9 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
 
  Voor een voorbeeld van hoe u kunt uw logboekgegevens programmatisch downloaden, Zie het blogbericht [logboekregistratie van Windows Azure Storage: Met behulp van Logboeken op de opslag-aanvragen bijhouden](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) en zoek naar het woord 'DumpLogs' op de pagina.  
 
- Wanneer u uw logboekgegevens hebt gedownload, kunt u de logboekvermeldingen weergeven in de bestanden. Deze logboekbestanden gebruiken een gescheiden tekstopmaak dat veel log lezen van de hulpprogramma's zijn kan worden geparseerd, met inbegrip van Microsoft Message Analyzer (Zie voor meer informatie de handleiding [bewaking, diagnose en het oplossen van Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Verschillende hulpprogramma's beschikken over andere voorzieningen voor opmaak, filteren, sorteren, te zoeken naar de inhoud van uw logboekbestanden ad. Zie voor meer informatie over de logboekregistratie van opslag-indeling en inhoud [Storage Analytics logboekindeling](storage-analytics-logging.md) en [Storage Analytics geregistreerde bewerkingen en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md).
+ Wanneer u uw logboekgegevens hebt gedownload, kunt u de logboekvermeldingen weergeven in de bestanden. Deze logboekbestanden gebruiken een gescheiden tekstopmaak dat veel log lezen van de hulpprogramma's zijn kan worden geparseerd, met inbegrip van Microsoft Message Analyzer (Zie voor meer informatie de handleiding [bewaking, diagnose en het oplossen van Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Verschillende hulpprogramma's beschikken over andere voorzieningen voor opmaak, filteren, sorteren, te zoeken naar de inhoud van uw logboekbestanden ad. Zie voor meer informatie over de logboekregistratie van opslag-indeling en inhoud [Storage Analytics logboekindeling](/rest/api/storageservices/storage-analytics-log-format) en [Storage Analytics geregistreerde bewerkingen en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Storage Analytics logboekindeling](/rest/api/storageservices/storage-analytics-log-format.md)
-* [Storage Analytics vastgelegd Operations en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)
+* [Storage Analytics logboekindeling](/rest/api/storageservices/storage-analytics-log-format)
+* [Storage Analytics vastgelegd Operations en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Storage Analytics Metrics (klassiek)](storage-analytics-metrics.md)

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 246580d7c93677859c5800cdc9394c1603c4c36b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3b2c5f3e02241f8c4e8a9ae87bd7436863243978
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776969"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901522"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Hub-werkruimte en projecten migreren naar aangepaste Translator
 
@@ -26,12 +26,8 @@ Deze acties worden uitgevoerd tijdens de migratie:
 * Alle gemigreerde trainingen die eerder niet in de status van de geïmplementeerde waren wordt in de gemigreerde conceptfase worden geplaatst. In deze staat, hebt u de mogelijkheid van een model met de definitie van de gemigreerde training, maar regelmatig training wordt in rekening gebracht.
 * Op elk gewenst moment de score BLEU gemigreerd van de training u op de pagina TrainingDetails van het model in de 'Bleu score in MT Hub vindt' Hub kop.
 
->[!Note]
-Voor een training te voltooien, aangepaste Translator minimaal 10.000 unieke uitgepakte zinnen is vereist. Aangepaste Translator kan niet geeft u een training met minder dan de [voorgestelde minimale](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
-
-## <a name="enable-account-migration"></a>Migratie inschakelen
-
-Als u wilt gebruiken van het hulpprogramma voor migratie, moet u hebt de migratie van uw Hub-account is ingeschakeld. U doet dit door e- [ custommt@microsoft.com ](mailto:custommt@microsoft.com) met een lijst van alle het live ID-accounts die u graag ingeschakeld. Deze accounts moet het e-mailadressen die u Meld u aan met zijn.
+> [!Note]
+> Voor een training te voltooien, aangepaste Translator minimaal 10.000 unieke uitgepakte zinnen is vereist. Aangepaste Translator kan niet geeft u een training met minder dan de [voorgestelde minimale](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Aangepaste Translator werkruimte-ID vinden
 

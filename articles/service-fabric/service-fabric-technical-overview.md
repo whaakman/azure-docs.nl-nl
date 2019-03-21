@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
 ms.author: ryanwi
-ms.openlocfilehash: 787a25a822e4ee7e13a2f1429bacd8d5cd2139ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fda6af0f253457aaf3aef1e8444850592255b318
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196821"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113670"
 ---
 # <a name="service-fabric-terminology-overview"></a>Overzicht van service Fabric-terminologie
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  U kunt [host Service Fabric-clusters overal](service-fabric-deploy-anywhere.md): Azure, in een on-premises datacenter of op elke andere cloudprovider.  Service Fabric is de orchestrator dat wordt gebruikt door [Azure Service Fabric NET](/azure/service-fabric-mesh). U kunt elk gewenst framework schrijven van uw services en kiezen waar u wilt uitvoeren van de toepassing uit meerdere mogelijkheden van de omgeving. Dit artikel worden de termen die door Service Fabric om te begrijpen van de termen die worden gebruikt in de documentatie.
@@ -162,14 +162,14 @@ Service Fabric is een open-source platform-technologie die verschillende verschi
 Verschillende omgevingen hebben een ander niveau van ondersteuning van frameworks en -implementatiemodellen. De volgende tabel beschrijft de ondersteunde framework en combinaties van implementatie-model.
 
 | Type van de toepassing | Wordt beschreven in | Azure Service Fabric Mesh | Azure Service Fabric-Clusters (elk besturingssysteem)| Lokale cluster | Zelfstandig cluster |
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Service Fabric Mesh-toepassingen | Resource-Model (YAML & JSON) | Ondersteund |Niet ondersteund | Windows - ondersteund, Linux en Mac-niet ondersteund | Windows-niet ondersteund |
 |Native service Fabric-toepassingen | Systeemeigen toepassingsmodel (XML) | Niet ondersteund| Ondersteund|Ondersteund|Windows: ondersteund|
 
 De volgende tabel beschrijft de modellen van de andere toepassing en de tooling die voor hen op basis van Service Fabric bestaat.
 
 | Type van de toepassing | Wordt beschreven in | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | Service Fabric Mesh-toepassingen | Resource-Model (YAML & JSON) | VS 2017 |Niet ondersteund |Niet ondersteund | Ondersteund - alleen Mesh-omgeving | Niet ondersteund|
 |Native service Fabric-toepassingen | Systeemeigen toepassingsmodel (XML) | Visual Studio 2017 en VS 2015| Ondersteund|Ondersteund|Ondersteund|Ondersteund|
 

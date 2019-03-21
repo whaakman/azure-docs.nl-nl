@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4184d3605c464b5da495de0698155dda1ae4e474
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b7cc47c449b91693831dda74bf987f595fe65681
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438708"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997878"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Op basis van een Azure Resource Manager SDK-scripts gebruiken voor het beheren van StorSimple-apparaten
 
@@ -77,7 +77,7 @@ Het script dat wordt gebruikt in dit voorbeeld geeft een lijst van alle taken op
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [NuGet-CLI downloaden](http://www.nuget.org/downloads) onder de map in de vorige stap hebt gemaakt. Er zijn verschillende versies van _nuget.exe_. Kies de versie die overeenkomt met de SDK. Elke downloadkoppeling verwijst rechtstreeks naar een _.exe_ bestand. Zorg ervoor dat u met de rechtermuisknop op en sla het bestand op uw computer in plaats van deze uitvoert vanuit de browser.
+2. [NuGet-CLI downloaden](https://www.nuget.org/downloads) onder de map in de vorige stap hebt gemaakt. Er zijn verschillende versies van _nuget.exe_. Kies de versie die overeenkomt met de SDK. Elke downloadkoppeling verwijst rechtstreeks naar een _.exe_ bestand. Zorg ervoor dat u met de rechtermuisknop op en sla het bestand op uw computer in plaats van deze uitvoert vanuit de browser.
 
     U kunt ook de volgende opdracht uit om te downloaden en opslaan van het script in dezelfde map die u eerder hebt gemaakt, uitvoeren.
     

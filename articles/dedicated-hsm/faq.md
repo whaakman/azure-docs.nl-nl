@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 3/19/2019
 ms.author: barclayn
-ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b28d9607bf35d37e252d7d0bc59d1ce808e38665
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57846885"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259989"
 ---
 # <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
 
@@ -164,7 +164,7 @@ Ja. U kunt Logboeken van de HSM-apparaat verzenden naar een syslog-server
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>V: Is het mogelijk voor het configureren van hoge beschikbaarheid in dezelfde regio of in meerdere regio's?
 
-Ja. Hoge beschikbaarheid, configuratie en installatie uitgevoerd binnen de HSM-clientsoftware die is geleverd door Gemalto. HSM's in hetzelfde VNET of andere VNETs in dezelfde regio of tussen regio's, of on-premises HSM's die zijn verbonden met een VNET maken via site-naar-site of point-to-point VPN kan worden toegevoegd aan dezelfde configuratie voor hoge beschikbaarheid.
+Ja. Hoge beschikbaarheid, configuratie en installatie uitgevoerd binnen de HSM-clientsoftware die is geleverd door Gemalto. HSM's in hetzelfde VNET of andere VNETs in dezelfde regio of tussen regio's, of on-premises HSM's die zijn verbonden met een VNET maken via site-naar-site of point-to-point VPN kan worden toegevoegd aan dezelfde configuratie voor hoge beschikbaarheid. Er moet worden opgemerkt dat dit alleen sleutelmateriaal en geen specifieke configuratie-items, zoals rollen synchroniseert.
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>V: Kan ik HSM's van mijn on-premises netwerk aan een groep met hoge beschikbaarheid met Azure toegewezen HSM toevoegen?
 
@@ -176,13 +176,13 @@ Nee.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>V: Hoeveel HSM's kan ik toevoegen aan de dezelfde configuratie voor hoge beschikbaarheid van één enkele toepassing?
 
-16\.
+16 leden van een HA-groep heeft onder geworden, revolutionaire testen met uitstekende resultaten.
 
 ## <a name="support"></a>Ondersteuning
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>V: Wat is de SLA voor toegewezen HSM-service?
 
-Op dit moment is er geen SLA aangeboden voor toegewezen HSM-service. Microsoft zorgt ervoor dat niveau netwerktoegang tot het apparaat en kan daarom standard Azure networking Sla's van toepassing.
+Er is geen specifieke uptime guarentee opgegeven voor de toegewezen HSM-service. Microsoft zorgt ervoor dat niveau netwerktoegang tot het apparaat en kan daarom standard Azure networking Sla's van toepassing.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>V: Hoe worden de HSM's in Azure toegewezen HSM-beveiligde gebruikt?
 
@@ -198,15 +198,19 @@ Het is raadzaam een back-up on-premises HSM-apparaat gebruiken om uit te voeren 
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>V: Hoe krijg ik ondersteuning voor toegewezen HSM?
 
-Dezelfde manier als u ondersteuning krijgen voor alle andere Azure-services. Het ondersteuningsteam van Azure wordt doorgestuurd naar het ondersteuningsteam van Gemalto als nodig is afhankelijk van de aanvraag.
+Er wordt ondersteuning geboden door zowel Microsoft als Gemalto.  Als u er een probleem is met de hardware of netwerktoegang, verhogen met Microsoft ondersteuning aan te vragen als er een probleem is met de ontwikkeling van de configuratie, software en toepassingen van de HSM kunt rasie wordt een ondersteuningsaanvraag met Gemalto. Als u een onbepaald probleem, het verhogen van een aanvraag withg voor ondersteuning van Microsoft hebt en vervolgens Gemalto kunnen worden ingezet als vereist. 
 
-### <a name="q-how-do-i-get-access-to-dedicated-hsm-client-software-documentation-firmware-images"></a>V: Hoe krijg ik toegang tot toegewezen HSM-clientsoftware, documentatie, firmware-installatiekopieën
+### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>V: Hoe ontvang ik de client software, documentatie en toegang tot integratie richtlijnen voor de HSM SafeNet Luna 7?
 
-Klanten moet rechtstreeks met Gemalto toegang te krijgen tot de HSM-clientsoftware, documentatie, OS/firmware-afbeeldingen werken.
+Nadat u hebt geregistreerd voor de service, een Gemalto klant-ID worden opgegeven waarmee voor registratie in de portal voor Gemalto klanten ondersteuning. Hiermee schakelt u de toegang tot alle software en documentatie, evenals inschakelen ondersteuningsaanvragen rechtstreeks met Gemalto.
 
 ### <a name="q-if-there-is-a-security-vulnerability-found-and-a-patch-is-released-by-gemalto-who-is-responsible-for-upgradingpatching-osfirmware"></a>V: Als er een beveiligingsprobleem gevonden en een patch is uitgegeven door Gemalto, die verantwoordelijk is voor upgraden/patchen OS/Firmware?
 
 Microsoft heeft niet de mogelijkheid om te verbinden met HSM's die zijn toegewezen aan klanten. Klanten moeten upgraden en vullen van de HSM's.
+
+### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>V: Wat gebeurt er als ik wil mijn HSM opnieuw opstarten?
+
+ De HSM is een optie voor het opnieuw opstarten van vanaf de opdrachtregel en moet worden opgemerkt dat de optie 'hard opstarten' moet worden gebruikt. Als dit niet om een bepaalde reden lukt, kunnen verhogen met Microsoft ondersteuning aan te vragen en we het apparaat fysiek opnieuw opgestart. 
 
 ## <a name="cryptography-and-standards"></a>Cryptografie en standaarden
 
@@ -262,15 +266,13 @@ Toegewezen HSM bepalingen SafeNet netwerk-HSM-7-apparaten (model A790). Hier vol
 
 ### <a name="q-how-many-partitions-can-be-created-in-dedicated-hsm"></a>V: Het aantal partities kunnen worden gemaakt in de toegewezen HSM?
 
-Op basis van het specifieke model van de HSM gebruikt, wordt er 10 partities die beschikbaar zijn.
+Het SafeNet Luna HSM-7-model dat a790 gebruikt bevat een licentie voor 10 partities in de kosten van de service. Het apparaat heeft een limiet van 100 partities en toe te voegen partities tot deze limiet zou kosten voor extra licenties en installatie van een nieuwe licentiebestand op het apparaat vereist.
 
 ### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>V: Het aantal sleutels kunnen worden ondersteund in toegewezen HSM?
 
-Maximum aantal sleutels. Deze getallen zijn ook van toepassing op paren van sleutels als asymmetrische sleutels.
+Het maximum aantal sleutels is een functie van het beschikbare geheugen. Het model SafeNet Luna 7 A790 in gebruik is 32MB aan geheugen. De volgende getallen zijn ook van toepassing op paren van sleutels als asymmetrische sleutels.
 
 * RSA-2048 - 19.000
 * ECC-P256 - 91,000
-* AES-256 - 218,000
 
 Capaciteit varieert, afhankelijk van bepaalde belangrijke kenmerken instellen in de sjabloon voor genereren van sleutels en het aantal partities.
-

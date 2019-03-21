@@ -9,14 +9,15 @@ ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb01ae6514dfb97cc8a923619513383ace0b09a5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: f4935cc15bf3edeccd6b6ce9da701904a32606db
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669972"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295025"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Quickstart: Gastgebruikers toevoegen in uw map van de Azure Portal
 
@@ -39,15 +40,15 @@ Voor het voltooien van het scenario in deze zelfstudie hebt u het volgende nodig
 2. Selecteer de knop **Azure Active Directory** in het linkerdeelvenster.
 3.  Onder **Beheren**, selecteer **Gebruikers**.
 
-    ![Selecteer Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
+    ![Schermopname die laat zien waar u de optie gebruikers selecteren](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
 
 4.  Selecteer **Nieuwe gastgebruiker**.
 
-    ![Selecteer Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
+    ![Schermopname die laat zien waar u de nieuwe optie voor de Gast-gebruiker selecteren](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
 5.  Onder **Gebruikersnaam**, voer het e-mailadres van de externe gebruiker in. Onder **Een persoonlijk bericht invoegen bij de uitnodiging**, typt u een welkomstbericht. 
 
-    ![Selecteer Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+    ![Schermopname die laat zien waar u het bericht met gast gebruiker uitnodiging invoert](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
 
 6. Selecteer **Uitnodigen** voor het automatisch verzenden van de uitnodiging voor de gastgebruiker. Een melding wordt weergegeven in de rechterbovenhoek met het bericht **De gebruiker is uitgenodigd**. 
 7.  Nadat u de uitnodiging verzendt, wordt het gebruikersaccount automatisch toegevoegd aan de map als gast.
@@ -59,7 +60,7 @@ De Salesforce-app toevoegen aan uw testtenant en de test gastgebruiker toewijzen
 3.  Selecteer **Nieuwe toepassing**.
 4. Onder **Toevoegen vanuit de galerie**, zoek naar **Salesforce**, en selecteer dit.
 
-    ![Selecteer Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
+    ![Schermopname van het toevoegen van het zoekvak van de galerie](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
 5. Selecteer **Toevoegen**.
 6. Onder **Beheren**, selecteer **Eenmalige aanmelding**, en klik onder **Modus voor eenmalige aanmelding**, selecteer **Aanmelding met wachtwoord**, en klik op **Opslaan**.
 7. Onder **Beheren**, selecteer **Gebruikers en groepen** > **Gebruiker toevoegen** > **Gebruikers en groepen**.
@@ -71,11 +72,11 @@ Nu aanmelden als de gastgebruiker om de uitnodiging te zien.
 1.  Aanmelden bij uw test gastgebruiker e-mailaccount.
 2.  Zoeken in uw postvak In naar de e-mail "U bent uitgenodigd".
 
-    ![B2B uitnodigingse-mail](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
+    ![Schermopname van de B2B-uitnodiging per e-mail](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
 
 3.  Selecteer **Aan de slag** in de hoofdtekst van de e-mail. Een pagina **Machtigingen controleren** opent in de browser. 
 
-    ![B2B-pagina met acceptatie van de uitnodiging](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
+    ![Schermopname van de pagina van de machtigingen controleren](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
 
 4. Selecteer **Accepteren**. Het toegangsvenster wordt geopend met daarin de toepassingen die de gebruiker kan openen.
 

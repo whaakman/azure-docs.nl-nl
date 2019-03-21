@@ -2,18 +2,18 @@
 title: Azure Container Instances en indeling met containers
 description: Begrijpen hoe Azure container instances communiceren met de container-orchestrators.
 services: container-instances
-author: seanmck
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 11/30/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845798"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838137"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances en container-orchestrators
 
@@ -25,16 +25,16 @@ Azure Container Instances biedt enkele van de mogelijkheden voor eenvoudige plan
 
 De standaarddefinitie van orchestration omvat de volgende taken:
 
-- **Planning**: een geschikte virtuele machine op voor het uitvoeren van de container gezien een containerinstallatiekopie en een resource-aanvraag, vinden.
-- **Affiniteit/Anti-affinity**: opgeven dat een set van containers in de buurt elkaar (voor prestaties) of voldoende ver uit elkaar wordt uitgevoerd (voor beschikbaarheid).
-- **Statuscontrole**: Bekijk de fouten van de container en automatisch ze opnieuw plannen.
-- **Failover**: bijhouden van wat wordt uitgevoerd op elke machine en plannen van containers van de mislukte computers op in orde knooppunten.
-- **Schalen**: toevoegen of verwijderen van containerinstanties zodat deze overeenkomt met vraag, handmatig of automatisch.
-- **Netwerken**: een overlaynetwerk bieden voor het coördineren van containers om te communiceren tussen meerdere host-computers.
-- **Servicedetectie**: containers elkaar automatisch vinden, zelfs als ze tussen hostmachines verplaatsen en wijzigen van IP-adressen inschakelen.
-- **Gecoördineerde toepassingsupgrades**: container upgrades om te voorkomen, downtime van toepassingen beheren en terugdraaien als er iets misgaat.
+- **Planning**: Basis van een containerinstallatiekopie en een resource-aanvraag, vindt u een geschikte virtuele machine op voor het uitvoeren van de container.
+- **Affiniteit/Anti-affinity**: Geef op dat een set van containers in de buurt elkaar (voor prestaties) of voldoende ver uit elkaar wordt uitgevoerd (voor beschikbaarheid).
+- **Statuscontrole**: Bekijk voor niet-werkende container en deze automatisch opnieuw te plannen.
+- **Failover**: Bijhouden van wat wordt uitgevoerd op elke machine en plannen van containers van de mislukte computers op in orde knooppunten.
+- **Schalen**: Toevoegen of verwijderen van containerinstanties zodat deze overeenkomt met vraag, handmatig of automatisch.
+- **Netwerken**: Geef een overlaynetwerk voor coördinerende containers om te communiceren tussen meerdere host-computers.
+- **Servicedetectie**: Schakel containers elkaar automatisch vinden, zelfs als ze tussen hostmachines verplaatsen en IP-adressen wijzigen.
+- **Gecoördineerde toepassingsupgrades**: Upgrades van de container om te voorkomen, downtime van toepassingen te beheren, en schakel terugdraaien als er iets misgaat.
 
-## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orchestration met Azure Container Instances: een gelaagde benadering
+## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orchestration met Azure Container Instances: Een gelaagde benadering
 
 Azure Container Instances kunt u een gelaagde benadering voor orchestration, biedt alle mogelijkheden plannings- en management vereist voor het uitvoeren van een enkele container, terwijl de orchestrator-platforms om meerdere containers taken onder controle te beheren.
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268427"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875271"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Beheerdersrollen door admin-taak in Azure Active Directory
 
@@ -144,18 +144,18 @@ Bijwerken van eigenschappen voor eenmalige aanmelding | De eigenaar van de Enter
 
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
-Licentie toewijzen | Beheerder van gebruikersaccounts | 
-Groep maken | Beheerder van gebruikersaccounts | 
-Maken, bijwerken of verwijderen van de toegangsbeoordeling van een groep of van een app | Beheerder van gebruikersaccounts | 
-Vervaldatum van de groep beheren | Beheerder van gebruikersaccounts | 
+Licentie toewijzen | Gebruikersbeheerder | 
+Groep maken | Gebruikersbeheerder | 
+Maken, bijwerken of verwijderen van de toegangsbeoordeling van een groep of van een app | Gebruikersbeheerder | 
+Vervaldatum van de groep beheren | Gebruikersbeheerder | 
 Groepsinstellingen beheren | Globale beheerder | 
 Lezen van alle configuratie (met uitzondering van verborgen lidmaatschap) | Lezers van mappen | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Lezen, verborgen lidmaatschap | Een lid van | Eigenaar van de groep, wachtwoordbeheerder, Exchange-beheerder, SharePoint-beheerder, beheerder van Teams, beheerder van gebruikersaccounts
-Lidmaatschap van groepen met verborgen lidmaatschap lezen | Helpdeskbeheerder | Beheerder van gebruikersaccounts, Teams beheerder
-Licentie intrekken | Licentiebeheerder | Beheerder van gebruikersaccounts
-Lidmaatschap bijwerken | Eigenaar van de groep ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Beheerder van gebruikersaccounts
-Groepseigenaren bijwerken | Eigenaar van de groep ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Beheerder van gebruikersaccounts
-Eigenschappen van de groep bijwerken | Eigenaar van de groep ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Beheerder van gebruikersaccounts
+Lezen, verborgen lidmaatschap | Een lid van | Eigenaar van de groep, wachtwoordbeheerder, Exchange-beheerder, SharePoint-beheerder, beheerder van Teams, Gebruikerbeheerder
+Lidmaatschap van groepen met verborgen lidmaatschap lezen | Helpdeskbeheerder | Gebruikerbeheerder, beheerder van de Teams
+Licentie intrekken | Licentiebeheerder | Gebruikersbeheerder
+Lidmaatschap bijwerken | Eigenaar van de groep ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Gebruikersbeheerder
+Groepseigenaren bijwerken | Eigenaar van de groep ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Gebruikersbeheerder
+Eigenschappen van de groep bijwerken | Eigenaar van de groep ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Gebruikersbeheerder
 
 ## <a name="identity-protection"></a>Identiteitsbeveiliging
 
@@ -176,9 +176,9 @@ Beveiligingsproblemen lezen | Beveiligingslezer |
 
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
-Licentie toewijzen | Licentiebeheerder | Beheerder van gebruikersaccounts
+Licentie toewijzen | Licentiebeheerder | Gebruikersbeheerder
 Alle configuratie lezen | Lezers van mappen | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Licentie intrekken | Licentiebeheerder | Beheerder van gebruikersaccounts
+Licentie intrekken | Licentiebeheerder | Gebruikersbeheerder
 Proberen of kopen van abonnement | Factureringsbeheerder | 
 
 
@@ -315,21 +315,21 @@ Gebruikers die zijn gemarkeerd voor risico's lezen | Beveiligingslezer |
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
 Gebruiker toevoegen aan directory-rol | Beheerder met bevoorrechte rol | 
-Gebruiker toevoegen aan groep | Beheerder van gebruikersaccounts | 
-Licentie toewijzen | Licentiebeheerder | Beheerder van gebruikersaccounts
-Gastgebruiker maken | Gastuitnodiging | Beheerder van gebruikersaccounts
-Gebruiker maken | Beheerder van gebruikersaccounts | 
-Gebruikers verwijderen | Beheerder van gebruikersaccounts | 
-Ongeldig vernieuwingstokens van bepaalde beheerders (Zie de documentatie) | Beheerder van gebruikersaccounts | 
-Ongeldig vernieuwingstokens van niet-beheerders (Zie de documentatie) | Wachtwoordbeheerder | Beheerder van gebruikersaccounts
+Gebruiker toevoegen aan groep | Gebruikersbeheerder | 
+Licentie toewijzen | Licentiebeheerder | Gebruikersbeheerder
+Gastgebruiker maken | Gastuitnodiging | Gebruikersbeheerder
+Gebruiker maken | Gebruikersbeheerder | 
+Gebruikers verwijderen | Gebruikersbeheerder | 
+Ongeldig vernieuwingstokens van bepaalde beheerders (Zie de documentatie) | Gebruikersbeheerder | 
+Ongeldig vernieuwingstokens van niet-beheerders (Zie de documentatie) | Wachtwoordbeheerder | Gebruikersbeheerder
 Ongeldig vernieuwingstokens van bevoegde beheerders (Zie de documentatie) | Globale beheerder | 
 Basisinformatie over de configuratie lezen | Standaard-gebruikersrol ([Zie documentatie](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-Wachtwoord opnieuw instellen voor bepaalde beheerders (Zie de documentatie) | Beheerder van gebruikersaccounts | 
-Wachtwoord opnieuw instellen van niet-beheerders (Zie de documentatie) | Wachtwoordbeheerder | Beheerder van gebruikersaccounts
+Wachtwoord opnieuw instellen voor bepaalde beheerders (Zie de documentatie) | Gebruikersbeheerder | 
+Wachtwoord opnieuw instellen van niet-beheerders (Zie de documentatie) | Wachtwoordbeheerder | Gebruikersbeheerder
 Wachtwoord van bevoegde beheerders opnieuw instellen | Globale beheerder | 
-Licentie intrekken | Licentiebeheerder | Beheerder van gebruikersaccounts
-Alle eigenschappen, behalve de User Principal Name bijwerken | Beheerder van gebruikersaccounts | 
-User Principal Name voor bepaalde beheerders (Zie de documentatie) bijwerken | Beheerder van gebruikersaccounts | 
+Licentie intrekken | Licentiebeheerder | Gebruikersbeheerder
+Alle eigenschappen, behalve de User Principal Name bijwerken | Gebruikersbeheerder | 
+User Principal Name voor bepaalde beheerders (Zie de documentatie) bijwerken | Gebruikersbeheerder | 
 Werk de eigenschap User Principal Name op bevoegde beheerders (Zie de documentatie) | Globale beheerder | 
 Gebruikersinstellingen bijwerken | Globale beheerder | 
 

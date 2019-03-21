@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f974d446337b8c962d60be9aab964c6d2ebb535b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074740"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Inhoud van een bestand dat wordt bijgehouden met wijzigingen bijhouden weergeven
 
@@ -62,11 +62,11 @@ De volgende stappen helpen u bij het inschakelen van bijhouden van wijzigingen v
 
 1. Op de **details wijzigen** pagina, ziet u de standaard voor en na de informatie in de linkerbovenhoek het bestand, klikt u op **wijzigingen van bestandsinhoud weergeven** om te zien van de inhoud van het bestand.
 
-  ![Details wijzigen](./media/change-tracking-file-contents/change-details.png)
+   ![Details wijzigen](./media/change-tracking-file-contents/change-details.png)
 
 1. De nieuwe pagina ziet u de inhoud van het bestand in een side-by-side-weergave. U kunt ook selecteren **Inline** om een inline-weergave van de wijzigingen te zien.
 
-  ![wijzigingen in bestanden weergeven](./media/change-tracking-file-contents/view-file-changes.png)
+   ![wijzigingen in bestanden weergeven](./media/change-tracking-file-contents/view-file-changes.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: ba268806dccb7c2671825c794383396a2ff20299
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548810"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121958"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Gegevens kopiëren van SAP ECC met Azure Data Factory
 
@@ -160,7 +160,7 @@ Om gegevens te kopiëren uit SAP ECC, stelt u het brontype in de kopieeractivite
 Het kopiëren van gegevens vanaf SAP ECC, worden de volgende toewijzingen gebruikt uit OData-gegevenstypen voor SAP ECC-gegevens met Azure Data Factory tussentijdse gegevenstypen. Zie [Schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe copy activity in het schema en de gegevens van een brontype aan de sink toegewezen.
 
 | OData-gegevenstype | Data factory tussentijdse gegevenstype |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Edm.Binary | String |
 | Edm.Boolean | Bool |
 | Edm.Byte | String |

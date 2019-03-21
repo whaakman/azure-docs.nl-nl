@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9493f7ee3278bb42dc21574cd008fbe2f4376a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185142"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294822"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-mailbericht eenmalige wachtwoordcode verificatie (preview)
 
@@ -35,11 +36,11 @@ Deze functie is momenteel beschikbaar voor Preview-versie (Zie [inschrijving voo
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Gebruikerservaring voor gastgebruikers eenmalige wachtwoordcode
 Met verificatie van de eenmalige wachtwoordcode, kan de gastgebruiker de uitnodiging inwisselen door een directe koppeling te klikken of met behulp van de uitnodiging per e-mail. In beide gevallen moet een bericht in de browser geeft aan dat een code naar e-mailadres van de gastgebruiker verzonden. De gastgebruiker selecteert **code naartoe sturen**:
  
-   ![Toegangsdeelvensters beheren app](media/one-time-passcode/otp-send-code.png)
+   ![Schermafbeelding met de knop van de code verzenden](media/one-time-passcode/otp-send-code.png)
  
 Een wachtwoordcode wordt verzonden naar e-mailadres van de gebruiker. De gebruiker de wachtwoordcode van het e-mailbericht opgehaald en ingevoerd in het browservenster:
  
-   ![Toegangsdeelvensters beheren app](media/one-time-passcode/otp-enter-code.png)
+   ![Schermopname van de codetabel Enter](media/one-time-passcode/otp-enter-code.png)
  
 De gastgebruiker wordt nu geverifieerd en ze kunnen zien van de gedeelde bron of doorgaan met aanmelden. 
 
@@ -57,7 +58,7 @@ Op het moment van inschrijving is er geen indicatie dat de gebruiker die u nodig
 
 U kunt gastgebruikers die worden geverifieerd met eenmalige wachtwoordcodes in Azure portal door te gaan naar weergeven **Azure Active Directory** > **organisatie relaties**  >   **Gebruikers van andere organisaties**.
 
-![Eenmalige wachtwoordcode gebruikers weergeven in Azure portal waarbij bron gelijk is aan OTP](media/one-time-passcode/otp-users.png)
+![Schermopname van de gebruiker van een eenmalige wachtwoordcode met de waarde van de bron van OTP](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > Wanneer een gebruiker een eenmalige wachtwoordcode wordt ingewisseld en later een MSA, Azure AD-account of andere federatieve-account verkrijgt, blijven deze gewoon worden geverifieerd met een eenmalige wachtwoordcode. Als u bijwerken hun verificatiemethode wilt, kunt u hun gastgebruikersaccount verwijderen en ze kunt uitnodigen.

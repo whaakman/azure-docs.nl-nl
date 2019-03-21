@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 03/20/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b55a7016ec0068234dfc6110d9d4afc04119ccdd
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: bbfc325d1a33db45afecf30bfa21244e3336961d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194058"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295484"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](how-to-connect-install-express.md) niet aan uw implementatie of topologie voldoet.
@@ -221,7 +221,7 @@ Voor elk forest in Azure AD Connect dat is toegevoegd, moet u referenties van de
 >Forests waarvoor u eenmalige aanmelding niet wilt gebruiken, kunt u overslaan.
 
 #### <a name="configure-the-intranet-zone-for-client-machines"></a>De intranetzone voor clientcomputers configureren
-Als u ervoor wilt zorgen dat de client zich automatisch aanmeldt in de intranetzone, moeten de URL's deel uitmaken van de intranetzone. De desktopcomputers die via het domein zijn gekoppeld, verzenden dan automatisch een Kerberos-ticket wanneer ze zijn verbonden met het bedrijfsnetwerk.
+Om ervoor te zorgen dat de client aanmeldingen automatisch in de intranetzone moet u ervoor zorgen dat de URL deel uit van de intranetzone maakt. De desktopcomputers die via het domein zijn gekoppeld, verzenden dan automatisch een Kerberos-ticket wanneer ze zijn verbonden met het bedrijfsnetwerk.
 Op een computer met de hulpprogramma's voor Groepsbeleidsbeheer.
 
 1.  Open de hulpprogramma's voor Groepsbeleidsbeheer

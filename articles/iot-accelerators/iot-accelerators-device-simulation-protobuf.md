@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 9657cda8b0f3a19d02ebf1907116235b88f4cb82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111511"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258822"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Telemetrie met behulp van Protocol Buffers serialiseren
 
@@ -40,7 +40,7 @@ Als u wilt volgen de stappen in deze handleiding, hebt u het volgende nodig:
 * .NET core. U kunt downloaden [.NET Core voor Mac, Linux en Windows](https://www.microsoft.com/net/download).
 * Postman. U kunt downloaden [Postman voor Mac, windows of Linux](https://www.getpostman.com/apps).
 * Een [IoT-hub die zijn geïmplementeerd in uw Azure-abonnement](../iot-hub/iot-hub-create-through-portal.md). U moet de IoT-hub-verbindingsreeks voor de stappen in deze handleiding. U kunt de verbindingsreeks ophalen vanuit de Azure-portal.
-* Een [Cosmos DB-database geïmplementeerd in uw Azure-abonnement](../cosmos-db/create-sql-api-dotnet.md#create-a-database-account) die gebruikmaakt van de SQL-API en die geconfigureerd voor [sterke consistentie](../cosmos-db/manage-account.md). U moet de verbindingsreeks van de Cosmos DB-database voor de stappen in deze handleiding. U kunt de verbindingsreeks ophalen vanuit de Azure-portal.
+* Een [Cosmos DB-database geïmplementeerd in uw Azure-abonnement](../cosmos-db/create-sql-api-dotnet.md#create-account) die gebruikmaakt van de SQL-API en die geconfigureerd voor [sterke consistentie](../cosmos-db/manage-account.md). U moet de verbindingsreeks van de Cosmos DB-database voor de stappen in deze handleiding. U kunt de verbindingsreeks ophalen vanuit de Azure-portal.
 * Een [Azure storage-account geïmplementeerd voor uw Azure-abonnement](../storage/common/storage-quickstart-create-account.md). U moet de verbindingsreeks de storage-account voor de stappen in deze handleiding. U kunt de verbindingsreeks ophalen vanuit de Azure-portal.
 
 ## <a name="prepare-your-development-environment"></a>Uw ontwikkelomgeving voorbereiden

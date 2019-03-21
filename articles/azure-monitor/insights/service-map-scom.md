@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: magoedte
-ms.openlocfilehash: 878abe79754c3286b77aef744d1bc4973a8af841
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110100"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Serviceoverzicht integratie met System Center Operations Manager
 
@@ -67,11 +67,11 @@ Serviceoverzicht om integratie te configureren, het volgende doen:
 
     Voor de integratie met het bouwen van een diagram van gedistribueerde toepassing voor een server, moet de server:
 
-    * Beheerd door Operations Manager
-    * Beheerd door Service Map
-    * Vermeld in de groep Servers van Service-kaart
+   * Beheerd door Operations Manager
+   * Beheerd door Service Map
+   * Vermeld in de groep Servers van Service-kaart
 
-    ![De groep Operations Manager-configuratie](media/service-map-scom/scom-config-group.png)
+     ![De groep Operations Manager-configuratie](media/service-map-scom/scom-config-group.png)
 
 6. Optioneel: Selecteer de resourcegroep van de beheerserver om te communiceren met Log Analytics, en klik vervolgens op **werkruimte toevoegen**.
 

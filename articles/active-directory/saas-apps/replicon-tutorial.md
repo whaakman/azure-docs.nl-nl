@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46466ac85a8be1dec273440751489833f12c00db
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ade40287bd38580a1e3f6377e54017bfe92bf452
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863403"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Zelfstudie: Azure Active Directory-integratie met Replicon
 
@@ -196,7 +196,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 
     ![Gebruikersprofiel](./media/replicon-tutorial/ic777808.png "gebruikersprofiel")
 
-    a. In de **aanmeldingsnaam** tekstvak, typ de Azure AD e-mailadres van de Azure AD-gebruiker die u inrichten wilt, zoals **BrittaSimon@contoso.com**.
+    a. In de **aanmeldingsnaam** tekstvak, typ de Azure AD e-mailadres van de Azure AD-gebruiker die u inrichten, zoals wilt **BrittaSimon\@contoso.com**.
 
     b. Als **verificatietype**, selecteer **SSO**.
 
@@ -248,7 +248,7 @@ Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

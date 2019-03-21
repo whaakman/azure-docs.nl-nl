@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168240"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894084"
 ---
 <a name="create-a-microsoft-developer-account"></a>Een Microsoft Developer-account maken
 ====================================
@@ -90,7 +90,7 @@ Het Microsoft Developer Center wordt gebruikt om de bedrijfsgegevens op één ke
 
 1. Open een nieuw InPrivate van Internet Explorer of Chrome Incognito browsersessie om ervoor te zorgen dat u zich niet bent aangemeld bij een persoonlijk account.
 
-2. Ga naar de [Windows Dev Center](http://dev.windows.com/registration?accountprogram=azure) naar uzelf te registreren als een verkoper. Lees de volgende belangrijke opmerking voordat u doorgaat.
+2. Ga naar de [Windows Dev Center](https://dev.windows.com/registration?accountprogram=azure) naar uzelf te registreren als een verkoper. Lees de volgende belangrijke opmerking voordat u doorgaat.
 
    ![Verificatie van Microsoft-account](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-verify.jpg)
 
@@ -157,7 +157,7 @@ Als u wilt publiceren commerciële aanbiedingen voor aankoop, moet u payout toev
 
 **Bankinformatie te verstrekken**
 
-1.  Aanmelden bij de [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) met uw Microsoft-account.
+1.  Aanmelden bij de [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) met uw Microsoft-account.
 2.  Selecteer **Payout account** in het menu links onder **betalingswijze kiezen**, selecteer **bankrekening** of **PayPal**.
 
     >[!NOTE]
@@ -173,7 +173,7 @@ Als u wilt publiceren commerciële aanbiedingen voor aankoop, moet u payout toev
 
 **Voor de btw-gegevens**
 
-1.  Aanmelden bij de [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) met uw Microsoft-account (indien nodig).
+1.  Aanmelden bij de [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) met uw Microsoft-account (indien nodig).
 2.  Selecteer in het menu links **btw-profiel**.
 3.  Op de **instellen van uw BTW-formulier** pagina:
     - Selecteer het land of regio waarin u werkt met permanente gegevensopslag.

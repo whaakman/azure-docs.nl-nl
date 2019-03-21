@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 7bc3ea054056ac67cf0a116fb1538bc1483ab4d4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223526"
+ms.locfileid: "58285835"
 ---
 # <a name="application-gateway-configuration-overview"></a>Overzicht van de configuratie van de Application Gateway
 
@@ -33,7 +33,9 @@ Application gateway is een specifieke implementatie in uw virtuele netwerk. Binn
 
 #### <a name="size-of-the-subnet"></a>Grootte van het subnet
 
-In het geval van v1-SKU, worden in application Gateway één privé IP-adres per exemplaar, plus een andere privé-IP-adres gebruikt als een privé front-end-IP-configuratie is geconfigureerd. Ook Azure reserveert de eerste vier en laatste IP-adres in elk subnet voor intern gebruik. Bijvoorbeeld, als een application gateway is ingesteld op drie exemplaren en geen privé front-end-IP, klikt u vervolgens een/29 subnet, grootte of hoger is vereist. In dit geval de application gateway maakt gebruik van drie IP-adressen. Als u drie exemplaren en een IP-adres voor de privé front-end-IP-configuratie, klikt u vervolgens een/28 hebt subnet groot of groter is nodig omdat tijdens vier IP-adressen zijn vereist.
+Application Gateway verbruikt één privé IP-adres per exemplaar, plus een andere privé-IP-adres als een privé front-end-IP-configuratie is geconfigureerd. Ook Azure reserveert de eerste vier en laatste IP-adres in elk subnet voor intern gebruik. Bijvoorbeeld, als een application gateway is ingesteld op drie exemplaren en geen privé front-end-IP, klikt u vervolgens ten minste acht IP-adressen moet in het subnet - vijf IP-adressen voor intern gebruik en drie IP-adressen voor de drie exemplaren van de toepassingsgateway. Daarom in dit geval een/29 subnet, grootte of hoger is vereist. Als u drie exemplaren hebt en een IP-adres voor de privé front-end-IP-configuratie, en vervolgens negen IP-adressen is vereist - drie IP-adressen voor de drie exemplaren van de toepassingsgateway een IP-adres voor privé front-end-IP-adres en vijf IP-adressen voor intern gebruik. Daarom in dit geval een/28 subnet, grootte of hoger is vereist.
+
+Als een best practice, gebruikt u ten minste een/28 grootte van het gatewaysubnet. Dit biedt u 11 bruikbare adressen. Als de belasting van uw toepassing meer dan 10 exemplaren vereist, kunt u overwegen een/27 of/26 grootte van het gatewaysubnet.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Netwerkbeveiligingsgroepen die worden ondersteund op het subnet voor Application Gateway
 
@@ -41,7 +43,7 @@ Netwerkbeveiligingsgroepen (nsg's) worden ondersteund in de Application Gateway-
 
 - Uitzonderingen moeten in worden geplaatst voor binnenkomend verkeer op poort 65503 65534 voor Application Gateway v1-SKU en poorten 65200-65535 voor de v2-SKU. Dit poortbereik is vereist voor communicatie met Azure-infrastructuur. Ze zijn beveiligd (vergrendeld) met Azure-certificaten. Zonder de juiste certificaten zijn niet externe entiteiten, inclusief de klanten van deze gateways kunnen initiëren wijzigingen op de eindpunten.
 
-- Uitgaande verbinding met internet kan niet worden geblokkeerd.
+- Uitgaande verbinding met internet kan niet worden geblokkeerd. Standaard regels voor uitgaand verkeer in de NSG toestaan al verbinding met internet. U wordt aangeraden dat u de standaardregels voor uitgaand niet verwijderen, en dat u andere regels voor uitgaand verkeer die uitgaande verbinding met internet weigeren niet maken.
 
 - Verkeer van de tag AzureLoadBalancer moet worden toegestaan.
 
@@ -57,11 +59,12 @@ In dit scenario kan worden gedaan met nsg's op het subnet van de gateway. De vol
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Gebruiker gedefinieerde routes die worden ondersteund op het subnet voor Application Gateway
 
-Gebruiker gedefinieerde routes (udr's) worden ondersteund op het subnet van de gateway, in het geval van v1-SKU, zolang ze de end-to-end verzoek/reactie-communicatie niet wijzigen.
-
-Bijvoorbeeld, u kunt een UDR in het subnet van de gateway instellen om te verwijzen naar een firewallapparaat voor pakketinspecties uitvoeren, maar moet u ervoor zorgen dat het pakket de inspectie van de bestemming van het bericht kan bereiken. Dit niet doet, kan leiden tot onjuiste health test of verkeer omleiden gedrag. Dit omvat geleerde routes of 0.0.0.0/0 standaardroutes doorgegeven door ExpressRoute of VPN-Gateways in het virtuele netwerk.
+Gebruiker gedefinieerde routes (udr's) worden ondersteund op het subnet van de gateway, in het geval van v1-SKU, zolang ze de end-to-end verzoek/reactie-communicatie niet wijzigen. Bijvoorbeeld, u kunt een UDR in het subnet van de gateway instellen om te verwijzen naar een firewallapparaat voor pakketinspecties uitvoeren, maar moet u ervoor zorgen dat het pakket de inspectie van de bestemming van het bericht kan bereiken. Dit niet doet, kan leiden tot onjuiste health test of verkeer omleiden gedrag. Dit omvat geleerde routes of 0.0.0.0/0 standaardroutes doorgegeven door ExpressRoute of VPN-Gateways in het virtuele netwerk.
 
 In het geval van v2 worden-SKU, udr's op het subnet van de gateway niet ondersteund. Zie voor meer informatie, [automatisch schalen en Zone-redundante Application Gateway (openbare Preview)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+
+> [!NOTE]
+> Met behulp van udr's op het subnet van de gateway zorgt ervoor dat de status in de [statusweergave van de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) moet worden weergegeven als **onbekende** en wordt ook leiden tot failue van het genereren van application gateway-logboeken en metrische gegevens. Het verdient dat u geen gebruik udr's op het gatewaysubnet van toepassing kunnen zijn om de back-endstatus, logboeken en metrische gegevens weer te geven.
 
 ## <a name="frontend-ip"></a>Front-end-IP
 
@@ -87,10 +90,11 @@ U kunt kiezen tussen [basic- of multi-site-listener](https://docs.microsoft.com/
 
 - Als u meer dan één webtoepassing of meerdere subdomeinen van hetzelfde bovenliggende domein op hetzelfde exemplaar van application gateway configureert, kiest u listener voor meerdere locaties. Voor de listener voor meerdere locaties moet u bovendien een hostnaam invoeren. Dit is omdat Application Gateway maakt gebruik van HTTP 1.1-hostheaders voor het hosten van meer dan één website op hetzelfde openbare IP-adres en dezelfde poort.
 
-> [!NOTE]
-> In het geval van v1-SKU's, worden de listeners verwerkt in de volgorde waarin die ze worden weergegeven. Om die reden als een basislistener overeenkomt met een binnenkomende aanvraag verwerkt eerst. Multi-site-listeners moeten daarom worden geconfigureerd voordat u een basislistener om te zorgen dat verkeer wordt gerouteerd naar de juiste back-end.
->
-> In het geval van v2-SKU's, zijn multi-site-listeners verwerkt, voordat u eenvoudige listeners.
+#### <a name="order-of-processing-listeners"></a>Volgorde van de verwerking van listeners
+
+In het geval van v1-SKU's, worden de listeners verwerkt in de volgorde waarin die ze worden weergegeven. Om die reden als een basislistener overeenkomt met een binnenkomende aanvraag verwerkt eerst. Multi-site-listeners moeten daarom worden geconfigureerd voordat u een basislistener om te zorgen dat verkeer wordt gerouteerd naar de juiste back-end.
+
+In het geval van v2-SKU's, zijn multi-site-listeners verwerkt, voordat u eenvoudige listeners.
 
 ### <a name="frontend-ip"></a>Front-end-IP
 
@@ -110,9 +114,9 @@ U moet kiezen tussen HTTP en HTTPS-protocol.
 
   Een certificaat is vereist voor het configureren van Secure Sockets Layer (SSL)-beëindiging en end-to-end SSL-versleuteling, moet worden toegevoegd aan de listener om het inschakelen van de toepassingsgateway voor het afleiden van een symmetrische sleutel volgens de specificatie van de SSL-protocol. De symmetrische sleutel wordt vervolgens gebruikt voor het versleutelen en ontsleutelen van het verkeer dat wordt verzonden naar de gateway. Het gatewaycertificaat moet zich in Personal Information Exchange (PFX)-indeling. De bestandsindeling kunt u exporteert de persoonlijke sleutel die is vereist voor de toepassingsgateway om uit te voeren van de versleuteling en ontsleuteling van verkeer. 
 
-#### <a name="supported-certs"></a>Ondersteunde certificaten
+#### <a name="supported-certificates"></a>Ondersteunde certificaten
 
-Zelfondertekende certificaten, CA-certificaten, jokerteken certificaten en VW certificaten worden ondersteund.
+Zie [certificaten die worden ondersteund voor SSL-beëindiging](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination).
 
 ### <a name="additional-protocol-support"></a>Aanvullende protocolondersteuning
 
@@ -160,11 +164,11 @@ U kunt kiezen tussen [basic of pad gebaseerde regel](https://docs.microsoft.com/
 - Kies de pad-gebaseerde listener als u wilt dat voor het routeren van aanvragen met specifieke URL-pad naar specifieke back-endpools. De pad-patroon wordt alleen toegepast op het pad van de URL, niet naar de queryparameters.
 
 
-> [!NOTE]
->
-> In het geval van v1-SKU's, wordt die overeenkomt met het patroon van de inkomende aanvraag verwerkt in de volgorde waarin de paden in de URL-pad-kaart van het pad gebaseerde regel worden weergegeven. Om die reden als een aanvraag overeenkomt met het patroon in twee of meer paden in de URL-path-map, klikt u vervolgens het pad op waarin wordt vermeld voor het eerst wordt worden gekoppeld en de aanvraag doorgestuurd naar de back-end die zijn gekoppeld aan het opgegeven pad.
->
-> In het geval van v2-SKU's bevat een exacte overeenkomst hogere prioriteit boven de volgorde waarin de paden worden weergegeven in de URL-path-map. Voor die reden als een aanvraag overeenkomt met het patroon in twee of meer paden, en vervolgens de aanvraag doorgestuurd naar de back-end die zijn gekoppeld aan het opgegeven pad die overeenkomt met precies met de aanvraag. Als het pad in de inkomende aanvraag komt niet exact overeen met een pad in de URL-path-map, wordt klikt u vervolgens die overeenkomt met het patroon van de inkomende aanvraag verwerkt in de volgorde waarin de paden worden weergegeven in de URL-pad-kaart van het pad gebaseerde regel.
+#### <a name="order-of-processing-rules"></a>Volgorde van de regels worden verwerkt
+
+In het geval van v1-SKU's, wordt die overeenkomt met het patroon van de inkomende aanvraag verwerkt in de volgorde waarin de paden in de URL-pad-kaart van het pad gebaseerde regel worden weergegeven. Om die reden als een aanvraag overeenkomt met het patroon in twee of meer paden in de URL-path-map, klikt u vervolgens het pad op waarin wordt vermeld voor het eerst wordt worden gekoppeld en de aanvraag doorgestuurd naar de back-end die zijn gekoppeld aan het opgegeven pad.
+
+In het geval van v2-SKU's bevat een exacte overeenkomst hogere prioriteit boven de volgorde waarin de paden worden weergegeven in de URL-path-map. Voor die reden als een aanvraag overeenkomt met het patroon in twee of meer paden, en vervolgens de aanvraag doorgestuurd naar de back-end die zijn gekoppeld aan het opgegeven pad die overeenkomt met precies met de aanvraag. Als het pad in de inkomende aanvraag komt niet exact overeen met een pad in de URL-path-map, wordt klikt u vervolgens die overeenkomt met het patroon van de inkomende aanvraag verwerkt in de volgorde waarin de paden worden weergegeven in de URL-pad-kaart van het pad gebaseerde regel.
 
 ### <a name="associated-listener"></a>Bijbehorende listener
 
@@ -176,7 +180,7 @@ De back-end-doelen die de aanvragen zijn ontvangen door de listener fungeren moe
 
 ### <a name="associated-backend-http-setting"></a>Gekoppelde back-end-HTTP-instelling
 
-Een back-end-HTTP-instelling voor elke regel toevoegen. De aanvragen worden doorgestuurd van de Application Gateway naar de back-end-doelen met behulp van het poortnummer, protocol en andere instellingen die zijn opgegeven in deze instelling. In het geval van een eenvoudige regel mag slechts één back-end-HTTP-instelling omdat alle aanvragen op de bijbehorende listener, worden doorgestuurd naar de bijbehorende back-end-doelen met behulp van deze HTTP-instelling. Voeg meerdere back-end-HTTP-instellingen die overeenkomt met elke URL-pad in het geval van een pad gebaseerde regel. De aanvragen die overeenkomen met het URL-pad die u hier opgeeft, zal worden doorgestuurd naar de bijbehorende back-end-doelen met behulp van de HTTP-instellingen die overeenkomt met elke URL-pad. Een standaard-HTTP-instellingen ook toevoegen omdat de aanvragen die niet overeenkomen met een URL-pad opgegeven in deze regel wordt doorgestuurd naar de standaard-back-end-adresgroep met behulp van de standaard-HTTP-instellingen.
+Een back-end-HTTP-instelling voor elke regel toevoegen. De aanvragen worden doorgestuurd van de Application Gateway naar de back-end-doelen met behulp van het poortnummer, protocol en andere instellingen die zijn opgegeven in deze instelling. In het geval van een eenvoudige regel mag slechts één back-end-HTTP-instelling omdat alle aanvragen op de bijbehorende listener, worden doorgestuurd naar de bijbehorende back-end-doelen met behulp van deze HTTP-instelling. Voeg meerdere back-end-HTTP-instellingen die overeenkomt met elke URL-pad in het geval van een pad gebaseerde regel. De aanvragen die overeenkomen met het URL-pad die u hier opgeeft, zal worden doorgestuurd naar de bijbehorende back-end-doelen met behulp van de HTTP-instellingen die overeenkomt met elke URL-pad. Een standaard-HTTP-instelling ook toevoegen omdat de aanvragen die niet overeenkomen met een URL-pad opgegeven in deze regel wordt doorgestuurd naar de standaard back-end-adresgroep met de standaardinstelling voor HTTP.
 
 ### <a name="redirection-setting"></a>Omleidingsinstelling voor
 
@@ -186,7 +190,7 @@ Zie voor meer informatie over de mogelijkheden voor omleiding [Mapomleiding-over
 
 - #### <a name="redirection-type"></a>Type omleiding
 
-  Kies het type van omleiding van vereist: Permanente, tijdelijke, gevonden of naar andere.
+  Kies het type van omleiding van vereist: Permanent(301), Temporary(307), Found(302) of Zie other(303).
 
 - #### <a name="redirection-target"></a>Doel van omleiding
 
@@ -236,14 +240,14 @@ Het aantal seconden dat de toepassingsgateway moet wachten op reactie ontvangen 
 
 Deze instelling kunt u een optionele aangepaste doorsturen-pad moet worden gebruikt wanneer de aanvraag wordt doorgestuurd naar de back-end configureren. Hiermee kopieert u een deel van het binnenkomende pad die overeenkomt met het aangepaste pad opgegeven in de **overschrijven van het back-endpad** veld naar de doorgestuurde pad. Zie de onderstaande tabel voor informatie over de werking van de capaciteit.
 
-- Als de HTTP-instellingen is gekoppeld aan een regel voor het doorsturen van een algemene aanvraag:
+- Als de HTTP-instelling is gekoppeld aan een regel voor het doorsturen van een algemene aanvraag:
 
   | Oorspronkelijke aanvraag  | Back-endpad overschrijven | Aanvraag doorgestuurd naar de back-end |
   | ----------------- | --------------------- | ---------------------------- |
   | /Home/            | /override/            | / vervangen/home /              |
   | / home/secondhome / | /override/            | / onderdrukking/home/secondhome /   |
 
-- Als de HTTP-instellingen is gekoppeld aan een regel voor het doorsturen van een pad op basis van aanvraag:
+- Als de HTTP-instelling is gekoppeld aan een regel voor het doorsturen van een pad op basis van aanvraag:
 
   | Oorspronkelijke aanvraag           | Padregel       | Back-endpad overschrijven | Aanvraag doorgestuurd naar de back-end |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |

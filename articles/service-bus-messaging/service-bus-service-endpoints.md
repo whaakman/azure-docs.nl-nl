@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
-ms.openlocfilehash: c467c963a558f84a0a08887d3777dccf7cd8554d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234064"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843561"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Service-eindpunten voor Virtueelnetwerk gebruiken met Azure Service Bus
 
@@ -48,7 +48,7 @@ Het resultaat is een privé- en geïsoleerd relatie tussen de werkbelastingen di
 
 ## <a name="enable-service-endpoints-with-service-bus"></a>Met Service Bus-service-eindpunten inschakelen
 
-Een belangrijk aandachtspunt bij het gebruik van VNet-service-eindpunten met Service Bus is dat u deze eindpunten in toepassingen die elkaar Standard en Premium-laag Service Bus-naamruimten niet moet inschakelen. Omdat de Standard-laag biedt geen ondersteuning voor vnet's, is het eindpunt is beperkt tot alleen Premium-laag-naamruimten. Het VNet wordt geblokkeerd verkeer naar de Standard-naamruimte.
+Een belangrijk aandachtspunt bij het gebruik van VNet-service-eindpunten met Service Bus is dat u deze eindpunten in toepassingen die elkaar Standard en Premium-laag Service Bus-naamruimten niet moet inschakelen. Omdat de Standard-laag biedt geen ondersteuning voor vnet's, is het eindpunt is beperkt tot alleen Premium-laag-naamruimten.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Geavanceerde beveiliging mogelijke scenario's met VNet-integratie 
 

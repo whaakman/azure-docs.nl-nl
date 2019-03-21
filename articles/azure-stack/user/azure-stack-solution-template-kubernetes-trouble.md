@@ -5,21 +5,21 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabvrigg
+ms.date: 03/20/2019
 ms.reviewer: waltero
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 6a5efce2f50a25902b33f2cb85d470a280000305
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: 01a9405c98160149782ab2cf248f64818d631dde
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002056"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293784"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Problemen met uw Kubernetes-implementatie naar Azure Stack oplossen
 
@@ -66,8 +66,8 @@ Het volgende diagram ziet u het algemene proces voor het implementeren van het c
 
     Het script heeft de volgende taken:
     - Installeert etcd, Docker en Kubernetes-resources, zoals kubelet. etcd is een gedistribueerde sleutel waardearchief dat een manier biedt voor het opslaan van gegevens in een computercluster. Docker biedt ondersteuning voor internetverkoop besturingssysteem-niveau virtualizations bekend als containers. Kubelet is het knooppuntagent die wordt uitgevoerd op elk knooppunt Kubernetes.
-    - Stelt u de etcd-service.
-    - Stelt u de kubelet-service.
+    - Stelt u de **etcd** service.
+    - Stelt u de **kubelet** service.
     - Kubelet begint. Deze taak omvat de volgende stappen uit:
         1. De API-service wordt gestart.
         2. Start de controllerservice.
@@ -77,9 +77,9 @@ Het volgende diagram ziet u het algemene proces voor het implementeren van het c
 7. Downloaden en uitvoeren van de extensie voor aangepaste scripts.
 
 7. Voer het script van de agent. Het aangepaste script van de agent heeft de volgende taken:
-    - Etcd installeert
-    - Stelt u de kubelet-service
-    - Lid wordt van het Kubernetes-cluster
+    - Installeert **etcd**.
+    - Stelt u de **kubelet** service.
+    - Lid wordt van het Kubernetes-cluster.
 
 ## <a name="steps-for-troubleshooting"></a>Stappen voor het oplossen van problemen
 
@@ -119,66 +119,52 @@ Wanneer u uw Kubernetes-cluster implementeert, kunt u de status van de implement
 
     Elk item heeft een pictogram voor de status van de groene of rode.
 
-## <a name="get-logs-from-a-vm"></a>Logboeken van een virtuele machine ophalen
+## <a name="review-deployment-logs"></a>Logboeken van de implementatie bekijken
 
-Voor het genereren van de logboeken, moet u verbinding maken met de hoofd-VM's voor uw cluster, open een bash-prompt, en vervolgens een script uitvoeren. Het model virtuele machine kunt u vinden in de resourcegroep van uw cluster en de naam `k8s-master-<sequence-of-numbers>`. 
+Als de Azure Stack-portal geen voldoende informatie voor u oplossen of implementatiefouten oplossen biedt, wordt de volgende stap is om u te verdiepen in de clusterlogboeken. Als u wilt de implementatielogboeken handmatig kunt ophalen, moet u meestal verbinding maken met een van de master virtuele machines van het cluster. Een eenvoudigere alternatieve methode is om te downloaden en voer de volgende [Bash-script-](https://aka.ms/AzsK8sLogCollectorScript) die door het team van Azure Stack. Met dit script maakt verbinding met de DVM en van het cluster virtuele machines, systeem- en clusterlogboeken worden verzameld en downloadt deze terug naar uw werkstation.
 
 ### <a name="prerequisites"></a>Vereisten
 
-U moet een bash-prompt op de computer die u gebruikt voor het beheren van Azure Stack. Bash gebruiken om uit te voeren van de scripts die toegang hebben tot de logboeken. U kunt de bash-prompt die geïnstalleerd met Git gebruiken op een Windows-machine. Als u de meest recente versie van git, raadpleegt u [Git downloads](https://git-scm.com/downloads).
+U moet een Bash-prompt op de computer die u gebruiken voor het beheren van Azure Stack. Op een Windows-machine, krijgt u een Bash-prompt door het installeren van [Git voor Windows](https://git-scm.com/downloads). Wanneer geïnstalleerd, zoekt _Git Bash_ in het startmenu.
 
-### <a name="get-logs"></a>Logboeken ophalen
+### <a name="retrieving-the-logs"></a>Bij het ophalen van de logboeken
 
-Als u zich aanmeldt, moet u de volgende stappen uitvoeren:
+Volg deze stappen om te verzamelen en de clusterlogboeken downloaden:
 
-1. Open een bash-prompt. Als u Git op een Windows-machine gebruikt, kunt u een bash-prompt openen vanaf het volgende pad: `c:\programfiles\git\bin\bash.exe`.
-2. Voer de volgende bash-opdrachten:
+1. Open een Bash-prompt. Open vanaf een Windows-machine _Git Bash_ of uit te voeren: `C:\Program Files\Git\git-bash.exe`.
+
+2. Het logboek collector-script downloaden door te voeren van de volgende opdrachten in de Bash-prompt:
 
     ```Bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
     curl -O https://raw.githubusercontent.com/msazurestackworkloads/azurestack-gallery/master/diagnosis/getkuberneteslogs.sh
-    sudo chmod 744 getkuberneteslogs.sh
+    chmod 744 getkuberneteslogs.sh
     ```
 
-    > [!Note]  
-    > Op Windows, moet u niet uitvoeren `sudo`. In plaats daarvan kunt u alleen gebruiken `chmod 744 getkuberneteslogs.sh`.
-
-3. Voer de volgende opdracht met de parameters bijgewerkt zodat deze overeenkomt met uw omgeving in de dezelfde sessie:
-
-    ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmd-host 192.168.102.37
-    ```
-
-4. Controleer de parameters en stel de waarden op basis van uw omgeving.
+3. Zoek naar de informatie die wordt vereist door het script en voer deze uit:
 
     | Parameter           | Description                                                                                                      | Voorbeeld                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d--vmd-host       | Het openbare IP-adres of de FQDN-naam van de DVM. De naam van de virtuele machine wordt gestart met `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
-    | -f-,--forceren | Niet vragen voordat u uploadt de persoonlijke sleutel. | |
-    | -i,-identiteits-bestand | De RSA bestand met persoonlijke sleutel om de Kubernetes hoofd-VM verbinding te maken. De sleutel moeten beginnen met: <br>`-----BEGIN RSA PRIVATE KEY-----` | C:\data\id_rsa.pem                                                        |
-    | -h,--Help-informatie  | Het gebruik van de opdracht voor afdrukken `getkuberneteslogs.sh` script. | |
-    | -m-,--host van master          | Het openbare IP-adres of de volledig gekwalificeerde domeinnaam (FQDN) van de hoofd-VM's van de cluster in Kubernetes. De naam van de virtuele machine wordt gestart met `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
-    | -u-,--gebruiker          | De gebruikersnaam van de Kubernetes-cluster master VM. U stelt deze naam wanneer u de marketplace-item configureren.                                                                    | azureuser                                                                     |
+    | -d--vmd-host      | Het openbare IP-adres of de volledig gekwalificeerde domeinnaam (FQDN) van de DVM. De naam van de virtuele machine wordt gestart met `vmd-`. | IP: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
+    | -h,--Help-informatie  | Opdrachtgebruik afdrukken. | |
+    | -i,-identiteits-bestand | Het persoonlijke sleutelbestand van RSA doorgegeven aan de marketplace-item bij het maken van het Kubernetes-cluster. Nodig voor het extern in naar de Kubernetes-knooppunten. | C:\data\id_rsa.PEM (Putty)<br>~/.SSH/id_rsa (SSH)
+    | -m-,--host van master   | Het openbare IP-adres of de volledig gekwalificeerde domeinnaam (FQDN) van een Kubernetes-hoofdknooppunt. De naam van de virtuele machine wordt gestart met `k8s-master-`. | IP: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -u-,--gebruiker          | Naam van de gebruiker wordt doorgegeven aan de marketplace-item bij het maken van het Kubernetes-cluster. Die nodig zijn voor extern in naar de Kubernetes-knooppunten | azureuser (standaardwaarde) |
 
 
-
-
-   Wanneer u uw parameterwaarden hebt toegevoegd, ziet deze er ongeveer als de volgende code uit:
+   Wanneer u uw parameterwaarden hebt toegevoegd, ziet er ongeveer als volgt door de opdracht uit:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-    Een geslaagde uitvoering Hiermee maakt u de logboeken.
+4. Na een paar minuten, het script de verzamelde logboeken naar een map met de naam wordt uitvoer `KubernetesLogs_{{time-stamp}}`. U vindt er een map voor elke virtuele machine die deel uitmaakt van het cluster.
 
-    ![Gegenereerde logboeken](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
+    Het logboek collector script ook zoeken naar fouten in de logboekbestanden en nemen stappen voor probleemoplossing als dit het geval is een bekend probleem vinden. Zorg ervoor dat u de meest recente versie van het script te verhogen kans om te zoeken naar bekende problemen worden uitgevoerd.
 
-
-1. De logboeken in de mappen die zijn gemaakt door de opdracht kunt ophalen. De opdracht maakt u nieuwe mappen en tijdstempels ze.
-    - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
-        - Dvmlogs
-        - Acsengine-kubernetes-dvm.log
+> [!Note]  
+> Bekijk deze GitHub [opslagplaats](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) voor meer informatie over het logboek collector-script.
 
 ## <a name="next-steps"></a>Volgende stappen
 

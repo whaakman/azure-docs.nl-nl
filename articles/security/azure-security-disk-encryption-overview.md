@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/12/2019
+ms.date: 03/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7dd061d84167b172aff52e8a62ed6d43fddc108
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 66d788aec83e3e57a49b063f2ca80484360f639d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862009"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295280"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption voor IaaS-VM 's
 
@@ -81,6 +81,7 @@ De oplossing biedt geen ondersteuning voor de volgende scenario's, functies en -
 * Basic-laag IaaS-VM's.
 * Schakel versleuteling uit op een station van het besturingssysteem voor Linux IaaS-VM's.
 * Schakel versleuteling uit op een schijf als de besturingssysteemschijf is gecodeerd voor Linux IaaS-VM's.
+* Hiermee stelt u de stationsversleuteling OS voor virtuele-machineschaalset in Linux.
 * IaaS-VM's die zijn gemaakt met behulp van de klassieke methode voor het maken van de virtuele machine.
 * Versleuteling van aangepaste installatiekopieën van de klant op Linux IaaS-VM's inschakelen.
 * Integratie met uw on-premises sleutelbeheersysteem.

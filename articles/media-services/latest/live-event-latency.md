@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: db6646c2066be940b2c058653fe8f2ceb9bff3a2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 30cd77799837f9b1ef08a9c609e518fd679b9b15
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169698"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871419"
 ---
 # <a name="live-event-latency-in-media-services"></a>Live gebeurtenis latentie in Media Services
 
 Dit artikel wordt beschreven hoe u om in te stellen met lage latentie op een [Live gebeurtenis](https://docs.microsoft.com/rest/api/media/liveevents). Hierin worden ook typische resultaten die u ziet wanneer u de instellingen voor lage latentie in verschillende spelers. De resultaten variëren op basis van CDN en netwerklatentie.
 
-Gebruik van de nieuwe **LowLatency** functie, stelt u de **StreamOptionsFlag** naar **LowLatency** op de **LiveEvent**. Bij het maken van [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) voor HLS afspelen, stelt u [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) op 1. Zodra de stroom actief en werkend is, kunt u de [Azure Media Player](http://ampdemo.azureedge.net/) (AMP demo pagina), en stel de opties afspelen 'Met lage latentie methodiek profiel' te gebruiken.
+Gebruik van de nieuwe **LowLatency** functie, stelt u de **StreamOptionsFlag** naar **LowLatency** op de **LiveEvent**. Bij het maken van [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) voor HLS afspelen, stelt u [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) op 1. Zodra de stroom actief en werkend is, kunt u de [Azure Media Player](https://ampdemo.azureedge.net/) (AMP demo pagina), en stel de opties afspelen 'Met lage latentie methodiek profiel' te gebruiken.
 
 > [!NOTE]
 > Op dit moment is de LowLatency HeuristicProfile in Azure Media Player ontworpen voor het afspelen van stromen in protocol DASH of HLS met CMAF. Als u voor Mac OS- of iOS-apparaten via HLS met TS ontwikkelt (bijvoorbeeld `format=m3u8-aapl` of `format=m3u8-aapl-v3`), u moet niet gebruiken voor deze instelling omdat AMP direct maakt gebruik van de systeemeigen speler geleverd door het besturingssysteem in dit geval.

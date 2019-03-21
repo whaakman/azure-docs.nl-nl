@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: banders
-ms.openlocfilehash: 5cf828b270d97ae39b58990a2480cd4ca1cc853e
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 7bb8e4f53dd07a613ab4b9ff05600a22f76a4ba7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902445"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872701"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Vermijd oninbaar voor uw gratis Azure-account
 
@@ -62,4 +62,4 @@ Nadat uw gratis services en de aantallen zijn verlopen, wordt Azure rekent u bet
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

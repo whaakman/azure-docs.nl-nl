@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 90e119949ccc070761aaec593a128b15c9f8d623
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c3c2101576f9b0d0c7908e62bd5cc1d6e6eeb0b2
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880950"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189798"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Advertenties invoeren op de client
 In dit artikel bevat informatie over het invoegen van verschillende typen advertenties op de client.

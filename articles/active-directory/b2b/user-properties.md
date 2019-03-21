@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45e9553a3af8a09a6630efa771294661702feef5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670692"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294651"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Eigenschappen van de gebruiker van een Azure Active Directory B2B-samenwerking
 
@@ -32,7 +33,7 @@ Afhankelijk van de behoeften van de uitnodigende organisatie, kan de gebruiker v
 
 - Status van 4: Homed in van de organisatie van de host Azure AD met UserType = Gast en referenties die de organisatie van de host wordt beheerd.
 
-  ![Initialen van de afzender van de uitnodiging weergeven](media/user-properties/redemption-diagram.png)
+  ![Diagram met de status van de vier gebruiker](media/user-properties/redemption-diagram.png)
 
 
 Nu gaan we kijken hoe de gebruiker van een Azure AD B2B-samenwerking eruit in Azure AD.
@@ -41,7 +42,7 @@ Nu gaan we kijken hoe de gebruiker van een Azure AD B2B-samenwerking eruit in Az
 
 Status 1 en 2 voor status-accounts zijn het resultaat van het uitnodigen van gastgebruikers om samen te werken met behulp van de referenties van de gebruikers zelf Gast. Wanneer de uitnodiging naar de gastgebruiker in eerste instantie verzonden is, wordt een account gemaakt in uw directory. Dit account heeft geen referenties die zijn gekoppeld aan deze omdat verificatie wordt uitgevoerd door de gastgebruiker id-provider. De **bron** eigenschap voor het gastgebruikersaccount in de map is ingesteld op **Invited gebruiker**. 
 
-![Voordat u inschrijving van de aanbieding](media/user-properties/before-redemption.png)
+![Schermafbeelding van de eigenschappen van de gebruiker voordat u inschrijving van de aanbieding](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>Na verzilvering van uitnodiging
 
@@ -87,7 +88,7 @@ Een Azure AD B2B-gebruiker en de gastgebruiker zijn meestal gelijk. Daarom wordt
 
 ## <a name="filter-for-guest-users-in-the-directory"></a>Filter voor gastgebruikers ook kunnen in de map
 
-![Filteren van gastgebruikers](media/user-properties/filter-guest-users.png)
+![Schermopname van het filter voor gastgebruikers](media/user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>UserType converteren
 Het is mogelijk converteren naar UserType lid Gast en vice versa met behulp van PowerShell. Echter, vertegenwoordigt het UserType-eigenschap van de gebruiker-relatie voor de organisatie. Daarom moet u deze eigenschap alleen als de relatie van de gebruiker naar de wijzigingen in de organisatie. Als de relatie van de gebruiker wordt gewijzigd, moet de UPN (User Principal Name) dan wijzigen? Moet de gebruiker nog steeds toegang tot dezelfde resources? Een postvak worden toegewezen? Wordt niet aanbevolen het UserType wijzigen met behulp van PowerShell als een atomische activiteit. Ook als deze eigenschap onveranderbare wordt met behulp van PowerShell, wordt niet aanbevolen voor het maken van een afhankelijkheid op deze waarde.
@@ -97,7 +98,7 @@ Mogelijk zijn er gevallen waar u wilt uw gastgebruikers hogere rechten te verlen
 
 Het is mogelijk de standaardbeperkingen uitschakelen zodat een gastgebruiker in de directory van het bedrijf dezelfde machtigingen als een gebruiker lid heeft.
 
-![Beperkingen van Gast-gebruiker verwijderen](media/user-properties/remove-guest-limitations.png)
+![Schermopname van de externe gebruikers optie in de gebruikersinstellingen](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Kan ik gastgebruikers zichtbaar maken in de algemene Exchange-adreslijst?
 Ja. Standaard Gast objecten zijn niet zichtbaar in de globale adreslijst van uw organisatie, maar u kunt Azure Active Directory PowerShell gebruiken om ze zichtbaar. Zie voor meer informatie, **kan ik objecten Gast zichtbaar maken in de globale adreslijst?** in [beheren van toegang voor gasten in Office 365-groepen](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq). 

@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 7e5abf1100c09f8f28d268b3f2defe953c5f36f0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770132"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887218"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Uw eerste taak plannen en maken met Azure Scheduler - Azure Portal
 
@@ -34,7 +34,7 @@ Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/fr
 
    ![Scheduler-resource maken](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
-   Maak nu een taak die een GET-aanvraag naar deze URL verzendt: `http://www.microsoft.com/` 
+   Maak nu een taak die een GET-aanvraag naar deze URL verzendt: `https://www.microsoft.com/` 
 
 1. Voer onder **Scheduler-taak** deze informatie in:
 
@@ -51,7 +51,7 @@ Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/fr
    |----------|---------------|-------------| 
    | **Actie** | **Http** | Het type actie dat moet worden uitgevoerd | 
    | **Methode** | **Get** | De aan te roepen methode | 
-   | **URL** | **http://www.microsoft.com** | De doel-URL | 
+   | **URL** | **https://www.microsoft.com** | De doel-URL | 
    |||| 
    
    ![Taak definiëren](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)

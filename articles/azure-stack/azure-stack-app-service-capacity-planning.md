@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
-ms.author: jeffgilb
+ms.date: 03/13/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c726675d799a8bb5f9ed1d1dd595aa7f4700036
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/13/2019
+ms.openlocfilehash: 06bafbcf3e668ba17b1245b9352e942e02569997
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774589"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852362"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Capaciteitsplanning voor Azure App Service-server-rollen in Azure Stack
 
@@ -93,9 +93,17 @@ Bij het bepalen van het aantal gedeelde webwerkrollen wilt gebruiken, Controleer
 
    Zie voor meer informatie over het toevoegen van meer werkrolinstanties [toe te voegen meer werkrollen](azure-stack-app-service-add-worker-roles.md).
 
+### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>Aanvullende overwegingen voor specifieke werknemers tijdens de upgrade en onderhoud
+
+Tijdens de upgrade en het onderhoud van werknemers, wordt Azure App Service in Azure Stack onderhoud uitvoeren op 20% van elke werknemer-laag op elk willekeurig moment.  Cloudbeheerders moeten daarom altijd behouden voor een pool met 20% van de niet-toegewezen werknemers per werkrolniveau om te controleren of dat hun tenants geen verlies van service ondervinden tijdens de upgrade en onderhoud.  Bijvoorbeeld, als er 10 werkrollen in een werknemer-laag moet u zorgen dat 2 zijn niet-toegewezen om toe te staan van de upgrade en onderhoud, als u hebt de volledige 10 werknemers worden toegewezen het werkrolniveau opschalen moet voor het onderhouden van een pool van de niet-toegewezen werknemers. Tijdens de upgrade en onderhoud werklast laten opvangen door niet-toegewezen werknemers om te controleren of dat de werkbelastingen blijven werken echter als er geen niet-toegewezen werknemers die beschikbaar zijn tijdens de upgrade vervolgens er worden de mogelijkheden voor de werkbelasting van de tenant van Azure App Service gaat downtime.  Met betrekking tot de gedeelde werknemers hoeven klanten niet voor het inrichten van extra werkrollen als de service tenant toepassingen binnen de beschikbare werkrollen automatisch, voor hoge beschikbaarheid toewijzen wordt, maar er is een minimumvereiste voor twee werkrollen in deze laag.
+
+Cloud-beheerders kunnen de toewijzing van de werknemer-laag in het gebied App Service-beheer in de beheerportal van Azure Stack bewaken.  Navigeer naar App Service en selecteer vervolgens Werkrolniveaus in het linkerdeelvenster.  De tabel Werkrolniveaus ziet u de naam van de werknemer-laag, grootte, installatiekopie die wordt gebruikt, het aantal beschikbare werkrollen (niet-toegewezen), totale aantal werknemers in elke laag en de algehele status van de werknemer-laag.
+
+![App Service Administration - Werkrolniveaus][1]
+
 ## <a name="file-server-role"></a>Rol van bestandsserver
 
-Voor de rol van bestandsserver, kunt u een zelfstandige bestandsserver gebruikt voor ontwikkelen en testen; bijvoorbeeld bij het implementeren van Azure App Service op de Azure Stack Development Kit (ASDK) kunt u deze sjabloon: https://aka.ms/appsvconmasdkfstemplate. Voor productiedoeleinden moet u een vooraf geconfigureerde Windows-bestandsserver of een vooraf geconfigureerde niet-Windows-bestandsserver.
+Voor de rol van bestandsserver, kunt u een zelfstandige bestandsserver gebruikt voor ontwikkelen en testen; bijvoorbeeld bij het implementeren van Azure App Service op de Azure Stack Development Kit (ASDK) kunt u dit [sjabloon](https://aka.ms/appsvconmasdkfstemplate).  Voor productiedoeleinden moet u een vooraf geconfigureerde Windows-bestandsserver of een vooraf geconfigureerde niet-Windows-bestandsserver.
 
 De rol van bestandsserver ervaringen in een productieomgeving, intensieve schijf-i/o. Omdat het ook alle inhoud en -toepassingen bestanden voor gebruiker web sites nieuwste, moet u een van de volgende bronnen voor deze rol vooraf configureren:
 
@@ -105,10 +113,13 @@ De rol van bestandsserver ervaringen in een productieomgeving, intensieve schijf
 - Niet-Windows-bestandsservercluster
 - NAS (Network Attached Storage)-apparaat
 
-Zie voor meer informatie, [inrichten van een bestandsserver](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+Zie het volgende artikel voor meer informatie, [inrichten van een bestandsserver](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie het volgende artikel voor meer informatie:
 
 [Voordat u aan de slag met App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md)
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 36800071d5e0080ef5d1d791eed12587b114df78
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: dbfb559516177d496f5b16dc31f0ef8d0603cf68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743630"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904011"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Reserveringen voor Azure-resources beheren
 
@@ -38,13 +38,13 @@ Het bereik van een reservering bijwerken:
 4. Selecteer **Instellingen** > **Configuratie**.
 5. Het bereik wijzigen.
 
-Als u wijzigt van gedeeld op één scope, kunt u alleen abonnementen waar u de eigenaar bent. Alleen abonnementen binnen de context van de dezelfde facturering als de reservering kan worden geselecteerd.
+Als u wijzigt van gedeeld op één scope, kunt u alleen abonnementen waar u de eigenaar bent. Alleen abonnementen binnen dezelfde factureringscontext als de reservering kunnen worden geselecteerd.
 
-Het bereik is alleen van toepassing op de betalen naar gebruik-aanbieding MS-AZR - 0003P of MS-AZR - 0023P, Enterprise bieden MS-AZR - 0017P of MS-AZR - 0148P of typen voor CSP-abonnementen.
+Het bereik is alleen van toepassing op de aanbieding voor betalen per gebruik MS-AZR-0003P of MS-AZR-0023P, de Enterprise-aanbieding MS-AZR-0017P of MS-AZR-0148P of CSP-abonnementstypen.
 
-## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Toevoegen of wijzigen van gebruikers die een reservering kunnen beheren
+## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Gebruikers toevoegen of wijzigen die een reservering kunnen beheren
 
-U kunt beheer van een reservering delegeren door personen toe te voegen aan rollen voor de reservering. Standaard is de persoon die de reservering hebt gekocht en de accountbeheerder de rol van eigenaar hebben op de reservering.
+U kunt het beheer van een reservering delegeren door personen toe te voegen aan rollen voor de reservering. De standaardinstelling is dat de persoon die de reservering heeft gekocht en de accountbeheerder de rol van eigenaar hebben voor de reservering.
 
 U kunt onafhankelijk toegang tot reserveringen beheren van de abonnementen die aan de reserveringskorting. Als u iemand machtigingen geven voor het beheren van een reservering, die geen geeft deze rechten het abonnement te beheren. En als u iemand machtigingen voor het beheren van een abonnement binnen het bereik van de reservering geeft, dat deze rechten voor het beheren van de reservering niet geeft.
 
@@ -53,8 +53,8 @@ Om te delegeren van beheer van toegang voor een reservering:
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer **alle Services** > **reservering** aan lijst reserveringen waartoe u toegang hebt.
 3. Selecteer de reservering die u wilt toegang tot andere gebruikers delegeren.
-4. Selecteer **toegangsbeheer (IAM)**.
-5. Selecteer **roltoewijzing toevoegen** > **rol** > **eigenaar**. Of, als u wilt om beperkt toegang te geven, selecteert u een andere rol.
+4. Klik op **Toegangsbeheer (IAM)**.
+5. Selecteer **roltoewijzing toevoegen** > **rol** > **eigenaar**. Als u beperkte toegang wilt geven, selecteert u een andere rol.
 6. Typ het e-mailadres van de gebruiker die u wilt toevoegen als eigenaar.
 7. Selecteer de gebruiker en selecteer vervolgens **Opslaan**.
 
@@ -133,4 +133,4 @@ Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

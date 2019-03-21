@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 3f20708308a9b5d7c09d6a498d659afac8a508c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e4c5942dfba62a2c869e4eeceb9018fc926d9de9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090794"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259535"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-new-ui-design"></a>Zelfstudie: Een nieuw apparaattype definiëren in uw Azure IoT Central-toepassing (nieuwe gebruikersinterface)
 
@@ -144,6 +144,9 @@ De volgende stappen laten zien hoe u een nieuwe apparaatsjabloon, **Verbonden ai
      ![Temperatuursimulatie configureren](./media/tutorial-define-device-type/temperaturesimulation.png)
 
 7. Na enige tijd ziet u op het tabblad **Metingen** een grafiek van de temperatuurtelemetrie van uw gesimuleerde aangesloten airconditioningapparaat. Gebruik de besturingselementen om de zichtbaarheid en aggregatie te beheren of de telemetriedefinitie te bewerken:
+ 
+    > [!NOTE]
+    > Voor telemetrie, **gemiddelde** als het standaard aggregatietype is ingesteld. 
 
     ![Temperatuursimulatie bekijken](./media/tutorial-define-device-type/viewsimulation.png)
 

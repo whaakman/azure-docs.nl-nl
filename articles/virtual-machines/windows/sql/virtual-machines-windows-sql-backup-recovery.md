@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: e291072f7eb075adeff9efb37f1f7dffc72d714c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093521"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286292"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Back-up en herstel voor SQL Server in Azure Virtual Machines
 
@@ -59,7 +59,7 @@ Zie een van de volgende artikelen voor meer informatie over het configureren van
 - **SQL Server 2016/2017**: [Automatische back-up v2 voor virtuele Machines van Azure](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQL Server 2014**: [Automatische back-up voor virtuele Machines van SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 
-## <a id="azbackup"></a> Azure Backup voor SQL-VM's (Preview-versie)
+## <a id="azbackup"></a> Azure Backup voor SQL-VM 's
 
 [Azure Backup](/azure/backup/) biedt u een back-upfunctionaliteit voor Enterprise-klasse voor SQL Server wordt uitgevoerd in Azure VM's. Alle back-ups worden opgeslagen en beheerd in een Recovery Services-kluis. Er zijn diverse voordelen die deze oplossing, met name voor ondernemingen biedt:
 
@@ -76,9 +76,9 @@ Zie een van de volgende artikelen voor meer informatie over het configureren van
 
 Bekijk de volgende video voor een snel overzicht van hoe het werkt samen met een demo:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2dNbw]
+> [!VIDEO https://www.youtube.com/embed/wmbANpHos_E]
 
-Deze oplossing Azure back-up voor SQL-VM's is momenteel in openbare preview. Zie voor meer informatie, [maakt u een Back-up van SQL Server-database naar Azure](../../../backup/backup-azure-sql-database.md).
+Deze oplossing Azure back-up voor SQL-VM's is algemeen beschikbaar. Zie voor meer informatie, [maakt u een Back-up van SQL Server-database naar Azure](../../../backup/backup-azure-sql-database.md).
 
 ## <a id="manual"></a> Handmatige back-up
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 89ca7a5fa13696856bed108e4cbf7462b536b4bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5f0be5d8378cd1640d3052f2e56c8161e2c0b203
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246613"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002789"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Update 0.6 installeren op uw StorSimple Virtual Array
 
@@ -57,7 +57,7 @@ Voer de volgende stappen uit om de software-update te downloaden uit de Microsof
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>De update of de hotfix te downloaden
 
-1. Start Internet Explorer en navigeer naar [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
+1. Start Internet Explorer en navigeer naar [ https://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Als u van de Microsoft Update-catalogus voor de eerste keer op deze computer gebruikmaakt, klikt u op **installeren** wanneer hierom wordt gevraagd voor het installeren van de invoegtoepassing Microsoft Update-catalogus.
 

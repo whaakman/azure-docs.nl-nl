@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a707ae6959b035ae0bcc05ead027dabd528e1b59
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747506"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101530"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een interne load balancer maken en gebruiken met een App Service-omgeving #
 
@@ -80,11 +80,11 @@ Ga als volgt te werk om een ILB AS-omgeving te maken:
 
    U kunt [een bestaande DNS-naam toewijzen aan uw app][customdomain]. De aangepaste domeinnaam die wordt gebruikt voor apps en de domeinnaam die wordt gebruikt voor uw AS-omgeving mogen niet overlappen. Voor een ILB AS-omgeving met de domeinnaam _contoso.com_ kunt u geen aangepaste domeinnamen voor de apps gebruiken, zoals:
 
-    * www.contoso.com
+   * www\.contoso.com
 
-    * abcd.def.contoso.com
+   * abcd.def.contoso.com
 
-    * abcd.contoso.com
+   * abcd.contoso.com
 
    Als u de aangepaste domeinnamen voor de apps kent, kiest u een domein voor de ILB AS-omgeving die niet conflicteert met deze aangepaste domeinnamen. In dit voorbeeld kunt u voor het domein van uw AS-omgeving een naam gebruiken zoals *contoso-internal.com*, omdat deze naam niet conflicteert met aangepaste domeinnamen die eindigen op *.contoso.com*.
 
@@ -222,7 +222,7 @@ Zie [Configure a web application firewall with your App Service environment][ASE
 ## <a name="get-started"></a>Aan de slag ##
 
 * Zie [Introduction to App Service environments][Intro] (Inleiding tot App Service-omgevingen) om aan de slag te gaan met AS-omgevingen.
- 
+ 
 
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

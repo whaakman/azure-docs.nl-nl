@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 810d1bf6a550539b402721d089d8b041cfb48634
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c840764dc978a8dacb3450c0aca5e5d93284b8a6
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991447"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260108"
 ---
 # <a name="change-the-reserved-unit-type"></a>Het gereserveerde eenheidstype wijzigen
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Als u wilt wijzigen van de gereserveerde-eenheidstype en het aantal gereserveerd
    
     U kunt het aantal gereserveerde eenheden voor de geselecteerde gereserveerde-eenheidstype wijzigen met de **geleverd Media-eenheden** schuifregelaar aan de bovenkant van het scherm.
    
-    Wijzigen van de **gereserveerde-EENHEIDSTYPE**, klikt u op de **snelheid van de gereserveerde verwerkingseenheden** balk. Selecteer de prijscategorie die u nodig hebt: S1, S2 of S3.
+    Wijzigen van de **gereserveerde-EENHEIDSTYPE**, klikt u op de **snelheid van de gereserveerde verwerkingseenheden** balk. Selecteer de prijscategorie die u nodig hebt: S1, S2, or S3.
    
 3. Klik op de knop OPSLAAN om uw wijzigingen op te slaan.
    

@@ -1,6 +1,6 @@
 ---
-title: Azure AD-wachtwoordbeveiliging preview-bewerkingen en rapportage
-description: Azure AD-wachtwoordbeveiliging preview na de implementatie-bewerkingen en rapportage
+title: Azure AD-wachtwoord beveiligingsbewerkingen en rapportage
+description: Azure AD-wachtwoordbeveiliging na de implementatie-bewerkingen en rapportage
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fda79f16560a5c96e1283f4d9d9f14dbe503d61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: ac91a70465d79b235ae43681a1375d47e7691efe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175239"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285799"
 ---
-# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Preview: Azure AD-wachtwoordbeveiliging operationele procedures
-
-|     |
-| --- |
-| Beveiliging van Azure AD-wachtwoord is een openbare preview-functie van Azure Active Directory. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD-wachtwoordbeveiliging operationele procedures
 
 Nadat u hebt de [installatie van Azure AD-wachtwoord Protection](howto-password-ban-bad-on-premises-deploy.md) on-premises, er zijn een aantal items die moeten worden geconfigureerd in Azure portal.
 
@@ -33,7 +28,7 @@ Volg de instructies in het artikel [configureren van de lijst met uitgesloten wa
 
 ## <a name="enable-password-protection"></a>Schakel de wachtwoordbeveiliging
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en blader naar **Azure Active Directory**, **verificatiemethoden**, klikt u vervolgens **wachtwoordbeveiliging (Preview)**.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en blader naar **Azure Active Directory**, **verificatiemethoden**, klikt u vervolgens **wachtwoordbeveiliging**.
 1. Stel **wachtwoordbeveiliging inschakelen op Windows Server Active Directory** naar **Ja**
 1. Zoals vermeld in de [Implementatiehandleiding](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), het verdient aanbeveling om in te stellen in eerste instantie de **modus** naar **Audit**
    * Nadat u vertrouwd met de functie bent, kunt u schakelen de **modus** naar **afgedwongen**

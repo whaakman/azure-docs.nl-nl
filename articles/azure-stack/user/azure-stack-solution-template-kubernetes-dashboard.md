@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: d6428fe17dabd4eb6c0d68a56e3b44cdf3b3f8b1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 76af6d6585d52eee99548f69c92bd414068fa28d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085300"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259207"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Toegang tot het Kubernetes-Dashboard in Azure Stack 
 
@@ -116,7 +116,7 @@ U kunt de URL voor het dashboard ophalen uit het hoofdknooppunt in uw cluster.
 
 1. Schakel de pop-upblokkering in uw webbrowser.
 
-2. Uw browser naar de URL die u hebt genoteerd bij het uitvoeren van de opdracht punt `kubectl cluster-info`. Bijvoorbeeld: https://azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy 
+2. Uw browser naar de URL die u hebt genoteerd bij het uitvoeren van de opdracht punt `kubectl cluster-info`. Bijvoorbeeld: https:\//azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard: / proxy 
 3. Selecteer het clientcertificaat.
 4. Voer het token. 
 5. Opnieuw verbinding maken met de bash-opdrachtregel op het hoofdknooppunt en machtigen voor `kubernetes-dashboard`. Voer de volgende opdracht uit:

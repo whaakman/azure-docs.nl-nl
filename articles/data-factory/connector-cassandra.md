@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1347012971d53728d978f378e30684311c88828b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 743dad6032547f8f535543413adff416efb56ac0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022272"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998390"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Gegevens kopiëren van Cassandra met Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-onprem-cassandra-connector.md)
 > * [Huidige versie](connector-cassandra.md)
 
@@ -132,7 +132,7 @@ Als u wilt kopiëren van gegevens van Cassandra, stelt u het brontype in de kopi
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **CassandraSource** | Ja |
-| query |De aangepaste query gebruiken om gegevens te lezen. |SQL-92 query of CQL-query. Zie [CQL-verwijzing](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Wanneer u SQL-query gebruikt, geef **keyspace name.table naam** om weer te geven van de tabel die u wilt zoeken. |Nee (als de 'tableName' en 'keyspace' in de gegevensset zijn opgegeven). |
+| query |De aangepaste query gebruiken om gegevens te lezen. SQL-92 query of CQL-query. Zie [CQL-verwijzing](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Wanneer u SQL-query gebruikt, geef **keyspace name.table naam** om weer te geven van de tabel die u wilt zoeken. |Nee (als de 'tableName' en 'keyspace' in de gegevensset zijn opgegeven). |
 | consistencyLevel |Het consistentieniveau Hiermee geeft u het aantal replica's moeten reageren op een leesaanvraag alvorens gegevens naar de clienttoepassing. Cassandra wordt het opgegeven aantal replica's voor gegevens om te voldoen aan de leesaanvraag gecontroleerd. Zie [gegevensconsistentie configureren](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) voor meer informatie.<br/><br/>Toegestane waarden zijn: **EEN**, **twee**, **drie**, **QUORUM**, **alle**, **LOCAL_QUORUM**, **EACH_QUORUM**, en **LOCAL_ONE**. |Nee (de standaardwaarde is `ONE`) |
 
 **Voorbeeld:**
@@ -173,21 +173,21 @@ Het kopiëren van gegevens van Cassandra, worden de volgende toewijzingen van Ca
 
 | Cassandra-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| ASCII |Reeks |
+| ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAANSE WAARDE |Booleaans |
-| DECIMAAL |Decimaal |
-| DOUBLE-WAARDE |Double-waarde |
-| DRIJVENDE KOMMA |Enkelvoudig |
-| INET |Reeks |
+| DECIMAL |Decimal |
+| DOUBLE |Double |
+| FLOAT |Single |
+| INET |String |
 | INT |Int32 |
-| TEKST |Reeks |
-| TIJDSTEMPEL |DateTime |
-| TIMEUUID |GUID |
-| UUID |GUID |
-| VARCHAR |Reeks |
-| VARINT |Decimaal |
+| TEKST |String |
+| TIMESTAMP |DateTime |
+| TIMEUUID |Guid |
+| UUID |Guid |
+| VARCHAR |String |
+| VARINT |Decimal |
 
 > [!NOTE]
 > Voor de verzameling typen (kaart, set, lijst, enzovoort), verwijzen naar [werken met de Cassandra-verzamelingtypen met behulp van de virtuele tabel](#work-with-collections-using-virtual-table) sectie.
@@ -210,19 +210,19 @@ Virtuele tabellen verwijzen naar de gegevens in de echte tabel, waardoor het stu
 
 De volgende "ExampleTable" wordt bijvoorbeeld een Cassandra-database-tabel met een geheel getal zijn primaire-sleutelkolom met de naam 'pk_int', een tekstkolom de benoemde waarde, een lijstkolom, een kaart-kolom en een set-kolom (met de naam 'StringSet').
 
-| pk_int | Waarde | Lijst | Kaart | StringSet |
+| pk_int | Value | Lijst | Kaart | StringSet |
 | --- | --- | --- | --- | --- |
-| 1 |"Voorbeeldwaarde 1" |["1", "2", "3"] |{'S1': "a", "S2": "b"} |{"A", "B", "C"} |
-| 3 |"Voorbeeldwaarde 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
+| 1 |"sample value 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
+| 3 |"sample value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
 
 Het stuurprogramma genereert meerdere virtuele tabellen om weer te geven deze enkele tabel. De refererende-sleutelkolommen in de virtuele tabellen verwijzen naar de primaire-sleutelkolommen in de echte tabel en welke rij echte tabel een rij in de virtuele tabel komt met overeen geven.
 
 De eerste virtuele tabel is de basistabel met de naam 'ExampleTable' wordt weergegeven in de volgende tabel: 
 
-| pk_int | Waarde |
+| pk_int | Value |
 | --- | --- |
-| 1 |"Voorbeeldwaarde 1" |
-| 3 |"Voorbeeldwaarde 3" |
+| 1 |"sample value 1" |
+| 3 |"sample value 3" |
 
 De basistabel bevat dezelfde gegevens als de oorspronkelijke databasetabel, met uitzondering van de verzamelingen die zijn weggelaten uit deze tabel en uitgevouwen in andere virtuele tabellen.
 

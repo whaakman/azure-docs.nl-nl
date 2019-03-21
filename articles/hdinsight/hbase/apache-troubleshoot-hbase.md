@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651602"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091542"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Apache HBase oplossen met behulp van Azure HDInsight
 
@@ -367,7 +367,7 @@ Dit is wat er gebeurt achter de schermen:
            2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
            2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
    ```
-Vanwege de abrupte afsluiting, kan de poort die is gekoppeld aan het proces niet worden vrijgegeven, hoewel het serverproces regio is gestopt. Deze situatie kan leiden tot een AddressBindException bij het starten van de regioserver, zoals wordt weergegeven in de volgende Logboeken. U kunt dit controleren in de regio-server.log in de map /var/log/hbase op de worker-knooppunten waar de regioserver niet kan worden gestart. 
+   Vanwege de abrupte afsluiting, kan de poort die is gekoppeld aan het proces niet worden vrijgegeven, hoewel het serverproces regio is gestopt. Deze situatie kan leiden tot een AddressBindException bij het starten van de regioserver, zoals wordt weergegeven in de volgende Logboeken. U kunt dit controleren in de regio-server.log in de map /var/log/hbase op de worker-knooppunten waar de regioserver niet kan worden gestart. 
 
    ```apache
 

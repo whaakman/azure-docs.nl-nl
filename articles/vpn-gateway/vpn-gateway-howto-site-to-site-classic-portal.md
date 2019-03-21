@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: ff58619a0fb463c0877b2b595404af19903db1ec
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a2d714cae187e4ebcf2eefd37c61484dc48495e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776934"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002832"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Een site-naar-site-verbinding maken met behulp van Azure Portal (klassiek)
 
@@ -71,25 +71,25 @@ Als u een virtueel netwerk maakt om te gebruiken met een S2S-verbinding, moet u 
 
 ### <a name="to-create-a-virtual-network"></a>Een virtueel netwerk maken
 
-1. Navigeer via een browser naar de [Azure Portal](http://portal.azure.com) en log, indien nodig, in met uw Azure-account.
+1. Navigeer via een browser naar de [Azure Portal](https://portal.azure.com) en log, indien nodig, in met uw Azure-account.
 2. Klik op **+**. In het veld **Marketplace doorzoeken** typt u 'virtueel netwerk'. Zoek **Virtual Network** in de lijst met resultaten en klik erop om de pagina **Virtual Network** te openen.
 
-  ![Pagina voor zoeken van virtueel netwerk](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
+   ![Pagina voor zoeken van virtueel netwerk](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
 3. Kies onder aan de pagina Virtueel netwerk in de vervolgkeuzelijst **Een implementatiemodel selecteren** de optie **Klassiek** en klik vervolgens op **Maken**.
 
-  ![Een implementatiemodel selecteren](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
+   ![Een implementatiemodel selecteren](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
 4. Configureer de VNet-instellingen op de pagina **Virtueel netwerk maken (klassiek)**. Voeg op deze pagina de eerste adresruimte en één adresbereik voor het subnet toe. Nadat u het VNet hebt aangemaakt, kunt u terugkeren en aanvullende subnets en adresruimten toevoegen.
 
-  ![Pagina Virtueel netwerk maken](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Pagina Virtueel netwerk maken")
+   ![Pagina Virtueel netwerk maken](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Pagina Virtueel netwerk maken")
 5. Controleer of het **Abonnement** het juiste is. U kunt abonnementen wijzigen met behulp van de vervolgkeuzelijst.
 6. Klik op **Resourcegroep** en selecteer een bestaande resourcegroep of maak een nieuwe resourcegroep door een naam in te voeren. Zie [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md#resource-groups) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
 7. Selecteer vervolgens de **Locatie**-instellingen voor uw VNet. De locatie bepaalt waar de resources die u naar dit VNet implementeert, worden opgeslagen.
 8. Selecteer **Vastmaken aan dashboard** als u uw VNet gemakkelijk wilt terugvinden op het dashboard. Klik op **Maken** om het VNet te maken.
 
-  ![Vastmaken aan dashboard](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Vastmaken aan dashboard")
+   ![Vastmaken aan dashboard](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Vastmaken aan dashboard")
 9. Wanneer u op Maken klikt, wordt er op het dashboard een tegel weergegeven die de voortgang van uw VNet weergeeft. De tegel wordt gewijzigd wanneer het VNet wordt gemaakt.
 
-  ![Tegel Virtueel netwerk maken](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Tegel Virtueel netwerk maken")
+   ![Tegel Virtueel netwerk maken](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Tegel Virtueel netwerk maken")
 
 ## <a name="additionaladdress"></a>2. Extra adresruimte toevoegen
 
@@ -117,14 +117,14 @@ De lokale site verwijst doorgaans naar uw on-premises locatie. Het bevat het IP-
 1. Navigeer in de portal naar het virtuele netwerk waarvoor u een gateway wil maken.
 2. Ga op de pagina voor uw virtuele netwerk naar **Overzicht** en klik in de sectie VPN-verbindingen op **Gateway** om de pagina **Nieuwe VPN-verbinding** te openen.
 
-  ![Klik om gatewayinstellingen te configureren](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Klik om gatewayinstellingen te configureren")
+   ![Klik om gatewayinstellingen te configureren](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Klik om gatewayinstellingen te configureren")
 3. Selecteer **Site-naar-site** op de pagina **Nieuwe VPN-verbinding**.
 4. Klik op **Lokale site - vereiste instellingen configureren** om de pagina **Lokale site** te openen. Configureer de instellingen en klik vervolgens op **OK** om de instellingen op te slaan.
-  - **Naam:** Geef de lokale site een naam waarmee u deze eenvoudig kunt identificeren.
-  - **IP-adres van VPN-gateway:** Dit is het openbare IP-adres van het VPN-apparaat voor uw on-premises netwerk. Voor het VPN-apparaat is een openbaar IPv4-adres vereist. Geef een geldig openbaar IP-adres op voor het VPN-apparaat waarmee u verbinding wilt maken. Het moet bereikbaar zijn voor Azure. Als u het IP-adres van het VPN-apparaat niet kent, kunt u altijd een tijdelijke aanduiding invoegen (zolang deze maar de indeling van een geldig openbaar IP-adres heeft) en dit later wijzigen.
-  - **Clientadresruimte**: Vermeld de IP-adresbereiken die u via deze gateway naar het lokale on-premises netwerk wilt routeren. U kunt meerdere adresruimtebereiken toevoegen. Zorg ervoor dat de hier opgegeven bereiken niet overlappen met bereiken van andere netwerken waarmee uw virtuele netwerk is verbonden of met de adresbereiken van het virtuele netwerk zelf.
+   - **Naam:** Geef de lokale site een naam waarmee u deze eenvoudig kunt identificeren.
+   - **IP-adres van VPN-gateway:** Dit is het openbare IP-adres van het VPN-apparaat voor uw on-premises netwerk. Voor het VPN-apparaat is een openbaar IPv4-adres vereist. Geef een geldig openbaar IP-adres op voor het VPN-apparaat waarmee u verbinding wilt maken. Het moet bereikbaar zijn voor Azure. Als u het IP-adres van het VPN-apparaat niet kent, kunt u altijd een tijdelijke aanduiding invoegen (zolang deze maar de indeling van een geldig openbaar IP-adres heeft) en dit later wijzigen.
+   - **Clientadresruimte**: Vermeld de IP-adresbereiken die u via deze gateway naar het lokale on-premises netwerk wilt routeren. U kunt meerdere adresruimtebereiken toevoegen. Zorg ervoor dat de hier opgegeven bereiken niet overlappen met bereiken van andere netwerken waarmee uw virtuele netwerk is verbonden of met de adresbereiken van het virtuele netwerk zelf.
 
-  ![Lokale site](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Lokale site configureren")
+   ![Lokale site](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Lokale site configureren")
 
 ## <a name="gatewaysubnet"></a>5. Het gatewaysubnet configureren
 
@@ -132,20 +132,20 @@ U moet een gatewaysubnet maken voor de VPN-gateway. Het gatewaysubnet bevat de I
 
 1. Schakel op de pagina **Nieuwe VPN-verbinding** het selectievakje **Gateway onmiddellijk maken** in. De pagina Optionele gatewayconfiguratie wordt weergegeven. Als u het selectievakje niet inschakelt, wordt de pagina voor het configureren van het gatewaysubnet niet weergegeven.
 
-  ![Gatewayconfiguratie - subnet, grootte, routingtype](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "Gatewayconfiguratie - subnet, grootte, routingtype")
+   ![Gatewayconfiguratie - subnet, grootte, routingtype](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "Gatewayconfiguratie - subnet, grootte, routingtype")
 2. Als u de pagina **Gatewayconfiguratie** wilt openen, klikt u op **Optionele gatewayconfiguratie - subnet, grootte en routingtype**.
 3. Klik op de pagina **Gatewayconfiguratie** op **Subnet - vereiste instellingen configureren** om de pagina **Subnet toevoegen** te openen.
 
-  ![Gatewayconfiguratie - gatewaysubnet](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "gatewayconfiguratie - gatewaysubnet")
+   ![Gatewayconfiguratie - gatewaysubnet](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "gatewayconfiguratie - gatewaysubnet")
 4. Voeg op de pagina **Subnet toevoegen** het gatewaysubnet toe. De grootte van het gatewaysubnet dat u opgeeft, is afhankelijk van de VPN-gatewayconfiguratie die u wilt maken. Hoewel het mogelijk is om een gatewaysubnet van slechts /29 te maken, wordt minimaal /27 of /28 aanbevolen. U maakt dan een groter subnet dat meer adressen bevat. Met een groter gatewaysubnet beschikt u over voldoende IP-adressen voor mogelijke toekomstige configuraties.
 
-  ![Gatewaysubnet toevoegen](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Gatewaysubnet toevoegen")
+   ![Gatewaysubnet toevoegen](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Gatewaysubnet toevoegen")
 
 ## <a name="sku"></a>6. Het SKU- en VPN-type opgeven
 
 1. Selecteer de gateway **Grootte**. Dit is de gateway-SKU die u gaat gebruiken om uw virtuele netwerkgateway te maken. In de portal is de standaard-SKU = **Basic**. Klassieke VPN-gateways gebruiken de oude (verouderde) gateway-SKU's. Zie [Working with virtual network gateway SKUs (old SKUs)](vpn-gateway-about-skus-legacy.md) (Werken met virtuele netwerkgateway-SKU's (oude SKU's)) voor meer informatie over de oude gateway-SKU's.
 
-  ![SKUL- en VPN-type selecteren](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "SKU- en VPN-type selecteren")
+   ![SKUL- en VPN-type selecteren](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "SKU- en VPN-type selecteren")
 2. Selecteer het **Routeringstype** voor uw gateway. Dit staat ook bekend als het VPN-type. Het is belangrijk dat u het juiste gatewaytype selecteert, omdat u de gateway niet van het ene type naar een ander type kunt converteren. Het VPN-apparaat moet compatibel zijn met het routingtype dat u selecteert. Zie [Over VPN-gatewayinstellingen](vpn-gateway-about-vpn-gateway-settings.md#vpntype) voor meer informatie over VPN-typen. Mogelijk ziet u artikelen die verwijzen naar de VPN-typen RouteBased en PolicyBased. Het type Dynamisch komt overeen met RouteBased, en het type Vast komt overeen met PolicyBased.
 3. Klik op **OK** om de instellingen op te slaan.
 4. Klik onder aan de pagina **Nieuwe VPN-verbinding** op **OK** om de virtuele netwerkgateway te gaan maken. Afhankelijk van de SKU die u selecteert, duurt dit maximaal 45 minuten.
@@ -170,19 +170,19 @@ In deze stap stelt u de gedeelde sleutel in en maakt u de verbinding. De sleutel
 
 1. Open de PowerShell-console met verhoogde rechten en maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 2. Controleer de abonnementen voor het account.
 
-  ```powershell
-  Get-AzureSubscription
-  ```
+   ```powershell
+   Get-AzureSubscription
+   ```
 3. Als u meerdere abonnementen hebt, selecteert u het abonnement dat u wilt gebruiken.
 
-  ```powershell
-  Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
-  ```
+   ```powershell
+   Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
+   ```
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Stap 2. De gedeelde sleutel instellen en de verbinding maken
 
@@ -190,18 +190,18 @@ Als u werkt met PowerShell en het klassieke implementatiemodel, komen de namen v
 
 1. Maak een map op de computer en exporteer vervolgens het netwerkconfiguratiebestand naar de map. In dit voorbeeld wordt het netwerkconfiguratiebestand geëxporteerd naar C:\AzureNet.
 
-  ```powershell
-  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-  ```
+   ```powershell
+   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+   ```
 2. Open het netwerkconfiguratiebestand met een xml-editor en controleer de waarden voor LocalNetworkSite name en VirtualNetworkSite name. Pas het voorbeeld aan uw omgeving aan. Gebruik voor een naam die spaties bevat, enkele aanhalingstekens rond de waarde.
 
 3. Stel de gedeelde sleutel in en maak de verbinding. -SharedKey is een waarde die u genereert en opgeeft. In het voorbeeld wordt abc123 gebruikt, maar u kunt een ingewikkeldere waarde gebruiken. (aanbevolen) Het is van belang dat de waarde die u hier opgeeft, dezelfde waarde is die u hebt opgegeven bij het configureren van het VPN-apparaat.
 
-  ```powershell
-  Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
-  -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
-  ```
-Wanneer de verbinding is gemaakt, is het resultaat: **Status: Geslaagd**.
+   ```powershell
+   Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
+   -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+   ```
+   Wanneer de verbinding is gemaakt, is het resultaat: **Status: Geslaagd**.
 
 ## <a name="verify"></a>9. De verbinding controleren
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 36628ed0749814b5bafe4b18278c8bcfe7265374
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 7a3d9a5f87a565625052fc54e3ecccc99fd928a7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227631"
+ms.locfileid: "58259490"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>MariaDB-stuurprogramma's en beheerprogramma's compatibel zijn met Azure Database voor MariaDB
 
@@ -29,7 +29,7 @@ PHP | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | Voor PHP 7.0-
 .NET | [MySqlConnector op GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Installatiepakket van Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0,27 en na | 0.26.5 en vóór |
 MySQL Connector/NET | [MySQL Connector/NET](https://github.com/mysql/mysql-connector-net) | 8.0, 7.0, 6.10 |  | Een bug codering kan ertoe leiden dat de verbindingen niet op sommige UTF8-Windows-systemen.
 Node.js |  [MySQLjs op GitHub](https://github.com/mysqljs/mysql/) <br> Installatiepakket van NPM:<br> Voer `npm install mysql` vanuit NPM | 2.15 | 2.14.1 en vóór
-GA NAAR | https://github.com/go-sql-driver/mysql/releases | 1.3 | 1.2 en vóór | Gebruik allowNativePasswords = true in de connection string
+GA NAAR | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 en vóór | Gebruik `allowNativePasswords=true` in de verbindingsreeks voor versie 1.3. Versie 1.4 bevat een oplossing en `allowNativePasswords=true` is niet langer vereist.
 Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 en vóór |
 Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 en vóór |
 

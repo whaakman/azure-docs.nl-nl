@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: e7ca026d47952721c7aa28de401738ef50b697c6
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: aace9b61ae7625f1d3bbed5181fd88e367ea8f12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586713"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082752"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Quickstart: een grafiekdatabase maken in Azure Cosmos DB met behulp van PHP en de Azure-portal
 
@@ -239,17 +239,17 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
 12. Nu kunt u rakesh en ashley met elkaar verbinden. Zorg ervoor dat **ashley** in de lijst met **resultaten** is geselecteerd en klik vervolgens rechtsonder, naast **Doelen**, op de knop Bewerken. Mogelijk moet u het scherm verbreden om het gedeelte **Eigenschappen** te kunnen zien.
 
-   ![Het doel van een hoekpunt in een grafiek wijzigen](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Het doel van een hoekpunt in een grafiek wijzigen](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. Typ in het vak **Doel** de naam *rakesh* en in het vak **Edge-label** het woord *kent*. Klik vervolgens op het selectievakje.
 
-   ![Een verbinding tussen ashley en rakesh toevoegen in Data Explorer](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
+    ![Een verbinding tussen ashley en rakesh toevoegen in Data Explorer](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Selecteer nu **rakesh** in de lijst met resultaten en kijk of ashley en rakesh zijn verbonden. 
 
-   ![Twee hoekpunten die zijn verbonden in Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
+    ![Twee hoekpunten die zijn verbonden in Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   Hiermee is het onderdeel voor het maken van resources van deze snelstart voltooid. U kunt naar eigen inzicht verdergaan met toevoegen van hoekpunten, aanpassen van de bestaande hoekpunten of wijzigen van de query's. Laten we nu de metrische gegevens bekijken die Azure Cosmos DB biedt en vervolgens de resources opschonen. 
+    Hiermee is het onderdeel voor het maken van resources van deze snelstart voltooid. U kunt naar eigen inzicht verdergaan met toevoegen van hoekpunten, aanpassen van de bestaande hoekpunten of wijzigen van de query's. Laten we nu de metrische gegevens bekijken die Azure Cosmos DB biedt en vervolgens de resources opschonen. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
 

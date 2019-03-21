@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bdf23d1a2142e5c83ceeb72a79ca4fbea65d09c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5b6c636366d494901a34078100290084298de686
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534273"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999840"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installeren en configureren van SAP HANA (grote instanties) op Azure
 
@@ -96,11 +96,11 @@ Hieronder vindt u aanvullende en nuttige SAP op SUSE-gerelateerde koppelingen:
 
 - [SAP HANA op SUSE Linux-site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
 - [Aanbevolen procedures voor SAP: Enqueue replication – SAP NetWeaver on SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
-- [ClamSAP – virusbeveiliging SLES voor SAP](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (met inbegrip van SLES 12 voor SAP-toepassingen)
+- [ClamSAP – virusbeveiliging SLES voor SAP](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (met inbegrip van SLES 12 voor SAP-toepassingen)
 
 Hier volgen de SAP-opmerkingen voor ondersteuning die gelden voor het implementeren van SAP HANA op SLES 12:
 
-- [SAP-ondersteuning Opmerking #1944799: SAP HANA-richtlijnen voor de installatie van de SLES-besturingssysteem](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
+- [SAP-ondersteuning Opmerking #1944799: SAP HANA-richtlijnen voor de installatie van de SLES-besturingssysteem](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 - [SAP support Opmerking #2205917: SAP HANA DB aanbevolen instellingen voor het besturingssysteem voor SLES 12 voor SAP-toepassingen](https://launchpad.support.sap.com/#/notes/2205917/E)
 - [SAP support Opmerking #1984787 – SUSE Linux Enterprise Server 12: opmerkingen bij de installatie](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP-ondersteuning Opmerking #171356 – SAP-software op Linux:  Algemene informatie](https://launchpad.support.sap.com/#/notes/1984787)
@@ -143,7 +143,7 @@ Zie voor meer informatie over Ethernet-details voor uw architectuur, de [HLI sce
 
 ## <a name="storage"></a>Opslag
 
-De opslagindeling voor SAP HANA op Azure (grote instanties) is geconfigureerd door SAP HANA op Azure-service-beheer via SAP aanbevolen richtlijnen. Deze richtlijnen worden beschreven in de [opslagvereisten voor SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) technisch document. 
+De opslagindeling voor SAP HANA op Azure (grote instanties) is geconfigureerd door SAP HANA op Azure-service-beheer via SAP aanbevolen richtlijnen. Deze richtlijnen worden beschreven in de [opslagvereisten voor SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) technisch document. 
 
 De ruwe grootte van de verschillende volumes met de verschillende HANA grote instanties SKU's wordt gedocumenteerd in [SAP HANA (grote instanties) overzicht en architectuur op Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -207,10 +207,10 @@ De opslag die wordt gebruikt in HANA grote instanties heeft een maximale bestand
 > [!IMPORTANT]
 > Om te voorkomen dat een poging om te groeien gegevensbestanden voorbij de maximale bestandsgrootte 16 TB aan opslag van HANA grote instantie HANA, moet u de volgende parameters instellen in het configuratiebestand van de SAP HANA-global.ini
 > 
-- datavolume_striping=true
-- datavolume_striping_size_gb = 15000
-- Zie ook SAP Opmerking [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-- Houd rekening met SAP-notitie [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - datavolume_striping=true
+> - datavolume_striping_size_gb = 15000
+> - Zie ook SAP Opmerking [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - Houd rekening met SAP-notitie [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 Met SAP HANA 2.0, is het framework hdbparam afgeschaft. Als gevolg hiervan moeten de parameters worden ingesteld met behulp van SQL-opdrachten. Zie voor meer informatie, [SAP-notitie #2399079: Afschaffing van hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).

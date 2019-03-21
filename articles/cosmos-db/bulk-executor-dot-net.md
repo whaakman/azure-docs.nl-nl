@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 969821c8b83b8ef554c67f99e3a16e827b53e647
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: ba6a352d965f3f90a122f5277ad23ec5f92907eb
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845117"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258459"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Bulksgewijs executor .NET-clientbibliotheek gebruiken voor het bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Bulksgewijs executor-bibliotheek wordt momenteel ondersteund door Azure Cosmos D
 
 * [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen. Of u kunt de [Azure Cosmos DB-Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) met de `https://localhost:8081` eindpunt. De primaire sleutel wordt gegeven in [Aanvragen verifiëren](local-emulator.md#authenticating-requests).
 
-* Een Azure Cosmos DB SQL API-account maken met behulp van de stappen in [-databaseaccount maken](create-sql-api-dotnet.md#create-a-database-account) gedeelte van het .NET-quickstart-artikel. 
+* Een Azure Cosmos DB SQL API-account maken met behulp van de stappen in [-databaseaccount maken](create-sql-api-dotnet.md#create-account) gedeelte van het .NET-quickstart-artikel. 
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
@@ -72,7 +72,7 @@ De toepassing 'BulkImportSample' genereert willekeurige documenten en bulksgewij
    connectionPolicy)
    ```
 
-4. Het object BulkExecutor wordt geïnitialiseerd met de waarden voor een hoge nieuwe pogingen voor de wachttijd en aanvragen beperkt. En vervolgens worden ze ingesteld op 0 overbezetting doorgeven aan BulkExecutor voor de levensduur.  
+4. Het object BulkExecutor wordt geïnitialiseerd met een hoge opnieuw proberen-waarde voor wachttijd en aanvragen beperkt. En vervolgens worden ze ingesteld op 0 overbezetting doorgeven aan BulkExecutor voor de levensduur.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -102,7 +102,7 @@ De toepassing 'BulkImportSample' genereert willekeurige documenten en bulksgewij
    
    |**Parameter**  |**Beschrijving** |
    |---------|---------|
-   |enableUpsert    |   Een vlag om in te schakelen upsert van de documenten. Als een document met de opgegeven id bestaat al, wordt deze bijgewerkt. Standaard is het ingesteld op false.      |
+   |enableUpsert    |   Een vlag om in te schakelen upsert-bewerking van de documenten. Als een document met de opgegeven ID bestaat al, wordt deze bijgewerkt. Standaard is het ingesteld op false.      |
    |disableAutomaticIdGeneration    |    Een vlag om uit te schakelen automatisch genereren van ID. Standaard is ingesteld op true.     |
    |maxConcurrencyPerPartitionKeyRange    | De maximale graad van gelijktijdigheid per partitiesleutelbereik instellen op null zorgt ervoor dat de bibliotheek te gebruiken een standaardwaarde van 20. |
    |maxInMemorySortingBatchSize     |  Het maximum aantal documenten die zijn opgehaald uit de document-enumerator die is doorgegeven aan de API aanroepen in elke fase.  Voor in het geheugen vooraf verwerken sorteren fase vóór bulkbewerkingen voor importeren, instellen op null zorgt ervoor dat bibliotheek standaardwaarde van min (documents.count, 1000000) te gebruiken.       |
@@ -173,7 +173,7 @@ Houd rekening met de volgende punten voor betere prestaties bij het gebruik van 
 
 * Het verdient aanbeveling om een één BulkExecutor-object voor de gehele toepassing binnen een enkele virtuele machine die overeenkomt met een specifieke Cosmos DB-container te maken.  
 
-* Omdat de uitvoering van een enkele bulksgewijs bewerking API een grote hoeveelheid CPU- en IO van de client-computer verbruikt. Dit gebeurt door bij het maken van meerdere taken intern, te voorkomen dat bij het maken van meerdere gelijktijdige taken binnen uw het toepassingsproces dat elke uitvoering bulksgewijze bewerking API-aanroepen. Als een enkel bulksgewijs bewerking API-aanroep die wordt uitgevoerd op een enkele virtuele machine niet kan gebruiken voor uw hele containerdoorvoer (als uw container doorvoer > 1 miljoen RU/s), is het beter om te maken van afzonderlijke virtuele machines voor het gelijktijdig uitvoeren van bulksgewijs bewerking API-aanroepen.  
+* Omdat de uitvoering van een enkele bulksgewijs bewerking API een grote hoeveelheid CPU- en IO van de client-computer verbruikt. Dit gebeurt door bij het maken van meerdere taken intern, te voorkomen dat bij het maken van meerdere gelijktijdige taken binnen uw het toepassingsproces dat elke uitvoering bulksgewijze bewerking API-aanroepen. Als een enkel bulksgewijs bewerking API-aanroep die wordt uitgevoerd op een enkele virtuele machine niet kan gebruiken voor uw hele containerdoorvoer (als uw container doorvoer > 1 miljoen RU/s), is het raadzaam om de afzonderlijke virtuele machines die gelijktijdig worden uitgevoerd bulksgewijs bewerking API-aanroepen.  
 
 * Zorg ervoor dat InitializeAsync() wordt aangeroepen na een BulkExecutor instantiëren om op te halen van de partitiekaart doel Cosmos DB-container.  
 

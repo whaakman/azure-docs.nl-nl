@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 03/20/2019
 ms.author: bwren
-ms.openlocfilehash: 2309e7762ad36f59e0833e675e7012ee3c459e3e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c01cdb967fd7f9516b4403aa4f0c76f2577d5050
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997036"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294719"
 ---
 # <a name="standard-properties-in-azure-monitor-log-records"></a>Standaard-eigenschappen in Azure Monitor records in logboek registreren
 Logboekgegevens in Azure Monitor is [opgeslagen als een set records](../log-query/log-query-overview.md), elk met een bepaald type met een unieke set eigenschappen. Veel gegevenstypen heeft standaard-eigenschappen die betrekking hebben op meerdere typen. Dit artikel worden deze eigenschappen en voorbeelden van hoe u ze in query's gebruiken kunt.
@@ -84,6 +84,18 @@ AzureActivity
    | summarize LoggedOnAccounts = makeset(Account) by _ResourceId 
 ) on _ResourceId  
 ```
+
+De volgende query parseert **_ResourceId** en statistische functies in rekening gebracht gegevensvolumes per Azure-abonnement.
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+```
+
+Gebruik deze `union withsource = tt *` spaarzaam scans in verschillende gegevenstypen zijn duur in het uitvoeren van query's.
 
 ## <a name="isbillable"></a>\_IsBillable
 De  **\_IsBillable** eigenschap geeft aan of opgenomen gegevens betaald zijn. Gegevens met  **\_IsBillable** gelijk zijn aan _false_ worden verzameld voor gratis en niet in rekening gebracht bij uw Azure-account.

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/28/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a2e056baa2dd27ca0bf054d0dacf15d35e0ef384
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 94858a147dc0383376a54bc94685d855d37e12d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977917"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991198"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Zelfstudie: Windows-VM's maken en beheren met Azure PowerShell
 
@@ -180,7 +180,8 @@ De grootte van een VM bepaalt de hoeveelheid rekenresources, zoals CPU, GPU en g
 ### <a name="vm-sizes"></a>VM-grootten
 
 In de volgende tabel zijn grootten gecategoriseerd in use-cases.  
-| Type                     | Veelgebruikte grootten           |    Beschrijving       |
+
+| Type                     | Veelgebruikte grootten           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Algemeen doel](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Evenwichtige CPU-geheugenverhouding. Ideaal voor ontwikkelen/testen en in kleine tot middelgrote toepassingen en gegevensoplossingen.  |
 | [Geoptimaliseerde rekenkracht](sizes-compute.md)   | Fsv2, Fs, F             | Hoge CPU-geheugenverhouding. Goed voor middelgrootte verkeerstoepassingen, netwerkapparatuur en batchprocessen.        |
@@ -241,7 +242,7 @@ Start-AzVM `
 Een Azure VM kan op een van de vele energiestatussen worden ingesteld. 
 
 
-| Energiestatus | Beschrijving
+| Energiestatus | Description
 |----|----|
 | Starten | De virtuele machine die wordt gestart. |
 | In uitvoering | De virtuele machine die wordt uitgevoerd. |

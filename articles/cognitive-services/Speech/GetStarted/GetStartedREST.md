@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e29d4c0a4279ae44a45b082c5a36b471af3cb12a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110185"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259938"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Quickstart: De Bing-spraakherkenning REST-API gebruiken
 
@@ -66,9 +66,9 @@ In de volgende tabel vindt u enkele voorbeelden van URI's-service.
 
 | Herkennings-modus  | Taal | Uitvoerindeling | Service-URI |
 |---|---|---|---|
-| `interactive` | pt-BR | Standaard | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Gedetailleerd | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
-| `dictation` | fr-FR | Eenvoudig | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+| `interactive` | pt-BR | Standaard | https:\//speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| `conversation` | en-US | Gedetailleerd | https:\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `dictation` | fr-FR | Eenvoudig | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
 > De service-URI is alleen nodig wanneer uw toepassing maakt gebruik van REST-API's om aan te roepen de spraakherkenningsservice. Als u een van de [clientbibliotheken](GetStartedClientLibraries.md), doorgaans niet nodig om te weten welke URI wordt gebruikt. De clientbibliotheken mogelijk andere service-URI's, die alleen van toepassing op een specifieke client-bibliotheek gebruiken. Zie voor meer informatie de clientbibliotheek van uw keuze.

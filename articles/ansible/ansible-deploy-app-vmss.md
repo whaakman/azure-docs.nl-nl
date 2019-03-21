@@ -1,19 +1,19 @@
 ---
 title: Toepassingen implementeren in schaalsets voor virtuele machines in Azure met Ansible
 description: Meer informatie over het gebruik van Ansible voor het configureren van een schaalset voor virtuele machines en het implementeren van een toepassing in de schaalset voor virtuele machines in Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, virtuele machine, schaalset voor virtuele machines, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 540634d68f28aadeed308bc6cc84f459b79385e2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 2214dd9505dff86ac26f01967a360140dee0069f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729284"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791729"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Toepassingen implementeren in schaalsets voor virtuele machines in Azure met Ansible
 U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken om uw toepassingen te implementeren in Azure. In dit artikel leest u hoe u een Java-toepassing implementeert in een schaalset voor virtuele Azure-machines (VMSS).

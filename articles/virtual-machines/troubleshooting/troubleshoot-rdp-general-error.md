@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 25e70b3a685f3b777a74c4cc6bf0e56dd37741a7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100408"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Een algemene fout RDP in Azure VM oplossen
 
@@ -164,11 +164,11 @@ Dit probleem op te lossen [maakt u een back-up van de besturingssysteemschijf](.
 
 Als het probleem zich nog steeds voordoet, verplaatst naar de stap 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Stap 2: Extern bureaublad-services inschakelen
+#### <a name="step-2-enable-remote-desktop-services"></a>Stap 2: Inschakelen van extern bureaublad-services
 
 Zie voor meer informatie, [extern bureaublad-Services is niet gestart op een Azure VM](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Stap 3: Opnieuw instellen RDP-listener
+#### <a name="step-3-reset-rdp-listener"></a>Stap 3: RDP-listener opnieuw instellen
 
 Zie voor meer informatie, [extern bureaublad verbinding verbreekt vaak in Azure VM](troubleshoot-rdp-intermittent-connectivity.md).
 
@@ -229,16 +229,16 @@ Zie voor meer informatie, [extern bureaublad verbinding verbreekt vaak in Azure 
 
       Beleid definitions\Windows onderdelen\Extern Desktop Services\Remote bureaublad-sessie Host\Connections\Allow gebruikers op afstand verbinding kunnen maken met behulp van extern bureaublad-Services
   
-7. De schijf loskoppelen van de redden VM.
-8. [Maak een nieuwe virtuele machine van de schijf](../windows/create-vm-specialized.md).
+1. De schijf loskoppelen van de redden VM.
+1. [Maak een nieuwe virtuele machine van de schijf](../windows/create-vm-specialized.md).
 
 Als het probleem zich nog steeds voordoet, verplaatst naar de stap 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Stap 2: Extern bureaublad-services inschakelen
+#### <a name="step-2-enable-remote-desktop-services"></a>Stap 2: Inschakelen van extern bureaublad-services
 
 Zie voor meer informatie, [extern bureaublad-Services is niet gestart op een Azure VM](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Stap 3: Opnieuw instellen RDP-listener
+#### <a name="step-3-reset-rdp-listener"></a>Stap 3: RDP-listener opnieuw instellen
 
 Zie voor meer informatie, [extern bureaublad verbinding verbreekt vaak in Azure VM](troubleshoot-rdp-intermittent-connectivity.md).
 

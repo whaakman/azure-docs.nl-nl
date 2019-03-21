@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51daf3b9553babb5fc627c02d79914c68c318145
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 941a02ef9ab3d623d34c8dc6996040f6d9e44859
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190820"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096840"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Zelfstudie: Azure Active Directory-integratie met Screencast-O-automatische
 
@@ -133,17 +133,17 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 9. Op de **toegang installatiepagina**, voer de volgende stappen uit:
 
-    * Onder **toegangs-URL** sectie, typt u uw instancename in het tekstvak opgegeven.
+   * Onder **toegangs-URL** sectie, typt u uw instancename in het tekstvak opgegeven.
 
-    ![De toegang](./media/screencast-tutorial/tutorial_screencast_access.png)
+     ![De toegang](./media/screencast-tutorial/tutorial_screencast_access.png)
 
-    * Selecteer **domeingebruiker vereisen** onder **gebruikersbeperking SAML (optioneel)** sectie.
+   * Selecteer **domeingebruiker vereisen** onder **gebruikersbeperking SAML (optioneel)** sectie.
 
-    * Onder **IDP metagegevens XML-bestand uploaden**, klikt u op **bestand kiezen** voor het uploaden van de metagegevens die u hebt gedownload vanuit Azure portal.
+   * Onder **IDP metagegevens XML-bestand uploaden**, klikt u op **bestand kiezen** voor het uploaden van de metagegevens die u hebt gedownload vanuit Azure portal.
 
-    * Klik op **OK**. 
+   * Klik op **OK**. 
 
-    ![De toegang](./media/screencast-tutorial/tutorial_screencast_save.png)
+     ![De toegang](./media/screencast-tutorial/tutorial_screencast_save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -223,7 +223,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 1247f603b759364edcee2bff12f75bb0a217ecd6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: MT
+ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231251"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295297"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Dynamics 365-records met Azure Logic Apps beheren
 
@@ -42,7 +42,7 @@ Eerst een Dynamics 365-trigger die wordt geactiveerd wanneer een nieuwe leadreco
 
 1. In de [Azure-portal](https://portal.azure.com), open uw lege, logische app in Logic App Designer, als dit niet al geopend.
 
-1. Typ 'Dynamics 365 ' als filter in het zoekvak. In dit voorbeeld onder de lijst met triggers, selecteer deze trigger: **wanneer een record wordt gemaakt**
+1. Typ 'Dynamics 365 ' als filter in het zoekvak. Selecteer deze trigger voor dit voorbeeld onder de lijst met triggers: **Wanneer een record wordt gemaakt**
 
    ![Trigger selecteren](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
@@ -50,7 +50,7 @@ Eerst een Dynamics 365-trigger die wordt geactiveerd wanneer een nieuwe leadreco
 
 1. Geef de details van deze trigger:
 
-   | Eigenschap | Vereist | Beschrijving | 
+   | Eigenschap | Vereist | Description | 
    |----------|----------|-------------| 
    | **De naam van organisatie** | Ja | De naam voor Dynamics 365-exemplaar van uw organisatie moeten worden bewaakt, bijvoorbeeld 'Contoso' |
    | **Naam van de entiteit** | Ja | De naam voor de entiteit te bewaken, bijvoorbeeld leidt' " | 
@@ -66,13 +66,13 @@ Nu de Dynamics 365-actie die u een taakrecord voor een nieuwe leadrecord maakt t
 
 1. Kies onder de trigger **nieuwe stap**.
 
-1. Typ 'Dynamics 365 ' als filter in het zoekvak. Selecteer in de lijst met acties met deze actie: **een nieuwe record maken**
+1. Typ 'Dynamics 365 ' als filter in het zoekvak. Selecteer deze actie uit de lijst met acties: **Een nieuwe record maken**
 
    ![Actie selecteren](./media/connectors-create-api-crmonline/select-action.png)
 
 1. Geef de volgende actiegegevens:
 
-   | Eigenschap | Vereist | Beschrijving | 
+   | Eigenschap | Vereist | Description | 
    |----------|----------|-------------| 
    | **De naam van organisatie** | Ja | Het Dynamics 365-exemplaar waarop u maken van de record wilt, hoeft niet dezelfde te zijn van hetzelfde exemplaar in de trigger, maar het 'Contoso' is in dit voorbeeld |
    | **Naam van de entiteit** | Ja | De entiteit waarin u wilt maken van de record, bijvoorbeeld "Taken" | 
@@ -82,7 +82,7 @@ Nu de Dynamics 365-actie die u een taakrecord voor een nieuwe leadrecord maakt t
 
 1. Wanneer de **onderwerp** vak wordt weergegeven in de actie, klikt u in de **onderwerp** vak, zodat de lijst met dynamische inhoud wordt weergegeven. In deze lijst, selecteer de veldwaarden om op te nemen in de taakrecord die zijn gekoppeld aan een record met de nieuwe potentiële klant:
 
-   | Veld | Beschrijving | 
+   | Veld | Description | 
    |-------|-------------| 
    | **Achternaam** | De achternaam van de potentiële klant als de primaire contactpersoon in de record |
    | **Onderwerp** | De beschrijvende naam voor de lead in de record | 
@@ -120,17 +120,17 @@ Wanneer u een waarde voor een veld in een actie of trigger opgeeft, het gegevens
 
 Deze tabel worden enkele van de veldtypen en de vereiste gegevenstypen voor hun waarden beschreven.
 
-| Veldtype | Gegevens van het type vereist | Beschrijving | 
+| Veldtype | Gegevens van het type vereist | Description | 
 |------------|--------------------|-------------|
-| Tekstvelden | Eén tekstregel | Deze velden vereist één regel tekst of dynamische inhoud het teksttype heeft. <p><p>*Voorbeeld van de velden*: **beschrijving** en **categorie** | 
-| Velden voor gehele getallen | Geheel getal | Sommige velden vereist geheel getal of dynamische inhoud het type geheel getal zijn heeft. <p><p>*Voorbeeld van de velden*: **percentage voltooid** en **duur** | 
-| Datumvelden | Datum en tijd | Sommige velden vereist een datum met de notatie dd-mm-jjjj of dynamische inhoud het datumtype heeft. <p><p>*Voorbeeld van de velden*: **gemaakt op**, **begindatum**, **werkelijke begindatum**, **werkelijk einde**, en **vervaldatum** | 
+| Tekstvelden | Eén tekstregel | Deze velden vereist één regel tekst of dynamische inhoud het teksttype heeft. <p><p>*Voorbeeld van de velden*: **Beschrijving** en **categorie** | 
+| Velden voor gehele getallen | Geheel getal | Sommige velden vereist geheel getal of dynamische inhoud het type geheel getal zijn heeft. <p><p>*Voorbeeld van de velden*: **Percentage voltooid** en **duur** | 
+| Datumvelden | Datum en tijd | Sommige velden vereist een datum met de notatie dd-mm-jjjj of dynamische inhoud het datumtype heeft. <p><p>*Voorbeeld van de velden*: **Gemaakt op**, **begindatum**, **werkelijk begin**, **werkelijk einde**, en **vervaldatum** | 
 | Velden waarvoor een record-ID en een Opzoektype Typ | Primaire sleutel | Sommige velden die verwijzen naar een andere entiteitsrecord vereist zowel een record-ID en een Opzoektype. | 
 ||||
 
 Voortbouwend op deze veldtypen, vindt hier u voorbeeld van de velden in Dynamics 365-triggers en acties waarvoor een record-ID en het Opzoektype zijn vereist. Deze vereiste betekent dat de waarden die u in de lijst met dynamische selecteert werkt niet. 
 
-| Veld | Beschrijving | 
+| Veld | Description | 
 |-------|-------------|
 | **Eigenaar** | Moet een geldige gebruikersnaam of team record-ID. | 
 | **Eigenaarstype** | Moet een **systemusers** of **teams**. | 
@@ -187,7 +187,7 @@ Zie voor meer informatie over het oplossen van logische apps [diagnose van foute
 
 ## <a name="connector-reference"></a>Connector-verwijzing
 
-Zie voor technische details, zoals triggers en acties limieten, zoals is beschreven in de Swagger-bestand van de connector, de [van de connector-verwijzingspagina](/connectors/crm/). 
+Zie voor technische details, zoals triggers en acties limieten, zoals is beschreven in de Swagger-bestand van de connector, de [van de connector-verwijzingspagina](/connectors/dynamicscrmonline/). 
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 

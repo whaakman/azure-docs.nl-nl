@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: b50dcfc21ce6b8d4fc1becd178bf8469870740b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a3fd89ee67b495d3ca1173faa9381ceba117ef63
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839675"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259309"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Back-up en herstellen van virtuele Azure-machines met PowerShell
 
@@ -299,7 +299,7 @@ De volgende afbeelding toont de objecthiërarchie van de RecoveryServicesVault o
 
 ![Recovery Services-objecthiërarchie BackupContainer weergeven](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
-Voor het herstellen van back-upgegevens, Identificeer het item waarvan een back-up is gemaakt en het herstelpunt die de point-in-time-gegevens bevat. Gebruik [terugzetten AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) voor het terugzetten van gegevens uit de kluis aan uw account.
+Voor het herstellen van back-upgegevens, Identificeer het item waarvan een back-up is gemaakt en het herstelpunt die de point-in-time-gegevens bevat. Gebruik [terugzetten AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) voor het terugzetten van gegevens uit de kluis aan uw account.
 
 De basisstappen voor het herstellen van een virtuele machine van Azure zijn:
 
@@ -348,7 +348,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="restore-the-disks"></a>De schijven herstellen
 
-Gebruik het **[terugzetten AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet om te herstellen van gegevens en configuratie van een back-upitem naar een herstelpunt. Wanneer u een herstelpunt hebt geïdentificeerd, gebruikt u deze als de waarde voor de **- RecoveryPoint** parameter. In het bovenstaande voorbeeld **$rp [0]** is van het herstelpunt dat u wilt gebruiken. In de volgende voorbeeldcode **$rp [0]** is van het herstelpunt dat u wilt gebruiken voor het herstellen van de schijf.
+Gebruik de [terugzetten AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet om te herstellen van gegevens en configuratie van een back-upitem naar een herstelpunt. Wanneer u een herstelpunt hebt geïdentificeerd, gebruikt u deze als de waarde voor de **- RecoveryPoint** parameter. In het bovenstaande voorbeeld **$rp [0]** is van het herstelpunt dat u wilt gebruiken. In de volgende voorbeeldcode **$rp [0]** is van het herstelpunt dat u wilt gebruiken voor het herstellen van de schijf.
 
 De schijven en configuratie-informatie terugzetten:
 

@@ -16,12 +16,12 @@ ms.date: 03/13/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 50e5272d92ad333e70f65173cf024d165dc7501c
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58102040"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285663"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>App Service implementeren in een maximaal beschikbare configuratie
 
@@ -207,7 +207,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
     ![Infrastructuur rol exemplaarwaarden](media/app-service-deploy-ha/12.png)
 
     > [!NOTE]
-    > Het wijzigen van de waarden van de standaardinstelling aan de aanbevolen in dit tutoral verhoogt de hardwarevereisten voor het installeren van App Service. Totaal 26 kernen en 46,592 MB aan RAM-geheugen is vereist voor ondersteuning van de aanbevolen 21 VM's in plaats van de standaardinstelling 18 kernen en 32,256 MB aan RAM-geheugen voor 15 virtuele machines.
+    > Het wijzigen van de standaardwaarden die aanbevolen in dit tutoral verhoogt de hardwarevereisten voor het installeren van App Service. Totaal 26 kernen en 46,592 MB aan RAM-geheugen is vereist voor ondersteuning van de aanbevolen 21 VM's in plaats van de standaard 18 kernen en 32,256 MB aan RAM-geheugen voor 15 virtuele machines.
 
 14. Selecteer het platforminstallatiekopie moet worden gebruikt voor het installeren van de App Service-infrastructuur-VM's en klik op **volgende**:
 

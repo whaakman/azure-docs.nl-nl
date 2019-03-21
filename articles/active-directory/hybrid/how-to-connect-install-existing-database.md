@@ -17,12 +17,12 @@ ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34b416fd8c9e87006a0fe5d7a7e30521ef03e2b
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193684"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286088"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Azure AD Connect met behulp van een bestaande ADSync-database installeren
 Azure AD Connect vereist een SQL Server-database voor het opslaan van gegevens. U kunt de standaard die SQL Server 2012 Express LocalDB geïnstalleerd met Azure AD Connect of gebruik uw eigen volledige versie van SQL. Voorheen was tijdens de installatie van Azure AD Connect, is een nieuwe database met de naam ADSync altijd gemaakt. Met Azure AD Connect versie 1.1.613.0 (of na) hebt u de optie voor het Azure AD Connect installeren door het aan te wijzen aan een bestaande ADSync-database.
@@ -59,37 +59,37 @@ Belangrijke opmerkingen te nemen Let van op voordat u doorgaat:
 1.  Azure AD Connect-installatieprogramma (AzureADConnect.MSI) naar de Windows-server te downloaden. Dubbelklik op het Azure AD Connect-installatieprogramma voor het starten van Azure AD Connect installeert.
 2.  Zodra de MSI-installatie is voltooid, wordt de wizard Azure AD Connect gestart met de Express-installatiemodus. Sluit het scherm door op het pictogram Afsluiten te klikken.
 ![Welkom](./media/how-to-connect-install-existing-database/db1.png)
-3.  Start een nieuwe opdrachtprompt of PowerShell-sessie. Ga naar de map <drive>\program files\Microsoft Azure AD Connect. Voer de opdracht .\AzureADConnect.exe /useexistingdatabase uit om de wizard Azure AD Connect te starten in de installatiemodus Bestaande database gebruiken.
+3.  Start een nieuwe opdrachtprompt of PowerShell-sessie. Navigeer naar de map "C:\Program Files\Microsoft Azure Active Directory Connect". Voer de opdracht .\AzureADConnect.exe /useexistingdatabase uit om de wizard Azure AD Connect te starten in de installatiemodus Bestaande database gebruiken.
 
 > [!NOTE]
 > Gebruik de schakeloptie **/useexistingdatabase** alleen wanneer de database bevat al gegevens uit een eerdere installatie van de Azure AD Connect. Bijvoorbeeld, wanneer u vanaf een lokale database wilt verplaatsen naar een volledige SQL Server-database of wanneer de Azure AD Connect-server opnieuw is opgebouwd en u een SQL back-up teruggezet van de ADSync-database van een eerdere installatie van Azure AD Connect. Als de database leeg is, dat wil zeggen, deze niet bevat geen gegevens van een eerdere installatie van de Azure AD Connect, deze stap overslaan.
 
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
-4.  U wordt verwelkomd met het scherm Welkom bij Azure AD Connect. Nadat u akkoord bent gegaan met de licentievoorwaarden en privacyverklaring, klikt u op **Doorgaan**.
-![Welkom](./media/how-to-connect-install-existing-database/db3.png)
-5.  Op het scherm **Vereiste onderdelen installeren** is de optie **Een bestaande SQL-server gebruiken** ingeschakeld. Geef de naam op van de SQL-server waarop de ADSync-database wordt gehost. Als het SQL Engine-exemplaar dat wordt gebruikt om de ADSync-database te hosten, niet het standaardexemplaar is op de SQL-server, moet u de naam van het SQL Engine-exemplaar opgeven. Daarnaast moet u, indien bladeren in SQL niet is ingeschakeld, ook het poortnummer voor het SQL Engine-exemplaar opgeven. Bijvoorbeeld:         
-![Welkom](./media/how-to-connect-install-existing-database/db4.png)           
+1. U wordt verwelkomd met het scherm Welkom bij Azure AD Connect. Nadat u akkoord bent gegaan met de licentievoorwaarden en privacyverklaring, klikt u op **Doorgaan**.
+   ![Welkom](./media/how-to-connect-install-existing-database/db3.png)
+1. Op het scherm **Vereiste onderdelen installeren** is de optie **Een bestaande SQL-server gebruiken** ingeschakeld. Geef de naam op van de SQL-server waarop de ADSync-database wordt gehost. Als het SQL Engine-exemplaar dat wordt gebruikt om de ADSync-database te hosten, niet het standaardexemplaar is op de SQL-server, moet u de naam van het SQL Engine-exemplaar opgeven. Daarnaast moet u, indien bladeren in SQL niet is ingeschakeld, ook het poortnummer voor het SQL Engine-exemplaar opgeven. Bijvoorbeeld:         
+   ![Welkom](./media/how-to-connect-install-existing-database/db4.png)           
 
-6.  Op het scherm **Verbinding maken met Azure AD** moet u de referenties opgeven van een globale beheerder van de Azure AD-adreslijst. U wordt aangeraden om een account te gebruiken in het standaarddomein onmicrosoft.com. Dit account wordt alleen gebruikt om een serviceaccount in Azure AD aan te maken en wordt niet gebruikt wanneer de wizard is voltooid.
-![Verbinding maken](./media/how-to-connect-install-existing-database/db5.png)
+1. Op het scherm **Verbinding maken met Azure AD** moet u de referenties opgeven van een globale beheerder van de Azure AD-adreslijst. U wordt aangeraden om een account te gebruiken in het standaarddomein onmicrosoft.com. Dit account wordt alleen gebruikt om een serviceaccount in Azure AD aan te maken en wordt niet gebruikt wanneer de wizard is voltooid.
+   ![Verbinding maken](./media/how-to-connect-install-existing-database/db5.png)
  
-7.  Op het scherm **Verbinding maken met uw adreslijsten** wordt het bestaande AD-forest dat is geconfigureerd voor adreslijstsynchronisatie, weergegeven met een rood kruis ernaast. Voor het synchroniseren van wijzigingen vanuit een on-premises AD-forest is een AD DS-account vereist. Met de wizard Azure AD Connect kunnen de referenties van het AD DS-account dat is opgeslagen in de ADsync-database, niet worden opgehaald, omdat deze referenties zijn versleuteld en alleen kunnen worden ontsleuteld met de vorige Azure AD Connect-server. Klik op **Referenties wijzigen** om het AD DS-account voor het AD-forest op te geven.
-![Adreslijsten](./media/how-to-connect-install-existing-database/db6.png)
- 
- 
-8.  In het pop-updialoogvenster kunt u (i) de referenties van een ondernemingsadministrator opgeven en het AD DS-account voor u laten maken in Azure AD Connect of (ii) zelf het AD DS-account maken en de bijbehorende referenties opgeven in Azure AD Connect. Zodra u een optie hebt geselecteerd en de benodigde referenties hebt opgegeven, klikt u op **OK** om het pop-updialoogvenster te sluiten.
-![Welkom](./media/how-to-connect-install-existing-database/db7.png)
+1. Op het scherm **Verbinding maken met uw adreslijsten** wordt het bestaande AD-forest dat is geconfigureerd voor adreslijstsynchronisatie, weergegeven met een rood kruis ernaast. Voor het synchroniseren van wijzigingen vanuit een on-premises AD-forest is een AD DS-account vereist. Met de wizard Azure AD Connect kunnen de referenties van het AD DS-account dat is opgeslagen in de ADsync-database, niet worden opgehaald, omdat deze referenties zijn versleuteld en alleen kunnen worden ontsleuteld met de vorige Azure AD Connect-server. Klik op **Referenties wijzigen** om het AD DS-account voor het AD-forest op te geven.
+   ![Adreslijsten](./media/how-to-connect-install-existing-database/db6.png)
  
  
-9.  Zodra de referenties zijn opgegeven, verandert het rode kruis in een groen vinkje. Klik op **volgende**.
-![Welkom](./media/how-to-connect-install-existing-database/db8.png)
+1. In het pop-updialoogvenster kunt u (i) de referenties van een ondernemingsadministrator opgeven en het AD DS-account voor u laten maken in Azure AD Connect of (ii) zelf het AD DS-account maken en de bijbehorende referenties opgeven in Azure AD Connect. Zodra u een optie hebt geselecteerd en de benodigde referenties hebt opgegeven, klikt u op **OK** om het pop-updialoogvenster te sluiten.
+   ![Welkom](./media/how-to-connect-install-existing-database/db7.png)
  
  
-10. Klik in het scherm **Gereed om te configureren** op **Installeren**.
-![Welkom](./media/how-to-connect-install-existing-database/db9.png)
+1. Zodra de referenties zijn opgegeven, verandert het rode kruis in een groen vinkje. Klik op **volgende**.
+   ![Welkom](./media/how-to-connect-install-existing-database/db8.png)
  
  
-11. Zodra de installatie is voltooid, wordt de Azure AD Connect-server automatisch ingeschakeld voor de faseringsmodus. U wordt aangeraden om de serverconfiguratie en exports die in behandeling zijn, te controleren op onverwachte wijzigingen, voordat u de faseringsmodus uitschakelt. 
+1. Klik in het scherm **Gereed om te configureren** op **Installeren**.
+   ![Welkom](./media/how-to-connect-install-existing-database/db9.png)
+ 
+ 
+1. Zodra de installatie is voltooid, wordt de Azure AD Connect-server automatisch ingeschakeld voor de faseringsmodus. U wordt aangeraden om de serverconfiguratie en exports die in behandeling zijn, te controleren op onverwachte wijzigingen, voordat u de faseringsmodus uitschakelt. 
 
 ## <a name="post-installation-tasks"></a>Taken na de installatie
 Bij het herstellen van een databaseback-up die is gemaakt met een versie van Azure AD Connect voordat 1.2.65.0, de staging-server een aanmeldingsmethode van automatisch selecteren **niet configureert**. Terwijl uw wachtwoordhashsynchronisatie en wachtwoord terugschrijven voorkeuren wordt hersteld, moet u de aanmeldingsmethode zodat deze overeenkomt met de andere beleidsregels van toepassing zijn op uw server voor de actieve synchronisatie later wijzigen.  Deze stappen is mislukt mogelijk te voorkomen dat gebruikers zich in moet deze server wordt geactiveerd.  
@@ -102,6 +102,7 @@ Gebruik de onderstaande tabel om te controleren of eventuele extra stappen die n
 |Federatie met AD FS|Azure verificaties zullen echter ook doorgaan met het AD FS-beleid dat is geconfigureerd voor uw server voor de actieve synchronisatie.  Als u Azure AD Connect gebruikt voor het beheren van uw AD FS-farm, kunt u de aanmeldingsmethode kunt (optioneel) voor AD FS-federatie ter voorbereiding op de stand-by-server steeds de actieve synchronisatie-instantie wijzigen.   Als opties voor apparaten op de server voor de actieve synchronisatie zijn ingeschakeld, configureert u deze opties op deze server door het uitvoeren van de taak 'Apparaatopties configureren'.|
 |Pass through-verificatie en Desktop Single Sign-On|Bijwerken van de aanmelding methode zodat deze overeenkomen met de configuratie op uw server voor de actieve synchronisatie.  Als dit niet wordt gevolgd voordat bevordering van de server naar de primaire, Pass through-verificatie samen met naadloze eenmalige aanmelding op uitgeschakeld en uw tenant mogelijk worden vergrendeld als u geen synchronisatie van wachtwoordhashes als back-up maken van optie aanmelden. Ook Houd er rekening mee dat wanneer u in de faseringsmodus Pass through-verificatie inschakelt, een nieuwe verificatieagent wordt geïnstalleerd, geregistreerd en wordt uitgevoerd als een hoge beschikbaarheid-agent die aanmelden aanvragen accepteert.|
 |Federatie met PingFederate|Azure verificaties zullen echter ook doorgaan met de PingFederate-beleid dat is geconfigureerd voor uw server voor de actieve synchronisatie.  U mag de methode aanmelden (optioneel) wijzigen in PingFederate ter voorbereiding op de stand-by-server steeds de actieve synchronisatie-exemplaar.  Deze stap kan worden uitgesteld totdat u nodig hebt voor het federeren van aanvullende domeinen met PingFederate.|
+
 ## <a name="next-steps"></a>Volgende stappen
 
 - Nu u Azure AD Connect geïnstalleerd hebt kunt u [de installatie verifiëren en licenties toewijzen](how-to-connect-post-installation.md).

@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: ab00e74a704afe2f5fc6ef81f4f023b190a32d0b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: f4acab2cb4522048f4a78b12ca41161695a31e18
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878337"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259598"
 ---
 # <a name="quickstart-url-preview-with-java"></a>Quickstart: URL Preview met Java
 
@@ -27,7 +27,7 @@ Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services
 
 ## <a name="request"></a>Aanvraag 
 
-Met de volgende code wordt een `WebRequest` gemaakt, de koptekst van de toegangssleutel ingesteld en een query-tekenreeks toegevoegd voor https://swiftkey.com/en.  Vervolgens wordt de aanvraag verzonden en het antwoord toegewezen aan een tekenreeks die de JSON-tekst moet bevatten.
+De volgende code maakt een `WebRequest`, stelt u de koptekst van de toegang en voegt u een query-tekenreeks voor ' https:\//swiftkey.com/en '.  Vervolgens wordt de aanvraag verzonden en het antwoord toegewezen aan een tekenreeks die de JSON-tekst moet bevatten.
 
 ```
     // construct URL of search request (endpoint + query string)

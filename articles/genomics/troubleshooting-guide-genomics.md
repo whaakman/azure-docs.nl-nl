@@ -11,12 +11,12 @@ ms.service: genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
-ms.openlocfilehash: 01f4cca8e177d8f9c9325a7920eb7e72c005bbd6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760934"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078054"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -73,8 +73,8 @@ Er zijn drie vereiste argumenten:
                 Bases Processed : 1,348,613,600 (1 GBase)
         ```
 
- > [!NOTE]
- >  U kunt ook het pad naar het configuratiebestand in plaats van rechtstreeks invoeren van de URL en de sleutel opnemen. Als u deze argumenten in de opdrachtregel, evenals de config-bestand opgeeft, wordt de opdrachtregelargumenten voorrang.  
+  > [!NOTE]
+  >  U kunt ook het pad naar het configuratiebestand in plaats van rechtstreeks invoeren van de URL en de sleutel opnemen. Als u deze argumenten in de opdrachtregel, evenals de config-bestand opgeeft, wordt de opdrachtregelargumenten voorrang.  
 
 Werkstroom-ID 1001 en config.txt-bestand geplaatst in hetzelfde pad hebben als de msgen uitvoerbare, er de opdracht als volgt:
 
@@ -116,7 +116,7 @@ Deze fouten worden bruikbare gebruiker. Op basis van het type van bestands- en f
 
 | Type bestand | Foutcode | Foutbericht                                                                           | Aanbevolen stappen voor probleemoplossing                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Alle          | 701        | Lezen [readId] heeft [numberOfBases] bases, maar de limiet is [maxReadLength]           | De meest voorkomende reden voor deze fout is het bestand beschadigd leidt tot een samenvoeging van twee leesbewerkingen. Controleer uw invoerbestanden. |                                |
+| Alle          | 701        | Lezen [readId] heeft [numberOfBases] bases, maar de limiet is [maxReadLength]           | De meest voorkomende reden voor deze fout is het bestand beschadigd leidt tot een samenvoeging van twee leesbewerkingen. Controleer uw invoerbestanden. |
 | BAM          | 200        |   Kan niet lezen van bestand [yourFileName].                                                                                       | Controleer de indeling van de BAM-bestand. De werkstroom opnieuw verzenden met een correct opgemaakt bestand.                                                                           |
 | BAM          | 201        |  Kan niet lezen BAM-bestand [bestandsnaam].                                                                                      |Controleer de indeling van de BAM-bestand.  De werkstroom verzenden met een correct opgemaakt bestand.                                                                            |
 | BAM          | 202        | Kan niet lezen BAM-bestand [bestandsnaam]. Bestand te klein en ontbrekende header.                                                                                        | Controleer de indeling van de BAM-bestand.  De werkstroom verzenden met een correct opgemaakt bestand.                                                                            |

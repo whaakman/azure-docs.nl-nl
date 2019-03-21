@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 0e1232391ddf4b57b5dad5ade9776e9c7cfea9b4
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 44c8b331ebb258c39a003c91e0711e6dfb87cb12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076290"
 ---
 # <a name="application-gateway-components"></a>Application gateway-onderdelen
 
  Een application gateway fungeert als de één contactpunt voor clients. Het verdeeld binnenkomende verkeer van de toepassing over meerdere back endpools, zoals virtuele Azure-machines, virtuele-machineschaalsets, App Services of on-premises/externe servers. U doet dit door deze verschillende onderdelen die worden beschreven in dit artikel gebruikt.
 
-![Application-gateway-onderdelen](.\media\application-gateway-components\application-gateway-components.png)
+![Application-gateway-onderdelen](./media/application-gateway-components/application-gateway-components.png)
 
 ## <a name="frontend-ip-address"></a>IP-adres voor front-end
 

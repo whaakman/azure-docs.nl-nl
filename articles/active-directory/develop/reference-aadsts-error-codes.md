@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16f7dc81d8174e3d8da39d3af95b945f8034cecd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452009"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295450"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codes van verificatie- en autorisatiefouten
 
@@ -30,6 +30,8 @@ Zoek naar informatie over de AADSTS foutcodes die zijn geretourneerd door de sec
 
 > [!NOTE]
 > Deze informatie is voorlopig en kan worden gewijzigd. Een vraag hebt of niet kunt vinden wat u zoekt? Maken van een GitHub-probleem of Zie [opties voor ondersteuning en hulp voor ontwikkelaars](active-directory-develop-help-support.md) voor meer informatie over andere manieren waarop u hulp en ondersteuning.
+>
+> Deze documentatie voor ontwikkelaars en richtlijnen van de beheerder is opgegeven, maar moet nooit worden gebruikt door de client zelf. Foutcodes zijn onderhevig aan wijzigingen op elk gewenst moment om te kunnen bieden meer gedetailleerde foutberichten die zijn bedoeld ter ondersteuning van de ontwikkelaar tijdens het maken van hun toepassing. Apps die een afhankelijkheid op tekst of fout codenummers worden verbroken na verloop van tijd.  
 
 ## <a name="aadsts-error-codes"></a>AADSTS-foutcodes
 

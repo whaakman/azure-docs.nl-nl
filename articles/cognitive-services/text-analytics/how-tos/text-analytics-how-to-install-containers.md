@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 6ad48bb6e7d9c2fd0365b26999b67ad8c62fc42c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f757218d29317f82339967a327f34438c62ab96
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000260"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294141"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installeren en uitvoeren van de Text Analytics-containers
 
@@ -26,7 +26,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om uit te voeren op een van de Text Analytics-containers, moet u het volgende hebt:
+Om uit te voeren op een van de Text Analytics-containers, moet u de host-computer- en container-omgevingen hebben.
 
 ## <a name="preparation"></a>Voorbereiding
 
@@ -46,11 +46,14 @@ U moet voldoen aan de volgende vereisten voordat u met behulp van Text Analytics
 
 De volgende tabel beschrijft de minimale en aanbevolen CPU-kernen, ten minste 2,6 GHz (gigahertz) of sneller, en het geheugen, in gigabytes (GB), om toe te wijzen voor elke container Text Analytics.
 
-| Container | Minimum | Aanbevolen |
-|-----------|---------|-------------|
-|Sleuteltermextractie | 1 core, 2 GB geheugen | 1 core, 4 GB geheugen |
-|Taaldetectie | 1 core, 2 GB geheugen | 1 core, 4 GB geheugen |
-|Sentimentanalyse | 1 core, 2 GB geheugen | 1 core, 4 GB geheugen |
+| Container | Minimum | Aanbevolen | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Sleuteltermextractie | 1 core, 2 GB geheugen | 1 core, 4 GB geheugen |15, 30|
+|Taaldetectie | 1 core, 2 GB geheugen | 1 core, 4 GB geheugen |15, 30|
+|Sentimentanalyse | 1 core, 2 GB geheugen | 1 core, 4 GB geheugen |15, 30|
+
+* Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
+* TPS - transacties per seconde
 
 Kernen en geheugen komen overeen met de `--cpus` en `--memory` instellingen die worden gebruikt als onderdeel van de `docker run` opdracht.
 
@@ -64,7 +67,7 @@ Containerinstallatiekopieën voor Text Analytics zijn beschikbaar via Microsoft 
 |Taaldetectie | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Sentimentanalyse | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Gebruik de [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) opdracht voor het downloaden van een containerinstallatiekopie vanuit Microsoft Container Registry...
+Gebruik de [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) opdracht voor het downloaden van een containerinstallatiekopie vanuit Microsoft Container Registry.
 
 Zie voor een volledige beschrijving van de beschikbare labels voor de Text Analytics-containers, de volgende containers op de Docker-Hub:
 
@@ -125,7 +128,7 @@ ApiKey={BILLING_KEY}
 Met deze opdracht:
 
 * Een container sleuteluitdrukkingen kan worden uitgevoerd van de container-installatiekopie
-* Één CPU-kernen en 4 GB (Gigabyte) aan geheugen worden toegewezen
+* Één CPU-kern en 4 GB (Gigabyte) aan geheugen worden toegewezen
 * Gebruikt TCP-poort 5000 en wijst er een pseudo-TTY voor de container
 * De container worden automatisch verwijderd nadat deze is afgesloten. De containerinstallatiekopie is nog steeds beschikbaar op de hostcomputer. 
 

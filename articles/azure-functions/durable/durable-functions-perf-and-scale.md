@@ -1,6 +1,6 @@
 ---
 title: Prestaties en schaalbaarheid in duurzame functies - Azure
-description: Inleiding tot de extensie duurzame functies voor Azure Functions.
+description: Inleiding tot de extensie Durable Functions voor Azure Functions.
 services: functions
 author: cgillum
 manager: jeconnoc
@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341165"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286377"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestaties en schaalbaarheid in duurzame functies (Azure Functions)
 
@@ -49,9 +49,18 @@ Er zijn meerdere *wachtrijen beheren* per taak hub in duurzame functies. Een *be
 
 Besturingselement wachtrijen bevatten verschillende typen orchestration lifecycle bericht. Voorbeelden zijn onder meer [orchestrator besturingsberichten](durable-functions-instance-management.md), activiteit functie *antwoord* berichten en berichten van de timer. Maximaal 32 berichten wordt uit de wachtrij worden verwijderd uit de wachtrij van een besturingselement in een enkele poll. Deze berichten worden gegevens over de nettolading en metagegevens zoals welke orchestration-instantie die is bedoeld voor bevatten. Als meerdere dequeued berichten zijn bedoeld voor hetzelfde exemplaar van de orchestration, worden ze als batch worden verwerkt.
 
+### <a name="queue-polling"></a>Wachtrij polling
+
+De extensie duurzame taak implementeert een willekeurig exponentieel uitstel algoritme voor het effect van niet-actieve wachtrij polling op de opslagkosten van de transactie wordt beperkt. Wanneer een bericht wordt gevonden, wordt de runtime onmiddellijk gecontroleerd voor een ander bericht. Wanneer er geen bericht is gevonden, wacht de gedurende een bepaalde periode voordat u doorgaat. Na opeenvolgende mislukte pogingen om een wachtrijbericht, blijft de wachttijd vergroten totdat het de maximale wachttijd, die een standaardwaarde van 30 seconden bereikt.
+
+De maximale polling vertraging kan worden geconfigureerd via de `maxQueuePollingInterval` eigenschap in de [host.json bestand](../functions-host-json.md#durabletask). Deze instelling op een hogere waarde kan leiden tot hogere latenties berichtverwerking. Hogere latenties zou worden verwacht na de periode van inactiviteit. Deze instelling op een lagere waarde kan leiden tot hogere kosten voor opslag vanwege toegenomen opslagtransacties.
+
+> [!NOTE]
+> Bij uitvoering in de Azure Functions-verbruik en Premium-abonnementen, de [Azure Functions schalen Controller](../functions-scale.md#how-the-consumption-plan-works) of elke wachtrij besturingselement en werkitem elke 10 seconden. Deze extra polling is nodig om te bepalen wanneer de functie-app-instanties activeren en om beslissingen te schalen. Op het moment van schrijven, wordt dit 10 tweede interval constant en kan niet worden geconfigureerd.
+
 ## <a name="storage-account-selection"></a>Storage-account selecteren
 
-De wachtrijen, tabellen en blobs gebruikt door duurzame functies worden gemaakt door in een geconfigureerde Azure Storage-account. Het account moet worden gebruikt, kan worden opgegeven met behulp van de `durableTask/azureStorageConnectionStringName` instellen in **host.json** bestand.
+De wachtrijen, tabellen en blobs gebruikt door duurzame functies worden gemaakt in een geconfigureerde Azure Storage-account. Het account moet worden gebruikt, kan worden opgegeven met behulp van de `durableTask/azureStorageConnectionStringName` instellen in **host.json** bestand.
 
 ### <a name="functions-1x"></a>Functions 1.x
 
@@ -235,4 +244,4 @@ Als er niet de verwachte doorvoerwaarden en de CPU en geheugengebruik, in orde w
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Uw eerste duurzame functie in makenC#](durable-functions-create-first-csharp.md)
+> [Uw eerste Durable Function maken in C#](durable-functions-create-first-csharp.md)

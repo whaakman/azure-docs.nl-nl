@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0524bd224e3da3e6a9b18a4225c88e9c43d07606
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223407"
+ms.locfileid: "58285123"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Quickstart: Een Azure Search-index met behulp van PowerShell en de REST-API maken
 > [!div class="op_single_selector"]
@@ -77,7 +77,7 @@ Als de service leeg is en geen indexen heeft, zijn resultaten vergelijkbaar met 
 }
 ```
 
-## <a name="1---create-an-index"></a>1 - een index maken
+## <a name="1---create-an-index"></a>1 - Een index maken
 
 Tenzij u de portal, wordt een index moet bestaan op de service voordat u gegevens kunt laden. Deze stap definieert de index en gepusht naar de service. De [Create Index (REST-API)](https://docs.microsoft.com/rest/api/searchservice/create-index) voor deze stap wordt gebruikt.
 
@@ -162,6 +162,8 @@ Resultaten moeten er ongeveer als volgt (afgekapt tot de eerste twee velden voor
 
 > [!Tip]
 > Voor verificatie, u ook controleren op de lijst met indexen in de portal of opnieuw uitvoeren van de opdracht die wordt gebruikt om te controleren of verbinding om te zien de *hotels* index die worden vermeld in de verzameling van indexen.
+
+<a name="load-documents"></a>
 
 ## <a name="2---load-documents"></a>2 - documenten laden
 
@@ -253,7 +255,7 @@ Resultaten moeten eruitzien zoals in het volgende voorbeeld. U ziet een statusco
 }
 ```
 
-## <a name="3---search-an-index"></a>3 - een index doorzoeken
+## <a name="3---search-an-index"></a>3 - Een index doorzoeken
 
 In deze stap ziet u hoe u query's een index met behulp van de [zoeken-API voor documenten](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 

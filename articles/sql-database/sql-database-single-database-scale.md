@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/14/2019
-ms.openlocfilehash: 02dcdfa6f356d48b8fa22603323a7f3035e0fe51
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/20/2019
+ms.openlocfilehash: c6dc49204c0a7e1cb0d1116e29746eed2fe52f8d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858767"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286258"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Schalen van één database-resources in Azure SQL Database
 
@@ -106,11 +106,7 @@ U worden in rekening gebracht voor elk uur bestaat in een database met behulp va
 
 Voor de Premium-laag is er meer dan 1 TB aan opslagruimte beschikbaar in alle regio's, met uitzondering van: China - oost, China - noord, Duitsland - centraal, Duitsland - noordoost, US - west-centraal, US - DoD-regio's en US Government - centraal. In deze regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Raadpleeg [P11-P15 huidige beperkingen](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) voor meer informatie. De volgende overwegingen en beperkingen van toepassing op P11 en P15-databases met een maximale grootte die groter zijn dan 1 TB:
 
-- Als u ervoor kiest een maximale grootte die groter zijn dan 1 TB bij het maken van een database (met behulp van een waarde van 4 TB of 4096 GB), wordt de opdracht create mislukt met een fout als de database is ingericht in een niet-ondersteunde regio.
-- Voor bestaande P11 en P15-databases zich bevinden in een van de ondersteunde regio's, kunt u de maximale opslag voor de dan 1 TB in stappen van 256 GB verhogen tot 4 TB. Als u wilt zien als een groter formaat wordt ondersteund in uw regio, gebruikt u de [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) functie of de grootte van de database in Azure portal controleren. Upgraden van een bestaande P11 of P15 kan database alleen worden uitgevoerd door een principal-aanmelding op serverniveau of leden van de databaserol dbmanager.
-- Als een upgrade bewerking wordt uitgevoerd in een ondersteunde regio wordt de configuratie direct bijgewerkt. De database blijft online tijdens het upgradeproces. U niet de volledige hoeveelheid opslag dan 1 TB opslag echter gebruiken totdat de werkelijke databasebestanden zijn bijgewerkt naar de nieuwe maximale grootte. De lengte van de tijd die nodig is afhankelijk van de grootte van de database een upgrade wordt uitgevoerd.
-- Bij het maken of bijwerken van een P11 of P15-database, kunt u alleen kiezen tussen de maximale grootte van 1 TB en 4 TB in stappen van 256 GB. Bij het maken van een P11/P15, is de standaardoptie voor de opslag van 1 TB is vooraf geselecteerd. Voor databases die zich in een van de ondersteunde regio's, kunt u het maximum opslag tot een maximum van 4 TB voor een database met nieuwe of bestaande verhogen. Voor alle andere regio's, kan niet de maximale grootte worden verhoogd dan 1 TB. De prijs verandert niet wanneer u 4 TB inbegrepen opslag selecteren.
-- Worden als de maximale grootte van een database is ingesteld op meer dan 1 TB, klikt u vervolgens deze kan niet gewijzigd tot 1 TB, zelfs als de werkelijke opslag gebruikt lager dan 1 TB is. Daarom kan downgraden van een P11 of P15 met een maximale grootte die groter zijn dan 1 TB aan een 1 TB P11 of P15 TB 1 of lager compute grootte, zoals P1-P6). Deze beperking geldt ook voor het terugzetten en de kopie-scenario's met inbegrip van punt-in-time, geo-restore, lange-termijn-back-up-retentie en database-exemplaar. Zodra een database is geconfigureerd met een maximale grootte die groter zijn dan 1 TB, moeten alle bewerkingen voor het herstellen van deze database worden uitgevoerd in een P11/P15 met een maximale grootte die groter zijn dan 1 TB.
+- Als de maximale grootte voor een database P11 of P15 is ooit ingesteld op een waarde groter is dan 1 TB, vervolgens kan deze alleen kan worden hersteld of gekopieerd naar een P11 of P15-database.  De database kan vervolgens worden afgestemd op een andere compute-grootte, mits de hoeveelheid ruimte die is toegewezen op het moment van de bewerking opnieuw schalen niet de grenzen van de maximale grootte van de nieuwe grootte voor de compute overschrijdt.
 - Voor scenario's met actieve geo-replicatie:
   - Instellen van een relatie geo-replicatie: Als de primaire database P11 of P15 is, moet de secondary(ies) ook worden P11 of P15; lagere compute grootte worden geweigerd als secundaire replica's, omdat ze zijn niet geschikt voor ondersteuning van meer dan 1 TB.
   - Upgrade van de primaire database in een relatie geo-replicatie: Wijzigen van de maximale grootte in meer dan 1 TB op een primaire database, wordt dezelfde wijziging op de secundaire database geactiveerd. Beide upgrades moeten zijn gelukt is om de wijziging op de primaire pas van kracht zijn. Er gelden beperkingen van de regio voor de optie meer dan 1 TB. Als de secundaire server in een regio die geen ondersteuning biedt voor meer dan 1 TB, wordt de primaire niet bijgewerkt.

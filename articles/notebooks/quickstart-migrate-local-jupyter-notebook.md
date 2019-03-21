@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a160bc0247d2f80dda620b67c946805926d78006
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f63851359a19455ab0f46f66a801a679ee2c3bfe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773951"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079687"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Quickstart: Een lokaal Jupyter-notebook migreren
 
@@ -50,13 +50,13 @@ Deze snelstartgids ziet u het proces van de migratie van een laptop van uw lokal
 
    (Nogmaals, als uw laptop zich in een GitHub-opslagplaats, volg de stappen op [Quick Start: Klonen van een laptop](quickstart-clone-jupyter-notebook.md) in plaats daarvan.)
 
-    - Als u **van Computer**, slepen en neerzetten uw *.ipynb* bestanden in het pop-upvenster of selecteer **bestanden kiezen**, en blader vervolgens naar en selecteer de bestanden die u wilt importeren. Selecteer vervolgens **uploaden**. De geüploade bestanden krijgt dezelfde naam als de lokale bestanden. (U hoeft niet te uploaden van de inhoud van een *.ipynb_checkpoints* mappen.)
+   - Als u **van Computer**, slepen en neerzetten uw *.ipynb* bestanden in het pop-upvenster of selecteer **bestanden kiezen**, en blader vervolgens naar en selecteer de bestanden die u wilt importeren. Selecteer vervolgens **uploaden**. De geüploade bestanden krijgt dezelfde naam als de lokale bestanden. (U hoeft niet te uploaden van de inhoud van een *.ipynb_checkpoints* mappen.)
 
-    ![Uploaden vanaf computer pop-upvenster](media/quickstarts/upload-from-computer-popup.png)
+     ![Uploaden vanaf computer pop-upvenster](media/quickstarts/upload-from-computer-popup.png)
 
-    - Als u **van URL**, voert u de bronadres in de **bestands-URL** veld en de bestandsnaam om toe te wijzen aan de notebook in uw project in de **bestandsnaam** veld. Selecteer vervolgens **uploaden**. Als u meerdere bestanden met afzonderlijke URL's hebt, gebruikt u de **+ toevoegen bestand** opdracht om te controleren van de eerste URL die u hebt ingevoerd, waarna het pop-upvenster biedt nieuwe velden voor een ander bestand.
+   - Als u **van URL**, voert u de bronadres in de **bestands-URL** veld en de bestandsnaam om toe te wijzen aan de notebook in uw project in de **bestandsnaam** veld. Selecteer vervolgens **uploaden**. Als u meerdere bestanden met afzonderlijke URL's hebt, gebruikt u de **+ toevoegen bestand** opdracht om te controleren van de eerste URL die u hebt ingevoerd, waarna het pop-upvenster biedt nieuwe velden voor een ander bestand.
 
-    ![Uploaden vanaf URL pop-upvenster](media/quickstarts/upload-from-url-popup.png)
+     ![Uploaden vanaf URL pop-upvenster](media/quickstarts/upload-from-url-popup.png)
 
 1. Open en voer uw laptop onlangs geüpload om te controleren of de inhoud en de bewerking. Wanneer u klaar bent, selecteert u **bestand** > **stilstand komt en close** te sluiten van de notebook.
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 3/19/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1b26f0833dec95d886a56dde4526d02f697926ae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 665e6651db37cc04693d68bd2de2ede6e595eab4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004414"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293389"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installeren en te herkennen tekst containers uitvoeren
 
@@ -50,14 +50,14 @@ U moet voldoen aan de volgende vereisten voordat u met behulp van containers tek
 
 De volgende tabel beschrijft de minimale en aanbevolen CPU-kernen en geheugen toewijzen voor elke container tekst herkennen.
 
-| Container | Minimum | Aanbevolen |
-|-----------|---------|-------------|
-|Tekst herkennen|1 core, 8 GB geheugen, 0,5 TPS|2 kernen, 8 GB geheugen, 1 TPS|
+| Container | Minimum | Aanbevolen |TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Tekst herkennen|1 core, 8 GB geheugen, 0,5 TPS|2 kernen, 8 GB geheugen, 1 TPS|0.5, 1|
 
-Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
+* Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
+* TPS - transacties per seconde
 
 Kernen en geheugen komen overeen met de `--cpus` en `--memory` instellingen die worden gebruikt als onderdeel van de `docker run` opdracht.
-
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Met de installatiekopie van de container ophalen `docker pull`
 

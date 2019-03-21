@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: b72966ebc73953e6a89ca1bb2fd4f7ce15f70fee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4cca65e2be44d2c846cd4034f0a9d7e8c7d9af28
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111375"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260040"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profiel web-apps die worden uitgevoerd op een Azure-machine of een virtuele-machineschaalset instellen met behulp van Application Insights Profiler
 
@@ -59,7 +59,7 @@ In dit artikel wordt beschreven hoe u Application Insights Profiler wordt uitgev
 
    De implementatie van een volledige sjabloon toepassen van de wijzigingen doorgaans omvat of een cloud service op basis van publiceren via PowerShell-cmdlets of Visual Studio.  
 
-   De volgende PowerShell-opdrachten zijn een alternatieve benadering voor bestaande virtuele machines die alleen de Azure Diagnostics-extensie is van toepassing. De eerder genoemde ProfilerSink toevoegen aan de configuratie die wordt geretourneerd door de opdracht Get-AzVMDiagnosticsExtension en klikt u vervolgens de bijgewerkte configuratie doorgeven aan de opdracht Set-AzVMDiagnosticsExtension.
+   De volgende PowerShell-opdrachten zijn een alternatieve methode voor bestaande virtuele machines die alleen de Azure Diagnostics-extensie raken. De eerder genoemde ProfilerSink toevoegen aan de configuratie die wordt geretourneerd door de opdracht Get-AzVMDiagnosticsExtension. Vervolgens moet u de bijgewerkte configuratie doorgeven aan de opdracht Set-AzVMDiagnosticsExtension.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
@@ -85,6 +85,30 @@ In dit artikel wordt beschreven hoe u Application Insights Profiler wordt uitgev
 
 1. Implementeer uw toepassing.
 
+## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Profiler-Sink met behulp van Azure Resource Explorer instellen
+Er zijn geen nog een manier om in te stellen van de Application Insights Profiler-sink vanuit de portal. In plaats van met behulp van powershell, zoals hierboven beschreven, kunt u Azure Resource Explorer gebruiken om in te stellen de sink. Maar let op: als u de virtuele machine opnieuw implementeren, wordt de sink verloren. U moet bijwerken van de configuratie die u bij het implementeren van de virtuele machine als u wilt behouden deze instelling gebruiken.
+
+1. Controleer of de Windows Azure Diagnostics-extensie is geïnstalleerd door de extensies geïnstalleerd voor uw virtuele machine weer te geven.  
+
+    ![Controleer of WAD-extensie is geïnstalleerd][wadextension]
+
+1. De VM Diagnostics-extensie voor uw virtuele machine niet vinden. Vouw de resourcegroep, Microsoft.Compute virtuele machines, virtuele-machinenaam en extensies.  
+
+    ![Navigeer naar WAD-configuratie in Azure Resource Explorer][azureresourceexplorer]
+
+1. De Application Insights Profiler-sink toevoegen aan het knooppunt SinksConfig onder WadCfg. Als u nog een sectie SinksConfig hebt, moet u mogelijk een toe te voegen. Zorg ervoor dat de juiste Application Insights-iKey opgeven in de instellingen. U moet de modus explorers overschakelen naar lezen/schrijven in de rechterbovenhoek en druk op de blauwe knop 'Bewerken'.
+
+    ![Application Insights Profiler Sink toevoegen][resourceexplorersinksconfig]
+
+1. Wanneer u klaar bent voor het bewerken van de configuratie, drukt u op 'Plaats'. Als de opslag voltooid is, verschijnt een groen vinkje in het midden van het scherm.
+
+    ![Put-aanvraag om toe te passen wijzigingen verzenden][resourceexplorerput]
+
+
+
+
+
+
 ## <a name="can-profiler-run-on-on-premises-servers"></a>Kan de Profiler uitvoeren op on-premises servers?
 Er zijn geen plannen voor de ondersteuning van Application Insights Profiler voor on-premises servers.
 
@@ -93,3 +117,8 @@ Er zijn geen plannen voor de ondersteuning van Application Insights Profiler voo
 - Genereren van verkeer naar uw toepassing (bijvoorbeeld: launch een [beschikbaarheidstest](monitor-web-app-availability.md)). Wacht 10 tot 15 minuten voor traceringen om te worden verzonden naar de Application Insights-exemplaar.
 - Zie [Profiler-traceringen](profiler-overview.md?toc=/azure/azure-monitor/toc.json) in Azure portal.
 - Zie voor hulp bij het oplossen van problemen van Profiler, [Profiler probleemoplossing](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+
+[azureresourceexplorer]: ./media/profiler-vm/azure-resource-explorer.png
+[resourceexplorerput]: ./media/profiler-vm/resource-explorer-put.png
+[resourceexplorersinksconfig]: ./media/profiler-vm/resource-explorer-sinks-config.png
+[wadextension]: ./media/profiler-vm/wad-extension.png

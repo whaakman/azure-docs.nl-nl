@@ -12,12 +12,12 @@ ms.date: 12/06/2018
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b04831790083f9ba41f20719a7d8ffddc35348b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 037f5b554889d89fc0b50983d3d85d38f4345311
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210404"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571402"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Zelfstudie: Op SAML gebaseerde eenmalige aanmelding voor een toepassing met Azure Active Directory configureren
 
@@ -70,7 +70,7 @@ Om het domein en de URL's te configureren:
 
 1. Neem contact op met de leverancier van de toepassing voor de juiste gegevens voor de volgende instellingen:
 
-    | Configuratie-instelling | SP-geïnitieerd | idP-geïnitieerd | Beschrijving |
+    | Configuratie-instelling | SP-geïnitieerd | idP-geïnitieerd | Description |
     |:--|:--|:--|:--|
     | Aanmeldings-URL | Vereist | Niet opgeven | Wanneer een gebruiker deze URL opent, leidt de serviceprovider hem om naar Azure Active Directory om de gebruiker te verifiëren en aan te melden. Azure Active Directory maakt gebruik van de URL om de toepassing te starten vanuit Office 365 of het toegangsvenster van Azure Active Directory. Als deze leeg is, is Azure Active Directory afhankelijk van de id-provider om eenmalige aanmelding te initiëren wanneer een gebruiker de toepassing start.|
     | Id (Entiteits-id) | Vereist voor sommige apps | Vereist voor sommige apps | Unieke identificatie van de toepassing waarvoor eenmalige aanmelding wordt geconfigureerd. Azure Active Directory stuurt de id naar de toepassing als parameter van de doelgroep van het SAML-token. Er wordt verwacht dat de toepassing deze valideert. Deze waarde wordt ook weergegeven als de entiteit-ID in SAML-metagegevens die worden geleverd door de toepassing.|
@@ -189,6 +189,6 @@ U hebt het volgende gedaan:
 Als u de toepassing voor meer gebruikers in uw organisatie wilt implementeren, wordt u aangeraden automatische inrichting van gebruikers te gebruiken.
 
 > [!div class="nextstepaction"]
->[Informatie over het toewijzen van gebruikers met automatische inrichting](configure-automatic-user-provisioning-portal.md)
+> [Informatie over het toewijzen van gebruikers met automatische inrichting](configure-automatic-user-provisioning-portal.md)
 
 

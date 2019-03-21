@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d5463b495620e441ad5371b5859c9ab543e0e7c6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dc146c6e8877a99570aab25d198ba365abbe7c86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874661"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078173"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registratie
 U kunt de installatie van de Azure Stack Development Kit (ASDK) registreren met Azure marketplace-items van Azure downloaden en het instellen van rapportage terug naar Microsoft commercegegevens. Registratie is vereist voor ondersteuning van de volledige functionaliteit van Azure Stack, met inbegrip van marketplace-syndicatie. Registratie is vereist om in te schakelen om te testen van belangrijke Azure Stack-functionaliteit, zoals marketplace-syndicatie en rapportage over het gebruik. Nadat u Azure Stack hebt geregistreerd, wordt gebruik gerapporteerd aan Azure commerce. U kunt het zien onder het abonnement dat u voor de registratie gebruikt. Echter ASDK gebruikers niet in rekening gebracht voor het gebruik die ze rapporteren.
@@ -38,7 +38,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 Zorg ervoor dat de uitvoer geeft als resultaat **FullLanguageMode**. Als een andere taalmodus wordt geretourneerd, registratie moet worden uitgevoerd op een andere computer of de taalmodus worden ingesteld moet op **FullLanguageMode** voordat u doorgaat.
 
-De Azure AD-account gebruikt voor de registratie moet toegang hebben tot het Azure-abonnement en machtigingen voor het maken van toepassingen met identiteit en service-principals in de map die is gekoppeld aan dat abonnement. Wordt u aangeraden dat u Azure Stack registreren bij Azure-beheer met minimale bevoegdheden [het maken van een service-account moet worden gebruikt voor registratie](..\azure-stack-registration-role.md) in plaats van met de referenties van de globale beheerder.
+De Azure AD-account gebruikt voor de registratie moet toegang hebben tot het Azure-abonnement en machtigingen voor het maken van toepassingen met identiteit en service-principals in de map die is gekoppeld aan dat abonnement. Wordt u aangeraden dat u Azure Stack registreren bij Azure-beheer met minimale bevoegdheden [het maken van een service-account moet worden gebruikt voor registratie](../azure-stack-registration-role.md) in plaats van met de referenties van de globale beheerder.
 
 ## <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 Volg deze stappen voor het registreren van de ASDK met Azure.

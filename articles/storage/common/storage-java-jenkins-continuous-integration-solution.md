@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
-ms.openlocfilehash: 2aeab9be28a61f4e185be7192e7965cbf02bfed9
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 8ea80d557185f4489a96384b77ddd2519e7bd049
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791984"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992188"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Azure Storage gebruiken met een Jenkins CI-oplossing
 
@@ -40,7 +40,7 @@ Voordelen van het gebruik van de Blob-service voor het hosten van uw build-artef
   
     Als u een Jenkins CI-oplossing op dit moment geen hebt, kunt u een Jenkins CI-oplossing met behulp van de volgende techniek uitvoeren:
   
-  1. Op een machine Java-functionaliteit downloaden jenkins.war van <http://jenkins-ci.org>.
+  1. Op een machine Java-functionaliteit downloaden jenkins.war van <https://jenkins-ci.org>.
   2. Bij een opdrachtprompt naar de map met jenkins.war wordt geopend, voert u de volgende uit:
      
       `java -jar jenkins.war`
@@ -48,7 +48,7 @@ Voordelen van het gebruik van de Blob-service voor het hosten van uw build-artef
   3. Open in uw browser `http://localhost:8080/` openen van het dashboard van Jenkins, die u kunt installeren en configureren van de Azure Storage-invoegtoepassing.
      
       Tijdens een typische Jenkins CI-oplossing kan worden ingesteld voor het uitvoeren als een service, die de Jenkins-war wordt uitgevoerd op de opdrachtregel is voldoende voor deze zelfstudie.
-* Een Azure-account. U kunt zich aanmelden voor een Azure-account op <http://www.azure.com>.
+* Een Azure-account. U kunt zich aanmelden voor een Azure-account op <https://www.azure.com>.
 * Een Azure Storage-account. Als u nog een storage-account hebt, kunt u maken met de stappen in [een Opslagaccount maken](../common/storage-quickstart-create-account.md).
 * Vertrouwd zijn met de Jenkins CI-oplossing wordt aanbevolen maar niet vereist, zoals de volgende inhoud maakt gebruik van een eenvoudige voorbeeld om weer te geven de stappen die nodig zijn bij het gebruik van de Blob-service als een opslagplaats voor Jenkins CI build-artefacten.
 
@@ -118,7 +118,7 @@ De volgende stappen laten zien voor het configureren van een build-stap om items
 1. In de **bouwen** sectie van de taakconfiguratie, selecteert u **build-stap toevoegen** en selecteer **downloaden uit Azure Blob storage**.
 2. Voor **opslagaccountnaam**, selecteer het opslagaccount te gebruiken.
 3. Voor **containernaam**, geef de naam van de container met de blobs die u wilt downloaden. U kunt omgevingsvariabelen gebruiken.
-4. Voor **blobnaam**, geef de naam van de blob. U kunt omgevingsvariabelen gebruiken. Bovendien kunt u een sterretje als jokerteken nadat u de eerste letter (s) van de blob-naam opgeven. Bijvoorbeeld, **project\***  geeft alle blobs waarvan de namen met beginnen **project**.
+4. Voor **blobnaam**, geef de naam van de blob. U kunt omgevingsvariabelen gebruiken. Bovendien kunt u een sterretje als jokerteken nadat u de eerste letter (s) van de blob-naam opgeven. Bijvoorbeeld, **project\\*** geeft alle blobs waarvan de namen met beginnen **project**.
 5. [Optioneel] Voor **downloadpad**, geef het pad op de Jenkins-machine waar u bestanden wilt downloaden uit Azure blob-opslag. Omgevingsvariabelen kunnen ook worden gebruikt. (Als u een waarde op voor geen opgeeft **downloadpad**, de bestanden vanuit Azure blob storage naar de werkruimte van de taak zal worden gedownload.)
 
 Als u extra items die u wilt downloaden uit Azure blob-opslag hebt, kunt u extra build-stappen kunt maken.

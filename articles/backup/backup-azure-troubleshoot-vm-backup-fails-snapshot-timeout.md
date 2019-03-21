@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 85dca677238070ded13b59faf9a13081c2409987
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890854"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286428"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -102,19 +102,12 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 **5 oorzaak: Backup-service heeft geen toegangsmachtiging voor de oude herstelpunten verwijderd vanwege een vergrendeling van de groep resource** <br>
 **Oorzaak 6: [De virtuele machine heeft geen internettoegang](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - momenteel Azure Backup biedt geen ondersteuning voor schijven groter dan 1023GB
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize - momenteel Azure Backup biedt geen ondersteuning voor schijven groter dan 4095GB
 
 **Foutcode**: UserErrorUnsupportedDiskSize <br>
-**Foutbericht**: Momenteel biedt Azure Backup geen ondersteuning voor schijven groter dan 1023 GB <br>
+**Foutbericht**: Azure Backup biedt momenteel geen ondersteuning voor schijven groter dan 4095GB <br>
 
-Uw back-upbewerking kan mislukken wanneer back-ups van virtuele machine met de grootte van de schijf is groter dan 1023GB omdat uw vault niet naar direct herstellen bijgewerkt is. Een upgrade naar direct herstellen biedt ondersteuning voor maximaal 4TB, ziet deze [artikel](backup-instant-restore-capability.md#upgrading-to-instant-restore). Na de upgrade, wordt het duurt maximaal twee uur voor het abonnement op het gebruik van deze functionaliteit. Zorgen voor voldoende buffer voordat u de bewerking opnieuw.  
-
-## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - momenteel Azure Backup biedt geen ondersteuning voor Standard-SSD-schijven
-
-**Foutcode**: UserErrorStandardSSDNotSupported <br>
-**Foutbericht**: Azure Backup biedt momenteel geen ondersteuning voor Standard-SSD-schijven <br>
-
-Azure Backup ondersteunt momenteel Standard-SSD-schijven alleen voor kluizen die zijn bijgewerkt naar [direct herstellen](backup-instant-restore-capability.md).
+Uw back-upbewerking kan mislukken wanneer back-ups van virtuele machine met de grootte van de schijf is groter dan 4095GB. Ondersteuning voor grote schijven is binnenkort beschikbaar.  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - kan geen back-up initiëren omdat er momenteel een andere back-upbewerking wordt uitgevoerd
 
@@ -200,7 +193,7 @@ De volgende voorwaarden kunnen leiden tot de taak momentopname is mislukt:
 | Oorzaak | Oplossing |
 | --- | --- |
 | De status van de virtuele machine niet correct gerapporteerd omdat de virtuele machine wordt afgesloten in Remote Desktop Protocol (RDP). | Als u de virtuele machine in RDP afsluit, controleert u de portal om te bepalen of de status van de virtuele machine juist is. Als dit niet juist is, sluit u de virtuele machine in de portal met behulp van de **afsluiten** optie op het dashboard voor VM's. |
-| De virtuele machine kan de host of fabric-adres ophalen van DHCP. | DHCP moet zijn ingeschakeld in de Gast voor de IaaS-VM back-up om te werken. Als de virtuele machine de host of fabric-adres niet uit de DHCP-reacties 245 ophalen kan, kan het downloaden of geen extensies worden uitgevoerd. Als u een statisch privé IP-adres nodig hebt, moet u het configureren via de **Azure Portal** of **PowerShell** en zorg ervoor dat de DHCP-optie binnen de virtuele machine is ingeschakeld. [Meer informatie](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) over het instellen van een statisch IP-adres met PowerShell.
+| De virtuele machine kan de host of fabric-adres ophalen van DHCP. | DHCP moet zijn ingeschakeld in de Gast voor de IaaS-VM back-up om te werken. Als de virtuele machine de host of fabric-adres niet uit de DHCP-reacties 245 ophalen kan, kan het downloaden of geen extensies worden uitgevoerd. Als u een statisch privé IP-adres nodig hebt, moet u het configureren via de **Azure-portal** of **PowerShell** en zorg ervoor dat de DHCP-optie binnen de virtuele machine is ingeschakeld. [Meer informatie](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) over het instellen van een statisch IP-adres met PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>De back-upextensie om te werken of te laden is mislukt
 Als extensies kunnen niet worden geladen, wordt back-up mislukt, omdat een momentopname kan niet worden gemaakt.

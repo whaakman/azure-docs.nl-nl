@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 35a041216bf24a4c6ab73f9d5c3e85dff38a4501
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 423db264c8035f9b089524eb4b19a13baccdf2e0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588106"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404702"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box via NFS
 
@@ -40,7 +40,8 @@ Zorg voordat u begint voor het volgende:
 
 Data Box maakt op basis van het geselecteerde opslagaccount maximaal:
 - Drie shares voor elk gekoppeld opslagaccount voor GPv1 en GPv2.
-- Een share voor premium- of blob-opslagaccount. 
+- Een share voor een premium-opslag. 
+- Een share voor blob storage-account. 
 
 Onder blok-blob- en pagina-blob-shares zijn entiteiten op het eerste niveau containers en entiteiten op het tweede niveau blobs. Onder shares voor Azure Files zijn entiteiten op het eerste niveau shares en entiteiten op het tweede niveau bestanden.
 
@@ -125,6 +126,9 @@ Volg deze richtlijnen als u rsync gebruikt voor een kopie met meerdere threads:
      waarbij j het aantal voor parallelle uitvoering opgeeft en X staat voor het aantal parallelle kopieën
 
      We adviseren u om met 16 parallelle kopieën te beginnen en het aantal threads te verhogen op basis van de beschikbare resources.
+
+> [!IMPORTANT]
+> De volgende typen van de Linux-bestanden worden niet ondersteund: symbolische koppelingen, tekenbestanden, bestanden blokkeren, sockets en pipes. Deze bestandstypen zal leiden tot fouten tijdens de **voorbereiding voor verzending** stap.
 
 - Om de gegevensintegriteit te garanderen wordt de controlesom inline berekend terwijl de gegevens worden gekopieerd. Verifieer de gebruikte ruimte en vrije ruimte op uw apparaat na het kopiëren.
     

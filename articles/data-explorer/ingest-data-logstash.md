@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Gegevens uit Logstash opnemen in Azure Data Explorer'
+title: 'Quickstart: Gegevens uit Logstash opnemen in Azure Data Explorer'
 description: In deze quickstart leert u hoe u gegevens uit Logstash opneemt (laadt) in Azure Data Explorer
 services: data-explorer
 author: tamirkamara
@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/14/2019
-ms.openlocfilehash: 4b5934123f5bb7fa9eaa2c67c212bcef2a5de0aa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 01115524ae3890c1d6a0220bcf89e86090d148cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479265"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078870"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Quickstart: Gegevens uit Logstash opnemen in Azure Data Explorer
 
@@ -107,8 +107,8 @@ output {
 }
 ```
 
-| Parameternaam | Beschrijving |
-| --- | --- | --- |
+| Parameternaam | Description |
+| --- | --- |
 | **path** | De Logstash-invoegtoepassing schrijft gebeurtenissen naar tijdelijke bestanden voordat ze naar Azure Data Explorer worden verzonden. Deze parameter bevat het pad waarnaar bestanden moeten worden geschreven en een tijdexpressie voor bestandsrotatie om een upload naar de service Azure Data Explorer te activeren.|
 | **ingest_url** | Het Kusto-eindpunt voor opname-gerelateerde communicatie.|
 | **app_id**, **app_key** en **app_tenant**| Referenties vereist om verbinding te maken met Azure Data Explorer. Zorg dat u een toepassing gebruikt die opnamebevoegdheden heeft. |

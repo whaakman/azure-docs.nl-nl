@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 5b749a85295e85ecde8d283ca02066a31be33666
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 259787a90b61b171f391dc02276214f17a57d0d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673066"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838813"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Zelfstudie: Azure-servicelogo’s herkennen in camera-afbeeldingen
 
@@ -101,7 +101,6 @@ Open vervolgens het bestand *Source\VisualProvision\AppSettings.cs* en vul de va
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
 
-
 ## <a name="create-a-service-principal"></a>Een service-principal maken
 
 Voor de app is een service-principal-account in Azure vereist om de services te implementeren in uw Azure-abonnement. Met een service-principal kunt u specifieke machtigingen delegeren naar een app met behulp van op rollen gebaseerd toegangsbeheer. Bekijk de [Handleiding voor service-principals](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals) voor meer informatie.
@@ -131,6 +130,7 @@ Als dit is voltooid, ziet u de volgende JSON-uitvoer met de benodigde referentie
   ...
 }
 ```
+
 Noteer de waarden `clientId` en `tenantId`. Voeg deze waarden toe aan de juiste velden in het bestand *Source\VisualProvision\AppSettings.cs*.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
@@ -138,9 +138,10 @@ Noteer de waarden `clientId` en `tenantId`. Voeg deze waarden toe aan de juiste 
 ## <a name="run-the-app"></a>De app uitvoeren
 
 Hier aangekomen hebt u de app toegang gegeven tot:
-* Een getraind Custom Vision-model
-* De Computer Vision-service
-* Een service-principal-account 
+
+- Een getraind Custom Vision-model
+- De Computer Vision-service
+- Een service-principal-account
 
 Volg deze stappen om de app uit te voeren:
 
@@ -163,7 +164,6 @@ Volg deze stappen om de app uit te voeren:
 
     ![Het app-scherm met een vervolgkeuzelijst voor het abonnement in Target Azure](media/azure-logo-tutorial/app-az-subscription.png)
 
-    
 
 1. Vervolgens wordt de camera op uw apparaat geactiveerd. Neem een foto van een van de Azure-servicelogo’s die u hebt getraind. In een implementatievenster wordt u nu gevraagd om een regio en resourcegroep te selecteren voor de nieuwe services. (Net zoals wanneer u deze implementeert vanuit de Azure Portal). 
 
@@ -171,7 +171,7 @@ Volg deze stappen om de app uit te voeren:
 
     ![Een app-scherm met velden voor de implementatieregio en de vermelding voor de resourcegroep](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>Resources opschonen 
+## <a name="clean-up-resources"></a>Resources opschonen
 
 Als u alle stappen in dit scenario hebt gevolgd en de app hebt gebruikt om Azure-services te implementeren in uw account, gaat u naar de [Azure Portal](https://ms.portal.azure.com/) wanneer u hiermee klaar bent en annuleert u de services die u niet wilt gebruiken. Annuleer daar de services die u niet wilt gebruiken.
 

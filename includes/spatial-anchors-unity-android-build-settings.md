@@ -4,25 +4,25 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: 662aced6df27febdf29f2645725962763e89cfa2
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: 53f480b8858e2bbe7d4699d8637ecaa5ab0c08a3
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752550"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305252"
 ---
-Open Unity en open het project in de map `Unity`.
+Open in Unity, het project in de `Unity` map.
 
-Open **Build Settings** door **File** -> **Build Settings** te selecteren.
+Open **Build Settings** door **File** > **Build Settings** te selecteren.
 
-Selecteer in de sectie **Platform** de optie **Android**. Wijzig **Build System** in **Gradle** en schakel het selectievakje bij **Export project** in.
+Selecteer in de sectie **Platform** de optie **Android**. Wijziging de **Build-systeem** naar **Gradle** en selecteer **Project exporteren**.
 
-Selecteer **Switch Platform** om het platform te wijzigen in **Android**. U kunt worden gevraagd Android-ondersteuningsonderdelen te installeren als deze ontbreken.
+Selecteer **Switch Platform** om het platform te wijzigen in **Android**. Unity vraagt u mogelijk ondersteuning voor Android om onderdelen te installeren als ze ontbreekt.
 
-![Buil-instellingen voor Unity](./media/spatial-anchors-unity/unity-android-build-settings.png)
+![Unity Build Settings venster](./media/spatial-anchors-unity/unity-android-build-settings.png)
 
 Sluit het venster **Build Settings**.
 
 ### <a name="download-and-import-the-arcore-sdk-for-unity"></a>De ARCore SDK voor Unity downloaden en importeren
 
-Download bestand `unitypackage` in de [ARCore SDK voor Unity-releases](https://github.com/google-ar/arcore-unity-sdk/releases/tag/v1.5.0). Weer terug in het Unity-project selecteert u **Assets** -> **Import Package** -> **Custom Package...** en vervolgens het bestand `unitypackage` dat u eerder hebt gedownload. Controleer in het dialoogvenster **Import Unity Package** of alle bestanden zijn geselecteerd en selecteer **Import**.
+Download bestand `unitypackage` in de [ARCore SDK voor Unity-releases](https://github.com/google-ar/arcore-unity-sdk/releases/tag/v1.5.0). Terug in de Unity-project, selecteer **activa** > **pakket importeren** > **Custom Package** en selecteer vervolgens de `unitypackage` bestand u hebt gedownload. In de **Unity-pakket importeren** in het dialoogvenster, controleert u of alle bestanden zijn geselecteerd en selecteer vervolgens **importeren**.

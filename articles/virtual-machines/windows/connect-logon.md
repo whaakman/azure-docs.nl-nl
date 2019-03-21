@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: c14b6e16a16f325681722203eaa05a435b141208
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 07a8195969df7ad7afd2bfe2e9124b07144d48cb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990615"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284779"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Hoe u verbinding maken met en meld u aan met een Azure-machine waarop Windows wordt uitgevoerd
 U gebruikt de knop **Verbinden** in Azure Portal om een Extern bureaublad-sessie (RDP) te starten vanaf een Windows-computer. Eerst maakt u verbinding met de virtuele machine en meld u op.
 
-Als u wilt verbinding maken met een Windows-VM vanaf een Mac, moet u een RDP-client voor Mac installeren zoals [Microsoft Extern bureaublad](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
+Als u wilt verbinding maken met een Windows-VM vanaf een Mac, moet u een RDP-client voor Mac installeren zoals [Microsoft Extern bureaublad](https://aka.ms/rdmac).
 
 ## <a name="connect-to-the-virtual-machine"></a>Verbinding maken met de virtuele machine
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com/) als u dat nog niet hebt gedaan.

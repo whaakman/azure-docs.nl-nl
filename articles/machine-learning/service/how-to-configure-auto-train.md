@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6bd61923dafb605e09c6ca6ab86dcd85fe60b37c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 79d013e5836555547cbf254bb25c06add0a717e1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734654"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295382"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Geautomatiseerde machine learning-experimenten configureren
 
@@ -396,4 +396,4 @@ RunDetails(local_run).show()
 
 Meer informatie over [hoe en waar u kunt een model implementeren](how-to-deploy-and-where.md).
 
-Meer informatie over [hoe u een model classificatie met automatische machine learning te trainen](tutorial-auto-train-models.md) of [hoe u met behulp van de trein geautomatiseerde machine learning in een externe bron](how-to-auto-train-remote.md).
+Meer informatie over [hoe u een regressiemodel met automatische machine learning te trainen](tutorial-auto-train-models.md) of [hoe u met behulp van de trein geautomatiseerde machine learning in een externe bron](how-to-auto-train-remote.md).

@@ -13,12 +13,12 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 7c903390af54d1771bce1b6aff96e9bb54397189
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045800"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258770"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Gebruiker gedrag analyseprogramma's in Application Insights oplossen
 Hebt u vragen over de [gebruiker gedrag analyseprogramma's in Application Insights](usage-overview.md): [Gebruikers, sessies, gebeurtenissen](usage-segmentation.md), [Trechters](usage-funnels.md), [Gebruikersstromen](usage-flows.md), [retentie](usage-retention.md), of cohorten? Hier volgen enkele antwoorden.
@@ -39,7 +39,7 @@ De gebruiker gedrag analysehulpprogramma's ondersteund momenteel niet tellen geb
 ## <a name="naming-events"></a>Naamgeving van gebeurtenissen
 **Mijn app heeft duizenden andere paginaweergave en de namen van aangepaste gebeurtenis. Het is moeilijk onderscheid maken tussen deze en de analysehulpmiddelen van de gebruiker-gedrag vaak reageert. Hoe kan ik deze naamgevingsconventie problemen oplossen?**
 
-Paginaweergave en de namen van aangepaste gebeurtenis worden gebruikt in de analysehulpmiddelen van de gebruiker-gedrag. Naamgeving van gebeurtenissen goed is essentieel voor het ophalen van de waarde van deze hulpprogramma's. Het doel is een balans tussen met te weinig, overmatig algemene namen ("knop hebt geklikt") en met te veel, zeer specifieke namen ("knop bewerken hebt geklikt op http://www.contoso.com/index').
+Paginaweergave en de namen van aangepaste gebeurtenis worden gebruikt in de analysehulpmiddelen van de gebruiker-gedrag. Naamgeving van gebeurtenissen goed is essentieel voor het ophalen van de waarde van deze hulpprogramma's. Het doel is een balans tussen met te weinig, overmatig algemene namen ("knop hebt geklikt") en met te veel, zeer specifieke namen ("knop bewerken hebt geklikt op http:\//www.contoso.com/index ').
 
 Als u wilt geen wijzigingen aanbrengt aan de paginaweergave en aangepaste gebeurtenisnamen van die uw app verzendt, moet u de broncode en opnieuw implementeren van uw app wijzigen. **Alle telemetrie gegevens in Application Insights voor 90 dagen worden opgeslagen en kan niet worden verwijderd**, zodat de wijzigingen die u in gebeurtenisnamen aanbrengt duurt 90 dagen volledig manifest. Voor de 90 dagen na het aanbrengen van wijzigingen in de naam, wordt de gebeurtenisnamen van zowel de oude en nieuwe weergegeven in uw telemetrie, dus aanpassen van query's en communiceren vanuit uw teams dienovereenkomstig.
 

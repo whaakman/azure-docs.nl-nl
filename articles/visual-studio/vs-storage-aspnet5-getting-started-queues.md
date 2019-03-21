@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 237294c1bc603402c349f7a56f20c34ed8d210fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 8a91614e7dfb804e6a902967ce60f898ed0e54ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054098"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999758"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Aan de slag met queue storage en Visual Studio verbonden services (ASP.NET Core)
 
@@ -27,7 +27,7 @@ In dit artikel wordt beschreven hoe u aan de slag met Azure Queue storage in Vis
 
 Azure queue storage is een service voor het opslaan van grote aantallen berichten die kunnen worden benaderd vanaf elke locatie ter wereld via geverifieerde oproepen met HTTP of HTTPS. Een enkel wachtrijbericht mag maximaal 64 kilobytes (KB) en een wachtrij kan miljoenen berichten bevatten, tot de totale capaciteitslimiet van een opslagaccount bevatten. Zie ook [aan de slag met Azure Queue storage met .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) voor meer informatie over het bewerken van programmatisch wachtrijen.
 
-Als u wilt beginnen, moet u eerst een Azure-wachtrij maken in uw storage-account. In dit artikel wordt weergegeven over het maken van een wachtrij in C# en hoe u eenvoudige wachtrijbewerkingen zoals het toevoegen, wijzigen, lezen en verwijderen van Wachtrijberichten uit te voeren.  De code gebruikt de Azure Storage-clientbibliotheek voor .NET. Zie voor meer informatie over ASP.NET [ASP.NET](http://www.asp.net).
+Als u wilt beginnen, moet u eerst een Azure-wachtrij maken in uw storage-account. In dit artikel wordt weergegeven over het maken van een wachtrij in C# en hoe u eenvoudige wachtrijbewerkingen zoals het toevoegen, wijzigen, lezen en verwijderen van Wachtrijberichten uit te voeren.  De code gebruikt de Azure Storage-clientbibliotheek voor .NET. Zie voor meer informatie over ASP.NET [ASP.NET](https://www.asp.net).
 
 Enkele van de Azure Storage-API's zijn asynchroon en de code in dit artikel wordt ervan uitgegaan dat async-methoden worden gebruikt. Zie [asynchrone programmering](https://docs.microsoft.com/dotnet/csharp/async) voor meer informatie.
 
@@ -66,7 +66,7 @@ Voor toegang tot wachtrijen in ASP.NET Core-projecten, bevatten de volgende item
 
 ### <a name="create-a-queue-in-code"></a>Een wachtrij in code maken
 
-Aanroepen voor het maken van de Azure-wachtrij in de code, '' CreateIfNotExistsAsync':
+Aanroepen voor het maken van de Azure-wachtrij in de code, `CreateIfNotExistsAsync`:
 
 ```cs
 // Create the CloudQueue if it does not exist.

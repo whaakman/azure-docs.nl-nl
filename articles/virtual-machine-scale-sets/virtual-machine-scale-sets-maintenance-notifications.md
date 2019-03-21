@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 3d3ed7d1448ecb350a75a933666e6ab8bd17e84c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992424"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Meldingen voor gepland onderhoud voor virtuele-machineschaalsets
 
@@ -126,14 +126,10 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 ```
 
 De volgende eigenschappen worden geretourneerd bij **MaintenanceRedeployStatus**: 
-| Value | Description   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Geeft aan of u onderhoud op de virtuele machine op dit moment starten kunt. ||
-| PreMaintenanceWindowStartTime         | Het begin van het selfservice onderhoudsvenster wanneer u onderhoud op de virtuele machine starten kunt. ||
-| PreMaintenanceWindowEndTime           | Het einde van het selfservice onderhoudsvenster wanneer u onderhoud op de virtuele machine starten kunt. ||
-| MaintenanceWindowStartTime            | Het begin van het geplande onderhoud waarin Azure onderhoud op de virtuele machine start. ||
-| MaintenanceWindowEndTime              | Het einde van het geplande onderhoudsvenster waarin Azure onderhoud op de virtuele machine start. ||
-| LastOperationResultCode               | Het resultaat van de laatste poging tot het starten van onderhoud op de virtuele machine. ||
+
+| Waarde | Beschrijving |
+
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Geeft aan of u onderhoud op de virtuele machine op dit moment starten kunt. | | PreMaintenanceWindowStartTime | Het begin van het selfservice onderhoudsvenster wanneer u onderhoud op de virtuele machine starten kunt. | | PreMaintenanceWindowEndTime | Het einde van het selfservice onderhoudsvenster wanneer u onderhoud op de virtuele machine starten kunt. | | MaintenanceWindowStartTime | Het begin van het geplande onderhoud waarin Azure onderhoud op de virtuele machine start. | | MaintenanceWindowEndTime | Het einde van het geplande onderhoudsvenster waarin Azure onderhoud op de virtuele machine start. | | LastOperationResultCode | Het resultaat van de laatste poging tot het starten van onderhoud op de virtuele machine. |
 
 
 
@@ -156,14 +152,10 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
 De volgende eigenschappen worden geretourneerd bij **MaintenanceRedeployStatus** voor elk VM-exemplaar: 
-| Value | Description   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Geeft aan of u onderhoud op de virtuele machine op dit moment starten kunt. ||
-| PreMaintenanceWindowStartTime         | Het begin van het selfservice onderhoudsvenster wanneer u onderhoud op de virtuele machine starten kunt. ||
-| PreMaintenanceWindowEndTime           | Het einde van het selfservice onderhoudsvenster wanneer u onderhoud op de virtuele machine starten kunt. ||
-| MaintenanceWindowStartTime            | Het begin van het geplande onderhoud waarin Azure onderhoud op de virtuele machine start. ||
-| MaintenanceWindowEndTime              | Het einde van het geplande onderhoudsvenster waarin Azure onderhoud op de virtuele machine start. ||
-| LastOperationResultCode               | Het resultaat van de laatste poging tot het starten van onderhoud op de virtuele machine. ||
+
+| Waarde | Beschrijving |
+
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Geeft aan of u onderhoud op de virtuele machine op dit moment starten kunt. | | PreMaintenanceWindowStartTime | Het begin van het selfservice onderhoudsvenster wanneer u onderhoud op de virtuele machine starten kunt. | | PreMaintenanceWindowEndTime | Het einde van het selfservice onderhoudsvenster wanneer u onderhoud op de virtuele machine starten kunt. | | MaintenanceWindowStartTime | Het begin van het geplande onderhoud waarin Azure onderhoud op de virtuele machine start. | | MaintenanceWindowEndTime | Het einde van het geplande onderhoudsvenster waarin Azure onderhoud op de virtuele machine start. | | LastOperationResultCode | Het resultaat van de laatste poging tot het starten van onderhoud op de virtuele machine. |
 
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>Onderhoud starten op uw VM-exemplaar met behulp van CLI

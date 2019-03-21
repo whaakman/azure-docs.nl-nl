@@ -4,13 +4,13 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
-ms.openlocfilehash: 97623cae9620bc27981573f2d1d38619c747d760
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: d0c3c9bdac1dc344dd8520f5270b6afb583c1fa4
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752543"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305329"
 ---
-Open **Build Settings** door **File** -> **Build Settings** te selecteren.
+Open **Build Settings** door **File** > **Build Settings** te selecteren.
 
-Plaats een vinkje onder **Scenes In Build**, naast de scène `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsBasicDemo`, en verwijder de vinkjes bij alle overige scènes.
+Onder **schermen In bouwt**, Voeg een vinkje naast de `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsBasicDemo` scène en schakel het selectievakje markeert van alle andere schermen.

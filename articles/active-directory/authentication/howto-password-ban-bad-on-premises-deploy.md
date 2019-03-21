@@ -1,6 +1,6 @@
 ---
-title: Voorbeeld van Azure AD wachtwoord beveiliging implementeren
-description: Azure AD wachtwoord protection preview om u te verbieden voor onjuiste wachtwoorden on-premises implementeren
+title: Wachtwoordbeveiliging in Azure AD implementeren
+description: Azure AD-wachtwoordbeveiliging voor het blokkeren van onjuiste wachtwoorden on-premises implementeren
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 832f29d16e5976493da56b304c3de0288b83c9b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54d2d600771316b0a88ea0a2486c0dedd0f84594
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848742"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286530"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>Preview: Wachtwoordbeveiliging in Azure AD implementeren
-
-|     |
-| --- |
-| Wachtwoordbeveiliging voor Azure Active Directory (Azure AD) is een openbare preview-functie van Azure AD. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="deploy-azure-ad-password-protection"></a>Wachtwoordbeveiliging in Azure AD implementeren
 
 Nu dat u begrijpt [hoe af te dwingen van Azure AD wachtwoordbeveiliging voor Windows Server Active Directory](concept-password-ban-bad-on-premises.md), de volgende stap is het plannen en uitvoeren van uw implementatie.
 
