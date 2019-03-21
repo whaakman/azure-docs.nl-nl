@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7a1d0dab08c4beb93d323bcd1a5f5b00a190daa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 018281406bb810f6357ad00948060cedae57fc6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868286"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003813"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedure: Uw hybride Azure Active Directory join-implementatie plannen
 
@@ -41,6 +41,8 @@ Als u een on-premises Active Directory-omgeving hebt en u uw domein-gekoppelde a
 
 In dit artikel wordt ervan uitgegaan dat u bekend met bent de [Inleiding tot Apparaatbeheer in Azure Active Directory](../device-management-introduction.md).
 
+>[!NOTE]
+>  De minimaal vereiste functionele domein en forest functionele niveaus voor Windows 10 hybride Azure AD join Windows Server 2008 R2 is. Op de lagere versies, de gebruiker kan niet een primaire vernieuwen-Token ophalen tijdens het aanmelden vanwege problemen met de LSA Windows 
 
 ## <a name="plan-your-implementation"></a>Uw implementatie plannen
 

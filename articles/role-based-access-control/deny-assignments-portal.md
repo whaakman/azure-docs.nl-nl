@@ -11,24 +11,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 48098ba32a8eb1c2d7a7bafa246b8e850229b430
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804532"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005799"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Weergave weigeren toewijzingen voor Azure-resources met behulp van de Azure portal
 
-[Toewijzingen weigeren](deny-assignments.md) blokkeren dat gebruikers kunnen uitvoeren van acties die specifieke Azure-resource, zelfs als een roltoewijzing deze toegang wordt verleend. Hoewel u kunt geen uw eigen maken weigeren toewijzingen, u moet nog steeds mogelijk om toewijzingen weigeren omdat ze invloed zijn op uw algemene machtigingen. Voor informatie over de toewijzing van een weigeren, hebt u de `Microsoft.Authorization/denyAssignments/read` machtiging die is opgenomen in de meeste [ingebouwde rollen voor Azure-resources](built-in-roles.md).
-
-In dit artikel wordt beschreven hoe u Azure portal gebruiken om weer te weigeren toewijzingen.
+[Toewijzingen weigeren](deny-assignments.md) blokkeren dat gebruikers kunnen uitvoeren van acties die specifieke Azure-resource, zelfs als een roltoewijzing deze toegang wordt verleend. In dit artikel wordt beschreven hoe u Azure portal gebruiken om weer te weigeren toewijzingen.
 
 > [!NOTE]
-> Op dit moment weigeren toewijzingen zijn alleen-lezen en kunnen alleen worden ingesteld door Microsoft.
+> Op dit moment de enige manier waarop u kunt toevoegen uw eigen weigeren toewijzingen met behulp van Azure blauwdrukken is. Zie voor meer informatie, [nieuwe resources beveiligen met blauwdrukken voor Azure-resourcevergrendelingen](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="prerequisites"></a>Vereisten
+
+Voor informatie over de toewijzing van een weigeren, moet u het volgende hebben:
+
+- `Microsoft.Authorization/denyAssignments/read` machtiging die is opgenomen in de meeste [ingebouwde rollen voor Azure-resources](built-in-roles.md).
 
 ## <a name="view-deny-assignments"></a>Weigeringstoewijzingen weergeven
 

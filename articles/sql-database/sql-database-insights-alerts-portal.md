@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: dea9a73d7ac868e45d3abf2ee3ff8366fc7b65cd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57783088"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855585"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Waarschuwingen maken voor Azure SQL Database en Data Warehouse met behulp van Azure portal
 
@@ -59,7 +59,7 @@ U kunt configureren en informatie over met behulp van regels voor waarschuwingen
 4. **Naam** de waarschuwing regel en kies een **beschrijving**, die ook weergegeven in e-mailmeldingen.
 5. Selecteer de **Metric** u wilt controleren, en kies vervolgens een **voorwaarde** en **drempelwaarde** waarde voor de metrische gegevens. Ook voor kiezen de **periode** van de tijd waarop de regel voor metrische gegevens moet worden voldaan voordat de waarschuwing triggers. Bijvoorbeeld als u de periode 'PT5M' en de waarschuwing voor CPU ziet er uit meer dan 80%, de waarschuwing wordt geactiveerd wanneer de **gemiddelde** CPU gedurende vijf minuten meer dan 80% is geweest. Nadat de eerste trigger is het geval is, wordt deze opnieuw geactiveerd wanneer de gemiddelde CPU lager dan 80% meer dan vijf minuten is. De meting van CPU doet zich voor elke minuut. Raadpleeg de onderstaande tabel voor ondersteunde tijdvensters en typt u de aggregatie die elke waarschuwing gebruikt en niet alle waarschuwingen de gemiddelde waarde gebruiken.   
 6. Controleer **e-eigenaren...**  als u wilt dat beheerders en medebeheerders moet worden verzonden wanneer de waarschuwing wordt geactiveerd.
-7. Als u aanvullende e-mailberichten wilt die een melding ontvangen wanneer de waarschuwing wordt geactiveerd, voegt u ze op in de **beheerder email(s)** veld. Meerdere e-mailberichten gescheiden door puntkomma's -  *email@contoso.com;email2@contoso.com*
+7. Als u aanvullende e-mailberichten wilt die een melding ontvangen wanneer de waarschuwing wordt geactiveerd, voegt u ze op in de **beheerder email(s)** veld. Meerdere e-mailberichten gescheiden door puntkomma's - *e\@contoso.com;email2\@contoso.com*
 8. Plaats in een geldige URI in de **Webhook** veld als u wilt dat deze wordt aangeroepen wanneer de waarschuwing wordt geactiveerd.
 9. Selecteer **OK** wanneer u klaar bent om de waarschuwing te genereren.   
 
@@ -79,7 +79,7 @@ Als u een waarschuwing hebt gemaakt, kunt u dit selecteren en:
 | --- | --- | --- | --- | --- |
 | SQL-database | cpu_percent | CPU-percentage | Gemiddeld | 5 minuten |
 | SQL-database | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 5 minuten |
-| SQL-database | log_write_percent | Logboek-IO-percentage | Gemiddeld | 5 minuten |
+| SQL-database | log_write_percent | Percentage logboek-IO | Gemiddeld | 5 minuten |
 | SQL-database | dtu_consumption_percent | DTU-percentage | Gemiddeld | 5 minuten |
 | SQL-database | opslag | Totale databasegrootte | Maximum | 30 minuten |
 | SQL-database | connection_successful | Geslaagde verbindingen | Totaal | 10 minuten |
@@ -88,17 +88,17 @@ Als u een waarschuwing hebt gemaakt, kunt u dit selecteren en:
 | SQL-database | Impasse | Deadlocks | Totaal | 10 minuten |
 | SQL-database | storage_percent | Databaseomvangpercentage | Maximum | 30 minuten |
 | SQL-database | xtp_storage_percent | In-Memory OLTP-opslag percent(Preview) | Gemiddeld | 5 minuten |
-| SQL-database | workers_percent | Percentage van de werknemers | Gemiddeld | 5 minuten |
+| SQL-database | workers_percent | Werknemerspercentage | Gemiddeld | 5 minuten |
 | SQL-database | sessions_percent | Sessies procent | Gemiddeld | 5 minuten |
 | SQL-database | dtu_limit | DTU-limiet | Gemiddeld | 5 minuten |
 | SQL-database | dtu_used | DTU gebruikt | Gemiddeld | 5 minuten |
 ||||||
 | Elastische pool | cpu_percent | CPU-percentage | Gemiddeld | 10 minuten |
 | Elastische pool | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 10 minuten |
-| Elastische pool | log_write_percent | Logboek-IO-percentage | Gemiddeld | 10 minuten |
+| Elastische pool | log_write_percent | Percentage logboek-IO | Gemiddeld | 10 minuten |
 | Elastische pool | dtu_consumption_percent | DTU-percentage | Gemiddeld | 10 minuten |
 | Elastische pool | storage_percent | Opslagpercentage | Gemiddeld | 10 minuten |
-| Elastische pool | workers_percent | Percentage van de werknemers | Gemiddeld | 10 minuten |
+| Elastische pool | workers_percent | Werknemerspercentage | Gemiddeld | 10 minuten |
 | Elastische pool | eDTU_limit | eDTU-limiet | Gemiddeld | 10 minuten |
 | Elastische pool | storage_limit | Limiet voor opslag | Gemiddeld | 10 minuten |
 | Elastische pool | eDTU_used | eDTU gebruikt | Gemiddeld | 10 minuten |

@@ -9,12 +9,12 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: b6db9b6cb2ccbf1c8d29edb817d35677109ae755
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4268356db5f46e92862e19d6391cfe5a94511270
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768618"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007480"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Service Fabric Mesh-toepassingsgeheimen
 Service Fabric Mesh biedt ondersteuning voor geheimen als Azure-resources. Een Service Fabric Mesh-geheim kan bestaan uit gevoelige informatie in tekstvorm, zoals opslagverbindingsreeksen, wachtwoorden of andere waarden die veilig moeten worden opgeslagen en verzonden.
@@ -25,10 +25,6 @@ Service Fabric Mesh biedt ondersteuning voor geheimen als Azure-resources. Een S
 Een Mesh-toepassingsgeheim bestaat uit:
 * Een **Geheimen**-resource. Dit is een container die geheimen in tekstvorm bevat. Geheimen die zijn opgenomen in de **Geheimen**-resource, worden veilig opgeslagen en verzonden.
 * Een of meer **Geheimen/waarden**-resources die zijn opgeslagen in de **Geheimen**-resourcecontainer. Elke **Geheimen/waarden**-resource wordt gekenmerkt door een uniek versienummer.
-
-## <a name="inline-or-stored-in-azure-key-vault"></a>Inline- of opgeslagen in Azure Key Vault
-- Mesh-toepassingen en -serviceresources worden onder andere gevormd door Managed Service Identity (MSI) met Azure Active Directory (AAD) om toegang tot geheimen in Azure Key Vault te krijgen.
-- Geheimen en certificaten kunnen worden automatisch worden vervangen door beleid.
 
 ## <a name="next-steps"></a>Volgende stappen 
 Voor meer informatie over Service Fabric Mesh-geheimen zie:

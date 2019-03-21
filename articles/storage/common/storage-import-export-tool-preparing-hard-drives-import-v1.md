@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 5ea510d8335437cb43f3e8824ec73175c35dcd03
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7db50e8bd1de609256bad58b293af8b7b1ea5dbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452365"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086714"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Harde schijven voorbereiden voor een importtaak
 Als u wilt een of meer harde schijven voorbereiden voor een importtaak, de volgende stappen uit:
 
--   De gegevens te importeren in de Blob-service identificeren
+- De gegevens te importeren in de Blob-service identificeren
 
--   Doel-virtuele mappen en blobs in de Blob-service identificeren
+- Doel-virtuele mappen en blobs in de Blob-service identificeren
 
--   Het aantal schijven u moet, bepalen
+- Het aantal schijven u moet, bepalen
 
--   Kopieer de gegevens naar elk van uw harde schijven
+- Kopieer de gegevens naar elk van uw harde schijven
 
- Zie voor een voorbeeldwerkstroom [voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
+  Zie voor een voorbeeldwerkstroom [voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
 
 ## <a name="identify-the-data-to-be-imported"></a>Bepalen welke gegevens moeten worden geïmporteerd
  De eerste stap bij het maken van een import-taak is om te bepalen welke mappen en bestanden die u wilt importeren. Dit kan een lijst met mappen, een lijst met unieke bestanden of een combinatie van deze twee zijn. Wanneer een directory opgenomen is, worden alle bestanden in de map en submappen deel uit van de import-taak.
@@ -51,11 +51,11 @@ Als u wilt een of meer harde schijven voorbereiden voor een importtaak, de volge
 ## <a name="determine-how-many-drives-are-needed"></a>Bepalen hoeveel schijven nodig zijn
  Vervolgens moet u om te bepalen:
 
--   Het aantal harde schijven die nodig zijn voor het opslaan van de gegevens.
+- Het aantal harde schijven die nodig zijn voor het opslaan van de gegevens.
 
--   De mappen en/of zelfstandige-bestanden die moeten worden gekopieerd naar elk van de harde schijf.
+- De mappen en/of zelfstandige-bestanden die moeten worden gekopieerd naar elk van de harde schijf.
 
- Zorg ervoor dat u hebt het aantal harde schijven u moet voor het opslaan van de gegevens die u overbrengt.
+  Zorg ervoor dat u hebt het aantal harde schijven u moet voor het opslaan van de gegevens die u overbrengt.
 
 ## <a name="copy-data-to-your-hard-drive"></a>Gegevens kopiëren naar de harde schijf
  Deze sectie wordt beschreven hoe u aan te roepen van het Azure Import/Export-hulpprogramma voor het kopiëren van uw gegevens voor een of meer harde schijven. Elke keer dat u het hulpprogramma Azure Import/Export kunt aanroepen, maakt u een nieuw *sessie kopiëren*. U maken ten minste één exemplaar sessie voor elk station is waarop u kopiëren van gegevens; in sommige gevallen moet u mogelijk meer dan één exemplaar sessie al uw gegevens naar één station kopiëren. Hier volgen enkele redenen dat u mogelijk meerdere sessies voor kopiëren:

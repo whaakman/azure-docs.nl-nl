@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a00c9cb0ce1bd8a6f36070e81df1185ef23a307
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 450fcbcdfab8e90728fbbbd0068123768f3cef4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201762"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993306"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Zelfstudie: Azure Active Directory-integratie met CRM suiker
 
@@ -114,6 +114,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![Eenmalige aanmelding configureren](./media/sugarcrm-tutorial/tutorial_sugarcrm_url.png)
 
     In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
+    
     | |
     |--|
     | `https://<companyname>.sugarondemand.com` |
@@ -148,7 +149,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
    
     ![Beheer](./media/sugarcrm-tutorial/ic795890.png "Beheer")
 
-1. In de **SAML-verificatie** sectie, voert u de volgende stappen uit:
+1. Voer in het gedeelte **SAML-verificatie** de volgende stappen uit:
    
     ![SAML-verificatie](./media/sugarcrm-tutorial/ic795891.png "SAML-verificatie")  
  
@@ -275,7 +276,7 @@ Wanneer u op de tegel suiker CRM in het toegangsvenster, u moet u automatisch aa
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

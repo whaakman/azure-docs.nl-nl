@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 1585eb460cc5f8ae437ee59a596dc7a854a108e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 98f793b7d94cd554d426a0eec30d8bb4553d3d81
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995727"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105400"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Back-up inschakelen voor Azure Stack vanuit de beheerportal
 Schakel de infrastructuur voor Backup-Service via de beheerportal zodat Azure Stack infrastructuur back-ups kunt genereren. De hardware-partner deze back-ups kunt gebruiken om te herstellen van uw omgeving met behulp van de cloudherstel in geval van [een onherstelbare fout](./azure-stack-backup-recover-data.md). Het doel van cloudherstel is om ervoor te zorgen dat uw operators en gebruikers zich weer in de portal aanmelden kunnen nadat het herstel is voltooid. Gebruikers hebben hun abonnementen hersteld met inbegrip van machtigingen voor toegang op basis van rollen en functies, oorspronkelijke plannen, aanbiedingen, en eerder gedefinieerde compute, opslag, netwerk quota's en Key Vault-geheimen.
@@ -67,12 +67,15 @@ Beheerders en gebruikers zijn die verantwoordelijk is voor back-up en herstellen
             -FilePath c:\certs\AzSIBCCert.cer 
     ```
 
-    > [!Note]  
-    > **1901 en hoger**: Azure Stack accepteert een certificaat voor het versleutelen van back-upgegevens van infrastructuur. Zorg ervoor dat u het certificaat met de openbare en persoonlijke sleutel op een veilige locatie wordt opgeslagen. Uit veiligheidsoverwegingen wordt niet aanbevolen dat u het certificaat met de openbare en persoonlijke sleutels wilt gebruiken om back-instellingen te configureren. Zie voor meer informatie over het beheren van de levenscyclus van dit certificaat [aanbevolen procedures voor back-up-Mailinfrastructuurdienst](azure-stack-backup-best-practices.md).
+   > [!Note]
+   > **1901 en hoger**: Azure Stack accepteert een certificaat voor het versleutelen van back-upgegevens van infrastructuur. Zorg ervoor dat u het certificaat met de openbare en persoonlijke sleutel op een veilige locatie wordt opgeslagen. Uit veiligheidsoverwegingen wordt niet aanbevolen dat u het certificaat met de openbare en persoonlijke sleutels wilt gebruiken om back-instellingen te configureren. Zie voor meer informatie over het beheren van de levenscyclus van dit certificaat [aanbevolen procedures voor back-up-Mailinfrastructuurdienst](azure-stack-backup-best-practices.md).
+   > 
+   > **1811 of eerder**: Azure Stack accepteert een symmetrische sleutel voor het versleutelen van back-upgegevens van infrastructuur. Gebruik de [New-AzsEncryptionKey64 cmdlet voor het maken van een sleutel](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Na de upgrade van 1811 naar 1901, back-upinstellingen de versleutelingssleutel te behouden. De aanbeveling is het bijwerken van de back-upinstellingen voor het gebruik van een certificaat. Ondersteuning voor de sleutel van de versleuteling is nu verouderd. Hebt u ten minste 3 releases om instellingen voor het gebruik van een certificaat te werken. 
 
 10. Selecteer **OK** uw back-controller-instellingen op te slaan.
 
 ![Azure Stack - instellingen voor back-up-controller](media/azure-stack-backup/backup-controller-settings-certificate.png)
+
 
 ## <a name="start-backup"></a>Back-up starten
 Voor het starten van een back-up, klikt u op **back-up nu** starten van een on-demand back-up. Een on-demand back-up wordt de tijd voor de volgende geplande back-up niet worden gewijzigd. Nadat de taak is voltooid, kunt u Bevestig de instellingen in **Essentials**:
@@ -115,7 +118,7 @@ Nieuwe back-ups begint met het gebruik van de openbare sleutel in het nieuwe cer
 ![Azure Stack - weergave de vingerafdruk van certificaat](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>Achterwaartse compatibiliteitsmodus
-Als u back-up voordat u bijwerkt naar 1901 hebt geconfigureerd, worden de instellingen zonder wijzigingen in gedrag overgedragen. In dit geval versleutelingssleutel wordt ondersteund voor achterwaartse compatibiliteit. U hebt de mogelijkheid om een certificaat te gebruiken voor het bijwerken van de versleutelingssleutel of het overschakelen. Hebt u drie versies om door te gaan met het bijwerken van de versleutelingssleutel. Gebruik dit moment overstappen naar een certificaat. 
+Als u back-up voordat u bijwerkt naar 1901 hebt geconfigureerd, worden de instellingen zonder wijzigingen in gedrag overgedragen. In dit geval versleutelingssleutel wordt ondersteund voor achterwaartse compatibiliteit. U hebt de mogelijkheid om een certificaat te gebruiken voor het bijwerken van de versleutelingssleutel of het overschakelen. Hebt u ten minste drie versies om door te gaan met het bijwerken van de versleutelingssleutel. Gebruik dit moment overstappen naar een certificaat. Voor het maken een nieuwe sleutel gebruiken voor versleuteling de [cmdlet New-AzsEncryptionKeyBase64](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
 ![Azure Stack - met behulp van de versleutelingssleutel in de modus voor achterwaartse compatibiliteit](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

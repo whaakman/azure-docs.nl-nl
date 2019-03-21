@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85a2810e8ab8de5ad2967aaf17f421d871368063
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.openlocfilehash: 2c3da9470668fa2987195c26e98eee51f14027f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958453"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58136341"
 ---
-# <a name="indexing-external-data-for-queries-in-azure-search"></a>Externe gegevens voor query's in Azure Search indexeren
+# <a name="data-import-overview---azure-search"></a>Gegevens importeren overzicht - Azure Search
 
 In Azure Search worden query's uitgevoerd over uw inhoud in geladen en opgeslagen in een [search-index](search-what-is-an-index.md). Dit artikel worden de twee basismethoden voor het invullen van een index behandeld: *push* uw gegevens in de index via een programma, of wijs een [Azure Search-indexeerfunctie](search-indexer-overview.md) op een ondersteunde gegevensbron om  *pull* in de gegevens.
 
@@ -36,7 +36,31 @@ U kunt de volgende API's gebruiken om één of meerdere documenten in een index 
 
 Er is momenteel geen ondersteuning voor het pushen van gegevens via de portal.
 
-Zie [Gegevens importeren met REST](search-import-data-rest-api.md) of [Gegevens importeren met .NET](search-import-data-dotnet.md) voor een inleiding tot elke methodologie.
+Zie voor een inleiding tot elke methodologie [Quick Start: Een Azure Search-index met behulp van PowerShell en de REST-API maken](search-create-index-rest-api.md) of [Quick Start: Maken van een Azure Search-index in C# ](search-import-data-dotnet.md).
+
+<a name="indexing-actions"></a>
+
+### <a name="indexing-actions-upload-merge-uploadormerge-delete"></a>Indexeren van acties: uploaden, samenvoegen, uploadOrMerge, verwijderen
+
+Wanneer u de REST-API gebruikt, doet u HTTP POST-aanvragen met JSON-aanvraagtekst bij de eindpunt-URL van uw Azure Search-index. Het JSON-object in de hoofdtekst van uw HTTP-aanvraag bevat een enkele JSON-matrix met de naam ''waarde''. Deze matrix bevat JSON-objecten die de documenten vertegenwoordigen die u aan uw index wilt toevoegen, wilt bijwerken of wilt wijzigen.
+
+Elk JSON-object in de matrix ''waarde'' vertegenwoordigt een document dat moet worden geïndexeerd. Elk van deze objecten bevat de sleutel van het document en Hiermee geeft u de gewenste indexeringsbewerking (uploaden, samenvoegen, verwijderen). Afhankelijk van welke van de onderstaande bewerkingen u kiest, moet u slechts bepaalde velden voor elk document opnemen:
+
+| @search.action | Description | Vereiste velden voor elk document | Opmerkingen |
+| -------------- | ----------- | ---------------------------------- | ----- |
+| `upload` |Een `upload`-actie is vergelijkbaar met een "upsert", waarbij het document wordt ingevoegd als het nieuw is en wordt bijgewerkt/vervangen als het al bestaat. |sleutel, plus andere velden die u wilt definiëren |Tijdens het bijwerken/vervangen van een bestaand document wordt elk veld dat niet is opgegeven in de aanvraag ingesteld op `null`. Dit gebeurt zelfs als het veld eerder is ingesteld op een niet-null-waarde. |
+| `merge` |Een bestaand document wordt bijgewerkt met de opgegeven velden. Als het document niet in de index bestaat, mislukt de samenvoeging. |sleutel, plus andere velden die u wilt definiëren |Alle velden die u in een samenvoeging opgeeft, vervangen de bestaande velden in het document, ook velden van het type `Collection(Edm.String)`. Als het document bijvoorbeeld een veld `tags` bevat met de waarde `["budget"]` en u een samenvoeging doet met de waarde `["economy", "pool"]` voor `tags`, wordt de uiteindelijke waarde van het veld `tags` `["economy", "pool"]`. Het wordt dus niet `["budget", "economy", "pool"]`. |
+| `mergeOrUpload` |Deze bewerking gedraagt zich als `merge` wanneer een document met de opgegeven sleutel al in de index bestaat. Als het document niet bestaat, gedraagt deze bewerking zich als `upload` met een nieuw document. |sleutel, plus andere velden die u wilt definiëren |- |
+| `delete` |Het opgegeven document wordt uit de index verwijderd. |alleen sleutel |Alle andere velden worden genegeerd. Als u een afzonderlijk veld uit een document wilt verwijderen, gebruikt u `merge` en stelt u het veld expliciet in op null. |
+
+### <a name="formulate-your-query"></a>Uw query formuleren
+Er zijn twee manieren om [in de index te zoeken met behulp van de REST-API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). De ene manier is om een HTTP POST-aanvraag uit te geven waarbij uw queryparameters worden gedefinieerd in een JSON-object in de aanvraagtekst. De andere manier is om een HTTP GET-aanvraag uit te geven waarbij uw queryparameters worden gedefinieerd in de aanvraag-URL. POST heeft [soepelere limieten](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) met betrekking tot de grootte van queryparameters dan GET. Daarom wordt u aangeraden POST te gebruiken, tenzij er speciale omstandigheden zijn waarin het gebruik van GET beter zou zijn.
+
+Voor zowel POST als GET moet u in de aanvraag-URL de *servicenaam*, de *indexnaam* en de juiste *API-versie* (de huidige API-versie is `2017-11-11` op het moment van publicatie van dit document) opgeven. Voor GET geeft u in de *querytekenreeks* aan het einde van de URL de queryparameters op. Hieronder vindt u de URL-indeling:
+
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
+
+De indeling voor POST is hetzelfde, maar met alleen de api-versie in de queryreeksparameters.
 
 
 ## <a name="pulling-data-into-an-index"></a>Gegevens in een index ophalen

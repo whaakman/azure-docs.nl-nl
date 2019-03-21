@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
-ms.openlocfilehash: d75048cb53dd1a5ebaba6322228af6137d0f3b96
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3bb88f2f9546ec25433061a0704bd144730bd34c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456173"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894628"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Algoritmen kiezen voor Azure Machine Learning Studio
 
@@ -45,7 +45,7 @@ Lezen van het pad en de algoritme labels op de grafiek als ' voor  *&lt;pad labe
 Geen van beide zijn soms een perfecte maat. Ze zijn bedoeld om te worden van de regel van de miniatuur aanbevelingen, dus hoeft hiervoor niets erop vertrouwen dat u precies.
 Verschillende gegevenswetenschappers die we hebben het gehad met genoemde die de enige manier om te zoeken, het beste algoritme is om te proberen ze allemaal.
 
-Hier volgt een voorbeeld van de [Azure AI Gallery](http://gallery.azure.ai/) van een experiment dat probeert verschillende algoritmes op basis van dezelfde gegevens en vergelijkt de resultaten: [Vergelijk ROC classificaties: Herkenning letter](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
+Hier volgt een voorbeeld van de [Azure AI Gallery](https://gallery.azure.ai/) van een experiment dat probeert verschillende algoritmes op basis van dezelfde gegevens en vergelijkt de resultaten: [Vergelijk ROC classificaties: Herkenning letter](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Zie voor het downloaden van een overzicht van de infographic eenvoudig te begrijpen van de basisprincipes van machine learning voor meer informatie over populaire algoritmen gebruikt om veelvoorkomende machine learning vragen te beantwoorden [Machine learning-basisbeginselen met algoritmevoorbeelden](basics-infographic-with-algorithm-examples.md).
@@ -180,7 +180,7 @@ Besluit forests ([regressie](/azure/machine-learning/studio-module-reference/dec
 
 Omdat de adresruimte van een functie kan worden onderverdeeld in willekeurig kleine regio's, is het eenvoudig te imagine fijn genoeg delen één gegevenspunt per regio hebben. Dit is een extreme voorbeeld van te. Een groot aantal structuren zijn om te voorkomen dat dit, samengesteld met speciale wiskundige zorg genomen om te controleren of de structuren niet worden gecorreleerd. Het gemiddelde van dit forest' besluit' is een structuur die wordt te voorkomen. Besluit forests kunnen een grote hoeveelheid geheugen gebruiken. Decision jungles zijn een variant die wordt verbruikt minder geheugen ten koste van iets meer trainingstijd in.
 
-Te voorkomen boosted decision trees door te beperken hoe vaak ze kunnen onderverdelen en hoe gegevenspunten zijn toegestaan in elke regio. Het algoritme vormt een reeks structuren, die elk leert om te compenseren voor de fout die door de structuur voordat links. Het resultaat is een zeer nauwkeurige learner die doorgaans gebruik van een grote hoeveelheid geheugen. Bekijk voor de volledige technische beschrijving [Friedman het oorspronkelijke document](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
+Te voorkomen boosted decision trees door te beperken hoe vaak ze kunnen onderverdelen en hoe gegevenspunten zijn toegestaan in elke regio. Het algoritme vormt een reeks structuren, die elk leert om te compenseren voor de fout die door de structuur voordat links. Het resultaat is een zeer nauwkeurige learner die doorgaans gebruik van een grote hoeveelheid geheugen. Bekijk voor de volledige technische beschrijving [Friedman het oorspronkelijke document](https://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
 [Snelle forest kwantiel regressie](/azure/machine-learning/studio-module-reference/fast-forest-quantile-regression) is een variatie van beslissingsstructuren voor de speciaal geval waar u niet alleen de typische (gemiddelde) waarde van de gegevens binnen een regio, maar ook de distributie hiervan in de vorm van quantiles weten.
 
@@ -215,7 +215,7 @@ Met behulp van een slimme uitbreiding van niet-lineaire SVMs de [één klasse SV
 Bayesiaanse methoden hebben een zeer wenselijk kwaliteit: ze te voorkomen. Ze doen dit met bepaalde veronderstellingen vooraf over de waarschijnlijke distributie van het antwoord. Een andere bijkomend gevolg van deze benadering is dat er heel weinig parameters. Azure Machine Learning Studio heeft Bayesiaanse algoritmen voor beide classificatie (['Two-class Bayes point machine](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine)) en regressie ([Bayesiaanse lineaire regressie](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)).
 Houd er rekening mee dat deze wordt ervan uitgegaan dat de gegevens kunnen worden gesplitst of met een rechte lijn aanpassen.
 
-Bayes point machines ontwikkeld op een historische Opmerking bij Microsoft Research. Ze hebben wat uitzonderlijk prachtige theoretische werk deze. De geïnteresseerd student wordt omgeleid naar de [oorspronkelijke artikel in JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) en een [inzichtelijke blog door Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+Bayes point machines ontwikkeld op een historische Opmerking bij Microsoft Research. Ze hebben wat uitzonderlijk prachtige theoretische werk deze. De geïnteresseerd student wordt omgeleid naar de [oorspronkelijke artikel in JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) en een [inzichtelijke blog door Chris Bishop](https://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### <a name="specialized-algorithms"></a>Gespecialiseerde algoritmes
 Als u beschikt over een zeer specifieke doel is het mogelijk dat de oplossing. In de verzameling van Azure Machine Learning Studio zijn er algoritmen die zijn gespecialiseerd in:

@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 7b99dcf621eac90d4b75d6827102b656f95aafbb
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 8d369800bdc9817856eeb7039fe47e5b870735ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958878"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107369"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Cluster uitbreiden om te voldoen aan veranderende vraag beheren
 
@@ -42,7 +42,7 @@ De volgende afbeelding ziet u de stroom van de volgende stappen. Meer informatie
     **Criteria**
 
     | Instelling | Beschrijving en waarde |
-    | --- | --- | --- |
+    | --- | --- |
     | **Tijdverzameling** | Selecteer een aggregatie criteria, zoals **gemiddelde**. |
     | **Naam van de meetwaarde** | Selecteer de metrische gegevens die u wilt dat de schaalbewerking wordt uitgevoerd op, zoals **Cache gebruik**. |
     | **Tijdsintervalstatistieken** | Kiezen tussen **gemiddelde**, **Minimum**, **maximale**, en **som**. |
@@ -54,7 +54,7 @@ De volgende afbeelding ziet u de stroom van de volgende stappen. Meer informatie
     **Actie**
 
     | Instelling | Beschrijving en waarde |
-    | --- | --- | --- |
+    | --- | --- |
     | **Bewerking** | Kies de gewenste optie om te schalen of uitschalen. |
     | **Aantal exemplaren** | Kies het aantal knooppunten of exemplaren die u wilt toevoegen of verwijderen wanneer een metrische voorwaarde wordt voldaan. |
     | **Afkoelen (minuten)** | Kies een passende tijdsinterval moet worden gewacht tussen schaalbewerkingen. Beginnen met de standaardwaarde van vijf minuten. |
@@ -65,7 +65,7 @@ De volgende afbeelding ziet u de stroom van de volgende stappen. Meer informatie
 1. In de **Instantielimieten** sectie aan de linkerkant, geef waarden op voor elke instelling.
 
     | Instelling | Beschrijving en waarde |
-    | --- | --- | --- |
+    | --- | --- |
     | **Minimum** | Het aantal exemplaren dat uw cluster wordt niet hieronder, ongeacht het gebruik schalen. |
     | **Maximum** | Het aantal exemplaren dat uw cluster wordt niet, ongeacht het gebruik schalen. |
     | **Standaard** | Het standaardaantal exemplaren. Deze instelling wordt gebruikt als er problemen zijn met het lezen van de metrische gegevens voor resources. |

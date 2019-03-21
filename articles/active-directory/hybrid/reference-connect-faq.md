@@ -15,16 +15,33 @@ ms.date: 11/02/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 594fb736b8ec4b49cf1525047ff8a7ce5e5dc959
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194968"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840899"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Veelgestelde vragen over Azure Active Directory Connect
 
 ## <a name="general-installation"></a>Algemene installatie
+
+**V: Hoe kan ik mijn Azure AD Connect-server de beveiliging kwetsbaarheid voor aanvallen verminderen beperken?**
+
+Microsoft raadt aan uw Azure AD Connect-server voor het verkleinen van de kwetsbaarheid van de beveiliging voor deze kritieke onderdeel van uw IT-omgeving beperken.  Na de onderstaande aanbevelingen, neemt het beveiligingsrisico voor uw organisatie.
+
+* Azure AD Connect op een domein gekoppelde server implementeren en administratieve toegang beperken tot beheerders van het domein of andere over nauwkeurig omschreven beveiligingsgroepen
+
+Voor meer informatie zie: 
+
+* [Beveiligen beheerders groepen](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [Ingebouwde administrator-accounts beveiligen](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [Beveiliging verbeteren en sustainment door oppervlakteaanvallen verminderen](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [De Active Directory kwetsbaarheid voor aanvallen verminderen](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+
 **V: Werkt de installatie als de globale beheerder van Azure Active Directory (Azure AD) tweeledige verificatie (2FA heeft) ingeschakeld?**  
 Dit scenario wordt ondersteund vanaf de builds februari 2016.
 

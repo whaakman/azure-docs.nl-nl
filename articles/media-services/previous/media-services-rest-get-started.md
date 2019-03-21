@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: d27b508362193b79d7464ae49683479b2f8fc7ba
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 0efbabf658210c733a7a7f201cb4a36f63456b28
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991240"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835340"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Aan de slag met het leveren van inhoud op aanvraag met behulp van REST  
 
@@ -41,7 +41,7 @@ De volgende vereisten zijn vereist om te beginnen met het ontwikkelen met Media 
 * Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 * Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 * Inzicht in hoe u voor het ontwikkelen met Media Services REST API. Zie voor meer informatie, [Media Services REST API-overzicht](media-services-rest-how-to-use.md).
-* Een toepassing van uw keuze die HTTP-aanvragen en antwoorden kan verzenden. Deze zelfstudie wordt gebruikgemaakt van [Fiddler](http://www.telerik.com/download/fiddler).
+* Een toepassing van uw keuze die HTTP-aanvragen en antwoorden kan verzenden. Deze zelfstudie wordt gebruikgemaakt van [Fiddler](https://www.telerik.com/download/fiddler).
 
 De volgende taken worden weergegeven in deze Quick Start.
 
@@ -331,7 +331,7 @@ Als dit lukt, wordt het volgende antwoord geretourneerd:
 Zodra u hebt de AccessPolicy en Locator ingesteld, wordt het werkelijke bestand geüpload naar een Azure blob storage-container met behulp van de Azure Storage REST-API's. U moet de bestanden uploaden als blok-blobs. Pagina-blobs worden niet ondersteund door Azure Media Services.  
 
 > [!NOTE]
-> U moet de bestandsnaam voor het bestand dat u wilt uploaden naar de Locator toevoegen **pad** waarde die is ontvangen in de vorige sectie. Bijvoorbeeld: https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> U moet de bestandsnaam voor het bestand dat u wilt uploaden naar de Locator toevoegen **pad** waarde die is ontvangen in de vorige sectie. Bijvoorbeeld `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
 >
 >
 
@@ -408,7 +408,7 @@ Als dit lukt, wordt het volgende geretourneerd:
 
 Na het opnemen van de die activa in Media Services, media kunnen worden gecodeerd, transmuxed, van een watermerk enzovoort, voordat deze aan clients wordt geleverd. Deze activiteiten worden gepland en uitgevoerd op meerdere achtergrondrolinstanties om hoge prestaties en een hoge beschikbaarheid te garanderen. Deze activiteiten worden taken genoemd en elke taak bestaat uit atomische taken die daadwerkelijk werken op het assetbestand (Zie voor meer informatie, [taak](https://docs.microsoft.com/rest/api/media/operations/job), [taak](https://docs.microsoft.com/rest/api/media/operations/task) beschrijvingen).
 
-Zoals eerder al is aangegeven, bij het werken met Azure Media Services is een van de meest voorkomende scenario's adaptive bitrate streaming geleverd aan uw clients. Media Services kunt dynamisch pakket van een set adaptive bitrate MP4-bestanden in een van de volgende indelingen: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+Zoals eerder al is aangegeven, bij het werken met Azure Media Services is een van de meest voorkomende scenario's adaptive bitrate streaming geleverd aan uw clients. Met Media Services kunt u een dynamisch pakket maken met een van de volgende indelingen voor MP4-bestanden met een adaptieve bitsnelheid: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
 De volgende sectie ziet hoe u een taak met een coderingstaak te maken. De taak bevat voor het transcoderen het tussentijdse bestand in een set met behulp van adaptieve bitrate MP4s **Media Encoder Standard**. De sectie wordt ook uitgelegd hoe u voor het bewaken van de taak voortgang verwerken. Wanneer de taak voltooid is, wordt u mogelijk zijn om locators die nodig zijn om toegang te krijgen tot uw bedrijfsmiddelen te maken.
 
@@ -459,7 +459,7 @@ De volgende code aanvragen van het coderingsprogramma-id.
     }
 
 ### <a name="create-a-job"></a>Een taak maken
-Elke taak kan een of meer taken, afhankelijk van het type van de verwerking die u wilt bereiken hebben. U kunt via de REST-API, taken en hun verwante taken maken op twee manieren: Taken kunnen worden gedefinieerd inline via de navigatie-eigenschap van de taken op taak entiteiten of batchverwerking van OData. Batchverwerking maakt gebruik van de Media Services SDK. Voor de leesbaarheid van de codevoorbeelden in dit artikel zijn taken echter gedefinieerde inline. Zie voor informatie over batchverwerking, [Open Data Protocol (OData) batchverwerking](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Elke taak kan een of meer taken, afhankelijk van het type van de verwerking die u wilt bereiken hebben. U kunt via de REST-API, taken en hun verwante taken maken op twee manieren: Taken kunnen worden gedefinieerd inline via de navigatie-eigenschap van de taken op taak entiteiten of batchverwerking van OData. Batchverwerking maakt gebruik van de Media Services SDK. Voor de leesbaarheid van de codevoorbeelden in dit artikel zijn taken echter gedefinieerde inline. Zie voor informatie over batchverwerking, [Open Data Protocol (OData) batchverwerking](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 Het volgende voorbeeld ziet u het maken en een taak met een die taak instellen op het coderen van een video op een specifieke oplossingsstatus en de kwaliteit te plaatsen. De volgende sectie van de documentatie bevat de lijst met alle de [taak voorinstellingen](https://msdn.microsoft.com/library/mt269960) ondersteund door de processor Media Encoder Standard.  
 
@@ -693,7 +693,7 @@ De volgende code laat zien hoe u aan te vragen van de uitvoerasset id.
 
 ## <a id="publish_get_urls"></a>De asset publiceren en te streamen en progressief downloaden ophalen URL's met REST-API
 
-Als u een asset wilt streamen of downloaden, moet u deze eerste publiceren door een locator te maken. Locators bieden toegang tot bestanden in de asset. Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, voor het streamen van media (bijvoorbeeld MPEG DASH, HLS of Smooth Streaming) en Access Signature (SAS)-locators, voor het downloaden van mediabestanden. 
+Als u een asset wilt streamen of downloaden, moet u deze eerste publiceren door een locator te maken. Locators bieden toegang tot bestanden in de asset. Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, voor het streamen van media (bijvoorbeeld MPEG DASH, HLS, of Smooth Streaming) en SAS-locators (Shared Access Signature), voor het downloaden van media-bestanden. 
 
 Zodra u de locators hebt gemaakt, kunt u de URL's die worden gebruikt om te streamen of te downloaden van uw bestanden kunt bouwen.
 
@@ -817,8 +817,6 @@ Zodra u hebt de AccessPolicy en Locator ingesteld, kunt u bestanden met behulp v
 
 > [!NOTE]
 > U moet de bestandsnaam voor het bestand dat u wenst te downloaden naar de Locator toevoegen **pad** waarde die is ontvangen in de vorige sectie. Bijvoorbeeld: https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
->
->
 
 Zie voor meer informatie over het werken met Azure storage-blobs [REST API voor Blob Service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
@@ -912,7 +910,7 @@ Om te streamen MPEG DASH, toevoegen (format = mpd-time-csf) nadat de '/ manifest
 
 
 ## <a id="play"></a>Uw inhoud afspelen
-Gebruik [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) om uw video te streamen.
+Gebruik [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) om uw video te streamen.
 
 Als u wilt testen progressief downloaden, plakt u een URL in een browser (bijvoorbeeld Internet Explorer, Chrome, Safari).
 

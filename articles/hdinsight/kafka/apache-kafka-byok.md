@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a3b719f4b2a19f4ea399d6a0858719a1709adc93
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109485"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173920"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Breng uw eigen sleutel voor Apache Kafka op Azure HDInsight (Preview)
 
@@ -31,7 +31,7 @@ U kunt de Azure portal of Azure CLI gebruiken veilig de om sleutels te rouleren 
 
 1. Een beheerde identiteit voor Azure-resources maken.
 
-   Om te verifiëren naar Key Vault, maak een beheerde identiteit gebruiker toegewezen met de [Azure Portal](../../active-directory/managed-service-identity/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-service-identity/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-service-identity/how-to-manage-ua-identity-arm.md), of [ Azure CLI](../../active-directory/managed-service-identity/how-to-manage-ua-identity-cli.md). Hoewel Azure Active directory vereist voor beheerde identiteiten en BYOK met Kafka is, niet Enterprise Security Package (ESP) vereist. Zorg ervoor dat u de resource-ID van de beheerde identiteit voor wanneer u deze aan het toegangsbeleid van Key Vault toevoegen.
+   Om te verifiëren naar Key Vault, maak een beheerde identiteit gebruiker toegewezen met de [Azure-portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), of [ Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Zie voor meer informatie over de manier waarop beheerde identiteiten werk in Azure HDInsight, [beheerde identiteiten in Azure HDInsight](../hdinsight-managed-identities.md). Hoewel Azure Active directory vereist voor beheerde identiteiten en BYOK met Kafka is, niet Enterprise Security Package (ESP) vereist. Zorg ervoor dat u de resource-ID van de beheerde identiteit voor wanneer u deze aan het toegangsbeleid van Key Vault toevoegen.
 
    ![De gebruiker toegewezen beheerde identiteit maken in Azure portal](./media/apache-kafka-byok/user-managed-identity-portal.png)
 

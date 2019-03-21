@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 80fbc84c2284b7078b07040a74566cf1e8d57fb4
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 11b1b46e29ac9a4147c4dc319753edd0fadce8bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341082"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088907"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>De configuratieserver voor herstel na noodgevallen van fysieke beheren
 
@@ -50,7 +50,7 @@ De meest recente versie van het configuratiebestand van de server-installatie is
 4. Op de **-Server toevoegen** pagina, klikt u op de knop downloaden om te downloaden van de registratiesleutel. Deze sleutel moet u tijdens de installatie van de configuratieserver registreren bij Azure Site Recovery-service.
 5. Klik op de **downloaden van de Microsoft Azure Site Recovery geïntegreerde Setup** koppeling om te downloaden van de meest recente versie van de configuratieserver.
 
-  ![Downloadpagina](./media/physical-manage-configuration-server/downloadcs.png)
+   ![Downloadpagina](./media/physical-manage-configuration-server/downloadcs.png)
 
 
 ## <a name="install-and-register-the-server"></a>Installeer en registreer de server
@@ -153,40 +153,40 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
 3. Klik op de **kluis registratie** tabblad.
 4. Een nieuwe kluis registratie-bestand downloaden via de portal en geef deze als invoer voor het hulpprogramma.
 
-  ![register-configuratie-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+   ![register-configuratie-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Geef de nieuwe proxy-informatie op en klik op de **registreren** knop.
 6. Open een opdrachtvenster Admin PowerShell.
 7. Voer de volgende opdracht uit:
 
-  ```PowerShell
-  $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-  net stop obengine
-  net start obengine
-  ```
+   ```PowerShell
+   $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+   net stop obengine
+   net start obengine
+   ```
 
-  >[!WARNING]
-  Als u extra processervers die is gekoppeld aan de configuratieserver hebt, moet u [los van de proxy-instellingen op alle processervers van de scale-out](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) in uw implementatie.
+   > [!WARNING]
+   > Als u extra processervers die is gekoppeld aan de configuratieserver hebt, moet u [los van de proxy-instellingen op alle processervers van de scale-out](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) in uw implementatie.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Een configuratieserver bij dezelfde kluis registreren
-  1. Meld u aan bij uw configuratieserver.
-  2. Start de cspsconfigtool.exe met behulp van de snelkoppeling op het bureaublad.
-  3. Klik op de **kluis registratie** tabblad.
-  4. Een nieuwe registratiebestand downloaden via de portal en geef deze als invoer voor het hulpprogramma.
-        ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-  5. Geef de details van de proxyserver en klikt u op de **registreren** knop.  
-  6. Open een opdrachtvenster Admin PowerShell.
-  7. De volgende opdracht uitvoeren
+1. Meld u aan bij uw configuratieserver.
+2. Start de cspsconfigtool.exe met behulp van de snelkoppeling op het bureaublad.
+3. Klik op de **kluis registratie** tabblad.
+4. Een nieuwe registratiebestand downloaden via de portal en geef deze als invoer voor het hulpprogramma.
+      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+5. Geef de details van de proxyserver en klikt u op de **registreren** knop.  
+6. Open een opdrachtvenster Admin PowerShell.
+7. De volgende opdracht uitvoeren
 
-      ```PowerShell
-      $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-      net stop obengine
-      net start obengine
-      ```
+    ```PowerShell
+    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+    net stop obengine
+    net start obengine
+    ```
 
-  >[!WARNING]
-  Als u meerdere processerver hebt, moet u [registreert](vmware-azure-manage-process-server.md#reregister-a-process-server).
+   > [!WARNING]
+   > Als u meerdere processerver hebt, moet u [registreert](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Een configuratieserver registreren bij een andere kluis
 
@@ -246,22 +246,22 @@ De server als volgt bijwerken:
 4. Klik op **Ja** om de verwijdering van de server te bevestigen.
 
 ### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>Verwijderen van de configuratieserver en de bijbehorende afhankelijkheden
-  > [!TIP]
-  Als u van plan bent om de configuratieserver met Azure Site Recovery opnieuw opnieuw te gebruiken, kunt u overslaan naar stap 4 rechtstreeks
+> [!TIP]
+>   Als u van plan bent om de configuratieserver met Azure Site Recovery opnieuw opnieuw te gebruiken, kunt u overslaan naar stap 4 rechtstreeks
 
 1. Meld u aan bij de configuratieserver als beheerder.
 2. Open het Configuratiescherm > programma > programma's verwijderen
 3. Verwijder de programma's in de volgende volgorde:
-  * Microsoft Azure Recovery Services-agent
-  * Microsoft Azure Site Recovery Mobility Service/Master Target server
-  * Microsoft Azure Site Recovery-Provider
-  * Microsoft Azure Site Recovery-configuratieserver/Server-proces
-  * Microsoft Azure Site Recovery Configuration Serverafhankelijkheden
-  * MySQL Server 5.5
+   * Microsoft Azure Recovery Services-agent
+   * Microsoft Azure Site Recovery Mobility Service/Master Target server
+   * Microsoft Azure Site Recovery-Provider
+   * Microsoft Azure Site Recovery-configuratieserver/Server-proces
+   * Microsoft Azure Site Recovery Configuration Serverafhankelijkheden
+   * MySQL Server 5.5
 4. Voer de volgende opdracht uit en een opdrachtprompt met beheerdersrechten.
-  ```
-  reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-  ```
+   ```
+   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+   ```
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Verwijderen of de registratie van een configuratieserver (PowerShell)
 

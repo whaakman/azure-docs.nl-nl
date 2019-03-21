@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076731"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Ondersteuning voor OpenAPI 2.0-metagegevens in Azure Functions (preview)
 OpenAPI 2.0 (voorheen Swagger) ondersteuning voor metagegevens in Azure Functions is een preview-functie die u gebruiken kunt om te schrijven van de definitie van een OpenAPI 2.0 in een functie-app. U kunt vervolgens dat bestand hosten met behulp van de functie-app.
@@ -56,10 +56,10 @@ In de volgende tabel staat voor de Azure portal-instellingen en de bijbehorende 
 |Swagger.json|Portal UI|Function.json|
 |:----|:-----|:-----|
 |[Host](https://swagger.io/specification/#fixed-fields-15)|**Functie van app-instellingen** > **App Service-instellingen** > **overzicht** > **URL**|*Niet aanwezig*
-|[Paden](https://swagger.io/specification/#paths-object-29)|**Integreer** > **geselecteerde HTTP-methoden**|Bindingen: Route
+|[Paths](https://swagger.io/specification/#paths-object-29)|**Integreer** > **geselecteerde HTTP-methoden**|Bindingen: Route
 |[Pad-Item](https://swagger.io/specification/#path-item-object-32)|**Integreer** > **Routesjabloon**|Bindingen: Methoden
 |[Beveiliging](https://swagger.io/specification/#security-scheme-object-112)|**sleutels**|*Niet aanwezig*|
-|bewerkings-id *|**Route + toegestane bewerkingen**|Route + toegestane bewerkingen|
+|operationID*|**Route + toegestane bewerkingen**|Route + toegestane bewerkingen|
 
 \*De bewerkings-ID is alleen vereist voor integratie met PowerApps en Flow.
 > [!NOTE]
@@ -72,9 +72,9 @@ In de volgende tabel staat voor de Azure portal-instellingen en de bijbehorende 
  API-definitie die als host fungeert in de portal voordat u broncodebeheer om te wijzigen van uw API-definitie vanuit broncodebeheer inschakelt, moet u inschakelen. Volg deze instructies:
 
 1. Blader naar **API-definitie (preview)** in de instellingen van uw functie-app.
-  1. Stel **bron van API-definitie** naar **functie**.
-  1. Klik op **sjabloon voor genereren van API-definitie** en vervolgens **opslaan** te maken van de Sjabloondefinitie van een later aan te passen.
-  1. Houd er rekening mee voor uw API-definitie URL en de sleutel.
+   1. Stel **bron van API-definitie** naar **functie**.
+   1. Klik op **sjabloon voor genereren van API-definitie** en vervolgens **opslaan** te maken van de Sjabloondefinitie van een later aan te passen.
+   1. Houd er rekening mee voor uw API-definitie URL en de sleutel.
 1. [Instellen van continue integratie/continue implementatie (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
 2. Wijzigen van swagger.json in Bronbeheer op \site\wwwroot\.azurefunctions\swagger\swagger.json.
 

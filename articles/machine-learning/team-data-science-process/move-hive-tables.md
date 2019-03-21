@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477848"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840644"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive-tabellen maken en gegevens laden uit Azure Blob Storage
 
@@ -36,7 +36,7 @@ We gaan ervan uit dat de gegevens voor Hive-tabellen een **niet-gecomprimeerde**
 
 Als u wilt om te oefenen op de **NYC Taxi reisgegevens**, moet u:
 
-* **Download** de 24 [NYC Taxi reisgegevens](http://www.andresmh.com/nyctaxitrips) bestanden (12 reis-bestanden en 12 Fare-bestanden)
+* **Download** de 24 [NYC Taxi reisgegevens](https://www.andresmh.com/nyctaxitrips) bestanden (12 reis-bestanden en 12 Fare-bestanden)
 * **Pak deze uit** alle bestanden in CSV-bestanden, en vervolgens
 * **uploaden** ze naar de standaard (of de juiste container) van de Azure storage-account; opties voor dergelijk account worden weergegeven aan [gebruikt Azure storage met Azure HDInsight-clusters](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) onderwerp. Het proces voor het uploaden van de CSV-bestanden naar de standaard-container in de storage-account kan worden gevonden op deze [pagina](hive-walkthrough.md#upload).
 

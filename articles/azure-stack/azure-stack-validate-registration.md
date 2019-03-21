@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 9dc2facbcae5ced1328d5488e533239a6a5627cf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a4f41f5cf4e2775e3c300a2e83794e35d7328965
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776475"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104230"
 ---
 # <a name="validate-azure-registration"></a>Valideren van de registratie van Azure
  
@@ -67,8 +67,8 @@ De volgende vereisten moeten worden voldaan:
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
    ```
-> [!NOTE]
-  > Als een CSP, bij het gebruik van een gedeelde Services of IUR-abonnement, moet u voor de referenties van een gebruiker van die respectieve AAD. Meestal dit is vergelijkbaar met `subscriptionowner@iurcontoso.onmicrosoft.com`. Deze gebruiker moet worden de juiste referenties hebt zoals hierboven is beschreven.
+   > [!NOTE]
+   > Als een CSP, bij het gebruik van een gedeelde Services of IUR-abonnement, moet u voor de referenties van een gebruiker van die respectieve AAD. Meestal dit is vergelijkbaar met `subscriptionowner@iurcontoso.onmicrosoft.com`. Deze gebruiker moet worden de juiste referenties hebt zoals hierboven is beschreven.
 
 3. Voer de volgende om in te stellen van de PowerShell-prompt `$subscriptionID` als de Azure-abonnement u wilt gebruiken. Vervang `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` met uw eigen abonnement-ID:
    ```powershell

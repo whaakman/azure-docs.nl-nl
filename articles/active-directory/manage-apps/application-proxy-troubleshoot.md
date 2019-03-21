@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5895325aa929e44128c331db847252835f563796
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 32d218e057fa040eded07f0adc813485ddaa52fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437539"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080096"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Oplossen van problemen met Application Proxy- en foutberichten
 Als er fouten optreden bij het openen van een gepubliceerde toepassing of in de publicatie van toepassingen, controleert u de volgende opties om te zien of Microsoft Azure AD Application Proxy correct werkt:
@@ -36,7 +36,7 @@ Zie voor meer informatie over het hulpprogramma Azure AD-probleemoplossing [hulp
 ## <a name="the-page-is-not-rendered-correctly"></a>De pagina wordt niet correct weergegeven
 U mogelijk problemen met uw toepassing rendering of werkt niet goed zonder specifieke foutberichten worden weergegeven. Dit kan gebeuren als u het pad van het artikel hebt gepubliceerd, maar de toepassing vereist inhoud die buiten het opgegeven pad bestaat.
 
-Bijvoorbeeld, als u het pad publiceert https://yourapp/app , maar de toepassing voert aanroepen afbeeldingen https://yourapp/media, ze worden niet weergegeven. Zorg ervoor dat u de toepassing met behulp van het hoogste niveau pad, moet u alle relevante inhoud bevatten. In dit voorbeeld zou zijn http://yourapp/.
+Bijvoorbeeld, als u het pad publiceert `https://yourapp/app` , maar de toepassing voert aanroepen afbeeldingen `https://yourapp/media`, ze worden niet weergegeven. Zorg ervoor dat u de toepassing met behulp van het hoogste niveau pad, moet u alle relevante inhoud bevatten. In dit voorbeeld zou zijn `http://yourapp/`.
 
 Als u het pad op waarnaar wordt verwezen, inhoud bevatten, maar nog steeds moeten gebruikers op een dieper koppeling in het pad wijzigt, Zie het blogbericht [de juiste koppeling instellen voor toepassingsproxy-toepassingen in de Azure AD toegang Configuratiescherm en startprogramma voor Office 365-apptot](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
 

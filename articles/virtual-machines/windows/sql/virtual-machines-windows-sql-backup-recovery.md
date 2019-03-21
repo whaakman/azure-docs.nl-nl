@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: ec147355d6f61a282a0e6b0950fe03ba0e2341f5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: e291072f7eb075adeff9efb37f1f7dffc72d714c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530370"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093521"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Back-up en herstel voor SQL Server in Azure Virtual Machines
 
@@ -33,9 +33,9 @@ Het eerste deel van dit artikel biedt een overzicht van de beschikbare back-up e
 De volgende tabel bevat informatie over verschillende opties voor back-up en herstel voor SQL Server die wordt uitgevoerd op virtuele Azure-machines:
 
 | Strategie | SQL-versies | Description |
-|---|---|---|---|
+|---|---|---|
 | [Automatische back-up](#automated) | 2014<br/> 2016<br/> 2017 | Automatische back-up kunt u plannen van regelmatige back-ups voor alle databases op een virtuele machine van SQL Server. Back-ups worden opgeslagen in Azure storage voor 30 dagen. U begint met SQL Server 2016, biedt automatische back-up v2 extra opties zoals het configureren van handmatig te plannen en de frequentie van volledige en logboekback-ups. |
-| [Azure Backup voor SQL-VM 's](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup biedt een back-upfunctionaliteit voor Enterprise-klasse voor SQL Server die wordt uitgevoerd in virtuele Azure-machines. Met deze service kunt u back-ups voor meerdere servers en schaling van duizenden databases centraal beheren. Databases kunnen worden hersteld naar een bepaald punt in tijd in de portal. Het biedt een aanpasbare bewaarbeleid dat back-ups voor jaar kunt onderhouden. Deze functie is momenteel beschikbaar als openbare preview-versie. |
+| [Azure Backup voor SQL-VM's](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup biedt een back-upfunctionaliteit voor Enterprise-klasse voor SQL Server die wordt uitgevoerd in virtuele Azure-machines. Met deze service kunt u back-ups voor meerdere servers en schaling van duizenden databases centraal beheren. Databases kunnen worden hersteld naar een bepaald punt in tijd in de portal. Het biedt een aanpasbare bewaarbeleid dat back-ups voor jaar kunt onderhouden. Deze functie is momenteel beschikbaar als openbare preview-versie. |
 | [Handmatige back-up](#manual) | Alle | Afhankelijk van uw versie van SQL Server zijn er verschillende manieren handmatig back-up en herstellen van SQL Server op een Azure-VM wordt uitgevoerd. In dit scenario bent u verantwoordelijk voor hoe uw databases back-ups en de locatie voor de opslag en beheer van deze back-ups. |
 
 De volgende secties wordt elke optie in meer detail beschreven. De laatste sectie van dit artikel bevat een samenvatting in de vorm van een Functiematrix.

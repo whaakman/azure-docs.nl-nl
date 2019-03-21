@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 40d16076a3d995ecccd06591278b330652d960d8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 9ff134b0747e78773c95fac7ceab4cddd61c601d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189010"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227011"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Het apparaat inrichten in een IoT-hub met behulp van IoT Hub Device Provisioning Service
 
@@ -43,7 +43,7 @@ In deze stap worden de unieke beveiligingsartefacten van het apparaat toegevoegd
       [![Inschrijvingsgegevens voor TPM in de portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Voor X.509-apparaten hebt u het volgende nodig:
-    - Het [certificaat dat is verleend aan de X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx)-chip of -simulatie, in de vorm van een *.pem*- of *.cer*-bestand. Voor een afzonderlijke inschrijving moet u het *ondertekenaarcertificaat* per apparaat voor het X.509-systeem gebruiken, maar voor het registreren van groepen, moet u het *hoofdcertificaat* gebruiken. 
+    - Het [certificaat dat is verleend aan de X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx)-chip of -simulatie, in de vorm van een *.pem*- of *.cer*-bestand. Voor een afzonderlijke inschrijving moet u de per-apparaat gebruiken *ondertekend certificaat* voor het X.509-systeem voor Registratiegroepen, u moet gebruiken de *basiscertificaat*. 
 
       [![Afzonderlijke inschrijving voor X.509-attestation toevoegen in de portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
@@ -57,7 +57,7 @@ Er zijn twee manieren om het apparaat te registreren bij Device Provisioning Ser
 
 Nu schrijft u het apparaat in met uw Device Provisioning Service-instantie, met behulp van de vereiste beveiligingsartefacten op basis van het attestation-mechanisme van het apparaat: 
 
-1. Meld u aan bij de Azure-portal, klik in het linkermenu op de knop **Alle bronnen** en open Device Provisioning Service.
+1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **Alle bronnen** en open Device Provisioning Service.
 
 2. Selecteer **Manage enrollments** in de overzichtsblade van Device Provisioning Service. Selecteer het tabblad **Afzonderlijke inschrijvingen** of het tabblad **Inschrijvingsgroepen** afhankelijk van de gekozen installatie voor het apparaat. Klik bovenaan op de knop **Toevoegen**. Selecteer **TPM** of **X.509** als het attestation-*mechanisme*, en voer de juiste beveiligingsartefacten toe, zoals eerder besproken. U kunt een nieuwe **apparaat-id voor IoT Hub** invoeren. Klik op de knop **Save** als u klaar bent. 
 

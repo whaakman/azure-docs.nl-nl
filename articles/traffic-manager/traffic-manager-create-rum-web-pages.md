@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: d6b669f5baae13f9fb57c5c58060e70a8f871e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117265"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Over het verzenden van Real User Measurements op Azure Traffic Manager met behulp van webpagina 's
 
@@ -34,7 +34,7 @@ Als u de RUM-sleutel met behulp van Azure portal:
 3. Klik in de blade Traffic Manager-profiel op **Real User Measurements** onder **instellingen**.
 4. Klik op **sleutel genereren** om een nieuwe RUM-sleutel te maken.
  
-  ![Real User Measurements sleutel genereren](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![Real User Measurements sleutel genereren](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Afbeelding 1: Real-User-metingen genereren**
 
@@ -44,7 +44,7 @@ Als u de RUM-sleutel met behulp van Azure portal:
 
     **Afbeelding 2: Real-User Meetsleutel en meting JavaScript**
  
-6.  Klik op de **kopie** knop om de JavaScript-code te kopiëren. 
+6. Klik op de **kopie** knop om de JavaScript-code te kopiëren. 
 
 >[!IMPORTANT]
 > De gegenereerde JavaScript voor Real User Measurements functie gebruiken om te laten functioneren. Wijzigingen in dit script of de scripts die worden gebruikt door Real User Measurements kunnen leiden tot onvoorspelbaar gedrag.

@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: 725580a01c8dd60003cfc11910a3e5183624b1b1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 81646c979748b7a23762a25538ced447e382f72a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437532"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878428"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tien dingen die u dit op de Windows Data Science Virtual Machine doen kunt
 
@@ -233,7 +233,7 @@ New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Lo
 # Set your current working storage account
 Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
 
-# Create a Azure File Service Share
+# Create an Azure File Service Share
 $s = New-AzureStorageShare <<teamsharename>>
 # Create a directory under the FIle share. You can give it any name
 New-AzureStorageDirectory -Share $s -Path <directory name>
@@ -279,7 +279,7 @@ Azure-blob is een betrouwbare, betaalbare cloudopslag voor gegevens, groot en kl
 ![Schermopname van het proces voor het Storage-Account maken in Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Bevestig dat de vooraf geïnstalleerde AzCopy-opdrachtregelprogramma is gevonden op ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. De map met de azcopy.exe is al in uw padomgevingsvariabele bevindt om te voorkomen dat het pad van de volledige opdracht te typen bij het uitvoeren van dit hulpprogramma. Raadpleeg voor meer informatie over het hulpprogramma AzCopy [documentatie van AzCopy](../../storage/common/storage-use-azcopy.md)
-* Start het hulpprogramma Azure Storage Explorer. Deze kan worden gedownload vanaf [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
+* Start het hulpprogramma Azure Storage Explorer. Deze kan worden gedownload vanaf [Microsoft Azure Storage Explorer](https://storageexplorer.com/). 
 
 ![Schermafbeelding van de toegang tot een Storage-Account van Azure Storage Explorer](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
@@ -296,7 +296,7 @@ Vervang **C:\myfolder** naar het pad waar het bestand wordt opgeslagen, **mystor
 AzCopy-opdracht uitvoeren in PowerShell of vanaf een opdrachtprompt. Hier volgt voorbeeldgebruik van AzCopy-opdracht:
 
 ```powershell
-# Copy *.sql from local machine to a Azure Blob
+# Copy *.sql from local machine to an Azure Blob
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:"c:\Aaqs\Data Science Scripts" /Dest:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /DestKey:[ENTER STORAGE KEY] /S /Pattern:*.sql
 
 # Copy back all files from Azure Blob container to Local machine

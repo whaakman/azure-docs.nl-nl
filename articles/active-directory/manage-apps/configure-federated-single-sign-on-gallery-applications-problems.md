@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5295f2d341ce104ae51776af5c4477304b1dacb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31e9746c0739a2ddd6267428f428e977151077b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187233"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099777"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Probleem opgetreden bij het configureren van eenmalige aanmelding in voor een toepassing in Azure AD-galerie
 
@@ -42,33 +42,33 @@ Als u niet kunt configureren voor de id of de antwoord-URL bent, controleert u o
 
 De patronen die vooraf zijn geconfigureerd voor de toepassing weten:
 
-1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.** Ga naar stap 7. Als u al in de blade van de configuratie van toepassing op Azure AD.
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.** Ga naar stap 7. Als u al in de blade van de configuratie van toepassing op Azure AD.
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
+4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
 
-5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
    * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
 
-6.  Selecteer de toepassing die u wilt configureren van eenmalige aanmelding.
+6. Selecteer de toepassing die u wilt configureren van eenmalige aanmelding.
 
-7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
+7. Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
 
-8.  Selecteer **SAML gebaseerde aanmelding** uit de **modus** vervolgkeuzelijst.
+8. Selecteer **SAML gebaseerde aanmelding** uit de **modus** vervolgkeuzelijst.
 
-9.  Ga naar de **id** of **antwoord-URL** tekstvak onder de **sectie domein en URL's.**
+9. Ga naar de **id** of **antwoord-URL** tekstvak onder de **sectie domein en URL's.**
 
 10. Er zijn drie manieren om te weten de ondersteunde patronen voor de toepassing:
 
-   * In het tekstvak, ziet u de ondersteunde patroon of patronen als tijdelijke aanduiding *voorbeeld:* <https://contoso.com>.
+    * In het tekstvak, ziet u de ondersteunde patroon of patronen als tijdelijke aanduiding *voorbeeld:* <https://contoso.com>.
 
-   * Als het patroon wordt niet ondersteund, ziet u een rood uitroepteken wanneer u probeert in te voeren van de waarde in het tekstvak. Als u de muisaanwijzer boven het rode uitroepteken houdt, ziet u de ondersteunde patronen.
+    * Als het patroon wordt niet ondersteund, ziet u een rood uitroepteken wanneer u probeert in te voeren van de waarde in het tekstvak. Als u de muisaanwijzer boven het rode uitroepteken houdt, ziet u de ondersteunde patronen.
 
-   * In de zelfstudie voor de toepassing, kunt u ook informatie over de ondersteunde patronen ophalen. Onder de **configureren Azure AD eenmalige aanmelding** sectie. Ga naar de stap voor configureren van de waarden onder de **domein en URL's** sectie.
+    * In de zelfstudie voor de toepassing, kunt u ook informatie over de ondersteunde patronen ophalen. Onder de **configureren Azure AD eenmalige aanmelding** sectie. Ga naar de stap voor configureren van de waarden onder de **domein en URL's** sectie.
 
 Als de waarden komen niet met de patronen die vooraf is geconfigureerd in Azure AD overeen. U kunt:
 
@@ -86,23 +86,23 @@ Azure AD selecteren de indeling voor het kenmerk van NameID (gebruikers-id) op b
 
 De metagegevens van de toepassing of het certificaat downloaden van Azure AD, de volgende stappen uit:
 
-1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
+4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
 
-5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
    * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
 
-6.  Selecteer de toepassing die u hebt geconfigureerd eenmalige aanmelding.
+6. Selecteer de toepassing die u hebt geconfigureerd eenmalige aanmelding.
 
-7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
+7. Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
 
-8.  Ga naar **SAML-handtekeningcertificaat** sectie en klik vervolgens op **downloaden** waarde in de kolom. Afhankelijk van wat de toepassing configureren van eenmalige aanmelding moet, ziet u ofwel de optie voor het downloaden van de Metadata XML of het certificaat.
+8. Ga naar **SAML-handtekeningcertificaat** sectie en klik vervolgens op **downloaden** waarde in de kolom. Afhankelijk van wat de toepassing configureren van eenmalige aanmelding moet, ziet u ofwel de optie voor het downloaden van de Metadata XML of het certificaat.
 
 Azure AD biedt geen een URL waarmee u de metagegevens ophalen. De metagegevens kan alleen worden opgehaald als een XML-bestand.
 

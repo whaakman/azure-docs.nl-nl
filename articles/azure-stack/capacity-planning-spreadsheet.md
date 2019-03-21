@@ -16,12 +16,12 @@ ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: d140b80ecb5fe2a7211245044b08f43fde4233a8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 459398f5f40ae5fb28dfa4ac73b94aecca7304eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240983"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099413"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 De Azure Stack Capacity Planner is een werkblad gebruikt voor de capaciteitsplanning voor Azure Stack-resource. De Capaciteitsplanner biedt u de mogelijkheid om verschillende toewijzingen van computerbronnen ontwerpen en zien hoe deze zou passen in een selectie van hardware-aanbiedingen. Hieronder vindt u gedetailleerde instructies voor het gebruik van de Azure Stack-Calculator.
@@ -29,7 +29,7 @@ De Azure Stack Capacity Planner is een werkblad gebruikt voor de capaciteitsplan
 ## <a name="worksheet-descriptions"></a>Werkblad beschrijvingen
 Hieronder volgt een kort overzicht van de werkbladen die deel uitmaken van het Azure Stack Capacity Planner-werkblad dat kan worden gedownload vanaf [ https://aka.ms/azstackcapacityplanner ](https://aka.ms/azstackcapacityplanner):
 
-|Tabbladnaam|Beschrijving|
+|Tabbladnaam|Description|
 |-----|-----|
 |Version-Disclaimer|Kort overzicht van het doel van de Rekenmachine, versienummer en vrijgegeven datum.|
 |Instructies|Geeft gedetailleerde instructies voor het gebruik van de Azure Stack Capacity Planner.|
@@ -61,8 +61,8 @@ Selecteer het tabblad 'DefineByVMFootprint' voor het maken van een model met é�
 2. Als u wilt dat als model voor verschillende VM-resource-toewijzingen op basis van een specifieke hardwareconfiguratie, vindt u in het blauw pull-keuzelijst direct onder het label 'Huidige SKU' in de rechterbovenhoek van de pagina. Haal deze keuzelijst met invoervak en selecteer de gewenste hardware-SKU.
 3. U bent nu klaar om te beginnen met het toevoegen van verschillende grootte VM's aan uw model. Als u wilt opnemen in een bepaald type van de virtuele machine, moet u een hoeveelheidswaarde invoeren in het blauwe vak wordt beschreven aan de linkerkant van de vermelding in die virtuele machine.
 
-  > [!NOTE]
-  > Totaal aantal VM-opslag verwijst naar de totale capaciteit van de gegevensschijf van de virtuele machine (aantal ondersteunde schijven * de maximale capaciteit van één schijf (1 TB)). Op basis van de configuratie-indicatoren hebben we de tabel beschikbaar opslagconfiguraties ingevuld, zodat u ervoor uw gewenste niveau van de resource voor opslag voor elke virtuele machine van Azure Stack kiezen kunt. Het is echter belangrijk te weten dat u kan toevoegen of wijzigen van de tabel beschikbaar opslagconfiguraties indien nodig.<br><br>Elke virtuele machine wordt gestart met een lokale tijdelijke opslag in eerste instantie wordt toegewezen. Aanleiding van de thin provisioning van tijdelijke opslag kan het nummer van de lokale tijdelijke iets dat in de vervolgkeuzelijst met inbegrip van de maximale toegestane tijdelijke opslagruimte worden gewijzigd.
+   > [!NOTE]
+   > Totaal aantal VM-opslag verwijst naar de totale capaciteit van de gegevensschijf van de virtuele machine (aantal ondersteunde schijven * de maximale capaciteit van één schijf (1 TB)). Op basis van de configuratie-indicatoren hebben we de tabel beschikbaar opslagconfiguraties ingevuld, zodat u ervoor uw gewenste niveau van de resource voor opslag voor elke virtuele machine van Azure Stack kiezen kunt. Het is echter belangrijk te weten dat u kan toevoegen of wijzigen van de tabel beschikbaar opslagconfiguraties indien nodig.<br><br>Elke virtuele machine wordt gestart met een lokale tijdelijke opslag in eerste instantie wordt toegewezen. Aanleiding van de thin provisioning van tijdelijke opslag kan het nummer van de lokale tijdelijke iets dat in de vervolgkeuzelijst met inbegrip van de maximale toegestane tijdelijke opslagruimte worden gewijzigd.
 
 4. Als u virtuele machines toevoegt, ziet u de grafieken met beschikbare SKU resources wijzigen. Hiermee kunt u zien wat de effecten van verschillende grootten en hoeveelheden van virtuele machines toe te voegen tijdens het modelleringsproces. Er is een andere manier om het effect van wijzigingen weer te geven om te bekijken van de getallen verbruikt en nog steeds beschikbaar direct onder de lijst met beschikbare virtuele machines. Deze getallen zijn geschatte waarden op basis van de geselecteerde SKU-hardware.
 5. Als u de set van virtuele machines hebt gemaakt, kunt u de voorgestelde hardware SKU kunt vinden door te klikken op de knop 'Voorgestelde SKU' in de rechterbovenhoek van de pagina, direct onder het label 'Huidige SKU'. Met deze knop kunt u vervolgens de configuraties van uw virtuele machine wijzigen en zien welke hardware ondersteunt elke configuratie.

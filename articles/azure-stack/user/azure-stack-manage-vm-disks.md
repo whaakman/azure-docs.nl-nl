@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: c6bba6a428e5ff339b1d269965fa1948bddc696e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4edaf782b193e99dfe4002eedb6f3a046fb7dcd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764426"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081454"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Schijfopslag voor virtuele machine maken in Azure Stack
 
@@ -68,56 +68,56 @@ Elke niet-beheerde schijf die u toevoegt, moet in een afzonderlijke container wo
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>De portal gebruiken om te maken en een nieuwe gegevensschijf koppelen
 
-1.  Kies in de portal **alle services** > **virtuele machines**.    
-    ![Voorbeeld: Dashboard voor VM 's](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+1. Kies in de portal **alle services** > **virtuele machines**.    
+   ![Voorbeeld: Dashboard voor VM 's](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-2.  Selecteer een virtuele machine die eerder is gemaakt.   
-    ![Voorbeeld: Selecteer een virtuele machine in het dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
+2. Selecteer een virtuele machine die eerder is gemaakt.   
+   ![Voorbeeld: Selecteer een virtuele machine in het dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  Selecteer voor de virtuele machine, **schijven** > **gegevensschijf toevoegen**.       
-    ![Voorbeeld: Een nieuwe schijf koppelen aan de virtuele machine](media/azure-stack-manage-vm-disks/Attach-disks.png)    
+3. Selecteer voor de virtuele machine, **schijven** > **gegevensschijf toevoegen**.       
+   ![Voorbeeld: Een nieuwe schijf koppelen aan de virtuele machine](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  Voor de gegevensschijf:
-    -  Voer de **LUN**. De logische eenheid moet een geldig getal.
-    -  Selecteer **maken-schijf**.
-    ![Voorbeeld: Een nieuwe schijf koppelen aan de virtuele machine](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
+4. Voor de gegevensschijf:
+   -  Voer de **LUN**. De logische eenheid moet een geldig getal.
+   -  Selecteer **maken-schijf**.
+   ![Voorbeeld: Een nieuwe schijf koppelen aan de virtuele machine](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
-5.  Beheerde schijf-blade in de maken:
-    -  Voer de **naam** van de schijf.
-    -  Selecteer een bestaande of maak een nieuwe **resourcegroep**.
-    -  Selecteer de **locatie**. De locatie is standaard ingesteld op de dezelfde container met de besturingssysteemschijf.
-    -  Selecteer de **accounttype**. 
-        ![Voorbeeld: Een nieuwe schijf koppelen aan de virtuele machine](media/azure-stack-manage-vm-disks/create-manage-disk.png)
+5. Beheerde schijf-blade in de maken:
+   - Voer de **naam** van de schijf.
+   - Selecteer een bestaande of maak een nieuwe **resourcegroep**.
+   - Selecteer de **locatie**. De locatie is standaard ingesteld op de dezelfde container met de besturingssysteemschijf.
+   - Selecteer de **accounttype**. 
+      ![Voorbeeld: Een nieuwe schijf koppelen aan de virtuele machine](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-        **Premium SSD**  
-        Premium-schijven (SSD) worden ondersteund door SSD-schijven en bieden consistente prestaties met lage latentie. Ze bieden de beste balans tussen prijs en prestaties, en zijn ideaal voor I/O-intensieve toepassingen en productieworkloads.
+      **Premium SSD**  
+      Premium-schijven (SSD) worden ondersteund door SSD-schijven en bieden consistente prestaties met lage latentie. Ze bieden de beste balans tussen prijs en prestaties, en zijn ideaal voor I/O-intensieve toepassingen en productieworkloads.
        
-        **Standard HDD**  
-        Standard-schijven (HDD) worden ondersteund door magnetische stations en zijn het geschiktst voor toepassingen waarbij gegevens onregelmatig worden geopend. Zone - redundante disks worden ondersteund door de Zone-redundante opslag (ZRS) die uw gegevens in meerdere zones worden gerepliceerd en zijn beschikbaar, zelfs als een enkele zone niet actief is. 
+      **Standard HDD**  
+      Standard-schijven (HDD) worden ondersteund door magnetische stations en zijn het geschiktst voor toepassingen waarbij gegevens onregelmatig worden geopend. Zone - redundante disks worden ondersteund door de Zone-redundante opslag (ZRS) die uw gegevens in meerdere zones worden gerepliceerd en zijn beschikbaar, zelfs als een enkele zone niet actief is. 
 
-    -  Selecteer de **gegevensbrontype**.
+   - Selecteer de **gegevensbrontype**.
 
-       Maak een schijf van een momentopname van een andere schijf, een blob in een opslagaccount of maak een lege schijf.
+     Maak een schijf van een momentopname van een andere schijf, een blob in een opslagaccount of maak een lege schijf.
 
-        **momentopname**  
-        Selecteer een momentopname, als deze beschikbaar is. De momentopname moet beschikbaar zijn in het abonnement en de locatie van de virtuele machine.
+      **momentopname**  
+      Selecteer een momentopname, als deze beschikbaar is. De momentopname moet beschikbaar zijn in het abonnement en de locatie van de virtuele machine.
 
-        **Storage-blob**  
-        - Voeg de URI van de opslag-blob met de schijfinstallatiekopie van de.  
-        - Selecteer **Bladeren** om de Storage-accounts-blade te openen. Zie voor instructies [een gegevensschijf toevoegen van een opslagaccount](#add-a-data-disk-from-a-storage-account).
-        - Selecteer het type besturingssysteem van de afbeelding, ofwel **Windows**, **Linux**, of **geen (gegevensschijf)**.
+      **Storage-blob**  
+     - Voeg de URI van de opslag-blob met de schijfinstallatiekopie van de.  
+     - Selecteer **Bladeren** om de Storage-accounts-blade te openen. Zie voor instructies [een gegevensschijf toevoegen van een opslagaccount](#add-a-data-disk-from-a-storage-account).
+     - Selecteer het type besturingssysteem van de afbeelding, ofwel **Windows**, **Linux**, of **geen (gegevensschijf)**.
 
-        **Geen (lege schijf)**
+       **Geen (lege schijf)**
 
-    -  Selecteer de **grootte (GiB)**.
+   - Selecteer de **grootte (GiB)**.
 
-       Schijfkosten voor standaard toe op basis van de grootte van de schijf. Premium schijf kosten en de prestaties toe op basis van de grootte van de schijf. Zie voor meer informatie, [Managed Disks-prijzen](https://go.microsoft.com/fwlink/?linkid=843142).
+     Schijfkosten voor standaard toe op basis van de grootte van de schijf. Premium schijf kosten en de prestaties toe op basis van de grootte van de schijf. Zie voor meer informatie, [Managed Disks-prijzen](https://go.microsoft.com/fwlink/?linkid=843142).
 
-    -  Selecteer **Maken**. Azure Stack maakt en valideert de beheerde schijf.
+   - Selecteer **Maken**. Azure Stack maakt en valideert de beheerde schijf.
 
-5.  Nadat Azure Stack de schijf wordt en gekoppeld aan de virtuele machine, de nieuwe schijf wordt weergegeven in de instellingen van de schijven van de virtuele machine onder **GEGEVENSSCHIJVEN**.   
+5. Nadat Azure Stack de schijf wordt en gekoppeld aan de virtuele machine, de nieuwe schijf wordt weergegeven in de instellingen van de schijven van de virtuele machine onder **GEGEVENSSCHIJVEN**.   
 
-    ![Voorbeeld: Schijf weergeven](media/azure-stack-manage-vm-disks/view-data-disk.png)
+   ![Voorbeeld: Schijf weergeven](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 ### <a name="add-a-data-disk-from-a-storage-account"></a>Een gegevensschijf van een storage-account toevoegen
 

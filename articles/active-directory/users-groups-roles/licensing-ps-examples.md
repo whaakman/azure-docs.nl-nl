@@ -1,6 +1,6 @@
 ---
-title: PowerShell en Graph-voorbeelden voor Groepslicenties - Azure Active Directory | Microsoft Docs
-description: PowerShell-scenario's voor Azure Active Directory-groep op basis van licentieverlening
+title: Voorbeelden van PowerShell en Graph voor groepen - Azure Active Directory-licentieverlening | Microsoft Docs
+description: PowerShell en Graph-voorbeelden en scenario's voor Azure Active Directory-groep op basis van licentieverlening
 services: active-directory
 keywords: Azure AD-licenties
 documentationcenter: ''
@@ -14,25 +14,27 @@ ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fccf025e222448bde7705c548dac33403be33247
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9da6f85f194d9aebab22584f8cba8b227ed38a72
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183863"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223305"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-voorbeelden voor Groepslicenties in Azure AD
 
 Volledige functionaliteit voor Groepslicenties is beschikbaar via de [Azure-portal](https://portal.azure.com), en ondersteuning voor PowerShell en Microsoft Graph is momenteel beperkt. Er zijn echter enkele nuttige taken die kunnen worden uitgevoerd met behulp van de bestaande [MSOnline PowerShell-cmdlets](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) en Microsoft Graph. Dit document bevat voorbeelden van wat er mogelijk is.
 
 > [!NOTE]
-> Voordat u cmdlets uitvoert, zorg ervoor dat u eerst verbinding met uw tenant, door het uitvoeren van de `Connect-MsolService`  cmdlet.
+> Voordat u cmdlets uitvoert, zorg ervoor dat u eerst verbinding met uw organisatie, door het uitvoeren van de `Connect-MsolService`  cmdlet.
 
 > [!WARNING]
 > Deze code wordt geleverd als een voorbeeld voor demonstratiedoeleinden te gebruiken. Als u van plan bent te gebruiken in uw omgeving, kunt u overwegen eerst testen op kleine schaal of in een afzonderlijke testtenant. U moet de code om te voldoen aan de specifieke behoeften van uw omgeving aanpassen.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Weergave-productlicenties die is toegewezen aan een groep
+
 De [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet kan worden gebruikt voor het ophalen van het groepsobject en controleer de *licenties* eigenschap: geeft een lijst van alle productlicenties momenteel toegewezen aan de groep.
+
 ```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
@@ -48,7 +50,7 @@ EMSPREMIUM
 > [!NOTE]
 > De gegevens zijn beperkt tot informatie over het product (SKU). Het is niet mogelijk om de service-plannen uitgeschakeld in de licentie weer te geven.
 
-De volgende gebruik dezelfde gegevens ophalen uit Microsoft Graph
+Gebruik het volgende voorbeeld de dezelfde gegevens ophalen uit Microsoft Graph.
 
 ```
 GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses

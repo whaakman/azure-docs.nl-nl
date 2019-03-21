@@ -2,19 +2,19 @@
 title: Een Kubernetes-cluster maken met Application Gateway als controller voor inkomend verkeer, met behulp van Azure Kubernetes Service (AKS)
 description: Zelfstudie voor het maken van een Kubernetes-cluster met Application Gateway als controller voor inkomend verkeer, met behulp van Azure Kubernetes Service
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtuele machine, azure, kubernetes, inkomend verkeer, application gateway
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 6add7323fdbcf07681e8566437632aa6679828e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891978"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994355"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Een Kubernetes-cluster maken met een Application Gateway-controller voor inkomend verkeer, met behulp van Azure Kubernetes Service en Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) beheert uw gehoste Kubernetes-omgeving. Met AKS kunt u snel en eenvoudig in containers geplaatste toepassingen implementeren en beheren, zonder dat u kennis hoeft te hebben van het indelen van containers. Het verlicht ook de last van actieve bewerkingen en onderhoud door inrichten, upgraden en bronnen op aanvraag schalen mogelijk te maken, zonder uw toepassingen offline te brengen.
@@ -36,16 +36,16 @@ In deze zelfstudie leert u hoe u de volgende taken uitvoert bij het maken van ee
 - **Terraform configureren**: Volg de aanwijzingen in het artikel [Terraform en toegang tot Azure configureren](/azure/virtual-machines/linux/terraform-install-configure)
 
 - **Azure-service-principal**: volg de aanwijzingen in de sectie **De service-principal maken** in het artikel [Een Azure-service-principal maken met de Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Noteer de waarden voor appId, displayName en password.
-    - Noteer de Object-id van de service-principal die wordt weergegeven wanneer u de volgende opdracht hebt uitgevoerd
+  - Noteer de Object-id van de service-principal die wordt weergegeven wanneer u de volgende opdracht hebt uitgevoerd
 
     ```bash
-     az ad sp list --display-name <displayName>
+    az ad sp list --display-name <displayName>
     ```
 
 ## <a name="create-the-directory-structure"></a>De directorystructuur maken
 De eerste stap is het maken van een map voor de Terraform-configuratiebestanden voor de oefening.
 
-1. Blader naar [Azure Portal](http://portal.azure.com).
+1. Blader naar [Azure Portal](https://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). Als u nog geen omgeving hebt geselecteerd, selecteert u **Bash** als uw omgeving.
 
@@ -99,8 +99,8 @@ Maak het Terraform-configuratiebestand waarin de Azure-provider wordt gedeclaree
     ```bash
     :wq
     ```
-## <a name="define-input-variables"></a>Invoervariabelen definiëren
-Maak het Terraform-configuratiebestand waarin alle variabelen staan die zijn vereist voor deze implementatie
+   ## <a name="define-input-variables"></a>Invoervariabelen definiëren
+   Maak het Terraform-configuratiebestand waarin alle variabelen staan die zijn vereist voor deze implementatie
 1. Maak in Cloud Shell een bestand met de naam `variables.tf`
     ```bash
     vi variables.tf

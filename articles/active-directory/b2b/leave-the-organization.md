@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 03/13/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d8183f7fa55a410b44d33295ad24f0f07adb145
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f75f91c037a2f05c999d388ce7bb16ad2d0c9cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185924"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005663"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Een organisatie als gastgebruiker verlaten
 
@@ -24,13 +24,17 @@ Een gastgebruiker van Azure Active Directory (Azure AD) B2B kunt bepalen voor ee
 
 ## <a name="leave-an-organization"></a>Een organisatie verlaten
 
-Laat een organisatie, als een gebruiker aangemeld bij de [Toegangsvenster](https://myapps.microsoft.com), doet u het volgende:
+Volg deze stappen om een organisatie af.
 
-1. Als u nog niet bent aangemeld bij de organisatie die u wilt laten staan, selecteert u uw naam in de rechterbovenhoek en klik op de organisatie die u wilt laten staan.
-2. Selecteer uw naam in de rechterbovenhoek.
-3. Naast **organisaties**, selecteer het Instellingenpictogram (tandwiel).
+1. Ga naar de pagina van uw profiel Toegangsvenster op een van de volgende manieren:
+   
+   - In de [Azure-portal](https://portal.azure.com), klikt u op uw naam in de rechterbovenhoek en selecteer **account weergeven**.
+   - Open uw [Toegangsvenster](https://myapps.microsoft.com), klikt u op uw naam in de rechterbovenhoek, volgende om door te **organisaties**, selecteer het Instellingenpictogram (tandwiel).
  
    ![Schermopname van gebruikersinstellingen in Toegangsvenster](media/leave-the-organization/UserSettings.png) 
+
+   > [!NOTE]
+   > Als u nog niet bent aangemeld bij de organisatie die u wilt verlaten, onder **organisaties**, klikt u op de **aanmelden bij de organisatie verlaten** koppelen naast de naam van de organisatie. Nadat u bent aangemeld, klikt u op uw naam opnieuw in de rechterbovenhoek en naast **organisaties**, selecteer het Instellingenpictogram (tandwiel).
 
 3. Onder **organisaties**, de organisatie die u wilt verlaten, en selecteer zoeken **organisatie verlaten**.
 

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 778ae1aa9d5517912b9c67b27066a75d14358087
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9c010a7bcd2d811b31d9c2d05e81cce5dc85c2ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186049"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118592"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Koppelingen naar de vastgelegd voor apps die zijn gepubliceerd met Azure AD Application Proxy omleiden
 
@@ -43,8 +43,8 @@ Deze drie functies houdt uw koppelingen werken ongeacht waar uw gebruikers zich 
  
 > [!NOTE]
 > De laatste optie is alleen voor tenants die voor welke reden dan ook aangepaste domeinen niet kunnen gebruiken om de dezelfde interne en externe URL's voor hun apps. Voordat u deze functie inschakelt, zien als [aangepaste domeinen in Azure AD-toepassingsproxy](application-proxy-configure-custom-domain.md) voor u kan betekenen. 
-
->Of, als de toepassing die u wilt configureren met koppeling vertaling SharePoint is, raadpleegt u [alternatieve toegangstoewijzingen voor SharePoint 2013 configureren](https://technet.microsoft.com/library/cc263208.aspx) voor een andere benadering voor de toewijzing van koppelingen. 
+> 
+> Of, als de toepassing die u wilt configureren met koppeling vertaling SharePoint is, raadpleegt u [alternatieve toegangstoewijzingen voor SharePoint 2013 configureren](https://technet.microsoft.com/library/cc263208.aspx) voor een andere benadering voor de toewijzing van koppelingen. 
 
  
 ### <a name="option-1-intune-managed-browser-integration"></a>Optie 1: Intune Managed Browser-integratie 

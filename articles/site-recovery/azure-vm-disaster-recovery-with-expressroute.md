@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4622809f0e261236d6753daf5bb2e00ff814c849
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821946"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087870"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integratie van Azure ExpressRoute met herstel na noodgevallen voor Azure VM 's
 
@@ -91,11 +91,11 @@ Enterprise-implementaties hebben meestal verdeeld over meerdere Azure VNets, met
     - **Bron vNet2**: 10.2.0.0/24.
     - Elk knooppunt virtueel netwerk is verbonden met **Hub vNet**.
 - **Hub vNet**. Er is een hub vNet **bron Hub vNet**: 10.10.10.0/24.
-    - Dit vNet hub fungeert als de gatekeeper.
-    - Alle communicatie tussen subnetten zijn doorlopen van deze hub.
- - Hub vNet subnetten **. De hub vNet heeft twee subnetten:
-     - **NVA-subnet**: 10.10.10.0/25. Dit subnet bevat een NVA (10.10.10.10).
-     - **Gatewaysubnet**: 10.10.10.128/25. Dit subnet bevat een ExpressRoute-gateway verbonden met een ExpressRoute-verbinding die u routes naar de on-premises site via een persoonlijke peering routeringsdomein.
+  - Dit vNet hub fungeert als de gatekeeper.
+  - Alle communicatie tussen subnetten zijn doorlopen van deze hub.
+    - Hub vNet subnetten **. De hub vNet heeft twee subnetten:
+    - **NVA-subnet**: 10.10.10.0/25. Dit subnet bevat een NVA (10.10.10.10).
+    - **Gatewaysubnet**: 10.10.10.128/25. Dit subnet bevat een ExpressRoute-gateway verbonden met een ExpressRoute-verbinding die u routes naar de on-premises site via een persoonlijke peering routeringsdomein.
 - Het on-premises datacenter heeft een ExpressRoute-circuit-verbinding via een partner edge in Hong Kong SAR.
 - Alle routering wordt geregeld via de Azure-routetabellen (UDR).
 - Al het uitgaande verkeer tussen vNets of het on-premises datacenter wordt doorgestuurd via de NVA.

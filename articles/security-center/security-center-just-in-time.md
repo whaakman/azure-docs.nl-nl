@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/18/2019
 ms.author: monhaber
-ms.openlocfilehash: 9cdcfbc6074f8e343e2571063cc5dafe54072753
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314769"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199831"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Beheer van de virtuele machine toegang met just-in-time
 
@@ -82,26 +82,26 @@ Selecteer de virtuele machines die u wilt inschakelen:
 
 1. Onder **Just-in-time-VM-toegang**, selecteer de **aanbevolen** tabblad.
 
-  ![Just-in-time-toegang inschakelen](./media/security-center-just-in-time/enable-just-in-time-access.png)
+   ![Just-in-time-toegang inschakelen](./media/security-center-just-in-time/enable-just-in-time-access.png)
 
 2. Onder **virtuele MACHINE**, selecteert u de virtuele machines die u wilt inschakelen. Hiermee wordt een vinkje naast een virtuele machine geplaatst.
 3. Selecteer **JIT inschakelen op virtuele machines**.
-  1. Deze blade wordt weergegeven de standaardpoorten aanbevolen door Azure Security Center:
-     - 22 - SSH
-     - 3389 - RDP
-     - 5985 - WinRM 
-     - 5986 - WinRM
-  2. U kunt ook aangepaste poorten configureren. Om dit te doen, selecteert u **toevoegen**. 
-  3. In **poortconfiguratie toevoegen**, voor elke poort die u wilt configureren, zowel standaard en aangepaste, kunt u de volgende instellingen aanpassen:
-    - **Type protocol**-het protocol dat is toegestaan op deze poort wanneer een aanvraag is goedgekeurd.
-    - **Toegestane bron-IP-adressen**-het IP-adresbereiken die zijn toegestaan op deze poort wanneer een aanvraag is goedgekeurd.
-    - **Maximale aanvraagtijd**-de maximale periode gedurende welke een specifieke poort kan worden geopend.
+   1. Deze blade wordt weergegeven de standaardpoorten aanbevolen door Azure Security Center:
+      - 22 - SSH
+      - 3389 - RDP
+      - 5985 - WinRM 
+      - 5986 - WinRM
+   2. U kunt ook aangepaste poorten configureren. Om dit te doen, selecteert u **toevoegen**. 
+   3. In **poortconfiguratie toevoegen**, voor elke poort die u wilt configureren, zowel standaard en aangepaste, kunt u de volgende instellingen aanpassen:
+      - **Type protocol**-het protocol dat is toegestaan op deze poort wanneer een aanvraag is goedgekeurd.
+      - **Toegestane bron-IP-adressen**-het IP-adresbereiken die zijn toegestaan op deze poort wanneer een aanvraag is goedgekeurd.
+      - **Maximale aanvraagtijd**-de maximale periode gedurende welke een specifieke poort kan worden geopend.
 
 4. Selecteer **Opslaan**.
 
 
 > [!NOTE]
->Wanneer JIT-VM-toegang is ingeschakeld voor een VM, Azure Security Center maakt weigeren alle regels voor binnenkomend verkeer voor de geselecteerde poorten in de netwerkbeveiligingsgroepen die zijn gekoppeld. De regels is de hoogste prioriteit van uw Netwerkbeveiligingsgroepen of lagere prioriteit dan de bestaande regels die er nog. Dit is afhankelijk van een analyse uitgevoerd door Azure Security Center waarmee wordt bepaald of een regel beveiligd is.
+>Wanneer JIT-VM-toegang is ingeschakeld voor een virtuele machine, maakt Azure Security Center 'niet al het binnenkomende verkeer toestaan' regels voor de geselecteerde poorten in de netwerkbeveiligingsgroepen die zijn gekoppeld. Als andere regels waren voor de geselecteerde poorten is gemaakt, klikt u vervolgens hebben de bestaande regels voorrang op de nieuwe regels voor 'alle binnenkomend verkeer toestaan'. Als er geen bestaande regels op de geselecteerde poorten zijn, hebben de nieuwe regels voor 'alle binnenkomend verkeer toestaan' top voorrang in de Netwerkbeveiligingsgroepen.
 >
 
 ### <a name="request-jit-access-to-a-vm"></a>Aanvraag voor JIT-toegang tot een VM
@@ -174,9 +174,9 @@ U krijgt inzicht in VM-activiteiten met zoeken in Logboeken. Logboeken weergeven
 2. Onder **VMs**, selecteert u een virtuele machine om informatie over door te klikken op de drie puntjes in de rij voor die virtuele machine weer te geven. Hiermee opent u een menu.
 3. Selecteer **activiteitenlogboek** in het menu. Hiermee opent u **activiteitenlogboek**.
 
-  ![Activiteitenlogboek selecteren](./media/security-center-just-in-time/select-activity-log.png)
+   ![Activiteitenlogboek selecteren](./media/security-center-just-in-time/select-activity-log.png)
 
-  **Activiteitenlogboek** biedt een gefilterde weergave van de vorige bewerkingen voor die virtuele machine samen met de tijd, datum en -abonnement.
+   **Activiteitenlogboek** biedt een gefilterde weergave van de vorige bewerkingen voor die virtuele machine samen met de tijd, datum en -abonnement.
 
 U kunt de logboekgegevens downloaden door te selecteren **Klik hier om alle items te downloaden als CSV-bestand**.
 
@@ -188,16 +188,16 @@ Wijzigen van de filters en selecteer **toepassen** een zoeken en het logboek te 
 Deze vereiste machtigingen om in te schakelen van een gebruiker te configureren of een JIT-beleid bewerken voor een virtuele machine instellen.
 
 Deze toewijst *acties* aan de rol: 
--   Op het bereik van een abonnement of resourcegroep die is gekoppeld aan de virtuele machine:
-   - Microsoft.Security/locations/jitNetworkAccessPolicies/write
--    Op het bereik van een abonnement of resourcegroep of een virtuele machine:
-   - Microsoft.Compute/virtualMachines/write 
+- Op het bereik van een abonnement of resourcegroep die is gekoppeld aan de virtuele machine:
+  - Microsoft.Security/locations/jitNetworkAccessPolicies/write
+- Op het bereik van een abonnement of resourcegroep of een virtuele machine:
+  - Microsoft.Compute/virtualMachines/write 
 
 Stel deze bevoegdheden om in te schakelen van een gebruiker kan aanvragen met succes JIT-toegang tot een virtuele machine: Deze toewijst *acties* aan de gebruiker:
--   Op het bereik van een abonnement of resourcegroep die is gekoppeld aan de virtuele machine:
-   - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
--    Op het bereik van een abonnement of resourcegroep of een virtuele machine:
-   - Microsoft.Compute/virtualMachines/read
+- Op het bereik van een abonnement of resourcegroep die is gekoppeld aan de virtuele machine:
+  - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
+- Op het bereik van een abonnement of resourcegroep of een virtuele machine:
+  - Microsoft.Compute/virtualMachines/read
 
 
 

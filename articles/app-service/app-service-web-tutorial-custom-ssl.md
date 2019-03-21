@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d627158744ae89e3c614d10a64886cee6879a3fb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 0c89cdc34c23c461e5cebf3026cb0774bf91b75d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116046"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998565"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Zelfstudie: Een bestaand, aangepast SSL-certificaat met Azure App Service verbinden
 
@@ -264,7 +264,7 @@ New-AzWebAppSSLBinding `
 ## <a name="public-certificates-optional"></a>Openbare certificaten (optioneel)
 Als uw app clienttoegang nodig heeft tot externe resources en er voor de externe resource verificatie via een certificaat is vereist, kunt u [openbare certificaten](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) naar uw app uploaden. Er zijn geen openbare certificaten vereist voor SSL-bindingen van uw app.
 
-Voor meer details over een openbaar certificaat in uw app laden en gebruiken, raadpleegt u [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md) (Een SSL-certificaat in uw toepassingscode gebruiken in Azure App Service). U kunt openbare certificaten ook gebruiken voor apps in App Service-omgevingen. Als u het certificaat in het LocalMachine-certificaatarchief wilt opslaan, moet u een app in App Service Environment gebruiken. Zie [How to configure public certificates to your App Service app](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) (Openbare certificaten naar uw App Service-app configureren) voor meer informatie.
+Voor meer details over een openbaar certificaat in uw app laden en gebruiken, raadpleegt u [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md) (Een SSL-certificaat in uw toepassingscode gebruiken in Azure App Service). U kunt openbare certificaten ook gebruiken voor apps in App Service-omgevingen. Als u nodig hebt voor het opslaan van het certificaat in het LocalMachine-certificaatarchief, moet u een app in App Service-omgeving gebruiken. Zie [How to configure public certificates to your App Service app](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) (Openbare certificaten naar uw App Service-app configureren) voor meer informatie.
 
 ![Openbaar certificaat uploaden](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

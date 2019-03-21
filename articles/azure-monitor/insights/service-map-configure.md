@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 65aa561b01fc4950eb007077ba3613e96ccdcacc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 26da504188a9060dbbb35330dbd8604bf5fe5e1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763863"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995129"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -42,6 +42,7 @@ De volgende sectie worden de ondersteunde besturingssystemen voor de agent voor 
 >
 
 ### <a name="windows-server"></a>Windows Server
+- Windows Server 2019
 - WindowsServer 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
@@ -89,7 +90,7 @@ De volgende sectie worden de ondersteunde besturingssystemen voor de agent voor 
 
 | Versie van het besturingssysteem | Kernelversie |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15. * |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | kernel 4.15. * |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |

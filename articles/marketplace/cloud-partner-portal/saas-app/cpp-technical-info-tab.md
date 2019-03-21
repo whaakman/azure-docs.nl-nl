@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 383f65ea925a3575afd988e07784be643201c6b8
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 891d9b7b34e3d30efb46b69ef1aa75566fe634c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214491"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120751"
 ---
 # <a name="saas-application-technical-info-tab"></a>Tabblad voor SaaS-toepassing technische gegevens
 
@@ -44,7 +44,7 @@ Als u wilt maken van deze ervaring die u wilt configureren van de volgende onder
 - Verbinding maken met de website van uw SaaS-service met Microsofts SaaS APIs. De [SaaS verkopen via Azure-API's](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis) artikel wordt uitgelegd hoe u deze verbinding te maken.
 - Verkopen via Azure in de Cloud Partner-Portal inschakelen in het configuratieformulier voor technische en geef de vereiste gegevens. Zie voor meer informatie over dit factureringsmodel en hoe deze geïmplementeerd, [SaaS-verkopen via Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions).
 
- ![Verkopen via Microsoft-formulier](./media/saas-techinfo-sellthrough-ms.png)
+  ![Verkopen via Microsoft-formulier](./media/saas-techinfo-sellthrough-ms.png)
 
 De volgende tabel beschrijft de vereiste velden voor verkopen via Microsoft.
 

@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 5f142192571bdd15a33575a425d75baf3e5caea2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 336a2a3fd98f7829694eb095ff2646d9d361afd3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243484"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097317"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een oplossing voor hybride cloudopslag met Azure en Azure Stack implementeren
 
@@ -65,7 +65,7 @@ Voordat u deze zelfstudie begint, zorg er dan voor dat u kunt voldoen aan de vol
   - Een installatiekopie van Windows Server 2016
   - Een Windows Server 2016 met een Microsoft SQL Server-installatiekopie
   - De juiste plannen en aanbiedingen
- - Een domeinnaam voor uw webtoepassing. Als u een domeinnaam hebt, kunt u een van de domeinprovider van een, zoals GoDaddy, Bluehost en InMotion kunt kopen.
+  - Een domeinnaam voor uw webtoepassing. Als u een domeinnaam hebt, kunt u een van de domeinprovider van een, zoals GoDaddy, Bluehost en InMotion kunt kopen.
 - Een SSL-certificaat voor uw domein van een vertrouwde certificeringsinstantie zoals LetsEncrypt.
 - Een web-App die communiceert met een SQL Server-database, en biedt ondersteuning voor Application Insights. U kunt downloaden de [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) voorbeeld-app vanuit GitHub.
 - Een hybride netwerk tussen een Azure-netwerk en het virtuele netwerk van Azure Stack. Zie voor gedetailleerde instructies [hybride cloud-connectiviteit configureren met Azure en Azure Stack](azure-stack-solution-hybrid-connectivity.md).
@@ -94,19 +94,19 @@ Voordat u deze zelfstudie begint, zorg er dan voor dat u kunt voldoen aan de vol
 
 7. Onder **instellingen > optionele functies configureren**, configureer de volgende instellingen:
 
-    - **Storage-account**. Maak een nieuw account als u nodig hebt.
-    - **Virtueel netwerk**
+   - **Storage-account**. Maak een nieuw account als u nodig hebt.
+   - **Virtueel netwerk**
 
-      > [!Important]  
-      > Zorg ervoor dat uw SQL Server-VM is geïmplementeerd op hetzelfde virtuele netwerk bevinden als de VPN-gateways.
+     > [!Important]  
+     > Zorg ervoor dat uw SQL Server-VM is geïmplementeerd op hetzelfde virtuele netwerk bevinden als de VPN-gateways.
 
-    - **Openbaar IP-adres**. U kunt de standaardinstellingen kunt gebruiken.
-    - **Netwerkbeveiligingsgroep** (NSG). Maak een nieuwe NSG.
-    - **Extensies en bewaking**. Behoud de standaardinstellingen.
-    - **Opslagaccount voor diagnostische gegevens**. Maak een nieuw account als u nodig hebt.
-    - Selecteer **OK** aan uw configuratie op te slaan.
+   - **Openbaar IP-adres**. U kunt de standaardinstellingen kunt gebruiken.
+   - **Netwerkbeveiligingsgroep** (NSG). Maak een nieuwe NSG.
+   - **Extensies en bewaking**. Behoud de standaardinstellingen.
+   - **Opslagaccount voor diagnostische gegevens**. Maak een nieuw account als u nodig hebt.
+   - Selecteer **OK** aan uw configuratie op te slaan.
 
-    ![Optionele kenmerken configureren](media/azure-stack-solution-hybrid-cloud/image4.png)
+     ![Optionele kenmerken configureren](media/azure-stack-solution-hybrid-cloud/image4.png)
 
 1. Onder **SQL Server-instellingen**, configureer de volgende instellingen:
    - Voor **SQL-verbinding**optie voor het **openbaar (Internet)**.
@@ -118,7 +118,7 @@ Voordat u deze zelfstudie begint, zorg er dan voor dat u kunt voldoen aan de vol
 
    - Behoud de standaardinstellingen voor de rest van de instellingen. Selecteer **OK**.
 
-    ![SQL Server-instellingen configureren](media/azure-stack-solution-hybrid-cloud/image5.png)
+     ![SQL Server-instellingen configureren](media/azure-stack-solution-hybrid-cloud/image5.png)
 
 9. Op **samenvatting**, Controleer de configuratie van de virtuele machine en selecteer vervolgens **OK** implementatie te starten.
 
@@ -391,7 +391,7 @@ U moet een Traffic Manager-profiel maken in Azure en configureer vervolgens eind
 
     ![Traffic Manager-profiel maken](media/azure-stack-solution-hybrid-cloud/image19.png)
 
- Wanneer de algemene implementatie van uw Traffic Manager-profiel voltooid is, wordt deze weergegeven in de lijst met resources voor de resourcegroep die u hebt gemaakt onder.
+   Wanneer de algemene implementatie van uw Traffic Manager-profiel voltooid is, wordt deze weergegeven in de lijst met resources voor de resourcegroep die u hebt gemaakt onder.
 
 ### <a name="add-traffic-manager-endpoints"></a>Traffic Manager-eindpunten toevoegen
 

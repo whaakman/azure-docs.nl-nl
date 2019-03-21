@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 139fe946b013b1c86404bdef6ed06314af349c89
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: df8196389ecb92229ff9495002c4bce394d7c048
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343133"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202704"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Gebruik C# door de gebruiker gedefinieerde functies met Apache Hive en Apache Pig streaming van Apache Hadoop in HDInsight
 
@@ -172,13 +172,13 @@ Zie voor meer informatie over de versie van het .NET framework en Mono deel uitm
 
 6. Als u wilt het .exe-bestanden uploaden, moet u een van de volgende methoden gebruiken:
 
-    * Als een __Azure Storage-Account__, klik op het uploadpictogram en blader vervolgens naar de **bin\debug** map voor de **HiveCSharp** project. Selecteer ten slotte de **HiveCSharp.exe** -bestand en klik op **Ok**.
+   * Als een __Azure Storage-Account__, klik op het uploadpictogram en blader vervolgens naar de **bin\debug** map voor de **HiveCSharp** project. Selecteer ten slotte de **HiveCSharp.exe** -bestand en klik op **Ok**.
 
-        ![pictogram uploaden](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![pictogram uploaden](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * Als u __Azure Data Lake Storage__, met de rechtermuisknop op een leeg gebied in de lijst en selecteer vervolgens __uploaden__. Selecteer ten slotte de **HiveCSharp.exe** -bestand en klik op **Open**.
+   * Als u __Azure Data Lake Storage__, met de rechtermuisknop op een leeg gebied in de lijst en selecteer vervolgens __uploaden__. Selecteer ten slotte de **HiveCSharp.exe** -bestand en klik op **Open**.
 
-    Zodra de __HiveCSharp.exe__ uploaden is voltooid, herhaalt u het uploadproces voor de __PigUDF.exe__ bestand.
+     Zodra de __HiveCSharp.exe__ uploaden is voltooid, herhaalt u het uploadproces voor de __PigUDF.exe__ bestand.
 
 ## <a name="run-an-apache-hive-query"></a>Een Apache Hive-query uitvoeren
 
@@ -216,11 +216,7 @@ Zie voor meer informatie over de versie van het .NET framework en Mono deel uitm
 
 ## <a name="run-an-apache-pig-job"></a>Een Apache Pig-taak uitvoeren
 
-1. Gebruik een van de volgende methoden voor het verbinding maken met uw HDInsight-cluster:
-
-    * Als u een __op basis van Linux__ HDInsight-cluster, gebruikmaken van SSH. Bijvoorbeeld `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Zie voor meer informatie, [SSH gebruiken withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * Als u een __op basis van Windows__ HDInsight-cluster, [verbinding maken met het cluster met behulp van extern bureaublad](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+1. Gebruik SSH verbinding maken met uw HDInsight-cluster. Bijvoorbeeld `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Zie voor meer informatie, [SSH gebruiken withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. Gebruik een de volgende opdracht uit om te beginnen de Pig-opdrachtregel:
 

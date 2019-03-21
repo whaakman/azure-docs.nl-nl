@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4e9abb20e6548d8612bc3b59aba4f7384913d081
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: b09c80e08689768ab3e9646b7d6f60f72c33f764
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761545"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077782"
 ---
 # <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Hoe u live streamen met Media Services naar multi-bitrate streams te maken met de Azure-portal  
 > [!div class="op_single_selector"]
@@ -41,18 +41,16 @@ Hieronder volgen de algemene stappen voor het maken van veelvoorkomende toepassi
 
 > [!NOTE]
 > De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived@microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
-> 
-> 
 
 1. Sluit een videocamera aan op een computer. Start en configureer een on-premises live-encoder dat een single-bitrate stream in een van de volgende protocollen kan uitvoeren: RTMP of Smooth Streaming. Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](https://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie.
-   
+
     Deze stap kan ook worden uitgevoerd nadat u uw kanaal hebt gemaakt.
 2. Maak en start een kanaal. 
 3. Haal de URL voor opnemen voor het kanaal op. 
-   
+
     De URL voor opnemen wordt gebruikt door het live coderingsprogramma om de stream naar het kanaal te verzenden.
 4. Haal de voorbeeld-URL voor het kanaal op. 
-   
+
     Gebruik deze URL om te controleren of de livestream goed door het kanaal wordt ontvangen.
 5. Maak een gebeurtenis/programma (hierbij wordt ook een asset gemaakt). 
 6. Publiceer de gebeurtenis (hierbij wordt ook een OnDemand-locator voor de gekoppelde asset gemaakt).    
@@ -83,31 +81,31 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 1. Selecteer in [Azure Portal](https://portal.azure.com/) de optie Media Services en klik vervolgens op de naam van uw Media Services-account.
 2. Selecteer **Live streamen**.
 3. Selecteer **Aangepast maken**. Met deze optie kunt u een kanaal maken dat is ingeschakeld voor real-time codering.
-   
+
     ![Een kanaal maken](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. Klik op **Instellingen**.
-   
+
    1. Kies het kanaaltype **Live Encoding**. U geeft met dit type op dat u een kanaal wilt maken dat voor live codering is ingeschakeld. Dit betekent dat de binnenkomende single-bitrate stream naar het kanaal wordt verzonden en naar een multi-bitrate stream wordt gecodeerd met de opgegeven instellingen van het live coderingsprogramma. Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie. Klik op OK.
    2. Geef een naam op voor het kanaal.
    3. Klik op OK onder aan het scherm.
 5. Selecteer het tabblad **Opnemen**.
-   
+
    1. Op deze pagina kunt u een streaming-protocol selecteren. Voor het kanaaltype **Live Encoding** zijn geldige protocolopties:
-      
+
       * Single-bitrate Fragmented MP4 (Smooth Streaming);
       * Single-bitrate RTMP;
-        
+
         Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](media-services-manage-live-encoder-enabled-channels.md) voor een gedetailleerde beschrijving van de protocollen.
-        
+
         U kunt de protocoloptie niet wijzigen terwijl het kanaal of de gekoppelde gebeurtenissen/programma's worden uitgevoerd. Als u verschillende protocollen nodig hebt, maakt u afzonderlijke kanalen voor elk streaming-protocol.  
    2. U kunt IP-beperking toepassen op de opname. 
-      
+
        U kunt de IP-adressen definiëren die een video naar dit kanaal mogen publiceren. Toegestane IP-adressen kunnen worden opgegeven als een enkel IP-adres (bijvoorbeeld 10.0.0.1), een IP-adresbereik met een IP-adres en een CIDR-subnetmasker (bijvoorbeeld 10.0.0.1/22) of een IP-adresbereik met een IP-adres en een decimaal subnetmasker met punten (bijvoorbeeld '10.0.0.1(255.255.252.0)').
-      
+
        Als geen IP-adressen zijn opgegeven en er geen regeldefinitie bestaat, zijn er geen IP-adressen toegestaan. Als u IP-adres(sen) wilt toestaan, maakt u een regel en stelt u 0.0.0.0/0 in.
 6. Pas op het tabblad **Voorbeeld** IP-beperking toe op de preview.
 7. Geef op het tabblad **Codering** de vooraf gedefinieerde instellingen voor codering op. 
-   
+
     Momenteel kunt u alleen de vooraf ingestelde systeemwaarde **Default 720p** (Standaard 720p) selecteren. Open een Microsoft-ondersteuningsticket als u aangepaste vooraf gedefinieerde instellingen voor codering wilt opgeven. Voer vervolgens de naam in van de vooraf gedefinieerde instellingen die voor u zijn gemaakt. 
 
 > [!NOTE]
@@ -153,18 +151,18 @@ Zodra de stream het kanaal binnenkomt, kunt u de streaminggebeurtenis starten do
 Gebeurtenissen kunnen op twee manieren worden gestart: 
 
 1. Klik vanaf de pagina **Kanaal** op **Live gebeurtenis** om een nieuwe gebeurtenis toe te voegen.
-   
+
     Geef het volgende op: gebeurtenisnaam, assetnaam, archiefvenster en versleutelingsoptie.
-   
+
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
-   
+
     Als u **Deze live gebeurtenis nu publiceren** ingeschakeld hebt gelaten, worden er PUBLICATIE-URL's gemaakt.
-   
+
     U kunt op **Starten** klikken, wanneer u klaar bent om de gebeurtenis te streamen.
-   
+
     Als u de gebeurtenis hebt gestart, drukt u op **Bekijken** om het afspelen van de inhoud te starten.
 2. U kunt ook een snelkoppeling gebruiken en op de knop **Go Live** op de pagina **Kanaal** klikken. Hiermee wordt een standaardasset, -programma en -streaming-locator gemaakt.
-   
+
     De gebeurtenis heet **default** en het archiefvenster is ingesteld op 8 uur.
 
 U kunt de gepubliceerde gebeurtenis bekijken op de pagina **Live gebeurtenis**. 

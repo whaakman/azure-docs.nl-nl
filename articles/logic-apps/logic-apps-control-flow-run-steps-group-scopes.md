@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 9e485797dcc40c426b208971c04acffa168e528a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d73a43aedde9a88e009ddca1f0363dbcd92e1379
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455901"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080451"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Uitvoeren van acties op basis van status van de groep met een bereik in Azure Logic Apps
 
@@ -89,7 +89,8 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
       | **Doorvoer datumtype Type** | Geen | Van toepassing op het vervoermiddel openbaar alleen. | 
       ||||  
 
-1. [Een voorwaarde toevoegen](../logic-apps/logic-apps-control-flow-conditional-statement.md) die controleert of de actuele reistijd met verkeer hoger is dan een opgegeven periode. Volg deze stappen in dit voorbeeld:
+1. [Een voorwaarde toevoegen](../logic-apps/logic-apps-control-flow-conditional-statement.md) die controleert of de actuele reistijd met verkeer hoger is dan een opgegeven periode. 
+   Volg deze stappen in dit voorbeeld:
 
    1. Wijzig de naam van de voorwaarde in deze beschrijving: **Als u verkeer tijd is meer dan een opgegeven periode**
 
@@ -105,7 +106,8 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
 
       ![Voltooide voorwaarde](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-1. In de **als de waarde true** vertakking, een actie 'e-mail verzenden' toevoegen voor uw e-mailprovider. Instellen van deze actie met de volgende stappen in deze afbeelding:
+1. In de **als de waarde true** vertakking, een actie 'e-mail verzenden' toevoegen voor uw e-mailprovider. 
+   Instellen van deze actie met de volgende stappen in deze afbeelding:
 
    ![Actie 'Een e-mail verzenden' toevoegen 'indien waar' vertakking](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
@@ -124,7 +126,7 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
    1. Kies in de lijst met dynamische inhoud voor **Expressie**.
 
    1. Zoek en selecteer de **div()** functie. 
-   Plaats de cursor in van de functie haakjes.
+      Plaats de cursor in van de functie haakjes.
 
    1. Terwijl de cursor van de functie haakjes is, kies **dynamische inhoud** zodat de lijst met dynamische inhoud wordt weergegeven. 
    
@@ -144,11 +146,11 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
 
    1. Als u klaar bent, kiest u **Done**.
 
-  1. Nadat de expressie wordt omgezet, deze tekst met een toonaangevende spatie toevoegen: ``` minutes```
+   1. Nadat de expressie wordt omgezet, deze tekst met een toonaangevende spatie toevoegen: ``` minutes```
   
-     Uw **hoofdtekst** veld ziet er nu uit zoals in dit voorbeeld:
+       Uw **hoofdtekst** veld ziet er nu uit zoals in dit voorbeeld:
 
-     ![Veld is voltooid 'Hoofdtekst'](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![Veld is voltooid 'Hoofdtekst'](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
 1. Sla uw logische app op.
 

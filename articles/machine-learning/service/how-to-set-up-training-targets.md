@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: a549a46912b0d60f878a18cae1e70a763afc0243
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ec509fc8957d20f95123e9f0f645c3e9b6e832f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874695"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122366"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen
 
@@ -139,16 +139,16 @@ Een permanente Azure Machine Learning-Computing kunnen worden hergebruikt binnen
     * **vm_size**: De VM-reeks van de knooppunten die zijn gemaakt door Azure Machine Learning-Computing.
     * **max_nodes**: Het maximale aantal knooppunten automatisch te schalen tot wanneer u een taak op Azure Machine Learning-Computing uitvoert.
     
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-  U kunt ook verschillende geavanceerde eigenschappen configureren bij het maken van Azure Machine Learning-Computing. De eigenschappen kunnen u een permanente cluster vaste grootte of binnen een bestaand virtueel Azure-netwerk maken in uw abonnement.  Zie de [AmlCompute klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
+   U kunt ook verschillende geavanceerde eigenschappen configureren bij het maken van Azure Machine Learning-Computing. De eigenschappen kunnen u een permanente cluster vaste grootte of binnen een bestaand virtueel Azure-netwerk maken in uw abonnement.  Zie de [AmlCompute klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) voor meer informatie.
     
- Of u kunt maken en koppelen van een permanente resource van Azure Machine Learning-Computing [in Azure portal](#portal-create).
+   Of u kunt maken en koppelen van een permanente resource van Azure Machine Learning-Computing [in Azure portal](#portal-create).
 
 1. **Configureren**: Maak een uitvoeren-configuratie voor de permanente compute-doel.
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 Nu dat u hebt de berekening die is gekoppeld en geconfigureerd uw uitvoering, de volgende stap is het [verzenden van de uitvoering van de training](#submit).
 
@@ -168,34 +168,34 @@ Gebruik de Azure Data Science Virtual Machine (DSVM) als de Azure-VM van keuze v
 
 1. **Koppelen**: Als u wilt koppelen van een bestaande virtuele machine als een compute-doel, moet u de volledig gekwalificeerde domeinnaam (FQDN), de gebruikersnaam en het wachtwoord opgeven voor de virtuele machine. Vervang in het voorbeeld \<FQDN-naam > met de openbare FQDN-naam van de virtuele machine of het openbare IP-adres. Vervang \<username > en \<wachtwoord > met de SSH-gebruikersnaam en het wachtwoord voor de virtuele machine.
 
- ```python
- from azureml.core.compute import RemoteCompute, ComputeTarget
+   ```python
+   from azureml.core.compute import RemoteCompute, ComputeTarget
 
- # Create the compute config 
- compute_target_name = "attach-dsvm"
- attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   # Create the compute config 
+   compute_target_name = "attach-dsvm"
+   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
 
- # If you authenticate with SSH keys instead, use this code:
- #                                                  ssh_port=22,
- #                                                  username='<username>',
- #                                                  password=None,
- #                                                  private_key_file="<path-to-file>",
- #                                                  private_key_passphrase="<passphrase>")
+   # If you authenticate with SSH keys instead, use this code:
+   #                                                  ssh_port=22,
+   #                                                  username='<username>',
+   #                                                  password=None,
+   #                                                  private_key_file="<path-to-file>",
+   #                                                  private_key_passphrase="<passphrase>")
 
- # Attach the compute
- compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
+   # Attach the compute
+   compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
 
- compute.wait_for_completion(show_output=True)
- ```
+   compute.wait_for_completion(show_output=True)
+   ```
 
- Of u kunt de DSVM koppelen aan uw werkruimte [met behulp van de Azure-portal](#portal-reuse).
+   Of u kunt de DSVM koppelen aan uw werkruimte [met behulp van de Azure-portal](#portal-reuse).
 
 1. **Configureren**: Maak een uitvoeren-configuratie voor de DSVM compute-doel. Docker en conda worden gebruikt voor het maken en configureren van de omgeving instrueren op de DSVM.
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
 
 Nu dat u hebt de berekening die is gekoppeld en geconfigureerd uw uitvoering, de volgende stap is het [verzenden van de uitvoering van de training](#submit).
@@ -212,11 +212,11 @@ Azure HDInsight is een populair platform voor big data-analyses. Het platform bi
 
 1. **Koppelen**: Als u wilt koppelen als een compute-doel in een HDInsight-cluster, moet u de hostnaam, de gebruikersnaam en het wachtwoord opgeven voor het HDInsight-cluster. Het volgende voorbeeld wordt de SDK te koppelen van een cluster aan uw werkruimte. Vervang in het voorbeeld \<clustername > met de naam van uw cluster. Vervang \<username > en \<wachtwoord > met de SSH-gebruikersnaam en het wachtwoord voor het cluster.
 
-  ```python
- from azureml.core.compute import ComputeTarget, HDInsightCompute
- from azureml.exceptions import ComputeTargetException
+   ```python
+   from azureml.core.compute import ComputeTarget, HDInsightCompute
+   from azureml.exceptions import ComputeTargetException
 
- try:
+   try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
     attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azureinsight.net', 
                                                           ssh_port=22, 
@@ -226,17 +226,17 @@ Azure HDInsight is een populair platform voor big data-analyses. Het platform bi
                                        name='myhdi', 
                                        attach_configuration=attach_config)
 
- except ComputeTargetException as e:
+   except ComputeTargetException as e:
     print("Caught = {}".format(e.message))
 
- hdi_compute.wait_for_completion(show_output=True)
-  ```
+   hdi_compute.wait_for_completion(show_output=True)
+   ```
 
-  Of u kunt de HDInsight-cluster koppelen aan uw werkruimte [met behulp van de Azure-portal](#portal-reuse).
+   Of u kunt de HDInsight-cluster koppelen aan uw werkruimte [met behulp van de Azure-portal](#portal-reuse).
 
 1. **Configureren**: Maak een uitvoeren-configuratie voor het HDI-compute-doel. 
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 
 Nu dat u hebt de berekening die is gekoppeld en geconfigureerd uw uitvoering, de volgende stap is het [verzenden van de uitvoering van de training](#submit).

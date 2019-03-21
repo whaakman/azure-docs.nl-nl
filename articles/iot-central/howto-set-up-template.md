@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f8c99bd6bc9edb78a7af241f1eee2669c955a040
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: ff73982b706fa2d353be818f5022de8fbfec42fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767308"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167436"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Instellen van een apparaat-sjabloon (nieuwe gebruikersinterface ontwerp)
 
@@ -44,11 +44,13 @@ Met deze sjabloon apparaat een operator kunt maken en verbinding maken met echte
 
 1. Navigeer naar de **Apparaatsjablonen** pagina.
 
-2. Voor het maken van een lege sjabloon selecteert **+**, en voer een naam, zoals **koelkast** voor uw nieuwe apparaat-sjabloon. Selecteer vervolgens **maken**:
+2. Eerst selecteert voor het maken van een sjabloon, **+ nieuw**.
 
-   ![Pagina met details met 'Koelkast' als de naam van het apparaat](./media/howto-set-up-template/devicedetailspage.png)
+3. Als u wilt snel aan de slag, kiezen uit de bestaande vooraf gemaakte sjablonen. Selecteer anders **aangepaste**, voer een naam in en klikt u op **maken** aan het bouwen van uw eigen sjabloon maken.
 
-4. Nu bent u op de **Apparaatdetails** pagina voor een nieuwe apparaat-sjabloon. Een gesimuleerd apparaat IoT Central automatisch gemaakt wanneer u een apparaat-sjabloon maken. Een gesimuleerd apparaat kunt u het gedrag van uw toepassing testen voordat u verbinding maakt met een echt apparaat.
+   ![Bibliotheek voor sjablonen van apparaat](./media/howto-set-up-template/newtemplate.png)
+
+4. Wanneer u een aangepaste sjabloon maken, ziet u de **Apparaatdetails** pagina voor uw nieuwe apparaat-sjabloon. Een gesimuleerd apparaat IoT Central automatisch gemaakt wanneer u een apparaat-sjabloon maken. Een gesimuleerd apparaat kunt u het gedrag van uw toepassing testen voordat u verbinding maakt met een echt apparaat.
 
 De volgende secties beschrijven elk van de tabbladen op de **apparaat sjabloon** pagina.
 

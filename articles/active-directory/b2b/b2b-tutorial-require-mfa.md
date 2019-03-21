@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f6718c13534e7f43b183400a1ccf25c3f8d1e1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5a4ed93bee091bf0a40718a47ffb7cd97a85147c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993493"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Zelfstudie: Meervoudige verificatie voor B2B-gastgebruikers forceren
 
@@ -139,5 +139,6 @@ Verwijder de testgebruiker en het testbeleid voor voorwaardelijke toegang, wanne
 5.  Selecteer de knop **Azure Active Directory** in het linkerdeelvenster.
 6.  Selecteer onder **Beveiliging** de optie **Voorwaardelijke toegang**.
 7.  Selecteer in de lijst **Beleidsnaam** het contextmenu (…) voor uw testbeleid, en selecteer vervolgens **Verwijderen**. Selecteer **Ja** om te bevestigen.
+
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u een voorwaardelijk toegangsbeleid gemaakt dat gastgebruikers voorschrijft om MFA te gebruiken wanneer zij zich aanmelden bij een van uw cloud-apps. Zie voor meer informatie over het toevoegen van gastgebruikers voor samenwerking, [Azure Active Directory B2B-samenwerkingsgebruikers in Azure Portal toevoegen](add-users-administrator.md).

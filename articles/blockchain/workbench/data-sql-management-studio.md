@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 32606f988152b061fa1923c409207b2a650e64ba
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a5554f1fe0a14799a100aefc975a110d3a9a6311
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332452"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088720"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Gegevens van Azure Blockchain Workbench gebruiken met SQL Server Management Studio
 
@@ -38,9 +38,9 @@ Microsoft SQL Server Management Studio biedt de mogelijkheid om snel te schrijve
 
     ![SQL-referenties invoeren](./media/data-sql-management-studio/sql-creds.png)
 
- 4. In SQL Server Management Studio ziet u de lijst met databases, databaseweergaven en opgeslagen procedures uit de Azure Blockchain Workbench-database.
+   1. In SQL Server Management Studio ziet u de lijst met databases, databaseweergaven en opgeslagen procedures uit de Azure Blockchain Workbench-database.
 
-    ![Databaselijst](./media/data-sql-management-studio/db-list.png)
+      ![Databaselijst](./media/data-sql-management-studio/db-list.png)
 
 5. Als u de gegevens wilt bekijken die aan een databaseweergave zijn gekoppeld, kunt u met de volgende stappen automatisch een select-instructie genereren.
 6. Met de rechtermuisknop op een van de databaseweergaven in Object Explorer.

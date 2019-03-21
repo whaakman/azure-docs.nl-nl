@@ -12,26 +12,26 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 4f26f3a31dc6303e991c39fc7f85d9bf254d57bc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: e833146d05f0c35449915c1d1293873258a7b7eb
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885134"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226773"
 ---
 # <a name="point-in-time-snapshot"></a>Point-in-time-snapshot
 
-Azure-appconfiguratie houdt records bij van de tijden waarop een nieuw sleutel-waardepaar is gemaakt en vervolgens wordt gewijzigd. Deze records vormen een volledige tijdlijn in sleutel-waardewijzigingen. Een app-configuratiearchief kan op elk gewenst moment de geschiedenis van een sleutel-waarde reconstrueren en de laatste waarde herhalen, tot aan de huidige. Met deze functie kunt u "tijdreizen" en een oude sleutel-waarde ophalen. U kunt bijvoorbeeld de configuratie-instellingen voor gisteren ophalen, net vóór de meest recente implementatie, zodat u een vorige configuratie kunt herstellen in het geval dat u de toepassing wilt terugdraaien.
+Azure App-configuratie houdt records van de tijden wanneer een nieuwe sleutel / waarde-paar is gemaakt en vervolgens gewijzigd. Deze records vormen een volledige tijdlijn in sleutel-waardewijzigingen. Een app-configuratiearchief kunt reconstrueren de geschiedenis van een sleutelwaarde en de laatste waarde op elk gewenst moment, tot aan de huidige herhalen. Met deze functie ook 'time-traject' terug en ophalen van de waarde van een oude sleutel. Bijvoorbeeld, krijgt u van gisteren configuratie-instellingen, net vóór de implementatie van de meest recente om te kunnen herstellen van een vorige configuratie en het terugdraaien van de toepassing.
 
 ## <a name="key-value-retrieval"></a>Sleutel/waarde ophalen
 
-Om vorige sleutel-waarden terug te krijgen, moet u een tijdstip waarop een momentopname van sleutel-waarden is gemaakt opgeven in de HTTP-header van een REST-API-aanroep. Bijvoorbeeld:
+Om op te halen voorbij sleutelwaarden, Geef een tijd waarop de sleutelwaarden zijn momentopname in de HTTP-header van een REST-API-aanroep. Bijvoorbeeld:
 
         GET /revisions HTTP/1.1
         Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
 
-De app-configuratie behoudt momenteel 7 dagen van de wijzigingsgeschiedenis.
+App-configuratie wordt op dit moment zeven dagen van de wijzigingsgeschiedenis van.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Snelstart: Een ASP.NET-web-app maken](quickstart-aspnet-core-app.md)  
+* [Snelstart: een ASP.NET-web-app maken](quickstart-aspnet-core-app.md)  

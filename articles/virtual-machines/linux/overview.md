@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 66ba6aa874e84ce86d54d5ea0f827a83dc6564b4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: a5203d75e673a7b8206446553414ff933e00b0b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008936"
 ---
 # <a name="azure-and-linux"></a>Azure en Linux
 Microsoft Azure is een groeiende verzameling geïntegreerde, openbare cloudservices, waaronder analyses, virtuele machines, databases, mobiele toepassingen, netwerken, opslag en het web&mdash;ideaal voor het hosten van uw oplossingen.  Microsoft Azure biedt een schaalbaar platform waarvoor u alleen betaalt voor wat u gebruikt, wanneer u dat gebruikt - zonder dat u hoeft te investeren in on-premises hardware.  Azure is klaar om uw oplossingen op te schalen wanneer u daar ook klaar, welke schaal u ook nodig hebt om te voorzien in de behoeften van uw klanten.
@@ -59,7 +59,7 @@ Voor een juiste DevOps-cultuur moet alle infrastructuur uit code bestaan.  Als a
 * [Azure-sjablonen](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure is bezig met het uitrollen van ondersteuning voor [cloud init](http://cloud-init.io/) voor de meeste Linux-distributies die dit ondersteunen.  Op dit moment worden VM's met Ubuntu van Canonical geïmplementeerd met cloud-init standaard ingeschakeld.  Red Hats RHEL, CentOS en Fedora ondersteunen cloud init, maar cloud-init wordt momenteel niet geïnstalleerd met de installatiekopieën van Azure die worden onderhouden door Red Hat.  Als u cloud-init wilt gebruiken met een OS uit de Red Hat-familie, moet u een aangepaste installatiekopie maken met cloud-init geïnstalleerd.
+Azure is bezig met het uitrollen van ondersteuning voor [cloud init](https://cloud-init.io/) voor de meeste Linux-distributies die dit ondersteunen.  Op dit moment worden VM's met Ubuntu van Canonical geïmplementeerd met cloud-init standaard ingeschakeld.  Red Hats RHEL, CentOS en Fedora ondersteunen cloud init, maar cloud-init wordt momenteel niet geïnstalleerd met de installatiekopieën van Azure die worden onderhouden door Red Hat.  Als u cloud-init wilt gebruiken met een OS uit de Red Hat-familie, moet u een aangepaste installatiekopie maken met cloud-init geïnstalleerd.
 
 * [Cloud-init gebruiken op virtuele Linux-machines in Azure](using-cloud-init.md)
 
@@ -110,7 +110,7 @@ Als u ervoor kiest om een Linux-VM te maken in Azure Portal, kunt u eenvoudig al
 De VM wordt nu uitgevoerd in Azure en u kunt zich gaan aanmelden.  Aanmelden via SSH met behulp van wachtwoorden is onveilig en tijdrovend.  Het gebruik van SSH-sleutels is niet alleen de veiligste manier om u aan te melden, maar ook de snelste.  Wanneer u een Linux-VM maakt via de portal of de CLI, kunt u kiezen uit twee verificatiemogelijkheden.  Als u een wachtwoord kiest voor SSH, wordt de virtuele machine zo geconfigureerd door Azure dat aanmeldingen via wachtwoorden zijn toegestaan.  Als u kiest voor een openbare SSH-sleutel, wordt de virtuele machine zo geconfigureerd dat alleen aanmeldingen via SSH-sleutels zijn toegestaan. Aanmelden met behulp van een wachtwoord is dan niet mogelijk. Als u uw Linux-VM wilt beveiligen door alleen aanmeldingen met een SSH-sleutel toe te staan, gebruikt u de optie voor openbare SSH-sleutels tijdens het maken van de virtuele machine in de portal of de CLI.
 
 ## <a name="related-azure-components"></a>Gerelateerde Azure-onderdelen
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 * [Inleiding tot Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 * [Een schijf toevoegen aan een virtuele Linux-machine](add-disk.md)
 * [Een gegevensschijf koppelen aan een Linux-VM in Azure Portal](attach-disk-portal.md)

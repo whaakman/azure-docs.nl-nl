@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: mbullwin
-ms.openlocfilehash: a593e42ed87ab985d4f4584ed6b73109716120bf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 10b909fd5239546047aa4696a1f6a68a703778c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028388"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001232"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Degradatie traceren ernst breedteverhouding (preview)
 
@@ -26,7 +26,7 @@ Traceringen worden veel gebruikt in toepassingen, zoals ze het verhaal vertellen
 Deze functie is vereist geen speciale instellingen, dan traceerlogboekregistratie voor uw app configureren (informatie over het configureren van een trace log-listener voor [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) of [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). Deze is actief wanneer uw app zoveel uitzonderingstelemetrie genereert.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Wanneer kan ik dit type melding voor slimme detectie krijgen?
-U kunt dit type melding krijgen als de verhouding tussen "tot" traceringen (traceringen die zijn geregistreerd met een niveau van *Info* of *uitgebreid*) en 'slechte' traces (traceringen die zijn geregistreerd met een niveau van *waarschuwing*, * Fout, of *onherstelbare fout*) is vernederen in een specifieke dag, vergeleken met een basislijn berekend voor de afgelopen zeven dagen.
+U kunt dit type melding krijgen als de verhouding tussen "tot" traceringen (traceringen die zijn geregistreerd met een niveau van *Info* of *uitgebreid*) en 'slechte' traces (traceringen die zijn geregistreerd met een niveau van *waarschuwing*, *Fout*, of *onherstelbare fout*) is vernederen in een specifieke dag, vergeleken met een basislijn berekend voor de afgelopen zeven dagen.
 
 ## <a name="does-my-app-definitely-have-a-problem"></a>Beschikt over mijn app absoluut een probleem?
 Nee, een melding betekent niet dat uw app beslist een probleem is. Hoewel een verslechtering van de in de verhouding tussen 'goede' en 'slechte' traceringen op een toepassingsprobleem wijzen kan, is het mogelijk dat deze wijziging in verhouding goedaardige. Bijvoorbeeld, de toename mogelijk vanwege een nieuwe stroom in de toepassing meer 'slechte' traceringen dan de bestaande stromen genereren).
