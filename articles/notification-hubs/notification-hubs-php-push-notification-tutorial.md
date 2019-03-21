@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 7bd533e9319a265e935e32be15768ab3487db6da
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 054edaf321d90015840fd84e1697fca742fd7e1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561345"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838592"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Hoe u Notification Hubs gebruiken vanuit PHP
 
@@ -289,4 +289,4 @@ In dit onderwerp, we hebt u geleerd hoe u een eenvoudige Java-REST-client voor N
 Zie voor meer informatie, ook de [PHP-ontwikkelaarscentrum](https://azure.microsoft.com/develop/php/).
 
 [Voorbeeld van PHP-REST-wrapper]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Zelfstudie Aan de slag]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Zelfstudie Aan de slag]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/

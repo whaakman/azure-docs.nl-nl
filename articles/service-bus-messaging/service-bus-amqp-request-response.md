@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c6d6fc813a2691e821f3ef8f7c719945851a5001
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: c22ba0b57ed1161e1f7e2082d2ba21f27b656da1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121567"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 in Microsoft Azure Service Bus: aanvraag-reactie-bewerkingen
 
@@ -607,7 +607,7 @@ Elke kaart vermelding in de matrix bevat de volgende eigenschappen:
 `com.microsoft:correlation-filter:list` is een beschreven matrix, waaronder:
 
 |Index (indien aanwezig)|Waardetype|De inhoud van waarde|  
-|---------|----------------|--------------|--------------------|  
+|---------|----------------|--------------|
 | 0 | string | Correlatie-id |
 | 1 | string | Bericht-id |
 | 2 | string | Handeling |
