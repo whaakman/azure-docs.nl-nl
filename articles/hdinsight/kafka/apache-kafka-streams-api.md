@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584153"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112786"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Zelfstudie: Streams-API van Apache Kafka
 
@@ -199,13 +199,13 @@ Als u het project wilt implementeren in het Kafka-cluster in HDInsight, voert u 
 
     De onderwerpen worden gebruikt voor de volgende doeleinden:
 
-    * `test`: dit is het onderwerp waarin records worden ontvangen. De streaming-toepassing leest uit dit onderwerp.
-    * `wordcounts`: dit is het onderwerp waarin de uitvoer van de streaming-toepassing wordt opgeslagen.
-    * `RekeyedIntermediateTopic`: dit onderwerp wordt gebruikt voor het opnieuw partitioneren van gegevens wanneer het aantal woorden wordt bijgewerkt door de operator `countByKey`.
-    * `wordcount-example-Counts-changelog`: in dit onderwerp worden statuswaarden opgeslagen die worden gebruikt door de bewerking `countByKey`
+   * `test`: dit is het onderwerp waarin records worden ontvangen. De streaming-toepassing leest uit dit onderwerp.
+   * `wordcounts`: dit is het onderwerp waarin de uitvoer van de streaming-toepassing wordt opgeslagen.
+   * `RekeyedIntermediateTopic`: dit onderwerp wordt gebruikt voor het opnieuw partitioneren van gegevens wanneer het aantal woorden wordt bijgewerkt door de operator `countByKey`.
+   * `wordcount-example-Counts-changelog`: in dit onderwerp worden statuswaarden opgeslagen die worden gebruikt door de bewerking `countByKey`
 
-    > [!IMPORTANT]  
-    > Kafka in HDInsight kan ook worden geconfigureerd voor het automatisch maken van onderwerpen. Zie [How to configure Apache Kafka on HDInsight to automatically create topics](apache-kafka-auto-create-topics.md) (Apache Kafka in HDInsight configureren voor het automatisch maken van onderwerpen) voor meer informatie.
+     > [!IMPORTANT]  
+     > Kafka in HDInsight kan ook worden geconfigureerd voor het automatisch maken van onderwerpen. Zie [How to configure Apache Kafka on HDInsight to automatically create topics](apache-kafka-auto-create-topics.md) (Apache Kafka in HDInsight configureren voor het automatisch maken van onderwerpen) voor meer informatie.
 
 ## <a name="run-the-code"></a>De code uitvoeren
 

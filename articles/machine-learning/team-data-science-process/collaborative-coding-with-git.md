@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 045f2d12eb6836d14a09ea96c8eca3cad0e5246d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458217"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863294"
 ---
 # <a name="collaborative-coding-with-git"></a>Samenwerken aan code met Git
 
@@ -36,7 +36,7 @@ Geef de informatie voor deze nieuwe vertakking, zoals de naam van het filiaal, b
 
 Een goede gewoonte is het maken van een Git-branch voor elk werkitem verhaal. Vervolgens maakt u voor elk Taakwerkitem een vertakking op basis van de vertakking verhaal. De branches organiseren op deze hiërarchische manier die overeenkomt met de relaties verhaal-taak is handig als u meerdere mensen werken aan verschillende verhalen van hetzelfde project, of u hebt meerdere mensen werken aan verschillende taken van hetzelfde artikel. Conflicten kunnen worden geminimaliseerd wanneer elk teamlid werkt op een andere vertakking en op elk lid werkt op verschillende codes of andere artefacten bij het delen van een vertakking. 
 
-De volgende afbeelding ziet u de aanbevolen vertakkingen strategie voor de TDSP. U moet u mogelijk niet veel vertakkingen zoals zijn hier wordt weergegeven, met name wanneer u slechts één hebt of twee personen die samenwerken aan hetzelfde project, of slechts één persoon werkt voor alle taken van een artikel. Maar het scheiden van de vertakking van de ontwikkeling van de master-vertakking is altijd een goede gewoonte. Dit kan helpen te voorkomen dat de releasebranch wordt onderbroken door de van ontwikkelingsactiviteiten. Gedetailleerde beschrijving van de Git-branch-model kunt u vinden in [een geslaagde Git vertakkingen Model](http://nvie.com/posts/a-successful-git-branching-model/).
+De volgende afbeelding ziet u de aanbevolen vertakkingen strategie voor de TDSP. U moet u mogelijk niet veel vertakkingen zoals zijn hier wordt weergegeven, met name wanneer u slechts één hebt of twee personen die samenwerken aan hetzelfde project, of slechts één persoon werkt voor alle taken van een artikel. Maar het scheiden van de vertakking van de ontwikkeling van de master-vertakking is altijd een goede gewoonte. Dit kan helpen te voorkomen dat de releasebranch wordt onderbroken door de van ontwikkelingsactiviteiten. Gedetailleerde beschrijving van de Git-branch-model kunt u vinden in [een geslaagde Git vertakkingen Model](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 

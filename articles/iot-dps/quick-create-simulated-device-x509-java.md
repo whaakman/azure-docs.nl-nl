@@ -10,23 +10,23 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 1c784aefca19040abb7ab34dd92dddb1ef0f28de
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 52fbef24e8a1b9fd7e0ade404c23a587c81d6b0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418225"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105995"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd X.509-apparaat maken en inrichten voor IoT Hub Device Provisioning Service met behulp van de Java apparaat-SDK
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 In deze stappen wordt getoond hoe u een gesimuleerd X.509-apparaat maakt op een ontwikkelcomputer met Windows OS en het codevoorbeeld gebruikt om dit gesimuleerde apparaat te verbinden met de Device Provisioning Service en uw IoT-hub. 
 
-Als u niet bekend bent met het proces van automatische inrichting, bekijk dan ook de [Concepten voor automatische inrichting](concepts-auto-provisioning.md). Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat. 
+Als u niet bekend bent met het proces van automatisch inrichten, bekijk dan ook de [Concepten voor automatische inrichting](concepts-auto-provisioning.md). Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat. 
 
-Azure IoT Device Provisioning Service ondersteunt twee typen registraties:
-- [Registratiegroepen](concepts-service.md#enrollment-group): voor het registreren van gerelateerde apparaten.
-- [Afzonderlijke registraties](concepts-service.md#individual-enrollment): voor het registreren van afzonderlijke apparaten.
+Azure IoT Device Provisioning Service ondersteunt twee typen inschrijvingen:
+- [Inschrijvingsgroepen](concepts-service.md#enrollment-group): Wordt gebruikt om meerdere gerelateerde apparaten in te schrijven.
+- [Afzonderlijke inschrijvingen](concepts-service.md#individual-enrollment): Wordt gebruikt om één apparaat in te schrijven.
 
 In dit artikel worden afzonderlijke registraties gedemonstreerd.
 
@@ -86,15 +86,15 @@ U gaat voorbeeldcode van de [Azure IoT C-SDK voor Java](https://github.com/Azure
 6. Selecteer **Manage enrollments** in de overzichtsblade van Device Provisioning Service. Selecteer het tabblad **Afzonderlijke registraties** en klik vervolgens op de knop **Afzonderlijke inschrijving toevoegen** bovenaan. 
 
 7. Voer onder het deelvenster **Inschrijving toevoegen** de volgende gegevens in:
-    - Selecteer **X.509** als *mechanisme* voor identiteitscontrole.
-    - Klik onder het *PEM- of CER-bestand van het primaire certificaat* op een *Select a file* om het certificaatbestand **X509individual.pem** te selecteren dat in de vorige stappen is gemaakt.  
-    - Desgewenst kunt u de volgende informatie verstrekken:
-      - Selecteer een IoT-hub die is gekoppeld aan uw inrichtingsservice.
-      - Voer een unieke apparaat-id in. Vermijd gevoelige gegevens bij het benoemen van uw apparaat. 
-      - Werk de **initiële status van de apparaatdubbel** bij met de gewenste beginconfiguratie voor het apparaat.
-   - Klik op de knop **Save** als u klaar bent. 
+   - Selecteer **X.509** als *mechanisme* voor identiteitscontrole.
+   - Klik onder het *PEM- of CER-bestand van het primaire certificaat* op een *Select a file* om het certificaatbestand **X509individual.pem** te selecteren dat in de vorige stappen is gemaakt.  
+   - Desgewenst kunt u de volgende informatie verstrekken:
+     - Selecteer een IoT-hub die is gekoppeld aan uw inrichtingsservice.
+     - Voer een unieke apparaat-id in. Vermijd gevoelige gegevens bij het benoemen van uw apparaat. 
+     - Werk de **initiële status van de apparaatdubbel** bij met de gewenste beginconfiguratie voor het apparaat.
+     - Klik op de knop **Save** als u klaar bent. 
 
-    [![Afzonderlijke inschrijving voor X.509-attestation toevoegen in de portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+     [![Afzonderlijke inschrijving voor X.509-attestation toevoegen in de portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
      Als het apparaat is ingeschreven, wordt het X.509-apparaat weergegeven als **microsoftriotcore** onder de kolom *Registratie-id* op het tabblad *Afzonderlijke registraties*. 
 

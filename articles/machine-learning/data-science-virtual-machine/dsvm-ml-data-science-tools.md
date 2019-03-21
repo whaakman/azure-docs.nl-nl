@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: f84341d6d8ac3b5c7febaa4f659da84efcebb780
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473343"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847362"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Machine learning en data science-hulpprogramma 's
 Azure Data Science Virtual Machines is een uitgebreide set hulpprogramma's en bibliotheken voor machine learning (ML) beschikbaar in populaire talen, zoals Python, R en Julia. 
@@ -71,7 +71,7 @@ Hier volgen enkele van de hulpprogramma's voor ML en -bibliotheken op virtuele M
 | Ondersteunde versies     | Windows, Linux     |
 | Wordt doorgaans gebruikt      | Algemene ML-hulpprogramma     |
 | Over het gebruik of uit te voeren      | Zoeken op Windows, Weka in het menu Start. Meld u aan met X2Go op Linux, en ga vervolgens naar **toepassingen** > **ontwikkeling** > **Weka**. |
-| Koppeling naar voorbeelden      | [Voorbeelden van weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Koppeling naar voorbeelden      | [Voorbeelden van weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Meer hulpprogramma 's      |LightGBM, ratel, XGBoost   |
 
 ## <a name="rattle"></a>Rammelaar

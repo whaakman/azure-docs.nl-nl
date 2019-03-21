@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82ccfe6a8d77926d2b908f84db600b0665565d51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 257f7b66163b72141ceb6405768e912a263fb14b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173888"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124215"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hoe en waarom worden toepassingen toegevoegd aan Azure AD
 
@@ -133,8 +133,9 @@ Als u nog steeds wilt om te voorkomen dat gebruikers in uw directory kunnen toep
 * Om te voorkomen dat gebruikers ze toepassingen namens hun eigen goedkeuren:
   1. In de Azure-portal, gaat u naar de [gebruikersinstellingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) sectie onder zakelijke toepassingen.
   2. Wijziging **gebruikers toestemming kunnen geven voor apps die toegang tot bedrijfsgegevens namens hen** naar **Nee**. 
-      > [!NOTE]
-      > Als u besluit uitschakelen toestemming van de gebruiker, kan een beheerder moeten akkoord gaan met een nieuwe toepassing die een gebruiker moet worden gebruikt.    
+     
+     > [!NOTE]
+     > Als u besluit uitschakelen toestemming van de gebruiker, kan een beheerder moeten akkoord gaan met een nieuwe toepassing die een gebruiker moet worden gebruikt.    
 * Om te voorkomen dat gebruikers hun eigen toepassingen registreren:
   1. In de Azure-portal, gaat u naar de [gebruikersinstellingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) sectie onder Azure Active Directory
   2. Wijziging **gebruikers kunnen toepassingen registreren** naar **Nee**.

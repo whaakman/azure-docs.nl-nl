@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 93046fa8225d8c85172d113d3c7f9e979c336770
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331432"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096262"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(AFGESCHAFT) Volledige CI/CD-pijplijn voor het implementeren van een toepassing met meerdere containers in Azure Container Service met Docker Swarm met Azure DevOps-Services
 
@@ -204,14 +204,14 @@ De release-werkstroom bestaat uit twee taken die u toevoegt.
 
     De opdracht uitgevoerd op de master gebruiken de Docker CLI en de CLI Docker-Compose hiervoor de volgende taken:
 
-    - Meld u aan bij Azure container registry (hierbij drie build variab'les die zijn gedefinieerd in de **variabelen** tabblad)
-    - Definieer de **DOCKER_HOST** variabele om te werken met het Swarm-eindpunt (: 2375)
-    - Navigeer naar de *implementeren* map die is gemaakt met de vorige beveiligde kopie-taak en die de docker-compose.yml-bestand bevat 
-    - Voer `docker-compose` opdrachten die ophalen van de nieuwe installatiekopieën, stop de services, verwijder de services en de containers te maken.
+   - Meld u aan bij Azure container registry (hierbij drie build variab'les die zijn gedefinieerd in de **variabelen** tabblad)
+   - Definieer de **DOCKER_HOST** variabele om te werken met het Swarm-eindpunt (: 2375)
+   - Navigeer naar de *implementeren* map die is gemaakt met de vorige beveiligde kopie-taak en die de docker-compose.yml-bestand bevat 
+   - Voer `docker-compose` opdrachten die ophalen van de nieuwe installatiekopieën, stop de services, verwijder de services en de containers te maken.
 
-    >[!IMPORTANT]
-    > Zoals in het vorige scherm wordt weergegeven, laat de **mislukken op STDERR** selectievakje uitgeschakeld. Dit is een belangrijk instelling, omdat `docker-compose` worden afgedrukt verschillende diagnostische berichten, zoals containers zijn moet worden gestopt of wordt verwijderd, klikt u op de standaardfout-uitvoer. Als u het selectievakje inschakelt, rapporteert Azure DevOps-Services dat fouten zijn opgetreden tijdens de release, zelfs als het goed.
-    >
+     >[!IMPORTANT]
+     > Zoals in het vorige scherm wordt weergegeven, laat de **mislukken op STDERR** selectievakje uitgeschakeld. Dit is een belangrijk instelling, omdat `docker-compose` worden afgedrukt verschillende diagnostische berichten, zoals containers zijn moet worden gestopt of wordt verwijderd, klikt u op de standaardfout-uitvoer. Als u het selectievakje inschakelt, rapporteert Azure DevOps-Services dat fouten zijn opgetreden tijdens de release, zelfs als het goed.
+     >
 1. Sla deze nieuwe release-pijplijn.
 
 

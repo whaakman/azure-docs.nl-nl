@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 2d57097e4d3317bfba5055a6b75ae72dd60f046a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fe19510d9b4c6311923b4b2ea15f133249e6cbd5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244688"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190036"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexeren van tabellen in SQL Data Warehouse
 Aanbevelingen en voorbeelden voor het indexeren van tabellen in Azure SQL Data Warehouse.
@@ -45,12 +45,12 @@ Er zijn enkele scenario's waarbij geclusterde columnstore niet mogelijk een goed
 
 - Columnstore-tabellen ondersteunen geen varchar(max), nvarchar(max) en varbinary(max). Overweeg in plaats daarvan heap of geclusterde index.
 - Columnstore-tabellen is mogelijk minder efficiënt voor tijdelijke gegevens. Houd rekening met heap en kan zelfs tijdelijke tabellen.
-- Kleine tabellen met minder dan 100 miljoen rijen. Kunt u overwegen een heap-tabellen.
+- Kleine tabellen met minder dan 60 miljoen rijen. Kunt u overwegen een heap-tabellen.
 
 ## <a name="heap-tables"></a>Heap-tabellen
 Wanneer u tijdelijk gegevens in SQL Data Warehouse terechtkomen zijn, merkt u misschien dat het proces versnellen met behulp van een heap-tabel maakt. Dit is omdat loads naar heaps sneller dan indextabellen en in sommige gevallen is die het volgende lezen uit cache kan worden gedaan.  Als u het laden van gegevens alleen als u wilt deze fase voordat u meer transformaties uitvoert, is het laden van de tabel aan de heap-tabel veel sneller dan het laden van de gegevens naar een geclusterde columnstore-tabel. Bovendien het laden van gegevens naar een [tijdelijke tabel](sql-data-warehouse-tables-temporary.md) wordt geladen sneller dan het laden van een tabel in de permanente opslag.  
 
-Voor kleine opzoektabellen, minder dan 100 miljoen rijen, zinvol vaak heap-tabellen zijn.  Cluster columnstore-tabellen beginnen met het bereiken van optimale compressie zodra er meer dan 100 miljoen rijen.
+Voor kleine opzoektabellen, minder dan 60 miljoen rijen, zinvol vaak heap-tabellen zijn.  Cluster columnstore-tabellen beginnen met het bereiken van optimale compressie zodra er meer dan 60 miljoen rijen.
 
 Geef HEAP in de WITH-component voor het maken van een heap-tabel:
 
@@ -79,7 +79,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Om toe te voegen een niet-geclusterde index op een tabel, gebruikt u gewoon de volgende syntaxis:
+Als u wilt toevoegen een niet-geclusterde index op een tabel, gebruikt u de volgende syntaxis:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
@@ -182,7 +182,7 @@ Als u tabellen met slechte segmentkwaliteit hebt geïdentificeerd, wilt u de hoo
 Deze factoren kunnen leiden tot een columnstore-index hebben aanzienlijk kleiner is dan de optimale 1 miljoen rijen per rijgroep. Ze kunnen ook leiden tot rijen naar de delta-rij-groep in plaats van een gecomprimeerde Rijengroep. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Geheugendruk wanneer de index is gemaakt
-Het aantal rijen per gecomprimeerde Rijgroepen groep zijn direct gerelateerd aan de breedte van de rij en de hoeveelheid geheugen die beschikbaar is voor het verwerken van de rijgroep.  Wanneer rijen naar columnstore-tabellen worden geschreven onder geheugendruk, kan dit ten koste gaan van de kwaliteit van columnstore-segmenten.  De aanbevolen procedure is daarom dat de sessie die wordt geschreven naar de columnstore-index tabellen toegang tot net zo veel geheugen mogelijk.  Omdat er een afweging tussen het geheugen en gelijktijdigheid van taken, de instructies op de juiste geheugentoewijzing is afhankelijk van de gegevens in elke rij van de tabel, de datawarehouse-eenheden toegewezen aan uw systeem en het aantal gelijktijdige plekken gebruiken die u kunt geven tot de sessie die schrijven van gegevens naar de tabel is.  Als een best practice kunt het beste beginnen met xlargerc als u DW300 of minder, largerc als u DW400 naar DW600 en mediumrc als u DW1000 en hoger.
+Het aantal rijen per gecomprimeerde Rijgroepen groep zijn direct gerelateerd aan de breedte van de rij en de hoeveelheid geheugen die beschikbaar is voor het verwerken van de rijgroep.  Wanneer rijen naar columnstore-tabellen worden geschreven onder geheugendruk, kan dit ten koste gaan van de kwaliteit van columnstore-segmenten.  De aanbevolen procedure is daarom dat de sessie die wordt geschreven naar de columnstore-index tabellen toegang tot net zo veel geheugen mogelijk.  Omdat er een afweging tussen het geheugen en gelijktijdigheid van taken, de instructies op de juiste geheugentoewijzing is afhankelijk van de gegevens in elke rij van de tabel, de datawarehouse-eenheden toegewezen aan uw systeem en het aantal gelijktijdige plekken gebruiken die u kunt geven tot de sessie die schrijven van gegevens naar de tabel is.
 
 ### <a name="high-volume-of-dml-operations"></a>Groot aantal DML-bewerkingen
 Een groot aantal DML-bewerkingen die bijwerken en verwijderen van rijen kunt inefficiëntie in de columnstore introduceren. Dit is vooral van toepassing als het merendeel van de rijen in een Rijengroep zijn gewijzigd.
@@ -205,7 +205,7 @@ Zodra uw tabellen met gegevens zijn geladen, volg de onderstaande stappen om te 
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Opnieuw opbouwen van indexen voor het verbeteren van segmentkwaliteit
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Stap 1: Bepalen of gebruikers dat gebruikmaakt van de juiste resourceklasse maken
-Er is een snelle manier voor het verbeteren van segmentkwaliteit onmiddellijk de index opnieuw opbouwen.  De SQL-code die wordt geretourneerd door de bovenstaande weergave retourneert een instructie ALTER INDEX REBUILD, die kan worden gebruikt om uw indexen opnieuw samenstellen. Wanneer uw-indexen herbouwen, moet u dat u onvoldoende geheugen om de sessie die de index van opnieuw gebouwde toewijzen.  U doet dit door de resourceklasse van een gebruiker met machtigingen voor het opnieuw opbouwen van de index voor deze tabel aan de aanbevolen minimale te verhogen. De resourceklasse van de database-eigenaar-gebruiker kan niet worden gewijzigd, dus als u een gebruiker op het systeem niet hebt gemaakt, moet u dat eerst doen. De minimale aanbevolen resourceklasse is xlargerc als u DW300 of minder, largerc als u DW400 naar DW600 en mediumrc als u DW1000 en hoger.
+Er is een snelle manier voor het verbeteren van segmentkwaliteit onmiddellijk de index opnieuw opbouwen.  De SQL-code die wordt geretourneerd door de bovenstaande weergave retourneert een instructie ALTER INDEX REBUILD, die kan worden gebruikt om uw indexen opnieuw samenstellen. Wanneer uw-indexen herbouwen, moet u dat u onvoldoende geheugen om de sessie die de index van opnieuw gebouwde toewijzen.  U doet dit door de resourceklasse van een gebruiker met machtigingen voor het opnieuw opbouwen van de index voor deze tabel aan de aanbevolen minimale te verhogen. 
 
 Hieronder volgt een voorbeeld van hoe u meer geheugen toewijzen aan een gebruiker door hun resourceklasse. Als u wilt werken met resource-klassen, Zie [resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md).
 
@@ -216,7 +216,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Stap 2: Geclusterde columnstore-indexen opnieuw samenstellen met hogere resource klasse gebruiker
 Meld u aan als de gebruiker uit stap 1 (bijvoorbeeld LoadUser), waarop nu met behulp van een hogere resourceklasse, en voer de instructies ALTER INDEX. Zorg ervoor dat deze gebruiker heeft de machtiging ALTER voor de tabellen waarbij de index wordt opnieuw opgebouwd. Deze voorbeelden laten zien hoe u de volledige columnstore-index opnieuw opbouwen of het opnieuw opbouwen van een enkele partitie. Bij grote tabellen is het meer praktische om op te bouwen indexen één partitie op een tijdstip.
 
-U kunt ook in plaats van opnieuw opbouwen van de index, u kan de tabel kopiëren naar een nieuwe tabel [met behulp van CTAS](sql-data-warehouse-develop-ctas.md). Welke het beste is? Voor grote hoeveelheden gegevens, CTAS is doorgaans sneller dan [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Voor kleinere hoeveelheden gegevens, ALTER INDEX is eenvoudiger te gebruiken en wordt niet hoeft te wisselen van de tabel. Zie **opnieuw opbouwen van indexen met CTAS en het wijzigen van de partitie** hieronder voor meer informatie over het opnieuw opbouwen van indexen met CTAS.
+U kunt ook in plaats van opnieuw opbouwen van de index, u kan de tabel kopiëren naar een nieuwe tabel [met behulp van CTAS](sql-data-warehouse-develop-ctas.md). Welke het beste is? Voor grote hoeveelheden gegevens, CTAS is doorgaans sneller dan [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Voor kleinere hoeveelheden gegevens, ALTER INDEX is eenvoudiger te gebruiken en wordt niet hoeft te wisselen van de tabel. 
 
 ```sql
 -- Rebuild the entire clustered index
@@ -263,25 +263,8 @@ WHERE   [OrderDateKey] >= 20000101
 AND     [OrderDateKey] <  20010101
 ;
 
--- Step 2: Create a SWITCH out table
-CREATE TABLE dbo.FactInternetSales_20000101
-    WITH    (   DISTRIBUTION = HASH(ProductKey)
-            ,   CLUSTERED COLUMNSTORE INDEX
-            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20000101
-                                )
-                            )
-            )
-AS
-SELECT *
-FROM    [dbo].[FactInternetSales]
-WHERE   1=2 -- Note this table will be empty
-
--- Step 3: Switch OUT the data 
-ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales_20000101] PARTITION 2;
-
--- Step 4: Switch IN the rebuilt data
-ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
+-- Step 2: Switch IN the rebuilt data with TRUNCATE_TARGET option
+ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
 Zie voor meer informatie over het opnieuw maken met behulp van CTAS partities [gebruik van partities in SQL Data Warehouse](sql-data-warehouse-tables-partition.md).

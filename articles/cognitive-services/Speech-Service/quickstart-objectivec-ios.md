@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 67acc7a074b26cb7614b5e08d25afd7b7c1caa74
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958504"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094919"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Quickstart: Gesproken tekst herkennen in Objective-C in iOS met behulp van de Speech SDK
 
@@ -75,7 +75,7 @@ Vervang de automatisch gegenereerde XML door deze code:
 ## <a name="add-the-sample-code"></a>De voorbeeldcode toevoegen
 
 1. Download het [wav-voorbeeldbestand](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav) door met de rechtermuisknop op de koppeling te klikken en **Save target as...** te kiezen. Voeg het wav-bestand als een resource toe aan het project door het vanuit een zoekvenster te verslepen naar het hoofdniveau van de projectweergave.
-Klik in het volgende dialoogvenster op **Finish** zonder de instellingen te wijzigen.
+   Klik in het volgende dialoogvenster op **Finish** zonder de instellingen te wijzigen.
 1. Vervang de inhoud van het automatisch gegenereerde bestand `ViewController.m` door:
 
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
@@ -90,12 +90,12 @@ Klik in het volgende dialoogvenster op **Finish** zonder de instellingen te wijz
 ## <a name="building-and-running-the-sample"></a>De voorbeeldtoepassing bouwen en uitvoeren
 
 1. Maak de foutopsporingsuitvoer zichtbaar (**View** > **Debug Area** > **Activate Console**).
-1. Kies de iOS-simulator of een iOS-apparaat dat is verbonden met uw ontwikkelcomputer als de bestemming voor de app uit de lijst in het menu **Product** -> **Destination**.
+1. Kies de iOS-simulator of een iOS-apparaat dat is verbonden met uw ontwikkelcomputer als bestemming voor de app uit de lijst in de **Product** -> **bestemming** menu.
 1. Bouw de voorbeeldcode en voer deze uit in de iOS-simulator door **Product** -> **Run** in het menu te selecteren of op de knop **Play** te klikken.
-Momenteel biedt de Speech-SDK alleen ondersteuning voor 64-bits iOS-platforms.
+   Momenteel biedt de Speech-SDK alleen ondersteuning voor 64-bits iOS-platforms.
 1. Nadat u op de knop 'Recognize (File)' in de app hebt geklikt, ziet u de inhoud van het audiobestand 'What's the weather like?' in het onderste gedeelte van het scherm.
 
- ![Gesimuleerde iOS-app](media/sdk/qs-objectivec-simulated-app.png)
+   ![Gesimuleerde iOS-app](media/sdk/qs-objectivec-simulated-app.png)
 
 1. Nadat u op de knop 'Recognize (Microphone)' in de app hebt geklikt en enkele woorden hebt gezegd, zou u de tekst die u hebt uitgesproken moeten zien in het onderste gedeelte van het scherm.
 

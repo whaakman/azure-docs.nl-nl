@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
-ms.openlocfilehash: bb5b6a4e9d50a692342f497d27138c51e0dc93e4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 641254be37ac0019ee6a256fc99f96fc3bfb75a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122770"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Doorlopend integreren en ontwikkelen met hulpprogramma's voor Stream Analytics
 In dit artikel wordt beschreven hoe u de Azure Stream Analytics-hulpprogramma's voor Visual Studio gebruiken voor het instellen van een continue integratie en implementatie-proces.
@@ -21,8 +21,8 @@ In dit artikel wordt beschreven hoe u de Azure Stream Analytics-hulpprogramma's 
 Gebruik versie 2.3.0000.0 of hoger van [Stream Analytics-hulpprogramma's voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) ondersteuning voor MSBuild krijgen.
 
 Een NuGet-pakket is beschikbaar: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Dit bevat de tools voor MSBuild, lokaal uitvoeren en implementatie die ondersteuning bieden voor het continue integratie- en implementatieproces van Stream Analytics Visual Studio-projecten. 
-> [!NOTE] 
-Het NuGet-pakket kan worden gebruikt alleen met de 2.3.0000.0 of hoger versie van Stream Analytics-hulpprogramma's voor Visual Studio. Hebt u projecten die zijn gemaakt in eerdere versies van Visual Studio-hulpprogramma's, alleen openen met de 2.3.0000.0 of hoger versie en opslaan. De nieuwe mogelijkheden zijn ingeschakeld. 
+> [!NOTE]
+> Het NuGet-pakket kan worden gebruikt alleen met de 2.3.0000.0 of hoger versie van Stream Analytics-hulpprogramma's voor Visual Studio. Hebt u projecten die zijn gemaakt in eerdere versies van Visual Studio-hulpprogramma's, alleen openen met de 2.3.0000.0 of hoger versie en opslaan. De nieuwe mogelijkheden zijn ingeschakeld. 
 
 Zie voor meer informatie, [Stream Analytics-hulpprogramma's voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
@@ -45,8 +45,8 @@ Wanneer een Stream Analytics Visual Studio-project met succes wordt gemaakt, gen
 
 Er zijn de standaardparameters in het parameters.json-bestand van de instellingen in Visual Studio-project. Als u implementeren naar een andere omgeving wilt, vervang u de parameters daarvan.
 
-> [!NOTE] 
-De referenties voor de standaardwaarden zijn ingesteld op null. U bent *vereist* de waarden instellen voordat u naar de cloud implementeren.
+> [!NOTE]
+> De referenties voor de standaardwaarden zijn ingesteld op null. U bent *vereist* de waarden instellen voordat u naar de cloud implementeren.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {

@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: b4ba59ef24ec106c5a5f21f395445ca39b2bd1ea
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: faaba873f20fc0ac04abdd7bd78dd85429d341e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739531"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996531"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Mainframe-workloads op Azure wordt ondersteund
 
@@ -26,7 +26,7 @@ Raadpleeg voor meer hulp bij mainframe-emulatie en -services, de [Azure Mainfram
 - [Micro Focus Visual COBOL](https://www.microfocus.com/products/visual-cobol/) hulpprogramma's voor ontwikkeling en -integratie.
 - [Micro Focus PL / ik](https://www.microfocus.com/campaign/download/pli-modernization/) verouderde compiler voor de .NET-platform, mainframe-PL ondersteunende / ik syntaxis, gegevenstypen en gedrag.
 - [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) mainframe-integratieplatform.
-- [Fujitsu NetCOBOL](http://www.fujitsu.com/global/products/software/developer-tool/netcobol/) hulpprogramma's voor ontwikkeling en -integratie.
+- [Fujitsu NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) hulpprogramma's voor ontwikkeling en -integratie.
 - [NTT gegevens Enterprise COBOL](https://www.nttdataservices.com/en-ie/services/application-modernization-services) hulpprogramma's voor ontwikkeling en -integratie.
 - [Open NTT PL / ik](https://www.nttdataservices.com/en-ie/services/application-modernization-services) verouderde compiler voor de .NET-platform, mainframe-PL ondersteunende / ik syntaxis, gegevenstypen en gedrag.
 - [Raincode COBOL compiler](https://www.raincode.com/products/cobol/) hulpprogramma's voor ontwikkeling en -integratie.

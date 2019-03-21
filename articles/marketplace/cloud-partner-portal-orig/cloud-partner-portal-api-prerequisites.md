@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e6e25424981118363070d42b2fb057b18fdb91a9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0d743d89c344ce9cb6eec116ed9c3e0cbe56f86e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810169"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878644"
 ---
 <a name="api-prerequisites"></a>API-vereisten
 ================
@@ -55,7 +55,7 @@ Gebruik de volgende stappen uit om toe te voegen van de service-principal:
 
      ![Een beheerde app toevoegen aan de portal](./media/cloud-partner-portal-api-prerequisites/managedapp.png)
 
-4. Klik op **toevoegen** de service-principal toevoegen aan uw account.
+1. Klik op **toevoegen** de service-principal toevoegen aan uw account.
 
    ![Een service-principal toevoegen](./media/cloud-partner-portal-api-prerequisites/add-service-principal.jpg)
 
@@ -66,7 +66,7 @@ Gebruik de volgende stappen uit om toe te voegen van de service-principal:
 De Cloud Partner Portal-API's maken gebruik van de volgende elementen en protocollen tijdens de verificatie:
 
 - Een JSON Web Token (JWT) bearer-token voor het aanvragen van toegang tot resources
-- De [OpenID Connect](http://openid.net/connect/) (OIDC)-protocol om identiteit te verifiëren
+- De [OpenID Connect](https://openid.net/connect/) (OIDC)-protocol om identiteit te verifiëren
 - [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) als de identiteit-instantie
 
 Er zijn twee benaderingen van principe programmatisch ophalen van een JWT-token:

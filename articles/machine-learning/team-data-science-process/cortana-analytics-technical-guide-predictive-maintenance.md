@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d0e62edd156e8fafbf16437af33941a99f4607fd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440604"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885433"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Technische handleiding aan de sjabloon Cortana Intelligence-oplossing voor predictief onderhoud in de luchtvaart
 
->[!Important]
-In dit artikel is afgeschaft. De discussie over Voorspellend onderhoud in de luchtvaart is nog steeds relevant zijn, maar voor actuele informatie, raadpleeg dan [overzicht van de oplossing voor zakelijke doelgroepen](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
+> [!Important]
+> In dit artikel is afgeschaft. De discussie over Voorspellend onderhoud in de luchtvaart is nog steeds relevant zijn, maar voor actuele informatie, raadpleeg dan [overzicht van de oplossing voor zakelijke doelgroepen](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
 
 
 Sjablonen voor oplossingen zijn ontworpen om het proces van het bouwen van een demo E2E boven op Cortana Intelligence Suite te versnellen. Een geïmplementeerde sjabloon bepalingen van uw abonnement met de benodigde onderdelen van Cortana Intelligence en bouwt vervolgens de relaties tussen deze. Deze ook seeding van de gegevenspijplijn met voorbeeldgegevens uit een data-generator-toepassing, die u downloadt en installeert op uw lokale computer nadat u de sjabloon van de oplossing hebt geïmplementeerd. De gegevens van de generator hydrates de gegevenspijplijn en beginnen met het genereren van voorspellingen van machine learning, die vervolgens kunnen worden gevisualiseerd in Power BI-dashboard.
@@ -51,7 +51,7 @@ De volgende secties beschrijven de onderdelen van de oplossing.
 ### <a name="synthetic-data-source"></a>Synthetische gegevensbron
 De gegevensbron die wordt gebruikt wordt voor deze sjabloon wordt gegenereerd vanuit een bureaubladtoepassing die u downloaden en lokaal uitvoeren na een geslaagde implementatie.
 
-Als u de instructies voor het downloaden en installeren van deze toepassing zoekt, selecteert u het eerste knooppunt Gegevensgenerator Voorspellend onderhoud, op het oplossingsdiagram van de sjabloon. De instructies hiervoor vindt u in de balk eigenschappen. Deze toepassing feeds de [Azure Event Hub](#azure-event-hub) service met gegevenspunten of gebeurtenissen, die worden gebruikt in de rest van de oplossingsstroom. Deze gegevensbron is afgeleid van openbaar beschikbare gegevens van de [NASA-gegevensopslagplaats](https://c3.nasa.gov/dashlink/resources/139/) met behulp van de [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
+Als u de instructies voor het downloaden en installeren van deze toepassing zoekt, selecteert u het eerste knooppunt Gegevensgenerator Voorspellend onderhoud, op het oplossingsdiagram van de sjabloon. De instructies hiervoor vindt u in de balk eigenschappen. Deze toepassing feeds de [Azure Event Hub](#azure-event-hub) service met gegevenspunten of gebeurtenissen, die worden gebruikt in de rest van de oplossingsstroom. Deze gegevensbron is afgeleid van openbaar beschikbare gegevens van de [NASA-gegevensopslagplaats](https://c3.nasa.gov/dashlink/resources/139/) met behulp van de [Turbofan Engine Degradation Simulation Data Set](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
 De toepassing voor het genereren van gebeurtenis vult de Azure Event Hub alleen terwijl deze wordt uitgevoerd op uw computer.  
 
@@ -79,7 +79,7 @@ Gebruik [Power BI](https://powerbi.microsoft.com) om weer te geven van een dashb
 ## <a name="how-to-bring-in-your-own-data"></a>Hoe u uw eigen gegevens
 In deze sectie wordt beschreven hoe u uw eigen gegevens overbrengen naar Azure en welke gebieden wijzigingen vereist voor de gegevens die u in deze architectuur wilt overbrengen.
 
-Is het onwaarschijnlijk dat uw gegevensset overeenkomt met de gegevensset die worden gebruikt door de [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) gebruikt voor deze oplossingssjabloon. Inzicht krijgen in uw gegevens en de vereisten zijn essentieel in hoe u deze sjabloon wilt werken met uw eigen gegevens wijzigen. 
+Is het onwaarschijnlijk dat uw gegevensset overeenkomt met de gegevensset die worden gebruikt door de [Turbofan Engine Degradation Simulation Data Set](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) gebruikt voor deze oplossingssjabloon. Inzicht krijgen in uw gegevens en de vereisten zijn essentieel in hoe u deze sjabloon wilt werken met uw eigen gegevens wijzigen. 
 
 De volgende secties worden de onderdelen van de sjabloon die moeten worden aangepast wanneer een nieuwe gegevensset wordt geïntroduceerd.
 
@@ -143,7 +143,7 @@ Dit [pijplijn](../../data-factory/concepts-pipelines-activities.md) bevat één 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 De [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimenteren gebruikt voor deze oplossingssjabloon de resterende bruikbare levensduur (RUL) van een vliegtuigmotor biedt. Het experiment is specifiek voor de gegevensset verbruikt en wijziging vereist of vervanging die specifiek zijn voor de gegevens op.
 
-Zie voor meer informatie over hoe de Azure Machine Learning-experiment is gemaakt, [Voorspellend onderhoud: Stap 1 van 3, gegevens voor te bereiden en feature-engineering](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
+Zie voor meer informatie over hoe de Azure Machine Learning-experiment is gemaakt, [Voorspellend onderhoud: Stap 1 van 3, gegevens voor te bereiden en feature-engineering](https://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## <a name="monitor-progress"></a>De voortgang van de
 Nadat u de Gegevensgenerator wordt gestart, de pijplijn begint met het dehydrate en de verschillende onderdelen van uw oplossing start starten in actie volgende de opdrachten die zijn uitgegeven door de data factory. Er zijn twee manieren voor het bewaken van de pijplijn.
@@ -186,7 +186,7 @@ De volgende stappen leest u hoe u verbinding maken het pbix-bestand met de SQL-D
    * In het volgende pop-outmodus venster, ziet u twee opties in het linkerdeelvenster (**Windows** en **Database**). Klik op **'Database'**, vult u uw **'Username'** en **'Password'** (dit is de gebruikersnaam en het wachtwoord dat u hebt ingevoerd wanneer u eerst de oplossing wordt geïmplementeerd en een Azure wordt gemaakt SQL database). In ***Selecteer welk gegevensniveau voor deze instellingen toepassen op***, een optie voor database controleren. Klik vervolgens op **'Connect'**.
    * Klik op de tweede tabel **PMResult** klikt u vervolgens op ![pictogram Navigatie](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) naast **'Source'** onder **TOEGEPASTE stappen'** aan de rechterkant **Query-instellingen** deelvenster en bijwerken van de namen van de server en database zoals in de bovenstaande stappen en klik op OK.
    * Nadat u terug naar de vorige pagina Begeleide bent, sluit u het venster. Een bericht wordt weergegeven, klikt u **toepassen**. Klik ten slotte de **opslaan** knop de wijzigingen op te slaan. Uw Power BI-bestand is nu ingesteld voor verbinding met de server. Als uw visualisaties leeg zijn, zorg er dan voor dat u de gewenste opties op de visualisaties aan alle gegevens visualiseren door te klikken op het gumpictogram in de rechterbovenhoek van de legenda's uitschakelen. Gebruik de vernieuwknop om nieuwe gegevens voor de visualisaties weer te geven. In eerste instantie alleen ziet u de seedgegevens op uw visualisaties als de data factory is gepland om te vernieuwen elke drie uur. U ziet na 3 uur nieuwe voorspellingen doorgevoerd in uw visualisaties bij het vernieuwen van de gegevens.
-3. (Optioneel) Het koude pad-dashboard om te publiceren [Power BI online](http://www.powerbi.com/). Houd er rekening mee dat deze stap moet een Power BI-account (of Office 365-account).
+3. (Optioneel) Het koude pad-dashboard om te publiceren [Power BI online](https://www.powerbi.com/). Houd er rekening mee dat deze stap moet een Power BI-account (of Office 365-account).
    
    * Klik op **'Publiceren'** en enkele seconden later er verschijnt een venster weergegeven "Publiceren naar Power BI succes!" met een groen vinkje. Klik op de koppeling hieronder 'Open PredictiveMaintenanceAerospace.pbix in Power BI'. Gedetailleerde instructies, Zie [publiceren vanuit Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Een nieuw dashboard maken: klik op de **+** Meld u aan bij de **Dashboards** sectie in het linkerdeelvenster. Voer de naam 'Voorspellend onderhoud Demo' voor dit nieuwe dashboard.
@@ -206,13 +206,13 @@ De volgende stappen leest u hoe u verbinding maken het pbix-bestand met de SQL-D
    * Geen vernieuwing worden gepland op basis van uw behoeften. Meer informatie, Zie [gegevens vernieuwen in Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
 ### <a name="setup-hot-path-dashboard"></a>Snelpad dashboard instellen
-De volgende stappen helpen u over het visualiseren van de gegevensuitvoer van Stream Analytics-taken die zijn gegenereerd op het moment van implementatie van de oplossing. Een [Power BI online](http://www.powerbi.com/) account is vereist om de volgende stappen uitvoeren. Als u geen account hebt, kunt u [maakt u er een](https://powerbi.microsoft.com/pricing).
+De volgende stappen helpen u over het visualiseren van de gegevensuitvoer van Stream Analytics-taken die zijn gegenereerd op het moment van implementatie van de oplossing. Een [Power BI online](https://www.powerbi.com/) account is vereist om de volgende stappen uitvoeren. Als u geen account hebt, kunt u [maakt u er een](https://powerbi.microsoft.com/pricing).
 
 1. Power BI-uitvoer in Azure Stream Analytics (ASA) toevoegen.
    
    * U moet de instructies in [Azure Stream Analytics en Power BI: Een dashboard voor realtime zichtbaarheid van het streamen van gegevens voor analysedoeleinden](../../stream-analytics/stream-analytics-power-bi-dashboard.md) voor het instellen van de uitvoer van uw Azure Stream Analytics-taak als uw Power BI-dashboard.
    * De ASA-query heeft drie uitvoer die **aircraftmonitor**, **aircraftalert**, en **flightsbyhour**. U kunt de query weergeven door te klikken op het tabblad query. Overeenkomt met elk van deze tabellen, moet u een uitvoer aan ASA toevoegen. Wanneer u de eerste uitvoer toevoegt (**aircraftmonitor**) Zorg ervoor dat de **uitvoeralias**, **gegevenssetnaam** en **tabelnaam** zijn de dezelfde (**aircraftmonitor**). Herhaal de stappen voor het toevoegen van de uitvoer voor **aircraftalert**, en **flightsbyhour**. Nadat u alle drie uitvoertabellen en aan de slag de ASA-taak hebt toegevoegd, moet u een bevestigingsbericht wordt weergegeven ('vanaf Stream Analytics-taak maintenancesa02asapbi is voltooid').
-2. Meld u aan bij [Power BI online](http://www.powerbi.com)
+2. Meld u aan bij [Power BI online](https://www.powerbi.com)
    
    * In de sectie van de gegevenssets in mijn werkruimte in het linkerdeelvenster de ***GEGEVENSSET*** namen **aircraftmonitor**, **aircraftalert**, en **flightsbyhour** moet worden weergegeven. Dit is de streaminggegevens die u van Azure Stream Analytics in de vorige stap hebt gepusht. De gegevensset **flightsbyhour** kan niet op hetzelfde moment als de andere twee gegevenssets vanwege de aard van de SQL-query achterliggende weergegeven. Echter, moet het weergegeven na een uur.
    * Zorg ervoor dat de ***visualisaties*** deelvenster is geopend en wordt weergegeven aan de rechterkant van het scherm.

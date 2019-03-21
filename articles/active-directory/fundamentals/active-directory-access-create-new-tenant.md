@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a5ef9d929899ac5e66c5a0e342040fc3c5074b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b294163a4486ab1db0590f39ca9235ae46ef1dfe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194815"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286989"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Snelstartgids: Een nieuwe tenant maken in Azure Active Directory
 U kunt al uw administratieve taken uitvoeren met behulp van de portal van Azure Active Directory (Azure AD), met inbegrip van het maken van een nieuwe tenant voor uw organisatie. 
@@ -29,7 +29,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 Meld u aan bij de [Azure Portal](https://portal.azure.com/) van uw organisatie met een Globale-administratoraccount.
 
-![Azure Portal-scherm](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+![Azure portal scherm, klikt u met Azure AD-optie](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
 ## <a name="create-a-new-tenant-for-your-organization"></a>Een nieuwe tenant maken voor uw organisatie
 Nadat u zich bij Azure Portal aanmeldt, kunt u een nieuwe tenant maken voor uw organisatie. De nieuwe tenant vertegenwoordigt uw organisatie en helpt u bij het beheren van een specifiek exemplaar van Microsoft cloudservices voor uw interne en externe gebruikers.
@@ -60,7 +60,7 @@ Als u deze toepassing niet verder gebruikt, kunt u de tenant met de volgende sta
 
     De tenant en de bijbehorende informatie wordt verwijderd.
 
-    ![Pagina Map maken](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![Directory-pagina maken met voorbeeldgegevens](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie [Een aangepaste domeinnaam toevoegen aan Azure Active Directory](add-custom-domain.md) voor het wijzigen of toevoegen van meer informatie over extra domeinnamen

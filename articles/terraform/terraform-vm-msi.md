@@ -2,19 +2,19 @@
 title: Een Microsoft Azure Marketplace-installatiekopie gebruiken om een virtuele Terraform Linux-machine te maken met een beheerde identiteit
 description: Gebruik de Marketplace-installatiekopie om een virtuele Terraform Linux-machine met een beheerde identiteit en Remote State Management te maken om eenvoudig resources in Azure te implementeren.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, MSI, virtuele machine, remote state, azure
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 3f10e5dfd0a4aac859c1a946b5f0a680899e0888
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: a1a980e1f8b004c4a3dba53e4f83367022074c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852538"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007962"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Een Microsoft Azure Marketplace-installatiekopie gebruiken om een virtuele Terraform Linux-machine te maken met een beheerde identiteit voor Azure-resources
 
@@ -77,7 +77,7 @@ De installatiekopie van de virtuele Terraform-machine voert de volgende stappen 
 
 ## <a name="access-and-configure-a-linux-terraform-virtual-machine"></a>Toegang krijgen tot een virtuele Linux Terraform-machine en deze configureren
 
-Nadat u de virtuele machine hebt gemaakt, kunt u zich met behulp van SSH aanmelden bij deze VM. Gebruik de accountreferenties die u in het gedeelte 'Basisbeginselen' van stap 3 voor de tekstshell-interface hebt gemaakt. In Windows kunt u een SSH-clienthulpprogramma zoals [Putty](http://www.putty.org/) downloaden.
+Nadat u de virtuele machine hebt gemaakt, kunt u zich met behulp van SSH aanmelden bij deze VM. Gebruik de accountreferenties die u in het gedeelte 'Basisbeginselen' van stap 3 voor de tekstshell-interface hebt gemaakt. In Windows kunt u een SSH-clienthulpprogramma zoals [Putty](https://www.putty.org/) downloaden.
 
 Nadat u met SSH verbinding met de virtuele machine hebt gemaakt, moet u beheerde identiteiten voor Azure-resources op de virtuele machine inzendermachtigingen voor het hele abonnement geven. 
 

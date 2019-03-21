@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: f61f5ebf4c0658ff846421682d50ea346c699e01
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 818b3e3b464ecbe8d55367ab5318436a14567263
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107919"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108760"
 ---
 # <a name="security-center-settings"></a>Instellingen van Security Center
 Dit artikel bevat een overzicht van instellingen in Security Center.
@@ -51,6 +51,6 @@ In dit artikel hebt u geleerd over het beveiligingsbeleid in Azure Security Cent
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): Meer informatie over het controleren van de status van uw Azure-resources.
 * [Beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md): Informatie over het beheren van en reageren op beveiligingswaarschuwingen.
 * [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): Meer informatie over het bewaken van de status van uw partneroplossingen.
-- [Beveiliging van Azure Security Center gegevens](security-center-data-security.md): Ontdek hoe Security Center beheert en beschermt gegevens.
+* [Beveiliging van Azure Security Center gegevens](security-center-data-security.md): Ontdek hoe Security Center beheert en beschermt gegevens.
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md): Krijg antwoorden op veelgestelde vragen over het gebruik van de service.
 * [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/): Lees het laatste nieuws van Azure-beveiliging en informatie.

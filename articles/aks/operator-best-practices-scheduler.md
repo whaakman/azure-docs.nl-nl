@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: abdce8b63a035fe55f4bd37acc5012237bd499da
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428968"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178132"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor basic scheduler-functies in Azure Kubernetes Service (AKS)
 
@@ -122,9 +122,9 @@ Zie voor meer informatie over het gebruik van de schil wordt onderbroken budgett
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Regelmatig controleren op problemen met kube-advisor cluster
 
-**Aanbevolen procedurerichtlijn** -Voer regelmatig de nieuwste versie van `kube-advisor` om problemen te detecteren in uw cluster. Als u resourcequota op een bestaand AKS-cluster toepast, voert u `kube-advisor` eerst te vinden schillen waarvoor geen resourceaanvragen en -limieten die zijn gedefinieerd.
+**Aanbevolen procedurerichtlijn** -Voer regelmatig de nieuwste versie van `kube-advisor` open source-hulpprogramma om problemen te detecteren in uw cluster. Als u resourcequota op een bestaand AKS-cluster toepast, voert u `kube-advisor` eerst te vinden schillen waarvoor geen resourceaanvragen en -limieten die zijn gedefinieerd.
 
-De [kube-advisor] [ kube-advisor] hulpprogramma scant een Kubernetes-cluster en rapporten weergeven over problemen die worden gevonden. Een nuttige controle is het identificeren van schillen die niet over een bron aanvragen en -limieten in plaats.
+De [kube-advisor] [ kube-advisor] hulpprogramma is een bijbehorende AKS open source-project, die een Kubernetes-cluster wordt gescand en rapporten weergeven over problemen die worden gevonden. Een nuttige controle is het identificeren van schillen die niet over een bron aanvragen en -limieten in plaats.
 
 In een AKS-cluster die als host fungeert voor meerdere teams voor ontwikkeling en -toepassingen, kan het lastig zijn om bij te houden van schillen zonder deze resource-aanvragen en set beperkt. Als een best practice regelmatig uitgevoerd `kube-advisor` op uw AKS-clusters, met name als u geen resourcequota aan naamruimten toewijst.
 

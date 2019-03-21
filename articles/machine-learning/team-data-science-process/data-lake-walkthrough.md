@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2f47a145f00748a3366ea5bd1aa961f4b556a08f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474663"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835229"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Schaalbare Gegevenswetenschap met Azure Data Lake: Een end-to-end-overzicht
 In dit scenario ziet u hoe u Azure Data Lake gegevens verkennen en binaire classificatie-taken op een voorbeeld van de NYC taxi reis en ritbedrag gegevensset om te voorspellen of een tip door een fare wordt betaald. Dit leidt u door de stappen van de [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, in gegevens ophalen als model voor training en vervolgens naar de implementatie van een webservice die het model publiceert.
@@ -72,17 +72,17 @@ Deze sectie vindt u instructies voor het maken van elk van deze resources. Als u
 ### <a name="create-an-azure-data-lake-store"></a>Maken van een Azure Data Lake Store
 
 
-Maken van een ADLS uit de [Azure-portal](http://portal.azure.com). Zie voor meer informatie, [een HDInsight-cluster maken met Data Lake Store met behulp van Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Zorg ervoor dat het instellen van de identiteit van de AAD-Cluster in de **DataSource** blade van de **optionele configuratie** blade er beschreven.
+Maken van een ADLS uit de [Azure-portal](https://portal.azure.com). Zie voor meer informatie, [een HDInsight-cluster maken met Data Lake Store met behulp van Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Zorg ervoor dat het instellen van de identiteit van de AAD-Cluster in de **DataSource** blade van de **optionele configuratie** blade er beschreven.
 
  ![3](./media/data-lake-walkthrough/3-create-ADLS.PNG)
 
 ### <a name="create-an-azure-data-lake-analytics-account"></a>Een Azure Data Lake Analytics-account maken
-Maak een ADLA-account van de [Azure-portal](http://portal.azure.com). Zie voor meer informatie, [zelfstudie: aan de slag met Azure Data Lake Analytics met Azure portal](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Maak een ADLA-account van de [Azure-portal](https://portal.azure.com). Zie voor meer informatie, [zelfstudie: aan de slag met Azure Data Lake Analytics met Azure portal](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### <a name="create-an-azure-blob-storage-account"></a>Een Azure Blob storage-account maken
-Maken van een Azure Blob storage-account van de [Azure-portal](http://portal.azure.com). Zie voor meer informatie, de maken een sectie van de storage-account in [over Azure storage-accounts](../../storage/common/storage-create-storage-account.md).
+Maken van een Azure Blob storage-account van de [Azure-portal](https://portal.azure.com). Zie voor meer informatie, de maken een sectie van de storage-account in [over Azure storage-accounts](../../storage/common/storage-create-storage-account.md).
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -99,7 +99,7 @@ Nadat de installatie voltooid is, opent u Visual Studio. U ziet de Data Lake-tab
  ![7](./media/data-lake-walkthrough/7-install-ADL-tools-VS-done.PNG)
 
 ## <a name="the-nyc-taxi-trips-dataset"></a>De gegevensset NYC Taxi Trips
-De hier gebruikte gegevensset is een openbaar beschikbare gegevensset--de [NYC Taxi Trips gegevensset](http://www.andresmh.com/nyctaxitrips/). De reisgegevens NYC Taxi bestaat uit ongeveer 20 GB gecomprimeerde CSV-bestanden (~ 48 GB niet-gecomprimeerd), voor elke reis vastleggen van meer dan 173 miljoen afzonderlijke trips en de tarieven betalen. Elke record van de fietstocht bevat de locaties ophalen en dropoff en tijden, geanonimiseerde hack (stuurprogramma van) het licentienummer en het nummer van de straten (taxi van de unieke ID). De gegevens bevat informatie over alle gegevens in het jaar 2013 en is beschikbaar in de volgende twee gegevenssets voor elke maand:
+De hier gebruikte gegevensset is een openbaar beschikbare gegevensset--de [NYC Taxi Trips gegevensset](https://www.andresmh.com/nyctaxitrips/). De reisgegevens NYC Taxi bestaat uit ongeveer 20 GB gecomprimeerde CSV-bestanden (~ 48 GB niet-gecomprimeerd), voor elke reis vastleggen van meer dan 173 miljoen afzonderlijke trips en de tarieven betalen. Elke record van de fietstocht bevat de locaties ophalen en dropoff en tijden, geanonimiseerde hack (stuurprogramma van) het licentienummer en het nummer van de straten (taxi van de unieke ID). De gegevens bevat informatie over alle gegevens in het jaar 2013 en is beschikbaar in de volgende twee gegevenssets voor elke maand:
 
 Trip_data CSV bevat reis details, zoals het aantal personen, ophalen en dropoff punten, duur van de tocht en lengte van de fietstocht. Hier volgen enkele voorbeeldrecords:
 
@@ -147,7 +147,8 @@ Voor het uitvoeren van U-SQL, Visual Studio openen, klikt u op **bestand--> Nieu
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Opname van gegevens: In de gegevens van een openbare blob lezen
-De locatie van de gegevens in de Azure-blob wordt verwezen als **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** en kunnen worden geëxtraheerd met behulp van **Extractors.Csv()**. Vervangen door uw eigen containernaam en de naam van opslagaccount in de volgende scripts voor container_name@blob_storage_account_name in het wasb-adres. Aangezien de bestandsnamen in dezelfde indeling, is het mogelijk te gebruiken **reis\_data_ {\*\}CSV** in alle 12 reis-bestanden worden gelezen.
+
+De locatie van de gegevens in de Azure-blob wordt verwezen als **wasb://container\_naam\@blob\_opslag\_account\_name.blob.core.windows.net/blob_name**en kunnen worden geëxtraheerd met behulp van **Extractors.Csv()**. Vervangen door uw eigen containernaam en storage-accountnaam in de volgende scripts voor de container\_naam\@blob\_opslag\_account\_naam in het wasb-adres. Aangezien de bestandsnamen in dezelfde indeling, is het mogelijk te gebruiken **reis\_gegevens\_\{\*\}CSV** in alle 12 reis-bestanden worden gelezen.
 
     ///Read in Trip data
     @trip0 =
@@ -170,7 +171,7 @@ De locatie van de gegevens in de Azure-blob wordt verwezen als **wasb://containe
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Aangezien er kopteksten in de eerste rij, moet u de headers verwijderen en wijzigen van kolommen van het type in de juiste waarden. U kunt opslaan de verwerkte gegevens voor het gebruik van Azure Data Lake Storage **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ of voor het gebruik van Azure Blob storage account  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Aangezien er kopteksten in de eerste rij, moet u de headers verwijderen en wijzigen van kolommen van het type in de juiste waarden. U kunt opslaan de verwerkte gegevens voor het gebruik van Azure Data Lake Storage **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ of voor het gebruik van Azure Blob storage account **wasb: / / container_name\@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
     // change data types
     @trip =
@@ -596,7 +597,7 @@ Wilt u operationeel maken van de machine learning-model nadat deze is gemaakt. D
 Azure Machine Learning Studio gegevens rechtstreeks vanuit Azure Data Lake Store kan lezen en vervolgens worden gebruikt om te maken en implementeren van modellen. Deze methode maakt gebruik van een Hive-tabel die naar de Azure Data Lake Store verwijst. Dit is vereist dat een afzonderlijke Azure HDInsight-cluster worden ingericht, waarop de Hive-tabel is gemaakt. De volgende secties ziet hoe u dit doet.
 
 ### <a name="create-an-hdinsight-linux-cluster"></a>Een HDInsight-Cluster voor Linux maken
-Maken van een HDInsight-Cluster (Linux) uit de [Azure-portal](http://portal.azure.com). Zie voor meer informatie, de **een HDInsight-cluster maken met toegang tot Azure Data Lake Store** in sectie [een HDInsight-cluster maken met Data Lake Store met behulp van Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Maken van een HDInsight-Cluster (Linux) uit de [Azure-portal](https://portal.azure.com). Zie voor meer informatie, de **een HDInsight-cluster maken met toegang tot Azure Data Lake Store** in sectie [een HDInsight-cluster maken met Data Lake Store met behulp van Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 

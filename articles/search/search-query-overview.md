@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: d2f3eb25c2193ad94098acd714d934795d007e98
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a197be06d9c6f4b70b8ffc06712ef315547b4140
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543913"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136509"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Opstellen van een query in Azure Search
 
@@ -146,7 +146,7 @@ De stof en niet de structuur van de resultaten zijn soms onverwacht. Wanneer que
 
 + Wijziging **`searchMode=any`** (standaard) **`searchMode=all`** om af te dwingen van overeenkomsten op alle criteria in plaats van een van de criteria. Dit is vooral van toepassing wanneer Booleaanse operators inbegrepen zijn de query.
 
-+ De techniek van de query wijzigen als tekst of lexicale analyse nodig is, maar het querytype linguïstische verwerking uitsluit. Zoekopdracht in volledige tekst, tekst of lexicale analyse automatisch gecorrigeerd voor spelfouten, singuliere meervoud word formulieren, en zelfs onregelmatige termen of woorden. Voor sommige query's zoals fuzzy of zoeken met jokertekens, tekstanalyse maakt geen deel uit van de pijplijn parseren van de query. Voor sommige scenario's, zijn reguliere expressies gebruikt als tijdelijke oplossing. 
++ De techniek van de query wijzigen als tekst of lexicale analyse nodig is, maar het querytype linguïstische verwerking uitsluit. Zoeken in volledige tekst, tekst of autocorrects voor spelfouten, singuliere meervoud word formulieren, en zelfs onregelmatige termen of zelfstandige naamwoorden lexicale analyse. Voor sommige query's zoals fuzzy of zoeken met jokertekens, tekstanalyse maakt geen deel uit van de pijplijn parseren van de query. Voor sommige scenario's, zijn reguliere expressies gebruikt als tijdelijke oplossing. 
 
 ### <a name="paging-results"></a>Resultaten pagineren
 Met Azure Search kunt u gemakkelijk zoekresultaten oproepen. Met behulp van de **`top`** en **`skip`** parameters, u kunt eenvoudig zoekaanvragen uitgeven die kunt u voor het ontvangen van het totale aantal zoekresultaten in beheersbare, geordende van subsets die eenvoudig inschakelen goede zoekopdracht uit te voeren. Tijdens het ontvangen van deze kleinere subsets van resultaten kunt u ook het aantal documenten weergeven in het totale aantal zoekresultaten.
@@ -167,4 +167,4 @@ In Azure Search, waarbij de nadruk ligt het exacte aantal zoekresultaten die ove
 + [Hoe vol tekstzoekopdrachten werkt in Azure Search (parseren van de architectuur van de query)](search-lucene-query-architecture.md)
 + [Search explorer](search-explorer.md)
 + [Query's uitvoeren in .NET](search-query-dotnet.md)
-+ [Query's uitvoeren in REST](search-query-rest-api.md)
++ [Query's uitvoeren in REST](search-create-index-rest-api.md)

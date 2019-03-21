@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fb81dd5bb94e09ba3583658a61e5c7cb8a74cf6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 392dd39e2b3b0e26e7b0ba645bf5a70231167ad5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882889"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014396"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Bewaking en probleemoplossing van HANA aan clientzijde
 
@@ -65,7 +65,7 @@ De Load-grafiek kan hoog CPU-verbruik of hoge verbruik in het verleden weergeven
 
 Een waarschuwing geactiveerd vanwege hoog CPU-verbruik wordt mogelijk veroorzaakt door verschillende oorzaken hebben, met inbegrip van, maar niet beperkt tot: uitvoeren van bepaalde transacties, het laden van gegevens, verkeerd van taken, langlopende SQL-instructies en ongeldige query-prestaties (bijvoorbeeld met BW op HANA kubussen).
 
-Raadpleeg de [SAP HANA probleemoplossing: CPU gerelateerde zorgt ervoor dat en -oplossingen](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) site voor gedetailleerde stappen voor probleemoplossing.
+Raadpleeg de [SAP HANA probleemoplossing: CPU gerelateerde zorgt ervoor dat en -oplossingen](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) site voor gedetailleerde stappen voor probleemoplossing.
 
 ## <a name="operating-system"></a>Besturingssysteem
 
@@ -87,7 +87,7 @@ U kunt zien dat de hoeveelheid geheugen die zijn toegewezen door de SAP HANA-dat
 - Geheugengebruik van de belangrijkste opslag van de kolom Store tabellen (waarschuwing 45)
 - Runtime-dumpbestanden (waarschuwing 46)
 
-Raadpleeg de [SAP HANA probleemoplossing: Problemen met geheugen](http://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) site voor gedetailleerde stappen voor probleemoplossing.
+Raadpleeg de [SAP HANA probleemoplossing: Problemen met geheugen](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) site voor gedetailleerde stappen voor probleemoplossing.
 
 ## <a name="network"></a>Netwerk
 
@@ -104,7 +104,7 @@ Raadpleeg [SAP Opmerking #2081065 – het oplossen van SAP HANA netwerk](https:/
 
 Gebruik ook de open-source [IPERF](https://iperf.fr/) hulpprogramma (of vergelijkbaar) voor het meten van prestaties van het netwerk echte toepassing.
 
-Raadpleeg de [SAP HANA probleemoplossing: Prestaties van de netwerken en problemen met de netwerkverbinding](http://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) site voor gedetailleerde stappen voor probleemoplossing.
+Raadpleeg de [SAP HANA probleemoplossing: Prestaties van de netwerken en problemen met de netwerkverbinding](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) site voor gedetailleerde stappen voor probleemoplossing.
 
 ## <a name="storage"></a>Opslag
 
@@ -116,7 +116,7 @@ Volumes die zijn gekoppeld in het onderste gedeelte van het scherm ziet u detail
 
 ![Volumes die zijn gekoppeld in het onderste gedeelte van het scherm ziet u details van de volumes, zoals bestanden en i/o-statistieken](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
 
-Raadpleeg de [SAP HANA probleemoplossing: I/o gerelateerde oorzaken en oplossingen](http://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) en [SAP HANA probleemoplossing: Gerelateerde belangrijkste oorzaken en oplossingen](http://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) site voor gedetailleerde stappen voor probleemoplossing.
+Raadpleeg de [SAP HANA probleemoplossing: I/o gerelateerde oorzaken en oplossingen](https://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) en [SAP HANA probleemoplossing: Gerelateerde belangrijkste oorzaken en oplossingen](https://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) site voor gedetailleerde stappen voor probleemoplossing.
 
 ## <a name="diagnostic-tools"></a>Diagnostische hulpprogramma 's
 

@@ -5,14 +5,14 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 1bfe0026e52107c85bf2c7e66414e937ad27f715
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 248861848aa905f9cbff01ab60affd7cf21aae78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267747"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004809"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Snelstart: Een chatruimte maken met SignalR Service
 
@@ -97,7 +97,7 @@ In dit gedeelte voegt u het [hulpprogramma Secret Manager](https://docs.microsof
 
     Secret Manager wordt alleen gebruikt om de web-app te testen terwijl deze lokaal wordt gehost. In een latere zelfstudie gaat u de web-app voor de chatruimte implementeren in Azure. Als dat is gebeurd, gebruikt u een toepassingsinstelling in plaats van de verbindingsreeks op te slaan met Secret Manager.
 
-    Dit geheim is toegankelijk met de configuratie-API. Een dubbele punt (:) werkt in de configuratienaam met de configuratie-API op alle ondersteunde platforms, zie [Configuratie per omgeving](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
+    Dit geheim wordt geopend met de configuratie-API. Een dubbele punt (:) werkt in de configuratienaam met de configuratie-API op alle ondersteunde platforms, zie [Configuratie per omgeving](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
 
 
 4. Open *Startup.cs* en werk de methode `ConfigureServices` bij voor het gebruik van de Azure SignalR-service door de methode `services.AddSignalR().AddAzureSignalR()` aan te roepen:
@@ -267,6 +267,6 @@ Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verw
 In deze snelstart hebt u een nieuwe resource voor de Azure SignalR-service gemaakt en deze vervolgens gebruikt met een web-app van ASP.NET Core om bijgewerkte inhoud in realtime naar meerdere verbonden clients te pushen. Als u meer wilt weten over het gebruik van de Azure SignalR-service, gaat u verder met de volgende zelfstudie, waarin verificatie wordt behandeld.
 
 > [!div class="nextstepaction"]
-> [Verificatie van Azure SignalR-service](./signalr-authenticate-oauth.md)
+> [Verificatie van Azure SignalR-service](./signalr-concept-authenticate-oauth.md)
 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights OpenCensus gedistribueerde tracering lokale doorstuurserver | Microsoft docs
+title: Azure Application Insights OpenCensus gedistribueerde tracering lokale doorstuurserver (Preview) | Microsoft docs
 description: OpenCensus gedistribueerd traceringen en reeksen van talen zoals Python en Go doorsturen naar Azure Application Insights
 services: application-insights
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003372"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002820"
 ---
-# <a name="local-forwarder"></a>Lokale doorstuurserver
+# <a name="local-forwarder-preview"></a>Lokale doorstuurserver (Preview)
 
 Lokale doorstuurserver is een agent die Application Insights verzamelt of [OpenCensus](https://opencensus.io/) telemetrie van een aantal SDK's en doorgestuurd naar Application Insights. Het is geschikt voor het uitvoeren onder Windows en Linux. Kunt u mogelijk ook deze uitvoeren met Mac OS, maar die wordt niet officieel ondersteund op dit moment.
 
@@ -79,14 +79,14 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 Voor bepaalde use-cases, is het mogelijk nuttig is om lokale doorstuurserver worden uitgevoerd als een consoletoepassing. De versie wordt geleverd met de volgende uitvoerbare versies van de consolehost:
 * een .NET Core framework-afhankelijke binaire */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Het uitvoeren van deze binaire waarde is vereist een .NET Core runtime om te worden geïnstalleerd. verwijzen naar deze download [pagina](https://www.microsoft.com/net/download/dotnet-core/2.1) voor meer informatie.
-```batchfile
-E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
-```
-* een op zichzelf staand .NET Core set van binaire bestanden voor x86 en x64-platform. Hiervoor geen .NET Core runtime om uit te voeren. */ConsoleHost/Win-x86/Publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
-```batchfile
-E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
+  ```
+* een op zichzelf staand .NET Core set van binaire bestanden voor x86 en x64-platform. Hiervoor geen .NET Core runtime om uit te voeren. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
+  ```batchfile
+  E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  ```
 
 ### <a name="linux"></a>Linux
 
@@ -97,7 +97,7 @@ Net als bij Windows, is de versie wordt geleverd met de volgende uitvoerbare ver
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll
 ```
 
-* een op zichzelf staand .NET Core instellen van de binaire bestanden voor linux-64. Deze zijn vereist om .NET Core runtime om uit te voeren. */ConsoleHost/Linux-x64/Publish/Microsoft.LocalForwarder.ConsoleHost*.
+* een op zichzelf staand .NET Core instellen van de binaire bestanden voor linux-64. Deze zijn vereist om .NET Core runtime om uit te voeren. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
 
 ```batchfile
 user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwarder.ConsoleHost
@@ -183,4 +183,4 @@ Als er is geen configuratiebestand is opgegeven (dit is de standaardinstelling),
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Open telling](https://opencensus.io/)
+* [Open Census](https://opencensus.io/)

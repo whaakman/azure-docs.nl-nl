@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b15dcd9ae5f2f1668db3925b659625497eca491f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 20c916275acd6bb79675c592711b17b277c9fc78
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079755"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294090"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Herhaalbare kopiëren in Azure Data Factory
 
@@ -114,7 +114,7 @@ Deze kolom wordt gebruikt door Azure Data Factory voor herhaalbaarheid en in de 
 1. Een kolom van het type definieert **binair (32)** in de doel-SQL-tabel. Er mag geen beperkingen voor deze kolom. We noemen deze kolom als AdfSliceIdentifier voor dit voorbeeld.
 
 
-Brontabel:
+    Brontabel:
 
     ```sql
     CREATE TABLE [dbo].[Student](
@@ -123,7 +123,7 @@ Brontabel:
     )
     ```
 
-Doeltabel: 
+    Doeltabel: 
 
     ```sql
     CREATE TABLE [dbo].[Student](

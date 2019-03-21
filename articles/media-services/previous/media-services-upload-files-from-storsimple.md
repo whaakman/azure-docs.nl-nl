@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 555d68198329353b47641e8a22abfcb33ae5b61c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 0d7ca397cf45c4a67a914a8105deb9043adf46e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835269"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Bestanden vanuit Azure StorSimple uploaden naar een Azure Media Services-account  
 
@@ -47,7 +47,7 @@ In Media Services uploadt u de digitale bestanden naar (of neemt u deze op in) e
 
 ## <a name="see-also"></a>Zie ook
 
-[Use the .Net SDK to initiate data transformation (Private Preview)](../../storsimple/storsimple-data-manager-dotnet-jobs.md) (Gegevenstransformatie starten met de SDK voor .NET (Private Preview))
+[De .NET-SDK voor trigger taken in de Data Manager gebruiken](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

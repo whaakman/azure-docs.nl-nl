@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 3c4f1be97308062adc28a0b49ee36c3492906d63
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 791c63b7b7fed55f95905ba7131d6a1d4bb414ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990204"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010489"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Pacemaker op Red Hat Enterprise Linux in Azure instellen
 
@@ -183,7 +183,7 @@ Het stonith instellen-apparaat maakt gebruik van een Service-Principal te autori
    Ga naar eigenschappen en noteer de map-ID. Dit is de **tenant-ID**.
 1. Klik op App-registraties
 1. Klik op Add.
-1. Voer een naam in, selecteert u het Type toepassing 'Web-app/API', voer een aanmeldings-URL (bijvoorbeeld http://localhost) en klik op maken
+1. Voer een naam in, selecteert u het Type toepassing 'Web-app/API', voer een aanmeldings-URL (bijvoorbeeld `http://localhost`) en klik op maken
 1. De aanmeldings-URL wordt niet gebruikt en kan geldige URL zijn
 1. Selecteer de nieuwe App en sleutels op in het tabblad instellingen
 1. Voer een beschrijving in voor een nieuwe sleutel, selecteer 'Verloopt nooit' en klik op Opslaan

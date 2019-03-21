@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 262f46b3d0b61923352f3ff98b08cb5e4f6d5e75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993901"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285003"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppelen of een Azure-abonnement toevoegen aan uw Azure Active Directory-tenant
 
@@ -62,11 +62,10 @@ Voordat u kunt koppelen of uw abonnement toevoegt, moet u de volgende taken uitv
 
     De map wordt gewijzigd voor het abonnement en u krijgt een bericht weergegeven.
 
-    ![Geslaagd](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+    ![Bericht over directory wijzigen](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+4. Gebruik de **directorywisselaar** om naar de nieuwe adreslijst te gaan. Het kan maximaal 10 minuten duren voordat alles goed wordt weergegeven.
 
-4. Gebruik de directorywisselaar om naar de nieuwe adreslijst te gaan. Het kan maximaal 10 minuten duren voordat alles goed wordt weergegeven.
-
-    ![Overschakelen naar directorypagina](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+    ![Overschakelen naar directorypagina, met voorbeeldgegevens](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 Wijzigen van de abonnementsdirectory is een bewerking op serviceniveau, zodat deze niet van invloed op abonnement eigendom. De accountbeheerder kan nog steeds wijzigen voor de servicebeheerder van de [Accountcentrum](https://account.azure.com/subscriptions). Als de oorspronkelijke map verwijderen, moet u overbrengen van de abonnementsfacturering over aan een nieuwe accountbeheerder. Zie [Eigendom van een Azure-abonnement naar een ander account overdragen](../../billing/billing-subscription-transfer.md) voor meer informatie over het overdragen van het eigendom. 
 

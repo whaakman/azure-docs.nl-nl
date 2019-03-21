@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 914dcd02f2d35d56b50169967ca1f5c251a6e6f3
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408612"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993389"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -93,7 +93,7 @@ Ja.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Welke besturingssystemen worden ondersteund voor back-up?
 Azure Backup biedt ondersteuning voor deze besturingssystemen voor back-ups van bestanden en mappen en apps die zijn beveiligd door Azure Backup Server en DPM.
 
-**Besturingssysteem**| **SKU** |**Details**
+**Besturingssysteem** | **SKU** | **Details**
 --- | --- | ---
 Werkstation | |
 Windows 10 64-bits | Enterprise, Pro, Home | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.
@@ -118,7 +118,7 @@ Voor back-ups van Azure virtuele machine Linux, Azure Backup ondersteunt [de lij
 Limieten voor grootte zijn als volgt:
 
 Besturingssysteem/machine | De maximale grootte van de gegevensbron
---- | --- | ---
+--- | --- 
 Windows 8 of hoger | 54.400 GB
 Windows 7 |1700 GB
 Windows Server 2012 of hoger | 54.400 GB

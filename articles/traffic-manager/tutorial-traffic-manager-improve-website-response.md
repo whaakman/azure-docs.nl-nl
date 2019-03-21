@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: c9524396376f3de7d9468d94e3236929aadd374c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6dea36afd3a426bbbd0c28a96f21ccad1a82ea88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463912"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997995"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Zelfstudie: Website-antwoord met Traffic Manager te verbeteren
 
@@ -63,6 +63,7 @@ In deze sectie maakt u twee VM’s *myIISVMEastUS* en *myIISVMWEurope* in de Azu
     |Resourcegroep| Selecteer **Nieuw** en typ *myResourceGroupTM1*.|
     |Locatie| Selecteer **US - oost**.|
     |||
+
 4. Selecteer een VM-grootte onder **Kies een grootte**.
 5. Selecteer de volgende waarden voor **Instellingen** en selecteer **OK**:
     
@@ -72,6 +73,7 @@ In deze sectie maakt u twee VM’s *myIISVMEastUS* en *myIISVMWEurope* in de Azu
     |Netwerkbeveiligingsgroep|Selecteer **Basic** en selecteer in de vervolgkeuzelijst **Openbare binnenkomende poorten selecteren** de opties **HTTP** en **RDP** |
     |Diagnostische gegevens over opstarten|Selecteer **Uitgeschakeld**.|
     |||
+
 6. Selecteer onder **Maken** in het **Overzicht** **Maken** om de implementatie van de VM te starten.
 
 7. Volg de stappen 1-6 nogmaals, met de volgende wijzigingen:
@@ -83,6 +85,7 @@ In deze sectie maakt u twee VM’s *myIISVMEastUS* en *myIISVMWEurope* in de Azu
     |VM-naam | myIISVMWEurope|
     |Virtueel netwerk | Selecteer **Virtueel netwerk** in **Virtueel netwerk maken** en voer voor **Naam** *myVNet2* en voor het subnet  *mySubnet* in.|
     |||
+
 8. Het maken van de VM's duurt enkele minuten. Ga niet verder met de overige stappen voordat beide VM's zijn gemaakt.
 
    ![Een virtuele machine maken](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -139,6 +142,7 @@ In deze sectie maakt u een virtuele machine maken (*mVMEastUS* en *myVMWestEurop
 
 4. Selecteer een VM-grootte onder **Kies een grootte**.
 5. Selecteer de volgende waarden voor **Instellingen** en selecteer **OK**:
+
     |Instelling|Waarde|
     |---|---|
     |Virtueel netwerk| Selecteer **Virtueel netwerk** in **Virtueel netwerk maken** en voer voor **Naam** *myVNet3* en voor het subnet *mySubnet* in.|
@@ -150,7 +154,7 @@ In deze sectie maakt u een virtuele machine maken (*mVMEastUS* en *myVMWestEurop
 
 7. Volg de stappen 1-5 nogmaals, maar dan met de volgende wijzigingen:
 
-    |Instelling|Waarde|
+    |Instelling|Value|
     |---|---|
     |VM-naam | *myVMWEurope*|
     |Resourcegroep | Selecteer **Bestaande** en typ vervolgens *myResourceGroupTM2*|
@@ -164,6 +168,7 @@ Maak een Traffic Manager-profiel met gebruikersverkeer verwezen door deze te ver
 
 1. Selecteer linksboven in het scherm de optie **Een resource maken** > **Netwerken** > **Traffic Manager-profiel** > **Maken**.
 2. Voer in  **Traffic Manager-profiel maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Maken**:
+
     | Instelling                 | Waarde                                              |
     | ---                     | ---                                                |
     | Name                   | Deze naam moet uniek zijn binnen de zone trafficmanager.net en resulteert in de DNS-naam, trafficmanager.net, die wordt gebruikt voor het openen van uw Traffic Manager-profiel.                                   |

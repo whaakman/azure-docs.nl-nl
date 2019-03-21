@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea0d49f1495d500347b2c35d8733f66b3c8b4275
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f4365c87f0028fe3a9c4ba35f40599359eb1455f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182320"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259122"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>Problemen met aanmelden bij een aangepaste toepassing
 
@@ -39,7 +39,7 @@ Er zijn meerdere fouten die kunnen worden veroorzaakt door u pas weer aan te mel
 
 [Handleiding voor ontwikkelaars van Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
 
-[Toestemming en het integreren van Apps aan Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications>)<br>
+[Toestemming en het integreren van Apps aan Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
 
 [De toestemming en rollen voor Azure AD v2.0 geconvergeerde Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 

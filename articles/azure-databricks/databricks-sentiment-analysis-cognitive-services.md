@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.openlocfilehash: 6509db136524d90db11b83acb701bda71c541060
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882614"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080536"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Zelfstudie: Sentimentanalyse voor streaminggegevens met behulp van Azure Databricks
 
@@ -40,6 +40,10 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * Sentimentanalyse voor tweets uitvoeren
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+
+> [!Note]
+> In deze zelfstudie niet kan worden uitgevoerd met behulp van **Azure gratis proefabonnement**.
+> Als u een gratis account wilt gebruiken om het Azure Databricks-cluster te maken, gaat u voordat het cluster is gemaakt naar uw profiel en wijzigt u uw abonnement in **betalen per gebruik**. Zie [Gratis Azure-account](https://azure.microsoft.com/free/) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -97,11 +101,11 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
     Accepteer alle andere standaardwaarden, anders dan de volgende:
 
-    * Voer een naam in voor het cluster.
-    * Voor dit artikel maakt u een cluster met een **4.0 (bèta)**-runtime.
-    * Zorg ervoor dat u het selectievakje **Beëindigen na\_\_ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
+   * Voer een naam in voor het cluster.
+   * Voor dit artikel maakt u een cluster met een **4.0 (bèta)**-runtime.
+   * Zorg ervoor dat u het selectievakje **Beëindigen na\_\_ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
 
-    Selecteer **Cluster maken**. Zodra het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Spark-taken uitvoeren.
+     Selecteer **Cluster maken**. Zodra het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Spark-taken uitvoeren.
 
 ## <a name="create-a-twitter-application"></a>Een Twitter-toepassing maken
 
@@ -125,16 +129,16 @@ Sla de waarden op die u hebt opgehaald voor de Twitter-toepassing. U hebt deze w
 
 In deze zelfstudie gebruikt u de Twitter-API's om tweets te verzenden naar Event Hubs. U gebruikt ook de [Apache Spark Event Hubs-connector](https://github.com/Azure/azure-event-hubs-spark) om gegevens naar Azure Event Hubs te lezen en schrijven. Als u deze API's wilt gebruiken als onderdeel van uw cluster, kunt u ze als bibliotheken toevoegen aan Azure Databricks en ze vervolgens aan uw Apache Spark-cluster koppelen. De volgende instructies laten zien hoe de bibliotheek wordt toegevoegd aan de map **Gedeeld** in uw werkruimte.
 
-1.  Selecteer **Werkruimte** in de Azure Databricks-werkruimte en klik vervolgens met de rechtermuisknop op **Gedeeld**. Selecteer **Bibliotheek** > **maken** in het contextmenu.
+1. Selecteer **Werkruimte** in de Azure Databricks-werkruimte en klik vervolgens met de rechtermuisknop op **Gedeeld**. Selecteer **Bibliotheek** > **maken** in het contextmenu.
 
-    ![Dialoogvenster Bibliotheek toevoegen](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Dialoogvenster Bibliotheek toevoegen")
+   ![Dialoogvenster Bibliotheek toevoegen](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Dialoogvenster Bibliotheek toevoegen")
 
 2. Op de pagina Nieuwe bibliotheek selecteert u bij **Bron** de optie **Maven-coördinaat**. Voer bij **Coördinaat** de coördinaat in voor het pakket dat u wilt toevoegen. Dit zijn de Maven-coördinaten voor de bibliotheken die in deze zelfstudie worden gebruikt:
 
-    * Apache Spark Event Hubs-connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
-    * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
+   * Apache Spark Event Hubs-connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
+   * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
 
-    ![Maven-coördinaten opgeven](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Maven-coördinaten opgeven")
+     ![Maven-coördinaten opgeven](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Maven-coördinaten opgeven")
 
 3. Selecteer **Bibliotheek maken**.
 
@@ -164,13 +168,13 @@ In deze zelfstudie gebruikt u de [Microsoft Cognitive Services Text Analytics-AP
 
     ![Account voor Cognitive Services maken](./media/databricks-sentiment-analysis-cognitive-services/create-cognitive-services-account.png "Account voor Cognitive Services maken")
 
-    - Voer een naam voor de Cognitive Services-account in.
-    - Selecteer het Azure-abonnement waarmee het account wordt gemaakt.
-    - Selecteer een Azure-locatie.
-    - Selecteer een prijscategorie voor de service. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/) voor meer informatie over prijzen voor Cognitive Services.
-    - Geef aan of u een nieuwe resourcegroep wilt maken of een bestaande groep wilt gebruiken.
+   - Voer een naam voor de Cognitive Services-account in.
+   - Selecteer het Azure-abonnement waarmee het account wordt gemaakt.
+   - Selecteer een Azure-locatie.
+   - Selecteer een prijscategorie voor de service. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/) voor meer informatie over prijzen voor Cognitive Services.
+   - Geef aan of u een nieuwe resourcegroep wilt maken of een bestaande groep wilt gebruiken.
 
-    Selecteer **Maken**.
+     Selecteer **Maken**.
 
 5. Nadat het account is gemaakt, selecteert u op het tabblad **Overzicht** de optie **Toegangssleutels weergeven**.
 

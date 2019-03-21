@@ -3,21 +3,20 @@ title: Een Azure Data Factory maken op basis van een Resource Manager-sjabloon |
 description: In deze zelfstudie maakt u een Azure Data Factory-voorbeeldpijplijn op basis van een Azure Resource Manager-sjabloon.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: douglasl
-ms.openlocfilehash: c3a9864a901d44d0c84c6946c55e5dc2c700cbac
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 1d4eb3d2978be98d81b42dd66a75b21563c23a1a
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447596"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576647"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Zelfstudie: een Azure Data Factory maken op basis van een Azure Resource Manager-sjabloon
 
@@ -34,7 +33,9 @@ In deze QuickStart wordt beschreven hoe u een Azure Resource Manager-sjabloon ge
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/install-Az-ps).
 
 ## <a name="resource-manager-templates"></a>Resource Manager-sjablonen
 
@@ -51,7 +52,7 @@ Maak een JSON-bestand met de naam **ADFTutorialARM.json** in de map **C:\ADFTuto
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
         "dataFactoryName": {
             "type": "string",
@@ -328,7 +329,7 @@ Maak een JSON-bestand met de naam **ADFTutorialARM-Parameters.json** dat paramet
 Voer de volgende opdracht uit in PowerShell om Data Factory-entiteiten te implementeren met behulp van de Resource Manager-sjabloon die u eerder in deze QuickStart hebt gemaakt.
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
 De uitvoer ziet eruit als in het volgende voorbeeld:
@@ -368,9 +369,9 @@ De sjabloon implementeert de volgende Data Factory-entiteiten:
 - Pijplijn met een kopieeractiviteit
 - Trigger om de pijplijn te activeren
 
-De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te starten, is met de PowerShell-cmdlet **Start-AzureRmDataFactoryV2Trigger**. De volgende procedure bevat gedetailleerde stappen:
+De geïmplementeerde trigger is gestopt. Een van de manieren om te beginnen de trigger is met de **Start AzDataFactoryV2Trigger** PowerShell-cmdlet. De volgende procedure bevat gedetailleerde stappen:
 
-1. Maak in het PowerShell-venster een variabele voor de naam van de resourcegroep. Kopieer de volgende opdracht naar het PowerShell-venster en druk op ENTER. Als u de naam van een andere resourcegroep hebt opgegeven voor de opdracht New-AzureRmResourceGroupDeployment, moet u de waarde hier bijwerken.
+1. Maak in het PowerShell-venster een variabele voor de naam van de resourcegroep. Kopieer de volgende opdracht naar het PowerShell-venster en druk op ENTER. Als u de naam van een andere resourcegroep voor de opdracht New-AzResourceGroupDeployment hebt opgegeven, moet u de waarde hier bijwerken.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -388,7 +389,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
 4. Haal de **status van de trigger** op door de volgende PowerShell-opdracht uit te voeren nadat u de naam van uw data factory en trigger hebt opgegeven:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
     Hier volgt een voorbeeld van uitvoer:
@@ -405,7 +406,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
 5. **Start de trigger**. De trigger voert de pijplijn die in de sjabloon is gedefinieerd, uit op het hele uur. Dat wil zeggen dat als u deze opdracht uitvoert om 14:25 uur, de trigger de pijplijn voor het eerst uitvoert om 15:00 uur. Vervolgens wordt de pijplijn elk uur uitgevoerd totdat de opgegeven eindtijd voor de trigger is bereikt.
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Hier volgt een voorbeeld van uitvoer:
@@ -416,10 +417,10 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Controleer of de trigger is gestart door de opdracht Get-AzureRmDataFactoryV2Trigger nogmaals uit te voeren.
+6. Bevestig dat de trigger is gestart door de opdracht Get-AzDataFactoryV2Trigger nogmaals uit te voeren.
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Hier volgt een voorbeeld van uitvoer:
@@ -466,7 +467,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
 8. Stop de trigger zodra u ziet dat de uitvoering is geslaagd/mislukt. De trigger voert de pijplijn eenmaal per uur uit. Bij elke uitvoering kopieert de pijplijn hetzelfde bestand uit de invoermap naar de uitvoermap. Als u de trigger wilt stoppen, voert u de volgende opdracht uit in het PowerShell-venster.
     
     ```powershell
-    Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
@@ -604,7 +605,7 @@ U definieert een pijplijn waarmee gegevens uit de ene Azure Blob-gegevensset naa
 
 #### <a name="trigger"></a>Trigger
 
-U definieert een trigger die de pijplijn eenmaal per uur uitvoert. De geïmplementeerde trigger is gestopt. Start de trigger via de cmdlet **Start-AzureRmDataFactoryV2Trigger**. Zie het artikel [Pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md#triggers) voor meer informatie over triggers.
+U definieert een trigger die de pijplijn eenmaal per uur uitvoert. De geïmplementeerde trigger is gestopt. Start de trigger met behulp van de **Start AzDataFactoryV2Trigger** cmdlet. Zie het artikel [Pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md#triggers) voor meer informatie over triggers.
 
 ```json
 {
@@ -647,11 +648,11 @@ U hebt in de zelfstudie een sjabloon voor het definiëren van Data Factory-entit
 Voorbeeld:
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
 
 De eerste opdracht maakt gebruik van het parameterbestand voor de ontwikkelomgeving, de tweede voor de testomgeving en de derde voor de productieomgeving.

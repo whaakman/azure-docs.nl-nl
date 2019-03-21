@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: ef81e0c4d04d57edbffa16b817b34af5f3bf8c26
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4b6bd97d7e87832f774f7a09f7e0deeb4047e695
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995626"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294463"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Azure AD-verificatie gebruiken voor toegang tot de Media Services-API met REST
 
@@ -60,8 +60,8 @@ Voor toegang tot API van Media Services, moet u de volgende gegevenspunten te ve
 
 |Instelling|Voorbeeld|Description|
 |---|-------|-----|
-|Azure Active Directory-tenantdomein|microsoft.onmicrosoft.com|Azure AD als een Secure Token Service (STS)-eindpunt is gemaakt met de volgende notatie: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD geeft een JWT voor toegang tot resources (een toegangstoken).|
-|REST API-eindpunt|https://amshelloworld.restv2.westus.media.azure.net/api/|Dit is het eindpunt waarvoor alle Media Services REST-API-aanroepen in uw toepassing worden gemaakt.|
+|Azure Active Directory-tenantdomein|microsoft.onmicrosoft.com|Azure AD als een Secure Token Service (STS)-eindpunt is gemaakt met de volgende notatie: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. Azure AD geeft een JWT voor toegang tot resources (een toegangstoken).|
+|REST API-eindpunt|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Dit is het eindpunt waarvoor alle Media Services REST-API-aanroepen in uw toepassing worden gemaakt.|
 |Client-ID (toepassings-ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID Azure AD-toepassing (client). De client-ID is vereist voor het ophalen van het toegangstoken. |
 |Clientgeheim|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD-toepassingssleutels (clientgeheim). Het clientgeheim is vereist voor het ophalen van het toegangstoken.|
 
@@ -69,7 +69,7 @@ Voor toegang tot API van Media Services, moet u de volgende gegevenspunten te ve
 
 Als u de informatie, de volgende stappen uit:
 
-1. Meld u aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Navigeer naar uw AMS-exemplaar.
 3. Selecteer **API-toegang**.
 4. Klik op **verbinding maken met Azure Media Services API met service-principal**.
@@ -83,33 +83,33 @@ Als u de informatie, de volgende stappen uit:
 
     Als u nodig hebt voor het maken van een nieuwe AD-app, als volgt te werk:
     
-    1. Druk op **Maak een nieuwe**.
-    2. Voer een naam.
-    3. Druk op **nieuw** opnieuw.
-    4. Klik op **Opslaan**.
+   1. Druk op **Maak een nieuwe**.
+   2. Voer een naam in.
+   3. Druk op **nieuw** opnieuw.
+   4. Klik op **Opslaan**.
 
-    ![API-toegang](./media/connect-with-rest/new-app.png)
+      ![API-toegang](./media/connect-with-rest/new-app.png)
 
-    De nieuwe app wordt weergegeven op de pagina.
+      De nieuwe app wordt weergegeven op de pagina.
 
 6. Krijgen de **Client-ID** (toepassings-ID).
     
-    1. Selecteer de toepassing.
-    2. Krijgen de **Client-ID** in het venster aan de rechterkant. 
+   1. Selecteer de toepassing.
+   2. Krijgen de **Client-ID** in het venster aan de rechterkant. 
 
-    ![API-toegang](./media/connect-with-rest/existing-client-id.png)
+      ![API-toegang](./media/connect-with-rest/existing-client-id.png)
 
-7.  Ophalen van de toepassing **sleutel** (clientgeheim). 
+7. Ophalen van de toepassing **sleutel** (clientgeheim). 
 
-    1. Klik op de **toepassing beheren** knop (u ziet dat de gegevens van de Client-ID onder de ligt **toepassings-ID**). 
-    2. Druk op **sleutels**.
+   1. Klik op de **toepassing beheren** knop (u ziet dat de gegevens van de Client-ID onder de ligt **toepassings-ID**). 
+   2. Druk op **sleutels**.
     
-        ![API-toegang](./media/connect-with-rest/manage-app.png)
-    3. De app-sleutel (clientgeheim) genereren door in te vullen **beschrijving** en **VERLOOPT** en drukt u op **opslaan**.
+       ![API-toegang](./media/connect-with-rest/manage-app.png)
+   3. De app-sleutel (clientgeheim) genereren door in te vullen **beschrijving** en **VERLOOPT** en drukt u op **opslaan**.
     
-        Zodra de **opslaan** knop wordt gedrukt, wordt de waarde van de sleutel weergegeven. Kopieer de waarde van de sleutel voordat u de blade.
+       Zodra de **opslaan** knop wordt gedrukt, wordt de waarde van de sleutel weergegeven. Kopieer de waarde van de sleutel voordat u de blade.
 
-    ![API-toegang](./media/connect-with-rest/connect-with-rest03.png)
+   ![API-toegang](./media/connect-with-rest/connect-with-rest03.png)
 
 U kunt waarden voor parameters voor AD-verbinding toevoegen aan het bestand web.config of app.config voor later gebruik in uw code.
 

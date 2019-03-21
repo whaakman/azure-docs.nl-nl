@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 8d70fca5820dbd2152ca378916bfbcdbad4a027f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892656"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -100,7 +100,7 @@ Uw video of audio-inhoud met openbare als de privacyinstelling zijn toegankelijk
 
 ### <a name="what-access-does-microsoft-have-to-my-video-or-audio-files-that-have-been-indexed-andor-stored-by-video-indexer-and-the-metadata-and-insights-that-were-extracted"></a>Welke toegang beschikt Microsoft over naar Mijn video- of audio-bestanden die zijn is geïndexeerd en/of opgeslagen door Video Indexer en de metagegevens en inzichten die zijn opgehaald
 
-Per de [voorwaarden voor onlineservices Azure](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), volledig eigenaar van uw inhoud en Microsoft alleen toegang tot uw inhoud en de metagegevens en inzichten die Video Indexer uit uw inhoud op basis van het OST-bestand en de Microsoft ophaalt Privacyverklaring.
+Per de [voorwaarden voor onlineservices Azure](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), volledig eigenaar van uw inhoud en Microsoft alleen toegang tot uw inhoud en de metagegevens en inzichten die Video Indexer uit uw inhoud op basis van het OST-bestand en de Microsoft ophaalt Privacyverklaring.
 
 ### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>Zijn de aangepaste modellen die ik bouw in mijn Video Indexer-account beschikbaar voor andere accounts?
 

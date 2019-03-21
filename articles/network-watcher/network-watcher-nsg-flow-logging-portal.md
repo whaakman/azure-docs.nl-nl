@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 09d43386b994ffc046f8c3e22c82f13ec15acd38
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: bfe4abe4a83a6b22d05942f91f4152d5c0e62be9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428968"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124077"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Zelfstudie: Logboekregistratie van netwerkverkeer naar en van een virtuele machine met behulp van de Microsoft Azure-portal
 
@@ -45,7 +45,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|myVm|
+    |Name|myVm|
     |Gebruikersnaam| Voer een gebruikersnaam naar keuze in.|
     |Wachtwoord| Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Selecteer uw abonnement.|
@@ -88,7 +88,7 @@ Voor NSG-stroomlogboekregistratie is de **Microsoft.Insights**-provider vereist.
 
     | Instelling        | Waarde                                                        |
     | ---            | ---   |
-    | Naam           | Mag 3 tot 24 tekens lang zijn, mag alleen kleine letters en cijfers bevatten en moet uniek zijn binnen alle Azure Storage-accounts.                                                               |
+    | Name           | Mag 3 tot 24 tekens lang zijn, mag alleen kleine letters en cijfers bevatten en moet uniek zijn binnen alle Azure Storage-accounts.                                                               |
     | Locatie       | Selecteer **US - oost**                                           |
     | Resourcegroep | Selecteer **Bestaande gebruiken** en vervolgens **myResourceGroup** |
 
@@ -100,7 +100,10 @@ Voor NSG-stroomlogboekregistratie is de **Microsoft.Insights**-provider vereist.
 
 6. Selecteer de NSG met de naam **myVm-nsg**.
 7. Selecteer onder **Instellingen voor stroomlogboeken** de optie **Aan**.
-8. Selecteer de versie voor stroomlogboekregistratie. Versie 2 bevat statistische gegevens over stroomsessies (bytes en pakketten). ![Versie voor stroomlogboeken selecteren](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+8. Selecteer de versie voor stroomlogboekregistratie. Versie 2 bevat een flow-sessie als statistieken (Bytes en pakketten)
+
+   ![Stroom logboeken versie selecteren](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+
 9. Selecteer het opslagaccount dat u in stap 3 hebt gemaakt.
 10. Stel **Bewaartermijn (dagen)** in op 5 en selecteer **Opslaan**.
 
@@ -109,17 +112,13 @@ Voor NSG-stroomlogboekregistratie is de **Microsoft.Insights**-provider vereist.
 1. Selecteer in de portal van Network Watcher de optie **NSG-stroomlogboeken** onder **LOGBOEKEN**.
 2. Selecteer **U kunt u stroomlogboeken downloaden van geconfigureerde opslagaccounts**, zoals wordt weergegeven in de volgende afbeelding:
 
-  ![Stroomlogboeken downloaden](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
+   ![Stroomlogboeken downloaden](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Selecteer het opslagaccount dat u hebt geconfigureerd in stap 2 van [NSG-stroomlogboek inschakelen](#enable-nsg-flow-log).
-4. Selecteer **Containers** onder **BLOB-SERVICE** en selecteer vervolgens de container **insights-logs-networksecuritygroupflowevent**, zoals wordt weergegeven in de volgende afbeelding:
+4. Onder **Blob-service**, selecteer **Blobs**, en selecteer vervolgens de **insights-logs-networksecuritygroupflowevent** container.
+5. In de container, navigeer naar de mappenhiërarchie totdat u een bestand PT1H.json, zoals wordt weergegeven in de volgende afbeelding. Logboekbestanden worden geschreven naar een maphiërarchie die volgt op de volgende naamconventie gebruikt: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/ RESOURCEGROUPS/{resourceGroupName}/providers/Microsoft.Network/NETWORKSECURITYGROUPS/{nsgName}/y={Year}/m={Month}/d={Day}/h={hour}/m=00/macAddress={macAddress}/PT1H.JSON
 
-    ![Container selecteren](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
-5. Navigeer door de maphiërarchie totdat het bestand PT1H.json wordt weergegeven, zoals in de volgende afbeelding:
-
-    ![Logboekbestand](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
-
-    Logboekbestanden worden geschreven naar een maphiërarchie die de volgende naamconventie volgt: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+   ![Stroomlogboek](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. Selecteer **...**  rechts van het bestand PT1H.json en selecteer **Downloaden**.
 
@@ -196,7 +195,6 @@ De volgende json is een voorbeeld van wat u in het bestand PT1H.json ziet voor e
 }
 ```
 
-
 De waarde voor **mac** in de vorige uitvoer is het MAC-adres van de netwerkinterface die is gemaakt toen de VM werd gemaakt. De door komma's gescheiden informatie voor **flowTuples** bevat het volgende:
 
 | Voorbeeldgegevens | Wat de gegevens voorstellen   | Uitleg                                                                              |
@@ -213,7 +211,7 @@ De waarde voor **mac** in de vorige uitvoer is het MAC-adres van de netwerkinter
 | 30 | Verzonden pakketten: bron naar doel, **alleen voor Versie 2** | Het totale aantal TCP- of UDP- pakketten dat sinds de laatste update is verzonden van de bron naar het doel. |
 | 16978 | Verzonden bytes: bron naar doel, **alleen voor Versie 2** | Het totale aantal TCP- of UDP- pakketbytes dat sinds de laatste update is verzonden van de bron naar het doel. Pakketbytes omvatten de pakket-header en -nettolading. | 
 | 24 | Verzonden pakketten: doel naar bron, **alleen voor Versie 2** | Het totale aantal TCP- of UDP- pakketten dat sinds de laatste update is verzonden van het doel naar de bron. |
-| 14008| Verzonden bytes: doel naar bron, **alleen voor Versie 2** | Het totale aantal TCP- of UDP- pakketbytes dat sinds de laatste update is verzonden van het doel naar de bron. Pakketbytes omvatten een pakket-header en -nettolading.| |
+| 14008| Verzonden bytes: doel naar bron, **alleen voor Versie 2** | Het totale aantal TCP- of UDP- pakketbytes dat sinds de laatste update is verzonden van het doel naar de bron. Pakketbytes omvatten een pakket-header en -nettolading.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

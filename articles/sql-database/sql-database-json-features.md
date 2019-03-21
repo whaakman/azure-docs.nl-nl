@@ -12,15 +12,15 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 02cec7f3696a43e8effe9d551c1f3e3fddc25ec8
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 77f6125980c43817230b8a8d4beb32757f23e6c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317200"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995488"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Aan de slag met JSON-functies in Azure SQL Database
-Azure SQL Database kunt u parseren en query uitvoeren op gegevens die worden weergegeven in JavaScript Object Notation [(JSON)](http://www.json.org/) formatteren en exporteren van uw relationele gegevens als JSON-tekst. De volgende JSON-scenario's zijn beschikbaar in Azure SQL Database:
+Azure SQL Database kunt u parseren en query uitvoeren op gegevens die worden weergegeven in JavaScript Object Notation [(JSON)](https://www.json.org/) formatteren en exporteren van uw relationele gegevens als JSON-tekst. De volgende JSON-scenario's zijn beschikbaar in Azure SQL Database:
 - [Opmaak van relationele gegevens in JSON-indeling](#formatting-relational-data-in-json-format) met behulp van `FOR JSON` component.
 - [Werken met JSON-gegevens](#working-with-json-data)
 - [JSON-gegevens opvragen](#querying-json-data) met behulp van JSON-functies.

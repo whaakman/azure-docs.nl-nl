@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 7fae267b74677e93527b4e185c5b52d421ef149e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244941"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074502"
 ---
 # <a name="azure-security-center-search"></a>Zoeken in Azure Security Center
 Azure Security Center maakt gebruik van [Azure Monitor-logboeken zoeken](../log-analytics/log-analytics-log-searches.md) ophalen en uw beveiligingsgegevens te analyseren. Logboeken in Azure Monitor omvat een querytaal snel ophalen en samenvoegen van gegevens. Vanuit Security Center, kunt u gebruikmaken van Azure Monitor logboeken zoeken voor het samenstellen van query's en verzamelde gegevens te analyseren.
@@ -35,19 +35,19 @@ Search is beschikbaar in de gratis laag en de prijscategorie Standard van Securi
 ## <a name="access-search"></a>Toegang zoeken
 1. Selecteer in het hoofdmenu van Security Center de optie **zoeken**.
 
-  ![Selecteer zoeken in Logboeken][1]
+   ![Selecteer zoeken in Logboeken][1]
 
 2. Security Center geeft een lijst van alle werkruimten onder uw Azure-abonnementen. Selecteer een werkruimte. (Als u slechts één werkruimte hebt, deze werkruimteselector niet weergegeven.)
 
-  ![Een werkruimte selecteren][2]
+   ![Een werkruimte selecteren][2]
 
 3. **Zoeken in logboeken** wordt geopend. Voer om te vragen voor meer gegevens onder de geselecteerde werkruimte, in dit voorbeeld van een query:
 
-  SecurityEvent | wanneer gebeurtenis-id == 4625 | count() by TargetAccount samenvatten
+   SecurityEvent | wanneer gebeurtenis-id == 4625 | count() by TargetAccount samenvatten
 
-  Resultaat bevat alle accounts die niet zijn geslaagd om aan te melden (gebeurtenis 4625).
+   Resultaat bevat alle accounts die niet zijn geslaagd om aan te melden (gebeurtenis 4625).
 
-  ![Zoekresultaten][3]
+   ![Zoekresultaten][3]
 
 Zie [Kusto-querytaal](../log-analytics/log-analytics-search-reference.md) voor meer informatie over query's uitvoeren voor gegevens onder de geselecteerde werkruimte.
 

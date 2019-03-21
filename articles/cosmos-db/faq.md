@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7e1c6d771e2452e99b47c256c99e25e281b9a3aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849224"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259904"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Veelgestelde vragen over de verschillende API's in Azure Cosmos DB
 
@@ -159,7 +159,7 @@ Containers zijn ook de factureringsentiteiten voor Azure Cosmos DB. Elke contain
 
 ### <a name="how-do-i-create-a-database"></a>Hoe maak ik een database?
 
-U kunt databases maken met behulp van de [Azure-portal](https://portal.azure.com), zoals beschreven in [toevoegen van een verzameling](create-sql-api-dotnet.md#create-collection), een van de [Azure Cosmos DB SDK's](sql-api-sdk-dotnet.md), of de [REST-API's](/rest/api/cosmos-db/).
+U kunt databases maken met behulp van de [Azure-portal](https://portal.azure.com), zoals beschreven in [toevoegen van een verzameling](create-sql-api-dotnet.md#create-collection-database), een van de [Azure Cosmos DB SDK's](sql-api-sdk-dotnet.md), of de [REST-API's](/rest/api/cosmos-db/).
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Hoe stel ik gebruikers en machtigingen in?
 
@@ -257,7 +257,7 @@ Er zijn enkele verschillen in werking die gebruikers die afkomstig zijn van Azur
 * CORS wordt momenteel niet ondersteund
 * Tabelnamen in Azure Table-opslag zijn niet hoofdlettergevoelig, maar ze zijn in Azure Cosmos DB Table-API
 * Aantal interne Azure Cosmos DB-indelingen voor codering informatie, zoals binaire velden zijn momenteel niet zo efficiënt als een mogelijk interessant vindt. Daarom kan dit leiden tot onverwachte beperkingen op van elke gegevensomvang. Bijvoorbeeld, kan niet momenteel een gebruiken de volledige één Meg van een Tabelentiteit voor het opslaan van binaire gegevens omdat de codering van de gegevens wordt groter.
-* Naam van de entiteit-eigenschap Id wordt momenteel niet ondersteund
+* Naam van de entiteit-eigenschap ID wordt momenteel niet ondersteund
 * TableQuery TakeCount is niet beperkt tot 1000
 
 Er zijn een aantal opties voor eindpunten/query's die niet worden ondersteund door Azure Cosmos DB Table-API in termen van de REST-API:

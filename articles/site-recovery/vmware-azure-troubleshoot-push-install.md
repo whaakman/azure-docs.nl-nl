@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 3b46ffe49aeb31aaf9040be038e8a9e83641ae51
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 65b8253a307693d00f5eaefe7660d500dce49be4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078649"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Problemen met de Mobility-Service push-installatie
 
@@ -171,11 +171,11 @@ De GRUB-configuratiebestanden (' / boot/grub/menu.lst ', ' / boot/grub/grub.cfg 
 
 
 - De volgende regel wordt uit het bestand WORMGATEN **/boot/grub2/grub.cfg**. <br>
-*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+  *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
 
 
 - De volgende regel wordt uit het bestand WORMGATEN **/boot/grub/menu.lst**
-*kernel /boot/vmlinuz-3.0.101-63-default **hoofdmap = / dev/sda2** **= / dev/sda1 hervatten ** splash = op de achtergrond crashkernel 256M-:128M showopts vga = 0x314 =*
+  *kernel /boot/vmlinuz-3.0.101-63-default **hoofdmap = / dev/sda2** **= / dev/sda1 hervatten ** splash = op de achtergrond crashkernel 256M-:128M showopts vga = 0x314 =*
 
 Als u de bovenstaande vet tekenreeks ziet, bevat WORMGATEN daadwerkelijk apparaatnamen voor de parameters "root" en "Doorgaan" in plaats van UUID.
  
@@ -184,15 +184,15 @@ De apparaatnamen moeten worden vervangen door de bijbehorende UUID.<br>
 
 
 1. De UUID van het apparaat vinden door het uitvoeren van de opdracht ' blkid <device name>'. Bijvoorbeeld:<br>
-```
-blkid /dev/sda1
-/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
-blkid /dev/sda2 
-/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
-```
+   ```
+   blkid /dev/sda1
+   /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+   blkid /dev/sda2 
+   /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+   ```
 
 2. Vervang nu de naam van het apparaat met de UUID in de indeling, zoals ' root = UUID =<UUID>'. Bijvoorbeeld, als we de apparaatnamen vervangen door UUID voor basis- en hervatten van de parameter die hierboven worden vermeld in de bestanden "/ boot/grub2/grub.cfg ', ' / boot/grub2/grub.cfg" of "/ standaard/etc/wormgaten: vervolgens de regels in de bestanden er als volgt uitzien. <br>
-*kernel /boot/vmlinuz-3.0.101-63-default **hoofdmap = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **hervatten UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b =** splash = op de achtergrond crashkernel 256M-:128M = showopts vga 0x314 =*
+   *kernel /boot/vmlinuz-3.0.101-63-default **hoofdmap = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **hervatten UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b =** splash = op de achtergrond crashkernel 256M-:128M = showopts vga 0x314 =*
 3. De beveiliging opnieuw starten
 
 ## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>Installeren van de Mobility-Service voltooid met een waarschuwing op te starten (Aanroepstatus: 95265 & 95266)
@@ -284,20 +284,20 @@ Als toepassingsconsistentie niet essentieel is voor uw vereisten voor herstel na
 De Azure Site Recovery VSS Provider-installatie overslaan en Azure Site Recovery VSS Provider na de installatie handmatig te installeren:
 
 1. Installeer de mobility-service. 
-> [!Note]
-> 
-> De installatie mislukken bij stap 'Post installeren configuration'. 
+   > [!Note]
+   > 
+   > De installatie mislukken bij stap 'Post installeren configuration'. 
 2. De installatie van de VSS overslaan:
    1. Open de Azure Site Recovery Mobility Service-installatiemap zich bevindt in:
    
-    C:\Program bestanden (x86) \Microsoft Azure Site Recovery\agent
-   2.  Wijzigen van de installatie van Azure Site Recovery VSS Provider scripts **nMageVSSProvider_Install** en **InMageVSSProvider_Uninstall.cmd** altijd voltooid door de volgende regels toe te voegen:
+      C:\Program bestanden (x86) \Microsoft Azure Site Recovery\agent
+   2. Wijzigen van de installatie van Azure Site Recovery VSS Provider scripts **nMageVSSProvider_Install** en **InMageVSSProvider_Uninstall.cmd** altijd voltooid door de volgende regels toe te voegen:
     
-    ```     
-    rem @echo off
-    setlocal
-    exit /B 0
-    ```
+      ```     
+      rem @echo off
+      setlocal
+      exit /B 0
+      ```
 
 3. Voer de installatie van de Mobility-Agent handmatig opnieuw uit. 
 4. Wanneer de installatie is geslaagd en naar de volgende stap verplaatst **configureren**, verwijder de regels die u hebt toegevoegd.
@@ -305,7 +305,7 @@ De Azure Site Recovery VSS Provider-installatie overslaan en Azure Site Recovery
    
     **C:\Program bestanden (x86) \Microsoft Azure Site Recovery\agent >.\InMageVSSProvider_Install.cmd**
 
-9.  Controleer of de ASR-VSS-Provider is geïnstalleerd als een service in Windows-Services en open de MMC Component-Service om te controleren of de VSS-Provider voor ASR wordt weergegeven.
+9. Controleer of de ASR-VSS-Provider is geïnstalleerd als een service in Windows-Services en open de MMC Component-Service om te controleren of de VSS-Provider voor ASR wordt weergegeven.
 10. Als de VSS-Provider installeren blijft mislukken, werken met CX om op te lossen de machtigingen voor fouten in diagnostische CAPI2.
 
 ## <a name="vss-provider-installation-fails-due-to-the-cluster-service-being-enabled-on-non-cluster-machine"></a>VSS-Provider-installatie mislukt als gevolg van de cluster-service wordt ingeschakeld op de machine niet-cluster

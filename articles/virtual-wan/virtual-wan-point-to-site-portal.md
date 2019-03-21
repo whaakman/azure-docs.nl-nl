@@ -5,15 +5,15 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/27/2019
 ms.author: alzam
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 87b8543d8cb658b46ab5e589a310a17a69508a47
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 9fe0c7f7ae0c19833421b647449f0e4100904f5b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411387"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226229"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Zelfstudie: een punt-naar-site-verbinding maken met Azure Virtual WAN (Preview)
 
@@ -38,11 +38,13 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>Deze functie registreren
 
-Klik op **Proberen** om deze functie eenvoudig te registreren met Azure Cloud Shell. Als u PowerShell liever lokaal uitvoert, dient u over de meest recente versie te beschikken en meld u zich aan met behulp van de opdrachten **Connect-AzureRmAccount** en **Select-AzureRmSubscription**.
+Klik op **Proberen** om deze functie eenvoudig te registreren met Azure Cloud Shell. Als u liever PowerShell lokaal uitvoert zou, moet u de meest recente versie hebt en meld u aan met behulp van de **Connect AzAccount** en **Selecteer AzSubscription** opdrachten.
 
 >[!NOTE]
 >Als u deze functie niet registreert, kunt u de functie niet gebruiken en wordt deze ook niet weergegeven in de portal.
@@ -52,25 +54,25 @@ Klik op **Proberen** om deze functie eenvoudig te registreren met Azure Cloud Sh
 Wanneer u op **Proberen** hebt geklikt om Azure Cloud Shell te openen, kopieert en plakt u de volgende opdrachten:
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
  
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
-Zodra wordt weergegeven dat de functie is geregistreerd, registreert u het abonnement opnieuw bij de naamruimte Microsoft.Network.
+Zodra de functie wordt weergegeven als geregistreerd, registreert u het abonnement naar Microsoft.Network-naamruimte.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="vnet"></a>1. Een virtueel netwerk maken
@@ -101,13 +103,13 @@ Een P2S-configuratie definieert de parameters om verbinding te maken met externe
 4. Klik op **+ Punt-naar-site-configuratie toevoegen** aan de bovenkant van de pagina om de pagina **Nieuwe punt-naar-site-configuratie maken** te openen.
 5. Vul op de pagina **Nieuwe punt-naar-site-configuratie** de volgende velden in:
 
-  *  **Naam van configuratie** - Dit is de naam waarmee u naar uw configuratie wilt verwijzen.
-  *  **Type tunnel** -Het protocol dat voor de tunnel moet worden gebruikt.
-  *  **Adresgroep** -Dit is de IP-adresgroep op basis waarvan de clients worden toegewezen.
-  *  **Certificaatnaam van hoofdmap** - Een beschrijvende naam voor het certificaat.
-  *  **Certificaatgegevens van hoofdmap** - Base-64-gecodeerde X.509-certificaatgegevens.
+   *  **Naam van configuratie** - Dit is de naam waarmee u naar uw configuratie wilt verwijzen.
+   *  **Type tunnel** -Het protocol dat voor de tunnel moet worden gebruikt.
+   *  **Adresgroep** -Dit is de IP-adresgroep op basis waarvan de clients worden toegewezen.
+   *  **Certificaatnaam van hoofdmap** - Een beschrijvende naam voor het certificaat.
+   *  **Certificaatgegevens van hoofdmap** - Base-64-gecodeerde X.509-certificaatgegevens.
 
-5. Klik op **Maken** om de configuratie te maken.
+6. Klik op **Maken** om de configuratie te maken.
 
 ## <a name="hub"></a>5. Hubtoewijzing bewerken
 
@@ -115,9 +117,10 @@ Een P2S-configuratie definieert de parameters om verbinding te maken met externe
 2. Selecteer de hub waaraan u de punt-naar-site-configuratie wilt toewijzen.
 3. Klik op **"..."** en kies **Virtuele hub bewerken**
 4. Schakel het selectievakje **Punt-naar-site-gateway opnemen** in.
-5. Kies de **gateway-schaaleenheden** en de **punt-naar-site-configuratie**, en een **adresgroep** voor de clients.
-6. Klik op **Bevestigen**. 
-7. De bewerking kan dertig minuten duren.
+5. Selecteer in de vervolgkeuzelijst de **Gateway schaaleenheden**.
+6. Selecteer in de vervolgkeuzelijst de **punt-naar-site-configuratie** die u hebt gemaakt.
+7. Configureer de **-adresgroep** voor de clients.
+8. Klik op **Bevestigen**. De bewerking kan dertig minuten duren.
 
 ## <a name="vnet"></a>6. Uw VNet verbinden met een hub
 
@@ -131,6 +134,7 @@ In deze stap brengt u de peering-verbinding tussen uw hub en een VNet tot stand.
     * **Hubs** - selecteer de hub die u wilt koppelen aan deze verbinding.
     * **Abonnement** - controleer of het abonnement klopt.
     * **Virtueel netwerk** - selecteer het virtuele netwerk dat met deze hub wilt verbinden. Het virtuele netwerk mag geen bestaande virtuele netwerkgateway hebben.
+4. Klik op **OK** om toe te voegen van de verbinding.
 
 ## <a name="device"></a>7. VPN-profiel downloaden
 
@@ -149,7 +153,7 @@ Gebruik het gedownloade profiel om de clients voor externe toegang te configurer
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Download en installeer de OpenVPN-client op de officiële website.
-2.  Download het VPN-profiel voor de gateway. Dit kan via het tabblad Punt-naar-site-configuraties in de Azure-portal of via New-AzureRmVpnClientConfiguration in PowerShell.
+2.  Download het VPN-profiel voor de gateway. Dit kan worden uitgevoerd vanaf het tabblad van de punt-naar-site-configuraties in Azure portal of New-AzVpnClientConfiguration in PowerShell.
 3.  Pak het profiel uit. Open het configuratiebestand vpnconfig.ovpn uit de map OpenVPN in Kladblok.
 4.  Vul het gedeelte P2S client certificate met de openbare P2S-clientcertificatcode in base64. In een certificaat met PEM-indeling kunt u gewoon het .cer-bestand openen en de base64-code tussen de headers van het certificaat kopiëren. Hier ziet u hoe u een certificaat kunt exporteren om de gecodeerde openbare sleutel te verkrijgen.
 5.  Vul in het gedeelte voor de persoonlijke sleutel de persoonlijke P2S-clientcertificaatsleutel in Base64 in. Bekijk hier hoe u de persoonlijke sleutel kunt uitpakken.
@@ -168,7 +172,7 @@ Gebruik het gedownloade profiel om de clients voor externe toegang te configurer
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Download en installeer een OpenVPN-client, zoals TunnelBlik via https://tunnelblick.net/downloads.html 
-2.  Download het VPN-profiel voor de gateway. Dit kan via het tabblad Punt-naar-site-configuratie in de Azure-portal of via New-AzureRmVpnClientConfiguration in PowerShell.
+2.  Download het VPN-profiel voor de gateway. Dit kan worden uitgevoerd vanaf het tabblad voor punt-naar-site-configuratie in Azure portal of New-AzVpnClientConfiguration in PowerShell.
 3.  Pak het profiel uit. Open het configuratiebestand vpnconfig.ovpn uit de map OpenVPN in Kladblok.
 4.  Vul het gedeelte P2S client certificate met de openbare P2S-clientcertificatcode in base64. In een certificaat met PEM-indeling kunt u gewoon het .cer-bestand openen en de base64-code tussen de headers van het certificaat kopiëren. Hier ziet u hoe u een certificaat kunt exporteren om de gecodeerde openbare sleutel te verkrijgen.
 5.  Vul in het gedeelte voor de persoonlijke sleutel de persoonlijke P2S-clientcertificaatsleutel in Base64 in. Bekijk hier hoe u de persoonlijke sleutel kunt uitpakken.
@@ -201,10 +205,10 @@ Maak een verbinding om de communicatie tussen een Azure-VM en een externe site t
 
 ## <a name="cleanup"></a>12. Resources opschonen
 
-U kunt de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep en alle resources die deze bevat te verwijderen, wanneer u deze niet meer nodig hebt. Vervangen 'myResourceGroup' door de naam van uw resourcegroep en voer de volgende PowerShell-opdracht uit:
+Als u deze resources niet meer nodig hebt, kunt u [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) om de resourcegroep en alle resources die deze bevat te verwijderen. Vervangen 'myResourceGroup' door de naam van uw resourcegroep en voer de volgende PowerShell-opdracht uit:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 72238db8322132f42e14656c106b82d8604af21f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435096"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107811"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Informatie over IoT Edge-automatische implementaties voor individuele apparaten of op schaal
 
@@ -32,7 +32,7 @@ In dit artikel is gericht op de configuratie en bewaking van de fasen voor vlote
 2. De IoT Hub-service communiceert met alle apparaten uit de doelgroep om deze te configureren met de gewenste modules. 
 3. De IoT Hub-service wordt de status opgehaald van de IoT Edge-apparaten en maakt ze beschikbaar voor de operator.  Bijvoorbeeld, ziet een operator wanneer een Edge-apparaat niet is geconfigureerd of als een module is mislukt tijdens runtime. 
 4. Op elk gewenst moment zijn nieuwe IoT Edge-apparaten die voldoen aan de doelitems voorwaarden geconfigureerd voor de implementatie. Bijvoorbeeld, configureert een implementatie die gericht is op alle IoT Edge-apparaten in de staat Washington automatisch een nieuwe IoT Edge-apparaat nadat deze is ingericht en aan de groep met apparaten van de staat Washington toevoegen. 
- 
+ 
 Dit artikel wordt beschreven voor elk onderdeel is betrokken bij het configureren en controleren van een implementatie. Zie voor een overzicht van het maken en bijwerken van een implementatie [implementeren en controleren van IoT Edge-modules op schaal](how-to-deploy-monitor.md).
 
 ## <a name="deployment"></a>Implementatie

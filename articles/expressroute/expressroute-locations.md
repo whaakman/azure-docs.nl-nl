@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 03/15/2019
 ms.author: pareshmu
-ms.openlocfilehash: c89c5f2d463392106985b0d80bc45843a158fd50
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d7baebc4236df926dbd8cbe6e17e59b0a3489abd
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875373"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188372"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -52,6 +52,7 @@ In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-l
 | **Zuid-Korea** | 2 |Korea Centraal, Korea Zuid |Busan, Seoul|
 | **Zuid-Afrika** | 3 |Zuid-Afrika West, Zuid-Afrika (Noord) |Kaapstad, Johannesburg |
 | **Zuid-Amerika** | 3 |Brazilië - zuid |Sao Paulo |
+
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regio's en geopolitieke grenzen voor nationale clouds
 De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nationale clouds.
@@ -291,7 +292,7 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 | **[Ensyst](https://www.ensyst.com.au)** | Azië
 | **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | Noord-Amerika |
 | **[FlexManage](https://www.flexmanage.com/cloud)** | Noord-Amerika |
-| **[Lightstream](https://www.ltstream.com/expressroute)** | Noord-Amerika |
+| **[Lightstream](https://www.lightstream.tech/partners/microsoft-azure/)** | Noord-Amerika |
 | **[The IT Consultancy Group](https://itconsult.com.au/)** | Australië |
 | **[MOQdigital](https://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | Australië |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europa (Duitsland) |

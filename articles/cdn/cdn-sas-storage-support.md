@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 57891bcce289c30d7dce1cd00c301064aa9b97cc
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ee64b4cbfd024c91b226736bc8cac0b9b33f964e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955232"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170391"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Azure CDN gebruiken met SAS
 
@@ -50,7 +50,7 @@ Zie voor meer informatie over parameters van de instelling [SAS parameter overwe
 
 ### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Optie 1: Met behulp van SAS met Pass Through-query naar blob-opslag van Azure CDN
 
-Deze optie is de eenvoudigste en maakt gebruik van een enkele SAS-token die vanuit Azure CDN wordt doorgegeven aan de oorspronkelijke server. Dit wordt ondersteund door **Azure CDN Standard van Verizon** en **Azure CDN Standard van Akamai** profielen. 
+Deze optie is de eenvoudigste en maakt gebruik van een enkele SAS-token die vanuit Azure CDN wordt doorgegeven aan de oorspronkelijke server.
  
 1. Selecteer een eindpunt **regels voor Caching**en selecteer vervolgens **elke unieke URL in de Cache** uit de **Query queryreeksen opslaan in cache** lijst.
 
@@ -133,10 +133,10 @@ Azure CDN security token om verificatie te gebruiken, hebt u een **Azure CDN Pre
 
 Omdat het SAS-parameters zijn niet zichtbaar voor Azure CDN, kan de van leveringsgedrag op basis van deze Azure CDN niet wijzigen. De gedefinieerde parameter beperkingen van toepassing alleen op aanvragen die naar de oorspronkelijke server, niet voor aanvragen van de client naar het Azure CDN kunt u Azure CDN. Dit verschil is het belangrijk om te overwegen bij het instellen van SAS-parameters. Als deze geavanceerde mogelijkheden vereist zijn en u [optie 3](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule), de juiste beperkingen instellen voor het Azure CDN-beveiligingstoken.
 
-| Naam van de SAS | Beschrijving |
+| Naam van de SAS | Description |
 | --- | --- |
 | Starten | Het tijdstip waarop Azure CDN beginnen kunt met het toegang krijgen tot de blobbestand. Vanwege de klok scheeftrekken (wanneer een kloksignaal binnenkomt op verschillende tijdstippen voor verschillende onderdelen), kiest u een periode van 15 minuten eerder als u wilt dat de asset onmiddellijk beschikbaar zijn. |
-| Einde | De tijd waarna Azure CDN geen toegang meer de blob-bestand tot kan. Eerder zijn de bestanden in de cache op Azure CDN nog steeds toegankelijk. Voor het beheren van de verlooptijd van het bestand, instellen van de juiste verlooptijd op het Azure CDN-beveiligingstoken of opschonen van de asset. |
+| Beëindigen | De tijd waarna Azure CDN geen toegang meer de blob-bestand tot kan. Eerder zijn de bestanden in de cache op Azure CDN nog steeds toegankelijk. Voor het beheren van de verlooptijd van het bestand, instellen van de juiste verlooptijd op het Azure CDN-beveiligingstoken of opschonen van de asset. |
 | Toegestane IP-adressen | Optioneel. Als u **Azure CDN van Verizon**, kunt u deze parameter instellen op de bereiken die zijn gedefinieerd [Azure CDN van Verizon Edge-Server IP-adresbereiken](https://msdn.microsoft.com/library/mt757330.aspx). Als u **Azure CDN van Akamai**, u kunt de IP-adresbereiken parameter niet instellen omdat de IP-adressen niet statisch zijn.|
 | Toegestane protocollen | De netwerkprotocollen die zijn toegestaan voor een aanvraag voor de account-SAS. De HTTPS-instelling wordt aanbevolen.|
 

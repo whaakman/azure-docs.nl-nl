@@ -8,18 +8,18 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 14b51f109ca76661ac10c99d42002dda45bc0500
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 700e8e9fe0dac182d71df8ca66800fa03cf25a2e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318684"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295790"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Uw gegevens in Azure IoT Central exporteren
 
 *In dit onderwerp is bedoeld voor beheerders.*
 
-In dit artikel dives dieper in het gebruik van de continue export-functie in Azure IoT Central uw gegevens te exporteren naar uw eigen **Azure Event Hubs**, en **Azure Service Bus** exemplaren. U kunt exporteren **metingen**, **apparaten**, en **apparaatsjablonen** naar uw eigen bestemming voor warm-pad inzichten en analyses. Dit omvat het activeren van de aangepaste regels in Azure Stream Analytics, aangepaste werkstromen in Azure Logic Apps activeren of omzetten van de gegevens en deze door te geven via Azure Functions. 
+In dit artikel wordt beschreven hoe u van de continue export-functie in Azure IoT Central uw gegevens te exporteren naar uw eigen **Azure Event Hubs**, en **Azure Service Bus** exemplaren. U kunt exporteren **metingen**, **apparaten**, en **apparaatsjablonen** naar uw eigen bestemming voor warm-pad inzichten en analyses. Dit omvat het activeren van de aangepaste regels in Azure Stream Analytics, aangepaste werkstromen in Azure Logic Apps activeren of omzetten van de gegevens en deze door te geven via Azure Functions. 
 
 > [!Note]
 > Nogmaals, als u continue gegevensexport inschakelt, krijgt u alleen de gegevens vanaf dat moment standaardtarieven. Gegevens kunnen op dit moment niet worden hersteld gedurende een periode wanneer voortdurende gegevensexport uitgeschakeld is. Als u wilt meer historische gegevens behouden, moet u voortdurende gegevensexport vroeg inschakelen.
@@ -28,6 +28,77 @@ In dit artikel dives dieper in het gebruik van de continue export-functie in Azu
 ## <a name="prerequisites"></a>Vereisten
 
 - U moet een beheerder in uw IoT Central-toepassing
+
+## <a name="set-up-export-destination"></a>Export doel instellen
+
+Als u een bestaande Event Hubs-Service Bus om te exporteren naar niet hebt, volgt u deze stappen:
+
+## <a name="create-event-hubs-namespace"></a>Event Hubs-naamruimte maken
+
+1. Maak een [nieuwe Event Hubs-naamruimte in Azure portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). U kunt meer informatie in [Azure Event Hubs docs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+2. Kies een abonnement. 
+
+    > [!Note] 
+    > U kunt nu gegevens exporteren naar andere abonnementen die zijn **niet hetzelfde** als voor uw betalen per gebruik IoT Central-toepassing. U verbinding maakt met een verbindingsreeks in dit geval.
+3. Maak een event hub in uw Event Hubs-naamruimte. Ga naar uw naamruimte en selecteer **+ Event Hub** boven aan het maken van een event hub-instantie.
+
+## <a name="create-service-bus-namespace"></a>Service Bus-naamruimte maken
+
+1. Maak een [nieuwe Service Bus-naamruimte in Azure portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . U kunt meer informatie in [Azure Service Bus-docs](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
+2. Kies een abonnement. 
+
+    > [!Note] 
+    > U kunt nu gegevens exporteren naar andere abonnementen die zijn **niet hetzelfde** als voor uw betalen per gebruik IoT Central-toepassing. U verbinding maakt met een verbindingsreeks in dit geval.
+
+3. Ga naar uw Service Bus-naamruimte en selecteer **+ wachtrij** of **+ onderwerp** boven aan het maken van een wachtrij of onderwerp om te exporteren naar.
+
+
+## <a name="set-up-continuous-data-export"></a>Voortdurende gegevensexport instellen
+
+Nu dat u een Event Hubs-Service Bus-doel hebt voor het exporteren van gegevens, volg deze stappen voor het instellen van continue gegevensexport. 
+
+1. Meld u aan uw IoT Central-toepassing.
+
+2. Selecteer in het menu links **continue gegevensexport**.
+
+    > [!Note]
+    > Als er geen continue Export van gegevens in het menu links, bent u niet een beheerder in uw app. Neem contact op met een beheerder voor het instellen van het exporteren van gegevens.
+
+    ![Nieuwe cde Event Hub maken](media/howto-export-data/export_menu.PNG)
+
+3. Selecteer de **+ nieuw** knop in de rechterbovenhoek. Kies een van de **Azure Event Hubs** of **Azure Service Bus** als de bestemming of het exporteren. 
+
+    > [!NOTE] 
+    > Het maximum aantal uitvoer per app is vijf. 
+
+    ![Maken van nieuwe voortdurende gegevensexport](media/howto-export-data/export_new.PNG)
+
+4. Selecteer in de vervolgkeuzelijst uw **Event Hubs-naamruimte/Service Bus-naamruimte**. U kunt ook de laatste optie kiezen in de lijst die is **een verbindingsreeks invoeren**. 
+
+    > [!NOTE] 
+    > U ziet alleen Storage Accounts/Event Hubs-naamruimten/Service Bus-naamruimten in de **hetzelfde abonnement als uw app IoT Central**. Als u exporteren naar een bestemming buiten dit abonnement wilt, kiest u **een verbindingsreeks invoeren** en raadpleegt u stap 5.
+
+    > [!NOTE] 
+    > Voor zeven dagen proefversie apps, de enige manier om het configureren van doorlopende gegevens exporteren, is via een verbindingsreeks. Dit komt doordat zeven dagen proefversie apps nog geen een gekoppelde Azure-abonnement.
+
+    ![Nieuwe cde Event Hub maken](media/howto-export-data/export_create.PNG)
+
+5. (Optioneel) Als u ervoor hebt gekozen **een verbindingsreeks invoeren**, een nieuwe verschijnt u plak de verbindingsreeks. Om op te halen van de verbindingsreeks voor uw:
+    - Eventhubs of Service Bus, gaat u naar de naamruimte in Azure portal.
+        - Onder **instellingen**, selecteer **beleid voor gedeelde toegang**
+        - Kies de standaardwaarden voor **RootManageSharedAccessKey** of een nieuw wachtwoord maken
+        - Kopieer de primaire of secundaire verbindingsreeks
+ 
+6. Kies een Event hub/wachtrij of onderwerp in het vak vervolgkeuzelijst.
+
+7. Onder **gegevens naar de export**, elk type gegevens wilt exporteren door het type in te stellen **op**.
+
+6. Als u wilt inschakelen voortdurende gegevensexport, zorg ervoor dat **gegevensexport** is **op**. Selecteer **Opslaan**.
+
+  ![Voortdurende gegevensexport configureren](media/howto-export-data/export_list.PNG)
+
+7. Na een paar minuten verschijnt uw gegevens in uw gekozen bestemming.
+
 
 ## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>Exporteren naar Azure Eventhubs en Azure Servicebus
 

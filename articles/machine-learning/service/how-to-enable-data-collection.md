@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: fa1076fb523c3634cf8e4f4832d36aa7ee715797
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a127a211157edb0b26d0495bc2ed05dd79323111
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816348"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842631"
 ---
 # <a name="collect-data-for-models-in-production"></a>Verzamelen van gegevens voor modellen in productie
 
@@ -50,7 +50,7 @@ Het pad naar de uitvoergegevens in de blob met de volgende deze syntaxis:
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
+- Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 - Een Azure Machine Learning-service-werkruimte en een lokale map met uw scripts en de Azure Machine Learning-SDK voor Python geïnstalleerd. Informatie over het verkrijgen van deze vereisten met behulp van de [het configureren van een ontwikkelomgeving](how-to-configure-environment.md) document.
 
@@ -136,15 +136,15 @@ U kunt stoppen met het verzamelen van gegevens elk gewenst moment. Python-code o
 
   1. Ga naar **implementaties** -> **Selecteer service** -> **bewerken**.
 
-    [![Optie bewerken](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+     [![Optie bewerken](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. In **geavanceerde instellingen**, schakel **inschakelen modelgegevensverzameling**. 
 
-    [![Schakel het verzamelen van gegevens](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+     [![Schakel het verzamelen van gegevens](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. Selecteer **Update** de wijziging toepassen.
 
-* Optie 2: Python gebruiken om te verzamelen van gegevens uitschakelen:
++ Optie 2: Python gebruiken om te verzamelen van gegevens uitschakelen:
 
   ```python 
   ## replace <service_name> with the name of the web service

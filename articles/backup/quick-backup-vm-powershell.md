@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 42c981aa585d35e1d78718b4dee51d450b45e241
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aa637571ca11ea294b1f95df49855d7ee81b3001
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852247"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258867"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Een back-up van een virtuele machine maken in Azure met PowerShell
 
@@ -83,13 +83,13 @@ U back-up inschakelen voor een Azure-VM en geef een back-upbeleid.
 
 Back-up als volgt inschakelen:
 
-1. Stel eerst het standaardbeleid met [Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/Az.RecoveryServices.Backup/Get-AzRecoveryServicesBackupProtectionPolicy):
+1. Stel eerst het standaardbeleid met [Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy):
 
     ```powershell
     $policy = Get-AzRecoveryServicesBackupProtectionPolicy     -Name "DefaultPolicy"
     ```
 
-2. Back-up van virtuele machine met inschakelen [inschakelen AzRecoveryServicesBackupProtection](/powershell/module/Az.RecoveryServices.Backup/Enable-AzRecoveryServicesBackupProtection). Geef het beleid, de resourcegroep en de naam van de virtuele machine.
+2. Back-up van virtuele machine met inschakelen [inschakelen AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). Geef het beleid, de resourcegroep en de naam van de virtuele machine.
 
     ```powershell
     Enable-AzRecoveryServicesBackupProtection `
@@ -107,9 +107,9 @@ Back-ups uitgevoerd volgens de planning die is opgegeven in de back-upbeleid. U 
 - Na de eerste back-up van elke back-uptaak worden incrementele herstelpunten gemaakt.
 - Incrementele herstelpunten zijn efficiënt qua opslag en tijd aangezien ze alleen wijzigingen bevatten die sinds de laatste back-up zijn doorgevoerd.
 
-Als u wilt uitvoeren van een ad-hoc back-up, gebruikt u de[back-up-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices.backup/backup-Azrecoveryservicesbackupitem). 
-- Geeft u een container in de kluis waarin de back-upgegevens met [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices.backup/get-Azrecoveryservicesbackupcontainer).
-- Elke VM voor back-up wordt als een item beschouwd. Voor het starten van een back-uptaak u informatie verkrijgen over de virtuele machine met [Get-AzRecoveryServicesBackupItem](/powershell/module/Az.RecoveryServices.Backup/Get-AzRecoveryServicesBackupItem).
+Als u wilt uitvoeren van een ad-hoc back-up, gebruikt u de[back-up-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
+- Geeft u een container in de kluis waarin de back-upgegevens met [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
+- Elke VM voor back-up wordt als een item beschouwd. Voor het starten van een back-uptaak u informatie verkrijgen over de virtuele machine met [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
 Voer een ad-hoc back-uptaak als volgt uit:
 
@@ -132,7 +132,7 @@ Voer een ad-hoc back-uptaak als volgt uit:
 
 ## <a name="monitor-the-backup-job"></a>Uitvoering van back-uptaak volgen
 
-1. Voer [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices.backup/get-Azrecoveryservicesbackupjob) voor het bewaken van de taak de status.
+1. Voer [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) voor het bewaken van de taak de status.
 
     ```powershell
     Get-AzRecoveryservicesBackupJob

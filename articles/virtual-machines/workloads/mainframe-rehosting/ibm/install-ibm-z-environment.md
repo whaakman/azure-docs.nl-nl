@@ -8,18 +8,18 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 5de5f2f48504a711d4b7cff614abdd4214d0ba09
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fa3bf2b513ce7c5a0ea0210c66a9123ceaf1de37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739507"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015276"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>IBM zD & T dev/test-omgeving op Azure installeren
 
 Voor het maken van een dev/test-omgeving voor mainframe-workloads op IBM Z Systems, kunt u IBM Z Development en Test Environment (zD & T) implementeren op Azure Virtual Machine (VM)-infrastructuur als een dienst (IaaS).
 
-Met zD & T, kunt u profiteren van de kosten te besparen van de x86 platform voor uw minder kritieke ontwikkel- en testomgevingen en push de updates back-ups maken in een productieomgeving Z-systeem. Zie voor meer informatie de [IBM ZD & T installatie-instructies](http://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL).
+Met zD & T, kunt u profiteren van de kosten te besparen van de x86 platform voor uw minder kritieke ontwikkel- en testomgevingen en push de updates back-ups maken in een productieomgeving Z-systeem. Zie voor meer informatie de [IBM ZD & T installatie-instructies](https://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL).
 
 Ondersteuning voor de volgende versies van Azure en Azure Stack:
 

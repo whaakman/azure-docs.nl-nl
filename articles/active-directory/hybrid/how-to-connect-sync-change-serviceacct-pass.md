@@ -17,12 +17,12 @@ ms.date: 10/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecc7eb45b439140cf9d1de048a6d4a7db48c34c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 15d0d537a23e21eeda3b284e7ec706cde2b443e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204407"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014072"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Het wachtwoord voor de Azure AD Connect sync-serviceaccount wijzigen
 Als u het wachtwoord voor de Azure AD Connect sync-serviceaccount wijzigen, zich de Synchronization Service niet kunnen starten goed totdat u hebt de versleutelingssleutel afgebroken en het wachtwoord voor de Azure AD Connect sync-serviceaccount opnieuw geïnitialiseerd. 
@@ -46,7 +46,7 @@ Ten tweede onder bepaalde omstandigheden, kan als het wachtwoord is bijgewerkt, 
 U ziet fouten, zoals:
 
 - Onder Windows Service Control Manager als u probeert om de synchronisatie-Service te starten en deze kan niet van de versleutelingssleutel ophalen, worden deze mislukt met fout "<strong>Windows kan de Microsoft Azure AD-synchronisatie niet starten op de lokale Computer. Controleer het gebeurtenislogboek van systeem voor meer informatie. Als dit een niet-Microsoft-service, neem contact op met de leverancier van de service en Raadpleeg servicespecifieke foutcode-21451857952</strong>. "
-- In Windows-Logboeken, het logboek voor toepassingsgebeurtenissen bevat een fout opgetreden bij het **gebeurtenis-ID 6028** en het volgende foutbericht *"**de versleutelingssleutel van de server kan niet worden geopend.**"*
+- In Windows-Logboeken, het logboek voor toepassingsgebeurtenissen bevat een fout opgetreden bij het **gebeurtenis-ID 6028** en het volgende foutbericht *"de versleutelingssleutel van de server kan niet worden geopend."*
 
 Volg de procedures in om ervoor te zorgen dat u geen deze fouten ontvangt, [wordt de versleutelingssleutel van de Azure AD Connect Sync afgebroken](#abandoning-the-azure-ad-connect-sync-encryption-key) bij het wijzigen van het wachtwoord.
  

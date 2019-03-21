@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 56434e12e1d5eec34e8848d71a018147f1e161f6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 54050c4c20b6ebb35f198775448f51ee8cdc533b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777257"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117639"
 ---
 # <a name="check-resource-usage-against-limits"></a>Brongebruik op basis van limieten controleren
 
@@ -34,16 +34,16 @@ In dit artikel leert u hoe u om te zien van het aantal van elk resourcetype die 
 4. Selecteer de naam van het abonnement dat u wilt weergeven voor informatie over het gebruik.
 5. Onder **instellingen**, selecteer **gebruik + quota**.
 6. U kunt de volgende opties selecteren:
-    - **Resourcetypen**: U kunt alle resourcetypen selecteren, of de specifieke typen resources die u wilt weergeven.
-    - **Providers**: U kunt alle resourceproviders selecteren, of selecteer **Compute**, **netwerk**, of **opslag**.
-    - **Locaties**: U kunt alle Azure-locaties selecteren, of specifieke locaties.
-    - U kunt selecteren om weer te geven van alle resources of alleen de resources waarop ten minste één wordt geïmplementeerd.
+   - **Resourcetypen**: U kunt alle resourcetypen selecteren, of de specifieke typen resources die u wilt weergeven.
+   - **Providers**: U kunt alle resourceproviders selecteren, of selecteer **Compute**, **netwerk**, of **opslag**.
+   - **Locaties**: U kunt alle Azure-locaties selecteren, of specifieke locaties.
+   - U kunt selecteren om weer te geven van alle resources of alleen de resources waarop ten minste één wordt geïmplementeerd.
 
-    Het voorbeeld in de volgende afbeelding ziet u alle van de netwerkbronnen met ten minste één resource in de VS-Oost geïmplementeerd:
+     Het voorbeeld in de volgende afbeelding ziet u alle van de netwerkbronnen met ten minste één resource in de VS-Oost geïmplementeerd:
 
-        ![View usage data](./media/check-usage-against-limits/view-usage.png)
+       ![Gebruiksgegevens weergeven](./media/check-usage-against-limits/view-usage.png)
 
-    U kunt de kolommen sorteren op de kolomkop te selecteren. De limieten die wordt weergegeven, zijn de limieten voor uw abonnement. Als u nodig hebt om een standaardlimiet te verhogen, selecteert u **aanvraag verhogen**, voltooien en het ondersteuningsverzoek verzendt. Alle resources een maximumlimiet voor die worden vermeld in Azure hebt [limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). Als uw huidige limiet al het maximum aantal is, kan niet de limiet worden verhoogd.
+     U kunt de kolommen sorteren op de kolomkop te selecteren. De limieten die wordt weergegeven, zijn de limieten voor uw abonnement. Als u nodig hebt om een standaardlimiet te verhogen, selecteert u **aanvraag verhogen**, voltooien en het ondersteuningsverzoek verzendt. Alle resources een maximumlimiet voor die worden vermeld in Azure hebt [limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). Als uw huidige limiet al het maximum aantal is, kan niet de limiet worden verhoogd.
 
 ## <a name="powershell"></a>PowerShell
 

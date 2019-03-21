@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 1c99c680371d9d9601637ebeb52d9299de71b0ec
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 8217eddd6f31a30b9113b178d74b59afb94f42af
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900859"
 ---
 # <a name="what-is-azure-service-bus"></a>Wat is Azure Service Bus?
 
-Microsoft Azure Service Bus is een volledig beheerde berichtenbroker die binnen ondernemingen kan worden [geïntegreerd](http://azure.com/integration). Service Bus wordt meestal gebruikt om toepassingen en services van elkaar los te koppelen en is een stabiel en veilig platform voor asynchrone gegevens- en statusoverdracht. Gegevens worden uitgewisseld tussen verschillende toepassingen en services met behulp van *berichten*. Een bericht heeft een binaire indeling die JSON, XML of alleen tekst kan bevatten. 
+Microsoft Azure Service Bus is een volledig beheerde berichtenbroker die binnen ondernemingen kan worden [geïntegreerd](https://azure.com/integration). Service Bus wordt meestal gebruikt om toepassingen en services van elkaar los te koppelen en is een stabiel en veilig platform voor asynchrone gegevens- en statusoverdracht. Gegevens worden uitgewisseld tussen verschillende toepassingen en services met behulp van *berichten*. Een bericht heeft een binaire indeling die JSON, XML of alleen tekst kan bevatten. 
 
 Enkele algemene berichtenscenario's:
 

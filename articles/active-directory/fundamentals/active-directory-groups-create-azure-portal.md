@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2887badb9a72cc94321263196d02dfab47229b7c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 78e83f4a1aea04bbaea12181419de6c5c06034f2
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078292"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287074"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Een basisgroep maken en leden toevoegen met Azure Active Directory
 U kunt een basisgroep maken met behulp van de portal Azure Active Directory (Azure AD). Voor de toepassing van dit artikel wordt een basisgroep toegevoegd aan één resource door de resource-eigenaar (administrator) en deze bevat specifieke leden (werknemers) die toegang nodig hebben tot die resource. Voor complexere scenario's, met inbegrip van dynamische lidmaatschappen en regels maken, zie de [Azure Active Directory gebruiker beheerdocumentatie](../users-groups-roles/index.yml).
@@ -31,7 +31,7 @@ U kunt op hetzelfde moment een basisgroep maken en leden toevoegen.
 
 2. Selecteer **Azure Active Directory**, **Groepen** en vervolgens **Nieuwe groep**.
 
-    ![Azure AD met groepen weergeven](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Azure AD-pagina, met groepen weergeven](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
 3. In de pagina **Groep**, vult u de vereiste gegevens in.
 

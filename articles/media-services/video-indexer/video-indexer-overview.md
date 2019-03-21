@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: c1c81ba0f168759ab9cc05f3441e07ff03275e84
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 8ebf9826f156245381ce3503dc64275bca571cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417377"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890779"
 ---
 # <a name="what-is-video-indexer"></a>Wat is Video Indexer?
 
@@ -24,7 +24,7 @@ Azure Video Indexer is een cloudtoepassing die is gebouwd met behulp van Azure M
 
 - **Gezichtsdetectie**: Detecteert en groepen gezichten worden weergegeven in de video.
 - **Beroemdheden identificatie**: Video Indexer identificeert automatisch meer dan 1 miljoen beroemdheden – zoals world-leiders, actoren en actresses, atleten, onderzoekers, zakelijke en technische leiders overal ter wereld. De gegevens van deze beroemdheden zijn ook beschikbaar op verschillende beroemde websites, zoals IMDB en Wikipedia.
-- **Op basis van een account gezichts-id**: Video Indexer traint een model voor een specifiek account. Vervolgens herkent de service gezichten in de video op basis van het model dat specifiek is getraind voor video's in dat account.
+- **Op basis van een account gezichts-id**: Video Indexer traint een model voor een specifiek account. Gezichten in de video die op basis van het getrainde model vervolgens herkent. Zie voor meer informatie, [aanpassen van een persoon-model van de website Video Indexer](customize-person-model-with-website.md) en [aanpassen van een persoon-model met de Video Indexer-API](customize-person-model-with-api.md).
 - **Miniaturen extractie voor gezichten** ('beste face"): Automatisch de beste vastgelegde gezicht in elke groep van gezichten wordt uitgevoerd (gebaseerd op de kwaliteit, de grootte en positie van de voorzijde) identificeert en pak het uit als een afbeelding asset.
 - **Visual tekstherkenning** (OCR): Retourneert de tekst die visueel wordt weergegeven in de video.
 - **Visual inhoudstoezicht**: Detecteert volwassen en/of ongepaste visuele elementen.
@@ -40,7 +40,7 @@ Azure Video Indexer is een cloudtoepassing die is gebouwd met behulp van Azure M
 - **Ondertiteling**: Hiermee maakt u ondertiteling in drie indelingen hebben: VTT, TTML, SRT.
 - **Twee verwerking channel**: Automatisch detecteert, afzonderlijke transcript- en samengevoegd in één tijdlijn.
 - **Reductie van ruis**: Hiermee schakelt u van de telephony-audio- of ruis opnamen (gebaseerd op Skype filters).
-- **Transcript customization** (CRIS): Traint en uitgebreide aangepaste spraak-naar-tekst-modellen te maken van branchespecifieke Transcripten uitgevoerd.
+- **Transcript customization** (CRIS): Aangepaste spraak-naar-tekst-modellen te maken van branchespecifieke Transcripten traint. Zie voor meer informatie, [een taalmodel van de Video Indexer-website aanpassen](customize-language-model-with-website.md) en [een taalmodel met Video Indexer-API's aanpassen](customize-language-model-with-api.md).
 - **Sprekerherkenning-opsomming**: Kaarten en begrijpt welke spreker spokenetwerktopologie welke woorden en wanneer.
 - **Statistieken van de spreker**: Voorziet in statistieken voor sprekers spraak ratio's.
 - **Tekstuele inhoudstoezicht**: Expliciete tekst in de audiotranscript gedetecteerd.
@@ -58,8 +58,6 @@ Tijdens het indexeren van een kanaal gedeeltelijke is resultaten voor deze model
 - **Artefacten**: Extraheert de grote verscheidenheid aan 'volgende niveau van details' artefacten voor elk van de modellen.
 - **Sentimentanalyse**: Hiermee geeft u positieve, negatieve en neutrale sentimenten uit visual tekst en spraak.
  
-  
- 
 Wanneer Video Indexer klaar is met de verwerking en analyse, kunt u de video-inzichten bekijken, cureren, doorzoeken en publiceren.
 
 De Video Indexer-service is geschikt voor een groot aantal toepassingen, ongeacht of u inhoudsbeheerder of ontwikkelaar bent. Inhoudsbeheerders kunnen de webportal van Video Indexer gebruiken om de voordelen van de service te benutten zonder één regel code te schrijven. Zie [deze zelfstudie over Video Indexer](video-indexer-get-started.md) om aan de slag te gaan met de website. Ontwikkelaars kunnen API's gebruiken om inhoud op schaal te verwerken. Zie [REST-API van Video Indexer gebruiken](video-indexer-use-apis.md) voor meer informatie. De service stelt klanten ook in staat om met behulp van widgets videostreams en geëxtraheerde inzichten te publiceren in hun eigen toepassingen. Zie [Video Indexer-widgets insluiten in uw toepassingen](video-indexer-embed-widgets.md) voor meer informatie.
@@ -75,8 +73,6 @@ Hieronder vindt u enkele scenario's waarin Video Indexer van pas kan komen:
 - Inkomsten genereren: Video Indexer kan helpen om de waarde van video's te verbeteren. Branches die bijvoorbeeld afhankelijk zijn van advertentie-inkomsten (via nieuwsmedia, social media, enzovoort), kunnen meer relevante advertenties aanbieden door de geëxtraheerde inzichten te gebruiken als aanvullende signalen voor de advertentieserver (het is relevanter om een advertentie voor sportschoenen weer te geven tijdens een voetbalwedstrijd dan tijdens een zwemwedstrijd).
 
 - Betrokkenheid van gebruikers: video-inzichten kunnen worden gebruikt om de betrokkenheid van gebruikers te verbeteren door het positioneren van de relevante videomomenten aan gebruikers. Laten we als voorbeeld een educatieve video nemen waarin de eerste 30 minuten gaan over bollen en de 30 minuten daarna over piramiden. Een leerling die informatie zoekt over piramiden, zal het dan prettig vinden als de video start vanaf de markering voor 30 minuten en niet vanaf het begin.
-
-Raadpleeg dit [blog](https://aka.ms/videoindexerblog) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

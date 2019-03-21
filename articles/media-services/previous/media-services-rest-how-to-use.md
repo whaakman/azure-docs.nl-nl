@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: e0011d36ccff7b9d621679f15776bbdb15d0cbe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 549554521570d1d2f27b2da2b36ca1dfde25562f
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005451"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293610"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Overzicht van Media Services operations REST-API 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -35,7 +35,7 @@ Media Services REST API-verificatie vindt plaats via Azure Active Directory-veri
 De volgende overwegingen zijn van toepassing wanneer u met behulp van REST.
 
 * Bij het opvragen van entiteiten, is er een limiet van 1000 entiteiten in één keer wordt geretourneerd omdat openbare REST v2 queryresultaten tot 1000 resultaten beperkt. U moet gebruiken **overslaan** en **nemen** (.NET) / **boven** (REST) zoals beschreven in [in dit voorbeeld .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) en [deze REST-API voorbeeld](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-* Wanneer met behulp van JSON en op te geven voor het gebruik van de **__metadata** sleutelwoord in de aanvraag (bijvoorbeeld, om te verwijzen naar een gekoppeld object) stelt u de **accepteren** koptekst [uitgebreide JSON-indeling](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(Zie het volgende voorbeeld). OData niet begrijpt de **__metadata** eigenschap in de aanvraag, tenzij u dit op uitgebreide instellen.  
+* Wanneer met behulp van JSON en op te geven voor het gebruik van de **__metadata** sleutelwoord in de aanvraag (bijvoorbeeld, om te verwijzen naar een gekoppeld object) stelt u de **accepteren** koptekst [uitgebreide JSON-indeling](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(Zie het volgende voorbeeld). OData niet begrijpt de **__metadata** eigenschap in de aanvraag, tenzij u dit op uitgebreide instellen.  
   
         POST https://media.windows.net/API/Jobs HTTP/1.1
         Content-Type: application/json;odata=verbose

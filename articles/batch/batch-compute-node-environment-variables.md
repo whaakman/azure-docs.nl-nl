@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 02/07/2019
 ms.author: lahugh
-ms.openlocfilehash: 734c16111ab859b55d87525cdc8a644c8114f6d2
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874758"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch compute omgevingsvariabelen
 
@@ -62,7 +62,6 @@ De opdrachtregels uitgevoerd door taken op compute-knooppunten kan niet worden u
 | AZ_BATCH_TASK_DIR               | Het volledige pad van de [taakmap] [ files_dirs] op het knooppunt. Deze map bevat de `stdout.txt` en `stderr.txt` voor de taak en de AZ_BATCH_TASK_WORKING_DIR. | Alle taken. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | De id van de huidige taak. | Alle taken, behalve de taak te starten. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | Een mappad die identiek zijn voor de primaire taak en elke subtaak van een [taken met meerdere instanties][multi_instance]. Het pad bestaat op elk knooppunt waarop de meerdere exemplaren taak wordt uitgevoerd en is toegankelijk voor de taak-opdrachten op het knooppunt uitgevoerd voor lezen/schrijven (zowel de [coördinatie opdracht] [ coord_cmd] en de [ toepassingsopdracht][app_cmd]). Subtaken of een primaire taak die worden uitgevoerd op andere knooppunten geen externe toegang tot deze map (dit is niet een netwerkmap 'gedeeld'). | Meerdere exemplaren primaire en subtaken. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
-| AZ_BATCH_TASK_SHARED_DIR        | Een gemeenschappelijke map voor het opslaan van gegevens die zijn bedoeld om te worden gedeeld tussen taken op het knooppunt. | Alle taken. | C:\user\tasks\shared |
 | AZ_BATCH_TASK_WORKING_DIR       | Het volledige pad van de [werkmap taak] [ files_dirs] op het knooppunt. De huidige actieve taak heeft lees-/ schrijftoegang tot deze map. | Alle taken. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | De lijst met knooppunten en het aantal kerngeheugens per knooppunt dat wordt toegewezen aan een [taken met meerdere instanties][multi_instance]. Knooppunten en kernen worden vermeld in de indeling `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, waarbij het aantal knooppunten wordt gevolgd door een of meer IP-adressen en het aantal kernen voor elk. |  Meerdere exemplaren primaire en subtaken. |`2 10.0.0.4 1 10.0.0.5 1` |
 

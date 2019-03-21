@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: f92fe2432051b148bf0b35fccc3fa33db9b66a14
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5c21f1c9345fcf1b89afc3e1ee6b7f61ee79ddbe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093142"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168099"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Aan de slag met Reliable Actors
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Start Visual Studio 2015 of hoger als beheerder en maak vervolgens een nieuwe **
 
 ![Service Fabric tools voor Visual Studio - nieuw project][1]
 
-Kies in het volgende dialoogvenster **Actorservice** onder **.Net Core 2.0** en voer een naam voor de service.
+Kies in het volgende dialoogvenster **Actorservice** onder **.NET Core 2.0** en voer een naam voor de service.
 
 ![Service Fabric-projectsjablonen][5]
 
@@ -152,7 +152,7 @@ Druk op **F5** bouwen, implementeren en de toepassing lokaal uitvoeren in de ont
 
 Wanneer de uitvoer de tekst bevat, *de toepassing gereed is*, is het mogelijk om de service met behulp van de toepassing ActorClient te testen.  Klik in Solution Explorer met de rechtermuisknop op de **ActorClient** project en klik vervolgens op **Debug** > **nieuwe instantie starten**.  De uitvoer van de actor-service moet worden weergegeven in de toepassing vanaf de opdrachtregel.
 
-![Uitvoer van de toepassing][9]
+![Toepassingsuitvoer][9]
 
 > [!TIP]
 > De runtime Service Fabric-actoren verzendt sommige [gebeurtenissen en prestatiemeteritems die betrekking hebben op de actor methoden](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Ze zijn nuttig in diagnostische gegevens en bewaking van toepassingsprestaties.

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 831b17eefb971a5ed617e5cb30730ce23c87e374
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901879"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Beveiligingsgegevens (preview) ingesteld voor het gebruik van beveiligingsvragen
 U kunt deze stappen om toe te voegen dat uw wachtwoord opnieuw instellen van methode. Nadat u hebt dit tijdens de eerste keer hebt ingesteld, kunt u terugkeren naar de **beveiligingsgegevens** pagina toevoegen, bijwerken of verwijderen van uw beveiligingsgegevens.
@@ -31,10 +31,12 @@ Afhankelijk van instellingen van uw organisatie, is het mogelijk om te kiezen en
 
 Als u vragen over de beveiliging gebruikt, raden wij deze gebruikt in combinatie met een andere methode. Vragen over de beveiliging is minder veilig dan andere methoden, omdat sommige mensen u de antwoorden op uw vragen kent mogelijk.
 
->[!Note]
->Beveiligingsvragen zijn privé en veilig opgeslagen op een gebruikersobject in de map en kunnen alleen door u worden beantwoord tijdens de registratie. Er is geen enkele manier waarop uw beheerder om te lezen of wijzigen van uw vragen of antwoorden.
-
->Als u de beveiligingsoptie vragen niet ziet, is het mogelijk dat uw organisatie niet kunt u vragen over de beveiliging voor verificatie gebruiken. Als dit het geval is, moet u een andere methode kiezen of neem contact op met uw beheerder voor meer informatie.
+> [!Note]
+> Beveiligingsvragen zijn privé en veilig opgeslagen op een gebruikersobject in de map en kunnen alleen door u worden beantwoord tijdens de registratie. Er is geen enkele manier waarop uw beheerder om te lezen of wijzigen van uw vragen of antwoorden.
+> 
+> Als u de beveiligingsoptie vragen niet ziet, is het mogelijk dat uw organisatie niet kunt u vragen over de beveiliging voor verificatie gebruiken. Als dit het geval is, moet u een andere methode kiezen of neem contact op met uw beheerder voor meer informatie.
+> 
+> Administrator-accounts zijn niet toegestaan beveiligingsvragen gebruiken als een methode voor wachtwoordherstel. Als u bent aangemeld als een niveau-beheerdersaccount wordt u deze opties niet ziet.
 
 ### <a name="to-set-up-your-security-questions"></a>Voor het instellen van uw vragen over de beveiliging
 

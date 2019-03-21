@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1d6f541123a3f31c22352d646d701c37356e51
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 0d61f233b2eb901bcf1e6b5b4ff147893f918e8f
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088312"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293308"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google als id-provider voor B2B-gastgebruikers toevoegen
 
@@ -31,32 +32,32 @@ Wanneer u een uitnodiging voor een gebruiker Google Gmail verzenden, moet de gas
 
 Als de gastgebruiker ziet een foutbericht 'header te lang', proberen ze hun cookies uit te schakelen of ze kunnen een particuliere of incognito-venster openen en meldt u zich opnieuw probeert.
 
-![Aanmelden met Google](media/google-federation/google-sign-in.png)
+![Schermopname van het Google van aanmeldingspagina](media/google-federation/google-sign-in.png)
 
 ## <a name="step-1-configure-a-google-developer-project"></a>Stap 1: Configureren van een Google developer-project
 Maak eerst een nieuw project in de Google-ontwikkelaars-Console om op te halen van een client-ID en een clientgeheim in die u later aan Azure AD toevoegen kunt. 
 1. Ga to de Google APIs op https://console.developers.google.com, en meld u aan met uw Google-account. U wordt aangeraden dat u een gedeelde team Google-account.
 2. Een nieuw project maken: Selecteer op het Dashboard, **Project maken**, en selecteer vervolgens **maken**. Voer op de pagina Nieuw Project voor een **projectnaam**, en selecteer vervolgens **maken**.
    
-   ![Nieuwe Google-project](media/google-federation/google-new-project.png)
+   ![Schermopname van een nieuw projectpagina van Google](media/google-federation/google-new-project.png)
 
 3. Zorg ervoor dat het nieuwe project is geselecteerd in het projectmenu. Vervolgens opent u het menu in de linksboven en selecteer **API's en Services** > **referenties**.
 
-   ![Google API-referenties](media/google-federation/google-api.png)
+   ![Schermopname van de API van Google-referenties optie](media/google-federation/google-api.png)
  
 4. Kies de **OAuth instemmingsscherm** tabblad en voer een **toepassingsnaam**. (Laat de overige instellingen.)
 
-   ![Het instemmingsscherm Google OAuth](media/google-federation/google-oauth-consent-screen.png)
+   ![Schermopname van het Google OAuth optie scherm toestemming geven](media/google-federation/google-oauth-consent-screen.png)
 
 5. Schuif naar de **gemachtigde domeinen** sectie en microsoftonline.com invoeren.
 
-   ![Sectie gemachtigde domeinen](media/google-federation/google-oauth-authorized-domains.png)
+   ![Schermafbeelding van de geautoriseerde domeinen sectie](media/google-federation/google-oauth-authorized-domains.png)
 
 6. Selecteer **Opslaan**.
 
 7. Kies de **referenties** tabblad. In de **referenties maken** menu, kiest u **OAuth-Clientidentiteit**.
 
-   ![Google API-referenties](media/google-federation/google-api-credentials.png)
+   ![Schermopname van de Google APIs maken referenties optie](media/google-federation/google-api-credentials.png)
 
 8. Onder **toepassingstype**, kiest u **webtoepassing**, en klik vervolgens onder **geautoriseerde omleidings-URI's**, voer de volgende URI's:
    - `https://login.microsoftonline.com` 
@@ -65,11 +66,11 @@ Maak eerst een nieuw project in de Google-ontwikkelaars-Console om op te halen v
      > [!NOTE]
      > Uw directory als ID wilt vinden, gaat u naar https://portal.azure.com, en klikt u onder **Azure Active Directory**, kiest u **eigenschappen** en kopieer de **map-ID**.
 
-   ![OAuth-client-ID maken](media/google-federation/google-create-oauth-client-id.png)
+   ![Schermopname van de geautoriseerde omleidings-URI's sectie](media/google-federation/google-create-oauth-client-id.png)
 
 9. Selecteer **Maken**. Kopieer het client-ID en clientgeheim, gebruikt u wanneer u de id-provider in de Azure AD-portal toevoegt.
 
-   ![OAuth-client-ID en clientgeheim](media/google-federation/google-auth-client-id-secret.png)
+   ![Schermopname van de OAuth-client-ID en clientgeheim in](media/google-federation/google-auth-client-id-secret.png)
 
 ## <a name="step-2-configure-google-federation-in-azure-ad"></a>Stap 2: Google-federatie configureren in Azure AD 
 Nu hebt u ingesteld de Google-client-ID en clientgeheim, door te voeren in de Azure AD-portal of met behulp van PowerShell. Zorg ervoor dat uw federation-configuratie van Google testen door het uitnodigen van uzelf met een Gmail-adres en probeer het inwisselen van de uitnodiging met het uitgenodigde Google-account. 
@@ -80,7 +81,7 @@ Nu hebt u ingesteld de Google-client-ID en clientgeheim, door te voeren in de Az
 3. Selecteer **id-providers**, en klik vervolgens op de **Google** knop.
 4. Voer een naam in. Voer vervolgens de client-ID en clientgeheim die u eerder hebt verkregen. Selecteer **Opslaan**. 
 
-   ![Google-id-provider toevoegen](media/google-federation/google-identity-provider.png)
+   ![Schermopname van de pagina toevoegen Google-id-provider](media/google-federation/google-identity-provider.png)
 
 #### <a name="to-configure-google-federation-by-using-powershell"></a>Google om Federatie te configureren met behulp van PowerShell
 1. Installeer de nieuwste versie van de Azure AD PowerShell voor Graph-module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
@@ -102,7 +103,7 @@ U kunt uw Google-federatie-instellingen verwijderen. Als u dit doet, Google-gast
 3. Selecteer **id-providers**.
 4. Op de **Google** regel, selecteer het snelmenu (**...** ) en selecteer vervolgens **verwijderen**. 
    
-   ![De sociale id-provider wordt verwijderd](media/google-federation/google-social-identity-providers.png)
+   ![Schermopname van de optie voor het verwijderen van de sociale id-provider](media/google-federation/google-social-identity-providers.png)
 
 1. Selecteer **Ja** om verwijdering te bevestigen. 
 

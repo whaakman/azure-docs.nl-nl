@@ -1,71 +1,84 @@
 ---
-title: 'Quickstart: Automatische suggestie-API voor Bing, Ruby'
+title: "Quickstart: Zoekquery's met de REST-API voor Bing Automatische suggestie en Ruby voorstellen"
 titlesuffix: Azure Cognitive Services
 description: Informatie en codevoorbeelden om snel aan de slag te gaan met de Automatische suggestie-API voor Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 0093554c1d4b9b315dcf7b6171d5ed1ff5ab9057
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: c7ba0fd34c789735cd92c25a728aec346dc88fcc
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875566"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009735"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-ruby"></a>Snelstart voor Automatische suggestie-API voor Bing met Ruby 
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Quickstart: Zoekquery's met de REST-API voor Bing Automatische suggestie en Ruby voorstellen
 
-In dit artikel leest u hoe u de [Automatische suggestie-API voor Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/)  gebruikt met Ruby. De Automatische suggestie-API retourneert een lijst met voorgestelde query's op basis van de gedeeltelijke queryreeks die de gebruiker invoert in het zoekvak. Normaal gesproken zou u deze API telkens aanroepen wanneer de gebruiker een nieuw teken in het zoekvak typt om vervolgens de suggesties weer te geven in de vervolgkeuzelijst van het zoekvak. In dit artikel ziet u hoe u een aanvraag verstuurt die de voorgestelde queryreeksen voor *sail* retourneert.
+Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Automatische suggestie-API en het ophalen van het JSON-antwoord. Deze eenvoudige Ruby-toepassing een gedeeltelijke zoekquery verzendt naar de API en suggesties voor zoekopdrachten retourneert. Hoewel deze toepassing in Ruby is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
+
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) of hoger nodig om deze code uit te voeren.
+* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) of later.
 
-U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Automatische suggestie-API voor Bing v7**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/#search) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-## <a name="get-autosuggest-results"></a>Resultaten van Automatische suggesties ophalen
+## <a name="create-a-new-application"></a>Een nieuwe toepassing maken
 
-1. Maak een nieuw Ruby-project in uw favoriete IDE.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma uit.
+1. Maak een nieuwe Ruby-bestand in uw favoriete IDE of editor. Voeg de volgende vereisten:
 
-```ruby
-require 'net/https'
-require 'uri'
-require 'json'
+    ```ruby
+    require 'net/https'
+    require 'uri'
+    require 'json'
+    ```
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+2. Variabelen aanmaken voor uw API-host en pad, [code markt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), gedeeltelijke zoekquery.
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'enter key here'
+    ```ruby
+    subscriptionKey = 'enter your key here'
+    host = 'https://api.cognitive.microsoft.com'
+    path = '/bing/v7.0/Suggestions'
+    mkt = 'en-US'
+    query = 'sail'
+    ```
 
-host = 'https://api.cognitive.microsoft.com'
-path = '/bing/v7.0/Suggestions'
+3. Maken van een tekenreeks parameters door uw code wordt markt toe te voegen de `?mkt=` parameter en het toevoegen van uw query aan de `&q=` parameter. Vervolgens uw aanvraag-URI maken door een combinatie van de API-host, het pad en de parameters-tekenreeks.
 
-mkt = 'en-US'
-query = 'sail'
+    ```ruby
+    params = '?mkt=' + mkt + '&q=' + query
+    uri = URI (host + path + params)
+    ```
 
-params = '?mkt=' + mkt + '&q=' + query
-uri = URI (host + path + params)
+## <a name="create-and-send-an-api-request"></a>Een API-aanvraag maken en verzenden
 
-request = Net::HTTP::Get.new(uri)
-request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+1. Een aanvraag maken met uw URI en uw abonnementssleutel toevoegen aan de `Ocp-Apim-Subscription-Key` header.
+    
+    ```ruby
+    request = Net::HTTP::Get.new(uri)
+    request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+    ```
 
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request (request)
-end
+2. De aanvraag verzenden, en het antwoord opslaan.
+    
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request (request)
+    end
+    ```
 
-puts JSON::pretty_generate (JSON (response.body))
-```
+3. De JSON-antwoord afdrukken.
+    
+    ```ruby
+    puts JSON::pretty_generate (JSON (response.body))
+    ```
 
-### <a name="response"></a>Antwoord
+## <a name="example-json-response"></a>Voorbeeld van JSON-antwoord
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld:
 
@@ -136,7 +149,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie over Bing Automatische suggesties](../tutorials/autosuggest.md)
+> [Een web-app met één pagina maken](../tutorials/autosuggest.md)
 
 ## <a name="see-also"></a>Zie ook
 

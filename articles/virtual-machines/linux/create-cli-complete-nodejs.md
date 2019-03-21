@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: d0a38defe41ea7c4e0da32cb73cf2bd73fd80950
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 04c1d69fc46b9a918038e93c4fc56681f225d365
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498212"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006228"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Een volledige Linux-omgeving maken met de klassieke Azure-CLI
 In dit artikel maken we een eenvoudig netwerk met een load balancer en een combinatie van VM's die nuttig voor de ontwikkeling en eenvoudig computing zijn. We helpen bij de opdracht door de opdracht uit, totdat u twee werkdagen, beveiligde virtuele Linux-machines waarmee u verbinding hebt van een willekeurige plaats op het Internet maken kan. Vervolgens kunt u op verplaatsen naar meer complexe netwerken en omgevingen.
@@ -1180,7 +1180,7 @@ Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 0 packages can be updated.
 0 updates are security updates.

@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 97632ad27a09451f47012dfb7bbc9d406cd37c89
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c26f3d6c3b34ed90a5455bb94ea71d7556b47751
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879255"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441964"
 ---
 # <a name="what-is-language-understanding-luis"></a>Wat is Language Understanding (LUIS)?
 
@@ -104,7 +104,7 @@ De populairste clienttoepassing voor LUIS is:
 * [Web-app-bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0) - hiermee maakt u snel een met LUIS compatibele chatbot voor communicatie met een gebruiker via tekstinvoer. Deze maakt gebruik van [Bot Framework][bot-framework] versie [3.x](https://github.com/Microsoft/BotBuilder) of [4.x](https://github.com/Microsoft/botbuilder-dotnet) voor een complete bot-ervaring.
 
 Hulpprogramma's om LUIS snel en eenvoudig met een bot te gebruiken:
-* [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) Het NPM-pakket biedt creatie en voorspelling met een zelfstandig opdrachtregelhulpprogramma of een import. 
+* [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) de NPM-pakket biedt ontwerpen en voorspelling met als een zelfstandige vanaf de opdrachtregel-hulpprogramma of importeren. 
 * [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) LUISGen is een hulpprogramma voor het genereren van sterk getypeerde broncode voor C# en TypeScript op basis van een geëxporteerd LUIS-model.
 * [Dispatcher](https://aka.ms/dispatch-tool) - met behulp van het verdeelprogrammamodel kunnen verschillende LUIS- en QnA Maker-apps worden gebruikt vanuit een bovenliggende app.
 * [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown is een opdrachtregelprogramma dat helpt om taalmodellen voor uw bot te beheren.

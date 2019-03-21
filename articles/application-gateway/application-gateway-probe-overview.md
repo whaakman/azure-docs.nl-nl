@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: 15481706d56af6cd9565e8c475b4770e432c1838
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337359"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120547"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway overzicht van statuscontrole
 
@@ -64,7 +64,7 @@ Zodra de overeenkomen met criteria die is opgegeven, wordt deze kan worden gekop
 > [!NOTE]
 > De poort is dezelfde poort als de back-end-HTTP-instellingen.
 
-De standaard-test kijkt naar alleen http://127.0.0.1:\<port\> om de van gezondheidsstatus te bepalen. Als u configureren met de statustest gaat u naar een aangepaste URL of andere instellingen wijzigen wilt, moet u aangepaste tests gebruiken.
+De standaard-test kijkt naar alleen http:\//127.0.0.1:\<poort\> om de van gezondheidsstatus te bepalen. Als u configureren met de statustest gaat u naar een aangepaste URL of andere instellingen wijzigen wilt, moet u aangepaste tests gebruiken.
 
 ### <a name="probe-intervals"></a>Testintervallen
 

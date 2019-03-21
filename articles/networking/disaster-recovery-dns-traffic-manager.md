@@ -15,31 +15,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: ce3e8f31c7fee6afdeabf931485a49934e98f81b
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391348"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120734"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Herstel na noodgevallen met Azure DNS en Traffic Manager
 
-Herstel na noodgevallen richt zich bij het herstellen van een ernstige verlies van de functionaliteit van de toepassing. Als u wilt ervoor kiest een oplossing voor noodherstel, eigenaren van zakelijke en technologische moeten eerst bepalen het niveau van de functionaliteit die is vereist tijdens een noodgeval, zoals - niet beschikbaar, gedeeltelijk beschikbaar via de verminderde functionaliteit of vertraagde beschikbaarheid, of volledig beschikbaar.
+Herstel na noodgevallen is gericht op het herstellen van een ernstig verlies van de functionaliteit van de toepassing. Als u wilt ervoor kiest een oplossing voor noodherstel, eigenaren van zakelijke en technologische moeten eerst bepalen het niveau van de functionaliteit die is vereist tijdens een noodgeval, zoals - niet beschikbaar, gedeeltelijk beschikbaar via de verminderde functionaliteit of vertraagde beschikbaarheid, of volledig beschikbaar.
 De meeste zakelijke klanten kiezen een architectuur met meerdere regio's voor bescherming tegen een toepassing of het niveau failover-infrastructuur. Klanten kunnen verschillende benaderingen kiezen in de zoektocht om failover- en hoge beschikbaarheid via redundante architectuur te realiseren. Hier volgen enkele van de populaire methoden:
 
-- **Actief-passief met koude stand-by**: In deze failoveroplossing de VM's en andere apparaten die worden uitgevoerd in de stand-by-regio zijn niet actief totdat er een nodig voor failover. De productie-omgeving wordt echter wel gerepliceerd in de vorm van back-ups, VM-installatiekopieën of Resource Manager-sjablonen, naar een andere regio. Dit mechanisme failover rendabel is, maar duurt het langer om uit te voeren een volledige failover.
+- **Actief-passief met koude stand-by**: In deze failoveroplossing zijn de VM's en andere apparaten die worden uitgevoerd in de stand-by-regio niet actief totdat er een nodig voor failover. De productie-omgeving wordt echter wel gerepliceerd in de vorm van back-ups, VM-installatiekopieën of Resource Manager-sjablonen, naar een andere regio. Dit mechanisme failover rendabel is, maar duurt het langer om uit te voeren een volledige failover.
  
     ![Actief/passief met koude stand-by](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     
     *Afbeelding - actief/passief met koude stand-by-noodherstelconfiguratie*
 
-- **Actief/passief met Controlelampje**: In deze failoveroplossing de stand-by-omgeving is ingesteld met een minimale configuratie. De instelling heeft alleen de benodigde services die ter ondersteuning van slechts een minimale en kritieke set toepassingen worden uitgevoerd. In hun oorspronkelijke vorm, kan in dit scenario alleen minimale functies uitvoeren, maar kunt omhoog schalen en extra services naar het grootste deel van de productiebelasting te nemen als er een failover optreedt produceren.
+- **Actief/passief met Controlelampje**: In deze failoveroplossing de stand-by-omgeving instellen met een minimale configuratie. De instelling heeft alleen de benodigde services die ter ondersteuning van slechts een minimale en kritieke set toepassingen worden uitgevoerd. In hun oorspronkelijke vorm, kan in dit scenario alleen minimale functies uitvoeren, maar kunt omhoog schalen en extra services naar het grootste deel van de productiebelasting te nemen als er een failover optreedt produceren.
     
     ![Actief/passief met Controlelampje](./media/disaster-recovery-dns-traffic-manager/active-passive-with-pilot-light.png)
     
     *Afbeelding: Actief/passief met Controlelampje noodherstelconfiguratie*
 
-- **Actief/passief met warme stand-by**: In deze failoveroplossing de stand-by-regio is vooraf warm gelopen en gereed is voor de basis belasting, automatisch schalen is ingeschakeld en alle exemplaren actief zijn. Deze oplossing wordt niet geschaald als u wilt maken van de volledige productie-belasting, maar werkt en alle services zijn actief en werkend. Deze oplossing is een uitgebreide versie van het Controlelampje benadering.
+- **Actief/passief met warme stand-by**: In deze failoveroplossing de stand-by-regio is vooraf verwarmde en gereed is voor de basis belasting, automatisch schalen is ingeschakeld en alle exemplaren actief zijn. Deze oplossing wordt niet geschaald als u wilt maken van de volledige productie-belasting, maar werkt en alle services zijn actief en werkend. Deze oplossing is een uitgebreide versie van het Controlelampje benadering.
     
     ![Actief/passief met warme stand-by](./media/disaster-recovery-dns-traffic-manager/active-passive-with-warm-standby.png)
     
@@ -71,15 +71,16 @@ De Azure DNS handmatige failover-oplossing voor herstel na noodgevallen maakt ge
 *Afbeelding - handmatige failover met behulp van Azure DNS*
 
 De aanbevelingen voor de oplossing zijn:
--   Primaire en secundaire eindpunten hebben statische IP-adressen die niet vaak te wijzigen. Stel dat u voor de primaire site het IP-adres is 100.168.124.44 en het IP-adres voor de secundaire site is 100.168.124.43.
--   Er bestaat een Azure DNS-zone voor de primaire en secundaire site. Stel dat voor de primaire site het eindpunt is prod.contoso.com en is voor de back-upsite dr.contoso.com. Er bestaat ook een DNS-record voor de hoofdtoepassing www.contoso.com genoemd.   
--   De TTL is op of onder de RTO SLA instellen in de organisatie. Bijvoorbeeld, als een onderneming stelt de RTO van het antwoord van de toepassing na noodgevallen om de 60 minuten, worden dan de TTL-waarde moet lager zijn dan 60 minuten, bij voorkeur de laagste hoe beter. U kunt Azure DNS instellen voor handmatige failover als volgt:
-1. Een DNS-zone maken
-2. DNS-zone-records maken
-3. CNAME-record bijwerken
+- Primaire en secundaire eindpunten hebben statische IP-adressen die niet vaak te wijzigen. Stel dat u voor de primaire site het IP-adres is 100.168.124.44 en het IP-adres voor de secundaire site is 100.168.124.43.
+- Er bestaat een Azure DNS-zone voor de primaire en secundaire site. Stel dat voor de primaire site het eindpunt is prod.contoso.com en is voor de back-upsite dr.contoso.com. Een DNS-record voor de hoofdtoepassing bekend als www\.contoso.com ook bestaat.   
+- De TTL is op of onder de RTO SLA instellen in de organisatie. Bijvoorbeeld, als een onderneming stelt de RTO van het antwoord van de toepassing na noodgevallen om de 60 minuten, worden dan de TTL-waarde moet lager zijn dan 60 minuten, bij voorkeur de laagste hoe beter. 
+  U kunt Azure DNS instellen voor handmatige failover als volgt:
+- Een DNS-zone maken
+- DNS-zone-records maken
+- CNAME-record bijwerken
 
 ### <a name="step-1-create-a-dns"></a>Stap 1: Een DNS-server maken
-Maak een DNS-zone (bijvoorbeeld www.contoso.com) zoals hieronder wordt weergegeven:
+Een DNS-zone maken (bijvoorbeeld, www\.contoso.com), zoals hieronder weergegeven:
 
 ![Een DNS-zone maken in Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
@@ -87,13 +88,13 @@ Maak een DNS-zone (bijvoorbeeld www.contoso.com) zoals hieronder wordt weergegev
 
 ### <a name="step-2-create-dns-zone-records"></a>Stap 2: DNS-zone-records maken
 
-Maak drie records (bijvoorbeeld: www.contoso.com, prod.contoso.com en dr.consoto.com) als hieronder weergeven in deze zone.
+In deze zone drie records maken (bijvoorbeeld - www\.contoso.com, prod.contoso.com en dr.consoto.com) als hieronder weergeven.
 
 ![DNS-zone-records maken](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 *Afbeelding - records van DNS-zone maken in Azure*
 
-In dit scenario, site, www.contoso.com heeft een TTL-waarde van 30 minuten, die goed onder het vermelde RTO, en verwijst naar de productie-site prod.contoso.com. Deze configuratie is tijdens de normale bedrijfsactiviteiten. De TTL van prod.contoso.com en dr.contoso.com is ingesteld op 300 seconden of 5 minuten. Kunt u een Azure-service zoals Azure Monitor of Azure App Insights te controleren of een partner bewakingsoplossingen zoals Dynatrace, u kunt zelfs home proces oplossingen die u kunnen controleren of toepassing of virtuele infrastructuur niveau fouten detecteren.
+In dit scenario, de site, de WWW-\.contoso.com heeft een TTL-waarde van 30 minuten, die goed onder het vermelde RTO, en verwijst naar de productie-site prod.contoso.com. Deze configuratie is tijdens de normale bedrijfsactiviteiten. De TTL van prod.contoso.com en dr.contoso.com is ingesteld op 300 seconden of 5 minuten. Kunt u een Azure-service zoals Azure Monitor of Azure App Insights te controleren of een partner bewakingsoplossingen zoals Dynatrace, u kunt zelfs home proces oplossingen die u kunnen controleren of toepassing of virtuele infrastructuur niveau fouten detecteren.
 
 ### <a name="step-3-update-the-cname-record"></a>Stap 3: De CNAME-record bijwerken
 
@@ -103,7 +104,7 @@ Zodra de storing wordt gedetecteerd, wijzigt u de recordwaarde om te verwijzen n
 
 *Afbeelding: bijwerken van het CNAME-record in Azure*
 
-Binnen 30 minuten, gedurende welke de meeste resolvers het zonebestand in de cache worden vernieuwd wordt een query naar www.contoso.com worden omgeleid naar dr.contoso.com.
+Binnen 30 minuten, gedurende welke de meeste resolvers het zonebestand in de cache wordt vernieuwd een query om toegang te www\.contoso.com wordt omgeleid naar dr.contoso.com.
 U kunt ook de volgende Azure CLI-opdracht om de CNAME-waarde te wijzigen uitvoeren:
  ```azurecli
    az network dns record-set cname set-record \
@@ -151,9 +152,9 @@ Op deze manier maakt u de disaster recovery-eindpunt in Traffic Manager ook.
 
 *Afbeelding - disaster recovery-eindpunten maken*
 
-### <a name="step-3-set-up-health-check-and-failover-configuration"></a>Stap 3: Configuratie voor het controleren en failover van status instellen
+### <a name="step-3-set-up-health-check-and-failover-configuration"></a>Stap 3: Status controleren en failover-configuratie instellen
 
-In deze stap stelt u de DNS TTL op 10 seconden, die wordt herkend door de meeste internetgerichte recursieve resolvers. Deze configuratie betekent dat er geen DNS-resolver cache worden opgeslagen door de gegevens van meer dan 10 seconden. Voor de monitor eindpuntinstellingen het pad naar de huidige set op is / of de hoofdmap, maar u kunt de eindpuntinstellingen voor de evaluatie van een pad, bijvoorbeeld prod.contoso.com/index aanpassen. Het voorbeeld hieronder toont de **https** als het testinterval-protocol. U kunt echter **http** of **tcp** ook. De keuze van protocol is afhankelijk van de toepassing. Het testinterval interval is ingesteld op 10 seconden, waarmee snelle scannen en de nieuwe poging is ingesteld op 3. Als gevolg hiervan, Traffic Manager wordt er een failover naar het tweede eindpunt als drie opeenvolgende intervallen registreert een fout. De volgende formule definieert de totale tijd voor een automatische failover: tijd voor failover = TTL-waarde en probeer het opnieuw * Probing interval en in dit geval wordt de waarde is 10 + 3 * 10 = 40 seconden (Max.).
+In deze stap stelt u de DNS TTL op 10 seconden, die wordt herkend door de meeste internetgerichte recursieve resolvers. Deze configuratie betekent dat er geen DNS-resolver cache worden opgeslagen door de gegevens van meer dan 10 seconden. Voor de monitor eindpuntinstellingen het pad naar de huidige set op is / of de hoofdmap, maar u kunt de eindpuntinstellingen voor de evaluatie van een pad, bijvoorbeeld prod.contoso.com/index aanpassen. Het voorbeeld hieronder toont de **https** als het testinterval-protocol. U kunt echter **http** of **tcp** ook. De keuze van protocol is afhankelijk van de toepassing. Het testinterval interval is ingesteld op 10 seconden, waarmee snelle scannen en de nieuwe poging is ingesteld op 3. Als gevolg hiervan, Traffic Manager wordt er een failover naar het tweede eindpunt als drie opeenvolgende intervallen registreert een fout. De volgende formule definieert de totale tijd voor een automatische failover: Tijd voor failover = TTL-waarde en probeer het opnieuw * Probing interval en in dit geval wordt de waarde is 10 + 3 * 10 = 40 seconden (Max.).
 Als de nieuwe poging is ingesteld op 1 en TTL-waarde is ingesteld op 10 seconden, klikt u vervolgens de tijd voor failover 10 + 1 * 10 = 20 seconden. De nieuwe poging ingesteld op een waarde groter is dan **1** te elimineren kans failovers vanwege fout-positieven of een kleine netwerkproblemen. 
 
 

@@ -2,33 +2,33 @@
 title: Oplossen van een traag of niet werkend HDInsight-cluster - Azure HDInsight
 description: Problemen vaststellen en oplossen van een traag of niet werkend HDInsight-cluster.
 services: hdinsight
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: b298836070a511421f9df25155ff1ee4422e61dd
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: MT
+ms.date: 03/19/2019
+ms.openlocfilehash: 0129a09383b59aa5d213ef7ff1c78f23588472a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994365"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295467"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Problemen met een traag of niet werkend HDInsight-cluster oplossen
 
-Als een HDInsight-cluster is traag of waarbij een foutcode, hebt u verschillende opties voor het oplossen van problemen. Als uw taken langer duurt dan verwacht, of er trage reactietijden in het algemeen, kunnen er fouten upstream van uw cluster, zoals de services waarop het cluster wordt uitgevoerd. De meest voorkomende oorzaak van deze vertragingen is echter ontoereikend schalen. Wanneer u een nieuw HDInsight-cluster maakt, selecteert u de juiste [grootten van virtuele machines](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)
+Als een HDInsight-cluster is traag of waarbij een foutcode, hebt u verschillende opties voor het oplossen van problemen. Als uw taken langer duurt dan verwacht, of er trage reactietijden in het algemeen, kunnen er fouten upstream van uw cluster, zoals de services waarop het cluster wordt uitgevoerd. De meest voorkomende oorzaak van deze vertragingen is echter ontoereikend schalen. Wanneer u een nieuw HDInsight-cluster maakt, selecteert u de juiste [grootten van virtuele machines](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
 Verzamel informatie over alle aspecten van de omgeving, zoals de bijbehorende Azure-Services, configuratie van het cluster en informatie over het uitvoeren van taak voor het bepalen van een traag of niet werkend cluster. Een diagnose handig is om te proberen om het te reproduceren van de foutstatus in een ander cluster.
 
-* Stap 1: Verzamelen van gegevens over het probleem
-* Stap 2: De HDInsight-cluster-omgeving valideren 
-* Stap 3: Bekijk de status van uw cluster
-* Stap 4: Raadpleeg de omgeving stack en versies
-* Stap 5: Bekijk de logboekbestanden van het cluster
-* Stap 6: Configuratie-instellingen controleren
-* Stap 7: De fout in een ander cluster reproduceren 
+* Stap 1: Verzamel gegevens over het probleem.
+* Stap 2: Valideer de HDInsight-cluster-omgeving.
+* Stap 3: Bekijk de status van uw cluster.
+* Stap 4: Bekijk de omgeving stack en versies.
+* Stap 5: Bekijk de logboekbestanden van het cluster.
+* Stap 6: Controleer de configuratie-instellingen.
+* Stap 7: Reproduceer het probleem op een ander cluster.
 
 ## <a name="step-1-gather-data-about-the-issue"></a>Stap 1: Verzamelen van gegevens over het probleem
 
@@ -57,13 +57,12 @@ De Azure-portal kan deze informatie leveren:
 
 ![HDInsight-Azure portal informatie](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-U kunt ook de klassieke Azure-CLI gebruiken:
+U kunt ook [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
+```azurecli
+az hdinsight list --resource-group <ResourceGroup>
+az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Een andere optie is met behulp van PowerShell. Zie voor meer informatie, [beheren Apache Hadoop-clusters in HDInsight met Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -73,10 +72,10 @@ Elke HDInsight-cluster is gebaseerd op de verschillende Azure-services en op de 
 
 ### <a name="service-details"></a>Servicedetails
 
-* Controleer de release-versies van open-source-bibliotheek
-* Controleren op [serviceonderbrekingen van Azure](https://azure.microsoft.com/status/) 
-* Limieten voor Azure-Service controleren 
-* Controleer de configuratie van de Azure Virtual Network-subnet 
+* Controleer de release-versies van open-source-bibliotheek.
+* Controleren op [serviceonderbrekingen van Azure](https://azure.microsoft.com/status/).  
+* Limieten voor Azure-Service controleren. 
+* Controleer de configuratie van Azure Virtual Network-subnet.  
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Configuratie-instellingen van het cluster met de Ambari-UI weergeven
 
@@ -124,7 +123,7 @@ Een veelvoorkomend scenario voor Apache Hive, Apache Pig of Apache Sqoop mislukt
 Dit is een algemeen bericht van gateway-knooppunten, en is de meest voorkomende fouten-statuscode. Een mogelijke oorzaak hiervoor is de WebHCat-service wordt omlaag op het actieve hoofdknooppunt. Om te controleren of deze mogelijkheid, gebruik de volgende CURL-opdracht:
 
 ```bash
-$ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
+curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
 ```
 
 Ambari geeft een waarschuwing weergegeven van de hosts waarop de WebHCat-service niet actief is. U kunt proberen om de service WebHCat een back-up door de service op de host opnieuw te starten.
@@ -153,7 +152,7 @@ De volgende secties beschrijven enkele mogelijke oorzaken voor WebHCat time-outs
 Wanneer WebHCat belast, met meer dan 10 open sockets wordt, duurt het langer nieuwe socketverbindingen, wat is een time-out kunnen leiden tot stand gebracht. U kunt de netwerkverbindingen naar en van WebHCat gebruiken `netstat` op het hoofdknooppunt van het huidige actieve:
 
 ```bash
-$ netstat | grep 30111
+netstat | grep 30111
 ```
 
 30111 is WebHCat luistert op poort. Het aantal open sockets moet minder dan 10.
@@ -161,7 +160,7 @@ $ netstat | grep 30111
 Als er geen sockets geopend, wordt in de vorige opdracht een resultaat niet produceren. Om te controleren als Templeton actief is en luistert op poort 30111, gebruiken:
 
 ```bash
-$ netstat -l | grep 30111
+netstat -l | grep 30111
 ```
 
 ##### <a name="yarn-level-timeout"></a>Time-out van de YARN-niveau
@@ -190,9 +189,9 @@ Op het niveau van de YARN zijn er twee soorten time-outs:
 
 Deze om problemen te diagnosticeren:
 
-    1. Bepalen het bereik van de UTC-tijd om op te lossen
-    2. Selecteer de juiste `webhcat.log` bestand(en)
-    3. WAARSCHUWEN en foutberichten Zoek in die tijd
+1. Bepalen het bereik van de UTC-tijd om op te lossen
+2. Selecteer de juiste `webhcat.log` bestand(en)
+3. WAARSCHUWEN en foutberichten Zoek in die tijd
 
 #### <a name="other-webhcat-failures"></a>Andere fouten van WebHCat
 
@@ -215,8 +214,6 @@ De UI Ambari **Stack en versie** pagina vindt u informatie over de cluster-servi
 ## <a name="step-5-examine-the-log-files"></a>Stap 5: Bekijk de logboekbestanden
 
 Er zijn veel soorten logboeken die zijn gegenereerd op basis van de vele services en onderdelen die deel uitmaken van een HDInsight-cluster. [Logboekbestanden WebHCat](#check-your-webhcat-service) eerder zijn beschreven. Er zijn diverse andere nuttige logboekbestanden die u onderzoeken kunt als u problemen met uw cluster wilt beperken, zoals beschreven in de volgende secties.
-
-![Voorbeeld van HDInsight een logboekbestand](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
 
 * HDInsight-clusters bestaan uit verschillende knooppunten, die de meeste zijn met name voor het uitvoeren van de verzonden taken. Taken gelijktijdig worden uitgevoerd, maar logboekbestanden kunnen resultaten alleen lineair worden weergeven. HDInsight wordt uitgevoerd in nieuwe taken beëindigd anderen die niet eerst voltooid. Alle deze activiteit wordt geregistreerd voor de `stderr` en `syslog` bestanden.
 
@@ -259,14 +256,14 @@ Om u te helpen bij het analyseren van de bron van de clusterfout van een, start 
 1. Een nieuwe testcluster maken met dezelfde configuratie als het cluster is mislukt.
 2. Indienen van de eerste taakstap voor de testcluster.
 3. Wanneer de stap verwerking is voltooid, controleert u of fouten in de logboekbestanden van de stap. Verbinding maken met het hoofdknooppunt van het testcluster en de logboekbestanden er weergeven. De logboekbestanden van de stap wordt alleen weergegeven nadat de stap voor enige tijd is voltooid, wordt uitgevoerd of is mislukt.
-4. Als de eerste stap is voltooid, voert u de volgende stap. Als er fouten zijn opgetreden, moet u de fout in de logboekbestanden onderzoeken. Als dit een fout opgetreden in uw code is, uitvoeren van de correctie en voer de stap opnieuw uit. 
+4. Als de eerste stap is voltooid, voert u de volgende stap. Als er fouten zijn opgetreden, moet u de fout in de logboekbestanden onderzoeken. Als dit een fout opgetreden in uw code is, uitvoeren van de correctie en voer de stap opnieuw uit.
 5. Pas alle stappen worden uitgevoerd zonder fouten worden voortgezet.
 6. Wanneer u klaar bent het opsporen van fouten in de testcluster verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [HDInsight-clusters beheren met behulp van de Apache Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)
+* [HDInsight-clusters beheren met behulp van de Apache Ambari-webinterface](hdinsight-hadoop-manage-ambari.md)
 * [HDInsight-logboekbestanden analyseren](hdinsight-debug-jobs.md)
-* [Toegang Apache Hadoop YARN-logboek op Linux gebaseerde HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Meld u de toepassing toegang Apache Hadoop YARN in HDInsight op basis van Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Heapdumps voor Apache Hadoop-services op Linux gebaseerde HDInsight inschakelen](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Bekende problemen voor Apache Spark-cluster in HDInsight](hdinsight-apache-spark-known-issues.md)

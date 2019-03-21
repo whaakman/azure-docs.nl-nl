@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 192ecf0cf4f97a709808fa04f676035e8a672b79
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 74087a6d1ce00293c968837e72c636847081e39e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976943"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285975"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Zelfstudie: Een aangepaste installatiekopie van een Azure-VM maken met Azure PowerShell
 
@@ -65,7 +65,7 @@ Sysprep verwijdert onder meer al uw persoonlijke accountinformatie en de machine
 
 Voor het maken van een installatiekopie moet de toewijzing van de virtuele machine ongedaan worden gemaakt en moet de VM worden gemarkeerd als gegeneraliseerd in Azure.
 
-De toewijzing van de VM wordt opgeheven met [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Toewijzing van de virtuele machine met behulp van [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -162,7 +162,7 @@ In deze zelfstudie hebt u een aangepaste installatiekopie voor een virtuele mach
 > * Alle installatiekopieën in uw abonnement weergeven
 > * Een aangepaste installatiekopie verwijderen
 
-Ga door met de volgende zelfstudie voor meer informatie over virtuele machines met hoge beschikbaarheid.
+Ga naar de volgende zelfstudie voor meer informatie over het maken van maximaal beschikbare virtuele machines.
 
 > [!div class="nextstepaction"]
 > [Virtuele machines met hoge beschikbaarheid maken](tutorial-availability-sets.md)

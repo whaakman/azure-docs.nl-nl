@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b9bcba78600e90c28f95c4ea842bf4b25b1c0da7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: c5eb69ddd9c621024799b940ef58c34e7caaa3ff
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722785"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294022"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Zelfstudie: Een aangepast domein toevoegen aan uw Azure CDN-eindpunt
 Deze zelfstudie laat zien hoe u een aangepast domein toevoegt aan een Azure CDN-eindpunt (Content Delivery Network). Wanneer u een CDN-eindpunt gebruikt voor het leveren van inhoud, is een aangepast domein nodig als u wilt dat uw eigen domeinnaam zichtbaar is in de URL van uw CDN. Een zichtbare domeinnaam kan handig zijn voor uw klanten en nuttig zijn voor branding-doelen. 
@@ -45,10 +45,12 @@ Als u van Azure gebruikmaakt voor het hosten van uw [DNS-domeinen](https://docs.
 
 ## <a name="create-a-cname-dns-record"></a>Een CNAME DNS-record maken
 
-Voordat u een aangepast domein met een Azure CDN-eindpunt gebruiken kunt, moet u eerst een canonieke naam (CNAME)-record maken bij uw domeinprovider om te verwijzen naar uw CDN-eindpunt. Een CNAME-record is een soort DNS-record dat een brondomeinnaam toewijst aan een doeldomeinnaam. De domeinnaam van de bron is uw aangepaste domeinnaam voor Azure CDN en de domeinnaam van het doel is de hostnaam van uw CDN-eindpunt. Nadat Azure CDN het CNAME-record controleert dat u maakt, wordt verkeer dat is geadresseerd aan het aangepaste brondomein (zoals www.contoso.com) gerouteerd naar de opgegeven bestemming met de CDN-eindpunt hostnaam (zoals contoso.azureedge.net). 
+Voordat u een aangepast domein met een Azure CDN-eindpunt gebruiken kunt, moet u eerst een canonieke naam (CNAME)-record maken bij uw domeinprovider om te verwijzen naar uw CDN-eindpunt. Een CNAME-record is een soort DNS-record dat een brondomeinnaam toewijst aan een doeldomeinnaam. De domeinnaam van de bron is uw aangepaste domeinnaam voor Azure CDN en de domeinnaam van het doel is de hostnaam van uw CDN-eindpunt. Nadat Azure CDN controleert of de CNAME-record die u hebt gemaakt, verkeer dat is geadresseerd aan het aangepaste brondomein (zoals www\.contoso.com) wordt doorgestuurd naar de opgegeven bestemming CDN-eindpunt hostnaam (zoals contoso.azureedge.net). 
 
 Een aangepast domein en het subdomein kunnen worden slechts aan één eindpunt tegelijk worden gekoppeld. U kunt echter verschillende subdomeinen uit het aangepaste domein gebruiken voor andere Azure-service-eindpunten met behulp van meerdere CNAME-records. U kunt ook een aangepast domein met verschillende subdomeinen toewijzen aan hetzelfde CDN-eindpunt.
 
+> [!NOTE]
+> Elk aliastype-record kan worden gebruikt voor aangepaste domeinen, als u Azure DNS gebruikt als uw domeinprovider. In dit scenario maakt gebruik van het CNAME-recordtype. Als u van A gebruikmaakt of AAAA-recordtypen Volg dezelfde stappen hieronder CNAME worden vervangen door het recordtype van uw keuze. Als u een alias-record toe te voegen een hoofddomein als een aangepast domein en u wilt inschakelen van SSL, moet u handmatig worden gevalideerd gebruiken zoals wordt beschreven [hier](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint)
 
 ## <a name="map-the-temporary-cdnverify-subdomain"></a>Tijdelijk cdnverify subdomein toewijzen
 
@@ -68,7 +70,7 @@ Om een CNAME-record te maken met het subdomein cdnverify:
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
-    - Bron: Voer de naam van uw aangepaste domein in, met inbegrip van het subdomein cdnverify, in de volgende indeling: cdnverify. _&lt;aangepaste domeinnaam&gt;. Bijvoorbeeld: cdnverify.www.contoso.com.
+    - Bron: Voer de naam van uw aangepaste domein, met inbegrip van het subdomein cdnverify, in de volgende indeling: cdnverify. &lt;aangepaste domeinnaam&gt;. Bijvoorbeeld: cdnverify.www.contoso.com.
 
     - Type: Voer *CNAME* in.
 
@@ -123,7 +125,7 @@ Nadat u uw aangepaste domein hebt geregistreerd, kunt u dit toevoegen aan uw CDN
 
 4. Bij **Hostnaam van het eindpunt** wordt automatisch de naam ingevuld van de host die wordt gebruikt als het doeldomein van uw CNAME-record. Deze naam wordt afgeleid van de URL van uw CDN-eindpunt: *&lt;hostnaam van eindpunt&gt;*. azureedge.net. De naam kan niet worden gewijzigd.
 
-5. Bij **Aangepaste hostnaam** voert u de naam van uw aangepaste domein in, inclusief het subdomein, om dit te gebruiken als het brondomein van uw CNAME-record. Bijvoorbeeld: www.contoso.com of cdn.contoso.com. Gebruik niet de naam van het cdnverify-subdomein.
+5. Bij **Aangepaste hostnaam** voert u de naam van uw aangepaste domein in, inclusief het subdomein, om dit te gebruiken als het brondomein van uw CNAME-record. Bijvoorbeeld, www\.contoso.com of cdn.contoso.com. Gebruik niet de naam van het cdnverify-subdomein.
 
    ![Dialoog Aangepast CDN-domein](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain.png)
 
@@ -160,13 +162,13 @@ Maken van een CNAME-record voor uw aangepaste domein:
 
     | Bron          | Type  | Doel           |
     |-----------------|-------|-----------------------|
-    | www.contoso.com | CNAME | contoso.azureedge.net |
+    | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
-    - Bron: Voer de naam in van uw aangepaste domein (bijvoorbeeld www.contoso.com).
+   - Bron: Voer de naam van uw aangepaste domein (bijvoorbeeld, www\.contoso.com).
 
-    - Type: Voer *CNAME* in.
+   - Type: Voer *CNAME* in.
 
-    - Bestemming: Voer de hostnaam in van uw CDN-eindpunt. Het moet in de volgende indeling zijn:_&lt;eindpuntnaam&gt;_. azureedge.net. Bijvoorbeeld: contoso.azureedge.net.
+   - Bestemming: Voer de hostnaam in van uw CDN-eindpunt. Het moet in de volgende indeling zijn:_&lt;eindpuntnaam&gt;_. azureedge.net. Bijvoorbeeld: contoso.azureedge.net.
 
 4. Sla uw wijzigingen op.
 

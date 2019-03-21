@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: b12e7aad5fbdf65a8936b943f5053eda76dbd883
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: c9f7ec5009c9299e317d9b10f857e326d25fa005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037477"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120105"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Zelfstudie: Gegevens migreren naar Cassandra-API-account in Azure Cosmos DB
 
@@ -35,31 +35,31 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 * **Maak een schatting van de doorvoervereisten:** Voordat u gegevens migreert naar het Cassandra-API-account in Azure Cosmos DB, moet u een schatting maken van de doorvoervereisten voor uw workload. In het algemeen verdient het aanbeveling om te beginnen met de gemiddelde doorvoer die is vereist voor de CRUD-bewerkingen en vervolgens de aanvullende doorvoer toe te voegen die vereist is voor ETL-bewerkingen (Extract Transform Load) of piekbewerkingen. U hebt de volgende gegevens nodig om de migratie te plannen: 
 
-   * **Bestaande of geschatte gegevensgrootte:** Hiermee definieert u de minimale databasegrootte en doorvoervereiste. Als u een schatting maakt van de gegevensgrootte voor een nieuwe toepassing, kunt u ervan uitgaan dat de gegevens gelijkmatig worden verdeeld over de rijen en een schatting van de waarde maken door deze te vermenigvuldigen met de gegevensgrootte. 
+  * **Bestaande of geschatte gegevensgrootte:** Hiermee definieert u de minimale databasegrootte en doorvoervereiste. Als u een schatting maakt van de gegevensgrootte voor een nieuwe toepassing, kunt u ervan uitgaan dat de gegevens gelijkmatig worden verdeeld over de rijen en een schatting van de waarde maken door deze te vermenigvuldigen met de gegevensgrootte. 
 
-   * **Vereiste doorvoer:** Een schatting van de doorvoersnelheid voor lezen (query/get) en schrijven (update/delete/insert). Deze waarde is vereist voor het berekenen van de vereiste aanvraageenheden en de gegevensgrootte bij een stabiele toestand.  
+  * **Vereiste doorvoer:** Een schatting van de doorvoersnelheid voor lezen (query/get) en schrijven (update/delete/insert). Deze waarde is vereist voor het berekenen van de vereiste aanvraageenheden en de gegevensgrootte bij een stabiele toestand.  
 
-   * **Het schema:** Maak verbinding met uw bestaande Cassandra-cluster via cqlsh en exporteer het schema uit Cassandra: 
+  * **Het schema:** Maak verbinding met uw bestaande Cassandra-cluster via cqlsh en exporteer het schema uit Cassandra: 
 
-     ```bash
-     cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
-     ```
+    ```bash
+    cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
+    ```
 
-   Nadat u de vereisten van uw bestaande workload hebt geïdentificeerd, maakt u een Azure Cosmos-account, database en containers op basis van de verzamelde vereisten voor de doorvoer.  
+    Nadat u de vereisten van uw bestaande workload hebt geïdentificeerd, maakt u een Azure Cosmos-account, database en containers op basis van de verzamelde vereisten voor de doorvoer.  
 
-   * **De RU-kosten voor een bewerking bepalen:** U kunt de RU's bepalen met behulp van een van de SDK's die worden ondersteund door de Cassandra-API. In dit voorbeeld ziet u de .NET-versie van het ophalen van RU-kosten.
+  * **De RU-kosten voor een bewerking bepalen:** U kunt de RU's bepalen met behulp van een van de SDK's die worden ondersteund door de Cassandra-API. In dit voorbeeld ziet u de .NET-versie van het ophalen van RU-kosten.
 
-     ```csharp
-     var tableInsertStatement = table.Insert(sampleEntity);
-     var insertResult = await tableInsertStatement.ExecuteAsync();
+    ```csharp
+    var tableInsertStatement = table.Insert(sampleEntity);
+    var insertResult = await tableInsertStatement.ExecuteAsync();
 
-     foreach (string key in insertResult.Info.IncomingPayload)
-       {
-          byte[] valueInBytes = customPayload[key];
-          string value = Encoding.UTF8.GetString(valueInBytes);
-          Console.WriteLine($"CustomPayload:  {key}: {value}");
-       }
-     ```
+    foreach (string key in insertResult.Info.IncomingPayload)
+      {
+         byte[] valueInBytes = customPayload[key];
+         string value = Encoding.UTF8.GetString(valueInBytes);
+         Console.WriteLine($"CustomPayload:  {key}: {value}");
+      }
+    ```
 
 * **De vereiste doorvoer toewijzen:** Azure Cosmos DB kan opslag en doorvoer automatisch schalen als uw vereisten veranderen. U kunt uw doorvoer schatten met behulp van de [calculator voor aanvraageenheden en gegevensopslag](https://www.documentdb.com/capacityplanner). 
 

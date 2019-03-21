@@ -11,12 +11,12 @@ ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
-ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: eb22539d1f433e396935f82e4cb3786d5699d21a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107834"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083951"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Maken en uitvoeren van terugkerende taken en werkstromen met Azure Logic Apps
 
@@ -97,10 +97,10 @@ U kunt deze eigenschappen voor de trigger terugkeerpatroon configureren.
 
 | Name | Vereist | Naam van eigenschap | Type | Description | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Frequentie** | Ja | frequency | Reeks | De tijdseenheid voor het terugkeerpatroon: **Tweede**, **minuut**, **uur**, **dag**, **Week**, of **maand** | 
+| **Frequentie** | Ja | frequency | String | De tijdseenheid voor het terugkeerpatroon: **Tweede**, **minuut**, **uur**, **dag**, **Week**, of **maand** | 
 | **Interval** | Ja | interval | Geheel getal | Een positief geheel getal dat wordt beschreven hoe vaak de werkstroom wordt uitgevoerd, is afhankelijk van de frequentie. <p>Het standaardinterval is 1. Hier volgen de minimale en maximale intervallen: <p>-Maand: 1-16 maanden </br>-Dag: 1-500 dagen </br>-Uur: 1-12.000-uur </br>-Minuut: 1-72,000 minuten </br>-Seconde: 1-9,999,999 seconden<p>Bijvoorbeeld, als het interval 6 is en de frequency 'Maand' is, is klikt u vervolgens het terugkeerpatroon elke 6 maanden. | 
-| **Tijdzone** | Nee | timeZone | Reeks | Geldt alleen wanneer u een begintijd opgeeft omdat deze trigger niet accepteren [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Selecteer de tijdzone die u wilt toepassen. | 
-| **Begintijd** | Nee | startTime | Reeks | Geef een begintijd die in deze indeling: <p>JJJJ-MM-ddTUU als u een tijdzone selecteren <p>-of- <p>JJJJ-MM-ddTHH als u niet een tijdzone selecteren <p>Bijvoorbeeld als u wilt dat 18 September 2017 om 14:00 uur, geeft ' 2017-09-18T14:00:00 ' en selecteer een tijdzone zoals Pacific Time. Of geef ' 2017-09-18T14:00:00Z ' zonder een tijdzone. <p>**Opmerking:** De begintijd moet volgen de [ISO 8601 datum tijdsspecificatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC-datum-tijdnotatie](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), maar zonder een [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Als u een tijdzone niet selecteert, moet u de letter 'Z' toevoegen aan het einde zonder spaties. Deze "Z" verwijst naar het equivalent [nautische tijd](https://en.wikipedia.org/wiki/Nautical_time). <p>Voor eenvoudige schema's van de begintijd is de eerste keer voorkomt, terwijl voor complexe schema's, de trigger alle eerder dan de begintijd wordt niet gestart. [*Wat zijn de manieren waarop ik de begindatum en -tijd kan gebruiken?*](#start-time) | 
+| **Tijdzone** | Nee | timeZone | String | Geldt alleen wanneer u een begintijd opgeeft omdat deze trigger niet accepteren [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Selecteer de tijdzone die u wilt toepassen. | 
+| **Begintijd** | Nee | startTime | String | Geef een begintijd die in deze indeling: <p>JJJJ-MM-ddTUU als u een tijdzone selecteren <p>-of- <p>JJJJ-MM-ddTHH als u niet een tijdzone selecteren <p>Bijvoorbeeld als u wilt dat 18 September 2017 om 14:00 uur, geeft ' 2017-09-18T14:00:00 ' en selecteer een tijdzone zoals Pacific Time. Of geef ' 2017-09-18T14:00:00Z ' zonder een tijdzone. <p>**Opmerking:** De begintijd moet volgen de [ISO 8601 datum tijdsspecificatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC-datum-tijdnotatie](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), maar zonder een [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Als u een tijdzone niet selecteert, moet u de letter 'Z' toevoegen aan het einde zonder spaties. Deze "Z" verwijst naar het equivalent [nautische tijd](https://en.wikipedia.org/wiki/Nautical_time). <p>Voor eenvoudige schema's van de begintijd is de eerste keer voorkomt, terwijl voor complexe schema's, de trigger alle eerder dan de begintijd wordt niet gestart. [*Wat zijn de manieren waarop ik de begindatum en -tijd kan gebruiken?*](#start-time) | 
 | **Deze dagen** | Nee | weekDays | Tekenreeks of tekenreeksmatrix van | Als u 'Week', kunt u een of meer dagen als u wilt uitvoeren van de werkstroom selecteren: **Maandag**, **dinsdag**, **woensdag**, **donderdag**, **vrijdag**, **zaterdag**, en **Zondag** | 
 | **Deze uren** | Nee | hours | Geheel getal of een matrix met gehele getallen | Als u 'Day' of 'Week' selecteert, kunt u een of meer gehele getallen tussen 0 en 23 als de uren van de dag waarop u wilt uitvoeren van de werkstroom. <p>Bijvoorbeeld, als u "10", "12" en "14" opgeeft, krijgt u 10 uur, 12 PM en 2 uur als de merken uur. | 
 | **Deze minuten** | Nee | minutes | Geheel getal of een matrix met gehele getallen | Als u 'Day' of 'Week' selecteert, kunt u een of meer gehele getallen tussen 0 en 59 als de minuten van het uur waarop u wilt uitvoeren van de werkstroom. <p>Bijvoorbeeld, u kunt "30" opgeven als de minuut is ingeschakeld en met behulp van het vorige voorbeeld uur van de dag, krijgt u 10:30 uur, 12:30 PM en 14:30 uur. | 
@@ -141,7 +141,7 @@ Hier volgt een voorbeeld [definitie van de trigger terugkeerpatroon](../logic-ap
 
 <a name="run-once"></a>
 
-**VRAAG:** Wat gebeurt er als ik wil een logische app in de toekomst slechts één keer uitgevoerd? </br>
+**V:** Wat gebeurt er als ik wil een logische app in de toekomst slechts één keer uitgevoerd? </br>
 **A:** Voor het activeren van uw logische app en één keer zonder periodiek wordt uitgevoerd, kunt u de **Scheduler: Eenmaal uitvoeren van taken** sjabloon. Nadat u een nieuwe logische app hebt gemaakt, maar voor het openen van de ontwerpfunctie voor Logic Apps, onder de **sjablonen** sectie van de **categorie** in de lijst met **planning**, en selecteer vervolgens de sjabloon:
 
 ![Selecteer ' Scheduler: Eenmaal taken uitvoeren'-sjabloon](./media/connectors-native-recurrence/choose-run-once-template.png)
@@ -150,37 +150,37 @@ Of, als u een sjabloon voor lege logische app, start u uw logische app met de **
 
 <a name="example-recurrences"></a>
 
-**VRAAG:** Wat zijn andere herhalingsplanningen voorbeeld? </br>
+**V:** Wat zijn andere herhalingsplanningen voorbeeld? </br>
 **A:** Hier vindt u meer voorbeelden:
 
 | Terugkeerpatroon | Interval | Frequentie | Begintijd | Deze dagen | Deze uren | Deze minuten | Opmerking |
 | ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
-| Elke 15 minuten (geen begindatum en tijdstip) uitgevoerd | 15 | Minuut | {geen} | {niet-beschikbaar} | {geen} | {geen} | Dit schema wordt onmiddellijk gestart en toekomstige herhalingen op basis van de laatste uitvoeringstijd wordt berekend. | 
-| Elke 15 minuten uitgevoerd (met de begindatum en -tijd) | 15 | Minuut | *startDate*T*startTime*Z | {niet-beschikbaar} | {geen} | {geen} | Dit schema wordt niet gestart *alle eerder* dan de opgegeven datum en tijd, berekent u toekomstige herhalingen op basis van de laatste uitvoeringstijd. | 
-| Elk uur wordt uitgevoerd op het hele uur (met de begindatum en -tijd) | 1 | Uur | *startDate*Thh:00:00Z | {niet-beschikbaar} | {geen} | {geen} | Dit schema wordt niet gestart *alle eerder* start dan de opgegeven datum en tijd. Toekomstige herhalingen wordt elk uur uitgevoerd op de "00" minuut is ingeschakeld. <p>Als de frequency 'Week' of 'Maand' is, wordt dit schema respectievelijk slechts één dag per week of één dag per maand uitgevoerd. | 
-| Elk uur, dagelijks (geen begindatum en tijdstip) uitgevoerd | 1 | Uur | {geen} | {niet-beschikbaar} | {geen} | {geen} | Dit schema wordt onmiddellijk gestart en toekomstige herhalingen op basis van de laatste uitvoeringstijd wordt berekend. <p>Als de frequency 'Week' of 'Maand' is, wordt dit schema respectievelijk slechts één dag per week of één dag per maand uitgevoerd. | 
-| Elk uur, dagelijks (met de begindatum en -tijd) uitgevoerd | 1 | Uur | *startDate*T*startTime*Z | {niet-beschikbaar} | {geen} | {geen} | Dit schema wordt niet gestart *alle eerder* dan de opgegeven datum en tijd, berekent u toekomstige herhalingen op basis van de laatste uitvoeringstijd. <p>Als de frequency 'Week' of 'Maand' is, wordt dit schema respectievelijk slechts één dag per week of één dag per maand uitgevoerd. | 
-| Om de 15 minuten na het uur, elk uur uitgevoerd (met de begindatum en -tijd) | 1 | Uur | *startDate*T00:15:00Z | {niet-beschikbaar} | {geen} | {geen} | Dit schema wordt niet gestart *alle eerder* dan de opgegeven begindatum en -tijd, uitgevoerd om 00:15 uur, 1:15 uur, 2:15 uur, enzovoort. | 
-| Elke 15 minuten na het uur, elk uur (geen begindatum en tijdstip) uitgevoerd | 1 | Dag | {geen} | {niet-beschikbaar} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Dit schema wordt uitgevoerd om 00:15 uur, 1:15 uur, 2:15 uur, enzovoort. Ook is dit schema gelijkwaardig met een frequentie van 'Uur' en een begintijd met '15' minuten. | 
-| Elke 15 minuten uitgevoerd op de 15 minuten is ingeschakeld (geen begindatum en tijdstip) | 1 | Dag | {geen} | {niet-beschikbaar} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Dit schema start niet totdat de volgende 15 minuten is ingeschakeld opgegeven. | 
-| Uitgevoerd om 8:00 uur op elke dag (geen begindatum en tijdstip) | 1 | Dag | {geen} | {niet-beschikbaar} | 8 | {geen} | Dit schema wordt uitgevoerd om 8:00 uur op elke dag, op basis van de opgegeven planning. | 
-| Uitgevoerd om 8:00 uur op elke dag (met de begindatum en -tijd) | 1 | Dag | *startDate*T08:00:00Z | {niet-beschikbaar} | {geen} | {geen} | Dit schema wordt elke dag 8:00 uur uitgevoerd op basis van de opgegeven begintijd uitgevoerd. | 
-| Uitgevoerd om 8:30 uur voor elke dag (geen begindatum en tijdstip) | 1 | Dag | {geen} | {niet-beschikbaar} | 8 | 30 | Dit schema wordt uitgevoerd om 8:30 uur voor elke dag, op basis van de opgegeven planning. | 
-| Uitgevoerd om 8:30 uur voor elke dag (met de begindatum en -tijd) | 1 | Dag | *startDate*T08:30:00Z | {niet-beschikbaar} | {geen} | {geen} | Dit schema wordt gestart op de opgegeven begindatum om 8:30 uur. | 
-| Op 8:30:00 uur en 4:30 uur, dagelijks uitvoeren | 1 | Dag | {geen} | {niet-beschikbaar} | 8, 16 | 30 | | 
-| Uitgevoerd om 8:30 uur, 8:45 AM, 4:30 PM, en elke dag 4:45 uur | 1 | Dag | {geen} | {niet-beschikbaar} | 8, 16 | 30, 45 | | 
+| Elke 15 minuten (geen begindatum en tijdstip) uitgevoerd | 15 | Minuut | {geen} | {unavailable} | {geen} | {geen} | Dit schema wordt onmiddellijk gestart en toekomstige herhalingen op basis van de laatste uitvoeringstijd wordt berekend. | 
+| Elke 15 minuten uitgevoerd (met de begindatum en -tijd) | 15 | Minuut | *startDate*T*startTime*Z | {unavailable} | {geen} | {geen} | Dit schema wordt niet gestart *alle eerder* dan de opgegeven datum en tijd, berekent u toekomstige herhalingen op basis van de laatste uitvoeringstijd. | 
+| Elk uur wordt uitgevoerd op het hele uur (met de begindatum en -tijd) | 1 | Uur | *startDate*Thh:00:00Z | {unavailable} | {geen} | {geen} | Dit schema wordt niet gestart *alle eerder* start dan de opgegeven datum en tijd. Toekomstige herhalingen wordt elk uur uitgevoerd op de "00" minuut is ingeschakeld. <p>Als de frequency 'Week' of 'Maand' is, wordt dit schema respectievelijk slechts één dag per week of één dag per maand uitgevoerd. | 
+| Elk uur, dagelijks (geen begindatum en tijdstip) uitgevoerd | 1 | Uur | {geen} | {unavailable} | {geen} | {geen} | Dit schema wordt onmiddellijk gestart en toekomstige herhalingen op basis van de laatste uitvoeringstijd wordt berekend. <p>Als de frequency 'Week' of 'Maand' is, wordt dit schema respectievelijk slechts één dag per week of één dag per maand uitgevoerd. | 
+| Elk uur, dagelijks (met de begindatum en -tijd) uitgevoerd | 1 | Uur | *startDate*T*startTime*Z | {unavailable} | {geen} | {geen} | Dit schema wordt niet gestart *alle eerder* dan de opgegeven datum en tijd, berekent u toekomstige herhalingen op basis van de laatste uitvoeringstijd. <p>Als de frequency 'Week' of 'Maand' is, wordt dit schema respectievelijk slechts één dag per week of één dag per maand uitgevoerd. | 
+| Om de 15 minuten na het uur, elk uur uitgevoerd (met de begindatum en -tijd) | 1 | Uur | *startDate*T00:15:00Z | {unavailable} | {geen} | {geen} | Dit schema wordt niet gestart *alle eerder* dan de opgegeven begindatum en -tijd, uitgevoerd om 00:15 uur, 1:15 uur, 2:15 uur, enzovoort. | 
+| Elke 15 minuten na het uur, elk uur (geen begindatum en tijdstip) uitgevoerd | 1 | Dag | {geen} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Dit schema wordt uitgevoerd om 00:15 uur, 1:15 uur, 2:15 uur, enzovoort. Ook is dit schema gelijkwaardig met een frequentie van 'Uur' en een begintijd met '15' minuten. | 
+| Elke 15 minuten uitgevoerd op de 15 minuten is ingeschakeld (geen begindatum en tijdstip) | 1 | Dag | {geen} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Dit schema start niet totdat de volgende 15 minuten is ingeschakeld opgegeven. | 
+| Uitgevoerd om 8:00 uur op elke dag (geen begindatum en tijdstip) | 1 | Dag | {geen} | {unavailable} | 8 | {geen} | Dit schema wordt uitgevoerd om 8:00 uur op elke dag, op basis van de opgegeven planning. | 
+| Uitgevoerd om 8:00 uur op elke dag (met de begindatum en -tijd) | 1 | Dag | *startDate*T08:00:00Z | {unavailable} | {geen} | {geen} | Dit schema wordt elke dag 8:00 uur uitgevoerd op basis van de opgegeven begintijd uitgevoerd. | 
+| Uitgevoerd om 8:30 uur voor elke dag (geen begindatum en tijdstip) | 1 | Dag | {geen} | {unavailable} | 8 | 30 | Dit schema wordt uitgevoerd om 8:30 uur voor elke dag, op basis van de opgegeven planning. | 
+| Uitgevoerd om 8:30 uur voor elke dag (met de begindatum en -tijd) | 1 | Dag | *startDate*T08:30:00Z | {unavailable} | {geen} | {geen} | Dit schema wordt gestart op de opgegeven begindatum om 8:30 uur. | 
+| Op 8:30:00 uur en 4:30 uur, dagelijks uitvoeren | 1 | Dag | {geen} | {unavailable} | 8, 16 | 30 | | 
+| Uitgevoerd om 8:30 uur, 8:45 AM, 4:30 PM, en elke dag 4:45 uur | 1 | Dag | {geen} | {unavailable} | 8, 16 | 30, 45 | | 
 | Voer elke zaterdag om 17: 00 (geen begindatum en tijdstip) | 1 | Wekelijks | {geen} | "Zaterdag" | 17 | 00 | Dit schema wordt elke zaterdag om 17:00 uur uitgevoerd. | 
 | Elke zaterdag om 17: 00 uur (met de begindatum en -tijd) wordt uitgevoerd | 1 | Wekelijks | *startDate*T17:00:00Z | "Zaterdag" | {geen} | {geen} | Dit schema wordt niet gestart *alle eerder* start dan de opgegeven datum en tijd, in dit geval 9 September 2017 om 17:00 uur. Toekomstige herhalingen elke zaterdag om 17:00 uur uitgevoerd. | 
 | Elke dinsdag, donderdag om 17: 00 uur wordt uitgevoerd | 1 | Wekelijks | {geen} | "Dinsdag", "Donderdag" | 17 | {geen} | Dit schema wordt elke dinsdag en donderdag om 17:00 uur uitgevoerd. | 
 | Elk uur tijdens werkuren uitgevoerd | 1 | Wekelijks | {geen} | Selecteer alle dagen behalve zaterdag en zondag. | Selecteer de uren van de dag die u wilt. | Selecteer een minuten van het uur dat u wilt. | Bijvoorbeeld, als uw werkuren 8:00 uur tot 5:00 uur zijn, selecteert u "8, 9, 10, 11, 12, 13, 14, 15, 16 en 17" Als de uren van de dag. <p>Als uw werkuren 8:30:00 uur tot 5:30 uur, selecteert u de vorige uur van de dag plus "30" Als het aantal minuten van het uur. | 
 | Eenmaal elke dag worden uitgevoerd tijdens het weekend | 1 | Wekelijks | {geen} | "Zaterdag", "Zondag" | Selecteer de uren van de dag die u wilt. | Selecteer een minuten van het uur waar nodig. | Dit schema wordt elke zaterdag en zondag uitgevoerd volgens het opgegeven schema. | 
 | Elke 15 minuten uitgevoerd op maandag alleen tweewekelijks | 2 | Wekelijks | {geen} | "Maandag" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Dit schema wordt uitgevoerd elke andere maandag tot en met elke 15 minuten is ingeschakeld. | 
-| Elk uur gedurende één dag per maand uitgevoerd | 1 | Maand | {Zie Opmerking} | {niet-beschikbaar} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {Zie Opmerking} | Als u geen een datum en tijd opgeeft, geeft dit schema maakt gebruik van de datum en tijd. Geef het aantal minuten van het uur, een begintijd voor het beheren van de minuten voor het terugkeerschema of gebruik van de aanmaaktijd. Bijvoorbeeld, als de begin- of Aanmaaktijd 8:25 uur is, dit schema wordt uitgevoerd om 8:25 uur, 9:25 uur, 10:25 uur, enzovoort. | 
+| Elk uur gedurende één dag per maand uitgevoerd | 1 | Maand | {Zie Opmerking} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {Zie Opmerking} | Als u geen een datum en tijd opgeeft, geeft dit schema maakt gebruik van de datum en tijd. Geef het aantal minuten van het uur, een begintijd voor het beheren van de minuten voor het terugkeerschema of gebruik van de aanmaaktijd. Bijvoorbeeld, als de begin- of Aanmaaktijd 8:25 uur is, dit schema wordt uitgevoerd om 8:25 uur, 9:25 uur, 10:25 uur, enzovoort. | 
 ||||||||| 
 
 <a name="start-time"></a>
 
-**VRAAG:** Wat zijn de manieren waarop ik de begindatum en -tijd kan gebruiken? </br>
+**V:** Wat zijn de manieren waarop ik de begindatum en -tijd kan gebruiken? </br>
 **A:** Hier zijn enkele patronen die laten zien hoe u terugkeerpatroon met de datum en tijd kunt beheren en hoe deze herhaling in de Logic Apps-engine wordt uitgevoerd:
 
 | Begintijd | Recurrence zonder schedule | Recurrence met schedule | 
@@ -202,7 +202,7 @@ In dit scenario, de Logic Apps engine berekent op basis van de begintijd keer ui
 | Begintijd | Eerste uitvoeringstijd | Toekomstige keer uitvoeren | 
 | ---------- | ------------ | ---------- | 
 | 2017-09 -**07** om 14:00 uur | 2017-09 -**09** om 14:00 uur | 2017-09 -**11** om 14:00 uur </br>2017-09 -**13** om 14:00 uur </br>2017-09 -**15** om 14:00 uur </br>enzovoort...
-||||| 
+||||
 
 Dus voor dit scenario, ongeacht hoe ver in het verleden opgeven van het begin tijd, bijvoorbeeld 2017-09 -**05** om 2:00 of 2017-09 -**01** om 14:00 uur, de eerste uitvoeringstijd is hetzelfde.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 662713a5ef350bd34f25558de69e3cbfd5fc80a3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 364dca8d7cab3698e501e74d0c2817aac1a36f88
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982859"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137974"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Een Windows-VM maken vanaf een gespecialiseerde schijf met behulp van PowerShell
 
@@ -205,7 +205,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Als u deze momentopname wilt maken van een virtuele machine die moet worden hoge prestaties, de parameter toevoegen `-AccountType Premium_LRS` aan de opdracht New-AzSnapshot. Deze parameter wordt de momentopname gemaakt, zodat deze wordt opgeslagen als een Premium Managed Disk. Premium Managed Disks zijn duurder dan bij Standard, dus zorg ervoor dat u moet Premium voordat u deze parameter.
+Als u deze momentopname wilt maken van een virtuele machine die moet worden hoge prestaties, de parameter toevoegen `-AccountType Premium_LRS` aan de opdracht New-AzSnapshotConfig. Deze parameter wordt de momentopname gemaakt, zodat deze wordt opgeslagen als een Premium Managed Disk. Premium Managed Disks zijn duurder dan bij Standard, dus zorg ervoor dat u moet Premium voordat u deze parameter.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Maak een nieuwe schijf van de momentopname
 

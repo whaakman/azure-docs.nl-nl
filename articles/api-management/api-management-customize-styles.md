@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c3c79e7bd68e7c96b57ea66951c080b7d952ee8c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 4ea64b16a9a581683d3b7a44b4b331af435db22c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441754"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762718"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>De stijl van de pagina's van de ontwikkelaarsportal aanpassen
 
@@ -40,8 +40,8 @@ In deze zelfstudie leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 
 + Informatie over de [terminologie van Azure API Management](api-management-terminology.md).
-+ Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
-+ Voltooi tevens de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
++ Voltooi de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
++ Voltooi ook de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -57,11 +57,11 @@ In deze zelfstudie leert u het volgende:
     Alle elementen die u kunt aanpassen met behulp van **Stijlen** worden weergegeven op de pagina
 5. Voer 'headings-color' in het veld **Wijzigen van de waarden om de weergave van het ontwikkelaarsportal aan te passen:** in.
 
-    Het element **@headings-color** wordt op de pagina weergegeven. Deze variabele bepaalt de kleur van de tekst.
+    De  **\@headings-color** element wordt weergegeven op de pagina. Deze variabele bepaalt de kleur van de tekst.
 
     ![stijl aanpassen](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Klik op het veld voor de variabele **@headings-color**. 
+6. Klik op het veld voor de  **\@headings-color** variabele. 
     
     De vervolgkeuzelijst Kleurenkiezer wordt geopend.
 7. Selecteer een nieuwe kleur uit de vervolgkeuzelijst Kleurenkiezer.

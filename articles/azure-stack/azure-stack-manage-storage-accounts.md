@@ -11,29 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: bce00300e62b3ea04331530bbda2c16f0ddd2ab3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: 34e49060a28869015f067f058b81239ec13eff47
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759369"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226396"
 ---
-# <a name="manage-storage-accounts-in-azure-stack"></a>Storage-accounts in Azure Stack beheren
+# <a name="manage-azure-stack-storage-accounts"></a>Azure Stack-opslagaccounts beheren
 
-Informatie over het beheren van storage-accounts in Azure Stack om te zoeken, herstellen en het vrijmaken van opslagcapaciteit op basis van bedrijfsbehoeften.
+Informatie over het beheren van Azure Stack-storage-accounts. Zoeken, herstellen en vrijmaken opslagcapaciteit op basis van bedrijfsbehoeften.
 
 ## <a name="find-a-storage-account"></a>Een storage-account zoeken
+
 De lijst met opslagaccounts in de regio kan worden weergegeven in Azure Stack door:
 
 1. Aanmelden bij de [-beheerportal](https://adminportal.local.azurestack.external).
 
-2. Selecteer **alle services** > **opslagaccounts**.
+2. Selecteer **alle services** > **opslag** > **opslagaccounts**.
 
-   ![](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Azure Stack-storage-accounts](media/azure-stack-manage-storage-accounts/image4.png)
 
 De eerste 10 accounts worden standaard weergegeven. U kunt kiezen voor het ophalen van informatie door te klikken op de **meer laden** koppelen aan de onderkant van de lijst.
 
@@ -45,17 +46,18 @@ Als u geïnteresseerd in een bepaalde storage-account bent, kunt u **filteren en
 **Om te filteren voor accounts:**
 
 1. Selecteer **Filter** aan de bovenkant van het deelvenster.
-2. Op het filterdeelvenster Hiermee kunt u om op te geven **accountnaam**, ** abonnements-ID, of **status** voor het afstemmen van de lijst met opslagaccounts moet worden weergegeven. Gebruik deze waar nodig.
-3. Selecteer **Update**. De lijst moet dienovereenkomstig vernieuwen.
+2. Op het filterdeelvenster Hiermee kunt u om op te geven **accountnaam**, **abonnements-ID**, of **status** voor het afstemmen van de lijst met opslagaccounts moet worden weergegeven. Gebruik deze waar nodig.
+3. Terwijl u typt, wordt automatisch het filter toepassen in de lijst.  .
    
-    ![](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Azure Stack-opslagaccounts te filteren](media/azure-stack-manage-storage-accounts/image5.png)
+
 4. Het filter opnieuw: Selecteer **Filter**, wist u de selecties en bijwerken.
 
 Het zoekvak (boven aan het deelvenster van de lijst in de storage-accounts) kunt u de geselecteerde tekst in de lijst van accounts markeren. U kunt dit gebruiken wanneer de volledige naam of ID niet eenvoudig beschikbaar is.
 
 U kunt hier vrije tekst gebruiken om te zoeken naar het account waarin u geïnteresseerd bent.
 
-![](media/azure-stack-manage-storage-accounts/image6.png)
+![Azure Stack-storage-accounts vinden](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Bekijk de details
 Nadat u de accounts die u geïnteresseerd bent in de weergave hebt gevonden, kunt u het specifieke account om bepaalde gegevens weer te geven. Een nieuw deelvenster geopend met de accountdetails zoals: het type van het account, het maken, locatie, enzovoort.
@@ -65,7 +67,7 @@ Nadat u de accounts die u geïnteresseerd bent in de weergave hebt gevonden, kun
 ## <a name="recover-a-deleted-account"></a>Een verwijderd account herstellen
 Het is mogelijk in een situatie waarin u wilt een verwijderd account herstellen.
 
-Er is een eenvoudige manier om dat te doen in Azure Stack:
+In Azure Stack is er een eenvoudige manier om dat te doen:
 
 1. Blader naar de lijst met storage-accounts. Zie zoeken naar een opslagaccount in dit artikel voor meer informatie.
 2. Zoek dat specifieke account in de lijst. U wilt filteren.
@@ -97,9 +99,8 @@ De bewaartermijn instellen kunt een cloud-operator om op te geven van een bepaal
 
 1. Aanmelden bij de [-beheerportal](https://adminportal.local.azurestack.external).
 2. Selecteer **alle services** > **regiobeheer** onder **beheer**.
-3. Selecteer **opslag** uit de **Resourceproviders** lijst.
-4. Selecteer **instellingen** aan de bovenkant om de instelling deelvenster te openen.
-5. Selecteer **configuratie** bewerkt u vervolgens de waarde voor de retentie-periode.
+3. Selecteer **Resources providers** > **opslag** > **instellingen**. Het pad is Start > *regio* -resourceproviders > opslag.
+4. Selecteer **configuratie** bewerkt u vervolgens de waarde voor de retentie-periode.
 
    Het aantal dagen instellen en vervolgens op te slaan.
    

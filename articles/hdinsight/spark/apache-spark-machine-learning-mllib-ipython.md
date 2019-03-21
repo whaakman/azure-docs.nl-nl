@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: b5d1908201de803ae065403600fc3478e604eedd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: bf29fd8d9b707636fb5965669ad800517a6cf58f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959099"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075558"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Apache Spark MLlib een machine learning-toepassing bouwen en analyseren van een gegevensset gebruiken
 
@@ -200,16 +200,16 @@ Laten we beginnen aan een idee van wat de gegevensset bevat.
 
     Om te voorspellen een resultaat van de inspectie food, moet u een model op basis van de schendingen te ontwikkelen. Omdat logistieke regressie een binaire classificatie-methode is, worden het verstandig om de resulterende gegevens te groeperen in twee categorieën: **Mislukken** en **doorgeven**:
 
-    - Geslaagd
-        - Geslaagd
-        - Doorgeven met voorwaarden
-    - Mislukt
-        - Mislukt
-    - Verwijderen
-        - Bedrijven niet vinden
-        - Buiten het bedrijf
+   - Geslaagd
+       - Geslaagd
+       - Doorgeven met voorwaarden
+   - Mislukt
+       - Mislukt
+   - Verwijderen
+       - Bedrijven niet vinden
+       - Buiten het bedrijf
 
-    Gegevens met de andere resultaten ("Bedrijf niet vinden" of ' Out-of Business') zijn niet nuttig en ze een zeer klein percentage van de resultaten toch gezamenlijk.
+     Gegevens met de andere resultaten ("Bedrijf niet vinden" of ' Out-of Business') zijn niet nuttig en ze een zeer klein percentage van de resultaten toch gezamenlijk.
 
 4. Voer de volgende code om te converteren van de bestaande dataframe (`df`) in een nieuwe dataframe waar elke inspectie wordt weergegeven als een combinatie van schendingen van label. In dit geval een label van `0.0` vertegenwoordigt een storing optreedt, een label van `1.0` vertegenwoordigt een geslaagde pogingen en een label van `-1.0` vertegenwoordigt bepaalde resultaten naast deze twee. 
 

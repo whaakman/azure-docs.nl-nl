@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c2b1c85a59686433cbab152bae1d1105ff725818
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: ffae38f8c5ba3a8b66ec49deaef987762ab9c510
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753080"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863607"
 ---
 # <a name="create-and-locate-anchors-using-azure-spatial-anchors-in-swift"></a>Maken en Ga naar ankers die gebruikmaken van Azure ruimtelijke ankers in Swift
 
@@ -25,9 +25,11 @@ ms.locfileid: "56753080"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen verschillende apparaten. Als u wilt werken goed met uw favoriete ontwikkelomgeving tenantactiviteit. In dit artikel gaat we dieper in hoe u kunt dit doen in Swift.
+Met Azure Spatial Anchors kunt u ankers delen tussen verschillende apparaten. Het ondersteunt verschillende ontwikkelomgevingen. In dit artikel gaat we dieper in hoe u kunt dit doen in Swift.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
+
+Meer informatie over de [ASACloudSpatialAnchorSession](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession) klasse.
 
 ```swift
     var _cloudSession : ASACloudSpatialAnchorSession? = nil
@@ -36,6 +38,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Meer informatie over de [ASASessionConfiguration](https://docs.microsoft.com/objectivec/api/spatial-anchors/asasessionconfiguration) klasse.
 
 ```swift
     _cloudSession!.configuration.accountKey = "MyAccountKey"
@@ -48,6 +52,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
+
+Meer informatie over de [tokenRequired](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#tokenrequired) protocol-methode.
 
 ```swift
     internal func tokenRequired(_ cloudSession:ASACloudSpatialAnchorSession!, _ args:ASATokenRequiredEventArgs!) {
@@ -101,6 +107,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-ios.md)]
 
+Meer informatie over de [start](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#start) methode.
+
 ```swift
     _cloudSession!.session = self.sceneView.session;
     _cloudSession!.delegate = self;
@@ -109,11 +117,15 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
+Meer informatie over de [processFrame](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#processframe) methode.
+
 ```swift
     _cloudSession?.processFrame(self.sceneView.session.currentFrame)
 ```
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
+
+Meer informatie over de [sessionUpdated](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#sessionupdated) protocol-methode.
 
 ```swift
     internal func sessionUpdated(_ cloudSession:ASACloudSpatialAnchorSession!, _ args:ASASessionUpdatedEventArgs!) {
@@ -126,6 +138,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Meer informatie over de [ASACloudSpatialAnchor](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor) klasse.
 
 ```swift
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
@@ -154,6 +168,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Meer informatie over de [getStatusWithCompletionHandler](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#getsessionstatus) methode.
+
 ```swift
     _cloudSession?.getStatusWithCompletionHandler( { (value:ASASessionStatus, error:Error?) in
         if (error != nil) {
@@ -169,6 +185,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
+Meer informatie over de [appProperties](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor#appproperties) eigenschap.
+
 ```swift
     var cloudAnchor : ASACloudSpatialAnchor? = nil
     cloudAnchor = ASACloudSpatialAnchor()
@@ -181,6 +199,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
+Meer informatie over de [updateAnchorProperties](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#updateanchorproperties) methode.
+
 ```swift
     var anchor : ASACloudSpatialAnchor? = /* locate your anchor */;
     anchor!.appProperties["last-user-access"] = "just now"
@@ -192,6 +212,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Meer informatie over de [getAnchorProperties](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#getanchorproperties) methode.
 
 ```swift
     _cloudSession?.getAnchorProperties("anchorId", withCompletionHandler: { (anchor:SCCCloudSpatialAnchor?, error:Error?) in
@@ -210,6 +232,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Meer informatie over de [verlopen](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor#expiration) eigenschap.
+
 ```swift
     let secondsInAWeek = 60.0 * 60.0 * 24.0 * 7.0
     let oneWeekFromNow = Date(timeIntervalSinceNow: secondsInAWeek)
@@ -218,6 +242,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
+Meer informatie over de [createWatcher](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#createwatcher) methode.
+
 ```swift
     let criteria = ASAAnchorLocateCriteria()!
     criteria.identifiers = [ "id1", "id2", "id3" ]
@@ -225,6 +251,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Meer informatie over de [anchorLocated](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#anchorlocated) protocol-methode.
 
 ```swift
     internal func anchorLocated(_ cloudSession: ASACloudSpatialAnchorSession!, _ args: ASAAnchorLocatedEventArgs!) {
@@ -252,6 +280,8 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Meer informatie over de [verwijderen](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#deleteanchor) methode.
+
 ```swift
     _cloudSession?.delete(cloudAnchor!, withCompletionHandler: { (error: Error?) in
         // Perform any processing you may want when delete finishes
@@ -260,11 +290,15 @@ Azure ruimtelijke ankers kunt u delen van ankers in de hele wereld tussen versch
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Meer informatie over de [stoppen](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#stop) methode.
+
 ```swift
     _cloudSession!.stop()
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
+
+Meer informatie over de [opnieuw](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#reset) methode.
 
 ```swift
     _cloudSession!.reset()

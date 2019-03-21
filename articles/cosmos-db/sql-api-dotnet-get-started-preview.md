@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 2e0dc5c69a6cc875f4e673a494387db79c1dd1fa
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: a942f91dfa03eea2d9dc14b4b44e2ef5ee57c1ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078632"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Een .NET-console-app bouwen om gegevens te beheren in het Azure Cosmos DB SQL-API-account (SDK versie 3, preview)
 
@@ -61,14 +61,14 @@ Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt d
 1. Open **Visual Studio 2017** op uw computer.
 1. Selecteer in het menu **Bestand** de optie **Nieuw** en kies vervolgens **Project**.
 1. Selecteer in het dialoogvenster **Nieuw project** achtereenvolgens **Visual C#** / **Consoletoepassing (.NET Framework)** geef een naam op voor uw op en klik vervolgens op **OK**.
-    ![Schermopname van het venster Nieuw project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
+    ![Schermopname van het venster Nieuw Project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
 1. Klik in **Solution Explorer** met de rechtermuisknop op uw nieuwe consoletoepassing. Deze bevindt zich onder uw Visual Studio-oplossing. Klik vervolgens op **Manage NuGet Packages...**
     
-    ![Schermopname van het rechtsklikmenu voor het project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)
-1. Klik op het tabblad **NuGet** op **Bladeren** en typ **Microsoft.Azure.Cosmos** in het zoekvak. Schakel *Prelease opnemen* in om de preview-versie te kunnen vinden.
+    ![Schermafbeelding van het rechtsklikmenu voor het project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)
+1. Klik op het tabblad **NuGet** op **Browse** en typ **Microsoft.Azure.Cosmos** in het zoekvak. Schakel *Prelease opnemen* in om de preview-versie te kunnen vinden.
 1. Zoek **Microsoft.Azure.Cosmos** in de resultaten en klik op **Installeren**.
    De pakket-id voor de Azure Cosmos DB SQL-API-clientbibliotheek is [Microsoft Azure Cosmos DB-clientbibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
-   ![Schermopname van het NuGet-menu voor het zoeken naar de Azure Cosmos DB-client-SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Schermopname van het NuGet-Menu voor het vinden van Azure Cosmos DB-Client-SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     Als u een bericht ontvangt over het controleren van wijzigingen in de oplossing, klikt u op **OK**. Als u een bericht ontvangt over het accepteren van de licentie, klikt u op **Accepteren**.
 
@@ -119,7 +119,7 @@ Goed gedaan. De configuratie is voltooid en u kunt nu aan de slag met het schrij
 
     Kopieer de URI uit de portal en plak deze in `<your endpoint URL>` in het bestand ```Program.cs```. Kopieer de PRIMAIRE SLEUTEL uit de portal en plak deze in `<your primary key>`.
 
-   ![Schermopname van het ophalen van de Azure Cosmos DB-sleutels uit de Azure-portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Schermafbeelding van Azure Cosmos DB-sleutels ophalen uit Azure portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
 1. Vervolgens maakt u een nieuw exemplaar van ```CosmosClient``` en stelt u een basis voor het programma in.
 
@@ -321,7 +321,7 @@ Een container kan worden gemaakt met behulp van de functie [**CreateContainerIfN
         await this.CreateContainer();
     }
     ```
-Selecteer **F5** om de toepassing uit te voeren.
+   Selecteer **F5** om de toepassing uit te voeren.
 
 Gefeliciteerd! U hebt nu een Azure Cosmos DB-container gemaakt.  
 
@@ -331,7 +331,7 @@ Er kan een item worden gemaakt met de functie [**CreateItemAsync**](https://docs
 Eerst moet de klasse **Family** worden gemaakt, die aangeeft welke objecten in dit voorbeeld worden opgeslagen in Azure Cosmos DB. Daarnaast moeten de subklassen **Parent**, **Child**, **Pet** en **Address** worden gemaakt die in de klasse **Family** worden gebruikt. Houd er rekening mee dat de documenten een **id**-eigenschap moeten bevatten die in JSON is geserialiseerd als **id**. 
 1. Selecteer **Ctrl+Shift+A** om het dialoogvenster **Add New Item** te openen. Voeg een nieuwe klasse **Family.cs** toe aan uw project. 
 
-    ![Schermopname van het toevoegen van een nieuwe Family.cs-klasse aan het project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
+    ![Schermafbeelding van het toevoegen van een nieuwe Family.cs-klasse in het project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
 
 1. Kopieer de klassen **Family**, **Parent**, **Child**, **Pet** en **Address** en plak deze in **Family.cs**. 
     ```csharp
@@ -599,7 +599,7 @@ Nu gaat u een item in Azure Cosmos DB bijwerken.
         await this.ReplaceFamilyItem();
     }
     ```
-Selecteer **F5** om de toepassing uit te voeren.
+   Selecteer **F5** om de toepassing uit te voeren.
 
 Gefeliciteerd! U hebt een Azure Cosmos DB-item vervangen.
 

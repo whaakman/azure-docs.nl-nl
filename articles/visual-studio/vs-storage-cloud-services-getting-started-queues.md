@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: eb924bcfe3e2545cf6666a19bbb3494c11bc3a48
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 28a7de1b43d793641237197aea841022996b07e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057576"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994038"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Aan de slag met Azure Queue storage en Visual Studio verbonden services (cloudserviceprojecten)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -32,7 +32,7 @@ De **Connected Services toevoegen** bewerking installeert de juiste NuGet-pakket
 * Zie [aan de slag met Azure Queue storage met .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) voor meer informatie over het bewerken van wachtrijen in de code.
 * Zie [documentatie voor Storage](https://azure.microsoft.com/documentation/services/storage/) voor algemene informatie over Azure Storage.
 * Zie [documentatie voor Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/) voor algemene informatie over Azure-cloudservices.
-* Zie [ASP.NET](http://www.asp.net) voor meer informatie over het programmeren van ASP.NET-toepassingen.
+* Zie [ASP.NET](https://www.asp.net) voor meer informatie over het programmeren van ASP.NET-toepassingen.
 
 Azure Queue Storage is een service voor de opslag van grote aantallen berichten die via HTTP of HTTPS overal vandaan kunnen worden opgevraagd met geverifieerde aanroepen. Een enkel wachtrijbericht mag maximaal 64 KB groot zijn en een wachtrij kan miljoenen berichten bevatten, tot de totale capaciteitslimiet van een opslagaccount.
 
@@ -57,7 +57,7 @@ Voor toegang tot wachtrijen in Visual Studio Cloud Services-projecten, moet u de
         // Get a reference to a queue named "messageQueue"
         CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**Opmerking:** alle van de bovenstaande code voor de code in de volgende voorbeelden gebruiken.
+**OPMERKING:** Alle bovenstaande code voor de code in de volgende voorbeelden gebruiken.
 
 ## <a name="create-a-queue-in-code"></a>Een wachtrij in code maken
 Voor het maken van de wachtrij in de code, Voeg alleen een aanroep naar **CreateIfNotExists**.

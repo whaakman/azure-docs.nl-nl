@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888955"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002683"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Voorbeeld van de Azure-infrastructuur-overzicht voor het Linux-VM 's
 Dit artikel helpt bij het bouwen van de infrastructuur van een voorbeeld van de toepassing. We informatie over het ontwerpen van een infrastructuur voor een eenvoudige online winkel die de richtlijnen en besluiten over naamconventies, beschikbaarheidssets, virtuele netwerken en taakverdelers combineert en distribueren van uw virtuele machines (VM's).
@@ -54,14 +54,14 @@ Alle bovenstaande voldoen aan deze naamgeving:
 
 * Adventure Works Cycles gebruikt **[IT werkbelasting]-[location]-[Azure-resource]** als voorvoegsel
   * In dit voorbeeld '**azos**"(Azure Online Store) is de naam van de workload IT en"**gebruiken**' (VS-Oost 2) is de locatie
-* Virtuele netwerken gebruiken AZOS-USE-VN **[aantal]**
+* Virtuele netwerken gebruiken AZOS-USE-VN<strong>[aantal]</strong>
 * Beschikbaarheidssets gebruiken azos-gebruiken-als-**[rol]**
 * Namen van virtuele machines gebruiken azos-gebruiken-vm -**[vmname]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Azure-abonnementen en accounts
 Adventure Works Cycles maakt gebruik van de Enterprise-abonnement, met de naam van Adventure Works Enterprise-abonnement voor facturering voor deze workload IT.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 Adventure Works Cycles bepaald dat ze Azure Managed Disks te gebruiken. Bij het maken van virtuele machines, worden beide opslaglagen van de beschikbare opslagruimte gebruikt:
 
 * **Standard-opslag** voor de webservers, toepassingsservers, en domeincontrollers en hun gegevensschijven.

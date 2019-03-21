@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ea17db9af92887ff775e580224b66fed22c65d41
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 1d6e233509b50f0b03678f2e62267169d02133a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963859"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990771"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Overzicht van Azure App Service lokale Cache
 
@@ -35,7 +35,7 @@ Azure App Service-inhoud wordt opgeslagen in Azure Storage en omhoog in een duur
 * De inhoud wordt gedeeld tussen meerdere exemplaren van de virtuele machine (VM) van de app.
 * De inhoud, duurzaam en kan worden gewijzigd door het uitvoeren van apps.
 * Logboekbestanden en diagnostische gegevensbestanden zijn beschikbaar onder de map met dezelfde gedeelde inhoud.
-* De map met inhoud publiceren van nieuwe inhoud rechtstreeks worden bijgewerkt. U kunt dezelfde inhoud via de SCM-website en de uitvoering onmiddellijk weergeven app (doorgaans sommige technologieën zoals ASP.NET een app opnieuw opstarten initiëren op sommige bestandswijzigingen om op te halen van de meest recente inhoud).
+* De map met inhoud publiceren van nieuwe inhoud rechtstreeks worden bijgewerkt. U kunt dezelfde inhoud via de SCM-website en de uitvoering onmiddellijk weergeven app (doorgaans sommige technologieën zoals ASP.NET app opnieuw opstarten initiëren op sommige bestandswijzigingen om op te halen van de meest recente inhoud).
 
 Veel apps gebruiken een of meer van deze functies, hoeft sommige apps alleen een krachtige, alleen-lezen store voor inhoud die ze kunnen worden uitgevoerd vanaf met hoge beschikbaarheid. Deze apps kunnen profiteren van een VM-exemplaar van een specifieke lokale cache.
 
@@ -59,7 +59,7 @@ De functie van de lokale Cache van Azure App Service biedt een webweergave van d
 ## <a name="enable-local-cache-in-app-service"></a>Lokale Cache in App Service inschakelen
 U configureren lokale Cache met behulp van een combinatie van gereserveerde app-instellingen. U kunt deze appinstellingen configureren met behulp van de volgende methoden:
 
-* [Azure Portal](#Configure-Local-Cache-Portal)
+* [Azure-portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Lokale Cache configureren met behulp van de Azure-portal

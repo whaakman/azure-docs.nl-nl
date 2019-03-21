@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
-ms.openlocfilehash: 1f26fb101c9940a51ffb4fb7e1b48a51b943599a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 938d1b820bbc85824138d77b81b0f922fd494d0d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663737"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003372"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Universele authenticatie met SQL-Database en SQL Data Warehouse (SSMS-ondersteuning voor MFA)
 Azure SQL Database en Azure SQL Data Warehouse ondersteunt verbindingen van het gebruik van SQL Server Management Studio (SSMS) *Universal verificatie van Active Directory*. 
@@ -46,7 +46,7 @@ Azure AD-gebruikers ondersteund voor Azure AD B2B-scenario's als gastgebruikers 
 - SSMS versie 17,2 biedt DacFx Wizard ondersteuning voor exporteren/Extract/implementeren Data database. Wanneer een specifieke gebruiker wordt geverifieerd via het dialoogvenster voor initiële verificatie met behulp van universele authenticatie, de DacFx-Wizard functies dezelfde manier als dit het geval is voor alle andere verificatiemethoden te gebruiken.
 - De ontwerpfunctie SSMS biedt geen ondersteuning voor universele authenticatie.
 - Er zijn geen extra software-vereisten voor universele verificatie van Active Directory, behalve dat u moet een ondersteunde versie van SSMS gebruiken.  
-- De versie van de Active Directory Authentication Library (ADAL) voor universele authenticatie is bijgewerkt naar de nieuwste ADAL.dll 3.13.9 beschikbaar uitgebrachte versie. Zie [Active Directory Authentication Library 3.14.1](http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
+- De versie van de Active Directory Authentication Library (ADAL) voor universele authenticatie is bijgewerkt naar de nieuwste ADAL.dll 3.13.9 beschikbaar uitgebrachte versie. Zie [Active Directory Authentication Library 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62927e78b8f1a771de74c0f9215a7bd946a46672
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d6c82d6a8cf2281ebd77c9880903f8f20505f52c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199592"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901141"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Zelfstudie: Azure Active Directory-integratie met Bonusly
 
@@ -205,21 +205,21 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij Bonusly, moeten ze worden 
 
 1. Klik op **gebruikers beheren**.
    
-    ![Gebruikers beheren](./media/bonus-tutorial/ic781043.png "gebruikers beheren")
+    ![Gebruikers beheren](./media/bonus-tutorial/ic781043.png "Gebruikers beheren")
 
 1. Klik op **Add User**.
    
     ![Gebruiker toevoegen](./media/bonus-tutorial/ic781044.png "Gebruiker toevoegen")
 
-1. Op de **gebruiker toevoegen** dialoogvenster, voer de volgende stappen uit:
+1. Voer in het dialoogvenster **Add User** de volgende stappen uit:
    
     ![Gebruiker toevoegen](./media/bonus-tutorial/ic781045.png "Gebruiker toevoegen")  
 
-    a. In de **voornaam** tekstvak, geef de voornaam van de gebruiker, zoals **Julia**.
+    a. Voer in het tekstvak **First name** de voornaam van de gebruiker in, zoals **Britta**.
 
-    b. In de **achternaam** tekstvak, geef de achternaam van de gebruiker, zoals **Simon**.
+    b. Voer in het tekstvak **Last name** de achternaam van de gebruiker in, zoals **Simon**.
  
-    c. Voer in het tekstvak **Email** het e-mailadres van de gebruiker in, bijvoorbeeld **brittasimon@contoso.com**.
+    c. In de **e** tekstvak, voer het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
 
     d. Klik op **Opslaan**.
    
@@ -265,7 +265,7 @@ Wanneer u klikt op de tegel Bonusly in het toegangsvenster, u moet u automatisch
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

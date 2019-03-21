@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937f53ecd60d6bbcc8fbd02f978974ac34f77c00
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bec4385b77ce44e87ed1f947a5a7a3e3d0d52fc6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442011"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101360"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Uw organisatie aanmelden bij Azure Active Directory gebruiken
 Meld u aan voor Azure Active Directory (Azure AD) of een nieuw Microsoft Azure-abonnement, met behulp van:
@@ -27,8 +27,8 @@ Meld u aan voor Azure Active Directory (Azure AD) of een nieuw Microsoft Azure-a
 
 - **Account voor werk of school.** Gebruik uw werk- of schoolgerelateerde account om toegang tot alle klein, middelgroot en enterprise cloudservices van Microsoft, zoals Azure, Microsoft Intune of Office 365. Nadat u zich registreert voor een van deze services als een organisatie, wordt in Azure AD automatisch een cloudgebaseerde directory die aansluit bij uw organisatie inricht. Zie voor meer informatie, [beheren van uw Azure AD-directory](active-directory-administer.md).
 
-    >[!Note]
-    U wordt aangeraden dat u uw werk- of schoolaccount als u al toegang tot Azure AD hebt. U moet echter gebruiken wat voor soort account is gekoppeld aan uw Azure-abonnement.
+  > [!Note]
+  >   U wordt aangeraden dat u uw werk- of schoolaccount als u al toegang tot Azure AD hebt. U moet echter gebruiken wat voor soort account is gekoppeld aan uw Azure-abonnement.
 
 ## <a name="next-steps"></a>Volgende stappen
 

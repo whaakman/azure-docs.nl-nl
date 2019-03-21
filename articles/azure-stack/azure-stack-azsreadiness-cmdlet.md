@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 63de39fa97850c1df72bdcd964ed670e4e8b0608
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0b75085754a66fabf07076282c977acd7f10a556
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992322"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet-verwijzing
 
@@ -299,6 +299,7 @@ In dit voorbeeld wordt met het team implementatie of ondersteuning voor het rapp
 > -RegionName
 
 Hiermee geeft u de naam van de Azure Stack-implementatie de regio.
+
 |  |  |
 |----------------------------|--------------|
 |Type:                       |String        |
@@ -310,6 +311,7 @@ Hiermee geeft u de naam van de Azure Stack-implementatie de regio.
 > -FQDN
 
 Hiermee geeft u de Azure Stack-implementatie externe FQDN, ook de alias als ExternalFQDN en ExternalDomainName.
+
 |  |  |
 |----------------------------|--------------|
 |Type:                       |String        |
@@ -321,6 +323,7 @@ Hiermee geeft u de Azure Stack-implementatie externe FQDN, ook de alias als Exte
 > -IdentitySystem
 
 Hiermee geeft u de Azure Stack-implementatie Identiteitssysteem geldige waarden, AAD of ADFS, voor Azure Active Directory en Active Directory Federated Services respectievelijk.
+
 |  |  |
 |----------------------------|--------------|
 |Type:                       |String        |
@@ -333,6 +336,7 @@ Hiermee geeft u de Azure Stack-implementatie Identiteitssysteem geldige waarden,
 > -PfxPassword
 
 Hiermee geeft u het wachtwoord dat is gekoppeld aan de certificaat-PFX-bestanden.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |SecureString |
@@ -344,6 +348,7 @@ Hiermee geeft u het wachtwoord dat is gekoppeld aan de certificaat-PFX-bestanden
 > -PaaSCertificates
 
 Hiermee geeft u de hash-tabel met paden en wachtwoorden voor PaaS-certificaten.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |Hash-tabel |
@@ -355,6 +360,7 @@ Hiermee geeft u de hash-tabel met paden en wachtwoorden voor PaaS-certificaten.
 > -DeploymentDataJSONPath
 
 Hiermee geeft u de Azure Stack-implementatie gegevens JSON-configuratiebestand. Dit bestand is gegenereerd voor de implementatie.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -366,6 +372,7 @@ Hiermee geeft u de Azure Stack-implementatie gegevens JSON-configuratiebestand. 
 > -PfxPath
 
 Hiermee geeft u het pad naar een problematische certificaat dat is vereist voor importeren/exporteren routine om op te lossen, zoals aangegeven door de certificaatvalidatie van het in dit hulpprogramma.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -377,6 +384,7 @@ Hiermee geeft u het pad naar een problematische certificaat dat is vereist voor 
 > -ExportPFXPath  
 
 Hiermee geeft u het doelpad voor het resulterende PFX-bestand van import/export-routine.  
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -388,6 +396,7 @@ Hiermee geeft u het doelpad voor het resulterende PFX-bestand van import/export-
 > -Onderwerp
 
 Hiermee geeft u een geordende woordenlijst van het onderwerp voor het genereren van de aanvraag van het certificaat.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |OrderedDictionary   |
@@ -415,6 +424,7 @@ Hiermee geeft u de SAN-type van de certificaataanvraag. Geldige waarden Multiple
 > -OutputRequestPath
 
 Hiermee geeft u het doelpad voor aanvraag certificaatbestanden, map moet bestaan.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -426,6 +436,7 @@ Hiermee geeft u het doelpad voor aanvraag certificaatbestanden, map moet bestaan
 > -AADServiceAdministrator
 
 Hiermee geeft u een beheerder van Azure Active Directory Service moet worden gebruikt voor Azure Stack-implementatie.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |PSCredential   |
@@ -437,6 +448,7 @@ Hiermee geeft u een beheerder van Azure Active Directory Service moet worden geb
 > -AADDirectoryTenantName
 
 Hiermee geeft u de Azure Active Directory-naam moet worden gebruikt voor Azure Stack-implementatie.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -448,6 +460,7 @@ Hiermee geeft u de Azure Active Directory-naam moet worden gebruikt voor Azure S
 > -AzureEnvironment
 
 Hiermee geeft u het exemplaar van Azure-Services met de accounts, mappen en abonnementen worden gebruikt voor Azure Stack-implementatie en de registratie.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -460,6 +473,7 @@ Hiermee geeft u het exemplaar van Azure-Services met de accounts, mappen en abon
 > -RegistrationAccount
 
 Hiermee geeft u de registratie-Account moet worden gebruikt voor registratie in Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -471,6 +485,7 @@ Hiermee geeft u de registratie-Account moet worden gebruikt voor registratie in 
 > -RegistrationSubscriptionID
 
 Hiermee geeft u de registratie abonnements-ID moet worden gebruikt voor registratie in Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |Guid     |
@@ -482,6 +497,7 @@ Hiermee geeft u de registratie abonnements-ID moet worden gebruikt voor registra
 > -ReportPath
 
 Hiermee geeft u pad voor gereedheid rapport, standaard ingesteld op de huidige map en de standaard rapportnaam.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -527,6 +543,7 @@ Hiermee geeft u als PaaS-services/hostnamen moeten worden toegevoegd aan het cer
 > -ReportSections
 
 Hiermee geeft u op of het rapport alleen samenvatting weergeven Details weggelaten.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -539,6 +556,7 @@ Hiermee geeft u op of het rapport alleen samenvatting weergeven Details weggelat
 > -Overzicht
 
 Hiermee geeft u op of het rapport alleen samenvatting weergeven Details weggelaten.
+
 |  |  |
 |----------------------------|------------------|
 |Type:                       |SwitchParameter   |
@@ -550,6 +568,7 @@ Hiermee geeft u op of het rapport alleen samenvatting weergeven Details weggelat
 > -CleanReport
 
 Hiermee verwijdert u de vorige uitvoering en validatie geschiedenis en validaties schrijft naar een nieuw rapport.
+
 |  |  |
 |----------------------------|------------------|
 |Type:                       |SwitchParameter   |
@@ -574,6 +593,7 @@ Hiermee geeft u een aangepast pad om op te slaan van de gereedheid van de JSON-r
 > -Controleer of
 
 Als u wordt gevraagd om bevestiging voordat u de cmdlet uitvoert.
+
 |  |  |
 |----------------------------|------------------|
 |Type:                       |SwitchParameter   |
@@ -586,6 +606,7 @@ Als u wordt gevraagd om bevestiging voordat u de cmdlet uitvoert.
 > -WhatIf
 
 Geeft aan wat er gebeuren zou als de cmdlet wordt uitgevoerd. De cmdlet wordt niet uitgevoerd.
+
 |  |  |
 |----------------------------|------------------|
 |Type:                       |SwitchParameter   |
@@ -594,3 +615,4 @@ Geeft aan wat er gebeuren zou als de cmdlet wordt uitgevoerd. De cmdlet wordt ni
 |Standaardwaarde:              |False             |
 |Pijpleidinginvoer accepteren:      |False             |
 |Jokertekens accepteren: |False             |
+

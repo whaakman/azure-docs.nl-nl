@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 03/06/2019
-ms.openlocfilehash: 2f615214fb7b77614054841af7972eb814525dee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 03/13/2019
+ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549915"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903127"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -477,7 +477,11 @@ De volgende variabelen, taken en weergaven kunt u verschillende resultaten retou
 
 ### <a name="tempdb-size"></a>Grootte van TEMPDB
 
-`tempdb` is opgesplitst in 12 bestanden met de maximale grootte van 14 GB per bestand. Deze maximale grootte per bestand kan niet worden gewijzigd en nieuwe bestanden kunnen worden toegevoegd aan `tempdb`. Deze beperking wordt binnenkort verwijderd. Aantal query's mogelijk een fout geretourneerd als ze nodig hebben meer dan 168 GB in `tempdb`.
+Maximale bestandsgrootte van `tempdb` mag niet gelijk dan 24 GB/core in de categorie Algemeen gebruik. Maximale `tempdb` grootte op laag bedrijfskritiek is beperkt met de grootte van de instantie. `tempdb` altijd wordt naar 12 gegevensbestanden gesplitst. Deze maximale grootte per bestand kan niet worden gewijzigd en nieuwe bestanden kunnen worden toegevoegd aan `tempdb`. Aantal query's mogelijk een fout geretourneerd als ze nodig hebben meer dan 24GB / kern `tempdb`.
+
+### <a name="cannot-restore-contained-database"></a>Kan de ingesloten database niet herstellen.
+
+Beheerd exemplaar kan niet worden hersteld [ingesloten databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time-terugzetten van de bestaande ingesloten databases werken niet in het beheerde exemplaar. Dit probleem wordt binnenkort verwijderd en in de tussentijd wordt aangeraden containment-optie verwijderen uit uw databases die worden geplaatst in het beheerde exemplaar en gebruik geen containment-optie voor de productiedatabases.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Meer dan opslagruimte met kleine databasebestanden
 
@@ -510,7 +514,7 @@ Verschillende systeemweergaven, prestatiemeteritems, foutberichten, XEvents en f
 
 ### <a name="database-mail-profile"></a>Database-e-mailprofiel
 
-Er mag slechts één database-e-mailprofiel en moet worden aangeroepen `AzureManagedInstance_dbmail_profile`.
+Het database-e-mailprofiel gebruikt door SQL-Agent moet worden aangeroepen `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>Foutenlogboeken zijn niet-persistente
 
@@ -524,7 +528,7 @@ Een beheerd exemplaar plaatst uitgebreide informatie in de foutenlogboeken en ve
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>Transactie-Scope op twee databases binnen dezelfde instantie wordt niet ondersteund
 
-`TransactionScope` klasse in .net werkt niet als de twee query's worden verzonden naar de twee databases binnen hetzelfde exemplaar onder de dezelfde transactie:
+`TransactionScope` klasse in .NET werkt niet als de twee query's worden verzonden naar de twee databases binnen hetzelfde exemplaar onder de dezelfde transactie:
 
 ```C#
 using (var scope = new TransactionScope())

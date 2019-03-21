@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: fe0e325543d245e4415fea925fcdade32eb00614
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570501"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259921"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Verificatie van Azure Maps beheren
 
@@ -32,7 +32,7 @@ De verificatie-informatie vindt u in Azure portal. Ga naar uw account en selecte
 
 Nadat u een Azure kaarten-account hebt gemaakt, moet u een koppeling tussen uw Azure AD-tenant en de bron van de Azure-kaarten.
 
-1. Ga naar de blade Azure AD en maak een app-registratie. Geef een naam voor de registratie. In de **aanmeldings-URL** geeft u de startpagina van de web-app / API (bijvoorbeeld https://localhost/). Als u al een geregistreerde app hebt, gaat u naar stap 2.
+1. Ga naar de blade Azure AD en maak een app-registratie. Geef een naam voor de registratie. In de **aanmeldings-URL** geeft u de startpagina van de web-app / API (bijvoorbeeld https:\//localhost/). Als u al een geregistreerde app hebt, gaat u naar stap 2.
 
     ![App-registratie](./media/how-to-manage-authentication/app-registration.png)
 

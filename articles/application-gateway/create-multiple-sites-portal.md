@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 58f448646efc4cac9298d5dc4ec7a99e0e39bddc
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080164"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Maken en configureren van een toepassingsgateway voor het hosten van meerdere websites met behulp van de Azure-portal
 
@@ -44,20 +44,20 @@ U hebt een virtueel netwerk nodig voor communicatie tussen de resources die u ma
 2. Selecteer **Netwerken** en vervolgens **Application Gateway** in de lijst Aanbevolen.
 3. Voer deze waarden in voor de toepassingsgateway:
 
-    - *myAppGateway* als de naam van de toepassingsgateway.
-    - *myResourceGroupAG* als de nieuwe resourcegroep.
+   - *myAppGateway* als de naam van de toepassingsgateway.
+   - *myResourceGroupAG* als de nieuwe resourcegroep.
 
-    ![Nieuwe toepassingsgateway maken](./media/create-multiple-sites-portal/application-gateway-create.png)
+     ![Nieuwe toepassingsgateway maken](./media/create-multiple-sites-portal/application-gateway-create.png)
 
 4. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
 5. Klik op **Een virtueel netwerk kiezen**, klik op **Nieuw maken** en voer deze waarden in voor het virtuele netwerk:
 
-    - *myVnet* als de naam van het virtuele netwerk.
-    - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
-    - *myAGSubnet* als de naam van het subnet.
-    - *10.0.0.0/24* als de adresruimte van het subnet.
+   - *myVnet* als de naam van het virtuele netwerk.
+   - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
+   - *myAGSubnet* als de naam van het subnet.
+   - *10.0.0.0/24* als de adresruimte van het subnet.
 
-    ![Virtueel netwerk maken](./media/create-multiple-sites-portal/application-gateway-vnet.png)
+     ![Virtueel netwerk maken](./media/create-multiple-sites-portal/application-gateway-vnet.png)
 
 6. Klik op **OK** om het virtuele netwerk en subnet te maken.
 7. Klik op **een openbaar IP-adres kiezen**, klikt u op **nieuw**, en voer de naam van het openbare IP-adres. In dit voorbeeld is de naam van het openbare IP-adres *myAGPublicIPAddress*. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
@@ -134,8 +134,8 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 1. Klik op **Listeners** en klik vervolgens op **multi-site**.
 2. Voer deze waarden in voor de listener:
     
-    - *contosoListener* : voor de naam van de listener.
-    - *www.contoso.com* -in dit voorbeeld host-naam vervangen door de domeinnaam van uw.
+   - *contosoListener* : voor de naam van de listener.
+   - *www.contoso.com* -in dit voorbeeld host-naam vervangen door de domeinnaam van uw.
 
 3. Klik op **OK**.
 4. Maak een tweede listener met de naam van *fabrikamListener* en de naam van het tweede domein gebruiken. In dit voorbeeld *www.fabrikam.com* wordt gebruikt.

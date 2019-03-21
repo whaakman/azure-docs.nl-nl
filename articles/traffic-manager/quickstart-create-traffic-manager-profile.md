@@ -2,7 +2,7 @@
 title: 'Snelstart: een Traffic Manager-profiel maken voor toepassingen met hoge beschikbaarheid in de Azure-portal'
 description: In dit snelstartartikel wordt beschreven hoe u een Traffic Manager-profiel maakt voor het bouwen van webtoepassingen met hoge beschikbaarheid.
 services: traffic-manager
-dauthor: kumudd
+author: KumudD
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.openlocfilehash: f24bcebb04c3cb17b5e0420695504541c54e88f3
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 2cd8830f4b2b7c972ba8972e686be984bb96fd04
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198216"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760661"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Quickstart: Een Traffic Manager-profiel maken voor webtoepassingen met hoge beschikbaarheid
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Quickstart: Een Traffic Manager-profiel maken met de Azure-portal
 
 In deze quickstart wordt beschreven hoe u een Traffic Manager-profiel maakt die hoge beschikbaarheid van uw webtoepassing biedt.
 
@@ -37,7 +37,7 @@ Voor deze quickstart moeten twee exemplaren van een webtoepassing worden geïmpl
 1. Selecteer **Een resource maken** > **Web** > **Web-app** linksboven in het scherm.
 2. Voer de volgende instellingen in **Web-app** in (of selecteer ze):
 
-    | Instelling | Waarde |
+    | Instelling | Value |
     | ------- | ----- |
     | Naam van app | Voer een unieke naam voor de web-app in.  |
     | Abonnement | Selecteer het abonnement waarop de web-app moet worden toegepast. |
@@ -49,7 +49,7 @@ Voor deze quickstart moeten twee exemplaren van een webtoepassing worden geïmpl
 4. Selecteer in **App Service-plan** de optie **Nieuwe maken**.
 5. Voer in **Nieuw App Service-plan** de volgende instellingen in (of selecteer ze):
 
-    | Instelling | Waarde |
+    | Instelling | Value |
     | ------- | ----- |
     | App Service-plan | Voer *myAppServicePlanEastUS* in. |
     | Locatie | US - oost |
@@ -63,7 +63,7 @@ Voor deze quickstart moeten twee exemplaren van een webtoepassing worden geïmpl
 
     | Instelling | Waarde |
     | --------| ----- |
-    | Naam | Voer een unieke naam voor de web-app in. |
+    | Name | Voer een unieke naam voor de web-app in. |
     | Abonnement | Selecteer het abonnement waarop de web-app moet worden toegepast. |
     | Resourcegroep | Selecteer **Nieuwe maken** en voer *myResourceGroupTM2* in. |
     | OS | Selecteer **Windows** als uw besturingssysteem. |
@@ -81,7 +81,7 @@ Maak een Traffic Manager-profiel waarmee gebruikersverkeer wordt doorgestuurd op
 
     | Instelling | Waarde |
     | --------| ----- |
-    | Naam | Voer een unieke naam in voor uw Traffic Manager-profiel.|
+    | Name | Voer een unieke naam in voor uw Traffic Manager-profiel.|
     | Routeringsmethode | Selecteer **Prioriteit**.|
     | Abonnement | Selecteer het abonnement waarop u het Traffic Manager-profiel wilt toepassen. |
     | Resourcegroep | Selecteer *myResourceGroupTM1*.|
@@ -101,7 +101,7 @@ Voeg de website in *US - oost* toe als primair eindpunt om alle gebruikersverkee
     | Instelling | Waarde |
     | ------- | ------|
     | Type | Selecteer **Azure-eindpunt**. |
-    | Naam | Voer *myPrimaryEndpoint* in. |
+    | Name | Voer *myPrimaryEndpoint* in. |
     | Doelbrontype | Selecteer **App Service**. |
     | Doelbron | Selecteer **Choose an app service** > **US - oost**. |
     | Prioriteit | Selecteer **1**. Alle verkeer gaat naar dit eindpunt indien het in orde is. |
@@ -114,7 +114,7 @@ Voeg de website in *US - oost* toe als primair eindpunt om alle gebruikersverkee
     | Instelling | Waarde |
     | ------- | ------|
     | Type | Selecteer **Azure-eindpunt**. |
-    | Naam | Voer*myFailoverEndpoint* in. |
+    | Name | Voer*myFailoverEndpoint* in. |
     | Doelbrontype | Selecteer **App Service**. |
     | Doelbron | Selecteer **Choose an app service** > **Europa - west**. |
     | Prioriteit | Selecteer **2**. Alle verkeer gaat naar dit failover-eindpunt als het primaire eindpunt niet in orde is. |

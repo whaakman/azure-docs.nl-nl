@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 389578cb45977890645020fe7fcd6c69c08c41f5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fae790f9b2d5ecc492f7ece5d259809e8664898d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694248"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991879"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Door de community voorgestelde externe VPN- of firewallinstellingen apparaatinstellingen voor Azure VPN-gateway
 
@@ -40,7 +40,7 @@ De volgende tabel bevat enkele veelgebruikte apparaten en verwante Help-onderwer
 |Cisco ASR  |[Community voorgestelde oplossingen voor Cisco ASR op Azure VPN](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
 |Sonicwall |Zoeken naar **Azure VPN** op [Sonicwall-site](https://www.sonicwall.com/en-us/support) |
 | Check Point    |Zoeken naar **Azure VPN** op [controlepunt-site](https://supportcenter.checkpoint.com/supportcenter/portal) |
-|Juniper |Zoeken naar **Azure VPN** op [Juniper-site]( http://www.juniper.net/search/public/)|
+|Juniper |Zoeken naar **Azure VPN** op [Juniper-site]( https://www.juniper.net/search/public/)|
 |Barracuda  |[Community voorgestelde oplossingen van Barracuda op Azure VPN](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |
 |F5         |[Community voorgestelde oplossingen voor F5 op Azure VPN](https://support.f5.com/csp/#/federated-search?q=%22Azure%20VPN%22&source=support)          |
 |Palo       |[Community voorgestelde oplossingen voor Palo op Azure VPN](https://live.paloaltonetworks.com/t5/forums/searchpage/tab/message?q=Azure+VPN)        |

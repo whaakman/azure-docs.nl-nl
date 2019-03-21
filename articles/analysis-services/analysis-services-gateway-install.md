@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190371"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110865"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installeren en configureren van een on-premises gegevensgateway
 
@@ -23,7 +23,7 @@ Een on-premises gegevensgateway is vereist wanneer een of meer Azure Analysis Se
 
 **Minimale vereisten:**
 
-* .NET 4.5 framework
+* .NET 4.5 Framework
 * 64-bits versie van Windows 7 / Windows Server 2008 R2 (of hoger)
 
 **Aanbevolen:**
@@ -90,19 +90,19 @@ Nadat u hebt geïnstalleerd en geregistreerd van de gateway, moet u een gateway-
 
 2. In **verbindingsgateway maken**, voer de volgende instellingen:
 
-    * **Naam**: Voer een naam voor uw gateway. 
+   * **Naam**: Voer een naam voor uw gateway. 
 
-    * **Abonnement**: Selecteer het Azure-abonnement koppelen aan uw gateway-resource. 
+   * **Abonnement**: Selecteer het Azure-abonnement koppelen aan uw gateway-resource. 
    
-      Het standaardabonnement is gebaseerd op het Azure-account waarmee u zich aanmeldt.
+     Het standaardabonnement is gebaseerd op het Azure-account waarmee u zich aanmeldt.
 
-    * **Resourcegroep**: Maak een resourcegroep of selecteer een bestaande resourcegroep.
+   * **Resourcegroep**: Maak een resourcegroep of selecteer een bestaande resourcegroep.
 
-    * **Locatie**: Selecteer de regio die u hebt uw gateway in geregistreerd.
+   * **Locatie**: Selecteer de regio die u hebt uw gateway in geregistreerd.
 
-    * **De Installatienaam van de**: Als de gatewayinstallatie is niet nog is geselecteerd, selecteert u de gateway die is geregistreerd. 
+   * **De Installatienaam van de**: Als de gatewayinstallatie is niet nog is geselecteerd, selecteert u de gateway die is geregistreerd. 
 
-    Wanneer u klaar bent, klikt u op **maken**.
+     Wanneer u klaar bent, klikt u op **maken**.
 
 ## <a name="connect-servers"></a>Servers verbinden met de gateway-resource
 

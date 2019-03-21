@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: dea0a38b1f543fbb17cb0cd98ee4f96144d07f4e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8f24bab531143cad1974663eb71b173a20b6f51a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432895"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287176"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uw datawarehouse een upgrade uitvoert naar Gen2
 
@@ -43,8 +43,8 @@ De volgende tabel geeft een overzicht van per regio als de lagere Gen2 compute-l
 | China - noord |\* |\* |
 | China - noord 2 |\* |\* |
 | Azië - oost |Beschikbaar |1 mei 2019 |
-| US - oost |Beschikbaar |2 april 2019 |
-| US - oost 2 |Beschikbaar |2 april 2019 |
+| US - oost |Beschikbaar |1 mei 2019 |
+| US - oost 2 |Beschikbaar |Op 1 mei. 2019 |
 | Frankrijk - centraal |\* |\* |
 | Duitsland - centraal |\* |\* |
 | Duitsland - west-centraal |1 september 2019|2 januari 2020 |
@@ -55,15 +55,15 @@ De volgende tabel geeft een overzicht van per regio als de lagere Gen2 compute-l
 | Korea - centraal |2 april 2019 |1 mei 2019 |
 | Korea - zuid |2 april 2019 |1 juni 2019 |
 | US - noord-centraal |2 april 2019 |1 juni 2019 |
-| Europa - noord |Beschikbaar |2 april 2019 |
+| Europa - noord |Beschikbaar |1 mei 2019 |
 | US - zuid-centraal |Beschikbaar |1 mei 2019 |
-| Azië - zuidoost |Beschikbaar |2 april 2019 |
+| Azië - zuidoost |Beschikbaar |1 mei 2019 |
 | Verenigd Koninkrijk Zuid |2 april 2019 |1 mei 2019 |
 | Verenigd Koninkrijk West |\*|\* |
 | US - west-centraal |2 september 2019 |2 januari 2020|
-| Europa -west |Beschikbaar |2 april 2019 |
+| Europa -west |Beschikbaar |1 mei 2019 |
 | US - west |2 april 2019 |1 juni 2019 |
-| US - west 2 |Beschikbaar |2 april 2019 |
+| US - west 2 |Beschikbaar |1 mei 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Automatische upgradeproces
 

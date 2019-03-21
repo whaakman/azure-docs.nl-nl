@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 2ed9598ecfb45323505e8527cfb3ab9fe7d8b58e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1f6edd871d6815dab93bf9e8d582b0cb1ba6c78f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109236"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -173,7 +173,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
    ```
    Zie voor meer informatie over de cmdlet Set-AzsRegistration [registratie verwijzing](#registration-reference).
 
-  Het proces duurt tussen 10 en 15 minuten. Wanneer de opdracht is voltooid, ziet u het bericht **'uw omgeving is nu geregistreerd en geactiveerd met behulp van de opgegeven parameters.'**
+   Het proces duurt tussen 10 en 15 minuten. Wanneer de opdracht is voltooid, ziet u het bericht **'uw omgeving is nu geregistreerd en geactiveerd met behulp van de opgegeven parameters.'**
 
 ## <a name="register-connected-with-capacity-billing"></a>Verbonden zijn met capaciteit facturering registreren
 
@@ -210,20 +210,20 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
 
 5. PowerShell ISE starten als beheerder en navigeer naar de **registratie** map in de **AzureStack-hulpprogramma's-master** directory gemaakt wanneer u de hulpprogramma's voor Azure Stack hebt gedownload. Importeren van de **RegisterWithAzure.psm1** module met behulp van PowerShell:
 
-  ```PowerShell  
-  $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
-  $RegistrationName = "<unique-registration-name>"
-  Set-AzsRegistration `
+   ```PowerShell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
       -BillingModel Capacity `
       -RegistrationName $RegistrationName
-  ```
+   ```
    > [!Note]  
    > U kunt uitschakelen voor gebruiksrapporten met de parameter UsageReportingEnabled voor de **Set AzsRegistration** cmdlet door de parameter op onwaar. 
    
-  Zie voor meer informatie over de cmdlet Set-AzsRegistration [registratie verwijzing](#registration-reference).
+   Zie voor meer informatie over de cmdlet Set-AzsRegistration [registratie verwijzing](#registration-reference).
 
 ## <a name="register-disconnected-with-capacity-billing"></a>Niet-verbonden met een capaciteit facturering registreren
 

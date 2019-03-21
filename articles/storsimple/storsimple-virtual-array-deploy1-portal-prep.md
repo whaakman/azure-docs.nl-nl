@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244780"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088703"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple Virtual Array implementeren - Azure portal voorbereiden
 
@@ -155,15 +155,15 @@ Voer de volgende stappen uit in de [Azure-portal](https://ms.portal.azure.com/) 
 3. Klik op **Add**.
 4. In de **een storage-account toevoegen** blade, doet u het volgende:
    
-    1. Voor **abonnement**, selecteer **huidige**.
+   1. Voor **abonnement**, selecteer **huidige**.
    
-    2. Geef de naam van uw Azure storage-account.
+   2. Geef de naam van uw Azure storage-account.
    
-    3. Selecteer **inschakelen** te maken van een beveiligd kanaal voor netwerkcommunicatie tussen uw StorSimple-apparaat en de cloud. Selecteer **uitschakelen** alleen als u binnen een privécloud werkt.
+   3. Selecteer **inschakelen** te maken van een beveiligd kanaal voor netwerkcommunicatie tussen uw StorSimple-apparaat en de cloud. Selecteer **uitschakelen** alleen als u binnen een privécloud werkt.
    
-    4. Klik op **Add**. U krijgt een melding nadat het opslagaccount is gemaakt.<br></br>
+   4. Klik op **Add**. U krijgt een melding nadat het opslagaccount is gemaakt.<br></br>
    
-     ![Een bestaande opslagaccountreferentie toevoegen](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
+      ![Een bestaande opslagaccountreferentie toevoegen](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
 ## <a name="next-step"></a>Volgende stap
 

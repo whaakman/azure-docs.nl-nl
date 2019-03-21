@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: japere
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e35cc4d5500cdfda0af4e130928434af34b1497f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cad68afd02694ec471d032a554ed468691ff914b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449781"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105468"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Problemen oplossen met toegang tot en met behulp van de MyApps-portal
 
@@ -96,8 +96,8 @@ Als u de uitbreiding hebt geïnstalleerd en nog steeds problemen ondervindt, pro
 
 ## <a name="how-do-i-add-a-new-app"></a>Hoe kan ik een nieuwe app toevoegen
 
-1.  Op de **Apps** weergeeft, schakelt **App toevoegen**.
-2.  Zoek naar de app die u wilt toevoegen en selecteer vervolgens **toevoegen**.
+1. Op de **Apps** weergeeft, schakelt **App toevoegen**.
+2. Zoek naar de app die u wilt toevoegen en selecteer vervolgens **toevoegen**.
 
    > [!NOTE]
    > * U kunt toegang krijgen tot deze optie alleen als de beheerder deze heeft ingeschakeld voor uw account.

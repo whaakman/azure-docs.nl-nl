@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 03/19/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 846fc5de6470326fbd51d19397503e4eee2ee15b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7287dc2fccf461cf23c45202336e3d92bc5a40aa
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436082"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259700"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Uitvoeren van een SSIS-pakket met de activiteit uitvoeren van SSIS-pakket in Azure Data Factory
 In dit artikel wordt beschreven hoe u een SSIS-pakket in Azure Data Factory (ADF) pijplijn uitvoeren met behulp van de activiteit uitvoeren van SSIS-pakket. 
@@ -51,19 +51,19 @@ In deze stap maakt u ADF gebruikersinterface/app gebruiken om een pijplijn te ma
 
    ![Eigenschappen worden ingesteld op het tabblad Algemeen](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. Op de **instellingen** tabblad voor de activiteit SSIS-pakket uitvoeren, selecteert u uw Azure-SSIS-IR die is gekoppeld aan de SSISDB-database waar het pakket wordt geïmplementeerd. Als het pakket 32-bits-runtime om uit te voeren moet, controleert u de **32-bits-runtime** selectievakje. Voor **niveau van logboekregistratie**, selecteert u een vooraf gedefinieerde bereik van logboekregistratie voor de uitvoering van uw pakket. Controleer de **aangepaste** selectievakje, als u wilt de naam van uw aangepaste logboekregistratie in plaats daarvan opgeven. Als uw Azure-SSIS IR wordt uitgevoerd en de **handmatige invoer** selectievakje is uitgeschakeld, kunt u bladeren en selecteer uw bestaande mappen/projecten /-pakketten /-omgevingen in SSISDB. Klik op de **vernieuwen** knop ophalen van de zojuist toegevoegde mappen/projecten /-pakketten /-omgevingen van SSISDB, zodat ze beschikbaar voor het bladeren door en selecteren zijn. 
+4. Op de **instellingen** tabblad voor de activiteit SSIS-pakket uitvoeren, selecteert u uw Azure-SSIS-IR die is gekoppeld aan de SSISDB-database waar het pakket wordt geïmplementeerd. Als het pakket maakt gebruik van Windows-verificatie voor toegang tot gegevensarchieven, zoals SQL-Servers /-bestandsshares on-premises, Azure Files, enz., controleert u de **Windows-verificatie** selectievakje in en voer in het domein, de gebruikersnaam en het wachtwoord voor het pakket de uitvoering. Als het pakket 32-bits-runtime om uit te voeren moet, controleert u de **32-bits-runtime** selectievakje. Voor **niveau van logboekregistratie**, selecteert u een vooraf gedefinieerde bereik van logboekregistratie voor de uitvoering van uw pakket. Controleer de **aangepaste** selectievakje, als u wilt de naam van uw aangepaste logboekregistratie in plaats daarvan opgeven. Als uw Azure-SSIS IR wordt uitgevoerd en de **handmatige invoer** selectievakje is uitgeschakeld, kunt u bladeren en selecteer uw bestaande mappen/projecten /-pakketten /-omgevingen in SSISDB. Klik op de **vernieuwen** knop ophalen van de zojuist toegevoegde mappen/projecten /-pakketten /-omgevingen van SSISDB, zodat ze beschikbaar voor het bladeren door en selecteren zijn. 
 
    ![Eigenschappen worden ingesteld op het tabblad Instellingen - automatische](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   Wanneer uw Azure-SSIS IR wordt niet uitgevoerd of de **handmatige invoer** selectievakje is ingeschakeld, kunt u de paden van uw pakket en de omgeving van SSISDB invoeren in de volgende indelingen: `<folder name>/<project name>/<package name>.dtsx` en `<folder name>/<environment name>`.
+   Wanneer uw Azure-SSIS IR wordt niet uitgevoerd of de **handmatige invoer** selectievakje is ingeschakeld, kunt u de paden van uw pakket en de omgeving van SSISDB rechtstreeks in de volgende indelingen: `<folder name>/<project name>/<package name>.dtsx` en `<folder name>/<environment name>`.
 
    ![Eigenschappen worden ingesteld op het tabblad Instellingen - handleiding](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-5. Op de **SSIS Parameters** tabblad voor het uitvoeren van SSIS-pakket activiteit, wanneer uw Azure-SSIS IR wordt uitgevoerd en de **handmatige invoer** selectievakje op **instellingen** tabblad dit selectievakje uitschakelt, wordt de u kunt waarden toewijzen aan deze bestaande SSIS-parameters in de geselecteerde project/pakket van SSISDB weergegeven. Anders kunt u ze één voor één aan waarden handmatig aan hen toewijzen: Zorg ervoor dat ze bestaan en correct worden ingevoerd voor de uitvoering van uw pakket te voltooien. U kunt ook dynamische inhoud toevoegen aan hun waarden met behulp van expressies, functies, ADF systeemvariabelen en ADF pijplijn parameters/variabelen.
+5. Op de **SSIS Parameters** tabblad voor het uitvoeren van SSIS-pakket activiteit, wanneer uw Azure-SSIS IR wordt uitgevoerd en de **handmatige invoer** selectievakje op **instellingen** tabblad dit selectievakje uitschakelt, wordt de u kunt waarden toewijzen aan deze bestaande SSIS-parameters in de geselecteerde project/pakket van SSISDB weergegeven. Anders kunt u ze één voor één aan waarden handmatig aan hen toewijzen: Zorg ervoor dat ze bestaan en correct worden ingevoerd voor de uitvoering van uw pakket te voltooien. U kunt dynamische inhoud toevoegen aan hun waarden met behulp van expressies, functies, ADF systeemvariabelen en ADF pijplijn parameters/variabelen. U kunt ook geheimen die zijn opgeslagen in uw Azure Key Vault (AKV) als hun waarden gebruiken. Om dit te doen, klikt u op de **AZURE KEY VAULT** selectievakje naast de relevante parameter selecteren/bewerken van uw bestaande gekoppelde Azure Sleutelkluis-service of maak een nieuwe, en selecteer vervolgens de geheime naam/versie voor de parameterwaarde.  Wanneer u maken/bewerken uw AKV gekoppelde service, kunt u uw bestaande AKV selecteren/bewerken of maak een nieuwe, maar neem ADF beheerde identiteit toegang verlenen tot uw Azure-Sleutelkluis als u niet hebt gedaan, al. U kunt ook uw geheimen rechtstreeks in de volgende notatie invoeren: `<AKV linked service name>/<secret name>/<secret version>`.
 
    ![Eigenschappen worden ingesteld op het tabblad SSIS-Parameters](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. Op de **Connection Managers** tabblad voor het uitvoeren van SSIS-pakket activiteit, wanneer uw Azure-SSIS IR wordt uitgevoerd en de **handmatige invoer** selectievakje op **instellingen** tabblad is dit selectievakje uitschakelt, de bestaande verbinding managers in de geselecteerde project/pakket van SSISDB wordt weergegeven voor u waarden aan toewijzen. Anders kunt u ze één voor één aan waarden handmatig aan hen toewijzen: Zorg ervoor dat ze bestaan en correct worden ingevoerd voor de uitvoering van uw pakket te voltooien. U kunt ook dynamische inhoud toevoegen aan hun waarden met behulp van expressies, functies, ADF systeemvariabelen en ADF pijplijn parameters/variabelen.
+6. Op de **Connection Managers** tabblad voor het uitvoeren van SSIS-pakket activiteit, wanneer uw Azure-SSIS IR wordt uitgevoerd en de **handmatige invoer** selectievakje op **instellingen** tabblad is dit selectievakje uitschakelt, de bestaande verbinding managers in de geselecteerde project/pakket van SSISDB wordt voor u waarden wilt toewijzen aan de bijbehorende eigenschappen weergegeven. Anders kunt u ze één voor één aan waarden handmatig toewijzen aan hun eigenschappen: Zorg ervoor dat ze bestaan en correct worden ingevoerd voor de uitvoering van uw pakket te voltooien. U kunt dynamische inhoud toevoegen aan hun eigenschapswaarden met behulp van expressies, functies, ADF systeemvariabelen en ADF pijplijn parameters/variabelen. U kunt ook geheimen in uw Azure Key Vault (AKV) opgeslagen als hun eigenschapswaarden gebruiken. Om dit te doen, klikt u op de **AZURE KEY VAULT** selectievakje naast de betreffende eigenschap selecteren/bewerken van uw bestaande gekoppelde Azure Sleutelkluis-service of maak een nieuwe, en selecteer vervolgens de geheime naam/versie voor de waarde van de eigenschap.  Wanneer u maken/bewerken uw AKV gekoppelde service, kunt u uw bestaande AKV selecteren/bewerken of maak een nieuwe, maar neem ADF beheerde identiteit toegang verlenen tot uw Azure-Sleutelkluis als u niet hebt gedaan, al. U kunt ook uw geheimen rechtstreeks in de volgende notatie invoeren: `<AKV linked service name>/<secret name>/<secret version>`.
 
    ![Eigenschappen worden ingesteld op het tabblad Connection Managers](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
@@ -139,6 +139,14 @@ In deze stap maakt maken u een pijplijn met een activiteit uitvoeren van SSIS-pa
                        "referenceName": "myAzureSSISIR",
                        "type": "IntegrationRuntimeReference"
                    },
+                   "executionCredential": {
+                       "domain": "MyDomain",
+                       "userName": "MyUsername",
+                       "password": {
+                           "type": "SecureString",
+                           "value": "**********"
+                       }
+                   },
                    "runtime": "x64",
                    "loggingLevel": "Basic",
                    "packageLocation": {
@@ -148,11 +156,27 @@ In deze stap maakt maken u een pijplijn met een activiteit uitvoeren van SSIS-pa
                    "projectParameters": {
                        "project_param_1": {
                            "value": "123"
+                       },
+                       "project_param_2": {
+                           "value": {
+                               "value": "@pipeline().parameters.MyPipelineParameter",
+                               "type": "Expression"
+                           }
                        }
                    },
                    "packageParameters": {
                        "package_param_1": {
                            "value": "345"
+                       },
+                       "package_param_2": {
+                           "value": {
+                               "type": "AzureKeyVaultSecret",
+                               "store": {
+                                   "referenceName": "myAKV",
+                                   "type": "LinkedServiceReference"
+                               },
+                               "secretName": "MySecret"
+                           }
                        }
                    },
                    "projectConnectionManagers": {
@@ -171,12 +195,20 @@ In deze stap maakt maken u een pijplijn met een activiteit uitvoeren van SSIS-pa
                    "packageConnectionManagers": {
                        "MyOledbCM": {
                            "userName": {
-                               "value": "sa"
+                               "value": {
+                                   "value": "@pipeline().parameters.MyUsername",
+                                   "type": "Expression"
+                               }
                            },
                            "passWord": {
                                "value": {
-                                   "type": "SecureString",
-                                   "value": "def"
+                                   "type": "AzureKeyVaultSecret",
+                                   "store": {
+                                       "referenceName": "myAKV",
+                                       "type": "LinkedServiceReference"
+                                   },
+                                   "secretName": "MyPassword",
+                                   "secretVersion": "3a1b74e361bf4ef4a00e47053b872149"
                                }
                            }
                        }

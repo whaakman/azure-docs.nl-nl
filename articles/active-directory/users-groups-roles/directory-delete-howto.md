@@ -9,19 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb15f3e786313fca4ae9f0c224c68c96bac7836
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 833c2e460ae306a7673e580aaa304be93c3cd044
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199729"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Een Azure Active Directory-tenant niet verwijderen
+
 Wanneer een tenant is verwijderd, worden ook alle resources die zijn opgenomen in de tenant verwijderd. U moet de tenant voorbereiden door het minimaliseren van alle bijbehorende resources, voordat u verwijderen. Alleen een globale beheerder van Azure Active Directory (Azure AD) u een Azure AD-tenant uit de portal verwijderen kunt.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Bereid de tenant voor verwijdering
@@ -39,13 +40,13 @@ U kunt een tenant niet verwijderen in Azure AD pas verschillende controles wordt
 
 2. Selecteer **Azure Active Directory**.
 
-3. Switch voor de tenant die u wilt verwijderen.
+3. Schakel over naar de organisatie die u wilt verwijderen.
   
-   ![knop directory verwijderen](./media/directory-delete-howto/delete-directory-command.png)
+   ![Controleer of de organisatie voordat u verwijdert](./media/directory-delete-howto/delete-directory-command.png)
 
 4. Selecteer **verwijderen directory**.
   
-   ![knop directory verwijderen](./media/directory-delete-howto/delete-directory-list.png)
+   ![Selecteer de opdracht voor het verwijderen van de organisatie](./media/directory-delete-howto/delete-directory-list.png)
 
 5. Als uw tenant voldoet niet aan een of meer controles, bent u hebt opgegeven met een koppeling naar meer informatie over hoe u om door te geven. Nadat u alle controles kunt toevoegen, selecteert u **verwijderen** om het proces te voltooien.
 
@@ -74,7 +75,7 @@ U kunt een abonnement in plaatst een **Deprovisoned** status moet worden verwijd
   
 3. Selecteer **verwijderen** verwijderen van het abonnement en de voorwaarden accepteren. Alle gegevens binnen drie dagen definitief verwijderd. Als u van gedachten verandert, kunt u het abonnement tijdens de periode van drie dagen opnieuw activeren.
   
-   ![algemene voorwaarden](./media/directory-delete-howto/delete-terms.png)
+   ![Lees voorwaarden en bepalingen](./media/directory-delete-howto/delete-terms.png)
 
 4. Nu de abonnementsstatus is gewijzigd, wordt het abonnement is gemarkeerd voor verwijdering. Het abonnement voert de **inrichting ongedaan gemaakt** status 72 uur later opnieuw.
 
@@ -83,4 +84,5 @@ U kunt een abonnement in plaatst een **Deprovisoned** status moet worden verwijd
    ![scherm verwijderen abonnement selectievakje doorgeven](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 [Documentatie voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)

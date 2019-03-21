@@ -10,12 +10,12 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: 47b48d940bb86ac5392ab7845aa8c34b146f116a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f0104bdc4b5ea5c5c6333e12b95defafb34665b3
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170425"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295501"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Wat is Azure Stream Analytics?
 
@@ -79,7 +79,7 @@ Als cloudservice is Stream Analytics kostenefficiënt. Er is geen sprake van ops
 ## <a name="mission-critical-ready"></a>Essentieel gereed
 Azure Stream Analytics is beschikbaar in meerdere regio's over de hele wereld en is ontworpen om uw essentiële workloads uit te voeren doordat de vereisten voor betrouwbaarheid, veiligheid en naleving worden ondersteund.
 ### <a name="reliability"></a>Betrouwbaarheid
-Azure Stream Analytics garandeert Exactly-once-gebeurtenissenverwerking en At-least-once-levering van gebeurtenissen, zodat gebeurtenissen nooit verloren gaan. Exactly-once-verwerking is gegarandeerd met geselecteerde uitvoer, zoals beschreven in [Garanties voor de levering van gebeurtenissen](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics). Azure Stream Analytics bevat ingebouwde herstelfuncties in geval de levering van een gebeurtenis mislukt. Stream Analytics biedt ook de ingebouwde mogelijkheid voor het gebruik van controlepunten om de status van uw taak bij te houden, en levert herhaalbare resultaten.
+Azure Stream Analytics garandeert Exactly-once-gebeurtenissenverwerking en At-least-once-levering van gebeurtenissen, zodat gebeurtenissen nooit verloren gaan. Exact-één keer worden verwerkt is gegarandeerd met geselecteerde uitvoer, zoals beschreven in [gebeurtenis levering garanties](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics). Azure Stream Analytics bevat ingebouwde herstelfuncties in geval de levering van een gebeurtenis mislukt. Stream Analytics biedt ook de ingebouwde mogelijkheid voor het gebruik van controlepunten om de status van uw taak bij te houden, en levert herhaalbare resultaten.
 
 Als een beheerde service garandeert Stream Analytics een beschikbaarheid op minuutniveau van 99,9% voor de verwerking van gebeurtenissen. Zie de pagina [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) voor meer informatie. 
 

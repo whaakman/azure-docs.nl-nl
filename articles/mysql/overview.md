@@ -6,16 +6,17 @@ author: ajlam
 ms.author: andrela
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.openlocfilehash: 99039c4d6abb8a839886e9d623e92c9fb2c41787
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 03/20/2019
+ms.openlocfilehash: 2852cab05fab8e15b7e60a22f54cc866d2f0f178
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353325"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295399"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Wat is Azure Database for MySQL?
-Azure Database voor MySQL is een relationele databaseservice in de Microsoft-cloud op basis van de [MySQL in Communityversie](https://www.mysql.com/products/community/) database-engine, versie 5.6 en 5.7. Azure Database voor MySQL biedt:
+
+Azure Database voor MySQL is een relationele databaseservice in de Microsoft-cloud op basis van de [MySQL in Communityversie](https://www.mysql.com/products/community/) (beschikbaar onder de licentie GPLv2)-database-engine, versie 5.6 en 5.7. Azure Database voor MySQL biedt:
 
 - Ingebouwde hoge beschikbaarheid zonder extra kosten.
 - Voorspelbare prestaties, tegen all-inclusive prijzen op basis van betalen per gebruik.
@@ -29,10 +30,12 @@ Deze mogelijkheden vereisen nauwelijks beheer, en alles wordt zonder extra koste
 ![Azure Database for MySQL conceptueel diagram](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
 
 In dit artikel bevat een inleiding tot Azure Database voor MySQL belangrijkste concepten en functies met betrekking tot prestaties, schaalbaarheid en beheerbaarheid, met koppelingen naar meer gedetailleerde informatie. Zie deze Quick Starts om snel aan de slag te gaan:
+
 - [Een Azure-database voor een MySQL-server maken met behulp van Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Een Azure-database voor een MySQL-server maken met behulp van Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Zie de volgende artikelen voor een reeks Azure CLI-voorbeelden:
+
 - [Azure CLI-voorbeelden voor Azure Database for MySQL](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Binnen een paar seconden prestaties en schaal aanpassen
@@ -55,12 +58,14 @@ De Azure Database for MySQL-service is standaard geconfigureerd om te vereisen d
 Voor vragen of suggesties hebt over het werken met Azure Database voor MySQL, mogelijk een e-mail verzenden met de Azure Database voor MySQL-Team ([ @Ask Azure DB voor MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Let op: dit is geen alias voor technische ondersteuning.
 
 Overweeg ook de volgende aanspreekpunten, indien van toepassing:
+
 - Als u contact wilt opnemen met Azure-ondersteuning, kunt u een [ticket indienen vanuit Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Als u een probleem met uw account wilt oplossen, kunt u een [ondersteuningsaanvraag](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) indienen in Azure Portal.
 - Als u feedback wilt geven of een nieuwe functie wilt aanvragen, maakt u een vermelding via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u hebt lees een inleiding tot Azure Database for MySQL en heeft de vraag 'Wat is Azure Database voor MySQL?', u kunt naar:
+
 - Zie de pagina met prijzen voor kostenvergelijkingen en calculators. [Prijzen](https://azure.microsoft.com/pricing/details/mysql/)
 - Ga aan de slag met het maken van uw eerste server. [Een Azure-database voor een MySQL-server maken met behulp van Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - Bouw uw eerste app met behulp van de taal van uw voorkeur: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

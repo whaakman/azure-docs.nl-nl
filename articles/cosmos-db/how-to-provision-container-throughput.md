@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4df8a12581b5d71a76964ca1e3d40c6c53185f67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 28060637db47b42db66f706815066d498032ec11
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860317"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258707"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Doorvoer inrichten voor een Azure Cosmos-container
 
@@ -21,7 +21,7 @@ In dit artikel wordt uitgelegd hoe u doorvoer inricht voor een container (collec
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-1. [Maak een nieuw Azure Cosmos DB-account](create-sql-api-dotnet.md#create-a-database-account) of selecteer een bestaand account.
+1. [Maak een nieuw Azure Cosmos DB-account](create-sql-api-dotnet.md#create-account) of selecteer een bestaand account.
 
 1. Open het deelvenster **Data Explorer** en selecteer **Nieuwe verzameling**. Geef de volgende gegevens op:
 

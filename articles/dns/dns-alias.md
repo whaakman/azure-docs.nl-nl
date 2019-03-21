@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 6c5e0e47f006c6be170bdbf6fee431bfd3b6df0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1f6d6b2ae5fd3a0c08d37b93c73656ac6bb71d67
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105053"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295637"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS-server registreert alias overzicht
 
@@ -59,6 +59,13 @@ Deze beperking geeft een probleem voor toepassingseigenaren van een die beschikk
 Dit probleem kan worden opgelost met aliasrecords. In tegenstelling tot de CNAME-records, aliasrecords kunnen worden gemaakt in de apex van de zone en toepassingseigenaren kunnen deze gebruiken om hun apexrecord zone verwijzen naar een Traffic Manager-profiel met externe eindpunten. Toepassingseigenaren van de kunnen verwijzen naar dezelfde Traffic Manager-profiel dat wordt gebruikt voor andere domeinen in hun DNS-zone.
 
 Bijvoorbeeld: contoso.com en een www\.contoso.com kan verwijzen naar dezelfde Traffic Manager-profiel. Voor meer informatie over het gebruik van de aliasrecords met Azure Traffic Manager-profielen, Zie het gedeelte volgende stappen.
+
+### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Wijs het toppunt van zone Azure CDN-eindpunten
+Net als bij een Traffic Manager-profiel, kunt u ook aliasrecords gebruiken om te verwijzen de apex van de DNS-zone naar Azure CDN-eindpunten. Dit is handig als u statische website met Azure storage en Azure CDN te maken. U kunt vervolgens toegang tot de website zonder: toevoeging van 'www' aan de DNS-naam.
+
+Bijvoorbeeld, als uw statische website met de naam www.contoso.com, uw gebruikers kunnen toegang tot uw site met behulp van contoso.com zonder de noodzaak www aan de DNS-naam toevoegen aan het begin.
+
+Zoals eerder beschreven, wordt CNAME-records worden niet ondersteund in de apex van de zone. U kunt een CNAME-record dus niet gebruiken voor het contoso.com verwijzen naar uw CDN-eindpunt. In plaats daarvan kunt u een alias-record toppunt van de zone rechtstreeks verwijzen naar een CDN-eindpunt.
 
 ## <a name="next-steps"></a>Volgende stappen
 

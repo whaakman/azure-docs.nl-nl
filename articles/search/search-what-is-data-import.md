@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c3da9470668fa2987195c26e98eee51f14027f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 7d95ae1f750c59c121e998c6f51f9439b1b0339a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136341"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287091"
 ---
 # <a name="data-import-overview---azure-search"></a>Gegevens importeren overzicht - Azure Search
 
@@ -40,18 +40,25 @@ Zie voor een inleiding tot elke methodologie [Quick Start: Een Azure Search-inde
 
 <a name="indexing-actions"></a>
 
-### <a name="indexing-actions-upload-merge-uploadormerge-delete"></a>Indexeren van acties: uploaden, samenvoegen, uploadOrMerge, verwijderen
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Indexeren van acties: uploaden, samenvoegen, mergeOrUpload, verwijderen
 
-Wanneer u de REST-API gebruikt, doet u HTTP POST-aanvragen met JSON-aanvraagtekst bij de eindpunt-URL van uw Azure Search-index. Het JSON-object in de hoofdtekst van uw HTTP-aanvraag bevat een enkele JSON-matrix met de naam ''waarde''. Deze matrix bevat JSON-objecten die de documenten vertegenwoordigen die u aan uw index wilt toevoegen, wilt bijwerken of wilt wijzigen.
+U kunt het type indexering actie op basis van per document beheren op te geven of het document moet worden geüpload in de volledige, samengevoegd met de bestaande inhoud van het document of verwijderd.
 
-Elk JSON-object in de matrix ''waarde'' vertegenwoordigt een document dat moet worden geïndexeerd. Elk van deze objecten bevat de sleutel van het document en Hiermee geeft u de gewenste indexeringsbewerking (uploaden, samenvoegen, verwijderen). Afhankelijk van welke van de onderstaande bewerkingen u kiest, moet u slechts bepaalde velden voor elk document opnemen:
+In de REST-API, geven u een HTTP POST-aanvragen met JSON-aanvraagtekst voor eindpunt-URL van uw Azure Search-index. Elk JSON-object in de matrix '' waarde '' sleutel van het document bevat en geeft een indexeerbewerking u toevoegt, updates, of inhoud van het document verwijderd. Zie voor een codevoorbeeld van [laden van documenten](search-create-index-rest-api.md#load-documents).
+
+In de .NET-SDK-pakket van uw gegevens in een `IndexBatch` object. Een `IndexBatch` bevat een verzameling van `IndexAction` objecten, die elk bevat een document en een eigenschap die Azure Search welke actie om uit te voeren voor het desbetreffende document. Zie voor een codevoorbeeld van [IndexBatch maken](search-import-data-dotnet.md#construct-indexbatch).
+
 
 | @search.action | Description | Vereiste velden voor elk document | Opmerkingen |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Een `upload`-actie is vergelijkbaar met een "upsert", waarbij het document wordt ingevoegd als het nieuw is en wordt bijgewerkt/vervangen als het al bestaat. |sleutel, plus andere velden die u wilt definiëren |Tijdens het bijwerken/vervangen van een bestaand document wordt elk veld dat niet is opgegeven in de aanvraag ingesteld op `null`. Dit gebeurt zelfs als het veld eerder is ingesteld op een niet-null-waarde. |
-| `merge` |Een bestaand document wordt bijgewerkt met de opgegeven velden. Als het document niet in de index bestaat, mislukt de samenvoeging. |sleutel, plus andere velden die u wilt definiëren |Alle velden die u in een samenvoeging opgeeft, vervangen de bestaande velden in het document, ook velden van het type `Collection(Edm.String)`. Als het document bijvoorbeeld een veld `tags` bevat met de waarde `["budget"]` en u een samenvoeging doet met de waarde `["economy", "pool"]` voor `tags`, wordt de uiteindelijke waarde van het veld `tags` `["economy", "pool"]`. Het wordt dus niet `["budget", "economy", "pool"]`. |
+| `merge` |Een bestaand document wordt bijgewerkt met de opgegeven velden. Als het document niet in de index bestaat, mislukt de samenvoeging. |sleutel, plus andere velden die u wilt definiëren |Alle velden die u in een samenvoeging opgeeft, vervangen de bestaande velden in het document, In de .NET SDK, die hieronder vallen velden van het type `DataType.Collection(DataType.String)`. In de REST-API, die hieronder vallen velden van het type `Collection(Edm.String)`. Als het document bijvoorbeeld een veld `tags` bevat met de waarde `["budget"]` en u een samenvoeging doet met de waarde `["economy", "pool"]` voor `tags`, wordt de uiteindelijke waarde van het veld `tags` `["economy", "pool"]`. Het wordt dus niet `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |Deze bewerking gedraagt zich als `merge` wanneer een document met de opgegeven sleutel al in de index bestaat. Als het document niet bestaat, gedraagt deze bewerking zich als `upload` met een nieuw document. |sleutel, plus andere velden die u wilt definiëren |- |
 | `delete` |Het opgegeven document wordt uit de index verwijderd. |alleen sleutel |Alle andere velden worden genegeerd. Als u een afzonderlijk veld uit een document wilt verwijderen, gebruikt u `merge` en stelt u het veld expliciet in op null. |
+
+## <a name="decide-which-indexing-action-to-use"></a>Bepalen welke indexeerbewerking u moet gebruiken
+Gegevens importeren met de .NET SDK, (uploaden, samenvoegen, verwijderen en mergeOrUpload). Afhankelijk van welke van de onderstaande bewerkingen u kiest, moet u slechts bepaalde velden voor elk document opnemen:
+
 
 ### <a name="formulate-your-query"></a>Uw query formuleren
 Er zijn twee manieren om [in de index te zoeken met behulp van de REST-API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). De ene manier is om een HTTP POST-aanvraag uit te geven waarbij uw queryparameters worden gedefinieerd in een JSON-object in de aanvraagtekst. De andere manier is om een HTTP GET-aanvraag uit te geven waarbij uw queryparameters worden gedefinieerd in de aanvraag-URL. POST heeft [soepelere limieten](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) met betrekking tot de grootte van queryparameters dan GET. Daarom wordt u aangeraden POST te gebruiken, tenzij er speciale omstandigheden zijn waarin het gebruik van GET beter zou zijn.

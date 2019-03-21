@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93e33ea311a064058e739bfcf6d63dc2d5462110
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435062"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117656"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Single sign-on bij niet-galerietoepassingen in Azure Active Directory configureren
 
@@ -29,8 +29,8 @@ Deze mogelijkheden zijn ook beschikbaar is, op basis van uw licentieovereenkomst
 
 - Self-service-integratie van toepassingen die ondersteuning biedt voor SAML 2.0 id-providers (SP geïnitieerde of IdP gestart)
 - Self-service-integratie van een webtoepassing die een op HTML gebaseerde aanmeldingspagina opgeven met behulp is [wachtwoord gebaseerde SSO](what-is-single-sign-on.md#password-based-sso)
-* Selfservice-verbinding van toepassingen die het protocol SCIM voor het inrichten van gebruikers gebruiken ([die hier worden beschreven](use-scim-to-provision-users-and-groups.md))
-* Koppelingen toevoegen aan elke toepassing in de [startprogramma voor Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) of de [Azure AD-toegangspaneel](what-is-single-sign-on.md#linked-sso)
+- Selfservice-verbinding van toepassingen die het protocol SCIM voor het inrichten van gebruikers gebruiken ([die hier worden beschreven](use-scim-to-provision-users-and-groups.md))
+- Koppelingen toevoegen aan elke toepassing in de [startprogramma voor Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) of de [Azure AD-toegangspaneel](what-is-single-sign-on.md#linked-sso)
 
 Dit kunnen bijvoorbeeld niet alleen SaaS-toepassingen die u gebruikt, maar zijn niet nog is toegevoegd aan de galerie met Azure AD-toepassing, maar van derden webtoepassingen die uw organisatie is geïmplementeerd op servers die u, in de cloud of on-premises beheert.
 

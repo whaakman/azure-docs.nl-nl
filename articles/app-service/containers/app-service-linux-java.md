@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 698e6fb861ab891a84aa43ca94769099a5c76943
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d944a51f7e0ee24d5a3768ba28d7a8294c30b99b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766815"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118762"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -250,21 +250,21 @@ Bepaal vervolgens als de gegevensbron moet beschikbaar zijn voor één toepassin
 #### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Ten slotte, plaatst u de stuurprogramma-JAR-bestanden in het klassepad Tomcat en uw App-Service opnieuw starten
 
 1. Zorg ervoor dat de JDBC-stuurprogramma's beschikbaar voor de Tomcat-classloader zijn door ze in te plaatsen de `/home/tomcat/lib` directory. (Maak deze map als deze niet al bestaat.) Als u wilt deze bestanden uploaden naar uw App Service-exemplaar, kunt u de volgende stappen uitvoeren:  
-    1. De uitbreiding voor de Azure App Service-webpp installeren:
+   1. De uitbreiding voor de Azure App Service-webpp installeren:
 
       ```azurecli-interactive
       az extension add –name webapp
       ```
 
-    1. Voer de volgende CLI-opdracht voor het maken van een SSH-tunnel vanuit uw lokale systeem naar App Service:
+   1. Voer de volgende CLI-opdracht voor het maken van een SSH-tunnel vanuit uw lokale systeem naar App Service:
 
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
 
-    1. Verbinding maken met de lokale tunneling poort met uw SFTP-client en de bestanden te uploaden de `/home/tomcat/lib` map.
+   1. Verbinding maken met de lokale tunneling poort met uw SFTP-client en de bestanden te uploaden de `/home/tomcat/lib` map.
 
-    U kunt ook een FTP-client gebruiken voor het uploaden van het JDBC-stuurprogramma. Volg deze [instructies voor het ophalen van de referenties van uw FTP-](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
+      U kunt ook een FTP-client gebruiken voor het uploaden van het JDBC-stuurprogramma. Volg deze [instructies voor het ophalen van de referenties van uw FTP-](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. Als u een gegevensbron op serverniveau hebt gemaakt, moet u de App Service Linux-toepassing opnieuw starten. Tomcat wordt opnieuw ingesteld `CATALINA_HOME` naar `/home/tomcat/conf` en gebruikt u de bijgewerkte configuratie.
 

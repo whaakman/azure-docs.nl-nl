@@ -4,15 +4,15 @@ description: Meer informatie over de verschillende manieren om te leggen en te b
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2a08097b42f395bd0009353635cabbd264c3c421
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992087"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259768"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registratie in diagnoselogboek in Azure Cosmos DB 
 
@@ -24,7 +24,7 @@ Nadat u begint met het gebruik van een of meer Azure Cosmos DB-databases, kunt u
 
 Voordat we praten over het bewaken van uw Azure Cosmos DB-account, laten we een paar dingen voor logboekregistratie en bewaking te verduidelijken. Er zijn verschillende soorten logboeken op de Azure-platform. Er zijn [Azure-activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [diagnostische logboeken van Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [metrische gegevens van Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), gebeurtenissen, heartbeat-bewaking, operations-Logboeken, enzovoort. Er is een breed spectrum van Logboeken. U ziet de volledige lijst van Logboeken in [logboeken van Azure Monitor](https://azure.microsoft.com/services/log-analytics/) in Azure portal. 
 
-De volgende afbeelding ziet u de verschillende soorten logboeken in Azure die beschikbaar zijn:
+De volgende afbeelding toont de ander soort Logboeken in Azure die beschikbaar zijn:
 
 ![Verschillende soorten logboeken in Azure](./media/logging/azurelogging.png)
 
@@ -67,7 +67,7 @@ Diagnostische logboeken in Azure worden gegenereerd door een resource en biedt u
 
 Als u wilt logboekregistratie van diagnostische gegevens inschakelen, hebt u de volgende bronnen:
 
-* Een bestaande Azure Cosmos DB-account, database en -container. Zie voor instructies over het maken van deze resources [een databaseaccount maken met behulp van de Azure-portal](create-sql-api-dotnet.md#create-a-database-account), [Azure CLI-voorbeelden](cli-samples.md), of [PowerShell-voorbeelden](powershell-samples.md).
+* Een bestaande Azure Cosmos DB-account, database en -container. Zie voor instructies over het maken van deze resources [een databaseaccount maken met behulp van de Azure-portal](create-sql-api-dotnet.md#create-account), [Azure CLI-voorbeelden](cli-samples.md), of [PowerShell-voorbeelden](powershell-samples.md).
 
 Als u wilt inschakelen voor diagnostische gegevens vastleggen in Azure portal, moet u de volgende stappen uitvoeren:
 
@@ -99,27 +99,23 @@ Om in te schakelen metrische gegevens en logboekregistratie van diagnostische ge
 - Om in te schakelen opslag van logboeken met diagnostische gegevens in een opslagaccount, gebruikt u deze opdracht:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+   az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   De `resourceId` is de naam van het Azure Cosmos DB-account. De `storageId` is de naam van het opslagaccount waarnaar u wilt de logboeken te zenden.
+   De `resource` is de naam van het Azure Cosmos DB-account. De resource heeft de indeling ' /subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/ < Azure_Cosmos_account_name > "de `storage-account` is de naam van de storage-account dat u wilt u de logboeken te zenden. U kunt andere logboeken registreren door de parameterwaarden voor de categorie "MongoRequests" of "DataPlaneRequests" bij te werken. 
 
 - Om in te schakelen van diagnostische logboeken streamen naar een event hub, gebruikt u deze opdracht:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   De `resourceId` is de naam van het Azure Cosmos DB-account. De `serviceBusRuleId` is een tekenreeks zijn met deze indeling:
-
-   ```azurecli-interactive
-   {service bus resource ID}/authorizationrules/{key name}
-   ```
+   De `resource` is de naam van het Azure Cosmos DB-account. De `event-hub-rule` is van de event hub regel-ID. 
 
 - Als u wilt verzenden, diagnostische logboeken naar Log Analytics-werkruimte inschakelen, gebruikt u deze opdracht:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --workspace <resource id of the log analytics workspace> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
 U kunt deze parameters voor het inschakelen van meerdere uitvoeropties combineren.
@@ -351,7 +347,7 @@ Logboeken met diagnostische gegevens zijn beschikbaar in uw account gedurende tw
 
 
 <a id="#view-in-loganalytics"></a>
-## <a name="view-logs-in-azure-monitor-logs"></a>Weergave-logboeken in Logboeken van Azure Monitor
+## <a name="view-logs-in-azure-monitor-logs"></a>Weergave van logboeken in Azure Monitor-logboeken
 
 Als u hebt geselecteerd de **verzenden naar Log Analytics** optie bij het inschakelen van diagnostische gegevens vastleggen, diagnostische gegevens van de container wordt doorgestuurd naar de logboeken van Azure Monitor binnen twee uur. Wanneer u logboeken van Azure Monitor bekijkt onmiddellijk nadat u logboekregistratie inschakelt, kunt u de gegevens niet zien. Slechts twee uur wacht en probeer het opnieuw. 
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: b8fb6e2b23c275d198ac58fec874ad6627a7b43e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007180"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286009"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Maak een Back-up van SQL Server op Azure oplossen
 
@@ -21,7 +21,7 @@ Dit artikel bevat informatie over probleemoplossing voor het beveiligen van SQL 
 
 ## <a name="feature-consideration-and-limitations"></a>Functie overwegingen en beperkingen
 
-U wilt weergeven van de functie overweging, Zie het artikel [over SQL Server-back-up in Azure VM's](backup-sql-server-azure-vms.md#feature-consideration-and-limitations).
+U wilt weergeven van de functie overweging, Zie het artikel [over SQL Server-back-up in Azure VM's](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>SQL Server-machtigingen
 
@@ -80,7 +80,7 @@ De volgende tabellen worden geordend op foutcode.
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
 | Kan geen back-up maken omdat het transactielogboek voor de gegevensbron vol is. | De ruimte in database transactionele logboek is vol. | U kunt dit probleem oplossen, raadpleegt u de [documentatie bij SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Deze SQL-database biedt geen ondersteuning voor de gevraagde type back-up. | Secundaire replica's altijd op AG bieden geen ondersteuning voor volledige en differentiële back-ups. | <ul><li>Als u een ad-hoc back-up hebt geactiveerd, activeert u de back-ups op het primaire knooppunt.</li><li>Als de back-up is gemaakt door het beleid, zorg er dan voor dat het primaire knooppunt is geregistreerd. Voor het registreren van het knooppunt [Volg de stappen voor het detecteren van een SQL Server-database](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| Deze SQL-database biedt geen ondersteuning voor de gevraagde type back-up. | Secundaire replica's altijd op AG bieden geen ondersteuning voor volledige en differentiële back-ups. | <ul><li>Als u een ad-hoc back-up hebt geactiveerd, activeert u de back-ups op het primaire knooppunt.</li><li>Als de back-up is gemaakt door het beleid, zorg er dan voor dat het primaire knooppunt is geregistreerd. Voor het registreren van het knooppunt [Volg de stappen voor het detecteren van een SQL Server-database](backup-sql-server-database-azure-vms.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Herstellen van fouten
 

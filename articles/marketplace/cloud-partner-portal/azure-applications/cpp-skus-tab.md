@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a963db0b0b1a20c110f90bacdae092846f7bdd8b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342538"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095990"
 ---
 # <a name="azure-application-skus-tab"></a>Azure-toepassing-SKU's tabblad
 
 In dit artikel wordt beschreven hoe u het tabblad van de SKU's gebruiken om te maken van SKU's voor uw Azure-toepassing. 
 
->[!IMPORTANT] 
-De stappen voor het configureren van een SKU zijn verschillend voor de aanbieding van een beheerde toepassing en een aanbieding van de sjabloon oplossing. Deze verschillen worden in dit artikel beschreven. 
+> [!IMPORTANT]
+> De stappen voor het configureren van een SKU zijn verschillend voor de aanbieding van een beheerde toepassing en een aanbieding van de sjabloon oplossing. Deze verschillen worden in dit artikel beschreven. 
 
 ## <a name="configure-azure-application-skus"></a>Azure-toepassing-SKU's configureren
 

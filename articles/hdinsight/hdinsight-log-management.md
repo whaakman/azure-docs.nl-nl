@@ -2,19 +2,19 @@
 title: Logboeken voor een HDInsight-cluster - Azure HDInsight beheren
 description: Bepaal de typen, grootte en voor het bewaren van voor de logboekbestanden van HDInsight-activiteit.
 services: hdinsight
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.author: ashishth
-ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.date: 03/19/2019
+ms.author: hrasheed
+ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225314"
+ms.locfileid: "58294906"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Logboeken beheren voor een HDInsight-cluster
 
@@ -43,13 +43,12 @@ De volgende gegevens in de cluster zijn handig om het helpen bij het verzamelen 
 * Clusterstatus, met inbegrip van details van de laatste statuswijziging
 * Type en aantal HDInsight-exemplaren die zijn opgegeven voor de master, core en taak knooppunten
 
-U kunt de meeste van deze op het hoogste niveau informatie met behulp van de Azure portal.  U kunt ook de klassieke Azure-CLI gebruiken voor informatie over uw HDInsight-cluster (s):
+U kunt de meeste van deze op het hoogste niveau informatie met behulp van de Azure portal.  U kunt ook gebruiken [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) voor informatie over uw HDInsight-cluster (s):
 
+```azurecli
+    az hdinsight list --resource-group <ResourceGroup>
+    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 U kunt ook PowerShell gebruiken om deze informatie weer te geven.  Zie voor meer informatie, [Apache beheren van Hadoop-clusters in HDInsight met behulp van Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -77,7 +76,7 @@ Een typische HDInsight-cluster maakt gebruik van verschillende services en open-
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Configuratie-instellingen van het cluster met de Ambari-UI weergeven
 
-Apache Ambari vereenvoudigt het beheer, configuratie en bewaking van een HDInsight-cluster met een web-gebruikersinterface en een REST-API. Ambari is opgenomen op Linux gebaseerde HDInsight-clusters. Selecteer de **Clusterdashboard** deelvenster aan de Azure portal HDInsight-pagina te openen de**Clusterdashboards** koppelingenpagina.  Selecteer vervolgens de **HDInsight-clusterdashboard** deelvenster te openen van de Ambari UI.  U wordt gevraagd om de aanmeldingsreferenties voor uw cluster.
+Apache Ambari vereenvoudigt het beheer, configuratie en bewaking van een HDInsight-cluster met een web-gebruikersinterface en een REST-API. Ambari is opgenomen op Linux gebaseerde HDInsight-clusters. Selecteer de **Clusterdashboard** deelvenster aan de Azure portal HDInsight-pagina te openen de **Clusterdashboards** koppelingenpagina.  Selecteer vervolgens de **HDInsight-clusterdashboard** deelvenster te openen van de Ambari UI.  U wordt gevraagd om de aanmeldingsreferenties voor uw cluster.
 
 Als u een lijst met serviceweergaven, schakelt de **Ambari-weergaven** deelvenster aan de Azure portal-pagina voor HDInsight.  Deze lijst varieert, afhankelijk van welke bibliotheken die u hebt geïnstalleerd.  Bijvoorbeeld, ziet u mogelijk de wachtrijbeheerder YARN, Hive-weergave en Tez weergave.  Selecteer een service-koppeling om te zien van configuratie- en servicegegevens.  De UI Ambari **Stack en versie** pagina vindt u informatie over de configuratie van de clusterservices en versiegeschiedenis van de service. Ga naar deze sectie van de Ambari-UI, selecteer de **Admin** menu en vervolgens **stapels en versies**.  Selecteer de **versies** tabblad om te bekijken van de service versie-informatie.
 
@@ -99,7 +98,7 @@ De volgende stap met het controleren van de logboekbestanden van de taak kan wor
 
 ### <a name="access-the-hadoop-log-files"></a>Toegang tot de Hadoop-Logboeken
 
-HDInsight worden de logboekbestanden opgeslagen in het bestandssysteem van het cluster én in Azure storage. U kunt logboekbestanden in het cluster controleren door het openen van een SSH-verbinding met het cluster en het bestandssysteem te bladeren of met behulp van de Status van Hadoop YARN-portal op de server extern hoofdknooppunt. U kunt de logboekbestanden in Azure storage met behulp van een van de hulpprogramma's waarmee u kunnen openen en downloaden van gegevens uit Azure storage controleren. Voorbeelden zijn AZCopy CloudXplorer en Visual Studio Server Explorer. U kunt ook PowerShell en de Azure Storage-clientbibliotheken of de Azure .NET SDK's, gebruiken voor toegang tot gegevens in Azure blob-opslag.
+HDInsight worden de logboekbestanden opgeslagen in het bestandssysteem van het cluster én in Azure storage. U kunt logboekbestanden in het cluster controleren door het openen van een [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) verbinding met het cluster en het bestandssysteem te bladeren, of met behulp van de Status van Hadoop YARN-portal op de server extern hoofdknooppunt. U kunt de logboekbestanden in Azure storage met behulp van een van de hulpprogramma's waarmee u kunnen openen en downloaden van gegevens uit Azure storage controleren. Voorbeelden zijn [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer), en de Visual Studio Server Explorer. U kunt ook PowerShell en de Azure Storage-clientbibliotheken of de Azure .NET SDK's, gebruiken voor toegang tot gegevens in Azure blob-opslag.
 
 Hadoop wordt uitgevoerd voor het werk van de taken als *taak pogingen* op verschillende knooppunten in het cluster. HDInsight kan initiëren speculatieve taak pogingen, een andere taak pogingen dat ze niet worden voltooid eerst wordt beëindigd. Hiermee wordt gegenereerd voor belangrijke activiteit die wordt vastgelegd op de domeincontroller, stderr en syslog-logboek bestanden op het begeven. Bovendien meerdere pogingen van de taak tegelijkertijd worden uitgevoerd, maar een logboekbestand kan resultaten alleen lineair worden weergeven.
 
@@ -168,9 +167,9 @@ Voor het beheren van de grootte en het aantal logboekbestanden bewaard, stel de 
 
 ### <a name="other-log-management-techniques"></a>Andere log management-technieken
 
-Om te voorkomen die wordt uitgevoerd, onvoldoende schijfruimte, kunt u bepaalde OS-hulpprogramma's zoals `logrotate` voor het beheren van de verwerking van logboekbestanden. U kunt configureren `logrotate` op dagelijks wilt uitvoeren, bestanden en verwijderen van de oude versie comprimeren aanmelden. Uw benadering is afhankelijk van uw vereisten, zoals hoe lang om de logboekbestanden op de lokale knooppunten. 
+Om te voorkomen die wordt uitgevoerd, onvoldoende schijfruimte, kunt u bepaalde OS-hulpprogramma's zoals [logrotate](https://linux.die.net/man/8/logrotate) voor het beheren van de verwerking van logboekbestanden. U kunt configureren `logrotate` op dagelijks wilt uitvoeren, bestanden en verwijderen van de oude versie comprimeren aanmelden. Uw benadering is afhankelijk van uw vereisten, zoals hoe lang om de logboekbestanden op de lokale knooppunten.  
 
-U kunt ook controleren of logboekregistratie voor FOUTOPSPORING is ingeschakeld voor een of meer services, die aanzienlijk verbeterd, evenals de logboekgrootte uitvoer. 
+U kunt ook controleren of logboekregistratie voor FOUTOPSPORING is ingeschakeld voor een of meer services, die aanzienlijk verbeterd, evenals de logboekgrootte uitvoer.  
 
 Als u wilt de logboeken te verzamelen van alle knooppunten op één centrale locatie, kunt u een gegevensstroom, zoals het opnemen van alle logboekvermeldingen in Solr maken.
 

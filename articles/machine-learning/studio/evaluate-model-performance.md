@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: f5e7a923ed5eb692f5fb05082c73b969081c739b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820991"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891583"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Hoe modelprestaties evalueren in Azure Machine Learning Studio
 
@@ -83,7 +83,7 @@ Nadat het experiment is uitgevoerd, kunt u de resultaten van evaluatie van contr
 Afbeelding 4. Kruisvalidatie resultaten van een regressiemodel.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Een binair classificeringsmodel evalueren
-In een scenario voor binaire classificatie, is de doelvariabele slechts twee mogelijke resultaten, bijvoorbeeld: {0, 1} of {false, true}, {negatieve, positieve}. Wordt ervan uitgegaan dat krijgt u een gegevensset van volwassenen werknemers met een aantal demografische en werkgelegenheid variabelen en u wordt gevraagd om te voorspellen van het niveau van inkomsten, een binaire variabele met de waarden {"< 50 K =", "> 50 K '}. Met andere woorden, de negatieve klasse vertegenwoordigt de werknemers die kleiner dan of gelijk aan 50 K per jaar en de positieve klasse alle andere werknemers. Zoals in het scenario regressie zouden we een model te trainen, bepaalde gegevens te beoordelen en evalueren van de resultaten. Het belangrijkste verschil is hier is de keuze van de metrische gegevens over die Azure Machine Learning Studio worden berekend en uitvoer. Ter illustratie van het scenario voor het niveau voorspelling van inkomsten, gebruiken we de [volwassenen](http://archive.ics.uci.edu/ml/datasets/Adult) gegevensset een Studio-experiment maken en de prestaties van een model voor logistieke regressie van twee klassen, een veelgebruikte binaire classificatie evalueren.
+In een scenario voor binaire classificatie, is de doelvariabele slechts twee mogelijke resultaten, bijvoorbeeld: {0, 1} of {false, true}, {negatieve, positieve}. Wordt ervan uitgegaan dat krijgt u een gegevensset van volwassenen werknemers met een aantal demografische en werkgelegenheid variabelen en u wordt gevraagd om te voorspellen van het niveau van inkomsten, een binaire variabele met de waarden {"< 50 K =", "> 50 K '}. Met andere woorden, de negatieve klasse vertegenwoordigt de werknemers die kleiner dan of gelijk aan 50 K per jaar en de positieve klasse alle andere werknemers. Zoals in het scenario regressie zouden we een model te trainen, bepaalde gegevens te beoordelen en evalueren van de resultaten. Het belangrijkste verschil is hier is de keuze van de metrische gegevens over die Azure Machine Learning Studio worden berekend en uitvoer. Ter illustratie van het scenario voor het niveau voorspelling van inkomsten, gebruiken we de [volwassenen](https://archive.ics.uci.edu/ml/datasets/Adult) gegevensset een Studio-experiment maken en de prestaties van een model voor logistieke regressie van twee klassen, een veelgebruikte binaire classificatie evalueren.
 
 ### <a name="creating-the-experiment"></a>Het maken van het Experiment
 De volgende modules toevoegen aan uw werkruimte in Azure Machine Learning Studio:
@@ -133,7 +133,7 @@ Afbeelding 8. Een binair classificeringsmodel cross valideren.
 Afbeelding 9. Kruisvalidatie resultaten van een binaire classificatie.
 
 ## <a name="evaluating-a-multiclass-classification-model"></a>Evaluatie van een Model Multiklassen classificatie
-In dit experiment gebruiken we de populaire [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") gegevensset waarin exemplaren van 3 verschillende typen (klassen) van de iris-installaties. Er zijn 4 functie waarden (petal length/width en petal length/breedte) voor elk exemplaar. In de vorige experimenten we getraind en de modellen met behulp van de dezelfde gegevenssets getest. Hier gebruiken we de [Split Data] [ split] module 2 subsets van de gegevens maken, trainen op de eerste en beoordelen en evalueren in het tweede. De Iris-gegevensset is openbaar beschikbaar op de [UCI Machine Learning-opslagplaats](http://archive.ics.uci.edu/ml/index.html), en kan worden gedownload met behulp van een [importgegevens] [ import-data] module.
+In dit experiment gebruiken we de populaire [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris") gegevensset waarin exemplaren van 3 verschillende typen (klassen) van de iris-installaties. Er zijn 4 functie waarden (petal length/width en petal length/breedte) voor elk exemplaar. In de vorige experimenten we getraind en de modellen met behulp van de dezelfde gegevenssets getest. Hier gebruiken we de [Split Data] [ split] module 2 subsets van de gegevens maken, trainen op de eerste en beoordelen en evalueren in het tweede. De Iris-gegevensset is openbaar beschikbaar op de [UCI Machine Learning-opslagplaats](https://archive.ics.uci.edu/ml/index.html), en kan worden gedownload met behulp van een [importgegevens] [ import-data] module.
 
 ### <a name="creating-the-experiment"></a>Het maken van het Experiment
 De volgende modules toevoegen aan uw werkruimte in Azure Machine Learning Studio:

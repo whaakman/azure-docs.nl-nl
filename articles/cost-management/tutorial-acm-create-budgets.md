@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 1db3fbbd39418504f98469c7b4999c5a91b5d6de
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342176"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013034"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Zelfstudie: Maken en beheren van Azure budgetten
 
@@ -53,7 +53,9 @@ Zie voor meer informatie over het toewijzen van machtigingen aan gegevens van Co
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Maken van een budget in de Azure portal
 
-U kunt het budget van een Azure-abonnement maken voor een bepaalde maand, kwartaal of jaar. Uw navigeerbare inhoud in de Azure-portal bepaalt u of u een budget voor een abonnement of voor een resourcegroep maken. Bijvoorbeeld, in de Azure-portal, Ga naar **abonnementen** &gt; Selecteer een abonnement &gt; **budgetten**. In dit voorbeeld is het budget dat u hebt gemaakt voor het abonnement dat u hebt geselecteerd. Als u maken van een budget voor een resourcegroep wilt, gaat u naar **resourcegroepen** > Selecteer een resourcegroep > **budgetten**...
+U kunt het budget van een Azure-abonnement maken voor een bepaalde maand, kwartaal of jaar. Uw navigeerbare inhoud in Azure portal wordt bepaald of u een budget voor een abonnement of voor een beheergroep maakt.
+
+Als u wilt maken of een budget weergeven, opent u het gewenste bereik in de Azure portal en selecteer **budgetten** in het menu. Bijvoorbeeld, gaat u naar **abonnementen**, selecteer een abonnement in de lijst en selecteer vervolgens **budgetten** in het menu. Gebruik de **bereik** pill om over te schakelen naar een ander bereik, zoals een beheergroep, budgetten. Zie voor meer informatie over bereiken [begrijpen en werk met een bereik](understand-work-scopes.md).
 
 Nadat u budgetten maakt, worden ze een eenvoudige weergave van uw huidige uitgaven op basis hiervan weergegeven.
 

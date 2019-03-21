@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 6b27c21944131d01254e75c7120520a119998132
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 0bdad2d59528775d23d882831cfdbdc09471e12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109794"
 ---
 # <a name="get-started"></a>Snelstart: Een openbare load balancer maken met behulp van Azure PowerShell
 
@@ -229,7 +229,7 @@ Maak virtuele NIC's met [New-AzNetworkInterface](/powershell/module/az.network/n
 $nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic1' `
+-Name 'MyVM1' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule1 `
@@ -239,7 +239,7 @@ $nicVM1 = New-AzNetworkInterface `
 $nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic2' `
+-Name 'MyVM2' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
@@ -268,7 +268,7 @@ Stel een beheerdersnaam en -wachtwoord voor de VM’s in met [Get-Credential](ht
 $cred = Get-Credential
 ```
 
-Nu kunt u de VM’s maken met [New-AzVM](/powershell/module/az.compute/new-azvm). In het volgende voorbeeld worden twee VM's en de vereiste onderdelen van het virtuele netwerk gemaakt als deze nog niet bestaan. Tijdens het onderstaande voorbeeld van het maken van een VM worden de eerder gemaakte NIC’s gekoppeld aan de VM’s, omdat hieraan hetzelfde virtuele netwerk (*myVnet*) en hetzelfde subnet (*mySubnet*) zijn toegewezen:
+Nu kunt u de VM’s maken met [New-AzVM](/powershell/module/az.compute/new-azvm). In het volgende voorbeeld worden twee VM's en de vereiste onderdelen van het virtuele netwerk gemaakt als deze nog niet bestaan. In dit voorbeeld wordt de NIC's (*VM1* en *VM2*) in de vorige stap hebt gemaakt worden automatisch toegewezen aan virtuele machines *VM1* en *VM2*omdat ze dezelfde naam hebben en hetzelfde virtuele netwerk zijn toegewezen (*myVnet*) en het subnet (*mySubnet*). Bovendien, omdat de NIC's gekoppeld aan de load balancer back-endpool zijn, worden de virtuele machines automatisch toegevoegd aan de back-endpool.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -295,18 +295,18 @@ Installeer IIS als volgt met een aangepaste webpagina op beide back-end-VM's:
 
 1. Haal het openbare IP-adres van de load balancer op. Haal het openbare IP-adres van de load balancer op met behulp van `Get-AzPublicIPAddress`.
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. Maak een verbinding van het externe bureaublad naar VM1 met gebruikmaking van het openbare IP-adres dat u in de vorige stap hebt opgehaald. 
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
 
       mstsc /v:PublicIpAddress:4221  
   
-  ```
+   ```
 3. Voer de referenties in voor *VM1* de RDP-sessie te starten.
 4. Start Windows PowerShell op VM1 en gebruik de volgende opdrachten om de IIS-server te installeren en het standaard htm-bestand bij te werken.
     ```azurepowershell-interactive

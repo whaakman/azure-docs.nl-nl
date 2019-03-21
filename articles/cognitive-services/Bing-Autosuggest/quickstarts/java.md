@@ -1,121 +1,139 @@
 ---
-title: 'Quickstart: Automatische suggestie-API voor Bing, Java'
+title: "Quickstart: Zoekquery's met de REST-API voor Bing Automatische suggestie en Java voorstellen"
 titlesuffix: Azure Cognitive Services
-description: Informatie en codevoorbeelden om snel aan de slag te gaan met de Automatische suggestie-API voor Bing.
+description: Meer informatie over het snel starten voorstellen zoektermen in realtime met de Automatische suggestie-API.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 75d451123441f543094143adfc1df5dfd0c5bdb9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: 64b6ed680ba0812322d5796debc5edada19bc926
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875311"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118830"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-java"></a>Snelstart voor Automatische suggestie-API voor Bing met Java
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Quickstart: Zoekquery's met de REST-API voor Bing Automatische suggestie en Java voorstellen
 
-In dit artikel leest u hoe u de [Automatische suggestie-API voor Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/)  gebruikt met Java. De Automatische suggestie-API retourneert een lijst met voorgestelde query's op basis van de gedeeltelijke queryreeks die de gebruiker invoert in het zoekvak. Normaal gesproken zou u deze API telkens aanroepen wanneer de gebruiker een nieuw teken in het zoekvak typt om vervolgens de suggesties weer te geven in de vervolgkeuzelijst van het zoekvak. In dit artikel ziet u hoe u een aanvraag verstuurt die de voorgestelde queryreeksen voor *sail* retourneert.
+
+Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Automatische suggestie-API en het ophalen van het JSON-antwoord. Deze eenvoudige Java-toepassing een gedeeltelijke zoekquery verzendt naar de API en suggesties voor zoekopdrachten retourneert. Hoewel deze toepassing in Java is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal. De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [JDK 7 of 8](https://aka.ms/azure-jdks) nodig om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u daar graag mee werkt, maar een teksteditor volstaat.
+* De [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
+* De [Gson-bibliotheek](https://github.com/google/gson)
 
-U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Automatische suggestie-API voor Bing v7**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/#search) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-## <a name="get-autosuggest-results"></a>Resultaten van Automatische suggesties ophalen
+## <a name="create-and-initialize-a-project"></a>Een project maken en initialiseren
 
-1. Maak een nieuw Java-project in uw favoriete IDE.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma uit.
+1. Maak een nieuw Java-project in uw favoriete IDE of editor en importeer de volgende bibliotheken.
+
+    ```java
+    import java.io.*;
+    import java.net.*;
+    import java.util.*;
+    import javax.net.ssl.HttpsURLConnection;
+    import com.google.gson.Gson;
+    import com.google.gson.GsonBuilder;
+    import com.google.gson.JsonObject;
+    import com.google.gson.JsonParser;
+    ```
+
+2. Variabelen voor de abonnementssleutel van uw, de API-host en pad, maken uw [code markt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), en een zoekquery.
+    
+    ```java
+    static String subscriptionKey = "enter key here";
+    static String host = "https://api.cognitive.microsoft.com";
+    static String path = "/bing/v7.0/Suggestions";
+    static String mkt = "en-US";
+    static String query = "sail";
+    ```
+
+
+## <a name="format-the-response"></a>Het antwoord opmaken
+
+Maak een methode met de naam `prettify()` om het antwoord op te maken dat vanuit de Bing Video-API is geretourneerd. Gebruik de `JsonParser` van de Gson-bibliotheek om een JSON-tekenreeks op te nemen en zet deze om naar een object. Gebruik vervolgens `GsonBuilder()` en `toJson()` om de opgemaakte tekenreeks te maken.
 
 ```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
-
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- *
- * Once you have compiled or downloaded gson-2.8.1.jar, assuming you have placed it in the
- * same folder as this file (Autosuggest.java), you can compile and run this program at
- * the command line as follows.
- *
- * javac Autosuggest.java -classpath .;gson-2.8.1.jar -encoding UTF-8
- * java -cp .;gson-2.8.1.jar Autosuggest
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-public class Autosuggest {
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-  static String subscriptionKey = "enter key here";
-
-  static String host = "https://api.cognitive.microsoft.com";
-  static String path = "/bing/v7.0/Suggestions";
-
-  static String mkt = "en-US";
-  static String query = "sail";
-
-  public static String get_suggestions () throws Exception {
-        String encoded_query = URLEncoder.encode (query, "UTF-8");
-        String params = "?mkt=" + mkt + "&q=" + encoded_query;
-    URL url = new URL (host + path + params);
-
-    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-    connection.setRequestMethod("GET");
-    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-    connection.setDoOutput(true);
-
-    StringBuilder response = new StringBuilder ();
-    BufferedReader in = new BufferedReader(
-    new InputStreamReader(connection.getInputStream()));
-    String line;
-    while ((line = in.readLine()) != null) {
-      response.append(line);
-    }
-    in.close();
-
-    return response.toString();
-    }
-
-  public static String prettify (String json_text) {
+// pretty-printer for JSON; uses GSON parser to parse and re-serialize
+public static String prettify(String json_text) {
     JsonParser parser = new JsonParser();
     JsonObject json = parser.parse(json_text).getAsJsonObject();
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     return gson.toJson(json);
-  }
-
-  public static void main(String[] args) {
-    try {
-      String response = get_suggestions ();
-      System.out.println (prettify (response));
-    }
-    catch (Exception e) {
-      System.out.println (e);
-    }
-  }
 }
 ```
 
-### <a name="response"></a>Antwoord
+## <a name="construct-and-send-the-search-request"></a>De zoekaanvraag samenstellen en verzenden
+
+1. Maak een nieuwe methode met de naam `get_suggestions()` en voer de volgende stappen uit:
+
+   1. construeer de URL voor uw aanvraag door de API-host en het pad te combineren en uw zoekquery te coderen. Zorg ervoor dat u de url-codering van de query voordat u deze toevoegt. Maken van een tekenreeks van de parameters voor de query door de code markt toe te voegen de `mkt=` parameter en de query naar de `q=` parameter.
+    
+      ```java
+  
+      public static String get_suggestions () throws Exception {
+         String encoded_query = URLEncoder.encode (query, "UTF-8");
+         String params = "?mkt=" + mkt + "&q=" + encoded_query;
+         //...
+      }
+      ```
+    
+   2. Maak een nieuwe URL voor de aanvraag met de API-host, het pad en de parameters die eerder is gemaakt. 
+    
+       ```java
+       //...
+       URL url = new URL (host + path + params);
+       //...
+       ```
+    
+   3. Maak een `HttpsURLConnection` object en gebruik `openConnection()` om een verbinding te maken. Stel de aanvraagmethode in op `GET` en voeg uw abonnementssleutel toe aan de `Ocp-Apim-Subscription-Key`-header.
+
+      ```java
+       //...
+       HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+       connection.setRequestMethod("GET");
+       connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+       connection.setDoOutput(true);
+       //...
+      ```
+
+   4. Lees de API-reactie op een `StringBuilder`. Nadat het antwoord is opgenomen, sluit u de `InputStreamReader` streamen, en het resultaat van het antwoord.
+
+       ```java
+       //...
+       StringBuilder response = new StringBuilder ();
+       BufferedReader in = new BufferedReader(
+       new InputStreamReader(connection.getInputStream()));
+       String line;
+       while ((line = in.readLine()) != null) {
+         response.append(line);
+       }
+       in.close();
+    
+       return response.toString();
+       ```
+
+2. In de main-functie van uw toepassing, roept u `get_suggestions()`, en de reactie met afdrukken `prettify()`.
+    
+    ```java
+    public static void main(String[] args) {
+      try {
+        String response = get_suggestions ();
+        System.out.println (prettify (response));
+      }
+      catch (Exception e) {
+        System.out.println (e);
+      }
+    }
+    ```
+
+## <a name="example-json-response"></a>Voorbeeld van JSON-antwoord
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -186,9 +204,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie over Bing Automatische suggesties](../tutorials/autosuggest.md)
-
-## <a name="see-also"></a>Zie ook
+> [Een web-app met één pagina maken](../tutorials/autosuggest.md)
 
 - [Wat is Bing Automatische suggesties?](../get-suggested-search-terms.md)
 - [Naslaghandleiding Bing Automatische suggesties-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

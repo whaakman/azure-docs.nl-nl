@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: d7ba922d66bf97dbd8173b0d5466a7e55a41f6b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189793"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993193"
 ---
 # <a name="manage-database-roles-and-users"></a>Databaserollen en gebruikers beheren
 
@@ -71,6 +71,7 @@ Rollen en gebruikers toevoegen aan een geïmplementeerd model-database, moet u w
 2. In **rol maken**, voer een rolnaam en de beschrijving.
 
 3. Selecteer een machtiging.
+
    |Machtiging|Description|  
    |----------------|-----------------|  
    |**Volledige bevoegdheid (beheerder)**|Leden kunnen wijzigen van het modelschema verwerken, en kunnen alle gegevens op te vragen.| 
@@ -123,7 +124,7 @@ De [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) module biedt ta
   
 |Cmdlet|Description|
 |------------|-----------------| 
-|[Voeg RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Lid toevoegen aan een databaserol.| 
+|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Lid toevoegen aan een databaserol.| 
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Een lid verwijderen uit een databaserol.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Voer een TMSL-script.|
 
@@ -141,7 +142,7 @@ Rijfilters van toepassing op de opgegeven rijen en de gerelateerde rijen. Wannee
 |-----------|--------------------|  
 |Regio|= Regio [Country] = "VS"|  
 |ProductCategory|= ProductCategory [Name] = "Fietsen"|  
-|Transacties|= Transacties [jaar] = 2016|  
+|Transacties|=Transactions[Year]=2016|  
   
  Het uiteindelijke resultaat is leden kunnen rijen met gegevens waar de klant zich in de Verenigde Staten, de productcategorie fietsen is en het jaar 2016 wordt een query. Gebruikers kunnen geen query uitvoeren op transacties buiten de Verenigde Staten, transacties die niet fietsen of transacties niet in 2016 tenzij ze lid zijn van een andere rol die machtigingen verleent.
   

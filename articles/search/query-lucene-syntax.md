@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5bb5993ea47bfcaca96662fbb3d34341e137b929
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a2576a0489ad62aba0a85a45f110acb8ac220847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544826"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107182"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Lucene-querysyntaxis in Azure Search
 U kunt ook query's voor Azure Search op basis van de uitgebreide schrijven [Lucene-Queryparser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntaxis voor het vormen van de speciale query: jokertekens, fuzzy zoeken, zoeken op nabijheid, reguliere expressies zijn een aantal voorbeelden. Veel van de syntaxis van Lucene-Queryparser [intact geïmplementeerd in Azure Search](search-lucene-query-architecture.md), met uitzondering van *bereik zoekopdrachten* die zijn gebouwd in Azure Search via `$filter` expressies. 
@@ -65,13 +65,13 @@ Zie voor meer voorbeelden van [Lucene-queryvoorbeelden syntaxis voor het bouwen 
 ##  <a name="bkmk_fields"></a> Veldgerelateerde query 's  
  Kunt u een `fieldname:searchterm` bouwen voor het definiëren van een querybewerking fielded het veld is één woord, waarbij de zoekterm is ook één woord of een woordgroep, eventueel met Booleaanse operators. Enkele voorbeelden omvatten het volgende:  
 
--   GEEN geschiedenis genre: jazz  
+- GEEN geschiedenis genre: jazz  
 
--   Artiesten: ("Miles Davis" "John Coltrane")
+- Artiesten: ("Miles Davis" "John Coltrane")
 
- Zorg ervoor dat u meerdere tekenreeksen tussen aanhalingstekens plaatsen als u wilt dat beide tekenreeksen die moeten worden geëvalueerd als één entiteit in dit geval zoekt naar twee verschillende artiesten in de `artists` veld.  
+  Zorg ervoor dat u meerdere tekenreeksen tussen aanhalingstekens plaatsen als u wilt dat beide tekenreeksen die moeten worden geëvalueerd als één entiteit in dit geval zoekt naar twee verschillende artiesten in de `artists` veld.  
 
- Het veld dat is opgegeven `fieldname:searchterm` moet een `searchable` veld.  Zie [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) voor meer informatie over het gebruik van indexkenmerken in velddefinities.  
+  Het veld dat is opgegeven `fieldname:searchterm` moet een `searchable` veld.  Zie [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) voor meer informatie over het gebruik van indexkenmerken in velddefinities.  
 
 ##  <a name="bkmk_fuzzy"></a> fuzzy zoeken  
  Bij een fuzzy zoekopdracht overeenkomsten zoekt in termen die een dergelijke constructie hebben. Per [Lucene documentatie](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy zoekopdrachten zijn gebaseerd op [Damerau Levenshtein afstand](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance).  

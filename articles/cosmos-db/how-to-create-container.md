@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: a509710b5d67aefc599b7e7250754aadd7ad9587
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ce890500c31c1966254e5bca9d23c8fcdd7bb67
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113160"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258289"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Een Azure Cosmos-container maken
 
@@ -23,7 +23,7 @@ In dit artikel worden de verschillende manieren uitgelegd waarop u een container
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-1. [Maak een nieuw Azure Cosmos DB-account](create-sql-api-dotnet.md#create-a-database-account) of selecteer een bestaand account.
+1. [Maak een nieuw Azure Cosmos DB-account](create-sql-api-dotnet.md#create-account) of selecteer een bestaand account.
 
 1. Open het deelvenster **Data Explorer** en selecteer **Nieuwe verzameling**. Geef de volgende gegevens op:
 

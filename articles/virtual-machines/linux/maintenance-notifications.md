@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 5c154541163285de6f17a4ac697a14737bf31762
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 860cb2bee902c6559b7851eb05fa9c5270876fe9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738331"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084722"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Meldingen gepland onderhoud verwerken voor virtuele Linux-machines
 
@@ -86,12 +86,12 @@ De volgende waarden worden onder MaintenanceRedeployStatus geretourneerd:
 
 | Value | Description   |
 |-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Geeft aan of u onderhoud op de virtuele machine op dit moment starten kunt ||
-| PreMaintenanceWindowStartTime         | Het begin van het selfservice onderhoudsvenster wanneer u onderhoud op de virtuele machine starten kunt ||
-| PreMaintenanceWindowEndTime           | Het einde van het selfservice onderhoudsvenster wanneer u onderhoud op de virtuele machine starten kunt ||
-| MaintenanceWindowStartTime            | Het begin van het geplande onderhoudsvenster waarin Azure onderhoud op de virtuele machine start ||
-| MaintenanceWindowEndTime              | Het einde van het geplande onderhoudsvenster waarin Azure onderhoud op de virtuele machine start ||
-| LastOperationResultCode               | Het resultaat van de laatste poging tot het starten van onderhoud op de virtuele machine ||
+| IsCustomerInitiatedMaintenanceAllowed | Geeft aan of u onderhoud op de virtuele machine op dit moment starten kunt |
+| PreMaintenanceWindowStartTime         | Het begin van het selfservice onderhoudsvenster wanneer u onderhoud op de virtuele machine starten kunt |
+| PreMaintenanceWindowEndTime           | Het einde van het selfservice onderhoudsvenster wanneer u onderhoud op de virtuele machine starten kunt |
+| MaintenanceWindowStartTime            | Het begin van het geplande onderhoudsvenster waarin Azure onderhoud op de virtuele machine start |
+| MaintenanceWindowEndTime              | Het einde van het geplande onderhoudsvenster waarin Azure onderhoud op de virtuele machine start |
+| LastOperationResultCode               | Het resultaat van de laatste poging tot het starten van onderhoud op de virtuele machine |
 
 
 

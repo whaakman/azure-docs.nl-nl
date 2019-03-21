@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 2022971d24f7ac8a24986f45031f568a86fc31d9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: b30fa9bb0af8da7b3c72fef7aa2ecd18a8f759e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726360"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862842"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Snelstartgids: De Translator Text-API gebruiken voor transliteratie van tekst met Python
 
@@ -32,7 +32,7 @@ Voor deze snelstart zijn de volgende zaken vereist:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Een project maken en de vereiste modules importeren
 
-Maak een nieuw Python-project met uw favoriete IDE of editor. Kopieer dit codefragment naar uw project in een bestand met de naam `transliterate-text.py`.
+Maak een nieuw project met behulp van uw favoriete IDE of editor of een nieuwe map met een bestand met de naam `transliterate-text.py` op uw bureaublad. Kopieer vervolgens dit codefragment in het projectbestand:
 
 ```python
 # -*- coding: utf-8 -*-
@@ -135,7 +135,7 @@ Als u uw code graag wilt vergelijken met de onze, kunt u het volledige voorbeeld
 [
     {
         "script": "latn",
-        "text": "konnnichiha"
+        "text": "konnichiwa"
     }
 ]
 ```

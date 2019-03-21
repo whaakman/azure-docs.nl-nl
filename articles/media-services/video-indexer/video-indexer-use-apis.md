@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: dc3e654e741fd1a326c83e51c72284f41ad74798
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988048"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862712"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Zelfstudie: De Video Indexer-API gebruiken
 
@@ -23,7 +23,7 @@ ms.locfileid: "55988048"
 
 Video Indexer integreert een aantal audiovisuele technologieën voor kunstmatige intelligentie (AI) die Microsoft in een enkele geïntegreerde service aanbiedt, wat de ontwikkeling eenvoudiger maakt. De API's zijn ontworpen om het ontwikkelaars mogelijk te maken zich te concentreren op het verbruik van Media AI-technologieën, zonder zich druk te hoeven maken over schaal, wereldwijd bereik, beschikbaarheid en betrouwbaarheid van cloud-platforms. U kunt de API gebruiken om uw bestanden te uploaden, gedetailleerde video-inzichten te krijgen, URL's van inzicht- en spelerwidgets te krijgen om deze in te sluiten in uw toepassing of voor andere taken.
 
-Wanneer u een Video Indexer-account maakt, kunt u kiezen uit een gratis proefversie (waarmee u een bepaald aantal gratis minuten indexering krijgt) of een betaalde optie (zonder quotumlimiet). Bij de gratis proefversie biedt Video Indexer websitegebruikers maximaal 600 minuten aan gratis indexering en API-gebruikers maximaal 2400 minuten gratis indexering. Met de betaalde versie maakt u een Video Indexer-account dat is [gekoppeld aan uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt zowel voor de geïndexeerde minuten als voor kosten verbonden aan het Azure Media Services-account. 
+Wanneer u een Video Indexer-account maakt, kunt u kiezen uit een gratis proefversie (waarmee u een bepaald aantal gratis minuten indexering krijgt) of een betaalde optie (zonder quotumlimiet). Bij de gratis proefversie biedt Video Indexer websitegebruikers maximaal 600 minuten aan gratis indexering en API-gebruikers maximaal 2400 minuten gratis indexering. Betaalde optie, maakt u een Video Indexer-account dat is [verbonden met uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt zowel voor de geïndexeerde minuten als voor kosten verbonden aan het Azure Media Services-account. 
 
 In dit artikel wordt uitgelegd hoe ontwikkelaars kunnen profiteren van de [Video Indexer-API](https://api-portal.videoindexer.ai/).
 
@@ -33,10 +33,10 @@ In dit artikel wordt uitgelegd hoe ontwikkelaars kunnen profiteren van de [Video
     
     ![Aanmelden](./media/video-indexer-use-apis/video-indexer-api01.png)
 
-    > [!Important]
-    > * U moet dezelfde provider gebruiken als voor het aanmelden bij Video Indexer.
-    > * Persoonlijke Google- en Microsoft-accounts (Outlook/Live) kunnen alleen voor proefaccounts worden gebruikt. Accounts die gekoppeld zijn met Azure vereisen Azure Active Directory.
-    > * U kunt slechts één actief account per e-mailadres gebruiken. Als een gebruiker zich met user@gmail.com voor LinkedIn probeert aan te melden en daarna met user@gmail.com voor Google, zal de laatste een foutpagina weergeven, met de tekst dat de gebruiker al bestaat.
+   > [!Important]
+   > * U moet dezelfde provider gebruiken als voor het aanmelden bij Video Indexer.
+   > * Persoonlijke Google- en Microsoft-accounts (Outlook/Live) kunnen alleen voor proefaccounts worden gebruikt. Accounts die gekoppeld zijn met Azure vereisen Azure Active Directory.
+   > * U kunt slechts één actief account per e-mailadres gebruiken. Als een gebruiker zich met user@gmail.com voor LinkedIn probeert aan te melden en daarna met user@gmail.com voor Google, zal de laatste een foutpagina weergeven, met de tekst dat de gebruiker al bestaat.
 
 2. Abonneer u.
 
@@ -72,7 +72,7 @@ Om het eenvoudiger te maken, kunt u **Authorization-API** > **GetAccounts** gebr
 
 Toegangstokens verlopen na één uur. Zorg ervoor dat uw token geldig is voordat u de Operations-API gebruikt. Als uw toegangstoken is verlopen, gebruikt u de Authorization-API om een nieuwe op te halen.
  
-U bent nu klaar om te integreren met de API. Zoek [de gedetailleerde beschrijving van elke Video Indexer-REST API](http://api-portal.videoindexer.ai/).
+U bent nu klaar om te integreren met de API. Zoek [de gedetailleerde beschrijving van elke Video Indexer-REST API](https://api-portal.videoindexer.ai/).
 
 ## <a name="location"></a>Locatie
 

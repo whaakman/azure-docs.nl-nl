@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: fa156beba6d5eb1f7e10529d7f1287ab9a148024
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576562"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840559"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Voorspellende pijplijnen maken met Azure Machine Learning en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ ms.locfileid: "57576562"
 3. **Als een webservice implementeren**. U kunt uw scoring experiment publiceren als een Azure-web-service. U kunt gegevens aan uw model via deze web service-eindpunt verzenden en ontvangen van resultaat voorspellingen uit het model.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory en Machine Learning samen
-Azure Data Factory kunt u eenvoudig pijplijnen die gebruikmaken van een gepubliceerde [Azure Machine Learning] [azure-machine-learning] webservice voor voorspellende analyses te maken. Met behulp van de **Batchuitvoeringsactiviteit** in een Azure Data Factory-pijplijn, kunt u een Azure Machine Learning studio-webservice om voorspellingen te maken van de gegevens in batch aanroepen.
+Azure Data Factory kunt u eenvoudig maken pijplijnen die gebruikmaken van een gepubliceerde [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) webservice voor voorspellende analyses. Met behulp van de **Batchuitvoeringsactiviteit** in een Azure Data Factory-pijplijn, kunt u een Azure Machine Learning studio-webservice om voorspellingen te maken van de gegevens in batch aanroepen.
 
 De voorspellende modellen in de Azure Machine Learning studio scoren experimenten moeten opnieuw worden getraind met behulp van nieuwe invoergegevenssets na verloop van tijd. U kunt een opnieuw trainen van een model van een Data Factory-pijplijn door de volgende stappen:
 

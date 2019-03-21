@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e464787919577b89b1cfec11e579cb17c18e2878
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089332"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>De resource-eigenaar wachtwoord referentiestroom configureren in Azure AD B2C
 
@@ -37,15 +37,15 @@ De volgende stromen worden niet ondersteund:
 
 ##  <a name="create-a-resource-owner-user-flow"></a>De gebruikersstroom van een resource-eigenaar maken
 
-1.  Meld u aan de Azure-portal als globale beheerder van uw Azure AD B2C-tenant.
-2.  Als u wilt overschakelen naar de Azure AD B2C-tenant, selecteert u de B2C-map in de rechterbovenhoek van de portal.
-3.  Klik op **gebruikersstromen**, en selecteer **nieuwe gebruikersstroom**.
-4.  Klik op de **alle** tabblad en selecteer **Meld u aan met behulp van ROPC**.
-5.  Geef een naam voor de gebruikersstroom zoals *ROPC_Auth*.
-6.  Onder **toepassingsclaims**, klikt u op **meer weergeven**.
-7.  Selecteer de toepassingsclaims die u nodig hebt voor uw toepassing, zoals naam, e-mailadres en id-Provider.
-8.  Selecteer **OK**, en selecteer vervolgens **Maken**.
-9.  Klik op **gebruikersstroom uitvoeren**.
+1. Meld u aan de Azure-portal als globale beheerder van uw Azure AD B2C-tenant.
+2. Als u wilt overschakelen naar de Azure AD B2C-tenant, selecteert u de B2C-map in de rechterbovenhoek van de portal.
+3. Klik op **gebruikersstromen**, en selecteer **nieuwe gebruikersstroom**.
+4. Klik op de **alle** tabblad en selecteer **Meld u aan met behulp van ROPC**.
+5. Geef een naam voor de gebruikersstroom zoals *ROPC_Auth*.
+6. Onder **toepassingsclaims**, klikt u op **meer weergeven**.
+7. Selecteer de toepassingsclaims die u nodig hebt voor uw toepassing, zoals naam, e-mailadres en id-Provider.
+8. Selecteer **OK**, en selecteer vervolgens **Maken**.
+9. Klik op **gebruikersstroom uitvoeren**.
 
    Vervolgens ziet u een eindpunt, zoals in dit voorbeeld:
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5e749f68aba48ac258363a0a03e3474e1e28b064
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 03bafcdbf6890573d1d2855e2b47520d0111fe13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876769"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996775"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Problemen met een app in Azure App Service met behulp van Visual Studio oplossen
 ## <a name="overview"></a>Overzicht
@@ -134,19 +134,19 @@ public ActionResult About()
 }
 ```
 
-4. [Stel een onderbrekingspunt](https://docs.microsoft.com/visualstudio/debugger/) op de `ViewBag.Message` regel.
+1. [Stel een onderbrekingspunt](https://docs.microsoft.com/visualstudio/debugger/) op de `ViewBag.Message` regel.
 
-5. In **Solution Explorer**, met de rechtermuisknop op het project en klik op **publiceren**.
+1. In **Solution Explorer**, met de rechtermuisknop op het project en klik op **publiceren**.
 
-6. In de **profiel** vervolgkeuzelijst in de lijst met hetzelfde profiel dat u gebruikt in [een ASP.NET-app maken in Azure App Service](app-service-web-get-started-dotnet-framework.md). Klik vervolgens op instellingen.
+1. In de **profiel** vervolgkeuzelijst in de lijst met hetzelfde profiel dat u gebruikt in [een ASP.NET-app maken in Azure App Service](app-service-web-get-started-dotnet-framework.md). Klik vervolgens op instellingen.
 
-7. In de **publiceren** dialoogvenster, klikt u op de **instellingen** tabblad en wijzig vervolgens de **configuratie** naar **Debug**, en klik vervolgens op  **Sla**.
+1. In de **publiceren** dialoogvenster, klikt u op de **instellingen** tabblad en wijzig vervolgens de **configuratie** naar **Debug**, en klik vervolgens op  **Sla**.
 
     ![Publiceren in de foutopsporingsmodus](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-8. Klik op **Publish**. Na de implementatie is voltooid en de browser wordt geopend in de Azure-URL van uw app, sluit de browser.
+1. Klik op **Publish**. Na de implementatie is voltooid en de browser wordt geopend in de Azure-URL van uw app, sluit de browser.
 
-9. In **Server Explorer**, met de rechtermuisknop op uw app en klik vervolgens op **foutopsporingsprogramma koppelen**.
+1. In **Server Explorer**, met de rechtermuisknop op uw app en klik vervolgens op **foutopsporingsprogramma koppelen**.
 
     ![Debugger koppelen](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
@@ -156,19 +156,19 @@ public ActionResult About()
     > Als u eventuele problemen met het starten van het foutopsporingsprogramma hebt, kunt u om dat te doen met behulp van **Cloud Explorer** in plaats van **Server Explorer**.
     >
 
-10. Klik op **over** in het menu.
+1. Klik op **over** in het menu.
 
-     Visual Studio op het onderbrekingspunt gestopt en de code wordt uitgevoerd in Azure, niet op uw lokale computer.
+    Visual Studio op het onderbrekingspunt gestopt en de code wordt uitgevoerd in Azure, niet op uw lokale computer.
 
-11. Beweeg de muisaanwijzer over de `currentTime` variabele om te zien van de tijd-waarde.
+1. Beweeg de muisaanwijzer over de `currentTime` variabele om te zien van de tijd-waarde.
 
-     ![De variabele in de foutopsporingsmodus uitvoeren in Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
+    ![De variabele in de foutopsporingsmodus uitvoeren in Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
-     De tijd die u ziet is de tijd Azure-server, die mogelijk in een andere tijdzone dan uw lokale computer.
+    De tijd die u ziet is de tijd Azure-server, die mogelijk in een andere tijdzone dan uw lokale computer.
 
-12. Voer een nieuwe waarde voor de `currentTime` variabele, zoals 'Nu uitvoeren in Azure'.
+1. Voer een nieuwe waarde voor de `currentTime` variabele, zoals 'Nu uitvoeren in Azure'.
 
-13. Druk op F5 om door te gaan die wordt uitgevoerd.
+1. Druk op F5 om door te gaan die wordt uitgevoerd.
 
      De Info-pagina die wordt uitgevoerd in Azure wordt de nieuwe waarde die u hebt ingevoerd in de variabele currentTime weergegeven.
 
@@ -311,7 +311,7 @@ public ActionResult Contact()
 }        
 ```
 
-2. Voeg een `using System.Diagnostics;` instructie naar de bovenkant van het bestand.
+1. Voeg een `using System.Diagnostics;` instructie naar de bovenkant van het bestand.
 
 ### <a name="view-the-tracing-output-locally"></a>De traceringsuitvoer lokaal weergeven
 1. Druk op F5 voor het uitvoeren van de toepassing in de foutopsporingsmodus.
@@ -339,15 +339,15 @@ public ActionResult Contact()
 ```
 
 De `WebPageTraceListener` Hiermee kunt u weergeven trace-uitvoer door te bladeren naar `/trace.axd`.
-3. Voeg een <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace-element</a> onder `<system.web>` in het Web.config-bestand, zoals in het volgende voorbeeld:
+1. Voeg een <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace-element</a> onder `<system.web>` in het Web.config-bestand, zoals in het volgende voorbeeld:
 
 ``` xml
 <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 ```       
 
-4. Druk op CTRL + F5 om de toepassing uit te voeren.
-5. Voeg in de adresbalk van het browservenster *trace.axd* toe aan de URL en druk op Enter (de URL is vergelijkbaar met http://localhost:53370/trace.axd).
-6. Op de **Toepassingstracering** pagina, klikt u op **Details weergeven** op de eerste regel (niet de BrowserLink).
+1. Druk op CTRL + F5 om de toepassing uit te voeren.
+1. Voeg in de adresbalk van het browservenster *trace.axd* toe aan de URL en druk op Enter (de URL is vergelijkbaar met `http://localhost:53370/trace.axd`).
+1. Op de **Toepassingstracering** pagina, klikt u op **Details weergeven** op de eerste regel (niet de BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
@@ -477,7 +477,7 @@ Alle logboeken die u kunt controleren in de **uitvoer** venster kan ook worden g
    * Webserverlogboeken zijn *.log* bestanden in de *LogFiles\http\RawLogs* map. U kunt een hulpprogramma zoals [Logboekparser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) weergeven en bewerken van deze bestanden.
    * Gedetailleerde fout bericht logboekbestanden *.html* bestanden in de *LogFiles\DetailedErrors* map.
 
-    (De *implementaties* map voor bestanden die zijn gemaakt door bronbeheer publiceren; is geen zaken die betrekking hebben op Visual Studio publiceren. De *Git* map traceringen die betrekking hebben op broncodebeheer wordt publiceren en het logboek voor file-service voor streaming.)  
+     (De *implementaties* map voor bestanden die zijn gemaakt door bronbeheer publiceren; is geen zaken die betrekking hebben op Visual Studio publiceren. De *Git* map traceringen die betrekking hebben op broncodebeheer wordt publiceren en het logboek voor file-service voor streaming.)  
 
 <!-- ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.

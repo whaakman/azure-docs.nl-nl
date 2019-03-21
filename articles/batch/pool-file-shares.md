@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 13ed2caa5ae547747707c368246ea23486dbed72
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469563"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103329"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Een Azure-bestandsshare aan een Batch-pool gebruiken
 
@@ -66,16 +66,16 @@ Ter vereenvoudiging van de koppelingsbewerking (optioneel) de referenties persis
 
 1. Voer de `cmdkey` opdrachtregelprogramma met behulp van een starttaak in de configuratie van de pool. Het probleem blijft bestaan de referenties op elk Windows-knooppunt. De taak starten vanaf de opdrachtregel is vergelijkbaar met:
 
-  ```
-  cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
+   ```
+   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
-  ```
+   ```
 
 2. De bestandsshare koppelen op elk knooppunt als onderdeel van het gebruik van elke taak `net use`. Bijvoorbeeld, de opdrachtregel van de volgende taak koppelt u de bestandsshare als de *S:* station. Dit zou worden gevolgd door een opdracht of script die verwijst naar de share. In de cache opgeslagen referenties worden gebruikt in de aanroep naar `net use`. Deze stap wordt ervan uitgegaan dat u gebruikt de dezelfde gebruikers-id voor de taken die u hebt gebruikt in de begintaak voor de pool, is niet geschikt is voor alle scenario's.
 
-  ```
-  cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
-  ```
+   ```
+   cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
+   ```
 
 ### <a name="c-example"></a>C#-voorbeeld
 De volgende C# voorbeeld laat zien hoe de referenties op een Windows-toepassingen met behulp van een begintaak persistent maken. De naam van de service opslag-bestand en storage-referenties worden doorgegeven als gedefinieerde constanten. De begintaak wordt hier uitgevoerd onder een standaard (niet-beheerder) automatisch-gebruikersaccount met een bereik van de groep van toepassingen.

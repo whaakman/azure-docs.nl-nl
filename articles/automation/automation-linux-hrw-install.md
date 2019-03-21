@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3bdf642c37fe5f64b7d853da6a050ec8c2a7d44d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cc07aa9c1b2c540c33949a8c591bd98f91b04666
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834656"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225447"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Een Linux Hybrid Runbook Worker implementeren
 
@@ -84,6 +84,9 @@ Voordat u doorgaat, houd er rekening mee de Log Analytics-werkruimte die aan uw 
    ```
 
 1. Nadat de opdracht is voltooid, de **Hybrid Worker-groepen** pagina in de Azure portal ziet u de nieuwe groep en het aantal leden. Als dit een bestaande groep, wordt het aantal leden wordt verhoogd. U kunt de groep in de lijst selecteren op de **Hybrid Worker-groepen** pagina en selecteer de **Hybrid Workers** tegel. Op de **Hybrid Workers** pagina, ziet u elk lid van de groep die wordt vermeld.
+
+> [!NOTE]
+> Als u de extensie van de Azure Monitor-virtuele machine voor Linux gebruikt voor een Azure-VM wordt aangeraden instelling `autoUpgradeMinorVersion` op ONWAAR als automatisch versies upgraden kan leiden tot problemen met de Hybrid Runbook Worker. Zie voor informatie over het handmatig bijwerken van de extensie, [implementatie van Azure CLI ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## <a name="turning-off-signature-validation"></a>Het uitschakelen van handtekeningvalidatie
 

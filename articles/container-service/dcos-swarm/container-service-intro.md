@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 348bde94bc01e00777603af8ac078d5e319d732c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 25b6f2b1e79cb6efdcb9d7ee0e956648673e48c0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001986"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528862"
 ---
 # <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(AFGESCHAFT) Inleiding tot oplossingen voor Docker-containerhosting met Azure Container Service 
 
@@ -38,7 +38,7 @@ Als u Azure Container Service wilt gebruiken, moet u eerst een Azure Container S
 Voor orchestration met Azure Container Service kunt u kiezen uit Docker Swarm, DC/OS of Kubernetes. De implementatie van uw toepassing hangt af van de orchestrator die u kiest.
 
 ### <a name="using-dcos"></a>Met DC/OS
-DC/OS is een gedistribueerd besturingssysteem op basis van de Apache Mesos-kernel voor gedistribueerde systemen. Apache Mesos is ondergebracht bij de Apache Software Foundation. Onder de gebruikers en medewerkers van het product tellen we enkele van de [grootste namen in IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/).
+DC/OS is een gedistribueerd besturingssysteem op basis van de Apache Mesos-kernel voor gedistribueerde systemen. Apache Mesos is ondergebracht bij de Apache Software Foundation. Onder de gebruikers en medewerkers van het product tellen we enkele van de [grootste namen in IT](https://mesos.apache.org/documentation/latest/powered-by-mesos/).
 
 ![Azure Container Service geconfigureerd voor DC/OS met agents en masters.](media/acs-intro/dcos.png)
 

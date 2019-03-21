@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 39ab31cd06707dbd488914da248941ab6d174c29
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 632fa14bd96eaee2ca58b59dd855584c1fd961e8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388756"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010104"
 ---
 # <a name="app-service-environment-management-addresses"></a>Beheeradressen van App Service-omgeving
 
@@ -40,7 +40,7 @@ De hieronder aangegeven adressen kunnen worden geconfigureerd in een routetabel.
 
 ## <a name="configuring-a-network-security-group"></a>Configureren van een Netwerkbeveiligingsgroep
 
-Met Netwerkbeveiligingsgroepen hoeft u geen zorgen te hoeven maken over de afzonderlijke adressen of het onderhouden van uw eigen configuratie. Er is een IP-service-tag met de naam AppServiceManagement die is bijgewerkt met alle adressen. Voor het gebruik van deze service IP-tag in uw NSG, gaat u naar de portal, opent u uw netwerk Security groepen-gebruikersinterface en selecteer inkomende beveiligingsregels. Als u een bestaande regel voor het van binnenkomend beheerverkeer deze bewerken. Als deze NSG is niet gemaakt met de as-omgeving, of als allemaal nieuw is, en selecteer vervolgens **toevoegen**. Selecteer onder de bron vervolgkeuzelijst **servicetag**.  Onder de bronservicetag, selecteer ** AppServiceManagement **. De bron poortbereiken ingesteld op \*, doel om door te **eventuele**, poortbereiken van doel naar **454 455**, Protocol **TCP**, en de actie die moet worden **toestaan** . Als u de regel en vervolgens moet u de prioriteit instellen. 
+Met Netwerkbeveiligingsgroepen hoeft u geen zorgen te hoeven maken over de afzonderlijke adressen of het onderhouden van uw eigen configuratie. Er is een IP-service-tag met de naam AppServiceManagement die is bijgewerkt met alle adressen. Voor het gebruik van deze service IP-tag in uw NSG, gaat u naar de portal, opent u uw netwerk Security groepen-gebruikersinterface en selecteer inkomende beveiligingsregels. Als u een bestaande regel voor het van binnenkomend beheerverkeer deze bewerken. Als deze NSG is niet gemaakt met de as-omgeving, of als allemaal nieuw is, en selecteer vervolgens **toevoegen**. Selecteer onder de bron vervolgkeuzelijst **servicetag**.  Selecteer onder de servicetag bron **AppServiceManagement**. De bron poortbereiken ingesteld op \*, doel om door te **eventuele**, poortbereiken van doel naar **454 455**, Protocol **TCP**, en de actie die moet worden **toestaan** . Als u de regel en vervolgens moet u de prioriteit instellen. 
 
 ![het maken van een NSG met de servicetag][1]
 

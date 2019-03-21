@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 182a0232b5317b1a375a20bdd4c6467578dc775b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 18dfc6badf640afb418e661e6c464442fbb41945
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232739"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875166"
 ---
-# <a name="security-frame-session-management"></a>Frame beveiliging: Sessiebeheer
+# <a name="security-frame-session-management"></a>Beveiliging-Frame: Sessiebeheer
 | Product/Service | Artikel |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[De juiste afmelden implementeren met behulp van ADAL methoden bij het gebruik van Azure AD](#logout-adal)</li></ul> |
 | IoT-apparaat | <ul><li>[Beperkte levensduur voor de gegenereerde SaS-tokens gebruiken](#finite-tokens)</li></ul> |
-| **Azure Documentdb** | <ul><li>[Minimale levensduur van tokens voor gegenereerde brontokens gebruiken](#resource-tokens)</li></ul> |
+| **Azure Document DB** | <ul><li>[Minimale levensduur van tokens voor gegenereerde brontokens gebruiken](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[Juiste afmelden WsFederation methoden gebruiken bij het gebruik van AD FS implementeren](#wsfederation-logout)</li></ul> |
 | **Identiteitsserver** | <ul><li>[Implementeren in de juiste afmelden bij het gebruik van Identiteitsserver](#proper-logout)</li></ul> |
 | **Web-App** | <ul><li>[Toepassingen die beschikbaar zijn via HTTPS moeten beveiligde cookies gebruiken](#https-secure-cookies)</li><li>[Alle HTTP-gebaseerde toepassing moet http alleen voor de definitie van de cookie opgeven](#cookie-definition)</li><li>[Bescherming tegen aanvallen van Cross-Site aanvragen kunnen worden vervalst (CSRF) op ASP.NET-webpagina 's](#csrf-asp)</li><li>[Instellen van de sessie voor de levensduur van inactiviteit](#inactivity-lifetime)</li><li>[Juiste afmelden van de toepassing implementeren](#proper-app-logout)</li></ul> |
@@ -82,7 +82,7 @@ Het moet ook de gebruikerssessie door het aanroepen van Session.Abandon() method
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
-| **Onderdeel**               | Azure Documentdb | 
+| **Onderdeel**               | Azure Document DB | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
@@ -174,7 +174,7 @@ De instelling wordt afgedwongen, zelfs als HTTP wordt gebruikt voor toegang tot 
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | Webformulieren, MVC5 |
+| **Van toepassing technologieën** | Web Forms, MVC5 |
 | **Kenmerken**              | EnvironmentType - on-premises |
 | **Verwijzingen**              | N/A  |
 | **Stappen** | Wanneer de web-App de Relying Party is en de id-provider ADFS-server is, beveiligde kenmerk van het FedAuth-token kan worden geconfigureerd door requireSSL instellen op waar in de `system.identityModel.services` sectie van web.config:|
@@ -219,7 +219,7 @@ Alle HTTP-gebaseerde toepassingen die gebruikmaken van cookies moeten in de defi
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Webformulieren |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [De eigenschap FormsAuthentication.RequireSSL](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
+| **Verwijzingen**              | [FormsAuthentication.RequireSSL Property](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
 | **Stappen** | De waarde van de RequireSSL-eigenschap is ingesteld in het configuratiebestand voor een ASP.NET-toepassing met behulp van het kenmerk requireSSL van het configuratie-element. U kunt opgeven in het bestand Web.config voor uw ASP.NET-toepassing of SSL (Secure Sockets Layer) vereist is voor de cookie voor formulierverificatie terugkeren naar de server door het kenmerk requireSSL.|
 
 ### <a name="example"></a>Voorbeeld 
@@ -236,7 +236,7 @@ In het volgende voorbeeld wordt het kenmerk requireSSL ingesteld in het bestand 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | MVC5 |
 | **Kenmerken**              | EnvironmentType - on-premises |
-| **Verwijzingen**              | [Configuratie van Windows Identity Foundation (WIF) – deel II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
+| **Verwijzingen**              | [Windows Identity Foundation (WIF) Configuration – Part II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
 | **Stappen** | Om in te stellen httpOnly kenmerk voor FedAuth cookies, moet de kenmerkwaarde hideFromCsript worden ingesteld op True. |
 
 ### <a name="example"></a>Voorbeeld
@@ -270,7 +270,7 @@ Volgende configuratie ziet u de juiste configuratie:
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | MVC5, MVC6 |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [XSRF/CSRF preventie in ASP.NET MVC en webpagina 's](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
+| **Verwijzingen**              | [XSRF/CSRF preventie in ASP.NET MVC en webpagina 's](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
 | **Stappen** | Anti-CSRF- en ASP.NET MVC-formulieren - gebruiken de `AntiForgeryToken` Help-methode op weergaven; put een `Html.AntiForgeryToken()` in het formulier, bijvoorbeeld:|
 
 ### <a name="example"></a>Voorbeeld
@@ -304,7 +304,7 @@ Filtr autorizace die controleert:
 * Deze cookie en `Request.Form` waarden vergelijken, ervan uitgaande dat alle goed is, de aanvraag wordt verwerkt via die normaal werken. Maar als dit niet het geval is, klikt u vervolgens een Autorisatiefout met het bericht "een vereiste anti-vervalsingstoken is niet opgegeven of is ongeldig '. 
 
 ### <a name="example"></a>Voorbeeld
-Anti-CSRF- en AJAX: het token formulier problematisch voor AJAX-aanvragen kan zijn omdat een AJAX-aanvraag JSON-gegevens geen HTML-formuliergegevens worden verzonden. Eén oplossing is voor het verzenden van de tokens in een aangepaste HTTP-header. De volgende code Razor-syntax gebruikt voor het genereren van de tokens en vervolgens de tokens toegevoegd aan een AJAX-aanvraag. 
+Anti-CSRF- en AJAX: Het formulier-token is een probleem voor AJAX-aanvragen, omdat een AJAX-aanvraag JSON-gegevens geen HTML-formuliergegevens worden verzonden. Eén oplossing is voor het verzenden van de tokens in een aangepaste HTTP-header. De volgende code Razor-syntax gebruikt voor het genereren van de tokens en vervolgens de tokens toegevoegd aan een AJAX-aanvraag. 
 ```csharp
 <script>
     @functions{
@@ -376,8 +376,8 @@ void Page_Init (object sender, EventArgs e) {
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [De eigenschap HttpSessionState.Timeout](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
-| **Stappen** | Sessietime-out vertegenwoordigt de gebeurtenis die plaatsvindt wanneer een gebruiker niet een actie op een website uitvoeren tijdens een interval van is (gedefinieerd door de webserver). De gebeurtenis, aan serverzijde, de status van de gebruikerssessie wijzigen naar 'ongeldig' (bijvoorbeeld ' niet meer gebruikt') en dat de webserver te vernietigen (verwijderen van alle gegevens die erin zijn opgenomen). Het volgende codevoorbeeld wordt de time-out van sessie-kenmerk ingesteld op 15 minuten in het bestand Web.config.|
+| **Verwijzingen**              | [HttpSessionState.Timeout Property](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
+| **Stappen** | Sessietime-out vertegenwoordigt de gebeurtenis die plaatsvindt wanneer een gebruiker niet een actie op een website tijdens een interval uitvoeren is (gedefinieerd door de webserver). De gebeurtenis, aan serverzijde, de status van de gebruikerssessie wijzigen naar 'ongeldig' (bijvoorbeeld ' niet meer gebruikt') en dat de webserver te vernietigen (verwijderen van alle gegevens die erin zijn opgenomen). Het volgende codevoorbeeld wordt de time-out van sessie-kenmerk ingesteld op 15 minuten in het bestand Web.config.|
 
 ### <a name="example"></a>Voorbeeld
 ```XML 
@@ -410,7 +410,7 @@ void Page_Init (object sender, EventArgs e) {
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | Webformulieren, MVC5 |
+| **Van toepassing technologieën** | Web Forms, MVC5 |
 | **Kenmerken**              | EnvironmentType - on-premises |
 | **Verwijzingen**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
 | **Stappen** | Wanneer de web-App Relying Party is en AD FS de STS is, kan de levensduur van de verificatiecookies die - tokens FedAuth - worden ingesteld door de volgende configuratie in web.config:|
@@ -467,8 +467,8 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | MVC5, MVC6 |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [Voorkomen van aanvallen van de aanvraag voor Cross-Site kunnen worden vervalst (CSRF) in ASP.NET Web-API](http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
-| **Stappen** | Anti-CSRF- en AJAX: het token formulier problematisch voor AJAX-aanvragen kan zijn omdat een AJAX-aanvraag JSON-gegevens geen HTML-formuliergegevens worden verzonden. Eén oplossing is voor het verzenden van de tokens in een aangepaste HTTP-header. De volgende code Razor-syntax gebruikt voor het genereren van de tokens en vervolgens de tokens toegevoegd aan een AJAX-aanvraag. |
+| **Verwijzingen**              | [Voorkomen van aanvallen van de aanvraag voor Cross-Site kunnen worden vervalst (CSRF) in ASP.NET Web-API](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
+| **Stappen** | Anti-CSRF- en AJAX: Het formulier-token is een probleem voor AJAX-aanvragen, omdat een AJAX-aanvraag JSON-gegevens geen HTML-formuliergegevens worden verzonden. Eén oplossing is voor het verzenden van de tokens in een aangepaste HTTP-header. De volgende code Razor-syntax gebruikt voor het genereren van de tokens en vervolgens de tokens toegevoegd aan een AJAX-aanvraag. |
 
 ### <a name="example"></a>Voorbeeld
 ```Javascript
@@ -554,7 +554,7 @@ Filtr autorizace die controleert:
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | MVC5, MVC6 |
 | **Kenmerken**              | ID-Provider - ADFS, id-Provider - Azure AD |
-| **Verwijzingen**              | [Een Web-API met afzonderlijke Accounts en lokale aanmelding in ASP.NET Web API 2.2 beveiligen](http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
+| **Verwijzingen**              | [Een Web-API met afzonderlijke Accounts en lokale aanmelding in ASP.NET Web API 2.2 beveiligen](https://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
 | **Stappen** | Als de Web-API is beveiligd met behulp van OAuth 2.0, vervolgens wordt verwacht dat een bearer-token in autorisatie-header voor aanvraag en verleent toegang tot de aanvraag alleen als het token geldig is. In tegenstelling tot Cookieverificatie op basis van, doen browsers het bearer-tokens niet koppelen aan aanvragen. De aanvragende client moet expliciet koppelen het bearer-token in de aanvraagheader. Bearer-tokens worden daarom voor ASP.NET Web-API's beveiligd met behulp van OAuth 2.0, beschouwd als een beveiliging tegen CSRF-aanvallen. Houd er rekening mee dat als het MVC-gedeelte van de toepassing gebruikmaakt van formulierverificatie (dat wil zeggen, maakt gebruik van cookies), anti-vervalsingstokens moeten worden gebruikt door de MVC-web-app. |
 
 ### <a name="example"></a>Voorbeeld

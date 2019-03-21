@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7a3979d9f92526934f074b7a6a122352928abe68
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 647b2ae5f23ef6f94e3a56eb777053a7eb3e0097
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428394"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090437"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Zelfstudie: een pijplijn maken met de kopieeractiviteit in .NET API
 > [!div class="op_single_selector"]
@@ -46,10 +46,13 @@ Een pijplijn kan meer dan één activiteit hebben. Ook kunt u twee activiteiten 
 > In de gegevenspijplijn in deze zelfstudie worden gegevens van een brongegevensarchief gekopieerd naar een doelgegevensarchief. Meer informatie over het transformeren van gegevens met behulp van Azure Data Factory vindt u in [Zelfstudie: een pijplijn bouwen om gegevens te transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Neem [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) door voor een overzicht van de zelfstudie en voer de **vereiste** stappen uit.
 * Visual Studio 2012 of 2013 of 2015
 * Download en installeer [Azure .NET SDK](https://azure.microsoft.com/downloads/)
-* Azure PowerShell. Volg de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps) om Azure PowerShell te installeren op uw computer. Azure PowerShell wordt gebruikt om een Azure Active Directory-toepassing te maken.
+* Azure PowerShell. Volg de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/install-Az-ps) om Azure PowerShell te installeren op uw computer. Azure PowerShell wordt gebruikt om een Azure Active Directory-toepassing te maken.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Een toepassing maken in Azure Active Directory
 Maak een Azure Active Directory-toepassing, maak een service-principal voor de toepassing en wijs deze toe aan de rol **Inzender Data Factory**.
@@ -58,17 +61,17 @@ Maak een Azure Active Directory-toepassing, maak een service-principal voor de t
 2. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal.
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 4. Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **&lt;NameOfAzureSubscription**&gt; door de naam van uw Azure-abonnement.
 
     ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
    > [!IMPORTANT]
@@ -77,7 +80,7 @@ Maak een Azure Active Directory-toepassing, maak een service-principal voor de t
 5. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren in PowerShell.
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
     Als de resourcegroep al bestaat, geeft u aan of u deze wilt bijwerken (Y) of ongewijzigd wilt laten (N).
@@ -86,7 +89,7 @@ Maak een Azure Active Directory-toepassing, maak een service-principal voor de t
 6. Maak een Azure Active Directory-toepassing.
 
     ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    $azureAdApplication = New-AzADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
     ```
 
     Als u de volgende fout ziet, geeft u een andere URL op en voert u de opdracht opnieuw uit.
@@ -97,12 +100,12 @@ Maak een Azure Active Directory-toepassing, maak een service-principal voor de t
 7. Maak de AD-service-principal.
 
     ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Voeg de service-principal toe aan de rol **Inzender Data Factory**.
 
     ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Haal de toepassings-id op.
 
@@ -512,9 +515,9 @@ U moet na deze stappen beschikken over de volgende vier waarden:
     ```
 18. Voer het voorbeeld uit door op **Debug** -> **Start Debugging** te klikken in het menu. Als u **Getting run details of a data slice** ziet, wacht u een paar minuten en drukt u op **ENTER**.
 19. Gebruik Azure Portal om te controleren of de gegevensfactory **APITutorialFactory** wordt gemaakt met de volgende artefacten:
-   * Gekoppelde service: **LinkedService_AzureStorage**
-   * Gegevensset: **InputDataset** en **OutputDataset**.
-   * Pijplijn: **PipelineBlobSample**
+    * Gekoppelde service: **LinkedService_AzureStorage**
+    * Gegevensset: **InputDataset** en **OutputDataset**.
+    * Pijplijn: **PipelineBlobSample**
 20. Controleer of de twee werknemersrecords zijn gemaakt in de tabel **emp** in de opgegeven Azure SQL-database.
 
 ## <a name="next-steps"></a>Volgende stappen

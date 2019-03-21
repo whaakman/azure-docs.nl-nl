@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c01cc6bd6244bcaa8d33baead35ac2a1dadc3d7a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e3a2b45e2039c5cabaa7c507c85a045ca73add83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993943"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Noodherstelanalyse uitvoeren in Azure
 
@@ -23,10 +23,10 @@ In dit artikel laten we zien hoe u herstelanalyse kunt uitvoeren voor on-premise
 Dit is de vierde zelfstudie in een reeks waarin u ziet hoe u herstel naar Azure na een noodgeval kunt instellen voor on-premises VMware-VM’s of Hyper-V-VM's.
 
 In deze zelfstudie wordt aangenomen dat u de eerste drie zelfstudies hebt voltooid:
-    - In de [eerste zelfstudie](tutorial-prepare-azure.md) hebben we de Azure-onderdelen ingesteld die nodig zijn voor VMware-noodherstel.
-    - In de [tweede zelfstudie](vmware-azure-tutorial-prepare-on-premises.md) hebben we on-premises onderdelen voor noodherstel voorbereid en de vereisten bekeken.
-    - In de [derde zelfstudie](vmware-azure-tutorial.md) hebben we replicatie ingesteld en ingeschakeld voor de on-premises VMware-VM.
-    - In deze zelfstudies ziet u steeds het **eenvoudigste implementatiepad voor een scenario**. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. Lees de [handleiding](site-recovery-test-failover-to-azure.md) als u meer wilt leren over de stappen van een testfailover.
+- In de [eerste zelfstudie](tutorial-prepare-azure.md) hebben we de Azure-onderdelen ingesteld die nodig zijn voor VMware-noodherstel.
+- In de [tweede zelfstudie](vmware-azure-tutorial-prepare-on-premises.md) hebben we on-premises onderdelen voor noodherstel voorbereid en de vereisten bekeken.
+- In de [derde zelfstudie](vmware-azure-tutorial.md) hebben we replicatie ingesteld en ingeschakeld voor de on-premises VMware-VM.
+- In deze zelfstudies ziet u steeds het **eenvoudigste implementatiepad voor een scenario**. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. Lees de [handleiding](site-recovery-test-failover-to-azure.md) als u meer wilt leren over de stappen van een testfailover.
 
 In deze zelfstudie leert u het volgende:
 

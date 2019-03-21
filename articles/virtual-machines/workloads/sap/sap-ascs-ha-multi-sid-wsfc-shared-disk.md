@@ -1,6 +1,6 @@
 ---
-title: SAP ASC's / SCS multi-SID hoge beschikbaarheid met Windows Server Failover Clustering en gedeelde schijf op Azure-instantie | Microsoft Docs
-description: Hoge beschikbaarheid voor een SAP ASC's / SCS-exemplaar met Windows Server Failover Clustering en gedeelde schijf op Azure multi-SID
+title: SAP ASCS/SCS-exemplaar multi-SID hoge beschikbaarheid met Windows Server Failover Clustering en gedeelde schijf in Azure | Microsoft Docs
+description: Hoge beschikbaarheid van de multi-SID voor een SAP ASCS/SCS-exemplaar met Windows Server Failover Clustering en een gedeelde schijf op Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee5dc346def58ea7362a763d088145eb0d04a608
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 777fda4317abf431c83b7328084085841eb1f757
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656727"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007985"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -56,7 +56,7 @@ ms.locfileid: "34656727"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -204,98 +204,98 @@ ms.locfileid: "34656727"
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-# <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>SAP ASC's / SCS exemplaar hoge beschikbaarheid met Windows Server Failover Clustering en gedeelde schijf op Azure multi-SID
+# <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>SAP ASCS/SCS-exemplaar multi-SID hoge beschikbaarheid met Windows Server Failover Clustering en gedeelde schijf op Azure
 
 > ![Windows][Logo_Windows] Windows
 >
 
-In September 2016 Microsoft uitgebracht een functie waar u meerdere virtuele IP-adressen beheren met behulp van kunt een [Azure interne load balancer][load-balancer-multivip-overview]. Deze functionaliteit bestaat al in de Azure externe load balancer. 
+In September 2016, bracht Microsoft een functie waar u meerdere virtuele IP-adressen beheren met behulp van kunt een [interne Azure load balancer][load-balancer-multivip-overview]. Deze functionaliteit bestaat al in de externe load balancer van Azure. 
 
-Als u een SAP-implementatie hebt, moet u een interne load balancer gebruiken voor het maken van een Windows-clusterconfiguratie voor centrale SAP-Services (ASC's / SCS)-exemplaren.
+Als u een SAP-implementatie hebt, moet u een interne load balancer gebruiken om de configuratie van een Windows-cluster voor SAP Central Services (ASCS/SCS)-exemplaren te maken.
 
-In dit artikel is gericht op het verplaatsen van een enkele ASC's / SCS-installatie naar een multi-SID SAP configuratie door extra SAP ASC's / SCS geclusterde exemplaren te installeren in een bestaand Windows Server Failover Clustering (WSFC)-cluster met gedeelde schijf. Wanneer dit proces is voltooid, kunt u een SAP multi-SID-cluster hebt geconfigureerd.
+In dit artikel richt zich op het verplaatsen van een enkele ASCS/SCS-installatie aan de configuratie van een SAP-multi-SID door het installeren van extra SAP ASCS/SCS geclusterde exemplaren in een bestaand Windows Server Failover Clustering (WSFC)-cluster met gedeelde schijven. Als dit proces is voltooid, kunt u een SAP-multi-SID-cluster hebt geconfigureerd.
 
 > [!NOTE]
 > Deze functie is alleen beschikbaar in het Azure Resource Manager-implementatiemodel.
 >
->Er is een limiet van het aantal persoonlijke front-end-IP-adressen voor elke Azure interne load balancer.
+>Er geldt een limiet voor het aantal privé front-end-IP-adressen voor elke Azure interne load balancer.
 >
->Het maximum aantal SAP ASC's / SCS-exemplaren in een WSFC-cluster is gelijk aan het maximum aantal persoonlijke front-end-IP-adressen voor elke Azure interne load balancer.
+>Het maximum aantal SAP ASCS/SCS-exemplaren in een WSFC-cluster is gelijk aan het maximum aantal privé front-end-IP-adressen voor elke Azure interne load balancer.
 >
 
-Zie de sectie 'persoonlijke front-end-IP per load balancer in voor meer informatie over de limieten van de load balancer [netwerken limieten: Azure Resource Manager][networking-limits-azure-resource-manager].
+Zie de sectie 'privé front-end-IP per load balancer in voor meer informatie over de limieten van de load balancer [netwerklimieten: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt al een WSFC-cluster moet worden gebruikt voor één SAP ASC's / SCS-exemplaar met behulp van geconfigureerd **bestandsshare**, zoals wordt weergegeven in dit diagram.
+U hebt al een WSFC-cluster moet worden gebruikt voor een SAP ASCS/SCS-exemplaar met behulp van geconfigureerd **bestandsshare**, zoals wordt weergegeven in het volgende diagram.
 
-![Hoge beschikbaarheid SAP ASC's / SCS exemplaar][sap-ha-guide-figure-6001]
+![Hoge beschikbaarheid SAP ASCS/SCS-exemplaar][sap-ha-guide-figure-6001]
 
 > [!IMPORTANT]
 > De instelling moet voldoen aan de volgende voorwaarden:
-> * De SAP ASC's / SCS exemplaren moeten delen hetzelfde WSFC-cluster.
-> * Elk databasebeheersysteem (DBMS) SID moet een eigen toegewezen WSFC-cluster hebben.
+> * De SAP ASCS/SCS-instanties moeten delen hetzelfde WSFC-cluster.
+> * Elke databasebeheersysteem (DBMS) beveiligings-id moet een eigen toegewezen WSFC-cluster.
 > * SAP-toepassingsservers die deel uitmaken van een SAP-systeem SID moeten hebben hun eigen toegewezen virtuele machines.
 
-## <a name="sap-ascsscs-multi-sid-architecture-with-shared-disk"></a>SAP ASC's / SCS multi-SID-architectuur met gedeelde schijf
+## <a name="sap-ascsscs-multi-sid-architecture-with-shared-disk"></a>Architectuur van SAP ASCS/SCS-multi-SID met gedeelde schijven
 
-Het doel is om meerdere SAP ABAP ASC's installeren of SAP Java SCS geclusterde exemplaren in de dezelfde WSFC-cluster, als geïllustreerde hier:
+Het doel is het installeren van meerdere SAP ABAP ASCS of SAP Java SCS geclusterde exemplaren in de dezelfde WSFC-cluster, als geïllustreerde hier:
 
-![Meerdere SAP ASC's / SCS geclusterde exemplaren in Azure][sap-ha-guide-figure-6002]
+![Meerdere SAP ASCS/SCS geclusterde exemplaren in Azure][sap-ha-guide-figure-6002]
 
-Zie de sectie 'persoonlijke front-end-IP per load balancer in voor meer informatie over de limieten van de load balancer [netwerken limieten: Azure Resource Manager][networking-limits-azure-resource-manager].
+Zie de sectie 'privé front-end-IP per load balancer in voor meer informatie over de limieten van de load balancer [netwerklimieten: Azure Resource Manager][networking-limits-azure-resource-manager].
 
-De volledige Liggend met twee SAP-systemen voor hoge beschikbaarheid eruit als volgt:
+De volledige landschap met twee hoge beschikbaarheid van SAP-systemen zou er als volgt:
 
-![SAP hoge beschikbaarheid multi-SID-configuratie met twee SAP-systeem beveiligings-id 's][sap-ha-guide-figure-6003]
+![SAP hoge beschikbaarheid multi-SID-installatie met behulp van twee SAP-systeem beveiligings-id 's][sap-ha-guide-figure-6003]
 
-## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a> De infrastructuur voorbereiden voor een SAP multi-SID-scenario
+## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a> De infrastructuur voorbereiden voor een SAP-multi-SID-scenario
 
-Als u met het voorbereiden van uw infrastructuur, kunt u een extra exemplaar van de SAP ASC's / SCS installeren met de volgende parameters:
+Om voor te bereiden op uw infrastructuur, kunt u een extra SAP ASCS/SCS-exemplaar installeren met de volgende parameters:
 
-| Parameternaam | Waarde |
+| Parameternaam | Value |
 | --- | --- |
-| SAP ASC 'S/SCS SID |pr1-lb-ascs |
+| SAP ASCS/SCS BEVEILIGINGS-ID |pr1-lb-ascs |
 | SAP DBMS interne load balancer | PR5 |
 | Naam van de virtuele host SAP | pr5-sap-cl |
-| SAP ASC's / SCS virtuele host (extra Azure load balancer IP-adres) | 10.0.0.50 |
-| SAP ASC's / SCS exemplaarnummer | 50 |
-| De testpoort ILB voor extra SAP ASC's / SCS-exemplaar | 62350 |
+| SAP ASCS/SCS virtuele host IP-adres (extra Azure-load balancer IP-adres) | 10.0.0.50 |
+| Exemplaarnummer van de SAP ASCS/SCS | 50 |
+| De testpoort ILB voor extra SAP ASCS/SCS-exemplaar | 62350 |
 
 > [!NOTE]
-> Elk IP-adres vereist voor SAP ASC's / SCS cluster exemplaren, een unieke testpoort. Als u één IP-adres op een Azure interne load balancer testpoort 62300 gebruikt, kan geen andere IP-adres op dat load balancer testpoort 62300 gebruiken.
+> Voor instanties van SAP ASCS/SCS-cluster, is een unieke testpoort met elk IP-adres vereist. Als u één IP-adres op een interne Azure load balancer testpoort 62300 gebruikt, kunt geen andere IP-adres op dat load balancer testpoort 62300 gebruiken.
 >
->Voor onze toepassing, omdat de testpoort 62300 is al gereserveerd, gebruiken we de testpoort 62350.
+>Voor onze testdoeleinden, omdat de testpoort 62300 is al gereserveerd, gebruiken we testpoort 62350.
 
-U kunt extra exemplaren van het SAP ASC's / SCS installeren in de bestaande WSFC-cluster met twee knooppunten:
+U kunt extra exemplaren van de SAP ASCS/SCS installeren in de bestaande WSFC-cluster met twee knooppunten:
 
-| De rol virtuele machine | Hostnaam van de virtuele machine | Statisch IP-adres |
+| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Statisch IP-adres |
 | --- | --- | --- |
-| Eerste clusterknooppunt voor ASC's / SCS-exemplaar |pr1-ascs-0 |10.0.0.10 |
-| Tweede clusterknooppunt voor ASC's / SCS-exemplaar |pr1-ascs-1 |10.0.0.9 |
+| Eerste clusterknooppunt voor ASCS/SCS-exemplaar |pr1-ascs-0 |10.0.0.10 |
+| Tweede clusterknooppunt voor ASCS/SCS-exemplaar |pr1-ascs-1 |10.0.0.9 |
 
-### <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance-on-the-dns-server"></a>De naam van een virtuele host op voor het geclusterde exemplaar van de SAP ASC's / SCS maken op de DNS-server
+### <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance-on-the-dns-server"></a>De naam van een virtuele host voor de geclusterde SAP ASCS/SCS-exemplaar op de DNS-server maken
 
-U kunt een DNS-vermelding voor de virtuele host-naam van het exemplaar ASC's / SCS maken met behulp van de volgende parameters:
+U kunt een DNS-vermelding voor de virtuele host-naam van de ASCS/SCS-exemplaar maken met behulp van de volgende parameters:
 
-| Nieuwe SAP ASC's / SCS virtuele host-naam | Bijbehorende IP-adres |
-| --- | --- | --- |
+| Nieuwe SAP ASCS/SCS virtuele host-naam | Bijbehorende IP-adres |
+| --- | --- |
 |pr5-sap-cl |10.0.0.50 |
 
-De nieuwe hostnaam en IP-adres zijn in DNS-beheer weergegeven zoals in de volgende schermafbeelding:
+De nieuwe hostnaam en IP-adres zijn in de DNS-beheer weergegeven zoals in de volgende schermafbeelding:
 
-![Lijst met DNS-beheer de gedefinieerde DNS-vermelding voor de nieuwe SAP ASC's / SCS markeren cluster virtuele naam en het TCP/IP-adres][sap-ha-guide-figure-6004]
+![Lijst met DNS-beheer markeren de gedefinieerde DNS-vermelding voor de nieuwe SAP ASCS/SCS cluster virtuele naam en het TCP/IP-adres][sap-ha-guide-figure-6004]
 
 > [!NOTE]
-> Het nieuwe IP-adres dat u aan de virtuele host-naam van de aanvullende ASC's / SCS-exemplaar toewijst moet hetzelfde zijn als het nieuwe IP-adres dat u hebt toegewezen aan de SAP Azure load balancer.
+> Het nieuwe IP-adres dat u aan de virtuele host-naam van de extra ASCS/SCS-exemplaar toewijst moet hetzelfde zijn als het nieuwe IP-adres dat u hebt toegewezen aan de SAP-Azure load balancer.
 >
 >In ons scenario is het IP-adres 10.0.0.50.
 
-### <a name="add-an-ip-address-to-an-existing-azure-internal-load-balancer-by-using-powershell"></a>Een IP-adres toevoegen aan een bestaande Azure interne load balancer met behulp van PowerShell
+### <a name="add-an-ip-address-to-an-existing-azure-internal-load-balancer-by-using-powershell"></a>Een IP-adres toevoegen aan een bestaande interne Azure load balancer met behulp van PowerShell
 
-Voor het maken van meer dan één exemplaar van het SAP ASC's / SCS in hetzelfde WSFC-cluster, PowerShell een IP-adres toevoegen aan een bestaande Azure interne load balancer te gebruiken. Elk IP-adres vereist een eigen regels load balancing, testpoort, front-end-IP-adresgroep en back-end-pool.
+Voor het maken van meer dan één SAP ASCS/SCS-exemplaar in de dezelfde WSFC-cluster, moet u PowerShell gebruiken om toe te voegen een IP-adres aan een bestaande interne Azure load balancer. Elk IP-adres vereist een eigen regels voor taakverdeling, testpoort, front-end-IP-adresgroep en back-end-pool.
 
-Het volgende script voegt een nieuwe IP-adres toe aan een bestaande load balancer. Bijwerken van de PowerShell-variabelen voor uw omgeving. Het script maakt alle vereiste taakverdeling regels voor alle SAP ASC's / SCS-poorten.
+Het volgende script wordt een nieuw IP-adres toegevoegd aan een bestaande load balancer. De PowerShell-variabelen voor uw omgeving bijwerken. Het script maakt u alle vereiste load balancing-regels voor alle SAP ASCS/SCS-poorten.
 
 ```powershell
 
@@ -377,63 +377,63 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 ```
 Nadat het script is uitgevoerd, worden de resultaten weergegeven in de Azure-portal, zoals wordt weergegeven in de volgende schermafbeelding:
 
-![Nieuwe front-end-IP-groep in de Azure-portal][sap-ha-guide-figure-6005]
+![Nieuwe front-end-IP-groep in Azure portal][sap-ha-guide-figure-6005]
 
-### <a name="add-disks-to-cluster-machines-and-configure-the-sios-cluster-share-disk"></a>Schijven toevoegen aan clustermachines en de schijf van de cluster-share SIOS configureren
+### <a name="add-disks-to-cluster-machines-and-configure-the-sios-cluster-share-disk"></a>Voeg schijven toe om machines te clusteren, en de schijf van de cluster-share SIOS configureren
 
-U moet een nieuwe schijf van de cluster-share voor elk extra exemplaar van de SAP ASC's / SCS toevoegen. Voor Windows Server 2012 R2 is de WSFC-cluster share schijf momenteel in gebruik de SIOS DataKeeper software-oplossing.
+U moet een nieuw cluster-share-schijf voor elk extra SAP ASCS/SCS-exemplaar toevoegen. Voor Windows Server 2012 R2 is de WSFC-cluster share schijf die momenteel in gebruik de SIOS DataKeeper-software-oplossing.
 
 Ga als volgt te werk:
-1. Een extra schijf of schijven met dezelfde grootte (die u moet stripe) toevoegen aan elk van de clusterknooppunten en maak vervolgens.
+1. Een extra schijf of schijven met dezelfde grootte (die u wilt stripe) toevoegen aan elk van de clusterknooppunten, en ze te formatteren.
 2. Storage-replicatie configureren met SIOS DataKeeper.
 
-Deze procedure wordt ervan uitgegaan dat u SIOS DataKeeper al hebt geïnstalleerd op de machines WSFC-cluster. Als u deze hebt geïnstalleerd, moet u replicatie tussen de machines nu configureren. Het proces is beschreven in [SIOS DataKeeper Cluster Edition installeren voor de SAP ASC's / SCS share clusterschijf][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].  
+Deze procedure wordt ervan uitgegaan dat u al SIOS DataKeeper hebt geïnstalleerd op de WSFC-cluster virtuele machines. Als u deze hebt geïnstalleerd, moet u replicatie tussen de machines nu configureren. Het proces wordt beschreven in [SIOS DataKeeper Cluster Edition installeren voor het hulpprogramma voor het delen van de SAP ASCS/SCS-clusterschijf][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].  
 
-![DataKeeper synchroon spiegelen voor de nieuwe SAP ASC's / SCS schijf delen][sap-ha-guide-figure-6006]
+![DataKeeper synchroon spiegelen voor de nieuwe SAP ASCS/SCS schijf delen][sap-ha-guide-figure-6006]
 
 ### <a name="deploy-vms-for-sap-application-servers-and-the-dbms-cluster"></a>Virtuele machines voor SAP-toepassingsservers en de DBMS-cluster implementeren
 
-Ga als volgt te werk voor het voltooien van de voorbereiding van de infrastructuur voor het tweede SAP-systeem:
+Voor het voltooien van de voorbereiding van de infrastructuur voor het tweede SAP-systeem, het volgende doen:
 
-1. Implementeer toegewezen virtuele machines voor de SAP-toepassingsservers en elk item in een eigen toegewezen beschikbaarheidsgroep plaatsen.
-2. Implementeer toegewezen virtuele machines voor het cluster DBMS en elk item in een eigen toegewezen beschikbaarheidsgroep plaatsen.
+1. Implementeren van de toegewezen virtuele machines voor de SAP-toepassingsservers en elk item in een eigen toegewezen beschikbaarheidsgroep plaatsen.
+2. Toegewezen virtuele machines voor de DBMS-cluster implementeren en elk item in een eigen toegewezen beschikbaarheidsgroep plaatsen.
 
-## <a name="install-an-sap-netweaver-multi-sid-system"></a>Een SAP NetWeaver multi-SID-systeem installeert
+## <a name="install-an-sap-netweaver-multi-sid-system"></a>Installeren van een systeem van SAP NetWeaver multi-SID
 
-Zie voor een beschrijving van het volledige proces voor de installatie van een tweede SID2 SAP-systeem [SAP NetWeaver HA installatie op Windows-failovercluster en de gedeelde schijf voor een exemplaar SAP ASC's / SCS][sap-high-availability-installation-wsfc-shared-disk].
+Zie voor een beschrijving van het volledige proces voor het installeren van een tweede SID2 SAP-systeem, [SAP NetWeaver maximaal beschikbare installatie op Windows-failovercluster en de gedeelde schijven voor een SAP ASCS/SCS-exemplaar][sap-high-availability-installation-wsfc-shared-disk].
 
 De procedure op hoog niveau is als volgt:
 
-1. [SAP installeren met een hoge beschikbaarheid ASC's / SCS exemplaar][sap-high-availability-installation-wsfc-shared-disk-install-ascs].  
- In deze stap maakt installeert u SAP met een hoge beschikbaarheid ASC's / SCS-exemplaar op het bestaande cluster WSFC-knooppunt 1.
+1. [SAP installeren met een hoge beschikbaarheid ASCS/SCS-exemplaar][sap-high-availability-installation-wsfc-shared-disk-install-ascs].  
+ In deze stap maakt installeert u SAP met een hoge beschikbaarheid ASCS/SCS-exemplaar op het bestaande cluster WSFC-knooppunt 1.
 
-2. [Wijzig het SAP-profiel van het exemplaar ASC's / SCS][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile].
+2. [Wijzig het SAP-profiel van de ASCS/SCS-exemplaar][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile].
 
-3. [Configureer een testpoort][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].  
- In deze stap maakt configureert u een SAP-clusterbron SAP-SID2-IP-testpoort met behulp van PowerShell. Deze configuratie niet uitvoeren op een van de clusterknooppunten SAP ASC's / SCS.
+3. [Configureren van een testpoort][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].  
+ In deze stap maakt configureert u een SAP-clusterbron SAP-SID2-IP-testpoort met behulp van PowerShell. Deze configuratie worden uitgevoerd op een van de knooppunten van het SAP ASCS/SCS.
 
-4. Het database-exemplaar installeren.  
- Volg de stappen in de SAP-installatiehandleiding voor het installeren van het tweede cluster.
+4. Installeer de database-instantie.  
+ Voor het installeren van het tweede cluster, volg de stappen in de SAP-installatiehandleiding.
 
 5. Het tweede clusterknooppunt installeren.  
- In deze stap maakt installeert u SAP met een hoge beschikbaarheid ASC's / SCS-exemplaar op het bestaande cluster WSFC-knooppunt 2. Volg de stappen in de SAP-installatiehandleiding voor het installeren van het tweede cluster.
+ In deze stap maakt installeert u SAP met een hoge beschikbaarheid ASCS/SCS-exemplaar op het bestaande cluster WSFC-knooppunt 2. Voor het installeren van het tweede cluster, volg de stappen in de SAP-installatiehandleiding.
 
-6. Open Windows Firewall-poorten voor de SAP ASC's / SCS-exemplaar en test poort.  
-    U kunt alle Windows Firewall-poorten die worden gebruikt door SAP ASC's / SCS wilt openen op beide clusterknooppunten die worden gebruikt voor SAP ASC's / SCS-exemplaren. Deze instantie SAP ASC's / SCS poorten worden vermeld in het hoofdstuk [SAP ASC's / SCS poorten][sap-net-weaver-ports-ascs-scs-ports].
+6. Open Windows Firewall-poorten voor de SAP ASCS/SCS-exemplaar en test de poort.  
+    Op beide clusterknooppunten die worden gebruikt voor SAP ASCS/SCS-exemplaren, opent u alle Windows Firewall-poorten die worden gebruikt door SAP ASCS/SCS. Deze poorten SAP ASCS/SCS-exemplaar worden vermeld in het hoofdstuk [SAP ASCS / SCS poorten][sap-net-weaver-ports-ascs-scs-ports].
 
-    Zie voor een lijst met alle andere SAP-poorten, [TCP/IP-poorten van alle SAP-producten][sap-net-weaver-ports].  
+    Zie voor een lijst van alle andere SAP-poorten, [TCP/IP-poorten van alle SAP-producten][sap-net-weaver-ports].  
 
-    De Azure interne load balancer-test servicepoort, die 62350 in ons scenario is ook openen. Dit wordt beschreven [in dit artikel][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port].
+    De testpoort interne Azure load balancer, die 62350 in ons scenario is ook openen. Dit wordt beschreven [in dit artikel][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port].
 
-7. [Het starttype van de SAP geëvalueerd ontvangst vereffening (gebruikers) Windows service-exemplaar][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
+7. [Wijzig het starttype van de SAP geëvalueerd ontvangst verwerken (gebruikers) Windows service-exemplaar][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
 
-8. De primaire SAP-toepassingsserver installeren op de nieuw toegewezen virtuele machine, zoals beschreven in de installatiehandleiding voor SAP.  
+8. De primaire SAP-toepassingsserver installeren op de nieuwe vaste virtuele machine, zoals beschreven in de SAP-installatiehandleiding.  
 
-9. De aanvullende SAP-toepassingsserver installeren op de nieuw toegewezen virtuele machine, zoals beschreven in de installatiehandleiding voor SAP.
+9. De aanvullende SAP-toepassingsserver installeren op de nieuwe vaste virtuele machine, zoals beschreven in de SAP-installatiehandleiding.
 
-10. [Testen van de SAP ASC's / SCS exemplaar failover en SIOS replicatie][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
+10. [Testen van de failover-SAP ASCS/SCS-exemplaar en SIOS replicatie][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Limieten voor netwerken: Azure Resource Manager][networking-limits-azure-resource-manager]
+- [Netwerklimieten: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Meerdere VIP's voor Azure Load Balancer][load-balancer-multivip-overview]

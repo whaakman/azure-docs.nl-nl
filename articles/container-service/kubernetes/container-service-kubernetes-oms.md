@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 8010d7cbf960c3e2f6528687be97a47d31270696
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0d9f13003a9b81085fda9635fc8b07566a1c0c66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997200"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107522"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(AFGESCHAFT) Een Azure Container Service-cluster bewaken met Log Analytics
 
@@ -91,37 +91,37 @@ $ kubectl create -f oms-daemonset.yaml
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Installatie van de Log Analytics-agent met behulp van een Kubernetes-geheim
 U kunt ter bescherming van uw Log Analytics-werkruimte-ID en sleutel Kubernetes-geheim gebruiken als onderdeel van de DaemonSet YAML-bestand.
 
- - Kopieer het script, geheime sjabloonbestand en de DaemonSet YAML-bestand (van [opslagplaats](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) en zorg ervoor dat ze zich in dezelfde map.
-      - Geheim script - geheim gen.sh genereren
-      - geheime sjabloon - geheim template.yaml
-   - DaemonSet YAML-bestand - omsagent-ds-secrets.yaml
- - Voer het script uit. Het script vraagt om de Log Analytics-werkruimte-ID en primaire sleutel. Plaats die en het script maakt u een geheim yaml-bestand, zodat u deze kunt uitvoeren.
-   ```
-   #> sudo bash ./secret-gen.sh
-   ```
+- Kopieer het script, geheime sjabloonbestand en de DaemonSet YAML-bestand (van [opslagplaats](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) en zorg ervoor dat ze zich in dezelfde map.
+  - Geheim script - geheim gen.sh genereren
+  - geheime sjabloon - geheim template.yaml
+    - DaemonSet YAML-bestand - omsagent-ds-secrets.yaml
+- Voer het script uit. Het script vraagt om de Log Analytics-werkruimte-ID en primaire sleutel. Plaats die en het script maakt u een geheim yaml-bestand, zodat u deze kunt uitvoeren.
+  ```
+  #> sudo bash ./secret-gen.sh
+  ```
 
-   - Maak de schil geheimen door het uitvoeren van de volgende: ``` kubectl create -f omsagentsecret.yaml ```
+  - Maak de schil geheimen door het uitvoeren van de volgende: ``` kubectl create -f omsagentsecret.yaml ```
 
-   - Als u wilt controleren, voert u het volgende uit:
+  - Als u wilt controleren, voert u het volgende uit:
 
-   ```
-   root@ubuntu16-13db:~# kubectl get secrets
-   NAME                  TYPE                                  DATA      AGE
-   default-token-gvl91   kubernetes.io/service-account-token   3         50d
-   omsagent-secret       Opaque                                2         1d
-   root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
-   Name:           omsagent-secret
-   Namespace:      default
-   Labels:         <none>
-   Annotations:    <none>
+  ```
+  root@ubuntu16-13db:~# kubectl get secrets
+  NAME                  TYPE                                  DATA      AGE
+  default-token-gvl91   kubernetes.io/service-account-token   3         50d
+  omsagent-secret       Opaque                                2         1d
+  root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+  Name:           omsagent-secret
+  Namespace:      default
+  Labels:         <none>
+  Annotations:    <none>
 
-   Type:   Opaque
+  Type:   Opaque
 
-   Data
-   ====
-   WSID:   36 bytes
-   KEY:    88 bytes
-   ```
+  Data
+  ====
+  WSID:   36 bytes
+  KEY:    88 bytes
+  ```
 
   - Maken van uw omsagent-daemon-set door uit te voeren ``` kubectl create -f omsagent-ds-secrets.yaml ```
 

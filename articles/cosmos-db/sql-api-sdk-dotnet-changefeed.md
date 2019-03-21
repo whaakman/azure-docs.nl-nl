@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 2af3ace68b46c4b6bbe53f8b2cf1c4b53d801f17
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439873"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090335"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET-change Feed Processor SDK: Download en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -44,8 +44,8 @@ ms.locfileid: "57439873"
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Verbeterde verwerking van de waarnemer uitzonderingen.
 * Meer informatie over de waarnemer fouten:
- * Wanneer een waarnemer is gesloten vanwege een uitzondering is gegenereerd door de waarnemer ProcessChangesAsync, is de CloseAsync ontvangt nu de reden parameter ingesteld op ChangeFeedObserverCloseReason.ObserverError.
- * Toegevoegde traceringen fouten binnen gebruikerscode in een waarnemer kunt identificeren.
+  * Wanneer een waarnemer is gesloten vanwege een uitzondering is gegenereerd door de waarnemer ProcessChangesAsync, is de CloseAsync ontvangt nu de reden parameter ingesteld op ChangeFeedObserverCloseReason.ObserverError.
+  * Toegevoegde traceringen fouten binnen gebruikerscode in een waarnemer kunt identificeren.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Er is ondersteuning toegevoegd voor het verwerken van splitsen in verzamelingen die gebruikmaken van gedeelde database doorvoer.

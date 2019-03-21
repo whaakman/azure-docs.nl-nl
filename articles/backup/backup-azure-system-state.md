@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105196"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Back-up van systeemstatus van Windows in Resource Manager-implementatie
 In dit artikel wordt uitgelegd hoe u back-up van de systeemstatus van Windows Server naar Azure. Het artikel is bedoeld als handleiding waarmee u stapsgewijs de basis onder de knie krijgt.
@@ -51,7 +51,7 @@ Als u wilt back-up van de systeemstatus van Windows Server, moet u een Recovery 
     of
     * selecteert u **Bestaande gebruiken** en klikt u op de vervolgkeuzelijst om de lijst met beschikbare resourcegroepen te zien.
 
-  Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen.
+   Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen.
 
 7. Klik op **Locatie** om de geografische regio voor de kluis te selecteren. Deze keuze bepaalt de geografische regio waar uw back-upgegevens naartoe worden verzonden.
 
@@ -130,9 +130,9 @@ Nu dat u een kluis hebt gemaakt, kunt u deze voor de back-ups van de systeemstat
     De kluisreferenties worden naar de map Downloads gedownload. Nadat de kluisreferenties zijn gedownload, ziet u een pop-upvenster waarin u wordt gevraagd of u de referenties wilt openen of opslaan. Klik op **Opslaan**. Als u per ongeluk klikt op **Openen**, kunt u het dialoogvenster waarmee wordt geprobeerd de kluisreferenties te openen, laten mislukken. U kunt de kluisreferenties niet openen. Ga door naar de volgende stap. De kluisreferenties bevinden zich in de map Downloads.   
 
     ![kluisreferenties downloaden is voltooid](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
-> [!NOTE]
-> De kluisreferenties moeten worden opgeslagen alleen op een locatie die zich lokaal op de Windows-Server waarop u van plan bent de agent te gebruiken.
->
+   > [!NOTE]
+   > De kluisreferenties moeten worden opgeslagen alleen op een locatie die zich lokaal op de Windows-Server waarop u van plan bent de agent te gebruiken.
+   >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 

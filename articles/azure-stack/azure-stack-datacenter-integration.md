@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/14/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1c21cc778ed398c28077ef1a20ebbb7b295c2baa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207531"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012399"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Datacenter-integratie-overwegingen voor Azure Stack-geïntegreerde systemen
 Als u geïnteresseerd in een geïntegreerde Azure Stack-systeem bent, moet u de belangrijkste Beschouwingen over planning om de implementatie en hoe het systeem in uw datacenter past begrijpen. In dit artikel bevat een overzicht van deze overwegingen om u te helpen u belangrijke infrastructuur beslissingen voor uw Azure Stack-systeem met meerdere knooppunten. Een goed begrip van deze overwegingen helpt bij het werken met de leverancier van de OEM-hardware omdat ze Azure Stack in uw datacenter implementeren.  
@@ -162,7 +162,7 @@ De volgende tabel geeft een overzicht van de lijst met beschikbare opties.
 | Onderwerp | Oplossing voor externe controle |
 | -- | -- |
 | Azure Stack-software | [Azure Stack Managementpack voor Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Op basis van REST API-aanroepen | 
-| Fysieke servers (bmc's via IPMI) | OEM-hardware - leverancier van managementpack van Operations Manager<br>OEM-hardware leverancier verstrekte-oplossing<br>Hardwareleverancier Nagios-invoegtoepassingen | OEM-partner ondersteund voor controle (opgenomen) | 
+| Fysieke servers (bmc's via IPMI) | OEM-hardware - leverancier van managementpack van Operations Manager<br>OEM-hardware leverancier verstrekte-oplossing<br>Hardwareleverancier Nagios-invoegtoepassingen.<br>OEM-partner ondersteund voor controle (opgenomen) | 
 | Netwerkapparaten (SNMP) | Operations Manager de detectie van netwerkapparaten<br>OEM-hardware leverancier verstrekte-oplossing<br>Nagios-switch invoegtoepassing |
 | Statuscontrole voor tenant-abonnement | [System Center Management Pack voor Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
@@ -171,7 +171,7 @@ Houd rekening met de volgende vereisten:
 - De oplossing die u gebruikt moet worden zonder agent. U kunt agents in Azure Stack-onderdelen van derden niet installeren. 
 - Als u gebruiken van System Center Operations Manager wilt, is Operations Manager 2012 R2 of Operations Manager 2016 vereist.
 
-## <a name="backup-and-disaster-recovery"></a>Back-up en herstel na noodgevallen
+## <a name="backup-and-disaster-recovery"></a>Back-up en herstel na noodgeval
 
 Planning voor back-up en herstel na noodgevallen omvat het plannen van zowel de onderliggende Azure Stack-infrastructuur die als host fungeert voor virtuele machines van IaaS en PaaS-services en voor tenant-toepassingen en gegevens. U moet afzonderlijk voor deze plannen.
 

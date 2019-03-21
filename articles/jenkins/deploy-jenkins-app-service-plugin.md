@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 0ecd0603a5750b6d03da7cf2c577c668482048aa
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 58835b66824d55b64b77e34df64d34c8da1c269a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077314"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864810"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementeren naar Azure App Service met behulp van de Jenkins-invoegtoepassing 
 
@@ -77,7 +77,7 @@ Voordat u de taak in Jenkins instelt, hebt u een Azure App Service-plan en een w
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```
     
-3. Stel de Java-runtime-configuratie in die uw app nodig heeft. De volgende Azure CLI-opdracht configureert de web-app om op een recente JDK 8 en [Apache Tomcat](http://tomcat.apache.org/) versie 8.0 te worden uitgevoerd:
+3. Stel de Java-runtime-configuratie in die uw app nodig heeft. De volgende Azure CLI-opdracht configureert de web-app om op een recente JDK 8 en [Apache Tomcat](https://tomcat.apache.org/) versie 8.0 te worden uitgevoerd:
     ```azurecli-interactive
     az webapp config set \
     --name <myAppName> \
@@ -90,7 +90,7 @@ Voordat u de taak in Jenkins instelt, hebt u een Azure App Service-plan en een w
 ### <a name="set-up-the-jenkins-job"></a>De Jenkins-taak instellen
 
 1. Maak een nieuw **Freestyle**-project op het Jenkins-dashboard.
-2. Configureer het veld **Broncodebeheer** om uw lokale fork van de [eenvoudige Java-web-app voor Azure](https://github.com/azure-devops/javawebappsample) te gebruiken. Geef een waarde op bij **URL van opslagplaats**. Bijvoorbeeld: http://github.com/&lt;uw_ID>/javawebappsample.
+2. Configureer het veld **Broncodebeheer** om uw lokale fork van de [eenvoudige Java-web-app voor Azure](https://github.com/azure-devops/javawebappsample) te gebruiken. Geef een waarde op bij **URL van opslagplaats**. Bijvoorbeeld: http:\//github.com/&lt;your_ID > / javawebappsample.
 3. Voeg een stap toe om de build van het project uit te voeren met behulp van Maven door de opdracht **Shell uitvoeren** toe te voegen. Voor dit voorbeeld hebben we een aanvullende opdracht nodig om de naam van het \*.war-bestand in de doelmap te wijzigen in **ROOT.war**:   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Voordat u de taak in Jenkins instelt, hebt u een web-app op Linux nodig. U hebt 
 ### <a name="set-up-the-jenkins-job-for-docker"></a>De Jenkins-taak instellen voor Docker
 
 1. Maak een nieuw **Freestyle**-project op het Jenkins-dashboard.
-2. Configureer het veld **Broncodebeheer** om uw lokale fork van de [eenvoudige Java-web-app voor Azure](https://github.com/azure-devops/javawebappsample) te gebruiken. Geef een waarde op bij **URL van opslagplaats**. Bijvoorbeeld: http://github.com/&lt;uw_ID>/javawebappsample.
+2. Configureer het veld **Broncodebeheer** om uw lokale fork van de [eenvoudige Java-web-app voor Azure](https://github.com/azure-devops/javawebappsample) te gebruiken. Geef een waarde op bij **URL van opslagplaats**. Bijvoorbeeld: http:\//github.com/&lt;your_ID > / javawebappsample.
 3. Voeg een stap toe om de build van het project uit te voeren met behulp van Maven door de opdracht **Shell uitvoeren** toe te voegen. Neem de volgende regel in de opdracht op:
     ```bash
     mvn clean package

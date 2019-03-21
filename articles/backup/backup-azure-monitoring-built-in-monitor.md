@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 50d766eed5800c58d0b0258b2be6637f139c542a
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730963"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112497"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup bewakingsworkloads
 
@@ -92,9 +92,9 @@ Wanneer de melding is geconfigureerd, ontvangt u een e-mail Welkom of inleidende
 Als de frequentie is ingesteld op een samenvatting per uur en een waarschuwing is gegenereerd en opgelost binnen een uur, wordt het niet een deel van de toekomstige samenvatting per uur zijn.
 
 > [!NOTE]
->
-* Als een destructieve bewerking zoals **stop de beveiliging en verwijder gegevens** is uitgevoerd, wordt een waarschuwing gegenereerd en wordt een e-mailbericht verzonden naar abonnementseigenaren, beheerders en co-beheerders, zelfs als meldingen zijn niet geconfigureerd voor de Service herstellen kluis.
-* Melding configureren voor gebruik van geslaagde taken [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+> 
+> * Als een destructieve bewerking zoals **stop de beveiliging en verwijder gegevens** is uitgevoerd, wordt een waarschuwing gegenereerd en wordt een e-mailbericht verzonden naar abonnementseigenaren, beheerders en co-beheerders, zelfs als meldingen zijn niet geconfigureerd voor de Service herstellen kluis.
+> * Melding configureren voor gebruik van geslaagde taken [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="next-steps"></a>Volgende stappen
 

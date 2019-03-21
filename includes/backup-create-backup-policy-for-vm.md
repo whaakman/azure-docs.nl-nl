@@ -4,12 +4,12 @@ ms.service: backup
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: raynew
-ms.openlocfilehash: b589c88e5b5c5991db43a9f3c10003e17094b2e1
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 3631d2e9beaa7c0d9ee018a32981a278381a7d86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430869"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108495"
 ---
 ## <a name="defining-a-backup-policy"></a>Een back-upbeleid definiëren
 Een back-upbeleid definieert een matrix met wanneer de momentopnamen van de gegevens zijn gemaakt en hoe lang deze momentopnamen worden bewaard. Bij het definiëren van een beleid voor het maken van een back-up van een virtuele machine, kunt u ervoor zorgen dat er *eenmaal per dag* een back-uptaak wordt uitgevoerd. Wanneer u een nieuw beleid maakt, wordt dit toegepast op de kluis. De interface voor het back-upbeleid ziet er als volgt uit:
@@ -32,13 +32,11 @@ Ga als volgt te werk om een beleid te maken:
     Door bewaartermijnen van een maand en een jaar te gebruiken, kunt u opgeven dat momentopnamen met tussenstappen van een week of een dag worden gemaakt.
 
    > [!NOTE]
-   >
-  - Als u een virtuele machine beveiligt, wordt één keer per dag een back-uptaak uitgevoerd. Het tijdstip waarop de back-up wordt uitgevoerd, is voor elke bewaartermijn hetzelfde.
-  - Herstelpunt dat is gegenereerd op de datum en tijd wanneer de back-upmomentopname is voltooid ongeacht wanneer de back-uptaak planning is.
-    - Bijvoorbeeld Als de back-upfrequentie is gepland om 11:30 uur en als gevolg van een probleem momentopname om 12:01 uur is voltooid, wordt het herstelpunt worden gemaakt met de volgende datum en 12:01 AM.
-  - Een maandelijkse back-up worden als back-up is ingesteld om uit te voeren op de eerste dag van elke maand, en als de momentopname is voltooid op de volgende dag vanwege een probleem opgetreden tijdens vervolgens het herstelpunt voor maandelijkse back-up is gemaakt, gemarkeerd met de volgende dag (zoals) tweede van de maand).
-   >
-   >
+   > 
+   > - Als u een virtuele machine beveiligt, wordt één keer per dag een back-uptaak uitgevoerd. Het tijdstip waarop de back-up wordt uitgevoerd, is voor elke bewaartermijn hetzelfde.
+   > - Herstelpunt dat is gegenereerd op de datum en tijd wanneer de back-upmomentopname is voltooid ongeacht wanneer de back-uptaak planning is.
+   >   - Bijvoorbeeld Als de back-upfrequentie is gepland om 11:30 uur en als gevolg van een probleem momentopname om 12:01 uur is voltooid, wordt het herstelpunt worden gemaakt met de volgende datum en 12:01 AM.
+   > - Een maandelijkse back-up worden als back-up is ingesteld om uit te voeren op de eerste dag van elke maand, en als de momentopname is voltooid op de volgende dag vanwege een probleem opgetreden tijdens vervolgens het herstelpunt voor maandelijkse back-up is gemaakt, gemarkeerd met de volgende dag (zoals) tweede van de maand).
 
 
 4. Nadat u alle opties voor het beleid hebt ingesteld, klikt u boven in de blade op **Opslaan**.
