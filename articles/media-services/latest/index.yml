@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fdda67921db38b912679d27bf5a8c897775ad82b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d4e80fd18de40c7df806f0a72612cec7bb71e2d2
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137987"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339178"
 documentType: LandingData
 title: Documentatie voor Azure Media Services v3
 metadata:
@@ -18,11 +18,27 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10-15-2018
+  ms.date: 03/20/2019
   ms.author: juliako
 abstract:
   description: Informatie over video-streaming op aanvraag, live uitzenden en het analyseren van uw video's met Media Services v3. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u veilig on-demand of live video- of audiostromen levert aan miljoenen gebruikers. <br/> De SDK's zijn gebaseerd op <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI-specificatie (Swagger)</a>.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - image:
+        src: 
+      html: <p>Meer informatie over de basisconcepten van Media Services.</p>
+      href: /azure/media-services/latest/concepts-overview/
+      title: Informatie over concepten
+    - image:
+        src: 
+      html: <p>Momenteel kunt u v3-resources niet beheren met de Azure-portal. Gebruik de REST API, CLI of een van de ondersteunde SDK's.</p>
+      href: /azure/media-services/latest/developers-guide/
+      title: Ontwikkelen met de v3-API
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph

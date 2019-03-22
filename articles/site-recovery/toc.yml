@@ -24,6 +24,12 @@ items:
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Failback uitvoeren
       href: azure-to-azure-tutorial-failback.md
+  - name: Virtuele Azure-machines verplaatsen
+    items:
+    - name: Virtuele Azure-machines verplaatsen naar een andere regio
+      href: azure-to-azure-tutorial-migrate.md
+    - name: Virtuele Azure-machines verplaatsen naar beschikbaarheidszones
+      href: move-Azure-VMs-AVset-Azone.md
   - name: Herstel na noodgevallen van virtuele VMware-machines naar Azure
     items:
     - name: Azure voorbereiden
@@ -60,19 +66,11 @@ items:
       href: migrate-tutorial-windows-server-2008.md
     - name: AWS-exemplaren migreren naar Azure
       href: migrate-tutorial-aws-azure.md
-  - name: Virtuele Azure-machines verplaatsen
-    items:
-    - name: Overzicht
-      href: azure-to-azure-move-overview.md
-    - name: Virtuele Azure-machines verplaatsen naar een andere regio
-      href: azure-to-azure-tutorial-migrate.md
-    - name: Virtuele Azure-machines verplaatsen naar beschikbaarheidszones
-      href: move-Azure-VMs-AVset-Azone.md
 - name: Concepten
   items:
   - name: Veelgestelde vragen over Site Recovery
     href: site-recovery-faq.md
-  - name: Over herstel na noodgevallen van virtuele Azure-machines naar Azure
+  - name: Over herstel na noodgeval voor Azure-VM's
     items:
     - name: Azure naar Azure-architectuur
       href: azure-to-azure-architecture.md
@@ -80,12 +78,14 @@ items:
       href: azure-to-azure-common-questions.md
     - name: Ondersteuningsmatrix voor Azure naar Azure
       href: azure-to-azure-support-matrix.md
+    - name: Site Recovery met Azure Backup gebruiken
+      href: site-recovery-backup-interoperability.md
     - name: Versneld netwerken voor herstel na noodgevallen voor Azure-VM
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute met herstel na noodgevallen voor Azure VM's
       href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Interoperabiliteit van herstel na noodgevallen van virtuele Azure-machines en Azure-back-up
-      href: site-recovery-backup-interoperability.md
+  - name: Over het verplaatsen van Azure-VM's
+    href: azure-to-azure-move-overview.md
   - name: Over herstel na noodgevallen van virtuele VMware-machines naar Azure
     items:
     - name: Overzicht van herstel na noodgevallen voor VMware
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service-updates
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 5286e3479561e6effd279978e84f045207a0a7a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66b14ba7100b8bd8e4bb3a100e8fd10d226f555e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835296"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317099"

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 43ace5e56234ed01ca008050c0efdf17b9a5a081
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848861"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258544"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Quickstart: Gesproken tekst herkennen in Java onder Android met behulp van de Speech-SDK
 
@@ -61,11 +61,11 @@ Android Studio heeft even de tijd nodig om het nieuwe Android-project voor te be
 De huidige versie van de Speech SDK van Cognitive Services is `1.3.1`.
 
 De Speech SDK voor Android wordt aangeboden als een [AAR (Android Library)](https://developer.android.com/studio/projects/android-library) die de vereiste bibliotheken en Android-machtigingen bevat.
-De SDK wordt gehost in een Maven-opslagplaats op https://csspeechstorage.blob.core.windows.net/maven/.
+Deze wordt gehost in een Maven-opslagplaats op https:\//csspeechstorage.blob.core.windows.net/maven/.
 
 Stel uw project in voor gebruik van de Speech SDK. Open het venster Project Structure door **File** > **Project Structure** te kiezen in de menubalk van Android Studio. Breng in het venster Project Structure de volgende wijzigingen aan:
 
-1. Selecteer **Project** in de lijst aan de linkerkant van het venster. Bewerk de instellingen voor **Default Library Repository** door een komma toe te voegen en dan de URL van onze Maven-opslagplaats tussen enkele aanhalingstekens. 'https://csspeechstorage.blob.core.windows.net/maven/'
+1. Selecteer **Project** in de lijst aan de linkerkant van het venster. Bewerk de instellingen voor **Default Library Repository** door een komma toe te voegen en dan de URL van onze Maven-opslagplaats tussen enkele aanhalingstekens. 'https:\//csspeechstorage.blob.core.windows.net/maven/'
 
    ![Schermafbeelding van het venster Project Structure](media/sdk/qs-java-android-06-add-maven-repository.png)
 

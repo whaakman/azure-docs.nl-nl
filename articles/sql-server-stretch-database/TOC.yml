@@ -1,0 +1,63 @@
+items:
+- name: Documentatie over SQL Server Stretch Database
+  href: index.md
+- name: Overzicht
+  items:
+  - name: Wat is Stretch Database?
+    href: /sql/sql-server/stretch-database/stretch-database
+  - name: Beperkingen en blokkeringsproblemen
+    href: /sql/sql-server/stretch-database/limitations-for-stretch-database
+- name: Aan de slag
+  items:
+  - name: Databases en tabellen identificeren
+    href: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
+  - name: De wizard uitvoeren
+    href: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard
+- name: Procedures
+  items:
+  - name: Inschakelen
+    items:
+    - name: Een database inschakelen
+      href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-database
+    - name: Een tabel inschakelen
+      href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-table
+    - name: Te migreren rijen selecteren
+      href: /sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database
+  - name: Beheren
+    items:
+    - name: Gegevensmigratie controleren
+      href: /sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database
+    - name: Migratie onderbreken en hervatten
+      href: /sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database
+    - name: Beheren en problemen oplossen
+      href: /sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database
+    - name: Een back-up maken
+      href: /sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database
+    - name: Herstellen
+      href: /sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database
+    - name: Stretch Database uitschakelen
+      href: /sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data
+- name: Naslaginformatie
+  items:
+  - name: Codevoorbeelden
+    href: https://azure.microsoft.com/resources/samples/?service=sql-server-database
+- name: Resources
+  items:
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Blog
+    href: https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/sql-server-stretch-database/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?product=sql-server-stretch-database
+  - name: Video's
+    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database
+ms.openlocfilehash: ba3a3cfe763f17e07dc4bcd0c3106acbc352577f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340656"

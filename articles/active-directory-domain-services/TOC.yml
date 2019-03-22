@@ -1,0 +1,154 @@
+items:
+- name: Documentatie voor Azure AD Domain Services
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Wat is Azure AD Domain Services?
+    href: active-directory-ds-overview.md
+  - name: Veelgestelde vragen
+    href: active-directory-ds-faqs.md
+  - name: Is dit geschikt voor u?
+    items:
+    - name: Vergelijken met Windows Server AD
+      href: active-directory-ds-comparison.md
+    - name: Vergelijken met Azure AD Join
+      href: active-directory-ds-compare-with-azure-ad-join.md
+  - name: Wat is nieuw?
+    href: https://azure.microsoft.com/updates/?product=active-directory-ds
+  - name: Functies
+    href: active-directory-ds-features.md
+  - name: Scenario's
+    href: active-directory-ds-scenarios.md
+  - name: Hoe synchronisatie werkt
+    href: active-directory-ds-synchronization.md
+  - name: Compatibele software van derden
+    href: active-directory-ds-compatible-software.md
+- name: Aan de slag
+  items:
+  - name: 'Taak 1: de basisinstellingen configureren'
+    href: active-directory-ds-getting-started.md
+  - name: 'Taak 2: de netwerkinstellingen configureren'
+    href: active-directory-ds-getting-started-network.md
+  - name: 'Taak 3: de beheergroep configureren en Azure AD Domain Services inschakelen'
+    href: active-directory-ds-getting-started-admingroup.md
+  - name: 'Taak 4: de DNS-instellingen voor het virtuele netwerk bijwerken'
+    href: active-directory-ds-getting-started-dns.md
+  - name: 'Taak 5: wachtwoord-hashsynchronisatie inschakelen'
+    href: active-directory-ds-getting-started-password-sync.md
+- name: Procedures
+  items:
+  - name: De status van een beheerd domein controleren
+    href: active-directory-ds-check-health.md
+  - name: Azure AD Domain Services gebruiken in Azure CSP-abonnementen
+    href: active-directory-ds-csp.md
+  - name: Azure AD Domain Services inschakelen met behulp van PowerShell
+    href: active-directory-ds-enable-using-powershell.md
+  - name: Bereik voor synchronisatie van Azure AD naar een beheerd domein configureren
+    href: active-directory-ds-scoped-synchronization.md
+  - name: Uw beheerde domein beveiligen
+    href: active-directory-ds-secure-your-domain.md
+  - name: Een organisatie-eenheid maken in een beheerd domein
+    href: active-directory-ds-admin-guide-create-ou.md
+  - name: Een beheerd serviceaccount voor groepen maken in een beheerd domein
+    href: active-directory-ds-create-gmsa.md
+  - name: Groepsbeleid in een beheerd domein beheren
+    href: active-directory-ds-admin-guide-administer-group-policy.md
+  - name: Wachtwoordbeleid in een beheerd domein configureren
+    href: active-directory-ds-password-policy.md
+  - name: Een virtueel netwerk selecteren
+    href: active-directory-ds-networking.md
+  - name: Toepassingen implementeren
+    items:
+    - name: Ondersteuning voor profielsynchronisatie voor SharePoint Server configureren
+      href: active-directory-ds-enable-sharepoint-profile-sync.md
+    - name: Kerberos-beperkte overdracht configureren
+      href: active-directory-ds-enable-kcd.md
+    - name: Azure AD-toepassingsproxy implementeren
+      href: active-directory-ds-deploy-azure-app-proxy.md
+  - name: Een beheerd domein verwijderen
+    href: active-directory-ds-disable-aadds.md
+- name: Een beheerd domein koppelen
+  items:
+  - name: Windows Server-VM
+    href: active-directory-ds-admin-guide-join-windows-vm-portal.md
+  - name: Windows Server-VM op basis van sjabloon
+    href: active-directory-ds-join-windows-vm-template.md
+  - name: CentOS
+    href: active-directory-ds-join-centos-linux-vm.md
+  - name: CoreOS
+    href: active-directory-ds-join-coreos-linux-vm.md
+  - name: Red Hat Enterprise Linux
+    href: active-directory-ds-join-rhel-linux-vm.md
+  - name: Ubuntu Server
+    href: active-directory-ds-join-ubuntu-linux-vm.md
+- name: Een beheerd domein beheren
+  items:
+  - name: Een beheerd domein beheren
+    href: active-directory-ds-admin-guide-administer-domain.md
+  - name: DNS beheren in een beheerd domein
+    href: active-directory-ds-admin-guide-administer-dns.md
+  - name: E-mailmeldingen bijwerken
+    href: active-directory-ds-notifications.md
+- name: Secure LDAP configureren voor een beheerd domein
+  items:
+  - name: 'Taak 1: een certificaat voor Secure LDAP verkrijgen'
+    href: active-directory-ds-admin-guide-configure-secure-ldap.md
+  - name: 'Taak 2: het certificaat voor Secure LDAP exporteren'
+    href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
+  - name: 'Taak 3: Secure LDAP inschakelen voor het beheerde domein met de Azure-portal'
+    href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
+  - name: 'Taak 4: DNS configureren voor toegang tot het beheerde domein vanaf het internet'
+    href: active-directory-ds-ldaps-configure-dns.md
+  - name: 'Taak 5: verbinding maken met het beheerde domein en de Secure LDAP-toegang vergrendelen'
+    href: active-directory-ds-ldaps-bind-lockdown.md
+  - name: Problemen met Secure LDAP oplossen
+    href: active-directory-ds-ldaps-troubleshoot.md
+- name: Problemen oplossen
+  items:
+  - name: Handleiding voor het oplossen van problemen
+    href: active-directory-ds-troubleshooting.md
+  - name: Waarschuwingsproblemen oplossen
+    href: active-directory-ds-troubleshoot-alerts.md
+    items:
+    - name: Problemen met NSG-configuratie oplossen
+      href: active-directory-ds-troubleshoot-nsg.md
+    - name: Ontbrekende service-principals herstellen
+      href: active-directory-ds-troubleshoot-service-principals.md
+    - name: Fouten met betrekking tot Secure LDAP
+      href: active-directory-ds-troubleshoot-ldaps.md
+  - name: Fouten met niet-overeenkomende tenants oplossen
+    href: active-directory-ds-mismatched-tenant-error.md
+  - name: Onderbroken domeinen
+    href: active-directory-ds-suspension.md
+- name: Naslaginformatie
+  items:
+  - name: Codevoorbeelden
+    href: https://azure.microsoft.com/resources/samples/?service=active-directory
+- name: Verwant
+  items:
+  - name: Azure Active Directory
+    href: ../active-directory/fundamentals/active-directory-whatis.md
+  - name: Azure Active Directory B2C
+    href: ../active-directory-b2c/active-directory-b2c-overview.md
+  - name: Multi-Factor Authentication
+    href: ../active-directory/authentication/multi-factor-authentication.md
+- name: Resources
+  items:
+  - name: Azure AD-feedbackforum
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Contact opnemen
+    href: active-directory-ds-contact-us.md
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/active-directory-ds/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?product=active-directory-ds
+ms.openlocfilehash: 8559569df09bf611286730868f50d0bf1878182b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341115"

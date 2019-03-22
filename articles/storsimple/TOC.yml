@@ -1,0 +1,434 @@
+items:
+- name: Documentatie voor StorSimple
+  href: index.md
+- name: StorSimple Virtual Array
+  items:
+  - name: Overzicht
+    items:
+    - name: Wat is de oplossing?
+      href: storsimple-ova-overview.md
+  - name: Aan de slag
+    items:
+    - name: Plannen
+      items:
+      - name: Vereisten beoordelen
+        href: storsimple-ova-system-requirements.md
+      - name: Limieten begrijpen
+        href: storsimple-ova-limits.md
+      - name: Best practices beoordelen
+        href: storsimple-ova-best-practices.md
+    - name: Implementeren
+      items:
+      - name: Implementatie voorbereiden
+        href: storsimple-virtual-array-deploy1-portal-prep.md
+        items:
+        - name: StorSimple Manager-service implementeren
+          href: storsimple-virtual-array-manage-service.md
+        - name: Nieuwe verificatie
+          href: storsimple-virtual-array-aad-registration-key.md
+      - name: Inrichten in Hyper-V
+        href: storsimple-virtual-array-deploy2-provision-hyperv.md
+      - name: Inrichten in VMware
+        href: storsimple-virtual-array-deploy2-provision-vmware.md
+      - name: Configureren als bestandsserver
+        href: storsimple-virtual-array-deploy3-fs-setup.md
+      - name: Configureren als iSCSI-server
+        href: storsimple-virtual-array-deploy3-iscsi-setup.md
+  - name: Procedures
+    items:
+    - name: Beheren via Azure Portal
+      href: storsimple-virtual-array-manager-service-administration.md
+      items:
+      - name: Meest recente update installeren
+        href: storsimple-virtual-array-install-update-11.md
+        items:
+        - name: Update 1 installeren
+          href: storsimple-virtual-array-install-update-1.md
+        - name: Update 0.6 installeren
+          href: storsimple-virtual-array-install-update-06.md
+        - name: Archiveren
+          items:
+          - name: Update 0.5 installeren
+            href: storsimple-virtual-array-install-update-05.md
+          - name: Update 0.4 installeren
+            href: storsimple-virtual-array-install-update-04.md
+          - name: Update 0.3 installeren
+            href: storsimple-virtual-array-install-update.md
+      - name: Back-ups maken en beheren
+        href: storsimple-virtual-array-backup.md
+      - name: Klonen vanaf back-ups
+        href: storsimple-virtual-array-clone.md
+      - name: Failover en DR
+        href: storsimple-virtual-array-failover-dr.md
+      - name: Deactiveren en verwijderen
+        href: storsimple-virtual-array-deactivate-and-delete-device.md
+      - name: Shares beheren
+        href: storsimple-virtual-array-manage-shares.md
+      - name: Volumes beheren
+        href: storsimple-virtual-array-manage-volumes.md
+      - name: Servicesamenvatting weergeven
+        href: storsimple-virtual-array-service-summary.md
+      - name: Apparaatsamenvatting weergeven
+        href: storsimple-virtual-array-device-summary.md
+      - name: Opslagaccounts beheren
+        href: storsimple-virtual-array-manage-storage-accounts.md
+      - name: ACR’s beheren
+        href: storsimple-virtual-array-manage-acrs.md
+      - name: Taken beheren
+        href: storsimple-virtual-array-manage-jobs.md
+      - name: Wachtwoord voor apparaat wijzigen
+        href: storsimple-virtual-array-change-device-admin-password.md
+      - name: Bewaken met behulp van waarschuwingen
+        href: storsimple-virtual-array-manage-alerts.md
+      - name: Problemen vaststellen en oplossen
+        href: storsimple-virtual-array-diagnose-problems.md
+      - name: Een ondersteuningsaanvraag registreren
+        href: storsimple-virtual-array-log-support-ticket.md
+    - name: Configureren via lokale webinterface
+      href: storsimple-ova-web-ui-admin.md
+  - name: Releaseopmerkingen
+    items:
+    - name: Update 1.1 - actueel
+      href: storsimple-virtual-array-update-11-release-notes.md
+    - name: Update 1
+      href: storsimple-virtual-array-update-1-release-notes.md
+    - name: Update 0.6
+      href: storsimple-virtual-array-update-06-release-notes.md
+    - name: Archiveren
+      items:
+      - name: Update 0.5
+        href: storsimple-virtual-array-update-05-release-notes.md
+      - name: Update 0.4
+        href: storsimple-virtual-array-update-04-release-notes.md
+      - name: Update 0.3
+        href: storsimple-ova-update-03-release-notes.md
+      - name: Update 0.2 en 0.1
+        href: storsimple-ova-update-01-release-notes.md
+- name: StorSimple 8000-serie (Azure Portal)
+  items:
+  - name: Overzicht
+    items:
+    - name: Wat is de oplossing?
+      href: storsimple-overview.md
+    - name: Opties voor gegevensoverdracht vergelijken
+      href: storsimple-8000-choose-storage-solution.md
+    - name: Leertraject voor StorSimple
+      href: https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/
+    - name: Beveiligingsoverwegingen
+      href: storsimple-8000-security.md
+    - name: Beschikbaarheid in regio’s
+      href: storsimple-regions.md
+  - name: Aan de slag
+    items:
+    - name: Plannen
+      items:
+      - name: Vereisten beoordelen
+        href: storsimple-8000-system-requirements.md
+      - name: Technische specificaties beoordelen
+        href: storsimple-8000-technical-specifications-and-compliance.md
+      - name: Limieten begrijpen
+        href: storsimple-8000-limits.md
+      - name: Aanbevolen procedures
+        href: https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68
+    - name: Installeren
+      items:
+      - name: Veiligheid beoordelen
+        href: storsimple-8000-safety.md
+      - name: Een 8100 uitpakken, op een rek monteren en aansluiten
+        href: storsimple-8100-hardware-installation.md
+      - name: Een 8600 uitpakken, op een rek monteren en aansluiten
+        href: storsimple-8600-hardware-installation.md
+      - name: Ondersteunde hardware voor 10 GbE-netwerkinterfaces
+        href: storsimple-supported-hardware-for-10-gbe-network-interfaces.md
+    - name: Implementeren
+      items:
+      - name: StorSimple-apparaatbeheerfunctie
+        href: storsimple-8000-manage-service.md
+      - name: Nieuwe verificatie voor service
+        href: storsimple-8000-aad-registration-key.md
+      - name: Fysiek apparaat in Azure
+        href: storsimple-8000-deployment-walkthrough-u2.md
+      - name: Fysiek apparaat in Government-portal
+        href: storsimple-8000-deployment-walkthrough-gov-u2.md
+      - name: Cloudapparaat in Azure
+        href: storsimple-8000-cloud-appliance-u2.md
+      - name: StorSimple Snapshot Manager
+        href: storsimple-snapshot-manager-deployment.md
+      - name: StorSimple Adapter voor SharePoint
+        href: storsimple-adapter-for-sharepoint.md
+  - name: Procedures
+    items:
+    - name: Beheren
+      items:
+      - name: Service StorSimple Manager gebruiken
+        href: storsimple-8000-manager-service-administration.md
+        items:
+        - name: Herstellen vanaf back-up
+          href: storsimple-8000-restore-from-backup-set-u2.md
+        - name: Een volume klonen
+          href: storsimple-8000-clone-volume-u2.md
+        - name: Extern verbinden met uw apparaat
+          href: storsimple-8000-remote-connect.md
+        - name: Uw apparaat deactiveren en verwijderen
+          href: storsimple-8000-deactivate-and-delete-device.md
+        - name: Failover van uw apparaat
+          href: storsimple-8000-device-failover-disaster-recovery.md
+          items:
+          - name: Failover naar een fysiek apparaat
+            href: storsimple-8000-device-failover-physical-device.md
+          - name: Failover naar een cloudapparaat
+            href: storsimple-8000-device-failover-cloud-appliance.md
+          - name: Failover naar hetzelfde apparaat
+            href: storsimple-8000-device-failover-same-device.md
+        - name: Back-upcatalogus beheren
+          href: storsimple-8000-manage-backup-catalog.md
+        - name: Back-upbeleid beheren
+          href: storsimple-8000-manage-backup-policies-u2.md
+        - name: Opslagaccounts beheren
+          href: storsimple-8000-manage-storage-accounts.md
+        - name: Volumecontainers beheren
+          href: storsimple-8000-manage-volume-containers.md
+        - name: Volumes beheren - actueel
+          href: storsimple-8000-manage-volumes-u2.md
+          items:
+          - name: 'Veelgestelde vragen: Lokaal vastgemaakte volumes'
+            href: storsimple-8000-local-volume-faq.md
+        - name: Op rollen gebaseerd toegangsbeheer
+          href: storsimple-8000-role-based-access-control.md
+        - name: ACR’s beheren
+          href: storsimple-8000-manage-acrs.md
+        - name: Bandbreedtesjablonen beheren
+          href: storsimple-8000-manage-bandwidth-templates.md
+        - name: Taken weergeven en beheren
+          href: storsimple-8000-manage-jobs-u2.md
+        - name: Apparaatmodus wijzigen
+          href: storsimple-8000-device-modes.md
+        - name: Wachtwoord voor apparaat wijzigen
+          href: storsimple-8000-change-passwords.md
+        - name: Apparaatconfiguratie wijzigen
+          href: storsimple-8000-modify-device-config.md
+        - name: Inschakelen en uitschakelen
+          href: storsimple-turn-device-on-or-off.md
+        - name: MPIO op Windows Server-host configureren
+          href: storsimple-8000-configure-mpio-windows-server.md
+        - name: MPIO in Linux-host configureren
+          href: storsimple-configure-mpio-on-linux.md
+        - name: CHAP configureren
+          href: storsimple-8000-configure-chap.md
+      - name: Windows PowerShell voor StorSimple gebruiken
+        href: storsimple-8000-windows-powershell-administration.md
+        items:
+        - name: Apparaatcontroller beheren
+          href: storsimple-8000-manage-device-controller.md
+        - name: Webproxy configureren
+          href: storsimple-8000-configure-web-proxy.md
+        - name: DATA 0-instellingen wijzigen
+          href: storsimple-8000-modify-data-0.md
+      - name: StorSimple Snapshot Manager gebruiken
+        href: storsimple-snapshot-manager-admin.md
+        items:
+        - name: Wat is StorSimple Snapshot Manager?
+          href: storsimple-what-is-snapshot-manager.md
+        - name: Over de StorSimple Snapshot Manager-interface
+          href: storsimple-use-snapshot-manager.md
+        - name: Apparaten beheren via StorSimple Snapshot Manager
+          href: storsimple-snapshot-manager-manage-devices.md
+        - name: Back-upbeleid beheren via StorSimple Snapshot Manager
+          href: storsimple-snapshot-manager-manage-backup-policies.md
+        - name: Volumegroepen beheren via StorSimple Snapshot Manager
+          href: storsimple-snapshot-manager-manage-volume-groups.md
+        - name: Back-upcatalogus beheren via StorSimple Snapshot Manager
+          href: storsimple-snapshot-manager-manage-backup-catalog.md
+        - name: Back-uptaken beheren via StorSimple Snapshot Manager
+          href: storsimple-snapshot-manager-manage-backup-jobs.md
+        - name: Volumes beheren via StorSimple Snapshot Manager
+          href: storsimple-snapshot-manager-manage-volumes.md
+        - name: MMC-acties gebruiken via StorSimple Snapshot Manager
+          href: storsimple-snapshot-manager-mmc-menu.md
+    - name: Automatiseren
+      items:
+      - name: Azure PowerShell-voorbeeldscripts gebruiken
+        href: storsimple-8000-automation-azurerm-scripts.md
+      - name: Azure Automation-runbooks gebruiken
+        href: storsimple-8000-automation-azurerm-runbook.md
+    - name: Oplossingen bouwen
+      items:
+      - name: StorSimple met Veeam
+        href: storsimple-configure-backup-target-veeam.md
+      - name: StorSimple met Veritas Backup Exec
+        href: storsimple-configure-backup-target-using-backup-exec.md
+      - name: StorSimple met Veritas NetBackup
+        href: storsimple-configure-backuptarget-netbackup.md
+      - name: Noodherstel bestandsserver voor Azure automatiseren
+        href: storsimple-disaster-recovery-using-azure-site-recovery.md
+      - name: StorSimple met Express Route
+        href: https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content
+      - name: StorSimple met VMware
+        href: https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463
+      - name: StorSimple met Hyper-V
+        href: https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6
+      - name: Gedistribueerde globale naamruimte
+        href: https://www.microsoft.com/download/details.aspx?id=45507
+    - name: Controleren
+      items:
+      - name: Servicesamenvatting gebruiken
+        href: storsimple-8000-service-dashboard.md
+      - name: Apparaatsamenvatting gebruiken
+        href: storsimple-8000-device-dashboard.md
+      - name: Bewakingsgrafieken gebruiken
+        href: storsimple-8000-monitor-device.md
+      - name: Servicewaarschuwingen gebruiken
+        href: storsimple-8000-manage-alerts.md
+      - name: Hardwarestatus gebruiken
+        href: storsimple-8000-monitor-hardware-status.md
+      - name: Controle-led's gebruiken
+        href: storsimple-monitoring-indicators.md
+    - name: Problemen oplossen
+      items:
+      - name: Implementatieproblemen
+        href: storsimple-8000-troubleshoot-deployment.md
+      - name: Het diagnosehulpprogramma gebruiken
+        href: storsimple-8000-diagnostics.md
+      - name: Operationele problemen
+        href: storsimple-troubleshoot-operational-device.md
+      - name: Hardwarevervanging
+        href: storsimple-8000-hardware-component-replacement.md
+        items:
+        - name: Apparaatcontroller vervangen
+          href: storsimple-8000-controller-replacement.md
+        - name: EBOD-controller vervangen
+          href: storsimple-8000-ebod-controller-replacement.md
+        - name: PCM vervangen
+          href: storsimple-8000-power-cooling-module-replacement.md
+        - name: Schijfstation vervangen
+          href: storsimple-8000-disk-drive-replacement.md
+        - name: Back-upbatterij vervangen
+          href: storsimple-8000-battery-replacement.md
+        - name: Chassis vervangen
+          href: storsimple-8000-chassis-replacement.md
+      - name: Contact met ondersteuning
+        href: storsimple-8000-contact-microsoft-support.md
+        items:
+        - name: Ondersteuningspakket maken
+          href: storsimple-8000-create-manage-support-package.md
+    - name: Migreren
+      items:
+      - name: Abonnementen en opslagaccounts
+        href: storsimple-8000-migrate-classic-azure-portal.md
+      - name: Vanaf apparaten van de 5000/7000-serie
+        href: storsimple-8000-migration-options.md
+        items:
+        - name: Naar apparaten uit StorSimple 8000-serie
+          href: storsimple-8000-migrate-from-5000-7000.md
+        - name: Naar Azure File Sync
+          href: storsimple-5000-7000-afs-migration.md
+      - name: Vanaf andere opslagapparaten
+        href: https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf
+    - name: Update
+      items:
+      - name: Update 5 (actueel) installeren
+        href: storsimple-8000-install-update-5.md
+      - name: Update 4 installeren
+        href: storsimple-8000-install-update-4.md
+  - name: Releaseopmerkingen
+    items:
+    - name: Update 5 - actueel
+      href: storsimple-update5-release-notes.md
+    - name: Update 4
+      href: storsimple-update4-release-notes.md
+    - name: Archiveren
+      items:
+      - name: Update 3
+        href: storsimple-update3-release-notes.md
+      - name: Update 2.2
+        href: storsimple-update21-release-notes.md
+      - name: Update 2
+        href: storsimple-update2-release-notes.md
+      - name: Update 1
+        href: storsimple-update1-release-notes.md
+      - name: Update 0.3
+        href: storsimple-february-2015-release-notes.md
+      - name: Update 0.2
+        href: storsimple-january-2015-release-notes.md
+      - name: Update 0.1
+        href: storsimple-october-2014-release-notes.md
+      - name: Versie - GA
+        href: storsimple-july-2014-release-notes.md
+  - name: Naslaginformatie
+    items:
+    - name: REST-API
+      href: https://docs.microsoft.com/rest/api/storsimple
+    - name: Windows PowerShell voor StorSimple-cmdlets
+      href: https://technet.microsoft.com/library/dn688168.aspx
+    - name: Resource Manager-sjabloon
+      href: /azure/templates/microsoft.storsimple/allversions
+- name: StorSimple-gegevensbeheer
+  items:
+  - name: Overzicht
+    items:
+    - name: Wat is de oplossing?
+      href: storsimple-data-manager-overview.md
+  - name: Aan de slag
+    items:
+    - name: StorSimple Data Manager gebruiken
+      href: storsimple-data-manager-ui.md
+  - name: Procedures
+    items:
+    - name: .NET gebruiken om taken te starten
+      href: storsimple-data-manager-dotnet-jobs.md
+    - name: Automation gebruiken om taken te starten
+      href: storsimple-data-manager-job-using-automation.md
+    - name: Het standaardpad van een blob wijzigen
+      href: storsimple-data-manager-change-default-blob-path.md
+- name: StorSimple voor partners
+  items:
+  - name: Overzicht
+    items:
+    - name: Wat is de oplossing?
+      href: storsimple-partner-csp-overview.md
+  - name: Aan de slag
+    items:
+    - name: Virtuele matrix voor CSP implementeren
+      href: storsimple-partner-csp-deploy.md
+  - name: Releaseopmerkingen
+    items:
+    - name: Releaseopmerkingen voor StorSimple
+      href: https://aka.ms/storsimple-virtual-array-latest-relnote
+    - name: Releaseopmerkingen voor CSP
+      href: https://partner.microsoft.com/Support/whats-new
+    - name: 'StorSimple voor CSP: Veelgestelde vragen'
+      href: storsimple-partner-csp-faq.md
+- name: Verwant
+  items:
+  - name: StorSimple 5000-7000-serie
+    href: http://onlinehelp.storsimple.com
+- name: Resources
+  items:
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Marketingblog
+    href: http://blogs.technet.com/b/cis/
+  - name: Marketing
+    href: https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx
+  - name: Ondersteuningsopties voor StorSimple
+    href: storsimple-8000-support-options.md
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/storsimple/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?product=storsimple
+  - name: Ondersteuningsblog
+    href: https://blogs.msdn.com/b/storsimple/
+  - name: Mededelingen van derden
+    href: https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip
+  - name: Video's
+    href: https://azure.microsoft.com/documentation/videos/index/?services=storsimple
+ms.openlocfilehash: 6879dd240dc070483a7d97536a5fa365108af5f1
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341132"

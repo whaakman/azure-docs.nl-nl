@@ -1,0 +1,57 @@
+items:
+- name: Windows Virtual Desktop
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Wat is Windows Virtual Desktop?
+    href: overview.md
+- name: Zelfstudies
+  items:
+  - name: 1. Een tenant maken in Windows Virtual Desktop
+    href: tenant-setup-azure-active-directory.md
+  - name: 2. Een hostpool maken met Azure Marketplace
+    href: create-host-pools-azure-marketplace.md
+  - name: 3. Appgroepen beheren
+    href: manage-app-groups.md
+  - name: 4. Service-principals en roltoewijzingen maken met PowerShell
+    href: create-service-principal-role-powershell.md
+- name: Uitleg
+  items:
+  - name: Verbinding maken met Windows Virtual Desktop-resources
+    items:
+    - name: Verbinding maken met Windows 7 en Windows 10
+      href: connect-windows-7-and-10.md
+    - name: Verbinding maken met de webclient
+      href: connect-web.md
+  - name: Een hostpool maken met een Azure Resource Manager-sjabloon
+    href: create-host-pools-arm-template.md
+  - name: Een hostpool maken met PowerShell
+    href: create-host-pools-powershell.md
+  - name: Een gebruikersprofielshare instellen voor een hostpool
+    href: create-host-pools-user-profile.md
+  - name: De taakverdelingsmethode voor Windows Virtual Desktop configureren
+    href: configure-host-pool-load-balancing.md
+  - name: Problemen met de diagnostische functie identificeren
+    href: diagnostics-role-service.md
+  - name: Een VHD-hoofdinstallatiekopie voorbereiden en aanpassen
+    href: set-up-customize-master-image.md
+  - name: Sessiehosts automatisch schalen
+    href: set-up-scaling-script.md
+- name: Concepten
+  items:
+  - name: Windows Virtual Desktop-omgeving
+    href: environment-setup.md
+  - name: Gedelegeerde toegang in Windows Virtual Desktop
+    href: delegated-access-virtual-desktop.md
+  - name: Taakverdelingsmethoden voor hostpool
+    href: host-pool-load-balancing.md
+- name: Naslaginformatie
+  items:
+  - name: PowerShell
+    href: /powershell/windows-virtual-desktop/overview
+ms.openlocfilehash: 2f321b25d6ba1ad8545bf161dd37e270890efcec
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318766"

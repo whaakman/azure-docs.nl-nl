@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37a8882653ffede121d2e2cd3f3357741d8d641a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091542"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336420"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Apache HBase oplossen met behulp van Azure HDInsight
 
@@ -344,7 +344,7 @@ Dit is een bekend probleem met de HMaster-service. Algemene cluster opstarttaken
 
 ### <a name="issue"></a>Probleem
 
-Een fout opnieuw opstarten op een regioserver kan worden voorkomen door de volgende aanbevolen procedures. Het is raadzaam dat u zware werkbelasting activiteit onderbreken wanneer u van plan bent om opnieuw te starten van servers voor HBase-regio. Als een toepassing wordt voortgezet om te verbinden met regioservers wanneer shutdown bezig is, wordt regio server opnieuw opstarten trager worden door enkele minuten. Het is ook een goed idee om eerst alle tabellen leeg te maken. Zie voor informatie over het leegmaken van tabellen [HDInsight HBase: Over het verbeteren van de tijd van Apache HBase-cluster opnieuw starten door het verplaatsen van tabellen](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Een fout opnieuw opstarten op een regioserver kan worden voorkomen door de volgende aanbevolen procedures. Het is raadzaam dat u zware werkbelasting activiteit onderbreken wanneer u van plan bent om opnieuw te starten van servers voor HBase-regio. Als een toepassing wordt voortgezet om te verbinden met regioservers wanneer shutdown bezig is, wordt regio server opnieuw opstarten trager worden door enkele minuten. Het is ook een goed idee om eerst alle tabellen leeg te maken. Zie voor informatie over het leegmaken van tabellen [HDInsight HBase: Over het verbeteren van de tijd van Apache HBase-cluster opnieuw starten door het verplaatsen van tabellen](https://web.archive.org/web/20190112153155/ https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
 Als u de opstartbewerking voor HBase-regioservers vanuit de Apache Ambari-gebruikersinterface hebt gestart, ziet u meteen dat de regioservers werd afgesloten, maar ze niet meteen opnieuw. 
 

@@ -1,0 +1,59 @@
+items:
+- name: Overzicht
+  href: overview.md
+- name: Snelstartgids
+  items:
+  - name: Bash - Quickstart
+    href: quickstart.md
+  - name: PowerShell - Quickstart
+    href: quickstart-powershell.md
+- name: Functies en hulpprogramma's
+  items:
+  - name: Functies en hulpprogramma's
+    href: features.md
+- name: Zelfstudies
+  items:
+  - name: Ansible
+    items:
+    - name: Ansible-playbook uitvoeren
+      href: /azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+    - name: Uw dynamische Azure-inventarissen beheren
+      href: /azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+  - name: Terraform
+    items:
+    - name: Een uitvoeringsplan maken
+      href: example-terraform-bash.md
+- name: Handleidingen
+  items:
+  - name: PowerShell Cloud Shell voor Windows-gebruikers
+    href: cloud-shell-windows-users.md
+  - name: Bestanden in opslag behouden
+    href: persisting-shell-storage.md
+  - name: Het venster gebruiken
+    href: using-the-shell-window.md
+  - name: MSI in Cloud Shell gebruiken
+    href: msi-authorization.md
+  - name: Cloud Shell insluiten
+    href: embed-cloud-shell.md
+- name: De Cloud Shell-editor gebruiken
+  href: using-cloud-shell-editor.md
+- name: Probleemoplossing en beperkingen
+  href: troubleshooting.md
+- name: Naslaginformatie
+  items:
+  - name: Azure-CLI
+    href: /cli/azure
+  - name: Azure PowerShell
+    href: /powershell/azure
+- name: Resources
+  items:
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 873308d775fd7451d89bd05771d3a1c5f5e22995
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341302"

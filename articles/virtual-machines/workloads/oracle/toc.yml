@@ -1,0 +1,35 @@
+items:
+- name: Overzicht
+  items:
+  - name: Overwegingen voor virtuele Oracle-machines
+    href: oracle-considerations.md
+- name: Snelstartgidsen
+  items:
+  - name: Een Oracle-DB maken
+    href: oracle-database-quick-create.md
+- name: Zelfstudies
+  items:
+  - name: Oracle ASM configureren
+    href: configure-oracle-asm.md
+  - name: Oracle DataGuard configureren
+    href: configure-oracle-dataguard.md
+  - name: Oracle GoldenGate configureren
+    href: configure-oracle-golden-gate.md
+- name: Concepten
+  items:
+  - name: Een Oracle-database ontwerpen
+    href: oracle-design.md
+  - name: Back-upstrategie voor Oracle-databases
+    href: oracle-backup-recovery.md
+  - name: Opties voor Oracle voor herstel na noodgevallen
+    href: oracle-disaster-recovery.md
+- name: Resources
+  items:
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 9c8aba887e728904aed51d3db2db5bb02c03d7b8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340605"

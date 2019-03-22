@@ -134,8 +134,11 @@ We hebben deze inhoud gemaakt om u te helpen aan de slag te gaan en beveiligings
                     <div class="cardText">
                         <h3>Hulp bij Mijn Apps-portal</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/active-directory-saas-access-panel-introduction">Wat is de Mijn Apps-portal?</a><br/>
-                        <a href="/azure/active-directory/active-directory-saas-access-panel-user-help">Problemen oplossen</a>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access">Mijn Apps-portal openen en gebruiken</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-update-profile">Uw profiel en accountinformatie bijwerken</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-groups">Uw groepsgerelateerde informatie bijwerken</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access-reviews">Uw eigen toegangsbeoordelingen uitvoeren</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-troubleshoot">Problemen oplossen</a>
                         </p>
                     </div>
                 </div>

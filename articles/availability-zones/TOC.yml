@@ -1,0 +1,104 @@
+items:
+- name: Flexibiliteit van Azure
+  items:
+  - name: Functiepagina flexibiliteit van Azure
+    href: https://azure.microsoft.com/features/resiliency
+  - name: Flexibele toepassingen ontwerpen voor Azure
+    href: https://docs.microsoft.com/azure/architecture/resiliency/
+- name: Hoge beschikbaarheid
+  items:
+  - name: Hoge beschikbaarheid voor Azure-toepassingen
+    href: https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications
+  - name: Documentatie over beschikbaarheidszones
+    items:
+    - name: Wat zijn beschikbaarheidszones?
+      href: az-overview.md
+    - name: Virtuele machines
+      items:
+      - name: Een virtuele Linux-machine maken in een beschikbaarheidszone met CLI
+        href: ../virtual-machines/linux/create-cli-availability-zone.md
+      - name: Een virtuele Windows-machine maken in een beschikbaarheidszone met PowerShell
+        href: ../virtual-machines/windows/create-powershell-availability-zone.md
+      - name: Een virtuele Windows-machine maken in een beschikbaarheidszone met de Azure-portal
+        href: ../virtual-machines/windows/create-portal-availability-zone.md
+    - name: Managed Disks
+      items:
+      - name: Een beheerde schijf toevoegen in beschikbaarheidszones met CLI
+        href: ../virtual-machines/linux/add-disk.md#use-managed-disks
+      - name: Een beheerde schijf toevoegen in beschikbaarheidszones met PowerShell
+        href: ../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine
+    - name: Virtuele-machineschaalsets
+      items:
+      - name: Een schaalset maken in een beschikbaarheidszone
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md
+    - name: Load Balancer
+      items:
+      - name: Wat is load balancer?
+        href: ../load-balancer/load-balancer-standard-overview.md
+      - name: Load Balancer Standard en beschikbaarheidszones
+        href: ../load-balancer/load-balancer-standard-availability-zones.md
+      - name: Een zoneredundante openbare load balancer van het type Standard maken
+        href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
+        items:
+        - name: Een zoneredundante openbare load balancer van het type Standard maken (PowerShell)
+          href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
+        - name: Een zoneredundante openbare load balancer van het type Standard maken (CLI)
+          href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
+      - name: Een zonegebonden openbare load balancer van het type Standard maken
+        href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
+        items:
+        - name: Een zonegebonden openbare load balancer van het type Standard maken (PowerShell)
+          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+        - name: Een zonegebonden openbare load balancer van het type Standard maken (CLI)
+          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
+      - name: Taken over VM's in meerdere beschikbaarheidszones verdelen
+        href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
+        items:
+        - name: Taken over VM's in meerdere beschikbaarheidszones verdelen met Azure (CLI)
+          href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
+    - name: Openbaar IP-adres
+      href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
+    - name: SQL Database
+      items:
+      - name: Beschikbaarheidszones met SQL Database
+        href: ../sql-database/sql-database-high-availability.md#zone-redundant-configuration
+    - name: Opslag
+      items:
+      - name: Zone-redundante opslag
+        href: ../storage/common/storage-redundancy-zrs.md
+    - name: Event Hubs
+      items:
+      - name: Geo-noodherstel Event Hubs
+        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones-preview
+    - name: Service Bus
+      items:
+      - name: Geo-noodherstel Service Bus
+        href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview
+    - name: VPN Gateway
+      items:
+      - name: Een zone-redundante virtuele netwerkgateway maken
+        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+    - name: ExpressRoute
+      items:
+      - name: Een zone-redundante virtuele netwerkgateway maken
+        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+- name: Herstel na noodgevallen
+  items:
+  - name: Azure Site Recovery gebruiken
+    href: https://docs.microsoft.com/azure/site-recovery/
+- name: Azure Backup
+  items:
+  - name: Azure Backup gebruiken
+    href: https://docs.microsoft.com/azure/backup/
+- name: Resources
+  items:
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Azure-regio's
+    href: https://azure.microsoft.com/regions/
+ms.openlocfilehash: 45a73ec4d5e3649be38133e5ce055f206ecf80ab
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340673"

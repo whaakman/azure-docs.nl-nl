@@ -1,0 +1,70 @@
+items:
+- name: Azure voor IT-operators
+  items:
+  - name: Aan de slag met Azure
+    href: azure-operations-guide.md
+  - name: Snelstartgidsen
+    items:
+    - name: Virtuele machines
+      items:
+      - name: Windows Virtual Machines
+        href: ../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: Linux Virtual Machines
+        href: ../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+    - name: Virtuele netwerken
+      items:
+      - name: Een virtueel netwerk maken met Azure Portal
+        href: ../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+    - name: Beveiliging
+      items:
+      - name: Roltoewijzingen gebruiken om resources te beheren
+        href: ../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+    - name: Azure Stack
+      items:
+      - name: Overzicht van de implementatie van Azure Stack
+        href: ../../azure-stack/azure-stack-deploy-overview.md
+    - name: Azure Backup
+      items:
+      - name: Back-up van een virtuele machine in de Azure-portal
+        href: ../../backup/quick-backup-vm-portal.md
+    - name: Azure Site Recovery
+      items:
+      - name: Een Azure-VM repliceren naar een andere Azure-regio
+        href: ../../site-recovery/azure-to-azure-quickstart.md
+  - name: Zelfstudies
+    items:
+    - name: Virtuele machines
+      items:
+      - name: Een virtuele Windows-machine maken/beheren
+        href: ../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: Virtuele Linux-machines maken/beheren
+        href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: Jenkins CI/CD Pipeline
+        href: ../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: Taakverdelingen maken voor virtuele machines
+        href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: Azure Resource Manager-sjablonen maken
+        href: ../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: Back-ups van VM's maken op schaal
+        href: ../../backup/tutorial-backup-vm-at-scale.md
+  - name: Handleidingen
+    items:
+    - name: Uw Azure-factuur en de dagelijkse gebruiksgegevens downloaden
+      href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+  - name: Resources
+    items:
+    - name: Azure-productcatalogus
+      href: https://docs.microsoft.com/azure/#pivot=products
+    - name: Azure-roadmap
+      href: https://azure.microsoft.com/roadmap/
+    - name: Prijscalculator
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Overzicht van Microsoft Azure Portal
+      href: https://azure.microsoft.com/documentation/articles/azure-portal-overview/
+  - name: Verwijzingen
+ms.openlocfilehash: baa4d388f26c46974c1037c3ecf723a445774591
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341353"

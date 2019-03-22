@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f6e9641d106c40c061752b57744eda09aac157a5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: aad35aa7a958e8bdaf1479d1ffbbad5bf213d46a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821963"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339241"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Apache Spark oplossen met behulp van Azure HDInsight
 
@@ -23,7 +23,7 @@ Meer informatie over de meest voorkomende problemen en hun oplossingen als u wer
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-De configuratiewaarden voor deze procedure zijn eerder ingesteld in HDInsight. Om te bepalen welke Spark moeten configuraties worden ingesteld en naar welke waarden, zien wat een Apache Spark-toepassing OutofMemoryError uitzondering veroorzaakt. 
+Spark-configuratiewaarden kunnen worden afgestemd te voorkomen dat u een Apache Spark-toepassing OutofMemoryError uitzondering. De volgende stappen ziet standaard de configuratiewaarden van Spark in Azure HDInsight: 
 
 1. Selecteer in de lijst met clusters, **Spark2**.
 
@@ -85,8 +85,7 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="additional-reading"></a>Meer lezen
 
-[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
+[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Hoe configureer ik een Apache Spark-toepassing met behulp van een Jupyter-notebook op clusters?
 
@@ -100,7 +99,7 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="additional-reading"></a>Meer lezen
 
-[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>Hoe configureer ik een Apache Spark-toepassing met behulp van Apache Livy op clusters?
@@ -117,8 +116,7 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="additional-reading"></a>Meer lezen
 
-[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
+[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>Hoe configureer ik een Apache Spark-toepassing met behulp van spark-submit op clusters?
 
@@ -134,7 +132,7 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="additional-reading"></a>Meer lezen
 
-[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
 ## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>Een Apache Spark-toepassing OutofMemoryError uitzondering veroorzaakt?
@@ -205,12 +203,12 @@ De meest waarschijnlijke oorzaak van deze uitzondering is dat niet voldoende hea
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    Aan de totale hoeveelheid geheugen die wordt gebruikt door alle Executor Low: 
+    Voor het berekenen van de totale hoeveelheid geheugen die wordt gebruikt door alle Executor: 
     
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-   Aan de totale hoeveelheid geheugen die wordt gebruikt door het stuurprogramma Low:
+   Voor het berekenen van de totale hoeveelheid geheugen die wordt gebruikt door het stuurprogramma:
     
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead
@@ -219,9 +217,8 @@ De meest waarschijnlijke oorzaak van deze uitzondering is dat niet voldoende hea
 ### <a name="additional-reading"></a>Meer lezen
 
 - [Overzicht van Apache Spark geheugen](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Fouten opsporen in een Apache Spark-toepassing op een HDInsight-cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+- [Fouten opsporen in een Apache Spark-toepassing op een HDInsight-cluster](https://web.archive.org/web/20190112152909/ https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
 ### <a name="see-also"></a>Zie ook
 [Problemen oplossen met behulp van Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
-

@@ -1,0 +1,209 @@
+items:
+- name: Overzicht
+  items:
+  - name: Ontwikkelaarsgids
+    href: azure-developer-guide.md
+  - name: SDK's en hulpprogramma's
+    href: https://docs.microsoft.com/azure/index#pivot=sdkstools
+- name: Snelstartgids
+  items:
+  - name: Web Apps
+    href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
+  - name: Virtuele machines
+    items:
+    - name: Linux
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal
+    - name: Windows
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal
+  - name: Serverloos
+    href: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
+  - name: Microservices
+    items:
+    - name: Service Fabric
+      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio
+    - name: Container Service
+      href: https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-deployment
+- name: Zelfstudies
+  items:
+  - name: Een web-app maken en implementeren
+    items:
+    - name: .NET met SQL DB
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase
+    - name: Node.js met Mongo-database
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app
+    - name: PHP met MySQL
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql
+    - name: Java met MySQL
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql
+  - name: Complexe VM-sjablonen implementeren
+    items:
+    - name: Linux
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm
+    - name: Windows
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm
+  - name: Een met Azure verbonden functie maken
+    href: https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function
+  - name: Docker-web-app implementeren in Linux
+    href: https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go
+- name: Voorbeelden
+  items:
+  - name: Azure-CLI
+    items:
+    - name: Web Apps
+      href: https://docs.microsoft.com/azure/app-service/samples-cli
+    - name: Linux-VM
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples
+    - name: Windows-VM
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples
+  - name: Azure PowerShell
+    items:
+    - name: Web Apps
+      href: https://docs.microsoft.com/azure/app-service/samples-powershell
+    - name: Linux-VM
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples
+    - name: Windows-VM
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples
+- name: Concepten
+  items:
+  - name: Facturering en abonnementen
+    href: https://docs.microsoft.com/azure/billing/billing-getting-started
+  - name: Hosting-vergelijkingen
+    href: https://docs.microsoft.com/azure/app-service/overview-compare
+  - name: Wat is App Service?
+    href: https://docs.microsoft.com/azure/app-service/overview
+  - name: Virtuele machines
+    items:
+    - name: Virtuele Linux-machines
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/overview
+    - name: Virtuele Windows-machines
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/overview
+  - name: Overzicht Service Fabric
+    href: https://docs.microsoft.com/azure/service-fabric/service-fabric-overview
+- name: Handleidingen
+  items:
+  - name: Plannen
+    items:
+    - name: Webtoepassingsarchitecturen
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/
+    - name: VM-architecturen
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/
+    - name: Verbinding maken met on-premises-netwerken
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/
+    - name: Microservicepatronen/-scenario's
+      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-and-scenarios
+  - name: Ontwikkelen
+    items:
+    - name: Linux-VM
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-secured-vm-from-template
+    - name: Windows-VM
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/ps-template
+    - name: Serverloze apps
+      href: https://docs.microsoft.com/azure/azure-functions/functions-reference
+    - name: Microservices-cluster
+      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal
+  - name: Implementeren
+    items:
+    - name: Web- en mobiele apps vanuit broncodebeheer
+      href: https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment
+    - name: Microservices lokaal
+      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster
+    - name: Linux-VM
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm
+    - name: Windows-VM
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm
+  - name: Opgeslagen gegevens
+    items:
+    - name: Blobs
+      href: https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs
+    - name: Bestandsshares
+      href: https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files
+    - name: Sleutel-waardeparen
+      href: https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet
+    - name: JSON-documenten
+      href: https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet
+    - name: Relationele tabellen
+      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started
+    - name: Berichtenwachtrijen
+      href: https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues
+  - name: Schalen
+    items:
+    - name: Web- en mobiele apps
+      href: https://docs.microsoft.com/azure/app-service/web-sites-scale
+    - name: Virtuele machines
+      href: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+    - name: Microservice-apps
+      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability
+  - name: Beveiligen
+    items:
+    - name: Web- en mobiele apps
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl
+  - name: Backup
+    items:
+    - name: Web- en mobiele apps
+      href: https://docs.microsoft.com/azure/app-service/manage-backup
+    - name: Virtuele machines
+      href: https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction
+  - name: Controleren
+    items:
+    - name: Web- en mobiele apps
+      href: https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs
+    - name: Linux-VM
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring
+    - name: Windows-VM
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring
+    - name: Microservices
+      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview
+    - name: Meldingen voor facturering
+      href: https://docs.microsoft.com/azure/billing/billing-set-up-alerts
+  - name: Automatiseren
+    items:
+    - name: Schaal van Linux-VM aanpassen
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss
+    - name: Schaal van Windows-VM aanpassen
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss
+- name: Naslaginformatie
+  items:
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/
+  - name: SDK's
+    items:
+    - name: .NET
+      href: https://go.microsoft.com/fwlink/?linkid=834925
+    - name: Java
+      href: https://docs.microsoft.com/java/api/
+    - name: Node.js
+      href: https://azure.github.io/azure-sdk-for-node/
+    - name: PHP
+      href: https://github.com/Azure/azure-sdk-for-php/blob/master/README.md
+    - name: Python
+      href: http://azure-sdk-for-python.readthedocs.io/en/latest/
+    - name: Ruby
+      href: https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md
+  - name: Opdrachtregelinterfaces
+    items:
+    - name: Azure-CLI
+      href: https://docs.microsoft.com/cli/azure/
+    - name: Azure PowerShell
+      href: https://docs.microsoft.com/powershell/
+  - name: Billing
+    href: https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview
+- name: Resources
+  items:
+  - name: Limieten en quota in Azure
+    href: ../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
+  - name: Azure-regio's
+    href: https://azure.microsoft.com/regions/
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Voorbeelden
+    href: https://azure.microsoft.com/resources/samples/
+  - name: Video's
+    href: https://azure.microsoft.com/resources/videos/home/
+ms.openlocfilehash: 33b715c595c22c5561c3ab61af9d96eebb9fc991
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341234"

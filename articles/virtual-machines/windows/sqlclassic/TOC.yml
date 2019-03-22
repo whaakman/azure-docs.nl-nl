@@ -1,0 +1,97 @@
+items:
+- name: Overzicht
+  items:
+  - name: VM's voor Windows SQL Server
+    href: ../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
+  - name: Veelgestelde vragen
+    href: ../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+- name: Aan de slag
+  items:
+  - name: Een VM inrichten in de Azure-portal
+    href: ../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+  - name: Een VM inrichten met Azure PowerShell
+    href: virtual-machines-windows-classic-ps-sql-create.md
+  - name: Verbinding maken met een VM
+    href: virtual-machines-windows-classic-sql-connect.md
+  - name: Een SQL Server-database migreren
+    href: ../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+- name: Procedures
+  items:
+  - name: Hoge beschikbaarheid configureren
+    items:
+    - name: Opties voor hoge beschikbaarheid
+      href: ../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: AlwaysOn-beschikbaarheidsgroep configureren met PowerShell
+      href: virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+    - name: Een interne listener configureren voor een beschikbaarheidsgroep
+      href: virtual-machines-windows-classic-ps-sql-int-listener.md
+    - name: Een externe listener configureren voor een beschikbaarheidsgroep
+      href: virtual-machines-windows-classic-ps-sql-ext-listener.md
+    - name: On-premises beschikbaarheidsgroep uitbreiden naar Azure
+      href: virtual-machines-windows-classic-sql-onprem-availability.md
+  - name: Beheren
+    items:
+    - name: De SQL Server IaaS Agent-extensie gebruiken
+      href: virtual-machines-windows-classic-sql-server-agent-extension.md
+    - name: Automatisch patchen
+      href: virtual-machines-windows-classic-sql-automated-patching.md
+    - name: Azure Key Vault-integratie configureren
+      href: virtual-machines-windows-classic-ps-sql-keyvault.md
+    - name: Premium Storage gebruiken
+      href: virtual-machines-windows-classic-sql-server-premium-storage.md
+    - name: Beveiligingsoverwegingen
+      href: ../sql/virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+  - name: Back-ups en herstellen
+    items:
+    - name: Back-up en herstel
+      href: ../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: Automatische back-up
+      href: virtual-machines-windows-classic-sql-automated-backup.md
+    - name: Azure Storage gebruiken voor back-up en herstel
+      href: ../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+  - name: Business Intelligence
+    items:
+    - name: SQL Server Business Intelligence in Azure VM's
+      href: virtual-machines-windows-classic-ps-sql-bi.md
+    - name: ReportViewer gebruiken in een in Azure gehoste website
+      href: virtual-machines-windows-classic-sql-server-reportviewer.md
+    - name: Azure PowerShell gebruiken om een Azure VM te maken met een rapportserver
+      href: virtual-machines-windows-classic-ps-sql-report.md
+  - name: Aanbevolen procedures voor prestaties
+    href: ../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+  - name: Toepassingspatronen
+    href: ../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+- name: Naslaginformatie
+  items:
+  - name: Azure PowerShell
+    href: /powershell/azure/overview?view=azuresmps-3.7.0
+  - name: Azure-CLI
+    href: /cli/azure/
+  - name: T-SQL
+    href: https://docs.microsoft.com/sql/t-sql/language-reference
+  - name: SQL Server-stuurprogramma's
+    href: https://docs.microsoft.com/sql/connect/sql-server-drivers
+  - name: REST
+    href: /rest/api/
+- name: Resources
+  items:
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: SQL Server Data Tools (SSDT)
+    href: https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
+  - name: SQL Server Management Studio (SSMS)
+    href: https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms
+  - name: SQL Server-hulpprogramma's
+    href: https://docs.microsoft.com/sql/tools/overview-sql-tools
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
+ms.openlocfilehash: 66cc42f9be1a2147597e81ec774b01aa7b59e383
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341166"

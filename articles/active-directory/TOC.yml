@@ -1,0 +1,614 @@
+items:
+- name: Documentatie voor Azure Active Directory
+  href: index.md
+- name: Overzicht
+  items:
+  - name: What is Azure Active Directory? (Engelstalig)
+    href: fundamentals/active-directory-whatis.md
+  - name: Over Azure-identiteitsbeheer
+    href: fundamentals/identity-fundamentals.md
+  - name: Inzicht in Azure-identiteitsoplossingen
+    href: fundamentals/understand-azure-identity-solutions.md
+  - name: Azure-abonnementen koppelen
+    href: fundamentals/active-directory-how-subscriptions-associated-directory.md
+  - name: Overwegingen met betrekking tot vestigingsplaats en gegevens
+    href: fundamentals/active-directory-data-storage-eu.md
+  - name: Veelgestelde vragen
+    href: fundamentals/active-directory-faq.md
+  - name: Nieuwe functies
+    href: fundamentals/whats-new.md
+- name: Aan de slag
+  items:
+  - name: Meld u aan voor Azure AD Premium
+    href: fundamentals/active-directory-get-started-premium.md
+  - name: Een aangepaste domeinnaam toevoegen
+    href: fundamentals/add-custom-domain.md
+  - name: Bedrijfshuisstijl configureren
+    href: fundamentals/customize-branding.md
+  - name: Gebruikers toevoegen aan Azure AD
+    href: fundamentals/add-users-azure-active-directory.md
+  - name: Licenties toewijzen aan gebruikers
+    href: fundamentals/license-users-groups.md
+  - name: Self-service voor wachtwoord opnieuw instellen configureren
+    href: authentication/quickstart-sspr.md
+  - name: Privacy-informatie van uw organisatie toevoegen in Azure AD
+    href: active-directory-properties-area.md
+  - name: Een nieuwe tenant maken in Azure Active Directory
+    href: fundamentals/active-directory-access-create-new-tenant.md
+- name: Procedures
+  items:
+  - name: Plannen en ontwerpen
+    items:
+    - name: Inzicht in de Azure AD-architectuur
+      href: fundamentals/active-directory-architecture.md
+    - name: Claimtoewijzing in Azure Active Directory
+      href: develop/active-directory-claims-mapping.md
+    - name: Een hybride identiteitsoplossing implementeren
+      href: hybrid/plan-hybrid-identity-design-considerations-overview.md
+      items:
+      - name: Vereisten bepalen
+        items:
+        - name: Identiteit
+          href: hybrid/plan-hybrid-identity-design-considerations-business-needs.md
+        - name: Directory-synchronisatie
+          href: hybrid/plan-hybrid-identity-design-considerations-directory-sync-requirements.md
+        - name: Multi-Factor Authentication
+          href: hybrid/plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md
+        - name: Levenscyclus van identiteit plannen
+          href: hybrid/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md
+      - name: Plan voor gegevensbeveiliging
+        href: hybrid/plan-hybrid-identity-design-considerations-data-protection-strategy.md
+        items:
+        - name: Gegevensbeveiliging
+          href: hybrid/plan-hybrid-identity-design-considerations-dataprotection-requirements.md
+        - name: Inhoudsbeheer
+          href: hybrid/plan-hybrid-identity-design-considerations-contentmgt-requirements.md
+        - name: Toegangsbeheer
+          href: hybrid/plan-hybrid-identity-design-considerations-accesscontrol-requirements.md
+        - name: Reageren op incidenten
+          href: hybrid/plan-hybrid-identity-design-considerations-incident-response-requirements.md
+      - name: Levenscyclus van identiteit plannen
+        items:
+        - name: Taken
+          href: hybrid/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md
+        - name: Acceptatiestrategie
+          href: hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy.md
+      - name: Volgende stappen
+        href: hybrid/plan-hybrid-identity-design-considerations-nextsteps.md
+      - name: Hulpprogramma's vergelijken
+        href: hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md
+  - name: Gebruikers beheren
+    items:
+    - name: Nieuwe gebruikers toevoegen aan Azure AD
+      href: fundamentals/add-users-azure-active-directory.md
+    - name: Gebruikersprofielen beheren
+      href: fundamentals/active-directory-users-profile-azure-portal.md
+    - name: Gebruikerswachtwoorden opnieuw instellen
+      href: fundamentals/active-directory-users-reset-password-azure-portal.md
+    - name: Gebruikers aan beheerdersrollen toewijzen
+      href: fundamentals/active-directory-users-assign-role-azure-portal.md
+    - name: Gastgebruikers toevoegen van een andere directory (B2B)
+      href: b2b/what-is-b2b.md
+      items:
+      - name: Beheerders die B2B-gebruikers toevoegen
+        href: b2b/add-users-administrator.md
+      - name: Informatiewerkers die B2B-gebruikers toevoegen
+        href: b2b/add-users-information-worker.md
+      - name: API en aanpassingen
+        href: b2b/customize-invitation-api.md
+      - name: Google-federatie
+        href: b2b/google-federation.md
+      - name: Code- en Azure PowerShell-voorbeelden
+        href: b2b/code-samples.md
+      - name: Voorbeeld selfservice-portal voor aanmelding
+        href: b2b/self-service-portal.md
+      - name: Uitnodigingse-mail
+        href: b2b/invitation-email-elements.md
+      - name: Uitnodiging inwisselen
+        href: b2b/redemption-experience.md
+      - name: B2B-gebruikers zonder uitnodiging toevoegen
+        href: b2b/add-user-without-invite.md
+      - name: Uitnodigingen toestaan of blokkeren
+        href: b2b/allow-deny-list.md
+      - name: Voorwaardelijke toegang voor B2B
+        href: b2b/conditional-access.md
+      - name: Beleid voor B2B-deling
+        href: b2b/delegate-invitations.md
+      - name: Een B2B-gebruiker toevoegen aan een rol
+        href: b2b/add-guest-to-role.md
+      - name: Dynamische groepen en B2B-gebruikers
+        href: b2b/use-dynamic-groups.md
+      - name: Een organisatie verlaten
+        href: b2b/leave-the-organization.md
+      - name: Controle en rapportage
+        href: b2b/auditing-and-reporting.md
+      - name: B2B voor hybride organisaties
+        href: b2b/hybrid-organizations.md
+        items:
+        - name: B2B-gebruikers toegang geven tot lokale apps
+          href: b2b/hybrid-cloud-to-on-premises.md
+        - name: Lokale gebruikers toegang geven tot cloud-apps
+          href: b2b/hybrid-on-premises-to-cloud.md
+      - name: Extern delen B2B en Office 365
+        href: b2b/o365-external-user.md
+      - name: B2B-licentieverlening
+        href: b2b/licensing-guidance.md
+      - name: Huidige beperkingen
+        href: b2b/current-limitations.md
+      - name: Veelgestelde vragen
+        href: b2b/faq.md
+      - name: Problemen oplossen voor B2B
+        href: b2b/troubleshoot.md
+      - name: Informatie over de B2B-gebruiker
+        href: b2b/user-properties.md
+      - name: B2B-gebruikerstoken
+        href: b2b/user-token.md
+      - name: B2B voor in Azure AD geïntegreerde apps
+        href: b2b/configure-saas-apps.md
+      - name: B2B-gebruikersclaims toewijzen
+        href: b2b/claims-mapping.md
+      - name: B2B-samenwerking vergelijken met B2C
+        href: b2b/compare-with-b2c.md
+      - name: Ondersteuning krijgen voor B2B
+        href: b2b/get-support.md
+  - name: Groepen en leden beheren
+    href: fundamentals/active-directory-manage-groups.md
+    items:
+    - name: Groepen beheren
+      href: fundamentals/active-directory-groups-create-azure-portal.md
+    - name: Een groep en de leden ervan verwijderen
+      href: fundamentals/active-directory-groups-delete-group.md
+    - name: Groepsinstellingen beheren
+      href: fundamentals/active-directory-groups-settings-azure-portal.md
+  - name: Rapporten beheren
+    href: reports-monitoring/overview-reports.md
+    items:
+    - name: Aanmeldingsactiviteit
+      href: reports-monitoring/concept-sign-ins.md
+    - name: Activiteit controleren
+      href: reports-monitoring/concept-audit-logs.md
+    - name: Gebruikers die risico lopen
+      href: reports-monitoring/concept-user-at-risk.md
+    - name: Riskante aanmeldingen
+      href: reports-monitoring/concept-risky-sign-ins.md
+    - name: Risicogebeurtenissen
+      href: reports-monitoring/concept-risk-events.md
+    - name: Logboeken monitoren met behulp van Azure Monitor
+      href: reports-monitoring/concept-activity-logs-in-azure-monitor.md
+    - name: Veelgestelde vragen
+      href: reports-monitoring/reports-faq.md
+    - name: Taken
+      items:
+      - name: Een aanmeldrapport downloaden
+        href: reports-monitoring/quickstart-download-sign-in-report.md
+      - name: Een controlerapport downloaden
+        href: reports-monitoring/quickstart-download-audit-report.md
+      - name: Benoemde locaties configureren
+        href: reports-monitoring/quickstart-configure-named-locations.md
+      - name: Activiteitenrapporten vinden
+        href: reports-monitoring/howto-find-activity-reports.md
+      - name: Het inhoudspakket voor Azure AD Power BI gebruiken
+        href: reports-monitoring/howto-power-bi-content-pack.md
+      - name: Gebruikers herstellen voor wie wordt aangegeven dat ze risico lopen
+        href: reports-monitoring/howto-remediate-users-flagged-for-risk.md
+      - name: Activiteitenlogboeken naar een Azure Event Hub leiden
+        href: reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md
+      - name: Activiteitenlogboeken in een Azure-opslagaccount archiveren
+        href: reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md
+      - name: Activiteitenlogboeken met Splunk integreren via Azure Monitor
+        href: reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md
+      - name: Activiteitenlogboeken met SumoLogic integreren via Azure Monitor
+        href: reports-monitoring/howto-integrate-activity-logs-with-sumologic.md
+      - name: Activiteitenlogboeken met Log Analytics integreren via Azure Monitor
+        href: reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md
+    - name: Naslaginformatie
+      items:
+      - name: Bewaartermijn
+        href: reports-monitoring/reference-reports-data-retention.md
+      - name: Wachttijden
+        href: reports-monitoring/reference-reports-latencies.md
+      - name: Activiteitsverwijzing controleren
+        href: reports-monitoring/reference-audit-activities.md
+      - name: Foutcodes voor aanmeldingsactiviteit
+        href: reports-monitoring/reference-sign-ins-error-codes.md
+      - name: Het schema van het auditlogboek interpreteren in Azure Monitor
+        href: reports-monitoring/reference-azure-monitor-audit-log-schema.md
+      - name: Het schema van het aanmeldingslogboek interpreteren in Azure Monitor
+        href: reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md
+    - name: Problemen oplossen
+      items:
+      - name: Ontbrekende gegevens in Azure AD-activiteitenlogboeken
+        href: reports-monitoring/troubleshoot-missing-audit-data.md
+      - name: Ontbrekende gegevens in downloads
+        href: reports-monitoring/troubleshoot-missing-data-download.md
+      - name: Fouten in inhoudspakketten Azure AD-activiteitenlogboeken
+        href: reports-monitoring/troubleshoot-content-pack.md
+      - name: Fouten in de rapportage-API voor Azure AD
+        href: reports-monitoring/troubleshoot-graph-api.md
+    - name: Toegang op programmeerniveau
+      href: reports-monitoring/concept-reporting-api.md
+      items:
+      - name: Vereisten
+        href: reports-monitoring/howto-configure-prerequisites-for-reporting-api.md
+      - name: Certificaten gebruiken
+        href: reports-monitoring/tutorial-access-api-with-certificates.md
+  - name: Wachtwoorden beheren
+    href: authentication/concept-sspr-howitworks.md
+  - name: Apps beheren
+    items:
+    - name: Overzicht
+      href: manage-apps/what-is-application-management.md
+    - name: Aan de slag
+      href: manage-apps/plan-an-application-integration.md
+    - name: Zelfstudies voor SaaS-app-integratie
+      href: saas-apps/tutorial-list.md
+    - name: Gebruikers voor SaaS-apps inrichten en de inrichting ongedaan maken
+      href: manage-apps/user-provisioning.md
+      items:
+      - name: Zelfstudies voor app-integratie
+        href: saas-apps/tutorial-list.md
+      - name: Inrichting automatiseren voor apps die SCIM ondersteunen
+        href: manage-apps/use-scim-to-provision-users-and-groups.md
+      - name: Kenmerktoewijzingen aanpassen
+        href: manage-apps/customize-application-attributes.md
+      - name: Expressies schrijven voor kenmerktoewijzingen
+        href: manage-apps/functions-for-customizing-application-data.md
+      - name: Bereikfilters toevoegen
+        href: manage-apps/define-conditional-rules-for-provisioning-user-accounts.md
+      - name: Rapporteren over het automatisch inrichten van gebruikers
+        href: manage-apps/check-status-user-account-provisioning.md
+      - name: Problemen met het automatisch inrichten van gebruikers oplossen
+        href: active-directory-application-provisioning-content-map.md
+    - name: Toegang tot apps op afstand via App Proxy
+      href: manage-apps/application-proxy.md
+      items:
+      - name: Aan de slag
+        items:
+        - name: App-Proxy inschakelen
+          href: manage-apps/application-proxy-enable.md
+        - name: Apps publiceren
+          href: manage-apps/application-proxy-publish-azure-portal.md
+        - name: Aangepaste domeinen
+          href: manage-apps/application-proxy-configure-custom-domain.md
+      - name: Eenmalige aanmelding
+        href: manage-apps/application-proxy-single-sign-on.md
+        items:
+        - name: Eenmalige aanmelding met KCD
+          href: manage-apps/application-proxy-configure-single-sign-on-with-kcd.md
+        - name: Eenmalige aanmelding met koppen
+          href: manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md
+        - name: Eenmalige aanmelding met wachtwoordkluis
+          href: manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md
+      - name: Concepten
+        items:
+        - name: Connectors
+          href: manage-apps/application-proxy-connectors.md
+        - name: Beveiliging
+          href: manage-apps/application-proxy-security.md
+        - name: Netwerken
+          href: manage-apps/application-proxy-network-topology.md
+        - name: Upgraden van TMG of UAG
+          href: manage-apps/application-proxy-migration.md
+      - name: Geavanceerd configuratie
+        items:
+        - name: Publiceren op een aparte netwerken
+          href: manage-apps/application-proxy-connector-groups.md
+        - name: Proxyservers
+          href: manage-apps/application-proxy-configure-connectors-with-proxy-servers.md
+        - name: Claimbewuste apps
+          href: manage-apps/application-proxy-configure-for-claims-aware-applications.md
+        - name: Systeemeigen client-apps
+          href: manage-apps/application-proxy-configure-native-client-application.md
+        - name: Stille installatie
+          href: manage-apps/application-proxy-register-connector-powershell.md
+        - name: Aangepaste startpagina
+          href: manage-apps/application-proxy-configure-custom-home-page.md
+        - name: Inlinelinks vertalen
+          href: manage-apps/application-proxy-configure-hard-coded-link-translation.md
+        - name: Jokertekens
+          href: manage-apps/application-proxy-wildcard.md
+        - name: Persoonlijke gegevens verwijderen
+          href: manage-apps/application-proxy-remove-personal-data.md
+      - name: Publicatie-overzicht
+        items:
+        - name: Extern bureaublad
+          href: manage-apps/application-proxy-integrate-with-remote-desktop-services.md
+        - name: SharePoint
+          href: manage-apps/application-proxy-integrate-with-sharepoint-server.md
+        - name: Microsoft Teams
+          href: manage-apps/application-proxy-integrate-with-teams.md
+        - name: Tableau
+          href: manage-apps/application-proxy-integrate-with-tableau.md
+        - name: Qlik
+          href: manage-apps/application-proxy-qlik.md
+      - name: PowerShell
+        href: https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management
+      - name: Problemen oplossen
+        href: manage-apps/application-proxy-troubleshoot.md
+    - name: Enterprise-apps beheren
+      items:
+      - name: Een toepassing toevoegen
+        href: manage-apps/add-application-portal.md
+      - name: Tenant-apps bekijken
+        href: manage-apps/view-applications-portal.md
+      - name: Eenmalige aanmelding configureren
+        href: manage-apps/configure-single-sign-on-portal.md
+      - name: Gebruikers toewijzen
+        href: manage-apps/assign-user-or-group-access-portal.md
+      - name: Huisstijl aanpassen
+        href: manage-apps/change-name-or-logo-portal.md
+      - name: Gebruikersaanmeldingen uitschakelen
+        href: manage-apps/disable-user-sign-in-portal.md
+      - name: Gebruikers verwijderen
+        href: manage-apps/remove-user-or-group-access-portal.md
+      - name: Inrichting van gebruikersaccount beheren
+        href: manage-apps/configure-automatic-user-provisioning-portal.md
+      - name: Geavanceerde certificaatondertekening voor SAML-apps
+        href: manage-apps/certificate-signing-options.md
+      - name: Een toepassing verbergen voor een gebruiker
+        href: manage-apps/hide-application-from-user-portal.md
+    - name: Automatisch versnellen van aanmelding configureren met behulp van HRD-beleid
+      href: manage-apps/configure-authentication-for-federated-users-portal.md
+    - name: AD FS-apps migreren naar Azure AD
+      href: manage-apps/migrate-adfs-apps-to-azure.md
+    - name: Toegang tot apps beheren
+      href: manage-apps/what-is-access-management.md
+      items:
+      - name: Toegang via eenmalige aanmelding
+        href: manage-apps/what-is-single-sign-on.md
+      - name: Certificaten voor SSO
+        href: manage-apps/manage-certificates-for-federated-single-sign-on.md
+      - name: Beperkingen voor tenants
+        href: manage-apps/tenant-restrictions.md
+      - name: SCIM gebruiken voor het inrichten van gebruikers
+        href: manage-apps/use-scim-to-provision-users-and-groups.md
+    - name: Inzicht in ervaringen met Azure AD-toepassingtoestemming
+      href: develop/application-consent-experience.md
+    - name: Problemen oplossen
+      items:
+      - name: Toegangsvenster
+        items:
+        - name: App wordt niet weergegeven
+          href: manage-apps/access-panel-troubleshoot-application-not-appearing.md
+        - name: App wordt onverwacht weergegeven
+          href: manage-apps/access-panel-troubleshoot-unexpected-application.md
+        - name: Het aanmelden is mislukt
+          href: manage-apps/access-panel-troubleshoot-web-sign-in-problem.md
+        - name: Fout bij het installeren van browserextensie
+          href: manage-apps/access-panel-extension-problem-installing.md
+        - name: Selfservice-app-toegang gebruiken
+          href: manage-apps/access-panel-manage-self-service-access.md
+        - name: Fout bij selfservice-app-toegang gebruiken
+          href: manage-apps/access-panel-troubleshoot-self-service-access.md
+      - name: Een app toevoegen
+        items:
+        - name: Type app kiezen
+          href: manage-apps/choose-application-type.md
+        - name: Veelvoorkomende problemen - galerie-apps
+          href: manage-apps/adding-gallery-app-common-problems.md
+        - name: Veelvoorkomende problemen - niet-galerie-apps
+          href: manage-apps/adding-non-gallery-app-common-problems.md
+      - name: Toepassingsproxy
+        items:
+        - name: Probleem bij weergeven app-pagina
+          href: manage-apps/application-proxy-page-appearance-broken-problem.md
+        - name: Applicatie laden duurt te lang
+          href: manage-apps/application-proxy-page-load-speed-problem.md
+        - name: Koppelingen op de toepassingspagina werken niet
+          href: manage-apps/application-proxy-page-links-broken-problem.md
+        - name: Welke poorten moet ik openen voor mijn app?
+          href: manage-apps/application-proxy-connectivity-ports-how-to.md
+        - name: Geen werkende connector in een connectorgroep voor mijn app
+          href: manage-apps/application-proxy-connectivity-no-working-connector.md
+        - name: Configureren in beheerportal
+          href: manage-apps/application-proxy-config-how-to.md
+        - name: Eenmalige aanmelding voor mijn app configureren
+          href: manage-apps/application-proxy-config-sso-how-to.md
+        - name: Probleem bij het maken van een app in de beheerportal
+          href: manage-apps/application-proxy-config-problem.md
+        - name: Kerberos-beperkte overdracht configureren
+          href: manage-apps/application-proxy-back-end-kerberos-constrained-delegation-how-to.md
+        - name: Configureren met PingAccess
+          href: manage-apps/application-proxy-back-end-ping-access-how-to.md
+        - name: De fout 'Kan deze zakelijke toepassing niet openen'
+          href: manage-apps/application-proxy-sign-in-bad-gateway-timeout-error.md
+        - name: Probleem bij het installeren van de connector voor de toepassingsproxyagent
+          href: manage-apps/application-proxy-connector-installation-problem.md
+      - name: Een toepassing registreren
+        items:
+        - name: Geef de velden op voor het toepassingsobject
+          href: develop/registration-config-specific-application-property-how-to.md
+        - name: Standaardinstellingen levensduur van token wijzigen
+          href: develop/registration-config-change-token-lifetime-how-to.md
+      - name: Verificatie
+        items:
+        - name: Eindpunten configureren
+          href: develop/registration-config-how-to.md
+      - name: Voorwaardelijke toegang
+        items:
+        - name: Klant voldeed niet aan voorvereisten voor apparaatregistratie
+          href: active-directory-conditional-access.md
+        - name: Hoe en wanneer worden regels buiten het bedrijfsnetwerk actief?
+          href: https://aka.ms/calocation
+        - name: Hoe kan ik het aantal apparaten dat een gebruiker mag registreren in Azure AD verhogen?
+          href: active-directory-azureadjoin-setup.md
+        - name: Hoe kan ik voorwaardelijke toegang instellen voor Exchange Online?
+          href: https://aka.ms/csforexchange
+        - name: Hoe kan ik voorwaardelijke toegang voor Windows 7-apparaten instellen?
+          href: active-directory-conditional-access.md#device-based-conditional-access
+        - name: In welke toepassingen wordt voorwaardelijke toegang ondersteund?
+          href: active-directory-conditional-access-supported-apps.md
+      - name: Een API zoeken
+        items:
+        - name: Een API zoeken
+          href: develop/api-find-an-api-how-to.md
+      - name: Toegang beheren
+        items:
+        - name: Gebruikers en groepen toewijzen aan een app
+          href: manage-apps/methods-for-assigning-users-and-groups.md
+        - name: Toegang van gebruikers tot app verwijderen
+          href: manage-apps/methods-for-removing-user-access.md
+        - name: Selfservice-app-toewijzing configureren
+          href: manage-apps/manage-self-service-access.md
+        - name: Onverwachte gebruiker toegewezen
+          href: manage-apps/ways-users-get-assigned-to-applications.md
+        - name: Onverwachte app in de lijst met toepassingen
+          href: manage-apps/application-types.md
+      - name: Apps met meerdere tenants
+        items:
+        - name: Een nieuwe app configureren
+          href: develop/setup-multi-tenant-app.md
+        - name: Toevoegen aan de app-galerie
+          href: develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md
+      - name: Machtigingen
+        items:
+        - name: Machtigingen kiezen voor een API
+          href: develop/perms-for-given-api.md
+        - name: Gedelegeerde vs. toepassingsmachtigingen
+          href: develop/delegated-and-app-perms.md
+        - name: Toepassingstoestemming
+          href: develop/consent-framework.md
+      - name: Inrichten
+        items:
+        - name: Hoelang het duurt
+          href: manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Uurregistratie - galerie-app
+          href: manage-apps/application-provisioning-when-will-provisioning-finish.md
+        - name: Gebruikersinrichting configureren - galerie-app
+          href: manage-apps/application-provisioning-config-how-to.md
+        - name: Probleem bij gebruikersinrichting configureren - galerie-app
+          href: manage-apps/application-provisioning-config-problem.md
+        - name: Probleem bij het opslaan van administrorreferenties tijdens het configureren van gebruikersinrichting galerie-app
+          href: manage-apps/application-provisioning-config-problem-storage-limit.md
+        - name: Gebruikers zijn niet ingericht - galerie-app
+          href: manage-apps/application-provisioning-config-problem-no-users-provisioned.md
+        - name: Verkeerde gebruikers ingericht - galerie-app
+          href: manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md
+        - name: SCIM-compatibiliteitsproblemen - app buiten de galerie
+          href: manage-apps/application-provisioning-config-problem-scim-compatibility.md
+      - name: Eenmalige aanmelding
+        items:
+        - name: Een methode kiezen
+          href: manage-apps/single-sign-on-modes.md
+        - name: Configureren
+          href: develop/registration-config-sso-how-to.md
+        - name: Federatief configureren - galerie-apps
+          href: manage-apps/configure-federated-single-sign-on-gallery-applications.md
+        - name: Veelvoorkomende problemen bij federatief configureren - galerie-apps
+          href: manage-apps/configure-federated-single-sign-on-gallery-applications-problems.md
+        - name: Federatief configureren - niet-galerie-apps
+          href: manage-apps/configure-federated-single-sign-on-non-gallery-applications.md
+        - name: Veelvoorkomende problemen bij federatief configureren - niet-galerie-apps
+          href: manage-apps/configure-federated-single-sign-on-non-gallery-applications-problems.md
+        - name: Wachtwoord configureren - galerie-apps
+          href: manage-apps/configure-password-single-sign-on-gallery-applications.md
+        - name: Veelvoorkomende problemen bij wachtwoord configureren - galerie-apps
+          href: manage-apps/configure-password-single-sign-on-gallery-applications-problems.md
+        - name: Wachtwoord configureren - niet-galerie-apps
+          href: manage-apps/configure-password-single-sign-on-non-gallery-applications.md
+        - name: Veelvoorkomende problemen bij wachtwoord configureren - niet-galerie-apps
+          href: manage-apps/configure-password-single-sign-on-non-gallery-applications-problems.md
+      - name: Problemen bij aanmelden gebruiker
+        items:
+        - name: Onverwacht instemmingsprompt
+          href: manage-apps/application-sign-in-unexpected-user-consent-prompt.md
+        - name: Fout bij toestemming gebruiker
+          href: manage-apps/application-sign-in-unexpected-user-consent-error.md
+        - name: Problemen met aanmelden vanaf aangepaste portal
+          href: manage-apps/application-sign-in-other-problem-deeplink.md
+        - name: Problemen met aanmelden vanaf toegangsvenster
+          href: manage-apps/application-sign-in-other-problem-access-panel.md
+        - name: Fout bij de aanmeldingspagina van toepassing
+          href: manage-apps/application-sign-in-problem-application-error.md
+        - name: Probleem met wachtwoord eenmalige aanmelding - niet-galerie-app
+          href: manage-apps/application-sign-in-problem-password-sso-non-gallery.md
+        - name: Probleem met wachtwoord eenmalige aanmelding - galerie-app
+          href: manage-apps/application-sign-in-problem-password-sso-gallery.md
+        - name: Probleem met aanmelden bij een Microsoft-app
+          href: manage-apps/application-sign-in-problem-first-party-microsoft.md
+        - name: Probleem met federatieve eenmalige aanmelding - niet-galerie-app
+          href: manage-apps/application-sign-in-problem-federated-sso-non-gallery.md
+        - name: Probleem met federatieve eenmalige aanmelding - galerie-app
+          href: manage-apps/application-sign-in-problem-federated-sso-gallery.md
+        - name: Probleem met zelfontwikkelde app
+          href: manage-apps/application-sign-in-problem-custom-dev.md
+        - name: Probleem met on-premises app - toepassingsproxy
+          href: manage-apps/application-sign-in-problem-on-premises-application-proxy.md
+  - name: Uw directory beheren
+    items:
+    - name: Azure AD Connect
+      href: hybrid/whatis-hybrid-identity.md
+    - name: Aangepaste domeinnamen
+      items:
+      - name: Snelstartgids
+        href: fundamentals/add-custom-domain.md
+    - name: Uw directory beheren
+      href: fundamentals/active-directory-administer.md
+    - name: On-premises identiteiten integreren met Azure AD Connect
+      href: hybrid/whatis-hybrid-identity.md
+    - name: Levensduur van tokens configureren
+      href: develop/active-directory-configurable-token-lifetimes.md
+  - name: Uw identiteiten beveiligen
+    items:
+    - name: Privileged Identity Management
+      href: privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json
+  - name: Problemen oplossen
+    href: fundamentals/active-directory-troubleshooting-support-howto.md
+  - name: Azure AD Proof of Concept (PoC) implementeren
+    items:
+    - name: 'PoC-playbook: Inleiding'
+      href: active-directory-playbook-intro.md
+    - name: 'PoC-playbook: Onderdelen'
+      href: active-directory-playbook-ingredients.md
+    - name: 'PoC-playbook: Implementatie'
+      href: active-directory-playbook-implementation.md
+    - name: 'PoC-playbook: Bouwstenen'
+      href: active-directory-playbook-building-blocks.md
+- name: Naslaginformatie
+  items:
+  - name: Codevoorbeelden
+    href: https://azure.microsoft.com/resources/samples/?service=active-directory
+  - name: Azure PowerShell-cmdlets
+    href: /powershell/azure/overview
+  - name: Java API-naslaginformatie
+    href: /java/api
+  - name: .NET API
+    href: /active-directory/adal/microsoft.identitymodel.clients.activedirectory
+- name: Verwant
+  items:
+  - name: Multi-Factor Authentication
+    href: /azure/multi-factor-authentication/
+  - name: Azure AD Connect
+    href: hybrid/whatis-hybrid-identity.md
+  - name: Azure AD Connect Health (Engelstalig)
+    href: hybrid/whatis-hybrid-identity-health.md
+  - name: Azure AD for Developers
+    href: ./develop/active-directory-how-to-integrate.md
+  - name: Azure AD Privileged Identity Management
+    href: ./privileged-identity-management/pim-configure.md
+- name: Resources
+  items:
+  - name: Azure AD-implementatieplannen
+    href: ./fundamentals/active-directory-deployment-plans.md
+  - name: Azure-feedbackforum
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?product=active-directory
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Video's
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: 91b16e11806ca9c7f5fc931110ae337ddc2ecec3
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341557"
