@@ -1,7 +1,7 @@
 ---
-title: Transcriptie richtlijnen voor de Service voor spraak-training
+title: Transcriptie richtlijnen voor het trainen van modellen spraakservices
 titleSuffix: Azure Cognitive Services
-description: Informatie over het voorbereiden van de tekst die moet worden akoestische en taalmodellen en spraakstijlen aanpassen voor de Speech-Service.
+description: Informatie over het voorbereiden van de tekst die moet worden akoestische en taalmodellen en stemmen voor de spraakservices aanpassen.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 31813cbbe4bdb647d43e99e7585d1eb3bb6e8a5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0d7508ed9cf1807fa05c57a1d60c804af7d2244f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857172"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897211"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Transcriptie richtlijnen voor het gebruik van de Speech-Service
 
 Om aan te passen **spraak naar tekst** of **tekst naar spraak**, moet u de tekst en spraak. Elke regel in de tekst die overeenkomt met een enkele utterance. De tekst moet de gesproken tekst zoveel mogelijk overeenkomen met. De tekst heet een *transcript*, en moet u deze maken in een specifieke indeling.
 
-De Spraakservice normaliseert de invoer voor tekst consistent te houden. 
+De spraakservices normaliseren de invoer voor tekst consistent te houden.
 
 Dit artikel wordt beschreven voor beide typen normalizations. De richtlijnen verschillen voor verschillende talen.
 
@@ -39,7 +39,7 @@ Vermijd het gebruik van uitgebreide (Latijns-1) of Unicode-tekens. Deze tekens w
 
 ### <a name="text-normalization-rules-for-english"></a>Tekst normalisering regels voor Engels
 
-De spraak-Service wordt uitgevoerd de volgende normalisatieregels:
+De spraakservices voert u de volgende normalisatieregels:
 
 * Kleine letters gebruikt voor alle tekst
 * Alle interpunctie met uitzondering van word-interne apostroffen verwijderen
@@ -64,7 +64,7 @@ De volgende normalisering van toepassing op uw Transcripten tekst:
 * Niet-standaard numerieke tekenreeksen (zoals een bepaalde datum of accounting formulieren) moeten worden uitgeschreven in woorden.
 * Woorden met niet-alfabetische tekens of gemengde alfanumerieke tekens moeten worden omgezet als uitgesproken.
 * Afkortingen die worden uitgesproken als woorden ongewijzigd laat (bijvoorbeeld 'radar","laserprinter", 'RAM-geheugen' of 'NAVO').
-* Schrijf aanmaningen afkortingen die worden uitgesproken als afzonderlijke, met letters die worden gescheiden door spaties (bijvoorbeeld 'IBM,""CPU,""FBI", 'Nog te bepalen' of 'NaN'). 
+* Schrijf aanmaningen afkortingen die worden uitgesproken als afzonderlijke, met letters die worden gescheiden door spaties (bijvoorbeeld 'IBM,""CPU,""FBI", 'Nog te bepalen' of 'NaN').
 
 Hier volgen enkele voorbeelden:
 
@@ -83,7 +83,7 @@ Hier volgen enkele voorbeelden:
 
 ## <a name="chinese-zh-cn"></a>Chinees (zh-cn)
 
-Tekstgegevens die wordt geüpload naar de Custom Speech Service moet gebruiken UTF-8-codering met een bytevolgorde markering. Het bestand moet worden geschreven als één utterance per regel.
+Tekstgegevens die wordt geüpload naar de Custom Speech Services moet gebruiken UTF-8-codering met een bytevolgorde markering. Het bestand moet worden geschreven als één utterance per regel.
 
 Vermijd het gebruik van de halve breedte leestekens. Deze tekens worden opgenomen per ongeluk bij het voorbereiden van de gegevens in een tekstverwerkingsprogramma of kan verzamelen van gegevens van webpagina's. Vervang ze door geschikte volledige breedte vervangingen. Bijvoorbeeld:
 
@@ -94,7 +94,7 @@ Vermijd het gebruik van de halve breedte leestekens. Deze tekens worden opgenome
 
 ### <a name="text-normalization-rules-for-chinese"></a>Tekst normalisering regels voor Chinees
 
-De spraak-Service wordt uitgevoerd de volgende normalisatieregels:
+De spraakservices voert u de volgende normalisatieregels:
 
 * Alle interpunctie verwijderen
 * Getallen uit te breiden naar gesproken formulier
@@ -134,7 +134,7 @@ Gegevens geüpload naar de **spraak naar tekst** service UTF-8-codering met een 
 
 ### <a name="text-normalization-rules-for-german"></a>Tekst normalisering regels voor Duitsland
 
-De spraak-Service wordt uitgevoerd de volgende normalisatieregels:
+De spraakservices voert u de volgende normalisatieregels:
 
 * Kleine letters gebruikt voor alle tekst
 * Verwijderen van alle interpunctie, met inbegrip van verschillende typen tussen aanhalingstekens ('test', 'test', 'test' en «testen» zijn OK)
@@ -162,13 +162,13 @@ Voordat u uw tekst importeren, gelden de volgende normalisering:
 
 Hier volgen enkele voorbeelden:
 
-| Oorspronkelijke tekst | Na de normalisering van gebruiker | Nadat system normalisering
+| Oorspronkelijke tekst | Na de normalisering van gebruiker | Nadat system normalisering |
 |--------  | ----- | -------- |
 | ES is 12.23 Uhr | ES is 12:23 Uhr | ES is zwölf uhr drei en zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf ||
+| {12.45} | {12,45} | zwölf komma vier fünf |
 | 2 + 3 - 4 | 2 en 3 min 4 | u plus drei min vier|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Uw proefabonnement voor Speech Service ophalen](https://azure.microsoft.com/try/cognitive-services/)
+- [Uw proefabonnement voor Speech Services ophalen](https://azure.microsoft.com/try/cognitive-services/)
 - [Spraak herkennen in C#](quickstart-csharp-dotnet-windows.md)

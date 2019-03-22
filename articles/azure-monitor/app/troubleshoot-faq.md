@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 810a4708974d18a4bba048e3e402a172868178f3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429686"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57905053"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -257,7 +257,7 @@ Bekijk onze volledige lijst met services en IP-adressen [hier](../../azure-monit
 
 Toestaan dat uw webserver voor het verzenden van telemetrie naar de eindpunten. 
 
-### <a name="proxy-redirect"></a>Proxy-omleiding
+### <a name="gateway-redirect"></a>Gateway-omleiding
 
 Verkeer routeren van uw server aan een gateway op uw intranet door te overschrijven eindpunten in uw configuratie.
 Als deze eigenschappen 'Eindpunt' niet aanwezig in uw configuratie zijn, wordt deze klassen de standaardwaarden die hieronder wordt weergegeven in het voorbeeld ApplicationInsights.config gebruiken. 
@@ -288,7 +288,19 @@ Uw gateway moet verkeer gerouteerd naar het basisadres van onze eindpunt. Vervan
 
 _Houd er rekening mee ApplicationIdProvider is beschikbaar in v2.6.0_
 
+### <a name="proxy-passthrough"></a>Proxy-passthrough
 
+Proxy-passthrough kan worden bereikt door het configureren van een niveau van machine- of toepassingsniveau proxy.
+Zie voor meer informatie de dotnet-artikel op [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+ 
+ Voorbeeld van Web.config:
+ ```xml
+<system.net>
+    <defaultProxy>
+      <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
+    </defaultProxy>
+</system.net>
+```
  
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kan ik webtests voor beschikbaarheid uitvoeren op een intranetserver?

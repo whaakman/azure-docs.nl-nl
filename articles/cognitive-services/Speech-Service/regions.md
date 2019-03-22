@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/14/2019
-ms.author: mahilleb
+ms.date: 03/12/2019
+ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: c9e72ea2762af0d9a4c47ca5b23fe4bdbe53b968
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 1be51c4f5aede58a975dc9441b3bec7a83f7becd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447545"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900910"
 ---
 # <a name="speech-service-supported-regions"></a>Speech Service ondersteunde regio 's
 
@@ -38,11 +38,19 @@ De spraak-SDK is beschikbaar in deze regio's voor **spraakherkenning** en **vert
  US - west 2 | `westus2` | https://westus2.cris.ai
  US - oost | `eastus` | https://eastus.cris.ai
  US - oost 2 | `eastus2` | https://eastus2.cris.ai
+ US - centraal | 'centralus' | https://centralus.cris.ai
+ US - noord-centraal | 'northcentralus' | https://northcentralus.cris.ai
+ US - zuid-centraal | 'southcentralus' | https://southcentralus.cris.ai
  Azië - oost | `eastasia` | https://eastasia.cris.ai
  Azië - zuidoost | `southeastasia` | https://southeastasia.cris.ai
+ Japan - oost | `japaneast` | https://japaneast.cris.ai
+ Korea - centraal | `koreacentral` | https://koreacentral.cris.ai
+ Australië - oost | `australiaeast` | https://australiaeast.cris.ai
+ Canada - midden | `canadacentral` | https://canadacentral.cris.ai
  Europa - noord | `northeurope` | https://northeurope.cris.ai
  Europa -west | `westeurope` | https://westeurope.cris.ai
-
+ Verenigd Koninkrijk Zuid | `uksouth` | https://uksouth.cris.ai
+ Frankrijk - centraal | `francecentral` | https://francecentral.cris.ai
 
 ### <a name="intent-recognition"></a>Intentieherkenning
 

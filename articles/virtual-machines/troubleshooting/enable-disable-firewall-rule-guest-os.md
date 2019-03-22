@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: cb2c548a94a91fe9126f684e382e9626adb93dd6
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "52319461"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853066"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>In- of uitschakelen van een firewallregel in een Azure VM-Gastbesturingssysteem
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>In- of uitschakelen van een firewallregel in een Azure VM-Gastbesturingssysteem
 
 Dit artikel bevat een verwijzing voor het oplossen van een situatie waarin u vermoedt dat de firewall van de Gast-besturingssysteem op een virtuele machine (VM) deel van het verkeer wordt gefilterd. Dit kan handig zijn om de volgende redenen:
 
@@ -103,19 +103,19 @@ Als de virtuele machine online is en kan worden geopend op een andere virtuele m
 
     * Als u wilt inschakelen op een regel, opent u de volgende registerwaarde:
     
-        *DOELCOMPUTER*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
     
         Wijzig **Active = FALSE** naar **Active = TRUE** in de tekenreeks:
 
-        **v2.22 | Actie = toestaan | Actieve = TRUE | Dir = In | Protocol = 6 | Profiel = domein | Profiel persoonlijke = | Profiel = openbare | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC Terminal Server = | Naam =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Actie = toestaan | Actieve = TRUE | Dir = In | Protocol = 6 | Profiel = domein | Profiel persoonlijke = | Profiel = openbare | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC Terminal Server = | Naam =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
     
     * Als u wilt een regel uitschakelt, opent u de volgende registerwaarde:
     
-        *DOELCOMPUTER*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
         Wijzig **Active = TRUE** naar **Active = FALSE**:
         
-        **v2.22 | Actie = toestaan | Actieve = FALSE | Dir = In | Protocol = 6 | Profiel = domein | Profiel persoonlijke = | Profiel = openbare | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC Terminal Server = | Naam =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Actie = toestaan | Actieve = FALSE | Dir = In | Protocol = 6 | Profiel = domein | Profiel persoonlijke = | Profiel = openbare | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC Terminal Server = | Naam =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
 
 3.  Start opnieuw op de virtuele machine om de wijzigingen te laten.
 
@@ -150,19 +150,19 @@ Voordat u deze stappen hebt uitgevoerd, maakt u een momentopname van de schijf v
 
     2.  Als u wilt inschakelen op een regel, opent u de volgende registerwaarde:
     
-        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop gebruikersmodus In TCP
+        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
         
         Wijzig **Active = FALSE** naar **Active = True**.
         
-        **v2.22 | Actie = toestaan | Actieve = TRUE | Dir = In | Protocol = 6 | Profiel = domein | Profiel persoonlijke = | Profiel = openbare | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC Terminal Server = | Naam =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Actie = toestaan | Actieve = TRUE | Dir = In | Protocol = 6 | Profiel = domein | Profiel persoonlijke = | Profiel = openbare | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC Terminal Server = | Naam =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
 
     3.  Als u wilt een regel uitschakelt, opent u de volgende registersleutel:
 
-        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop gebruikersmodus In TCP
+        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
         Wijzig **Active = True** naar **Active = FALSE**.
         
-        **v2.22 | Actie = toestaan | Actieve = FALSE | Dir = In | Protocol = 6 | Profiel = domein | Profiel persoonlijke = | Profiel = openbare | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC Terminal Server = | Naam =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Actie = toestaan | Actieve = FALSE | Dir = In | Protocol = 6 | Profiel = domein | Profiel persoonlijke = | Profiel = openbare | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC Terminal Server = | Naam =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
 
 9.  Markeer **BROKENSYSTEM**, en selecteer vervolgens **bestand** > **component** in het menu.
 

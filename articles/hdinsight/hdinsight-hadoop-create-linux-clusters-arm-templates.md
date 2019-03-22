@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: cd02930394fd4cd09808a808765e54ff9ea6b4ea
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e3757e94dcd8ccc39613b9a6fff8bf491812866a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434298"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224196"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Apache Hadoop-clusters in HDInsight maken met behulp van Resource Manager-sjablonen
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -36,14 +36,14 @@ Resource Manager-sjabloon kunt gemakkelijk maken van de volgende bronnen voor uw
 
 In de sjabloon definieert u de resources die nodig zijn voor de toepassing. U geeft ook implementatieparameters voor het invoeren van waarden voor verschillende omgevingen. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruikt om waarden voor uw implementatie samen te stellen.
 
-U vindt de voorbeeldsjablonen HDInsight op [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/?term=hdinsight). Cross-platform gebruiken [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) met de [Resource Manager-extensie](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) of een teksteditor voor het opslaan van de sjabloon in een bestand op uw werkstation. 
+U vindt de voorbeeldsjablonen HDInsight op [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/?term=hdinsight). Cross-platform gebruiken [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) met de [Resource Manager-extensie](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) of een teksteditor voor het opslaan van de sjabloon in een bestand op uw werkstation. 
 
 Zie de volgende artikelen en voorbeelden voor meer informatie over het Resource Manager-sjablonen:
 
 * [Azure Resource Manager-sjablonen maken](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Een toepassing implementeren met Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions) sjabloonverwijzing
-* [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
+* [Azure quickstart-sjablonen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
 ## <a name="generate-templates"></a>Genereren van sjablonen
 
@@ -76,7 +76,7 @@ Zie [Vereisten voor toegangsbeheer](hdinsight-hadoop-create-linux-clusters-porta
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd verschillende manieren om een HDInsight-cluster te maken. Zie de volgende artikelen voor meer informatie:
 
-* Zie voor meer HDInsight verwante sjablonen [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/?term=hdinsight).
+* Zie voor meer HDInsight verwante sjablonen [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Zie voor een voorbeeld van de implementatie van resources via de .NET-clientbibliotheek [resources implementeren met behulp van .NET-bibliotheken en een sjabloon](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Zie voor een uitgebreid voorbeeld van het implementeren van een toepassing, [inrichten en implementeren van microservices zoals verwacht in Azure](../app-service/deploy-complex-application-predictably.md).
 * Zie voor instructies over het implementeren van uw oplossing in verschillende omgevingen [Ontwikkeling en testomgevingen in Microsoft Azure](../solution-dev-test-environments.md).

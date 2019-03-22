@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c119869c47547fd5d91f6ee91fcd772ea5941f46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430903"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010948"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Tabblad van IoT Edge module Marketplace
 
 
-De **Marketplace** tabblad van de **nieuwe aanbieding** pagina kunt u uw potentiële klanten voorzien van marketing, verkoop en juridische informatie en -overeenkomsten en beheer van leads die zijn gegenereerd op basis van de Marketplace. Dit lang formulier is onderverdeeld in vier secties: **overzicht**, **Marketing artefacten**, **leiden Management**, en **juridische**.
+De **Marketplace** tabblad van de **nieuwe aanbieding** pagina kunt u uw potentiële klanten voorzien van marketing, verkoop en juridische informatie en -overeenkomsten en beheer van leads die zijn gegenereerd op basis van de Marketplace. Dit lang formulier is onderverdeeld in vier secties: **Overzicht**, **Marketing artefacten**, **leiden Management**, en **juridische**.
 
 ## <a name="overview"></a>Overzicht
 
@@ -78,7 +78,7 @@ De volgende tabel beschrijft het doel en de inhoud van deze velden.
 
 ## <a name="marketing-artifacts"></a>Marketing artefacten
 
-Dit gedeelte bevat de volgende subsecties: **logo's**, **schermafbeelding**, en **video's**. 
+Dit gedeelte bevat de volgende subgedeelten: **Logo's**, **schermafbeelding**, en **video's**. 
 
 >[!Note]
 >Logo's zijn de enige vereiste marketing-artefacten, maar alle sterk voor de beste beroep van de klant aanbevolen wordt.
@@ -87,10 +87,10 @@ Dit gedeelte bevat de volgende subsecties: **logo's**, **schermafbeelding**, en 
 
 |  **Veld**                |     **Beschrijving**                                                          |
 |  ---------                |     ---------------                                                          |
-| *Logo 's*  | Zie dat de vorige schermafbeeldingen worden gemaakt om te zien hoe en waar uw logo's wordt gebruikt.  |
-| **Kleine**                 | 40, 40 pixel PNG-indeling                                                     |
+| *Logos*  | Zie dat de vorige schermafbeeldingen worden gemaakt om te zien hoe en waar uw logo's wordt gebruikt.  |
+| **Small**                 | 40, 40 pixel PNG-indeling                                                     |
 | **Gemiddeld**                | 90 x 90 pixel PNG-indeling                                                     |
-| **Grote**                 | 115 x 115 pixel PNG-indeling                                                  |
+| **Large**                 | 115 x 115 pixel PNG-indeling                                                  |
 | **Breed**                  | 255 x 115 pixel PNG-indeling                                                   |
 | **Hero**                  | 815 x 290 pixel PNG-indeling.  Optioneel, maar eenmaal geüploade de hero-pictogram kan niet worden verwijderd. |
 | *Schermafbeeldingen*  | Schermafbeeldingen worden weergegeven op de pagina met details van uw product. Ze zijn een goede manier om te communiceren visueel wat uw IoT Edge-module doet en hoe het werkt. U kunt architectuurdiagrammen weergeven of case illustraties bijvoorbeeld gebruiken. Optioneel, maar maximaal vijf schermafbeeldingen per SKU. |
@@ -104,7 +104,7 @@ Dit gedeelte bevat de volgende subsecties: **logo's**, **schermafbeelding**, en 
 
 ### <a name="logo-guidelines"></a>Logorichtlijnen
 
-<!-- It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Alle de logo's uploaden naar de Cloud Partner-Portal moeten de richtlijnen te volgen:
@@ -136,7 +136,7 @@ As an example, the following hero icon is for the Azure Container Service.
 -->
 
 
-## <a name="lead-management"></a>Leads beheren
+## <a name="lead-management"></a>Leadmanagement
 
 In deze sectie kunt u de opties voor het verzamelen van klant instellen leidt gegenereerde van uw Azure Marketplace-aanbiedingen. U kunt de volgende opties voor opslag selecteren uit een vervolgkeuzelijst weergegeven.
 
@@ -160,7 +160,7 @@ Nadat u uw aanbieding is gepubliceerd, wordt de verbinding lead wordt gecontrole
 
 ## <a name="legal"></a>Juridische informatie
 
-In deze sectie beschikt u over de twee juridische documenten die vereist voor elke aanbieding zijn: privacybeleid en de gebruiksvoorwaarden.
+In deze sectie beschikt u over de twee juridische documenten die vereist voor elke aanbieding zijn: Privacybeleid en de gebruiksvoorwaarden.
 
 |  **Veld**                |     **Beschrijving**                                                          |
 |  ---------                |     ---------------                                                          |

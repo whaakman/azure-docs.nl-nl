@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e49cffc5ba08d400c733ef7c211132c4909f9ef4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 32962e6d40103c23a0ec7fd1116aec8820f513bd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343558"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780283"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Beleidsregels voor het afdwingen van naleving maken en beheren
 
@@ -87,32 +87,32 @@ Nu u een ingebouwde beleidsdefinitie hebt toegewezen, kunt u meer kunt doen met 
       - De beleidsregels/-voorwaarden, in dit geval – VM SKU-grootte gelijk aan G-serie
       - Het effect van dit beleid, in dit geval: **Weigeren**.
 
-    Zo moet de JSON eruitzien. Plak uw gewijzigde code in Azure Portal.
+   Zo moet de JSON eruitzien. Plak uw gewijzigde code in Azure Portal.
 
-    ```json
-    {
-        "policyRule": {
-            "if": {
-                "allOf": [{
-                        "field": "type",
-                        "equals": "Microsoft.Compute/virtualMachines"
-                    },
-                    {
-                        "field": "Microsoft.Compute/virtualMachines/sku.name",
-                        "like": "Standard_G*"
-                    }
-                ]
-            },
-            "then": {
-                "effect": "deny"
-            }
-        }
-    }
-    ```
+   ```json
+   {
+       "policyRule": {
+           "if": {
+               "allOf": [{
+                       "field": "type",
+                       "equals": "Microsoft.Compute/virtualMachines"
+                   },
+                   {
+                       "field": "Microsoft.Compute/virtualMachines/sku.name",
+                       "like": "Standard_G*"
+                   }
+               ]
+           },
+           "then": {
+               "effect": "deny"
+           }
+       }
+   }
+   ```
 
-    De eigenschap *Veld* in de beleidsregel moet een van de volgende waarden hebben: Een naam, type, locatie, tag of alias. Een voorbeeld van een alias is mogelijk `"Microsoft.Compute/VirtualMachines/Size"`.
+   De eigenschap *Veld* in de beleidsregel moet een van de volgende waarden hebben: Een naam, type, locatie, tag of alias. Een voorbeeld van een alias is mogelijk `"Microsoft.Compute/VirtualMachines/Size"`.
 
-    Meer Azure Policy-voorbeelden vindt u in [Voorbeelden van Azure Policy](../samples/index.md).
+   Meer Azure Policy-voorbeelden vindt u in [Voorbeelden van Azure Policy](../samples/index.md).
 
 1. Selecteer **Opslaan**.
 

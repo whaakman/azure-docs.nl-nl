@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: Mingfeiy;willzhan;Juliako
-ms.openlocfilehash: 0b3d8759f13f48e5fa95ff709fa283ed41e0ea25
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dfb82e91b0f65b85d34b7e20d57ed9929469321f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003207"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863254"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>castLabs gebruiken om Widevine-licenties te leveren aan Azure Media Services 
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "56003207"
 
 Dit artikel wordt beschreven hoe u Azure Media Services (AMS) kunt gebruiken voor het leveren van een stroom die dynamisch wordt versleuteld met AMS met zowel PlayReady als Widevine DRM's. De PlayReady-licentie is afkomstig van licentieserver Media Services PlayReady en Widevine-licentie wordt geboden door **castLabs** licentieserver.
 
-Als u wilt afspelen terug streaming-inhoud die is beveiligd door CENC (PlayReady en/of Widevine), kunt u [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Zie [AMP document](http://amp.azure.net/libs/amp/latest/docs/) voor meer informatie.
+Als u wilt afspelen terug streaming-inhoud die is beveiligd door CENC (PlayReady en/of Widevine), kunt u [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html). Zie [AMP document](https://amp.azure.net/libs/amp/latest/docs/) voor meer informatie.
 
 Het volgende diagram ziet u een op hoog niveau Azure Media Services en de architectuur van castLabs-integratie.
 
@@ -101,10 +101,10 @@ De Web-toepassing (STS) gebruiken:
 
 ## <a name="playing-back-a-video"></a>Een video afspelen
 
-Als u wilt afspelen van een video versleuteld met algemene versleuteling (PlayReady en/of Widevine) kunt u de [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Wanneer de console-app wordt uitgevoerd, wordt de inhoud sleutel-ID en de Manifest-URL weergegeven.
+Als u wilt afspelen van een video versleuteld met algemene versleuteling (PlayReady en/of Widevine) kunt u de [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html). Wanneer de console-app wordt uitgevoerd, wordt de inhoud sleutel-ID en de Manifest-URL weergegeven.
 
 1. Een nieuw tabblad geopend en start de STS: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
-2. Ga naar [Azure MediaPlayer](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+2. Ga naar [Azure MediaPlayer](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 3. In de streaming-URL plakken.
 4. Klik op de **geavanceerde opties** selectievakje.
 5. In de **Protection** vervolgkeuzelijst, selecteer PlayReady en/of Widevine.

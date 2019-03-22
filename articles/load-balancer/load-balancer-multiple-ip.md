@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0fd865a6890721d3889fc5cef39d9888fe1fb689
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191812"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856111"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>De taakverdeling op meerdere IP-configuraties met behulp van Azure portal
 
@@ -62,7 +62,7 @@ De volgende stappen voor het bereiken van het scenario in dit artikel beschreven
 
 Voor elke virtuele machine in uw virtuele netwerk, moet u de IP-configuratie voor de secundaire NIC toevoegen:  
 
-1. Blader naar de Azure-portal: http://portal.azure.com. Meld u aan met uw Azure-account.
+1. Blader naar de Azure-portal: https://portal.azure.com. Meld u aan met uw Azure-account.
 
 2. In de linkerbovenhoek van het scherm, selecteer de **resourcegroep** pictogram. Selecteer vervolgens de resourcegroep waar uw VM's zich bevinden (bijvoorbeeld **contosofabrikam**). De **resourcegroepen** in ziet u alle resources en NIC's voor de virtuele machines.
 
@@ -86,7 +86,7 @@ Na het tweede IP-configuratie voor de secundaire NIC voltooid is, wordt deze wee
 
 Uw load balancer voor de configuratie maken:
 
-1. Blader naar de Azure-portal: http://portal.azure.com. Meld u aan met uw Azure-account.
+1. Blader naar de Azure-portal: https://portal.azure.com. Meld u aan met uw Azure-account.
 
 2. Selecteer in de linkerbovenhoek van het scherm, **een resource maken** > **netwerken** > **Load Balancer**. Selecteer vervolgens **maken**.
 
@@ -106,15 +106,15 @@ Voor elke website (contoso.com en fabrikam.com), configureert u de front-end-IP-
 
 2. Configureer twee openbare IP-adressen (**PublicIP1** en **PublicIP2**) voor beide websites (contoso.com en fabrikam.com):
 
-    1. Typ een naam voor uw front-end-IP-adres.
+   1. Typ een naam voor uw front-end-IP-adres.
 
-    2. Voor **resourcegroep**, selecteert u de bestaande resourcegroep voor uw VM's (bijvoorbeeld **contosofabrikam**).
+   2. Voor **resourcegroep**, selecteert u de bestaande resourcegroep voor uw VM's (bijvoorbeeld **contosofabrikam**).
 
-    3. Voor **locatie**, selecteert u de dezelfde locatie als de VM's.
+   3. Voor **locatie**, selecteert u de dezelfde locatie als de VM's.
 
-    4. Selecteer **OK**.
+   4. Selecteer **OK**.
 
-    Nadat de openbare IP-adressen zijn gemaakt, worden ze weergegeven onder de **openbaar IP-adres** adressen.
+      Nadat de openbare IP-adressen zijn gemaakt, worden ze weergegeven onder de **openbaar IP-adres** adressen.
 
 3. <a name="step3-3"></a>Selecteer in de portal **meer services**. Typ in het filtervak **netwerktaakverdeler** en selecteer vervolgens **Load Balancer**. 
 

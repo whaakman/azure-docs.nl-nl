@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 50e5dfa21cf7a8f7203e7d96640e3cf5215130a6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 945ba9b2ba4dbc22941ca6b105417f591f2dd837
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191458"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012759"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Oracle-oplossingen en de implementatie ervan op Microsoft Azure
 In dit artikel bevat informatie over de vereiste informatie op verschillende Oracle-oplossingen op Microsoft Azure implementeren. Deze oplossingen zijn gebaseerd op de virtuele Machine-installatiekopieën die zijn gepubliceerd door Oracle op Azure Marketplace. Als u een lijst met beschikbare installatiekopieën, voer de volgende opdracht:
@@ -43,7 +43,7 @@ Oracle-Linux            Oracle       7.3                     Oracle:Oracle-Linux
 Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLogic-Server:Oracle-WebLogic-Server:12.1.2  12.1.2
 ```
 
-Deze installatiekopieën worden beschouwd als 'Bring Your Own License' en als zodanig u enkel gefactureerd voor berekening, opslag en netwerken kosten in rekening gebracht door het uitvoeren van een virtuele machine.  Ervan wordt uitgegaan dat u goed een licentie voor het gebruik van Oracle-software en dat u beschikt over een huidige ondersteuningscontract bij Oracle. Oracle is mobiliteit van licenties gegarandeerd van on-premises naar Azure. Zie de gepubliceerde [Oracle en Microsoft](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) Opmerking voor meer informatie over mobiliteit van licenties. 
+Deze installatiekopieën worden beschouwd als 'Bring Your Own License' en als zodanig u enkel gefactureerd voor berekening, opslag en netwerken kosten in rekening gebracht door het uitvoeren van een virtuele machine.  Ervan wordt uitgegaan dat u goed een licentie voor het gebruik van Oracle-software en dat u beschikt over een huidige ondersteuningscontract bij Oracle. Oracle is mobiliteit van licenties gegarandeerd van on-premises naar Azure. Zie de gepubliceerde [Oracle en Microsoft](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) Opmerking voor meer informatie over mobiliteit van licenties. 
 
 Personen kunnen ook voor kiezen op basis van hun oplossingen op een aangepaste installatiekopie ze volledig in Azure maken of uploaden van een aangepaste installatiekopie van hun on-premises-omgeving.
 
@@ -55,19 +55,19 @@ Oracle biedt actieve Oracle DB 12.1 Standard en Enterprise-edities ondersteuning
 
 ### <a name="attached-disk-configuration-options"></a>Gekoppelde schijf configuratie-opties
 
-Gekoppelde schijven, is afhankelijk van de Azure Blob storage-service. Elke standard-schijf is geschikt voor een theoretisch maximum van ongeveer 500 invoer/uitvoer-bewerkingen per seconde (IOPS). Onze premium-aanbod voor schijf heeft de voorkeur voor databaseworkloads met hoge prestaties en kan maar liefst tot 5000 IOP's per schijf. Terwijl u één schijf kunt als die voldoet aan uw prestatiebehoeften - u de effectieve IOPS-prestaties verbeteren kunt als u meerdere gekoppelde schijven, de gegevens verdeeld over deze, en gebruik vervolgens Oracle automatische Storage Management (ASM). Zie [automatische opslag van Oracle-overzicht](http://www.oracle.com/technetwork/database/index-100339.html) voor Oracle ASM specifieke informatie. Voor een voorbeeld van hoe u kunt installeren en configureren van Oracle Asm installeren op een Linux Azure VM - kunt u proberen de [installeren en configureren van Oracle geautomatiseerde Storage Management](configure-oracle-asm.md) zelfstudie.
+Gekoppelde schijven, is afhankelijk van de Azure Blob storage-service. Elke standard-schijf is geschikt voor een theoretisch maximum van ongeveer 500 invoer/uitvoer-bewerkingen per seconde (IOPS). Onze premium-aanbod voor schijf heeft de voorkeur voor databaseworkloads met hoge prestaties en kan maar liefst tot 5000 IOP's per schijf. Terwijl u één schijf kunt als die voldoet aan uw prestatiebehoeften - u de effectieve IOPS-prestaties verbeteren kunt als u meerdere gekoppelde schijven, de gegevens verdeeld over deze, en gebruik vervolgens Oracle automatische Storage Management (ASM). Zie [automatische opslag van Oracle-overzicht](https://www.oracle.com/technetwork/database/index-100339.html) voor Oracle ASM specifieke informatie. Voor een voorbeeld van hoe u kunt installeren en configureren van Oracle Asm installeren op een Linux Azure VM - kunt u proberen de [installeren en configureren van Oracle geautomatiseerde Storage Management](configure-oracle-asm.md) zelfstudie.
 
-## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle echte toepassingscluster (Oracle RAC)
+## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
 Oracle RAC is ontworpen voor het beperken van het uitvallen van één knooppunt in een cluster met meerdere knooppunten on-premises configuratie. Afhankelijk van twee on-premises technologieën die niet ingebouwd in grootschalige openbare cloudomgevingen zijn: gedeelde schijf en netwerk-multicast. Als uw databaseoplossing vereist dat Oracle RAC in Azure, moet u 3e partij software om deze technologieën. Zie voor meer informatie over Oracle RAC's de [FlashGrid oplossingenpagina](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Overwegingen voor hoge beschikbaarheid en noodherstel herstel
 Als u Oracle-Databases in Azure, bent u verantwoordelijk voor het implementeren van een hoge beschikbaarheid en noodherstel hersteloplossing om te voorkomen uitvaltijd. 
 
-Hoge beschikbaarheid en herstel na noodgevallen voor Oracle Database Enterprise Edition (zonder afhankelijk te zijn Oracle RAC) kan worden bereikt over het gebruik van Azure [Data Guard, actief Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), of [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), met twee databases op twee afzonderlijke virtuele machines. Beide virtuele machines moeten zich in dezelfde [virtueel netwerk](https://azure.microsoft.com/documentation/services/virtual-network/) om te controleren of ze elkaar via het particuliere IP-adres permanente toegang krijgen tot.  Bovendien is het raadzaam het plaatsen van de virtuele machines in dezelfde beschikbaarheidsset wilt dat Azure plaats deze in afzonderlijke foutdomeinen en upgradedomeinen.  U kunt deze twee databases repliceren tussen twee verschillende regio's en verbinding maken met de twee exemplaren met een VPN-Gateway moet die u wilt hebben van geo-redundantie - hebben.
+Hoge beschikbaarheid en herstel na noodgevallen voor Oracle Database Enterprise Edition (zonder afhankelijk te zijn Oracle RAC) kan worden bereikt over het gebruik van Azure [Data Guard, actief Data Guard](https://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), of [Oracle Golden Gate](https://www.oracle.com/technetwork/middleware/goldengate), met twee databases op twee afzonderlijke virtuele machines. Beide virtuele machines moeten zich in dezelfde [virtueel netwerk](https://azure.microsoft.com/documentation/services/virtual-network/) om te controleren of ze elkaar via het particuliere IP-adres permanente toegang krijgen tot.  Bovendien is het raadzaam het plaatsen van de virtuele machines in dezelfde beschikbaarheidsset wilt dat Azure plaats deze in afzonderlijke foutdomeinen en upgradedomeinen.  U kunt deze twee databases repliceren tussen twee verschillende regio's en verbinding maken met de twee exemplaren met een VPN-Gateway moet die u wilt hebben van geo-redundantie - hebben.
 
 We hebben een zelfstudie '[Oracle DataGuard implementeren op Azure](configure-oracle-dataguard.md)", waarin staat beschreven hoe u de procedure basisinstellingen evaluatieversie dit op Azure.  
 
-Met Oracle Data Guard, hoge beschikbaarheid kan worden bereikt met een primaire database in een virtuele machine, een secundaire (stand-by)-database in een andere virtuele machine, en één richting replicatie tussen beide instellen. Het resultaat is leestoegang tot de kopie van de database. U kunt met Oracle GoldenGate, bidirectionele replicatie tussen de twee databases configureren. Zie voor meer informatie over het instellen van een oplossing voor hoge beschikbaarheid voor uw databases met behulp van deze hulpprogramma's, [actief Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) en [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) documentatie op de Oracle-website. Als u moet lezen-schrijven toegang naar de kopie van de database, kunt u [Oracle actief Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
+Met Oracle Data Guard, hoge beschikbaarheid kan worden bereikt met een primaire database in een virtuele machine, een secundaire (stand-by)-database in een andere virtuele machine, en één richting replicatie tussen beide instellen. Het resultaat is leestoegang tot de kopie van de database. U kunt met Oracle GoldenGate, bidirectionele replicatie tussen de twee databases configureren. Zie voor meer informatie over het instellen van een oplossing voor hoge beschikbaarheid voor uw databases met behulp van deze hulpprogramma's, [actief Data Guard](https://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) en [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) documentatie op de Oracle-website. Als u moet lezen-schrijven toegang naar de kopie van de database, kunt u [Oracle actief Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
 We hebben een zelfstudie '[Oracle GoldenGate implementeren op Azure](configure-oracle-golden-gate.md)", waarin staat beschreven hoe u de procedure basisinstellingen evaluatieversie dit op Azure.
 
@@ -91,7 +91,7 @@ Ondanks dat een HA en DR-oplossing in Azure is ontworpen, dat u wilt ervoor zorg
 
          -Dweblogic.rjvm.enableprotocolswitch=true
 
-Voor meer informatie, Zie KB-artikel **860340.1** op <http://support.oracle.com>.
+Voor meer informatie, Zie KB-artikel **860340.1** op <https://support.oracle.com>.
 
 * **Dynamische clustering en beperkingen voor taakverdeling.** Stel dat u wilt gebruiken een dynamische-cluster in WebLogic Server en deze beschikbaar te maken via een enkele, openbare load balancing-eindpunt in Azure. Dit kan worden gedaan als u een vaste poortnummer voor elk van de beheerde servers (niet dynamisch toegewezen uit een bereik) en meer beheerde servers dan er machines is het bijhouden van de beheerder niet worden gestart (dat wil zeggen, niet meer dan een beheerde server per virtuele min. achine). Als uw configuratie in meer WebLogic servers wordt gestart resulteert dan er virtuele machines (dat wil zeggen, waarbij meerdere exemplaren van WebLogic Server delen dezelfde virtuele machine), dan is het niet mogelijk voor meer dan één van deze exemplaren van WebLogic-servers Als u wilt koppelen aan een bepaalde poortnummer – mislukt anderen op deze virtuele machine.
 

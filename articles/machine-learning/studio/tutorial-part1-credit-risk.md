@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453610"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904504"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Zelfstudie 1: Kredietrisico voorspellen - Azure Machine Learning Studio
 
@@ -70,7 +70,7 @@ Nadat uw werkruimte is gemaakt, opent u Machine Learning Studio ([https://studio
 ## <a name="upload"></a>Bestaande gegevens uploaden
 
 Voor het ontwikkelen van een voorspellend model voor kredietrisico hebt u gegevens nodig die u kunt gebruiken om het model te trainen en vervolgens te testen. Voor deze zelfstudie gebruikt u "UCI Statlog (German Credit Data) Data Set" uit de UC Irvine Machine Learning-opslagplaats. U vindt deze hier:  
-<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
+<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 U gebruikt het bestand met de naam **german.data**. Download dit bestand naar uw lokale vaste schijf.  
 
@@ -212,18 +212,18 @@ Om [Edit Metadata][edit-metadata] te gebruiken, geeft u eerst op welke kolommen 
 
 1. Zoek in het deelvenster **Properties** de parameter **New column names** (nieuwe kolomnamen). Voer in dit veld een lijst met namen in voor de 21 kolommen in de gegevensset, gescheiden door komma's, in de volgorde van de kolommen. U kunt de kolomnamen verkrijgen uit de datasetdocumentatie op de UCI-website, of voor het gemak kunt u de volgende lijst kopiëren en plakken:  
 
-  ```   
-  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
-  ```
+   ```   
+   Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+   ```
 
-  Het deelvenster Properties ziet er zo uit:
+   Het deelvenster Properties ziet er zo uit:
 
-  ![Eigenschappen voor Edit Metadata](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
+   ![Eigenschappen voor Edit Metadata](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
-  > [!TIP]
-  > Als u de kolomkoppen wilt controleren, voert u het experiment uit (klik op **RUN** onder het experimentcanvas). Wanneer het experiment is uitgevoerd (er verschijnt een groen vinkje op [Edit Metadata][edit-metadata]), klikt u op de uitvoerpoort van de module [Edit Metadata][edit-metadata] en selecteert u **Visualize** (visualiseren). U kunt de uitvoer van elke module op dezelfde manier bekijken om de voortgang van de gegevens door het experiment te bekijken.
-  > 
-  > 
+   > [!TIP]
+   > Als u de kolomkoppen wilt controleren, voert u het experiment uit (klik op **RUN** onder het experimentcanvas). Wanneer het experiment is uitgevoerd (er verschijnt een groen vinkje op [Edit Metadata][edit-metadata]), klikt u op de uitvoerpoort van de module [Edit Metadata][edit-metadata] en selecteert u **Visualize** (visualiseren). U kunt de uitvoer van elke module op dezelfde manier bekijken om de voortgang van de gegevens door het experiment te bekijken.
+   > 
+   > 
 
 ### <a name="create-training-and-test-datasets"></a>Training- en testgegevenssets maken
 

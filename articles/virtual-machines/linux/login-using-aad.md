@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: cbe9e5c734708701828b2b70f062d88c960dc224
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a1743e677e1005e5b4479c1d431b6b8bdbe77c8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432682"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848691"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Meld u aan bij een virtuele Linux-machine in Azure met behulp van Azure Active Directory-verificatie (Preview)
 
@@ -186,7 +186,7 @@ Access denied
 
 Als u de verificatie-stap in een webbrowser met succes hebt voltooid, kunt u onmiddellijk opnieuw aanmelden met een nieuwe code gevraagd. Deze fout wordt meestal veroorzaakt door een bij de prompt SSH opgegeven naam en het account dat u aangemeld bij Azure AD met komen niet overeen. Om op te lossen dit probleem:
 
-- Controleer of dat u hebt opgegeven bij de prompt SSH naam juist is. Een typefout gemaakt in de naam van de aanmelding kan ervoor zorgen dat u hebt opgegeven bij de prompt SSH naam en het account dat u aangemeld bij Azure AD met niet overeenkomen. Bijvoorbeeld, u hebt getypt *azuresuer@contoso.onmicrosoft.com* in plaats van *azureuser@contoso.onmicrosoft.com*.
+- Controleer of dat u hebt opgegeven bij de prompt SSH naam juist is. Een typefout gemaakt in de naam van de aanmelding kan ervoor zorgen dat u hebt opgegeven bij de prompt SSH naam en het account dat u aangemeld bij Azure AD met niet overeenkomen. Bijvoorbeeld, u hebt getypt *azuresuer\@contoso.onmicrosoft.com* in plaats van *azureuser\@contoso.onmicrosoft.com*.
 - Als u meerdere gebruikersaccounts hebt, zorg er dan voor dat u een ander gebruikersaccount in het browservenster niet opgeeft tijdens het aanmelden bij Azure AD.
 - Linux is een hoofdlettergevoelige besturingssysteem. Er is een verschil tussen 'Azureuser@contoso.onmicrosoft.com'en'azureuser@contoso.onmicrosoft.com', waardoor een niet-overeenkomend. Zorg ervoor dat u de UPN met de juiste hoofdlettergevoeligheid bij de SSH-prompt opgeeft.
 

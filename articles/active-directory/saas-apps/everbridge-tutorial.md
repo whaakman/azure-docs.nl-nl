@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95465fdc17131c996fa242d028addbab4191628c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d1bb62c9a11971f72a6c96c4652b136c19812cb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191109"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839318"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Zelfstudie: Azure Active Directory-integratie met EverBridge
 
@@ -127,22 +127,22 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 5. Het configureren van de **EverBridge** toepassing als **EverBridge lid Portal**op de **SAML-basisconfiguratie** sectie, voert u de volgende stappen uit:
 
-    * Als u wilt configureren van de toepassing in **IDP** modus gestart:
+   * Als u wilt configureren van de toepassing in **IDP** modus gestart:
 
-        ![EverBridge domein en URL's, eenmalige aanmelding informatie](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
+       ![EverBridge domein en URL's, eenmalige aanmelding informatie](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
 
-        * Typ in het tekstvak **Id** een URL met het volgende patroon: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+       * Typ in het tekstvak **Id** een URL met het volgende patroon: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
-        * In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
+       * In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
-    * Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
+   * Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-        ![EverBridge domein en URL's, eenmalige aanmelding informatie](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
+       ![EverBridge domein en URL's, eenmalige aanmelding informatie](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
 
-        * Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+       * Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
-    > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [EverBridge ondersteuningsteam](mailto:support@everbridge.com) om deze waarden te verkrijgen.
+     > [!NOTE]
+     > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [EverBridge ondersteuningsteam](mailto:support@everbridge.com) om deze waarden te verkrijgen.
 
 6. Op de **SAML-handtekeningcertificaat** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op **downloaden** downloaden **voorfederatievemetagegevens-XML** en sla het bestand met metagegevens op uw computer.
 
@@ -164,21 +164,21 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 9. Klik in het menu bovenaan op de **instellingen** tabblad en selecteer **Single Sign-On** onder **Security**.
    
-    ![Eenmalige aanmelding configureren](./media/everbridge-tutorial/tutorial_everbridge_002.png)
+     ![Eenmalige aanmelding configureren](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-    a. In de **naam** tekstvak typt u de naam van de id-Provider (bijvoorbeeld: naam van uw bedrijf).
+     a. In de **naam** tekstvak typt u de naam van de id-Provider (bijvoorbeeld: naam van uw bedrijf).
    
-    b. In de **API-naam** tekstvak typt u de naam van de API.
+     b. In de **API-naam** tekstvak typt u de naam van de API.
    
-    c. Klik op **bestand kiezen** knop voor het uploaden van het bestand met metagegevens die u hebt gedownload van Azure portal.
+     c. Klik op **bestand kiezen** knop voor het uploaden van het bestand met metagegevens die u hebt gedownload van Azure portal.
    
-    d. Selecteer in de locatie van de identiteit SAML **identiteit is in de NameIdentifier-element van het onderwerp overzicht**.
+     d. Selecteer in de locatie van de identiteit SAML **identiteit is in de NameIdentifier-element van het onderwerp overzicht**.
    
-    e. In de **aanmeldings-URL van id-Provider** tekstvak, plak de waarde van **aanmeldings-URL** die u hebt gekopieerd vanuit Azure portal.
+     e. In de **aanmeldings-URL van id-Provider** tekstvak, plak de waarde van **aanmeldings-URL** die u hebt gekopieerd vanuit Azure portal.
    
-    f. Selecteer in de Service Provider gestart aanvragen Binding, **HTTP-omleiding**.
+     f. Selecteer in de Service Provider gestart aanvragen Binding, **HTTP-omleiding**.
 
-    g. Klik op **Opslaan**.
+     g. Klik op **Opslaan**.
 
 10. Het configureren van eenmalige aanmelding op **EverBridge** toepassing als **EverBridge lid Portal**, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** naar [ Het ondersteuningsteam Everbridge](mailto:support@everbridge.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
@@ -198,9 +198,9 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het maken van een Azure AD-testgebruiker](common/create_aaduser_02.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon** in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veld, typt u **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
@@ -244,7 +244,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

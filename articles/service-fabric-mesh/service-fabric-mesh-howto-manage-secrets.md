@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: f767dfdf96b89344fea18893f7030ea0fd1882ad
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 36d0b49f1b9fb1ca5d13283146d134137a5cb028
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764267"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900638"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Service Fabric Mesh-toepassingsgeheimen beheren
 Service Fabric Mesh biedt ondersteuning voor geheimen als Azure-resources. Een Service Fabric Mesh-geheim kan bestaan uit gevoelige informatie in tekstvorm, zoals opslagverbindingsreeksen, wachtwoorden of andere waarden die veilig moeten worden opgeslagen en verzonden. In dit artikel ziet u hoe de Service Fabric Secure Store-service wordt gebruikt om geheimen te implementeren en onderhouden.
@@ -24,20 +24,20 @@ Een Mesh-toepassingsgeheim bestaat uit:
 * Een of meer **Geheimen/waarden**-resources die zijn opgeslagen in de **Geheimen**-resourcecontainer. Elke **Geheimen/waarden**-resource wordt gekenmerkt door een uniek versienummer. U kunt een versie van een **Geheimen/waarden**-resource niet wijzigen. U kunt alleen een nieuwe versie toevoegen.
 
 Het beheren van Geheimen bestaat uit de volgende stappen:
-1. Declareer een Mesh **Geheimen**-resource in een YAML- of JSON-bestand van Azure Resource Model met behulp van inlinedValue kind- en SecretsStoreRef contentType-definities.
-2. Declareer Mesh **Geheimen/waarden**-resources in een Azure Resource Model YAML- of JSON-bestand dat wordt opgeslagen in de **Geheimen**-resource (uit stap 1).
+1. Declareer een NET **geheimen** resource in een Azure Resource Model YAML- of JSON-bestand met behulp van de soort inlinedValue en SecretsStoreRef contentType definities.
+2. Declareer Mesh **geheimen/waarden** resources in een Azure Resource Model YAML- of JSON-bestand dat wordt opgeslagen in de **geheimen** -resource (in stap 1).
 3. Wijzig Mesh-toepassing om te verwijzen naar Mesh Geheimen-waarden.
 4. Implementeer of gebruik een rolling upgrade voor de Mesh-toepassing om Geheimen-waarden te gebruiken.
 5. Gebruik Azure 'az' CLI-opdrachten om de levenscyclus van de Secure Store-service te beheren.
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Een Mesh Geheimen-resource declareren
-Een Mesh Geheimen-resource wordt gedeclareerd in een YAML- of JSON-bestand van Azure Resource Model met behulp van inlinedValue kind- en SecretsStoreRef contentType-definities. De Mesh Geheimen-resource biedt ondersteuning voor geheimen afkomstig uit de Secure Store-service. 
+Een resource geheimen NET is gedeclareerd in een Azure Resource Model-JSON of YAML-bestand met behulp van de soort inlinedValue en SecretsStoreRef contentType definities. De Mesh Geheimen-resource biedt ondersteuning voor geheimen afkomstig uit de Secure Store-service. 
 >
 Hier volgt een voorbeeld van hoe Mesh Geheimen-resources in een JSON-bestand worden gedeclareerd:
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -103,7 +103,7 @@ Hier volgt een voorbeeld van hoe Mesh Geheimen/waarden-resources in een JSON-bes
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -215,9 +215,9 @@ az mesh secret show --Resource-group <myResourceGroup> --secret-name <mySecret>
 
 - Een geheim kan niet worden verwijderd terwijl ernaar wordt verwezen door een Mesh-toepassing.
 - Als u een Geheimen-resource verwijdert, worden alle versies van Geheimen-resources-versies verwijderd.
-```azurecli-interactive
-az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
-```
+  ```azurecli-interactive
+  az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
+  ```
 
 ### <a name="list-secrets-in-subscription"></a>Geheimen in abonnement weergeven
 ```azurecli-interactive

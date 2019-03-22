@@ -1,21 +1,21 @@
 ---
 title: 'Zelfstudie: Gegevensexports uit Azure Cost Management instellen en beheren | Microsoft Docs'
-description: In dit artikel leest u hoe u gegevensexports uit Azure Cost Management instelt en beheert, zodat u deze kunt gebruiken in externe systemen.
+description: Dit artikel ziet u hoe u kunt maken en beheren van geëxporteerde gegevens van Azure Cost Management, zodat u deze in externe systemen gebruiken kunt.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100684"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014125"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Zelfstudie: Geëxporteerde gegevens maken en beheren
 
@@ -30,7 +30,7 @@ In deze zelfstudie leert u het volgende:
 > * Controleren of de gegevens zijn geëxporteerd
 
 ## <a name="prerequisites"></a>Vereisten
-Exporteren van gegevens is beschikbaar voor verschillende typen Azure-accounts, met inbegrip van [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)-klanten. Zie voor de volledige lijst met ondersteunde accounttypen [Gegevens van Azure Cost Management begrijpen](understand-cost-mgt-data.md). In abonnementen worden de volgende Azure-machtigingen ondersteund voor het exporteren van gegevens door gebruikers en groepen:
+Exporteren van gegevens is beschikbaar voor verschillende typen Azure-accounts, met inbegrip van [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)-klanten. Zie voor de volledige lijst met ondersteunde accounttypen [Gegevens van Azure Cost Management begrijpen](understand-cost-mgt-data.md). De volgende Azure-machtigingen of bereiken, worden ondersteund per abonnement voor het exporteren van gegevens door gebruikers en groepen. Zie voor meer informatie over bereiken [begrijpen en werk met een bereik](understand-work-scopes.md).
 
 - Eigenaar: eigenaren kunnen geplande exports voor een abonnement instellen, wijzigen en verwijderen.
 - Inzender: inzenders kunnen hun eigen geplande exports instellen, wijzigen en verwijderen. Zij kunnen bovendien de naam wijzigen van geplande exports die door anderen zijn ingesteld.
@@ -45,13 +45,13 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-daily-export"></a>Een dagelijkse export uitvoeren
 
-Kostenbeheer en facturering &gt; Kostenbeheer &gt; selecteer een abonnement of een resourcegroep in een abonnement &gt; Exporteren &gt; **Toevoegen**.
+Wilt maken of weergeven van een exporteren van gegevens of voor het plannen van een exporteren, opent u het gewenste bereik in de Azure portal en selecteer **Cost analysis** in het menu. Bijvoorbeeld, gaat u naar **abonnementen**, selecteer een abonnement in de lijst en selecteer vervolgens **Cost analysis** in het menu. Aan de bovenkant van de kosten voor analyse-pagina, klikt u op **exporteren** en kies vervolgens een optie voor het exporteren. Bijvoorbeeld, klikt u op **export plannen**. Zie voor meer informatie over bereiken [begrijpen en werk met een bereik](understand-work-scopes.md).
 
-Typ een naam voor de export en selecteer de optie Dagelijkse export van kosten (maand tot heden)'. Klik op **Volgende**.
+Klik op **toevoegen**, typ een naam voor de export en selecteer vervolgens de **dagelijkse export van de kosten maand tot heden** optie. Klik op **volgende**.
 
 ![Voorbeeld van een nieuwe export, waarbij het type export wordt weergegeven](./media/tutorial-export-acm-data/basics_exports.png)
 
-Geef het abonnement voor uw Azure opslagaccount op en selecteer vervolgens uw opslagaccount.  Geef de opslagcontainer en het pad naar de map op waar u het exportbestand wilt opslaan.  Klik op **Volgende**.
+Geef het abonnement voor uw Azure opslagaccount op en selecteer vervolgens uw opslagaccount.  Geef de opslagcontainer en het pad naar de map op waar u het exportbestand wilt opslaan.  Klik op **volgende**.
 
 ![Voorbeeld van een nieuwe export, waarbij de opslagaccountdetails worden weergegeven](./media/tutorial-export-acm-data/storage_exports.png)
 

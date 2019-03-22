@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: cccedaf8664ae504890d519c8b1aa57533592845
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: HT
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: 6f8cf8a597bc50bb52818968c6f6ea0e7a6941a4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188285"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225318"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902-update
 
@@ -51,8 +51,8 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 
 - **1809**: [KB 4481548 – Azure Stack-hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: Er is geen huidige hotfix beschikbaar.
-- **1901**: Er is geen huidige hotfix beschikbaar.
-- **1902**: Er is geen huidige hotfix beschikbaar.
+- **1901**: [KB 4481548 – Azure Stack-hotfix 1.1901.2.103](https://support.microsoft.com/help/4494720)
+- **1902**: [KB 4481548 – Azure Stack-hotfix 1.1902.2.73](https://support.microsoft.com/help/4494719)
 
 ## <a name="prerequisites"></a>Vereisten
 

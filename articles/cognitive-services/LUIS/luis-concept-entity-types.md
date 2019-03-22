@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 61211db72928bebf0e1ea50cad6362337f66f0eb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844585"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entiteitstypen en hun ten behoeve van LUIS
 
@@ -201,7 +201,7 @@ Sommige van deze vooraf gemaakte entiteiten zijn gedefinieerd in de open-source 
 
 ## <a name="regular-expression-entity"></a>Een entiteit in de vorm van een reguliere expressie 
 
-Een reguliere expressie wordt aanbevolen voor utterance onbewerkte tekst. Deze aanvraag wordt genegeerd en worden genegeerd culturele variant.  Reguliere expressie die overeenkomt met is na spellingcontrole wijzigingen op het niveau van het teken, niet het niveau van de token toegepast. Als de reguliere expressie te complex is is, zoals het gebruik van veel vierkante haken, bent u niet de expressie toevoegen aan het model. Maakt gebruik van onderdeel maar niet alle van de [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) bibliotheek. 
+Een reguliere expressie wordt aanbevolen voor utterance onbewerkte tekst. Deze aanvraag wordt genegeerd en worden genegeerd culturele variant.  Reguliere expressie die overeenkomt met is na spellingcontrole wijzigingen op het niveau van het teken, niet het niveau van de token toegepast. Als de reguliere expressie te complex is is, zoals het gebruik van veel vierkante haken, bent u niet de expressie toevoegen aan het model. Maakt gebruik van onderdeel maar niet alle van de [.NET Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) bibliotheek. 
 
 De entiteit is een goede aanpassen wanneer:
 

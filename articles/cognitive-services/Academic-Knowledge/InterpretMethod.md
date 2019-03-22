@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860521"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57975488"
 ---
 # <a name="interpret-method"></a>Methode interpreteren
 
@@ -37,9 +37,11 @@ Name     | Value | Vereist?  | Description
 **count**    | Aantal | Nee<br>Standaard: 10 | Maximum aantal interpretaties om terug te keren.         
 **offset**   | Aantal | Nee<br>Standaard: 0  | De index van de eerste interpretatie om terug te keren. Bijvoorbeeld, *count = 2 & offset 0 =* retourneert interpretaties 0 en 1. *aantal = 2 & offset = 2* retourneert interpretaties 2 en 3.       
 **Time-out**  | Aantal | Nee<br>Standaard: 1000 | Time-out in milliseconden. Alleen interpretaties gevonden voordat de time-out is verstreken, worden geretourneerd.
+
 <br>
   
 ## <a name="response-json"></a>Antwoord (JSON)
+
 Name     | Description
 ---------|---------
 **query** |De *query* parameter van de aanvraag.
@@ -54,6 +56,7 @@ Name     | Description
 **afgebroken** | Waar, als de aanvraag is een time-out.
 
 <br>
+
 #### <a name="example"></a>Voorbeeld:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime&complete=1&count=2

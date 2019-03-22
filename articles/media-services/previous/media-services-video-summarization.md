@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: c0a6feb1eba1e409c29a650741eadc31f1017342
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 30c342ca31b33d910406bf74d90d49979e5c46bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004802"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838076"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure Media Video Thumbnails gebruiken voor het maken van een Video-overzicht  
 ## <a name="overview"></a>Overzicht
@@ -37,10 +37,10 @@ In sommige gevallen, als uw video niet uit verschillende schermen bestaat, wordt
 Hier volgen enkele voorbeelden van wat de Mediaprocessor die Azure Media Video Thumbnails kunt doen:
 
 ### <a name="original-video"></a>Oorspronkelijke video
-[Oorspronkelijke video](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
+[Oorspronkelijke video](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
 
 ### <a name="video-thumbnail-result"></a>Video miniaturen resultaat
-[Video miniaturen resultaat](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[Video miniaturen resultaat](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="task-configuration-preset"></a>Taakconfiguratie (standaardoptie)
 Bij het maken van een video miniaturen taak met **Azure Media Video Thumbnails**, moet u een configuratie-definitie opgeven. Het bovenstaande voorbeeld van de miniatuur is gemaakt met de volgende eenvoudige JSON-configuratie:
@@ -62,7 +62,7 @@ Op dit moment kunt u de volgende parameters:
 De volgende tabel beschrijft de standaardduur wanneer **maxMotionThumbnailInSecs** wordt niet gebruikt.
 
 |  |  |  |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Videoduur |d < 3 min |3 minuten < d < 15 minuten |
 | Duur van de miniatuur |15 sec (2-3 scenes) |30 seconden (3-5-scènes) |
 
@@ -276,7 +276,7 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 ```
 
 ### <a name="video-thumbnail-output"></a>Miniaturen video-uitvoer
-[Miniaturen video-uitvoer](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[Miniaturen video-uitvoer](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -287,5 +287,5 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 ## <a name="related-links"></a>Verwante koppelingen
 [Azure Media Services Analytics-overzicht](media-services-analytics-overview.md)
 
-[Azure Media Analytics-demo 's](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics-demo 's](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

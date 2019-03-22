@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: bb7a48b08fde07380276d33393225c3f5220b93f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 5d5398f4da7563c6f53c17d0305f54c4360f1c65
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880696"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076850"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Zelfstudie: Een Azure Database for MySQL-server inrichten met behulp van een Azure Resource Manager-sjabloon
 
@@ -87,8 +87,8 @@ In deze aanvraag moeten de volgende waarden worden aangepast:
 +   `storageProfile/geoRedundantBackup` -Geef Ingeschakeld/uitgeschakeld op, afhankelijk van Geo-DR-vereisten.
 +   `sku/tier` - Geef de laag Basic, GeneralPurpose of MemoryOptimized voor de implementatie op.
 +   `sku/capacity` - Geef de vCore-capaciteit op. Mogelijke waarden zijn 2, 4, 8, 16, 32 of 64.
-+   `sku/family` -Geef Gen4 of Gen5 op om de hardwaregeneratie voor de serverimplementatie te kiezen.
-+   `sku/name` -Geef TierPrefix_family_capacity op. Bijvoorbeeld B_Gen4_1, GP_Gen5_16, MO_Gen5_32. Raadpleeg de documentatie over [prijscategorieën](./concepts-pricing-tiers.md) om de geldige waarden per regio en per laag te begrijpen.
++   `sku/family` -Geef Gen5 om te kiezen hardware genereren voor server-implementatie.
++   `sku/name` -Geef TierPrefix_family_capacity op. Bijvoorbeeld B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Raadpleeg de documentatie over [prijscategorieën](./concepts-pricing-tiers.md) om de geldige waarden per regio en per laag te begrijpen.
 +   `resources/properties/virtualNetworkSubnetId` -Geef de Azure-id van het subnet in VNet op waar de Azure MySQL-server moet worden geplaatst. 
 +   `tags(optional)` -Geef optioneel tags op. Dit zijn sleutel-waardeparen zijn die u zou gebruiken om de resources voor facturering en dergelijke te categoriseren.
 
@@ -127,8 +127,8 @@ Het resultaat wordt in JSON-indeling weergegeven. Noteer de **fullyQualifiedDoma
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -207,5 +207,5 @@ In deze zelfstudie hebt u het volgende geleerd:
 > * Voorbeeldgegevens laden
 > * Querygegevens
 > * Gegevens bijwerken
-
+> 
 > [Toepassingen koppelen met Azure Database voor MySQL](./howto-connection-string.md)

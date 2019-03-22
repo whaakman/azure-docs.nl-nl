@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 733ae4451988651df2a62a22aa6eb1b6fae44309
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ea4cf03b368cebbfc7d1229be28014b54f2c11d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331721"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004319"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Blob Storage met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -169,7 +169,7 @@ Deze sectie beschrijft het resulterende gedrag van de kopieerbewerking voor de v
 | false |flattenHierarchy |Voor een bronmap Map1 met de volgende structuur:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>De doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/><br/><br/>Subfolder1 bestand3 File4 en File5 worden niet doorgevoerd. |
 | false |mergeFiles |Voor een bronmap Map1 met de volgende structuur:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>De doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand1 + bestand2 inhoud worden samengevoegd in één bestand met automatisch gegenereerde naam. Automatisch gegenereerde naam voor File1<br/><br/>Subfolder1 bestand3 File4 en File5 worden niet doorgevoerd. |
 
-## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Overzicht: Kopieerwizard gebruiken om gegevens naar/van Blob-opslag te kopiëren
+## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Walkthrough: Kopieerwizard gebruiken om gegevens naar/van Blob-opslag te kopiëren
 Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In dit scenario, bron- en doelserver gegevensopslag van het type: Azure Blob-opslag. De pijplijn in dit scenario kopieert gegevens uit een map naar een andere map in de dezelfde blob-container. In dit scenario is opzettelijk eenvoudig om weer te geven u eigenschappen van instellingen of bij het gebruik van Blob-opslag als een bron of de sink.
 
 ### <a name="prerequisites"></a>Vereisten
@@ -181,6 +181,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
     John, Doe
     Jane, Doe
     ```
+
 ### <a name="create-the-data-factory"></a>De data factory maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **een resource maken** Klik in de linkerbovenhoek op **Intelligence en analyse**, en klikt u op **Data Factory**.
@@ -249,14 +250,14 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
     4. Selecteer uw Azure storage-account.
     5. Klik op **volgende**.
 10. Op de **uitvoerbestand of uitvoermap kiezen** pagina:  
-    6. Geef **mappad** als **adfblobconnector/output / {year} / {month} / {day}**. Enter **TAB**.
-    7. Voor de **jaar**, selecteer **jjjj**.
-    8. Voor de **maand**, controleert u dat deze is ingesteld op **MM**.
-    9. Voor de **dag**, controleert u dat deze is ingesteld op **dd**.
-    10. Bevestig dat de **compressietype** is ingesteld op **geen**.
-    11. Bevestig dat de **gedrag kopiëren** is ingesteld op **-bestanden samenvoegen**. Als het uitvoerbestand met dezelfde naam al bestaat, wordt de nieuwe inhoud toegevoegd aan hetzelfde bestand aan het einde.
-    12. Klik op **volgende**.
-    ![Hulpprogramma voor kopiëren - uitvoerbestand of uitvoermap kiezen](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
+    1. Geef **mappad** als **adfblobconnector/output / {year} / {month} / {day}**. Enter **TAB**.
+    1. Voor de **jaar**, selecteer **jjjj**.
+    1. Voor de **maand**, controleert u dat deze is ingesteld op **MM**.
+    1. Voor de **dag**, controleert u dat deze is ingesteld op **dd**.
+    1. Bevestig dat de **compressietype** is ingesteld op **geen**.
+    1. Bevestig dat de **gedrag kopiëren** is ingesteld op **-bestanden samenvoegen**. Als het uitvoerbestand met dezelfde naam al bestaat, wordt de nieuwe inhoud toegevoegd aan hetzelfde bestand aan het einde.
+    1. Klik op **volgende**.
+       ![Hulpprogramma voor kopiëren - uitvoerbestand of uitvoermap kiezen](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. Op de **bestandsindelingsinstellingen** pagina, Controleer de instellingen en klik op **volgende**. Een van de aanvullende opties hier is het toevoegen van een koptekst naar het uitvoerbestand. Als u deze optie selecteert, wordt een rij met koppen toegevoegd door de namen van de kolommen van het schema van de bron. U kunt de standaardkolomnamen wijzigen bij het weergeven van het schema voor de bron. U kunt wijzigen de eerste kolom bijvoorbeeld de naam van de eerste en tweede kolom op achternaam. Vervolgens is het uitvoerbestand gegenereerd met een header met deze namen als kolomnamen.
     ![Hulpprogramma voor kopiëren - bestandsindelingsinstellingen voor doel](media/data-factory-azure-blob-connector/file-format-destination.png)
 12. Op de **prestatie-instellingen** pagina, controleert **eenheden in de cloud** en **parallelle exemplaren** zijn ingesteld op **automatisch**, en klik op volgende. Zie voor meer informatie over deze instellingen [en afstemmingshandleiding van activiteit kopiëren](data-factory-copy-activity-performance.md#parallel-copy).
@@ -281,7 +282,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
     2017/04/24
     2017/04/25
     ```
-Zie voor gedetailleerde informatie over het controleren en beheren van data factory's [bewaken en beheren van Data Factory-pijplijn](data-factory-monitor-manage-app.md) artikel.
+   Zie voor gedetailleerde informatie over het controleren en beheren van data factory's [bewaken en beheren van Data Factory-pijplijn](data-factory-monitor-manage-app.md) artikel.
 
 ### <a name="data-factory-entities"></a>Data Factory-entiteiten
 Nu gaat u terug naar het tabblad met de Data Factory-startpagina. U ziet dat er twee gekoppelde services, twee gegevenssets en één pijplijn in uw data factory nu.

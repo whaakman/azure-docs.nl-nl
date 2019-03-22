@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 144b3f8ae210d515695c2184c2c3193084755746
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185462"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841018"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Controle en diagnose van services in een lokale machine development setup
 
@@ -35,7 +35,7 @@ Bewaking, detecteren, onderzoeken en oplossen van problemen kunt voor diensten o
 
 ## <a name="debugging-service-fabric-java-applications"></a>Foutopsporing in Service Fabric Java-toepassingen
 
-Voor Java-toepassingen, [meerdere frameworks voor logboekregistratie](http://en.wikipedia.org/wiki/Java_logging_framework) beschikbaar zijn. Aangezien `java.util.logging` is de standaardoptie met de JRE wordt geselecteerd, wordt ook gebruikt voor de [codevoorbeelden in GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started). Het volgende onderwerp wordt uitgelegd hoe u het configureren van de `java.util.logging` framework.
+Voor Java-toepassingen, [meerdere frameworks voor logboekregistratie](https://en.wikipedia.org/wiki/Java_logging_framework) beschikbaar zijn. Aangezien `java.util.logging` is de standaardoptie met de JRE wordt geselecteerd, wordt ook gebruikt voor de [codevoorbeelden in GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). Het volgende onderwerp wordt uitgelegd hoe u het configureren van de `java.util.logging` framework.
 
 U kunt met behulp van java.util.logging uw toepassingslogboeken omleiden naar geheugen, uitvoerstromen, consolebestanden of sockets. Voor elk van deze opties zijn er standaard handlers al opgegeven in het kader. U kunt maken een `app.properties` bestand dat u wilt configureren van de bestands-handler voor uw toepassing zodat alle logboeken worden omgeleid naar een lokaal bestand.
 
@@ -64,7 +64,7 @@ Deze configuratie leidt tot de logboeken die worden verzameld in een draaiende m
 
 Standaard als geen handler expliciet is geconfigureerd, is de console-handler geregistreerd. Een Bekijk de logboeken in syslog onder /var/log/syslog.
 
-Zie voor meer informatie de [codevoorbeelden in GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).
+Zie voor meer informatie de [codevoorbeelden in GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Foutopsporing in Service Fabric C#-toepassingen

@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 ms.subservice: common
-ms.openlocfilehash: 51ee5362a01a846378228a42343cc0e2b9f72497
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 13ddb4d64908421e999174623003acd2fb24024d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014903"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Azure Storage-resources in C++ weergeven
 Bewerkingen voor de aanbieding zijn sleutel te veel ontwikkelscenario's met Azure Storage. In dit artikel wordt beschreven hoe u zo efficiënt mogelijk het inventariseren van objecten in Azure Storage met behulp van de aanbieding beschikbaar in de Microsoft Azure Storage-clientbibliotheek voor C++ API's.
 
 > [!NOTE]
-> Deze handleiding is gericht op de Azure Storage-clientbibliotheek voor C++ versie 2.x, die beschikbaar is via [NuGet](http://www.nuget.org/packages/wastorage) of [GitHub](https://github.com/Azure/azure-storage-cpp).
+> Deze handleiding is gericht op de Azure Storage-clientbibliotheek voor C++ versie 2.x, die beschikbaar is via [NuGet](https://www.nuget.org/packages/wastorage) of [GitHub](https://github.com/Azure/azure-storage-cpp).
 > 
 > 
 
@@ -34,7 +34,7 @@ De Opslagclientbibliotheek biedt verschillende methoden om de lijst of query obj
 Elk van deze methoden wordt weergegeven met behulp van verschillende overloads voor verschillende scenario's.
 
 ## <a name="asynchronous-versus-synchronous"></a>Asynchrone en synchrone
-Omdat de Storage-clientbibliotheek voor C++ is gebouwd boven de [C++ REST bibliotheek](https://github.com/Microsoft/cpprestsdk), we inherent asynchrone bewerkingen ondersteunen met behulp van [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Bijvoorbeeld:
+Omdat de Storage-clientbibliotheek voor C++ is gebouwd boven de [C++ REST bibliotheek](https://github.com/Microsoft/cpprestsdk), we inherent asynchrone bewerkingen ondersteunen met behulp van [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Bijvoorbeeld:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -194,7 +194,7 @@ Zie de volgende bronnen voor meer informatie over Azure Storage en -clientbiblio
 * [Het Blob Storage gebruiken met C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Hoe u kunt Table Storage gebruiken met C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Hoe u Queue Storage gebruiken met C++](../storage-c-plus-plus-how-to-use-queues.md)
-* [Azure Storage-clientbibliotheek voor C++ API-documentatie.](http://azure.github.io/azure-storage-cpp/)
+* [Azure Storage-clientbibliotheek voor C++ API-documentatie.](https://azure.github.io/azure-storage-cpp/)
 * [Blog van het Azure Storage-team](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentatie bij Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 

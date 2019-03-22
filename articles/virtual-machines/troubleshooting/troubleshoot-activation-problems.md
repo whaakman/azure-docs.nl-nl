@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 16876a7831ab374637e28165c44d47e0ab059712
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0f700b9e24399768977a1fa221322fa4c1c6708d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976357"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095140"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Problemen met Windows Azure virtuele machine-activering
 
@@ -28,10 +28,10 @@ Als u problemen ondervindt bij het activeren van Windows Azure virtuele machine 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Wat is Azure KMS-eindpunten voor Windows-productactivering van Azure Virtual Machines?
 Azure maakt gebruik van verschillende eindpunten voor KMS-activering, afhankelijk van de cloud-regio waar de virtuele machine zich bevindt. Wanneer u deze handleiding voor probleemoplossing, gebruikt u de juiste KMS-eindpunt dat van toepassing voor uw regio is.
 
-* Openbare cloud van Azure-regio's: kms.core.windows.net:1688
-* Azure China 21Vianet nationale cloud-regio's: kms.core.chinacloudapi.cn:1688
+* Azure public cloud regions: kms.core.windows.net:1688
+* Azure China 21Vianet national cloud regions: kms.core.chinacloudapi.cn:1688
 * Azure Duitsland nationale cloud-regio's: kms.core.cloudapi.de:1688
-* Azure VS (overheid) nationale cloud-regio's: kms.core.usgovcloudapi.net:1688
+* Azure US Gov national cloud regions: kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>Symptoom
 
@@ -61,7 +61,7 @@ Deze stap is niet van toepassing op Windows 2012 of Windows 2008 R2. De functie 
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. Als **slmgr.vbs/dlv** toont detailhandel, voer de volgende opdrachten om in te stellen de [Installatiecode voor KMS-client](https://technet.microsoft.com/library/jj612867%28v=ws.11%29.aspx?f=255&MSPPError=-2147217396) voor de versie van Windows Server wordt gebruikt en geforceerd probeer opnieuw te activeren: 
+2. Als in **slmgr.vbs /dlv** het kanaal RETAIL wordt weergegeven, voert u de volgende opdrachten uit om de [installatiecode voor de KMS-client](https://technet.microsoft.com/library/jj612867%28v=ws.11%29.aspx?f=255&MSPPError=-2147217396) in te stellen voor de gebruikte versie van Windows Server, en dwingt u af dat de activering opnieuw wordt uitgevoerd: 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>
@@ -81,34 +81,34 @@ Deze stap is niet van toepassing op Windows 2012 of Windows 2008 R2. De functie 
 
 2. Naar begin gaan, zoeken op Windows PowerShell, met de rechtermuisknop op Windows PowerShell en selecteer vervolgens als administrator uitvoeren.
 
-3. Zorg ervoor dat de virtuele machine is geconfigureerd voor het gebruik van de juiste Azure KMS-server. U doet dit door de volgende opdracht uitvoeren:
-  
+3. Zorg ervoor dat de VM is geconfigureerd om de juiste Azure KMS-server te gebruiken. U doet dit door de volgende opdracht uitvoeren:
+  
     ```
     iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    De opdracht moet retourneren: Computernaam van de Key Management Service is ingesteld op kms.core.windows.net:1688.
+    Met deze opdracht wordt dit geretourneerd: Computernaam van de Key Management Service is ingesteld op kms.core.windows.net:1688.
 
-4. Controleer of met behulp van Psping dat u verbinding met de KMS-server hebben. Ga naar de map waar u het downloaden van het Pstools.zip uitgepakt en voer het volgende:
-  
+4. Controleer of met behulp van Psping dat u verbinding met de KMS-server hebben. Ga naar de map waarin u het gedownloade bestand Pstools.zip hebt uitgepakt en voer vervolgens het volgende uit:
+  
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-  
-  Zorg dat u ziet in de tweede laatste regel van de uitvoer: Verzonden = 4, ontvangen = 4, verloren = 0 (0% verlies).
+  
+   Controleer of u in de een-na-laatste regel van de uitvoer het volgende ziet: Verzonden = 4, ontvangen = 4, verloren = 0 (0% verlies).
 
-  Als verloren is groter dan 0 (nul), is de virtuele machine heeft geen verbinding met de KMS-server. In dit geval is als de virtuele machine zich in een virtueel netwerk en heeft een aangepaste DNS-server opgegeven, moet u ervoor zorgen dat DNS-server kunnen omzetten van kms.core.windows.net. Of de DNS-server wijzigt in een kms.core.windows.net is opgelost.
+   Als verloren is groter dan 0 (nul), is de virtuele machine heeft geen verbinding met de KMS-server. In dit geval is als de virtuele machine zich in een virtueel netwerk en heeft een aangepaste DNS-server opgegeven, moet u ervoor zorgen dat DNS-server kunnen omzetten van kms.core.windows.net. Of de DNS-server wijzigt in een kms.core.windows.net is opgelost.
 
-  U ziet dat als u alle DNS-servers van een virtueel netwerk verwijderen, VM's gebruiken de interne DNS-service van Azure. Deze service kunt kms.core.windows.net oplossen.
+   U ziet dat als u alle DNS-servers van een virtueel netwerk verwijderen, VM's gebruiken de interne DNS-service van Azure. This service can resolve kms.core.windows.net.
   
 Controleer ook of de Gast-firewall niet is geconfigureerd op een manier die activering wordt blokkeren.
 
-5. Nadat u geslaagde verbinding met kms.core.windows.net verifieert, voer de volgende opdracht bij die met verhoogde bevoegdheid Windows PowerShell-prompt. Met deze opdracht wordt activering geprobeerd meerdere keren.
+1. Nadat u geslaagde verbinding met kms.core.windows.net verifieert, voer de volgende opdracht bij die met verhoogde bevoegdheid Windows PowerShell-prompt. Met deze opdracht wordt meerdere keren geprobeerd te activeren.
 
     ```
     1..12 | % { iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
     ```
 
-Een geslaagde activering retourneert informatie die lijkt op het volgende:
+Na een geslaagde activering worden gegevens geretourneerd die er ongeveer als volgt uitzien:
 
 **Windows(R), ServerDatacenter edition (12345678-1234-1234-1234-12345678) activeren... Product is geactiveerd.**
 

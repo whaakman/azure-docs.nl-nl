@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 65b111d74121b6a679883d480b9e1f19d41e334e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093556"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905134"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Veilig installeren en gebruiken van uw Azure Data Box
 ![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png)
@@ -24,7 +24,7 @@ Lees de veiligheidsinformatie in dit artikel voordat u Azure Data Box. Volg de i
 ## <a name="safety-icon-conventions"></a>Veiligheid pictogram conventies
 Hier volgen de pictogrammen dat u wanneer u de voorzorgsmaatregelen ziet moeten worden genomen bij het instellen en uitvoeren van uw Data Box bekijken.
 
-| Pictogram | Beschrijving |
+| Pictogram | Description |
 |:--- |:--- |
 | ![Pictogram gevaar](./media/data-box-safety/warning_icon.png) **gevaar!** |Geeft aan dat een gevaarlijke situaties die, als er geen vermeden, in overlijden of ernstige schade resulteert. Dit woord signaal is beperkt tot de meest uitzonderlijke situaties. |
 | ![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png) **waarschuwing!** |Geeft aan dat een gevaarlijke situaties die als niet voorkomen, tot overlijden of ernstige schade leiden kan. |
@@ -77,14 +77,14 @@ Hier volgen de pictogrammen dat u wanneer u de voorzorgsmaatregelen ziet moeten 
 * De eenheid permanent verwijderen voordat u deze verplaatst of als u denkt dat deze beschadigd is op geen enkele manier.
 * Geef een geschikte voedingsbron elektrische overbelasting protection om te voldoen aan de volgende power-specificaties:
 
-    - Voltage: 100 V AC naar 240 V AC
-    - Huidige: 6, maximaal
-    - Frequentie: 50 / 60 Hz
+    - Spanning: 100 V AC tot 240 V AC
+    - Huidige: 6 A, maximum
+    - Frequentie van: 50 / 60 Hz
 
 ![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png) **Let op:**
 
 * Dit apparaat bevat munt cel accu's. Probeer niet om het apparaat. Accu's in dit apparaat zijn niet gebruiker onderhouden. 
-* **Voor servicepersoneel**: risico's van explosie als accu wordt vervangen door een onjuist type. Buitengebruikstelling van het gebruikte accu's op basis van instructies.
+* **Voor servicepersoneel**: Risico's van explosie als accu wordt vervangen door een onjuist type. Buitengebruikstelling van het gebruikte accu's op basis van instructies.
 
 ![Let op het pictogram](./media/data-box-safety/notice_icon.png) **kennisgeving:**
 
@@ -104,7 +104,7 @@ Dit apparaat is:
     - Temperatuur: 50° met 95° F (10° tot 35° C)
     - Opslagtemperatuur: °-4 t/m F 122 ° (20 ° tot 50 ° C)
     - Relatieve vochtigheid: 15 tot 85% (niet-condenserend) 
-    - Operationele hoogte: getest tot 6500 meter 0 op 2000 meters
+    - Hoogte kan worden uitgevoerd: Getest tot 6500 meter 0 op 2000 meters
 
 Voor elektrische voeding classificaties, raadpleegt u het apparaat classificatie label voorzien van de eenheid. 
 
@@ -122,9 +122,9 @@ Dit apparaat voldoet aan onderdeel 15 van de FCC regels en de branche Canada lic
 
 ![Canada](./media/data-box-safety/canada.png)
 
-KAN ICES-3(A)/NMB-3(A)
+CAN ICES-3(A)/NMB-3(A)
 
-Microsoft Corporation, One Microsoft manier, Redmond, WA 98052, Verenigde Staten.
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
 
 Verenigde Staten: (800) 426-9400
 
@@ -142,7 +142,7 @@ Dit is een klasse A-product. Dit product mogelijk in een omgeving met binnenland
 
 ![Pictogram van buitengebruikstelling accu](./media/data-box-safety/battery_disposal_icon.png)
 
-Dit symbool op het product of de accu of op de verpakking betekent dat dit product en elke accu's die deze bevat moeten niet worden verwijderd met de huishoudelijke verspilling. In plaats daarvan is het uw verantwoordelijkheid om deze naar een verzameling van toepassing voor het recyclen van accu's en elektrische en elektronische apparatuur. Deze afzonderlijke verzameling en recycling zal helpen besparen van natuurlijke bronnen en voorkomen van potentiële negatieve gevolgen voor de volksgezondheid en de omgeving, omdat de mogelijke aanwezigheid van gevaarlijke stoffen in accu's en elektrische en elektronische apparatuur, wordt door onjuiste verwijdering veroorzaakt mogelijk. Voor meer informatie over waar u wilt verwijderen uit de accu's en elektrische en elektronische verspilling, neem contact op met uw lokale plaats/gemeenteraad office, de verwijdering van huishoudelijke afval-service of de winkel waar u dit product hebt aangeschaft. Neem contact op met *erecycle@microsoft.com* voor meer informatie over AEEA.
+Dit symbool op het product of de accu of op de verpakking betekent dat dit product en elke accu's die deze bevat moeten niet worden verwijderd met de huishoudelijke verspilling. In plaats daarvan is het uw verantwoordelijkheid om deze naar een verzameling van toepassing voor het recyclen van accu's en elektrische en elektronische apparatuur. Deze afzonderlijke verzameling en recycling zal helpen besparen van natuurlijke bronnen en voorkomen van potentiële negatieve gevolgen voor de volksgezondheid en de omgeving, omdat de mogelijke aanwezigheid van gevaarlijke stoffen in accu's en elektrische en elektronische apparatuur, wordt door onjuiste verwijdering veroorzaakt mogelijk. Voor meer informatie over waar u wilt verwijderen uit de accu's en elektrische en elektronische verspilling, neem contact op met uw lokale plaats/gemeenteraad office, de verwijdering van huishoudelijke afval-service of de winkel waar u dit product hebt aangeschaft. Neem contact op met *erecycle\@microsoft.com* voor meer informatie over AEEA.
 
 Dit product bevat munt cel battery(ies).
 

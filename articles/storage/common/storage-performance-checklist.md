@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 010a9f4e5be34986c1098f403e4df0ccf569838c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821659"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012327"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage
 ## <a name="overview"></a>Overzicht
@@ -122,7 +122,7 @@ U kunt volgen enkele aanbevolen procedures voor het verminderen van de frequenti
 
 * Bekijk de naamconventie die u voor accounts, containers, blobs, tabellen en wachtrijen, nauw samen gebruiken. Houd rekening met het voorvoegsel van namen met een 3-cijferige hash met behulp van een hash-functie die het beste bij uw behoeften.  
 * Als u uw gegevens met behulp van tijdstempels of numerieke id's ordenen, hebt u ervoor dat u niet een verkeerspatronen van waaraan alleen (of Voeg alleen-lezen). Deze patronen zijn niet geschikt voor een bereik-gebaseerd systeem te partitioneren en kan leiden tot al het verkeer naar één partitie te gaan en beperken van het systeem daadwerkelijk de taakverdeling. Bijvoorbeeld, als u de dagelijkse bewerkingen die gebruikmaken van een blob-object met een tijdstempel zoals JJJJMMDD hebt, wordt klikt u vervolgens al het verkeer voor die dag voor deze bewerking omgeleid naar een enkel object, dat wordt bediend door een server met één partitie. Bekijk of de blob-limieten per en per partitie limieten aan uw behoeften voldoet en kunt u overwegen om deze bewerking in meerdere blobs indien nodig. Op dezelfde manier als u de time series-gegevens in de tabellen opslaat, al het verkeer kan worden omgeleid naar het laatste deel van de belangrijkste naamruimte. Als u tijdstempels of numerieke id's moet gebruiken, het voorvoegsel van de ID met de hash van een 3 cijfers of in het geval van tijdstempels de seconden deel uit van de tijd, zoals ssyyyymmdd voorvoegsel. Als de aanbieding en bewerkingen uitvoeren van query's worden regelmatig uitgevoerd, kiest u een hash-functie die het aantal query's worden beperkt. In andere gevallen kan een willekeurige voorvoegsel voldoende zijn.  
-* Voor meer informatie over het partitieschema gebruikt in Azure Storage, leest u het SOSP-document [hier](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
+* Voor meer informatie over het partitieschema gebruikt in Azure Storage, leest u het SOSP-document [hier](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ### <a name="networking"></a>Netwerken
 Terwijl de API-materiaal aanroepen, hebben het fysieke netwerkbeperkingen van de toepassing vaak een aanzienlijke invloed op de prestaties. De volgende beschrijven een aantal beperkingen die gebruikers kunnen ondervinden.  

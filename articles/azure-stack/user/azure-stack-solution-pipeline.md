@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 13c5d194ca5e6a606b319a42fdba7a597a8d4852
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9c7e6640bdb17e9f996545c2c3315c0c1ade42d1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781201"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902209"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Zelfstudie: Apps implementeren in Azure en Azure Stack
 
@@ -78,17 +78,17 @@ In deze zelfstudie wordt ervan uitgegaan dat u enige basiskennis van Azure en Az
 ### <a name="azure-stack-requirements"></a>Vereisten voor Azure Stack
 
 * Een geïntegreerde Azure Stack-systeem gebruiken of de Azure Stack Development Kit (ASDK) implementeren. De ASDK implementeren:
-    * De [zelfstudie: implementeert de ASDK met behulp van het installatieprogramma](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) bevat gedetailleerde implementatie-instructies.
-    * Gebruik de [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell-script voor het automatiseren van de stappen na de implementatie ASDK.
+  * De [zelfstudie: implementeert de ASDK met behulp van het installatieprogramma](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) bevat gedetailleerde implementatie-instructies.
+  * Gebruik de [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell-script voor het automatiseren van de stappen na de implementatie ASDK.
 
     > [!Note]
     > De installatie van de ASDK duurt ongeveer 7 uur om te voltooien, dus dienovereenkomstig te plannen.
 
- * Implementeer [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS-services met Azure Stack.
- * Maak [-Plan/aanbiedingen](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) in Azure Stack.
- * Maak een [tenant abonnement](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) in Azure Stack.
- * Een Web-App maken in de tenantabonnement. Noteer de URL van de nieuwe Web-App voor later gebruik.
- * Implementeer een Windows Server 2012-Machine in de tenantabonnement. U kunt deze server wilt gebruiken als uw buildserver en Azure DevOps-Services uit te voeren.
+  * Implementeer [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS-services met Azure Stack.
+  * Maak [-Plan/aanbiedingen](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) in Azure Stack.
+  * Maak een [tenant abonnement](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) in Azure Stack.
+  * Een Web-App maken in de tenantabonnement. Noteer de URL van de nieuwe Web-App voor later gebruik.
+  * Implementeer een Windows Server 2012-Machine in de tenantabonnement. U kunt deze server wilt gebruiken als uw buildserver en Azure DevOps-Services uit te voeren.
 * Geef een installatiekopie van Windows Server 2016 met .NET 3.5 voor een virtuele machine (VM). Deze virtuele machine worden in uw Azure Stack samengesteld als een persoonlijke bouwagent.
 
 ### <a name="developer-tool-requirements"></a>Vereisten voor Developer-hulpprogramma
@@ -97,8 +97,8 @@ In deze zelfstudie wordt ervan uitgegaan dat u enige basiskennis van Azure en Az
 * [Installeer Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) en [aanmelden bij Azure DevOps Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Verbinding maken met uw project en [deze lokaal klonen](https://www.visualstudio.com/docs/git/gitquickstart).
 
- > [!Note]
- > Uw Azure Stack-omgeving, moet de juiste afbeeldingen publiceren voor het uitvoeren van Windows Server en SQL Server. Ook moet het Appservice is geïmplementeerd.
+  > [!Note]
+  > Uw Azure Stack-omgeving, moet de juiste afbeeldingen publiceren voor het uitvoeren van Windows Server en SQL Server. Ook moet het Appservice is geïmplementeerd.
 
 ## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Voorbereiden van de persoonlijke Azure-pijplijnen-agent voor integratie met Azure DevOps-Services
 
@@ -363,7 +363,7 @@ Hybride CI/CD kunt toepassen op zowel de toepassingscode als de infrastructuurco
 
 2. Navigeer naar de **webtoepassing bouwen** pagina voor het project.
 
-3. In **argumenten**, toevoegen **win10 - r-x64** code. Dit is vereist voor het activeren van een onafhankelijke implementatie met .net Core.
+3. In **argumenten**, toevoegen **win10 - r-x64** code. Dit is vereist voor het activeren van een onafhankelijke implementatie met .NET Core.
 
     ![Argument build-pijplijn toevoegen](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 

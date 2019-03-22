@@ -16,16 +16,16 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae0565bd51235f2d1b471adcc511786c204d175a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eda145f43c9268e5f6b291a767ed51249804f87d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890505"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286445"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
->Blijf op de hoogte over wanneer u terug naar deze pagina voor updates kopiëren en plakken van deze URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` in uw ![RSS-pictogram](./media/whats-new/feed-icon-16x16.png) reader-feed.
+>Blijf op de hoogte over wanneer u terug naar deze pagina voor updates kopiëren en plakken van deze URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` in uw ![RSS-feed lezer pictogram](./media/whats-new/feed-icon-16x16.png) reader-feed.
 
 Azure AD ontvangt verbeteringen regelmatig. Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u informatie over:
 
@@ -40,7 +40,7 @@ Deze pagina wordt maandelijks bijgewerkt, dus regelmatig bezoekt. Als u naar ite
 ---
 ## <a name="february-2019"></a>Februari 2019
 
-### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Configureerbare Azure AD-SAML-tokenversleuteling (openbare preview) 
+### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Configureerbare Azure AD SAML-tokenversleuteling (openbare preview) 
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Bedrijfsapps  
@@ -52,7 +52,7 @@ Zie voor meer informatie over het configureren van de SAML-tokenversleuteling [c
 
 ---
 
-### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Een toegangsbeoordeling groepen of apps met behulp van Azure AD-Toegangsbeoordelingen maken
+### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Een toegangsbeoordeling maken voor groepen of apps met behulp van Azure AD-toegangsbeoordelingen
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Toegangsbeoordelingen  
@@ -64,7 +64,7 @@ Voor meer informatie over het maken van een toegangscontrole met behulp van Azur
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - februari 2019
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Er zijn nieuwe federatieve apps beschikbaar in de Azure AD-app-galerie - februari 2019
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Bedrijfsapps  
@@ -106,7 +106,7 @@ Zie voor meer informatie over de verbeterde registratie-ervaring, de [Cool verbe
 
 ---
 
-### <a name="updated-policy-management-experience-for-user-flows"></a>Bijgewerkte beleid beheerervaring voor gebruikersstromen
+### <a name="updated-policy-management-experience-for-user-flows"></a>Bijgewerkte beleidsbeheerervaring voor gebruikersstromen
 
 **Type:** Gewijzigde functie  
 **Categorie van de service:** B2C - Consumentenidentiteitsbeheer  
@@ -120,7 +120,7 @@ Zie voor meer informatie over de nieuwe beheerervaring van beleid, de [JavaScrip
 
 ---
 
-### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Kies specifieke pagina element versies geleverd door Azure AD B2C
+### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Specifieke versies van pagina-elementen kiezen die worden geleverd door Azure AD B2C
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** B2C - Consumentenidentiteitsbeheer  
@@ -132,7 +132,7 @@ Zie voor meer informatie over het kiezen van specifieke versies van pagina-eleme
 
 ---
 
-### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>Vereisten voor wachtwoorden kunnen worden geconfigureerd door eindgebruikers voor B2C (GA)
+### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>Configureerbare wachtwoordvereisten voor eindgebruikers voor B2C (GA)
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** B2C - Consumentenidentiteitsbeheer  
@@ -144,7 +144,7 @@ Zie voor meer informatie over de vereiste configuratie van wachtwoord complexite
 
 ---
 
-### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>Nieuwe standaardsjablonen voor aangepaste huisstijl authenticatie-ervaringen
+### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>Nieuwe standaardsjablonen voor aangepaste verificatie-ervaringen
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** B2C - Consumentenidentiteitsbeheer  
@@ -158,7 +158,7 @@ Zie voor meer informatie over het gebruik van de sjablonen [JavaScript-aanpassin
 
 ## <a name="january-2019"></a>Januari 2019
 
-### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>Active Directory B2B-samenwerking met behulp van verificatie eenmalige wachtwoordcode (openbare preview)
+### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>B2B-samenwerking van Azure Active Directory met behulp van eenmalige wachtwoordcodeverificatie (openbare preview)
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** B2B  
@@ -168,7 +168,7 @@ Verificatie van de eenmalige wachtwoordcode (OTP) hebben we geïntroduceerd voor
 
 Zie voor meer informatie, [e eenmalige wachtwoordcode verificatie (preview)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) en de blog [Azure AD maakt delen en samenwerking naadloos voor elke gebruiker met een account](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-makes-sharing-and-collaboration-seamless-for-any-user/ba-p/325949).
 
-### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Nieuwe cookie-instellingen Azure AD-toepassingsproxy
+### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Nieuwe Azure AD-toepassingsproxy cookie-instellingen
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** App-proxy  
@@ -390,7 +390,7 @@ Zie voor meer informatie de [voorwaarden toevoegen van gedeelte van de Azure Act
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>Beheerders kunnen een gebruiksrechtovereenkomst verloopt op basis van de planning van elke gebruiker configureren
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>Beheerders kunnen gebruiksvoorwaarden zo configureren dat deze verlopen op basis van het schema van elke gebruiker
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Gebruiksvoorwaarden  
@@ -577,7 +577,7 @@ Zie voor meer informatie, [wat is de portal mijn Apps?](https://docs.microsoft.c
 
 De nieuwe **probleemoplossing en ondersteuning** tabblad op de **aanmeldingen** pagina van de Azure portal, is bedoeld voor beheerders en ondersteuningstechnici oplossen van problemen met betrekking tot Azure AD-aanmeldingen. Deze nieuwe tabblad bevat de foutcode, foutbericht en herstelaanbevelingen (indien aanwezig) om u te helpen bij het oplossen van het probleem. Als u niet het probleem op te lossen, ook geven we u een nieuwe manier om u te maken van een ondersteuning ticket met de **naar Klembord kopiëren** ondervindt, die vult de **aanvraag-ID** en **datum (UTC)** velden voor het logboekbestand in uw ondersteuningsticket.  
 
-![Logboeken aanmelden met het nieuwe tabblad](media/whats-new/troubleshooting-and-support.png)
+![Meld u in Logboeken van het nieuwe tabblad](media/whats-new/troubleshooting-and-support.png)
 
 ---
 

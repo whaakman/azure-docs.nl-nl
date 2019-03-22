@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6e27d00e4b12ade82cfde6b3a4927edc7d69798a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435188"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075813"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Filmaanbevelingen genereren met behulp van Apache Mahout met Apache Hadoop op basis van Linux in HDInsight (SSH)
 
@@ -170,15 +170,15 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     Met deze opdracht wordt de aanbevelingen die worden gegenereerd voor de gebruiker-ID 4 gekeken.
 
-    * De **gebruiker ratings.txt** bestand wordt gebruikt om op te halen van films die zijn geclassificeerd.
+   * De **gebruiker ratings.txt** bestand wordt gebruikt om op te halen van films die zijn geclassificeerd.
 
-    * De **moviedb.txt** bestand wordt gebruikt om op te halen van de namen van de films.
+   * De **moviedb.txt** bestand wordt gebruikt om op te halen van de namen van de films.
 
-    * De **recommendations.txt** wordt gebruikt voor het ophalen van de filmaanbevelingen voor deze gebruiker.
+   * De **recommendations.txt** wordt gebruikt voor het ophalen van de filmaanbevelingen voor deze gebruiker.
 
      De uitvoer van deze opdracht is vergelijkbaar met de volgende tekst:
 
-        Zeven jaar in Tibet (1997), score = 5.0 Indiana Jones en de laatste Crusade (1989), score = 5.0 Jaws (1975), score = 5.0 idee en mee (1995), score = 5.0 onafhankelijkheid dag (ID4) (1996), score = 5.0 mijn beste vriend Wedding (1997), score = 5.0 Jerry Maguire (1996), score = 5.0 Scream 2 (1997), score = 5.0 tijd Kill, een (1996), score = 5.0
+       Zeven jaar in Tibet (1997), score = 5.0 Indiana Jones en de laatste Crusade (1989), score = 5.0 Jaws (1975), score = 5.0 idee en mee (1995), score = 5.0 onafhankelijkheid dag (ID4) (1996), score = 5.0 mijn beste vriend Wedding (1997), score = 5.0 Jerry Maguire (1996), score = 5.0 Scream 2 (1997), score = 5.0 tijd Kill, een (1996), score = 5.0
 
 ## <a name="delete-temporary-data"></a>Tijdelijke gegevens verwijderen
 

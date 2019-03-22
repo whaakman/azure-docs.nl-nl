@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 07230b061f9b18e1efe6ce8c65abe0f7e7f73b34
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 62043128b6415a064e35adca6be4d60ccfcae308
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893490"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294311"
 ---
 # <a name="what-is-azure-dns"></a>Wat is Azure DNS?
 
@@ -38,6 +38,8 @@ DNS-domeinen in Azure DNS worden gehost op het wereldwijde netwerk van Azure DNS
 
 Zie voor meer informatie [DNS-zones en -records beschermen](dns-protect-zones-recordsets.md). 
 
+## <a name="dnssec"></a>DNSSEC
+Azure DNS biedt momenteel geen ondersteuning voor DNSSEC. U kunt in de meeste gevallen de noodzaak van DNSSEC beperken door consistent gebruik van HTTPS/TLS in uw toepassingen. Als DNSSEC een essentiële vereiste is voor uw DNS-zones is, kunt u deze zones hosten met host DNS-providers van derden.
 
 ## <a name="ease-of-use"></a>Gebruiksgemak
 

@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 7d4748ced196abdb4f3f0bcb70ad6fe254b24bf7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657572"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850289"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>SaaS-analytics met Azure SQL Database, SQL Data Warehouse, Data Factory en Power BI verkennen
 
@@ -94,7 +94,7 @@ In deze stap implementeert u de extra resources die tijdens deze zelfstudie: een
 
 Bekijk nu de Azure-resources die u geïmplementeerd:
 #### <a name="tenant-databases-and-analytics-store"></a>Tenant-databases en analytics store
-Gebruik [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) verbinding maken met **tenants1-dpt -&lt;gebruiker&gt;**  en **catalogus-dpt -&lt;gebruiker&gt;**  servers. Vervang &lt;gebruiker&gt; met de waarde die wordt gebruikt tijdens de implementatie van de app. Gebruik aanmelding = *developer* en het wachtwoord = *P@ssword1*. Zie de [inleidende zelfstudie](saas-dbpertenant-wingtip-app-overview.md) voor meer informatie.
+Gebruik [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) verbinding maken met **tenants1-dpt -&lt;gebruiker&gt;**  en **catalogus-dpt -&lt;gebruiker&gt;**  servers. Vervang &lt;gebruiker&gt; met de waarde die wordt gebruikt tijdens de implementatie van de app. Gebruik aanmelding = *developer* en het wachtwoord = *P\@ssword1*. Zie de [inleidende zelfstudie](saas-dbpertenant-wingtip-app-overview.md) voor meer informatie.
 
 ![Verbinding maken met SQL Database-server via SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -113,7 +113,7 @@ In Object Explorer:
 #### <a name="blob-storage"></a>Blob Storage
 1. In de [Azure Portal](https://ms.portal.azure.com), gaat u naar de resourcegroep die u hebt gebruikt voor het implementeren van de toepassing. Controleer of dat er een opslagaccount met de naam **wingtipstaging\<gebruiker\>**  is toegevoegd.
 
-  ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
+   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
 1. Klik op **wingtipstaging\<gebruiker\>**  storage-account om te verkennen van de objecten die aanwezig zijn.
 1. Klik op **Blobs** tegel
@@ -195,7 +195,7 @@ Gebruik de volgende stappen uit om te verbinden met Power BI, en voor het import
 
     ![Sign-in-naar-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selecteer **Database** in het linkerdeelvenster, voert u de gebruikersnaam van de = *developer*, en Voer wachtwoord = *P@ssword1*. Klik op **Verbinden**.  
+5. Selecteer **Database** in het linkerdeelvenster, voert u de gebruikersnaam van de = *developer*, en Voer wachtwoord = *P\@ssword1*. Klik op **Verbinden**.  
 
     ![database-aanmelding](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

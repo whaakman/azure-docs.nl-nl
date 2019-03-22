@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792778"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076799"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Uitgebreide geschiedenis Server van de Apache Spark op fouten opsporen en diagnosticeren van Apache Spark-toepassingen gebruiken
 
@@ -106,11 +106,11 @@ Selecteer de taak-ID en klik vervolgens op **Graph** in het menu hulpprogramma o
 
 + De taak afspelen door te klikken op de **afspelen** knop en op elk gewenst moment stoppen door te klikken op de knop stoppen. De weergave van de taak in kleur om verschillende status weer te geven bij het afspelen:
 
-    + Groen voor geslaagd: De taak is voltooid.
-    + Oranje voor opnieuw geprobeerd: Exemplaren van de taken die is mislukt, maar niet van invloed op het uiteindelijke resultaat van de taak. Deze taken heeft dubbele of probeer exemplaren die later mogelijk wel.
-    + Blauw voor het werken met: De taak wordt uitgevoerd.
-    + Voor de wachttijd-wit of overgeslagen: De taak wacht op om uit te voeren of de fase is overgeslagen.
-    + Rood voor is mislukt: De taak is mislukt.
+  + Groen voor geslaagd: De taak is voltooid.
+  + Oranje voor opnieuw geprobeerd: Exemplaren van de taken die is mislukt, maar niet van invloed op het uiteindelijke resultaat van de taak. Deze taken heeft dubbele of probeer exemplaren die later mogelijk wel.
+  + Blauw voor het werken met: De taak wordt uitgevoerd.
+  + Voor de wachttijd-wit of overgeslagen: De taak wacht op om uit te voeren of de fase is overgeslagen.
+  + Rood voor is mislukt: De taak is mislukt.
 
     ![Graph-kleurvoorbeeld uitgevoerd](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -132,20 +132,20 @@ Selecteer de taak-ID en klik vervolgens op **Graph** in het menu hulpprogramma o
     ![Knopinfo van de grafiek](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + In job graph tabblad fasen hebben knopinfo en het kleine pictogram weergegeven als ze beschikken over taken die voldoen aan de volgende voorwaarden:
-    + Gegevensverschil: gegevens gelezen grootte > gemiddelde gegevens gelezen grootte van alle taken in deze fase * 2 en gegevens gelezen grootte > 10 MB.
-    + Tijdverschil: uitvoeringstijd > gemiddelde uitvoeringstijd van alle taken in deze fase * 2 en uitvoeringstijd > 2 minuten.
+  + Gegevensverschil: gegevens gelezen grootte > gemiddelde gegevens gelezen grootte van alle taken in deze fase * 2 en gegevens gelezen grootte > 10 MB.
+  + Tijdverschil: uitvoeringstijd > gemiddelde uitvoeringstijd van alle taken in deze fase * 2 en uitvoeringstijd > 2 minuten.
 
     ![scheeftrekken grafiekpictogram](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + Het knooppunt van de grafiek taak worden de volgende gegevens van elke fase van de weergegeven:
-    + ID.
-    + Naam of beschrijving.
-    + Totaal aantal taak getal.
-    + Gegevens lezen: de som van de grootte van de invoer en willekeurige grootte van leesbewerkingen.
-    + Schrijven van gegevens: de som van de uitvoergrootte en willekeurige grootte schrijven.
-    + Uitvoeringstijd: de tijd tussen de begintijd van de eerste poging en voltooiingstijd van de laatste poging.
-    + Aantal rijen: de som van records, invoer, uitvoer records, gelezen records in willekeurige volgorde en schrijven records in willekeurige volgorde.
-    + Wordt uitgevoerd.
+  + ID.
+  + Naam of beschrijving.
+  + Totaal aantal taak getal.
+  + Gegevens lezen: de som van de grootte van de invoer en willekeurige grootte van leesbewerkingen.
+  + Schrijven van gegevens: de som van de uitvoergrootte en willekeurige grootte schrijven.
+  + Uitvoeringstijd: de tijd tussen de begintijd van de eerste poging en voltooiingstijd van de laatste poging.
+  + Aantal rijen: de som van records, invoer, uitvoer records, gelezen records in willekeurige volgorde en schrijven records in willekeurige volgorde.
+  + Wordt uitgevoerd.
 
     > [!NOTE]  
     > Het knooppunt van de grafiek taak gegevens uit de laatste poging van elke fase (met uitzondering van de uitvoeringstijd van de fase) wordt weergegeven, maar tijdens het afspelen van graph knooppunt gegevens van elke poging weergegeven.
@@ -312,10 +312,10 @@ Als u upgraden met hotfix wilt, gebruikt u het onderstaande script spark-enhance
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-    + Controleren op **Head** en **Worker**.
-    + **Parameters**: de bash-gebruik van de volgende parameters instellen.
+   + Controleren op **Head** en **Worker**.
+   + **Parameters**: de bash-gebruik van de volgende parameters instellen.
 
-    ![uploaden van logboek of hotfix bijwerken](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![uploaden van logboek of hotfix bijwerken](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
 ## <a name="known-issues"></a>Bekende problemen

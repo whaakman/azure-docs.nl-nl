@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 6c59b97a8deec78149775a147d6476e67f405d3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078536"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Wat is Azure Diagnostics-extensie
 De Azure Diagnostics-extensie is een agent in Azure waarmee u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken uit een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure-Cloudservice (klassiek) Web- en werkrollen, virtuele Machines, virtuele Machine de schaal van sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van de bewaking in Azure](../../azure-monitor/overview.md).
@@ -50,6 +50,9 @@ U hebt ook de keuze van het verzenden van uw gegevens met Azure Monitor metrics 
 * Wildcard-operator als de dimensie 'Instantie' op uw metrische gegevens in de prestatiemeteritems te behandelen.  Bijvoorbeeld als u hebt verzameld de ' logische schijf (\*) / DiskWrites per seconde "teller die u kunt filteren en splitsen op de dimensie 'Instantie' diagram of de waarschuwing op de schijf schrijven per seconde voor elke logische schijf op de virtuele machine (bijvoorbeeld C:)
 
 Raadpleeg voor meer informatie over het configureren van deze sink de [documentatie voor Azure diagnostics-schema.](diagnostics-extension-schema-1dot3.md)
+
+## <a name="costs"></a>Kosten
+Elk van de bovenstaande opties mogelijk kosten in rekening. Zorg ervoor dat ze om te voorkomen van onverwachte facturen te onderzoeken.  Application Insights, Event hub en Azure Storage beschikt over afzonderlijke kosten voor gegevensopname en de tijd die zijn opgeslagen. In het bijzonder, worden Azure Storage gegevens bevat altijd, zodat u verwijderen van oudere gegevens na een bepaalde periode wilt mogelijk te houden van uw kosten omlaag.    
 
 ## <a name="versioning-and-configuration-schema"></a>Versiebeheer en configuratie-schema
 Zie [versiegeschiedenis van Azure Diagnostics en het Schema](diagnostics-extension-schema.md).

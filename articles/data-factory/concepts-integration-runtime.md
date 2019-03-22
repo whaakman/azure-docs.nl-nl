@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344026"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893047"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime in Azure Data Factory
 De Integration Runtime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt om de volgende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen te bieden:
@@ -51,7 +51,7 @@ Het volgende diagram toont hoe verschillende typen Integration Runtime gecombine
 Een Azure Integration Runtime is geschikt voor:
 
 - Het uitvoeren van kopieeractiviteit tussen gegevensarchieven in de cloud
-- Verzenden van de volgende transformatieactiviteiten in openbare netwerken: HDInsight Hive-activiteit, HDInsight Pig-activiteit, HDInsight MapReduce-activiteit, HDInsight Spark-activiteit, HDInsight Streaming-activiteit, Machine Learning Batch Execution-activiteit, Machine Learning Update Resource-activiteiten, Stored Procedure-activiteit Data Lake Analytics U-SQL-activiteit, aangepaste .net-activiteit, webactiviteit, opzoekactiviteit en Ophaalactiviteit voor metagegevens.
+- Verzenden van de volgende transformatieactiviteiten in openbare netwerken: HDInsight Hive-activiteit, HDInsight Pig-activiteit, HDInsight MapReduce-activiteit, HDInsight Spark-activiteit, HDInsight Streaming-activiteit, Machine Learning Batch Execution-activiteit, Machine Learning Update Resource-activiteiten, Stored Procedure-activiteit Data Lake Analytics U-SQL-activiteit, aangepaste .NET-activiteit, webactiviteit, opzoekactiviteit en Ophaalactiviteit voor metagegevens.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR-netwerkomgeving
 Azure Integration Runtime ondersteunt verbindingen met gegevensarchieven en rekenservices in openbare netwerken met openbaar toegankelijke eindpunten. Gebruik een zelf-hostende Integration Runtime voor een Azure Virtual Network-omgeving.
@@ -69,7 +69,7 @@ Zie voor informatie over het maken en configureren van een Azure-IR 'Azure IR ma
 Een zelf-hostende IR is geschikt voor:
 
 - Het uitvoeren van kopieeractiviteit tussen een gegevensarchief in de cloud en een gegevensarchief in een privénetwerk.
-- Verzenden van de volgende transformatieactiviteiten op basis van rekenresources in On-premises of in Azure Virtual Network: HDInsight Hive-activiteit (uw eigen Cluster BYOC Bring), HDInsight Pig-activiteit (BYOC), HDInsight MapReduce-activiteit (BYOC), HDInsight Spark-activiteit (BYOC), HDInsight Streaming-activiteit (BYOC), Machine Learning Batch Execution-activiteit, Machine Learning Resource-activiteiten, Stored Procedure-activiteit, Data Lake Analytics U-SQL-activiteit, aangepaste .net-activiteit, opzoekactiviteit en Ophaalactiviteit voor metagegevens bijwerken.
+- Verzenden van de volgende transformatieactiviteiten op basis van rekenresources in On-premises of in Azure Virtual Network: HDInsight Hive-activiteit (uw eigen Cluster BYOC Bring), HDInsight Pig-activiteit (BYOC), HDInsight MapReduce-activiteit (BYOC), HDInsight Spark-activiteit (BYOC), HDInsight Streaming-activiteit (BYOC), Machine Learning Batch Execution-activiteit, Machine Learning Resource-activiteiten, Stored Procedure-activiteit, Data Lake Analytics U-SQL-activiteit, aangepaste .NET-activiteit, opzoekactiviteit en Ophaalactiviteit voor metagegevens bijwerken.
 
 > [!NOTE] 
 > Gebruik zelf-gehoste Integration Runtime om gegevensarchieven te ondersteunen waarvoor een eigen stuurprogramma zoals SAP Hana, MySQL, enz. is vereist.  Zie voor meer informatie [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

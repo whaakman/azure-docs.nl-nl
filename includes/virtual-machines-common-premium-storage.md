@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: cd29fb968bd73e09c2e3b60e62a478b4e577146d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805488"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098121"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Krachtige Premium Storage en beheerde schijven voor virtuele machines
 
@@ -63,9 +63,9 @@ Hier volgen enkele van de functies van Premium Storage:
 
     Als u wilt gaan met Premium Storage, een premium storage-account voor niet-beheerde schijven te maken. In de [Azure-portal](https://portal.azure.com), voor het maken van een premium storage-account, kiest u de **Premium** prestatielaag. Selecteer de **lokaal redundante opslag (LRS)** replicatie-optie. U kunt een premium storage-account ook maken door de prestatielaag in te stellen **Premium_LRS**. Als u wilt de prestatielaag wijzigen, moet u een van de volgende methoden gebruiken:
      
-    - [PowerShell voor Azure Storage](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
-    - [Azure CLI voor Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
-    - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (voor Azure Resource Manager-implementaties) of een van de Azure Storage resource provider-clientbibliotheken
+  - [PowerShell voor Azure Storage](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+  - [Azure CLI voor Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+  - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (voor Azure Resource Manager-implementaties) of een van de Azure Storage resource provider-clientbibliotheken
 
     Zie voor meer informatie over limieten voor premium storage-account, [schaalbaarheids- en prestatiedoelen](#scalability-and-performance-targets).
 
