@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 05f8c1898e565e145aedbfdc13e0a88ad09486dc
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: HT
+ms.openlocfilehash: 4c7de6738e30cd883257f3b2ea873c933364c003
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804642"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311880"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Quickstart: Windows-containers implementeren in Service Fabric
 
@@ -149,7 +149,7 @@ Klik op **Publish**.
 
 Elke toepassing in het cluster moet een unieke naam hebben. Als er een naamconflict is, wijzigt u de naam van het Visual Studio-project en voert u de implementatie opnieuw uit.
 
-Open een browser en navigeer naar het adres dat u in de vorige stap in het veld **Verbindingseindpunt** hebt ingevoerd. U kunt de URL eventueel vooraf laten gaan door de schema-id, `http://`, en de poort, `:80`, aan het einde toevoegen. Bijvoorbeeld http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+Open een browser en navigeer naar het adres dat u in de vorige stap in het veld **Verbindingseindpunt** hebt ingevoerd. U kunt de URL eventueel vooraf laten gaan door de schema-id, `http://`, en de poort, `:80`, aan het einde toevoegen. Bijvoorbeeld: http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
  De IIS-standaardwebpagina moet worden weergegeven: ![IIS-standaardwebpagina][iis-default]
 

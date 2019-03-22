@@ -2,17 +2,18 @@
 title: On-premises machines migreren naar Azure met Azure Site Recovery | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u on-premises VM en fysieke machines naar Azure migreert met behulp van Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0daa25cce434b2e97995963918e52df974e2ef9c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110304"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336545"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>On-premises machines migreren naar Azure
 
@@ -113,7 +114,7 @@ Een failover uitvoeren voor de machines die u wilt migreren.
 5. Controleer of de virtuele Azure-machine in Azure wordt weergegeven zoals verwacht.
 6. Klik in **Gerepliceerde items** met de rechtermuisknop op de virtuele machine > **Migratie voltooien**. Er gebeurt nu het volgende:
 
-   - Het migratieproces wordt voltooid, de replicatie voor de AWS-VM wordt gestopt en Site Recovery-facturering voor de virtuele machine wordt gestopt.
+   - Wordt het migratieproces voltooid, replicatie voor de on-premises VM gestopt en Site Recovery-facturering voor de virtuele machine stopt.
    - Met deze stap worden de replicatiegegevens opgeschoond. De gemigreerde VM's worden niet verwijderd.
 
      ![Migratie voltooien](./media/migrate-tutorial-on-premises-azure/complete-migration.png)

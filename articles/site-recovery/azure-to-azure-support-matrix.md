@@ -1,5 +1,5 @@
 ---
-title: Ondersteuningsmatrix voor Azure Site Recovery voor herstel na noodgevallen van Azure IaaS VM's tussen Azure-regio's met Azure Site Recovery | Microsoft Docs
+title: Ondersteuningsmatrix voor herstel na noodgevallen van virtuele Azure-machines tussen Azure-regio's met Azure Site Recovery | Microsoft Docs
 description: Geeft een overzicht van de ondersteunde besturingssystemen en configuraties voor de Azure Site Recovery-replicatie van virtuele Azure-machines (VM's) van de ene regio naar een andere voor disaster recovery (DR) behoeften.
 services: site-recovery
 author: rayne-wiselman
@@ -8,33 +8,33 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 0dac046c359bb8affd69145c73a66cf4ac079012
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: b0fb84131f33d216e099978a7c9ba5481c1691d1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287193"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312815"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
+# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van virtuele Azure-machines van de ene regio naar een andere
 
 In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen wanneer u herstel na noodgeval met replicatie, failover en herstel van virtuele Azure-machines van de ene Azure-regio naar een andere, implementeert met behulp van de [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 ## <a name="deployment-method-support"></a>Ondersteuning voor implementatie-methode
 
-**Implementatiemethode** |  **Ondersteund / niet ondersteund**
+**Implementatie** |  **Ondersteuning**
 --- | ---
-**Azure-portal** | Ondersteund
-**PowerShell** | [Replicatie van Azure naar Azure met PowerShell](azure-to-azure-powershell.md)
-**REST API** | Ondersteund
+**Azure-portal** | Ondersteund.
+**PowerShell** | Ondersteund. [Meer informatie](azure-to-azure-powershell.md)
+**REST API** | Ondersteund.
 **CLI** | Momenteel niet ondersteund
 
 
 ## <a name="resource-support"></a>Resource-ondersteuning
 
 **Resource-actie** | **Details**
---- | --- 
-**Kluis verplaatsen tussen resourcegroepen** | Niet ondersteund
+--- | --- | ---
+**Verplaatsen van kluizen andere resourcegroepen** | Niet ondersteund
 **Compute/opslagnetwerk resources verplaatsen tussen resourcegroepen** | Wordt niet ondersteund.<br/><br/> Als u een virtuele machine of de bijbehorende onderdelen, zoals opslag/netwerk verplaatst nadat de virtuele machine repliceert, die u wilt uitschakelen en vervolgens weer inschakelen replicatie voor de virtuele machine.
 **Virtuele Azure-machines repliceren van één abonnement naar een andere voor herstel na noodgevallen** | Ondersteund binnen dezelfde Azure Active Directory-tenant.
 **Virtuele machines migreren tussen regio's binnen de ondersteunde geografische clusters (binnen en tussen abonnementen)** | Ondersteund binnen dezelfde Azure Active Directory-tenant.
@@ -57,12 +57,12 @@ China | China-Oost, China-Noord, China North2, China-Oost 2
 
 >[!NOTE]
 >
-> - Voor **Brazilië-Zuid** regio, die u kunt repliceren en failover naar een van de volgende: Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2 en Noord-centraal VS-regio's. Er moet worden opgemerkt Site Recovery is alleen ingeschakeld voor Brazilië-Zuid moet worden gebruikt als een regio van de gegevensbron van waar de virtuele machines kunnen worden beveiligd. Deze **kan niet worden gebruikt als een doel-DR-regio** voor het gebruik van de Azure-regio's, zoals Zuid-centraal VS. De reden hiervoor is dat van latentie waargenomen vanwege geografische afstand dat het verdient aanbeveling om te selecteren van een andere Amerika andere regio dan Brazilië-Zuid.
->
-> - Als u **niet kunnen zien van een regio** waar u **een kluis maken** Controleer vervolgens of uw abonnement heeft toegang tot resources in die regio maken. Bijvoorbeeld: Als u niet kunt-kluis maken in Frankrijk-Zuid kunnen uw abonnement geen toegang hebben tot Frankrijk-Zuid-regio. Ondersteuningsticket bestand onder probleem Type "abonnementsbeheer" en probleem Typ 'Overige algemene vragen' onderwerp ' abonnement voor de XXX geaccepteerde Azure-regio '
->
-> - Als u **niet kunnen zien van een regio** binnen een geografische cluster **tijdens het inschakelen van replicatie** Controleer vervolgens of uw abonnement heeft toegang tot de virtuele machine maken in deze regio. Bijvoorbeeld: Als u probeert te beveiligen van virtuele machines van Frankrijk-centraal aan Frankrijk-Zuid en ziet Frankrijk-Zuid onder de regio vervolgkeuzelijst en vervolgens uw abonnement heeft geen toegang tot het implementeren van virtuele machine in deze regio. Ondersteuningsticket bestand onder probleem Type "abonnementsbeheer" en probleem Typ 'Overige algemene vragen' onderwerp ' abonnement voor de XXX geaccepteerde Azure-regio '
-> - U kunt geen regio's in meerdere geografische computerclusters hierboven genoemde selecteren.
+> - Voor **Brazilië-Zuid**, u kunt repliceren en failover uitvoeren naar deze regio's: Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2 en Noord-centraal VS.
+> - Brazilië-Zuid kan alleen worden gebruikt als een regio van de gegevensbron waarin virtuele machines kunnen repliceren met Site Recovery. Deze kan niet fungeren als een doelregio. Dit is vanwege latentieproblemen met vanwege geografische afstand. 
+> - U kunt werken binnen regio's waarvoor u de juiste toegang hebt.
+> - Als de regio waarin u wilt maken van een kluis niet wordt weergegeven, moet u dat uw abonnement heeft toegang tot resources in die regio maken. 
+> - Als een regio binnen een geografische cluster niet wordt weergegeven wanneer u replicatie inschakelt, zorg er dan voor dat uw abonnement heeft machtigingen voor het maken van virtuele machines in deze regio. 
+
 
 
 ## <a name="cache-storage"></a>Cacheopslag
@@ -195,7 +195,7 @@ Versleuteling-at-rest (SSE) | Ondersteund | SSE is de standaardinstelling op sto
 Azure Disk Encryption (ADE) voor Windows-besturingssysteem | VM's zijn ingeschakeld voor [versleuteling met Azure AD-app](https://aka.ms/ade-aad-app) worden ondersteund |
 Azure Disk Encryption (ADE) voor Linux-besturingssysteem | Niet ondersteund |
 Hot toevoegen of verwijderen-schijf | Niet ondersteund | Als u toevoegen of verwijderen van de gegevensschijf op de virtuele machine, moet u replicatie uitschakelen en inschakelen van replicatie opnieuw voor de virtuele machine.
-Schijf uitsluiten | [ondersteund via powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |   Tijdelijke schijf is uitgesloten standaard.
+Schijf uitsluiten | Ondersteuning. U moet gebruiken [Powershell](azure-to-azure-exclude-disks.md) te configureren. |  Tijdelijke schijven niet standaard opgenomen.
 Storage Spaces Direct  | Ondersteund voor crash-consistente herstelpunten. Toepassing consistente herstelpunten worden niet ondersteund. |
 Scale-out bestandsserver  | Ondersteund voor crash-consistente herstelpunten. Toepassing consistente herstelpunten worden niet ondersteund. |
 LRS | Ondersteund |
@@ -203,17 +203,22 @@ GRS | Ondersteund |
 RA-GRS | Ondersteund |
 ZRS | Niet ondersteund |
 Opslag van koude en warme | Niet ondersteund | Schijven van virtuele machines worden niet ondersteund op de opslag van koude en warme
-Azure Storage-firewalls voor virtuele netwerken  | Ondersteund | Als u zijn beperken van toegang tot het virtuele netwerk voor storage-accounts, controleert u of u ['Vertrouwde Microsoft-services toestaan'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Azure Storage-firewalls voor virtuele netwerken  | Ondersteund | Als het beperken van toegang tot het virtuele netwerk naar storage-accounts, schakelt u [vertrouwde Microsoft-services toestaan](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Opslagaccounts voor algemeen gebruik V2 (zowel warme en koude laag) | Nee | Toename van de transactie kosten vergeleken aanzienlijk met algemeen gebruik V1-opslagaccounts
 
 >[!IMPORTANT]
-> Zorg ervoor dat u ziet dat de virtuele machine schijf schaalbaarheids- en prestatiedoelen voor [Linux](../virtual-machines/linux/disk-scalability-targets.md) of [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuele machines om eventuele prestatieproblemen te voorkomen. Als u de standaardinstellingen volgt, maakt Site Recovery de benodigde schijven en opslagaccounts op basis van de configuratie van de gegevensbron. Als u aanpassen en uw eigen instellingen selecteert, zorgt u ervoor dat u de schijf schaalbaarheids- en prestatiedoelen voor de bron-VM's volgt.
+> Om prestatieproblemen te voorkomen, zorg ervoor dat u volgt VM schijf schaalbaarheids- en prestatiedoelen voor [Linux](../virtual-machines/linux/disk-scalability-targets.md) of [Windows](../virtual-machines/windows/disk-scalability-targets.md) VM's. Als u de standaardinstellingen gebruikt, maakt Site Recovery de vereiste schijven en opslagaccounts, op basis van de configuratie van de gegevensbron. Als u uw eigen instellingen selecteert en aanpassen, volgt u de schijf schaalbaarheids- en prestatiedoelen voor uw bron-VM's.
 
-## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>Azure Site Recovery-limieten voor het repliceren van gegevens wijzigen tarieven
-De volgende tabel bevat de Azure Site Recovery-limieten. Deze limieten zijn gebaseerd op onze tests, maar dekken niet alle mogelijke toepassings-I/O-combinaties. De werkelijke resultaten kunnen variëren op basis van uw toepassings-I/O-combinatie. We moeten ook Houd er rekening mee dat er zijn twee limieten rekening houden met per schijf gegevens verloop en verloop per gegevens van virtuele machines.
-Bijvoorbeeld, als we kijken naar de schijf P20 Premium in de onderstaande tabel, Site Recovery 5 MB/s verloop per schijf met op maximaal vijf dergelijke schijven per virtuele machine vanwege de limiet van 25 MB/s totale verloop per virtuele machine kunnen worden verwerkt.
+## <a name="limits-and-data-change-rates"></a>Limieten en gegevens wijzigen tarieven
 
-**Beoogde replicatieopslag** | **Gemiddelde I/O-grootte van bronschijf** |**Gemiddeld gegevensverloop van bronschijf** | **Totale gegevensverloop van bronschijf per dag**
+De volgende tabel geeft een overzicht van Site Recovery-limieten.
+
+- Deze limieten zijn gebaseerd op onze tests maar natuurlijk hebben geen betrekking op alle mogelijke toepassings-i/o-combinaties.
+- Werkelijke resultaten kunnen variëren op basis van u app i/o-combinatie.
+- Er zijn twee beperkingen rekening houden met per schijf gegevens verloop en verloop per gegevens van virtuele machines.
+- Een voorbeeld: als we een P20 Premium-schijf gebruiken, zoals beschreven in de onderstaande tabel, Site Recovery kan verwerken 5 MB/s van het verloop per schijf, met op maximaal vijf dergelijke schijven per virtuele machine, vanwege de limiet van 25 MB/s totale verloop per virtuele machine.
+
+**Doelopslag** | **Gemiddelde bronschijf i/o** |**Gemiddeld gegevensverloop van bronschijf** | **Totale gegevensverloop van bronschijf per dag**
 ---|---|---|---
 Standard Storage | 8 kB | 2 MB/s | 168 GB per schijf
 Premium P10 of P15 schijf | 8 kB  | 2 MB/s | 168 GB per schijf
@@ -222,7 +227,7 @@ Premium P10 of P15 schijf | 32 kB of meer | 8 MB/s | 672 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 8 kB    | 5 MB/s | 421 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |20 MB/s | 1684 GB per schijf
 ## <a name="replicated-machines---networking"></a>Gerepliceerde machines - netwerken
-**Configuratie** | **Ondersteuning** | **Details**
+**Instelling** | **Ondersteuning** | **Details**
 --- | --- | ---
 NIC | Maximum aantal dat wordt ondersteund voor een specifieke Azure-VM-grootte | NIC's worden gemaakt wanneer de virtuele machine is gemaakt tijdens de failover.<br/><br/> Het aantal NIC's op de failover-VM, is afhankelijk van het aantal NIC's op de bron-VM wanneer replicatie is ingeschakeld. Als u toevoegen of verwijderen van een NIC nadat replicatie is ingeschakeld, wordt dit geen invloed op het aantal NIC's op de gerepliceerde virtuele machine na een failover.
 Internet Load Balancer | Ondersteund | Koppel de vooraf geconfigureerde load balancer met behulp van een Azure Automation-script van een herstelplan te gaan.
@@ -235,15 +240,15 @@ Dynamisch IP-adres | Ondersteund | Als de NIC op de broncomputer dynamische IP h
 Traffic Manager     | Ondersteund | U kunt Traffic Manager vooraf configureren zodat verkeer wordt doorgestuurd naar het eindpunt in de bronregio op gezette tijden en naar het eindpunt in de doelregio in het geval van failover.
 Azure DNS | Ondersteund |
 Aangepaste DNS  | Ondersteund |
-Niet-geverifieerde Proxy | Ondersteund | Raadpleeg [leidraad voor netwerken.](site-recovery-azure-to-azure-networking-guidance.md)    
+Niet-geverifieerde proxy | Ondersteund | [Meer informatie]. (site-recovery-azure-to-azure-networking-guidance.md)   
 Geverifieerde Proxy | Niet ondersteund | Als de virtuele machine van een geverifieerde proxyserver voor de uitgaande connectiviteit gebruikmaakt, kan niet worden gerepliceerd met behulp van Azure Site Recovery.    
-Site-naar-Site-VPN met on-premises (met of zonder ExpressRoute)| Ondersteund | Zorg ervoor dat de Udr en nsg's zodanig dat het Site recovery-verkeer niet wordt doorgestuurd naar on-premises zijn geconfigureerd. Raadpleeg [leidraad voor netwerken.](site-recovery-azure-to-azure-networking-guidance.md)  
-VNET-naar-VNET-verbinding | Ondersteund | Raadpleeg [leidraad voor netwerken.](site-recovery-azure-to-azure-networking-guidance.md)  
+Site-naar-site-VPN-verbinding met on-premises<br/><br/>(met of zonder ExpressRoute)| Ondersteund | Zorg ervoor dat de Udr en nsg's zodanig dat het Site recovery-verkeer niet wordt doorgestuurd naar on-premises zijn geconfigureerd. [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md)    
+VNET-naar-VNET-verbinding | Ondersteund | [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md)  
 Service-eindpunten voor virtueel netwerk | Ondersteund | Zorg ervoor dat de vertrouwde Microsoft-services toegang hebben tot het opslagaccount als beperking van toegang tot het virtuele netwerk naar storage-accounts.
 Versneld netwerken | Ondersteund | Versneld netwerken moet zijn ingeschakeld op de bron-VM. [Meer informatie](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Lezen [richtlijnen voor het repliceren van virtuele machines van Azure networking](site-recovery-azure-to-azure-networking-guidance.md).
+- Lezen [netwerken richtlijnen](site-recovery-azure-to-azure-networking-guidance.md) voor het repliceren van virtuele Azure-machines.
 - Herstel na noodgevallen door implementeren [virtuele Azure-machines repliceren](site-recovery-azure-to-azure.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: dc0e326cf3b188a51708115e5496cfbb52a95611
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 46da7c7931eaf163c24f057bac5de35f3c727519
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836960"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311863"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel beschrijft de verschillende fabric-instellingen voor uw Service Fabric-cluster die u kunt aanpassen. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Zie voor meer informatie, [Upgrade van de configuratie van een Azure-cluster](service-fabric-cluster-config-upgrade-azure.md). Voor zelfstandige clusters kunt u instellingen aanpassen door het bijwerken van de *ClusterConfig.json* bestands- en een configuratie uit te voeren een upgrade uitvoeren op uw cluster. Zie voor meer informatie, [Upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -614,13 +614,13 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="security"></a>Beveiliging
 | **Parameter** | **Toegestane waarden** |**Upgradebeleid**| **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|tekenreeks, standaardwaarde is ""|Statisch|AAD-certificaat-eindpunt, standaard Azure Commercial opgegeven indeling voor niet-standaard-omgeving, zoals Azure Government "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
+|AADCertEndpointFormat|tekenreeks, standaardwaarde is ""|Statisch|AAD-certificaat-eindpunt, standaard Azure Commercial opgegeven indeling voor niet-standaard-omgeving, zoals Azure Government ' https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml " |
 |AADClientApplication|tekenreeks, standaardwaarde is ""|Statisch|Naam van de toepassing Native Client of voor Clients van de Fabric-ID |
 |AADClusterApplication|tekenreeks, standaardwaarde is ""|Statisch|Naam van de web-API-toepassing of voor het cluster-ID |
-|AADLoginEndpoint|tekenreeks, standaardwaarde is ""|Statisch|AAD eindpunt voor aanmelding, Azure Commercial standaard opgegeven voor niet-standaard-omgeving, zoals Azure Government "https://login.microsoftonline.us" |
+|AADLoginEndpoint|tekenreeks, standaardwaarde is ""|Statisch|AAD eindpunt voor aanmelding, Azure Commercial standaard opgegeven voor niet-standaard-omgeving, zoals Azure Government ' https:\//login.microsoftonline.us " |
 |AADTenantId|tekenreeks, standaardwaarde is ""|Statisch|Tenant-ID (GUID) |
 |AdminClientCertThumbprints|tekenreeks, standaardwaarde is ""|Dynamisch|Vingerafdrukken van de certificaten die worden gebruikt door clients in de rol van beheerder. Het is een naam door komma's gescheiden lijst. |
-|AADTokenEndpointFormat|tekenreeks, standaardwaarde is ""|Statisch|AAD-Token-eindpunt standaard Azure Commercial opgegeven voor niet-standaard-omgeving, zoals Azure Government "https://login.microsoftonline.us/{0}" |
+|AADTokenEndpointFormat|tekenreeks, standaardwaarde is ""|Statisch|AAD-Token-eindpunt standaard Azure Commercial opgegeven voor niet-standaard-omgeving, zoals Azure Government ' https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|tekenreeks, standaardwaarde is ""|Dynamisch|Alle mogelijke claims verwacht van beheerder clients; dezelfde indeling als ClientClaims; Deze lijst wordt intern toegevoegd aan ClientClaims; dus hoeft u ook de dezelfde items toevoegen aan ClientClaims. |
 |AdminClientIdentities|tekenreeks, standaardwaarde is ""|Dynamisch|Windows-identiteit van de fabric-clients in de rol admin; gebruikt voor de autorisatie van fabric bevoorrechte bewerkingen. Het is een door komma's gescheiden lijst. elk item is een domeinaccountnaam of groepsnaam. Voor het gemak; het account dat wordt uitgevoerd fabric.exe is beheerdersrol; automatisch toegewezen wordt gegroepeerd zodat ServiceFabricAdministrators. |
 |AppRunAsAccountGroupX509Folder|tekenreeks, standaard is /home/sfuser/sfusercerts |Statisch|Map waar AppRunAsAccountGroup X509 certificaten en persoonlijke sleutels zich bevinden |

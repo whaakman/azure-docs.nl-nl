@@ -9,19 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d3cea9f3bc5645aeaefc5bb376557d365681df56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e4a79d7528f2e814e6370a5ead7d77a19057ebbb
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994113"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311268"
 ---
 # <a name="media-services-concepts"></a>Media Services-concepten
 
 Dit onderwerp biedt een kort overzicht van Azure Media Services-concepten en bevat koppelingen naar artikelen met gedetailleerde uitleg van Media Services v3-concepten en functies. Bekijk de basisconcepten die worden beschreven in de volgende onderwerpen voordat u start met de ontwikkeling.
+
+> [!NOTE]
+> U kunt de Azure-portal op dit moment niet gebruiken om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), of een van de ondersteunde [SDK's](developers-guide.md).
 
 ## <a name="cloud-upload-and-storage"></a>Uploaden naar en opslaan in de cloud
 

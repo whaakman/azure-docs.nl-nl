@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met Azure Active Directory-verificatie op basis van certificaten
+title: Aan de slag met certificaten gebaseerde verificatie - Azure Active Directory
 description: Informatie over het configureren van verificatie op basis van het certificaat in uw omgeving
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e6d66993658e7f0531a43a9b9e0f93183f91d9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f57d4615fc80df6c5df9ba295288ad71ae12fa23
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165141"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310826"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Aan de slag met verificatie op basis van certificaten in Azure Active Directory
 

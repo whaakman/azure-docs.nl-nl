@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 78bf30c01bc240d4fc7439ab14868bf7be90b17e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c27938ad28abc62f42024faae7931196704b9b1b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895820"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314566"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Uw eerste Service Fabric-containertoepassing maken in Linux
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 Bij *naam* kunt de actieve container een naam geven (in plaats van de container-id).
 
-Maak verbinding met de actieve container. Open een webbrowser en verwijs naar het IP-adres dat is geretourneerd op poort 4000 (bijvoorbeeld: http://localhost:4000). Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
+Maak verbinding met de actieve container. Open een webbrowser die verwijst naar het IP-adres dat is geretourneerd op poort 4000, bijvoorbeeld ' http:\//localhost:4000 '. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
 
 ![Hallo wereld!][hello-world]
 
@@ -271,9 +271,9 @@ Gebruik het installatiescript dat is opgegeven in de sjablonen op https://github
 ./install.sh
 ```
 
-Open een browser en navigeer naar de Service Fabric Explorer op http://localhost:19080/Explorer (vervang localhost door het privé IP-adres van de virtuele machine als u Vagrant in Mac OS X gebruikt). Vouw het knooppunt Toepassingen uit. U ziet dat er nu een vermelding is voor uw toepassingstype en nog een voor het eerste exemplaar van dat type.
+Open een browser en Ga naar Service Fabric Explorer op http:\//localhost:19080 / Explorer (vervang localhost door het privé IP-adres van de virtuele machine als u Vagrant in Mac OS X). Vouw het knooppunt Toepassingen uit. U ziet dat er nu een vermelding is voor uw toepassingstype en nog een voor het eerste exemplaar van dat type.
 
-Maak verbinding met de actieve container. Open een webbrowser en verwijs naar het IP-adres dat is geretourneerd op poort 4000 (bijvoorbeeld: http://localhost:4000). Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
+Maak verbinding met de actieve container. Open een webbrowser die verwijst naar het IP-adres dat is geretourneerd op poort 4000, bijvoorbeeld ' http:\//localhost:4000 '. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
 
 ![Hallo wereld!][hello-world]
 

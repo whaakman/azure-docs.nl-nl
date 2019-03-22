@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1428c2925ab57642899732bd4504b2d5b38781a8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086102"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315144"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Beheren van de Azure Blob-opslag Lifecycle (Preview)
 
@@ -190,7 +190,7 @@ Tijdens de preview, geldige filters zijn onder andere:
 | Naam van het filter | Filtertype | Opmerkingen | Is vereist |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Een matrix met vooraf gedefinieerde enum-waarden. | De evaluatieversie uitsluitend ondersteunt `blockBlob`. | Ja |
-| prefixMatch | Een matrix met tekenreeksen voor voorvoegsels worden aan. Een voorvoegseltekenreeks moet beginnen met een containernaam. Bijvoorbeeld, als u wilt om alle blobs onder '<https://myaccount.blob.core.windows.net/container1/foo/>... ' voor een regel, is het de prefixMatch `container1/foo`. | Als u geen prefixMatch definieert, zijn de regels van toepassing op alle blobs in het account. | Nee |
+| prefixMatch | Een matrix met tekenreeksen voor voorvoegsels worden aan. Een voorvoegseltekenreeks moet beginnen met een containernaam. Bijvoorbeeld, als u wilt om alle blobs onder ' https:\//myaccount.blob.core.windows.net/container1/foo/... ' voor een regel, is het de prefixMatch `container1/foo`. | Als u geen prefixMatch definieert, zijn de regels van toepassing op alle blobs in het account. | Nee |
 
 ### <a name="rule-actions"></a>Regelacties
 

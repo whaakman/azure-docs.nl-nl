@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 57007674e11271e6a3d5bdf660531d01b1eff82c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2da4ee5d60290485d87af86885dda0d72a625fef
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861431"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314804"
 ---
 # <a name="dynamic-manifests"></a>Dynamische manifesten
 
@@ -64,7 +64,7 @@ Met dynamische Manifest u apparaatprofielen maken, zoals mobiele apparaten, cons
 
 ![Weergave filteren voorbeeld][renditions2]
 
-In het volgende voorbeeld is een coderingsprogramma gebruikt een tussentijds asset coderen in zeven ISO MP4s video voorinstelling (van 180p 1080p). De gecodeerde asset kan dynamisch worden verpakt in een van de volgende protocollen voor streaming: HLS, MPEG DASH en Smooth.  Aan de bovenkant van het diagram, het HLS-manifest voor de asset met geen filters wordt weergegeven (bevat alle zeven voorinstelling).  In de linksonder, wordt het HLS-manifest waarop een filter met de naam "ott" is toegepast weergegeven. Het filter "ott" Hiermee geeft u als u wilt verwijderen van alle bitsnelheden hieronder 1 Mbps, wat leidde tot de twee quality-niveaus van onder, worden verwijderd uit in het antwoord. In de rechts onderaan wordt het HLS-manifest waarop een filter met de naam 'mobiel' is toegepast weergegeven. Het filter 'mobiel' Hiermee geeft u het verwijderen van vertoningen waar de oplossing is groter dan 720p, wat leidde tot de twee 1080p voorinstelling wordt overblijft.
+In het volgende voorbeeld is een coderingsprogramma gebruikt een tussentijds asset coderen in zeven ISO MP4s video voorinstelling (van 180p 1080p). De gecodeerde asset mag [dynamisch verpakte](dynamic-packaging-overview.md) in een van de volgende protocollen voor streaming: HLS, MPEG DASH en Smooth.  Aan de bovenkant van het diagram, het HLS-manifest voor de asset met geen filters wordt weergegeven (bevat alle zeven voorinstelling).  In de linksonder, wordt het HLS-manifest waarop een filter met de naam "ott" is toegepast weergegeven. Het filter "ott" Hiermee geeft u als u wilt verwijderen van alle bitsnelheden hieronder 1 Mbps, wat leidde tot de twee quality-niveaus van onder, worden verwijderd uit in het antwoord. In de rechts onderaan wordt het HLS-manifest waarop een filter met de naam 'mobiel' is toegepast weergegeven. Het filter 'mobiel' Hiermee geeft u het verwijderen van vertoningen waar de oplossing is groter dan 720p, wat leidde tot de twee 1080p voorinstelling wordt overblijft.
 
 ![Weergavefiltering][renditions1]
 
@@ -122,12 +122,16 @@ U kunt maximaal drie filters combineren.
 
 Zie voor meer informatie, [dit](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
+## <a name="associate-filters-with-streaming-locator"></a>Filters met Streaming-Locator gemaakt koppelen
+
+U kunt een lijst met activa of account filters, die voor uw Streaming-Locator gemaakt gelden. De [dynamische packager](dynamic-packaging-overview.md) deze lijst met filters samen met die de client Hiermee geeft u in de URL van toepassing is. Deze combinatie genereert een [dyanamic manifest](filters-dynamic-manifest-overview.md), die is gebaseerd op filters in de URL en filters die u op Streaming-Locator gemaakt opgeeft. U wordt aangeraden dat u deze functie gebruiken als u filters wilt toepassen, maar niet wilt weergeven van de filterfunctie namen in de URL.
+
 ## <a name="considerations-and-limitations"></a>Overwegingen en beperkingen
 
 - De waarden voor **forceEndTimestamp**, **presentationWindowDuration**, en **liveBackoffDuration** mag niet worden ingesteld voor een VoD-filter. Ze worden alleen gebruikt voor scenario's voor live-filter. 
 - Dynamische manifest werkt in GOP grenzen (sleutel Frames) daarom bijsnijden heeft GOP nauwkeurigheid. 
 - U kunt dezelfde filternaam voor Account- en Asset filters gebruiken. Asset-filters hebben een hogere prioriteit en accountfilters wordt overschreven.
-- Als u een filter bijwerkt, kan het tot 2 minuten voor streaming-eindpunt om te vernieuwen van de regels duren. Als de inhoud is uitgevoerd met bepaalde filters (en caches in proxy's en CDN-cache), kan deze filters bijwerken resulteren in fouten player. Het verdient aanbeveling om de cache leeg na het bijwerken van het filter. Als deze optie niet mogelijk is is, kunt u overwegen een ander filter.
+- Als u een filter bijwerkt, kan het tot 2 minuten voor Streaming-eindpunt om te vernieuwen van de regels duren. Als de inhoud is uitgevoerd met bepaalde filters (en caches in proxy's en CDN-cache), kan deze filters bijwerken resulteren in fouten player. Het verdient aanbeveling om de cache leeg na het bijwerken van het filter. Als deze optie niet mogelijk is is, kunt u overwegen een ander filter.
 - Klanten moeten handmatig het manifest downloaden en parseren van de exacte startTimestamp en schaal.
     
     - Eigenschappen van de nummers in een actief [ophalen en bekijk het manifestbestand](#get-and-examine-manifest-files).

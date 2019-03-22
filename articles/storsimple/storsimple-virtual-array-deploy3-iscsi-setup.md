@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: c0a86b76622862b477d539c25dd98c925f09192c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812035"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317507"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementeren StorSimple Virtual Array – Set up als een iSCSI-server via Azure portal
 
@@ -98,7 +98,7 @@ Gebruik de volgende stapsgewijze instructies voor het instellen en configureren 
    
     Op de **Web proxy** pagina:
    
-   1. Geef de **Web-URL van proxy** in deze indeling:  *http://host-IP adres* of *FQDN: Port number*. Houd er rekening mee dat HTTPS-URL's worden niet ondersteund.
+   1. Geef de **Web-URL van proxy** in deze indeling: *http:\//host-IP adres* of *FQDN: Port number*. Houd er rekening mee dat HTTPS-URL's worden niet ondersteund.
    2. Geef **verificatie** als **Basic** of **geen**.
    3. Als u van verificatie gebruikmaakt, ook moet u voor een **gebruikersnaam** en **wachtwoord**.
    4. Klik op **Toepassen**. Dit wordt gevalideerd en de geconfigureerde web proxy-instellingen toepassen.

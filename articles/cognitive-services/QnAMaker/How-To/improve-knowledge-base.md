@@ -1,29 +1,29 @@
 ---
 title: Verbetering van knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: ''
+description: Actief leren, kunt u de kwaliteit van uw knowledge base verbeteren door het alternatieve vragen, op basis van gebruiker-inzendingen aan uw vraag en antwoord voorstellen. U bekijken deze suggesties op deze toevoegen aan bestaande vragen of weigert deze. Uw knowledge base verandert niet automatisch. U moet de suggesties voor elke wijziging van kracht accepteren. Deze suggesties vragen toevoegen, maar niet wijzigen of verwijderen van bestaande vragen.
 author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: 76005b153d7a7feabdc1b335a23c6aa1f1fa99f3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 739ae64c6b32958271260bcbd01b339c1b108f11
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537895"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337422"
 ---
-# <a name="use-active-learning-to-improve-knowledge-base"></a>Actief leren gebruiken om uw knowledge base te verbeteren
+# <a name="use-active-learning-to-improve-your-knowledge-base"></a>Actief leren gebruiken voor het verbeteren van uw knowledge base
 
 Actief leren, kunt u de kwaliteit van uw knowledge base verbeteren door het alternatieve vragen, op basis van gebruiker-inzendingen aan uw vraag en antwoord voorstellen. U bekijken deze suggesties op deze toevoegen aan bestaande vragen of weigert deze. 
 
 Uw knowledge base verandert niet automatisch. U moet de suggesties in volgorde van voor elke wijziging van kracht accepteren. Deze suggesties vragen toevoegen, maar niet wijzigen of verwijderen van bestaande vragen.
 
-## <a name="active-learning"></a>Actief leren
+## <a name="what-is-active-learning"></a>Wat is actief leren?
 
 QnA Maker leert nieuwe vraag variaties met impliciete en expliciete feedback.
  
@@ -42,7 +42,7 @@ Wanneer 5 of meer vergelijkbaar query's zijn geclusterd, stelt om de 30 minuten,
 
 Als u vragen worden voorgesteld in de portal voor QnA Maker, moet u beoordeelt en accepteert of weigert die suggesties. 
 
-## <a name="upgrade-version-to-use-active-learning"></a>Versie van de upgrade actief leren gebruiken
+## <a name="upgrade-your-version-to-use-active-learning"></a>Werk uw versie voor het gebruik van actief leren
 
 Actief leren wordt ondersteund in runtime-versie 4.4.0 en hoger. Als uw knowledge base is gemaakt op een eerdere versie [uw runtime upgraden](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) deze functie wilt gebruiken. 
 
@@ -64,12 +64,12 @@ Actief leren is standaard uitgeschakeld. Inschakelen om te zien van de voorgeste
 
 1. Als u actieve learning in, klikt u op uw **naam**, gaat u naar [ **Service-instellingen** ](https://www.qnamaker.ai/UserSettings) in de rechterbovenhoek van de portal QnA Maker.  
 
-    ![Schakel op de servicepagina-instellingen actief leren](../media/improve-knowledge-base/Endpoint-Keys.png)
+    ![Actief leren vraag alternatieven van de pagina Service-instellingen inschakelen. Selecteer uw gebruikersnaam in het menu rechtsboven en selecteer de Service-instellingen.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
 1. De QnA Maker-service niet vinden en in-/ uitschakelen **actief leren**. 
 
-    [![Schakel op de servicepagina-instellingen actief leren](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![Op de pagina Service-instellingen in-/ uitschakelen op de functie actief leren. Als u nog niet in de functie-of uitschakelen, moet u mogelijk uw service upgraden.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     Eenmaal **actief leren** is ingeschakeld, de kennis nieuwe vragen stelt met regelmatige tussenpozen op basis van vragen door de gebruiker verzonden. U kunt uitschakelen **actief leren** door het omschakelen van de instelling voor het opnieuw.
 
@@ -77,15 +77,15 @@ Actief leren is standaard uitgeschakeld. Inschakelen om te zien van de voorgeste
 
 1. Als u wilt bekijken van de voorgestelde vragen op de **bewerken** kennisdatabase weergeeft, schakelt **suggesties weergeven**. 
 
-    [![Op de servicepagina-instellingen wisselknop suggesties weergeven](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [![Selecteer op de sectie bewerken van de portal voor suggesties weergeven om te zien van de actief leren nieuwe vraag alternatieven.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
 1. Filteren van de knowledge base met vragen en antwoorden paren alleen suggesties weergeven door te selecteren **filteren op suggesties**.
 
-    [![Filteren op de servicepagina-instellingen op suggesties om te zien alleen de objecten vraag/antwoord paren](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [![Gebruik het Filter door suggesties in-/ uitschakelen om alleen de actief leren vraag alternatieven weer te geven.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
 1.  Elke sectie vraag met suggesties toont de nieuwe vragen met een vinkje `✔` , om te accepteren van de vraag of een `x` af te wijzen de suggesties. Klik op het vinkje om toe te voegen van de vraag. 
 
-    [![Schakel op de servicepagina-instellingen actief leren](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Selecteer of actief leren vraag alternatieven weigeren door het selecteren van de groen vinkje of rood verwijderen is ingeschakeld.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     U kunt toevoegen of verwijderen _alle suggesties_ hiervoor **alle** of **alles afwijzen**.
 
@@ -154,7 +154,13 @@ Als de clienttoepassing (zoals een chatbot)-antwoord is ontvangen, worden de mee
 
 De clienttoepassing wordt weergegeven voor alle vragen met een optie voor de gebruiker selecteert de vraag die het beste hun voornemen vertegenwoordigt. 
 
-Zodra de gebruiker een van de bestaande vragen selecteert. De feedback van gebruikers wordt verzonden naar de QnA Maker [Train](https://www.aka.ms/activelearningsamplebot) API om door te gaan van de feedback actief leren in een lus. 
+Zodra de gebruiker een van de bestaande vragen selecteert, verzendt de clienttoepassing keuze van de gebruiker als feedback met behulp van de QnA Maker Train API. Deze feedback is voltooid voor de actieve learning feedback-lus. 
+
+Gebruik de [Azure Bot C# voorbeeld](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) om te zien van actief leren in een end-to-end-scenario.
+
+## <a name="train-api"></a>API van de trein
+
+Actief leren feedback is verzonden naar de QnA Maker met de trein API POST-aanvraag. De API-handtekening is:
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -163,9 +169,42 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-Meer informatie over het gebruik van actief leren met een [Azure Bot C# voorbeeld](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+|De eigenschap van de HTTP-aanvraag|Name|Type|Doel|
+|--|--|--|--|
+|URL-parameter voor route|Knowledge base-ID|string|De GUID voor uw knowledge base.|
+|Host-subdomein|De naam van de QnAMaker-resource|string|De hostnaam voor de QnA Maker in uw Azure-abonnement. Dit is beschikbaar op de pagina instellingen nadat u de knowledge base hebt gepubliceerd. |
+|Header|Content-Type|string|Het mediatype van de hoofdtekst van het verzonden naar de API. Standaardwaarde is: `application/json`|
+|Header|Autorisatie|string|De eindpuntsleutel van uw (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Hoofdtekst van bericht|JSON-object|JSON|De feedback training|
 
-## <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>Actief leren wordt opgeslagen in de geëxporteerde app tsv-bestand
+De hoofdtekst van de JSON bevat verschillende instellingen:
+
+|JSON-hoofdtekst van de eigenschap|Type|Doel|
+|--|--|--|--|
+|`feedbackRecords`|array|Lijst van de feedback.|
+|`userId`|string|De gebruikers-ID van de persoon die de voorgestelde vragen accepteren. De indeling van de gebruiker-ID is aan u. Een e-mailadres kan bijvoorbeeld een geldige gebruikers-ID in uw architectuur. Optioneel.|
+|`userQuestion`|string|Exact overeenkomende tekst van de vraag. Vereist.|
+|`qnaID`|getal|ID van de vraag, gevonden in de [GenerateAnswer antwoord](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+
+Een voorbeeld-JSON-hoofdtekst ziet eruit zoals:
+
+```json
+{
+    "feedbackRecords": [
+        {
+            "userId": "1",
+            "userQuestion": "<question-text>",
+            "qnaId": 1
+        }
+    ]
+}
+```
+
+Een geslaagde respons retourneert een status van 204 en er is geen JSON-antwoordtekst. 
+
+<a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
+
+## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>Actief leren wordt opgeslagen in de geëxporteerde knowledge base
 
 Wanneer uw app actief leren ingeschakeld is, en u de app exporteren de `SuggestedQuestions` kolom in de tsv-bestand worden de gegevens actief leren bewaard. 
 
@@ -193,4 +232,4 @@ Wanneer u deze app opnieuw importeren, blijft de actief leren te verzamelen en a
 ## <a name="next-steps"></a>Volgende stappen
  
 > [!div class="nextstepaction"]
-> [Gebruik QnA Maker-API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Metagegevens met GenerateAnswer API gebruiken](metadata-generateanswer-usage.md)

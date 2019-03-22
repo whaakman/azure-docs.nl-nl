@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: ea41f09269e3ad46db1f254965fd7d7df25232be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095599"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316051"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
@@ -88,7 +88,7 @@ Zie voor een voorbeeld van het verwerken van de abonnement-handshake-validatie: 
 
 ### <a name="checklist"></a>Controlelijst
 
-Tijdens de event-abonnement maken, als er een foutbericht weergegeven zoals "de poging om te valideren van het opgegeven eindpunt https://your-endpoint-here is mislukt. Ga voor meer informatie naar https://aka.ms/esvalidation', betekent dit dat er een fout is opgetreden in de validatie-handshake. U kunt deze fout oplossen, controleert u of de volgende aspecten:
+Tijdens de event-abonnement maken, als er een foutbericht weergegeven zoals "de poging om te valideren van het opgegeven eindpunt-https:\//your-endpoint-here is mislukt. Ga voor meer informatie naar https:\//aka.ms/esvalidation ', betekent dit dat er een fout is opgetreden in de validatie-handshake. U kunt deze fout oplossen, controleert u of de volgende aspecten:
 
 * Hebt u controle over de toepassingscode in de doel-eindpunt? Bijvoorbeeld, als u een HTTP-trigger op basis van Azure-functie schrijft, hebt u toegang tot de toepassingscode wijzigingen aanbrengen?
 * Hebt u toegang tot de toepassingscode, de ValidationCode op basis van handshake-mechanisme implementeren zoals wordt weergegeven in het bovenstaande voorbeeld.

@@ -4,12 +4,12 @@ ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 163b479fdf2d6a4885604c52f36f707e558dc3a0
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: b7d043b15cad23c9c9eca60c9a24096fee12e14a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011780"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319761"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Voorbereiden om Azure Resource Manager-aanvragen te verifiëren
 U moet verifiëren dat de bewerkingen die u uitvoert op resources met behulp van de [Azure Resource Manager] [ lnk-authenticate-arm] met Azure Active Directory (AD). Er is de eenvoudigste manier om dit configureren met PowerShell of Azure CLI.
@@ -41,8 +41,8 @@ De volgende stappen laten zien hoe het instellen van wachtwoordverificatie voor 
 3. Maak een nieuwe Azure Active Directory-toepassing met behulp van de volgende opdracht de tijdelijke aanduidingen vervangt:
    
    * **{Weergavenaam}:** een weergavenaam voor uw toepassing zoals **MySampleApp**
-   * **{URL van startpagina}:** de URL van de startpagina van uw app, zoals **http://mysampleapp/home**. Deze URL heeft niet nodig om te verwijzen naar een echte toepassing.
-   * **{Toepassings-id}:** Een unieke id zoals **http://mysampleapp**. Deze URL heeft niet nodig om te verwijzen naar een echte toepassing.
+   * **{URL van startpagina}:** de URL van de startpagina van uw app, zoals **http:\//mysampleapp/home**. Deze URL heeft niet nodig om te verwijzen naar een echte toepassing.
+   * **{Toepassings-id}:** Een unieke id zoals **http:\//mysampleapp**. Deze URL heeft niet nodig om te verwijzen naar een echte toepassing.
    * **{Password}:** Een wachtwoord dat u gebruikt voor verificatie met uw app.
      
      ```powershell

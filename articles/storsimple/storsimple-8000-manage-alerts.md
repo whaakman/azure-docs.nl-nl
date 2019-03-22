@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4128ad53f30e74fb72f6256b78587cc222f4c282
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838711"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314447"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>De StorSimple Device Manager-service gebruiken voor het StorSimple-waarschuwingen weergeven en beheren
 
@@ -202,7 +202,7 @@ Als cloud-connectiviteit op uw StorSimple-apparaat voor productie is mislukt, kl
 | Kan de StorSimple-service(s) niet starten. |Gegevenspad-fout |Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen. |
 | Dubbel IP-adres gedetecteerd voor 'Data0'. | |Er is een conflict voor het IP-adres '10.0.0.1' is gedetecteerd. De netwerkbron 'Data0' op het apparaat *<device1>* offline is. Zorg ervoor dat dit IP-adres niet wordt gebruikt door een andere entiteit in dit netwerk. Voor het oplossen van netwerkproblemen, gaat u naar [problemen met de cmdlet Get-NetAdapter oplossen](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Neem contact op met de netwerkbeheerder voor meer informatie over het oplossen van dit probleem. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen. |
 | -(IPv4 of IPv6)-adres voor 'Data0' is offline. | |De netwerk-resource 'Data0' met de IP-adres '10.0.0.1.' en een voorvoegsellengte '22' op het apparaat *<device1>* offline is. Zorg ervoor dat de switchpoorten waarmee deze interface is verbonden, operationeel zijn. Voor het oplossen van netwerkproblemen, gaat u naar [problemen met de cmdlet Get-NetAdapter oplossen](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Kan geen verbinding maken met de service voor verificatie. |Gegevenspad-fout |De URLthat wordt gebruikt voor verificatie is niet bereikbaar. Zorg ervoor dat uw firewall-regels de URL-patronen die is opgegeven voor het StorSimple-apparaat bevatten. Voor meer informatie over URL-patronen in Azure portal, gaat u naar https://aka.ms/ss-8000-network-reqs. Als u Azure Government Cloud gebruikt, gaat u naar de URL-patronen in https://aka.ms/ss8000-gov-network-reqs.|
+| Kan geen verbinding maken met de service voor verificatie. |Gegevenspad-fout |De URLthat wordt gebruikt voor verificatie is niet bereikbaar. Zorg ervoor dat uw firewall-regels de URL-patronen die is opgegeven voor het StorSimple-apparaat bevatten. Voor meer informatie over URL-patronen in Azure portal, gaat u naar https:\//aka.ms/ss-8000-network-reqs. Als u Azure Government Cloud gebruikt, gaat u naar de URL-patronen in https:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Waarschuwingen over toepassingsprestaties
 

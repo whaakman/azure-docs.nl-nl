@@ -11,12 +11,12 @@ ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
-ms.openlocfilehash: 0d8ac22679bc4e789c22396c21c51dacee201302
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433838"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337048"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Load Balancer-gebruik metrische gegevens met behulp van de REST-API ophalen
 
@@ -26,7 +26,7 @@ Volledige documentatie en meer voorbeelden voor de REST-API zijn beschikbaar in 
 
 ## <a name="build-the-request"></a>De aanvraag maken
 
-Gebruik de volgende GET-aanvraag voor het verzamelen van de [ByteCount metriek](/azure/load-balancer/load-balancer-standard-diagnostics#a-name--multidimensionalmetricsamulti-dimensional-metrics) van een Standard Load Balancer. 
+Gebruik de volgende GET-aanvraag voor het verzamelen van de [ByteCount metriek](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) van een Standard Load Balancer. 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z

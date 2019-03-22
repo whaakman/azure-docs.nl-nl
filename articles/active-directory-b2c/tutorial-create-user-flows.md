@@ -4,17 +4,18 @@ description: Informatie over het maken van de gebruikersstromen voor uw toepassi
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 7f017583a6eeb61b11df86a908d573dba9bd5929
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.subservice: B2C
+ms.openlocfilehash: b76d56b17973c04992a8855917c814ced649bd0f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750287"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338255"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Zelfstudie: Gebruikersstromen maken in Azure Active Directory B2C
 
@@ -40,11 +41,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 De gebruikersstroom zich kunnen registreren en aanmelden verwerkt zowel registratie en aanmelding bij ervaringen met een configuratie voor één. Gebruikers van uw toepassing worden op het juiste pad zijn afhankelijk van de context geleid.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
 
     ![Schakel over naar de abonnementsmap](./media/tutorial-create-user-flows/switch-directories.png)
 
-3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer in het menu links **gebruikersstromen**, en selecteer vervolgens **nieuwe gebruikersstroom**.
 
     ![Nieuwe gebruikersstroom selecteren](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
@@ -116,7 +117,7 @@ Het is mogelijk dat u om in te schakelen van de gebruiker van uw toepassing in h
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u:
+In dit artikel hebt u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Een zich kunnen registreren en aanmelden gebruikersstroom maken

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f06446cb6af1fa145e5fcec41cc85a1452af207a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5202d2775e830264543719cafefb5c48fca822d6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839250"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316419"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -134,7 +134,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Laag2-ondersteuning voor partner](#partner-tier2-support)**: Gebruik geen. Deze rol is afgeschaft en wordt verwijderd uit Azure AD in de toekomst. Deze rol is bedoeld voor gebruik door een klein aantal wederverkoop partners van Microsoft en is niet bedoeld voor algemeen gebruik.
 
-* **[Wachtwoordbeheerder / Helpdeskbeheerder](#helpdesk-administrator)**: Gebruikers met deze rol kunnen wachtwoorden wijzigen, vernieuwingstokens ongeldig te maken, serviceaanvragen beheren en servicestatus controleren. Ongeldig vernieuwingstoken zorgt ervoor dat de gebruiker zich opnieuw aanmelden. Helpdesk-beheerders kunnen wachtwoorden opnieuw instellen en vernieuwen van tokens van andere gebruikers die niet-beheerders en alleen de volgende rollen toegewezen ongeldig te maken:
+* **[Helpdeskbeheerder (wachtwoord)](#helpdesk-administrator)**: Gebruikers met deze rol kunnen wachtwoorden wijzigen, vernieuwingstokens ongeldig te maken, serviceaanvragen beheren en servicestatus controleren. Ongeldig vernieuwingstoken zorgt ervoor dat de gebruiker zich opnieuw aanmelden. Helpdesk-beheerders kunnen wachtwoorden opnieuw instellen en vernieuwen van tokens van andere gebruikers die niet-beheerders en alleen de volgende rollen toegewezen ongeldig te maken:
   * Adreslijstlezers
   * Gastuitnodiging
   * Helpdeskbeheerder
@@ -149,7 +149,7 @@ De volgende beheerdersrollen zijn beschikbaar:
   * Niet-beheerders, zoals leidinggevenden, juridische afdeling en werknemers van human resources die mogelijk toegang heeft tot gevoelige of persoonlijke informatie.
 
   > [!NOTE]
-  > In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, wordt deze rol aangeduid als 'Helpdesk-beheerder'. 'Wachtwoordbeheerder' is in de [Azure-portal](https://portal.azure.com/).
+  > Deze rol heette vroeger Microsoft Azure "wachtwoordbeheerder" in [Azure-portal](https://portal.azure.com/). We zijn de naam ervan wijzigen in 'Helpdesk-beheerder' zodat deze overeenkomen met de naam ervan in Azure AD PowerShell, Azure AD Graph API en Microsoft Graph API. Voor een korte periode wordt we de naam gewijzigd in '(wachtwoord) Helpdeskbeheerder' in Azure-portal voordat de wijziging door te 'Helpdesk-beheerder'.
   >
   
 * **[Power BI Administrator](#power-bi-service-administrator)**: Gebruikers met deze rol hebben algemene machtigingen in Microsoft Online Power BI, wanneer de service aanwezig is, evenals de mogelijkheid om ondersteuningstickets te beheren en de servicestatus te controleren. Meer informatie op [inzicht in de Power BI-beheerdersrol](https://docs.microsoft.com/power-bi/service-admin-role).
@@ -164,7 +164,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
   <b>Belangrijke</b>: Deze rol hebben de mogelijkheid voor het beheren van toewijzingen voor alle Azure AD-rollen, met inbegrip van de rol globale beheerder. Deze rol bevat geen andere bevoegde mogelijkheden in Azure AD, zoals het maken of bijwerken van gebruikers. Echter kunnen gebruikers zijn toegewezen aan deze rol verlenen zichzelf of andere aanvullende bevoegdheden door aanvullende rollen toewijzen.
 
-* **[Lezer-rapporten](#reports-reader)**: Gebruikers met deze rol kunnen reporting-gebruiksgegevens weergeven en het dashboard rapporten in Office 365-beheercentrum en de acceptatie-context pack in Power BI. Bovendien de rol biedt toegang tot aanmelden-rapporten en -activiteit in Azure AD en gegevens die zijn geretourneerd door de Microsoft Graph rapportage-API. De gebruiker die is toegewezen aan de rol Rapportenlezer toegang alleen relevante gebruik en acceptatie metrische gegevens. Ze geen geen admin-machtigingen voor het configureren van instellingen of toegang tot die het beheercentrums productspecifieke zoals Exchange. Deze rol heeft geen toegang tot weergeven, maken of ondersteuningstickets beheren.
+* **[Lezer-rapporten](#reports-reader)**: Gebruikers met deze rol kunnen reporting-gebruiksgegevens weergeven en het dashboard rapporten in Microsoft 365-beheercentrum en de acceptatie-context pack in Power BI. Bovendien de rol biedt toegang tot aanmelden-rapporten en -activiteit in Azure AD en gegevens die zijn geretourneerd door de Microsoft Graph rapportage-API. De gebruiker die is toegewezen aan de rol Rapportenlezer toegang alleen relevante gebruik en acceptatie metrische gegevens. Ze geen geen admin-machtigingen voor het configureren van instellingen of toegang tot die het beheercentrums productspecifieke zoals Exchange. Deze rol heeft geen toegang tot weergeven, maken of ondersteuningstickets beheren.
 
 * **[Beveiligingsbeheerder](#security-administrator)**: Gebruikers met deze rol hebben machtigingen voor het beheren van beveiligingsfuncties in de Microsoft 365 security center, Azure Active Directory Identity Protection, Azure Information Protection, en Office 365-beveiliging en compliance. Meer informatie over Office 365-machtigingen is beschikbaar op [machtigingen in het Office 365-beveiligings- en Nalevingscentrum](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
@@ -208,9 +208,9 @@ De volgende beheerdersrollen zijn beschikbaar:
   [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Aanbevelingen en waarschuwingen, weergave beveiligingsbeleid van de status van de beveiliging weergeven, maar kan geen wijzigingen aanbrengen kunt weergeven
   [Office 365-servicestatus](https://docs.microsoft.com/office365/enterprise/view-service-health) | Bekijk de status van Office 365-services
 
-* **[Beheerder serviceondersteuning](#service-support-administrator)**: Gebruikers met deze rol kunnen ondersteuningsaanvragen openen met Microsoft voor Azure- en Office 365-services, en het servicedashboard en berichtencentrum weergeven in Azure Portal en Office 365-beheerportal. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Beheerder serviceondersteuning](#service-support-administrator)**: Gebruikers met deze rol kunnen ondersteuningsaanvragen openen met Microsoft Azure en Office 365-services, weergaven en het servicedashboard en berichtencentrum weergeven in de [Azure-portal](https://portal.azure.com) en [Microsoft 365-beheercentrum](https://admin.microsoft.com). Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
-  > In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, deze rol aangeduid als ' beheerder serviceondersteuning. " Het is 'Servicebeheerder' de [Azure-portal](https://portal.azure.com), het Office 365-beheerportal en de Intune-portal.
+  > In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, deze rol aangeduid als ' beheerder serviceondersteuning. " Het is 'Servicebeheerder' de [Azure-portal](https://portal.azure.com), wordt de [Microsoft 365-beheercentrum](https://admin.microsoft.com), en de Intune-portal.
 
 * **[SharePoint-beheerder](#sharepoint-service-administrator)**: Gebruikers met deze rol hebben algemene machtigingen in Microsoft SharePoint Online, wanneer de service aanwezig is, evenals de mogelijkheid om te maken en beheren van alle Office 365-groepen, ondersteuningstickets beheren en servicestatus controleren. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]

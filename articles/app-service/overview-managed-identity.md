@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: bc5c4648a5efe53e3aa645bf1d6b121008eb86dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854922"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336028"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Over het gebruik van beheerde identiteiten voor App Service en Azure Functions
 
@@ -252,7 +252,7 @@ Waar `<PRINCIPALID>` en `<CLIENTID>` zijn vervangen door de GUID's. De principal
 Een app kunt u de identiteit gebruiken voor het ophalen van tokens, voor andere bronnen worden beveiligd door AAD, zoals Azure Key Vault. Deze tokens vertegenwoordigt de toepassing toegang tot de resource en niet een specifieke gebruiker van de toepassing. 
 
 > [!IMPORTANT]
-> Mogelijk moet u de doelresource voor toegang vanuit uw toepassing configureren. Bijvoorbeeld, als u een token voor Key Vault aanvraagt, moet u om te controleren of dat u een toegangsbeleid met de identiteit van uw toepassing hebt toegevoegd. Anders wordt de aanroepen van Key Vault geweigerd, zelfs als ze het token bevatten. Zie voor meer informatie over welke resources Azure Active Directory-tokens worden ondersteund, [Azure-services die ondersteuning voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
+> Mogelijk moet u de doelresource voor toegang vanuit uw toepassing configureren. Bijvoorbeeld, als u een token voor Key Vault aanvraagt, moet u om te controleren of dat u een toegangsbeleid met de identiteit van uw toepassing hebt toegevoegd. Anders wordt de aanroepen van Key Vault geweigerd, zelfs als ze het token bevatten. Zie voor meer informatie over welke resources Azure Active Directory-tokens worden ondersteund, [Azure-services die ondersteuning voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 Er is een eenvoudige REST-protocol voor het verkrijgen van een token in App Service en Azure Functions. Voor .NET-toepassingen, de Microsoft.Azure.Services.AppAuthentication-bibliotheek biedt een abstractie via dit protocol en biedt ondersteuning voor een lokale ontwikkeling-ervaring.
 
@@ -287,7 +287,7 @@ De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u
 
 > |Parameternaam|In|Description|
 > |-----|-----|-----|
-> |Bron|Query’s uitvoeren|De AAD-resource-URI van de resource voor een token moet worden opgehaald. Dit wordt mogelijk een van de [Azure-services die ondersteuning voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) of een andere resource-URI.|
+> |Bron|Query’s uitvoeren|De AAD-resource-URI van de resource voor een token moet worden opgehaald. Dit wordt mogelijk een van de [Azure-services die ondersteuning voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) of een andere resource-URI.|
 > |API-versie|Query’s uitvoeren|De versie van de token API moet worden gebruikt. '2017-09-01' is momenteel de enige versie die wordt ondersteund.|
 > |geheim|Header|De waarde van de omgevingsvariabele MSI_SECRET. Deze header wordt gebruikt om u te helpen tegen aanvallen van server-side '-aanvraag kunnen worden vervalst (SSRF).|
 > |clientid|Query’s uitvoeren|(Optioneel) De ID van de gebruiker toegewezen identiteit moet worden gebruikt. Als u dit weglaat, wordt het systeem toegewezen identiteit wordt gebruikt.|

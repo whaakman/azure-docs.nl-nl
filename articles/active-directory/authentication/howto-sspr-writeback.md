@@ -1,5 +1,5 @@
 ---
-title: Procedures voor het terugschrijven van wachtwoorden configureren voor Azure AD SSPR
+title: Procedures voor het terugschrijven van wachtwoorden configureren voor Azure AD SSPR - Azure Active Directory
 description: Gebruik Azure AD en Azure AD Connect terugschrijven van wachtwoorden met een on-premises directory
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4543352fc87216458aa247f5eea0c8ff5980d0e8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 17a2661883dd069e8cb719672f6b92442f1a8a0a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209333"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312288"
 ---
 # <a name="how-to-configure-password-writeback"></a>Uitleg: Configureer wachtwoord terugschrijven
 

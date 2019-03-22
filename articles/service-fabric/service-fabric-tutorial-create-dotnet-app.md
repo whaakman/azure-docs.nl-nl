@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7432cbf8fae098c0753641f2002b72eaab3ddbb4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff6475637b07f50aaea93caac85e65356bc9b96b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57851360"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317201"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: Een toepassing met een ASP.NET Core web-API front-end service en een stateful back-endservice maken en implementeren
 
@@ -466,7 +466,7 @@ In deze zelfstudie worden [ASP.NET Core Web API](service-fabric-reliable-service
         ],
 ```
 Als u de omgekeerde proxy-poort wilt zoeken die wordt gebruikt in uw lokale ontwikkelcluster, raadpleegt u het element **HttpApplicationGatewayEndpoint** in het manifest van het lokale Service Fabric-cluster:
-1. Open een browservenster en ga naar http://localhost:19080 om het hulpprogramma Service Fabric Explorer te openen.
+1. Open een browservenster en navigeer naar http:\//localhost:19080 naar open het hulpprogramma voor Service Fabric Explorer.
 2. Selecteer **Cluster -> Manifest**.
 3. Noteer de poort van het element HttpApplicationGatewayEndpoint. Deze is standaard 19081. Als de poort niet 19081 is, moet u de poort in de methode GetProxyAddress van de volgende VotesController.cs-code wijzigen.
 

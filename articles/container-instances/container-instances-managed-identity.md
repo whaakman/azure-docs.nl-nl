@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311560"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336521"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Het gebruik van beheerde identiteiten met Azure Container Instances
 
@@ -33,7 +33,7 @@ Pas de voorbeelden om te schakelen en gebruiken van identiteiten in Azure Contai
 
 ## <a name="why-use-a-managed-identity"></a>Waarom een beheerde identiteit gebruiken?
 
-Gebruik van een beheerde identiteit in een container die wordt uitgevoerd om te verifiëren met een [die ondersteuning biedt voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) zonder dat de referenties in de containercode van uw worden beheerd. Voor services die bieden geen ondersteuning voor AD-verificatie, kunt u geheimen in Azure Key Vault opslaan en gebruiken van de beheerde identiteit voor toegang tot Key Vault om op te halen van referenties. Zie voor meer informatie over het gebruik van een beheerde identiteit [wat is beheerde identiteiten voor Azure-resources?](../active-directory/managed-identities-azure-resources/overview.md)
+Gebruik van een beheerde identiteit in een container die wordt uitgevoerd om te verifiëren met een [die ondersteuning biedt voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) zonder dat de referenties in de containercode van uw worden beheerd. Voor services die bieden geen ondersteuning voor AD-verificatie, kunt u geheimen in Azure Key Vault opslaan en gebruiken van de beheerde identiteit voor toegang tot Key Vault om op te halen van referenties. Zie voor meer informatie over het gebruik van een beheerde identiteit [wat is beheerde identiteiten voor Azure-resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
 > Deze functie is momenteel beschikbaar als preview-product. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt. Beheerde identiteiten worden op dit moment alleen ondersteund op Linux-container instances.
@@ -252,7 +252,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Nu het toegangstoken gebruiken om te verifiëren naar Key Vault en een geheim lezen. Zorg ervoor dat u de naam van uw key vault in de URL (*https://mykeyvault.vault.azure.net/...*):
+Nu het toegangstoken gebruiken om te verifiëren naar Key Vault en een geheim lezen. Zorg ervoor dat u de naam van uw key vault in de URL (*https:\//mykeyvault.vault.azure.net/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

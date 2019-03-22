@@ -1,19 +1,19 @@
 ---
 title: Veelgestelde vragen - VMware naar Azure-noodherstel met Azure Site Recovery | Microsoft Docs
 description: In dit artikel bevat een overzicht van veelgestelde vragen bij het instellen van herstel na noodgevallen van on-premises VMware-machines naar Azure met Azure Site Recovery
-author: mayurigupta13
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/14/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 24682156cf0c50ccf69c39f83f59e9b867bbcf0f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.author: raynew
+ms.openlocfilehash: 82ae36eaaf4616dbd85760a0962f301a2b1a20f5
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901845"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319377"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -165,6 +165,10 @@ Nee, overstappen van beheerd naar niet-beheerde wordt niet ondersteund.
 ### <a name="why-cant-i-replicate-over-vpn"></a>Waarom kan ik niet repliceren via VPN?
 
 Wanneer u naar Azure repliceren, replicatieverkeer bereikt de openbare eindpunten van een Azure Storage, dus u kunt alleen repliceren via het openbare internet met ExpressRoute (openbare peering) en VPN werkt niet.
+
+### <a name="can-i-use-riverbed-steelheads-for-replication"></a>Kan ik Riverbed SteelHeads voor replicatie gebruiken?
+
+Onze partner, Riverbed, bevat een gedetailleerde richtlijnen over het werken met Azure Site Recovery. Raadpleeg de [handleiding](https://community.riverbed.com/s/article/DOC-4627).
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Wat zijn de vereisten van de gerepliceerde VM's?
 

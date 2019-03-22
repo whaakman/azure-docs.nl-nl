@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7a3819eedc57e1e349814c9105a0880bf3d4d9ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3fcc2e31431f0deb15332aec7636e2bfefeffe9b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891253"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317541"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-scriptverwerking van verwijzing
 > [!NOTE]
@@ -4595,7 +4595,7 @@ Gekoppelde service voor het definiëren van een Salesforce, stelt u de **type** 
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| environmentUrl | Geef de URL van de Salesforce-exemplaar. <br><br> -De standaardwaarde is "https://login.salesforce.com'. <br> -Om gegevens te kopiëren van sandbox, Geef 'https://test.salesforce.com'. <br> -Om gegevens te kopiëren uit aangepaste domein, opgeven, bijvoorbeeld 'https://[domain].my.salesforce.com'. |Nee |
+| environmentUrl | Geef de URL van de Salesforce-exemplaar. <br><br> -De standaardwaarde is ' https:\//login.salesforce.com '. <br> -Om gegevens te kopiëren van sandbox, Geef 'https://test.salesforce.com'. <br> -Om gegevens te kopiëren uit aangepaste domein, opgeven, bijvoorbeeld 'https://[domain].my.salesforce.com'. |Nee |
 | gebruikersnaam |Geef een gebruikersnaam voor het gebruikersaccount. |Ja |
 | wachtwoord |Geef een wachtwoord voor het gebruikersaccount. |Ja |
 | securityToken |Geef een beveiligingstoken voor het gebruikersaccount. Zie [security-token ophalen](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) voor instructies over het opnieuw instellen/ophalen van een beveiligingstoken. Zie voor meer informatie over beveiligingstokens het in het algemeen, [beveiligings- en de API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Ja |

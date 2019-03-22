@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: 30c342ca31b33d910406bf74d90d49979e5c46bc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 0fcacf68f4b41ed8945a6a40d7da125aef499947
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838076"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313257"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure Media Video Thumbnails gebruiken voor het maken van een Video-overzicht  
 ## <a name="overview"></a>Overzicht

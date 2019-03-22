@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: d194a5929e648c09eb204860c528e48bc55259ee
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5f6708a9c22939395f992c2ac58a7e510b35f763
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635394"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317269"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Apache Storm-topologieën op Azure HDInsight implementeren en beheren 
 
@@ -184,7 +184,7 @@ Selecteren van een koppeling van de **Topology summary** sectie vindt u de volge
 
   * **Activeren**: Hervat de verwerking van een gedeactiveerde topologie.
   * **Deactiveren**: Een actieve topologie wordt onderbroken.
-  * **Opnieuw verdelen**: Hiermee past u de parallelle uitvoering van de topologie. Nadat u het aantal knooppunten in het cluster hebt gewijzigd, moet u actieve topologieën opnieuw verdelen. Met deze bewerking kunt de topologie aangepast aan parallelle uitvoering om te compenseren voor het grotere of kleinere aantal knooppunten in het cluster.
+  * **Rebalance**: Hiermee past u de parallelle uitvoering van de topologie. Nadat u het aantal knooppunten in het cluster hebt gewijzigd, moet u actieve topologieën opnieuw verdelen. Met deze bewerking kunt de topologie aangepast aan parallelle uitvoering om te compenseren voor het grotere of kleinere aantal knooppunten in het cluster.
 
     Zie voor meer informatie, <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">inzicht in de parallelle uitvoering van een Apache Storm-topologie</a>.
   * **Kill**: Een Storm-topologie beëindigd na de opgegeven time-out.
@@ -215,15 +215,15 @@ Zie voor meer informatie, [REST-API voor Apache Storm-gebruikersinterface](https
 
 ### <a name="base-uri"></a>Basis-URI
 
-De basis-URI voor de REST-API op Linux gebaseerde HDInsight-clusters is beschikbaar op het hoofdknooppunt op **https://HEADNODEFQDN:8744/api/v1/**. De domeinnaam van het hoofdknooppunt is gegenereerd tijdens het maken van clusters en is niet statisch.
+De basis-URI voor de REST-API op Linux gebaseerde HDInsight-clusters is beschikbaar op het hoofdknooppunt op **https:\//HEADNODEFQDN:8744/api/v1/**. De domeinnaam van het hoofdknooppunt is gegenereerd tijdens het maken van clusters en is niet statisch.
 
 U vindt de volledig gekwalificeerde domeinnaam (FQDN) voor het hoofdknooppunt van het cluster op verschillende manieren:
 
 * **Vanuit een SSH-sessie**: Gebruik de opdracht `headnode -f` van een SSH-sessie met het cluster.
-* **Van Ambari Web**: Selecteer **Services** vanaf de bovenkant van de pagina, selecteert u vervolgens **Storm**. Uit de **samenvatting** tabblad **Storm UI Server**. De FQDN-naam van het knooppunt dat als host fungeert voor de Storm-gebruikersinterface en de REST-API wordt weergegeven boven aan de pagina.
-* **Van de Ambari REST-API**: Gebruik de opdracht `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` informatie ophalen over het knooppunt dat de Storm-gebruikersinterface en de REST-API op worden uitgevoerd. Vervang **CLUSTERNAME** met de naam van het cluster. Wanneer u hierom wordt gevraagd, voert u het wachtwoord voor het aanmeldingswachtwoord (beheerder)-account. In het antwoord bevat de vermelding 'hostnaam' de FQDN-naam van het knooppunt.
+* **From Ambari Web**: Selecteer **Services** vanaf de bovenkant van de pagina, selecteert u vervolgens **Storm**. Uit de **samenvatting** tabblad **Storm UI Server**. De FQDN-naam van het knooppunt dat als host fungeert voor de Storm-gebruikersinterface en de REST-API wordt weergegeven boven aan de pagina.
+* **From Ambari REST API**: Gebruik de opdracht `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` informatie ophalen over het knooppunt dat de Storm-gebruikersinterface en de REST-API op worden uitgevoerd. Vervang **CLUSTERNAME** met de naam van het cluster. Wanneer u hierom wordt gevraagd, voert u het wachtwoord voor het aanmeldingswachtwoord (beheerder)-account. In het antwoord bevat de vermelding 'hostnaam' de FQDN-naam van het knooppunt.
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 
 Aanvragen voor de REST-API moeten gebruiken **basisverificatie**, zodat u de beheerder de naam van HDInsight-cluster en het wachtwoord gebruiken.
 

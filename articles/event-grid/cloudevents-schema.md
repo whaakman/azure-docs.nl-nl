@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 1eab0be59de90ad68cbf9601b7e2200e640875f4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58178064"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317490"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Gebruik een CloudEvents-schema met Event Grid
 
@@ -70,7 +70,7 @@ Een CloudEvents v0.1 heeft de volgende eigenschappen beschikbaar:
 | source             | URI      | "/mycontext"                     | Beschrijving van de gebeurtenisproducent                                       | onderwerp #subject
 | eventID            | String   | "1234-1234-1234"                 | ID van de gebeurtenis                                                    | id
 | eventTime          | Tijdstempel| "2018-04-05T17:31:00Z"           | Timestamp van wanneer de gebeurtenis heeft plaatsgevonden (optioneel)                    | eventTime
-| schemaURL          | URI      | "https://myschema.com"           | Een koppeling naar het schema dat het kenmerk heeft (optioneel) | *niet gebruikt*
+| schemaURL          | URI      | "https:\//myschema.com"           | Een koppeling naar het schema dat het kenmerk heeft (optioneel) | *niet gebruikt*
 | contentType        | String   | "application/json"               | Beschrijf de coderingsindeling van de gegevens (optioneel)                       | *niet gebruikt*
 | Extensies         | Kaart      | { "extA": "vA", "extB", "vB" }  | Alle aanvullende metagegevens (optioneel)                                 | *niet gebruikt*
 | gegevens               | Object   | { "objA": "vA", "objB", "vB" }  | De nettolading van de gebeurtenis (optioneel)                                       | gegevens

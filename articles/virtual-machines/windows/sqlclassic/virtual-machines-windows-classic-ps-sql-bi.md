@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 2b2f5a441209b76f4c90c1a4682215d388b2d53a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242888"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317779"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence in Virtual Machines van Azure
 > [!IMPORTANT] 
@@ -107,13 +107,13 @@ De volgende tabel geeft een overzicht van de geïnstalleerd op de algemene Micro
   > [!NOTE]
   > De SQL Server database engine is vereist in de ondersteunde scenario's voor BI. De database-engine is in een enkele server VM-topologie te worden uitgevoerd op dezelfde virtuele machine vereist.
   
-    Zie voor meer informatie het volgende: [Reporting Services verwijderen](https://msdn.microsoft.com/library/hh479745.aspx) en [verwijderen van een exemplaar van Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
+    Zie de volgende onderwerpen voor meer informatie: [Verwijderen van Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) en [verwijderen van een exemplaar van analyseservices](https://msdn.microsoft.com/library/ms143687.aspx).
 * Controleer **Windows Update** voor nieuwe 'belangrijke updates'. De Microsoft Azure Virtual Machine-installatiekopieën worden regelmatig vernieuwd. echter belangrijke updates beschikbaar zijn vanuit kunnen worden **Windows Update** nadat de VM-installatiekopie voor het laatst is vernieuwd.
 
 ## <a name="example-deployment-topologies"></a>Voorbeeld van de implementatietopologieën
 Hieronder vindt u Voorbeeldimplementaties die gebruikmaken van Microsoft Azure Virtual Machines. De topologieën in deze diagrammen zijn slechts enkele van de mogelijke topologieën die kunt u met de functies van SQL Server BI en Microsoft Azure Virtual Machines.
 
-### <a name="single-virtual-machine"></a>Eén virtuele Machine
+### <a name="single-virtual-machine"></a>Eén virtuele machine
 Analysis Services, Reporting Services, SQL Server Database Engine en gegevensbronnen op een enkele virtuele machine.
 
 ![BI iaas-scenario met 1 virtuele machine](./media/virtual-machines-windows-classic-ps-sql-bi/IC650108.gif)
@@ -217,7 +217,7 @@ Zie voor meer informatie over de report servermachtigingen [machtigingen verlene
 Als u wilt controleren of de configuratie, blader naar Rapportbeheer op de virtuele machine.
 
 1. Start Internet Explorer met administrator-bevoegdheden op de virtuele machine.
-2. Blader naar http://localhost/reports op de virtuele machine.
+2. Blader naar http: \/ /localhost/rapporten op de virtuele machine.
 
 ### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>Verbinding maken met externe webportal of Report Manager voor 2014 en 2012
 Als u wilt verbinding maken met de webportal of Report Manager voor 2014 en 2012 op de virtuele machine vanaf een externe computer, maakt u een nieuwe virtuele machine TCP-eindpunt. Standaard is de rapportserver luistert naar HTTP-aanvragen op **poort 80**. Als u de rapport-URL's voor het gebruik van een andere poort configureren, moet u dat poortnummer opgeven in de volgende instructies.
@@ -226,22 +226,22 @@ Als u wilt verbinding maken met de webportal of Report Manager voor 2014 en 2012
 2. Open poort 80 in de firewall van de virtuele machine.
 3. Blader naar de web-portal of met behulp van Azure Virtual Machine manager rapporteren **DNS-naam** als de naam van de server in de URL. Bijvoorbeeld:
    
-    **Rapportserver**: http://uebi.cloudapp.net/reportserver **webportal**:   http://uebi.cloudapp.net/reports
+    **Rapportserver**: http://uebi.cloudapp.net/reportserver  **Webportal**: http://uebi.cloudapp.net/reports
    
     [Een Firewall configureren voor toegang tot Report Server](https://msdn.microsoft.com/library/bb934283.aspx)
 
 ### <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>Maken en publiceren van rapporten met de Azure-Machine
 De volgende tabel geeft een overzicht van enkele van de opties die beschikbaar zijn voor het publiceren van bestaande rapporten van een on-premises computer naar de rapportserver die wordt gehost op Microsoft Azure-Machine:
 
-* **Report Builder**: de virtuele machine bevat de Klik-eenmaal versie van Microsoft SQL Server Report Builder voor SQL 2014 en 2012. Report builder de eerste keer starten op de virtuele machine met SQL 2016:
+* **Report Builder**: De virtuele machine bevat de Klik-eenmaal versie van Microsoft SQL Server Report Builder voor SQL 2014 en 2012. Report builder de eerste keer starten op de virtuele machine met SQL 2016:
   
   1. Start uw browser met beheerdersbevoegdheden.
   2. Blader naar de web-portal, op de virtuele machine, en selecteer de **downloaden** pictogram in de rechterbovenhoek.
   3. Selecteer **Report Builder**.
      
      Zie voor meer informatie, [Report Builder starten](https://msdn.microsoft.com/library/ms159221.aspx).
-* **SQL Server Data Tools**: VM: SQL Server Data Tools is geïnstalleerd op de virtuele machine en kan worden gebruikt voor het maken van **Report Server-projecten** en rapporten op de virtuele machine. SQL Server Data Tools kunt u de rapporten publiceren naar de rapportserver op de virtuele machine.
-* **SQL Server Data Tools: Externe**: op de lokale computer, kunt u een Reporting Services-project maken in SQL Server Data Tools met Reporting Services-rapporten. Het project verbinding maken met de URL van de webservice configureren.
+* **SQL Server Data Tools**: VIRTUELE MACHINE:  SQL Server Data Tools is geïnstalleerd op de virtuele machine en kan worden gebruikt voor het maken van **Report Server-projecten** en rapporten op de virtuele machine. SQL Server Data Tools kunt u de rapporten publiceren naar de rapportserver op de virtuele machine.
+* **SQL Server Data Tools: Externe**:  Op uw lokale computer door een Reporting Services-project te maken in SQL Server Data Tools met Reporting Services-rapporten. Het project verbinding maken met de URL van de webservice configureren.
   
     ![Eigenschappen van SSDT voor SQL Server Reporting Services-project](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
 * Maak een. Harde schijf VHD die rapporten bevat en vervolgens uploaden en koppelen van het station.
@@ -317,7 +317,7 @@ In deze sectie bevat een overzicht van Microsoft Azure-eindpunten voor virtuele 
   * Eindpunten van virtuele machines voor de vermelde poorten (*) maken.
 * Als de virtuele machine is toegevoegd aan een domein met behulp van een VPN-tunnel, zoals virtuele netwerken van Azure, klikt u vervolgens zijn de eindpunten niet vereist. Maar de poorten openen in de firewall op de virtuele machine.
   
-  | Poort | Type | Beschrijving |
+  | Poort | Type | Description |
   | --- | --- | --- |
   | **80** |TCP |Externe toegang (*)-rapportserver. |
   | **1433** |TCP |SQL Server Management Studio (*). |

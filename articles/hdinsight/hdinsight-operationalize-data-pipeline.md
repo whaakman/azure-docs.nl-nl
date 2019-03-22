@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: b5e7864eae56a6f066590191373d35cb57693f37
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744442"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311676"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Een pijplijn voor gegevensanalyse operationeel maken
 
@@ -150,7 +150,7 @@ Als u wilt de webconsole Oozie gebruiken om de status van uw coordinator en werk
 
 2. Controleer of dat de tunnel operationeel is door te navigeren naar Ambari op uw hoofdknooppunt door te bladeren naar:
 
-    http://headnodehost:8080
+    http:\//headnodehost:8080
 
 3. Toegang krijgen tot de **Oozie-webconsole** vanuit Ambari, de optie **Oozie**, **snelkoppelingen**, en selecteer vervolgens **Oozie-webconsole**.
 
@@ -176,7 +176,7 @@ Kunt u het bestand met SCP in uw `bash` shell-sessie.
 
 De voorbeeldgegevens is nu beschikbaar. De pijplijn vereist echter twee Hive-tabellen voor de verwerking, één voor de inkomende gegevens (`rawFlights`) en één voor de samengevatte gegevens (`flights`). Deze tabellen als volgt in Ambari maken.
 
-1. Meld u aan bij de Ambari door te navigeren naar [ http://headnodehost:8080 ](http://headnodehost:8080).
+1. Meld u aan bij de Ambari door te navigeren naar http:\//headnodehost:8080.
 2. Selecteer in de lijst met services, **Hive**.
 
     ![Hive selecteren in Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
@@ -419,7 +419,7 @@ De volgende tabel geeft een overzicht van elk van de eigenschappen en wordt aang
 | queueName | De naam van de YARN-wachtrij die wordt gebruikt bij het plannen van de Hive-acties. Laat als standaard. |
 | oozie.use.system.libpath | Laat de eigenschap als waar. |
 | appBase | Het pad naar de submap in de Azure-opslag waar u de Oozie-workflow en ondersteunende bestanden implementeren. |
-| oozie.WF.Application.Path | De locatie van de Oozie-workflow `workflow.xml` om uit te voeren. |
+| oozie.wf.application.path | De locatie van de Oozie-workflow `workflow.xml` om uit te voeren. |
 | hiveScriptLoadPartition | Het pad naar het Hive-query-bestand in Azure Storage `hive-load-flights-partition.hql`. |
 | hiveScriptCreateDailyTable | Het pad naar het Hive-query-bestand in Azure Storage `hive-create-daily-summary-table.hql`. |
 | hiveDailyTableName | De dynamisch gegenereerde naam moet worden gebruikt voor de tijdelijke tabel. |
@@ -607,7 +607,7 @@ De alleen nieuwe eigenschappen die zijn geïntroduceerd in dit `job.properties` 
 
 | Eigenschap | Waardebron |
 | --- | --- |
-| oozie.coord.Application.Path | Geeft de locatie van de `coordinator.xml` -bestand met de Oozie-coördinator om uit te voeren. |
+| oozie.coord.application.path | Geeft de locatie van de `coordinator.xml` -bestand met de Oozie-coördinator om uit te voeren. |
 | hiveDailyTableNamePrefix | Het voorvoegsel dat wordt gebruikt wanneer de naam van de tabel van de faseringstabel op dynamische wijze gemaakt. |
 | hiveDataFolderPrefix | Het voorvoegsel van het pad waar de faseringstabellen worden opgeslagen. |
 

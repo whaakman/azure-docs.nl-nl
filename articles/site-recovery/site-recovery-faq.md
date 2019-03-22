@@ -2,21 +2,21 @@
 title: 'Azure Site Recovery: Veelgestelde vragen | Microsoft Docs'
 description: Dit artikel worden besproken populaire vragen over Azure Site Recovery.
 services: site-recovery
-author: mayurigupta13
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/3/2019
-ms.author: mayg
-ms.openlocfilehash: 1abd18e294ef73e989191d189ea599bca2b4d903
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 3/18/2019
+ms.author: raynew
+ms.openlocfilehash: 018368d28dd34787046ae655a98527aede28603f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881075"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313365"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen (FAQ)
-Dit artikel bevat veelgestelde vragen over Azure Site Recovery. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+In dit artikel bevat een overzicht van de veelgestelde vragen over Azure Site Recovery. 
 
 ## <a name="general"></a>Algemeen
 ### <a name="what-does-site-recovery-do"></a>Wat doet Site Recovery?

@@ -3,7 +3,7 @@ title: Automatisch schalen een app die wordt uitgevoerd in Azure Service Fabric 
 description: Informatie over het configureren van beleid voor automatisch schalen voor de services van een Service Fabric-NET-toepassing.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2018
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f34c27addb61ce3dc24406598663d6bfbddf448b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2233dffabd7c76ca55cf215f8bc04e66134f5799
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969434"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338799"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Beleid voor automatisch schalen voor een Service Fabric-NET-toepassing maken
 Een van de belangrijkste voordelen van het implementeren van toepassingen naar Service Fabric Mesh is de mogelijkheid voor u om services eenvoudig in of uit te schalen. Dit is handig voor het afhandelen van wisselende belastingen van uw services of het verbeteren van de beschikbaarheid. U kunt handmatig schalen van uw services in- of uitschalen of instellen van beleid voor automatisch schalen.

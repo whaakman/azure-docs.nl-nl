@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: 4133379ff7c1c0a64bd2d9aefdafdd5cdb530491
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 91b694070147cb0591bcc1763905f471161bf07b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875065"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336759"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 
@@ -153,7 +153,7 @@ Als deze opdracht niets retourneert, voert u de volgende opdracht uit en control
 docker inspect my-web-site
 ```
 
-Maak verbinding met de actieve container. Open een webbrowser en verwijs naar het IP-adres dat is geretourneerd, bijvoorbeeld <http://172.31.194.61>. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
+Maak verbinding met de actieve container. Open een webbrowser die verwijst naar het IP-adres dat is geretourneerd, bijvoorbeeld ' http:\//172.31.194.61 '. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
 
 Als u de container wilt stoppen, voert u dit uit:
 
@@ -360,10 +360,12 @@ Service Fabric gebruikt vervolgens de standaardreferenties van de opslagplaats d
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
 * DefaultContainerRepositoryPasswordType (tekenreeks)---ondersteund door de 6.4 runtime
 
-Hier volgt een voorbeeld van wat u kunt toevoegen in de `Hosting` sectie in het bestand ClusterManifestTemplate.json. Zie voor meer informatie, [wijziging Azure Service Fabric-clusterinstellingen](service-fabric-cluster-fabric-settings.md) en [toepassingsgeheimen beheren Azure Service Fabric](service-fabric-application-secret-management.md)
+Hier volgt een voorbeeld van wat u kunt toevoegen in de `Hosting` sectie in het bestand ClusterManifestTemplate.json. De `Hosting` sectie kan worden toegevoegd bij het maken van clusters of later bij een upgrade van een configuratie. Zie voor meer informatie, [wijziging Azure Service Fabric-clusterinstellingen](service-fabric-cluster-fabric-settings.md) en [toepassingsgeheimen beheren Azure Service Fabric](service-fabric-application-secret-management.md)
 
 ```json
-      {
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -388,6 +390,7 @@ Hier volgt een voorbeeld van wat u kunt toevoegen in de `Hosting` sectie in het 
           }
         ]
       },
+]
 ```
 
 ## <a name="configure-isolation-mode"></a>Isolatiemodus configureren
@@ -618,10 +621,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Tijdsinterval configureren voor geforceerd beëindigen van container
 
-U kunt een tijdsinterval configureren, zodat de runtime die tijd wacht voordat de container wordt verwijderd nadat het verwijderen van een service (of het verplaatsen naar een ander knooppunt) is gestart. Als u een tijdsinterval configureert, wordt de `docker stop <time in seconds>` opdracht verzonden naar de container.  Zie [docker stop](https://docs.docker.com/engine/reference/commandline/stop/) voor meer informatie. Het tijdsinterval dat moet worden gewacht, kunt u opgeven in de sectie `Hosting`. Het volgende fragment van een clustermanifest laat zien hoe u het wachtinterval instelt:
+U kunt een tijdsinterval configureren, zodat de runtime die tijd wacht voordat de container wordt verwijderd nadat het verwijderen van een service (of het verplaatsen naar een ander knooppunt) is gestart. Als u een tijdsinterval configureert, wordt de `docker stop <time in seconds>` opdracht verzonden naar de container.  Zie [docker stop](https://docs.docker.com/engine/reference/commandline/stop/) voor meer informatie. Het tijdsinterval dat moet worden gewacht, kunt u opgeven in de sectie `Hosting`. De `Hosting` sectie kan worden toegevoegd bij het maken van clusters of later bij een upgrade van een configuratie. Het volgende fragment van een clustermanifest laat zien hoe u het wachtinterval instelt:
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -630,7 +635,8 @@ U kunt een tijdsinterval configureren, zodat de runtime die tijd wacht voordat d
           },
           ...
         ]
-}
+    }
+]
 ```
 Het standaardtijdsinterval is 10 seconden. Aangezien deze configuratie dynamisch is, wordt de time-out bijgewerkt bij een configuratie-upgrade van het cluster. 
 
@@ -641,7 +647,9 @@ U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebrui
 
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -655,7 +663,8 @@ U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebrui
           ...
           }
         ]
-} 
+    } 
+]
 ```
 
 De installatiekopieën die niet moeten worden verwijderd, kunt u opgeven met de parameter `ContainerImagesToSkip`.  
@@ -666,7 +675,9 @@ De installatiekopieën die niet moeten worden verwijderd, kunt u opgeven met de 
 De Service Fabric-runtime wijst 20 minuten toe om containerinstallatiekopieën te downloaden en uit te pakken. Voor de meeste containerinstallatiekopieën is dat voldoende. Voor grote kopieën, of als de netwerkverbinding langzaam is, kan het echter nodig zijn om de toegewezen tijd te verlengen, zodat het downloaden en uitpakken van de installatiekopie niet voortijdig wordt afgebroken. Deze time-out wordt ingesteld met het kenmerk **ContainerImageDownloadTimeout** in de sectie **Hosting** van het clustermanifest, zoals u in het volgende fragment ziet:
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -674,7 +685,8 @@ De Service Fabric-runtime wijst 20 minuten toe om containerinstallatiekopieën t
               "value": "1200"
           }
         ]
-}
+    }
+]
 ```
 
 
@@ -694,7 +706,9 @@ Met versie 6.2 of hoger van de Service Fabric-runtime kunt u de Docker-daemon me
  
 
 ```json
-{ 
+"fabricSettings": [
+    ...,
+    { 
         "name": "Hosting", 
         "parameters": [ 
           { 
@@ -702,8 +716,8 @@ Met versie 6.2 of hoger van de Service Fabric-runtime kunt u de Docker-daemon me
             "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
           } 
         ] 
-} 
-
+    } 
+]
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

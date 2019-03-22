@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 7f079c511a32cfcf0fa018d40abb737ad08f3821
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 01783aa12f586f61583b1503c796f9b523770104
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137958"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310622"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>Zelfstudie voor project akoestische Unity-ontwerp
 Deze zelfstudie wordt de werkstroom en ontwerphulpprogramma's beschreven voor akoestische in Unity-Project.
@@ -37,16 +37,16 @@ Project akoestische biedt een aantal besturingselementen voor bron-specifieke ak
 ### <a name="adjust-distance-based-attenuation"></a>Op basis van afstand afname aanpassen
 De audio DSP geleverd door de **Project akoestische** ruimtelijk-invoegtoepassing voor Unity respecteert de per-source afstand gebaseerde afname ingebouwd in de Unity-Editor. Besturingselementen voor afname op basis van afstand zijn de **Audio bron** onderdeel gevonden de **Inspector** Configuratiescherm van geluid gegevensbronnen onder **3D-geluidsinstellingen**:
 
-![Afstand afname](media/distance-attenuation.png)
+![Schermafbeelding van Unity afstand afname deelvenster met opties](media/distance-attenuation.png)
 
 Akoestische uitvoeren berekening in een "regio simulatie" gecentreerd rond de player-locatie. Als een goede bron ver van de speler is, buiten deze regio simulatie beïnvloedt alleen geometrie in het vak de geluid doorgifte (zoals waardoor bedekking) die redelijk goed werkt wanneer occluders zijn in de buurt van de speler. Echter, in gevallen wanneer de speler in de open ruimte is, maar de occluders in de buurt van de verafgelegen geluid bron zijn, het geluid kunt worden onrealistisch disoccluded. Onze voorgestelde tijdelijke oplossing is om in dergelijke gevallen ervoor te zorgen dat het geluid afname uit op 0 bij ongeveer 45 m, de standaard horizontale afstand van de speler aan de rand van het vak valt.
 
-![SpeakerMode](media/speaker-mode.png)
+![Schermafbeelding van Unity SpeakerMode optiepaneel](media/speaker-mode.png)
 
 ### <a name="adjust-occlusion-and-transmission"></a>Bedekking en verzending aanpassen
 Bezig met koppelen van de **AcousticsAdjust** script naar een gegevensbron kunt afstemmen parameters voor die bron. Als u wilt koppelen het script, klikt u op **onderdeel toevoegen** aan de onderkant van de **Inspector** deelvenster en vervolgens naar **Scripts > akoestische aanpassen**. Het script heeft zes besturingselementen:
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Schermafbeelding van Unity AcousticsAdjust script](media/acoustics-adjust.png)
 
 * **Inschakelen van akoestische** -bepaalt of akoestische is toegepast op deze gegevensbron. Wanneer dit selectievakje uitschakelt, wordt de bron worden spatialized met HRTFs of pannen, maar er is geen akoestische. Dit betekent dat er geen obstakel, bedekking of dynamische weerklank parameters zoals niveau en decay tijd. Weerklank wordt nog steeds toegepast met een vaste niveau en de vervaltijd.
 * **Bedekking** -een vermenigvuldiger van toepassing op het niveau van de bedekking dB berekend door het systeem akoestische. Als deze vermenigvuldiger groter dan 1 is, bedekking wordt exaggerated, terwijl waarden minder dan 1 maken het effect van bedekking subtielere en een waarde van 0 schakelt bedekking.
@@ -59,14 +59,14 @@ Bezig met koppelen van de **AcousticsAdjust** script naar een gegevensbron kunt 
 
 Bezig met koppelen van de **AcousticsAdjustExperimental** script naar een bron zorgt ervoor dat extra parameters voor experimentele afstemmen voor die bron. Als u wilt koppelen het script, klikt u op **onderdeel toevoegen** aan de onderkant van de **Inspector** deelvenster en vervolgens naar **Scripts > akoestische aanpassen experimentele**. Er is momenteel een experimenteel besturingselement:
 
-![AcousticsAdjustExperimental](media/acoustics-adjust-experimental.png)
+![Schermafbeelding van Unity AcousticsAdjustExperimental script](media/acoustics-adjust-experimental.png)
 
 * **Perceptuele afstand verdraaien** -toepassing een exponentiële kromtrekken aan de afstand wordt gebruikt voor het berekenen van de testmodus NAT-verhouding. Het systeem akoestische berekent NAT niveaus in de ruimte die variëren probleemloos met afstand en perceptuele afstand aanwijzingen geven. Dit effect exaggerate afbeeldingsvervormingen waarden groter dan 1 door te verhogen met betrekking tot afstand weerklank niveaus, waardoor het geluid "afstand". Kromtrekken waarden minder dan 1 maken de weerklank op basis van afstand meer subtiele, en het geluid meer "aanwezig' wijzigen.
 
 ## <a name="design-acoustics-for-all-sources"></a>Ontwerp akoestische voor alle bronnen
 Als u wilt aanpassen parameters voor alle bronnen, klikt u op de strook kanaal in van Unity **Audio Mixer**, en pas de parameters op de **Project akoestische Mixer** effect.
 
-![Aanpassing van Mixer](media/mixer-parameters.png)
+![Schermafbeelding van Project akoestische Unity Mixer aanpassing deelvenster](media/mixer-parameters.png)
 
 * **Wetness aanpassen** -de kracht weerklank in dB worden aangepast voor alle bronnen in de scène op basis van de bron-listener afstand. Positieve waarden moeten een geluid meer reverberant, terwijl u negatieve waarden van een geluid meer droge.
 * **Schaal RT60** - Multiplicatieve scalaire weerklank tijd.
@@ -75,7 +75,7 @@ Als u wilt aanpassen parameters voor alle bronnen, klikt u op de strook kanaal i
 ## <a name="check-proper-sound-source-placement"></a>Plaatsing van de juiste geluid bron controleren
 Geluid bronnen in bezet voxels geplaatst krijgt geen akoestische behandeling. Omdat voxels voorbij de geometrie zichtbaar scène uitbreidt, is het mogelijk om een bron binnen een voxel terwijl deze wordt door visual geometrie unoccluded weergegeven. U kunt Project akoestische voxels weergeven door het omschakelen van het selectievakje van de grid voxel in de **Gizmos** in het menu in de rechterbovenhoek van de **scène** weergeven.
 
-![Gizmos Menu](media/gizmos-menu.png)  
+![Schermafbeelding van Unity Gizmos menu](media/gizmos-menu.png)  
 
 De weergave voxel kan ook helpen bepalen of visuele onderdelen in de game een transformatie is toegepast op deze hebt. Als dit het geval is, de dezelfde transformatie toepassen op de GameObject die als host fungeert de **akoestische Manager**.
 
@@ -84,11 +84,11 @@ Het is mogelijk om weer te geven voxels in het editorvenster tijdens het spel on
 
 Tijd voxels ontwerpen:
 
-![VoxelsDesignTime](media/voxels-design-time.png)
+![Schermafbeelding van het Project akoestische voxels tijdens het ontwerpen](media/voxels-design-time.png)
 
 Runtime-voxels:
 
-![VoxelsRuntime](media/voxels-runtime.png)
+![Schermafbeelding van het Project akoestische voxels tijdens runtime](media/voxels-runtime.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 * Bekijk casestudy's markeren van de concepten achter de [proces ontwerpen](design-process.md)

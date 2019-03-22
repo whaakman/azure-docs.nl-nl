@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: bab7cdd478ba33eb797df0e68206b0aaa54be6a5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6353b2c720a188571a0f6a4e27a89a49c857173
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892605"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311556"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Zelfstudie: Containers verpakken en implementeren als een Service Fabric-toepassing met behulp van Yeoman
 
@@ -282,11 +282,11 @@ Gebruik het installatiescript uit de **TestContainer**-directory om het toepassi
 ./install.sh
 ```
 
-Open een browser en ga naar Service Fabric Explorer op http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Vouw het knooppunt Toepassingen uit. U ziet dat er een vermelding is voor uw toepassingstype en nog een voor het exemplaar.
+Open een browser en Ga naar Service Fabric Explorer op http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Vouw het knooppunt Toepassingen uit. U ziet dat er een vermelding is voor uw toepassingstype en nog een voor het exemplaar.
 
 ![Service Fabric Explorer][sfx]
 
-Om verbinding te maken met de actieve toepassing, opent u een webbrowser en gaat u naar de URL van het cluster: bijvoorbeeld http://containertestcluster.eastus.cloudapp.azure.com:80. U ziet nu de stemtoepassing in de webgebruikersinterface.
+Als u wilt verbinding maken met de toepassing die wordt uitgevoerd, open een webbrowser en Ga naar de url van het cluster - bijvoorbeeld http:\//containertestcluster.eastus.cloudapp.azure.com:80. U ziet nu de stemtoepassing in de webgebruikersinterface.
 
 ![stemapp][votingapp]
 

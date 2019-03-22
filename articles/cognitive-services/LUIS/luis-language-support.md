@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 98df1d9612d18e4ab5044bd92822b2df76286b12
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340852"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339513"
 ---
 # <a name="language-and-region-support-for-luis"></a>Ondersteuning voor LUIS taal en regio
 
@@ -94,3 +94,116 @@ Als u machine learning, LUIS een utterance opgesplitst in [tokens](luis-glossary
 |Portugees (Brazilië)|✔||||
 |Spaans (es-ES)|✔||||
 |Spaans (es-MX)|✔||||
+
+### <a name="custom-tokenizer-versions"></a>Aangepaste tokenizer-versies
+
+De volgende culturen zijn aangepaste tokenizer-versies:
+
+|Culture|Versie|Doel|
+|--|--|--|
+|Duits<br>`de-de`|1.0.0|Basis van woorden woordgrenzen door op te splitsen met behulp van een machine learning gebaseerde tokenizer waarmee wordt geprobeerd om op te splitsen samengestelde woorden in hun afzonderlijke onderdelen.<br>Als een gebruiker invoert `Ich fahre einen krankenwagen` als een utterance is ingeschakeld op `Ich fahre einen kranken wagen`. De markering van zodat `kranken` en `wagen` onafhankelijk als andere entiteiten.|
+|Duits<br>`de-de`|1.0.1|Basis van woorden woordgrenzen door ze op opslagruimten worden gesplitst.<br> Als een gebruiker invoert `Ich fahre einen krankenwagen` als een utterance blijft een specifiek token. Dus `krankenwagen` is gemarkeerd als één entiteit. |
+
+### <a name="migrating-between-tokenizer-versions"></a>Migreren tussen tokenizer-versies
+
+Uw eerste keuze is het wijzigen van het tokenizer-versie in het appbestand, klikt u vervolgens de versie te importeren. Deze actie hoe de uitingen zijn tokenized wordt gewijzigd, maar kunt u dezelfde app-ID. 
+
+Tokenizer JSON voor 1.0.0. U ziet de eigenschapswaarde voor `tokenizerVersion`. 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.0",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.0",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 23,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+Tokenizer JSON voor versie 1.0.1. U ziet de eigenschapswaarde voor `tokenizerVersion`. 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.1",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.1",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 16,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+De tweede keuze is aan [importeert u het bestand als een nieuwe app](luis-how-to-start-new-app.md#import-an-app-from-file), in plaats van een versie. Deze actie betekent dat de nieuwe app heeft een andere app-ID, maar het tokenizer-versie opgegeven in het bestand wordt gebruikt. 

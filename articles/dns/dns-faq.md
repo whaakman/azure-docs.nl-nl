@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098090"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337102"
 ---
 # <a name="azure-dns-faq"></a>Veelgestelde vragen over Azure DNS
 
@@ -103,9 +103,11 @@ Deze ondersteuning momenteel niet beschikbaar is voor TXT-records gemaakt op bas
 ## <a name="alias-records"></a>Aliasrecords
 
 ### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>Wat zijn enkele scenario's waarbij aliasrecords nuttig zijn?
+
 Zie de scenario's sectie in de [Azure overzicht DNS-aliassen records](dns-alias.md).
 
 ### <a name="what-record-types-are-supported-for-alias-record-sets"></a>Welke typen worden ondersteund voor alias recordsets?
+
 Alias-recordsets worden ondersteund voor de volgende recordtypen in Azure DNS-zone:
  
 - A 
@@ -116,30 +118,36 @@ Alias-recordsets worden ondersteund voor de volgende recordtypen in Azure DNS-zo
 
 - **Wijs een openbaar IP-resource van een DNS-server A/AAAA-Recordset.** U kunt een A/AAAA-recordset maken en geef deze een alias recordset om te verwijzen naar een openbare IP-resource.
 - **Verwijzen naar een Traffic Manager-profiel van een AAAA-DNS A/CNAME-Recordset.** U kunt verwijzen naar de CNAME van een Traffic Manager-profiel van een DNS CNAME-Recordset. Een voorbeeld is contoso.trafficmanager.net. Nu kunt u ook verwijzen naar een Traffic Manager-profiel met externe eindpunten van een A of AAAA-recordset in de DNS-zone.
+- **Verwijzen naar een eindpunt Azure Content Delivery Network (CDN)**. Dit is handig als u statische website met Azure storage en Azure CDN te maken.
 - **Verwijzen naar een andere DNS-recordset binnen dezelfde regio.** Aliasrecords kunnen verwijzen naar aan de andere recordsets van hetzelfde type. U kunt bijvoorbeeld een DNS CNAME-recordset hebben als alias voor een andere CNAME-recordset van hetzelfde type. Deze benadering is handig als u wilt dat aantal recordsets zijn aliassen en enkele niet-aliassen.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Kan ik maken en de alias records uit de Azure-portal bijwerken?
+
 Ja. U kunt maken of aliasrecords in de Azure-portal samen met de Azure REST API's, PowerShell, CLI en SDK's beheren.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>Aliasrecords helpt om ervoor te zorgen dat mijn DNS-recordset wordt verwijderd wanneer het onderliggende openbare IP-adres wordt verwijderd?
+
 Ja. Deze functie is een van de belangrijkste mogelijkheden van de aliasrecords. Deze vermijdt u mogelijke storingen voor gebruikers van uw toepassing.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>Wordt de alias registreert help om te controleren of mijn DNS-recordset wordt bijgewerkt naar de juiste IP-adres wanneer de onderliggende openbare IP-adres verandert?
+
 Ja. Deze functie is een van de belangrijkste mogelijkheden van de aliasrecords. Hiermee kunt u geen mogelijke storingen of beveiligingsrisico voor uw toepassing.
 
 ### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>Zijn er beperkingen wanneer u de alias-record voor A of AAAA-records om te verwijzen naar Traffic Manager?
+
 Ja. Profiel moet alleen externe eindpunten gebruiken om te verwijzen naar een Traffic Manager-profiel als een alias van een A of AAAA-recordset moeten de Traffic Manager. Wanneer u de externe eindpunten in Traffic Manager maakt, bieden u de werkelijke IP-adressen van de eindpunten.
 
 ### <a name="is-there-an-additional-charge-to-use-alias-records"></a>Is er een extra kosten in rekening gebracht op aliasrecords gebruiken?
+
 Aliasrecords zijn een kwalificatie op een geldige DNS-Recordset. Er is geen aanvullende facturering voor aliasrecords.
 
 ## <a name="use-azure-dns"></a>Azure DNS gebruiken
 
-### <a name="can-i-cohost-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Kan ik een domein met behulp van Azure DNS en een andere DNS-provider cohost?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Kan ik mede host een domein met behulp van Azure DNS en een andere DNS-provider?
 
-Ja. Azure DNS ondersteunt cohosting domeinen met een andere DNS-services.
+Ja. Azure DNS ondersteunt CO hosting-domeinen met een andere DNS-services.
 
-Als u cohosting instelt, wijzigt u de NS-records voor het domein om te verwijzen naar de naamservers van beide providers. De naamserver (NS) vastgelegd besturingselement welke providers DNS-query's voor het domein ontvangen. U kunt deze NS-records in Azure DNS, in de andere provider en in de bovenliggende zone wijzigen. De bovenliggende zone is standaard geconfigureerd via de domeinnaamregistrar. Zie voor meer informatie over DNS-delegering [domein-DNS-delegering](dns-domain-delegation.md).
+Als u CO hosting instelt, wijzig de NS-records voor het domein om te verwijzen naar de naamservers van beide providers. De naamserver (NS) vastgelegd besturingselement welke providers DNS-query's voor het domein ontvangen. U kunt deze NS-records in Azure DNS, in de andere provider en in de bovenliggende zone wijzigen. De bovenliggende zone is standaard geconfigureerd via de domeinnaamregistrar. Zie voor meer informatie over DNS-delegering [domein-DNS-delegering](dns-domain-delegation.md).
 
 Zorg er ook voor zorgen dat de DNS-records voor het domein gesynchroniseerd tussen beide DNS-providers zijn. Azure DNS ondersteunt momenteel geen DNS-zone-overdrachten. DNS-records moeten worden gesynchroniseerd met behulp van de [Azure DNS-beheerportal](dns-operations-recordsets-portal.md), [REST-API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell-cmdlets](dns-operations-recordsets.md), of de [CLI-hulpprogramma](dns-operations-recordsets-cli.md).
 
@@ -271,10 +279,9 @@ Privézones die al zijn gemaakt via API's, PowerShell, CLI en SDK's worden weerg
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Meer informatie over Azure DNS](dns-overview.md).
-<br>
-- [Meer informatie over het gebruik van Azure DNS voor persoonlijke domeinen](private-dns-overview.md).
-<br>
-- [Meer informatie over DNS-zones en records](dns-zones-records.md).
-<br>
-- [Aan de slag met Azure DNS](dns-getstarted-portal.md).
 
+- [Meer informatie over het gebruik van Azure DNS voor persoonlijke domeinen](private-dns-overview.md).
+
+- [Meer informatie over DNS-zones en records](dns-zones-records.md).
+
+- [Aan de slag met Azure DNS](dns-getstarted-portal.md).

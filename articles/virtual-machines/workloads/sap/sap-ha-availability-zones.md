@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094749"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339479"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configuraties van SAP-werkbelasting met Azure-Beschikbaarheidszones
 [Azure-Beschikbaarheidszones](https://docs.microsoft.com/azure/availability-zones/az-overview) is een van de functies voor hoge beschikbaarheid die Azure biedt. De algemene beschikbaarheid van SAP-workloads op Azure met Beschikbaarheidszones worden verbeterd. Deze functie is al beschikbaar in bepaalde [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/). In de toekomst, is deze beschikbaar in meer regio's.
@@ -93,7 +93,7 @@ In deze beslissingen ook rekening van account SAP netwerk latentie aanbevelingen
 > Het waarschijnlijk dat de metingen die eerder zijn beschreven biedt verschillende resultaten in elke Azure-regio die ondersteuning biedt voor [Beschikbaarheidszones](https://docs.microsoft.com/azure/availability-zones/az-overview). Zelfs als uw netwerk latentievereisten dezelfde zijn, moet u mogelijk vast te stellen van verschillende implementatiestrategieën in verschillende Azure-regio's, omdat de netwerklatentie tussen zones kan afwijken. In sommige Azure-regio's, kan de netwerklatentie tussen de drie verschillende zones aanzienlijk anders zijn. In andere regio's, kan de netwerklatentie tussen de drie verschillende zones meer uniform zijn. De claim die er altijd is een netwerklatentie tussen 1 en 2 milliseconden is niet correct. De netwerklatentie voor verschillende Beschikbaarheidszones in Azure-regio's kan niet worden gebruikt.
 
 ## <a name="activeactive-deployment"></a>Actief/actief-implementatie
-Deze architectuur wordt actief/actief genoemd, omdat u uw actieve exemplaren van de SAP-dialoogvenster in twee of drie zones implementeren. Het SAP Central Services-exemplaar dat wordt gebruikt in de wachtrij plaatsen replicatie worden tussen de twee zones geïmplementeerd. Hetzelfde geldt voor de DBMS-laag, die wordt geïmplementeerd in de dezelfde zones als SAP centrale Service.
+Deze architectuur wordt actief/actief genoemd, omdat u uw actieve SAP-toepassingsservers in twee of drie zones te implementeren. Het SAP Central Services-exemplaar dat wordt gebruikt in de wachtrij plaatsen replicatie worden tussen de twee zones geïmplementeerd. Hetzelfde geldt voor de DBMS-laag, die wordt geïmplementeerd in de dezelfde zones als SAP centrale Service.
 
 Wanneer u overweegt deze configuratie, moet u de twee Beschikbaarheidszones vinden in uw regio die aanbieding tussen zones netwerklatentie die aanvaardbaar is voor uw workload en uw synchrone replicatie voor de DBMS-systemen. Wilt u er ook om er zeker van te zijn dat de verschillen tussen de netwerklatentie binnen de zones die u hebt geselecteerd en de netwerklatentie tussen zones niet te groot. Dit is omdat u niet wilt dat grote verschillen, afhankelijk van of een taak wordt uitgevoerd in de zone met de DBMS-server of in meerdere zones, in de actieve tijden van uw bedrijfsprocessen of batch-taken. Enkele variaties worden geaccepteerd, maar niet factoren van verschil.
 

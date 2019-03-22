@@ -1,20 +1,20 @@
 ---
 title: Azure Site Recovery bewaken | Microsoft Docs
 description: Bewaken en problemen oplossen van problemen met Azure Site Recovery-replicatie en bewerkingen met behulp van de portal
-author: bsiva
-manager: abhemra
+author: raynew
+manager: carmonm
 ms.service: site-recovery
-ms.topic: troubleshooting
-ms.date: 11/27/2018
-ms.author: bsiva
-ms.openlocfilehash: 5bbde2f1059982424c2557d6a767692b3491f6aa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 03/18/2019
+ms.author: rayne-wiselman
+ms.openlocfilehash: 605421196c2ec7f62826e2f6c823d50262af8144
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098471"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316640"
 ---
-# <a name="monitor-and-troubleshoot-site-recovery"></a>Bewaken en problemen oplossen van Site Recovery
+# <a name="monitor-site-recovery"></a>Monitor voor Site Recovery
 
 In dit artikel leert u over het gebruik van Azure Site Recovery in de ingebouwde controlefuncties voor controle en probleemoplossing. 
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: dd27b660dfdd1f4bcec89291b10fd87750ad4c49
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4a1a0b15da091a1c020eb132f6b14b9ee14d334c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136153"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316064"
 ---
 # <a name="project-acoustics-design-process-concepts"></a>Project akoestische ontwerpconcepten proces
 
@@ -29,7 +29,7 @@ In de titel van een interactieve, zoals de geluiden en listener in de 3D-ruimte 
 
 3D-titels gebruiken verlichtings en kinematische physics systemen die zijn physics gemotiveerd, maar designer wordt aangepast aan het realiseren van een combinatie van doelstellingen onderdompeling en spelen. Een visuele ontwerper afzonderlijke pixelwaarden niet worden ingesteld, maar in plaats daarvan wordt aangepast 3D-modellen, materialen en lichte transport systemen die alle fysiek zijn gebaseerd op de handel visuele aspecten van vormgeving en CPU-kosten. Wat is het equivalent proces voor audio? Project akoestische is een eerste stap bij de verkenning van deze vraag. Eerst bespreken we u wat het betekent om over te brengen akoestische energie tot en met een spatie.
 
-![weerklank zones](media/reverb-zones-altspace.png)
+![Schermafbeelding van AltSpace scène overlapt met weerklank zones](media/reverb-zones-altspace.png)
 
 ## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Impuls antwoorden: Acoustically verbindingspunten twee in de ruimte
 
@@ -45,7 +45,7 @@ Een antwoord impuls bevat elke interessante (en elke oninteressant) akoestische 
 
 Maar als de simulatie rechtstreeks is verbonden met de audio DSP-parameters, waar de ontwerpfunctie aanpassing is? Wat er krijgen? Goed, krijgen we een aanzienlijke hoeveelheid geheugen terug door impuls antwoorden verwijderd en behouden van een aantal DSP-parameters. En om te geven de ontwerpfunctie wat stroom via het uiteindelijke resultaat, moet er alleen een manier om in te voegen van de ontwerpfunctie tussen de simulatie en de audio DSP gevonden.
 
-![impuls antwoord parameters](media/acoustic-parameters.png)
+![Grafiek met de reactie van de gestileerde impuls met parameters overlay bekijken](media/acoustic-parameters.png)
 
 ## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Goed ontwerp door audio DSP-parameters van de simulatie transformeren
 

@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 03/21/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: f17a76b62c511e1cdcd98e387fe0132e2bd15c16
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 03/21/2019
+ms.openlocfilehash: c1b0a1523e65014b153ff3edb0c22b53ce7fb8a3
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238064"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337847"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Gebruik en facturering in Azure Stack
 
-Dit artikel wordt beschreven hoe Azure Stack-gebruikers worden in rekening gebracht voor gebruik van bronnen. U kunt informatie over hoe de factureringsgegevens voor analyse en kosten weer wordt geopend.
+Dit artikel wordt beschreven hoe Azure Stack-gebruikers worden in rekening gebracht voor gebruik van bronnen en hoe de factureringsgegevens voor analyse en kosten weer wordt geopend.
 
 Azure Stack verzamelt en groepen van gebruiksgegevens voor resources die worden gebruikt. Azure Stack stuurt vervolgens deze gegevens naar Azure Commerce. Azure Commerce kosten in rekening gebracht voor gebruik met Azure Stack op dezelfde manier als die deze kosten in rekening voor gebruik van Azure gebracht.
 
@@ -32,9 +32,9 @@ U krijgt ook gebruiksgegevens en exporteren naar uw eigen facturering- of terugs
 
 ## <a name="usage-pipeline"></a>Gebruik pijplijn
 
-Elke resourceprovider in Azure Stack berichten gebruiksgegevens per gebruik. De usage-service periodiek (per uur en dagelijks) verzamelt gegevens over gebruik en slaat ze op in de Gebruiksdatabase. Azure Stack-operators en gebruikers kunnen de opgeslagen gebruiksgegevens toegang tot een via het Azure Stack-Resourcegebruik API's. 
+Elke resourceprovider in Azure Stack berichten gebruiksgegevens per gebruik. De usage-service periodiek (per uur en dagelijks) verzamelt gegevens over gebruik en slaat ze op in de Gebruiksdatabase. Azure Stack-operators en gebruikers kunnen de opgeslagen gebruiksgegevens toegang tot een via het Azure Stack-Resourcegebruik API's.
 
-Als u hebt [uw Azure Stack-instantie geregistreerd bij Azure](azure-stack-register.md), Azure Stack is geconfigureerd voor de gebruiksgegevens verzenden naar Azure Commerce. Nadat de gegevens wordt geüpload naar Azure, kunt u deze openen via de portal voor facturering of met behulp van Azure-Resourcegebruik API's. Zie voor meer informatie meer gegevens over welke informatie wordt gerapporteerd aan Azure, [gegevens gebruiksrapportage](azure-stack-usage-reporting.md).  
+Als u hebt [uw Azure Stack-instantie geregistreerd bij Azure](azure-stack-register.md), Azure Stack is geconfigureerd voor de gebruiksgegevens verzenden naar Azure Commerce. Nadat de gegevens wordt geüpload naar Azure, kunt u deze openen via de portal voor facturering of met behulp van Azure-Resourcegebruik API's. Zie voor meer informatie over welke gegevens over het gebruik wordt gerapporteerd aan Azure, [gegevens gebruiksrapportage](azure-stack-usage-reporting.md).  
 
 De volgende afbeelding toont de belangrijke onderdelen in de pijplijn gebruik:
 
@@ -42,20 +42,20 @@ De volgende afbeelding toont de belangrijke onderdelen in de pijplijn gebruik:
 
 ## <a name="what-usage-information-can-i-find-and-how"></a>Welke informatie over het gebruik kan ik vinden, en hoe?
 
-Azure Stack resourceproviders (zoals rekentijd, opslag en netwerk) genereren van gebruiksgegevens elk uur voor elk abonnement. Gegevens over gebruik bevat informatie over de resource die wordt gebruikt, zoals de resourcenaam van de, abonnement dat u gebruikt en hoeveelheid die wordt gebruikt. Zie voor meer informatie over de resources van meter-ID, de [Veelgestelde vragen over het gebruik van API](azure-stack-usage-related-faq.md).
+Azure Stack resourceproviders (zoals rekentijd, opslag en netwerk) genereren van gebruiksgegevens elk uur voor elk abonnement. Gegevens over gebruik bevat informatie over de resource die wordt gebruikt, zoals de resourcenaam van de, abonnement dat u gebruikt en hoeveelheid die wordt gebruikt. Zie voor meer informatie over resources voor de meter-ID, de [Veelgestelde vragen over het gebruik van API](azure-stack-usage-related-faq.md).
 
-Nadat de gebruiksgegevens zijn verzameld, is het [gerapporteerd aan Azure](azure-stack-usage-reporting.md) voor het genereren van een factuur, dat kan worden weergegeven via de Azure-factureringsportal. 
+Nadat de gebruiksgegevens zijn verzameld, is het [gerapporteerd aan Azure](azure-stack-usage-reporting.md) voor het genereren van een factuur, dat kan worden weergegeven via de Azure-factureringsportal.
 
 > [!NOTE]  
-> Rapportage van gegevens over het gebruik is niet vereist voor de Azure Stack Development Kit (ASDK) en voor gebruikers van de geïntegreerde Azure Stack-systeem die onder het capaciteitsmodel van licentie. Zie voor meer informatie over licentieverlening in Azure Stack, de [-verpakking en prijzen](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf) gegevensblad.
+> Rapportage van gegevens over het gebruik is niet vereist voor de Azure Stack Development Kit (ASDK) en voor gebruikers van de geïntegreerde Azure Stack-systeem die onder het capaciteitsmodel van licentie. Zie voor meer informatie over licentieverlening in Azure Stack, de [-verpakking en prijzen gegevensblad](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
 
-De Azure-factureringsportal bevat gegevens over gebruik voor de toerekenbare resources. Naast de toerekenbare resources legt Azure Stack gebruiksgegevens voor een bredere set van resources die u in uw Azure Stack-omgeving via REST-API's of PowerShell-cmdlets openen kunt. Azure Stack-operators krijgt gegevens over gebruik voor alle gebruikersabonnementen. Afzonderlijke gebruikers krijgt alleen hun eigen informatie over het gebruik. 
+De Azure-factureringsportal bevat gegevens over gebruik voor de toerekenbare resources. Naast de toerekenbare resources legt Azure Stack gebruiksgegevens voor een bredere set van resources die u in uw Azure Stack-omgeving via REST-API's of PowerShell-cmdlets openen kunt. Azure Stack-operators krijgt gegevens over gebruik voor alle gebruikersabonnementen. Afzonderlijke gebruikers krijgt alleen hun eigen informatie over het gebruik.
 
 ## <a name="usage-reporting-for-multitenant-cloud-service-providers"></a>Gebruiksrapportage voor multitenant Cloud-serviceproviders
 
-Een multitenant Cloud Service Provider (CSP) die veel klanten met behulp van Azure Stack kunt voor het rapporteren van het gebruik van elke klant afzonderlijk, zodat de provider kosten in rekening gebruik tot verschillende Azure-abonnementen gebracht kan. 
+Een multitenant Cloud Service Provider (CSP) die veel klanten met behulp van Azure Stack kunt voor het rapporteren van het gebruik van elke klant afzonderlijk, zodat de provider kosten in rekening gebruik tot verschillende Azure-abonnementen gebracht kan.
 
-Elke klant beschikt over de identiteit die wordt vertegenwoordigd door een andere Azure Active Directory (Azure AD)-tenant. Azure Stack biedt ondersteuning voor toewijzen een CSP-abonnement aan elke Azure AD-tenant. U kunt tenants en hun abonnementen toevoegen aan de basis Azure Stack-registratie. De registratie van de basis is uitgevoerd voor alle Azure-Stacks. Als een abonnement is niet geregistreerd voor een tenant, Azure Stack kunt nog steeds gebruiken door de gebruiker en hun gebruik wordt verzonden naar het abonnement dat is gebruikt voor de registratie van de basis. 
+Elke klant beschikt over de identiteit die wordt vertegenwoordigd door een andere Azure Active Directory (Azure AD)-tenant. Azure Stack biedt ondersteuning voor toewijzen een CSP-abonnement aan elke Azure AD-tenant. U kunt tenants en hun abonnementen toevoegen aan de basis Azure Stack-registratie. De registratie van de basis is uitgevoerd voor alle exemplaren van Azure Stack. Als een abonnement is niet geregistreerd voor een tenant, Azure Stack kunt nog steeds gebruiken door de gebruiker en hun gebruik wordt verzonden naar het abonnement dat is gebruikt voor de registratie van de basis.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -2,17 +2,16 @@
 title: Wat is Azure DNS?
 description: Overzicht van DNS-hostingservice op Microsoft Azure. Host uw domein op Microsoft Azure.
 author: vhorne
-manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 9/24/2018
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 62043128b6415a064e35adca6be4d60ccfcae308
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: cea19ad2ba03d3e71df32912a1d7ee9e6171689a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294311"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339450"
 ---
 # <a name="what-is-azure-dns"></a>Wat is Azure DNS?
 
@@ -39,6 +38,7 @@ DNS-domeinen in Azure DNS worden gehost op het wereldwijde netwerk van Azure DNS
 Zie voor meer informatie [DNS-zones en -records beschermen](dns-protect-zones-recordsets.md). 
 
 ## <a name="dnssec"></a>DNSSEC
+
 Azure DNS biedt momenteel geen ondersteuning voor DNSSEC. U kunt in de meeste gevallen de noodzaak van DNSSEC beperken door consistent gebruik van HTTPS/TLS in uw toepassingen. Als DNSSEC een essentiële vereiste is voor uw DNS-zones is, kunt u deze zones hosten met host DNS-providers van derden.
 
 ## <a name="ease-of-use"></a>Gebruiksgemak
@@ -57,12 +57,11 @@ Zie [Azure DNS gebruiken voor privédomeinen](private-dns-overview.md) voor meer
 
 ## <a name="alias-records"></a>Aliasrecords
 
-Azure DNS ondersteunt alias-recordsets. U kunt een alias-recordset gebruiken om te verwijzen naar een Azure-resource, zoals een openbaar IP-adres van Azure of een Azure Traffic Manager-profiel. Als het IP-adres van de onderliggende resource verandert, wordt de alias-recordset automatisch bijgewerkt tijdens DNS-omzetting. De alias-record set verwijst naar het service-exemplaar en het service-exemplaar is gekoppeld aan een IP-adres. 
+Azure DNS ondersteunt alias-recordsets. U kunt een recordset alias gebruiken om te verwijzen naar een Azure-resource, zoals een openbaar IP-adres van Azure, een Azure Traffic Manager-profiel of een eindpunt Azure Content Delivery Network (CDN). Als het IP-adres van de onderliggende resource verandert, wordt de alias-recordset automatisch bijgewerkt tijdens DNS-omzetting. De alias-record set verwijst naar het service-exemplaar en het service-exemplaar is gekoppeld aan een IP-adres.
 
-U kunt nu ook uw apex of domein zonder voorvoegsel laten verwijzen naar een Traffic Manager-profiel met behulp van een alias-record. Bijvoorbeeld: contoso.com.
+Bovendien kunt u nu uw apex of een domein zonder voorvoegsel zijn verwijzen naar een Traffic Manager-profiel of een CDN-eindpunt met behulp van een alias-record. Bijvoorbeeld: contoso.com.
 
 Zie [Overzicht van Azure DNS-aliasrecords](dns-alias.md) voor meer informatie.
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,5 +1,5 @@
 ---
-title: Verbinding maken met Azure blob-opslag - Azure Logic Apps | Microsoft Docs
+title: Verbinding maken met Azure blob-opslag - Azure Logic Apps
 description: Maken en beheren van blobs in Azure storage met Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -10,36 +10,36 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 7d6845624c838ac0cf49e5963cae1ca0ea15ec15
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230604"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310367"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Maken en beheren van blobs in Azure blob-opslag met Azure Logic Apps
 
 Dit artikel wordt beschreven hoe u toegang tot en beheren van bestanden die zijn opgeslagen als blobs in uw Azure storage-account in een logische app met de Azure Blob Storage-connector. Op die manier kunt u logische apps die automatiseren van taken en werkstromen voor het beheren van uw bestanden maken. Bijvoorbeeld, kunt u logische apps die maken, ophalen, bijwerken en verwijderen van bestanden in uw storage-account maken.
 
-Stel dat u hebt een hulpprogramma dat wordt bijgewerkt op een Azure-website. die fungeert als de trigger voor uw logische app. Wanneer dit gebeurt, kunt u uw logische app bijwerken van een bestand in uw blob storage-container, dit een bewerking in uw logische app is kunt hebben. 
+Stel dat u hebt een hulpprogramma dat wordt bijgewerkt op een Azure-website. die fungeert als de trigger voor uw logische app. Wanneer dit gebeurt, kunt u uw logische app bijwerken van een bestand in uw blob storage-container, dit een bewerking in uw logische app is kunt hebben.
 
 > [!NOTE]
-> Logic Apps biedt geen ondersteuning voor rechtstreeks verbinding te maken naar Azure storage-accounts via firewalls. Voor toegang tot deze opslagaccounts, hier een van beide opties gebruiken: 
+> Logic Apps biedt geen ondersteuning voor rechtstreeks verbinding te maken naar Azure storage-accounts via firewalls. Voor toegang tot deze opslagaccounts, hier een van beide opties gebruiken:
 >
-> * Maak een [integratieserviceomgeving](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), waarmee verbinding kan maken met bronnen in een Azure-netwerk. 
-> 
+> * Maak een [integratieserviceomgeving](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), waarmee verbinding kan maken met bronnen in een Azure-netwerk.
+>
 > * Als u al API Management gebruikt, kunt u deze service voor dit scenario. Zie voor meer informatie, [integratie van eenvoudige ondernemingsstructuur](https://aka.ms/aisarch).
 
-Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Snelstartgids: uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Quick Start: Maak uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Connector-specifieke technische informatie, Zie de <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">documentatie voor Azure Blob Storage-connector</a>.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. 
+* Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>.
 
 * Een [Azure storage-account en storage-container](../storage/blobs/storage-quickstart-blobs-portal.md)
 
-* De logische app waar u toegang wilt tot uw Azure blob storage-account hebben. Als uw logische app met een Azure Blob Storage-trigger wilt, moet u een [lege, logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* De logische app waar u toegang wilt tot uw Azure blob storage-account hebben. Als uw logische app met een Azure Blob Storage-trigger wilt, moet u een [lege, logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-trigger"></a>
 
@@ -63,7 +63,7 @@ Dit voorbeeld laat zien hoe kun u een werkstroom voor logische Apps met de **Azu
 
    1. In de **Container** vak, selecteer het pictogram van de map.
 
-   2. Kies in de lijst met mappen de punthaak rechts ( **>** ), en blader vervolgens totdat u Zoek en selecteer de gewenste map. 
+   2. Kies in de lijst met mappen de punthaak rechts ( **>** ), en blader vervolgens totdat u Zoek en selecteer de gewenste map.
 
       ![Map selecteren](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
@@ -94,7 +94,7 @@ In Azure Logic Apps, een [actie](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Actie selecteren](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
 
-4. Als u wordt gevraagd voor de verbindingsgegevens, [maken van de verbinding van Azure Blob-opslag nu](#create-connection). Of, als de verbinding al bestaat, geeft u de benodigde gegevens voor de actie. 
+4. Als u wordt gevraagd voor de verbindingsgegevens, [maken van de verbinding van Azure Blob-opslag nu](#create-connection). Of, als de verbinding al bestaat, geeft u de benodigde gegevens voor de actie.
 
    Selecteer voor dit voorbeeld wordt het bestand dat u wenst.
 
@@ -119,7 +119,7 @@ In dit voorbeeld worden alleen de inhoud voor een blob opgehaald. Als u wilt wee
 
 ## <a name="connector-reference"></a>Connector-verwijzing
 
-Zie voor technische details, zoals triggers en acties limieten, zoals is beschreven in de Swagger-bestand van de connector, de [van de connector-verwijzingspagina](/connectors/azureblobconnector/). 
+Voor technische informatie, zoals triggers en acties limieten, zoals beschreven door het openen van de connector-API (voorheen Swagger)-bestand, raadpleegt u de [van de connector-verwijzingspagina](/connectors/azureblobconnector/).
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 

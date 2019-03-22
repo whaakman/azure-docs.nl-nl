@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285835"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319445"
 ---
 # <a name="application-gateway-configuration-overview"></a>Overzicht van de configuratie van de Application Gateway
 
@@ -33,9 +33,9 @@ Application gateway is een specifieke implementatie in uw virtuele netwerk. Binn
 
 #### <a name="size-of-the-subnet"></a>Grootte van het subnet
 
-Application Gateway verbruikt één privé IP-adres per exemplaar, plus een andere privé-IP-adres als een privé front-end-IP-configuratie is geconfigureerd. Ook Azure reserveert de eerste vier en laatste IP-adres in elk subnet voor intern gebruik. Bijvoorbeeld, als een application gateway is ingesteld op drie exemplaren en geen privé front-end-IP, klikt u vervolgens ten minste acht IP-adressen moet in het subnet - vijf IP-adressen voor intern gebruik en drie IP-adressen voor de drie exemplaren van de toepassingsgateway. Daarom in dit geval een/29 subnet, grootte of hoger is vereist. Als u drie exemplaren hebt en een IP-adres voor de privé front-end-IP-configuratie, en vervolgens negen IP-adressen is vereist - drie IP-adressen voor de drie exemplaren van de toepassingsgateway een IP-adres voor privé front-end-IP-adres en vijf IP-adressen voor intern gebruik. Daarom in dit geval een/28 subnet, grootte of hoger is vereist.
+Application Gateway verbruikt één privé IP-adres per exemplaar, plus een andere privé-IP-adres als een privé front-end-IP-configuratie is geconfigureerd. Bovendien Azure vijf IP-adressen - reserveert de eerste vier en laatste IP-adres - in elk subnet voor intern gebruik. Bijvoorbeeld, als een application gateway is ingesteld op 15-exemplaren en geen privé front-end-IP, klikt u vervolgens ten minste 20 IP-adressen moet in het subnet - vijf IP-adressen voor intern gebruik en 15 IP-adressen voor de 15 exemplaren van de toepassingsgateway. Daarom in dit geval een/27 subnet, grootte of hoger is vereist. Als u 27 instanties en een IP-adres voor de frontend van de privé IP-configuratie, en vervolgens 33 IP-adressen is vereist --27 IP-adressen voor de 27 exemplaren van de toepassingsgateway een IP-adres voor privé front-end-IP-adres en vijf IP-adressen voor intern gebruik. Daarom in dit geval een /26 subnet, grootte of hoger is vereist.
 
-Als een best practice, gebruikt u ten minste een/28 grootte van het gatewaysubnet. Dit biedt u 11 bruikbare adressen. Als de belasting van uw toepassing meer dan 10 exemplaren vereist, kunt u overwegen een/27 of/26 grootte van het gatewaysubnet.
+Het verdient aanbeveling om te gebruiken ten minste een/28 grootte van het gatewaysubnet. Dit biedt u 11 bruikbare adressen. Als de belasting van uw toepassing meer dan 10 exemplaren vereist, kunt u overwegen een/27 of/26 grootte van het gatewaysubnet.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Netwerkbeveiligingsgroepen die worden ondersteund op het subnet voor Application Gateway
 

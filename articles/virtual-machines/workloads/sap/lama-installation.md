@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 432dcf4608d23f269c5005b86d2c58b7f70b3068
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007577"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313597"
 ---
 # <a name="sap-lama-connector-for-azure"></a>LaMa SAP-connector voor Azure
 
@@ -77,7 +77,7 @@ De Azure-connector is verzonden vanaf SAP LaMa 3.0 SP05. Het is raadzaam om alti
 1. Open de Azure Active Directory-blade
 1. Klik op App-registraties
 1. Klik op toevoegen
-1. Voer een naam in, selecteert u het Type toepassing 'Web-app/API', voer een aanmeldings-URL (bijvoorbeeld `http://localhost`) en klik op maken
+1. Voer een naam in, selecteert u het Type toepassing 'Web-app/API', voer een aanmeldings-URL (bijvoorbeeld http:\//localhost) en klik op maken
 1. De aanmeldings-URL wordt niet gebruikt en kan geldige URL zijn
 1. Selecteer de nieuwe App en klik op de sleutels in het tabblad instellingen
 1. Voer een beschrijving in voor een nieuwe sleutel, selecteer 'Verloopt nooit' en klik op Opslaan

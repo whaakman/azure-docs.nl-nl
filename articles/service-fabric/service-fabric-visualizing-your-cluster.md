@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: ba6a9a09945f0e822dfe02a74f2cdb8e21a1691c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 47b5e89164173869d6964e2c5e392bb99e0c8555
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674664"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317388"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisern van uw cluster met Service Fabric Explorer
 
@@ -46,7 +46,7 @@ Gebruik de volgende koppelingen voor het downloaden van Service Fabric Explorer 
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>Service Fabric Explorer uitvoeren vanaf het cluster
 
-Service Fabric Explorer is ook die wordt gehost in een Service Fabric-cluster HTTP-eindpunt. Als u wilt starten SFX in een webbrowser, blader naar HTTP-eindpunt van het cluster vanuit elke browser - bijvoorbeeld https://clusterFQDN:19080.
+Service Fabric Explorer is ook die wordt gehost in een Service Fabric-cluster HTTP-eindpunt. Als u wilt starten SFX in een webbrowser, blader naar de HTTP-eindpunt van het cluster vanuit elke browser - bijvoorbeeld https:\//clusterFQDN:19080.
 
 Voor instellingen voor ontwikkelaars werkstation, kunt u Service Fabric Explorer starten op uw lokale cluster door te navigeren naar https://localhost:19080/Explorer. Dit artikel om te kijken [uw ontwikkelomgeving voorbereiden](service-fabric-get-started.md).
 

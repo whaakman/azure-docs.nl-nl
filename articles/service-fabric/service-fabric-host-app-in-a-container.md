@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: aljo
-ms.openlocfilehash: bd92ac2a36fdb15741799571d3ceff7fbbb36eef
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: HT
+ms.openlocfilehash: 270fa85f7f51c2f29e8dd67dd68c6dc605929c6e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807521"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313342"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Zelfstudie: Een .NET-toepassing in een Windows-container implementeren in Azure Service Fabric
 
@@ -232,7 +232,7 @@ Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio impleme
 
 ![Uw toepassing publiceren][publish-app]
 
-Volg de voortgang van de implementatie in het uitvoervenster.  Wanneer de toepassing is geïmplementeerd, opent u een browser en typt u het clusteradres en de toepassingspoort. Bijvoorbeeld http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+Volg de voortgang van de implementatie in het uitvoervenster.  Wanneer de toepassing is geïmplementeerd, opent u een browser en typt u het clusteradres en de toepassingspoort. Bijvoorbeeld: http:\//fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Fabrikam-webvoorbeeld][fabrikam-web-page-deployed]
 

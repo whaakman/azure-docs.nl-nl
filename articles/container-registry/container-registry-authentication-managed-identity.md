@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: fdba8969ad326565834625fe1ca7ece5e089a904
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b09348e98a0dee85338cc9f20289d83b658eb719
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984202"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338459"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Gebruik een door Azure identiteit beheerde worden geverifieerd bij een Azure container registry 
 
@@ -31,7 +31,7 @@ Voor het instellen van een container registry en een containerinstallatiekopie n
 
 ## <a name="why-use-a-managed-identity"></a>Waarom een beheerde identiteit gebruiken?
 
-Een beheerde identiteit voor Azure-resources biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt configureren [bepaalde Azure-resources](../active-directory/managed-identities-azure-resources/services-support-msi.md), met inbegrip van virtuele machines, met een beheerde identiteit. Vervolgens gebruikt u de identiteit voor toegang tot andere Azure-resources, zonder het doorgeven van referenties in code of scripts.
+Een beheerde identiteit voor Azure-resources biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt configureren [bepaalde Azure-resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), met inbegrip van virtuele machines, met een beheerde identiteit. Vervolgens gebruikt u de identiteit voor toegang tot andere Azure-resources, zonder het doorgeven van referenties in code of scripts.
 
 Beheerde identiteiten zijn twee typen:
 
@@ -41,7 +41,7 @@ Beheerde identiteiten zijn twee typen:
 
 Na het instellen van een Azure-resource met een beheerde identiteit, geeft u de identiteit van de toegang tot de gewenste naar een andere resource, net als bij alle beveiligings-principal. Bijvoorbeeld, een beheerde identiteit een rol toewijzen met pull, push als pull of andere machtigingen aan een persoonlijk register in Azure. (Zie voor een volledige lijst van register rollen [Azure Container Registry-rollen en machtigingen](container-registry-roles.md).) U kunt een identiteit toegang geven tot een of meer resources.
 
-Gebruik vervolgens de identiteit te verifiëren met een [die ondersteuning biedt voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication), zonder eventuele referenties in uw code. Voor het gebruik van de identiteit voor toegang tot een Azure container registry van een virtuele machine, kunt u met Azure Resource Manager verifiëren. Kiezen hoe u verifieert met behulp van de beheerde identiteit, afhankelijk van uw scenario:
+Gebruik vervolgens de identiteit te verifiëren met een [die ondersteuning biedt voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), zonder eventuele referenties in uw code. Voor het gebruik van de identiteit voor toegang tot een Azure container registry van een virtuele machine, kunt u met Azure Resource Manager verifiëren. Kiezen hoe u verifieert met behulp van de beheerde identiteit, afhankelijk van uw scenario:
 
 * [Een Azure AD-toegangstoken verkrijgen](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) programmatisch met behulp van HTTP- of REST-aanroepen
 
@@ -164,13 +164,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 Voeg SSH toe aan de Docker-virtuele machine die geconfigureerd met de identiteit. Voer de volgende Azure CLI-opdrachten, met behulp van Azure CLI is geïnstalleerd op de virtuele machine.
 
-Eerst, meld u aan bij de Azure CLI met [az login][az-login], met behulp van de identiteit die u hebt geconfigureerd op de virtuele machine. Voor <userID>, vervangen door de ID van de identiteit die u in de vorige stap hebt opgehaald. 
+Eerst, worden geverifieerd met de Azure CLI met [az login][az-login], met behulp van de identiteit die u hebt geconfigureerd op de virtuele machine. Voor <userID>, vervangen door de ID van de identiteit die u in de vorige stap hebt opgehaald. 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-Klik, meld u aan bij het register met [az acr login][az-acr-login]. Wanneer u deze opdracht gebruikt, de CLI maakt gebruik van de Active Directory-token dat is gemaakt toen u uitvoerde `az login` naadloos verifiëren van de sessie met het containerregister. (Afhankelijk van instellingen van de virtuele machine, moet u mogelijk uitvoeren van deze opdracht en de docker-opdrachten met `sudo`.)
+Vervolgens verifiëren naar het register met [az acr login][az-acr-login]. Wanneer u deze opdracht gebruikt, de CLI maakt gebruik van de Active Directory-token dat is gemaakt toen u uitvoerde `az login` naadloos verifiëren van de sessie met het containerregister. (Afhankelijk van instellingen van de virtuele machine, moet u mogelijk uitvoeren van deze opdracht en de docker-opdrachten met `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -216,13 +216,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 Voeg SSH toe aan de Docker-virtuele machine die geconfigureerd met de identiteit. Voer de volgende Azure CLI-opdrachten, met behulp van Azure CLI is geïnstalleerd op de virtuele machine.
 
-Eerst, meld u aan bij de Azure CLI met [az login][az-login], met behulp van de door het systeem toegewezen identiteit op de virtuele machine.
+De Azure CLI met eerst worden geverifieerd [az login][az-login], met behulp van de door het systeem toegewezen identiteit op de virtuele machine.
 
 ```azurecli
 az login --identity
 ```
 
-Klik, meld u aan bij het register met [az acr login][az-acr-login]. Wanneer u deze opdracht gebruikt, de CLI maakt gebruik van de Active Directory-token dat is gemaakt toen u uitvoerde `az login` naadloos verifiëren van de sessie met het containerregister. (Afhankelijk van instellingen van de virtuele machine, moet u mogelijk uitvoeren van deze opdracht en de docker-opdrachten met `sudo`.)
+Vervolgens verifiëren naar het register met [az acr login][az-acr-login]. Wanneer u deze opdracht gebruikt, de CLI maakt gebruik van de Active Directory-token dat is gemaakt toen u uitvoerde `az login` naadloos verifiëren van de sessie met het containerregister. (Afhankelijk van instellingen van de virtuele machine, moet u mogelijk uitvoeren van deze opdracht en de docker-opdrachten met `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry

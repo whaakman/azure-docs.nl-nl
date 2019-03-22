@@ -8,12 +8,12 @@ ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 782f68c52285e787b9dfc6d21352ab2d53876085
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f328c4edeaa35210c5379d84fa47980cb2f07cf
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353138"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317082"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Wat is er nieuw in Azure Data Catalog
 Updates voor **Azure Data Catalog** regelmatig worden vrijgegeven. Niet elke versie bevat nieuwe functies van de gebruiker gerichte, omdat sommige versies van het gericht zijn op de mogelijkheden van de back-end-service. Deze pagina ziet u nieuwe gebruikersgerichte mogelijkheden toegevoegd aan de service Azure Data Catalog.
@@ -240,7 +240,7 @@ Vanaf September 2015, zijn de volgende mogelijkheden toegevoegd aan Azure Data C
 * Een nieuwe 'aan de slag' gegevensbron discovery-ervaring in de Azure Data Catalog-portal. Wanneer gebruikers de pagina "ontdekken" van de Azure Data Catalog-portal zonder een zoekterm invoert, worden ze weergegeven met een overzicht van de inhoud van de catalogus met inbegrip van de meest gebruikte tags, experts, typen gegevensbronnen en objecttypen.
 * Ondersteuning voor het registreren en detecteren van Azure SQL Data Warehouse-objecten en -databases. Zie voor meer informatie over Azure SQL Data Warehouse, [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Ondersteuning voor het registreren en detecteren van SQL Server Analysis Services-modellen en SQL Server Reporting Services-servers als containers. Bij het registreren van SSAS- en SQL Server Reporting Services-objecten, maakt Azure Data Catalog u een vermelding voor de SSAS-model en de SSRS-server, en voor de rapporten en andere objecten. De containers kunnen worden gedetecteerd en van aantekeningen voorzien met behulp van de Azure Data Catalog-portal. Gebruikers kunnen ook zoeken en filteren van de inhoud van een model of de server naast zoeken en filteren van de inhoud van de catalogus.
-* Ondersteuning voor het registreren en detecteren van SQL Server Analysis Services-objecten via HTTP/HTTPS. Gebruikers kunnen nu verbinding maken met de SSAS-servers via een URL (zoals https://servername/olap/msmdpump.dll) in plaats van een server een naam en basisverificatie en anonieme verbindingen naast Windows-verificatie kunt gebruiken. Zie voor meer informatie over HTTP/HTTPS-verbindingen met SSAS, [HTTP-toegang configureren met Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
+* Ondersteuning voor het registreren en detecteren van SQL Server Analysis Services-objecten via HTTP/HTTPS. Gebruikers kunnen nu verbinding maken met de SSAS-servers via een URL (zoals https:\//servername/olap/msmdpump.dll) in plaats van een server een naam en basisverificatie en anonieme verbindingen naast Windows-verificatie kunt gebruiken. Zie voor meer informatie over HTTP/HTTPS-verbindingen met SSAS, [HTTP-toegang configureren met Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
 * Ondersteuning voor gegevensbronnen van Hive in HDInsight. Gebruikers kunnen nu registreren en detecteren van Hive-tabellen voor Apache Hive in Hadoop op HDInsight-gegevensbronnen. Zie voor meer informatie over Hive in HDInsight, de [HDInsight-documentatiecentrum](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Ondersteuning voor het registreren en detecteren van Oracle-databases en clusters van HDFS als containers. Bij het registreren van Oracle-tabellen en weergaven of HDFS, maakt Azure Data Catalog u een vermelding voor de database, tabellen en weergaven. De database kan worden gedetecteerd en van aantekeningen voorzien met behulp van de Azure Data Catalog-portal. Gebruikers kunnen ook zoeken en filteren van de inhoud van een database of het cluster naast zoeken en filteren van de inhoud van de catalogus.
 * Ondersteuning voor het handmatig registreren onbekende typen gegevensbronnen. Gebruikers kunnen de informatie van de gegevensbron met behulp van de Azure Data Catalog-portal, zodat de gegevensbronnen niet expliciet worden ondersteund door het registratiehulpprogramma voor gegevensbronnen kunnen worden van aantekeningen voorzien en ontdekt handmatig invoeren.

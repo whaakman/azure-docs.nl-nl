@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 51d0c7ade46143ecbf6fe46bc54e5d383d50b382
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3314ad4558fdd55429a5a68326dd46b5920d7daa
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173073"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316232"
 ---
 # <a name="deliver-content-to-customers"></a>Lever inhoud aan klanten
 Wanneer u uw inhoud streamen of video on demand aan klanten leveren bent, wordt het doel is om te hoge kwaliteit video leveren aan verschillende apparaten met verschillende netwerkomstandigheden.
@@ -92,22 +92,22 @@ U kunt alleen streamen via SSL als het streaming-eindpunt van waaruit u uw inhou
 ### <a name="mpeg-dash-format"></a>MPEG-DASH-indeling
 {streaming-eindpunt eindpuntnaam-media services-account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
 ### <a name="apple-http-live-streaming-hls-v4-format"></a>Apple HTTP Live Streaming (HLS)-V4-indeling
 {streaming-eindpunt eindpuntnaam-media services-account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 ### <a name="apple-http-live-streaming-hls-v3-format"></a>Apple HTTP Live Streaming (HLS) V3-indeling
 {streaming-eindpunt eindpuntnaam-media services-account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
 ### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>Apple HTTP Live Streaming (HLS)-indeling met alleen audio-filter
 Standaard alleen audio-nummers zijn opgenomen in de HLS manifest. Dit is vereist voor de Apple Store-certificering voor mobiele netwerken. In dit geval, als een client beschikt niet over voldoende bandbreedte of is verbonden via een verbinding 2G, afspelen schakelt over naar alleen audio. Hierdoor blijven inhoudsstreaming zonder buffer, maar er is geen video. In sommige scenario's mogelijk player bufferfuncties voorkeur worden via alleen audio. Als u verwijderen van het spoor alleen audio wilt, voegt u toe **alleen audio = false** naar de URL.
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 Zie voor meer informatie, [ondersteuning voor dynamische Manifest van de samenstelling en HLS uitvoer extra functies](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
@@ -116,14 +116,14 @@ Zie voor meer informatie, [ondersteuning voor dynamische Manifest van de samenst
 
 Voorbeeld:
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
 ### <a id="fmp4_v20"></a>Smooth Streaming 2.0-manifest (verouderde manifest)
 Standaard bevat manifestindeling Smooth Streaming de herhalingen tag (-r-code). Sommige spelers bieden echter geen ondersteuning voor de r-code. Clients met deze spelers kunnen een indeling waarbij de r-code gebruiken:
 
 {streaming-eindpunt eindpuntnaam-media services-account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=fmp4-v20)
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
+    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
 ## <a name="progressive-download"></a>Progressief downloaden
 Met progressief downloaden, kunt u beginnen met het afspelen van media voordat het hele bestand is gedownload. U downloaden niet (ISM * ismv, isma, ismt of ismc)-bestanden progressief.

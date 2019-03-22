@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 64cfac0d689df88c4d432e772bcd0a0cc7ab4ade
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817271"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317677"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Een opslagaccount in Azure portal controleren
 
-[Azure Storage Analytics](../storage-analytics.md) biedt metrische gegevens voor alle opslagservices en logboeken voor blobs, wachtrijen en tabellen. U kunt de [Azure-portal](https://portal.azure.com) configureren welke metrische gegevens en logboeken voor uw account worden vastgelegd en grafieken die visuele weergaven van uw metrische gegevens bieden configureren.
+[Azure Storage Analytics](storage-analytics.md) biedt metrische gegevens voor alle opslagservices en logboeken voor blobs, wachtrijen en tabellen. U kunt de [Azure-portal](https://portal.azure.com) configureren welke metrische gegevens en logboeken voor uw account worden vastgelegd en grafieken die visuele weergaven van uw metrische gegevens bieden configureren.
 
 > [!NOTE]
-> Er worden kosten in verband met het onderzoeken van bewakingsgegevens in de Azure-portal. Zie voor meer informatie, [Storage Analytics en facturering](/rest/api/storageservices/Storage-Analytics-and-Billing).
+> Er worden kosten in verband met het onderzoeken van bewakingsgegevens in de Azure-portal. Zie voor meer informatie, [Opslaganalyse](storage-analytics.md).
 >
 > Azure Files op dit moment biedt ondersteuning voor Storage Analytics metrics, maar biedt logboekregistratie nog geen ondersteuning.
-> 
-> Zie voor een uitgebreide handleiding over het gebruik van Storage Analytics en andere hulpprogramma's om te identificeren, onderzoeken en oplossen van problemen met betrekking tot Azure Storage, [bewaken, problemen vaststellen en oplossen van Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
+>
+> Zie voor een uitgebreide handleiding over het gebruik van Storage Analytics en andere hulpprogramma's om te identificeren, onderzoeken en oplossen van problemen met betrekking tot Azure Storage, [bewaken, problemen vaststellen en oplossen van Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >
 
 ## <a name="configure-monitoring-for-a-storage-account"></a>De bewaking van een storage-account configureren
@@ -41,7 +41,7 @@ ms.locfileid: "55817271"
    Om in te stellen het bewaarbeleid voor gegevens, gaan de **bewaarperiode (dagen)** schuifregelaar of Voer het aantal dagen aan gegevens te behouden tussen 1 en 365. De standaardwaarde voor de nieuwe storage-accounts is zeven dagen. Als u niet een retentiebeleid instellen wilt, voert u nul. Als er geen bewaarbeleid is, wordt het is aan u de bewakingsgegevens verwijderen.
 
    > [!WARNING]
-   > U betaalt wanneer u metrische gegevens voor het handmatig verwijderen. Verouderde analytics-gegevens (gegevens die ouder zijn dan het bewaarbeleid) is verwijderd door het systeem zonder kosten. Het is raadzaam om een bewaarbeleid dat is gebaseerd op hoe lang u wilt behouden van storage analytics-gegevens voor uw account instellen. Zie [welke kosten moet u rekenen wanneer u metrische opslaggegevens inschakelen?](../common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) voor meer informatie.
+   > U betaalt wanneer u metrische gegevens voor het handmatig verwijderen. Verouderde analytics-gegevens (gegevens die ouder zijn dan het bewaarbeleid) is verwijderd door het systeem zonder kosten. Het is raadzaam om een bewaarbeleid dat is gebaseerd op hoe lang u wilt behouden van storage analytics-gegevens voor uw account instellen. Zie [facturering op metrische opslaggegevens](storage-analytics-metrics.md#billing-on-storage-metrics) voor meer informatie.
    >
 
 1. Wanneer u klaar bent met de configuratie van de bewaking, selecteert u **opslaan**.
@@ -51,12 +51,12 @@ Een standaardset van metrische gegevens wordt weergegeven in de grafieken op de 
 U kunt metrische gegevens verzamelen en logboekregistratie uitschakelen door in te stellen **Status** naar **uit**.
 
 > [!NOTE]
-> Azure Storage maakt gebruik van [tabelopslag](../common/storage-introduction.md#table-storage) voor het opslaan van de metrische gegevens voor uw opslagaccount en slaat de metrische gegevens in tabellen in uw account. Zie voor meer informatie. [Hoe metrische gegevens worden opgeslagen](../common/storage-analytics.md#how-metrics-are-stored).
+> Azure Storage maakt gebruik van [tabelopslag](storage-introduction.md#table-storage) voor het opslaan van de metrische gegevens voor uw opslagaccount en slaat de metrische gegevens in tabellen in uw account. Zie voor meer informatie. [Hoe metrische gegevens worden opgeslagen](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Grafieken met metrische gegevens aanpassen
 
-Gebruik de volgende procedure om te kiezen welke metrische opslaggegevens om in een grafiek met metrische gegevens weer te geven. 
+Gebruik de volgende procedure om te kiezen welke metrische opslaggegevens om in een grafiek met metrische gegevens weer te geven.
 
 1. Gestart door een grafiek met metrische gegevens opslag in Azure portal weer te geven. U kunt grafieken vinden op de **blade opslagaccount** en in de **metrische gegevens** blade voor een afzonderlijke service (blob, wachtrij, tabel, -bestand).
 
@@ -130,17 +130,16 @@ U kunt de opdracht geven voor Azure Storage voor het opslaan van diagnostische l
 1. Selecteer **Diagnostics** in de **bewaking** sectie van de menu-blade.
 
     ![Diagnostische gegevens van menu-item onder controleren in Azure portal.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
-    
+
 1. Zorg ervoor dat **Status** is ingesteld op **op**, en selecteer de **services** voor die u wilt logboekregistratie inschakelen.
 
     ![Logboekregistratie in Azure portal configureren.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Klik op **Opslaan**.
 
-De logboeken met diagnostische gegevens worden opgeslagen in een blobcontainer met de naam *$logs* in uw opslagaccount. U vindt de logboekgegevens die met behulp van storage explorer, zoals de [Microsoft Opslagverkenner](http://storageexplorer.com), of programmatisch met behulp van de storage-clientbibliotheek of PowerShell.
+De logboeken met diagnostische gegevens worden opgeslagen in een blobcontainer met de naam *$logs* in uw opslagaccount. U vindt de logboekgegevens die met behulp van storage explorer, zoals de [Microsoft Opslagverkenner](https://storageexplorer.com), of programmatisch met behulp van de storage-clientbibliotheek of PowerShell.
 
-Zie voor meer informatie over het openen van de container met $logs [vastleggen van Storage inschakelen en toegang krijgen tot logboekgegevens](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
+Zie voor meer informatie over het openen van de container met $logs [Storage analytics logboekregistratie](storage-analytics-logging.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Lees meer informatie over [metrische gegevens, logboekregistratie en facturering](../storage-analytics.md) voor Storage Analytics.
-* [Azure Storage metrische gegevens en bekijk metrische gegevens inschakelen](../storage-enable-and-view-metrics.md) met behulp van PowerShell en via een programma met C#.
+* Lees meer informatie over [metrische gegevens, logboekregistratie en facturering](storage-analytics.md) voor Storage Analytics.

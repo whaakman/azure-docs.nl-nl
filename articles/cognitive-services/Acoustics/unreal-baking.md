@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: afe4421bea27ff029bd4a1a7808241a54027a6ac
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
-ms.translationtype: HT
+ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136391"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311550"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Project akoestische Unreal Bake zelfstudie
 Dit document beschrijft het proces voor het indienen van een akoestische bake met de extensie Unreal-editor.
@@ -32,7 +32,7 @@ Er zijn vijf stappen tot het uitvoeren van een bake:
 
 Importeer het Project akoestische invoegtoepassing pakket aan uw project. Zie voor hulp bij dit, de [Unreal integratie](unreal-integration.md) onderwerp. Zodra de invoegtoepassing is geïntegreerd, opent u de gebruikersinterface akoestische door te klikken op het pictogram Nieuw akoestische modus.
 
-![Open akoestische modus](media/acoustics-mode.png)
+![Schermopname van Editor Unreal akoestische Mode option](media/acoustics-mode.png)
 
 ## <a name="tag-actors-for-acoustics"></a>Tag actoren voor akoestische
 
@@ -42,7 +42,7 @@ Selecteer een of meer objecten in de hele wereld Outliner of gebruik de **select
 
 ### <a name="for-reference-the-objects-tab-parts"></a>Ter referentie: De objecten tabblad delen
 
-![Unreal objecten tabblad Details](media/unreal-objects-tab-details.png)
+![Schermafbeelding van akoestische objecten tabblad in Unreal](media/unreal-objects-tab-details.png)
 
 1. Selectie knoppen op het tabblad (**objecten** tabblad is geselecteerd). Gebruik deze knoppen om te zien hoe de verschillende stappen een bake akoestische van boven naar beneden te doen.
 2. Een korte beschrijving van wat u moet doen met behulp van deze pagina.
@@ -75,11 +75,11 @@ Het akoestisch materiaal beheren geluid energieverbruik weergegeven van elke sur
 
 De tijd weerklank van een bepaald materiaal in een kamer is omgekeerd gerelateerd aan de coëfficiënt opname met de meeste materiaal met waarden voor opname in het bereik 0,01-0.20. Materialen met opname coëfficiënten boven in dit bereik zijn zeer absorberend. Bijvoorbeeld als een kamer geluiden te reverberant, wijzigt u het akoestisch materiaal van de wanden, basis of maximum in een van de hogere absorptivity. De toewijzing van akoestische materiaal geldt voor alle actoren die gebruikmaken van dit materiaal scène.
 
-![Het diagram met de weerklank](media/reverb-time-graph.png)
+![Grafiek met negatieve correlatie weerklank tijd met opname coëfficiënt](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Ter referentie: Onderdelen van het tabblad materiaal
 
-![Unreal objecten tabblad Details](media/unreal-materials-tab-details.png)
+![Schermafbeelding van akoestische objecten tabblad in Unreal](media/unreal-materials-tab-details.png)
 
 1. De **materiaal** tabblad knop, die wordt gebruikt om deze pagina.
 2. Een korte beschrijving van wat u moet doen met behulp van deze pagina.
@@ -94,7 +94,7 @@ Na het toewijzen van het materiaal, Ga naar de **tests** tabblad.
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Ter referentie: Onderdelen van het tabblad tests
 
-![Details van het tabblad tests](media/unreal-probes-tab-details.png)
+![Schermafbeelding van akoestische tests tabblad in Unreal](media/unreal-probes-tab-details.png)
 
 1. De **tests** tabblad-knop die wordt gebruikt om deze pagina
 2. Een korte beschrijving van wat u moet doen met behulp van deze pagina
@@ -124,11 +124,11 @@ Zodra deze berekeningen voltooid zijn, kunt u zowel de voxel-gegevens en de test
 
 Nadat de berekening van de test is voltooid, een nieuwe actor wordt weergegeven in de hele wereld Outliner met de naam **AcousticsDebugRenderer**. Controle van de **renderen tests** en **Voxels renderen** selectievakjes schakelt u de weergave fouten opsporen in de viewport van de editor.
 
-![Akoestische fouten opsporen in Renderer](media/acoustics-debug-renderer.png)
+![Schermopname van akoestische fouten opsporen in Renderer actor in Unreal-Editor](media/acoustics-debug-renderer.png)
 
 Als u niet alle voxels of tests overlay bekijken op het niveau van ziet, zorg er dan voor dat realtime rendering is ingeschakeld in de viewport.
 
-![Realtime rendering inschakelen](media/unreal-real-time-rendering.png)
+![Schermafbeelding van de renderingoptie realtime-in Unreal](media/unreal-real-time-rendering.png)
 
 ### <a name="voxels"></a>Voxels
 
@@ -137,7 +137,7 @@ Een scène verplaatsen en controleer of de geometrie acoustically occluding voxe
 
 Als u de voxels die zijn gemaakt met behulp van abrupte resolutie vs fijn resolutie vergelijkt, ziet u dat de grof voxels tweemaal zo groot zijn.
 
-![Voxel-Preview](media/unreal-voxel-preview.png)
+![Schermafbeelding van akoestische voxels preview in Unreal-editor](media/unreal-voxel-preview.png)
 
 ### <a name="probe-points"></a>Test-punten
 
@@ -145,7 +145,7 @@ Test punten zijn gelijk aan mogelijke player (listener)-locaties. Wanneer bakken
 
 Het is belangrijk om te controleren dat test punten overal die in de speler wordt verwacht dat in de scène reizen bestaan. Test-punten worden geplaatst op het net navigatie door de engine voor het Project akoestische en kunnen niet worden verplaatst of bewerkt, dus zorg ervoor de navigatie mesh-omvat alle mogelijke player locaties door te inspecteren van de test-punten.
 
-![Tests-Preview](media/unreal-probes-preview.png)
+![Schermafbeelding van akoestische tests Preview-versie in Unreal](media/unreal-probes-preview.png)
 
 ### <a name="Coarse-vs-Fine-Resolution"></a>Fijn Grof Visual Studio-oplossing
 
@@ -159,9 +159,9 @@ Terwijl dit misschien eenvoudig lijken, heeft een aantal gevolgen voor de akoest
 * Geluid bronnen kunnen zich niet in "gevuld" voxels die voxels die geometry bevatten: dit resulteert in geen geluid. Het is moeilijker geluid bronnen plaatsen, zodat ze niet binnen de grotere voxels van grove vallen dan wanneer u het fijn instelling.
 * De grotere voxels wordt inbreuk maken meer bij portals, zoals hieronder wordt weergegeven. De eerste afbeelding is gemaakt met behulp van abrupte, terwijl de tweede is de dezelfde poort met fijn resolutie. Zoals aangegeven door de rode markeringen, moet u er veel minder inbreuk in de poort die met behulp van de instelling van de orde is. De blauwe lijn is de poort, zoals gedefinieerd door de geometrie, terwijl de rode lijn de effectieve akoestische portal gedefinieerd door de grootte van de voxel wordt. Hoe deze indringers wordt afgespeeld uit in een bepaalde situatie is afhankelijk van de volledig op hoe de voxels uitgelijnd met de geometrie van de portal, die wordt bepaald door de grootte en de locaties van de objecten in de scène.
 
-![Grof poort](media/unreal-coarse-bake.png)
+![Schermafbeelding van grove voxels invullen van een poort in Unreal](media/unreal-coarse-bake.png)
 
-![Fijn poort](media/unreal-fine-bake.png)
+![Schermafbeelding van fijn voxels in een poort in Unreal](media/unreal-fine-bake.png)
 
 ## <a name="bake-your-level-using-azure-batch"></a>Maken van uw niveau met behulp van Azure Batch
 
@@ -169,7 +169,7 @@ U kunt maken van een scène met een rekencluster in de cloud met behulp van de A
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Ter referentie: Onderdelen van het tabblad bake
 
-![Details van het tabblad maken](media/unreal-bake-tab-details.png)
+![Schermafbeelding van akoestische verdient tabblad in Unreal](media/unreal-bake-tab-details.png)
 
 1. De knop Tab verdient is gebruikt om deze pagina.
 2. Een korte beschrijving van wat te doen op deze pagina.

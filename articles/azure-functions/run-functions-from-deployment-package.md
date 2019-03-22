@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 292b25987f183df2091667312d4e6730b7f40dda
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990897"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336725"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Uw Azure Functions uitvoeren vanuit een pakketbestand
 
@@ -44,7 +44,7 @@ Als u wilt inschakelen voor de functie-app om uit te voeren van een pakket, toe 
 
 | Value  | Description  |
 |---------|---------|
-| **`1`**  | Aanbevolen voor functie-apps die worden uitgevoerd op Windows. Uitvoeren van een pakketbestand in de `d:\home\data\SitePackages` map van uw functie-app. Als dit niet het [implementeren met zip implementeren] (#integration-met-zip-deployment], deze optie is vereist voor de map hebben ook een bestand met de naam `packagename.txt`. Dit bestand bevat alleen de naam van het pakketbestand in de map, zonder een spatie. |
+| **`1`**  | Aanbevolen voor functie-apps die worden uitgevoerd op Windows. Uitvoeren van een pakketbestand in de `d:\home\data\SitePackages` map van uw functie-app. Als dit niet het [implementeren met zip implementeren](#integration-with-zip-deployment), deze optie is vereist voor de map hebben ook een bestand met de naam `packagename.txt`. Dit bestand bevat alleen de naam van het pakketbestand in de map, zonder een spatie. |
 |**`<url>`**  | Locatie van een specifiek pakket-bestand dat u wilt uitvoeren. Wanneer u Blob-opslag gebruikt, moet u een privé-container met een [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) om in te schakelen de Functions-runtime voor de toegang tot het pakket. U kunt de [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) pakketbestanden uploaden naar uw Blob storage-account.         |
 
 > [!CAUTION]

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: ac166161624840aae39e84aa4b149fe58a6c978e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 72cbf71077a8df2b81b366d9f29ae006100da471
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780861"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310537"
 ---
 # <a name="virtual-network-service-endpoints"></a>Service-eindpunten voor virtueel netwerk
 
@@ -42,6 +42,7 @@ Deze functie is beschikbaar voor de volgende Azure-services en regio's:
 **Openbare preview**
 
 - **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: De preview-versie is beschikbaar in alle Azure-regio's waarin Azure Database for MariaDB beschikbaar is.
+- **[Azure Container Registry](../container-registry/container-registry-vnet.md)**: Preview-versie beschikbaar in alle Azure-regio's waar Azure Container Registry beschikbaar is.
 
 Voor recente updates kijkt u op de pagina [Azure Virtual Network Updates](https://azure.microsoft.com/updates/?product=virtual-network) (Updates voor Azure Virtual Network).
 

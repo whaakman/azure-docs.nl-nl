@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4311d71775ef877e0090abca9c6caabab503ef08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097607"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336065"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Key Vault-functie voor voorlopig verwijderen gebruiken met CLI
 
@@ -94,7 +94,7 @@ U kunt verwijderde sleutelkluizen, dat wordt gekoppeld aan uw abonnement weergev
 ```azurecli
 az keyvault list-deleted
 ```
-- *Id* kan worden gebruikt voor het identificeren van de resource bij het herstellen of verwijderen. 
+- *ID* kan worden gebruikt voor het identificeren van de resource bij het herstellen of verwijderen. 
 - *Resource-ID* is de oorspronkelijke bron-ID van deze kluis. Omdat deze sleutelkluis nu in een verwijderde status is, bestaat er is geen bron met die resource-ID. 
 - *Geplande datum opschonen* is als de kluis worden definitief verwijderd, als er geen actie ondernomen. De bewaartermijn, die wordt gebruikt voor het berekenen van de *opschonen datum gepland*, is 90 dagen.
 
@@ -222,6 +222,24 @@ Aanbieding verwijderde key vault-objecten wordt ook weergegeven wanneer ze zijn 
 
 >[!IMPORTANT]
 >Een object opgeschoonde kluis, geactiveerd door de *opschonen datum gepland* veld, wordt definitief verwijderd. Het kan niet worden hersteld.
+
+## <a name="enabling-purge-protection"></a>Leegmaken van de beveiliging inschakelen
+
+Bij het leegmaken van de beveiliging is ingeschakeld in een kluis of een object in de verwijderde status niet leegmaken totdat de bewaarperiode van 90 dagen is verstreken. Deze kluis of het object kan nog steeds worden hersteld. Deze functie biedt de zekerheid dat een kluis of een object kan niet permanent worden verwijderd voordat de bewaarperiode voor het periode is verstreken.
+
+Alleen als de functie voor voorlopig verwijderen ook is ingeschakeld, kunt u leegmaken van de beveiliging inschakelen. 
+
+Als u wilt inschakelen op beide voorlopig verwijderen en beveiliging verwijderen bij het maken van een kluis, gebruikt u de [az keyvault maken](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) opdracht:
+
+```
+az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+Leegmaken van de beveiliging toevoegen aan een bestaande kluis (die al is voorlopig verwijderen zijn ingeschakeld), gebruikt de [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) opdracht:
+
+```
+az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+```
 
 ## <a name="other-resources"></a>Meer informatie
 

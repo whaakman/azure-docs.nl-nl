@@ -4,33 +4,22 @@ description: In dit artikel bevat een overzicht van veelgestelde vragen bij het 
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008647"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312050"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Veelgestelde vragen: Replicatie van Azure naar Azure
 
 In dit artikel vindt u antwoorden op veelgestelde vragen over het implementeren van herstel na noodgeval (DR) van Azure-VM's naar een andere Azure-regio met behulp van Azure Site Recovery. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="in-this-article"></a>In dit artikel 
-1.  **[Algemene vragen over Azure naar Azure](#general)** 
-1.  **[Replicatie](#replication)** 
-1.  **[Beleid voor wachtwoordreplicatie](#replication-policy)** 
-1.  **[Multi-VM-consistentie](#multi-vm-consistency)** 
-1.  **[Plan voor herstel](#recovery-plan)** 
-1.  **[Opnieuw beveiligen en failback](#reprotection-and-failback)** 
-2.  **[Capaciteit](#capacity)**
-1.  **[Beveiliging](#security)** 
-
-
-## <a name="general"></a>Algemene
+## <a name="general"></a>Algemeen
 
 ### <a name="how-is-site-recovery-priced"></a>Hoe wordt de Site Recovery geprijsd?
 Beoordeling [prijzen voor Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) details.
@@ -79,7 +68,7 @@ Nee, Site Recovery is geen verbinding met internet vereist. Maar dit vereist toe
 Ja, kunt u repliceert u de toepassing en de configuratie van het herstel na noodgevallen in afzonderlijke resourcegroep te houden.
 Bijvoorbeeld, hebt u een toepassing met elke app, db en web in afzonderlijke resourcegroep lagen, hebt u klikken op de [wizard replicatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) drie keer op alle lagen te beveiligen. ASR kan deze drie lagen in drie verschillende resourcegroep wordt gerepliceerd.
 
-## <a name="replication-policy"></a>Beleid voor wachtwoordreplicatie
+## <a name="replication-policy"></a>Beleid voor replicatie
 
 ### <a name="what-is-a-replication-policy"></a>Wat is beleid voor replicatie?
 Hiermee worden de instellingen voor de bewaargeschiedenis van herstelpunten en de frequentie van de app-consistente momentopnamen gedefinieerd. Azure Site Recovery maakt standaard een nieuw replicatiebeleid met de standaardinstellingen van:
@@ -186,7 +175,7 @@ U kunt een failover wordt geactiveerd nadat de onderbreking. Site Recovery hoeft
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Wat is een RTO van een virtuele machine failover?
 Site Recovery heeft een [RTO SLA van twee uur](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). De meeste van de tijd, mislukt Site Recovery echter failover van virtuele machines binnen enkele minuten. U kunt de RTO berekenen door te gaan naar de failover taken waarin de tijd die nodig was voor de virtuele machine openen. Plan voor herstel RTO, raadpleegt u onderstaande sectie. 
 
-## <a name="recovery-plan"></a>Plan voor herstel
+## <a name="recovery-plans"></a>Herstelplannen
 
 ### <a name="what-is-a-recovery-plan"></a>Wat is een herstelplan?
 Een plan voor herstel in Site Recovery coördineert het failoverherstel van virtuele machines. Dit maakt het herstel consistente wijze nauwkeurige, herhaalbare en geautomatiseerde. Een plan voor herstel worden de volgende behoeften voor de gebruiker:

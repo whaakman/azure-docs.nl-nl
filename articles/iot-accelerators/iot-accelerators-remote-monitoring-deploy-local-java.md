@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: e1918d527afbe5aad647d84ab82889099f5f22b9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ccdb3e16ea60cf85ae28e533e3b2d9f473cc90c8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55105976"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316385"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>De bewaking op afstand oplossingsversnellers implementeren lokaal - IntelliJ
 
@@ -148,7 +148,7 @@ npm install
 npm start
 ```
 
-Wanneer het begin voltooid is, wordt de pagina in uw browser weergegeven **http://localhost:3000/dashboard**. De fouten op deze pagina worden verwacht. Als u de toepassing zonder fouten, voer de volgende stap.
+Wanneer het begin voltooid is, wordt de pagina in uw browser weergegeven **http:\//localhost:3000 / dashboard**. De fouten op deze pagina worden verwacht. Als u de toepassing zonder fouten, voer de volgende stap.
 
 ### <a name="configure-and-run-nginx"></a>Configureren en uitvoeren van NGINX
 
@@ -161,7 +161,7 @@ Voor meer informatie over het uitvoeren **nginx**, Zie [nginx voor Windows](http
 
 ### <a name="connect-to-the-dashboard"></a>Verbinding maken met het dashboard
 
-Voor toegang tot het oplossingsdashboard voor externe controle, gaat u naar [ http://localhost:9000 ](http://localhost:9000) in uw browser.
+Voor toegang tot het oplossingsdashboard voor externe controle, gaat u naar http:\//localhost:9000 in uw browser.
 
 ## <a name="clean-up"></a>Opruimen
 

@@ -6,18 +6,21 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: b0c09c5b425beef6badff7fb6ec298f96591abc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990539"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339309"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies schrijven in Azure Cosmos DB
 
 Azure Cosmos DB biedt taalgeïntegreerde, transactionele uitvoering van JavaScript waarmee u **opgeslagen procedures**, **triggers** en **door de gebruiker gedefinieerde functies (UDF's)** kunt schrijven. Wanneer u de SQL-API in Azure Cosmos DB gebruikt, kunt u de opgeslagen procedures, triggers en UDF's definiëren in JavaScript-taal. U kunt uw logica in JavaScript schrijven en uitvoeren in de database-engine. U kunt triggers, opgeslagen procedures en UDF's maken en uitvoeren met behulp van [Azure Portal](https://portal.azure.com/), de [met JavaScript-taal geïntegreerde query-API in Azure Cosmos DB](javascript-query-api.md) en de [client SDK's van de Cosmos DB SQL-API](sql-api-dotnet-samples.md). 
 
 Als u een opgeslagen procedure, trigger en een door de gebruiker gedefinieerde functie wilt aanroepen, moet u deze registreren. Zie [Werken met opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md) voor meer informatie.
+
+> [!NOTE]
+> Bij het uitvoeren van een opgeslagen procedure voor gepartitioneerde containers moet een waarde voor de partitiesleutel worden opgegeven in de aanvraagopties. Opgeslagen procedures zijn altijd gerelateerd aan een partitiesleutel. Items met een andere partitiesleutelwaarde zijn niet zichtbaar voor de opgeslagen procedure. Dit geldt ook voor triggers.
 
 ## <a id="stored-procedures"></a>Opgeslagen procedures uitvoeren schrijven
 

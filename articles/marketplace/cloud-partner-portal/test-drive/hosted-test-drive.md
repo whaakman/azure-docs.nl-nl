@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1ab9fcd50ad7081f8047d62e545287fa75db75e4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5057c0c781cb9ec60ecde7dd3f4bf96089b902df
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457047"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312679"
 ---
 # <a name="hosted-test-drive"></a>Gehoste Test Drive
 
@@ -48,12 +48,12 @@ Geef de volgende velden in de \'technische configuratie\' sectie:
 - **Type Test Drive**: Kies \'Microsoft Hosted (voorbeeld van de Dynamics 365 voor Customer Engagement)' optie. Dit geeft aan dat Microsoft hosten en beheren van de service die de gebruiker Test Drive-inrichting en ongedaan maken van inrichting uitvoert.
 - **Maximale aantal gelijktijdige Test Drives**: Dit veld instellen op het aantal gelijktijdige gebruikers die een actieve Test Drive op een willekeurig moment tijd wordt opgelost hebben kunnen. Elke gebruiker wordt een Dynamics-licentie gebruiken tijdens de Test Drive actief, is daarom u moet om ervoor te zorgen dat u ten minste dit aantal Dynamics licenties beschikbaar voor gebruikers van Test Drive. Aanbevolen waarde van 3 tot 5.
 - **Test Drive duur (uren)**: Dit veld instellen op het aantal uren de Test Drive is actief voor gebruikers. Na dit aantal uur, wordt de gebruiker uit uw tenant worden beëindigd. Aanbevolen waarde van 2 tot 24 uur, afhankelijk van de complexiteit van uw App. De gebruiker kan een andere Test Drive altijd aanvragen als ze weinig tijd en toegang kunt krijgen tot de Test Drive opnieuw.
-- **Instantie-URL**: Geef een URL waar de gebruiker Test Drive wordt in eerste instantie wordt genavigeerd wanneer ze de Test Drive starten. Dit is meestal de URL van uw Dynamics 365-exemplaar waarop uw App en voorbeeldgegevens op geïnstalleerd. Voorbeeldwaarde:https://testdrive.crm.dynamics.com
+- **Instantie-URL**: Geef een URL waar de gebruiker Test Drive wordt in eerste instantie wordt genavigeerd wanneer ze de Test Drive starten. Dit is meestal de URL van uw Dynamics 365-exemplaar waarop uw App en voorbeeldgegevens op geïnstalleerd. Voorbeeldwaarde: https:\//testdrive.crm.dynamics.com
 - **Azure AD-Tenant-ID**: Geef de ID van de Azure-Tenant voor uw exemplaar van Dynamics 365. Voor het ophalen van deze waarde, meld u aan bij Azure portal en gaat u naar \'Azure Active Directory\'  - \> eigenschappen selecteren uit het menu-blade -\> Kopieer de map-ID. Voorbeeldwaarde: 72f988bf-86f1-41af-91ab-2d7cd0111234
 - **Azure AD-App-ID**: ID van de Azure AD-App die u hebt gemaakt in stap 7. \ Voorbeeldwaarde: 53852862-a2ae-4e43-9461-faa49650a096
 - **Azure AD-App-sleutel**: Geheim voor de Azure AD-App gemaakt in stap 7. \ Voorbeeldwaarde: IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
 - **De naam van de Azure AD-Tenant**: Geef de naam van de Azure-Tenant voor uw exemplaar van Dynamics 365. Gebruik de indeling van \<tenantname.\> onmicrosoft.com. Voorbeeldwaarde: testdrive.onmicrosoft.com
-- **Web-API URL-exemplaar**: Geef de URL van de Web-API voor uw exemplaar van Dynamics 365. U kunt deze waarde wordt opgehaald door te melden bij uw Microsoft Dynamics 365-exemplaar en te navigeren naar instelling -\> aanpassing -\> bronnen voor ontwikkelaars -\> exemplaar Web-API (deze URL kopiëren). Voorbeeldwaarde:  https://testdrive.crm.dynamics.com/api/data/v9.0 
+- **Web-API URL-exemplaar**: Geef de URL van de Web-API voor uw exemplaar van Dynamics 365. U kunt deze waarde wordt opgehaald door te melden bij uw Microsoft Dynamics 365-exemplaar en te navigeren naar instelling -\> aanpassing -\> bronnen voor ontwikkelaars -\> exemplaar Web-API (deze URL kopiëren). Voorbeeldwaarde: https:\//testdrive.crm.dynamics.com/api/data/v9.0 
 - **De naam van rol**: Geef de naam van de aangepaste Dynamics 365 beveiligingsrol die u hebt gemaakt voor Test Drive. Dit is de rol die wordt toegewezen aan gebruikers tijdens de Test Drive. Voorbeeldwaarde: testdriverole
 
 ## <a name="next-steps"></a>Volgende stappen

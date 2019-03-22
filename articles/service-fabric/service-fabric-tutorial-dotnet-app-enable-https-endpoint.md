@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5308fc024a53fdbbef12b409622cc35adaea1e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ba28014dfb2be4550407c20b4885feda3921f98
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857705"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316888"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Zelfstudie: Een HTTPS-eindpunt toevoegen aan een front-end-service van ASP.NET Core Web-API met behulp van Kestrel
 
@@ -341,9 +341,9 @@ Vervolgens configureert u in de sectie VotingWebPkg **ServiceManifestImport** ee
 
 ## <a name="run-the-application-locally"></a>De toepassing lokaal uitvoeren
 
-Selecteer in Solution Explorer de toepassing **Stemmen** en stel de eigenschap **URL van toepassing** in op '<https://localhost:443>'.
+In Solution Explorer, selecteer de **Voting** toepassing en stel de **toepassings-URL** eigenschap in op ' https:\//localhost:443 '.
 
-Sla alle bestanden op en druk op F5 om de toepassing lokaal uit te voeren.  Nadat de toepassing is geïmplementeerd, wordt een webbrowser geopend met [https://localhost:443](https://localhost:443). Als u een zelfondertekend certificaat gebruikt, ziet u een waarschuwing dat uw pc de beveiliging van deze website niet vertrouwt.  Ga door naar de webpagina.
+Sla alle bestanden op en druk op F5 om de toepassing lokaal uit te voeren.  Nadat de toepassing heeft geïmplementeerd, opent een webbrowser naar https:\//localhost:443. Als u een zelfondertekend certificaat gebruikt, ziet u een waarschuwing dat uw pc de beveiliging van deze website niet vertrouwt.  Ga door naar de webpagina.
 
 ![Stemtoepassing][image2]
 

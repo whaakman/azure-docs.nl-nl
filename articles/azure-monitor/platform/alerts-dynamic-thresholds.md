@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008902"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339003"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Metrische waarschuwingen met dynamische drempelwaarden in Azure Monitor (Preview-versie)
 
@@ -83,7 +83,7 @@ De drempelwaarden die worden weergegeven in de grafiek, voordat een waarschuwing
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Hoeveel gegevens nodig is om een waarschuwing te activeren?
 
-Dynamische drempelwaarden vereist ten minste drie dagen aan gegevens om ervoor te zorgen nauwkeurige drempelwaarden voor waarschuwingen activeren.
+Hebt u een nieuwe resource of metrische gegevens ontbreken, wordt niet dynamische drempelwaarden voor waarschuwingen activeren voordat de drie dagen aan gegevens zijn beschikbaar om te controleren of nauwkeurige drempelwaarden.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Aanbevolen procedures voor dynamische drempelwaarden
 

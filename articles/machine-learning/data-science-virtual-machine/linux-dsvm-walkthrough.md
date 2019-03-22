@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 0ca3cee0c818bf9d5dda4a7ea8a1f356ed017973
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891083"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319462"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Gegevenswetenschap met een Linux Data Science Virtual Machine in Azure
 Deze procedure ziet u hoe u enkele algemene datatechnologietaken met de Linux Data Science VM uitvoert. De Linux Data Science Virtual Machine (DSVM) is een installatiekopie van een virtuele machine op Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning is beschikbaar. De belangrijke software-componenten zijn ingedeeld de [Linux Data Science Virtual Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie maakt het gemakkelijk om te beginnen gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk. U kunt eenvoudig opschalen van de virtuele machine, indien nodig, en stoppen wanneer deze niet in gebruik. Deze resource is zo flexibel en kostenefficiënt.
@@ -423,7 +423,7 @@ Een van de leuke functies van Rammelaar is de mogelijkheid voor het uitvoeren va
 Zodra u klaar bent met het ontwikkelen van modellen, selecteert u de **Log** tabblad om de R-code uitvoeren door Rammelaar tijdens uw sessie. U kunt selecteren de **exporteren** knop op te slaan.
 
 > [!NOTE]
-> Er is een fout in de huidige release van Rammelaar. Als u wilt wijzigen van het script of later uw stappen herhalen gebruiken, moet u een teken # vóór * dit logboek... exporteren * in de tekst van het logboek.
+> Er is een fout in de huidige release van Rammelaar. Als u wilt wijzigen van het script of later uw stappen herhalen gebruiken, moet u een teken # vóór *dit logboek exporteren...*  in de tekst van het logboek.
 >
 >
 

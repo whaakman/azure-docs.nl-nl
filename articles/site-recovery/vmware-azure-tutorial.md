@@ -6,22 +6,28 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/3/2019
+ms.date: 3/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ccd62c0b0832622bbc74542674c1d09f59ea301b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06d18ccd6f14f0a2b31f579b0ed7250b2c4f0c92
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848827"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310588"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Herstel van on-premises VMware-VM’s naar Azure na een noodgeval instellen
 
 [Azure Site Recovery](site-recovery-overview.md) draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel (BCDR) door te zorgen dat uw zakelijke apps actief blijven tijdens geplande en ongeplande uitval. Site Recovery beheert en orkestreert noodherstel van on-premises machines en virtuele Azure-machines (VM's), met inbegrip van replicatie, failover en herstel.
 
 
-In deze zelfstudie laten we u zien hoe u replicatie van een VMware-VM naar Azure met Azure Site Recovery kunt instellen en inschakelen. Zelfstudies zijn ontworpen om u te laten zien hoe u Site Recovery implementeert met basisinstellingen. In zelfstudies wordt de eenvoudigste methode gebruikt. Niet alle opties komen erin aan de orde. In deze zelfstudie leert u het volgende:
+Deze zelfstudie leert u hoe u Site Recovery implementeren met basisinstellingen zonder aanpassingen. Raadpleeg de artikelen in How To voor complexere opties.
+
+    - Stel de [replicatiebron](vmware-azure-set-up-source.md) en de [configuratieserver](vmware-azure-deploy-configuration-server.md) in.
+    - Stel het [replicatiedoel](vmware-azure-set-up-target.md) in.
+    - Configureer een [replicatiebeleid](vmware-azure-set-up-replication.md) en schakel [replicatie in](vmware-azure-enable-replication.md).
+
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * De replicatiebron en het replicatiedoel invoeren.
@@ -37,14 +43,10 @@ Voordat u begint, is het handig om:
 - Als u precies wilt weten hoe u herstel na noodgevallen voor virtuele VMware-machines kunt instellen, kunt u de volgende bronnen raadplegen:
     - [Veelgestelde vragen](vmware-azure-common-questions.md)te lezen over herstel na noodgevallen voor VMware.
     - [Uit te vinden](vmware-physical-azure-support-matrix.md) wat er door VMWare wordt ondersteund en wat er is vereist.
--  Onze **handleidingen** te lezen voor gedetailleerde instructies voor alle implementatieopties voor VMware:
-    - Stel de [replicatiebron](vmware-azure-set-up-source.md) en de [configuratieserver](vmware-azure-deploy-configuration-server.md) in.
-    - Stel het [replicatiedoel](vmware-azure-set-up-target.md) in.
-    - Configureer een [replicatiebeleid](vmware-azure-set-up-replication.md) en schakel [replicatie in](vmware-azure-enable-replication.md).
 - In deze zelfstudie laten we zien u hoe u een enkele virtuele machine repliceert. Als u meerdere virtuele machines implementeert moet u de [Tool voor implementatieplanning](https://aka.ms/asr-deployment-planner) om u te helpen bij uw implementatie plannen. [Meer informatie](site-recovery-deployment-planner.md) over dit hulpprogramma.
 
 En bekijk deze tips:
-- Deze zelfstudie gebruikt een OVA-sjabloon om de VM van de VMware-configuratieserver te maken. Als dit niet mogelijk, voert u de [deze instructins](physical-manage-configuration-server.md) handmatig instellen van de configuratieserver.
+- Deze zelfstudie gebruikt een OVA-sjabloon om de VM van de VMware-configuratieserver te maken. Als dit niet mogelijk, voert u de [deze instructies](physical-manage-configuration-server.md) handmatig instellen van de configuratieserver.
 - In deze zelfstudie wordt MySQL met behulp van Site Recovery op de configuratieserver gedownload en geïnstalleerd. Als u liever, kunt u dit handmatig instellen in plaats daarvan. [Meer informatie](vmware-azure-deploy-configuration-server.md#configure-settings).
   >U kunt de nieuwste versie van de configuratieserversjabloon rechtstreeks downloaden vanuit het [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
   De licentie die is opgegeven met behulp van OVF-sjabloon is een van de evaluatielicentie is geldig gedurende 180 dagen. Windows die wordt uitgevoerd op de virtuele machine moet worden geactiveerd met de vereiste licentie. 

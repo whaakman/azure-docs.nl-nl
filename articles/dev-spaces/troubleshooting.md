@@ -9,16 +9,18 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898079"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339581"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
 Deze handleiding bevat informatie over veelvoorkomende problemen die mogelijk hebt u bij het gebruik van Azure Dev spaties.
+
+Als u een probleem opgetreden hebt bij het gebruik van Azure Dev spaties, maakt u een [probleem in de Azure Dev spaties GitHub-opslagplaats](https://github.com/Azure/dev-spaces/issues).
 
 ## <a name="enabling-detailed-logging"></a>Gedetailleerde logboekregistratie inschakelen
 
@@ -262,11 +264,13 @@ az provider register --namespace Microsoft.DevSpaces
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Ontwikkel opslagruimten een time-out optreedt bij *wacht op build van container-installatiekopie...*  stap met virtuele AKS-knooppunten
 
 ### <a name="reason"></a>Reden
-Dit treedt op wanneer u probeert te ontwikkelen opslagruimten gebruiken om uit te voeren van een service die is geconfigureerd om te worden uitgevoerd op een [AKS virtueel knooppunt](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Ontwikkel opslagruimten biedt momenteel geen ondersteuning het bouwen of het opsporen van fouten in services op virtuele-knooppunten.
+Deze time-out treedt op wanneer u probeert te ontwikkelen opslagruimten gebruiken om uit te voeren van een service die is geconfigureerd om te worden uitgevoerd op een [AKS virtueel knooppunt](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Ontwikkel opslagruimten biedt momenteel geen ondersteuning het bouwen of het opsporen van fouten in services op virtuele-knooppunten.
 
 Als u `azds up` met de `--verbose` switch of uitgebreide logboekregistratie van inschakelen in Visual Studio ziet u aanvullende details:
 
 ```cmd
+$ azds up --verbose
+
 Installed chart in 2s
 Waiting for container image build...
 pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
@@ -274,7 +278,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-U ziet dat de schil van de service is toegewezen aan *virtuele-knooppunt-aci-linux*, dit is een virtueel knooppunt.
+De bovenstaande opdracht laat zien dat de schil van de service is toegewezen aan *virtuele-knooppunt-aci-linux*, dit is een virtueel knooppunt.
 
 ### <a name="try"></a>Probeer:
 Bijwerken van de Helm-diagram voor de service verwijdert *nodeSelector* en/of *tolerations* waarden waarmee de service uit te voeren op een virtuele-knooppunt. Deze waarden worden gewoonlijk gedefinieerd in de grafiek `values.yaml` bestand.

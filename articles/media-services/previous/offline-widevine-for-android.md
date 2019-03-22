@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: bf2f2db57f33645389fd751c8c00f9f135416c50
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 9570982e18f2698400c2798dd3e29b0ca6160b8c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864130"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309739"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine streaming voor Android  
 
@@ -153,7 +153,7 @@ Als u een upgrade uitvoert op uw mobiele browser Chrome v62 (of hoger) op een An
 
 De bovenstaande open-source PWA app is geschreven in Node.js. Als u wilt voor het hosten van uw eigen versie op een Ubuntu-server, houd rekening met de volgende algemene problemen opgetreden waardoor de afspelen:
 
-1. CORS-probleem: Het voorbeeld video in de voorbeeld-app wordt gehost in https://storage.googleapis.com/biograf-video-files/videos/. Google heeft CORS ingesteld voor alle van de test-voorbeelden die worden gehost in Google Cloud Storage bucket. Ze worden bediend met CORS-headers, expliciet opgeven van de CORS-vermelding: https://biograf-155113.appspot.com (het domein in welke google als host fungeert voor hun voorbeeld) te voorkomen dat toegang door andere sites. Als u probeert, ziet u de volgende HTTP-fout: Kan niet worden geladen https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: geen koptekst 'Access-Control-Allow-Origin' is aanwezig op de aangevraagde resource. Oorsprong 'https://13.85.80.81:8080' is daarom geen toegang hebben. Als een ondoorzichtige antwoord uw behoeften dient, van de aanvraag modus ingesteld op 'niet-cors' voor het ophalen van de resource met CORS uitgeschakeld.
+1. CORS-probleem: Het voorbeeld video in de voorbeeld-app wordt gehost in https://storage.googleapis.com/biograf-video-files/videos/. Google heeft CORS ingesteld voor alle van de test-voorbeelden die worden gehost in Google Cloud Storage bucket. Ze worden bediend met CORS-headers, expliciet opgeven van de CORS-vermelding: https://biograf-155113.appspot.com (het domein in welke google als host fungeert voor hun voorbeeld) te voorkomen dat toegang door andere sites. Als u probeert, ziet u de volgende HTTP-fout: Kan niet worden geladen https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: geen koptekst 'Access-Control-Allow-Origin' is aanwezig op de aangevraagde resource. Oorsprong ' https:\//13.85.80.81:8080' is daarom geen toegang hebben. Als een ondoorzichtige antwoord uw behoeften dient, van de aanvraag modus ingesteld op 'niet-cors' voor het ophalen van de resource met CORS uitgeschakeld.
 2. Certificaatuitgifte: Vanaf Chrome v 58, vereist EME voor Widevine voor HTTPS. Daarom moet u voor het hosten van de voorbeeld-app via HTTPS met een X509 certificaat. Een gebruikelijke testcertificaat werkt niet vanwege de volgende vereisten: U moet een certificaat die voldoen aan de volgende minimumvereisten verkrijgen:
     - Chrome en Firefox vereist SAN-veld alternatieve naam voor instelling bestaan in het certificaat
     - Het certificaat moet vertrouwd CA hebt en een zelfondertekend ontwikkelingscertificaat werkt niet

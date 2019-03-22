@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: a33001216fb805b700d077aa8c9d42fae9bd6bae
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 704c26670f9fe2a3d7d0011fee4621a8e8c33028
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416799"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314957"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Zelfstudie: Extern bestand coderen op basis van URL en video streamen - REST
 
@@ -189,7 +189,7 @@ U kunt een ingebouwde EncoderNamedPreset gebruiken of aangepaste voorinstellinge
 
 Een [taak](https://docs.microsoft.com/rest/api/media/jobs) is de eigenlijke aanvraag aan Media Services om de gemaakte **transformatie** toe te passen op een bepaalde invoervideo of audio-inhoud. De **taak** bevat informatie zoals de locatie van de invoervideo en de locatie voor de uitvoer.
 
-In dit voorbeeld is de invoer van de taak gebaseerd op een HTTPS-URL (https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/).
+In dit voorbeeld wordt de invoer van de taak is gebaseerd op een HTTPS-URL (' https: \/ /nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/ ').
 
 1. Selecteer in het linkervenster van Postman de optie Encoding and Analysis.
 2. Selecteer vervolgens Create or Update Job.

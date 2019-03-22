@@ -2,7 +2,7 @@
 title: Uw account voor het streamen van offline Widevine beschermde inhoud - Azure configureren
 description: In dit onderwerp laat zien hoe het configureren van Azure Media Services-account voor het streamen van offline van Widevine beschermde inhoud.
 services: media-services
-keywords: DASH, DRM, Widevine Offline modus, ExoPlayer, Android
+keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
 documentationcenter: ''
 author: willzhan
 manager: steveng
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 18c83717e761f22363ccc69c827f5e383f8a9e85
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122297"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312254"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine streaming voor Android
 
@@ -52,7 +52,7 @@ Voordat u implementeert offline DRM voor Widevine op Android-apparaten, moet u e
 - Vertrouwd raken met de Google ExoPlayer-SDK voor Android, een open-source videospeler SDK kan offline Widevine DRM-afspelen ondersteunen. 
     - [ExoPlayer SDK](https://github.com/google/ExoPlayer)
     - [Handleiding voor ontwikkelaars ExoPlayer](https://google.github.io/ExoPlayer/guide.html)
-    - [EoPlayer Ontwikkelaarsblog](https://medium.com/google-exoplayer)
+    - [EoPlayer Developer Blog](https://medium.com/google-exoplayer)
 
 ## <a name="configure-content-protection-in-azure-media-services"></a>Beveiliging van inhoud configureren in Azure Media Services
 
@@ -101,7 +101,7 @@ ExoPlayer versie 2.6 en hoger bevat veel klassen die ondersteuning bieden voor o
 
 De volgende lijst met klassen vereenvoudigt het uitvoeren van offline modus in de ExoPlayer SDK voor Android:
 
-- Library/Core/src/Main/Java/com/Google/android/exoplayer2/DRM/OfflineLicenseHelper.Java  
+- library/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
 - library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
 - library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
 - library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
@@ -110,7 +110,7 @@ De volgende lijst met klassen vereenvoudigt het uitvoeren van offline modus in d
 - library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
 - library/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
 - library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
-- Library/Dash/src/Main/Java/com/Google/android/exoplayer2/Source/Dash/offline/DashDownloader.Java 
+- library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
 
 Ontwikkelaars moeten verwijzen naar de [ExoPlayer Ontwikkelaarshandleiding voor](https://google.github.io/ExoPlayer/guide.html) en de bijbehorende [Ontwikkelaarsblog](https://medium.com/google-exoplayer) tijdens de ontwikkeling van een toepassing. Google is een volledig gedocumenteerde referentie-implementatie of voorbeeld-code voor de ExoPlayer app offline Widevine op dit moment ondersteunen, zodat de informatie beperkt tot de ontwikkelaars handleiding en blog is niet vrijgegeven. 
 
@@ -144,7 +144,7 @@ Als u een upgrade uitvoert op uw mobiele browser Chrome v62 (of hoger) op een An
 
 De bovenstaande open-source PWA app is geschreven in Node.js. Als u wilt voor het hosten van uw eigen versie op een Ubuntu-server, houd rekening met de volgende algemene problemen opgetreden waardoor de afspelen:
 
-1. CORS-probleem: Het voorbeeld video in de voorbeeld-app wordt gehost in https://storage.googleapis.com/biograf-video-files/videos/. Google heeft CORS ingesteld voor alle van de test-voorbeelden die worden gehost in Google Cloud Storage bucket. Ze worden bediend met CORS-headers, expliciet opgeven van de CORS-vermelding: https://biograf-155113.appspot.com (het domein in welke google als host fungeert voor hun voorbeeld) te voorkomen dat toegang door andere sites. Als u probeert, ziet u de volgende HTTP-fout: Kan niet worden geladen https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: geen koptekst 'Access-Control-Allow-Origin' is aanwezig op de aangevraagde resource. Oorsprong 'https://13.85.80.81:8080' is daarom geen toegang hebben. Als een ondoorzichtige antwoord uw behoeften dient, van de aanvraag modus ingesteld op 'niet-cors' voor het ophalen van de resource met CORS uitgeschakeld.
+1. CORS-probleem: Het voorbeeld video in de voorbeeld-app wordt gehost in https://storage.googleapis.com/biograf-video-files/videos/. Google heeft CORS ingesteld voor alle van de test-voorbeelden die worden gehost in Google Cloud Storage bucket. Ze worden bediend met CORS-headers, expliciet opgeven van de CORS-vermelding: https://biograf-155113.appspot.com (het domein in welke google als host fungeert voor hun voorbeeld) te voorkomen dat toegang door andere sites. Als u probeert, ziet u de volgende HTTP-fout: Kan niet worden geladen https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: geen koptekst 'Access-Control-Allow-Origin' is aanwezig op de aangevraagde resource. Oorsprong ' https:\//13.85.80.81:8080' is daarom geen toegang hebben. Als een ondoorzichtige antwoord uw behoeften dient, van de aanvraag modus ingesteld op 'niet-cors' voor het ophalen van de resource met CORS uitgeschakeld.
 2. Certificaatuitgifte: Vanaf Chrome v 58, vereist EME voor Widevine voor HTTPS. Daarom moet u voor het hosten van de voorbeeld-app via HTTPS met een X509 certificaat. Een gebruikelijke testcertificaat werkt niet vanwege de volgende vereisten: U moet een certificaat die voldoen aan de volgende minimumvereisten verkrijgen:
     - Chrome en Firefox vereist SAN-veld alternatieve naam voor instelling bestaan in het certificaat
     - Het certificaat moet vertrouwd CA hebt en een zelfondertekend ontwikkelingscertificaat werkt niet
@@ -189,9 +189,9 @@ Beide beveiligingsniveaus worden gedefinieerd door Google Widevine. Het verschil
 
 | **Beveiligingsniveaus die zijn gedefinieerd in Widevine-architectuur** |**Beveiligingsniveaus die worden gebruikt in Widevine API**|
 |---|---| 
-| **Beveiligingsniveau 1**: Alle inhoud verwerken, cryptografie en controle worden uitgevoerd binnen de vertrouwde uitvoering omgeving (t). In sommige modellen implementatie kan verwerkingsinterval worden uitgevoerd in verschillende chips.|**security_level = 5**: De cryptografische decoderen en alle verwerkingstijd van de media (gecomprimeerde en ongecomprimeerde) moeten worden verwerkt binnen een hardware t ondersteund.<br/><br/>**security_level = 4**: De cryptografische en decoderen van de inhoud moeten worden uitgevoerd binnen een hardware t ondersteund.|
-**Beveiligingsniveau 2**: Cryptografie (maar niet videoverwerking) uitgevoerd binnen de t: ontsleutelde buffers zijn geretourneerd naar het toepassingsdomein en verwerkt door de afzonderlijke video hardware of software. Op het niveau van 2, echter is cryptografische informatie nog steeds verwerkt alleen in de t.| **security_level = 3**: Het sleutelmateriaal en cryptografische bewerkingen moeten worden uitgevoerd binnen een hardware t ondersteund. |
-| **Beveiligingsniveau 3**: Geen een t niet op het apparaat. De gecodeerde gegevens en de ontsleutelde inhoud op het hostbesturingssysteem te beschermen mogelijk passende maatregelen worden getroffen. Een niveau 3-implementatie mogelijk ook een cryptografische hardware-engine, maar die alleen verbetert de prestaties, niet voor beveiliging. | **security_level = 2**: Crypto-software en een verborgen decoder zijn vereist.<br/><br/>**security_level = 1**: Op basis van software whitebox crypto is vereist.|
+| **Beveiligingsniveau 1**: Alle inhoud verwerken, cryptografie en controle worden uitgevoerd binnen de vertrouwde uitvoering omgeving (t). In sommige modellen implementatie kan verwerkingsinterval worden uitgevoerd in verschillende chips.|**security_level=5**: De cryptografische decoderen en alle verwerkingstijd van de media (gecomprimeerde en ongecomprimeerde) moeten worden verwerkt binnen een hardware t ondersteund.<br/><br/>**security_level=4**: De cryptografische en decoderen van de inhoud moeten worden uitgevoerd binnen een hardware t ondersteund.|
+**Beveiligingsniveau 2**: Cryptografie (maar niet videoverwerking) uitgevoerd binnen de t: ontsleutelde buffers zijn geretourneerd naar het toepassingsdomein en verwerkt door de afzonderlijke video hardware of software. Op het niveau van 2, echter is cryptografische informatie nog steeds verwerkt alleen in de t.| **security_level=3**: Het sleutelmateriaal en cryptografische bewerkingen moeten worden uitgevoerd binnen een hardware t ondersteund. |
+| **Beveiligingsniveau 3**: Geen een t niet op het apparaat. De gecodeerde gegevens en de ontsleutelde inhoud op het hostbesturingssysteem te beschermen mogelijk passende maatregelen worden getroffen. Een niveau 3-implementatie mogelijk ook een cryptografische hardware-engine, maar die alleen verbetert de prestaties, niet voor beveiliging. | **security_level=2**: Crypto-software en een verborgen decoder zijn vereist.<br/><br/>**security_level=1**: Op basis van software whitebox crypto is vereist.|
 
 ### <a name="question"></a>Vraag
 

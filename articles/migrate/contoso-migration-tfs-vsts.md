@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 8098196abc415dedba392737fc17a4de5739339d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 21396a10543d388b6ac360f426272f1841b2f510
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100237"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314107"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migratie van Contoso:  Een Team Foundation Server-implementatie herstructureren in Azure DevOps Services
 
@@ -156,7 +156,7 @@ Contoso-beheerders het TFS-hulpprogramma voor migratie voor de database van de v
 
 2. Ze Voer het hulpprogramma voor het uitvoeren van de validatie, met de URL van de projectverzameling op te geven:
 
-        **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev**
+   **TfsMigrator /collection:http valideren:\//contosotfs:8080/tfs/ContosoDev**
 
 
 3. Het hulpprogramma toont een fout.
@@ -175,7 +175,7 @@ Contoso-beheerders het TFS-hulpprogramma voor migratie voor de database van de v
 
      ![TFS](./media/contoso-migration-tfs-vsts/collection5.png)
 
-6. Ze voert de opdracht van de validatie opnieuw uit, en voeg deze waarde, samen met hun Azure AD-naam: **TfsMigrator/Collection valideren:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
+6. Ze voert de opdracht van de validatie opnieuw uit, en voeg deze waarde, samen met hun Azure AD-naam: **TfsMigrator /collection:http valideren:\//contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection7.png)
 
@@ -195,7 +195,7 @@ Met de validatie is voltooid, Contoso-beheerders het TFS-hulpprogramma voor migr
 
 1. Ze de voorbereidingsstap in het hulpprogramma worden uitgevoerd.
 
-    **TfsMigrator/Collection voorbereiden:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
+    **TfsMigrator /collection:http voorbereiden:\//contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
 
      ![Voorbereiden](./media/contoso-migration-tfs-vsts/prep1.png)
 

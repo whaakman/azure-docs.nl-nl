@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beschrijving van de processen die power Azure Dev spaties en hoe ze zijn geconfigureerd in het configuratiebestand azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 4d0b2d24335b03fb1afc729e4cb8f7fc07f8a77e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8d17be31acc6868399e8f785255d28fa2314d48c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456872"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316113"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hoe Azure Dev spaties werkt en is geconfigureerd
 
@@ -59,7 +59,7 @@ De client-side-tooling kan de gebruiker:
 
 Terwijl uw toepassing wordt uitgevoerd, de client-hulpprogramma's ook:
 * Ontvangt en stdout en stderr van uw toepassing die wordt uitgevoerd in AKS worden weergegeven.
-* Maakt gebruik van [poort-zone voor forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) web toegang tot uw toepassing met http://locahost.
+* Maakt gebruik van [poort-zone voor forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) web toegang tot uw toepassing met behulp van http:\//localhost.
 * Een foutopsporingsprogramma koppelt aan de toepassing wordt uitgevoerd in AKS.
 * Synchronisaties broncode naar de adresruimte van uw dev wanneer een wijziging wordt gedetecteerd voor incrementele builds, waardoor een snelle iteratie.
 

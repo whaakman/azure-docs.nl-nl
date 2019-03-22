@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 512e07f2892f9c4adf47956d3a5b07debf870e46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 637ec63d1c3e5a3eb1ce26765b1ab22e9823e9a1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849904"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317422"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Ondersteuningsmatrix voor Azure VM backup
 U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises computers en werkbelastingen en virtuele Azure-machines (VM's). In dit artikel bevat een overzicht van instellingen voor de ondersteuning en beperkingen wanneer u back-up van virtuele Azure-machines met Azure Backup.
@@ -82,6 +82,7 @@ Voor back-ups van Azure virtuele machine Linux, Azure Backup biedt ondersteuning
 - Azure Backup biedt geen ondersteuning voor Core OS Linux.
 - Azure Backup biedt geen ondersteuning voor 32-bits besturingssystemen.
 - Andere bring-your-own Linux-distributies werken mogelijk, zolang de [Azure VM-agent voor Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) is beschikbaar op de virtuele machine en zolang ondersteuning biedt voor Python.
+- Azure Backup biedt geen ondersteuning voor virtuele machine met  **Python versie 2.6* alleen** met proxy is geconfigureerd.
 
 
 

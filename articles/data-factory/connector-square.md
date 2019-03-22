@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 68ac03a8aba4042a842b5e740d67ab4198236275
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013159"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317716"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Gegevens kopiëren van een vierkant met Azure Data Factory (Preview)
 
@@ -48,7 +48,7 @@ De volgende eigenschappen worden ondersteund voor vierkante gekoppelde service:
 | host | De URL van het vierkant exemplaar. (dat wil zeggen mystore.mysquare.com)  | Ja |
 | ClientId | De client-ID die is gekoppeld aan uw vierkante toepassing.  | Ja |
 | ClientSecret | Het clientgeheim die zijn gekoppeld aan uw vierkante toepassing. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| redirectUri | De omleidings-URL in het vierkante dashboard hebt toegewezen. (d.w.z.) http://localhost:2500)  | Ja |
+| redirectUri | De omleidings-URL in het vierkante dashboard hebt toegewezen. (dat wil zeggen http:\//localhost:2500)  | Ja |
 | useEncryptedEndpoints | Hiermee geeft u op of de eindpunten van de gegevensbron zijn versleuteld met behulp van HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Hiermee geeft u op of de hostnaam van de in het certificaat van de server zodat deze overeenkomen met de hostnaam van de server wanneer u verbinding maakt via SSL vereist. De standaardwaarde is true.  | Nee |
 | usePeerVerification | Hiermee geeft u op of u wilt controleren of de identiteit van de server wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |

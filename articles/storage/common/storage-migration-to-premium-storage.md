@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 5f2052576d0c6a1e663e3b84534fa0784a26e175
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006507"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317354"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migreren naar Azure Premium Storage (niet-beheerde schijven)
 
@@ -158,7 +158,7 @@ Maak een opslagaccount voor het onderhouden van uw VHD's. Houd rekening met de v
 Een gegevensschijf kunt u enkele gegevensschijven los bewaren in een standard storage-account (bijvoorbeeld schijven met minder dynamische opslag), maar we raden u om alle gegevens voor productie-werkbelasting gebruik van premium-opslag te verplaatsen.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Stap 3. Kopieer de VHD met het AzCopy- of PowerShell
-U moet uw container pad en opslagaccountsleutel voor het verwerken van een van deze twee opties gevonden. Container pad en de opslagaccountsleutel vindt u **Azure Portal** > **opslag**. De URL wordt dan zoals container 'https://myaccount.blob.core.windows.net/mycontainer/'.
+U moet uw container pad en opslagaccountsleutel voor het verwerken van een van deze twee opties gevonden. Container pad en de opslagaccountsleutel vindt u **Azure Portal** > **opslag**. De URL wordt dan zoals container ' https:\//myaccount.blob.core.windows.net/mycontainer/ '.
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Optie 1: Kopieer geen VHD met AzCopy (asynchrone kopiëren)
 Met behulp van AzCopy, u kunt eenvoudig de VHD uploaden via Internet. Dit kan tijd duren, afhankelijk van de grootte van de VHD's. Vergeet niet om te controleren of limieten Inkomend/uitgaand verkeer van het opslagaccount wanneer u deze optie. Zie [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) voor meer informatie.

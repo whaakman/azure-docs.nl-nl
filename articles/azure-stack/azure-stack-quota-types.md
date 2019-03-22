@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 7872ed2c9d6f094907ae4d11adef6bc7a99be8e4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782884"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339546"
 ---
 # <a name="quota-types-in-azure-stack"></a>Quotatypen in Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "57782884"
 
 [Quota](azure-stack-plan-offer-quota-overview.md#plans) bepalen de grenzen van de resources die een gebruikersabonnement kunt inrichten of gebruiken. Een quotum kunt bijvoorbeeld een gebruiker kan maximaal vijf virtuele machines maken. Elke resource kan een eigen typen quota's hebben.
 
-## <a name="compute-quota-types"></a>COMPUTE quotatypen 
+## <a name="compute-quota-types"></a>COMPUTE quotatypen
 
 | **Type** | **Standaardwaarde** | **Beschrijving** |
 | --- | --- | --- |
@@ -40,16 +40,15 @@ ms.locfileid: "57782884"
 | Maximale capaciteit (in GB) van de standard-beheerde schijven | 2048 | De maximale capaciteit van standard beheerde schijven die kunnen worden gemaakt op deze locatie. |
 | Maximale capaciteit (in GB) van de premium-beheerde schijf | 2048 | De maximale capaciteit van premium beheerde schijven die kunnen worden gemaakt op deze locatie. |
 
-## <a name="storage-quota-types"></a>Opslagtypen quotum 
+## <a name="storage-quota-types"></a>Opslagtypen quotum
 
 | **Item** | **Standaardwaarde** | **Beschrijving** |
 | --- | --- | --- |
-| Maximale capaciteit (GB) |2048 |Totale capaciteit (met inbegrip van blobs en alle assiociated momentopnamen, tabellen en wachtrijen) die kan worden gebruikt door een abonnement op deze locatie. |
+| Maximale capaciteit (GB) |2048 |Totale capaciteit (met inbegrip van blobs en alle bijbehorende momentopnamen, tabellen en wachtrijen) die kan worden gebruikt door een abonnement op deze locatie. |
 | Totale aantal opslagaccounts |20 |Het maximale aantal opslagaccounts die een abonnement op deze locatie maken kunt. |
 
 > [!NOTE]  
 > Het kan maximaal twee uur duren voordat een opslaglimiet wordt afgedwongen.
-
 
 ## <a name="network-quota-types"></a>Netwerk quotatypen
 
@@ -69,10 +68,10 @@ Er zijn twee verschillende manieren om een bestaande quotum weer te geven:
 
 ### <a name="plans"></a>Abonnementen
 
-1.  Selecteer in het navigatiedeelvenster links in de beheerdersportal, **plannen**.
-2.  Selecteer het abonnement dat u wilt weergeven van details voor, door te klikken op de naam ervan.
-3.  Selecteer in de blade die wordt geopend, **Services en quota**.
-4.  Selecteer de quota die u graag zou zien willen door te klikken op in de **naam** kolom.
+1. Selecteer in het navigatiedeelvenster links in de beheerdersportal, **plannen**.
+2. Selecteer het abonnement dat u wilt weergeven van details voor, door te klikken op de naam ervan.
+3. Selecteer in de blade die wordt geopend, **Services en quota**.
+4. Selecteer de quota die u graag zou zien willen door te klikken op in de **naam** kolom.
 
     [![Quota](media/azure-stack-quota-types/quotas1sm.png "quota weergeven")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
@@ -88,14 +87,14 @@ Er zijn twee verschillende manieren een quotum bewerken:
 
 ### <a name="edit-a-plan"></a>Een abonnement bewerken
 
-1.  Selecteer in het navigatiedeelvenster links in de beheerdersportal, **plannen**.
-2.  Selecteer het abonnement waarvoor u een quotum bewerken wilt door te klikken op de naam ervan.
-3.  Selecteer in de blade die wordt geopend, **Services en quota**.
-4.  Selecteer de quota die u bewerken wilt door erop te klikken in de **naam** kolom.
+1. Selecteer in het navigatiedeelvenster links in de beheerdersportal, **plannen**.
+2. Selecteer het abonnement waarvoor u een quotum bewerken wilt door te klikken op de naam ervan.
+3. Selecteer in de blade die wordt geopend, **Services en quota**.
+4. Selecteer de quota die u bewerken wilt door erop te klikken in de **naam** kolom.
     [![Quota](media/azure-stack-quota-types/quotas1sm.png "quota weergeven")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
-5.  Selecteer in de blade die wordt geopend, **bewerken in Compute**, **bewerken in het netwerk**, of **bewerken in de opslag**.
-    ![Quota](media/azure-stack-quota-types/quotas3.png "quota weergeven")    
+5. Selecteer in de blade die wordt geopend, **bewerken in Compute**, **bewerken in het netwerk**, of **bewerken in de opslag**.
+    ![Quota](media/azure-stack-quota-types/quotas3.png "quota weergeven")
 
 U kunt ook kunt u deze procedure voor het bewerken van een quotum volgen:
 
@@ -106,9 +105,9 @@ U kunt ook kunt u deze procedure voor het bewerken van een quotum volgen:
 
 ### <a name="edit-original-configuration"></a>Oorspronkelijke configuratie bewerken
   
-U kunt kiezen om de oorspronkelijke configuratie van een quotum in plaats van bewerken [met behulp van een aanvullende plan](create-add-on-plan.md). Wanneer u een quotum hebt bewerkt, de nieuwe configuratie automatisch is van toepassing globaal op alle abonnementen die gebruikmaken van quotum en alle bestaande abonnementen die gebruikmaken van deze abonnementen. Het bewerken van een quotum is anders dan wanneer u een aanvullende plan gebruiken voor een gewijzigde quotum, die een gebruiker ervoor kiest om u te abonneren op. 
+U kunt kiezen om de oorspronkelijke configuratie van een quotum in plaats van bewerken [met behulp van een aanvullende plan](create-add-on-plan.md). Wanneer u een quotum hebt bewerkt, de nieuwe configuratie automatisch is van toepassing globaal op alle abonnementen die gebruikmaken van quotum en alle bestaande abonnementen die gebruikmaken van deze abonnementen. Het bewerken van een quotum is anders dan wanneer u een aanvullende plan gebruiken voor een gewijzigde quotum, die een gebruiker ervoor kiest om u te abonneren op.
 
-De nieuwe waarden voor het quotum van toepassing op alle abonnementen die gebruikmaken van het gewijzigde quotum en voor alle bestaande abonnementen die gebruikmaken van deze plannen. 
+De nieuwe waarden voor het quotum van toepassing op alle abonnementen die gebruikmaken van het gewijzigde quotum en voor alle bestaande abonnementen die gebruikmaken van deze plannen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

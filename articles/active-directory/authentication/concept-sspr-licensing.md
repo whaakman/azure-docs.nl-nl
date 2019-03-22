@@ -1,5 +1,5 @@
 ---
-title: Licentie voor Azure Active Directory Self-service voor wachtwoord
+title: Licentie Self-service voor wachtwoord opnieuw instellen - Azure Active Directory
 description: Azure AD-selfservice wachtwoord opnieuw instellen van licentievereisten duidelijk zijn
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13f8d04a5e59092ee5173e8c1a446385b71faac2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5e4e32aef97d406fa47a2ccfe8cddb12b97ff088
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201581"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316844"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Vereisten voor licentieverlening voor Azure AD Self-service voor wachtwoord opnieuw instellen
 

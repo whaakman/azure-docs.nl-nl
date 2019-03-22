@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 3d99ea5767c7b2e62f7228440201b4a9b6593b02
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136597"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313614"
 ---
 # <a name="what-is-project-acoustics"></a>Wat is Project Acoustics?
 Project akoestische is een engine voor het akoestische van wave voor 3D-interactieve ervaringen. Deze wave effecten als diffraction, portaling en weerklank effecten in complexe schermen zonder handmatige zone markup-modellen. Dit omvat ook game-engine en audio middleware-integratie. Project akoestische filosofie is vergelijkbaar met statische verlichting: gedetailleerde physics offline maken voor een fysieke basislijn en gebruikt een lichtgewicht runtime met expressieve ontwerp besturingselementen om uw artistieke doelstellingen te behalen.
 
-![Ontwerpweergave](media/gears-with-voxels.jpg)
+![Schermafdruk van Gears of War 4 akoestische voxels weergeven](media/gears-with-voxels.jpg)
 
 ## <a name="using-wave-physics-for-interactive-acoustics"></a>Met behulp van wave physics voor interactieve akoestische
 Op basis van ray akoestische methoden kunnen controleren met behulp van één bron-naar-listener ray cast bedekking of weerklank door het schatten van de lokale scène volume met een paar stralen station. Maar deze technieken onbetrouwbare kunnen zijn omdat een pebble occludes zo veel een boulder. Stralen account geen voor de manier waarop geluid bochten om objecten, een verschijnsel diffraction genoemd. Project akoestische simulatie bevat deze effecten met behulp van een simulatie op basis van wave. Het resultaat is beter voorspelbare en betrouwbare.
 
 Project akoestische belangrijke innovatie is het paar akoestische simulatie met traditionele, gezonde ontwerpconcepten. Zet simulatieresultaten in traditionele audio DSP-parameters voor bedekking, portaling en weerklank. Controle van dit proces pakketvertaling maakt gebruik van de ontwerpfunctie. Voor meer informatie over de belangrijkste technologieën achter Project akoestische, gaat u naar de [research-projectpagina](https://www.microsoft.com/en-us/research/project/project-triton/).
 
-![Ontwerpweergave](media/wave-simulation.gif)
+![Een horizontale 2D-segment van wave doorgeven via een scène met animatie](media/wave-simulation.gif)
 
 ## <a name="setup"></a>Instellen
 [Akoestische Unity-integratie van project](unity-integration.md) slepen en neerzetten en is voorzien van een invoegtoepassing van de audio-engine Unity. De Unity-besturingselementen voor audio gegevensbronnen verbeteren door het koppelen van een Project akoestische C# onderdeel van de besturingselementen op elk audio-object.
@@ -46,8 +46,11 @@ De runtime-Project akoestische invoegtoepassingen kan op dit moment worden geïm
 * Xbox One
 
 ## <a name="download"></a>Downloaden
-* [Project akoestische invoegtoepassingen en -voorbeelden](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Project akoestische Unity-invoegtoepassing en voorbeelden](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Project akoestische Unreal & Wwise-invoegtoepassingen en -voorbeelden](https://www.microsoft.com/download/details.aspx?id=58090)
   * Voor binaire bestanden voor Xbox en ondersteuning contact met ons opnemen via de registreren onderstaande formulier
+
+## <a name="contact-us"></a>Contact opnemen
 * [Project akoestische forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
 * [Zich registreren voor het ontvangen van updates op het Project akoestische](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 

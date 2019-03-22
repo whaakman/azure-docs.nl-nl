@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882872"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339632"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Diagnostische logboekregistratie inschakelen voor apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -115,7 +115,7 @@ De logboekbestanden met behulp van de Azure-opdrachtregelinterface downloaden, o
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-Deze opdracht slaat u de logboeken voor de app met de naam 'appname' naar een bestand met de naam **diagnostics.zip** in de huidige map.
+Deze opdracht slaat u de logboeken voor de app met de naam 'appname' naar een bestand met de naam **webapp_logs.zip** in de huidige map.
 
 > [!NOTE]
 > Als u Azure CLI nog niet hebt geïnstalleerd, of nog niet hebt geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [over het gebruik van Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).

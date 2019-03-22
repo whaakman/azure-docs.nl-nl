@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 5ac05991bc79dcfd24a527a13084b3a9383b4839
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b67f3c590be290515329af390b4d3d79a9746112
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903981"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339224"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Aanmelden voor Office 365-abonnement met uw Azure-account
 Als u Azure-abonnee bent, kunt u uw Azure-account om u te registreren voor een Office 365-abonnement. Als u deel uitmaakt van een organisatie met een Azure-abonnement bent, kunt u Office 365-abonnementen voor gebruikers in uw bestaande Azure Active Directory (Azure AD). Meld u aan bij Office 365 met een account met globale beheerder of factureringsbeheerder machtigingen in uw Azure Active Directory-tenant. Zie voor meer informatie, [Controleer de accountmachtigingen van mijn in Azure AD](#RoleInAzureAD) en [beheerdersrollen toewijzen in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -43,12 +43,13 @@ Als u al een Office 365-account en een Azure-abonnement hebt, kunt u [een Office
 
     ![Schermopname van het ontvangstbewijs Office 365](./media/billing-use-existing-azure-account-office-365-subscription/15-office-365-order-receipt.png)
 
-Nu bent nu u klaar. Als u het Office 365-abonnement voor uw organisatie hebt gemaakt, gebruikt u de volgende stappen uit om te controleren of uw Azure AD-gebruikers zich nu in Office 365.
+Nu bent nu u klaar.
+Als u het Office 365-abonnement voor uw organisatie hebt gemaakt, gebruikt u de volgende stappen uit om te controleren of uw Azure AD-gebruikers zich nu in Office 365.
 
-1. De Office 365-beheercentrum te openen.
+1. De Microsoft 365-beheercentrum te openen.
 2. Vouw **gebruikers**, en klik vervolgens op **actieve gebruikers**.
 
-    ![Schermafbeelding van de gebruikers van Office 365 admin center](./media/billing-use-existing-azure-account-office-365-subscription/16-office-365-admin-center-users.png)
+    ![Schermafbeelding van de gebruikers van Microsoft 365 admin center](./media/billing-use-existing-azure-account-office-365-subscription/16-microsoft-365-admin-center-users.png)
 
 Nadat u bent aangemeld, wordt het Office 365-abonnement wordt toegevoegd aan hetzelfde exemplaar van Azure Active Directory dat uw Azure-abonnement behoort. Zie voor meer informatie, [meer over Azure en Office 365-abonnementen](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) en [hoe Azure-abonnementen zijn gekoppeld aan Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -58,12 +59,12 @@ Nadat u bent aangemeld, wordt het Office 365-abonnement wordt toegevoegd aan het
 
     ![Schermafbeelding van de Active Directory in Azure portal](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Klik op **gebruikers en groepen** > **alle gebruikers**.
-4. Selecteer de naam van de gebruiker. 
+4. Selecteer de naam van de gebruiker.
 
     ![Schermafbeelding van de Azure Active Directory-gebruikers](./media/billing-use-existing-azure-account-office-365-subscription/billing-users-groups.png)
 
 5. Klik op **maprol**.
-  
+
     ![Schermafbeelding van de rol van de directory van Azure portal](./media/billing-use-existing-azure-account-office-365-subscription/billing-user-directory-role.png)
 6.  De rol **hoofdbeheerder** of **beperkte beheerder** > **factureringsbeheerder** is vereist voor het maken van een Office 365-abonnement voor gebruikers in uw bestaande Azure Active Directory.
 
@@ -71,4 +72,4 @@ Nadat u bent aangemeld, wordt het Office 365-abonnement wordt toegevoegd aan het
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458). 
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

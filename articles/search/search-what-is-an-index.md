@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 1a07661d97561319b847323981dd2aa8522b0e84
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537589"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337864"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Maak een eenvoudige index in Azure Search
 
@@ -46,7 +46,7 @@ Die binnenkomen in de juiste index-ontwerp wordt normaal gesproken via meerdere 
 
 6. Doorgaan met behulp van code om te herhalen uw ontwerp.  
 
-Omdat fysieke structuren zijn gemaakt in de service [verwijderen en opnieuw maken van indexen](search-howto-reindex.md) is noodzakelijk wanneer u er belangrijke wijzigingen in bestaande velddefinitie ab aanbrengen. Dit betekent dat tijdens de ontwikkeling, u van plan frequente opnieuw op te bouwen bent moet. U kunt overwegen werken met een subset van uw gegevens om te maken van opnieuw gebouwde go sneller. 
+Omdat fysieke structuren zijn gemaakt in de service [verwijderen en opnieuw maken van indexen](search-howto-reindex.md) is noodzakelijk wanneer u er belangrijke wijzigingen in de definitie van een bestaande veld aanbrengen. Dit betekent dat tijdens de ontwikkeling, u van plan frequente opnieuw op te bouwen bent moet. U kunt overwegen werken met een subset van uw gegevens om te maken van opnieuw gebouwde go sneller. 
 
 Code, in plaats van een portal-benadering wordt aanbevolen voor terugkerende ontwerp. Als u zich op de portal voor de definitie van de index baseert, heeft u om de definitie van de index op elke opnieuw in te vullen. Als alternatief, hulpprogramma's zoals [Postman en de REST-API](search-fiddler.md) zijn handig voor het testen van proof of concept wanneer ontwikkelingsprojecten zich nog steeds in de eerste fasen. U kunt incrementele wijzigingen aanbrengen in de indexdefinitie van een in de hoofdtekst van de aanvraag, en vervolgens de aanvraag te verzenden naar uw service opnieuw maken van een index met behulp van een schema bijgewerkt.
 

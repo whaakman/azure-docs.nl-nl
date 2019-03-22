@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: c65ae71350383896c81fd7057d425822069fc5aa
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 57bde67ac2259b3847f59f95eaefba9c6fddf13e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136957"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316198"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Project akoestische Unreal/Wwise ontwerp zelfstudie
 In deze zelfstudie worden de ontwerp-installatie en de werkstroom voor Project akoestische in Unreal en Wwise beschreven.
@@ -35,44 +35,44 @@ Wanneer het Project akoestische actief is er wordt gereageerd op het volume bede
 
 Met deze instelling als de simulatie Project akoestische een bedekking van minimaal-18-dB berekent deze invoer op voor de curve op X = 18, en de bijbehorende Y-waarde is de afname toegepast. Hiertoe halve bedekking, moet u het eindpunt instellen op dB in plaats van-100-dB-50, of in dB-200 exaggerate bedekking. U kunt aanpassen en verfijnen van een curve die geschikt is voor uw game.
  
-![Project bedekking Curve](media/wwise-occlusion-curve.png)
+![Schermafbeelding van Wwise bedekking curve-editor](media/wwise-occlusion-curve.png)
 
 ### <a name="disable-wwise-obstruction-curves"></a>Wwise obstakel curven uitschakelen
 De Wwise obstakel curven invloed hebben op het niveau van de droge geïsoleerd maar Project akoestische maakt gebruik van besturingselementen voor ontwerp en simulatie om af te dwingen NAT/droge ratio's. U wordt aangeraden de curve van obstakel volume uitschakelen. Als u wilt de wetness ontwerpen, Wetness aanpassen control verderop kan worden gebruikt.
  
 Als u obstakel LPF/HPF curven voor andere doeleinden gebruikt, zorg ervoor dat u deze hebt ingesteld op Y = 0 X = 0 (dat wil zeggen, er is geen LPF of HPF als er geen obstakel).
 
-![Project obstakel Curve](media/wwise-obstruction-curve.png)
+![Schermafbeelding van Wwise obstakel curve-editor](media/wwise-obstruction-curve.png)
 
 ### <a name="design-project-acoustics-mixer-parameters"></a>Project akoestische mixer-parameters ontwerpen
 U kunt globale weerklank eigenschappen beheren door naar het tabblad mixer-invoegtoepassing van het Project akoestische Bus te gaan. Dubbelklik op "Project akoestische Mixer (aangepast)" om de mixer-invoegtoepassing instellingen deelvenster te openen.
 
 U ziet ook dat de mixer-invoegtoepassing een optie 'Spatialization uitvoeren heeft'. Als u echter liever van Project akoestische ingebouwde spatialization, schakel het selectievakje 'Spatialization uitvoeren' in en kies uit de HRTF of schuif. Zorg ervoor dat u het uitschakelen van een droge Aux-bussen die u hebt ingesteld, anders u twee keer het pad hoort. Gebruik de 'Wetness aanpassen' en "Weerklank tijd schaalfactor" algemeen beheer op de combinatie weerklank uitoefenen. Houd er rekening mee moet u opnieuw opstarten Unreal en vervolgens opnieuw genereren soundbanks voordat play om op te halen mixer-invoegtoepassing wijzigingen in de configuratie, zoals het selectievakje 'Spatialization uitvoeren' bereikt.
 
-![Opties voor akoestische mixer-invoegtoepassing](media/mixer-plugin-global-settings.png)
+![Schermafbeelding van Project akoestische Wwise mixer-invoegtoepassing opties](media/mixer-plugin-global-settings.png)
 
 ## <a name="set-project-acoustics-design-controls-in-the-wwise-actor-mixer-hierarchy"></a>Set-Project akoestische besturingselementen in de hiërarchie van de actor-mixer Wwise ontwerpen
 De parameters van het besturingselement van een afzonderlijke actor-mixer, dubbelklik op de Actor-Mixer, en klik vervolgens op de tab van Mixer-invoegtoepassing. Hier kunt u moet zich om alle parameters op het niveau van de per-geluid te wijzigen. Deze waarden worden gecombineerd met de labels instellen vanaf de Unreal (Zie hieronder). Bijvoorbeeld, als het Project akoestische Unreal invoegtoepassing Outdoorness aanpassing ingesteld op een object aan 0,5 en Wwise sets die worden-0.25, de resulterende Outdoorness aanpassing toegepast op die goed is 0,25.
 
-![Per geluid Mixer-instellingen](media/per-sound-mixer-settings.png)
+![Schermafbeelding van geluid mixer-instellingen in Wwise actor-mixer hiërarchie per](media/per-sound-mixer-settings.png)
 
 ### <a name="ensure-the-aux-bus-has-dry-send-and-output-bus-has-wet-send"></a>Zorg ervoor dat de bus aux heeft droge verzenden en uitvoer bus heeft NAT verzenden
 Houd er rekening mee dat de installatie vereiste actor-mixer de gebruikelijke uitwisselingen droge routering in Wwise. Het genereert weerklank signaal op de actor-mixer uitvoer-bus (ingesteld op het Project akoestische Bus) en droge signaal langs de gebruiker gedefinieerde aux-bus. Deze routering is vereist om functies van de Wwise mixer-invoegtoepassing API die gebruikmaakt van de invoegtoepassing Project akoestische Wwise.
 
-![Richtlijnen voor het ontwerpen van stem](media/voice-design-guidelines.png)
+![Schermafbeelding van Wwise editor van richtlijnen voor het ontwerpen van stem van Project akoestische](media/voice-design-guidelines.png)
  
 ### <a name="set-up-distance-attenuation-curves"></a>Afstand afname curven instellen
 Zorg ervoor dat eventuele afname curve die worden gebruikt door de actor-mixers met behulp van Project akoestische hebt zelfgedefinieerde aux verzenden is ingesteld op "uitvoer bus volume." Wwise doet dit om de zojuist gemaakte afname curven standaard. Als u een bestaand project migreert bent, Controleer de instellingen van de curve. 
 
 De simulatie Project akoestische heeft standaard een straal van 45 meters om de locatie van de speler. Het algemeen wordt aangeraden de curve afname instelt op-200 dB rond die afstand. Deze afstand is niet een vaste beperking. Voor sommige klinkt wapens kunt u een grotere radius. In dergelijke gevallen is het voorbehoud dat alleen geometrie binnen 45 m van de locatie van de speler wordt opgenomen. Als de speler in een kamer wordt en een geluid bron buiten de ruimte en 100 miljoen opgeslagen is, worden deze goed occluded. Als de bron in een ruimte is en de speler is buiten en 100 miljoen weg, wordt niet deze worden naar behoren occluded.
 
-![Afname curven](media/atten-curve.png)
+![Schermafbeelding van Wwise afname curven](media/atten-curve.png)
 
 ## <a name="set-up-scene-wide-project-acoustics-properties"></a>Scène gehele Project akoestische eigenschappen instellen
 
 De actor akoestische ruimte wordt aangegeven dat veel besturingselementen die het gedrag van het systeem wijzigen en die zijn gebruikt bij het opsporen.
 
-![Akoestische ruimte besturingselementen](media/acoustics-space-controls.png)
+![Schermafbeelding van Unreal akoestische ruimte besturingselementen](media/acoustics-space-controls.png)
 
 * **Akoestische gegevens:** Dit veld moet een actief voltooide akoestische uit de map inhoud/akoestische worden toegewezen. De invoegtoepassing Project akoestische wordt de map inhoud/akoestische automatisch toegevoegd aan de verpakte mappen van uw project.
 * **Grootte van de tegel:** De afmetingen van het gebied rond de listener die u wilt dat akoestische gegevens in het RAM-geheugen geladen. Zolang de listener tests onmiddellijk rond de speler worden geladen in, de resultaten zijn hetzelfde als het laden van akoestische gegevens voor alle tests. Grotere tegels meer RAM-geheugen gebruiken, maar beperken van schijf-i/o
@@ -88,7 +88,7 @@ De actor akoestische ruimte wordt aangegeven dat veel besturingselementen die he
 ## <a name="actor-specific-acoustics-design-controls"></a>Actor-specifieke akoestische ontwerp besturingselementen
 Deze besturingselementen ontwerp zijn gericht op een afzonderlijk onderdeel van de audio in Unreal.
 
-![Besturingselementen voor audio-onderdeel](media/audio-component-controls.png)
+![Schermopname van het onderdeel voor Unreal Audio-besturingselementen](media/audio-component-controls.png)
 
 * **Bedekking vermenigvuldiger:** Hiermee bepaalt u het effect van bedekking. Waarden > 1 bedekking wordt ingegaan. Waarden < 1 wordt worden geminimaliseerd.
 * **Aanpassing van wetness:** Aanvullende weerklank dB
@@ -104,7 +104,7 @@ De actor akoestische ruimte zijn toegankelijk via de blauwdruk, functies, zoals 
 ### <a name="add-finer-grained-control-over-streaming-load"></a>Fijnmaziger controle over het streamen van load toevoegen
 Voor het beheren van de akoestische gegevens streaming zelf in plaats van streaming automatisch op basis van de positie van de speler kunt u de functie van de blauwdruk Force Load tegel:
 
-![B-P Streaming](media/blueprint-streaming.png)
+![Schermafbeelding van de blauwdruk Streaming opties in Unreal](media/blueprint-streaming.png)
 
 * **Doel:** De actor AcousticsSpace
 * **Center positie:** Het midden van de regio waarvoor gegevens worden geladen
@@ -113,12 +113,12 @@ Voor het beheren van de akoestische gegevens streaming zelf in plaats van stream
 
 Blokgrootte moet al worden ingesteld voordat u aanroept Force Load tegel. U kunt bijvoorbeeld, er ongeveer als volgt een ACE-bestand laden, het instellen van de grootte van uw tegel en het streamen in een regio doen:
 
-![Streaming Setup](media/streaming-setup.png)
+![Schermafbeelding van de Streaming-Setup-opties in Unreal](media/streaming-setup.png)
 
 ### <a name="optionally-query-for-surface-proximity"></a>(Optioneel) een query voor surface nabijheid
 Als u wilt zien hoe dicht oppervlakken zijn in een bepaalde richting rond de listener, kunt u de Query afstand-functie. Deze functie kan nuttig zijn voor het aansturen van gerichte vertraagde weerspiegeling, of voor andere game logica aangestuurd door surface nabijheid. De query is goedkoper zijn dan een ray cast omdat de resultaten worden opgehaald uit de opzoektabel akoestische.
 
-![Afstand Query](media/distance-query.png)
+![Schermopname van voorbeeld van de blauwdruk afstand query](media/distance-query.png)
 
 * **Doel:** De actor AcousticsSpace
 * **Zoek richting:** De richting om op te vragen, gecentreerd op de listener

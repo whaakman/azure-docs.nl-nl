@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 7f0bfa407705f4c9535e6dddc9a27a4f7130931d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2464424b537f6187542fb612626cff115711d6e5
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113827"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336283"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Wat is Azure Cognitive Services?
 
@@ -93,6 +93,14 @@ Op zoek naar een regio wordt niet ondersteund nog? Laat het ons weten door het i
 ## <a name="container-support"></a>Ondersteuning voor containers
 
  Cognitive Services biedt containers voor de implementatie in de Azure-cloud of on-premises. Meer informatie over [Cognitive Services-Containers](cognitive-services-container-support.md).
+
+## <a name="certifications-and-compliance"></a>Certificeringen en naleving
+
+Cognitive Services certificeringen zoals CSA STAR-certificering, FedRAMP gemiddeld en HIPAA BAA is toegekend. 
+
+U kunt [downloaden](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) -certificeringen voor uw eigen controles en beoordelingen van beveiliging. 
+
+Voor meer informatie over privacy- en gegevensbeheer, gaat u naar de [Trust Center](https://servicetrust.microsoft.com/). 
 
 ## <a name="support"></a>Ondersteuning
 

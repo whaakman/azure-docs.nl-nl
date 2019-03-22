@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 03/20/2019
 ms.author: kgremban
-ms.openlocfilehash: dbe9f18f5a38284e2b263d636656c88b1743d7ea
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: ad7e34110b0c6d047eb7454b7fac9f8c10df8be2
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555639"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316096"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Azure IoT Edge-runtime installeren in Linux (ARM32v7/armhf)
 
@@ -22,7 +22,7 @@ De Azure IoT Edge-runtime is wat een apparaat verandert in een IoT Edge-apparaat
 
 Zie voor meer informatie over de werking van de IoT Edge-runtime en welke onderdelen zijn opgenomen, [inzicht in de Azure IoT Edge-runtime en de bijbehorende architectuur](iot-edge-runtime.md).
 
-In dit artikel bevat de stappen voor het installeren van de Azure IoT Edge-runtime op een Linux ARM32v7/armhf Edge-apparaat. Bijvoorbeeld, zou moeten als volgt werken voor Raspberry Pi-apparaten. Raadpleeg [ondersteuning voor Azure IoT Edge](support.md#operating-systems) voor een lijst met besturingssystemen ARM32 die momenteel worden ondersteund. 
+In dit artikel bevat de stappen voor het installeren van de Azure IoT Edge-runtime op een Linux ARM32v7/armhf IoT Edge-apparaat. Bijvoorbeeld, zou moeten als volgt werken voor Raspberry Pi-apparaten. Zie voor een lijst van ondersteunde besturingssystemen voor ARM32 [ondersteuning voor Azure IoT Edge](support.md#operating-systems). 
 
 >[!NOTE]
 >Pakketten in de opslagplaatsen met Linux-software zijn afhankelijk van de licentievoorwaarden die zich in elk pakket (/ usr/delen/Docs/*pakketnaam*). Lees de licentievoorwaarden voordat u het pakket. De installatie en het gebruik van het pakket wordt verstaan onder uw acceptatie van deze voorwaarden. Als u niet akkoord met de licentievoorwaarden gaat, moet u het pakket niet gebruiken.
@@ -31,10 +31,9 @@ In dit artikel bevat de stappen voor het installeren van de Azure IoT Edge-runti
 
 Azure IoT Edge is afhankelijk van een [OCI-compatibele](https://www.opencontainers.org/) container-runtime. Voor productiescenario's, het is raadzaam gebruikt u de [Moby gebaseerde](https://mobyproject.org/) engine hieronder. Dit is de enige container-engine officieel ondersteund met Azure IoT Edge. Containerinstallatiekopieën met docker CE/EE zijn compatibel met de runtime op basis van Moby.
 
-Onderstaande opdrachten installeren de Moby gebaseerde engine en de opdrachtregelinterface (CLI). De CLI is handig voor het ontwikkelen van, maar is optioneel voor productie-implementaties.
+De volgende opdrachten installeren de Moby gebaseerde engine en de opdrachtregelinterface (CLI). De CLI is handig voor het ontwikkelen van, maar is optioneel voor productie-implementaties.
 
 ```bash
-
 # You can copy the entire text from this code block and 
 # paste in terminal. The comment lines will be ignored.
 
@@ -46,12 +45,11 @@ curl -L https://aka.ms/moby-cli-armhf-latest -o moby_cli.deb && sudo dpkg -i ./m
 
 # Run apt-get fix
 sudo apt-get install -f
-
 ```
 
 ## <a name="install-the-iot-edge-security-daemon"></a>De IoT Edge Security-Daemon installeren
 
-De **IoT Edge security daemon** biedt en onderhoudt beveiligingsstandaarden op het Edge-apparaat. De daemon begint op elke keer opstarten en het apparaat bootstrapt op basis van de rest van de IoT Edge-runtime. 
+De **IoT Edge security daemon** biedt en onderhoudt beveiligingsstandaarden op het IoT Edge-apparaat. De daemon begint op elke keer opstarten en het apparaat bootstrapt op basis van de rest van de IoT Edge-runtime. 
 
 
 ```bash
@@ -72,14 +70,13 @@ sudo apt-get install -f
 
 Configureer de IoT Edge-runtime voor het koppelen van uw fysieke apparaat met een apparaat-id die deel uitmaakt van een Azure-IoT-hub. 
 
-De daemon kan worden geconfigureerd met behulp van het configuratiebestand op `/etc/iotedge/config.yaml`. Het bestand is tegen schrijven beveiligd standaard, moet u mogelijk de verhoogde machtigingen om deze te bewerken.
+De daemon kan worden geconfigureerd met behulp van het configuratiebestand op `/etc/iotedge/config.yaml`. Het bestand is beveiligd tegen schrijven standaard, dus moet u verhoogde machtigingen om deze te bewerken.
 
 Een enkele IoT Edge-apparaat kan worden ingericht handmatig met behulp van een apparaat verbindingen tekenreeks opgegeven door de IoT Hub. Of u de Device Provisioning Service kunt gebruiken voor het automatisch inrichten van apparaten, dit is handig wanneer er veel apparaten zijn om in te richten. Afhankelijk van inrichting keuze, kiest u het script voor de juiste installatie. 
 
 ### <a name="option-1-manual-provisioning"></a>Optie 1: Handmatige inrichting
 
-Voor het handmatig inrichten van een apparaat, moet u opgeven met een [apparaatverbindingsreeks](how-to-register-device-portal.md) dat u maken kunt met een nieuwe apparaat wordt geregistreerd bij uw IoT-hub.
-
+Voor het handmatig inrichten van een apparaat, moet u opgeven met een [apparaatverbindingsreeks](how-to-register-device-portal.md) dat u maken kunt met een nieuwe IoT Edge-apparaat wordt geregistreerd bij uw IoT-hub.
 
 Open het configuratiebestand. 
 
@@ -89,21 +86,21 @@ sudo nano /etc/iotedge/config.yaml
 
 Ga naar het inrichtingsproces gedeelte van het bestand en verwijder opmerkingen bij de **handmatige** Inrichtingsmethode. Werk de waarde van **device_connection_string** door de verbindingsreeks van uw IoT Edge-apparaat.
 
-   ```yaml
-   provisioning:
-     source: "manual"
-     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```yaml
+provisioning:
+  source: "manual"
+  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
-   # provisioning: 
-   #   source: "dps"
-   #   global_endpoint: "https://global.azure-devices-provisioning.net"
-   #   scope_id: "{scope_id}"
-   #   registration_id: "{registration_id}"
-   ```
+# provisioning: 
+#   source: "dps"
+#   global_endpoint: "https://global.azure-devices-provisioning.net"
+#   scope_id: "{scope_id}"
+#   registration_id: "{registration_id}"
+```
 
 Sla het bestand op en sluit het. 
 
-   `CTRL + X`, `Y`, `Enter`
+`CTRL + X`, `Y`, `Enter`
 
 Na het invoeren van de Inrichtingsgegevens in het configuratiebestand, start u de daemon opnieuw:
 
@@ -123,21 +120,21 @@ sudo nano /etc/iotedge/config.yaml
 
 Ga naar het inrichtingsproces gedeelte van het bestand en verwijder opmerkingen bij de **dps** Inrichtingsmethode. De waarden voor **scope_id** en **registration_id** door de waarden van uw IoT Hub Device Provisioning service en uw IoT Edge-apparaat met TPM. 
 
-   ```yaml
-   # provisioning:
-   #   source: "manual"
-   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```yaml
+# provisioning:
+#   source: "manual"
+#   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
-   provisioning: 
-     source: "dps"
-     global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "{scope_id}"
-     registration_id: "{registration_id}"
-   ```
+provisioning: 
+  source: "dps"
+  global_endpoint: "https://global.azure-devices-provisioning.net"
+  scope_id: "{scope_id}"
+  registration_id: "{registration_id}"
+```
 
 Sla het bestand op en sluit het. 
 
-   `CTRL + X`, `Y`, `Enter`
+`CTRL + X`, `Y`, `Enter`
 
 Na het invoeren van de Inrichtingsgegevens in het configuratiebestand, start u de daemon opnieuw:
 
@@ -147,7 +144,7 @@ sudo systemctl restart iotedge
 
 ## <a name="verify-successful-installation"></a>Controleer of geslaagde installatie
 
-Als u gebruikt de **handmatige configuratie** stappen in de vorige sectie, IoT Edge-runtime moet is ingericht en wordt uitgevoerd op uw apparaat. Als u gebruikt de **automatische configuratie** stappen, moet u enkele extra stappen uitvoeren zodat de runtime uw apparaat met uw IoT-hub uit uw naam registreren kan. Zie voor de volgende stappen [maken en inrichten van een gesimuleerd TPM-Edge-apparaat op een Linux-machine](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
+Als u gebruikt de **handmatige configuratie** stappen in de vorige sectie, IoT Edge-runtime moet is ingericht en wordt uitgevoerd op uw apparaat. Of, als u gebruikt de **automatische configuratie** stappen, moet u enkele extra stappen uitvoeren zodat de runtime uw apparaat met uw IoT-hub uit uw naam registreren kan. Zie voor de volgende stappen [een gesimuleerd TPM IoT Edge-apparaat op een Linux-machine maken en inrichten](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
 
 U kunt de status van het gebruik van de IoT Edge-Daemon controleren:
 
@@ -208,6 +205,6 @@ sudo apt-get remove --purge moby-engine
 
 Nu u een IoT Edge-apparaat dat is ingericht met de runtime geïnstalleerd hebt, kunt u [IoT Edge-modules implementeren](how-to-deploy-modules-portal.md).
 
-Als u problemen met het Edge-runtime niet goed geïnstalleerd hebt, raadpleegt u de [probleemoplossing](troubleshoot.md#stability-issues-on-resource-constrained-devices) pagina.
+Als u problemen met de IoT Edge-runtime niet goed geïnstalleerd hebt, raadpleegt u de [probleemoplossing](troubleshoot.md#stability-issues-on-resource-constrained-devices) pagina.
 
 Als u wilt een bestaande installatie bijwerken naar de nieuwste versie van IoT Edge, Zie [bijwerken van de IoT Edge security-daemon en de runtime](how-to-update-iot-edge.md).

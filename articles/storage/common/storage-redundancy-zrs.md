@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 11891153f1ffce438597dc4f2799a9f25d76c2f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8928e59b97143038e0850132196f1ce9a1da131d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992599"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337881"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zone-redundante opslag (ZRS): Maximaal beschikbare toepassingen voor Azure Storage
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -64,7 +64,7 @@ Als u wilt een handmatige migratie uitvoeren, hebt u de opties:
 
 Een handmatige migratie kan leiden tot downtime van toepassingen. Als uw toepassing hoge beschikbaarheid vereist, biedt Microsoft ook een optie voor live migratie. Een livemigratie is een in-place migratie. 
 
-Tijdens een livemigratie, kunt u uw storage-account terwijl uw gegevens worden gemigreerd tussen bron- en storage stempels. Tijdens het migratieproces hebt u dezelfde mate van duurzaamheid en beschikbaarheid van SLA zoals u normaal doet.
+Tijdens een livemigratie, kunt u uw storage-account terwijl uw gegevens worden gemigreerd tussen bron- en storage stempels. Tijdens het migratieproces hebt u dezelfde mate van duurzaamheid en beschikbaarheid SLA als u gewend bent.
 
 Houd rekening met de volgende beperkingen voor livemigratie:
 
@@ -82,13 +82,39 @@ U kunt aanvragen livemigratie via de [ondersteuning van Azure portal](https://ms
     - **Ernst**: Laat de standaardwaarde als-is.
     - **Probleemtype**: Selecteer **gegevensmigratie**.
     - **Categorie**: Selecteer **migreren naar ZRS binnen een regio**.
-    - **Titel**: Typ een beschrijvende titel, bijvoorbeeld **ZRS-account migratie**.
+    - **Title**: Typ een beschrijvende titel, bijvoorbeeld **ZRS-account migratie**.
     - **Details**: Geef aanvullende informatie in de **Details** vak, bijvoorbeeld: ik wil graag om te migreren naar ZRS van [LRS, GRS] in de \_ \_ regio. 
 5. Selecteer **Volgende**.
 6. Controleer of de gegevens juist zijn op de **contactgegevens** blade.
 7. Selecteer **Maken**.
 
-Een ondersteuningsmedewerker zal contact met u opnemen en bieden hulp die u nodig. 
+Een ondersteuningsmedewerker zal contact met u opnemen en bieden hulp die u nodig.
+
+## <a name="live-migration-to-zrs-faq"></a>Live migratie ZRS Veelgestelde vragen
+
+**Moet ik rekening houden met uitvaltijd tijdens de migratie?**
+
+Er is geen downtime die is veroorzaakt door de migratie. Tijdens een livemigratie, kunt u uw storage-account blijven terwijl uw gegevens worden gemigreerd tussen bron- en storage stempels. Tijdens het migratieproces hebt u dezelfde mate van duurzaamheid en beschikbaarheid SLA als u gewend bent.
+
+**Is er verlies van gegevens die zijn gekoppeld aan de migratie?**
+
+Er is geen verlies van gegevens die zijn gekoppeld aan de migratie. Tijdens het migratieproces hebt u dezelfde mate van duurzaamheid en beschikbaarheid SLA als u gewend bent.
+
+**Updates vereist voor de toepassingen zijn nadat de migratie voltooid is?**
+
+Zodra de migratie voltooid is wordt de replicatietype van het account (s) wordt gewijzigd in 'Zone-redundante opslag (ZRS)'. Service-eindpunten, toegang tot sleutels, SAS en andere configuratieopties account blijven ongewijzigd en intact.
+
+**Kan ik vragen om een livemigratie van mijn account (s) voor algemeen gebruik v1 naar ZRS?**
+
+ZRS biedt alleen ondersteuning voor algemeen gebruik v2-accounts, zodat alvorens een aanvraag voor een live migratie naar ZRS Zorg ervoor dat uw (s) bijwerken naar algemeen gebruik v2. Zie [overzicht van Azure storage-account](https://docs.microsoft.com/azure/storage/common/storage-account-overview) en [upgraden naar een opslagaccount voor algemeen gebruik v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) voor meer informatie.
+
+**Kan ik vragen om een livemigratie van mijn geo-redundante opslag met leestoegang (RA-GRS) (s) aan ZRS?**
+
+Alvorens een aanvraag voor een live migratie naar ZRS zorg uw toepassingen of workload(s) niet langer vereist toegang tot het eindpunt van de secundaire alleen-lezen en het replicatietype van uw opslagaccount (s) wijzigen in geografisch redundante opslag (GRS). Zie [wijzigen replicatiestrategie](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) voor meer informatie.
+
+**Kan ik vragen om een livemigratie van mijn opslagaccount (s) aan ZRS naar een andere regio?**
+
+Als u migreren van uw gegevens in een ZRS-account zich in een regio verschilt van de regio van de bronaccount wilt, moet u een handmatige migratie uitvoeren.
 
 ## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>ZRS Classic: Een verouderde optie voor redundantie voor blok-blobs
 > [!NOTE]
@@ -101,6 +127,8 @@ ZRS Classic worden gegevens asynchroon gerepliceerd tussen datacenters binnen é
 ZRS Classic is alleen beschikbaar voor **blok-blobs** in algemeen gebruik V1 (GPv1) storage-accounts. Zie [Overzicht van Azure-opslagaccount](storage-account-overview.md) voor meer informatie over opslagaccounts.
 
 Handmatig ZRS-account om gegevens te migreren naar of van een LRS, ZRS Classic, GRS of RA-GRS-account, moet u een van de volgende hulpprogramma's gebruiken: AzCopy, Azure Storage Explorer, Azure PowerShell of Azure CLI. U kunt ook uw eigen migratieoplossing met een van de Azure Storage-clientbibliotheken bouwen.
+
+U kunt ook uw ZRS Classic (s) bijwerken naar ZRS in de Portal of met behulp van Azure PowerShell of Azure CLI.
 
 ## <a name="see-also"></a>Zie ook
 - [Azure Storage-replicatie](storage-redundancy.md)

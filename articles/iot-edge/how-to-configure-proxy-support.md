@@ -4,17 +4,17 @@ description: Klik hier voor meer informatie over het configureren van de Azure I
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 33f5cd6e1d2989a9ca5c26bbcf947bd6eade3831
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4fa5402b87eea969a5a4093000dda06d3cb5675d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774197"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312985"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Een IoT Edge-apparaat om te communiceren via een proxyserver configureren
 
@@ -35,7 +35,7 @@ Proxy-URL's worden de volgende indeling: **protocol**://**proxy_host**:**proxy_p
 
 * De **protocol** via HTTP of HTTPS is. De Docker-daemon-protocol een van beide, afhankelijk van uw container registry-instellingen kunt gebruiken, maar de IoT Edge-daemon en runtime containers moeten altijd gebruik van HTTPS.
 
-* De **proxy_host** is een adres voor de proxyserver. Als uw proxyserver verificatie is vereist, kunt u uw referenties opgeven als onderdeel van de proxy_host in de indeling van **gebruiker**:**wachtwoord**\@**proxy_host**.
+* De **proxy_host** is een adres voor de proxyserver. Als uw proxyserver verificatie is vereist, kunt u uw referenties opgeven als onderdeel van de proxyhost met de volgende indeling: **gebruiker**:**wachtwoord**\@**proxy_host** .
 
 * De **proxy_poort** is de netwerkpoort waarop de proxy op netwerkverkeer reageert.
 
@@ -43,7 +43,7 @@ Proxy-URL's worden de volgende indeling: **protocol**://**proxy_host**:**proxy_p
 
 Als u de IoT Edge-runtime op een Linux-apparaat installeert, configureert u de package manager om te gaan via de proxyserver voor toegang tot het installatiepakket. Bijvoorbeeld, [apt-get ingesteld voor het gebruik van een http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Zodra uw pakketmanager is geconfigureerd, volg de instructies in [installeren Azure IoT Edge-runtime op Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) of [Azure IoT Edge-runtime installeren in Linux (x64)](how-to-install-iot-edge-linux.md) zoals gebruikelijk.
 
-Als u de IoT Edge-runtime op een Windows-apparaat installeert, moet u via de proxyserver wanneer het script installer-bestand, klikt u vervolgens opnieuw downloaden tijdens de installatie om de benodigde onderdelen te downloaden. U kunt configureren van proxy-informatie in de Windows-instellingen of het opnemen van uw proxy-informatie rechtstreeks in het script voor installatie. De volgende powershell-script wordt een voorbeeld van een windows-installatie met de `-proxy` argument:
+Als u de IoT Edge-runtime op een Windows-apparaat installeert, moet u twee keer doorlopen van de proxyserver. De eerste verbinding is het downloaden van het installatiebestand van het script en de tweede verbinding is tijdens de installatie om de benodigde onderdelen te downloaden. U kunt configureren van proxy-informatie in de Windows-instellingen of het opnemen van uw proxy-informatie rechtstreeks in het script voor installatie. De volgende powershell-script wordt een voorbeeld van een windows-installatie met de `-proxy` argument:
 
 ```powershell
 . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -64,20 +64,22 @@ Wanneer de IoT Edge-runtime is geïnstalleerd, gebruikt u de volgende sectie te 
 
 ## <a name="configure-the-daemons"></a>De daemons configureren
 
-De Docker- en IoT Edge-daemons die worden uitgevoerd op uw IoT Edge-apparaat moeten worden geconfigureerd voor het gebruik van de proxyserver. De Docker-daemon maakt webaanvragen voor pull-containerinstallatiekopieën van container Registry. De daemon IoT Edge maakt webaanvragen om te communiceren met IoT Hub.
+De Moby en IoT Edge-daemons die worden uitgevoerd op uw IoT Edge-apparaat moeten worden geconfigureerd voor het gebruik van de proxyserver. De daemon Moby maakt webaanvragen voor pull-containerinstallatiekopieën van container Registry. De daemon IoT Edge maakt webaanvragen om te communiceren met IoT Hub.
 
-### <a name="docker-daemon"></a>Docker-daemon
+### <a name="moby-daemon"></a>Moby daemon
 
-Raadpleeg de documentatie voor Docker de Docker-daemon configureren met omgevingsvariabelen. De meeste containerregisters (inclusief DockerHub en Azure Container Registry) ondersteuning voor HTTPS-aanvragen, zodat de parameter die u moet instellen is **HTTPS_PROXY**. Als u bent installatiekopieën binnenhaalt vanuit een register dat biedt geen ondersteuning voor transport layer security (TLS), dan moet u instellen de **gebruikt** parameter. 
+Omdat Moby is gebouwd op Docker, Raadpleeg de documentatie Docker de daemon Moby configureren met omgevingsvariabelen. De meeste containerregisters (inclusief DockerHub en Azure Container Registry) ondersteuning voor HTTPS-aanvragen, zodat de parameter die u moet instellen is **HTTPS_PROXY**. Als u bent installatiekopieën binnenhaalt vanuit een register dat biedt geen ondersteuning voor transport layer security (TLS), dan moet u instellen de **gebruikt** parameter. 
 
-Kies het artikel dat van toepassing op uw Docker-versie: 
+Kies het artikel dat van toepassing op het besturingssysteem van uw IoT Edge-apparaat: 
 
-* [Docker for Linux](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
-* [Docker voor Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
+* [Docker-daemon op Linux configureren](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+    * De daemon Moby op Linux-apparaten blijft de naam van Docker.
+* [Docker-daemon op Windows configureren](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
+    * De daemon Moby op Windows-apparaten wordt iotedge moby genoemd. De namen zijn verschillend, omdat het is mogelijk op zowel de Docker-Desktop- en de Moby parallel uitgevoerd op een Windows-apparaat. 
 
 ### <a name="iot-edge-daemon"></a>IoT Edge-daemon
 
-De IoT Edge-daemon is geconfigureerd in een soortgelijke manier als in de Docker-daemon. HTTPS gebruikt voor alle aanvragen die IoT Edge naar IoT Hub verzendt. Gebruik de volgende stappen uit om in te stellen van een omgevingsvariabele voor de service, op basis van uw besturingssysteem. 
+De IoT Edge-daemon is geconfigureerd in een soortgelijke manier als in de daemon Moby. HTTPS gebruikt voor alle aanvragen die IoT Edge naar IoT Hub verzendt. Gebruik de volgende stappen uit om in te stellen van een omgevingsvariabele voor de service, op basis van uw besturingssysteem. 
 
 #### <a name="linux"></a>Linux
 

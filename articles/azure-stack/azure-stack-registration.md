@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 1f6edd871d6815dab93bf9e8d582b0cb1ba6c78f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ab5679f374753d6620b6a0eccca12ac9f162f199
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109236"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337922"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -62,6 +62,9 @@ Na de registratie is Azure Active Directory-globale beheerder toestemming niet v
 De gebruiker die Azure Stack registreert is de eigenaar van de service-principal in Azure Active Directory. Alleen de gebruiker die zich hebben geregistreerd van Azure Stack kunt wijzigen van de registratie van de Azure Stack. Als een gebruiker niet-beheerders die geen eigenaar van de van registratieservice-principal probeert te registreren of Azure Stack opnieuw te registreren, kunnen ze een 403-antwoord optreden. Een 403-antwoord geeft aan dat de gebruiker heeft onvoldoende machtigingen om de bewerking te voltooien.
 
 Als u geen Azure-abonnement dat aan deze vereisten voldoet, kunt u [maken van een gratis Azure-account hier](https://azure.microsoft.com/free/?b=17.06). Registreren van Azure Stack maakt geen kosten op uw Azure-abonnement.
+
+> [!NOTE]
+> Als u meer dan één Azure Stack hebt, is een aanbevolen procedure voor het registreren van elke Azure Stack op een eigen abonnement. Dit maakt het eenvoudiger voor u om het gebruik bijhouden.
 
 ### <a name="powershell-language-mode"></a>PowerShell-taalmodus
 
@@ -240,7 +243,7 @@ Als u Azure Stack in een omgeving zonder verbinding (met geen verbinding met int
 2. Als u het registratietoken, voer de volgende PowerShell-cmdlets:  
 
    ```Powershell
-   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
+   $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    Zie voor meer informatie over de cmdlet Get-AzsRegistrationToken [registratie verwijzing](#registration-reference).

@@ -1,7 +1,7 @@
 ---
-title: Spoor experimenten en training metrische gegevens
+title: Metrische gegevens log tijdens trainingsuitvoeringen
 titleSuffix: Azure Machine Learning service
-description: U kunt met de service Azure Machine Learning, bijhouden van uw experimenten en controleren van metrische gegevens voor het verbeteren van het proces voor het model maken. Informatie over logboekregistratie toevoegen aan uw trainingsscript, hoe u het experiment verzenden, hoe u de voortgang van een actieve taak controleren en hoe u de resultaten van een uitvoering wilt weergeven.
+description: U kunt uw experimenten volgen en controleren van metrische gegevens voor het verbeteren van het proces voor het model maken. Informatie over logboekregistratie toevoegen aan uw trainingsscript, hoe u het experiment verzenden, hoe u de voortgang van een actieve taak controleren en hoe u de resultaten van een uitvoering wilt weergeven.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79247c4c1f26fadcd5f0291b55c9dd8d4d9aa2af
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008830"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336591"
 ---
-# <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Bijhouden van experimenten en training metrische gegevens in Azure Machine Learning
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Logboek metrische gegevens tijdens de training wordt uitgevoerd in Azure Machine Learning
 
 U kunt in de Azure Machine Learning-service uw experimenten volgen en controleren van metrische gegevens voor het verbeteren van het proces voor het model maken. In dit artikel leert u hoe u logboekregistratie toevoegen aan uw trainingsscript, verzenden van een experiment uitvoeren, bewaken van de uitvoering en de resultaten van een uitvoering weergeven.
 
@@ -218,7 +218,7 @@ In dit voorbeeld is een vervolg op het basismodel sklearn Ridge van boven. Hierv
    ```
 
 ## <a name="cancel-a-run"></a>Een uitvoering annuleren
-Na een uitvoering is ingediend, kunt u deze annuleren, zelfs als u hebt de objectverwijzing verloren als u weet de naam van het experiment wat en id uitvoeren. 
+Nadat een uitvoering is ingediend, kunt u deze annuleren, zelfs als u de objectverwijzing verloren hebt als u weet de naam van het experiment wat en id uitvoeren. 
 
 ```python
 from azureml.core import Experiment

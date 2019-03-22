@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: e23b65904d16fbd2d8ffe0412603699a9e36aa7e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 023b344d796ea5297cda202e7baa2f0e0ef5eebd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099522"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315807"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Hulpprogramma voor gegevensmigratie gebruiken voor het migreren van uw gegevens naar Azure Cosmos DB
 
@@ -195,7 +195,7 @@ Vergelijkbaar met de SQL-bron kan de eigenschap van het type geneste scheidingst
 
 Let op de aliassen zoals DomainInfo.Domain_Name en RedirectInfo.Redirecting. Door een scheidingsteken voor nesten '.' op te geven, maakt het importprogramma DomainInfo- en RedirectInfo-subdocumenten tijdens het importeren. Hier volgt een voorbeeld van een resulterend document in Azure Cosmos DB:
 
-*{ "DomainInfo": { "Domeinnaam": "ACUS.GOV", "Adres_domeinnaam": "<https://www.ACUS.GOV>" }, "Federaal Agentschap": "Administratieve Conferentie van de Verenigde Staten", "RedirectInfo": { "Omleiden": "0", "Doel_omleiding": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{ "DomainInfo": { "Domeinnaam": "ACUS.GOV", "Domain_Name_Address": "https:\//www.ACUS.GOV" }, "Federal Agency": "Administratieve Conferentie van de Verenigde Staten", "RedirectInfo": { "Omleiden": "0", "Doel_omleiding": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 Met het importprogramma wordt een poging gedaan informatie over het type af te leiden voor waarden zonder aanhalingstekens in CSV-bestanden (waarden tussen aanhalingstekens worden altijd behandeld als tekenreeksen).  Typen worden geïdentificeerd in de volgende volgorde: getal, datum/tijd, Booleaanse waarde.  
 

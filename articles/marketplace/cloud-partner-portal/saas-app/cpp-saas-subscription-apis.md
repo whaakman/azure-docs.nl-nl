@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 432120c324aa81107946fc30548e6e49acce6575
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6ab18d68d6508a18f0b36ab5a39e15fa7c0555a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002334"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311659"
 ---
 # <a name="saas-sell-through-azure---apis"></a>SaaS-verkopen via Azure - API 's
 
@@ -65,8 +65,8 @@ Voor het registreren van een nieuwe toepassing met behulp van de Azure portal, m
      - Selecteer **Systeemeigen** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) die lokaal op een apparaat zijn geïnstalleerd. Deze instelling wordt gebruikt voor openbare [systeemeigen clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) met OAuth.
      - Selecteer **Web-app / API** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) en [resource/API-Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) die op een beveiligde server worden geïnstalleerd. Deze instelling wordt gebruikt voor OAuth vertrouwelijke [web-clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) en openbare [gebruiker agent-gebaseerde clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
      Dezelfde toepassing kan zowel een client als resource/API beschikbaar maken.
-   - **Aanmeldings-URL**: Voor Web-app/API-Apps, geeft u de basis-URL van uw app. Bijvoorbeeld, **http://localhost:31544** mogelijk de URL voor een WebApp die wordt uitgevoerd op uw lokale computer. Gebruikers zouden deze URL vervolgens gebruiken voor het aanmelden bij een web-clienttoepassing.
-   - **Omleidings-URI**: Systeemeigen toepassing maakt, geeft u de URI die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, bijvoorbeeld **http://MyFirstAADApp**.
+   - **Aanmeldings-URL**: Voor Web-app/API-Apps, geeft u de basis-URL van uw app. Bijvoorbeeld, **http:\//localhost:31544** mogelijk de URL voor een WebApp die wordt uitgevoerd op uw lokale computer. Gebruikers zouden deze URL vervolgens gebruiken voor het aanmelden bij een web-clienttoepassing.
+   - **Omleidings-URI**: Systeemeigen toepassing maakt, geeft u de URI die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, bijvoorbeeld **http:\//MyFirstAADApp**.
 
      ![SaaS AD App-registraties](./media/saas-offer-app-registration-2.png) voor specifieke voorbeelden voor webtoepassingen of systeemeigen toepassingen, bekijk de Snelstartgids begeleide instellingen die beschikbaar in de sectie aan de slag van zijn de [Azure AD-handleiding voor ontwikkelaars](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 

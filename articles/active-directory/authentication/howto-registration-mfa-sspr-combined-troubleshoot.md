@@ -1,5 +1,5 @@
 ---
-title: Gecombineerde registratie voor Azure AD SSPR en MFA (preview) oplossen
+title: Gecombineerde registratie voor Azure AD SSPR en MFA (preview) - Azure Active Directory oplossen
 description: Problemen oplossen met Azure AD multi-factor Authentication en Self-service voor wachtwoord opnieuw instellen van gecombineerde registratie (preview)
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b247a733c6874b023d3dc8114b0538e422baccfd
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589011"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317524"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Het oplossen van gecombineerde security informatie registratie (preview)
 

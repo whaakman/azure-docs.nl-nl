@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 3bf7c61b15e6796970630fd02b35faaa2dbc79e7
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 8124f2236b37f72741c16dad8f1649d08963542e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671077"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316657"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Quickstart: Een virtuele-machineschaalset in Windows maken met een Azure-sjabloon
 
@@ -168,7 +168,7 @@ U kunt de schaalset in actie zien door in een webbrowser naar de voorbeeldwebtoe
 Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Voer het openbare IP-adres van de load balancer in een webbrowser in. Gebruik hiervoor de notatie *http://publicIpAddress/MyApp*. Via de load balancer wordt verkeer naar een van uw VM-instanties gedistribueerd, zoals wordt weergegeven in het volgende voorbeeld:
+Voer het openbare IP-adres van de load balancer in een webbrowser in de indeling *http:\//openbare IP-adres/Mijntoep*. Via de load balancer wordt verkeer naar een van uw VM-instanties gedistribueerd, zoals wordt weergegeven in het volgende voorbeeld:
 
 ![Actieve IIS-site](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
 

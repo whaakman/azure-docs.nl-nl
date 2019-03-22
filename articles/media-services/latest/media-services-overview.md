@@ -16,16 +16,19 @@ ms.workload: media
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 018392db2ffb510d41385d8e0af19635c35678e6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 251a2a3fed57e957de11a20189b6b6d553d98a78
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003412"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310265"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Wat is Azure Media Services v3?
 
 Azure Media Services is een cloudgebaseerd platform waarmee u oplossingen bouwt die videostreaming van broadcast-kwaliteit mogelijk maken, de toegankelijkheid en distributie verbeteren, inhoud analyseren en nog veel meer. Ongeacht of u een ontwikkelaar van toepassingen, een callcenter, een overheidsinstelling of een entertainmentbedrijf bent, is Media Services het perfecte hulpmiddel bij het maken van toepassingen die media-ervaringen van uitzonderlijke kwaliteit willen aanbieden aan grote doelgroepen, op alle populaire mobiele apparaten en in de meestgebruikte browsers van dit moment. 
+
+> [!NOTE]
+> U kunt de Azure-portal op dit moment niet gebruiken om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), of een van de ondersteunde [SDK's](developers-guide.md).
 
 ## <a name="what-can-i-do-with-media-services"></a>Wat kan ik doen met Media Services?
 

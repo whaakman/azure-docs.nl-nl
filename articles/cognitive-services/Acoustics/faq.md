@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: resources
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: c43c81d42a39bda504b02eb6c053a16a2cf53aec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138045"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317303"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Veelgestelde vragen over project akoestische
 
@@ -25,7 +25,7 @@ De suite Project akoestische van invoegtoepassingen is een akoestische-systeem d
 
 ## <a name="where-can-i-download-the-plugin"></a>Waar kan ik de invoegtoepassing downloaden?
 
-U kunt downloaden Project akoestische uit de [Project akoestische Downloadcentrum](https://www.microsoft.com/en-us/download/details.aspx?id=57346).
+U kunt downloaden de [Project akoestische Unity-invoegtoepassing](https://www.microsoft.com/download/details.aspx?id=57346) of de [Project akoestische Unreal invoegtoepassing](https://www.microsoft.com/download/details.aspx?id=58090).
 
 ## <a name="does-project-acoustics-support-x-platform"></a>Biedt ondersteuning voor Project akoestische <x> platform?
 

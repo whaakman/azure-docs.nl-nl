@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a7ba66fae3f2a8426cc333cca109a4c6793d1da2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 56eb7e7372d2041b52af6bbae2b9186b99f97bbb
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724315"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337813"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Verbinding maken met HDInsight (Apache Hadoop) via SSH
 
@@ -57,7 +57,7 @@ In Microsoft Windows worden SSH-clients niet standaard geïnstalleerd. De `ssh`-
 
 * [Bash in Ubuntu in Windows 10](https://msdn.microsoft.com/commandline/wsl/about): De `ssh` en `scp` -opdrachten zijn beschikbaar via de Bash op Windows-opdrachtregel.
 
-* [OpenSSH-client (bèta)](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/): Dit is een optionele functie die is geïntroduceerd in de Windows 10 Fall Creators Update.
+* [OpenSSH-client (bèta)](https://devblogs.microsoft.com/powershell/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/): Dit is een optionele functie die is geïntroduceerd in de Windows 10 Fall Creators Update.
 
 * [Azure Cloudshell](../cloud-shell/quickstart.md): De Cloud Shell biedt een Bash-omgeving in uw browser, en biedt de `ssh`, `scp`, en andere algemene Linux-opdrachten.
 
@@ -99,7 +99,7 @@ U wordt tijdens het maken van de sleutel gevraagd om informatie. U moet bijvoorb
 
 | Methode voor het maken | De openbare sleutel gebruiken |
 | ------- | ------- |
-| **Azure Portal** | Schakel het selectievakje bij __Hetzelfde wachtwoord als voor aanmelding bij cluster gebruiken__ uit en selecteer __Openbare sleutel__ als SSH-verificatietype. Tot slot selecteert u het openbare-sleutelbestand of plakt u de tekstinhoud van het bestand in het veld __Openbare SSH-sleutel__.</br>![Dialoogvenster voor de openbare SSH-sleutel tijdens het maken van een HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| **Azure-portal** | Schakel het selectievakje bij __Hetzelfde wachtwoord als voor aanmelding bij cluster gebruiken__ uit en selecteer __Openbare sleutel__ als SSH-verificatietype. Tot slot selecteert u het openbare-sleutelbestand of plakt u de tekstinhoud van het bestand in het veld __Openbare SSH-sleutel__.</br>![Dialoogvenster voor de openbare SSH-sleutel tijdens het maken van een HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | **Azure PowerShell** | Gebruik de parameter `-SshPublicKey` van de cmdlet `New-AzureRmHdinsightCluster` en plak de inhoud van de openbare sleutel als tekenreeks.|
 | **CLI van Azure Classic** | Gebruik de parameter `--sshPublicKey` van de opdracht `azure hdinsight cluster create` en plak de inhoud van de openbare sleutel als tekenreeks. |
 | **Resource Manager-sjabloon** | Zie [HDInsight op Linux implementeren met een SSH-sleutel](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) voor een voorbeeld van het gebruik van SSH-sleutels met een sjabloon. Het `publicKeys`-element in het bestand [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) wordt gebruikt om sleutels door te geven aan Azure bij het maken van het cluster. |
@@ -118,7 +118,7 @@ SSH-accounts kunnen worden beveiligd met een wachtwoord. Als u met SSH verbindin
 
 | Methode voor het maken | Het wachtwoord specificeren |
 | --------------- | ---------------- |
-| **Azure Portal** | Het SSH-gebruikersaccount heeft standaard hetzelfde wachtwoord als het aanmeldingsaccount van het cluster. Als u een ander wachtwoord wilt gebruiken, schakelt u het selectievakje bij __Hetzelfde wachtwoord als bij aanmelding voor cluster__ uit en voert u het wachtwoord in in het veld __SSH-wachtwoord__.</br>![Dialoogvenster voor het SSH-wachtwoord tijdens het maken van een HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| **Azure-portal** | Het SSH-gebruikersaccount heeft standaard hetzelfde wachtwoord als het aanmeldingsaccount van het cluster. Als u een ander wachtwoord wilt gebruiken, schakelt u het selectievakje bij __Hetzelfde wachtwoord als bij aanmelding voor cluster__ uit en voert u het wachtwoord in in het veld __SSH-wachtwoord__.</br>![Dialoogvenster voor het SSH-wachtwoord tijdens het maken van een HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | **Azure PowerShell** | Gebruik de parameter `--SshCredential` van de cmdlet `New-AzureRmHdinsightCluster` en geef een `PSCredential`-object op dat de SSH-gebruikersaccountnaam en het wachtwoord bevat. |
 | **CLI van Azure Classic** | Gebruik de parameter `--sshPassword` van de opdracht `azure hdinsight cluster create` en geef de wachtwoordwaarde op. |
 | **Resource Manager-sjabloon** | Zie [HDInsight op Linux implementeren met een SSH-wachtwoord](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) voor een voorbeeld van het gebruik met een wachtwoord met een sjabloon. Het `linuxOperatingSystemProfile`-element in het bestand [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) wordt gebruikt om de SSH-accountnaam en het wachtwoord door te geven aan Azure bij het maken van het cluster.|

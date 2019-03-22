@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7b5ca738ef71e25dfe5e71a1983d701bb8868fe5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 434cbb18a109308844dbc7ff219d40948678e86e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896803"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310724"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analyseren van uw workload in Azure SQL Data Warehouse
 
@@ -67,7 +67,7 @@ SQL Data Warehouse heeft de volgende typen wacht:
 * **LocalQueriesConcurrencyResourceType**: Query's die zich buiten het kader van gelijktijdigheid van taken sleuf. DMV-query's en systeem functies, zoals `SELECT @@VERSION` zijn voorbeelden van lokale query's.
 * **UserConcurrencyResourceType**: Query's die zich in het kader van gelijktijdigheid van taken sleuf bevinden. Query's op tabellen van de eindgebruiker vertegenwoordigen voorbeelden die dit brontype zou gebruiken.
 * **DmsConcurrencyResourceType**: Wachten op het resultaat zijn van bewerkingen voor gegevensverplaatsing.
-* **BackupConcurrencyResourceType**: Deze wacht geeft aan dat een database back-up. De maximale waarde voor dit resourcetype is 1. Als meerdere back-ups hebt aangevraagd op hetzelfde moment, de andere wachtrij.
+* **BackupConcurrencyResourceType**: Deze wacht geeft aan dat een database back-up. De maximale waarde voor dit resourcetype is 1. Als meerdere back-ups hebt aangevraagd op hetzelfde moment, de andere wachtrij. In het algemeen wordt aangeraden een minimale tijd tussen opeenvolgende momentopnamen van 10 minuten. 
 
 De `sys.dm_pdw_waits` DMV kan worden gebruikt om te zien welke bronnen op een aanvraag wacht.
 

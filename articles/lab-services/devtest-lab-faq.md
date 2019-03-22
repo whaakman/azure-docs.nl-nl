@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 8b5c5f316ff2c3ada035736755c7898270c49dee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3752e9c227e4db0f583b2f6b21d6c0aa3106d248
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551820"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337694"
 ---
 # <a name="azure-devtest-labs-faq"></a>Veelgestelde vragen over Azure DevTest Labs
 Vind antwoorden op enkele veelgestelde vragen over Azure DevTest Labs.
@@ -27,8 +27,27 @@ Vind antwoorden op enkele veelgestelde vragen over Azure DevTest Labs.
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **Algemeen**
+
+## <a name="blog-post"></a>Blogpost
+Het teamblog van DevTest Labs is buiten gebruik gesteld vanaf 20 maart 2019. 
+
+### <a name="where-can-i-track-feature-updates-going-forward"></a>Waar kan ik de functie-updates voortaan bijhouden?
+Voortaan, we zullen worden boeken functie-updates en/of informatieve blogberichten op de Azure-blog en Azure-updates. Deze blogberichten ook een koppeling naar onze documentatie zo nodig.
+
+Abonneer u op de [Blog van het Azure DevTest Labs](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) en [DevTest Labs-Azure-updates](https://azure.microsoft.com/updates/?product=devtest-lab) om te blijven op de hoogte van nieuwe functies in DevTest Labs.
+
+### <a name="what-happens-to-the-existing-blog-posts"></a>Wat gebeurt er met de bestaande blogberichten?
+We zijn op dit moment werkt aan migreren bestaande blogberichten (met uitzondering van updates van de serviceonderbreking) met onze [DevTest Labs-documentatie](devtest-lab-overview.md). Wanneer de MSDN-blog is afgeschaft, wordt deze omgeleid naar het overzicht van de documentatie voor DevTest Labs. Zodra omgeleid, kunt u zoeken naar het artikel dat u zoekt in de titel 'Filteren op'. Houd er rekening mee dat we alle berichten nog niet hebt gemigreerd, maar moet worden uitgevoerd door het einde van deze maand. 
+
+
+### <a name="where-do-i-see-outage-updates"></a>Waar Zie ik onderbreking updates?
+We plaatsen met behulp van onze Twitter-handle voortaan onderbreking-updates. Volg ons op Twitter voor de meest recente updates op uitval en bekende fouten optreden.
+
+### <a name="twitter"></a>Twitter 
+Onze Twitter-handle: azlabservices
+
 ## <a name="what-if-my-question-isnt-answered-here"></a>Wat gebeurt er als mijn vraag hier niet wordt beantwoord?
-Als uw vraag hier niet wordt weergegeven, laat u ons weten, zodat we u een antwoord vinden kunnen helpen.
+Als uw vraag hier niet wordt weergegeven, laat ons weten en we helpen u een antwoord.
 
 * Een vraag stellen aan het einde van deze Veelgestelde vragen. Neem contact op met de Azure Cache-team en andere communityleden over dit artikel.
 * Als u wilt een breder publiek bereiken, kunt u een vraag plaatst op de [Azure DevTest Labs MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Neem contact op met de Azure DevTest Labs-team en andere leden van de community.
@@ -41,7 +60,7 @@ Azure DevTest Labs kunt uw team tijd en geld besparen. Ontwikkelaars kunnen hun 
 Zorgeloze selfservice betekent dat ontwikkelaars en testers hun eigen omgevingen maken indien nodig. Beheerders hebben de beveiliging van de wetenschap dat DevTest Labs kunt verspilling en beheer kosten kunt minimaliseren. Beheerders kunnen opgeven welke VM-grootten zijn toegestaan, het maximum aantal virtuele machines, en wanneer virtuele machines worden gestart en afsluiten. DevTest Labs kunt u gemakkelijk om te controleren van de kosten en instellen van waarschuwingen, kunt u blijven op de hoogte van het labresources die worden gebruikt.
 
 ## <a name="how-can-i-use-devtest-labs"></a>Hoe kan ik DevTest Labs gebruiken?
-DevTest Labs is handig telkens wanneer u dev vereisen of testomgevingen, en wilt ze snel te reproduceren, of ze beheren door middel van geld te besparen.
+DevTest Labs is handig wanneer u dev nodig hebt of testomgevingen en wilt ze snel te reproduceren, of ze beheren door middel van geld te besparen.
 
 Hier volgen enkele scenario's die gebruikmaken van onze klanten DevTest Labs voor:
 
@@ -106,8 +125,8 @@ Voor andere continue integratie (CI) / toolchains continue levering (CD), kunt u
 
 
 **Virtuele machines**
-## <a name="why-cant-i-see-vms-on-the-virtual-machines-blade-that-i-see-in-devtest-labs"></a>Waarom zie ik virtuele machines niet op de blade virtuele Machines die ik in DevTest Labs te zien?
-Wanneer u een virtuele machine in DevTest Labs maken, krijgt u machtiging voor toegang tot deze VM. Vindt u de virtuele machine zowel op de blade labs en klik op de **virtuele Machines** blade. Gebruikers die zijn toegewezen aan de gebruikersrol van DevTest Labs lab ziet alle virtuele machines die zijn gemaakt in de testomgeving op van het lab **alle virtuele Machines** blade. Gebruikers met de gebruikersrol van de DevTest Labs-lab worden leestoegang tot de VM-resources die andere gebruikers hebben gemaakt, automatisch niet verleend. Deze virtuele machines worden daarom niet weergegeven op de **virtuele Machines** blade.
+## <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>Waarom zie ik virtuele machines niet op de pagina virtuele Machines die ik in DevTest Labs te zien?
+Wanneer u een virtuele machine in DevTest Labs maken, krijgt u machtiging voor toegang tot deze VM. Vindt u de virtuele machine zowel op de pagina labs en klik op de **virtuele Machines** pagina. Gebruikers die zijn toegewezen aan de gebruikersrol van DevTest Labs lab ziet alle virtuele machines die zijn gemaakt in de testomgeving op van het lab **alle virtuele Machines** pagina. Gebruikers met de gebruikersrol van de DevTest Labs-lab worden leestoegang tot de VM-resources die andere gebruikers hebben gemaakt, automatisch niet verleend. Deze virtuele machines worden daarom niet weergegeven op de **virtuele Machines** pagina.
 
 ## <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>Wat is het verschil tussen een aangepaste installatiekopie en een formule?
 Een aangepaste installatiekopie is een virtuele harde schijf (VHD). Een formule is een installatiekopie die u kunt configureren met extra instellingen en klik vervolgens opslaan en reproduceren. Een aangepaste installatiekopie is mogelijk beter als u snel verschillende omgevingen maken wilt met behulp van dezelfde basis-, onveranderbare installatiekopie. Een formule is mogelijk beter als u wilt de configuratie van uw virtuele machine met de meest recente materialen reproduceren als onderdeel van een virtueel netwerk of subnet, of als een virtuele machine met een bepaalde grootte. Zie voor een uitgebreidere uitleg [vergelijking van aangepaste installatiekopieën en formules in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
@@ -184,7 +203,7 @@ U kunt virtuele machines verwijderen uit uw lab in Azure portal. U kunt ook alle
 
 **Artefacten**
 ## <a name="what-are-artifacts"></a>Wat zijn de artefacten?
-Artefacten zijn aanpasbare elementen die u gebruiken kunt om te implementeren van uw laatste gegevens of onze ontwikkelprogramma's implementeren op een virtuele machine. Artefacten toevoegen aan uw virtuele machine bij het maken van de virtuele machine. Nadat de virtuele machine is ingericht, wordt de artefacten implementeren en configureren van uw virtuele machine. Diverse bestaande artefacten zijn beschikbaar in onze [openbare GitHub-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). U kunt ook [ontwerpen van uw eigen artefacten](devtest-lab-artifact-author.md).
+Artefacten zijn aanpasbare elementen die u gebruiken kunt om te implementeren van uw laatste gegevens of onze ontwikkelprogramma's implementeren op een virtuele machine. Artefacten toevoegen aan uw virtuele machine bij het maken van de virtuele machine. Nadat de virtuele machine is ingericht, wordt de artefacten implementeren en configureren van uw virtuele machine. Diverse vooraf bestaande artefacten zijn beschikbaar in onze [openbare GitHub-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). U kunt ook [ontwerpen van uw eigen artefacten](devtest-lab-artifact-author.md).
 
 
 **Configuratie van het testlab**
@@ -232,7 +251,7 @@ Wanneer een resource een bovenliggend item naar een andere resource is, moet de 
 Virtuele machines zijn onderliggende resources onder een lab in een resourcegroep. Wanneer u virtuele machines implementeren met behulp van PowerShell met Resource Manager-sjablonen, moet de naam van de resourcegroep opgegeven in het PowerShell-script de naam van de resourcegroep van het testlab. Zie voor meer informatie, [algemene Azure-implementatie oplossen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Waar vind ik meer foutinformatie uitval van een VM-implementatie?
-Fouten bij de implementatie van de virtuele machine worden vastgelegd in de activiteitenlogboeken. U vindt lab VM activiteitenlogboeken onder **auditlogboeken** of **diagnostische gegevens van virtuele machine** in het resourcemenu op de VM-blade van de testomgeving (de blade wordt weergegeven nadat u de virtuele machine van de **mijn virtuele machines** lijst).
+Fouten bij de implementatie van de virtuele machine worden vastgelegd in de activiteitenlogboeken. U vindt lab VM activiteitenlogboeken onder **auditlogboeken** of **diagnostische gegevens van virtuele machine** in het resourcemenu op van het lab VM pagina (de pagina wordt weergegeven nadat u de virtuele machine van de **mijn virtuele machines** lijst).
 
 Soms treedt de implementatiefout op voordat de VM-implementatie begint. Een voorbeeld daarvan is wanneer de abonnementslimiet voor een resource die is gemaakt met de virtuele machine wordt overschreden. In dit geval worden de foutgegevens vastgelegd in de activiteitenlogboeken lab-niveau. Activiteitenlogboeken zijn in de rechterbenedenhoek van de **configuratie en het beleid** instellingen. Zie voor meer informatie over het gebruik van activiteit-in Azure logboeken [activiteitenlogboeken om te controleren van acties op resources bekijken](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 

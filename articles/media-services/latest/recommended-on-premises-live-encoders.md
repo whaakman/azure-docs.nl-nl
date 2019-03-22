@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: cc55466dac7344053e0cce3cad5f8161cef5226a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438122"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317320"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Aanbevolen live streaming-coderingsprogramma 's
 
@@ -34,8 +34,7 @@ Zie voor gedetailleerde informatie over live coderen met Media Services, [Live s
 Media Services raadt het gebruik van een van de volgende live coderingsprogramma's waarvoor RTMP als uitvoer. De ondersteunde URL-schema's zijn `rtmp://` of `rtmps://`.
 
 > [!NOTE]
- > Bij het streamen via RTMP, Controleer de firewall en/of proxy-instellingen om te bevestigen dat uitgaande TCP-poorten 1935 en 1936 geopend zijn.<br/>
- Bij het streamen via RTMPS, Controleer de firewall en/of proxy-instellingen om te bevestigen dat uitgaande TCP-poorten 2935 en 2936 geopend zijn.
+> Bij het streamen via RTMP, Controleer de firewall en/of proxy-instellingen om te bevestigen dat uitgaande TCP-poorten 1935 en 1936 geopend zijn.
 
 - Adobe Flash Media Live Encoder 3.2
 - Haivision KB

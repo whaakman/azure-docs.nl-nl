@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 4d9dfbcfc1dd00209a90386bf75f0c2515a28060
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ed8159f38e2763cb897212ae4f51fecb7343a683
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854463"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315588"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Meerdere toepassingen implementeren die door gasten kunnen worden uitgevoerd
 In dit artikel laat zien hoe verpakken en implementeren van meerdere gastbestanden Azure Service fabric. Lees hoe voor het bouwen en implementeren van een enkele Service Fabric-pakket naar [een door gasten uitvoerbare bestanden implementeren naar Service Fabric](service-fabric-deploy-existing-app.md).
@@ -204,7 +204,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Zodra de toepassing is op het lokale cluster wordt gepubliceerd, kunt u toegang tot de Node.js-toepassing op de poort die we hebben opgegeven in het servicemanifest van de Node.js-toepassing--bijvoorbeeld http://localhost:3000.
+Zodra de toepassing is op het lokale cluster wordt gepubliceerd, kunt u toegang tot de Node.js-toepassing op de poort die we hebben ingevoerd in het servicemanifest van de Node.js-toepassing bijvoorbeeld http:\//localhost:3000.
 
 In deze zelfstudie hebt u gezien hoe u gemakkelijk pakket twee bestaande toepassingen als een Service Fabric-toepassing. U hebt ook geleerd hoe u in Service Fabric implementeert, zodat deze van enkele van de Service Fabric-functies, zoals hoge beschikbaarheid en de gezondheid van systeemintegratie profiteren kan.
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: be66dcf8115258b6f593ec913e75785a3f8dbe1f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743477"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317473"
 ---
 # <a name="streaming-locators"></a>Streaming-locators
 
@@ -32,7 +32,11 @@ Als u opgeven van de versleutelingsopties voor uw stroom wilt, maakt u de [inhou
 > * Eigenschappen van **Streaming-Locators** die van de datum/tijd zijn altijd in UTC-notatie zijn.
 > * U moet een beperkte set beleidsregels ontwerpen voor uw Media Service-account en opnieuw gebruiken voor uw Streaming-Locators wanneer dezelfde opties nodig zijn. 
 
-## <a name="filtering-ordering-paging"></a>Filters, bestellen, wisselbestand
+## <a name="associate-filters-with-streaming-locators"></a>Filters met Streaming-Locators koppelen
+
+U kunt een lijst opgeven met [asset of account filters](filters-concept.md), die gelden voor uw [Streaming-Locator gemaakt](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). De [dynamische packager](dynamic-packaging-overview.md) deze lijst met filters samen met die de client Hiermee geeft u in de URL van toepassing is. Deze combinatie genereert een [dyanamic manifest](filters-dynamic-manifest-overview.md), die is gebaseerd op filters in de URL en filters die u op Streaming-Locator gemaakt opgeeft. U wordt aangeraden dat u deze functie gebruiken als u filters wilt toepassen, maar niet wilt weergeven van de filterfunctie namen in de URL.
+
+## <a name="filter-order-page-streaming-locator-entities"></a>Filter, de volgorde, de pagina Streaming-Locator gemaakt entiteiten
 
 Zie [filteren, bestellen, voor het wisselbestand van Media Services-entiteiten](entities-overview.md).
 

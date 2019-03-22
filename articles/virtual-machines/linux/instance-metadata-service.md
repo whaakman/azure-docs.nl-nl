@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 923931eec2a7deaa8cf92bec61bc623615c9420d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3f42aa57a4db445f0fb222905a6350b57c2c2a62
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847056"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315612"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -39,16 +39,12 @@ De service is beschikbaar in de algemeen beschikbare Azure-regio's. Niet alle AP
 
 Regio's                                        | Beschikbaarheid?                                 | Ondersteunde versies
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Alle globale Azure regio's algemeen beschikbaar](https://azure.microsoft.com/regions/)     | Algemeen verkrijgbaar   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure China](https://www.azure.cn/)                                                           | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Openbare West-Centraal VS](https://azure.microsoft.com/regions/)     | Algemeen verkrijgbaar   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Alle globale Azure regio's algemeen beschikbaar](https://azure.microsoft.com/regions/)     | Algemeen verkrijgbaar   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure China](https://www.azure.cn/)                                                           | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 
 Deze tabel wordt bijgewerkt wanneer er service-updates beschikbaar zijn en of nieuwe ondersteunde versies zijn beschikbaar.
-
-> [!NOTE]
-> 2018-01-10 wordt momenteel ophalen geïmplementeerd en is beschikbaar in andere regio's over enkele ogenblikken. Deze tabel wordt bijgewerkt wanneer er service-updates beschikbaar zijn en of nieuwe ondersteunde versies zijn beschikbaar
 
 Als u wilt de Instance Metadata Service uitproberen, maakt u een VM op basis van [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) of de [Azure-portal](https://portal.azure.com) in de bovenstaande regio's en volg de onderstaande voorbeelden.
 
@@ -355,7 +351,7 @@ resourceGroupName | [Resourcegroep](../../azure-resource-manager/resource-group-
 placementGroupId | [Plaatsingsgroep](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) instellen van uw virtuele-machineschaalset | 2017-08-01
 plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) voor een virtuele machine in de een Azure Marketplace-installatiekopie, bevat de naam, product en uitgever | 2018-04-02
 provider | Provider van de virtuele machine | 10-01-2018
-publicKeys | Verzameling van openbare sleutels [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] toegewezen aan de virtuele machine en de paden | 2018-04-02
+publicKeys | [Verzameling van openbare sleutels](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) toegewezen aan de virtuele machine en de paden | 2018-04-02
 vmScaleSetName | [Naam van de virtuele Machine ScaleSet](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) instellen van uw virtuele-machineschaalset | 2017-12-01
 zone | [Binnen een Beschikbaarheidszone](../../availability-zones/az-overview.md) van uw virtuele machine | 2017-12-01
 ipv4/privateIpAddress | Lokale IPv4-adres van de virtuele machine | 2017-04-02
@@ -434,7 +430,7 @@ Nonce is een optionele 10 cijfers tekenreeks opgegeven. Nonce kan worden gebruik
 
 ## <a name="example-scenarios-for-usage"></a>Voorbeeldscenario's voor gebruik  
 
-### <a name="tracking-vm-running-on-azure"></a>Bijhouden van de VM wordt uitgevoerd op Azure
+### <a name="tracking-vm-running-on-azure"></a>VM bijhouden waarop Azure wordt uitgevoerd
 
 Als een serviceprovider, hebt u mogelijk nodig bij te houden van het aantal virtuele machines met uw software of agents die nodig hebt om bij te houden van uniekheid van de virtuele machine hebben. Als u een unieke ID voor een virtuele machine ophalen, gebruikt u de `vmId` veld Instance Metadata Service.
 
@@ -450,7 +446,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
-### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Plaatsing van containers, gegevens-partities op basis van fouten/updatedomein
+### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Plaatsen van containers, fout-/updatedomein op basis van gegevenspartities
 
 Voor bepaalde scenario's, plaatsing van replica's van andere gegevens is van belang is aangewezen. Bijvoorbeeld, [HDFS replica plaatsing](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) of de positie van de container via een [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) kan u nodig hebt om te weten de `platformFaultDomain` en `platformUpdateDomain` op de virtuele machine wordt uitgevoerd.
 U kunt ook [Beschikbaarheidszones](../../availability-zones/az-overview.md) voor de exemplaren van deze beslissingen te nemen.
@@ -468,7 +464,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 0
 ```
 
-### <a name="getting-more-information-about-the-vm-during-support-case"></a>Meer informatie over de virtuele machine tijdens de ondersteuningsaanvraag ophalen
+### <a name="getting-more-information-about-the-vm-during-support-case"></a>Meer informatie krijgen over de VM tijdens de ondersteuningsaanvraag
 
 Als een serviceprovider krijgt u mogelijk een telefoongesprek ondersteuning waar u wilt meer informatie over de virtuele machine. Waarin wordt gevraagd de klant voor het delen van de metagegevens van de compute krijgt u algemene informatie voor de ondersteuning van professional op de hoogte van het type van de virtuele machine op Azure.
 
@@ -501,7 +497,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
-### <a name="getting-azure-environment-where-the-vm-is-running"></a>Ophalen van Azure-omgeving waarop de virtuele machine wordt uitgevoerd
+### <a name="getting-azure-environment-where-the-vm-is-running"></a>Azure-omgeving ophalen waarin de VM wordt uitgevoerd
 
 Azure heeft verschillende onafhankelijke clouds, zoals [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Soms moet u de Azure-omgeving om sommige runtime beslissingen te nemen. Het volgende voorbeeld laat zien hoe u dit gedrag kunt bereiken.
 
@@ -514,7 +510,7 @@ cURL Metadata:true -H "http://169.254.169.254/metadata/instance/compute/azEnviro
 AZUREPUBLICCLOUD
 ```
 
-### <a name="validating-that-the-vm-is-running-in-azure"></a>Valideren dat de virtuele machine wordt uitgevoerd in Azure
+### <a name="validating-that-the-vm-is-running-in-azure"></a>Valideren dat Azure wordt uitgevoerd op de VM
 
  Marketplace-leveranciers ervoor wilt zorgen dat de software is gelicentieerd voor het alleen worden uitgevoerd in Azure. Als iemand de VHD uit naar kopieert on-premises, klikt u vervolgens moet er een manier om te detecteren die. Aanroepen naar Instance Metadata Service krijgt Marketplace leveranciers ondertekende gegevens die alleen Azure-antwoord wordt gegarandeerd.
  **Aanvraag**
