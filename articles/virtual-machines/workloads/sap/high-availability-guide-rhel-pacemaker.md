@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 791c63b7b7fed55f95905ba7131d6a1d4bb414ff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 1a8e5fd82b44577aa1915d59fc7c29900a1f14ea
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010489"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319513"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Pacemaker op Red Hat Enterprise Linux in Azure instellen
 
@@ -85,7 +85,9 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-1. **[A]**  Inschakelen RHEL for SAP-opslagplaatsen
+   Houd er rekening mee dat door het koppelen van een groep naar een Azure Marketplace betalen per gebruik-RHEL-installatiekopie, kunt u zich effectief double-kosten in rekening gebracht voor uw gebruik RHEL: eenmaal voor de installatiekopie van het betalen per gebruik, en eenmaal voor de RHEL-rechten in de groep die u wilt koppelen. Als oplossing hiervoor, biedt Azure nu BYOS RHEL-installatiekopieën. Meer informatie vindt u [hier](https://aka.ms/rhel-byos).
+
+1. **[A] ** Inschakelen RHEL for SAP-opslagplaatsen
 
    Om te installeren de vereiste pakketten, schakel de volgende opslagplaatsen.
 
@@ -95,12 +97,12 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    sudo subscription-manager repos --enable="rhel-sap-for-rhel-7-server-rpms"
    </code></pre>
 
-1. **[A]**  RHEL HA-invoegtoepassing installeren
+1. **[A] ** RHEL HA-invoegtoepassing installeren
 
    <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
    </code></pre>
 
-1. **[A]**  Omzetten van de hostnaam instellen
+1. **[A] ** Omzetten van de hostnaam instellen
 
    U kunt een DNS-server gebruiken of aanpassen van de/etc/hosts op alle knooppunten. In dit voorbeeld laat zien hoe u het bestand/etc/hosts gebruikt.
    Vervang het IP-adres en de hostnaam in de volgende opdrachten. Het voordeel van het gebruik van/etc/hosts is dat uw cluster onafhankelijk van DNS, wat erop kan een single point of fouten te worden.
@@ -116,12 +118,12 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    <b>10.0.0.7 prod-cl1-1</b>
    </code></pre>
 
-1. **[A]**  Hacluster wachtwoord wijzigen naar hetzelfde wachtwoord
+1. **[A] ** Hacluster wachtwoord wijzigen naar hetzelfde wachtwoord
 
    <pre><code>sudo passwd hacluster
    </code></pre>
 
-1. **[A]**  Firewallregels voor pacemaker toevoegen
+1. **[A] ** Firewallregels voor pacemaker toevoegen
 
    De volgende firewallregels toevoegen aan alle clustercommunicatie tussen de clusterknooppunten.
 
@@ -129,7 +131,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    sudo firewall-cmd --add-service=high-availability
    </code></pre>
 
-1. **[A]**  Basiscluster services inschakelen
+1. **[A] ** Basiscluster services inschakelen
 
    Voer de volgende opdrachten voor het inschakelen van de service Pacemaker en start de App.
 
@@ -137,17 +139,17 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    sudo systemctl enable pcsd.service
    </code></pre>
 
-1. **[1]**  Cluster Pacemaker maken
+1. **[1] ** Cluster Pacemaker maken
 
    Voer de volgende opdrachten om te verifiëren van de knooppunten en maken van het cluster. Stel het token op 30000 waarmee onderhoud met statusbehoud geheugen. Zie voor meer informatie, [in dit artikel voor Linux][virtual-machines-linux-maintenance].
 
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
-   
+
    # Run the following command until the status of both nodes is online
    sudo pcs status
-   
+
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
@@ -169,7 +171,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    #   pcsd: active/enabled
    </code></pre>
 
-1. **[A]**  Verwachte stemmen instellen
+1. **[A] ** Verwachte stemmen instellen
 
    <pre><code>sudo pcs quorum expected-votes 2
    </code></pre>
@@ -179,18 +181,17 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
 Het stonith instellen-apparaat maakt gebruik van een Service-Principal te autoriseren op basis van Microsoft Azure. Volg deze stappen voor het maken van een Service-Principal.
 
 1. Ga naar <https://portal.azure.com>
-1. Open de Azure Active Directory-blade  
-   Ga naar eigenschappen en noteer de map-ID. Dit is de **tenant-ID**.
+1. Open de Azure Active Directory-blade gaat u naar eigenschappen en noteer de map-ID. Dit is de **tenant-ID**.
 1. Klik op App-registraties
 1. Klik op Add.
-1. Voer een naam in, selecteert u het Type toepassing 'Web-app/API', voer een aanmeldings-URL (bijvoorbeeld `http://localhost`) en klik op maken
+1. Voer een naam in, selecteert u het Type toepassing 'Web-app/API', voer een aanmeldings-URL (bijvoorbeeld http:\//localhost) en klik op maken
 1. De aanmeldings-URL wordt niet gebruikt en kan geldige URL zijn
 1. Selecteer de nieuwe App en sleutels op in het tabblad instellingen
 1. Voer een beschrijving in voor een nieuwe sleutel, selecteer 'Verloopt nooit' en klik op Opslaan
 1. Noteer de waarde in. Deze wordt gebruikt als de **wachtwoord** voor de Service-Principal
 1. Noteer de toepassings-ID. Deze wordt gebruikt als de gebruikersnaam (**aanmeldings-ID** in de onderstaande stappen) van de Service-Principal
 
-### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Een aangepaste rol maken voor de agent omheining
+### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1] ** Een aangepaste rol maken voor de agent omheining
 
 De Service-Principal heeft geen machtigingen voor toegang tot uw Azure-resources standaard. U hoeft op te geven van de Service-Principal machtigingen voor starten en stoppen (toewijzing ongedaan maken) alle virtuele machines van het cluster. Als u de aangepaste rol die niet al hebt gemaakt, kunt u maken met behulp van [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) of [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 
@@ -216,7 +217,7 @@ Gebruik de volgende inhoud voor het invoerbestand. U moet de inhoud voor uw abon
 }
 ```
 
-### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]**  De aangepaste rol toewijzen aan de Service-Principal
+### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A] ** De aangepaste rol toewijzen aan de Service-Principal
 
 De aangepaste rol 'Linux omheining Agent rol' die is gemaakt in het vorige hoofdstuk aan de Service-Principal toewijzen. De rol van eigenaar niet meer gebruiken.
 
@@ -231,7 +232,7 @@ De aangepaste rol 'Linux omheining Agent rol' die is gemaakt in het vorige hoofd
 
 Herhaal de bovenstaande stappen voor het tweede clusterknooppunt.
 
-### <a name="1-create-the-stonith-devices"></a>**[1]**  Maken de apparaten stonith instellen
+### <a name="1-create-the-stonith-devices"></a>**[1] ** Maken de apparaten stonith instellen
 
 Nadat u de machtigingen voor de virtuele machines hebt bewerkt, kunt u de apparaten stonith instellen in het cluster configureren.
 
@@ -246,7 +247,7 @@ Gebruik de volgende opdracht om de omheining-apparaat te configureren.
 
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> power_timeout=240 pcmk_reboot_timeout=900</code></pre>
 
-### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]**  Het gebruik van een apparaat stonith instellen inschakelen
+### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1] ** Het gebruik van een apparaat stonith instellen inschakelen
 
 <pre><code>sudo pcs property set stonith-enabled=true
 </code></pre>

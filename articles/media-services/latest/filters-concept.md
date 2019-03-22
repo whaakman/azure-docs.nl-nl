@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 78d6ac0a4ecde8d60a0ef3aa22515c7ce1ea4e07
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889355"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309534"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Accountfilters en asset filters definiëren  
 
@@ -88,7 +88,11 @@ Eigenschap van de filtervoorwaarden bijhouden beschrijven tracktypen, waarden (i
 |**Naam**|Gebruik de naam van de track voor het filteren.|
 |**Type**|Gebruik het type van het spoor voor het filteren.<br/><br/>De volgende waarden zijn toegestaan: "video", 'audio' of 'tekst'.|
 
-## <a name="example"></a>Voorbeeld
+## <a name="associate-filters-with-streaming-locator"></a>Filters met Streaming-Locator gemaakt koppelen
+
+U kunt een lijst met activa of account filters, die voor uw Streaming-Locator gemaakt gelden. De [dynamische packager](dynamic-packaging-overview.md) deze lijst met filters samen met die de client Hiermee geeft u in de URL van toepassing is. Deze combinatie genereert een [dyanamic manifest](filters-dynamic-manifest-overview.md), die is gebaseerd op filters in de URL en filters die u op Streaming-Locator gemaakt opgeeft. U wordt aangeraden dat u deze functie gebruiken als u filters wilt toepassen, maar niet wilt weergeven van de filterfunctie namen in de URL.
+
+## <a name="definition-example"></a>Voorbeeld van de definitie
 
 ```json
 {

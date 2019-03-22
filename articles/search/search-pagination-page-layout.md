@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ef29dafe32c3c5988cd33f59c8436eeef4b45886
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7a4423449931b74afa15ca238c611f54b071402f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849275"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339292"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Over het werken met zoeken resulteert in Azure Search
 Dit artikel bevat richtlijnen over het implementeren van standard elementen van een pagina met zoekresultaten, zoals het totale aantal, document ophalen, sorteervolgorde en navigatie. Opties voor pagina's gerelateerde die of gegevens naar uw zoekresultaten bijdragen worden opgegeven via de [Document doorzoeken](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) aanvragen naar uw Azure Search-Service verzonden. 
@@ -25,8 +25,8 @@ In de REST-API bevatten aanvragen een GET-opdracht, pad, en queryparameters die 
 Enkele voorbeelden van code bevatten een web front-interface, dat u hier kunt vinden: [New York City taken demo-app](https://azjobsdemo.azurewebsites.net/) en [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Een geldige aanvraag bevat een aantal elementen, zoals een service-URL en het pad, HTTP-term `api-version`, enzovoort. Beknopt alternatief bijgesneden we in de voorbeelden om te markeren, alleen de syntaxis die relevant is voor paginering. Zie voor meer informatie over de syntaxis van de aanvraag [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice). > 
-> 
+> Een geldige aanvraag bevat een aantal elementen, zoals een service-URL en het pad, HTTP-term `api-version`, enzovoort. Beknopt alternatief bijgesneden we in de voorbeelden om te markeren, alleen de syntaxis die relevant is voor paginering. Zie voor meer informatie over de syntaxis van de aanvraag [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice).
+>
 
 ## <a name="total-hits-and-page-counts"></a>Totaal aantal treffers en het aantal paginaweergaven
 Met het totale aantal resultaten die door een query zijn geretourneerd, en vervolgens de resultaten te retourneren in kleinere chunks is van cruciaal belang op vrijwel alle pagina's voor zoeken.

@@ -5,14 +5,14 @@ author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/19/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3da4662885b2b09c6474a1a6ceafd627e71cf236
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d34ef1bb5bea6f5f099f7fa2a24ddec2362b44ea
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081029"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336181"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell
 
@@ -101,10 +101,10 @@ Met de functie voor voorlopig verwijderen ingeschakeld:
 U kunt verwijderde sleutelkluizen, dat wordt gekoppeld aan uw abonnement weergeven met de volgende opdracht:
 
 ```powershell
-PS C:\> Get-AzKeyVault -InRemovedState 
+Get-AzKeyVault -InRemovedState 
 ```
 
-- *Id* kan worden gebruikt voor het identificeren van de resource bij het herstellen of verwijderen. 
+- *ID* kan worden gebruikt voor het identificeren van de resource bij het herstellen of verwijderen. 
 - *Resource-ID* is de oorspronkelijke bron-ID van deze kluis. Omdat deze sleutelkluis nu in een verwijderde status is, bestaat er is geen bron met die resource-ID. 
 - *Geplande datum opschonen* is als de kluis worden definitief verwijderd, als er geen actie ondernomen. De bewaartermijn, die wordt gebruikt voor het berekenen van de *opschonen datum gepland*, is 90 dagen.
 
@@ -233,8 +233,27 @@ Aanbieding verwijderde key vault-objecten wordt ook weergegeven wanneer ze zijn 
 >[!IMPORTANT]
 >Een object opgeschoonde kluis, geactiveerd door de *opschonen datum gepland* veld, wordt definitief verwijderd. Het kan niet worden hersteld.
 
+## <a name="enabling-purge-protection"></a>Leegmaken van de beveiliging inschakelen
+
+Bij het leegmaken van de beveiliging is ingeschakeld in een kluis of een object in de verwijderde status niet leegmaken totdat de bewaarperiode van 90 dagen is verstreken. Deze kluis of het object kan nog steeds worden hersteld. Deze functie biedt de zekerheid dat een kluis of een object kan niet permanent worden verwijderd voordat de bewaarperiode voor het periode is verstreken.
+
+Alleen als de functie voor voorlopig verwijderen ook is ingeschakeld, kunt u leegmaken van de beveiliging inschakelen. 
+
+Als u wilt inschakelen op beide voorlopig verwijderen en beveiliging verwijderen bij het maken van een kluis, gebruikt u de [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
+
+```powershell
+New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
+```
+
+Leegmaken van de beveiliging toevoegen aan een bestaande kluis (die al is voorlopig verwijderen zijn ingeschakeld), gebruikt de [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0), en [Set AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlets:
+
+```
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
+
+Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
+```
+
 ## <a name="other-resources"></a>Meer informatie
 
 - Zie voor een overzicht van de functie voor voorlopig verwijderen van de Sleutelkluis, [overzicht van Azure Key Vault-functie voor voorlopig verwijderen](key-vault-ovw-soft-delete.md).
-- Zie voor een algemeen overzicht van gebruik van Azure Key Vault, [wat is Azure Key Vault?](key-vault-overview.md).
-
+- Zie voor een algemeen overzicht van gebruik van Azure Key Vault, [wat is Azure Key Vault?](key-vault-overview.md). aken = geslaagd}

@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f854c8b27065c2d2bf0c9964fe9dfce66aba423a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9fcc6cb40d83c06a1c9f0a97c72565464e74e655
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104502"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336068"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory
 
@@ -29,7 +29,7 @@ Meer informatie over het vinden en op te lossen [eenmalige aanmelding](../manage
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Het beste installeren de [mijn Apps beveiligde aanmelding extensie](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). Deze browserextensie kunt u eenvoudig zijn voor het verzamelen van de SAML-aanvraag en de SAML-antwoord informatie die u nodig hebt voor het oplossen van problemen met eenmalige aanmelding. Als u de extensie niet installeren, in dit artikel wordt beschreven hoe u het oplossen van problemen met en zonder de extensie geïnstalleerd.
+Het beste installeren de [mijn Apps beveiligde aanmelding extensie](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). Deze browserextensie kunt u eenvoudig zijn voor het verzamelen van de SAML-aanvraag en de SAML-antwoord informatie die u nodig hebt voor het oplossen van problemen met eenmalige aanmelding. Als u de extensie niet installeren, in dit artikel wordt beschreven hoe u het oplossen van problemen met en zonder de extensie geïnstalleerd.
 
 Als u wilt downloaden en installeren van de extensie mijn Apps beveiligen aanmelden, moet u een van de volgende koppelingen gebruiken.
 
@@ -64,7 +64,7 @@ Wanneer u probeert aan te melden, ziet u mogelijk een foutbericht op uw bedrijf 
 
 Om op te sporen deze fout, moet u het foutbericht en de SAML-aanvraag. De extensie mijn Apps beveiligde aanmelding automatisch deze gegevens worden verzameld en resolutie richtlijnen weergegeven in Azure AD. 
 
-### <a name="to-resolve-the-sign-in-error-with-the-myapps-secure-sign-in-extension-installed"></a>Los de fout aanmelden met het beveiligen van de MyApps-aanmelden-extensie geïnstalleerd
+### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>Los de fout aanmelden met de mijn Apps beveiligde aanmelding bij de extensie is geïnstalleerd
 
 1. Wanneer een fout optreedt, stuurt u met de extensie terug naar de Azure AD **eenmalige aanmelding testen** blade. 
 1. Op de **eenmalige aanmelding testen** Selecteer **downloaden van de SAML-aanvraag**. 
@@ -73,14 +73,14 @@ Om op te sporen deze fout, moet u het foutbericht en de SAML-aanvraag. De extens
 
 Als geen oplossing die is opgegeven voor de fout aanmelden, het is raadzaam dat u het tekstvak feedback gebruiken om u te laat het ons weten.
 
-### <a name="to-resolve-the-error-without-installing-the-myapps-secure-sign-in-extension"></a>De fout kunt oplossen zonder dat de MyApps beveiligde aanmelding bij de extensie wordt geïnstalleerd
+### <a name="to-resolve-the-error-without-installing-the-my-apps-secure-sign-in-extension"></a>De fout kunt oplossen zonder dat de mijn Apps beveiligde aanmelding-extensie wordt geïnstalleerd
 
 1. Kopieer het foutbericht in de rechterbenedenhoek van de pagina. Bevat het foutbericht:
     - Een CorrelationID en een tijdstempel. Deze waarden zijn belangrijk wanneer u een ondersteuningsaanvraag met Microsoft maken omdat ze de engineers om te bepalen van het probleem en een nauwkeurige oplossing voor uw probleem te bieden.
     - Een instructie de hoofdoorzaak van het probleem te identificeren.
 1. Ga terug naar Azure AD en zoek de **eenmalige aanmelding testen** blade.
 1. In het bovenstaande tekstvak **resolutie begeleiding**, plakt u het foutbericht.
-1. Klik op **resolutie begeleiding** om stappen voor het oplossen van het probleem weer te geven. De richtlijnen mogelijk gegevens uit de SAML-aanvraag of SAML-antwoord. Als u niet de extensie MyApps beveiligde aanmelding gebruikt, moet u mogelijk een hulpprogramma zoals [Fiddler](https://www.telerik.com/fiddler) om op te halen van de SAML-aanvraag en het antwoord.
+1. Klik op **resolutie begeleiding** om stappen voor het oplossen van het probleem weer te geven. De richtlijnen mogelijk gegevens uit de SAML-aanvraag of SAML-antwoord. Als u niet de extensie mijn Apps beveiligen aanmelden, moet u mogelijk een hulpprogramma zoals [Fiddler](https://www.telerik.com/fiddler) om op te halen van de SAML-aanvraag en het antwoord.
 1. Controleer of dat het doel in de SAML-aanvraag overeenkomt met de SAML Single Sign-On Service-URL ontleend aan het Azure AD.
 1. Controleer of dat de uitgever in de SAML-aanvraag wordt dezelfde id die u hebt geconfigureerd voor de toepassing in Azure AD. Azure AD maakt gebruik van de uitgever van een toepassing zoeken in uw directory.
 1. Controleer of dat assertionconsumerserviceurl is waar de toepassing verwacht voor het ontvangen van het SAML-token van Azure AD. U kunt deze waarde configureren in Azure AD, maar dit is niet verplicht als het deel van de SAML-aanvraag uitmaakt.

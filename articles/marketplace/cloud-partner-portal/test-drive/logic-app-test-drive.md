@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456823"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338595"
 ---
 <a name="logic-app-test-drive"></a>Logische App Test Drive
 ====================
@@ -137,6 +137,10 @@ Krijgen we de toepassing gebruiken om te implementeren voor het abonnement, moet
 **Azure AD App Key -** *[vereist veld]* het laatste veld voor het genereren van een verificatiesleutel nodig is. Onder sleutels, een beschrijving van de sleutel, toevoegen de duur instellen op nooit verlopen, klikt u vervolgens selecteert u opslaan. Het is **belangrijk** om te voorkomen dat een verlopen sleutels, die wordt verbroken uw test drive in productie. Deze waarde kopiëren en plak deze in uw vereist Test Drive-veld.
 
 ![Sectie van de Azure Active Directory-sleutels](./media/azure-resource-manager-test-drive/subdetails8.png)
+
+> [!CAUTION]
+> U kunt de Preview van Azure App-registratie niet gebruiken omdat een sleutel met base64 gecodeerde momenteel genereert.
+
 
 <a name="next-steps"></a>Volgende stappen
 ----------

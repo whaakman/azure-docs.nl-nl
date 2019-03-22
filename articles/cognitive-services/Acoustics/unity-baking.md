@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: cb5ad8e4ff3d5a28fa38c7e8972e7e3e69d2762d
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136948"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309637"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Project akoestische Unity Bake zelfstudie
 Deze zelfstudie beschrijft akoestische bakken met akoestische in Unity-Project.
@@ -28,7 +28,7 @@ Softwarevereisten:
 ## <a name="open-the-project-acoustics-bake-window"></a>Open het Project akoestische verdient venster
 Kies **venster > akoestische** in het menu Unity:
 
-![Open akoestische venster](media/window-acoustics.png)
+![Schermafbeelding van Unity-editor met de menu-optie voor akoestische venster is gemarkeerd](media/window-acoustics.png)
 
 ## <a name="create-a-navigation-mesh"></a>Een navigatie-net maken
 Project akoestische maakt gebruik van een navigatie-NET listener test punten voor simulatie plaatsen. U kunt de Unity [navigatie mesh werkstroom](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html), of gebruik een ander pakket van de 3D-modellen voor het ontwerpen van uw eigen mesh. 
@@ -68,15 +68,15 @@ De onderdelen van de tabbladpagina zijn:
 
 Als u er niets is geselecteerd in de scène hebt, ziet het tabblad objecten, zoals in de volgende afbeelding:
 
-![Objecten tabblad geen selectie](media/objects-tab-no-selection-detail.png)
+![Schermafbeelding van akoestische objecten tabblad met geen selectie](media/objects-tab-no-selection-detail.png)
 
 Als u iets hebt geselecteerd in het venster scène of hiërarchie hebt, kunt u het eruitziet zoals in de volgende afbeelding:
 
-![Objecten tabblad geen selectie](media/objects-tab-selection-detail.png)
+![Schermafbeelding van akoestische objecten tabblad met de selectie wordt weergegeven](media/objects-tab-selection-detail.png)
 
 Als sommige objecten zijn gemarkeerd en sommige zijn niet, wordt een "gemengde" waarde weergegeven in het bijbehorende selectievakje:
 
-![Selectievakje met gemengde waarde](media/mixed-object-selection-detail.png)
+![Schermafbeelding van akoestische objecten tabblad met gemengde selectie pictogram gemarkeerd](media/mixed-object-selection-detail.png)
 
 Alle objecten zijn gemarkeerd te klikken op het selectievakje forceert en te klikken op opnieuw alle objecten wordt markering.
 
@@ -89,10 +89,10 @@ Het akoestisch materiaal beheren geluid energieverbruik weergegeven van elke sur
 
 De tijd weerklank van een bepaald materiaal in een kamer is omgekeerd gerelateerd aan de coëfficiënt opname met de meeste materiaal met waarden voor opname in het bereik 0,01-0.20. Materialen met opname coëfficiënten buiten dit bereik zijn zeer absorberend.
 
-![Het diagram met de weerklank](media/reverb-time-graph.png)
+![Grafiek met negatieve correlatie weerklank tijd met opname coëfficiënt](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Ter referentie: Onderdelen van het tabblad materiaal
-![Details van het tabblad materiaal](media/materials-tab-detail.png)
+![Schermafbeelding van akoestische materialen tabblad in Unity](media/materials-tab-detail.png)
 
 1. De **materiaal** tabblad knop, die wordt gebruikt om deze pagina.
 2. Een korte beschrijving van wat u moet doen met behulp van deze pagina.
@@ -117,23 +117,23 @@ Deze berekeningen kunnen enkele minuten duren, afhankelijk van de grootte van uw
 ### <a name="review-voxel-and-probe-placement"></a>Controleer voxel en test de plaatsing
 Zowel de voxel-gegevens en de locaties van de punt test om te controleren of dat u bent klaar om u te maken van uw scène bekijken. Een onvolledige navigatie mesh of ontbreekt of is extra akoestische geometrie meestal snel zichtbaar zijn in de Preview-versie. Voxel en test de plaatsing kan worden ingeschakeld of uitgeschakeld met behulp van het menu Gizmos:
 
-![Gizmos Menu](media/gizmos-menu.png)
+![Schermafbeelding van Gizmos in het menu in Unity](media/gizmos-menu.png)
 
 Voxels akoestische geometrie die worden weergegeven als groen kubussen. Verken uw scène en controleer of alles wat u de geometrie moet voxels heeft. De camera van het scène heeft binnen ongeveer 5 meters van het object voor de voxels om weer te geven.
 
 Als u de voxels die zijn gemaakt met behulp van abrupte resolutie vs fijn resolutie vergelijkt, ziet u dat de grof voxels tweemaal zo groot zijn.
 
-![Voxel-Preview](media/voxel-cubes-preview.png)
+![Schermafbeelding van grove voxels preview in de editor voor Unity](media/voxel-cubes-preview.png)
 
 Simulatieresultaten worden geïnterpoleerd tussen listener test distributiepuntlocaties tijdens runtime. Controleer de punten van de test in de buurt van waar dat de speler wordt verwacht dat in de scène worden uitgewisseld.
 
-![Tests-Preview](media/probes-preview.png)
+![Schermafbeelding van de tests preview in de editor voor Unity](media/probes-preview.png)
 
 ### <a name="take-care-with-scene-renames"></a>Let erop dat met de naam van de scène
 Naam van de scène wordt gebruikt om de verbinding van de scène met opslaan van de test punt plaatsing en voxelization-bestanden. Als de naam van de scène is gewijzigd nadat de test-punten worden berekend, is het materiaal en plaatsing toewijzing gegevens verloren en moet opnieuw worden gestart.
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Ter referentie: Onderdelen van het tabblad tests
-![Details van het tabblad tests](media/probes-tab-detail.png)
+![Schermafbeelding van akoestische tests tabblad in Unity](media/probes-tab-detail.png)
 
 1. De **tests** tabblad-knop die wordt gebruikt om deze pagina
 2. Een korte beschrijving van wat u moet doen met behulp van deze pagina
@@ -157,15 +157,15 @@ Terwijl dit misschien eenvoudig lijken, heeft een aantal gevolgen voor de akoest
 * Geluid bronnen kunnen zich niet in "gevuld" voxels die voxels die geometry bevatten: dit resulteert in geen geluid. Het is moeilijker te vinden van geluid bronnen, zodat ze niet binnen de grotere voxels van grove vallen dan de instelling van de fijn wordt gebruikt.
 * De grotere voxels wordt inbreuk maken meer bij portals, zoals hieronder wordt weergegeven. De eerste afbeelding is gemaakt met behulp van abrupte, terwijl de tweede is de dezelfde poort met fijn resolutie. Zoals aangegeven door de rode markeringen, moet u er veel minder inbreuk in de poort die met behulp van de instelling van de orde is. De blauwe lijn is de poort, zoals gedefinieerd door de geometrie, terwijl de rode lijn de effectieve akoestische portal gedefinieerd door de grootte van de voxel wordt. Hoe deze indringers wordt afgespeeld uit in een bepaalde situatie is afhankelijk van de volledig op hoe de voxels uitgelijnd met de geometrie van de portal, die wordt bepaald door de grootte en de locaties van de objecten in de scène.
 
-![Grof poort](media/coarse-voxel-doorway.png)
+![Schermafbeelding van grove voxels in poort](media/coarse-voxel-doorway.png)
 
-![Fijn poort](media/fine-voxel-doorway.png)
+![Schermafbeelding van fijn voxels in poort](media/fine-voxel-doorway.png)
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Maken van een scène met behulp van Azure Batch
 U kunt maken van een scène met een rekencluster in de cloud met behulp van de Azure Batch-service. De Project akoestische Unity-invoegtoepassing maakt rechtstreeks verbinding met Azure Batch te maken, beheren en een Azure Batch-cluster voor elke bake afbreken. Op de **verdient** tabblad, Voer uw Azure-referenties, selecteer een clustertype van de machine en de grootte en klikt u op **verdient**.
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Ter referentie: Onderdelen van het tabblad Bake
-![Details van het tabblad maken](media/bake-tab-details.png)
+![Schermafbeelding van akoestische verdient tabblad in Unity](media/bake-tab-details.png)
 
 1. De knop Tab verdient is gebruikt om deze pagina.
 2. Een korte beschrijving van wat te doen op deze pagina.
@@ -209,8 +209,8 @@ Een voorbeeld: bij onze tests op een 8-core-machine met Intel Xeon E5-1660 @ 3 G
 ### <a name="setup-docker"></a>Docker instellen
 Installeren en configureren van Docker op de computer die de simulatie - verwerkt
 1. Installeer de [Docker toolset](https://www.docker.com/products/docker-desktop).
-2. Start de Docker-instellingen, gaat u naar de opties 'Geavanceerd' en configureren van resources op ten minste 8 GB RAM-geheugen. De meer CPU's die u kunt toewijzen aan Docker, hoe sneller de bake wordt voltooid. ![Voorbeeld van Docker-instellingen](media/docker-settings.png)
-3. Ga naar "Gedeelde stations" en delen van het station gebruikt voor de verwerking van inschakelen.![DockerDriveSharing](media/docker-shared-drives.png)
+2. Start de Docker-instellingen, gaat u naar de opties 'Geavanceerd' en configureren van resources op ten minste 8 GB RAM-geheugen. De meer CPU's die u kunt toewijzen aan Docker, hoe sneller de bake wordt voltooid. ![Schermopname van voorbeeld van Docker-instellingen](media/docker-settings.png)
+3. Ga naar "Gedeelde stations" en delen van het station gebruikt voor de verwerking van inschakelen.![Opties voor Screnshot van Docker gedeelde stations](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Lokale bake uitvoeren
 1. Klik op de knop 'Voorbereiden lokale verdient' op de **verdient** tabblad en selecteer een map waarin de invoerbestanden en de uitvoering van scripts worden opgeslagen. U kunt vervolgens de bake uitvoeren op elke computer, zolang deze voldoet aan de minimale hardwarevereisten en waarop Docker is geïnstalleerd door te kopiëren van de map op de computer.
@@ -234,11 +234,11 @@ Gegevensbestanden van de editor:
 ## <a name="set-up-the-acoustics-lookup-table"></a>Instellen van de opzoektabel akoestische
 Sleep en zet de **Project akoestische** prefab uit het deelvenster project in uw scène:
 
-![Akoestische Prefab](media/acoustics-prefab.png)
+![Schermafbeelding van akoestische prefab in Unity](media/acoustics-prefab.png)
 
 Klik op de **ProjectAcoustics** Game-Object en Ga naar het deelvenster inspector. Geef de locatie van uw bake resultaat die (de. Bestand optimaal **activa/AcousticsData**) door slepen en neerzetten in het script akoestische Manager of door te klikken op de knop cirkel naast het tekstvak.
 
-![Akoestische Manager](media/acoustics-manager.png)  
+![Schermafbeelding van de Manager van de akoestische prefab in Unity](media/acoustics-manager.png)  
 
 ## <a name="next-steps"></a>Volgende stappen
 * Verken de [besturingselementen voor Unity ontwerpen](unity-workflow.md)

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 9d48f47f66bea0bb8c5e3c982f983f3673bcb157
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884673"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316995"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>De virtuele Machine voor Datatechnologie voor Linux (Ubuntu) inrichten
 
@@ -144,9 +144,9 @@ Nadat u zich aanmeldt bij de virtuele machine met behulp van de SSH-client of de
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub en Jjupyterlab
 
-De Ubuntu-DSVM wordt uitgevoerd [JupyterHub](https://github.com/jupyterhub/jupyterhub), een Jupyter-server van meerdere gebruikers. Als u wilt verbinden, blader naar https://your-vm-ip:8000 op uw laptop of het bureaublad, voer de gebruikersnaam en het wachtwoord die u hebt gebruikt voor het maken van de virtuele machine en aanmelden. Veel voorbeeldnotitieblokken zijn beschikbaar voor u om te bladeren en uit te proberen.
+De Ubuntu-DSVM wordt uitgevoerd [JupyterHub](https://github.com/jupyterhub/jupyterhub), een Jupyter-server van meerdere gebruikers. Als u wilt verbinden, blader naar https:\// uw-vm-ip:8000 op uw laptop of bureaublad, voer de gebruikersnaam en wachtwoord die u hebt gebruikt voor het maken van de virtuele machine en aanmelden. Veel voorbeeldnotitieblokken zijn beschikbaar voor u om te bladeren en uit te proberen.
 
-Jjupyterlab, is de volgende generatie van Jupyter notebooks en JupyterHub, ook beschikbaar. Meld u aan bij JupyterHub voor toegang, en blader naar de URL https://your-vm-ip:8000/user/your-username/lab. U kunt Jjupyterlab instellen als de standaardserver voor de notebook door deze regel toe te voegen aan /etc/jupyterhub/jupyterhub_config.py:
+Jjupyterlab, is de volgende generatie van Jupyter notebooks en JupyterHub, ook beschikbaar. Meld u aan bij JupyterHub voor toegang, en blader naar de URL https:\// uw-vm-ip:8000/gebruiker/your-gebruikersnaam/lab. U kunt Jjupyterlab instellen als de standaardserver voor de notebook door deze regel toe te voegen aan /etc/jupyterhub/jupyterhub_config.py:
 
     c.Spawner.default_url = '/lab'
 

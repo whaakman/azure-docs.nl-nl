@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: ac1384827ceede0f66fd08c6c08fa8e934b1ae42
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc8dd6770efa1c057a56374ddc0094c2d88d2eb5
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076153"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335728"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>De routetabel van een virtuele Hub om door te sturen verkeer naar een virtueel netwerkapparaat maken
 
@@ -36,9 +36,9 @@ In dit artikel leert u het volgende:
 
 Controleer of dat u voldoet aan de volgende criteria:
 
-1. U hebt een Network Virtual Appliance (NVA) is een software van derden van uw keuze die normaal gesproken is ingericht vanuit Azure Marketplace (koppeling) in een virtueel netwerk.
+1. U hebt een Network Virtual Appliance (NVA). Dit is een software van derden van uw keuze die doorgaans in een virtueel netwerk van Azure Marketplace is ingericht.
 2. U hebt een privé IP-adres toegewezen aan de netwerkinterface van de NVA. 
-3. NVA kan niet worden geïmplementeerd in de virtuele hub. Worden moet geïmplementeerd in een apart VNet. In dit artikel worden de NVA-VNet is het VNet van het DMZ genoemd.
+3. De NVA kan niet worden geïmplementeerd in de virtuele hub. Worden moet geïmplementeerd in een apart VNet. In dit artikel worden de NVA-VNet is het VNet van het DMZ genoemd.
 4. Het DMZ VNet kan een of meerdere virtuele netwerken zijn verbonden. In dit artikel wordt dit VNet 'Indirecte knooppunt VNet' genoemd. Deze vnet's kunnen worden verbonden met het DMZ-VNet via VNet-peering.
 5. Controleer of u 2 VNets die zijn al gemaakt. Deze wordt gebruikt als knooppunt VNets. In dit artikel worden de adresruimten van de VNet-spoke 10.0.2.0/24 en 10.0.3.0/24. Als u informatie over het maken van een VNet, Zie [maken van een virtueel netwerk met behulp van PowerShell](../virtual-network/quick-create-powershell.md).
 6. Zorg ervoor dat er geen virtuele netwerkgateways zijn in elk vnet's.
@@ -117,14 +117,6 @@ Voer de wijzigingen in de virtuele hub.
 
 ```powershell
 Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
-```
-
-## <a name="cleanup"></a>Resources opschonen
-
-Als u deze resources niet meer nodig hebt, kunt u [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) om de resourcegroep en alle resources die deze bevat te verwijderen. Vervangen 'myResourceGroup' door de naam van uw resourcegroep en voer de volgende PowerShell-opdracht uit:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

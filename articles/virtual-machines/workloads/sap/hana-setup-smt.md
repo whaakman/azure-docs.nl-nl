@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9fe644b7cc7d1a13cb9ed2f7016f25b3e346dfb
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 690f41e941f2d1db8fc92d225a54d07570299222
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233171"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313132"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>SMT-server instellen voor SUSE Linux
 Grote instanties van SAP HANA hebt geen directe verbinding met internet. Het is niet een eenvoudig proces zoals eenheden registreren bij de provider van het besturingssysteem, en voor het downloaden en toepassen van updates. Er is een oplossing voor het SUSE Linux voor het instellen van een SMT-server in een virtuele machine van Azure. Host voor de virtuele machine in een Azure-netwerk, die is verbonden met de HANA grote instantie. Met deze een SMT-server, kan de eenheid HANA grote instantie registreren en updates te downloaden. 
@@ -56,7 +56,7 @@ cd ~
 echo "export NCURSES_NO_UTF8_ACS=1" >> .bashrc
 ```
 
-Start opnieuw op uw bash voor het activeren van de instellingen. Start vervolgens YAST.
+Start opnieuw op uw bash voor het activeren van de instellingen. Then start YAST.
 
 Verbind uw VM (smtserver) met de SUSE-site.
 
@@ -84,7 +84,7 @@ U kunt het hulpprogramma YAST ook gebruiken om het smt-pakketten te installeren.
 ![Schermopname van het SMT in YAST](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-De selectie voor installatie op de smtserver accepteren. Nadat de installatie is voltooid, gaat u naar de configuratie van de SMT-server. Voer de referenties van de organisatie van de SUSE klant Center die u eerder hebt opgehaald. De hostnaam van uw virtuele Azure-machine ook opgeven als de URL van de SMT-Server. In deze demonstratie heeft https://smtserver.
+De selectie voor installatie op de smtserver accepteren. Nadat de installatie is voltooid, gaat u naar de configuratie van de SMT-server. Voer de referenties van de organisatie van de SUSE klant Center die u eerder hebt opgehaald. De hostnaam van uw virtuele Azure-machine ook opgeven als de URL van de SMT-Server. In deze demonstratie wordt het https:\//smtserver.
 
 ![Schermafbeelding van SMT-serverconfiguratie](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

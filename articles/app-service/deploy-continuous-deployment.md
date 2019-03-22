@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 1313616818686c7a03269fc1cc837958665732d8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725232"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337541"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Continue implementatie in Azure App Service
 Dit artikel leest u hoe u continue implementatie voor [Azure App Service](overview.md). App Service kunt u continue implementatie vanuit BitBucket, GitHub, en [Azure DevOps Services](https://www.visualstudio.com/team-services/) door te halen in de meest recente updates van uw bestaande opslagplaats in een van deze services.
@@ -47,6 +47,16 @@ In de **Build-provider** pagina, kies de build-provider en klikt u op > **doorga
 ### <a name="option-1-use-app-service-kudu-build-server"></a>Optie 1: gebruik die App Service Kudu server maken
 
 In de **configureren** pagina, selecteert u de organisatie, de opslagplaats en het vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **Doorgaan**.
+
+Als u wilt implementeren vanuit een opslagplaats in een GitHub-organisatie, blader naar GitHub en gaat u naar **instellingen** > **toepassingen** > **geautoriseerd OAuth Apps**. Klik vervolgens op 'Azure App Service'.
+
+![Instellingen > toepassingen > geautoriseerde OAuth Apps > Azure App Service](media/app-service-continuous-deployment/github-settings-navigation.png)
+
+In de volgende pagina van App Service toegang verlenen tot opslagplaatsen van uw organisatie door te klikken op de knop 'Verlenen' aan de rechterkant.
+
+![Klik op 'verlenen"App Service-toegangsmachtigingen voor de organisatie-opslagplaatsen](media/app-service-continuous-deployment/grant-access.png)
+
+Uw organisatie worden nu weergegeven in de lijst "Organisatie" in de **configureren** pagina van de Center-implementatie.
 
 ### <a name="option-2-use-azure-pipelines-preview"></a>Optie 2: gebruik van Azure-pijplijnen (preview)
 

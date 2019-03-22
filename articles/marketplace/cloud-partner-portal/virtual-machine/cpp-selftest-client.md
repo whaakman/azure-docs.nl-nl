@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa46fbce9d11a8fd380a5ee1990c0e7924079a9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 8dc0a003a12eb0aca28c6a3238e2119dc449d661
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078683"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309415"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Maak een zelftest-client voor het vooraf valideren van een installatiekopie van een virtuele machine van Azure
 
@@ -54,7 +54,7 @@ Het volgende diagram toont de werking van autorisatie voor service-to-service aa
 De API testen bevat één eindpunt die ondersteuning biedt voor alleen de POST-methode.  De volgende structuur heeft.
 
 ```
-Uri:             https://isvapp.azurewebsites.net/selftest-vm
+Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -260,7 +260,7 @@ Gebruik de volgende stappen uit om de clientapp te registreren.
 
    - **Naam** – Geef een beschrijvende naam voor de app. Bijvoorbeeld: 'SelfTestClient'.
    - **Toepassingstype** – Selecteer **Web-App/API**
-   - **Aanmeldings-URL** – Type "https://isvapp.azurewebsites.net/selftest-vm"
+   - **Aanmeldings-URL** – Type ' https:\//isvapp.azurewebsites.net/selftest-vm "
 
 4. Selecteer **Maken**.
 5. Onder **App-registraties** of **geregistreerde app**, Kopieer de **toepassings-ID**.

@@ -1,19 +1,19 @@
 ---
-title: De Azure-portal gebruiken voor het beheren van Azure AD-toegangsrechten tot containers en wachtrijen met RBAC (preview) - Azure Storage | Microsoft Docs
+title: De Azure-portal gebruiken voor het beheren van Azure AD-toegangsrechten tot containers en wachtrijen met RBAC (preview) - Azure Storage
 description: Op rollen gebaseerd toegangsbeheer (RBAC) van de Azure-portal toegang toewijzen tot containers en wachtrijen om beveiligings-principals te gebruiken. Azure Storage biedt ondersteuning voor ingebouwde en aangepaste RBAC-rollen voor verificatie via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a38cce7d15b4796bb66803d06f3589569985cb37
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431853"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319496"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Toegang verlenen tot Azure-containers en wachtrijen met RBAC in Azure portal (preview)
 
@@ -101,14 +101,6 @@ Volg deze stappen om toe te wijzen de **lezer** rol zodat een gebruiker toegang 
 
 > [!NOTE]
 > Het toewijzen van de rol van lezer is alleen nodig voor gebruikers die toegang moeten krijgen tot blobs of wachtrijen met behulp van de Azure portal. 
-
-## <a name="use-azure-ad-credentials-with-the-portal"></a>Azure AD-referenties gebruiken met de portal
-
-Voor toegang tot blobs of wachtrijen in Azure portal met uw Azure AD-referenties, gebruikt u de preview-koppelingen weergegeven in de volgende afbeelding:
-
-![Toegang tot blobs of wachtrijen met Azure AD-referenties in portal](media/storage-auth-aad-rbac/access-data-azure-ad.png)
-
-Als u toegang blob of een wachtrij gegevens met behulp van de productie-koppelingen in plaats van de preview-koppelingen tot, de Azure portal maakt gebruik van uw accountsleutel te autoriseren voor toegang, in plaats van met behulp van Azure AD.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -4,17 +4,17 @@ description: Leer hoe u de modules, beveiliging, communicatie en rapportage op u
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/13/2018
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a2412a286015cb403fe9a2af7754c7e5346fe98c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: bb2df9c32d5adc8160da82148e4a66a4ab68d182
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230421"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311596"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>De Azure IoT Edge-runtime en de bijbehorende architectuur begrijpen
 
@@ -22,17 +22,17 @@ IoT Edge-runtime is een verzameling van programma's die moeten worden geïnstall
 
 IoT Edge-runtime voert de volgende functies op IoT Edge-apparaten:
 
-* Installeert workloads op het apparaat en werkt deze bij.
-* Onderhoudt de Azure IoT Edge-beveiligingsstandaarden op het apparaat.
-* Zorgt ervoor dat [IoT Edge-modules](iot-edge-modules.md) altijd worden uitgevoerd.
-* Rapporteert de status van de module aan de cloud voor externe bewaking.
-* Vergemakkelijkt de communicatie tussen downstream leaf-apparaten en IoT Edge-apparaten.
-* Vergemakkelijkt de communicatie tussen modules op het IoT Edge-apparaat.
-* Vergemakkelijkt de communicatie tussen het IoT Edge-apparaat en de cloud.
+* Workloads op het apparaat installeren en bijwerken.
+* De Azure IoT Edge-beveiligingsstandaarden op het apparaat onderhouden.
+* Zorg ervoor dat [IoT Edge-modules](iot-edge-modules.md) altijd worden uitgevoerd.
+* De status van de module aan de cloud rapporteren voor externe bewaking.
+* Faciliteren de communicatie tussen downstream leaf-apparaten en IoT Edge-apparaten.
+* Faciliteren de communicatie tussen modules op het IoT Edge-apparaat.
+* Faciliteren de communicatie tussen de IoT Edge-apparaat en de cloud.
 
 ![Runtime communiceert inzichten en status van de module voor IoT-Hub](./media/iot-edge-runtime/Pipeline.png)
 
-De verantwoordelijkheden van de IoT Edge-runtime kunnen worden onderverdeeld in twee categorieën: communicatie-en-module. Deze twee rollen worden uitgevoerd door twee onderdelen die gezamenlijk de IoT Edge-runtime. De IoT Edge hub is verantwoordelijk voor communicatie, terwijl de IoT Edge-agent wordt beheerd, implementeren en controleren van de modules. 
+De verantwoordelijkheden van de IoT Edge-runtime kunnen worden onderverdeeld in twee categorieën: communicatie-en-module. Deze twee rollen worden uitgevoerd door twee onderdelen die gezamenlijk de IoT Edge-runtime. De *IoT Edge hub* verantwoordelijk is voor communicatie, terwijl de *IoT Edge agent* implementeert en controleert u de modules. 
 
 Zowel de IoT Edge hub en de IoT Edge-agent zijn modules, net als elke andere module die wordt uitgevoerd op een IoT Edge-apparaat. 
 
@@ -52,11 +52,11 @@ Als u wilt de bandbreedte reduceren uw IoT Edge-oplossing gebruikt, de IoT Edge 
 
 ![IoT Edge hub is een gateway tussen fysieke apparaten en IoT-Hub](./media/iot-edge-runtime/Gateway.png)
 
- IoT Edge hub kunt bepalen of deze verbonden met IoT Hub. Als de verbinding verbroken wordt, IoT Edge hub-berichten of dubbele updates lokaal wordt opgeslagen. Zodra een verbinding opnieuw tot stand is gebracht, worden deze gesynchroniseerd met alle gegevens. De locatie die wordt gebruikt voor deze tijdelijke cache wordt bepaald door een eigenschap van de moduledubbel van de IoT Edge hub. De grootte van de cache wordt niet beperkt tot, en zullen groeien zolang het apparaat heeft opslagcapaciteit. 
+IoT Edge hub kunt bepalen of deze verbonden met IoT Hub. Als de verbinding verbroken wordt, IoT Edge hub-berichten of dubbele updates lokaal wordt opgeslagen. Zodra een verbinding opnieuw tot stand is gebracht, worden deze gesynchroniseerd met alle gegevens. De locatie die wordt gebruikt voor deze tijdelijke cache wordt bepaald door een eigenschap van de moduledubbel van de IoT Edge hub. De grootte van de cache wordt niet beperkt tot, en zullen groeien zolang het apparaat heeft opslagcapaciteit. 
 
 ### <a name="module-communication"></a>Module-communicatie
 
- IoT Edge hub vergemakkelijkt de communicatie van de module-module. Met behulp van IoT Edge houdt hub als een berichtenbroker modules onafhankelijk van elkaar. Modules hoeft alleen te geven van de invoer waarop ze berichten en de uitvoer waaraan ze berichten schrijven accepteren. Een ontwikkelaar van de oplossing vervolgens dan aan elkaar gehecht deze invoer en uitvoer samen zodat de modules verwerken van gegevens in de volgorde die specifiek zijn voor die oplossing. 
+IoT Edge hub vergemakkelijkt de communicatie van de module-module. Met behulp van IoT Edge houdt hub als een berichtenbroker modules onafhankelijk van elkaar. Modules hoeft alleen te geven van de invoer waarop ze berichten en de uitvoer waaraan ze berichten schrijven accepteren. Een ontwikkelaar van de oplossing vervolgens dan aan elkaar gehecht deze invoer en uitvoer samen zodat de modules verwerken van gegevens in de volgorde die specifiek zijn voor die oplossing. 
 
 ![IoT Edge Hub vergemakkelijkt de communicatie van de module-naar-module](./media/iot-edge-runtime/module-endpoints.png)
 

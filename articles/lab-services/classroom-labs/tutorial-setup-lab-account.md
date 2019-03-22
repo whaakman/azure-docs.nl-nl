@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4c63cb69cd5ce824648d2bf0a6735e316791c44e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec1b75e7bd2defe96948e9830c25488ecd8289da
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079925"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336351"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Zelfstudie: Een lab-account instellen met Azure Lab Services
 In Azure Lab Services fungeert een lab-account als het centrale account waarin alle labs in uw organisatie worden beheerd. In uw lab-account machtigt u anderen om labs te maken en stelt u beleidsregels in die van toepassing zijn op alle labs in het lab-account. In deze zelfstudie leert u hoe u een lab-account maakt als lab-beheerder. 
@@ -37,10 +37,10 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te maken met Azure Lab Services. 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer in het menu links **Alle services**. Selecteer **Lab-accounts** in de sectie **DEVOPS**. Selecteer de ster (`*`) naast de **Lab-accounts** om er een toe te voegen aan de sectie **FAVORIETEN** in het menu links. Vanaf de volgende keer selecteert u **Lab-accounts** onder **Favorieten**.
+2. Selecteer in het menu links **Alle services**. Selecteer **Lab Services** in de **DEVOPS** sectie. Als u een ster (`*`) naast **Lab Services**, wordt deze toegevoegd aan de **Favorieten** sectie in het menu links. In de volgende keer dat en hoger, selecteert u **Lab Services** onder **Favorieten**.
 
-    ![Alle Services -> Lab-accounts](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. Selecteer op de pagina **Lab-accounts** **Toevoegen** op de werkbalk. 
+    ![Alle Services -> Lab-Services](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. Op de **Lab Services** weergeeft, schakelt **toevoegen** op de werkbalk. 
 
     ![Selecteer de Toevoegen op de pagina Lab-accounts](../media/tutorial-setup-lab-account/add-lab-account-button.png)
 4. Voer op de pagina **Lab-account** de volgende acties uit: 

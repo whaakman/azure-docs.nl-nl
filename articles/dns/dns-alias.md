@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/20/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1f6d6b2ae5fd3a0c08d37b93c73656ac6bb71d67
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295637"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337643"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS-server registreert alias overzicht
 
@@ -20,9 +20,9 @@ Azure DNS-alias records zijn kwalificaties op een DNS-Recordset. Ze kunnen verwi
 
 Een recordset alias wordt ondersteund voor de volgende recordtypen in Azure DNS-zone: 
 
-- A 
-- AAAA 
-- CNAME 
+- A
+- AAAA
+- CNAME
 
 > [!NOTE]
 > Als u van plan bent een alias-record voor de recordtypen A of AAAA gebruiken om te verwijzen naar een [Azure Traffic Manager-profiel](../traffic-manager/quickstart-create-traffic-manager-profile.md) moet u ervoor zorgen dat de Traffic Manager-profiel slechts heeft [externe eindpunten](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). U moet het IPv4- of IPv6-adres opgeven voor externe eindpunten in Traffic Manager. In het ideale geval gebruik statische IP-adressen.
@@ -32,7 +32,7 @@ Een recordset alias wordt ondersteund voor de volgende recordtypen in Azure DNS-
 - **Wijs een openbaar IP-resource van een DNS-server A/AAAA-Recordset.** U kunt een A/AAAA-recordset maken en geef deze een alias recordset om te verwijzen naar een openbare IP-resource. De DNS-recordset wordt automatisch als het openbare IP-adres wordt gewijzigd of is verwijderd. Dangling DNS worden-records die naar onjuist IP-adressen verwijzen vermeden.
 
 - **Verwijzen naar een Traffic Manager-profiel van een AAAA-DNS A/CNAME-Recordset.** U kunt een A/AAAA maken of CNAME-record ingesteld en aliasrecords gebruiken om te verwijzen naar een Traffic Manager-profiel. Dit is vooral nuttig wanneer u nodig hebt voor het routeren van verkeer in het toppunt van een zone als traditionele CNAME-records worden niet ondersteund voor het toppunt van een zone. Stel bijvoorbeeld dat uw Traffic Manager-profiel is myprofile.trafficmanager.net en uw zakelijke DNS-zone contoso.com. U kunt een alias recordset van type A/AAAA voor contoso.com (het toppunt van de zone) maken en verwijzen naar myprofile.trafficmanager.net.
-
+- **Verwijzen naar een eindpunt Azure Content Delivery Network (CDN)**. Dit is handig als u statische website met Azure storage en Azure CDN te maken.
 - **Verwijzen naar een andere DNS-recordset binnen dezelfde regio.** Aliasrecords kunnen naar andere recordsets van hetzelfde type verwijzen. Een DNS CNAME-Recordset mag bijvoorbeeld een alias aan een andere CNAME-Recordset. Deze benadering is handig als u wilt dat aantal recordsets zijn aliassen en enkele niet-aliassen.
 
 ## <a name="scenarios"></a>Scenario's
@@ -61,6 +61,7 @@ Dit probleem kan worden opgelost met aliasrecords. In tegenstelling tot de CNAME
 Bijvoorbeeld: contoso.com en een www\.contoso.com kan verwijzen naar dezelfde Traffic Manager-profiel. Voor meer informatie over het gebruik van de aliasrecords met Azure Traffic Manager-profielen, Zie het gedeelte volgende stappen.
 
 ### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Wijs het toppunt van zone Azure CDN-eindpunten
+
 Net als bij een Traffic Manager-profiel, kunt u ook aliasrecords gebruiken om te verwijzen de apex van de DNS-zone naar Azure CDN-eindpunten. Dit is handig als u statische website met Azure storage en Azure CDN te maken. U kunt vervolgens toegang tot de website zonder: toevoeging van 'www' aan de DNS-naam.
 
 Bijvoorbeeld, als uw statische website met de naam www.contoso.com, uw gebruikers kunnen toegang tot uw site met behulp van contoso.com zonder de noodzaak www aan de DNS-naam toevoegen aan het begin.

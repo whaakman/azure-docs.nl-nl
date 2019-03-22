@@ -13,12 +13,12 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83c071629ba18ab9f40ecec3b2e09290f57ad2fe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 996b4df9d8723da3d1df799ea9f8656debb1395b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996564"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311931"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Veelgestelde vragen over Microsoft Authenticator-app
 
@@ -50,7 +50,7 @@ De Microsoft Authenticator-app de app Azure Authenticator vervangen en is de aan
 |Waarom is niet de bijbehorende Microsoft Authenticator-app voor Apple Watch synchroniseren of weergegeven op mijn watch?|Als de app wordt niet op uw horloge weergegeven, probeert u het volgende: <ol><li>Zorg ervoor dat uw Watch watchOS 4.0 of hoger is uitgevoerd.</li><li>Uw Watch opnieuw gesynchroniseerd.</li></ol>|
 |Mijn Apple Watch companion-app is vastgelopen. Kan ik u Mijn crash logboeken verzenden, zodat u kunt onderzoeken? |U moet eerst Zorg ervoor dat u hebt gekozen voor het delen van uw analyses met ons. Als u een TestFlight-gebruiker bent, bent u al aangemeld. Anders gaat u naar **instellingen > Privacy > Analytics** en selecteert u zowel de **delen iPhone & Watch analytics** en de **delen met App-ontwikkelaars** opties.<br><br>Nadat u bent aangemeld, kunt u proberen om het te reproduceren uw crashes, zodat uw crash-logboeken automatisch naar ons voor onderzoek verzonden worden. Echter, als u uw probleem niet reproduceren, kunt u handmatig kopiëren van uw logboekbestanden en verzend dit naar ons.<ol><li>Open de Watch-app op uw telefoon, gaat u naar **instellingen > Algemeen**, en klik vervolgens op **kopie Watch Analytics**.</li><li>Vinden van de bijbehorende crash onder **instellingen > Privacy > Analytics > Analytics-gegevens**, en kopieert u handmatig de volledige tekst.</li><li>Open de Microsoft Authenticator-app op uw telefoon en plakken die de gekopieerde tekst in de **delen met App-ontwikkelaars** tekstvak op de **logboeken verzenden** pagina.</li></ol>|
 |Wat is de App-Lock-functie en waarvoor dient het me meer om veilig te houden?|Uw wachtwoordcodes eenmalig, app-gegevens en app-instellingen om veiliger te houden, kunt u de App-Lock-functie in de Microsoft Authenticator-app inschakelen. Inschakelen van App-vergrendeling van het **instellingen** scherm van de Microsoft Authenticator-app betekent dat u wordt gevraagd om te verifiëren met behulp van uw PINCODE of biometrische telkens wanneer u de Microsoft Authenticator-app opent. Deze functie biedt extra beveiliging, de manier waarop u de meldingen in de Microsoft Authenticator-app goedkeuren worden niet gewijzigd.<br><br>**Opmerking**<br>Als u naar de Microsoft Authenticator-app uitgevoerd op een Android-apparaat in minder dan 30 seconden terugkeert, wordt u niet gevraagd opnieuw te verifiëren.|
-|Waarom krijg ik meldingen over de accountactiviteit van mijn?|Om te voorkomen dat u meer op de hoogte van wat met uw persoonlijke Microsoft-account gebeurt er, zijn we activiteit meldingen verzenden naar de Microsoft Authenticator-app. Deze meldingen weergegeven onmiddellijk nadat er iets verandert, mogelijk te maken zodat u beter te beveiligen. We eerder verzonden deze meldingen via e-mail en SMS-berichten en zijn nu uitgebreid naar de app. Zie voor meer informatie over deze activiteit meldingen [wat er gebeurt als er een ongewone aanmelding bij uw account](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Als u wilt wijzigen waar u uw meldingen ontvangen, moet u zich aanmelden bij https://account.live.com/SecurityNotifications/Update.
+|Waarom krijg ik meldingen over de accountactiviteit van mijn?|Om te voorkomen dat u meer op de hoogte van wat met uw persoonlijke Microsoft-account gebeurt er, zijn we activiteit meldingen verzenden naar de Microsoft Authenticator-app. Deze meldingen weergegeven onmiddellijk nadat er iets verandert, mogelijk te maken zodat u beter te beveiligen. We eerder verzonden deze meldingen via e-mail en SMS-berichten en zijn nu uitgebreid naar de app. Zie voor meer informatie over deze activiteit meldingen [wat er gebeurt als er een ongewone aanmelding bij uw account](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Als u wilt wijzigen waar u uw meldingen ontvangen, moet u zich aanmelden bij https:\//account.live.com/SecurityNotifications/Update.
 
 
 ## <a name="next-steps"></a>Volgende stappen

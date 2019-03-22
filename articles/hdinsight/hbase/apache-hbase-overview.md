@@ -1,8 +1,6 @@
 ---
 title: Wat is HBase in Azure HDInsight?
 description: Een inleiding tot Apache HBase in HDInsight, een NoSQL-database gebaseerd op Hadoop. Meer informatie over de toepassingsmogelijkheden en HBase vergelijken met andere Hadoop-clusters.
-keywords: bigtable, nosql, wat is hbase, apache hbase, hbase, hbase-overzicht,
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 46b201b2b5d8a3ee774f759326afae885ad6cb30
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d109a1a233aaaf1f3922561106caa15781e31e01
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651841"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337343"
 ---
 # <a name="what-is-apache-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-apache-hadoop"></a>Wat is Apache HBase in HDInsight: Een NoSQL-database die BigTable gelijkende mogelijkheden voor Apache Hadoop biedt
 [Apache HBase](https://hbase.apache.org/) is een open-source NoSQL-database die is gebouwd op [Apache Hadoop](https://hadoop.apache.org/) en gemodelleerde na [Google BigTable](https://cloud.google.com/bigtable/). HBase biedt willekeurige toegang en een sterke consistentie voor grote hoeveelheden ongestructureerde en semigestructureerde gegevens in een database zonder schema die is georganiseerd op basis van kolomfamilies.
@@ -62,8 +60,3 @@ Het canonieke gebruiksvoorbeeld waarvoor bigtable (en door uitbreiding HBase) is
 * [Apache HBase](https://hbase.apache.org/)
 * [Apache HBase Reference Guide](https://hbase.apache.org/book.html)
 * [Bigtable: Een gedistribueerd opslagsysteem voor gestructureerde gegevens](https://research.google.com/archive/bigtable.html)
-* [Apache HBase/Phoenix: Tips, trucs en Best Practices voor Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2016/08/28/hdinsight-hbase-faq/)
-
-
-
-

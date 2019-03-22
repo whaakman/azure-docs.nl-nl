@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 197010271518347025157968012be31c71b3b667
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c31f3ec503f22ab0d272ff96b85cf0f76a837d11
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121023"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316050"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric voor Visual Studio Code
 
@@ -107,7 +107,7 @@ De **Service Fabric: Toepassing publiceren** opdracht wordt uw Service Fabric-to
 De **Service Fabric: Toepassing implementeren** opdracht wordt uw Service Fabric-toepassing naar uw lokale cluster geïmplementeerd. Zorg ervoor dat uw lokale cluster voordat u de opdracht wordt uitgevoerd. 
 
 1. Selecteer de **Service Fabric: Toepassing implementeren** opdracht
-2. Het lokale cluster met Service Fabric Explorer weergeven (http://localhost:19080/Explorer) om te bevestigen dat de toepassing is geïnstalleerd. Dit kan enige tijd duren, dus zorg patiënt.
+2. Het lokale cluster met Service Fabric Explorer weergeven (http:\//localhost:19080 / Explorer) om te bevestigen dat de toepassing is geïnstalleerd. Dit kan enige tijd duren, dus zorg patiënt.
 3. U kunt ook **Service Fabric: Toepassing publiceren** opdracht zonder parameters die zijn ingesteld in het bestand Cloud.json om te implementeren op een lokaal cluster.
 
 > [!NOTE]

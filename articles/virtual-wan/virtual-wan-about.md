@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6f2f002c5ff08e21741927d07a0facfd09ec0914
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 6dae42dcc8b74b682c7226916482228058db6154
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295688"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336249"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Wat is Azure Virtual WAN?
 
@@ -21,7 +21,7 @@ Azure virtuele WAN is een netwerkservice, dat geoptimaliseerde en geautomatiseer
 
 Azure virtuele WAN combineert veel Azure-cloud-connectiviteit-services zoals site-naar-site VPN (algemeen beschikbaar), ExpressRoute (Preview), punt-naar-site gebruiker VPN (Preview) in één operationele interface. Verbinding met Azure vnet's met behulp van virtueel netwerkverbindingen tot stand is gebracht.
 
-![Virtual WAN-diagram](./media/virtual-wan-about/vwangraphic.png)
+![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan1.png)
 
 In dit artikel biedt een snel inzicht krijgt in de verbinding met het netwerk in Azure virtuele WAN. Virtual WAN biedt de volgende voordelen:
 
@@ -71,7 +71,7 @@ Zie voor een lijst van de beschikbare partners en locaties, de [virtuele WAN-par
 
 ### <a name="p2s"></a>Punt-naar-site VPN-verbindingen (Preview)
 
-Met een point-to-site-verbinding (P2S) kunt u vanaf een afzonderlijke clientcomputer een beveiligde verbinding maken met uw virtuele hub. Een P2S-verbinding wordt tot stand gebracht door deze te starten vanaf de clientcomputer. Deze oplossing is handig voor telewerkers die verbinding willen maken vanaf een externe locatie, zoals thuis of een conferentie. P2S-VPN is ook een uitstekende oplossing in plaats van een S2S-VPN wanneer u maar een paar clients hebt die verbinding moeten maken.
+Een punt-naar-site-verbinding (P2S) kunt u een beveiligde verbinding maken met uw virtuele hub uit een afzonderlijke clientcomputer. Een P2S-verbinding wordt tot stand gebracht door deze te starten vanaf de clientcomputer. Deze oplossing is handig voor telewerkers die verbinding willen maken vanaf een externe locatie, zoals thuis of een conferentie. P2S-VPN is ook een uitstekende oplossing in plaats van een S2S-VPN wanneer u maar een paar clients hebt die verbinding moeten maken.
 
 De verbinding wilt maken, Zie [maken van een punt-naar-site-verbinding met virtuele WAN](virtual-wan-point-to-site-portal.md).
 

@@ -1,5 +1,5 @@
 ---
-title: VPN met Azure MFA integreren met behulp van de Network Policy Server-extensie | Microsoft Docs
+title: VPN met Azure MFA integreren met behulp van de extensie voor Network Policy Server - Azure Active Directory
 description: Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Microsoft Azure.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22b035b325582cf4a12ff10a9abbedb8837229b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d9984da8fe3648179df7bbc24d5518816a1f4db
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117877"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316317"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
 

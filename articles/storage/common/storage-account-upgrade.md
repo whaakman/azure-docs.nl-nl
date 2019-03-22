@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: df9bc1680f20fe6264da0109cd52db1072fd9fc5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217288"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311132"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Een upgrade uitvoert naar een opslagaccount voor algemeen gebruik v2
 
@@ -29,14 +29,14 @@ Een upgrade naar een opslagaccount voor algemeen gebruik v2 in uw voor algemeen 
 2. Ga naar uw opslagaccount.
 3. In de **instellingen** sectie, klikt u op **configuratie**.
 4. Klik onder **Soort account** op **Upgrade**.
-5. Typ bij **Upgrade bevestigen** de naam van uw account. 
+5. Typ bij **Upgrade bevestigen** de naam van uw account.
 6. Klik op **Upgrade** aan de onderkant van de blade.
 
 ## <a name="upgrade-with-powershell"></a>Een upgrade uitvoeren met PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Als u wilt een account voor algemeen gebruik v1 upgraden naar een algemeen gebruik v2-account met behulp van PowerShell, moet u eerst PowerShell voor het gebruik van de meest recente versie van bijwerken de **Az.Storage** module. Zie [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van PowerShell. 
+Als u wilt een account voor algemeen gebruik v1 upgraden naar een algemeen gebruik v2-account met behulp van PowerShell, moet u eerst PowerShell voor het gebruik van de meest recente versie van bijwerken de **Az.Storage** module. Zie [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van PowerShell.
 
 Daarna roept u de volgende opdracht uit om het account, vervangen door de naam van de resourcegroep en storage-account te werken:
 
@@ -46,17 +46,17 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 ## <a name="upgrade-with-azure-cli"></a>Een upgrade uitvoeren met Azure CLI
 
-Als u wilt een account voor algemeen gebruik v1 upgraden naar een algemeen gebruik v2-account met behulp van Azure CLI, moet u eerst de meest recente versie van Azure CLI installeren. Zie [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor meer informatie over het installeren van de CLI. 
+Als u wilt een account voor algemeen gebruik v1 upgraden naar een algemeen gebruik v2-account met behulp van Azure CLI, moet u eerst de meest recente versie van Azure CLI installeren. Zie [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor meer informatie over het installeren van de CLI.
 
 Daarna roept u de volgende opdracht uit om het account, vervangen door de naam van de resourcegroep en storage-account te werken:
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
-``` 
+```
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Geef een toegangslaag voor blob-gegevens
 
-Voor algemeen gebruik v2-accounts ondersteunen alle Azure-opslagservices en gegevensobjecten, maar toegangslagen zijn alleen beschikbaar voor blok-blobs in Blob-opslag. Wanneer u een naar een opslagaccount voor algemeen gebruik v2 upgrade, kunt u een toegangslaag opgeven voor uw blob-gegevens. 
+Voor algemeen gebruik v2-accounts ondersteunen alle Azure-opslagservices en gegevensobjecten, maar toegangslagen zijn alleen beschikbaar voor blok-blobs in Blob-opslag. Wanneer u een naar een opslagaccount voor algemeen gebruik v2 upgrade, kunt u een toegangslaag opgeven voor uw blob-gegevens.
 
 Laag kunnen u de meest rendabele opslag op basis van uw Verwachte gebruikspatronen kiezen. Blok-blobs kunnen worden opgeslagen in een laag warm, koud of archief. Zie voor meer informatie over toegangslagen [Azure Blob-opslag: Hot, Cool, en Archiefopslaglaag](../blobs/storage-blob-storage-tiers.md).
 
@@ -96,7 +96,7 @@ Voor een schatting van de kosten van het opslaan en toegang tot blobgegevens in 
     - Hoeveel gegevens worden opgeslagen in het opslagaccount?
     - Hoe verandert het gegevensvolume op maandbasis; worden oude gegevens voortdurend vervangen door nieuwe gegevens?
 * Het primaire toegangspatroon voor uw Blob storage-gegevens, met inbegrip van:
-    - Hoeveel gegevens worden gelezen en geschreven naar het storage-account? 
+    - Hoeveel gegevens worden gelezen en geschreven naar het storage-account?
     - Het aantal leesbewerkingen ten opzichte van schrijf-bewerkingen plaatsvinden op de gegevens in de storage-account?
 
 Om te beslissen over de beste toegangslaag voor uw behoeften, kan het handig zijn om te bepalen de capaciteit van de blob-gegevens en hoe die gegevens wordt gebruikt. Dit kan beste worden gedaan door te kijken de bewaking metrische gegevens voor uw account.
@@ -108,7 +108,7 @@ Voor het bewaken van uw bestaande opslagaccounts en het verzamelen van deze gege
 Zie [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) (Metrische gegevens in opslaganalyse) en [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx) (Tabelschema van metrische gegevens in opslaganalyse) voor meer informatie
 
 > [!NOTE]
-> Blob Storage-accounts geven het service-eindpunt van de tabel alleen weer voor het opslaan en openen van de metrische gegevens voor dat account. 
+> Blob Storage-accounts geven het service-eindpunt van de tabel alleen weer voor het opslaan en openen van de metrische gegevens voor dat account.
 
 Voor het controleren van het opslagverbruik voor Blob Storage moet u de metrische gegevens over capaciteit inschakelen.
 Als dit is ingeschakeld, worden de capaciteitsgegevens van een Blob Storage-serviceaccount dagelijks geregistreerd en vastgelegd als een tabelvermelding die naar de *$MetricsCapacityBlob*-tabel binnen hetzelfde opslagaccount wordt geschreven.
@@ -120,7 +120,7 @@ Voor het controleren van gegevenstoegangspatronen voor Blob Storage, moet u de m
 
 Als u een goede schatting wilt maken van uw gegevensverbruik en toegangspatroon, raden we u aan voor de metrische gegevens een retentieperiode te kiezen die een goede afspiegeling is van uw normale gebruik en dat als uitgangspunt te nemen. Een optie is de metrische gegevens zeven dagen te bewaren en de gegevens elke week te verzamelen en aan het einde van de maand te analyseren. Een andere optie is de metrische gegevens van de afgelopen 30 dagen te bewaren en deze gegevens aan het einde van deze periode van 30 dagen te verzamelen en te analyseren.
 
-Voor meer informatie over het inschakelen, verzamelen en weergeven van metrische gegevens, raadpleegt u [Enabling Azure Storage metrics and viewing metrics data](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Metrische gegevens voor Azure Storage inschakelen en metrische gegevens weergeven).
+Zie voor meer informatie over het inschakelen, verzamelen en weergeven van metrische gegevens, [Storage analytics metrics](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Het opslaan, openen en downloaden van analytische gegevens wordt op dezelfde manier in rekening gebracht als normale gebruikersgegevens.

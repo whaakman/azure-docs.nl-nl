@@ -1,65 +1,79 @@
 ---
-title: Maak verbinding met Dropbox - Azure Logic Apps | Microsoft Docs
+title: Maak verbinding met Dropbox - Azure Logic Apps
 description: Uploaden en beheren van bestanden met Dropbox REST-API's en Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 07/15/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: 256a0b34d5050e17abe5bb98ca0c13ab0b61787e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094435"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314413"
 ---
-# <a name="get-started-with-the-dropbox-connector"></a>Aan de slag met de Dropbox-connector
-Verbinding maken met Dropbox om uw bestanden te beheren. U kunt verschillende acties uitvoeren zoals uploaden, bijwerken, ophalen en verwijderen van bestanden in Dropbox.
+# <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Uploaden en beheren van bestanden in Dropbox met behulp van Azure Logic Apps
 
-Gebruik [connectors](apis-list.md), moet u eerst een logische app maken. U kunt aan de slag door [het maken van een logische app nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Met de Dropbox-connector en Azure Logic Apps, kunt u geautomatiseerde werkstromen uploaden en beheren van bestanden in uw Dropbox-account maken. 
 
-## <a name="connect-to-dropbox"></a>Maak verbinding met Dropbox
-Voordat uw logische app krijgt een service tot toegang, moet u eerst maken een *verbinding* naar de service. Een verbinding biedt connectiviteit tussen een logische app en een andere service. Bijvoorbeeld, als u wilt verbinding maken met Dropbox, moet u eerst een Dropbox *verbinding*. Een verbinding wilt maken, moet u voor de referenties die u normaal gesproken gebruiken voor toegang tot de service die u wilt verbinden. Dus in de Dropbox-voorbeeld, zou u moeten de referenties naar uw Dropbox-account om te kunnen maken van de verbinding met Dropbox. 
+Dit artikel wordt beschreven hoe u verbinding maken met Dropbox van uw logische app en voegt u de Dropbox **wanneer een bestand wordt gemaakt** trigger en de Dropbox **bestandsinhoud ophalen via pad** actie.
 
-### <a name="create-a-connection-to-dropbox"></a>Maak een verbinding met Dropbox
-> [!INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]
-> 
-> 
+## <a name="prerequisites"></a>Vereisten
 
-## <a name="use-a-dropbox-trigger"></a>Gebruik een Dropbox-trigger
-Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom gedefinieerd in een logische app te starten. [Meer informatie over triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>.
 
-In dit voorbeeld gebruiken we de **wanneer een bestand wordt gemaakt** trigger. Wanneer deze trigger plaatsvindt, noemen we de **bestandsinhoud ophalen via pad** Dropbox-actie. 
+* Een [Dropbox-account](https://www.dropbox.com/), waarmee u gratis kunt aanmelden. Referenties voor uw account zijn nodig voor het maken van een verbinding tussen uw logische app en uw Dropbox-account.
 
-1. Voer *dropbox* in het zoekvak op de ontwerper van logische Apps, schakelt u vervolgens de **Dropbox - wanneer een bestand wordt gemaakt** trigger.      
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)  
-2. Selecteer de map waarin u wilt maken van het bestand bijhouden. Selecteren... (te herkennen in een rood kader) en blader naar de map die u selecteren wilt voor de invoer van de trigger.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
+* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). In dit voorbeeld moet u een lege, logische app.
 
-## <a name="use-a-dropbox-action"></a>Gebruik een Dropbox-actie
-Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+## <a name="add-trigger"></a>Trigger toevoegen
 
-Nu dat de trigger is toegevoegd, volgt u deze stappen voor het toevoegen van een actie die de inhoud van het nieuwe bestand krijgt.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Selecteer **+ nieuwe stap** om toe te voegen van de actie die u uitvoeren wilt wanneer een nieuw bestand wordt gemaakt.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
-2. Selecteer **een actie toevoegen**. Deze wordt geopend de zoekvak waarin u voor elke actie u zoeken kunt wilt uitvoeren.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
-3. Voer *dropbox* om te zoeken naar acties die verband houden met Dropbox.  
-4. Selecteer **Dropbox - bestandsinhoud ophalen via het pad** als de actie te ondernemen wanneer een nieuw bestand wordt gemaakt in de geselecteerde Dropbox-map. Hiermee opent u de actie in het Configuratiescherm. U wordt gevraagd om uw logische app voor toegang tot uw Dropbox-account als u niet hebt gedaan, eerder te autoriseren.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
-5. Selecteren... (dat zich bevindt in aan de rechterkant van de **bestandspad** besturingselement) en blader naar het bestandspad dat u wilt gebruiken. Of gebruik de **bestandspad** token om de snelheid van uw logische app te maken.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
-6. Sla uw werk en maak een nieuw bestand in Dropbox uw werkstroom activeren.  
+1. Kies **Alle** onder het zoekvak. Typ 'dropbox' als filter in het zoekvak.
+Selecteer deze trigger uit de lijst met triggers: **Wanneer een bestand wordt gemaakt**
 
-## <a name="connector-specific-details"></a>Connector-specifieke details
+   ![Dropbox-trigger selecteren](media/connectors-create-api-dropbox/select-dropbox-trigger.png)
 
-Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook eventuele beperkingen in de [connectorgegevens](/connectors/dropbox/).
+1. Meld u aan met uw referenties voor Dropbox-account en verleent toegang tot uw gegevens Dropbox voor Azure Logic Apps.
 
-## <a name="more-connectors"></a>Meer connectors
-Ga terug naar de [lijst van API's](apis-list.md).
+1. Geef de vereiste gegevens voor de trigger. 
+
+   Selecteer de map waar u wilt maken van het bestand bijhouden in dit voorbeeld. Als u wilt uw mappen bladeren, kies het pictogram van de map naast de **map** vak.
+
+## <a name="add-action"></a>Actie toevoegen
+
+Nu een actie toevoegen die de inhoud opgehaald van een nieuw bestand.
+
+1. Kies onder de trigger **volgende stap**. 
+
+1. Kies **Alle** onder het zoekvak. Typ 'dropbox' als filter in het zoekvak.
+Selecteer deze actie uit de lijst met acties: **Bestandsinhoud ophalen via pad**
+
+1. Als u dit nog niet hebt al Azure Logic Apps voor toegang tot Dropbox gemachtigd, verleent u nu toegang.
+
+1. Om te bladeren naar het bestandspad dat u gebruiken wilt, naast de **bestandspad** Kies het beletselteken (**...** ) knop. 
+
+   U kunt ook klikken op in de **bestandspad** vak en selecteer in de lijst met dynamische inhoud, **bestandspad**, waarvan de waarde is beschikbaar als uitvoer van de trigger die u in de vorige sectie hebt toegevoegd.
+
+1. Wanneer u klaar bent, kunt u uw logische app opslaan.
+
+1. Maak een nieuw bestand in Dropbox voor het activeren van uw logische app.
+
+## <a name="connector-reference"></a>Connector-verwijzing
+
+Voor technische informatie, zoals triggers en acties limieten, zoals is beschreven in van de connector OpenAPI (voorheen Swagger)-bestand, raadpleegt u de [van de connector-verwijzingspagina](/connectors/dropbox/).
+
+## <a name="get-support"></a>Ondersteuning krijgen
+
+* Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](https://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Volgende stappen
+
+* Meer informatie over andere [Logic Apps-connectors](../connectors/apis-list.md)

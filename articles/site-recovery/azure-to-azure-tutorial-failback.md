@@ -1,20 +1,20 @@
 ---
-title: Azure IaaS VM's die worden gerepliceerd naar een secundaire Azure-regio voor herstel na noodgeval met de Azure Site Recovery-service mislukt.
+title: Azure-VM gerepliceerd naar een secundaire Azure-regio voor herstel na noodgeval met de Azure Site Recovery-service mislukt.
 description: Leer hoe u een failover voor Azure-VM met de Azure Site Recovery-service.
 services: site-recovery
-author: sideeksh
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/07/2019
-ms.author: sideeksh
+ms.date: 03/18/2019
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d8721f313907f0e0519dca52f5565853f1c44110
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: c8ce05e644ad556542314b17151b808586734824
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089694"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315314"
 ---
 # <a name="fail-back-azure-vms-between-azure-regions"></a>Azure-VM's tussen Azure-regio's mislukken
 
@@ -24,51 +24,47 @@ In deze zelfstudie wordt beschreven hoe u een enkele virtuele machine van Azure 
 
 > [!div class="checklist"]
 > 
-> * Een failback uitvoeren van de secundaire virtuele machine
-> * Opnieuw beveiligen van de primaire virtuele machine terug naar de secundaire regio
+> * De Azure-VM in de secundaire regio van failback.
+> * Opnieuw beveiligen van de primaire Azure-VM naar de secundaire regio.
 > 
 > [!NOTE]
 > 
-> Deze zelfstudie is bedoeld als richtlijn voor de gebruiker door de stappen voor de failover naar een doelregio en terug met minimale aanpassingen; Als u wilt meer informatie over de verschillende aspecten die zijn gekoppeld aan de failover, met inbegrip van overwegingen voor netwerken, verwijzen automatisering of het oplossen van problemen naar de documenten in 'How To' voor virtuele Azure-machines.
+> In deze zelfstudie helpt u bij de failover van een paar virtuele machines naar een doelregio en weer terug naar de regio van de gegevensbron met minimale aanpassingen. Lees de artikelen in 'How To' voor virtuele machines van Azure voor meer gedetailleerde instructies.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="before-you-start"></a>Voordat u begint
 
-> * Zorg ervoor dat de virtuele machine heeft de status van de Failover is doorgevoerd en controleer of de primaire regio beschikbaar is, en maakt en nieuwe resources kunt u.
+> * Zorg ervoor dat de virtuele machine de **Failover is doorgevoerd** staat.
+> * Controleer of de primaire regio beschikbaar is, en maakt en nieuwe resources kunt u.
 > * Zorg ervoor dat nieuwe beveiliging is ingeschakeld.
 
 ## <a name="fail-back-to-the-primary-region"></a>Een failback naar de primaire regio uitvoeren
 
-Nadat de virtuele machines opnieuw zijn beveiligd, kunt u failover naar de primaire regio als en als u wilt.
+Nadat de virtuele machines opnieuw zijn beveiligd, kunt u een failback naar de primaire regio indien nodig.
 
-1. Ga naar uw Recovery Services-kluis. Klik op de gerepliceerde Items en selecteer de virtuele machine die opnieuw beveiligd.
+1. Klik in de kluis op **gerepliceerde Items** en selecteer de virtuele machine die opnieuw beveiligd is.
 
-2. U ziet het volgende. Houd er rekening mee dat het is vergelijkbaar met de blade voor test-failover en failover van de primaire regio.
-![Failback naar de primaire](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
+    ![Failback naar de primaire](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
 
-3. Klik op Test Failover naar een testfailover naar de primaire regio uitvoeren. Kies het herstelpunt en het Virtueelnetwerk voor de testfailover en klik op OK. Hier ziet u de test die virtuele machine gemaakt in de primaire regio die u kunt toegang tot en inspecteren.
+3. Klik op **Testfailover** om uit te voeren van een test back-failover naar de primaire regio.
+4. Selecteer het herstelpunt en het virtuele netwerk voor de test-failover, en klik op **OK**. U kunt de virtuele machine in de primaire regio gemaakt test bekijken.
+5. Nadat de test-failover is voltooid, klikt u op **failovertest** voor het opschonen van resources die in de regio van de gegevensbron voor de testfailover zijn gemaakt.
+6. In **gerepliceerde items**, selecteer de virtuele machine en klikt u op **Failover**.
+7. In **Failover**, selecteer een herstelpunt voor de failover.
+    - **Meest recente (standaard)**: Verwerkt de gegevens in de Site Recovery-service en biedt de laagste Recovery Point Objective (RPO).
+    - **Laatst verwerkt**: Hiermee herstelt u de virtuele machine naar de meest recente herstelpunt dat is verwerkt door Site Recovery.
+    - **Aangepast**: Failover-schakeling naar een bepaald herstelpunt. Deze optie is handig voor het uitvoeren van een testfailover.
 
-4. Wanneer Failover testen voldoende is, kunt u klikken op failovertest opschonen voor het opschonen van resources die in de regio van de gegevensbron voor de testfailover zijn gemaakt.
+8. Selecteer **sluit de computer voordat u begint met failover** als u wilt dat Site Recovery probeert een afsluiten van de bron-VM's voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. Houd er rekening mee dat Site Recovery niet, verwijdert u de bron na een failover.
+9. Volg de voortgang van de failover op de pagina **Taken**.
+10. Valideer de virtuele machine door aan te melden bij na de failover. U kunt het herstelpunt dat desgewenst wijzigen.
+11. Nadat u de failover hebt gecontroleerd, klikt u op **geeft de failover**. Hiermee verwijdert u doorvoeren van de beschikbare herstelpunten. De wijziging van het punt hersteloptie is niet meer beschikbaar.
+12. De virtuele machine moet worden weergegeven als een failover en failback uitgevoerd.
 
-5. Selecteer de virtuele machine die u failover wilt in gerepliceerde items > Failover.
-
-6. Selecteer een herstelpunt voor de failover tijdens Failover. U kunt een van de volgende opties gebruiken:
-    1. Meest recente (standaard): Deze optie worden alle gegevens in de Site Recovery-service verwerkt en biedt de laagste Recovery Point Objective (RPO)
-    2. Laatst verwerkte: Deze optie wordt de virtuele machine naar de meest recente herstelpunt dat is verwerkt door Site Recovery-service
-    3. Aangepast: Gebruik deze optie om failover naar een bepaald herstelpunt. Deze optie is handig voor het uitvoeren van een test-failover
-
-7. Selecteer afsluiten machine voordat de failover wordt gestart als u wilt dat Site Recovery probeert virtuele bronmachines afgesloten voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. Let op: Site Recovery schoont de bron niet op na een failover.
-
-8. Volg de voortgang van de failover op de pagina met taken
-
-9. Valideer de virtuele machine na de failover door u aan te melden bij de virtuele machine. Als u gaan van een ander herstelpunt voor de virtuele machine wilt, kunt u de hersteloptie punt wijzigen.
-
-10. Wanneer u tevreden met de mislukte bent via virtuele machine, geeft u de failover. Als u de failover doorvoert, worden alle herstelpunten die beschikbaar zijn voor de service verwijderd. De wijziging van het punt hersteloptie is niet meer beschikbaar.
-
-![Virtuele machine op de primaire en secundaire regio 's](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
-
-Als u de voorgaande schermafbeelding ziet, heeft de VM 'ContosoWin2016' een failover-overschakeling uitgevoerd van US - centraal naar US - oost en een failback uitgevoerd van US - oost naar US - centraal.
-
-Houd er rekening mee dat de DR-VMs in de toewijzing ongedaan gemaakt afsluitingsstaat blijft. Dit gedrag is inherent aan het ontwerp, omdat Azure Site Recovery de informatie van de virtuele machine bewaart, wat later eventueel handig is voor failover van de primaire naar de secundaire regio. Niet in rekening gebracht voor de toewijzing ongedaan gemaakt voor de virtuele machines, zodat deze moet worden opgeslagen omdat het.
+    ![Virtuele machine op de primaire en secundaire regio 's](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
-> Zie de ['procedures' sectie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) voor meer informatie over de werkstroom opnieuw beveiliging en wat er gebeurt tijdens het opnieuw beveiliging.
+> Het herstel na noodgevallen virtuele machines blijven in de afsluiting van de status toewijzing ongedaan gemaakt. Dit is standaard omdat de VM-informatie die nuttig voor failover van de primaire naar de secundaire regio later zijn kan door Site Recovery wordt opgeslagen. Niet in rekening gebracht voor de toewijzing ongedaan gemaakt virtuele machines, zodat ze moeten worden opgeslagen omdat ze zijn.
+
+## <a name="next-steps"></a>Volgende stappen
+
+[Meer informatie](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) over de stroom opnieuw beveiligen.

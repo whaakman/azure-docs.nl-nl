@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 0b578bfdb75b0ad4d4065d8793a74e7c4284eb74
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dec5ce37aa3b4e9d4d6fcab964c1e48b606a4cd0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781585"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338051"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Documenteer indelingen en naming convention-richtlijnen
 
@@ -31,7 +31,7 @@ Deze tabel bevat alle ondersteunde bestandsindelingen die u gebruiken kunt voor 
 | Microsoft Word    | .DOCX        | Microsoft Word-document                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | .PDF         | Adobe Acrobat portable document                                                                                                                                                                                                                                                |
 | HTML              | . HTML-CODE. HTM  | HTML-document                                                                                                                                                                                                                                                                  |
-| Tekstbestand         | .TXT         | UTF-16- of UTF-8-gecodeerde tekstbestanden                                                                                                                                                                                                                                             |
+| Tekstbestand         | .TXT         | UTF-16- of UTF-8 gecodeerde tekstbestanden. De bestandsnaam mag geen Japanse tekens bevatten.                                                                                                                                                                                        |
 | Uitgelijnde tekstbestand | . UITLIJNEN       | De extensie `.ALIGN` is een speciale uitbreiding die u gebruiken kunt als u weet dat de zinnen in het document paar perfect zijn uitgelijnd. Als u een `.ALIGN` zinnen wordt niet in overeenstemming gebracht aangepaste Translator-bestand voor u. |
 | Excel-bestand        | .XLSX        | Excel-bestand (2013 of later). Eerste regel / rij van het werkblad de taalcode die moet worden.                                                                                                                                                                                                                                                      |
 

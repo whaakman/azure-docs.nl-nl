@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: e8a85401c0c7282d64ebcbe2f9180f25f36f7289
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cae0c97cb3084b0578f277852d646c199d1e2313
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108151"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316249"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight-clusters schalen
 
@@ -120,7 +120,7 @@ Na de veilige modus te verlaten, kunt u handmatig de tijdelijke bestanden verwij
 
 * H100 geen instructie indienen databases weergeven: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Verbinding maken met hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. Internal.cloudapp.NET/1.1.1.1] is mislukt: **Verbinding geweigerd**
 
-* H020 Could not establish connection to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: Kan geen http-verbinding te maken http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Kan geen http-verbinding te maken http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Verbinding geweigerd**
+* H020 Could not establish connection to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: Http-verbinding met de HTTP-kan niet worden gemaakt:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Http-verbinding met de HTTP-kan niet worden gemaakt:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Verbinding geweigerd**
 
 * In de Hive-Logboeken: Waarschuwen [main]: server. HiveServer2 (HiveServer2.java:startHiveServer2(442)): fout bij het starten van HiveServer2 poging 21, probeert in 60 seconden java.lang.RuntimeException: Fout bij het autorisatiebeleid voor toepassen van hive-configuratie: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Kan map niet maken** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **De naam van knooppunt zich in de veilige modus**.
     De gerapporteerde blokken 0 moet extra 9 blokken aan de drempelwaarde 0.9900 van blokken 9 bereiken.
@@ -326,4 +326,4 @@ De laatste mogelijkheid is om te bekijken voor de zeldzame gevallen waarin HDFS 
 
 * [Inleiding tot Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Clusters schalen](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [HDInsight-clusters beheren met behulp van de Apache Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)
+* [HDInsight-clusters beheren met behulp van de Apache Ambari-webinterface](hdinsight-hadoop-manage-ambari.md)

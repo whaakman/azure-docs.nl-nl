@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 5c5b32eaf3066abe4489d909e224d2aa65e884a7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: efdb82f891b21fa03a338c56d3f3e897e684bdf6
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238025"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337067"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL database
 
@@ -36,7 +36,7 @@ In deze snelstart gaat u [SQL Server Management Studio][ssms-install-latest-84g]
   | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Connectiviteit vanaf een VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connectiviteit vanaf locatie](sql-database-managed-instance-configure-p2s.md)
   |Gegevens laden|Adventure Works geladen volgens de quickstart|[Wide World Importers herstellen](sql-database-managed-instance-get-started-restore.md)
-  |||Adventure Works herstellen of importeren vanuit een [BACPAC](sql-database-import.md)-bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Adventure Works herstellen of importeren vanuit een [BACPAC](sql-database-import.md)-bestand vanaf [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -48,13 +48,13 @@ Voordat u begint, controleert u of u de meest recente [SSMS][ssms-install-latest
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server-verbindingsgegevens ophalen
 
-Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam of hostnaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
+Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam of hostnaam, databasenaam en aanmeldingsgegevens nodig voor de volgende procedures.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 2. Navigeer naar de pagina **SQL-database** of **Met SQL beheerde exemplaren**.
 
-3. Bekijk op de pagina **Overzicht** de volledig gekwalificeerde servernaam naast **Servernaam** voor één database of de volledig gekwalificeerde servernaam naast **Host** voor een beheerd exemplaar. Als u de servernaam of hostnaam wilt kopiëren, plaatst u de muisaanwijzer erop en selecteert u het pictogram **Kopiëren**.
+3. Bekijk op de pagina **Overzicht** de volledig gekwalificeerde servernaam naast **Servernaam** voor een individuele database, of de volledig gekwalificeerde servernaam naast **Host** voor een beheerd exemplaar. Als u de servernaam of hostnaam wilt kopiëren, plaatst u de muisaanwijzer erop en selecteert u het pictogram **Kopiëren**.
 
 ## <a name="connect-to-your-database"></a>Verbinding maken met uw database
 
@@ -68,7 +68,7 @@ In SMSS maakt u verbinding met uw Azure SQL Database-server.
 
 2. Voer de volgende informatie in:
 
-   | Instelling      | Voorgestelde waarde    | Beschrijving | 
+   | Instelling      | Voorgestelde waarde    | Description | 
    | ------------ | ------------------ | ----------- | 
    | **Servertype** | Database-engine | Vereiste waarde. |
    | **Servernaam** | De volledig gekwalificeerde servernaam | Dit moet er ongeveer als volgt uitzien: **mijnnieuweserver20170313.database.windows.net**. |
@@ -142,17 +142,18 @@ Voer deze Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx
    ```sql
    SELECT * FROM [SalesLT].[Product] 
    WHERE Name='myNewProduct' 
+   ```
+   
+2. Selecteer **Uitvoeren**. Het volgende resultaat weergegeven. 
 
-2. Select **Execute**. The following result appears. 
-
-   ![result](./media/sql-database-connect-query-ssms/result.png)
+   ![Resultaat](./media/sql-database-connect-query-ssms/result.png)
 
  
-## Update data
+## <a name="update-data"></a>Gegevens bijwerken
 
-Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
+Voer deze [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-code voor het wijzigen van het nieuwe product.
 
-1. Replace the previous query with this one.
+1. Vervang de vorige query door deze.
 
    ```sql
    UPDATE [SalesLT].[Product]

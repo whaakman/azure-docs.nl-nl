@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: feb74b923a1f15105a2d80f8fefb09184162cb9b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0eedc32ee96c94b8b3621afc0ee211ed2ff19f5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990459"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314872"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de v2-API
 
@@ -85,7 +85,7 @@ In deze sectie bevat een overzicht van de inzichten.
 |thumbnailId|Miniatuur van de video-id. Als u wilt de miniatuur van het werkelijke, roep Get-miniatuur (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) en deze doorgeven thumbnailVideoId en thumbnailId.|
 |faces|Kan nul of meer gezichten bevatten. Zie voor meer informatie, [gezichten](#faces).|
 |trefwoorden|Kan nul of meer trefwoorden bevatten. Zie voor meer informatie, [trefwoorden](#keywords).|
-|sentimenten|Kan nul of meer sentimenten bevatten. Zie voor meer informatie, [sentimenten](#sentiments).|
+|stemmingen|Kan nul of meer sentimenten bevatten. Zie voor meer informatie, [sentimenten](#sentiments).|
 |audioEffects| Kan nul of meer audioEffects bevatten. Zie voor meer informatie, [audioEffects](#audioeffects).|
 |labels| Kan nul of meer labels bevatten. Zie voor meer informatie, [labels](#labels).|
 |merken| Kan nul of meer merken bevatten. Zie voor meer informatie, [merken](#brands).|
@@ -164,7 +164,7 @@ Een gezicht mogelijk een ID, een naam, een miniatuur, andere metagegevens en een
 |foto 's|De [opnamen](#shots) dimensie.|
 |merken|De [merken](#brands) dimensie.|
 |audioEffects|De [audioEffects](#audioEffects) dimensie.|
-|sentimenten|De [sentimenten](#sentiments) dimensie.|
+|stemmingen|De [sentimenten](#sentiments) dimensie.|
 |visualContentModeration|De [visualContentModeration](#visualcontentmoderation) dimensie.|
 |textualContentModeration|De [textualContentModeration](#textualcontentmoderation) dimensie.|
 |emoties| De [emoties](#emotions) dimensie.|
@@ -245,34 +245,26 @@ Voorbeeld:
 |vertrouwen|De opname-vertrouwen.|
 |language|De OCR-taal.|
 |instanties|Een lijst met tijdsbereik waar deze OCR weergegeven (de dezelfde OCR kan meerdere keren voorkomen).|
+|Hoogte|De hoogte van de rechthoek OCR|
+|top|De belangrijkste locatie in pixels|
+|Links| De linker-locatie in pixels|
+|Breedte|De breedte van de rechthoek OCR|
 
 ```json
 "ocr": [
     {
       "id": 0,
       "text": "LIVE FROM NEW YORK",
-      "confidence": 0.91,
+      "confidence": 675.971,
+      "height": 35,
       "language": "en-US",
+      "left": 31,
+      "top": 97,
+      "width": 400,      
       "instances": [
         {
           "start": "00:00:26",
           "end": "00:00:52"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "text": "NOTICIAS EN VIVO",
-      "confidence": 0.9,
-      "language": "es-ES",
-      "instances": [
-        {
-          "start": "00:00:26",
-          "end": "00:00:28"
-        },
-        {
-          "start": "00:00:32",
-          "end": "00:00:38"
         }
       ]
     }
@@ -585,7 +577,7 @@ Bedrijfs- en merknamen gedetecteerd in de spraak-naar-tekst transcriptie en/of V
 ]
 ```
 
-#### <a name="sentiments"></a>sentimenten
+#### <a name="sentiments"></a>stemmingen
 
 Sentimenten worden samengevoegd door hun sentimentType veld (positieve/neutraal/negatieve). Bijvoorbeeld, 0-0.1, 0.1 0.2.
 

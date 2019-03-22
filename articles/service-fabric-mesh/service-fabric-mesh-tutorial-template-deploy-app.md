@@ -3,7 +3,7 @@ title: 'Zelfstudie: Een app implementeren in Azure Service Fabric Mesh | Microso
 description: In deze zelfstudie leert u hoe u een toepassing kunt implementeren in Service Fabric Mesh met behulp van een sjabloon.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 773a466f9619f162fe3f7cbeeab0b766d3ca32ae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8a910f35bf25f889150ea3e89f4fa653f3a9ac14
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864861"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336317"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Zelfstudie: Een toepassing in Service Fabric Mesh implementeren met behulp van een sjabloon
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b1eb6e1458fab6de3472d68352ba7764b71007c8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58292578"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317643"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configureren van Azure Media Services-telemetrie met REST
 
@@ -34,7 +34,7 @@ De stappen in dit onderwerp zijn:
 - De Meldingseindpunten ophalen
 - Het maken van een Meldingseindpunt voor bewaking. 
 
-    Voor het maken van een Meldingseindpunt, stelt u de EndPointType op AzureTable (2) en endPontAddress ingesteld op het storage-tabel (bijvoorbeeld https://telemetryvalidationstore.table.core.windows.net/).
+    Voor het maken van een Meldingseindpunt, stelt u de EndPointType op AzureTable (2) en endPontAddress ingesteld op het storage-tabel (bijvoorbeeld https:\//telemetryvalidationstore.table.core.windows.net/).
   
 - Het bewaken van configuraties ophalen
 
@@ -121,12 +121,12 @@ De stappen in dit onderwerp zijn:
     
     {  
         "Name":"monitoring",
-        "EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/",
+        "EndPointAddress":"https:\//telemetryvalidationstore.table.core.windows.net/",
         "EndPointType":2
     }
 
 > [!NOTE]
-> Vergeet niet wijzigen van de 'https://telemetryvalidationstore.table.core.windows.net' waarde naar uw opslagaccount.
+> Vergeet niet wijzigen van de ' https:\//telemetryvalidationstore.table.core.windows.net ' waarde naar uw opslagaccount.
 
 ### <a name="response"></a>Antwoord
 

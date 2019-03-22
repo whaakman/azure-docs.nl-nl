@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 2cb70c67bc4719eb43c4fcb70edf574c57362f26
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6f539cb905c0ed401816c7f223918a1416f95d6c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013283"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312271"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Problemen oplossen in gedegradeerde status op Azure Traffic Manager
 
@@ -47,7 +47,7 @@ Voor het oplossen van een test mislukt, moet u een hulpprogramma waarmee HTTP-st
 
 Bovendien kunt u het tabblad netwerk van het gebied van F12 Tools foutopsporing in Internet Explorer om de HTTP-antwoorden weer te geven.
 
-In dit voorbeeld willen we om te zien van het antwoord van de WebTest-URL: http://watestsdp2008r2.cloudapp.net:80/Probe. De volgende PowerShell-voorbeeld ziet u het probleem.
+In dit voorbeeld willen we om te zien van het antwoord van de WebTest-URL: http:\//watestsdp2008r2.cloudapp.net:80/Probe. De volgende PowerShell-voorbeeld ziet u het probleem.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription

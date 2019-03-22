@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: b30ef7d0b373f0d9a440b6649f819e429e28328c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891100"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314923"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-beveiliging en naleving blauwdruk: PaaS-webtoepassing die als host fungeert voor de officiële Workloads groot-Brittannië
 
@@ -119,7 +119,7 @@ Deze sjabloon implementeert de volgende functies van App Service:
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
-SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database biedt beheerde één SQL-databases, beheerde SQL-databases in een [elastische pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool), en SQL [beheerde instanties](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (in openbare preview). Het biedt een [dynamisch schaalbare prestaties])https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) en opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor extreme analytische analyse en rapportage, en [in-memory OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) voor extreme transactionele verwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt.
+SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database biedt beheerde één SQL-databases, beheerde SQL-databases in een [elastische pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool), en SQL [beheerde instanties](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (in openbare preview). De service biedt [dynamisch schaalbare prestaties](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) en opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt.
 
 Azure SQL-Database in deze blauwdruk
 

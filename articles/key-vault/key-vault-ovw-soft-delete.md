@@ -6,13 +6,13 @@ ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
-ms.date: 09/25/2017
-ms.openlocfilehash: 526b0b135c8d5c1741ddf5f3fe6fb32f259a3e2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.openlocfilehash: f222b37e8ca6efcfe28146ee948511d887f547a4
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092987"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339139"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Overzicht van Azure Key Vault-functie voor voorlopig verwijderen
 
@@ -23,9 +23,7 @@ Functie voor voorlopig verwijderen van de Sleutelkluis kan herstel van de verwij
 
 ## <a name="supporting-interfaces"></a>Interfaces ondersteunen
 
-De functie voor voorlopig verwijderen is in eerste instantie beschikbaar zijn via de REST, .NET / C#, PowerShell en CLI-interfaces.
-
-Zie de naslaginformatie voor algemene informatie voor deze voor meer informatie [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
+De functie voor voorlopig verwijderen is in eerste instantie beschikbaar zijn via de [REST](/rest/api/keyvault/), [CLI](key-vault-soft-delete-cli.md), [PowerShell](key-vault-soft-delete-powershell.md) en [.NET /C# ](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces.
 
 ## <a name="scenarios"></a>Scenario's
 
@@ -39,26 +37,21 @@ Sleutelkluizen van Azure worden bijgehouden bronnen, die worden beheerd door Azu
 
 Met deze functie is de DELETE-bewerking op een key vault of key vault-object een voorlopig verwijderen, daadwerkelijk de resources die voor een bepaalde bewaartermijn (90 dagen), terwijl het uiterlijk dat het object is verwijderd. De service meer biedt een mechanisme voor het herstellen van het verwijderde object, in feite de verwijdering ongedaan te maken. 
 
-Voorlopig verwijderen is een optionele Key Vault-gedrag en is **niet standaard ingeschakeld** in deze release. 
+Voorlopig verwijderen is een optionele Key Vault-gedrag en is **niet standaard ingeschakeld** in deze release. Het kan worden ingeschakeld [CLI](key-vault-soft-delete-cli.md) of [Powershell](key-vault-soft-delete-powershell.md).
 
-### <a name="purge-protection--flag"></a>Vlag van de beveiliging verwijderen
-Beveiliging verwijderen (**--inschakelen opschonen beveiliging** in de Azure CLI) vlag is standaard uitgeschakeld. Als deze vlag is ingeschakeld, een kluis of een object status verwijderd kan niet worden verwijderd totdat is de bewaarperiode van 90 dagen verstreken. Deze kluis of het object kan nog steeds worden hersteld. Met deze markering biedt extra zekerheid voor klanten die een kluis of een object kan nooit worden definitief verwijderd totdat de bewaartermijn is verstreken. U kunt de vlag opschonen-beveiliging inschakelen alleen als de functie voor voorlopig verwijderen-vlag ingeschakeld is, of bij het maken van kluizen inschakelen beide voorlopig verwijderen en beveiliging verwijderen.
+### <a name="purge-protection"></a>Beveiliging verwijderen 
 
-> [!NOTE]
->    De vereiste voor het inschakelen van leegmaken van de beveiliging is hebt u voorlopig verwijderen zijn ingeschakeld.
-> De opdracht uit om dit te doen in Azure CLI 2 is
+Wanneer opschonen beveiliging is ingeschakeld, wordt een kluis of een object status verwijderd kan niet worden verwijderd, totdat de bewaarperiode van 90 dagen is verstreken. Deze kluizen en -objecten kunnen nog steeds worden hersteld, om klanten dat het bewaarbeleid wordt gevolgd. 
 
-```
-az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
-```
+Opschonen van de beveiliging is een optionele Key Vault-gedrag en **niet standaard ingeschakeld**. Het kan worden ingeschakeld [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) of [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
 
 ### <a name="permitted-purge"></a>Toegestane opschonen
 
 Definitief verwijderen, verwijderen van gegevens, wordt een key vault is het mogelijk is via een POST-bewerking op de proxy-resource en speciale bevoegdheden vereist. Over het algemeen is alleen de eigenaar van het abonnement mogelijk een sleutelkluis leegmaken. De POST-bewerking wordt geactiveerd voor de onmiddellijke en niet-herstelbare verwijdering van deze kluis. 
 
-Een uitzondering hierop zijn
-- het geval wanneer het Azure-abonnement is gemarkeerd als *niet kan*. In dit geval alleen de service voert de werkelijke verwijdering en wordt als een geplande proces. 
-- Wanneer--inschakelen-opschonen-bescherming-vlag is ingeschakeld op de kluis zelf. Key Vault wordt in dit geval wachten gedurende 90 dagen na wanneer het oorspronkelijke geheime object is gemarkeerd voor verwijdering permanent verwijderen van het object.
+Uitzonderingen zijn:
+- Wanneer het Azure-abonnement is gemarkeerd als *niet kan*. In dit geval alleen de service voert de werkelijke verwijdering en wordt als een geplande proces. 
+- Wanneer de--beveiliging voor het opschonen van een inschakelen vlag is ingeschakeld op de kluis zelf. Key Vault wordt in dit geval wachten gedurende 90 dagen na wanneer het oorspronkelijke geheime object is gemarkeerd voor verwijdering permanent verwijderen van het object.
 
 ### <a name="key-vault-recovery"></a>Herstel van de sleutelkluis
 
@@ -66,7 +59,7 @@ Bij het verwijderen van een key vault, maakt de service een resource proxy onder
 
 ### <a name="key-vault-object-recovery"></a>Sleutelkluis objectherstel
 
-Bij het verwijderen van een key vault-object, zoals een sleutel, plaatst de service het object in een verwijderde status, waardoor deze niet toegankelijk voor alle bewerkingen voor het ophalen. In deze toestand kan de sleutelkluis-object alleen worden weergegeven, hersteld of geforceerd/definitief verwijderd. 
+Bij het verwijderen van een key vault-object, zoals een sleutel, plaatst de service het object in een verwijderde status, waardoor het ontoegankelijk wordt voor alle bewerkingen voor het ophalen. In deze toestand kan de sleutelkluis-object alleen worden weergegeven, hersteld of geforceerd/definitief verwijderd. 
 
 Key Vault wordt de verwijdering van de onderliggende gegevens die overeenkomt met de verwijderde sleutelkluis of het object van de sleutelkluis voor uitgevoerd na een vooraf vastgestelde bewaarinterval plannen op hetzelfde moment. De DNS-record die overeenkomt met de kluis is ook behouden voor de duur van de retentie-interval.
 

@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4822de6f6470547b47ecaa3874bed0df4ad20cf6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085368"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309585"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: Veelgestelde vragen
 
@@ -45,16 +45,16 @@ Hieronder vindt u een niet-volledige lijst met toepassingen die deze parameters 
 
 | De naam van de toepassing | De URL van de toepassing moet worden gebruikt |
 | -- | -- |
-| Toegangsvenster | https://myapps.microsoft.com/contoso.com |
-| Webversie van Outlook | https://outlook.office365.com/contoso.com |
-| Office 365-portals | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
+| Toegangsvenster | https:\//myapps.microsoft.com/contoso.com |
+| Webversie van Outlook | https:\//outlook.office365.com/contoso.com |
+| Office 365-portals | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
 
-Bovendien krijgen gebruikers een ervaring voor op de achtergrond als een toepassing aanmeldingsaanvragen naar Azure AD-eindpunten instellen als tenants - dat wil zeggen verzendt, https://login.microsoftonline.com/contoso.com/<..> of https://login.microsoftonline.com/<tenant_ID>/<..> : in plaats van Azure AD gemeenschappelijk eindpunt - dat wil zeggen, https://login.microsoftonline.com/common/<...>. Hieronder vindt u een niet-volledige lijst met toepassingen die dit aanmeldingsaanvragen soort.
+Bovendien krijgen gebruikers een ervaring voor op de achtergrond als een toepassing verzendt aanvragen aanmelden voor Azure AD-eindpunten instellen als tenants - dat wil zeggen, https:\//login.microsoftonline.com/contoso.com/ <... >- of https:\//login.microsoftonline.com/ < tenant_ID > / <... >: in plaats van Azure AD gemeenschappelijk eindpunt - dat wil zeggen, https:\//login.microsoftonline.com/common/ <... >. Hieronder vindt u een niet-volledige lijst met toepassingen die dit aanmeldingsaanvragen soort.
 
 | De naam van de toepassing | De URL van de toepassing moet worden gebruikt |
 | -- | -- |
-| SharePoint Online | https://contoso.sharepoint.com |
-| Azure Portal | https://portal.azure.com/contoso.com |
+| SharePoint Online | https:\//contoso.sharepoint.com |
+| Azure Portal | https:\//portal.azure.com/contoso.com |
 
 In de bovenstaande tabellen, kunt u 'contoso.com' vervangen door de naam van uw domein om te gaan naar de juiste URL's voor uw tenant.
 

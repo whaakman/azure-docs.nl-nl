@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5e65965678ed042081e4a406d3a207fb7ede299f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002948"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313648"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin Resource Sharing (CORS) ondersteuning voor de Azure Storage-Services
 Vanaf versie 15-08-2013, ondersteuning de Azure storage-services Cross-Origin Resource Sharing (CORS) voor de services Blob, Table, Queue en bestand. CORS is een HTTP-functie waarmee een webtoepassing die wordt uitgevoerd in een bepaald domein te krijgen tot bronnen in een ander domein. Webbrowsers een beveiligingsbeperking wel geïmplementeerd [beleid voor zelfde oorsprong](https://www.w3.org/Security/wiki/Same_Origin_Policy) die voorkomt dat een webpagina van aanroepen van API's in een ander domein; CORS biedt een veilige manier om toe te staan van een domein (het domein van oorsprong) API's aanroepen in een ander domein. Zie de [CORS-specificatie](https://www.w3.org/TR/cors/) voor meer informatie over CORS.
@@ -67,7 +67,7 @@ Hier volgt een voorbeeld van een enkele CORS-regel worden opgegeven via een bewe
 
 Elk element dat is opgenomen in de CORS-regel wordt hieronder beschreven:
 
-* **AllowedOrigins**: De oorspronkelijk domeinen die te maken van een aanvraag indient voor de storage-service via CORS worden toegestaan. Het oorspronkelijke domein is het domein waaruit de aanvraag afkomstig is. Houd er rekening mee dat de oorsprong moet exact hoofdlettergevoelig overeenkomt met de oorsprong die de leeftijd van de gebruiker worden verzonden naar de service. U kunt ook het jokerteken ' *' om toe te staan alle brondomeinen via CORS-aanvragen. In het bovenstaande voorbeeld wordt de domeinen [ http://www.contoso.com ](http://www.contoso.com) en [ http://www.fabrikam.com ](http://www.fabrikam.com) aanvragen aan de service met behulp van CORS kunt maken.
+* **AllowedOrigins**: De oorspronkelijk domeinen die te maken van een aanvraag indient voor de storage-service via CORS worden toegestaan. Het oorspronkelijke domein is het domein waaruit de aanvraag afkomstig is. Houd er rekening mee dat de oorsprong moet exact hoofdlettergevoelig overeenkomt met de oorsprong die de leeftijd van de gebruiker worden verzonden naar de service. U kunt ook het jokerteken ' *' om toe te staan alle brondomeinen via CORS-aanvragen. In het bovenstaande voorbeeld wordt de http domeinen:\//www.contoso.com en http: \/ /www.fabrikam.com aanvragen aan de service met behulp van CORS kunt maken.
 * **AllowedMethods**: De methoden (HTTP-aanvraagbewerkingen) die het oorspronkelijke domein voor een CORS-aanvraag gebruiken mogen. In het bovenstaande voorbeeld zijn alleen PUT en GET-aanvragen toegestaan.
 * **AllowedHeaders**: De aanvraagheaders die het oorspronkelijke domein voor de CORS-aanvraag specificeert mogelijk. In het bovenstaande voorbeeld worden alle headers van Werkstroommetagegevens beginnen met x-ms-meta-data, x-ms-meta-doel en de x-ms-meta-abc zijn toegestaan. Houd er rekening mee dat het jokerteken ' *' geeft aan dat header die begint met het opgegeven voorvoegsel is toegestaan.
 * **ExposedHeaders**: De reactieheaders die kunnen worden in het antwoord op de CORS-aanvraag verzonden en wordt weergegeven door de browser voor de aanvraagverlener. In het bovenstaande voorbeeld wordt de browser geïnstrueerd om beschikbaar te stellen van een koptekst die begint met x-ms-metagegevens.
@@ -130,9 +130,9 @@ Vervolgens kunt u overwegen de volgende CORS-aanvragen:
 | Aanvraag |  |  | Antwoord |  |
 | --- | --- | --- | --- | --- |
 | **Methode** |**Oorsprong** |**Aanvraagheaders** |**Regel vergelijken** |**Resultaat** |
-| **PUT** |http://www.contoso.com |x-ms-blob-content-type |Eerste regel |Geslaagd |
-| **GET** |http://www.contoso.com |x-ms-blob-content-type |Tweede regel |Geslaagd |
-| **GET** |http://www.contoso.com |x-ms-client-request-id |Tweede regel |Fout |
+| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |Eerste regel |Geslaagd |
+| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |Tweede regel |Geslaagd |
+| **GET** |http:\//www.contoso.com |x-ms-client-request-id |Tweede regel |Fout |
 
 De eerste aanvraag overeenkomt met de eerste regel: het oorspronkelijke domein komt overeen met de toegestane oorsprongen, de methode komt overeen met de toegestane methoden en de header komt overeen met de toegestane kopteksten – en dus is geslaagd.
 

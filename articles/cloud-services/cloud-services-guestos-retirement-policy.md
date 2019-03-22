@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6068f054a2ce695a889351b1f959319c64eb73fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235595"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338629"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure Guest OS-beleid voor ondersteuning en buiten gebruik stellen
 De informatie op deze pagina is gekoppeld aan het Azure-gastbesturingssysteem ([Guest OS](cloud-services-guestos-update-matrix.md)) voor Cloud Services worker en webservice-rollen (PaaS). Dit geldt niet voor virtuele Machines (IaaS).
@@ -55,7 +55,9 @@ Gast OS-versies worden elke maand uitgebracht. Elke versie is vanwege de frequen
 
 Na 60 dagen in de levensduur van een versie is '*uitgeschakeld*'. "Uitgeschakeld" betekent dat de versie is verwijderd uit de portal. De versie kan niet meer worden ingesteld in het CSCFG-configuratiebestand. Bestaande implementaties zijn actief blijven. Maar nieuwe implementaties en code en configuratie-updates aan bestaande implementaties wordt niet toegestaan.
 
-Even na steeds "uitgeschakeld", versie van het Gast-besturingssysteem '*verloopt*' en alle installaties nog steeds uitgevoerd die versie zijn bijgewerkt en ingesteld op automatisch bijwerken van het Gastbesturingssysteem in de toekomst. Vervaldatum wordt uitgevoerd in batches, zodat de periode van deactivering verlopen kan verschillen.
+Enige tijd opnieuw uit nadat u "uitgeschakeld", versie van het Gast-besturingssysteem 'verloopt' en alle installaties die verlopen versie nog wordt uitgevoerd worden blootgesteld aan beveiligings- en beveiligingsproblemen problemen. Over het algemeen is verlopen uitgevoerd in batches, zodat de periode van deactivering tot vervaldatum kan verschillen.
+
+Klanten die hun services voor het bijwerken van het Gastbesturingssysteem handmatig configureren moet ervoor zorgen dat hun implementaties worden uitgevoerd op een ondersteunde Gastbesturingssystemen. Als een service is geconfigureerd voor het automatisch bijwerken van het Gastbesturingssysteem, wordt het onderliggende platform zorgt ervoor dat de naleving en wordt een upgrade naar de meest recente Gastbesturingssysteem.
 
 Deze punten kunnen worden verricht langer goeddunken van Microsoft om de overgang van de klant. Eventuele wijzigingen zullen worden meegedeeld de [Azure Guest OS Releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 

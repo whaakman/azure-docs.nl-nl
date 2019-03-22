@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e4995890a1f2ceec8ddf5d4dafafdd13382864db
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240338"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311455"
 ---
-# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Zelfstudie: Service Fabric-cluster installeren en maken
+# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Zelfstudie: Installeren en Service Fabric-cluster maken
 
 Zelfstandige Service Fabric-clusters bieden u de mogelijkheid om uw eigen omgeving te kiezen en een cluster te maken als onderdeel van de benadering "Elk besturingssysteem, elke cloud" die we in Service Fabric hanteren. In deze reeks zelfstudies maakt u een zelfstandig cluster dat in AWS wordt gehost en installeert u vervolgens een toepassing in het cluster.
 
@@ -129,7 +129,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>Service Fabric Explorer uitvoeren
 
-U kunt nu met behulp van Service Fabric Explorer verbinding maken met het cluster, rechtstreeks vanaf een van de computers met http://localhost:19080/Explorer/index.html of op afstand met http://<*IP-adres-van-computer*>:19080/Explorer/index.html.
+Nu u verbinding met het cluster met Service Fabric Explorer maken kunt rechtstreeks vanaf een van de machines met http:\//localhost:19080/Explorer/index.html of op afstand met http:\/ /<  *IPAddressofaMachine*>: 19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Knooppunten toevoegen en verwijderen
 

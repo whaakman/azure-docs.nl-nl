@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: b4eedabbc47738eb2f5797ffd67a3e3ebc9529ca
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
-ms.translationtype: HT
+ms.openlocfilehash: 468c5584d21c226d6ffce55ff3981e629d872c56
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136223"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317184"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Quick Start Project akoestische Unity
 Gebruik Project akoestische voorbeeld inhoud voor Unity om te experimenteren met besturingselementen voor ontwerp simulatie van garantie.
 
 Softwarevereisten:
 * [Unity 2018.2 +](http://unity3d.com) voor Windows
-* [Project akoestische voorbeeld-inhoudspakket](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Project akoestische voorbeeld-inhoudspakket](https://www.microsoft.com/download/details.aspx?id=57346)
 
 Wat inbegrepen in het Voorbeeldpakket?
 * Unity-scène met geometrie, gezonde bronnen en spelen besturingselementen
@@ -33,7 +33,7 @@ Wat inbegrepen in het Voorbeeldpakket?
 De Voorbeeldpakket importeren naar een nieuw Unity-project. 
 * In Unity, gaat u naar **activa > pakket importeren > Custom Package...**
 
-    ![Pakket importeren](media/import-package.png)  
+    ![Schermafbeelding van de eenheid van het pakket importeren-opties](media/import-package.png)  
 
 * Kies **ProjectAcoustics.unitypackage**
 
@@ -44,23 +44,23 @@ Het gedeelte bake van de toolkit akoestische vereist de scripting runtime-versie
 
 U kunt controleren of deze instelling van kracht door het openen van de **Player Settings**:
 
-![Instellingen van de speler](media/player-settings.png)
+![Schermafbeelding van Unity-speler instellingenvenster](media/player-settings.png)
 
-![.NET 4.5](media/net45.png)
+![Schermafbeelding van Unity-speler instellingenvenster met .NET 4.5 geselecteerd](media/net45.png)
 
 ## <a name="experiment-with-design-controls"></a>Experimenteer met besturingselementen voor ontwerp
 Open de scène voorbeeld in de **ProjectAcousticsSample** map en klik op de afspeelknop in de Unity-editor. Gebruik W, A, S, D- en de muis om te navigeren. Als u wilt vergelijken hoe de scène met en zonder Acoustics klinkt, drukt u op **R** totdat de overlaytekst rood wordt en zegt "Acoustics: Disabled." Als u sneltoetsen wilt zien voor meer besturingselementen, drukt u op **F1**. Besturingselementen zijn ook bruikbaar met de rechtermuisknop op de actie uit te voeren, schakel vervolgens links te klikken op als de bewerking wilt uitvoeren.
 
 Het script **AcousticsAdjust** is gekoppeld aan de geluid bronnen in de scène voorbeeld, waarmee de per-source ontwerpparameters. 
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Schermafbeelding van Unity AcousticsAdjust script](media/acoustics-adjust.png)
 
 De volgende verkent enkele van de effecten die kunnen worden gemaakt met de opgegeven besturingselementen. Zie voor gedetailleerde informatie over elk besturingselement, de [Project akoestische Unity ontwerp zelfstudie](unreal-workflow.md).
 
 ### <a name="modify-distance-based-attenuation"></a>Afname op basis van afstand wijzigen
 De audio DSP geleverd door de **Project akoestische** ruimtelijk-invoegtoepassing voor Unity respecteert de per-source afstand gebaseerde afname ingebouwd in de Unity-Editor. Besturingselementen voor afname op basis van afstand zijn de **Audio bron** onderdeel gevonden de **Inspector** Configuratiescherm van geluid gegevensbronnen onder **3D-geluidsinstellingen**:
 
-![Afstand afname](media/distance-attenuation.png)
+![Schermafbeelding van Unity afstand afname deelvenster met opties](media/distance-attenuation.png)
 
 Project akoestische uitvoeren berekening in een "regio simulatie" gecentreerd rond de player-locatie. Omdat de activa akoestische in het Voorbeeldpakket met een grootte van de regio simulatie van 45m rond de speler sparen zijn, moet de geluid afname worden ontworpen om aan te vallen op 0 bij ongeveer 45 m.
 

@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225676b144d042c51a97fe14a20a5a78f0a77244
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013091"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312696"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden bij een toepassing in de galerie geconfigureerd voor federatieve eenmalige aanmelding
 
@@ -33,7 +33,7 @@ Om op te lossen de aanmeldingsproblemen hieronder, raden we dat u volgt u deze s
 
 ## <a name="application-not-found-in-directory"></a>Toepassing is niet gevonden in de directory
 
-*Fout AADSTS70001: Toepassing met id 'https://contoso.com' is niet gevonden in de map*.
+*Fout AADSTS70001: Toepassing met id ' https:\//contoso.com' is niet gevonden in de map*.
 
 **Mogelijke oorzaak**
 
@@ -63,7 +63,7 @@ Zorg ervoor dat de `Issuer` kenmerk in de SAML-aanvraag overeenkomt met de id-wa
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Het antwoordadres komt niet overeen met de antwoordadressen die zijn geconfigureerd voor de toepassing
 
-*Fout AADSTS50011: Het antwoordadres https://contoso.com' komt niet overeen met de antwoordadressen die is geconfigureerd voor de toepassing*
+*Fout AADSTS50011: Het antwoordadres op dat ' https:\//contoso.com' komt niet overeen met de antwoordadressen die is geconfigureerd voor de toepassing*
 
 **Mogelijke oorzaak**
 
@@ -146,7 +146,7 @@ Na een korte periode, is de gebruikers die u hebt geselecteerd mogelijk om deze 
 Azure AD biedt geen ondersteuning voor de SAML-aanvraag verzonden door de toepassing voor eenmalige aanmelding. Enkele veelvoorkomende problemen zijn:
 
 -   Ontbrekende vereiste velden in de SAML-aanvraag
--   Methode voor SAML-aanvraag gecodeerd
+-   Gecodeerde methode voor SAML-aanvraag
 
 **Resolutie**
 

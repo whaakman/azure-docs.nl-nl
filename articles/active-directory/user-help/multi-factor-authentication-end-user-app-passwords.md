@@ -14,12 +14,12 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 6d0dbfeaf3fb018c8dd3f671ce7ad9d7d50e5fca
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177395"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336300"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>App-wachtwoorden voor verificatie in twee stappen beheren
 
@@ -40,7 +40,7 @@ Wanneer u app-wachtwoorden, is het belangrijk om te onthouden:
 
 Tijdens het registreren van uw initiële verificatie in twee stappen controle krijgt u een app-wachtwoord. Als u meer dan één wachtwoord nodig hebt, kunt u aanvullende wachtwoorden, op basis van hoe u verificatie in twee stappen:
 
-- **U verificatie in twee stappen gebruiken met uw werk of school-account en de MyApps-portal.** Maken en verwijderen van uw app-wachtwoorden met behulp van de instructies in de [maken en verwijderen app-wachtwoorden met behulp van de MyApps-portal](#create-and-delete-app-passwords-using-the-myapps-portal) sectie van dit artikel. Zie voor meer informatie over de MyApps-portal en het gebruik ervan [wat is de MyApps-portal in Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
+- **U verificatie in twee stappen gebruiken met uw werk of school-account en de MyApps-portal.** Maken en verwijderen van uw app-wachtwoorden met behulp van de instructies in de [maken en verwijderen app-wachtwoorden met behulp van de MyApps-portal](#create-and-delete-app-passwords-using-the-my-apps-portal) sectie van dit artikel. Zie voor meer informatie over de MyApps-portal en het gebruik ervan [wat is de MyApps-portal in Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
 
 - **U verificatie in twee stappen gebruiken met uw werk of school-account en de Office 365-portal.** Maken en verwijderen van uw app-wachtwoorden met behulp van de instructies in de [maken en verwijderen app-wachtwoorden met behulp van de Office 365-portal](#create-and-delete-app-passwords-using-the-office-365-portal) sectie van dit artikel.
 

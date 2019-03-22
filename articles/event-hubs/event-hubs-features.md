@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 242c2f63735be33fe933ae3229f7aa28356ea697
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548384"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336997"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Functies en de belangrijkste termen in de Azure Event Hubs
 
@@ -79,7 +79,7 @@ Eventhubs bewaart gegevens voor een geconfigureerde bewaartijd die geldt voor al
 
 Het aantal partities wordt opgegeven bij het maken en moet tussen 2 en 32 liggen. Het aantal partities kan niet worden gewijzigd. Houd bij het instellen van het aantal partities dus uw doelen op de lange termijn in gedachten. Partities zijn een mechanisme voor gegevensordening. Ze hebben betrekking op de mate van downstreamparallelheid die is vereist bij het gebruik van toepassingen. Het aantal partities in een Event Hub houdt rechtstreeks verband met het aantal verwachte gelijktijdige lezers. Neem contact op met het team van Event Hubs als u meer dan 32 partities wilt maken.
 
-Hoewel partities te herkennen zijn en kunnen worden verzonden naar rechtstreeks, wordt verzenden van rechtstreeks naar een partitie niet aanbevolen. In plaats daarvan kunt u constructies op een hoger niveau gebruiken. Deze vindt u in de secties [Gebeurtenisuitgever](#event-publishers) en [Capaciteit](#capacity). 
+Hoewel partities te herkennen zijn en kunnen worden verzonden naar rechtstreeks, wordt verzenden van rechtstreeks naar een partitie niet aanbevolen. In plaats daarvan kunt u hogere niveau constructies die is geïntroduceerd in de [gebeurtenisuitgever](#event-publishers) en -capaciteit secties. 
 
 Partities worden gevuld met een reeks gebeurtenisgegevens die de hoofdtekst van de gebeurtenis, een gebruiker gedefinieerde eigenschappenverzameling en metagegevens, zoals de offset in de partitie en het nummer in de stroomreeks bevatten.
 
@@ -152,13 +152,15 @@ Gebeurtenisgegevens:
 
 U bent verantwoordelijk voor het beheer van de offset.
 
-## <a name="capacity"></a>Capaciteit
+## <a name="scaling-with-event-hubs"></a>Schalen met Eventhubs
 
-Event Hubs heeft een uiterst schaalbare parallelle architectuur. Er zijn diverse belangrijke factoren waarmee u rekening moet houden wanneer u schaalt.
+Er zijn twee factoren die van invloed op schaal met Event Hubs.
+*   Doorvoereenheden
+*   Partities
 
 ### <a name="throughput-units"></a>Doorvoereenheden
 
-De doorvoercapaciteit van Event Hubs wordt bepaald door het aantal beschikbare *doorvoereenheden*. Doorvoereenheden zijn vooraf aangeschafte capaciteitseenheden. Eén doorvoereenheid bevat de volgende capaciteit:
+De doorvoercapaciteit van Event Hubs wordt bepaald door het aantal beschikbare *doorvoereenheden*. Doorvoereenheden zijn vooraf aangeschafte capaciteitseenheden. Een enkele doorvoer kunt u:
 
 * Inkomende gegevens: Maximaal 1 MB per seconde of 1000 gebeurtenissen per seconde (afhankelijk van wat het eerste komt).
 * Uitgaande gegevens: Maximaal 2 MB per seconde of 4096 gebeurtenissen per seconde.
@@ -167,9 +169,13 @@ Wanneer de capaciteit van de aangekochte doorvoereenheden wordt overschreven, wo
 
 Doorvoereenheden zijn vooraf aangeschafte en worden gefactureerd per uur. Nadat u doorvoereenheden hebt aangeschaft, worden deze voor minimaal één uur in rekening gebracht. Maximaal 20 doorvoereenheden eenheden kunnen worden aangeschaft voor een Event Hubs-naamruimte en worden gedeeld door alle eventhubs in die naamruimte.
 
-U kunt meer doorvoereenheden in blokken van 20 tot 100 extra doorvoereenheden, neem contact op met ondersteuning voor Azure kopen. U kunt deze limiet overschrijdt, blokken van 100 doorvoereenheden aanschaffen.
+### <a name="partitions"></a>Partities
 
-Het is raadzaam dat u in balans brengen aantal doorvoereenheden en partities die voor het bereiken van optimale schaal. Een enkele partitie is ten minste één doorvoereenheid mogelijk. Het aantal doorvoereenheden moet daarom kleiner zijn dan of gelijk zijn aan het aantal partities in een Event Hub.
+Partities kunt u schaal voor uw downstream-verwerkingen. Vanwege de basis van gepartitioneerd gebruik-model dat Event Hubs met partities biedt, u kunt scale-out tijdens het verwerken van uw gebeurtenissen tegelijkertijd. Een Event Hub kan maximaal 32 partities hebben.
+
+Het is raadzaam dat u in balans brengen 1:1 doorvoereenheden en partities die voor het bereiken van optimale schaal. Een enkele partitie heeft een gegarandeerde inkomend en uitgaand maximaal één doorvoereenheid mogelijk. Hoewel u wellicht niet kan worden bereikt hogere doorvoer voor een partitie, prestaties kan niet worden gegarandeerd. Dit is de reden waarom het wordt aangeraden dat het aantal partities in een event hub groter is dan of gelijk zijn aan het aantal doorvoereenheden worden.
+
+De totale doorvoer die u van plan bent hoeven worden gegeven, kent u het aantal doorvoereenheden die u nodig hebt en het minimum aantal partities, maar het aantal partities moet u hebben? Kies het aantal partities op basis van de mate van downstreamparallelheid die u wilt bereiken, evenals de doorvoerbehoeften van uw toekomstige. Er zijn geen kosten voor het aantal partities die in een Event Hub hebt.
 
 Zie [Prijzen van Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) voor gedetailleerde informatie over prijzen van Event Hubs.
 

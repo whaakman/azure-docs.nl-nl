@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 938d8efeaa88cc5bebbf33e525132a030f1b3c7c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.openlocfilehash: 689207339db0250d42fc64c33f43c42c18317d41
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112500"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313002"
 ---
-# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Zelfstudie: Uw Service Fabric-toepassingen bewaken met behulp van ELK
+# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Zelfstudie: Uw Service Fabric-toepassingen met behulp van ELK bewaken
 
 Deze zelfstudie is deel vier een serie. Er wordt weergegeven hoe ELK (Elasticsearch, Logstash en Kibana) moet worden gebruikt voor het bewaken van Service Fabric-toepassingen die worden uitgevoerd in Azure.
 
@@ -109,7 +109,7 @@ U kunt een vooraf geconfigureerde ELK-omgeving gebruiken voor deze zelfstudie en
     logstash-plugin install logstash-input-azureeventhub
     ```
 
-4. Maak of wijzig uw bestaande Logstash config-bestand met de volgende inhoud: als u het bestand maakt, moet het op ```/opt/bitnami/logstash/conf/access-log.conf``` worden gemaakt als u de installatiekopie voor ELK Bitnami in Azure gebruikt.
+4. Maken of wijzigen van uw bestaande Logstash config-bestand met de volgende inhoud: Wanneer u het bestand maakt, heeft dat moet worden gemaakt op ```/opt/bitnami/logstash/conf/access-log.conf``` als met behulp van de installatiekopie voor ELK Bitnami in Azure.
 
     ```json
     input
@@ -149,7 +149,7 @@ U kunt een vooraf geconfigureerde ELK-omgeving gebruiken voor deze zelfstudie en
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Ga naar uw Kibana-dashboard op **http://SERVER-IP** en voer uw gebruikersnaam en wachtwoord in voor Kibana. Als u de installatiekopie voor ELK in Azure gebruikt, is de standaardgebruikersnaam 'user' en het wachtwoord hetgeen dat is verkregen van de **Diagnostische gegevens over opstarten**.
+8. Toegang tot de Kibana-dashboard op **http:\//SERVER-IP** en voer de gebruikersnaam en het wachtwoord in voor Kibana. Als u de installatiekopie voor ELK in Azure gebruikt, is de standaardgebruikersnaam 'user' en het wachtwoord hetgeen dat is verkregen van de **Diagnostische gegevens over opstarten**.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

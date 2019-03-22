@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: f9cf5e723484196125548b9e6d3956e909e9c9b0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0acb844b8b10ff210985dfcd8c96f15da6669356
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874941"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337473"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Een nieuwe LUIS-app maken in de portal LUIS
 Er zijn een aantal manieren om een LUIS-app te maken. U kunt een LUIS-app in de [LUIS](https://www.luis.ai) portal of via het ontwerpen van LUIS [API's](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -56,6 +56,16 @@ U kunt een nieuwe app maken met de authoring API's in een aantal manieren:
     > [!NOTE]
     > De cultuur kan niet worden gewijzigd nadat de toepassing is gemaakt. 
 
+## <a name="import-an-app-from-file"></a>Een app importeren vanuit bestand
+
+1. Op **mijn Apps** weergeeft, schakelt **importeren nieuwe app**.
+1. Selecteer een geldige app JSON-bestand en selecteer vervolgens in het pop-updialoogvenster **gedaan**.
+
+### <a name="import-errors"></a>Fouten bij het importeren
+
+Mogelijke fouten zijn: 
+
+* Er bestaat al een app met die naam. Importeer de app en stel de **optionele naam** naar een nieuwe naam. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

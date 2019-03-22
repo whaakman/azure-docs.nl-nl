@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870991"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316963"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Verbinding maken met on-premises bestandssystemen met Azure Logic Apps
 
@@ -48,7 +48,7 @@ Als u wilt volgen in het voorbeeld, moet u deze items:
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open uw logische app in Logic App Designer, als het niet al geopend.
 
-1. Typ 'dropbox' als filter in het zoekvak. Selecteer deze trigger uit de lijst met triggers: **Wanneer een bestand wordt gemaakt** 
+1. Typ 'dropbox' als filter in het zoekvak. Selecteer deze trigger uit de lijst met triggers: **Wanneer een bestand wordt gemaakt**
 
    ![Dropbox-trigger selecteren](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -78,7 +78,7 @@ Als u wilt volgen in het voorbeeld, moet u deze items:
    | **gateway** | Ja | <*installed-gateway-name*> | De naam voor uw eerder geïnstalleerde gateway | 
    ||| 
 
-1. Wanneer u klaar bent, kiest u **Maken**. 
+1. Wanneer u klaar bent, kiest u **Maken**.
 
    Logic Apps configureert en test de verbinding, ervoor te zorgen dat de verbinding naar behoren werkt. 
    Als de verbinding correct is ingesteld, wordt er opties weergegeven voor de actie die u eerder hebt geselecteerd. 

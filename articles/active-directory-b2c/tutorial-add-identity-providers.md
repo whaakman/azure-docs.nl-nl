@@ -4,21 +4,22 @@ description: Informatie over het id-providers toevoegen aan uw toepassingen in A
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 2a1843f941c6abc46928b38a66025fa87c4bcea5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.subservice: B2C
+ms.openlocfilehash: ef264622be1e66c98f8c7f17cf3e04b3239e8553
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757661"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338272"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Zelfstudie: Id-providers toevoegen aan uw toepassingen in Azure Active Directory B2C
 
-In uw toepassingen, kunt u gebruikers zich aanmelden via verschillende id-providers inschakelen. Een *id-provider* maakt, onderhoudt en gegevens van identiteit en verificatie diensten voor toepassingen die tegelijkertijd worden beheerd. U kunt toevoegen id-providers die worden ondersteund door Azure Active Directory (Azure AD) B2C aan uw [gebruikersstromen](active-directory-b2c-reference-policies.md) met behulp van de Azure portal.
+Het is wellicht wenselijk dat uw gebruikers zich in uw toepassingen bij verschillende id-providers kunnen aanmelden. Een *id-provider* maakt, onderhoudt en beheert id-gegevens en biedt tegelijkertijd verificatieservices voor toepassingen. U kunt toevoegen id-providers die worden ondersteund door Azure Active Directory (Azure AD) B2C aan uw [gebruikersstromen](active-directory-b2c-reference-policies.md) met behulp van de Azure portal.
 
 In dit artikel leert u het volgende:
 
@@ -91,7 +92,7 @@ Nadat u de toepassing voor de id-provider die u wilt toevoegen hebt gemaakt, kun
 ### <a name="add-the-azure-active-directory-identity-provider"></a>De Azure Active Directory-id-provider toevoegen
 
 1. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map met uw Azure AD B2C-tenant te kiezen.
-2. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+2. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 3. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.
 4. Voer een **naam**. Voer bijvoorbeeld *Contoso Azure AD*.
 5. Selecteer **type id-provider**, selecteer **Open ID Connect (Preview)**, en klik vervolgens op **OK**.
@@ -142,7 +143,7 @@ In de zelfstudie die u als onderdeel van de vereisten hebt voltooid, hebt u een 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u:
+In dit artikel hebt u het volgende geleerd:
 
 > [!div class="checklist"]
 > * De identiteit van de provider-toepassingen maken

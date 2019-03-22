@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: a22512a960426cc21f4f012e06b9df4fa86e637e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807266"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337576"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Verifiëren en toegang krijgen tot bronnen met beheerde identiteiten in Azure Logic Apps
 
@@ -35,7 +35,7 @@ Voor toegang tot resources in andere tenants Azure Active Directory (Azure AD) e
 
 Voor het systeem toegewezen beheerde identiteiten moet u niet handmatig maken die identiteit. Als u een systeem toegewezen beheerde identiteit voor uw logische app instelt, kunt u de volgende manieren gebruiken: 
 
-* [Azure Portal](#azure-portal) 
+* [Azure-portal](#azure-portal) 
 * [Azure Resource Manager-sjablonen](#template) 
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
 
@@ -152,7 +152,7 @@ Na het instellen van uw logische app met een door het systeem toegewezen beheerd
 
 1. Geef de benodigde informatie voor de actie, zoals de aanvraag **methode** en **URI** locatie voor de resource die u wilt aanroepen.
 
-   Stel bijvoorbeeld dat u verificatie met Azure Active Directory (Azure AD) [een van deze Azure-services die ondersteuning bieden voor Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   Stel bijvoorbeeld dat u verificatie met Azure Active Directory (Azure AD) [een van deze Azure-services die ondersteuning bieden voor Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    In de **URI** voert u de eindpunt-URL voor deze Azure-service. 
    Dus als u Azure Resource Manager gebruikt, voert u deze waarde in de **URI** eigenschap:
 
@@ -167,7 +167,7 @@ Na het instellen van uw logische app met een door het systeem toegewezen beheerd
    > [!IMPORTANT]
    > 
    > In de **doelgroep** eigenschap, de waarde van de resource-ID moet exact overeenkomen met wat Azure AD verwacht, inclusief alle vereiste afsluitende schuine strepen. 
-   > U vindt deze resource-ID-waarden in deze [tabel waarin de Azure-services die ondersteuning bieden voor Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   > U vindt deze resource-ID-waarden in deze [tabel waarin de Azure-services die ondersteuning bieden voor Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    > Bijvoorbeeld, als u de resource-ID van Azure Resource Manager gebruikt, moet u ervoor dat de URI heeft een afsluitende slash bevatten.
 
 1. Doorgaan met het ontwikkelen van de logische app zoals u dat wilt.

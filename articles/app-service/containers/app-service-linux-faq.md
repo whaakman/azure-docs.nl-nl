@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 223486ec2dc184e6bbe02e1f6862b9d79d773a2c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871490"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339540"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux Veelgestelde vragen
 
@@ -42,10 +42,10 @@ U vindt alle Docker-bestanden op [GitHub](https://github.com/azure-app-service).
 | Stack     | Verwachte waarde                                                                |
 |-----------|-------------------------------------------------------------------------------|
 | Java SE   | een opdracht om te beginnen uw `.jar` toepassing                                    |
-| Tomcat    | de locatie van een script voor het uitvoeren van alle benodigde configruations voor uw app |
-| Node.js   | het PM2-configuratiebestand of het scriptbestand                                |          
+| Tomcat    | de locatie van een script voor het uitvoeren van alle configuraties voor uw app          |
+| Node.js   | het PM2-configuratiebestand of het scriptbestand                                |
 | .NET core | de naam van de gecompileerde dll-bestand als `dotnet <myapp>.dll`                                 |
-| Ruby      | de Ruby-script dat u wilt uw app met initialiseren                     
+| Ruby      | de Ruby-script dat u wilt uw app met initialiseren                     |
 
 ## <a name="management"></a>Beheer
 

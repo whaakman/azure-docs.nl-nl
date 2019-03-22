@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3711277ca11346cf73ff37c37ef4185d8bfdf6b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: e20e2a094e1fd88dfc2a25b586dc6c894f92b418
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329868"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312441"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Azure Key Vault-integratie configureren voor SQL Server op Azure Virtual Machines (klassiek)
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ De volgende tabel bevat de vereiste parameters voor de PowerShell-script uitvoer
 
 | Parameter | Description | Voorbeeld |
 | --- | --- | --- |
-| **$akvURL** |**De URL voor key vault** |"https://contosokeyvault.vault.azure.net/" |
+| **$akvURL** |**De URL voor key vault** |"https:\//contosokeyvault.vault.azure.net/" |
 | **$spName** |**Service-Principal-naam** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Service-Principal-geheim** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Referentienaam**: Azure Sleutelkluis-integratie maakt u een referentie binnen SQL Server, zodat de virtuele machine toegang heeft tot de key vault. Kies een naam voor deze referentie. |"mycred1" |
@@ -65,7 +65,7 @@ De **New-AzureVMSqlServerKeyVaultCredentialConfig** cmdlet maakt u een configura
 
 1. In Azure PowerShell eerst configureren de invoerparameters die zijn opgegeven met de specifieke waarden zoals beschreven in de voorgaande secties in dit onderwerp. Het volgende script is een voorbeeld.
    
-        $akvURL = "https://contosokeyvault.vault.azure.net/"
+        $akvURL = "https:\//contosokeyvault.vault.azure.net/"
         $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
         $spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
         $credName = "mycred1"

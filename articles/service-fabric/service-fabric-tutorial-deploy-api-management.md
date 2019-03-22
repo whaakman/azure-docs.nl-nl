@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4685c4213ad992e8d0fcffdf91a039cd04b426ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813a81e3812f9bb95ab11deec35adc6c05f1b58e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844204"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312220"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>API Management te integreren met Service Fabric in Azure
 
@@ -142,7 +142,7 @@ Met [Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagem
 
 * **displayName** kan elke naam zijn voor uw API. In dit artikel gebruiken 'Service Fabric-App'.
 * **name** is een unieke en beschrijvende naam voor de API, zoals 'service-fabric-app'. Deze naam wordt weergegeven in de portals ontwikkelaars en de uitgever.
-* **serviceUrl** verwijst naar de HTTP-service die de API implementeert. API Management stuurt aanvragen door naar dit adres. De waarde van deze URL wordt niet gebruikt voor Service Fabric-back-ends. U kunt hier elke waarde invoeren. Voor dit artikel, bijvoorbeeld '<http://servicefabric>'.
+* **serviceUrl** verwijst naar de HTTP-service die de API implementeert. API Management stuurt aanvragen door naar dit adres. De waarde van deze URL wordt niet gebruikt voor Service Fabric-back-ends. U kunt hier elke waarde invoeren. Voor dit artikel, bijvoorbeeld ' http:\//servicefabric '.
 * De waarde voor **path** wordt toegevoegd aan de basis-URL voor de API Management-service. De basis-URL is gemeenschappelijk voor alle API's die worden gehost door een exemplaar van API Management-service. In API Management worden API's herkend aan hun achtervoegsel en daarom moet het achtervoegsel uniek zijn voor elke API voor een bepaalde uitgever.
 * **protocols** bepaalt welke protocollen kunnen worden gebruikt om toegang te krijgen tot de API. In dit artikel lijst **http** en **https**.
 * **path** is een achtervoegsel voor de API. In dit artikel gebruiken 'myapp'.

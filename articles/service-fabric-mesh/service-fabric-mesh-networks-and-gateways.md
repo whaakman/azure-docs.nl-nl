@@ -3,7 +3,7 @@ title: Inleiding tot Azure Service Fabric-netwerk | Microsoft Docs
 description: Meer informatie over netwerken, gateways en intelligente verkeersroutering in Service Fabric NET.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/26/2018
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8d9f5c71d05477094d733fd6b798831b3ff02ce1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b0e1047c5bbd7d8caaf2afd8b002be1c46837852
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892362"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339258"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Inleiding tot netwerken in Service Fabric-NET-toepassingen
 In dit artikel beschrijft de verschillende soorten load balancers, hoe door gateways in het netwerk verbinding maken met uw toepassingen met andere netwerken en hoe verkeer wordt gerouteerd tussen de services in uw toepassingen.
@@ -44,7 +44,7 @@ Wanneer de netwerk-resource is gemaakt met `ingressConfig`, een openbaar IP-adre
 Wanneer een Mesh-toepassing wordt gemaakt, moet deze verwijzen naar een bestaande netwerk-resource. Nieuwe openbare poorten kunnen worden toegevoegd of bestaande poorten kunnen worden verwijderd uit de configuratie van de inkomende gegevens. Een verwijderd voor een netwerkbron mislukt als de bron van een toepassing verwijst naar deze. Wanneer de toepassing wordt verwijderd, worden de netwerk-resource wordt verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen 
-Lees het overzicht voor meer informatie over Service Fabric NET:
-- [Service Fabric-NET-overzicht](service-fabric-mesh-overview.md)
+Lees het overzicht voor meer informatie over Service Fabric Mesh:
+- [Service Fabric Mesh - overzicht](service-fabric-mesh-overview.md)
 
 [Image1]: media/service-fabric-mesh-networks-and-gateways/NetworkAndGateway.png

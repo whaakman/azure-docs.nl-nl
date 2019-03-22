@@ -1,5 +1,5 @@
 ---
-title: Gebruikersverificatie via Azure Active Directory
+title: Azure Active Directory-gebruikersverificatie - Azure Active Directory
 description: Hoe kan ik als Azure AD-beheerder gebruikersverificatie beschermen en tegelijkertijd ervoor zorgen dat dit minder gevolgen heeft voor eindgebruikers?
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b054dd8c78968ffb65b92ab7ee4fe1b21501b0d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 38bc2f138a8e56fc56b48ccdaf0636a93138f95d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192511"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314651"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Welke verificatiemethoden zijn er beschikbaar?
 

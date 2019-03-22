@@ -1,18 +1,18 @@
 ---
 title: Over herstel na noodgevallen van virtuele VMware-machines naar Azure met behulp van Azure Site Recovery | Microsoft Docs
 description: Dit artikel bevat een overzicht van herstel na noodgevallen van virtuele VMware-machines naar Azure met behulp van de Azure Site Recovery-service.
-author: mayurigupta13
+author: raynew
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 3/3/2019
-ms.author: mayg
-ms.openlocfilehash: aa7ea43f3c41c6200e4cf796b0f09dca995791df
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 3/18/2019
+ms.author: raynew
+ms.openlocfilehash: 9d7b94500320315c1379ba3dfb8b6460bc105b49
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339671"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311195"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Over herstel na noodgevallen van virtuele VMware-machines naar Azure
 

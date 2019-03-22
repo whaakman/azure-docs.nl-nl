@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/21/2018
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: 2845bb09fa44c3bd9cee914e2446403b4182b0d5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 29e4bb23b4b80f6e472d2dcb27fe5e5279a35890
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871040"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337711"
 ---
 # <a name="region-management-in-azure-stack"></a>Regiobeheer in Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "56871040"
 
 Azure Stack maakt gebruik van het concept van *regio's*, die zijn logische entiteiten bestaat uit de hardwareresources die gezamenlijk de Azure Stack-infrastructuur. In het gebied beheer vindt u alle resources die nodig zijn voor de Azure Stack-infrastructuur is uitgevoerd.
 
-Een geïntegreerd systeemimplementatie (aangeduid als een *Azure Stack-cloud*) vormt een enkele regio. Elke Azure Stack Development Kit heeft één regio, met de naam **lokale**. Als u een tweede geïntegreerde Azure Stack-systeem implementeren of van een ander exemplaar van de development kit op afzonderlijke hardware instellen, is deze Azure Stack-cloud in een andere regio.
+Een geïntegreerd systeemimplementatie (aangeduid als een *Azure Stack-cloud*) vormt een enkele regio. Elke Azure Stack Development Kit (ASDK) heeft één regio, met de naam **lokale**. Als u een tweede geïntegreerde Azure Stack-systeem implementeren of van een ander exemplaar van de development kit op afzonderlijke hardware instellen, is deze Azure Stack-cloud in een andere regio.
 
 ## <a name="information-available-through-the-region-management-tile"></a>Informatie is beschikbaar via de tegel van de regio-beheer
 
@@ -43,7 +43,7 @@ Als u een regio in op de **regiobeheer** tegel, u kunt toegang tot de volgende i
 
 1. **Het resourcemenu**. Toegang tot specifieke infrastructuur gebieden, en weergeven en beheren van resources, zoals opslagaccounts en virtuele netwerken van gebruiker.
 
-2. **Waarschuwingen**. Een lijst met systeembrede waarschuwingen en biedt details over elk van deze waarschuwingen.
+2. **Waarschuwingen**. Systeembreed waarschuwingen weergeven en geven informatie over elk van deze waarschuwingen.
 
 3. **Updates**. De huidige versie van uw Azure Stack-infrastructuur, beschikbare updates en de historie van updates weergeven. U kunt ook uw geïntegreerd systeem bijwerken.
 

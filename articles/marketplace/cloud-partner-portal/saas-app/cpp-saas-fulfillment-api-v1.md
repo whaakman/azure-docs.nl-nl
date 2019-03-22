@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 299c06fc043391fc9b765c95ec6d29da3d440719
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d9443349ea7ce91a3b8ab01510917bc82ae9b8ad
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318871"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316130"
 ---
 # <a name="saas-fulfillment-apis-version-1"></a>SaaS vervulling API's versie 1
 
@@ -59,26 +59,26 @@ Elke toepassing die de mogelijkheden van Azure Active Directory wil gebruiken, m
 
 Voor het registreren van een nieuwe toepassing met behulp van de Azure portal, moet u de volgende stappen uitvoeren:
 
-1.  Meld u aan bij [Azure-portal](https://portal.azure.com/).
-2.  Als u via uw account toegang tot meer dan één tenant hebt, klikt u op uw account in de rechterbovenhoek en stelt u uw portalsessie in op de gewenste Azure Active Directory-tenant.
-3.  Klik in het navigatiedeelvenster links op de **Azure Active Directory** service, klikt u op **App-registraties**, en klikt u op **nieuwe toepassing registreren**.
+1. Meld u aan bij [Azure-portal](https://portal.azure.com/).
+2. Als u via uw account toegang tot meer dan één tenant hebt, klikt u op uw account in de rechterbovenhoek en stelt u uw portalsessie in op de gewenste Azure Active Directory-tenant.
+3. Klik in het navigatiedeelvenster links op de **Azure Active Directory** service, klikt u op **App-registraties**, en klikt u op **nieuwe toepassing registreren**.
 
-    ![SaaS AD App-registraties](./media/saas-offer-app-registration-v1.png)
+   ![SaaS AD App-registraties](./media/saas-offer-app-registration-v1.png)
 
-4.  Voer op de pagina voor het maken, uw toepassing\'s registratie-informatie:
-    -   **Naam**: Voer een nuttige naam in voor de toepassing
-    -   **Toepassingstype**: 
-        - Selecteer **Systeemeigen** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) die lokaal op een apparaat zijn geïnstalleerd. Deze instelling wordt gebruikt voor openbare [systeemeigen clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) met OAuth.
-        - Selecteer **Web-app / API** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) en [resource/API-Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) die op een beveiligde server worden geïnstalleerd. Deze instelling wordt gebruikt voor OAuth vertrouwelijke [web-clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) en openbare [gebruiker agent-gebaseerde clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
-        Dezelfde toepassing kan zowel een client als resource/API beschikbaar maken.
-    -   **Aanmeldings-URL**: Voor Web-app/API-Apps, geeft u de basis-URL van uw app. Bijvoorbeeld, **http://localhost:31544** mogelijk de URL voor een WebApp die wordt uitgevoerd op uw lokale computer. Gebruikers zouden deze URL vervolgens gebruiken voor het aanmelden bij een web-clienttoepassing.
-    -   **Omleidings-URI**: Systeemeigen toepassing maakt, geeft u de URI die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, bijvoorbeeld **http://MyFirstAADApp**.
+4. Voer op de pagina voor het maken, uw toepassing\'s registratie-informatie:
+   - **Naam**: Voer een nuttige naam in voor de toepassing
+   - **Toepassingstype**: 
+     - Selecteer **Systeemeigen** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) die lokaal op een apparaat zijn geïnstalleerd. Deze instelling wordt gebruikt voor openbare [systeemeigen clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) met OAuth.
+     - Selecteer **Web-app / API** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) en [resource/API-Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) die op een beveiligde server worden geïnstalleerd. Deze instelling wordt gebruikt voor OAuth vertrouwelijke [web-clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) en openbare [gebruiker agent-gebaseerde clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
+     Dezelfde toepassing kan zowel een client als resource/API beschikbaar maken.
+   - **Aanmeldings-URL**: Voor Web-app/API-Apps, geeft u de basis-URL van uw app. Bijvoorbeeld, **http:\//localhost:31544** mogelijk de URL voor een WebApp die wordt uitgevoerd op uw lokale computer. Gebruikers zouden deze URL vervolgens gebruiken voor het aanmelden bij een web-clienttoepassing.
+   - **Omleidings-URI**: Systeemeigen toepassing maakt, geeft u de URI die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, bijvoorbeeld **http:\//MyFirstAADApp**.
 
-        ![SaaS AD App-registraties](./media/saas-offer-app-registration-v1-2.png)
+     ![SaaS AD App-registraties](./media/saas-offer-app-registration-v1-2.png)
 
-        Voor specifieke voorbeelden voor webtoepassingen of systeemeigen toepassingen, bekijk de Snelstartgids begeleide instellingen die beschikbaar in de sectie aan de slag van zijn de [Azure AD-handleiding voor ontwikkelaars](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+     Voor specifieke voorbeelden voor webtoepassingen of systeemeigen toepassingen, bekijk de Snelstartgids begeleide instellingen die beschikbaar in de sectie aan de slag van zijn de [Azure AD-handleiding voor ontwikkelaars](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
-5.  Klik op **Create** als u klaar bent. Azure AD wijst een unieke toepassings-ID toe voor uw toepassing, en u\'re genomen om uw toepassing\'pagina voor de belangrijkste registratie s. Afhankelijk van of uw toepassing een webtoepassing of systeemeigen toepassing is, worden er verschillende opties geboden om extra mogelijkheden aan uw toepassing toe te voegen.
+5. Klik op **Create** als u klaar bent. Azure AD wijst een unieke toepassings-ID toe voor uw toepassing, en u\'re genomen om uw toepassing\'pagina voor de belangrijkste registratie s. Afhankelijk van of uw toepassing een webtoepassing of systeemeigen toepassing is, worden er verschillende opties geboden om extra mogelijkheden aan uw toepassing toe te voegen.
 
 >[!Note]
 >De zojuist geregistreerde toepassing is standaard geconfigureerd dat alleen gebruikers van dezelfde tenant aanmelden bij uw toepassing.
@@ -102,7 +102,7 @@ HTTP-methode
 
 |  **Parameternaam**  | **Vereist**  | **Beschrijving**                               |
 |  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | Waar          | Tenant-ID van de geregistreerde AAD-toepassing   |
+| tenantId             | True          | Tenant-ID van de geregistreerde AAD-toepassing   |
 |  |  |  |
 
 
@@ -110,7 +110,7 @@ HTTP-methode
 
 |  **Header-naam**  | **Vereist** |  **Beschrijving**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | Waar         | Type van de inhoud die is gekoppeld aan de aanvraag. De standaardwaarde is `application/x-www-form-urlencoded`.  |
+|  Content-Type     | True         | Type van de inhoud die is gekoppeld aan de aanvraag. De standaardwaarde is `application/x-www-form-urlencoded`.  |
 |  |  |  |
 
 
@@ -118,10 +118,10 @@ HTTP-methode
 
 | **Eigenschapsnaam**   | **Vereist** |  **Beschrijving**                                                          |
 | -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | Waar         | Toekenningstype. De standaardwaarde is `client_credentials`.                    |
-|  Client_id          | Waar         |  Client/app-id die is gekoppeld aan de Azure AD-app.                  |
-|  client_secret      | Waar         |  Het wachtwoord dat is gekoppeld aan de Azure AD-app.                               |
-|  Resource           | Waar         |  De doelresource waarvoor het token is aangevraagd. De standaardwaarde is `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
+|  Grant_type         | True         | Toekenningstype. De standaardwaarde is `client_credentials`.                    |
+|  Client_id          | True         |  Client/app-id die is gekoppeld aan de Azure AD-app.                  |
+|  client_secret      | True         |  Het wachtwoord dat is gekoppeld aan de Azure AD-app.                               |
+|  Resource           | True         |  De doelresource waarvoor het token is aangevraagd. De standaardwaarde is `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
 |  |  |  |
 
 
@@ -511,6 +511,7 @@ De Get-actie op abonneren eindpunt kan een gebruiker een abonnement met een bepa
     "lastModified": ""
 }
 ```
+
 | **Parameternaam**     | **Gegevenstype** | **Beschrijving**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | String        | Abonnement-resource-ID van SaaS in Azure.    |
@@ -643,7 +644,7 @@ Een SaaS-webhook wordt gebruikt voor het melden van wijzigingen proactief in de 
 | offerId                | String        | Aanbiedings-ID die de gebruiker een abonnement op. Alleen beschikbaar in de actie 'Update'.        |
 | publisherId                | String        | Uitgevers-ID van de SaaS-aanbieding         |
 | planId                 | String        | Plan-ID die de gebruiker een abonnement op. Alleen beschikbaar in de actie 'Update'.          |
-| Actie                 | String        | De actie die is deze melding wordt geactiveerd. Mogelijke waarden zijn: activeren, verwijderen, onderbreken, reactiveren, bijwerken          |
+| action                 | String        | De actie die is deze melding wordt geactiveerd. Mogelijke waarden zijn: activeren, verwijderen, onderbreken, reactiveren, bijwerken          |
 | timeStamp                 | String        | De waarde van de tijdstempel in UTC waarop deze melding is geactiveerd.          |
 |  |  |  |
 

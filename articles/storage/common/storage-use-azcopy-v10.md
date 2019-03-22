@@ -1,6 +1,6 @@
 ---
-title: Gegevens kopiëren of verplaatsen naar Azure Storage met AzCopy v10 (Preview) | Microsoft Docs
-description: De v10 AzCopy gebruiken (Preview)-hulpprogramma voor het verplaatsen of kopiëren van gegevens naar of van blob-, data lake- en bestandsinhoud. Gegevens kopiëren naar Azure Storage van lokale bestanden en gegevens binnen of tussen opslagaccounts kopiëren. Migreer uw gegevens eenvoudig naar Azure Storage.
+title: Gegevens kopiëren of verplaatsen naar Azure Storage met behulp van AzCopy v10 (Preview) | Microsoft Docs
+description: Gebruik van de v10 AzCopy-opdrachtregelprogramma (Preview) te verplaatsen of kopiëren van gegevens naar of van blob-, data lake- en bestandsinhoud. Gegevens kopiëren naar Azure Storage van lokale bestanden en gegevens binnen of tussen opslagaccounts kopiëren. Migreer uw gegevens eenvoudig naar Azure Storage.
 services: storage
 author: artemuwka
 ms.service: storage
@@ -8,27 +8,27 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: 111c24c1cd608542a5ef7da85f93ca22082af6d9
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: ca7081bdfedae3abb5ec426a9d3ec0a7867a2ef9
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726716"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337014"
 ---
-# <a name="transfer-data-with-the-azcopy-v10-preview"></a>Gegevensoverdracht met het AzCopy-v10 (Preview)
+# <a name="transfer-data-with-azcopy-v10-preview"></a>Gegevens overdragen met AzCopy v10 (Preview)
 
-AzCopy v10 (Preview) is de generatie-opdrachtregelprogramma voor het kopiëren van gegevens naar/van Microsoft Azure BLOB Storage en File storage, een opdrachtregelinterface opnieuw ontworpen en een nieuwe architectuur voor krachtige, betrouwbare de gegevensoverdracht biedt. Met behulp van AzCopy kunt u gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.
+AzCopy v10 (Preview) is het opdrachtregelprogramma voor het kopiëren van gegevens naar of van Microsoft Azure BLOB Storage en File storage. AzCopy v10 biedt een opdrachtregelinterface die vernieuwde en nieuwe architectuur voor betrouwbare gegevens brengt. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren met behulp van AzCopy.
 
 ## <a name="whats-new-in-azcopy-v10"></a>Wat is er nieuw in AzCopy v10
 
-- Synchroniseren van een bestandssysteem naar Azure Blob of vice versa. Gebruik `azcopy sync <source> <destination>`. Ideaal voor scenario's voor incrementele kopie.
-- Biedt ondersteuning voor Azure Data Lake Storage Gen2 API's. Gebruik `myaccount.dfs.core.windows.net` als een URI naar de ADLS Gen2 API's aanroepen.
+- Synchroniseert bestandssystemen naar Azure Blob-opslag of vice versa. Gebruik `azcopy sync <source> <destination>`. Ideaal voor scenario's voor incrementele kopie.
+- Biedt ondersteuning voor Azure Data Lake Storage Gen2 API's. Gebruik `myaccount.dfs.core.windows.net` als een URI naar de Data Lake Storage Gen2 API's aanroepen.
 - Ondersteunt het kopiëren van een hele account (alleen voor Blob-service) naar een ander account.
-- Account kopiëren-account maakt nu gebruik van de nieuwe [Put-blokken van URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API's. Er is geen gegevensoverdracht naar de client is vereist waardoor de overdracht sneller!
-- Lijst/verwijderen bestanden en blobs in een opgegeven pad.
-- De jokertekenpatronen ondersteunt ook een pad als in--uitsluiten vlag.
-- Verbeterde tolerantie: elk exemplaar AzCopy maakt u de volgorde van een taak en een bijbehorende logboekbestand. U kunt bekijken en vorige taken opnieuw starten en mislukte taken hervatten. AzCopy wordt ook automatisch opnieuw geprobeerd een overdracht na een storing.
-- Algemene verbeteringen.
+- Maakt gebruik van de nieuwe [Put-blokken van URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API's ter ondersteuning van accounts exemplaar. De gegevensoverdracht is sneller, omdat de overdracht naar de client is niet vereist.
+- Geeft een lijst of verwijdert u bestanden en blobs in een opgegeven pad.
+- Biedt ondersteuning voor jokertekenpatronen in een pad, en--uitsluiten vlaggen.
+- Maakt een volgorde van de taak en een bijbehorende logboekbestand met elk exemplaar van AzCopy. U kunt bekijken en vorige taken opnieuw starten en mislukte taken hervatten. AzCopy wordt ook automatisch opnieuw geprobeerd een overdracht na een storing.
+- Verbeteringen van de algemene prestaties functies.
 
 ## <a name="download-and-install-azcopy"></a>Download en installeer AzCopy
 
@@ -49,35 +49,36 @@ Download de [AzCopy v7.3 kopiëren van gegevens naar/van Microsoft Azure Table s
 
 ## <a name="post-installation-steps"></a>Stappen na de installatie
 
-AzCopy v10 is niet vereist voor een installatie. Open een voorkeurs-opdrachtregelprogramma en navigeer naar de map waar `azcopy.exe` (Windows) of `azcopy` (Linux) uitvoerbare bestand zich bevindt. Indien gewenst, kunt u de locatie van de AzCopy-map toevoegen aan het systeempad staat.
+AzCopy v10 zijn vereist om een installatie. Open uw favoriete opdrachtregelprogramma en blader naar de map waar `azcopy.exe` zich bevindt. Indien nodig, kunt u de locatie van de AzCopy-map toevoegen aan het systeempad voor gebruiksgemak.
 
-## <a name="authentication-options"></a>Verificatie-opties
+## <a name="authentication-options"></a>Verificatieopties
 
-AzCopy v10 kunt u de volgende opties gebruiken voor verificatie met Azure Storage:
-- **Azure Active Directory [ondersteunde voor Blob-en ADLS Gen2]**. Gebruik ```.\azcopy login``` zich aanmelden met Azure Active Directory.  De gebruiker moet beschikken over ['Blob Gegevensbijdrager voor' rol](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) te schrijven naar Blob-opslag met Azure Active Directory-verificatie. Voor verificatie met behulp van Managed Service Identity (MSI), gebruikt u `azcopy login --identity` na het verlenen van de Azure compute-instantie de rol van de inzender gegevens.
-- **SAS-tokens [ondersteunde voor Blob- en Bestandsservices]**. De SAS-token toevoegen aan de blobpad op de opdrachtregel om het te gebruiken. U kunt met behulp van Azure Portal, SAS-token genereren [Opslagverkenner](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), of andere hulpprogramma's van uw keuze. Zie voor meer informatie, [voorbeelden](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+AzCopy v10 ondersteunt de volgende opties bij het verifiëren met Azure Storage:
+- **Azure Active Directory** (ondersteund voor **Blob-en Data Lake Storage Gen2**). Gebruik ```.\azcopy login``` zich aanmelden met Azure Active Directory.  De gebruiker moet beschikken over ['Blob Gegevensbijdrager voor' rol](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) te schrijven naar Blob storage met Azure Active Directory-verificatie. Voor verificatie via beheerde identiteiten voor Azure-resources, gebruikt u `azcopy login --identity`.
+- **Gedeelde SAS-tokens [ondersteunde voor Blob- en Bestandsservices]**. Het token shared access signature (SAS) toegevoegd aan de blobpad op de opdrachtregel om het te gebruiken. U kunt met de Azure portal, SAS-tokens genereren [Opslagverkenner](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), of andere hulpprogramma's van uw keuze. Zie voor meer informatie, [voorbeelden](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 ## <a name="getting-started"></a>Aan de slag
 
 > [!TIP]
 > **Liever een grafische gebruikersinterface?**
 >
-> Probeer [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), een bureaublad-client die het beheren van Azure Storage-gegevens, vereenvoudigt en **gebruikt nu AzCopy** te versnellen gegevensoverdracht naar en uit Azure Storage.
+> [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), een bureaublad-client die het beheren van Azure Storage-gegevens, vereenvoudigt nu AzCopy wordt gebruikt om te versnellen gegevensoverdracht naar en uit Azure Storage.
 >
-> Gewoon AzCopy-functie in Storage Explorer 'Preview'-menu inschakelen. Storage Explorer gebruikt vervolgens AzCopy bij het uploaden en downloaden van gegevens naar Blob-opslag voor betere prestaties.
+> Inschakelen van AzCopy in Storage Explorer onder de **Preview** menu.
 > ![AzCopy inschakelen als een engine voor overdracht in Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
-AzCopy v10 is een eenvoudige syntaxis zelf beschreven. De algemene syntaxis ziet er als volgt uit wanneer u bent aangemeld bij de Azure Active Directory:
+AzCopy v10 heeft een zelf gedocumenteerde syntaxis. Wanneer u zich hebt aangemeld bij Azure Active Directory, ziet de algemene syntaxis er als volgt uit:
 
 ```azcopy
 .\azcopy <command> <arguments> --<flag-name>=<flag-value>
+
 # Examples if you have logged into the Azure Active Directory:
 .\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container" --recursive=true
 .\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile"
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
 
-# Examples if you are using SAS tokens to authenticate:
+# Examples if you're using SAS tokens to authenticate:
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?sastoken" --recursive=true
 .\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?sastoken"
 ```
@@ -86,11 +87,11 @@ Hier volgt hoe krijgt u een lijst van beschikbare opdrachten:
 
 ```azcopy
 .\azcopy --help
-# Using the alias instead
+# To use the alias instead
 .\azcopy -h
 ```
 
-Om te zien in de help-pagina en voorbeelden voor een specifieke opdracht de onderstaande opdracht uitvoeren:
+Als u wilt zien van de help-pagina en voorbeelden voor een specifieke opdracht, kunt u de volgende opdracht uitvoeren:
 
 ```azcopy
 .\azcopy <cmd> --help
@@ -98,9 +99,9 @@ Om te zien in de help-pagina en voorbeelden voor een specifieke opdracht de onde
 .\azcopy cp -h
 ```
 
-## <a name="create-a-blob-container-or-file-share"></a>Een Blob-container of bestandsshare maken 
+## <a name="create-a-blob-container-or-file-share"></a>Een blob-container of bestandsshare maken 
 
-**Een Blob-container maken**
+**Een blob-container maken**
 
 ```azcopy
 .\azcopy make "https://account.blob.core.windows.net/container-name"
@@ -112,9 +113,9 @@ Om te zien in de help-pagina en voorbeelden voor een specifieke opdracht de onde
 .\azcopy make "https://account.file.core.windows.net/share-name"
 ```
 
-**Een Blob-container met behulp van ADLS Gen2 maken**
+**Een blobcontainer maken met behulp van Azure Data Lake Storage Gen2**
 
-Als u al hiërarchische naamruimten ingeschakeld op uw blob storage-account, kunt u de volgende opdracht uit om te maken van een nieuwe bestandssysteem (Blob-container), zodat u bestanden naar het uploaden kunt.
+Als u al hiërarchische naamruimten ingeschakeld op uw Blob storage-account, kunt u de volgende opdracht uit om te maken van een nieuwe blob-container voor het uploaden van bestanden.
 
 ```azcopy
 .\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name"
@@ -122,7 +123,7 @@ Als u al hiërarchische naamruimten ingeschakeld op uw blob storage-account, kun
 
 ## <a name="copy-data-to-azure-storage"></a>Gegevens kopiëren naar Azure Storage
 
-Gebruik de opdracht kopiëren om over te dragen gegevens van de bron naar de bestemming. De bron-/ doel mag a:
+Gebruik de opdracht kopiëren om over te dragen gegevens van de bron naar de bestemming. De bron- of mag a:
 - Lokaal bestandssysteem
 - Azure-Blob/virtuele Directory/Container URI
 - Azure-bestand/map/bestandsshare URI
@@ -130,11 +131,11 @@ Gebruik de opdracht kopiëren om over te dragen gegevens van de bron naar de bes
 
 ```azcopy
 .\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
-# Using alias instead
+# Using the alias instead 
 .\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
 ```
 
-De volgende opdracht worden alle bestanden onder de map geüpload `C:\local\path` recursief naar de container `mycontainer1` maken `path` Active directory in de container:
+De volgende opdracht worden alle bestanden onder de map geüpload `C:\local\path` recursief naar de container `mycontainer1`, het maken van het `path` Active directory in de container:
 
 ```azcopy
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
@@ -146,7 +147,7 @@ De volgende opdracht worden alle bestanden onder de map geüpload `C:\local\path
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
 ```
 
-Als u meer voorbeelden, gebruikt u de volgende opdracht uit:
+Ga voor meer voorbeelden, gebruik de volgende opdracht:
 
 ```azcopy
 .\azcopy cp -h
@@ -154,53 +155,49 @@ Als u meer voorbeelden, gebruikt u de volgende opdracht uit:
 
 ## <a name="copy-data-between-two-storage-accounts"></a>Kopiëren van gegevens tussen twee opslagaccounts
 
-Maakt gebruik van kopiëren van gegevens tussen twee opslagaccounts de [blok plaatsen van URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API en geen gebruik van netwerkbandbreedte van de client-computer. Gegevens worden gekopieerd tussen twee Azure Storage-servers rechtstreeks terwijl AzCopy gewoon de kopieerbewerking wordt georganiseerd. Deze optie is momenteel alleen beschikbaar voor Blob-opslag.
+Maakt gebruik van kopiëren van gegevens tussen twee opslagaccounts de [blok plaatsen van URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, en maakt geen gebruik van netwerkbandbreedte van de client-computer. Gegevens worden gekopieerd tussen twee Azure Storage-servers rechtstreeks, terwijl AzCopy gewoon de kopieerbewerking wordt georganiseerd. Deze optie is momenteel alleen beschikbaar voor Blob-opslag.
 
 Als u wilt kopiëren van gegevens tussen twee opslagaccounts, gebruik de volgende opdracht:
 ```azcopy
-.\azcopy cp "https://account.blob.core.windows.net/<sastoken>" "https://otheraccount.blob.core.windows.net/<sastoken>" --recursive=true
+.\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
 > [!NOTE]
-> De opdracht wordt het inventariseren van alle blob-containers en kopieer deze naar de doelaccount. Op dit moment ondersteunt AzCopy v10 alleen blok-blobs tussen twee opslagaccounts kopiëren. Alle andere storage-account-objecten (toevoeg-blobs, pagina-blobs, bestanden, tabellen en wachtrijen) wordt overgeslagen.
+> Met deze opdracht wordt het inventariseren van alle blob-containers en kopieer deze naar de doelaccount. Op dit moment ondersteunt AzCopy v10 alleen blok-blobs tussen twee opslagaccounts kopiëren. Alle andere storage-account-objecten (zoals toevoeg-blobs, pagina-blobs, bestanden, tabellen en wachtrijen) wordt overgeslagen.
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>Een VHD-installatiekopie kopiëren naar een opslagaccount
 
-Gebruik `--blob-type=PageBlob` installatiekopie van een schijf uploaden naar Blob-opslag als een pagina-Blob.
+AzCopy v10 standaard worden gegevens geüpload naar blok-blobs. Echter, als een bronbestand heeft een `.vhd` extensie, AzCopy v10 wordt teruggezet op het uploaden naar een pagina-blob. Deze actie is niet op dit moment kunnen worden geconfigureerd.
 
-```azcopy
-.\azcopy cp "C:\myimages\diskimage.vhd" "https://account.blob.core.windows.net/mycontainer/diskimage.vhd<sastoken>" --blob-type=PageBlob
-```
+## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>Synchronisatie: incrementele kopie en verwijderen (alleen voor Blob storage)
 
-## <a name="sync-incremental-copy-and-optional-delete-blob-storage-only"></a>Synchronisatie: incrementele kopie en (optioneel) verwijderen (alleen voor Blob storage)
+De synchronisatieopdracht synchroniseert inhoud van een bronmap naar een map in het doel, vergelijken van bestandsnamen en tijdstempels het laatst is gewijzigd. Met deze bewerking ook de optionele verwijdering van de doel-bestanden als die nog niet bestaan in de bron wanneer het `--delete-destination=prompt|true` vlag wordt geleverd. Het gedrag van het verwijderen is standaard uitgeschakeld. 
 
-Synchronisatieopdracht synchroniseert de inhoud van een bronmap naar een map in de bestemming het vergelijken van bestandsnamen en Laatst gewijzigde tijdstempels. Met deze bewerking bevat (optioneel) verwijderen van de doel-bestanden als die nog niet bestaan in de bron als `--delete-destination=prompt|true` vlag wordt geleverd. Het gedrag van het verwijderen is standaard uitgeschakeld.
+> [!NOTE] 
+> Gebruik de `--delete-destination` markering op in de waarschuwing. Schakel de [voorlopig verwijderen](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) functie voordat u synchroon om te voorkomen dat onbedoelde verwijderingen in uw account verwijderen dergelijk gedrag mogelijk maken. 
 
-> [!NOTE]
-> Gebruik `--delete-destination` markering op in de waarschuwing. Schakel [voorlopig verwijderen](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) functie voordat u synchroon om te voorkomen dat de onopzettelijke verwijderingen in uw account verwijderen dergelijk gedrag mogelijk maken.
->
 > Wanneer `--delete-destination` is ingesteld op true, AzCopy worden bestanden verwijderd die niet zijn opgenomen in de bron van de bestemming zonder een prompt van de gebruiker. Als u worden gevraagd om bevestiging wilt, gebruikt u `--delete-destination=prompt`.
 
 Als u wilt synchroniseren van uw lokale systeem naar een opslagaccount, gebruik de volgende opdracht:
 
 ```azcopy
-.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer<sastoken>"
+.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
-Op dezelfde manier kunt u een Blob-container naar een lokaal bestandssysteem synchroniseren:
+U kunt ook een blob-container naar een lokaal bestandssysteem synchroniseren:
 
 ```azcopy
-# If you're using Azure Active Directory authentication the sastoken is not required
-.\azcopy sync "https://account.blob.core.windows.net/mycontainer" "C:\local\path"
+# The SAS token isn't required for Azure Active Directory authentication.
+.\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
 ```
 
-De opdracht kunt u de bron naar de bestemming op basis van laatst gewijzigde tijdstempels incrementeel te synchroniseren. Als u toevoegen of verwijderen van een bestand in de bron, doet AzCopy v10 hetzelfde als in de bestemming. Als het gedrag verwijderen in de synchronisatieopdracht is ingeschakeld, wordt door AzCopy bestanden van de doel-verwijderen als deze nog niet bestaan in de bron meer.
+Met deze opdracht synchroniseert stapsgewijs de bron naar de bestemming op basis van de laatst gewijzigde tijdstempels. Als u toevoegen of verwijderen van een bestand in de bron, doet AzCopy v10 hetzelfde als in de bestemming. Voordat u deze verwijdert vraagt AzCopy u om te bevestigen.
 
 ## <a name="advanced-configuration"></a>Geavanceerde configuratie
 
 ### <a name="configure-proxy-settings"></a>Proxy-instellingen configureren
 
-Voor het configureren van de proxy-instellingen voor AzCopy v10, stel de omgeving variabele https_proxy met de volgende opdracht:
+Voor het configureren van de proxy-instellingen voor AzCopy v10, stelt u de variabele https_proxy omgeving met behulp van de volgende opdracht uit:
 
 ```cmd
 # For Windows:
@@ -213,7 +210,7 @@ export https_proxy=<proxy IP>:<proxy port>
 
 ### <a name="optimize-throughput"></a>Optimaliseren van doorvoer
 
-Stel de omgevingsvariabele AZCOPY_CONCURRENCY_VALUE voor het configureren van het aantal gelijktijdige aanvragen en beheren van de prestaties van de netwerkdoorvoer en resourceverbruik. De waarde is standaard ingesteld op 300. Vermindering van de waarde, wordt de bandbreedte en CPU-gebruik door AzCopy v10 beperkt.
+Stel de omgevingsvariabele AZCOPY_CONCURRENCY_VALUE te configureren van het aantal gelijktijdige aanvragen, en voor het beheren van het verbruik van prestatie- en doorvoer. De waarde is standaard ingesteld op 300. Vermindering van de waarde, wordt de bandbreedte en CPU-gebruik door AzCopy v10 beperkt.
 
 ```cmd
 # For Windows:
@@ -240,19 +237,11 @@ export AZCOPY_LOG_LOCATION=<value>
 export AZCOPY_LOG_LOCATION=<value>
 # To check the current value of the variable on all the platforms
 .\azcopy env
-# If the value is blank then the default value is currently in use
+# If the value is blank, then the default value is currently in use
 ```
+### <a name="change-the-default-log-level"></a>Het standaardniveau wijzigen 
 
-### <a name="change-the-default-log-level"></a>Het standaardniveau wijzigen
-
-AzCopy logboek-niveau is standaard ingesteld op INFO. Als u beperken, het detailniveau van logboekbestanden om schijfruimte te besparen wilt, overschrijft de instelling via ``--log-level`` optie. Beschikbare logboekniveaus zijn: Fouten opsporen, INFO, waarschuwing, fout, PANIEK en onherstelbare fout
-
-## <a name="troubleshooting"></a>Problemen oplossen
-
-AzCopy v10 logboekbestanden en plan bestanden voor alle taken gemaakt. U kunt de logboeken kunt gebruiken om te onderzoeken en oplossen van mogelijke problemen. De logboeken van de status van de fout (UPLOADFAILED, COPYFAILED en DOWNLOADFAILED), bevat het volledige pad en de reden van de fout. De taaklogboeken van de en plan-bestanden bevinden zich in de map % USERPROFILE %\\.azcopy map op Windows of $HOME\\.azcopy map op Mac en Linux.
-
-> [!IMPORTANT]
-> Bij het indienen van een verzoek voor ondersteuning van Microsoft Support (of het oplossen van het probleem met betrekking tot een 3e partij). de geredigeerde versie van de opdracht die u probeert uit te voeren om ervoor te zorgen de SAS niet per ongeluk wordt gedeeld met iedereen delen. U vindt de geredigeerde versie aan het begin van het logboekbestand.
+AzCopy logboek-niveau is standaard ingesteld op INFO. Als u beperken, het detailniveau van logboekbestanden om schijfruimte te besparen wilt, overschrijft de instelling via ``--log-level`` optie. Beschikbare logboekniveaus zijn: Fouten opsporen, INFO, waarschuwing, fout, PANIEK en onherstelbare fout.
 
 ### <a name="review-the-logs-for-errors"></a>Bekijk de logboeken voor fouten
 
@@ -261,12 +250,16 @@ De volgende opdracht ontvangt alle fouten met UPLOADFAILED status van het logboe
 ```azcopy
 cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
+## <a name="troubleshooting"></a>Problemen oplossen
 
-U kunt ook ziet u de namen die niet konden worden overgedragen met behulp van `azcopy jobs show <jobid> --with-status=Failed` opdracht.
+AzCopy v10 logboekbestanden en plan bestanden voor elke taak gemaakt. U kunt de logboeken kunt gebruiken om te onderzoeken en oplossen van mogelijke problemen. De logboeken van de status van de fout (UPLOADFAILED, COPYFAILED en DOWNLOADFAILED), bevat het volledige pad en de reden van de fout. De taaklogboeken van de en plan-bestanden bevinden zich in de map % USERPROFILE\\.azcopy map op Windows of $HOME\\.azcopy map op Mac en Linux.
+
+> [!IMPORTANT]
+> Bij het indienen van een aanvraag voor het Microsoft Support (of het probleem met betrekking tot een derde partij op te lossen), delen de geredigeerde versie van de opdracht die u wilt uitvoeren. Dit zorgt ervoor dat de SAS niet per ongeluk worden gedeeld met iedereen. U vindt de geredigeerde versie aan het begin van het logboekbestand.
 
 ### <a name="view-and-resume-jobs"></a>Weergeven en taken hervatten
 
-Elke overdrachtbewerking wordt een AzCopy-taak maken. Hier vindt u de geschiedenis van taken met behulp van de volgende opdracht uit:
+Elke overdrachtbewerking wordt een AzCopy-taak maken. Gebruik de volgende opdracht om de geschiedenis van taken weer te geven:
 
 ```azcopy
 .\azcopy jobs list
@@ -284,7 +277,7 @@ Als u wilt filteren de overdrachten op status, gebruik de volgende opdracht:
 .\azcopy jobs show <job-id> --with-status=Failed
 ```
 
-U kunt een taak is mislukt/geannuleerd met de id samen met het SAS-token (dit is niet persistent uit veiligheidsoverwegingen) hervatten:
+Gebruik de volgende opdracht uit om te hervatten van een taak is mislukt/geannuleerd. Met deze opdracht maakt gebruik van de id samen met het SAS-token. Het is niet persistent uit veiligheidsoverwegingen:
 
 ```azcopy
 .\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
@@ -292,4 +285,6 @@ U kunt een taak is mislukt/geannuleerd met de id samen met het SAS-token (dit is
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Uw feedback wordt altijd verwelkomde. Als u vragen hebt, problemen of algemene feedback over deze indienen https://github.com/Azure/azure-storage-azcopy. Bedankt.
+Als u vragen of problemen met algemene feedback te sturen, dient u ze [op GitHub](https://github.com/Azure/azure-storage-azcopy.).
+
+

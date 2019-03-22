@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 567890f3beec1eff30effeec0ce23284c5fee141
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd109a72b092e963bc4fda7894bf67f998b7d0c5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109287"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309800"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(AFGESCHAFT) DC/OS-containerbeheer via de Marathon REST API
 
@@ -30,7 +30,7 @@ Voer het uitvoeren van deze voorbeelden hebt u een DC/OS-cluster nodig dat is ge
 * [Verbinding maken met een Azure Container Service-cluster](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>Toegang tot de DC/OS-API 's
-Nadat u met het Azure Container Service-cluster verbonden bent, u kunt toegang tot de DC/OS en gerelateerde REST-API's via http://localhost:local-port. In de voorbeelden in dit document wordt ervan uitgegaan dat u poort 80 gebruikt. Bijvoorbeeld, de Marathon-eindpunten kunnen worden bereikt op URI's vanaf `http://localhost/marathon/v2/`. 
+Nadat u met het Azure Container Service-cluster verbonden bent, kunt u de DC/OS en gerelateerde REST-API's openen via http:\//localhost:local-poort. In de voorbeelden in dit document wordt ervan uitgegaan dat u poort 80 gebruikt. Bijvoorbeeld, de Marathon-eindpunten kunnen worden bereikt op URI's beginnen met http: \/ /localhost/marathon/v2 /. 
 
 Zie voor meer informatie over de verschillende API's de Mesosphere-documentatie voor de [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) en de [Chronos API](https://mesos.github.io/chronos/docs/api.html), en de Apache-documentatie voor de [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
@@ -123,7 +123,7 @@ U kunt de Marathon API gebruiken voor omhoog of omlaag schalen in implementaties
 Uw verbinding is via een tunnel, voer de volgende opdracht om uit de toepassing te schalen.
 
 > [!NOTE]
-> De URI is http://localhost/marathon/v2/apps/ gevolgd door de ID van de toepassing om te schalen. Als u de Nginx-voorbeeld gebruikt die is opgegeven, de URI zou worden http://localhost/marathon/v2/apps/nginx.
+> De URI is http: \/ /localhost/marathon/v2/apps/gevolgd door de ID van de toepassing om te schalen. Als u de Nginx-voorbeeld gebruikt die is opgegeven, zou de URI http:\//localhost/marathon/v2/apps/nginx.
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -180,7 +180,7 @@ U kunt ook de Marathon API gebruiken om in implementaties van toepassingen uit o
 Voer de volgende opdracht uit om de toepassing geschaald uitbreiden:
 
 > [!NOTE]
-> De URI is http://localhost/marathon/v2/apps/ gevolgd door de ID van de toepassing om te schalen. Als u het Nginx-voorbeeld opgegeven hier gebruikt, de URI zou worden http://localhost/marathon/v2/apps/nginx.
+> De URI is http: \/ /localhost/marathon/v2/apps/gevolgd door de ID van de toepassing om te schalen. Als u het Nginx-voorbeeld opgegeven hier gebruikt, zou de URI http:\//localhost/marathon/v2/apps/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'

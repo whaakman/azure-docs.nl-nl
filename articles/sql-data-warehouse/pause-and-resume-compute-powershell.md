@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/18/2018
+ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1aebe3086704c3823bcde470640f547de2beaaee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: e2c3c5530ac21d97adfabfcc00a9351599646f0e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884190"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317286"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Quickstart: Onderbreken en hervatten compute in Azure SQL Data Warehouse met PowerShell
 
@@ -61,8 +61,7 @@ Volg deze stappen om de locatiegegevens voor uw datawarehouse op te zoeken.
 
     ![Servernaam en resourcegroep](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Noteer de naam van het datawarehouse de naam van de database. Noteer ook de naam van de server en de resourcegroep. U
-5.  Als u deze in de opdrachten onderbreken en hervatten.
+4. Noteer de naam van het datawarehouse de naam van de database. Noteer ook de naam van de server en de resourcegroep.
 6. Als uw server foo.database.windows.net is, gebruikt u alleen het eerste deel als de servernaam in de PowerShell-cmdlets. Op de voorgaande afbeelding is de volledige servernaam newserver 20171113.database.windows.net. Verwijder het achtervoegsel en gebruik **newserver-20171113** als de naam van de server in de PowerShell-cmdlet.
 
 ## <a name="pause-compute"></a>De rekencapaciteit onderbreken
@@ -103,6 +102,14 @@ $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
+```
+
+## <a name="check-status-of-your-data-warehouse-operation"></a>Controleer de status van uw datawarehouse-bewerking
+
+Om te controleren of de status van uw datawarehouse, gebruikt u de [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlDatabaseActivity?view=azurermps-6.13.0#description) cmdlet.
+
+```
+Get-AzureRmSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database02"
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen

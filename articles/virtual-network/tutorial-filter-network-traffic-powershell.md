@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 023662f0293debb1b40fc8ea10bb725eab7be4d8
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 22090bf89e469f7e8defcd50b311c555949b9bde
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649931"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317715"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Netwerkverkeer filteren met een netwerkbeveiligingsgroep met behulp van PowerShell
 
@@ -242,7 +242,7 @@ Het maken van de virtuele machine duurt een paar minuten. Ga pas verder met de v
 
 ## <a name="test-traffic-filters"></a>Verkeersfilters testen
 
-Gebruik [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) om terug te keren van het openbare IP-adres van een virtuele machine. In het volgende voorbeeld wordt het openbare IP-adres van de VM *myVmMgmt* opgehaald:
+Gebruik [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) om het openbare IP-adres van een virtuele machine op te halen. In het volgende voorbeeld wordt het openbare IP-adres van de VM *myVmMgmt* opgehaald:
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress `
@@ -277,7 +277,7 @@ Gebruik de volgende opdracht voor het installeren van Microsoft IIS op de VM *my
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Nadat de installatie van IIS is voltooid, verbreekt u de verbinding met de VM *myVmWeb*, waarbij u de externe bureaubladverbinding met VM *myVmMgmt* behoudt. Als u het IIS-welkomstscherm wilt weergeven, opent u een internetbrowser en bladert u naar http://myVmWeb.
+Nadat de installatie van IIS is voltooid, verbreekt u de verbinding met de VM *myVmWeb*, waarbij u de externe bureaubladverbinding met VM *myVmMgmt* behoudt. Als u het IIS-welkomstscherm, open een internetbrowser en bladert u naar http:\//myVmWeb.
 
 Verbreek de verbinding met de VM *myVmMgmt*.
 

@@ -10,12 +10,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: ebf858ba86758b11ee896d745d70bdf2f0d0cde6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878377"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313189"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>3270 scherm gebaseerde apps voor IBM-mainframes integreren met Azure met behulp van Azure Logic Apps en IBM 3270 connector
 
@@ -402,7 +402,7 @@ Wanneer u klaar bent met al deze stappen, kunt u de actie die u in uw logische a
 1. Wanneer u klaar bent, opslaan en uw logische app uitvoeren.
 
    Nadat uw logische app uitgevoerd is, de stappen van de uitvoering weer te geven. 
-   Geslaagde stappen leert markeringstekens, terwijl de mislukte stappen laten zien de letter 'X'.
+   Geslaagde stappen leert vinkjes, terwijl de mislukte stappen laten zien de letter 'X'.
 
 1. Als u wilt controleren van de invoer en uitvoer voor elke stap, vouwt u deze stap.
 
@@ -410,7 +410,7 @@ Wanneer u klaar bent met al deze stappen, kunt u de actie die u in uw logische a
 
 ## <a name="connector-reference"></a>Connector-verwijzing
 
-Voor technische informatie over triggers en acties beperken die worden beschreven van de connector openapi (voorheen Swagger) beschrijving van de connector-verwijzingspagina bekijken: [ https://docs.microsoft.com/connectors/<replace-with-api-topic-file-name> ](/connectors/).
+Voor technische informatie over triggers en acties beperken die worden beschreven van de connector openapi (voorheen Swagger) beschrijving, Controleer de [van de connector-verwijzingspagina](/connectors/si3270/).
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 

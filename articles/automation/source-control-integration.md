@@ -6,21 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5b8ec726c81dfab710d30c37d6fb1aac97c12265
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: c689a8fe35133456c476106e96336420640ebf66
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293972"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335977"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 
 Broncodebeheer kunt u uw runbooks behouden in uw Automation account zijn bijgewerkt met de scripts in uw GitHub- of Azure-opslagplaatsen resourcebeheerbibliotheek. Broncodebeheer kunt u eenvoudig samenwerken met uw team, het bijhouden van wijzigingen en Ga terug naar de eerdere versies van uw runbooks. Broncodebeheer bijvoorbeeld, kunt u verschillende branches in broncodebeheer om uw ontwikkelings-, test- of productieomgeving Automation-accounts te synchroniseren. Hiermee kunt u eenvoudig ter bevordering van code die in uw ontwikkelomgeving, zodat uw productie-Automation-account is getest. Integratie van broncodebeheer met automation biedt ondersteuning voor één richting worden gesynchroniseerd vanuit uw resourcebeheerbibliotheek.
 
-Azure Automation biedt ondersteuning voor 3 soorten of broncodebeheer:
+Azure Automation ondersteunt drie typen van broncodebeheer:
 
 * GitHub
 * Azure Repos (Git)
@@ -30,6 +30,7 @@ Azure Automation biedt ondersteuning voor 3 soorten of broncodebeheer:
 
 * Een opslagplaats voor bronbeheer (GitHub of Azure-opslagplaatsen)
 * Een [Run As-Account](manage-runas-account.md)
+* Zorg ervoor dat u hebt de [nieuwste Azure-modules](automation-update-azure-modules.md) in uw Automation-Account
 
 > [!NOTE]
 > Resourcebeheertaken synchronisatie uitgevoerd onder de gebruikers Automation-Account en worden gefactureerd tegen hetzelfde tarief als andere Automation-taken.
@@ -52,7 +53,7 @@ Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens 
 |Branch     | De vertakking voor het ophalen van de bronbestanden op uit. Vertakking die gericht is op is niet beschikbaar voor het type TFVC broncodebeheer.          |
 |Mappad     | De map met de runbooks om te synchroniseren. Voorbeeld: /Runbooks </br>*Alleen runbooks in de map die is opgegeven, worden gesynchroniseerd. Recursie wordt niet ondersteund.*        |
 |Automatisch synchroniseren     | Hiermee schakelt u in- of uitschakelen van automatische synchronisatie wanneer een wijziging wordt aangebracht in de opslagplaats voor bronbeheer         |
-|Runbook publiceren     | Indien ingesteld op **op**nadat runbooks zijn gesynchroniseerd vanuit broncodebeheer ze automatisch worden gepubliceerd.         |
+|Runbook publiceren     | Indien ingesteld op **op**nadat runbooks zijn gesynchroniseerd vanuit broncodebeheer ze automatisch moeten worden gepubliceerd.         |
 |Description     | Een tekstveld om meer duidelijkheid te geven        |
 
 ![Overzicht van de bron-besturingselement](./media/source-control-integration/source-control-summary.png)
@@ -62,7 +63,7 @@ Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens 
 
 ## <a name="configure-source-control---powershell"></a>Configureren van broncodebeheer - PowerShell
 
-U kunt ook PowerShell gebruiken om te configureren van broncodebeheer in Azure Automation. Het configureren van broncodebeheer met de PowerShell-cmdlets een [persoonlijk toegangstoken (PAT)](#personal-access-token) nodig is. U gebruikt de [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) te maken van de verbinding. De cmdlet is vereist voor een beveiligde tekenreeks van het persoonlijke toegangstoken, voor informatie over het maken van een beveiligde tekenreeks, Zie [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+U kunt ook PowerShell gebruiken om te configureren van broncodebeheer in Azure Automation. Voor het configureren van broncodebeheer met de PowerShell-cmdlets, is een persoonlijk toegangstoken (PAT) nodig. U gebruikt de [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) te maken van de verbinding. De cmdlet is vereist voor een beveiligde tekenreeks van het persoonlijke toegangstoken, voor informatie over het maken van een beveiligde tekenreeks, Zie [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 ### <a name="azure-repos-git"></a>Azure Repos (Git)
 
@@ -113,7 +114,7 @@ Voor meer informatie over het maken van een persoonlijk toegangstoken in de Azur
 |Werkitems (lezen)    |
 |Verbindingen met de service (lezen, query's uitvoeren en beheren)<sup>1</sup>    |
 
-<sup>1</sup>machtiging voor de verbindingen met de Service is alleen vereist als u automatische synchronisatie hebt ingeschakeld.
+<sup>1</sup> machtiging voor de verbindingen met de Service is alleen vereist als u automatische synchronisatie hebt ingeschakeld.
 
 ## <a name="syncing"></a>Synchroniseren...
 
@@ -168,7 +169,7 @@ Selecteer het bron-besturingselement dat u wilt verwijderen. Op de **samenvattin
 
 ## <a name="encoding"></a>Encoding
 
-Als meerdere personen runbooks in uw resourcebeheerbibliotheek met verschillende editors bewerken zijn is er een kans om uit te voeren in coderingsproblemen. Dit kunt onjuist tekens invoegen in uw runbook. Zie voor meer informatie over deze [algemene oorzaken van problemen met codering](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Als meerdere personen runbooks in uw resourcebeheerbibliotheek met verschillende editors bewerken zijn, is er een kans om uit te voeren in coderingsproblemen. Deze situatie kan leiden tot onjuiste tekens in uw runbook. Zie voor meer informatie over deze [algemene oorzaken van problemen met codering](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>Volgende stappen
 

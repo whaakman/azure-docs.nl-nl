@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: dd60c5d0210ffba373839fd0f194496c5dbcc20d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7983169c2b1123c57a48471e3f4d9ad6f19c84dc
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999401"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314719"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Ontwikkelhulpprogramma's op de Data Science Virtual Machine
 
@@ -65,7 +65,7 @@ De Data Science Virtual Machine (DSVM) biedt een productieve omgeving voor het o
 | Wat is het?   | Webgebaseerde IDE voor R    |
 | Ondersteunde DSVM-versies      | Linux      |
 | Wordt doorgaans gebruikt      |  R-ontwikkeling     |
-| Hoe kan ik gebruik / uitvoeren?      | Schakel de service met _systemctl inschakelen rstudio server_, start u de service met _systemctl start rstudio server_. U kunt vervolgens aanmelden bij RStudio Server op http://your-vm-ip:8787.       |
+| Hoe kan ik gebruik / uitvoeren?      | Schakel de service met _systemctl inschakelen rstudio server_, start u de service met _systemctl start rstudio server_. U kunt vervolgens aanmelden bij RStudio Server http:\// uw-vm-ip:8787.       |
 | Meer hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 

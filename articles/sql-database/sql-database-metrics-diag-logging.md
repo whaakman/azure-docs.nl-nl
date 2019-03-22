@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 76c7519a166bfbfe5d2a7695a077b809aa971489
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cb1632fe8c0ae873afcf37504dbd13bcfc753e8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904028"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338068"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens
 
@@ -104,7 +104,7 @@ Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor
 
    ![Diagnostische gegevens voor elastische pools configureren](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Naast het configureren van diagnostische gegevens telemetrie voor een elastische pool, moet u ook diagnostische gegevens telemetrie voor elke database configureren in elastische pool, zoals hieronder beschreven. 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-datatbase-or-database-in-elastic-pool"></a>Streaming van diagnostische gegevens telemetrie voor enkel datatbase of database in de elastische groep configureren
@@ -159,7 +159,7 @@ Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor
 
    ![Configureren van diagnostische gegevens voor het beheerde exemplaar](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Naast het configureren van diagnostische gegevens telemetrie voor een beheerd exemplaar, moet u ook diagnostische gegevens telemetrie voor elke Exemplaardatabase configureren zoals hieronder beschreven. 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Streaming van diagnostische gegevens telemetrie bijvoorbeeld databases configureren

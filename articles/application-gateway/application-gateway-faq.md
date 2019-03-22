@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: ae55f2abf9815174e7258c2ace949078794c380d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: f549f9c612797c1c956d6921fe4898a5f8bee9e6
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286190"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319411"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
@@ -59,7 +59,7 @@ Omleiding wordt ondersteund. Zie [overzicht van Application Gateway redirect](ap
 
 ### <a name="in-what-order-are-listeners-processed"></a>In welke volgorde worden listeners verwerkt?
 
-Listeners worden verwerkt in de volgorde waarin die ze worden weergegeven. Om die reden als een basislistener overeenkomt met een binnenkomende aanvraag verwerkt eerst.  Multi-site-listeners moeten worden geconfigureerd voordat u een basislistener om te zorgen dat verkeer wordt gerouteerd naar de juiste back-end.
+Zie [volgorde van de verwerking van listeners](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
 ### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>Waar vind ik het IP- en DNS-Application-Gateway?
 
@@ -83,16 +83,13 @@ Slechts één openbaar IP-adres wordt ondersteund in een toepassingsgateway.
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Hoe groot ik moet mijn subnet voor Application Gateway?
 
-Application Gateway verbruikt één privé IP-adres per exemplaar, plus een andere privé-IP-adres als een privé front-end-IP-configuratie is geconfigureerd. Ook Azure reserveert de eerste vier en laatste IP-adres in elk subnet voor intern gebruik.
-Bijvoorbeeld, als een application gateway is ingesteld op drie exemplaren en geen privé front-end-IP, klikt u vervolgens een/29 subnet, grootte of hoger is vereist. In dit geval de application gateway maakt gebruik van drie IP-adressen. Als u drie exemplaren en een IP-adres voor de privé front-end-IP-configuratie, klikt u vervolgens een/28 hebt subnet groot of groter is nodig omdat tijdens vier IP-adressen zijn vereist.
-
-Als een best practice, gebruikt u ten minste een/28 grootte van het gatewaysubnet. Dit biedt u 11 bruikbare adressen. Als de belasting van uw toepassing meer dan 10 exemplaren vereist, kunt u overwegen een/27 of/26 grootte van het gatewaysubnet.
+Zie [overwegingen bij de grootte van de Application Gateway-subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet) om te begrijpen van de grootte van het gatewaysubnet vereist voor de implementatie.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>V. Kan ik meer dan één Application Gateway-resource met één subnet implementeren?
 
 Ja, naast de meerdere exemplaren van een bepaalde implementatie van de Application Gateway, kunt u een andere unieke Application Gateway-resource aan een bestaand subnet met een andere resource van Application Gateway inrichten.
 
-Met een combinatie van Standard_v2 en Standard Application Gateway in hetzelfde subnet wordt niet ondersteund. Als automatisch schalen is ingeschakeld, kan een subnet bovendien slechts één application gateway hebben.
+Met een combinatie van Standard_v2 en Standard Application Gateway in hetzelfde subnet wordt niet ondersteund.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway biedt ondersteuning voor x doorgestuurd voor headers?
 
@@ -152,13 +149,7 @@ Nee, maar u kunt andere Toepassingsgateways in het subnet implementeren.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Worden Netwerkbeveiligingsgroepen op het subnet van de gateway ondersteund?
 
-Netwerkbeveiligingsgroepen (nsg's) worden ondersteund op het subnet van de gateway met de volgende beperkingen:
-
-* Uitzonderingen moeten in worden geplaatst voor binnenkomend verkeer op poort 65503 65534 voor Application Gateway v1-SKU en poorten 65200-65535 voor de v2-SKU. Dit poortbereik is vereist voor communicatie met Azure-infrastructuur. Ze zijn beveiligd (vergrendeld) met Azure-certificaten. Zonder de juiste certificaten zijn niet externe entiteiten, inclusief de klanten van deze gateways kunnen initiëren wijzigingen op de eindpunten.
-
-* Uitgaande verbinding met internet kan niet worden geblokkeerd. Standaard regels voor uitgaand verkeer in de NSG toestaan al verbinding met internet. U wordt aangeraden dat u de standaardregels voor uitgaand niet verwijderen, en dat u andere regels voor uitgaand verkeer die uitgaande verbinding met internet weigeren niet maken.
-
-* Verkeer van de tag AzureLoadBalancer moet worden toegestaan.
+Zie [Netwerkbeveiligingsgroepen beperkingen met betrekking tot de Application Gateway-subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) meer informatie over de Netwerkbeveiligingsgroepen op het subnet van de gateway ondersteund.
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>Worden de gebruiker gedefinieerde routes ondersteund op het subnet van de gateway?
 
@@ -190,7 +181,7 @@ Aangepaste tests ondersteunen geen jokertekens of reguliere expressie op antwoor
 
 ### <a name="how-are-rules-processed"></a>Hoe worden de regels verwerkt?
 
-Regels worden verwerkt in de volgorde waarin die ze zijn geconfigureerd. Het verdient aanbeveling dat multi-site-regels zijn geconfigureerd voordat basic regels om te verminderen de kans dat verkeer wordt doorgestuurd naar de onjuiste back-end als de basisregel wordt gezocht naar verkeer op basis van de poort voordat de multi-site-regel wordt geëvalueerd.
+Zie [volgorde van de regels worden verwerkt](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules) om te begrijpen hoe routering regels zijn processen in Application Gateway.
 
 ### <a name="what-does-the-host-field-for-custom-probes-signify"></a>Wat het Host-veld voor aangepaste tests geven?
 
@@ -356,7 +347,7 @@ We hebben ook een Resource Manager-sjabloon die wordt geïnstalleerd en wordt ui
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>Back-endstatus onbekende status, wat kan worden veroorzaakt door deze status retourneert?
 
-De meest voorkomende reden is toegang tot de back-end wordt geblokkeerd door een NSG of een aangepaste DNS. Zie [back-end-status, de logboekregistratie van diagnostische gegevens en metrische gegevens voor Application Gateway](application-gateway-diagnostics.md) voor meer informatie.
+De meest voorkomende reden is toegang tot de back-end wordt geblokkeerd door een NSG, aangepaste DNS, of u hebt een UDR voor het subnet van de gateway. Zie [back-end-status, de logboekregistratie van diagnostische gegevens en metrische gegevens voor Application Gateway](application-gateway-diagnostics.md) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

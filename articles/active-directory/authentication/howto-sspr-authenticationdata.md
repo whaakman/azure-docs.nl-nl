@@ -1,5 +1,5 @@
 ---
-title: Vereisten voor Azure AD SSPR-gegevens | Microsoft Docs
+title: Azure AD SSPR gegevensvereisten - Azure Active Directory
 description: Eisen voor Azure AD Self-service voor wachtwoord opnieuw instellen en hoe u om te voldoen aan deze
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccf665147c8fea0e2ce44161ef0b5df085649a0b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 580c9080bb2b019e120ea57e5fe4444a71c24e76
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179039"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314787"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Wachtwoord opnieuw instellen zonder registratie door eindgebruikers implementeren
 
