@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: 0e5db2c08749a59a03e384c6048e67f7570f6750
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 70fc78fb515c56f0b3102bb006eb6491a664babd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211427"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886667"
 ---
 # <a name="r-developers-guide-to-azure"></a>R developer's guide voor Azure
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -33,7 +33,7 @@ We gaan de verschillende opties en de meest waardevolle scenario's voor elk crit
 ## <a name="azure-services-with-r-language-support"></a>Azure-services met ondersteuning voor R-taal
 In dit artikel bevat informatie over de volgende Azure-services die ondersteuning bieden voor de R-taal:
 
-|Service                                                          |Beschrijving                                                                       |
+|Service                                                          |Description                                                                       |
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------|
 |[Virtuele Machine voor Datatechnologie](#data-science-virtual-machine)    |een aangepaste virtuele machine gebruiken als een data science-werkstation of als een aangepaste compute-doel|
 |[ML-Services op HDInsight](#ml-services-on-hdinsight)            |cluster-systeem voor het uitvoeren van R-analyses op grote gegevenssets over veel knooppunten   |
@@ -125,7 +125,7 @@ Terwijl u Machine Learning-Services is sinds van deel uit van on-premises SQL Se
 
 
 ### <a name="next-steps"></a>Volgende stappen
-* [Uw R-code uitvoeren op Azure met mrsdeploy](http://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
+* [Uw R-code uitvoeren op Azure met mrsdeploy](https://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
 * [Machine Learning-Server in de Cloud](https://docs.microsoft.com/machine-learning-server/install/machine-learning-server-in-the-cloud)
 * [Aanvullende bronnen voor Machine Learning-Server en Microsoft R](https://docs.microsoft.com/machine-learning-server/resources-more)
 * [R op Azure](https://github.com/yueguoguo/r-on-azure) : een overzicht van pakketten, hulpprogramma's en voor het gebruik van R met de Azure-casestudy's
