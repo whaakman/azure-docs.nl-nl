@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c50ba76cf1e9b8103bd006c9f97c18a3e92d0c2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d9d26ced30f718f06d6d0ba9eb7c2a78682305ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550276"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102363"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Veelgestelde vragen
 > [!NOTE]
@@ -178,7 +178,7 @@ U kunt een segment opnieuw uitvoeren in een van de volgende manieren:
     ```PowerShell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-Zie [Set AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] voor meer informatie over de cmdlet.
+  Zie [Set AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] voor meer informatie over de cmdlet.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Hoe lang het voordat een segment verwerken?
 Activiteitsvensterverkenner in de Monitor & Manage App gebruiken om te weten hoe lang het heeft geduurd voor het verwerken van een gegevenssegment. Zie [Activiteitsvensterverkenner](data-factory-monitor-manage-app.md#activity-window-explorer) voor meer informatie.

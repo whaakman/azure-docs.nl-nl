@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c51804748e4313d79cc3a369b659974d2d32e2e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014264"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58163851"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Gegevens kopiëren van en naar ODBC-gegevensopslag met Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-odbc-connector.md)
 > * [Huidige versie](connector-odbc.md)
 
@@ -51,7 +51,7 @@ De volgende eigenschappen worden ondersteund voor ODBC-gekoppelde service:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **ODBC** | Ja |
+| type | De eigenschap type moet worden ingesteld op: **Odbc** | Ja |
 | connectionString | De verbindingsreeks met uitzondering van het gedeelte van de referentie. U kunt de verbindingsreeks opgeven met een patroon zoals `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, of gebruik de systeem-DSN (gegevensbronnaam) u op de machine Integration Runtime met instellen `"DSN=<name of the DSN on IR machine>;"` (u moet nog steeds opgeven het gedeelte van de referentie in de gekoppelde service dienovereenkomstig).<br>Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md).| Ja |
 | authenticationType | Het type verificatie gebruikt voor verbinding met de ODBC-gegevensopslag.<br/>Toegestane waarden zijn: **Basic** en **anonieme**. | Ja |
 | Gebruikersnaam | Geef de gebruikersnaam op als u basisverificatie gebruikt. | Nee |

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d08b1f3889136fadee68b3aa95d879b0495bddb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fce7653770d0fb3134f266137e167125b9161865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198405"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097590"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Zelfstudie: Azure Active Directory-integratie met interactieve Yonyx-handleidingen
 
@@ -174,8 +174,8 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 
 Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Yonyx interactieve handleidingen als deze nog niet bestaat.
 
->[!NOTE]
->Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met het ondersteuningsteam van het interactieve handleidingen Yonyx via <mailto:support@yonyx.com>. 
+> [!NOTE]
+> Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met het ondersteuningsteam van het interactieve handleidingen Yonyx via <mailto:support@yonyx.com>. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -217,7 +217,7 @@ Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

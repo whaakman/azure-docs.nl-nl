@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ff73982b706fa2d353be818f5022de8fbfec42fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 1306b97ce7fcf2cd429be31bc99d022de53805d6
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58167436"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259853"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Instellen van een apparaat-sjabloon (nieuwe gebruikersinterface ontwerp)
 
@@ -78,6 +78,8 @@ U kunt bijvoorbeeld een nieuwe meting van de temperatuur-telemetrie toevoegen:
 ![Formulier met details voor de temperatuurmeting 'Telemetrie maken'](./media/howto-set-up-template/measurementsform.png)
 
 Nadat u hebt geselecteerd **opslaan**, wordt de **temperatuur** meting wordt weergegeven in de lijst met metingen. In enkele ogenblikken ziet u de visualisatie van de temperatuurgegevens van het gesimuleerde apparaat.
+
+Bij het weergeven van telemetrie, kunt u kiezen uit de volgende opties voor aggregatie: De gemiddelde, Minimum, Maximum, som en aantal. **Gemiddelde** is geselecteerd als de standaardaggregatie op de grafiek. 
 
 > [!NOTE]
 > Het gegevenstype van de meting telemetrie is een drijvende-kommagetal zijn.

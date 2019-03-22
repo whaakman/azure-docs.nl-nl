@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: be3e9b8003bc6eb585177b285255658c44c7fc36
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ce573ff8fe61f2e1d4c88963e0f21fc9402776e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808538"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083212"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Een openbaar IP-adres aan een virtuele machine koppelen
 
@@ -74,20 +74,20 @@ Installeer de [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-ne
      --public-ip-address myVMPublicIP
    ```
 
-  - Als u een bestaande openbare IP-adres niet hebt, gebruikt u de [az network public-ip maken](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) opdracht een te maken. Bijvoorbeeld, de volgende opdracht maakt u een openbaar IP-adres met de naam *myVMPublicIP* in een resourcegroep met de naam *myResourceGroup*.
+   - Als u een bestaande openbare IP-adres niet hebt, gebruikt u de [az network public-ip maken](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) opdracht een te maken. Bijvoorbeeld, de volgende opdracht maakt u een openbaar IP-adres met de naam *myVMPublicIP* in een resourcegroep met de naam *myResourceGroup*.
   
-    ```azurecli-interactive
-    az network public-ip create --name myVMPublicIP --resource-group myResourceGroup
-    ```
+     ```azurecli-interactive
+     az network public-ip create --name myVMPublicIP --resource-group myResourceGroup
+     ```
 
-    > [!NOTE]
-    > De vorige opdracht maakt een openbaar IP-adres met de standaardwaarden voor de verschillende instellingen die u wilt aanpassen. Zie voor meer informatie over alle openbare IP-adresinstellingen [een openbaar IP-adres maken](virtual-network-public-ip-address.md#create-a-public-ip-address). Het adres wordt toegewezen vanuit een pool van openbare IP-adressen die worden gebruikt voor elke Azure-regio. Zie voor een lijst met-adresgroepen gebruikt in elke regio [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653).
+     > [!NOTE]
+     > De vorige opdracht maakt een openbaar IP-adres met de standaardwaarden voor de verschillende instellingen die u wilt aanpassen. Zie voor meer informatie over alle openbare IP-adresinstellingen [een openbaar IP-adres maken](virtual-network-public-ip-address.md#create-a-public-ip-address). Het adres wordt toegewezen vanuit een pool van openbare IP-adressen die worden gebruikt voor elke Azure-regio. Zie voor een lijst met-adresgroepen gebruikt in elke regio [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653).
 
-  - Als u de naam van een netwerkinterface die is gekoppeld aan uw virtuele machine niet weet, gebruikt u de [az vm nic-lijst](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) opdracht om ze te bekijken. Bijvoorbeeld, de volgende opdracht worden de namen van de netwerkinterfaces die zijn gekoppeld aan een virtuele machine met de naam *myVM* in een resourcegroep met de naam *myResourceGroup*:
+   - Als u de naam van een netwerkinterface die is gekoppeld aan uw virtuele machine niet weet, gebruikt u de [az vm nic-lijst](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) opdracht om ze te bekijken. Bijvoorbeeld, de volgende opdracht worden de namen van de netwerkinterfaces die zijn gekoppeld aan een virtuele machine met de naam *myVM* in een resourcegroep met de naam *myResourceGroup*:
 
-    ```azurecli-interactive
-    az vm nic list --vm-name myVM --resource-group myResourceGroup
-    ```
+     ```azurecli-interactive
+     az vm nic list --vm-name myVM --resource-group myResourceGroup
+     ```
 
      De uitvoer bevat een of meer regels die vergelijkbaar met het volgende voorbeeld zijn:
   
@@ -97,11 +97,11 @@ Installeer de [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-ne
 
      In het vorige voorbeeld *myVMVMNic* is de naam van de netwerkinterface.
 
-  - Als u de naam van een IP-configuratie voor een netwerkinterface niet weet, gebruikt u de [az network nic ip-config lijst](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) opdracht om op te halen ze. Bijvoorbeeld, de volgende opdracht worden de namen van de IP-configuraties voor een netwerkinterface met de naam *myVMVMNic* in een resourcegroep met de naam *myResourceGroup*:
+   - Als u de naam van een IP-configuratie voor een netwerkinterface niet weet, gebruikt u de [az network nic ip-config lijst](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) opdracht om op te halen ze. Bijvoorbeeld, de volgende opdracht worden de namen van de IP-configuraties voor een netwerkinterface met de naam *myVMVMNic* in een resourcegroep met de naam *myResourceGroup*:
 
-    ```azurecli-interactive
-    az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
-    ```
+     ```azurecli-interactive
+     az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
+     ```
 
 3. Bekijk het openbare IP-adres toegewezen aan de IP-configuratie met de [az vm list-ip-adressen](/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) opdracht. Het volgende voorbeeld ziet u de IP-adressen toegewezen aan een bestaande virtuele machine met de naam *myVM* in een resourcegroep met de naam *myResourceGroup*.
 
@@ -132,35 +132,35 @@ Installeer [PowerShell](/powershell/azure/install-az-ps), of gebruik de Azure Cl
    $nic | Set-AzNetworkInterface
    ```
 
-  - Als u een bestaande openbare IP-adres niet hebt, gebruikt u de [New-AzPublicIpAddress](/powershell/module/Az.Network/New-AzPublicIpAddress) opdracht een te maken. De volgende opdracht maakt bijvoorbeeld een *dynamische* openbaar IP-adres met de naam *myVMPublicIP* in een resourcegroep met de naam *myResourceGroup* in de  *VS-Oost* regio.
+   - Als u een bestaande openbare IP-adres niet hebt, gebruikt u de [New-AzPublicIpAddress](/powershell/module/Az.Network/New-AzPublicIpAddress) opdracht een te maken. De volgende opdracht maakt bijvoorbeeld een *dynamische* openbaar IP-adres met de naam *myVMPublicIP* in een resourcegroep met de naam *myResourceGroup* in de  *VS-Oost* regio.
   
-    ```azurepowershell-interactive
-    New-AzPublicIpAddress -Name myVMPublicIP -ResourceGroupName myResourceGroup -AllocationMethod Dynamic -Location eastus
-    ```
+     ```azurepowershell-interactive
+     New-AzPublicIpAddress -Name myVMPublicIP -ResourceGroupName myResourceGroup -AllocationMethod Dynamic -Location eastus
+     ```
 
-    > [!NOTE]
-    > De vorige opdracht maakt een openbaar IP-adres met de standaardwaarden voor de verschillende instellingen die u wilt aanpassen. Zie voor meer informatie over alle openbare IP-adresinstellingen [een openbaar IP-adres maken](virtual-network-public-ip-address.md#create-a-public-ip-address). Het adres wordt toegewezen vanuit een pool van openbare IP-adressen die worden gebruikt voor elke Azure-regio. Zie voor een lijst met-adresgroepen gebruikt in elke regio [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653).
+     > [!NOTE]
+     > De vorige opdracht maakt een openbaar IP-adres met de standaardwaarden voor de verschillende instellingen die u wilt aanpassen. Zie voor meer informatie over alle openbare IP-adresinstellingen [een openbaar IP-adres maken](virtual-network-public-ip-address.md#create-a-public-ip-address). Het adres wordt toegewezen vanuit een pool van openbare IP-adressen die worden gebruikt voor elke Azure-regio. Zie voor een lijst met-adresgroepen gebruikt in elke regio [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653).
 
-  - Als u de naam van een netwerkinterface die is gekoppeld aan uw virtuele machine niet weet, gebruikt u de [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) opdracht om ze te bekijken. Bijvoorbeeld, de volgende opdracht worden de namen van de netwerkinterfaces die zijn gekoppeld aan een virtuele machine met de naam *myVM* in een resourcegroep met de naam *myResourceGroup*:
+   - Als u de naam van een netwerkinterface die is gekoppeld aan uw virtuele machine niet weet, gebruikt u de [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) opdracht om ze te bekijken. Bijvoorbeeld, de volgende opdracht worden de namen van de netwerkinterfaces die zijn gekoppeld aan een virtuele machine met de naam *myVM* in een resourcegroep met de naam *myResourceGroup*:
 
-    ```azurepowershell-interactive
-    $vm = Get-AzVM -name myVM -ResourceGroupName myResourceGroup
-    $vm.NetworkProfile
-    ```
+     ```azurepowershell-interactive
+     $vm = Get-AzVM -name myVM -ResourceGroupName myResourceGroup
+     $vm.NetworkProfile
+     ```
 
-    De uitvoer bevat een of meer regels die vergelijkbaar zijn met het volgende voorbeeld. In de voorbeelduitvoer *myVMVMNic* is de naam van de netwerkinterface.
+     De uitvoer bevat een of meer regels die vergelijkbaar zijn met het volgende voorbeeld. In de voorbeelduitvoer *myVMVMNic* is de naam van de netwerkinterface.
   
-    ```
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic",
-    ```
+     ```
+     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic",
+     ```
 
-  - Als u niet dat de naam van het virtuele netwerk of subnet waarin de netwerkinterface zich weet bevindt, gebruikt u de `Get-AzNetworkInterface` opdracht om de informatie weer te geven. Bijvoorbeeld, met de volgende opdracht wordt het virtuele netwerk en subnet-informatie voor een netwerkinterface met de naam *myVMVMNic* in een resourcegroep met de naam *myResourceGroup*:
+   - Als u niet dat de naam van het virtuele netwerk of subnet waarin de netwerkinterface zich weet bevindt, gebruikt u de `Get-AzNetworkInterface` opdracht om de informatie weer te geven. Bijvoorbeeld, met de volgende opdracht wordt het virtuele netwerk en subnet-informatie voor een netwerkinterface met de naam *myVMVMNic* in een resourcegroep met de naam *myResourceGroup*:
 
-    ```azurepowershell-interactive
-    $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
-    $ipConfigs = $nic.IpConfigurations
-    $ipConfigs.Subnet | Select Id
-    ```
+     ```azurepowershell-interactive
+     $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
+     $ipConfigs = $nic.IpConfigurations
+     $ipConfigs.Subnet | Select Id
+     ```
 
      De uitvoer bevat een of meer regels die vergelijkbaar zijn met het volgende voorbeeld. In de voorbeelduitvoer *myVMVNET* is de naam van het virtuele netwerk en *myVMSubnet* is de naam van het subnet.
   
@@ -168,18 +168,18 @@ Installeer [PowerShell](/powershell/azure/install-az-ps), of gebruik de Azure Cl
      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVMVNET/subnets/myVMSubnet",
      ```
 
-  - Als u de naam van een IP-configuratie voor een netwerkinterface niet weet, gebruikt u de [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) opdracht om op te halen ze. Bijvoorbeeld, de volgende opdracht worden de namen van de IP-configuraties voor een netwerkinterface met de naam *myVMVMNic* in een resourcegroep met de naam *myResourceGroup*:
+   - Als u de naam van een IP-configuratie voor een netwerkinterface niet weet, gebruikt u de [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) opdracht om op te halen ze. Bijvoorbeeld, de volgende opdracht worden de namen van de IP-configuraties voor een netwerkinterface met de naam *myVMVMNic* in een resourcegroep met de naam *myResourceGroup*:
 
-    ```azurepowershell-interactive
-    $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
-    $nic.IPConfigurations
-    ```
+     ```azurepowershell-interactive
+     $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
+     $nic.IPConfigurations
+     ```
 
-    De uitvoer bevat een of meer regels die vergelijkbaar zijn met het volgende voorbeeld. In de voorbeelduitvoer *ipconfigmyVM* is de naam van een IP-configuratie.
+     De uitvoer bevat een of meer regels die vergelijkbaar zijn met het volgende voorbeeld. In de voorbeelduitvoer *ipconfigmyVM* is de naam van een IP-configuratie.
   
-    ```
-    Id     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM
-    ```
+     ```
+     Id     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM
+     ```
 
 3. Bekijk het openbare IP-adres toegewezen aan de IP-configuratie met de [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) opdracht. Het volgende voorbeeld ziet u het adres toegewezen aan een openbaar IP-adres met de naam *myVMPublicIP* in een resourcegroep met de naam *myResourceGroup*.
 

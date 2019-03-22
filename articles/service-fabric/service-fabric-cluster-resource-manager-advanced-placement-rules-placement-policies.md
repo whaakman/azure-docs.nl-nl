@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2858628874dc9955db5084ef5732d85acd6e7fc1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 985d41d3a00974e25c9abc4709c5bf5e662f7a50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729782"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086034"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Beleid voor serviceplaatsing voor service fabric-services
 Beleid voor serviceplaatsing zijn extra regels die kunnen worden gebruikt om te bepalen van de plaatsing van services in sommige scenario's voor specifieke, minder gebruikte. Enkele voorbeelden van deze scenario's zijn:
@@ -44,6 +44,7 @@ De meeste van de volgende besturingselementen kan worden geconfigureerd via de e
 De **InvalidDomain** plaatsing beleid kunt u opgeven dat een bepaalde Foutdomein ongeldig voor een specifieke service is. Dit beleid zorgt ervoor dat een bepaalde service nooit wordt uitgevoerd in een bepaald gebied, bijvoorbeeld voor voor geopolitieke of zakelijke beleidsredenen. Meerdere ongeldige domeinen kunnen worden opgegeven via afzonderlijke beleidsregels.
 
 <center>
+
 ![Voorbeeld van een domein is ongeldig][Image1]
 </center>
 
@@ -64,6 +65,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Het beleid van de plaatsing vereist domein is vereist dat de service aanwezig alleen in het opgegeven domein is. Meerdere vereiste domeinen kunnen worden opgegeven via afzonderlijke beleidsregels.
 
 <center>
+
 ![Voorbeeld van de vereiste domein][Image2]
 </center>
 
@@ -85,6 +87,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Het primaire domein met de voorkeur geeft aan dat het foutdomein voor het plaatsen van de primaire in. De primaire eindigt om in dit domein wanneer alles in orde is. Als het domein of de primaire replica mislukt of wordt afgesloten, wordt de primaire verplaatst naar een andere locatie in het ideale geval in hetzelfde domein. Als deze nieuwe locatie zich niet in de gewenste domein, met Cluster Resource Manager worden verplaatst deze terug naar het gewenste domein zo snel mogelijk. Deze instelling maakt op een natuurlijke manier alleen geschikt zijn voor stateful services. Dit beleid is vooral nuttig zijn in de clusters die zijn liep Azure-regio's of meerdere datacenters, maar zijn services die liever plaatsing op een bepaalde locatie. Primaire houden dicht bij hun gebruikers- of andere services bieden helpt lagere latentie met name voor lezen, die standaard worden verwerkt door voorverkiezingen uit te brengen.
 
 <center>
+
 ![Voorkeur primaire domeinen en Failover][Image3]
 </center>
 

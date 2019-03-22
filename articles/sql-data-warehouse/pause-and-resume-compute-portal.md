@@ -5,19 +5,20 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/17/2018
+ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b21c982a7f390855ccb7b9212ea92db8c26d303c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9c3ed6dd79d6225b38751c910253cfa1f0720d1c
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460281"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731978"
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Quickstart: Berekening voor een Azure SQL Data Warehouse in Azure portal onderbreken en hervatten
+
 Gebruik de Azure portal om te onderbreken compute in Azure SQL Data Warehouse om kosten te besparen. [Compute hervatten](sql-data-warehouse-manage-compute-overview.md) wanneer u bent klaar voor gebruik van het datawarehouse.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -31,6 +32,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 Gebruik [maken en verbinden - portal](create-data-warehouse-portal.md) te maken van een datawarehouse met de naam **mySampleDataWarehouse**. 
 
 ## <a name="pause-compute"></a>De rekencapaciteit onderbreken
+
 Om kosten te besparen, kunt u onderbreken en hervatten van de compute-resources op de aanvraag. Bijvoorbeeld, als u niet de database's nachts en tijdens het weekend gebruikt, kunt u tijdens deze perioden onderbreken, en hervatten gedurende de dag. U wordt niet in rekening gebracht voor rekenresources terwijl de database is onderbroken. U blijft echter in rekening gebracht voor opslag. 
 
 Volg deze stappen als u wilt onderbreken van een SQL datawarehouse.
@@ -54,6 +56,7 @@ Volg deze stappen als u wilt onderbreken van een SQL datawarehouse.
 
 
 ## <a name="resume-compute"></a>De rekencapaciteit hervatten
+
 Volg deze stappen voor het hervatten van een SQL datawarehouse.
 
 1. Klik op de linkerpagina in Azure Portal op **SQL-databases**.
@@ -96,7 +99,8 @@ Volg deze stappen om de resources op te schonen zoals gewenst.
 
 
 ## <a name="next-steps"></a>Volgende stappen
+
 U hebt nu onderbroken en hervat de rekenkracht voor uw datawarehouse. Voor meer informatie over Azure SQL Data Warehouse gaat u verder met de zelfstudie voor het laden van gegevens.
 
 > [!div class="nextstepaction"]
->[Gegevens laden in een SQL-datawarehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Gegevens laden in een SQL-datawarehouse](load-data-from-azure-blob-storage-using-polybase.md)

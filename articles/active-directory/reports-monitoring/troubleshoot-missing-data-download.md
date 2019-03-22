@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ba5f803f59263f9bfebfd4ec8635d5cdd6d90a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cfb56ea81abeeba83bee73356c682b3e9fae866f
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171771"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292907"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Ik kan niet alle gegevens vinden in de activiteitenlogboeken van Azure Active Directory die ik gedownload
 
@@ -34,11 +34,11 @@ Ik heb de activiteitenlogboeken (audit of aanmeldingen) gedownload en ik zie nie
  
 ## <a name="cause"></a>Oorzaak
 
-Wanneer u activiteitenlogboeken in Azure portal downloadt, worden er maximaal 5000 records, gesorteerd op meest recente eerst. 
+Wanneer u activiteitenlogboeken in Azure portal downloadt, beperkt de schaal aan 250.000 records, gesorteerd op meest recente eerst. 
 
 ## <a name="resolution"></a>Oplossing
 
-U kunt gebruikmaken van [API's van Azure AD Reporting](concept-reporting-api.md) om maximaal een miljoen records op te halen. Onze aanbevolen aanpak is het [een script uitvoeren op een gepland schema](tutorial-signin-logs-download-script.md) waarmee de rapportage-API's om records te halen in alleen de gewijzigde gedurende een bepaalde periode (bijvoorbeeld dagelijks of wekelijks) aangeroepen. 
+U kunt gebruikmaken van [API's van Azure AD Reporting](concept-reporting-api.md) om maximaal een miljoen records op te halen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

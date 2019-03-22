@@ -2,24 +2,24 @@
 title: Een Kubernetes-cluster maken met Azure Kubernetes Service (AKS) en Terraform
 description: Zelfstudie voor het maken van een Kubernetes-cluster met Azure Kubernetes Service en Terraform
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtuele machine, azure, kubernetes
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: 57615ecd4c81359360004b732736bf757c0026c3
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: d8438f5ddbbb3744811448aeb563be602b04516d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009091"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Een Kubernetes-cluster maken met Azure Kubernetes Service en Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) beheert uw gehoste Kubernetes-omgeving en zorgt dat de implementatie en het beheer van toepassingen in containers snel en eenvoudig zijn en geen kennis over het beheer van containers vereisen. Het verlicht ook de last van actieve bewerkingen en onderhoud door inrichten, upgraden en bronnen op aanvraag schalen mogelijk te maken, zonder uw toepassingen offline te brengen.
 
-In deze zelfstudie leert u hoe u de volgende taken uitvoert bij het maken van een [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes)-cluster met behulp van [Terraform](http://terraform.io) en AKS:
+In deze zelfstudie leert u hoe u de volgende taken uitvoert bij het maken van een [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes)-cluster met behulp van [Terraform](https://terraform.io) en AKS:
 
 > [!div class="checklist"]
 > * HCL (HashiCorp Configuration Language) gebruiken om een Kubernetes-cluster te definiëren
@@ -37,7 +37,7 @@ In deze zelfstudie leert u hoe u de volgende taken uitvoert bij het maken van ee
 ## <a name="create-the-directory-structure"></a>De mapstructuur maken
 De eerste stap is het maken van een map voor de Terraform-configuratiebestanden voor de oefening.
 
-1. Blader naar [Azure Portal](http://portal.azure.com).
+1. Blader naar [Azure Portal](https://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). Als u nog geen omgeving hebt geselecteerd, selecteert u **Bash** als uw omgeving.
 

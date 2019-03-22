@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: 8c4d890633a8d588b51f876a361a77e6533b5db4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533138"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099015"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Met behulp van load balancing-services in Azure
 
@@ -68,26 +68,26 @@ Het volgende diagram toont de architectuur van dit scenario:
 1. Klik in de Azure-portal op **een resource maken** > **netwerken** > **Traffic Manager-profiel**  >   **Maak**.
 2. Voer de volgende algemene informatie:
 
-  * **Naam**: Geef uw Traffic Manager-profiel een DNS-voorvoegsel.
-  * **Routeringsmethode**: Selecteer het beleid van de methode routering van verkeer. Zie voor meer informatie over de methoden [verkeersrouteringsmethoden voor Traffic Manager over](traffic-manager-routing-methods.md).
-  * **Abonnement**: Selecteer het abonnement dat het profiel bevat.
-  * **Resourcegroep**: Selecteer de resourcegroep die het profiel bevat. Een nieuwe of bestaande resourcegroep kan zijn.
-  * **Locatie voor resourcegroep**: Traffic Manager-service is globaal en is niet gebonden aan een locatie. Echter, moet u een regio voor de groep waarin de metagegevens die zijn gekoppeld aan het profiel van Traffic Manager zich bevindt. Deze locatie heeft geen invloed op de runtime-beschikbaarheid van het profiel.
+   * **Naam**: Geef uw Traffic Manager-profiel een DNS-voorvoegsel.
+   * **Routeringsmethode**: Selecteer het beleid van de methode routering van verkeer. Zie voor meer informatie over de methoden [verkeersrouteringsmethoden voor Traffic Manager over](traffic-manager-routing-methods.md).
+   * **Abonnement**: Selecteer het abonnement dat het profiel bevat.
+   * **Resourcegroep**: Selecteer de resourcegroep die het profiel bevat. Een nieuwe of bestaande resourcegroep kan zijn.
+   * **Locatie voor resourcegroep**: Traffic Manager-service is globaal en is niet gebonden aan een locatie. Echter, moet u een regio voor de groep waarin de metagegevens die zijn gekoppeld aan het profiel van Traffic Manager zich bevindt. Deze locatie heeft geen invloed op de runtime-beschikbaarheid van het profiel.
 
 3. Klik op **maken** voor het genereren van Traffic Manager-profiel.
 
-  ![Blade 'Traffic Manager maken'](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
+   ![Blade 'Traffic Manager maken'](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
 ### <a name="step-2-create-the-application-gateways"></a>Stap 2: De Toepassingsgateways maken
 
 1. Klik in de Azure-portal, in het linkerdeelvenster op **een resource maken** > **netwerken** > **Application Gateway**.
 2. Voer de volgende algemene informatie over de application gateway:
 
-  * **Naam**: De naam van de toepassingsgateway.
-  * **SKU-grootte**: De grootte van de application gateway, die beschikbaar zijn als klein, normaal of groot.
-  * **Aantal instanties**: Het aantal exemplaren, een waarde van 2 t/m 10.
-  * **Resourcegroep**: De resourcegroep waarin de toepassingsgateway. Het kan een bestaande resourcegroep of nieuw zijn.
-  * **Locatie**: De regio voor de toepassingsgateway, dit dezelfde locatie als de resourcegroep is. De locatie is belangrijk, omdat het virtuele netwerk en een openbaar IP-adres moet zich in dezelfde locatie als de gateway.
+   * **Naam**: De naam van de toepassingsgateway.
+   * **SKU-grootte**: De grootte van de application gateway, die beschikbaar zijn als klein, normaal of groot.
+   * **Aantal instanties**: Het aantal exemplaren, een waarde van 2 t/m 10.
+   * **Resourcegroep**: De resourcegroep waarin de toepassingsgateway. Het kan een bestaande resourcegroep of nieuw zijn.
+   * **Locatie**: De regio voor de toepassingsgateway, dit dezelfde locatie als de resourcegroep is. De locatie is belangrijk, omdat het virtuele netwerk en een openbaar IP-adres moet zich in dezelfde locatie als de gateway.
 3. Klik op **OK**.
 4. Definieert het virtuele netwerk, subnet, front-end-IP en configuraties van de listener voor de toepassingsgateway. In dit scenario wordt het front-end-IP-adres is **openbare**, waardoor ze worden toegevoegd als een eindpunt aan Traffic Manager-profiel later op.
 5. Configureer de listener met een van de volgende opties:
@@ -104,11 +104,11 @@ Als u een back-end-adrespool kiest, wordt een application gateway die geconfigur
 2. Onder **instellingen**, selecteer **back-endpools**, en selecteer vervolgens **toevoegen** om toe te voegen van de virtuele machines die u wilt koppelen aan de weblaag back-end-adresgroepen.
 3. Voer de naam van de back-endpool en de IP-adressen van de machines die zich in de groep bevinden. In dit scenario wordt verbinding er twee back-endserverpools van virtuele machines.
 
-  ![Application Gateway 'Back-endpool toevoegen'](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+   ![Application Gateway 'Back-endpool toevoegen'](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. Onder **instellingen** van de toepassingsgateway, selecteer **regels**, en klik vervolgens op de **pad op basis van** knop kunt u een regel toevoegen.
 
-  ![Application Gateway regels "Padgebaseerde" knop](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
+   ![Application Gateway regels "Padgebaseerde" knop](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
 5. De regel configureren door de volgende informatie te verstrekken.
 
@@ -138,13 +138,13 @@ In dit scenario, is Traffic Manager verbonden met Toepassingsgateways (zoals gec
 1. Open uw Traffic Manager-profiel. Om dit te doen, zoekt u in de resourcegroep of zoeken naar de naam van het Traffic Manager-profiel uit **alle Resources**.
 2. Selecteer in het linkerdeelvenster **eindpunten**, en klik vervolgens op **toevoegen** een eindpunt toevoegen.
 
-  ![Traffic Manager-eindpunten "toevoegen" knop](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
+   ![Traffic Manager-eindpunten "toevoegen" knop](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
 3. Een eindpunt maken door te voeren van de volgende informatie:
 
-  * **Type**: Selecteer het type van het eindpunt te verdelen. Selecteer in dit scenario **Azure-eindpunt** omdat er wordt verbinding met de application gateway-instanties die eerder zijn geconfigureerd.
-  * **Naam**: Voer de naam van het eindpunt.
-  * **Doelresourcetype**: Selecteer **openbaar IP-adres** en klik vervolgens onder **Doelresource**, selecteert u het openbare IP-adres van de toepassingsgateway die eerder is geconfigureerd.
+   * **Type**: Selecteer het type van het eindpunt te verdelen. Selecteer in dit scenario **Azure-eindpunt** omdat er wordt verbinding met de application gateway-instanties die eerder zijn geconfigureerd.
+   * **Naam**: Voer de naam van het eindpunt.
+   * **Doelresourcetype**: Selecteer **openbaar IP-adres** en klik vervolgens onder **Doelresource**, selecteert u het openbare IP-adres van de toepassingsgateway die eerder is geconfigureerd.
 
    ![Traffic Manager '-eindpunt toevoegen'](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
@@ -171,7 +171,7 @@ Zie voor meer informatie over het configureren van een interne load balancer [ee
 1. Vinden van de resourcegroep, de load balancer die in de vorige stappen is gemaakt.
 2. Onder **instellingen**, klikt u op **back-endpools**, en klik vervolgens op **toevoegen** om toe te voegen een back-end-groep.
 
-  ![Load Balancer 'Back-endpool toevoegen'](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+   ![Load Balancer 'Back-endpool toevoegen'](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
 3. Voer de naam van de back-endpool.
 4. Afzonderlijke computers of een beschikbaarheidsset om de back-endpool toevoegen.
@@ -180,7 +180,7 @@ Zie voor meer informatie over het configureren van een interne load balancer [ee
 
 1. In de load balancer, onder **instellingen**, selecteer **tests**, en klik vervolgens op **toevoegen** om toe te voegen een test.
 
- ![Load Balancer 'Test toevoegen'](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+   ![Load Balancer 'Test toevoegen'](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. Voer de naam voor de test.
 3. Selecteer de **Protocol** voor de test. Voor een database, kunt u een TCP-test in plaats van een HTTP-test. Raadpleeg voor meer informatie over load balancer-tests, [begrijpen load balancer-testen](../load-balancer/load-balancer-custom-probe-overview.md).

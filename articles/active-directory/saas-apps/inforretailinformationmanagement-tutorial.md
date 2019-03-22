@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 928fe956dbdc5020f273e59f4aaf3e4b690384f9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b7c4ac61caae371ebce7c273a4b48244a45c3519
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202312"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837667"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Zelfstudie: Azure Active Directory-integratie met Infor detailhandel – Information Management
 
@@ -112,6 +112,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![Infor detailhandel – informatie Management domein en URL's één informatie-aanmeldings-id-provider](./media/inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_url.png)
 
     a. In het tekstvak **Id** typt u een URL met de volgende patronen: 
+    
     |   |
     | -- |
     | `https://<company name>.mingle.infor.com` |
@@ -216,7 +217,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

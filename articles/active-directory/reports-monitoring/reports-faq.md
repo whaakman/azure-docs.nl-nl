@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c51f1d47a5412e77b7113fccfd2e9a54e1d2ff7f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 274675c3b9f04877f5665efbcbf7951a5bbb0e27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730202"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833177"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Veelgestelde vragen over Azure Active Directory-rapporten
 
@@ -29,13 +29,13 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 
 ## <a name="getting-started"></a>Aan de slag 
 
-**V: Ik momenteel gebruiken de https://graph.windows.net/&lt; tenant-naam&gt;/reports/ eindpunt API's voor het pull-Azure AD-controle en gebruik van de geïntegreerde toepassing via een programma in ons systeem reporting-rapporten. Wat moet ik overschakelen naar?**
+**V: Ik momenteel gebruiken de `https://graph.windows.net/<tenant-name>/reports/` eindpunt API's voor het pull-Azure AD-controle en gebruik van de geïntegreerde toepassing via een programma in ons systeem reporting-rapporten. Wat moet ik overschakelen naar?**
 
 **A:** Controleren of de [API-verwijzing](https://developer.microsoft.com/graph/) om te zien hoe u kunt [de API's gebruiken voor toegang tot activiteitenrapporten](concept-reporting-api.md). Dit eindpunt heeft twee rapporten (**Audit** en **aanmeldingen**) Hier vindt u alle gegevens die u hebt verkregen in het oude API-eindpunt. Dit nieuwe eindpunt heeft ook een rapport-aanmeldingen met de Azure AD Premium-licentie die u gebruiken kunt om app-gebruik, gebruik van het apparaat en aanmelding bij gebruikersgegevens te verkrijgen.
 
 ---
 
-**V: Ik momenteel gebruiken de https://graph.windows.net/&lt; tenant-naam&gt;/reports/ eindpunt API's voor het ophalen van Azure AD-beveiligingsrapporten (specifieke typen detectie, zoals de referenties zijn gelekt of aanmeldingen vanaf anonieme IP-adressen) in onze reporting systemen via een programma. Wat moet ik overschakelen naar?**
+**V: Ik momenteel gebruiken de `https://graph.windows.net/<tenant-name>/reports/` eindpunt API's voor het ophalen van de Azure AD-beveiligingsrapporten (specifieke typen detectie, zoals de referenties zijn gelekt of aanmeldingen vanaf anonieme IP-adressen) via een programma in onze reporting systemen. Wat moet ik overschakelen naar?**
 
 **A:** U kunt de [risicogebeurtenissen Identity Protection API](../identity-protection/graph-get-started.md) naar beveiligingsdetecties toegang via Microsoft Graph. Deze nieuwe indeling biedt meer flexibiliteit in hoe u van gegevens, met Geavanceerd filteren, mapselectie en meer opvragen kunt, en risicogebeurtenissen standaardiseert in één type voor eenvoudiger integratie met siem's en andere hulpmiddelen voor het verzamelen van gegevens. Omdat de gegevens zich in een andere indeling, kunt u een nieuwe query voor uw oude query's niet vervangen. Echter, [de nieuwe API maakt gebruik van Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), dit is de Microsoft-standaard voor deze API's als Office 365 of Azure AD. U begint de overgang naar deze nieuwe standard-platform, zodat het werk vereist kunt uitbreiden van uw huidige investeringen in MS Graph of de help.
 
@@ -89,7 +89,7 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 
 **V: Kan ik Office 365-activiteitenlogboekinformatie via Azure portal krijgen?**
 
-**A:** Hoewel Office 365- en Azure AD-activiteitenlogboeken veel directoryresources delen, moet u naar het Office 365-beheercentrum gaan om Office 365-activiteitenlogboekinformatie op te halen als u een volledig overzicht van de Office 365-logboeken wilt bekijken.
+**A:** Hoewel Office 365-activiteit en Azure AD-activiteit logboeken delen veel directoryresources, als u wilt dat een volledig overzicht van de Office 365-activiteitenlogboeken moet gaat u naar de [Microsoft 365-beheercentrum](https://admin.microsoft.com) om op te halen van Office 365-activiteitenlogboek informatie.
 
 ---
 
@@ -140,24 +140,27 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 **V: Hoe ga ik aan de slag?**
 
 **A:** Aan de slag gaan:
-    * Navigeer naar het rapport aanmeldingen in de [Azure-portal](https://portal.azure.com). 
-    * Klik op de aanmelding die u wilt oplossen.
-    * Navigeer naar de **voorwaardelijke toegang** tabblad. Hier vindt u alle beleidsregels die invloed hebben de aanmelding en het resultaat voor elk beleid. 
+
+* Navigeer naar het rapport aanmeldingen in de [Azure-portal](https://portal.azure.com).
+* Klik op de aanmelding die u wilt oplossen.
+* Navigeer naar de **voorwaardelijke toegang** tabblad. Hier vindt u alle beleidsregels die invloed hebben de aanmelding en het resultaat voor elk beleid. 
     
 **V: Wat zijn alle mogelijke waarden voor de status voor voorwaardelijke toegang?**
 
 **A:** Status voor voorwaardelijke toegang kan de volgende waarden hebben:
-    * **Niet toegepast**: Dit betekent dat er geen CA-beleid met de gebruiker en de app binnen het bereik is. 
-    * **Succes**: Dit betekent dat er een CA-beleid met de gebruiker en de app binnen het bereik is en CA-beleid is voldaan. 
-    * **Fout**: Dit betekent dat er een CA-beleid met de gebruiker en de app binnen het bereik is en CA-beleid niet wordt voldaan. 
+
+* **Niet toegepast**: Dit betekent dat er geen CA-beleid met de gebruiker en de app binnen het bereik is. 
+* **Geslaagd**: Dit betekent dat er een CA-beleid met de gebruiker en de app binnen het bereik is en CA-beleid is voldaan. 
+* **Fout**: Dit betekent dat er een CA-beleid met de gebruiker en de app binnen het bereik is en CA-beleid niet wordt voldaan. 
     
 **V: Wat zijn alle mogelijke waarden voor het resultaat van de beleid voor voorwaardelijke toegang?**
 
 **A:** Beleid voor voorwaardelijke toegang kan hebben de volgende resultaten:
-    * **Succes**: Het beleid is is voldaan aan.
-    * **Fout**: Het beleid is niet voldaan aan.
-    * **Niet toegepast**: Dit komt mogelijk omdat het niet voldeed aan de voorwaarden van het beleid.
-    * **Niet ingeschakeld**: Dit komt door het beleid is uitgeschakeld. 
+
+* **Geslaagd**: Het beleid is is voldaan aan.
+* **Fout**: Het beleid is niet voldaan aan.
+* **Niet toegepast**: Dit komt mogelijk omdat het niet voldeed aan de voorwaarden van het beleid.
+* **Niet ingeschakeld**: Dit komt door het beleid is uitgeschakeld. 
     
 **V: De naam van het beleid in het rapport voor alle aanmelden komt niet overeen met de naam van het beleid in de CA. Waarom is dat?**
 

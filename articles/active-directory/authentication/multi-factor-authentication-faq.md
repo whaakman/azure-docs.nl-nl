@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c94c564434df0e9c48facedba1d2232f9510662e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: cc7b935833a6b212bb008be86b26c613d8817133
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206467"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182605"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Veelgestelde vragen over Azure multi-factor Authentication
 
@@ -87,7 +87,7 @@ Meer informatie over uw opties in [over het verkrijgen van Azure multi-factor Au
 
 In sommige gevallen, Ja.
 
-Multi-factor Authentication voor Azure-beheerders biedt een subset van functies van Azure MFA zonder kosten voor toegang tot Microsoft online services, met inbegrip van de beheerder van Azure en Office 365 portals. Deze aanbieding is alleen van toepassing op globale beheerders in Azure Active Directory-instanties die niet de volledige versie van Azure MFA via een MFA-licentie, fixes of een zelfstandige op basis van gebruik provider hebben. Als uw beheerders gebruik van de gratis versie, en vervolgens u een volledige versie van Azure MFA aanschaffen, klikt u vervolgens alle globale beheerders zijn met verhoogde bevoegdheden voor de betaalde versie automatisch.
+Multi-factor Authentication voor Azure-beheerders biedt een subset van functies van Azure MFA zonder kosten voor toegang tot Microsoft online services, waaronder de [Azure-portal](https://portal.azure.com) en [Microsoft 365-beheercentrum](https://admin.microsoft.com). Deze aanbieding is alleen van toepassing op globale beheerders in Azure Active Directory-instanties die niet de volledige versie van Azure MFA via een MFA-licentie, fixes of een zelfstandige op basis van gebruik provider hebben. Als uw beheerders gebruik van de gratis versie, en vervolgens u een volledige versie van Azure MFA aanschaffen, klikt u vervolgens alle globale beheerders zijn met verhoogde bevoegdheden voor de betaalde versie automatisch.
 
 Multi-factor Authentication voor Office 365-gebruikers biedt een subset van functies van Azure MFA zonder kosten voor toegang tot Office 365-services, met inbegrip van Exchange Online en SharePoint Online. Deze aanbieding geldt voor gebruikers die beschikken over een Office 365-licentie toegewezen, wanneer het corresponderende exemplaar van Azure Active Directory niet de volledige versie van Azure MFA via een MFA-licentie, fixes of een zelfstandige op basis van gebruik provider hebt.
 

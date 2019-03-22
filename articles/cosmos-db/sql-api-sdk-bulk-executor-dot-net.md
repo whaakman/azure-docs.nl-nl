@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 76a40c7e9f32deea798441ce53be7c7ef262e2bd
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 4f2d8b3246901f139695998224dfe036cccb9833
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770666"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855781"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET bulksgewijs Executor-bibliotheek: Informatie downloaden 
 
@@ -36,7 +36,7 @@ ms.locfileid: "55770666"
 | **Beschrijving**| De bulksgewijs Executor-bibliotheek kan clienttoepassingen bulksgewijs bewerkingen op Azure Cosmos DB-accounts uit te voeren. Bulksgewijs Executor-bibliotheek biedt BulkImport BulkUpdate en bij bulkverwijdering naamruimten. De module kunt bulksgewijs BulkImport opnemen documenten in een geoptimaliseerde manier zodanig dat de ingerichte doorvoer voor een verzameling wordt gebruikt voor de maximale omvang. Bestaande gegevens in Azure Cosmos DB-containers de BulkUpdate module kunt bulksgewijs bijwerken als patches. De module bij bulkverwijdering bulksgewijs kunt verwijderen, documenten in een geoptimaliseerde manier zodanig dat de ingerichte doorvoer voor een verzameling wordt gebruikt voor de maximale omvang.|
 |**SDK downloaden**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **BulkExecutor-bibliotheek op GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
-|**API-documentatie**|[Documentatie voor .net API-verwijzing](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
+|**API-documentatie**|[.NET API-referentiedocumentatie](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
 |**Aan de slag**|[Aan de slag met de bibliotheek bulksgewijs Executor .NET SDK](bulk-executor-dot-net.md)|
 | **Huidige ondersteunde framework**| Microsoft .NET Framework 4.5.2, 4.6.1 en .NET Standard 2.0 |
 

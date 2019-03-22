@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 97fcfa20e474edb8108474ef02c6542688d627ff
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 3705b2dda7da8df2e6e3c98d5f6003bd3d771daf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243482"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098573"
 ---
 # <a name="network-connectivity"></a>Verbinding met het netwerk
 Dit artikel bevat informatie over de infrastructuur Azure Stack-netwerk om te bepalen hoe u het beste Azure Stack integreren met uw bestaande netwerkomgeving. 
 
 > [!NOTE]
-> Om op te lossen externe DNS-namen van Azure Stack (bijvoorbeeld www.bing.com), moet u DNS-servers voor het doorsturen van DNS-aanvragen opgeven. Zie voor meer informatie over de vereisten voor Azure Stack DNS [integratie van Azure Stack datacenter - DNS-](azure-stack-integrate-dns.md).
+> Externe DNS-namen van Azure Stack oplossen (bijvoorbeeld, www\.bing.com), moet u DNS-servers voor het doorsturen van DNS-aanvragen. Zie voor meer informatie over de vereisten voor Azure Stack DNS [integratie van Azure Stack datacenter - DNS-](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Het fysieke netwerk ontwerpen
 De Azure Stack-oplossing is een robuuste en maximaal beschikbare fysieke infrastructuur ter ondersteuning van de werking en services. Uplinks vanaf ToR naar rand switches zijn beperkt tot SFP + of SFP28 media en 1 GB, 10 GB of 25 GB snelheden worden bereikt. Neem contact op met uw hardwareleverancier oorspronkelijke leveranciers (OEM) voor beschikbaarheid. Het volgende diagram toont onze aanbevolen ontwerp:

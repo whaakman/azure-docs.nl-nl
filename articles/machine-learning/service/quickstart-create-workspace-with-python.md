@@ -7,22 +7,22 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: hning86
-ms.author: haining
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 513df9f68fdd54b5dc90e57bd8389688c46bf615
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: HT
+ms.openlocfilehash: fcf919a4120348ba8101280d960470ce46e5bdb0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804243"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294243"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Quickstart: de Python-SDK gebruiken om aan de slag te gaan met Azure Machine Learning
 
 In dit artikel gebruikt u de Azure Machine Learning SDK voor Python 3 om een [werkruimte](concept-azure-machine-learning-architecture.md) voor de Azure Machine Learning Service te maken en te gebruiken. De werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning.
 
-U begint met het configureren van uw eigen Python-omgeving en Jupyter Notebook-server. Als u zonder installatie aan de slag wilt, ziet u [Snelstart: Azure Portal gebruiken om aan de slag te gaan met Azure Machine Learning](quickstart-get-started.md). 
+U begint met het configureren van uw eigen Python-omgeving en Jupyter Notebook-server. Als u zonder installatie aan de slag wilt, ziet u [Snelstart: Azure Portal gebruiken om aan de slag te gaan met Azure Machine Learning](quickstart-get-started.md).
 
 Een videoversie van deze quickstart bekijken:
 
@@ -39,17 +39,17 @@ In deze snelstart, gaat u het volgende doen:
 U maakt een werkruimte en een configuratiebestand om te gebruiken als vereisten voor andere Azure Machine Learning-zelfstudies en artikelen met procedures. Net als bij andere Azure-services gelden er bepaalde limieten en quota voor Machine Learning. [Meer informatie over quota's en hoe u meer kunt aanvragen.](how-to-manage-quotas.md)
 
 De volgende Azure-resources worden automatisch toegevoegd aan uw werkruimte wanneer deze regionaal beschikbaar zijn:
- 
+
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 - [Azure Storage](https://azure.microsoft.com/services/storage/)
-- [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
+- [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 >[!NOTE]
 > Voor de code in dit artikel is Azure Machine Learning SDK-versie 1.0.2 of hoger vereist. De code is getest met versie 1.0.8.
 
 
-Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
+Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 ## <a name="install-the-sdk"></a>De SDK installeren
 
@@ -58,13 +58,16 @@ Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begin
 > * Op Data Science Virtual Machines die zijn gemaakt na 27 september 2018 is de Python SDK al geïnstalleerd.
 > * Gebruik in de Azure Databricks-omgeving in plaats daarvan de [Databricks-installatiestappen](how-to-configure-environment.md#azure-databricks).
 
+>[!NOTE]
+> Volg deze instructies om te installeren en gebruiken van de SDK van Jupyter-Notebook op uw lokale computer. Voor het gebruik van Jupyter op de externe virtuele machine, instellen van een externe bureaublad of X-terminal-sessie.
+
 Voordat u de SDK installeert, raden we u aan om een geïsoleerde omgeving voor Python te maken. In dit artikel wordt [Miniconda](https://docs.conda.io/en/latest/miniconda.html) gebruikt, maar u kunt ook gebruikmaken van volledig geïnstalleerde [Anaconda](https://www.anaconda.com/) of [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
 Met de instructies in deze quickstart installeert u alle pakketten die u nodig hebt om de quickstart en zelfstudienotebooks uit te voeren.  Voor andere voorbeeldnotebooks moeten mogelijk extra onderdelen worden geïnstalleerd.  Zie [De Azure Machine Learning-SDK voor Python installeren](https://docs.microsoft.com/python/api/overview/azure/ml/install) voor meer informatie over deze onderdelen.
 
 ### <a name="install-miniconda"></a>Miniconda installeren
 
-[Download en installeer Miniconda](https://docs.conda.io/en/latest/miniconda.html). Selecteer de versie Python 3.7 of hoger voor installatie. Selecteer niet Python 2.x.  
+[Download en installeer Miniconda](https://docs.conda.io/en/latest/miniconda.html). Selecteer de versie Python 3.7 of hoger voor installatie. Selecteer niet Python 2.x.
 
 ### <a name="create-an-isolated-python-environment"></a>Een geïsoleerde omgeving voor Python maken
 
@@ -94,9 +97,9 @@ Met de instructies in deze quickstart installeert u alle pakketten die u nodig h
 
 ### <a name="install-the-sdk"></a>De SDK installeren
 
-1. Installeer de kernonderdelen van de Machine Learning SDK met Jupyter-notebookmogelijkheden in de geactiveerde conda-omgeving.  Afhankelijk van de configuratie van de computer duurt het enkele minuten voordat de installatie is voltooid.
+1. Installeer de kernonderdelen van de Machine Learning SDK met Jupyter-notebookmogelijkheden in de geactiveerde conda-omgeving. Afhankelijk van de configuratie van de computer duurt het enkele minuten voordat de installatie is voltooid.
 
-  ```shell
+    ```shell
     pip install --upgrade azureml-sdk[notebooks]
     ```
 
@@ -112,6 +115,13 @@ Met de instructies in deze quickstart installeert u alle pakketten die u nodig h
     pip install --upgrade azureml-sdk[automl]
     ```
 
+> [!IMPORTANT]
+> In sommige opdrachtregelprogramma's moet u mogelijk tussen aanhalingstekens als volgt toevoegen:
+> *  'azureml-sdk[notebooks]'
+> * 'azureml-sdk[automl]'
+>
+
+
 ## <a name="create-a-workspace"></a>Een werkruimte maken
 
 Maak uw werkruimte in een Jupyter Notebook met behulp van de Python SDK.
@@ -124,7 +134,7 @@ Maak uw werkruimte in een Jupyter Notebook met behulp van de Python SDK.
     jupyter notebook
     ```
 
-1. Maak een nieuw notitieblok met behulp van de standaard-`Python 3`-kernel in het browservenster. 
+1. Maak een nieuw notitieblok met behulp van de standaard-`Python 3`-kernel in het browservenster.
 
 1. Geef de SDK-versie weer door de volgende Python-code in een notitieblokcel te typen en uit te voeren:
 
@@ -135,10 +145,10 @@ Maak uw werkruimte in een Jupyter Notebook met behulp van de Python SDK.
    ```python
    from azureml.core import Workspace
    ws = Workspace.create(name='myworkspace',
-                         subscription_id='<azure-subscription-id>', 
+                         subscription_id='<azure-subscription-id>',
                          resource_group='myresourcegroup',
                          create_resource_group=True,
-                         location='eastus2' 
+                         location='eastus2'
                         )
    ```
 
@@ -151,9 +161,9 @@ Maak uw werkruimte in een Jupyter Notebook met behulp van de Python SDK.
 
 ## <a name="write-a-configuration-file"></a>Een configuratiebestand schrijven
 
-Sla de details van uw werkruimte in een configuratiebestand op in de huidige map. Dit bestand heet *aml_config\config.json*.  
+Sla de details van uw werkruimte in een configuratiebestand op in de huidige map. Dit bestand heet *aml_config\config.json*.
 
-Dit configuratiebestand van de werkruimte maakt het eenvoudig om dezelfde werkruimte later te laden. U kunt het samen met andere notitieblokken en scripts in dezelfde map of submap laden.  
+Dit configuratiebestand van de werkruimte maakt het eenvoudig om dezelfde werkruimte later te laden. U kunt het samen met andere notitieblokken en scripts in dezelfde map of submap laden.
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
@@ -188,7 +198,7 @@ Gebruik de koppeling om de vastgelegde waarden in Azure Portal weer te geven in 
 
 ![Vastgelegde waarden in Azure Portal](./media/quickstart-create-workspace-with-python/logged-values.png)
 
-## <a name="clean-up-resources"></a>Resources opschonen 
+## <a name="clean-up-resources"></a>Resources opschonen
 >[!IMPORTANT]
 >De resources die u hier hebt gemaakt, kunnen worden gebruikt als basisvereisten voor andere Machine Learning-zelfstudies en artikelen met procedures.
 
@@ -203,4 +213,4 @@ In dit artikel hebt u de resources gemaakt die u nodig hebt om mee te experiment
 > [!div class="nextstepaction"]
 > [Zelfstudie: Een model trainen voor de classificatie van afbeeldingen](tutorial-train-models-with-aml.md)
 
-U kunt ook [meer geavanceerde voorbeelden op GitHub](https://aka.ms/aml-notebooks) verkennen.
+U kunt ook verkennen [geavanceerdere voorbeelden op GitHub](https://aka.ms/aml-notebooks) of weergeven van de [gebruikershandleiding voor de SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

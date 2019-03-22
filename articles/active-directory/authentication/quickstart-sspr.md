@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6cd463a728d8362221aaf7789258d7815566b23
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: eabc30b28ec6c32295c5eeff0f19b31fba622056
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176251"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095616"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Snelstart: Self-service voor wachtwoord opnieuw instellen
 
@@ -42,11 +42,11 @@ In deze snelstart wordt het configureren van de selfservice voor wachtwoordherst
 3. Op de pagina **Verificatiemethoden** kiest u het volgende:
    * Het aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen: **1**
    * Methoden voor gebruikers:
-      * **Mobiele telefoon**
-      * **Telefoon (werk)**
+      * **E-mail**
+      * **Mobiele app-code (preview)**
    * Klik op **Opslaan**.
 
-    ![Verificatie][Authentication]
+     ![Verificatie][Authentication]
 
 4. Op de pagina **Registratie** kiest u het volgende:
    * Vereisen dat gebruikers zich bij aanmelding registreren: **Ja**

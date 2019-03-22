@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/04/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: cc42a0289316116b843696c984f9fc3c2114eb6c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592890"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890785"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limieten voor geheugen en gelijktijdigheid voor Azure SQL Data Warehouse
 Bekijk de limieten voor geheugen en gelijktijdigheid toegewezen aan de verschillende prestatieniveaus en resourceklassen in Azure SQL Data Warehouse. Zie voor meer informatie en om toe te passen van deze mogelijkheden voor uw abonnement van de management workload [resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md). 
@@ -70,7 +70,7 @@ Het niveau van de service voor Gen1 tussen DW100 en DW6000.
 | DW6000            | 60            | 1                              | 1440                           |
 
 ## <a name="concurrency-maximums"></a>Maximumwaarden voor gelijktijdigheid
-Om ervoor te zorgen voor dat elke query heeft onvoldoende bronnen voor het efficiënt uitvoeren, houdt SQL Data Warehouse gebruik van resources door gelijktijdigheidssleuven toewijzen aan elke query. Het systeem worden query's geplaatst in een wachtrij waar ze wachten tot en met voldoende [gelijktijdigheidssleuven](resource-classes-for-workload-management.md#concurrency-slots) beschikbaar zijn. Gelijktijdigheidssleuven bepalen ook CPU-prioriteit. Zie voor meer informatie, [uw werkbelasting analyseren](analyze-your-workload.md)
+Om ervoor te zorgen voor dat elke query heeft onvoldoende bronnen voor het efficiënt uitvoeren, houdt SQL Data Warehouse gebruik van resources door gelijktijdigheidssleuven toewijzen aan elke query. Het systeem worden query's in een wachtrij op basis van urgentie en gelijktijdigheidssleuven geplaatst. Query's wachten in de wachtrij tot voldoende gelijktijdigheidssleuven beschikbaar zijn. [Urgentie](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) en gelijktijdigheidssleuven bepalen CPU-prioriteit. Zie voor meer informatie, [uw werkbelasting analyseren](analyze-your-workload.md)
 
 ### <a name="gen2"></a>Gen2
  

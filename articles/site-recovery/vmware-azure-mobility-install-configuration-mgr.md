@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: eb7d5acdcfade47ca916dcfd58aa271a9b1298ac
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ca9e58dbae6952f7e432868c7ede7dc42741a87b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867132"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104247"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Installatie van de Mobility-Service met System Center Configuration Manager automatiseren
 
@@ -162,25 +162,25 @@ IF NOT %ERRORLEVEL% EQU 0 (
 5. Selecteer de **dit pakket bevat bronbestanden** selectievakje.
 6. Klik op **Bladeren**, en selecteer de netwerkshare waar het installatieprogramma wordt opgeslagen (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
 
-  ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
+   ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
 7. Op de **Kies het programmatype dat u wilt maken** weergeeft, schakelt **standaardprogramma**, en klikt u op **volgende**.
 
-  ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
 8. Op de **informatie opgeven over dit standaardprogramma** pagina, informatie het volgende invoeren en op **volgende**. (U kunnen de standaardwaarden gebruiken voor de andere invoer.)
 
-  | **Parameternaam** | **Waarde** |
-  |--|--|
-  | Name | Microsoft Azure Mobility-Service (Windows) installeren |
-  | Opdrachtregel | Install.bat |
-  | Programma kan worden uitgevoerd | Of een gebruiker is aangemeld |
+   | **Parameternaam** | **Waarde** |
+   |--|--|
+   | Name | Microsoft Azure Mobility-Service (Windows) installeren |
+   | Opdrachtregel | Install.bat |
+   | Programma kan worden uitgevoerd | Of een gebruiker is aangemeld |
 
-  ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
+   ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
 9. Selecteer op de volgende pagina de doel-besturingssystemen. Mobility-Service kan worden geïnstalleerd op Windows Server 2012 R2, Windows Server 2012 en Windows Server 2008 R2.
 
-  ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
+   ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
 
 10. Als u wilt de wizard hebt voltooid, klikt u op **volgende** twee keer.
 
@@ -190,19 +190,19 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 ### <a name="deploy-the-package"></a>Het pakket implementeren
 1. Met de rechtermuisknop op het pakket in de Configuration Manager-console en selecteer **inhoud distribueren**.
-  ![Schermafbeelding van de Configuration Manager-console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
+   ![Schermafbeelding van de Configuration Manager-console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
 2. Selecteer de **[distributiepunten](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** u aan bij de pakketten moeten worden gekopieerd.
 3. Voltooi de wizard. Het pakket vervolgens wordt gestart die naar de opgegeven distributiepunten worden gerepliceerd.
 4. Nadat de pakketdistributie is voltooid, met de rechtermuisknop op het pakket en selecteert u **implementeren**.
-  ![Schermafbeelding van de Configuration Manager-console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
+   ![Schermafbeelding van de Configuration Manager-console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 5. Selecteer de Windows Server-apparaatverzameling die u hebt gemaakt in de sectie vereisten als de doelverzameling voor de implementatie.
 
-  ![Schermafbeelding van de wizard Software implementeren](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
+   ![Schermafbeelding van de wizard Software implementeren](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
 
 6. Op de **opgeven van het doel van inhoud** weergeeft, schakelt de **distributiepunten**.
 7. Op de **instellingen opgeven om te bepalen hoe deze software wordt geïmplementeerd** pagina, zorg ervoor dat het doel is **vereist**.
 
-  ![Schermafbeelding van de wizard Software implementeren](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
+   ![Schermafbeelding van de wizard Software implementeren](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
 8. Op de **Geef het schema voor deze implementatie** pagina, een planning opgeven. Zie voor meer informatie, [planning pakketten](https://technet.microsoft.com/library/gg682178.aspx).
 9. Op de **distributiepunten** pagina, configureer de eigenschappen op basis van de behoeften van uw datacenter. Voltooi de wizard.
@@ -387,24 +387,24 @@ cd /tmp
 5. Selecteer de **dit pakket bevat bronbestanden** selectievakje.
 6. Klik op **Bladeren**, en selecteer de netwerkshare waar het installatieprogramma wordt opgeslagen (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
 
-  ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package-linux.png)
+   ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package-linux.png)
 
 7. Op de **Kies het programmatype dat u wilt maken** weergeeft, schakelt **standaardprogramma**, en klikt u op **volgende**.
 
-  ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
 8. Op de **informatie opgeven over dit standaardprogramma** pagina, informatie het volgende invoeren en op **volgende**. (U kunnen de standaardwaarden gebruiken voor de andere invoer.)
 
     | **Parameternaam** | **Waarde** |
-  |--|--|
-  | Name | Mobility-Service voor de Microsoft Azure (Linux) installeren |
-  | Opdrachtregel | ./install_linux.sh |
-  | Programma kan worden uitgevoerd | Of een gebruiker is aangemeld |
+   |--|--|
+   | Name | Mobility-Service voor de Microsoft Azure (Linux) installeren |
+   | Opdrachtregel | ./install_linux.sh |
+   | Programma kan worden uitgevoerd | Of een gebruiker is aangemeld |
 
-  ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)
+   ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)
 
 9. Selecteer op de volgende pagina **dit programma kan worden uitgevoerd op elk platform**.
-  ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2-linux.png)
+   ![Schermafbeelding van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2-linux.png)
 
 10. Als u wilt de wizard hebt voltooid, klikt u op **volgende** twee keer.
 
@@ -413,19 +413,19 @@ cd /tmp
 
 ### <a name="deploy-the-package"></a>Het pakket implementeren
 1. Met de rechtermuisknop op het pakket in de Configuration Manager-console en selecteer **inhoud distribueren**.
-  ![Schermafbeelding van de Configuration Manager-console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
+   ![Schermafbeelding van de Configuration Manager-console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
 2. Selecteer de **[distributiepunten](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** u aan bij de pakketten moeten worden gekopieerd.
 3. Voltooi de wizard. Het pakket vervolgens wordt gestart die naar de opgegeven distributiepunten worden gerepliceerd.
 4. Nadat de pakketdistributie is voltooid, met de rechtermuisknop op het pakket en selecteert u **implementeren**.
-  ![Schermafbeelding van de Configuration Manager-console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
+   ![Schermafbeelding van de Configuration Manager-console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 5. Selecteer de Linux-Server verzameling apparaten die u hebt gemaakt in de sectie vereisten als de doelverzameling voor de implementatie.
 
-  ![Schermafbeelding van de wizard Software implementeren](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
+   ![Schermafbeelding van de wizard Software implementeren](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
 
 6. Op de **opgeven van het doel van inhoud** weergeeft, schakelt de **distributiepunten**.
 7. Op de **instellingen opgeven om te bepalen hoe deze software wordt geïmplementeerd** pagina, zorg ervoor dat het doel is **vereist**.
 
-  ![Schermafbeelding van de wizard Software implementeren](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
+   ![Schermafbeelding van de wizard Software implementeren](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
 8. Op de **Geef het schema voor deze implementatie** pagina, een planning opgeven. Zie voor meer informatie, [planning pakketten](https://technet.microsoft.com/library/gg682178.aspx).
 9. Op de **distributiepunten** pagina, configureer de eigenschappen op basis van de behoeften van uw datacenter. Voltooi de wizard.

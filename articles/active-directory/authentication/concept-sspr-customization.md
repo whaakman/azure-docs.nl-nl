@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25af451ac06a7d744e171754db6f4e54cb2156c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 78e15de18e57e949b2e7b7146269204469e61797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106947"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Aanpassen van de Azure AD-functionaliteit voor self-service voor wachtwoord opnieuw instellen
 
@@ -68,8 +68,8 @@ De afbeeldingen die u kiest, worden weergegeven in de volgende omstandigheden:
 
 * Nadat een gebruiker moet hun gebruikersnaam invoeren
 * Als de gebruiker toegang heeft tot de aangepaste URL:
-    * Door door te geven de `whr` parameter voor het wachtwoord opnieuw instellen pagina, zoals "https://login.microsoftonline.com/?whr=contoso.com"
-    * Door door te geven de `username` parameter voor het wachtwoord opnieuw instellen pagina, zoals "https://login.microsoftonline.com/?username=admin@contoso.com"
+    * Door door te geven de `whr` parameter voor het wachtwoord opnieuw instellen pagina, zoals `https://login.microsoftonline.com/?whr=contoso.com`
+    * Door door te geven de `username` parameter voor het wachtwoord opnieuw instellen pagina, zoals `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Meer informatie vinden over het configureren van aangepaste huisstijl in het artikel [Huisstijlwijzigingen naar de aanmeldingspagina in Azure AD](../fundamentals/customize-branding.md).
 

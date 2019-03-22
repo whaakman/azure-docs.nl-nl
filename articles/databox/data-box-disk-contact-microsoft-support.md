@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 763dfbc3813a63ffbc91180de1d5b518cef2a46d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470158"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100442"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Open een ondersteuningsticket voor Azure Data Box 
 
@@ -55,14 +55,14 @@ De volgende stappen uitvoeren om een ondersteuningsaanvraag maken:
 
 4. In **nieuwe ondersteuningsaanvraag**, klikt u op **contactgegevens van stap 3**. In **contactgegevens**, de volgende stappen uit:
 
-    1. In de **opties voor contactpersonen**, geef de gewenste manier (telefoon of e-mail) en de taal. De reactietijd wordt automatisch geselecteerd op basis van uw abonnement wilt.
-    2. In de **contactgegevens**, Geef uw naam, e-mailbericht, contact op met de optionele, land/regio. Selecteer **contact op met wijzigingen opslaan voor toekomstige ondersteuningsaanvragen**.
-    3. Klik op **Create**.
+   1. In de **opties voor contactpersonen**, geef de gewenste manier (telefoon of e-mail) en de taal. De reactietijd wordt automatisch geselecteerd op basis van uw abonnement wilt.
+   2. In de **contactgegevens**, Geef uw naam, e-mailbericht, contact op met de optionele, land/regio. Selecteer **contact op met wijzigingen opslaan voor toekomstige ondersteuningsaanvragen**.
+   3. Klik op **Create**.
    
-        ![Contactgegevens](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
+       ![Contactgegevens](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
-    Microsoft Support gebruikt deze gegevens contact op met u voor meer informatie, diagnose en resolutie.
-Nadat u uw aanvraag hebt ingediend, een ondersteuningsmedewerker neemt contact met u zo snel mogelijk om door te gaan met uw aanvraag.
+      Microsoft Support gebruikt deze gegevens contact op met u voor meer informatie, diagnose en resolutie.
+      Nadat u uw aanvraag hebt ingediend, een ondersteuningsmedewerker neemt contact met u zo snel mogelijk om door te gaan met uw aanvraag.
 
 ## <a name="manage-a-support-request"></a>Een ondersteuningsaanvraag beheren
 

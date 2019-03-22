@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 73a09a99b1dd275b20bcd389e9cc391f638e8bdd
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8b56151ae56de44cbab3003743ce6df33ec89612
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404260"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075626"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Aan de slag met Key Vault-certificaten
 De volgende scenario's worden enkele van de primaire gebruik van Key Vault de certificate management-service met inbegrip van de extra stappen vereist voor het maken van uw eerste certificaat in uw key vault.
@@ -50,12 +50,12 @@ Certificaten worden samengesteld uit drie onderling verbonden resources samen al
 
 **Stap 3** -een Contoso-beheerder, samen met een Contoso-werknemer (Key Vault-gebruiker) die eigenaar is van certificaten, afhankelijk van de CA kunt verkrijgen van een certificaat van de beheerder of rechtstreeks vanuit het account met de CA.  
 
--   Beginnen met een bewerking van de referentie toevoegen tot een key vault door [instellen van een certificaatverlener](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resource. Een certificaatverlener is een entiteit in Azure Key Vault (KV) als een resource CertificateIssuer weergegeven. Deze wordt gebruikt voor informatie over de oorzaak van een certificaat KV; naam van verlener, provider, referenties en andere administratieve informatie.
-    -   Bijvoorbeeld MyDigiCertIssuer  
-        -   Provider  
-        -   Referenties: de referenties van de CA-account. Elke CA heeft een eigen specifieke gegevens.  
+- Beginnen met een bewerking van de referentie toevoegen tot een key vault door [instellen van een certificaatverlener](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resource. Een certificaatverlener is een entiteit in Azure Key Vault (KV) als een resource CertificateIssuer weergegeven. Deze wordt gebruikt voor informatie over de oorzaak van een certificaat KV; naam van verlener, provider, referenties en andere administratieve informatie.
+  - Bijvoorbeeld MyDigiCertIssuer  
+    -   Provider  
+    -   Referenties: de referenties van de CA-account. Elke CA heeft een eigen specifieke gegevens.  
 
-     Zie voor meer informatie over het maken van accounts met CA-Providers, het bijbehorende bericht op de [Key Vault-blog](https://aka.ms/kvcertsblog).  
+    Zie voor meer informatie over het maken van accounts met CA-Providers, het bijbehorende bericht op de [Key Vault-blog](https://aka.ms/kvcertsblog).  
 
 **Stap 3.1** -instellen [contactpersonen van het certificaat](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) voor meldingen. Dit is de contactpersoon voor de Key Vault-gebruiker. Deze stap worden niet afgedwongen door Key Vault.  
 

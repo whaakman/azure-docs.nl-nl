@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: 9a96f80c609f446dcc1fea2a87925dec3dadfedd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471892"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992457"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Client-Side-versleuteling en Azure Key Vault met behulp van Java voor Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Overzicht
-De [Azure Storage-clientbibliotheek voor Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) ondersteunt de versleuteling van gegevens binnen clienttoepassingen voordat u uploadt naar Azure Storage en de ontsleuteling van gegevens tijdens het downloaden van de client. De bibliotheek ondersteunt ook integratie met [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) voor sleutelbeheer voor storage-account.
+De [Azure Storage-clientbibliotheek voor Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) ondersteunt de versleuteling van gegevens binnen clienttoepassingen voordat u uploadt naar Azure Storage en de ontsleuteling van gegevens tijdens het downloaden van de client. De bibliotheek ondersteunt ook integratie met [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) voor sleutelbeheer voor storage-account.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Versleuteling en ontsleuteling via de techniek envelop
 De techniek envelop volgt u de processen van versleuteling en ontsleuteling.  
@@ -43,7 +43,7 @@ Ontsleuteling via de techniek envelop werkt in de volgende manier:
 4. De sleutel voor versleuteling van inhoud (CEK) wordt vervolgens gebruikt voor het ontsleutelen van de versleutelde gegevens.
 
 ## <a name="encryption-mechanism"></a>-Versleutelingsmechanisme
-Maakt gebruik van de storage-clientbibliotheek [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) om gebruikersgegevens te versleutelen. Met name [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) modus met AES. Elke service enigszins anders werkt, zodat we elk van deze hier wordt besproken.
+Maakt gebruik van de storage-clientbibliotheek [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) om gebruikersgegevens te versleutelen. Met name [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) modus met AES. Elke service enigszins anders werkt, zodat we elk van deze hier wordt besproken.
 
 ### <a name="blobs"></a>Blobs
 De clientbibliotheek biedt momenteel ondersteuning voor versleuteling van hele BLOB's. Specifiek, versleuteling wordt ondersteund wanneer gebruikers de **uploaden*** methoden of de **openOutputStream** methode. Voor downloads, zowel volledige als bereik downloads worden ondersteund.  
@@ -55,9 +55,9 @@ Tijdens het versleutelen, wordt de clientbibliotheek genereren van een willekeur
 > 
 > 
 
-Bij het ophalen van de inhoud van het gebruik van de gehele blob downloaden van een versleutelde blob omvat de **downloaden * / openInputStream** methoden voor gebruiksgemak. De verpakte CEK is uitgepakt en gebruikt in combinatie met de IV (opgeslagen als blobmetagegevens in dit geval) de ontsleutelde om gegevens te retourneren aan de gebruikers.
+Bij het ophalen van de inhoud van het gebruik van de gehele blob downloaden van een versleutelde blob omvat de **downloaden**/**openInputStream** methoden voor gebruiksgemak. De verpakte CEK is uitgepakt en gebruikt in combinatie met de IV (opgeslagen als blobmetagegevens in dit geval) de ontsleutelde om gegevens te retourneren aan de gebruikers.
 
-Downloaden van een willekeurige adresbereik (**downloadRange*** methoden) in de versleutelde blob omvat het aanpassen van het bereik dat is opgegeven door gebruikers om op te halen van een kleine hoeveelheid aanvullende gegevens die kunnen worden gebruikt voor het ontsleutelen van is de aangevraagde het bereik.  
+Downloaden van een willekeurige adresbereik (**downloadRange** methoden) in de versleutelde blob omvat het aanpassen van het bereik dat is opgegeven door gebruikers om op te halen van een kleine hoeveelheid aanvullende gegevens die kunnen worden gebruikt voor het ontsleutelen van is de aangevraagde het bereik.  
 
 Alle blob-typen (blok-blobs, pagina-blobs en toevoeg-blobs) kan worden versleuteld/ontsleuteld met behulp van dit schema.
 
@@ -98,8 +98,8 @@ In batchbewerkingen, wordt de dezelfde KEK-sleutel gebruikt in alle tabelrijen i
 > [!NOTE]
 > Omdat de entiteiten zijn versleuteld, kunt u query's die filteren niet uitvoeren op een gecodeerde eigenschap.  Als u probeert, is resultaten onjuist, omdat de service probeert zou om versleutelde gegevens met niet-versleutelde gegevens te vergelijken.
 > 
->
-Als u wilt querybewerkingen uitvoeren, moet u een sleutel-omzetter kan omzetten van de sleutels in de resultatenset. Als een entiteit die deel uitmaken van het queryresultaat kan niet worden omgezet naar een provider, genereert de clientbibliotheek een fout. Voor elke query die server side projecties uitvoert, wordt de clientbibliotheek van de eigenschappen van de metagegevens speciale versleuteling (_ClientEncryptionMetadata1 en _ClientEncryptionMetadata2) standaard toegevoegd aan de geselecteerde kolommen.
+> 
+> Als u wilt querybewerkingen uitvoeren, moet u een sleutel-omzetter kan omzetten van de sleutels in de resultatenset. Als een entiteit die deel uitmaken van het queryresultaat kan niet worden omgezet naar een provider, genereert de clientbibliotheek een fout. Voor elke query die server side projecties uitvoert, wordt de clientbibliotheek van de eigenschappen van de metagegevens speciale versleuteling (_ClientEncryptionMetadata1 en _ClientEncryptionMetadata2) standaard toegevoegd aan de geselecteerde kolommen.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 Met Azure Sleutelkluis kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt. Met behulp van Azure Key Vault, kunnen gebruikers versleutelen van sleutels en geheimen (zoals verificatiesleutels, opslagaccountsleutels, gegevensversleutelingssleutels. PFX-bestanden en wachtwoorden) met behulp van sleutels die worden beveiligd door hardware security modules (HSM's). Zie voor meer informatie, [wat is Azure Key Vault?](../../key-vault/key-vault-whatis.md).
@@ -248,9 +248,9 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 Houd er rekening mee dat uw opslag, resulteert in extra prestatieoverhead versleutelt. De inhoudssleutel en IV moet worden gegenereerd, de inhoud zelf moet worden versleuteld en aanvullende metagegevens moeten worden geformatteerd en geüpload. Deze overhead varieert, afhankelijk van de hoeveelheid gegevens wordt versleuteld. Het is raadzaam dat klanten altijd hun toepassingen voor de prestaties tijdens de ontwikkeling testen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Download de [Azure Storage-clientbibliotheek voor Java-Maven-pakket](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
+* Download de [Azure Storage-clientbibliotheek voor Java-Maven-pakket](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * Download de [Azure Storage Client Library voor Java-broncode van GitHub](https://github.com/Azure/azure-storage-java)   
 * Download de Azure Key Vault Maven-bibliotheek voor Java-Maven-pakketten:
-  * [Core](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) pakket
-  * [Client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) pakket
+  * [Core](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) pakket
+  * [Client](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) pakket
 * Ga naar de [documentatie voor Azure Key Vault](../../key-vault/key-vault-whatis.md)

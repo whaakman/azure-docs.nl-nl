@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d4075f644ed1ce42479e35544f0e1442488f78eb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0b5e817d5e39dd7800a1482d40c56db5f2be6ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958908"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109421"
 ---
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Beginnen in de linkerbovenhoek, klikt u op **maken van een resource** > **Compute** > **Windows Server 2016 Datacenter**.
+2. Beginnen in de linkerbovenhoek, klikt u op **een resource maken** > **Compute** > **Windows Server 2016 Datacenter**.
 
     ![Naar de installatiekopieën van de virtuele machine van Azure in de portal navigeren](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 
@@ -33,13 +33,13 @@ Op de blade Grondbeginselen worden administratieve gegevens voor de virtuele mac
 
 2. Voer een **Gebruikersnaam** en een sterk **Wachtwoord** in om te gebruiken voor het maken van een lokaal account op de virtuele machine. Het lokale account wordt gebruikt voor aanmelding bij en beheer van de VM. In het voorbeeld is _azureuser_ de naam van de gebruiker.
 
- Het wachtwoord moet 8 tot 123 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie meer informatie over [vereisten voor gebruikersnaam en wachtwoord](../articles/virtual-machines/windows/faq.md).
+   Het wachtwoord moet 8 tot 123 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie meer informatie over [vereisten voor gebruikersnaam en wachtwoord](../articles/virtual-machines/windows/faq.md).
 
 3. Het **abonnement** is optioneel. Een algemene instelling is 'Betalen naar gebruik'.
 
 4. Selecteer een bestaande **Resourcegroep** of typ de gewenste naam voor een nieuwe resourcegroep. In het voorbeeld is _HeroVMRG_ de naam van de resourcegroep.
 
-5. Selecteer een **locatie** van het Azure Datacenter waar u de virtuele machine wilt uitvoeren. In het voorbeeld is **VS - oost** de locatie.
+5. Selecteer een **locatie** van het Azure Datacenter waar u de virtuele machine wilt uitvoeren. In het voorbeeld is **US - oost** de locatie.
 
 6. Wanneer u klaar bent, klikt u op **Volgende** om door te gaan naar de volgende blade.
 

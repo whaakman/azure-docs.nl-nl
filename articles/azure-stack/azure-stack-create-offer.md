@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 42336205726823dd04e0412f29c3e7a23d134d39
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 59c69477e120facec1fbf132ce7017ca21aa8748
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763990"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092613"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Een aanbieding maken in Azure Stack
 
@@ -54,12 +54,12 @@ ms.locfileid: "57763990"
 
 Na het maken van de aanbieding, kunt u de status. Aanbiedingen moeten worden aangebracht **openbare** voor gebruikers om op te halen van de volledige weergave wanneer ze zich abonneert. Aanbiedingen kunnen zijn:
 
-   - **Openbare**: Zichtbaar voor gebruikers.
-   - **Persoonlijke**: Alleen zichtbaar voor beheerders in de cloud. Deze instelling is nuttig tijdens het opstellen van het plan of de aanbieding, of als beheerder van de cloud wil [maakt elk abonnement voor gebruikers](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-   - **Buiten gebruik gesteld**: Gesloten voor nieuwe abonnees. Beheerder van de cloud kunt uit bedrijf nemen aanbiedingen om te voorkomen dat toekomstige abonnementen, maar laat u huidige abonnees niet beïnvloed.
+- **Openbare**: Zichtbaar voor gebruikers.
+- **Persoonlijke**: Alleen zichtbaar voor beheerders in de cloud. Deze instelling is nuttig tijdens het opstellen van het plan of de aanbieding, of als beheerder van de cloud wil [maakt elk abonnement voor gebruikers](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+- **Buiten gebruik gesteld**: Gesloten voor nieuwe abonnees. Beheerder van de cloud kunt uit bedrijf nemen aanbiedingen om te voorkomen dat toekomstige abonnementen, maar laat u huidige abonnees niet beïnvloed.
 
-   > [!TIP]  
-   > Wijzigingen in de aanbieding zijn niet meteen zichtbaar voor de gebruiker. Als u wilt zien welke wijzigingen, mogelijk gebruikers zich afmelden en opnieuw aanmelden bij de gebruikersportal aanmeldt om te zien van de nieuwe aanbieding.
+  > [!TIP]  
+  > Wijzigingen in de aanbieding zijn niet meteen zichtbaar voor de gebruiker. Als u wilt zien welke wijzigingen, mogelijk gebruikers zich afmelden en opnieuw aanmelden bij de gebruikersportal aanmeldt om te zien van de nieuwe aanbieding.
 
 Er zijn twee manieren om te wijzigen van de status van een aanbieding:
 

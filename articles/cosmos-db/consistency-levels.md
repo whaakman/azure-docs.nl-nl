@@ -5,25 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2018
-ms.openlocfilehash: cbe7b0e243f34d9b48e837c1211b5a186946f69f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.date: 03/18/2019
+ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903705"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294500"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Consistentieniveaus in Azure Cosmos DB
 
-Gedistribueerde databases die afhankelijk van de replicatie voor hoge beschikbaarheid, lage latentie, of beide zijn, moeten het fundamentele verschil tussen het lezen van consistentie en beschikbaarheid, latentie en doorvoer. De meeste commercieel verkrijgbaar gedistribueerde databases stellen ontwikkelaars om te kiezen tussen de twee extreme consistentiemodellen: sterke consistentie en uiteindelijke consistentie. De [verwerkingen](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) of het model sterke consistentie is de standaard gold van gegevens programmeren. Maar een steile prijs van hogere latentie (in onveranderlijke) toegevoegd en verminderde beschikbaarheid (bij storingen). Aan de andere kant uiteindelijke consistentie biedt een hogere beschikbaarheid en betere prestaties, maar is moeilijk te programmeren van toepassingen. 
+Gedistribueerde databases die afhankelijk van de replicatie voor hoge beschikbaarheid, lage latentie, of beide zijn, moeten het fundamentele verschil tussen het lezen van consistentie en beschikbaarheid, latentie en doorvoer. De meeste commercieel verkrijgbaar gedistribueerde databases stellen ontwikkelaars om te kiezen tussen de twee extreme consistentiemodellen: *sterke* consistentie en *uiteindelijke* consistentie. De  [verwerkingen](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) of het model sterke consistentie is de standaard gold van gegevens programmeren. Maar een prijs van hogere latentie (in onveranderlijke) toegevoegd en verminderde beschikbaarheid (bij storingen). Aan de andere kant uiteindelijke consistentie biedt een hogere beschikbaarheid en betere prestaties, maar is het moeilijk het programmeren van toepassingen. 
 
-Azure Cosmos DB nadert de consistentie van gegevens als een spectrum van de opties in plaats van twee extreme. Sterke consistentie en uiteindelijke consistentie zijn aan het einde, maar er zijn veel keuzes in consistentie langs het spectrum krijgen. Ontwikkelaars kunnen deze opties gebruiken om te maken van nauwkeurige keuzes en gedetailleerde compromissen met betrekking tot hoge beschikbaarheid of prestaties. 
+Azure Cosmos DB nadert de consistentie van gegevens als een spectrum van de opties in plaats van twee extreme. Sterke consistentie en uiteindelijke consistentie zijn aan het einde van het spectrum, maar er zijn veel keuzes in consistentie langs het spectrum krijgen. Ontwikkelaars kunnen deze opties gebruiken om nauwkeurige keuzes en gedetailleerde compromissen met betrekking tot hoge beschikbaarheid en prestaties te maken. 
 
-Met Azure Cosmos DB kunnen ontwikkelaars kiezen uit vijf duidelijk gedefinieerde consistentiemodellen op het spectrum consistentie. Van sterk naar zwak, de modellen zijn sterk, gebonden veroudering, sessie, consistent voorvoegsel en mogelijk. De modellen zijn goed gedefinieerde en intuïtieve. Ze kunnen worden gebruikt voor specifieke echte scenario's. Elk model biedt [zorgen voor beschikbaarheid en prestaties van een balans](consistency-levels-tradeoffs.md) en wordt ondersteund door uitgebreide Sla's. De volgende afbeelding ziet u verschillende consistentieniveaus als een breed spectrum aan mogelijkheden.
+Met Azure Cosmos DB kunnen ontwikkelaars kiezen uit vijf duidelijk gedefinieerde consistentiemodellen op het spectrum consistentie. Van sterk naar meer soepele, de modellen zijn *sterke*, *gebonden veroudering*, *sessie*, *consistent voorvoegsel*, en *uiteindelijke* consistentie. De modellen zijn goed gedefinieerde en intuïtieve en kunnen worden gebruikt voor specifieke praktijkscenario's. Elk model biedt [zorgen voor beschikbaarheid en prestaties van een balans](consistency-levels-tradeoffs.md) en wordt ondersteund door de SLA's. De volgende afbeelding ziet u de verschillende consistentieniveaus als een breed spectrum aan mogelijkheden.
 
 ![Consistentie als een breed spectrum aan mogelijkheden](./media/consistency-levels/five-consistency-levels.png)
 
-De consistentieniveaus zijn regioneutrale. Het consistentieniveau van de van uw Azure Cosmos-account wordt gegarandeerd voor alle leesbewerkingen, ongeacht de regio van waaruit de lees- en schrijfbewerkingen plaatsvindt, het aantal regio's die zijn gekoppeld aan uw Azure Cosmos-account, of dat uw account is geconfigureerd met een één of meerdere regio's voor schrijven.
+De consistentieniveaus regioneutrale zijn en worden gegarandeerd voor alle bewerkingen, ongeacht de regio van waaruit de lees- en schrijfbewerkingen plaatsvindt, het aantal regio's die zijn gekoppeld aan uw Azure Cosmos-account, of of uw account is geconfigureerd met één of meerdere regio's voor schrijven.
 
 ## <a name="scope-of-the-read-consistency"></a>Bereik van het lezen van consistentie
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 6659b49ecfbcb6bf571fccc258a65aa547f72f86
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a973d8dbab18e9ea66afb5ffff83f47c3ad98f93
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453810"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012348"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Implementatie van virtuele Azure-machine automatiseren met Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -32,7 +32,7 @@ Met de meest recente versie van de cloud-API biedt Chef naadloze integratie met 
 In dit artikel, moet u uw Chef-omgeving voor het inrichten van virtuele machines van Azure en helpt bij het maken van een beleid of "Cookbook" en vervolgens implementeert deze handleiding op een virtuele machine van Azure instellen.
 
 ## <a name="chef-basics"></a>Chef-basisbeginselen
-Voordat u begint, [bekijken van de basisconcepten van Chef](http://www.chef.io/chef).
+Voordat u begint, [bekijken van de basisconcepten van Chef](https://www.chef.io/chef).
 
 Het volgende diagram illustreert de Chef-architectuur op hoog niveau.
 

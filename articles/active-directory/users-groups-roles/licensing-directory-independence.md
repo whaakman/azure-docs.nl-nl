@@ -15,12 +15,12 @@ ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 443aef1a7396dc637b656a805b758a62bcfac41d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 45f48b6d8ef29d14606f18d4ccee77bd742a670a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194288"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175995"
 ---
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Inzicht in hoe meerdere Azure Active Directory-tenants gebruiken
 
@@ -47,7 +47,7 @@ U kunt elke Azure AD-tenant onafhankelijk zodanig gegevens worden gesynchronisee
 Als u wilt toevoegen een Azure AD-tenant in Azure portal, moet u zich aanmelden bij [de Azure-portal](https://portal.azure.com) met een account dat een globale beheerder van Azure AD, en aan de linkerkant, selecteert u **nieuw**.
 
 > [!NOTE]
-> In tegenstelling tot andere Azure-resources zijn uw tenants geen onderliggende resources van een Azure-abonnement. Als uw Azure-abonnement is geannuleerd of verlopen, kunt u nog steeds toegang tot de gegevens van uw tenant met behulp van Azure PowerShell, de Azure Graph API of de Office 365-beheercentrum. U kunt ook [een ander abonnement koppelen aan de tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+> In tegenstelling tot andere Azure-resources zijn uw tenants geen onderliggende resources van een Azure-abonnement. Als uw Azure-abonnement is geannuleerd of verlopen, kunt u nog steeds toegang tot de gegevens van uw tenant met behulp van Azure PowerShell, de Azure Graph API of de Microsoft 365-beheercentrum. U kunt ook [een ander abonnement koppelen aan de tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 >
 
 ## <a name="next-steps"></a>Volgende stappen

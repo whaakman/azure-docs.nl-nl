@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 94d49edb93e4c7b2daff3c58c02b349612f1ee92
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998297"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259292"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Acties voor automatisch schalen gebruiken voor het verzenden van e-mail en webhook-meldingen van waarschuwingen in Azure Monitor
 Dit artikel leest u hoe triggers zo instellen dat u kunt specifieke web-URL's aanroepen of verzenden van e-mailberichten op basis van de acties voor automatisch schalen in Azure.  
@@ -71,7 +71,7 @@ Wanneer met de REST-API of Resource Manager-sjabloon, neemt u de meldingen-eleme
 | properties |ja |waarde moet leeg zijn {} of sleutel / waarde-paren kan bevatten |
 
 ## <a name="authentication-in-webhooks"></a>Verificatie in webhooks
-De webhook kunt verifiëren met behulp van verificatie op basis van tokens, waar u de URI van de webhook opslaan met een token-ID als een queryparameter. Bijvoorbeeld: https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+De webhook kunt verifiëren met behulp van verificatie op basis van tokens, waar u de URI van de webhook opslaan met een token-ID als een queryparameter. Bijvoorbeeld: https: \/ /mysamplealert/webcallback? tokenid = sometokenid & someparameter = van deze functie
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Automatisch schalen melding webhook-schema voor nettolading
 Wanneer de melding voor automatisch schalen wordt gegenereerd, wordt de volgende metagegevens in de nettolading van de webhook opgenomen:

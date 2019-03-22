@@ -1,19 +1,19 @@
 ---
 title: Schaalsets voor virtuele machines in Azure maken met Ansible
 description: Meer informatie over hoe u een schaalset voor virtuele machines in Azure maakt en configureert met Ansible
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, virtuele machine, schaalset voor virtuele machines, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: 920a631ed379651751641c22e4b43f6731197377
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 1176987ab318a97a7db6a12e619e7b7db06ad2da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054153"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097886"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Schaalsets voor virtuele machines in Azure maken met Ansible
 U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken voor het beheren van uw schaalsets voor virtuele machines in Azure, net zoals u andere Azure-resources zou beheren. In dit artikel leest u hoe u Ansible gebruikt om een schaalset voor virtuele machines te maken en uit te breiden. 
@@ -276,5 +276,5 @@ In het resultaat van het uitvoeren van de opdracht in Cloud Shell kunt u zien da
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 
 > [Toepassingen implementeren in schaalsets voor virtuele machines met Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-
+> 
 > [Een virtuele-machineschaalset automatisch schalen met Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

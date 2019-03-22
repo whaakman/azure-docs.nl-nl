@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: aaebad004e5d426ca1c593941b15a2515c4476de
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 98f22f531ca15bf88cd7d0a9add2851651e2eec7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635660"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118320"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>HDInsight-hulpprogramma's voor IntelliJ met Hortonworks Sandbox gebruiken
 
@@ -53,20 +53,20 @@ In deze sectie maakt maken u een Scala-voorbeeldproject met behulp van IntelliJ 
    1. Selecteer **HDInsight** > **Spark in HDInsight (Scala)**.
    2. In de **Build-hulpprogramma** lijst, selecteert u een van de volgende, afhankelijk van uw scenario:
 
-    * **Maven**: Voor ondersteuning van Scala maken van het project wizard.
-    * **SBT**: Voor het beheren van afhankelijkheden en ontwikkelen voor het Scala-project.
+      * **Maven**: Voor ondersteuning van Scala maken van het project wizard.
+      * **SBT**: Voor het beheren van afhankelijkheden en ontwikkelen voor het Scala-project.
 
    ![Het dialoogvenster Nieuw project](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Selecteer **Volgende**.
 3. In de volgende **nieuw Project** dialoogvenster vak, voer de volgende stappen uit:
 
-    1. In de **projectnaam** voert u de projectnaam van een.
-    2. In de **projectlocatie** voert u de projectlocatie van een.
-    3. Naast de **Project SDK** vervolgkeuzelijst, selecteer **nieuw**, selecteer **JDK**, en geef vervolgens de map voor Java JDK versie 1.7 of hoger. Selecteer **Java 1.8** voor de Spark-cluster 2.x. Selecteer **Java 1.7** voor de 1.x Spark-cluster. De standaardlocatie is C:\Program Files\Java\jdk1.8.x_xxx.
-    4. In de **Spark-versie** vervolgkeuzelijst, de wizard Scala-project maken voor de Spark-SDK en Scala-SDK de juiste versie kan worden geïntegreerd. Selecteer **Spark 1.x** als de Spark-clusterversie ouder is dan 2.0. Selecteer anders **Spark 2.x**. In dit voorbeeld wordt Spark 1.6.2 (Scala 2.10.5). Zorg ervoor dat u van de opslagplaats gemarkeerd gebruikmaakt **Scala 2.10.x**. Gebruik niet de opslagplaats die is gemarkeerd als Scala 2.11.x.
+   1. In de **projectnaam** voert u de projectnaam van een.
+   2. In de **projectlocatie** voert u de projectlocatie van een.
+   3. Naast de **Project SDK** vervolgkeuzelijst, selecteer **nieuw**, selecteer **JDK**, en geef vervolgens de map voor Java JDK versie 1.7 of hoger. Selecteer **Java 1.8** voor de Spark-cluster 2.x. Selecteer **Java 1.7** voor de 1.x Spark-cluster. De standaardlocatie is C:\Program Files\Java\jdk1.8.x_xxx.
+   4. In de **Spark-versie** vervolgkeuzelijst, de wizard Scala-project maken voor de Spark-SDK en Scala-SDK de juiste versie kan worden geïntegreerd. Selecteer **Spark 1.x** als de Spark-clusterversie ouder is dan 2.0. Selecteer anders **Spark 2.x**. In dit voorbeeld wordt Spark 1.6.2 (Scala 2.10.5). Zorg ervoor dat u van de opslagplaats gemarkeerd gebruikmaakt **Scala 2.10.x**. Gebruik niet de opslagplaats die is gemarkeerd als Scala 2.11.x.
     
-    ![IntelliJ Scala eigenschappen-project maken](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
+      ![IntelliJ Scala eigenschappen-project maken](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
 
 4. Selecteer **Voltooien**.
@@ -145,7 +145,7 @@ Indienen van een project voor een emulator:
     1. In de **Spark-cluster (alleen Linux)** vervolgkeuzelijst, selecteert u uw lokale Hortonworks Sandbox.
     2. In de **de naam van de Main-klasse** selecteert of Voer de naam van de main-klasse. Voor deze zelfstudie is de naam **GroupByTest**.
 
-3. Selecteer **indienen**. De logboeken van de verzending van taak worden weergegeven in het venster Spark inzending hulpprogramma.
+3. Selecteer **Indienen**. De logboeken van de verzending van taak worden weergegeven in het venster Spark inzending hulpprogramma.
 
 ## <a name="next-steps"></a>Volgende stappen
 

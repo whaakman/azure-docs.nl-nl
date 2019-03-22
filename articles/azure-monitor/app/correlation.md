@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: bcb62b311426c7582202ced3714d01c429118ab5
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: d3aad8f1b032960786564bbb18f99c260fd72113
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268410"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092715"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetriecorrelatie in Application Insights
 
@@ -212,7 +212,7 @@ Soms wilt u mogelijk aanpassen van de manier waarop de namen van onderdelen word
 ## <a name="next-steps"></a>Volgende stappen
 
 - Schrijven [aangepaste telemetrie](../../azure-monitor/app/api-custom-events-metrics.md).
-- Meer informatie over [cloud_RoleName instellen](../../azure-monitor/app/app-map.md#set-cloudrolename) voor andere SDK's.
+- Meer informatie over [cloud_RoleName instellen](../../azure-monitor/app/app-map.md#set-cloud_rolename) voor andere SDK's.
 - Onboarding alle onderdelen van uw microservice voor Application Insights. Bekijk de [ondersteunde platforms](../../azure-monitor/app/platforms.md).
 - Zie de [gegevensmodel](../../azure-monitor/app/data-model.md) voor Application Insights-typen.
 - Meer informatie over het [uitbreiden en telemetrie filteren](../../azure-monitor/app/api-filtering-sampling.md).

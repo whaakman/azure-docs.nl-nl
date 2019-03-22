@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 564a0948d09e4726800d19858b4c23924fc56973
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839165"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect sync-service de kenmerken van
 De meeste kenmerken worden dezelfde manier weergegeven in Azure AD zoals in uw on-premises Active Directory. Maar bepaalde kenmerken enkele speciale verwerking hebben en de waarde van het kenmerk in Azure AD is mogelijk anders dan wat Azure AD Connect synchroniseert.
@@ -58,7 +58,7 @@ Voor de postvakgebruiker van een, on-premises of in Exchange Online, worden er a
 | on-premises proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-In dit geval **smtp:abbie.spencer@fabrikam.com** is verwijderd omdat dit domein is niet geverifieerd. Maar ook toegevoegd Exchange **SIP:abbie.spencer@fabrikamonline.com**. Fabrikam Lync/Skype on-premises, Azure AD, maar niet gebruikt en Exchange Online voorbereiden voor het.
+In dit geval **smtp:abbie.spencer\@fabrikam.com** is verwijderd omdat dit domein is niet geverifieerd. Maar ook toegevoegd Exchange **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam Lync/Skype on-premises, Azure AD, maar niet gebruikt en Exchange Online voorbereiden voor het.
 
 Deze logica voor proxyAddresses wordt aangeduid als **ProxyCalc**. ProxyCalc bij elke wijziging van een gebruiker die wordt aangeroepen wanneer:
 

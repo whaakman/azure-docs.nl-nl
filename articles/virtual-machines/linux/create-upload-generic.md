@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235969"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105519"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informatie over niet-goedgekeurde distributies
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -146,7 +146,7 @@ De volgende patches moeten worden opgenomen in de kernel. Deze lijst kan niet wo
 * [ata_piix: schijven aan de Hyper-V-stuurprogramma's standaard uitstellen](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
 * [storvsc: Account voor de pakketten in transit in het pad opnieuw instellen](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc: gebruik van WRITE_SAME voorkomen](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc: dezelfde schrijven uitschakelen voor RAID en stuurprogramma's voor virtuele host-netwerkadapters](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc: DEZELFDE schrijven uitschakelen voor RAID en stuurprogramma's voor virtuele host-netwerkadapters](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
 * [storvsc: NULL-aanwijzer fix voor referentie ongedaan maken](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc: ring buffer storingen kunnen leiden tot i/o-bevriezing](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs: bescherming tegen een dubbele uitvoering van __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
@@ -172,13 +172,13 @@ De [Azure Linux Agent](../extensions/agent-linux.md) `waagent` richt een virtuel
     ```
     Grafische en stil opstarten is niet nuttig in een cloudomgeving, zoals we willen dat alle logboeken die worden verzonden naar de seriële poort. De `crashkernel` mogelijk links die zijn geconfigureerd, indien nodig, maar houd er rekening mee dat deze parameter wordt de hoeveelheid beschikbaar geheugen in de virtuele machine met ten minste 128 MB, die mogelijk geschikt voor kleinere VM-grootten.
 
-2. Installeer de Azure Linux Agent.
+1. Installeer de Azure Linux Agent.
   
     De Azure Linux Agent is vereist voor het inrichten van een installatiekopie van Linux op Azure.  Groot aantal distributies bieden de agent als een RPM- of Deb-pakket (het pakket wordt doorgaans genoemd WALinuxAgent of walinuxagent).  De agent kan ook handmatig geïnstalleerd met de volgende stappen in de [Linux Agent handleiding](../extensions/agent-linux.md).
 
-3. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten.  Deze configuratie is doorgaans de standaardinstelling.
+1. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten.  Deze configuratie is doorgaans de standaardinstelling.
 
-4. Maak geen wisselruimte op de besturingssysteemschijf.
+1. Maak geen wisselruimte op de besturingssysteemschijf.
   
     De Azure Linux Agent kunt wisselruimte met behulp van de lokale resource-schijf die is gekoppeld aan de VM na het inrichten op Azure automatisch configureren. De lokale bronschijf wordt een *tijdelijke* schijf en kan worden leeggemaakt wanneer de inrichting van de virtuele machine is beëindigd. Na de installatie van de Azure Linux Agent (stap 2 hierboven), de volgende parameters in /etc/waagent.conf zo nodig wijzigen.
     ```  
@@ -188,15 +188,15 @@ De [Azure Linux Agent](../extensions/agent-linux.md) `waagent` richt een virtuel
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
     ```
-* Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken.
+1. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken.
   
-    ```
-    sudo waagent -force -deprovision
-    export HISTSIZE=0
-    logout
-    ```  
-  > [!NOTE]
-  > Op Virtualbox mag u de volgende fout ziet nadat het is uitgevoerd `waagent -force -deprovision` met de tekst `[Errno 5] Input/output error`. Dit foutbericht is niet kritiek en kan worden genegeerd.
+     ```
+     sudo waagent -force -deprovision
+     export HISTSIZE=0
+     logout
+     ```  
+   > [!NOTE]
+   > Op Virtualbox mag u de volgende fout ziet nadat het is uitgevoerd `waagent -force -deprovision` met de tekst `[Errno 5] Input/output error`. Dit foutbericht is niet kritiek en kan worden genegeerd.
 
 * Sluit de virtuele machine en de VHD uploaden naar Azure.
 

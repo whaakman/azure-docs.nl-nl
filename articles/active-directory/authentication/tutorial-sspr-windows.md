@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0463a2ad3fa74f33a52e15a246dfd4ffd63107a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200867"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224648"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Zelfstudie: Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
@@ -33,8 +33,10 @@ In deze zelfstudie gaat u gebruikers in staat stellen om hun wachtwoorden op het
    * [aan Azure AD zijn gekoppeld](../device-management-azure-portal.md) of
    * [aan een hybride Azure AD zijn gekoppeld](../device-management-hybrid-azuread-joined-devices-setup.md), met netwerkconnectiviteit aan een domeincontroller.
 * U moet self-service voor wachtwoordherstel voor Azure AD inschakelen.
-* Als uw Windows 10-apparaten zich achter een proxyserver of firewall bevinden, moet u de URL's `passwordreset.microsoftonline.com` en `ajax.aspnetcdn.com` aan uw lijst met toegestane URL’s voor HTTPS-verkeer (poort 443) toevoegen.
+* Als uw Windows 10-apparaten zich achter een proxyserver of firewall, moet u de URL's toevoegen `passwordreset.microsoftonline.com` en `ajax.aspnetcdn.com` aan de HTTPS-verkeer (poort 443) toegestane lijst met URL's.
+* Self-service voor Wachtwoordherstel voor Windows 10 wordt alleen ondersteund met proxy's op computerniveau
 * Bekijk de beperkingen hieronder voordat u deze functie in uw omgeving gebruikt.
+* Als u een afbeelding, voordat sysprep ervoor te zorgen dat de webcache is uitgeschakeld voor de ingebouwde beheerder voordat u de stap CopyProfile uitvoert. Meer informatie hierover vindt u in het ondersteuningsartikel [slechte prestaties bij het gebruik van aangepaste standaardgebruikersprofiel](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 
 ## <a name="configure-reset-password-link-using-intune"></a>De koppeling Wachtwoord opnieuw instellen configureren met Intune
 

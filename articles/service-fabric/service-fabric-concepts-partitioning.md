@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 492afcdd5143aa5a6597ba8c296d15059f9c7d64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 82b95080a9c93d8c02d4129ef93b1a6c9deba7aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453266"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852744"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Betrouwbare Service Fabric-services partitioneren
 In dit artikel bevat een inleiding tot de basisconcepten van Azure Service Fabric reliable services partitioneren. De broncode die wordt gebruikt in het artikel is ook beschikbaar op [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -113,7 +113,7 @@ Een belangrijk onderdeel van het hash-wordt de hash-algoritme selecteren. Overwe
 
 De kenmerken van een goede distributie hash-algoritme zijn dat het is gemakkelijk om te berekenen, het aantal conflicten is en deze de sleutels gelijkmatig verdeelt. Een goed voorbeeld van een doeltreffende hash-algoritme is de [FNV-1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) hash-algoritme.
 
-Een goede bron voor algemene hash-code algoritme opties is het [Wikipedia-pagina op hash-functies](http://en.wikipedia.org/wiki/Hash_function).
+Een goede bron voor algemene hash-code algoritme opties is het [Wikipedia-pagina op hash-functies](https://en.wikipedia.org/wiki/Hash_function).
 
 ## <a name="build-a-stateful-service-with-multiple-partitions"></a>Een stateful service met meerdere partities bouwen
 Uw eerste betrouwbare stateful service maken met meerdere partities. In dit voorbeeld maakt u een heel eenvoudige toepassing waar u voor het opslaan van alle laatste namen die met de dezelfde letter in dezelfde partitie beginnen.

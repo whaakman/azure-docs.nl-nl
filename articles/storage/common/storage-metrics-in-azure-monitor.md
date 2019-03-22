@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811764"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899023"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Storage in Azure Monitor
 
@@ -23,7 +23,7 @@ Azure Monitor biedt een uniforme gebruikersinterfaces voor het bewaken van alle 
 
 ## <a name="access-metrics"></a>Toegang tot metrische gegevens
 
-Azure Monitor biedt meerdere manieren voor toegang tot metrische gegevens. U kunt krijgen van de [Azure-portal](https://portal.azure.com), de Azure Monitor API's (REST en .net) en analyse-oplossingen, zoals Event Hubs. Zie voor meer informatie, [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor biedt meerdere manieren voor toegang tot metrische gegevens. U kunt krijgen van de [Azure-portal](https://portal.azure.com), de Azure Monitor API's (REST en .NET) en analyse-oplossingen, zoals Event Hubs. Zie voor meer informatie, [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot gegevens van de afgelopen 93 dagen. Als u behouden van gegevens voor een langere periode wilt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Dit is geconfigureerd in [diagnostische instellingen](../../azure-monitor/platform/diagnostic-logs-overview.md) in Azure Monitor.
 
@@ -134,13 +134,13 @@ Het volgende antwoord bevat metrische waarden in de JSON-indeling:
 
 ```
 
-### <a name="access-metrics-with-the-net-sdk"></a>Toegang tot metrische gegevens met de .net SDK
+### <a name="access-metrics-with-the-net-sdk"></a>Toegang tot metrische gegevens met de .NET SDK
 
-Azure Monitor biedt [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) metrische definitie en waarden worden gelezen. De [voorbeeldcode](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) ziet u hoe u de SDK en de verschillende parameters. U moet gebruiken `0.18.0-preview` of hoger voor metrische gegevens van storage. Resource-ID wordt gebruikt in de .net SDK. Lees de informatie over resource-ID voor services in de opslag voor meer informatie.
+Azure Monitor biedt [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) metrische definitie en waarden worden gelezen. De [voorbeeldcode](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) ziet u hoe u de SDK en de verschillende parameters. U moet gebruiken `0.18.0-preview` of hoger voor metrische gegevens van storage. Resource-ID wordt gebruikt in .NET-SDK. Lees de informatie over resource-ID voor services in de opslag voor meer informatie.
 
-Het volgende voorbeeld laat zien hoe Azure Monitor .net SDK gebruiken om te lezen van metrische opslaggegevens.
+Het volgende voorbeeld laat zien hoe Azure Monitor .NET SDK gebruiken om te lezen van metrische opslaggegevens.
 
-#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Lijst met account niveau metrische definitie met de .net SDK
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Lijst met account niveau metrische definitie met de .NET SDK
 
 Het volgende voorbeeld laat zien hoe om metrische definitie op accountniveau weer te geven:
 
@@ -177,7 +177,7 @@ Het volgende voorbeeld laat zien hoe om metrische definitie op accountniveau wee
 
 Als u weergeven van de metrische definities voor de blob, table, bestand of wachtrij wilt, moet u andere resource-id's voor elke service opgeven met de API.
 
-#### <a name="read-metric-values-with-the-net-sdk"></a>Gelezen metrische waarden met de .net SDK
+#### <a name="read-metric-values-with-the-net-sdk"></a>Gelezen metrische waarden met de .NET SDK
 
 Het volgende voorbeeld ziet u hoe `UsedCapacity` gegevens op het accountniveau van:
 
@@ -227,7 +227,7 @@ Het volgende voorbeeld ziet u hoe `UsedCapacity` gegevens op het accountniveau v
 
 In bovenstaande voorbeeld moet als u wilt lezen metrische waarden voor de blob, table, bestand of wachtrij, u andere resource-id's voor elke service met de API.
 
-#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Multi-dimensionale metrische waarden met de .net SDK
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Multi-dimensionale metrische waarden met de .NET SDK
 
 Voor multidimensionale metrische gegevens moet u metagegevens gegevens om filter te definiëren als u wilt lezen, metrische gegevens van specifieke dimensie-waarde.
 
@@ -380,7 +380,7 @@ Azure Storage biedt de volgende metrische gegevens van de transactie uit in Azur
 | Uitgaand verkeer | De hoeveelheid uitgaande gegevens. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Totaal <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
 | SuccessServerLatency | De gemiddelde tijd die nodig is om een aanvraag door Azure Storage te verwerken. Deze waarde bevat niet de netwerklatentie die is opgegeven in SuccessE2ELatency. <br/><br/> Eenheid: Milliseconden <br/> Aggregatietype: Gemiddeld <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
 | SuccessE2ELatency | De gemiddelde end-to-end-latentie van geslaagde aanvragen aan een opslagservice of de opgegeven API-bewerking. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen. <br/><br/> Eenheid: Milliseconden <br/> Aggregatietype: Gemiddeld <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
-| Beschikbaarheid | Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door te nemen van de waarde van het totale aantal factureerbare aanvragen en delen door het aantal toepasselijke aanvragen, met inbegrip van aanvragen die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot verminderde beschikbaarheid voor de opslagservice of de opgegeven API-bewerking. <br/><br/> Eenheid: Procent <br/> Aggregatietype: Gemiddeld <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 99.99 |
+| Beschikbaarheid | Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door te nemen van de waarde van het totale aantal factureerbare aanvragen en delen door het aantal toepasselijke aanvragen, met inbegrip van aanvragen die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot een afgenomen beschikbaarheid voor de opslagservice of de opgegeven API-bewerking. <br/><br/> Eenheid: Procent <br/> Aggregatietype: Gemiddeld <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 99.99 |
 
 ## <a name="metrics-dimensions"></a>Metrische gegevens over dimensies
 
@@ -389,10 +389,10 @@ Azure Storage ondersteunt de volgende dimensies voor metrische gegevens in Azure
 | Dimensienaam | Description |
 | ------------------- | ----------------- |
 | BlobType | Het type blob voor alleen Blob-metrische gegevens. De ondersteunde waarden zijn **BlockBlob** en **PageBlob**. Toevoeg-Blob is opgenomen in BlockBlob. |
-| ResponseType | Transactietype antwoord. De beschikbare waarden zijn onder andere: <br/><br/> <li>ServerOtherError: Alle andere serverzijde fouten beschreven die behalve </li> <li> ServerBusyError: Geverifieerde aanvraag die een HTTP 503-statuscode geretourneerd. </li> <li> ServerTimeoutError: Geverifieerde aanvraag een time-out opgetreden die een 500 HTTP-statuscode geretourneerd. De time-out is opgetreden vanwege een serverfout. </li> <li> AuthorizationError: Geverifieerde aanvraag die is mislukt vanwege niet-geautoriseerde toegang tot de gegevens of er is een Autorisatiefout. </li> <li> NetworkError: Geverifieerde aanvraag die is mislukt vanwege netwerkfouten. Treedt meestal op wanneer een client een verbinding voor de vervaldatum van de time-out voor de voortijdig wordt gesloten. </li> <li>    ClientThrottlingError: Client-side beperking-fout. </li> <li> ClientTimeoutError: Geverifieerde aanvraag een time-out opgetreden die een 500 HTTP-statuscode geretourneerd. Als de netwerktime-out van de client of de time-out van de aanvraag is ingesteld op een lagere waarde dan verwacht door de storage-service, is een verwachte tijd. Anders wordt dit apparaat gerapporteerd als een ServerTimeoutError. </li> <li> ClientOtherError: Alle andere client-side '-fouten met uitzondering van die wordt beschreven. </li> <li> Geslaagd: Succesvolle aanvraag|
+| ResponseType | Transactietype antwoord. De beschikbare waarden zijn onder meer: <br/><br/> <li>ServerOtherError: alle overige serverfouten, behalve diegene die zijn beschreven </li> <li> ServerBusyError: geverifieerde aanvraag waardoor een HTTP 503-statuscode is geretourneerd. </li> <li> ServerTimeoutError: geverifieerde aanvraag met time-out waardoor een HTTP 500-statuscode is geretourneerd. De time-out is opgetreden vanwege een serverfout. </li> <li> AuthorizationError: geverifieerde aanvraag die is mislukt vanwege niet-geautoriseerde toegang tot gegevens of een autorisatiefout. </li> <li> NetworkError: geverifieerde aanvraag die is mislukt vanwege netwerkfouten. Treedt meestal op als dooreen client voortijdig een verbinding wordt verbroken voordat de time-out voorbij is. </li> <li>    ClientThrottlingError: Beperkingsfout aan de client-zijde. </li> <li> ClientTimeoutError: geverifieerde aanvraag met time-out waardoor een HTTP 500-statuscode is geretourneerd. Als de time-out van het clientnetwerk of van de aanvraag is ingesteld op een lagere waarde dan door de opslagservice wordt verwacht, is er sprake van een verwachte time-out. Anders wordt deze als ServerTimeoutError gerapporteerd. </li> <li> ClientOtherError: alle overige fouten aan de clientzijde, behalve diegene die zijn beschreven. </li> <li> Geslaagd: succesvolle aanvraag|
 | GeoType | De transactie van primaire of secundaire cluster. De beschikbare waarden zijn onder andere primaire en secundaire database. Dit geldt voor Read Access-Geo Redundant Storage(RA-GRS) bij het lezen van objecten van secundaire tenant. |
 | ApiName | De naam van bewerking. Bijvoorbeeld: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Zie voor alle namen van de bewerking, [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| Authentication | Verificatietype dat wordt gebruikt in transacties. De beschikbare waarden zijn onder andere: <br/> <li>AccountKey: De transactie is geverifieerd met de sleutel van het opslagaccount.</li> <li>SAS: De transactie wordt geverifieerd met handtekeningen voor gedeelde toegang.</li> <li>OAuth: De transactie wordt geverifieerd met OAuth-toegangstokens.</li> <li>Anoniem: De transactie is anoniem aangevraagd. Deze bevat geen voorbereidende aanvragen.</li> <li>AnonymousPreflight: De transactie is voorbereidende aanvraag.</li> |
+| Authentication | Verificatietype dat wordt gebruikt in transacties. De beschikbare waarden zijn onder meer: <br/> <li>AccountKey: De transactie is geverifieerd met de sleutel van het opslagaccount.</li> <li>SAS: De transactie wordt geverifieerd met handtekeningen voor gedeelde toegang.</li> <li>OAuth: De transactie wordt geverifieerd met OAuth-toegangstokens.</li> <li>Anoniem: De transactie is anoniem aangevraagd. Deze bevat geen voorbereidende aanvragen.</li> <li>AnonymousPreflight: De transactie is voorbereidende aanvraag.</li> |
 
 Voor de metrische gegevens over ondersteunende dimensies moet u de dimensiewaarde om te zien van de bijbehorende metrische waarden op te geven. Bijvoorbeeld, als u bekijkt **transacties** waarde voor gelukt-antwoorden, moet u voor het filteren van de **ResponseType** dimensie met **succes**. Of als u bekijkt **BlobCount** waarde voor blok-Blob, moet u voor het filteren van de **BlobType** dimensie met **BlockBlob**.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b7ad21bd3185e5e6ba4774cdc5780b0594033f14
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028298"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903620"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostische gegevens voor geïntegreerde tussen onderdelen transacties
 
@@ -50,7 +50,7 @@ In deze grafiek biedt een tijdlijn met horizontale balken voor de duur van aanvr
 * Selecteer een rij om te zien zijn [details aan de rechterkant](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-Aanroepen naar de andere onderdelen, met twee rijen bevatten: één rij vertegenwoordigt de uitgaande gesprekken (afhankelijkheden) van het onderdeel van de oproepende functie en de andere rij overeenkomt met de binnenkomende aanvraag op het onderdeel met de naam. De toonaangevende pictogram en de afzonderlijke stijl van de duur van de balken kunt onderscheid maken tussen deze.
+> Aanroepen naar de andere onderdelen, met twee rijen bevatten: één rij vertegenwoordigt de uitgaande gesprekken (afhankelijkheden) van het onderdeel van de oproepende functie en de andere rij overeenkomt met de binnenkomende aanvraag op het onderdeel met de naam. De toonaangevende pictogram en de afzonderlijke stijl van de duur van de balken kunt onderscheid maken tussen deze.
 
 ## <a name="all-telemetry-with-this-operation-id"></a>Alle telemetrie met deze bewerking-Id
 
@@ -74,9 +74,9 @@ Dit samenvouwbare deelvenster toont de resultaten die voldoen aan de filtercrite
 
 [Application Insights profiler](../../azure-monitor/app/profiler.md) of [snapshot debugger](snapshot-debugger.md) helpen met code-niveau van diagnostische gegevens van de prestaties en mislukt kwesties. Met deze ervaring, kunt u profiler-traceringen zien of momentopnamen van elk onderdeel met één klik.
 
-Als u Profiler werken niet ophalen kan, contact op met **serviceprofilerhelp@microsoft.com**
+Als u Profiler werken niet ophalen kan, contact op met **serviceprofilerhelp\@microsoft.com**
 
-Als u Snapshot Debugger werken niet ophalen kan, contact op met **snapshothelp@microsoft.com**
+Als u Snapshot Debugger werken niet ophalen kan, contact op met **snapshothelp\@microsoft.com**
 
 ![Profiler-integratie](media/transaction-diagnostics/profilerTraces.png)
 

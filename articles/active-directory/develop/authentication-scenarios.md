@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b0d2c12a4e2088964e397b1bc499fa4adfdff3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 172bc96857c6aa0ab19fd4f1a13870dd493100bf
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244552"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295705"
 ---
 # <a name="what-is-authentication"></a>Wat is verificatie?
 
@@ -79,7 +79,7 @@ Azure AD vertegenwoordigt toepassingen met een specifiek model dat speciaal bedo
 
 In Azure AD beschrijft een **toepassingsobject** een toepassing als een abstracte entiteit. Ontwikkelaars werken met toepassingen. Tijdens de implementatie gebruikt Azure AD een specifiek toepassingsobject als blauwdruk om een **service-principal** te maken; deze vertegenwoordigt een concreet exemplaar van een toepassing binnen een directory of tenant. De service-principal bepaalt wat de app daadwerkelijk kan doen in een specifieke doeldirectory, wie deze mag gebruiken, tot welke resources deze toegang heeft en meer. Azure AD maakt op basis van **toestemming** een service-principal van een toepassingsobject.
 
-In het volgende diagram staat een vereenvoudigde Azure AD-inrichtingsstroom op basis van toestemming.
+In het volgende diagram staat een vereenvoudigde Azure AD-inrichtingsstroom op basis van toestemming.  In deze twee tenants bestaan (A en B), waarbij tenant A eigenaar is van de toepassing en tenant B is het instantiëren van de toepassing via een service-principal.  
 
 ![Vereenvoudigde inrichtingsstroom op basis van toestemming](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
 
@@ -87,14 +87,14 @@ De inrichtingsstroom verloopt als volgt:
 
 |   |   |
 |---|---|
-| 1 | Een gebruiker van B probeert zich aan te melden bij de app |
+| 1 | Een gebruiker van de tenant B wil zich aanmelden met de app. |
 | 2 | De gebruikersreferenties worden verkregen en geverifieerd |
 | 3 | De gebruiker wordt gevraagd de app toestemming te geven om toegang te verkrijgen tot tenant B |
-| 4 | Azure AD gebruikt het toepassingsobject A als een blauwdruk voor het maken van een service-principal in B |
+| 4 | Azure AD maakt gebruik van het toepassingsobject in A als een blauwdruk voor het maken van een service-principal in tenant B |
 | 5 | De gebruiker ontvangt de aangevraagde token |
 |   |   |
 
-U kunt dit proces zo vaak herhalen als u wilt (voor andere tenants, zoals C, D, enzovoort). Directory A bevat de blauwdruk voor de app (heb toepassingsobject). De gebruikers en beheerders van de andere tenants waarvoor de app toestemming heeft, behouden controle over wat de toepassing mag doen. Dit kan worden beheerd met het bijbehorende service-principalobject in elke tenant. Zie [Toepassing en service-principalobjecten in Azure AD](app-objects-and-service-principals.md) voor meer informatie.
+U kunt dit proces zo vaak herhalen als u wilt (voor andere tenants, zoals C, D, enzovoort). Tenant A behoudt de blauwdruk voor de app (toepassingsobject). De gebruikers en beheerders van de andere tenants waarvoor de app toestemming heeft, behouden controle over wat de toepassing mag doen. Dit kan worden beheerd met het bijbehorende service-principalobject in elke tenant. Zie [Toepassing en service-principalobjecten in Azure AD](app-objects-and-service-principals.md) voor meer informatie.
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Claims in Azure AD-beveiligingstokens
 
@@ -109,7 +109,7 @@ Welke claims aanwezig zijn in een bepaald beveiligingstoken, is afhankelijk van 
 
 In de onderstaande tabel staat een korte beschrijving van elk type claim dat door Azure AD wordt uitgegeven. Zie de [toegangstokens](access-tokens.md) en [id-tokens](id-tokens.md) die door Azure AD worden uitgegeven voor meer informatie.
 
-| Claim | Beschrijving |
+| Claim | Description |
 | --- | --- |
 | Toepassings-id | Identificeert de toepassing die gebruikmaakt van het token. |
 | Doelgroep | Identificeert de ontvangende resource waar het token voor is bedoeld. |
@@ -122,7 +122,7 @@ In de onderstaande tabel staat een korte beschrijving van elk type claim dat doo
 | Uitgegeven om | Registreert de tijd waarop het token is uitgegeven (vaak gebruikt om te controleren hoe nieuw het token is). |
 | Verlener | Identificeert de beveiligingstokenservice die het token heeft uitgegeven en de Azure AD-tenant. |
 | Achternaam | Biedt de achternaam van de gebruiker, zoals ingesteld in Azure AD. |
-| Naam | Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. |
+| Name | Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. |
 | Object-id | Bevat een onveranderbare, unieke id voor het onderwerp in Azure AD. |
 | Rollen | Bevat beschrijvende namen voor de Azure AD-toepassingsrollen die zijn toegewezen aan de gebruiker. |
 | Bereik | Geeft aan welke machtigingen zijn verleend aan de clienttoepassing. |

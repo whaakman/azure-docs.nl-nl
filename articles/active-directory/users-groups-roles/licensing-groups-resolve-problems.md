@@ -1,5 +1,5 @@
 ---
-title: 'Oplossen van problemen met licentie-toewijzing voor een groep: Azure Active Directory | Microsoft Docs'
+title: Oplossen van problemen met licentie-toewijzing voor een groep - Azure Active Directory | Microsoft Docs
 description: Het identificeren en oplossen van problemen toewijzing wanneer u Azure Active Directory-groep op basis van licentieverlening
 services: active-directory
 keywords: Azure AD-licenties
@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c40a25cd2baebaaeedc012e8e9faff91b297f57
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082497"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201531"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificeren en oplossen van problemen toewijzing voor een groep in Azure Active Directory
 
@@ -35,19 +35,19 @@ Wanneer u op basis van een groep licenties, wordt de dezelfde fouten kunnen optr
 
 1. Als u gebruikers in een foutstatus in een specifieke groep zoekt, opent u het deelvenster voor de groep. Onder **licenties**, een melding wordt weergegeven als er geen gebruikers in een foutstatus.
 
-   ![Groep foutmelding](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Groep en de fout meldingen-bericht](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
 2. Selecteer de melding om een lijst van alle betrokken gebruikers te openen. U kunt elke gebruiker afzonderlijk voor meer informatie.
 
-   ![Groep lijst met gebruikers in de foutstatus](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![lijst met gebruikers in de groep op de foutstatus-licentieverlening](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 3. Alle groepen met ten minste één fout op de **Azure Active Directory** blade selecteren **licenties**, en selecteer vervolgens **overzicht**. Een vak met informatie wordt weergegeven als groepen uw aandacht vereisen.
 
-   ![Overzicht van informatie over groepen in de foutstatus](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Overzicht en informatie over groepen in de foutstatus](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
 4. Selecteer het selectievakje voor een overzicht van alle groepen met fouten. U kunt elke groep voor meer informatie.
 
-   ![Overzicht van lijst met groepen met fouten](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Overzicht en de lijst met groepen met fouten](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 De volgende secties geven een beschrijving van elke mogelijke problemen en de manier om dit te verhelpen.

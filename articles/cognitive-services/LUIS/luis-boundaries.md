@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: df69cb5cc2e369a5e1f372d49a821616bf624db9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237549"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897506"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Grenzen voor uw LUIS-model en de sleutels
 LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#model-boundaries), welke besturingselementen intents, entiteiten en functies van LUIS. Het tweede gedeelte [quotalimieten](#key-limits) op basis van het type sleutel. Is van een derde deel van de grenzen van de [combinatie op het toetsenbord](#keyboard-controls) voor het beheren van de website van LUIS. Een vierde gebied is de [world regiotoewijzing](luis-reference-regions.md) tussen de LUIS website ontwerpen en de LUIS [eindpunt](luis-glossary.md#endpoint) API's. 
@@ -27,7 +27,7 @@ LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#m
 Als uw app de grenzen van LUIS-model en de grenzen overschrijdt, kunt u overwegen een [LUIS verzending](luis-concept-enterprise.md#dispatch-tool-and-model) app of met behulp van een [LUIS container](luis-container-howto.md). 
 
 |Onderwerp|Limiet|
-|--|:--|--|
+|--|:--|
 | [App-naam][luis-get-started-create-app] | * Standaard teken max |
 | [Batch testen][batch-testing]| 10 gegevenssets, 1000 uitingen per gegevensset|
 | Expliciete lijst | 50 per toepassing|
@@ -41,7 +41,7 @@ Als uw app de grenzen van LUIS-model en de grenzen overschrijdt, kunt u overwege
 | [Reguliere expressie entiteiten](./luis-concept-entity-types.md)|20 entiteiten<br>Max. 500 tekens. per entiteit patroon van reguliere expressie|
 | [Rollen](luis-concept-roles.md)|300 rollen per toepassing. 10 rollen per entiteit|
 | [Utterance][utterances] | 500 tekens bevatten|
-| [Uitingen][utterances] | 15.000 per toepassing|
+| [Uitingen][utterances] | 15.000 per toepassing - er is geen limiet voor het aantal uitingen per doel|
 | [Versies](luis-concept-version.md)| geen limiet |
 | [Versienaam][luis-how-to-manage-versions] | beperkt tot alleen alfanumerieke tekens en periode 10 tekens (.) |
 

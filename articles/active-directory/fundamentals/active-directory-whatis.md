@@ -1,5 +1,5 @@
 ---
-title: What is Azure Active Directory? (Engelstalig) | Microsoft Docs
+title: What is Azure Active Directory? (Engelstalig) - Azure Active Directory | Microsoft Azure
 description: Meer informatie over Azure Active Directory, inclusief de vereiste terminologie, publiek, basisbeginselen over licenties en bijbehorende functies.
 services: active-directory
 author: eross-msft
@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8b443dc2d25558343fb8cad3fd5e9734a672e1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0d3b3cd7e759892c2215f190a682f5f69818958d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187386"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442357"
 ---
 # <a name="what-is-azure-active-directory"></a>What is Azure Active Directory? (Engelstalig) 
 Azure Active Directory (Azure AD) is de identiteits- en toegangsbeheerservice van Microsoft op basis van de cloud. Met Azure AD kunnen uw medewerkers zich aanmelden en toegang krijgen tot resources:
@@ -58,7 +58,7 @@ Meer informatie over het koppelen van een Azure-abonnement aan Azure AD is te vi
 ## <a name="terminology"></a>Terminologie
 Lees de volgende terminologie voor een beter begrip van Azure AD en de bijbehorende documentatie.
 
-|Term of concept|Beschrijving|
+|Term of concept|Description|
 |---------------|-----------|
 |Azure-abonnement| Dit wordt gebruikt voor de betaling van Azure-cloudservices. U kunt zo veel abonnementen hebben als u wilt. Ze zijn gekoppeld aan uw creditcard.|
 |Azure-tenant| De tenant is een speciaal en vertrouwd exemplaar van Azure AD dat automatisch wordt gemaakt wanneer uw organisatie zich registreert voor een abonnement op een cloudservice van Microsoft, bijvoorbeeld Microsoft Azure, Microsoft Intune of Office 365. Een Azure-tenant vertegenwoordigt één organisatie.|
@@ -76,10 +76,10 @@ Lees de volgende terminologie voor een beter begrip van Azure AD en de bijbehore
 ## <a name="which-features-work-in-azure-ad"></a>Welke functies werken in Azure AD?
 Nadat u uw Azure AD-licentie hebt gekozen, krijgt u toegang tot (een deel van) de volgende functies voor uw organisatie.
 
-|Categorie|Beschrijving|
+|Categorie|Description|
 |-------|-----------|
 |Toepassingsbeheer|Beheer uw apps in de cloud of on-premises met de toepassingsproxy, eenmalige aanmelding, de portal My Apps (ook wel Toegangsvenster genoemd) en SaaS-apps (Software als een dienst). Zie [Beveiligde externe toegang bieden voor on-premises toepassingen](../manage-apps/application-proxy.md) en [Documentatie over toepassingsbeheer](../manage-apps/index.yml) voor meer informatie.|
-|Verificatie|In Azure Active Directory kunt u selfservice voor wachtwoordherstel, Multi-Factor Authentication, een aangepaste lijst met verboden wachtwoorden en slimme vergrendeling beheren. Zie [Documentatie voor Azure AD-verificatie](../authentication/index.yml) voor meer informatie.|
+|Authentication|In Azure Active Directory kunt u selfservice voor wachtwoordherstel, Multi-Factor Authentication, een aangepaste lijst met verboden wachtwoorden en slimme vergrendeling beheren. Zie [Documentatie voor Azure AD-verificatie](../authentication/index.yml) voor meer informatie.|
 |Business-to-business (B2B)|U beheert gastgebruikers en externe partners, terwijl u de controle houdt over uw eigen zakelijke gegevens. Zie [Documentatie over Azure Active Directory B2B](../b2b/index.yml) voor meer informatie.|
 |Business-to-customer (B2C)|U kunt aanpassen en controleren hoe uw gebruikers zich registreren, zich aanmelden en hun profielen beheren als ze uw apps gebruiken. Voor meer informatie raadpleegt u de [documentatie over Azure Active Directory B2C](../../active-directory-b2c/index.yml).|
 |Voorwaardelijke toegang|Beheer de toegang tot uw cloud-apps. Zie [Documentatie over voorwaardelijke toegang voor Azure AD](../conditional-access/index.yml) voor meer informatie.|

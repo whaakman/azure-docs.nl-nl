@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d829ad9b85b6e7944f6dd534ea7fbb3f92a0d2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dd753ca4994975302a0bc6fede61964f80196d7c
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887914"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199598"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Statische groepslidmaatschap wijzigen naar een dynamische in Azure Active Directory
 
@@ -47,14 +47,13 @@ De volgende stappen zijn een voorbeeld van een groep wijzigen van statisch naar 
   
 2. Selecteer **dynamische query toevoegen**, en geef vervolgens de regel.
   
-   ![Geef de regel](./media/groups-change-type/enter-rule.png)
+   ![Voer in de regel voor de dynamische groep](./media/groups-change-type/enter-rule.png)
   
 3. Na het maken van de regel, selecteer **query toevoegen** aan de onderkant van de pagina.
 4. Selecteer **opslaan** op de **eigenschappen** pagina voor de groep uw wijzigingen op te slaan. De **lidmaatschapstype** van de groep is direct bijgewerkt in de lijst met groepen.
 
 > [!TIP]
 > Groepsconversie kan mislukken als het lidmaatschapsregel die u hebt ingevoerd onjuist is. Een melding wordt weergegeven in de rechterbovenhoek hoek rechtsboven van de portal die deze bevat een uitleg waarom de regel kan niet worden geaccepteerd door het systeem. Lees zorgvuldig om te begrijpen hoe u de regel zodat deze geldige kunt aanpassen. Zie voor voorbeelden van de regelsyntaxis van de en een volledige lijst van de ondersteunde eigenschappen, operators en waarden voor de regel voor een verzameling [dynamisch-lidmaatschapregels voor groepen in Azure Active Directory](groups-dynamic-membership.md).
-
 
 ## <a name="change-membership-type-for-a-group-powershell"></a>Wijzigen van het lidmaatschapstype voor een groep (PowerShell)
 
@@ -63,7 +62,7 @@ De volgende stappen zijn een voorbeeld van een groep wijzigen van statisch naar 
 
 Hier volgt een voorbeeld van de functies die het lidmaatschap management op een bestaande groep overschakelen. In dit voorbeeld is care uitgevoerd, correct manipuleren van de eigenschap GroupTypes en behouden van alle waarden die niet gerelateerd aan dynamisch lidmaatschap zijn.
 
-```
+```powershell
 #The moniker for dynamic groups as used in the GroupTypes property of a group object
 $dynamicGroupTypeString = "DynamicMembership"
 
@@ -107,13 +106,13 @@ function ConvertStaticGroupToDynamic
 ```
 Een groep statische maken:
 
-```
+```powershell
 ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
 ```
 
 U een groep dynamisch:
 
-```
+```powershell
 ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
 ```
 

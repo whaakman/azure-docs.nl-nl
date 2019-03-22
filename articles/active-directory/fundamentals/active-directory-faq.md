@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e1f96ce6114b46d9523e29fe3000b7e9c612ea9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f602b5f9809e5bbe0b1efb52cfa66877a31a2170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186536"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183336"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Veelgestelde vragen over Azure Active Directory
 Azure Active Directory (Azure AD) is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.
@@ -88,7 +88,7 @@ Zie [Integrating your on-premises identities with Azure Active Directory](../hyb
 - - -
 **V: Biedt Azure AD een selfserviceportal voor gebruikers in mijn organisatie?**
 
-**A:** Ja, Azure AD biedt u de [Azure AD-Toegangsvenster](https://myapps.microsoft.com) voor selfservice van gebruiker en toegang tot toepassingen. Als u Office 365 gebruikt, vindt u veel van dezelfde mogelijkheden in de Office 365-portal.
+**A:** Ja, Azure AD biedt u de [Azure AD-Toegangsvenster](https://myapps.microsoft.com) voor selfservice van gebruiker en toegang tot toepassingen. Als u een Office 365-klant bent, vindt u veel van dezelfde mogelijkheden in de [Office 365-portal](https://portal.office.com).
 
 Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 5412fd2357a6848dae0cd5230546ff13cd1a6054
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b1bcaa3a6246a97f15cbd249040844602f03a7b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316741"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107556"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure-netwerken bewakingsoplossingen in Log Analytics
 
@@ -217,18 +217,18 @@ Bijgewerkte oplossingen gebruiken:
 2. [Diagnostische gegevens worden verzonden naar Log Analytics rechtstreeks vanuit Azure Network Security Groups configureren](#enable-azure-network-security-group-diagnostics-in-the-portal)
 2. Schakel de *Azure Application Gateway Analytics* en de *Azure Network Security Group Analytics* oplossing met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de Galerie van oplossingen](../../azure-monitor/insights/solutions.md)
 3. Bijwerken van een opgeslagen query's, dashboards of waarschuwingen gebruik van het nieuwe gegevenstype
-  + Type is het AzureDiagnostics. Het ResourceType kunt u filteren op Azure-netwerklogboeken.
+   + Type is het AzureDiagnostics. Het ResourceType kunt u filteren op Azure-netwerklogboeken.
 
-    | In plaats van: | U kunt gebruiken: |
-    | --- | --- |
-    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; waar ResourceType = "APPLICATIONGATEWAYS" en OperationName == "ApplicationGatewayAccess" |
-    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; waar ResourceType == "APPLICATIONGATEWAYS" en OperationName ApplicationGatewayPerformance = |
-    | NetworkSecuritygroups | AzureDiagnostics &#124; waar ResourceType == "NETWORKSECURITYGROUPS" |
+     | In plaats van: | U kunt gebruiken: |
+     | --- | --- |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; waar ResourceType = "APPLICATIONGATEWAYS" en OperationName == "ApplicationGatewayAccess" |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; waar ResourceType == "APPLICATIONGATEWAYS" en OperationName ApplicationGatewayPerformance = |
+     | NetworkSecuritygroups | AzureDiagnostics &#124; waar ResourceType == "NETWORKSECURITYGROUPS" |
 
    + Voor elk veld dat een achtervoegsel van \_s, \_d, of \_g in de naam wijzigen van het eerste teken in kleine letters
    + Voor elk veld dat een achtervoegsel van \_o in naam van de gegevens is opgesplitst in afzonderlijke velden op basis van de geneste veldnamen.
 4. Verwijder de *Azure Networking Analytics (afgeschaft)* oplossing.
-  + Als u met behulp van PowerShell, gebruikt u `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
+   + Als u met behulp van PowerShell, gebruikt u `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 
 Gegevens die worden verzameld voordat de wijziging niet zichtbaar in de nieuwe oplossing is. U kunt zoeken naar deze gegevens met behulp van de oude Type en de veldnamen.
 

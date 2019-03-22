@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: e3933fb593dfafc6ecc641d7c19741b7c0882c00
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091644"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Service-updates in de Azure Site Recovery
 Als een organisatie, moet u bepalen hoe u van plan bent voor uw gegevens veilig en apps/workloads kunt uitvoeren wanneer geplande en ongeplande uitval optreedt. Azure Site Recovery draagt bij aan uw BCDR-strategie door uw apps uitgevoerd op virtuele machines en fysieke servers beschikbaar als een site uitvalt. Met Site Recovery repliceert u workloads die worden uitgevoerd op virtuele machines en fysieke servers, zodat deze beschikbaar blijven op een secundaire locatie als de primaire site niet beschikbaar is. Hiermee herstelt u werkbelastingen op de primaire site wanneer deze weer actief is.
@@ -108,7 +108,7 @@ Raadpleeg voordat u doorgaat met updates [Site Recovery-ondersteuningsverklaring
 Opnieuw opstarten wordt aanbevolen na elke upgrade van de Mobility-agent om ervoor te zorgen dat alle laatste wijzigingen op de bronmachine zijn geladen. Het is echter wel **niet verplicht**. Als het verschil tussen de agentversie tijdens de laatste keer opnieuw opstarten en de huidige versie is groter dan 4, klikt u vervolgens is een opnieuw opstarten verplicht. Raadpleeg de volgende tabel voor gedetailleerde uitleg.
 
 |**Agentversie tijdens de laatste keer opnieuw opstarten** | **Een upgrade naar** | **Is opnieuw verplicht?**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | Niet verplicht|
 |9.16 | 9.19 | Niet verplicht|
 | 9.16 | 9.20 | Niet verplicht

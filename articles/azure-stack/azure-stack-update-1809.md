@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: fd1e49a8bab3b6133a476bbafaa45e0e61fe1f1b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 58117bce8de667c9750b2e0c19992b99716945cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730554"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124198"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -63,12 +63,12 @@ Deze update bevat de volgende verbeteringen voor Azure Stack:
 - De volgende beheerde schijf problemen zijn opgelost in 1809 en ook zijn opgelost in de 1808 [Azure Stack-Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - Het probleem opgelost in welke koppelen SSD-gegevensschijven aan premium-grootte beheerde schijf virtuele machines (DS, DSv2, Fs, Fs_V2) is mislukt met een fout opgetreden:  *Kan niet bijwerken van schijven voor de virtuele machine 'vmname' fout: Gevraagde bewerking kan niet worden uitgevoerd omdat het opslagaccounttype 'Premium_LRS' wordt niet ondersteund voor VM-grootte ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
+  - Het probleem opgelost in welke koppelen SSD-gegevensschijven aan premium-grootte beheerde schijf virtuele machines (DS, DSv2, Fs, Fs_V2) is mislukt met een fout opgetreden:  *Kan niet bijwerken van schijven voor de virtuele machine 'vmname' fout: Gevraagde bewerking kan niet worden uitgevoerd omdat het opslagaccounttype 'Premium_LRS' wordt niet ondersteund voor VM-grootte ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
    
-   - Het maken van een beheerde schijf-VM met behulp van **createOption**: **Koppelen** mislukt met de volgende fout: *Langdurige bewerking is mislukt met de status 'Mislukt'. Aanvullende informatie:' interne uitvoering is een fout opgetreden.'*
-   Foutcode: InternalExecutionError ErrorMessage: Er is een interne uitvoeringsfout opgetreden.
+  - Het maken van een beheerde schijf-VM met behulp van **createOption**: **Koppelen** mislukt met de volgende fout: *Langdurige bewerking is mislukt met de status 'Mislukt'. Aanvullende informatie:' interne uitvoering is een fout opgetreden.'*
+    Foutcode: InternalExecutionError ErrorMessage: Er is een interne uitvoeringsfout opgetreden.
    
-   Dit probleem is opgelost.
+    Dit probleem is opgelost.
 
 - <!-- 2702741 -  IS, ASDK --> Probleem opgelost in welke openbare IP-adressen die zijn geïmplementeerd met behulp van de dynamische toewijzing methode zijn niet gegarandeerd te behouden nadat een Stop-toewijzing is uitgegeven. Ze blijven nu behouden.
 
@@ -297,10 +297,10 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 <!-- TBD - IS ASDK --> 
 - Na het toepassen van de 1809 bijwerken, kunnen de volgende problemen optreden bij het implementeren van virtuele machines met Managed Disks:
 
-   - Als het abonnement is gemaakt vóór de update 1808, een virtuele machine met Managed Disks kan mislukken met een interne fout. Los de fout op door deze stappen voor elk abonnement uit te voeren:
-      1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
-      2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en controleer de **AzureStack-DiskRP-Client** rol wordt weergegeven.
-   2. Als u een omgeving met meerdere tenants hebt geconfigureerd, kan virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map mislukken met een interne fout. Volg deze stappen om op te lossen de fout, [in dit artikel](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
+  - Als het abonnement is gemaakt vóór de update 1808, een virtuele machine met Managed Disks kan mislukken met een interne fout. Los de fout op door deze stappen voor elk abonnement uit te voeren:
+     1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
+     2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en controleer de **AzureStack-DiskRP-Client** rol wordt weergegeven.
+  - Als u een omgeving met meerdere tenants hebt geconfigureerd, kan virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map mislukken met een interne fout. Volg deze stappen om op te lossen de fout, [in dit artikel](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
 
 - Een Ubuntu 18.04 VM gemaakt met SSH-verificatie ingeschakeld kunt u de SSH-sleutels gebruiken om aan te melden. Gebruik voor de extensie voor Linux-VM-toegang voor het implementeren van SSH-sleutels na het inrichten of verificatie op basis van wachtwoord gebruiken als tijdelijke oplossing.
 

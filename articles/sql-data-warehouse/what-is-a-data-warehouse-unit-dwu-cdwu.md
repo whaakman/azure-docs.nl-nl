@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 32a3ec7146e4dd43e0c5f522187856132745b539
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5f6e24dfa1b5c4ea4f0748af81104edfe88ceeae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307085"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099100"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (dwu's) en compute Data Warehouse Units (cDWUs)
 Aanbevelingen over het kiezen van het ideale aantal datawarehouse units (dwu's, cDWUs) om te optimaliseren prijs en prestaties en het wijzigen van het aantal eenheden. 
@@ -121,7 +121,7 @@ Dwu's of cDWUs wijzigen:
 
 2. Onder **schaal**, verplaats de schuifregelaar naar links of rechts om de DWU-instelling te wijzigen.
 
-3. Klik op **Opslaan**. Er wordt een bevestigingsbericht weergegeven. Klik op **Ja** om te bevestigen of **Nee** om te annuleren.
+3. Klik op **Opslaan**. Er verschijnt een bevestigingsbericht. Klik op **Ja** om te bevestigen of **Nee** om te annuleren.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -186,7 +186,7 @@ FROM      sys.databases
 ;
 ```
 
-3. Verzenden van de volgende query uit om te controleren of de status van bewerking
+1. Verzenden van de volgende query uit om te controleren of de status van bewerking
 
 ```sql
 SELECT    *

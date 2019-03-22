@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9409d196e307b75a14a272dee6c8c93789ca8556
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669785"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119725"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>App-beheerdersrollen in Azure Active Directory delegeren
 
@@ -37,8 +37,8 @@ De mogelijkheid voor het beheren van toegang tot toepassingen in Azure portal ve
 1. Aanmelden bij uw [Azure AD-tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) met een account dat in aanmerking komen voor de rol globale beheerder in de tenant.
 2. Als u voldoende machtigingen hebt, opent u de [rollen en beheerders pagina](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 3. Open een van de volgende rollen zijn lid toewijzingen weer te geven:
-  * **Toepassingsbeheerder**
-  * **Beheerder van de cloudtoepassing**
+   * **Toepassingsbeheerder**
+   * **Beheerder van de cloudtoepassing**
 4. Op de **leden** pagina voor de rol, selecteer **lid toevoegen**.
 5. Selecteer een of meer leden toe te voegen aan de rol. <!--Members can be users or groups.-->
 
@@ -50,8 +50,8 @@ Standaard alle gebruikers kunnen toepassingsregistraties maken, maar u kunt sele
 
 1. Aanmelden bij uw [Azure AD-tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) met een account dat in aanmerking komen voor de rol globale beheerder in de tenant.
 2. Wanneer u voldoende machtigingen hebt verkregen, stelt u een of beide van de volgende opties:
-  * Op de [pagina van de gebruiker-instellingen voor uw tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), stel **gebruikers kunnen toepassingen registreren** op Nee.
-  * Op de [gebruikersinstellingen voor bedrijfstoepassingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), stel **gebruikers toestemming kunnen geven tot toepassingen die toegang tot bedrijfsgegevens namens hen** op Nee.
+   * Op de [pagina van de gebruiker-instellingen voor uw tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), stel **gebruikers kunnen toepassingen registreren** op Nee.
+   * Op de [gebruikersinstellingen voor bedrijfstoepassingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), stel **gebruikers toestemming kunnen geven tot toepassingen die toegang tot bedrijfsgegevens namens hen** op Nee.
 3. Gebruikers die deze machtiging aan leden van de toepassingsrol ontwikkelaars zo nodig worden vervolgens toewijzen.
 
 Wanneer een gebruiker een toepassing registreert, worden ze automatisch toegevoegd als de eigenaar van de eerste voor de toepassing.

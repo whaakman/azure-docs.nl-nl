@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 2504a6e4ade46e1746443a8ec3e494563a52ae18
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 7833b5d6b9b94ddcd4b94d96201ccc85497f2529
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884177"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446925"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Een Azure App-configuratiearchief maken
 
@@ -31,7 +31,7 @@ Met dit voorbeeldscript maakt u een nieuw exemplaar van de Azure-app-configurati
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli).
 
-U moet eerst de CLI-extensie voor de Azure-app-configuratie installeren door de volgende opdracht uit te voeren:
+U moet eerst de CLI-extensie voor het Azure App Configuration-archief installeren door de volgende opdracht uit te voeren:
 
         az extension add -n appconfig
 
@@ -75,8 +75,8 @@ In dit script worden de volgende opdrachten gebruikt voor het maken van een nieu
 | Opdracht | Opmerkingen |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Hiermee wordt een resource voor een app-configuratiearchief gemaakt. |
-| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/key#ext-appconfig-az-appconfig-key-list) | Hiermee worden de sleutels vermeld die in een app-configuratiearchief zijn opgeslagen. |
+| [az appconfig create](/cli/azure/ext/appconfig/appconfig) | Hiermee wordt een resource voor een app-configuratiearchief gemaakt. |
+| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/kv) | Hiermee worden de sleutels vermeld die in een app-configuratiearchief zijn opgeslagen. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

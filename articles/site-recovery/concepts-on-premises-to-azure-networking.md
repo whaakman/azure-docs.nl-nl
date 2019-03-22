@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 334537e77d5f291dc38e008af7fed9a4ea973265
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211352"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108845"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Instellen van IP-adressen voor de verbinding met virtuele Azure-machines na een failover
 
@@ -49,8 +49,8 @@ We bekijken een voorbeeld voor failover naar Azure met behulp van een fictieve b
 - Woodgrove Bank als host fungeert voor de business-apps in een on-premises site. Ze hosten hun mobiele apps op Azure.
 - Er is een site-naar-site-VPN-verbinding tussen hun edge on-premises netwerk en de Azure-netwerk. Vanwege de VPN-verbinding, wordt het virtuele netwerk in Azure weergegeven als een uitbreiding van de on-premises netwerk.
 - Voor het repliceren van on-premises werkbelastingen naar Azure met Site Recovery wil Woodgrove.
- - Woodgrove heeft apps die afhankelijk van de vastgelegde IP-adressen, zijn daarom ze moeten voor het IP-adressen voor de apps behouden na een failover naar Azure.
- - Resources die worden uitgevoerd in Azure gebruiken de IP-adresbereik 172.16.1.0/24, 172.16.2.0/24.
+  - Woodgrove heeft apps die afhankelijk van de vastgelegde IP-adressen, zijn daarom ze moeten voor het IP-adressen voor de apps behouden na een failover naar Azure.
+  - Resources die worden uitgevoerd in Azure gebruiken de IP-adresbereik 172.16.1.0/24, 172.16.2.0/24.
 
 ![Voordat de failover van subnet](./media/site-recovery-network-design/network-design7.png)
 

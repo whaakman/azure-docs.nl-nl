@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
-ms.openlocfilehash: 4adcef601ca84b94d88ed65278310a94c7273353
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 51a743e7578ea5bbc2acb9094bbf704a09f3cd6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433312"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858788"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning-overzichtskaart voor Azure Machine Learning Studio
 
@@ -38,7 +38,7 @@ Downloaden en afdrukken van het Machine Learning Studio-algoritme referentiemate
 
 * De aangeboden in deze overzichtskaart suggesties zijn bij benadering regels van de miniatuur. Sommige kunt worden verbogen en sommige flagrantly kunt worden geschonden. Dit is bedoeld om een beginpunt voorstellen. Wees niet bang voor het uitvoeren van een man competitie tussen verschillende algoritmen voor uw gegevens. Er is gewoon geen vervanging voor informatie over de beginselen van elk algoritme en het systeem dat uw gegevens gegenereerd.
 
-* Elke machine learning-algoritme heeft een eigen stijl of *inductieve vertekening*. Verschillende algoritmen is wellicht beter voor een specifiek probleem, en één algoritme mogelijk beter geschikt dan andere. Maar het is niet altijd mogelijk tevoren weten wat het meest geschikt is. In dergelijke gevallen worden verschillende algoritmes samen weergegeven in het referentiemateriaal voor. Een geschikte strategie zou worden omgezet naar één algoritme, en als de resultaten nog niet voldoende zijn, probeer de andere. Hier volgt een voorbeeld van de [Azure AI Gallery](http://gallery.azure.ai/) van een experiment dat probeert verschillende algoritmes op basis van dezelfde gegevens en vergelijkt de resultaten: [Vergelijk ROC classificaties: Herkenning letter](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
+* Elke machine learning-algoritme heeft een eigen stijl of *inductieve vertekening*. Verschillende algoritmen is wellicht beter voor een specifiek probleem, en één algoritme mogelijk beter geschikt dan andere. Maar het is niet altijd mogelijk tevoren weten wat het meest geschikt is. In dergelijke gevallen worden verschillende algoritmes samen weergegeven in het referentiemateriaal voor. Een geschikte strategie zou worden omgezet naar één algoritme, en als de resultaten nog niet voldoende zijn, probeer de andere. Hier volgt een voorbeeld van de [Azure AI Gallery](https://gallery.azure.ai/) van een experiment dat probeert verschillende algoritmes op basis van dezelfde gegevens en vergelijkt de resultaten: [Vergelijk ROC classificaties: Herkenning letter](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 * Er zijn drie hoofdcategorieën van machine learning: **onder supervisie learning**, **leren zonder supervisie**, en **bekrachtigingen**.
 

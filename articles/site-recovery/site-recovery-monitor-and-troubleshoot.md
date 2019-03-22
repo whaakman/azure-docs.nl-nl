@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: 7deea91a016616d9015004857ad9e5ae70e24111
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 5bbde2f1059982424c2557d6a767692b3491f6aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098471"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Bewaken en problemen oplossen van Site Recovery
 
@@ -149,19 +149,19 @@ In het dashboard toevoegen, kunt u machines op de pagina virtuele machines bewak
     ![Site Recovery gerepliceerd weergave van de lijst met items](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. Op de **gerepliceerde items** pagina die u kunt weergeven en filteren van gegevens. U kunt acties uitvoeren voor een bepaalde machine, met inbegrip van een testfailover uitvoeren of het weergeven van specifieke fouten in het actiemenu aan de bovenkant.
-3.  Klik op **kolommen** om extra kolommen, bijvoorbeeld om weer te geven RPO, weer te geven als doel problemen met configuratie en replicatiefouten.
+3. Klik op **kolommen** om extra kolommen, bijvoorbeeld om weer te geven RPO, weer te geven als doel problemen met configuratie en replicatiefouten.
 4. Klik op **Filter** om informatie op basis van specifieke parameters, zoals de replicatiestatus van of een bepaalde replicatiebeleid weer te geven.
 5. Met de rechtermuisknop op een machine bewerkingen zoals het test-failover voor het starten of om details van de specifieke fout die is gekoppeld aan deze weer te geven.
 6. Klik op een machine om te zoomen op meer informatie voor het. Details omvatten:
-      - **Replicatiegegevens**: Huidige status en integriteit van de machine.
-      - **RPO** (recovery point objective): Huidige RPO voor de virtuele machine en de tijd waarbinnen de RPO voor het laatst is berekend.
-      - **Herstelpunten**: Meest recente beschikbare herstelpunten voor de machine.
-      - **Failover-gereedheid**: Geeft aan of een test-failover is uitgevoerd voor de virtuele machine, de agent-versie die wordt uitgevoerd op de computer (voor machines waarop de Mobility-service wordt uitgevoerd) en eventuele configuratieproblemen.
-      - **Fouten**: Lijst met replicatie fout symptomen momenteel waargenomen op de machine en de mogelijke oorzaken en/of acties.
-      - **Gebeurtenissen**: Een chronologische lijst met recente gebeurtenissen die invloed hebben op de machine. Details van deze fout ziet u de symptomen momenteel waarneembare fout terwijl gebeurtenissen is een historisch overzicht van de problemen die mogelijk invloed hebben de machine.
-      - **Infrastructuurweergave**: Toont de status van de infrastructuur voor het scenario dat bij het repliceren van machines naar Azure.
+   - **Replicatiegegevens**: Huidige status en integriteit van de machine.
+   - **RPO** (recovery point objective): Huidige RPO voor de virtuele machine en de tijd waarbinnen de RPO voor het laatst is berekend.
+   - **Herstelpunten**: Meest recente beschikbare herstelpunten voor de machine.
+   - **Failover-gereedheid**: Geeft aan of een test-failover is uitgevoerd voor de virtuele machine, de agent-versie die wordt uitgevoerd op de computer (voor machines waarop de Mobility-service wordt uitgevoerd) en eventuele configuratieproblemen.
+   - **Fouten**: Lijst met replicatie fout symptomen momenteel waargenomen op de machine en de mogelijke oorzaken en/of acties.
+   - **Gebeurtenissen**: Een chronologische lijst met recente gebeurtenissen die invloed hebben op de machine. Details van deze fout ziet u de symptomen momenteel waarneembare fout terwijl gebeurtenissen is een historisch overzicht van de problemen die mogelijk invloed hebben de machine.
+   - **Infrastructuurweergave**: Toont de status van de infrastructuur voor het scenario dat bij het repliceren van machines naar Azure.
 
-    ![Site Recovery gerepliceerd item details/overzicht](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+     ![Site Recovery gerepliceerd item details/overzicht](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 
 ### <a name="common-questions"></a>Veelgestelde vragen
@@ -191,7 +191,7 @@ U kunt zich abonneren voor het ontvangen van e-mailmeldingen voor deze kritieke 
 Abonneer u als volgt:
 
 In de kluis > **bewaking en rapporten** sectie, klikt u op **Site Recovery-gebeurtenissen**.
-2. Klik op **e-mailmeldingen**.
-3. In **e-mailmelding**, meldingen inschakelen en opgeven aan wie de om naar te verzenden. U kunt verzenden naar alle abonnementsbeheerders worden verzonden, meldingen en desgewenst specifieke e-mailadressen.
+1. Klik op **e-mailmeldingen**.
+1. In **e-mailmelding**, meldingen inschakelen en opgeven aan wie de om naar te verzenden. U kunt verzenden naar alle abonnementsbeheerders worden verzonden, meldingen en desgewenst specifieke e-mailadressen.
 
     ![E-mailmeldingen](./media/site-recovery-monitor-and-troubleshoot/email.png)

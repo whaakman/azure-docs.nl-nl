@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 534a9584427efd15b8119f8421fb041199b97fbf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9a124bd9a52e22c359fb771e4d4c8714bd1dbe2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731579"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123229"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Taakverdeling van uw service fabric-cluster
 De Service Fabric Cluster Resource Manager biedt ondersteuning voor dynamische belasting verandert, reageren op toevoegingen of verwijderingen van knooppunten of services. Het wordt ook automatisch gecorrigeerd schendingen van plaatsingsbeperkingen en proactief rebalances de cluster. Maar hoe vaak deze acties worden uitgevoerd, en wat ze activeert?
@@ -122,6 +122,7 @@ via ClusterConfig.json voor implementaties met zelfstandige of Template.json voo
 ```
 
 <center>
+
 ![Voorbeeld van de drempelwaarde voor netwerktaakverdeling][Image1]
 </center>
 
@@ -130,6 +131,7 @@ In dit voorbeeld wordt elke service sommige metrische gegevens voor één eenhei
 In het voorbeeld onder is de maximale belasting van een knooppunt 10, terwijl de minimumwaarde twee is, wat resulteert in een ratio van vijf. Vijf is groter dan de aangewezen drempelwaarde voor taakverdeling van drie voor deze metrische gegevens. Als gevolg hiervan zijn een herverdeling uitvoeren geplande zodra de taakverdeling timer wordt geactiveerd. In een dergelijke situatie wordt meestal enkele load gedistribueerd naar Knooppunt3. Omdat de Service Fabric Cluster Resource Manager biedt geen een greedy benadering gebruiken, kan sommige load ook worden gedistribueerd naar knooppunt2. 
 
 <center>
+
 ![Taakverdeling drempelwaarde voorbeeld acties][Image2]
 </center>
 
@@ -145,6 +147,7 @@ Soms, hoewel er knooppunten zijn relatief imbalanced de *totale* hoeveelheid lad
 Stel dat we onze drempelwaarde Balancing drie voor deze metrische gegevens bewaren. Ook Stel dat we hebben een drempel voor de activiteit van 1536. In het eerste geval is, terwijl de cluster is imbalanced per de netwerktaakverdeling drempelwaarde er kan geen knooppunt voor voldoet aan deze drempelwaarde activiteit, zodat er niets gebeurt. In het voorbeeld onder is knooppunt1 hoger dan de drempelwaarde voor de activiteit. Omdat zowel de drempel voor taakverdeling en de activiteit drempelwaarde voor de metrische gegevens zijn overschreden, is taakverdeling gepland. Een voorbeeld: Bekijk het volgende diagram: 
 
 <center>
+
 ![Voorbeeld van de activiteit drempelwaarde][Image3]
 </center>
 
@@ -194,6 +197,7 @@ Af en toe als een service die is niet van zichzelf imbalanced opgehaald verplaat
 U kunt staren zien waar we hier gaan: Er is een keten. Er zijn geen echt vier onafhankelijke services, er zijn drie services die zijn gekoppeld en dat is uitgeschakeld op een eigen.
 
 <center>
+
 ![Samen Balancing-Services][Image4]
 </center>
 
@@ -202,6 +206,7 @@ Vanwege deze keten is het mogelijk dat een uit balans zijn metrische gegevens ov
 Cluster Resource Manager wordt automatisch zoekt uit welke services zijn gerelateerd. Toe te voegen, te verwijderen of wijzigen van de metrische gegevens voor services kan invloed hebben op hun relaties. Bijvoorbeeld, tussen twee uitvoeringen van netwerktaakverdeling Service2 mogelijk zijn bijgewerkt als u wilt verwijderen van Metric2. Hiermee wordt de keten tussen Service1 en Service2 verbroken. In plaats van twee groepen met gerelateerde services zijn er nu drie:
 
 <center>
+
 ![Samen Balancing-Services][Image5]
 </center>
 

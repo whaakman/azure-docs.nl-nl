@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/14/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: a27cd45ebec41a90a1627bff157c1058b83a25e6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6ebd25dc65f86e5e028c1c56943756b46d0db9a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098080"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011809"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Veelgestelde vragen over Cloudyn
 
@@ -75,7 +75,7 @@ Nadat u de voorgaande stappen hebt voltooid, kunt u optimaliseren aanbevelingen 
 Eerst laten we bekijken met de meest gebruikte scenario dat ervoor zorgt dat de accounts voor gebruikers om op te halen *initiallySuspended*.
 
 > Admin1 mogelijk Microsoft Cloud Solution Provider- of Enterprise Agreement-gebruiker. De organisatie is klaar om te beginnen met behulp van Cloudyn.  Hij wordt geregistreerd via Azure portal en zich bij de Cloudyn-portal aanmeldt. Als de persoon die de Cloudyn-service en zich bij de Cloudyn-portal registreert, wordt hij de *primaire beheerder*. Admin1 maakt niet alle gebruikersaccounts. Echter met behulp van de Cloudyn-portal, hij maakt Azure-accounts en stelt u een hiërarchie voor entiteitskosten. Admin1 informeert Admin2, tenantbeheerder die hij nodig heeft om te registreren bij Cloudyn en meld u aan bij de Cloudyn-portal.
-
+> 
 > Admin2 wordt geregistreerd via Azure portal. Echter wanneer hij wil zich aanmelden bij de Cloudyn-portal, hij krijgt een foutmelding met de mededeling zijn account is **onderbroken**. De primaire Admin1,-beheerder is op de hoogte gesteld van de account-onderbreking. Admin1 moet Admin2 van account activeren en verleen *entiteit beheerderstoegang* voor de juiste entiteiten en kunt u toegang tot de gebruiker en actieve account van de gebruiker.
 
 
@@ -126,9 +126,9 @@ Cloudyn automatisch detecteert de valuta van uw Enterprise Agreement-abonnement 
 
 Cloudyn heeft de volgende gegevens vernieuwen tijdlijnen:
 
-- **Eerste**: nadat u ingesteld, duurt het tot 24 uur om gegevens van cost in Cloudyn weer te geven. Het kan ook voor Cloudyn voor het verzamelen van voldoende gegevens om schaling aanbevelingen weer te geven tot tien dagen duren.
-- **Dagelijkse**: van de tiende aan het einde van elke maand, Cloudyn moet worden weergegeven uw gegevens actueel te houden van de vorige dag na over UTC + 3 de volgende dag.
-- **Maandelijkse**: van de eerste dag tot de tiende dag van elke maand, Cloudyn uw gegevens alleen via het einde van de vorige maand kan weergeven.
+- **Eerste**: Nadat u hebt ingesteld, duurt het tot 24 uur om gegevens van cost in Cloudyn weer te geven. Het kan ook voor Cloudyn voor het verzamelen van voldoende gegevens om schaling aanbevelingen weer te geven tot tien dagen duren.
+- **Dagelijkse**: Uit de tiende aan het einde van elke maand, Cloudyn moet worden weergegeven uw gegevens actueel te houden van de vorige dag na over UTC + 3 de volgende dag.
+- **Maandelijkse**: Na de eerste dag tot de tiende dag van elke maand, mogelijk Cloudyn uw gegevens alleen via het einde van de vorige maand weer.
 
 Cloudyn verwerkt de gegevens voor de vorige dag waarop de volledige gegevens uit de vorige dag beschikbaar is. Gegevens van de vorige dag zijn gewoonlijk beschikbaar in Cloudyn door over UTC + 3 elke dag. Sommige gegevens, zoals tags, kan een extra 24 uur voor het verwerken van duren.
 

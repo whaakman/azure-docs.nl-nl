@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 978667dcd3f7bd10192a396ec3e8d097bdb73509
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 0988902e0a2154f2935a01ddcfb6a460be693df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57577140"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093800"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows VHD of VHDX te uploaden naar Azure voorbereiden
 Voordat u een Windows virtuele machines (VM van on-premises met Microsoft Azure) uploadt, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt **alleen virtuele machines van generatie 1** die in de VHD-indeling en hebben een schijf met vaste grootte. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM op basis van de VHDX-bestandssysteem en naar een dynamisch uitbreidbare schijf naar vaste VHD converteren. Maar u kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [maak ik een generatie 1 of 2 virtuele machine in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -320,14 +320,14 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
 
 9. Controleer de volgende Active Directory-beleid om ervoor te zorgen dat u een van de volgende niet wilt verwijderen de accounts vereist voor toegang:
 
-    - Computer Configuration\Windows Settings\Security instellingen\Beveiligingsinstellingen\Lokaal beleid\Toewijzing rechten Assignment\Access deze berekeningen van het netwerk
+   - Computer Configuration\Windows Settings\Security instellingen\Beveiligingsinstellingen\Lokaal beleid\Toewijzing rechten Assignment\Access deze berekeningen van het netwerk
 
-    De volgende groepen moeten worden weergegeven op dit beleid:
+     De volgende groepen moeten worden weergegeven op dit beleid:
 
-    - Beheerders
-    - Back-upoperators
-    - Iedereen
-    - Gebruikers
+   - Beheerders
+   - Back-upoperators
+   - Iedereen
+   - Gebruikers
 
 10. Opnieuw opstarten van de virtuele machine om ervoor te zorgen dat Windows nog steeds in orde is, kan worden bereikt met behulp van de RDP-verbinding. Op dit moment kunt u een virtuele machine maken in uw lokale Hyper-V Zorg ervoor dat de virtuele machine volledig is gestart en vervolgens controleren of het RDP-bereikbaar is.
 
@@ -416,12 +416,12 @@ Biedt ondersteuning voor deze generalisatie niet elke rol of de toepassing die g
 De volgende instellingen hebben geen invloed op de VHD uploaden. Echter, wordt aangeraden dat u deze hebt geconfigureerd.
 
 * Installeer de [Azure VM's Agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vervolgens kunt u VM-extensies. De VM-extensies implementeren de meeste van de essentiële functionaliteit die u mogelijk wilt gebruiken met uw VM opnieuw instellen van wachtwoorden, zoals het configureren van RDP's, enzovoort. Zie voor meer informatie, [overzicht van Azure Virtual Machine Agent](../extensions/agent-windows.md).
-*  Nadat de virtuele machine is gemaakt in Azure, wordt u aangeraden dat u het wisselbestand op het stationsvolume 'Tijdelijke plaatsen' om prestaties te verbeteren. U kunt instellen dit als volgt:
+* Nadat de virtuele machine is gemaakt in Azure, wordt u aangeraden dat u het wisselbestand op het stationsvolume 'Tijdelijke plaatsen' om prestaties te verbeteren. U kunt instellen dit als volgt:
 
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
-    ```
-Als er een gegevensschijf die is gekoppeld aan de virtuele machine, is de stationsletter van het volume van de tijdelijke schijf doorgaans "D." Deze aanwijzing mogelijk verschillen, afhankelijk van het aantal beschikbare stations en de instellingen die u aanbrengt.
+   ```PowerShell
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
+   ```
+  Als er een gegevensschijf die is gekoppeld aan de virtuele machine, is de stationsletter van het volume van de tijdelijke schijf doorgaans "D." Deze aanwijzing mogelijk verschillen, afhankelijk van het aantal beschikbare stations en de instellingen die u aanbrengt.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Een Windows VM-installatiekopie uploaden naar Azure voor Resource Manager-implementaties](upload-generalized-managed.md)

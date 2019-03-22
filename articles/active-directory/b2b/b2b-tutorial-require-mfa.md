@@ -9,14 +9,15 @@ ms.date: 06/25/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a4ed93bee091bf0a40718a47ffb7cd97a85147c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 94e5f4eaf32815dd0342ef73705efb2c575b71bc
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993493"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293989"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Zelfstudie: Meervoudige verificatie voor B2B-gastgebruikers forceren
 
@@ -24,7 +25,7 @@ Wanneer u met externe B2B-gastgebruikers samenwerkt, is het raadzaam om uw apps 
 
 Voorbeeld:
 
-![B2B-app waarbij MFA is vereist](media/tutorial-mfa/aad-b2b-mfa-example.png)
+![Diagram van een gastgebruiker van een bedrijfs-apps aan te melden](media/tutorial-mfa/aad-b2b-mfa-example.png)
 
 1.  Een beheerder of medewerker van bedrijf A nodigt een gastgebruiker uit om een cloud- of on-premises toepassing te gebruiken die zodanig is geconfigureerd dat MFA nodig is voor toegang.
 2.  De gastgebruiker meldt zich aan met de identiteit van zijn eigen werk, school of organisatie. 
@@ -56,11 +57,11 @@ Voor het voltooien van het scenario in deze zelfstudie hebt u het volgende nodig
 3.  Onder **Beheren**, selecteer **Gebruikers**.
 4.  Selecteer **Nieuwe gastgebruiker**.
 
-    ![Selecteer Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-3.png)
+    ![Schermopname die laat zien waar u de nieuwe optie voor de Gast-gebruiker selecteren](media/tutorial-mfa/tutorial-mfa-user-3.png)
 
 5.  Onder **Gebruikersnaam**, voer het e-mailadres van de externe gebruiker in. U kunt optioneel een welkomstbericht toevoegen. 
 
-    ![Selecteer Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-4.png)
+    ![Schermopname die laat zien waar u het bericht van de uitnodiging Gast invoert](media/tutorial-mfa/tutorial-mfa-user-4.png)
 
 6.  Selecteer **Uitnodigen** voor het automatisch verzenden van de uitnodiging voor de gastgebruiker. Het bericht **Gebruiker is uitgenodigd** verschijnt. 
 7.  Nadat u de uitnodiging verzendt, wordt het gebruikersaccount automatisch toegevoegd aan de map als gast.
@@ -79,26 +80,26 @@ Voor het voltooien van het scenario in deze zelfstudie hebt u het volgende nodig
 6.  Selecteer in de sectie **Toewijzingen** de optie **Gebruikers en groepen**.
 7.  Kies op de pagina **Gebruikers en groepen** de optie **Gebruikers en groepen selecteren** en selecteer vervolgens **Alle gastgebruikers (preview)**.
 
-    ![Selecteer Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-6.png)
+    ![Schermopname die laat zien alle gastgebruikers ook kunnen selecteren](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9.  Selecteer **Done**.
 10. Selecteer op de pagina **Nieuw** in de sectie **Toewijzingen** de optie **Cloud-apps**.
 11. Kies op de pagina **Cloud-apps** de optie **Apps selecteren** en kies vervolgens **Selecteren**.
 
-    ![Selecteer Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-10.png)
+    ![Schermopname van de pagina van de Cloud-apps en de optie selecteren](media/tutorial-mfa/tutorial-mfa-policy-10.png)
 
 12. Kies op de pagina **Selecteren** de optie **Microsoft Azure Management** en kies vervolgens **Selecteren**.
 
-    ![Selecteer Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![Schermopname van de Microsoft Azure Management-app geselecteerd](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
 13. Selecteer op de pagina **Cloud-apps** de optie **Gereed**.
 14. Selecteer op de pagina **Nieuw** in de sectie **Toegangscontroles** de optie **Verlenen**.
 15. Kies op de pagina **Verlenen** de optie **Toegang verlenen**, selecteer het selectievakje **Multi-factor authentication afdwingen** en kies vervolgens **Selecteren**.
 
-    ![Selecteer Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-13.png)
+    ![Schermopname van de optie voor meervoudige verificatie vereisen](media/tutorial-mfa/tutorial-mfa-policy-13.png)
 
 16. Selecteer onder **Beleid inschakelen** de optie **Aan**.
 
-    ![Selecteer Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-14.png)
+    ![Schermopname van de optie inschakelen beleid ingesteld op aan](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
 17. Selecteer **Maken**.
 
@@ -106,27 +107,27 @@ Voor het voltooien van het scenario in deze zelfstudie hebt u het volgende nodig
 
 1.  Selecteer op de pagina **Voorwaardelijke toegang – Beleid** de optie **What If**. 
 
-    ![Selecteer Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![Schermopname die laat zien waar het wat selecteren als optie](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
 2.  Selecteer **Gebruiker**, kies uw test-gastgebruiker en kies vervolgens **Selecteren**.
 
-    ![Selecteer Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
+    ![Schermafbeelding van een gastgebruiker geselecteerd](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
 3.  Selecteer **Cloud-apps**.
 4.  Kies op de pagina **Cloud-apps** de optie **Apps selecteren**  en klik vervolgens op **Selecteren**. Selecteer **Microsoft Azure Management** in de lijst met toepassingen en klik vervolgens op **Selecteren**. 
 
-    ![Selecteer Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
+    ![Schermopname van de Microsoft Azure Management-app geselecteerd](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 
 5.  Selecteer op de pagina **Cloud-apps** de optie **Gereed**.
 6.  Selecteer **What If** en controleer of uw nieuwe beleid verschijnt onder **Evaluatieresultaten** op het tabblad **Beleid dat van toepassing is**.
 
-    ![Selecteer Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
+    ![Schermopname die laat zien waar het wat selecteren als optie](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
 ## <a name="test-your-conditional-access-policy"></a>Uw voorwaardelijke toegangsbeleid testen
 1.  Meld u aan bij de [Azure-portal](https://portal.azure.com/) met uw gebruikersnaam en wachtwoord.
 2.  Als het goed is, krijgt u nu een aanvraag om extra verificatiemethoden te zien. Houd er rekening mee dat het enige tijd kan duren voordat het beleid van kracht wordt.
 
-    ![Selecteer Azure Active Directory](media/tutorial-mfa/mfa-required.png)
+    ![Schermopname van het bericht met meer vereist](media/tutorial-mfa/mfa-required.png)
  
 3.  Meld u af.
 

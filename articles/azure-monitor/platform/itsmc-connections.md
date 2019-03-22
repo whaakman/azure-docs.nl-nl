@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: a07512c801d8e6c0f0ff3242fe1b94eeab5b2534
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 64a4e7a181f7bd24e305ef5ee8d3d6657c3f394b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081284"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinding maken met ITSM-producten en services met IT Service Management-Connector
 In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM-product/service en de IT Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](../../azure-monitor/platform/itsmc-overview.md).
@@ -30,7 +30,7 @@ De volgende ITSM-producten en services worden ondersteund. Selecteer het product
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-azure)
 
 > [!NOTE]
-
+> 
 > ITSM-Connector kan alleen verbinding maken met de cloud-gebaseerde ServiceNow-exemplaren. On-premises ServiceNow-instanties zijn momenteel niet ondersteund.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Verbinding maken met System Center Service Manager IT Service Management-Connector in Azure
@@ -62,7 +62,7 @@ Gebruik de volgende procedure verbinding maken met uw exemplaar van System Cente
 4. Geef de informatie zoals beschreven in de volgende tabel, en klikt u op **OK** om de verbinding te maken.
 
 > [!NOTE]
-
+> 
 > Alle deze parameters zijn verplicht.
 
 | **Veld** | **Beschrijving** |
@@ -137,14 +137,14 @@ Gebruik de volgende procedure om de hybride verbinding die verbinding maakt van 
 
 6. Typ de volgende waarden:
 
-    - **Naam van het eindpunt**: Geef een naam voor de nieuwe hybride verbinding.
-    -  **Host van het eindpunt**: FQDN-naam van de Service Manager-beheerserver.
-    - **Poort van het eindpunt**: Type 5724
-    - **Service Bus-naamruimte**: Gebruik een bestaande service bus-naamruimte of een nieuwe maken.
-    - **Locatie**: Selecteer de locatie.
-    -  **Naam**: Geef een naam op voor de service bus als u deze maakt.
+   - **Naam van het eindpunt**: Geef een naam voor de nieuwe hybride verbinding.
+   - **Host van het eindpunt**: FQDN-naam van de Service Manager-beheerserver.
+   - **Poort van het eindpunt**: Type 5724
+   - **Service Bus-naamruimte**: Gebruik een bestaande service bus-naamruimte of een nieuwe maken.
+   - **Locatie**: Selecteer de locatie.
+   - **Naam**: Geef een naam op voor de service bus als u deze maakt.
 
-    ![Hybride verbindingswaarden](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
+     ![Hybride verbindingswaarden](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Klik op **OK** sluiten de **hybride verbinding maken** blade en beginnen met het maken van de hybride verbinding.
 
     Zodra de hybride verbinding is gemaakt, wordt deze weergegeven op de blade.
@@ -171,7 +171,7 @@ De hybride verbinding is verbonden.
 
 ![geslaagde hybride verbinding](media/itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
-
+> 
 > Nadat de hybride verbinding is gemaakt, controleren en de verbinding testen door naar de geïmplementeerde Service Manager-Web-app te gaan. Zorg ervoor dat de verbinding is geslaagd voordat u probeert verbinding maken met ITSMC in Azure.
 
 Het volgende voorbeeldafbeelding ziet u de details van de verbinding is geslaagd:
@@ -185,7 +185,7 @@ De volgende secties bevatten informatie over hoe u verbinding maken met uw Servi
 ### <a name="prerequisites"></a>Vereisten
 Zorg ervoor dat de volgende vereisten wordt voldaan:
 - ITSMC geïnstalleerd. Meer informatie: [Toevoegen van IT Service Management Connector-oplossing](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow ondersteunde versies: Kingston, Jakarta, Istanboel, Helsinki, Genève.
+- ServiceNow ondersteunde versies: Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 
 **ServiceNow Admins moet het volgende in de ServiceNow-exemplaar doen**:
 - Client-ID en clientgeheim voor de ServiceNow-product te genereren. Zie de volgende informatie zoals vereist voor meer informatie over het maken van de client-ID en -geheim:
@@ -244,20 +244,20 @@ Meer informatie: [ITSM-werkitems maken vanuit Azure-waarschuwingen](../../azure-
 
 Gebruiker met de volgende procedure:
 
-1.  Ga naar de [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) en installeer de **gebruiker-App voor ServiceNow en Microsoft OMS Integration** in uw ServiceNow-exemplaar.
+1. Ga naar de [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) en installeer de **gebruiker-App voor ServiceNow en Microsoft OMS Integration** in uw ServiceNow-exemplaar.
    
    >[!NOTE]
    >Als onderdeel van de lopende overgang van Microsoft Operations Management Suite (OMS) naar Azure Monitor, wordt OMS nu aangeduid als Log Analytics.     
-2.  Na de installatie, gaat u naar de linker navigatiebalk van het ServiceNow-exemplaar, zoeken en selecteer Microsoft OMS integrator.  
-3.  Klik op **controlelijst voor de installatie**.
+2. Na de installatie, gaat u naar de linker navigatiebalk van het ServiceNow-exemplaar, zoeken en selecteer Microsoft OMS integrator.  
+3. Klik op **controlelijst voor de installatie**.
 
-    De status wordt weergegeven als **niet worden voltooid** als de gebruikersrol nog is moet worden gemaakt.
+   De status wordt weergegeven als **niet worden voltooid** als de gebruikersrol nog is moet worden gemaakt.
 
-4.  In de tekstvakken naast **maken de integratiegebruiker**, voer de gebruikersnaam voor de gebruiker die verbinding met ITSMC in Azure maken kan.
-5.  Voer het wachtwoord voor deze gebruiker en klikt u op **OK**.  
+4. In de tekstvakken naast **maken de integratiegebruiker**, voer de gebruikersnaam voor de gebruiker die verbinding met ITSMC in Azure maken kan.
+5. Voer het wachtwoord voor deze gebruiker en klikt u op **OK**.  
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > U gebruikt deze referenties voor het maken van het ServiceNow-verbinding in Azure.
 
 De nieuwe gebruiker wordt weergegeven met de standaardrollen is toegewezen.
@@ -266,16 +266,16 @@ De nieuwe gebruiker wordt weergegeven met de standaardrollen is toegewezen.
 - personalize_choices
 - import_transformer
 -   x_mioms_microsoft.user
--   ITIL
+-   itil
 -   template_editor
 -   view_changer
 
 Als de gebruiker is gemaakt, de status van **controlelijst voor de installatie controleren** wordt verplaatst naar voltooid, de details van de gebruikersrol van de aanbieding hebt gemaakt voor de app.
 
 > [!NOTE]
-
+> 
 > ITSM-Connector kunt incidenten verzenden naar ServiceNow zonder alle modules die op uw ServiceNow-exemplaar is geïnstalleerd. Als u van EventManagement module in uw ServiceNow-exemplaar gebruikmaakt en gebeurtenissen of waarschuwingen in ServiceNow met behulp van de connector maken, moet u de volgende rollen toevoegen aan de van integratiegebruiker:
-
+> 
 >    - evt_mgmt_integration
 >    - evt_mgmt_operator  
 
@@ -309,7 +309,7 @@ Gebruik de volgende procedure om een Provance verbinding te maken:
 4. Geef de informatie zoals beschreven in de volgende tabel, en klikt u op **OK** om de verbinding te maken.
 
 > [!NOTE]
-
+> 
 > Alle deze parameters zijn verplicht.
 
 | **Veld** | **Beschrijving** |
@@ -360,7 +360,7 @@ Gebruik de volgende procedure om een Provance verbinding te maken:
 4. Geef de informatie zoals beschreven in de volgende tabel, en klikt u op **OK** om de verbinding te maken.
 
 > [!NOTE]
-
+> 
 > Alle deze parameters zijn verplicht.
 
 | **Veld** | **Beschrijving** |

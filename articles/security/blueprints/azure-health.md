@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544559"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225362"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI
 
@@ -359,7 +359,7 @@ De oplossing biedt ondersteuning voor Azure Event Grid, een geïntegreerde servi
 - [Application Insights](/azure/application-insights/app-insights-overview) is een uitbreidbare service voor Application Performance Management (APM) voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties wordt gedetecteerd. De service bevat krachtige analysehulpmiddelen om u te helpen bij het vaststellen van problemen en te begrijpen wat gebruikers daadwerkelijk doen met uw app. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren.
 
 ### <a name="azure-alerts"></a>Azure-waarschuwingen
-- [Waarschuwingen bieden een methode van de bewaking van Azure-services en kunnen u voorwaarden configureren voor gegevens. Waarschuwingen bieden ook meldingen wanneer de voorwaarde voor een waarschuwing overeenkomt met de gegevens.
+- [Waarschuwingen](/azure/azure-monitor/platform/alerts-metric) bieden een methode van de bewaking van Azure-services en kunt u voorwaarden configureren voor gegevens. Waarschuwingen bieden ook meldingen wanneer de voorwaarde voor een waarschuwing overeenkomt met de gegevens.
 
 ### <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 [Logboeken in Azure Monitor](/azure/operations-management-suite/operations-management-suite-overview) is een verzameling beheerservices.
@@ -372,7 +372,7 @@ De oplossing biedt ondersteuning voor Azure Event Grid, een geïntegreerde servi
 
     -   Identiteit en toegang
 
-    -   Beveiliging en controle
+    -   Beveiliging en audit
 
     -   Azure SQL DB Analytics
 

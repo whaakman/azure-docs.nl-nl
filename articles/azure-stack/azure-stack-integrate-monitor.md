@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: ff28fbb52b33308967051a37fdaa3c6c273fc282
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 64a31e0c8a36b7ea8b60f65caefba9ba15b91777
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816087"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258731"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Oplossing voor externe controle integreren met Azure Stack
 
@@ -81,8 +81,8 @@ De invoegtoepassingbestand "Azurestack_plugin.py" configureren met de volgende p
 
 | Parameter | Description | Voorbeeld |
 |---------|---------|---------|
-| *arm_endpoint* | Azure Resource Manager (beheerder)-eindpunt |https://adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure Resource Manager (beheerder)-eindpunt  | https://adminmanagement.local.azurestack.external |
+| *arm_endpoint* | Azure Resource Manager (beheerder)-eindpunt |https:\//adminmanagement.local.azurestack.external |
+| *api_endpoint* | Azure Resource Manager (beheerder)-eindpunt  | https:\//adminmanagement.local.azurestack.external |
 | *Tenant_id* | Beheerder abonnements-ID | Ophalen via de beheerdersportal of PowerShell |
 | *User_name* | Operator abonnement gebruikersnaam | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Operator abonnement wachtwoord | mijnwachtwoord |
@@ -96,12 +96,12 @@ De invoegtoepassingbestand "Azurestack_plugin.py" configureren met de volgende p
 
 Als u Operations Manager, Nagios of een oplossing op basis van Nagios niet gebruikt, kunt u PowerShell gebruiken om in te schakelen van een breed scala aan oplossingen voor integratie met Azure Stack voor de controle.
 
-1. Zorg ervoor dat u voor het gebruik van PowerShell, [PowerShell is geïnstalleerd en geconfigureerd](azure-stack-powershell-configure-quickstart.md) voor een Azure Stack-operator-omgeving. PowerShell installeren op een lokale computer die de Resource Manager (beheerder)-eindpunt kan bereiken (https://adminmanagement. [ de regio]. [External_FQDN]).
+1. Zorg ervoor dat u voor het gebruik van PowerShell, [PowerShell is geïnstalleerd en geconfigureerd](azure-stack-powershell-configure-quickstart.md) voor een Azure Stack-operator-omgeving. PowerShell installeren op een lokale computer die de Resource Manager (beheerder)-eindpunt kan bereiken (https:\//adminmanagement. [ de regio]. [External_FQDN]).
 
 2. Voer de volgende opdrachten om te verbinden met de Azure Stack-omgeving als Azure Stack-operators:
 
    ```PowerShell  
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```

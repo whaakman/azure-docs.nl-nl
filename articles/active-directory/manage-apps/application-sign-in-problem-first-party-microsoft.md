@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09f1ef137bbad50e72771c4368346716336c4faf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0522311c12da8416504a6d502e1e2247ff8ce15b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447095"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104145"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemen met aanmelden bij een Microsoft-toepassing
 
@@ -53,7 +53,7 @@ Hieronder volgt een lijst van de algemene probleemgebieden die u inzoomen kunt o
 
 Hieronder vindt u enkele veelvoorkomende problemen mensen ondervindt wanneer hun gebruikers kunnen niet bij een Microsoft-toepassing aanmelden.
 
--   Algemene problemen om eerst te controleren
+- Algemene problemen om eerst te controleren
 
   * Zorg ervoor dat de gebruiker zich aanmeldt voor de **Corrigeer de URL** en niet de URL van een lokale toepassing.
 
@@ -65,31 +65,31 @@ Hieronder vindt u enkele veelvoorkomende problemen mensen ondervindt wanneer hun
 
   * Zorg ervoor dat de gebruiker **wachtwoord niet is verlopen of is vergeten.** [Opnieuw instellen van wachtwoord van een gebruiker](#reset-a-users-password) of [selfservice voor wachtwoordherstel inschakelen](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
-   * Zorg ervoor dat **multi-Factor Authentication** gebruikerstoegang niet blokkeert. [Controleer de status van van een gebruiker multi-factor authentication](#check-a-users-multi-factor-authentication-status) of [contactgegevens voor verificatie van een gebruiker controleren](#check-a-users-authentication-contact-info)
+  * Zorg ervoor dat **multi-Factor Authentication** gebruikerstoegang niet blokkeert. [Controleer de status van van een gebruiker multi-factor authentication](#check-a-users-multi-factor-authentication-status) of [contactgegevens voor verificatie van een gebruiker controleren](#check-a-users-authentication-contact-info)
 
-   * Zorg ervoor dat een **beleid voor voorwaardelijke toegang** of **Identity Protection** beleid voor de gebruikerstoegang niet blokkeert. [Controleren op een specifieke voorwaardelijk toegangsbeleid](#problems-with-conditional-access-policies) of [controleren van beleid voor voorwaardelijke toegang van een bepaalde toepassing](#check-a-specific-applications-conditional-access-policy) of [beleid voor specifieke voorwaardelijke toegang uitschakelen](#disable-a-specific-conditional-access-policy)
+  * Zorg ervoor dat een **beleid voor voorwaardelijke toegang** of **Identity Protection** beleid voor de gebruikerstoegang niet blokkeert. [Controleren op een specifieke voorwaardelijk toegangsbeleid](#problems-with-conditional-access-policies) of [controleren van beleid voor voorwaardelijke toegang van een bepaalde toepassing](#check-a-specific-applications-conditional-access-policy) of [beleid voor specifieke voorwaardelijke toegang uitschakelen](#disable-a-specific-conditional-access-policy)
 
-   * Zorg ervoor dat een gebruiker **contactgegevens voor verificatie** is up-to-date om toe te staan van multi-factor Authentication of voorwaardelijk beleid moeten worden afgedwongen. [Controleer de status van van een gebruiker multi-factor authentication](#check-a-users-multi-factor-authentication-status) of [contactgegevens voor verificatie van een gebruiker controleren](#check-a-users-authentication-contact-info)
+  * Zorg ervoor dat een gebruiker **contactgegevens voor verificatie** is up-to-date om toe te staan van multi-factor Authentication of voorwaardelijk beleid moeten worden afgedwongen. [Controleer de status van van een gebruiker multi-factor authentication](#check-a-users-multi-factor-authentication-status) of [contactgegevens voor verificatie van een gebruiker controleren](#check-a-users-authentication-contact-info)
 
--   Voor **Microsoft** **toepassingen waarvoor een licentie** (zoals Office365) wordt gebruikt, worden hier enkele specifieke problemen te controleren als u de algemene problemen met bovenstaande zijn uitgesloten:
+- Voor **Microsoft** **toepassingen waarvoor een licentie** (zoals Office365) wordt gebruikt, worden hier enkele specifieke problemen te controleren als u de algemene problemen met bovenstaande zijn uitgesloten:
 
-   * Zorg ervoor dat de gebruiker of heeft een **-licentie is toegewezen.** [Controleren van een gebruiker toegewezen licenties](#check-a-users-assigned-licenses) of [toegewezen licenties van een groep controleren](#check-a-groups-assigned-licenses)
+  * Zorg ervoor dat de gebruiker of heeft een **-licentie is toegewezen.** [Controleren van een gebruiker toegewezen licenties](#check-a-users-assigned-licenses) of [toegewezen licenties van een groep controleren](#check-a-groups-assigned-licenses)
 
-   * Als de licentie is **toegewezen aan een** **statische groep**, zorg ervoor dat de **gebruiker lid is** van die groep. [Controleren van groepslidmaatschappen van een gebruiker](#check-a-users-group-memberships)
+  * Als de licentie is **toegewezen aan een** **statische groep**, zorg ervoor dat de **gebruiker lid is** van die groep. [Controleren van groepslidmaatschappen van een gebruiker](#check-a-users-group-memberships)
 
-   * Als de licentie is **toegewezen aan een** **dynamische groep**, zorg ervoor dat de **dynamische groepsregel juist is ingesteld**. [Criteria voor lidmaatschap van een dynamische groep controleren](#check-a-dynamic-groups-membership-criteria)
+  * Als de licentie is **toegewezen aan een** **dynamische groep**, zorg ervoor dat de **dynamische groepsregel juist is ingesteld**. [Criteria voor lidmaatschap van een dynamische groep controleren](#check-a-dynamic-groups-membership-criteria)
 
-   * Als de licentie is **toegewezen aan een** **dynamische groep**, zorg ervoor dat de dynamische groep heeft **verwerkt** het lidmaatschap en dat de **gebruiker lid is**  (dit kan enige tijd duren). [Controleren van groepslidmaatschappen van een gebruiker](#check-a-users-group-memberships)
+  * Als de licentie is **toegewezen aan een** **dynamische groep**, zorg ervoor dat de dynamische groep heeft **verwerkt** het lidmaatschap en dat de **gebruiker lid is**  (dit kan enige tijd duren). [Controleren van groepslidmaatschappen van een gebruiker](#check-a-users-group-memberships)
 
-   *  Als u ervoor te zorgen dat de licentie is toegewezen, zorg ervoor dat de licentie is **niet verlopen**.
+  *  Als u ervoor te zorgen dat de licentie is toegewezen, zorg ervoor dat de licentie is **niet verlopen**.
 
-   *  Zorg ervoor dat de licentie is **voor de toepassing** ze openen.
+  *  Zorg ervoor dat de licentie is **voor de toepassing** ze openen.
 
--   Voor **Microsoft** **toepassingen waarvoor een licentie niet**, Hier volgen enkele dingen om te controleren:
+- Voor **Microsoft** **toepassingen waarvoor een licentie niet**, Hier volgen enkele dingen om te controleren:
 
-   * Als de toepassing aanvraagt **op gebruikersniveau machtigingen** (bijvoorbeeld ' toegang tot deze gebruiker Postvak"), zorg ervoor dat de gebruiker is aangemeld bij de toepassing en is uitgevoerd. een **toestemming op gebruikersniveau bewerking** zodat de toepassing toegang tot haar gegevens.
+  * Als de toepassing aanvraagt **op gebruikersniveau machtigingen** (bijvoorbeeld ' toegang tot deze gebruiker Postvak"), zorg ervoor dat de gebruiker is aangemeld bij de toepassing en is uitgevoerd. een **toestemming op gebruikersniveau bewerking** zodat de toepassing toegang tot haar gegevens.
 
-   * Als de toepassing aanvraagt **administratormachtigingen** (bijvoorbeeld ' toegang tot postvakken van alle gebruikers'), zorg ervoor dat een globale beheerder is uitgevoerd. een **bewerking op beheerdersniveau toestemming andere gebruikers van alle gebruikers** in de organisatie.
+  * Als de toepassing aanvraagt **administratormachtigingen** (bijvoorbeeld ' toegang tot postvakken van alle gebruikers'), zorg ervoor dat een globale beheerder is uitgevoerd. een **bewerking op beheerdersniveau toestemming andere gebruikers van alle gebruikers** in de organisatie.
 
 ## <a name="problems-with-the-users-account"></a>Problemen met het account van de gebruiker
 
@@ -187,25 +187,25 @@ Om in te schakelen Self-service voor wachtwoord opnieuw instellen, volgt u de on
 
 Als u wilt controleren van een gebruiker multi-factor authentication-status, de volgende stappen uit:
 
-1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **gebruikers en groepen** in het navigatiemenu.
+4. Klik op **gebruikers en groepen** in het navigatiemenu.
 
-5.  Klik op **alle gebruikers**.
+5. Klik op **alle gebruikers**.
 
-6.  Klik op de **multi-Factor Authentication** knop aan de bovenkant van het deelvenster.
+6. Klik op de **multi-Factor Authentication** knop aan de bovenkant van het deelvenster.
 
-7.  Zodra de **multi-factor Authentication-beheerportal** belastingen, zorg ervoor dat u zich op de **gebruikers** tabblad.
+7. Zodra de **multi-factor Authentication-beheerportal** belastingen, zorg ervoor dat u zich op de **gebruikers** tabblad.
 
-8.  Zoek de gebruiker in de lijst van gebruikers door te zoeken, filteren of sorteren.
+8. Zoek de gebruiker in de lijst van gebruikers door te zoeken, filteren of sorteren.
 
-9.  Selecteer de gebruiker in de lijst met gebruikers en **inschakelen**, **uitschakelen**, of **afdwingen** meervoudige verificatie naar wens.
+9. Selecteer de gebruiker in de lijst met gebruikers en **inschakelen**, **uitschakelen**, of **afdwingen** meervoudige verificatie naar wens.
 
-  * **Opmerking**: Als een gebruiker zich in een **afgedwongen** staat, deze kan worden ingesteld op **uitgeschakelde** tijdelijk wilt laten terug bij hun account. Nadat zij zich terug in, kunt u vervolgens hun status om te wijzigen **ingeschakeld** opnieuw voor moet de gebruiker opnieuw registreren hun contactgegevens tijdens de volgende aanmelding in. U kunt ook u kunt de stappen in de [contactgegevens voor verificatie van een gebruiker controleren](#check-a-users-authentication-contact-info) om te controleren of instellen dat deze gegevens voor hen.
+   * **Opmerking**: Als een gebruiker zich in een **afgedwongen** staat, deze kan worden ingesteld op **uitgeschakelde** tijdelijk wilt laten terug bij hun account. Nadat zij zich terug in, kunt u vervolgens hun status om te wijzigen **ingeschakeld** opnieuw voor moet de gebruiker opnieuw registreren hun contactgegevens tijdens de volgende aanmelding in. U kunt ook u kunt de stappen in de [contactgegevens voor verificatie van een gebruiker controleren](#check-a-users-authentication-contact-info) om te controleren of instellen dat deze gegevens voor hen.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Contactgegevens voor verificatie van een gebruiker controleren
 
@@ -365,21 +365,21 @@ Om te controleren of de toegewezen licenties van een groep, de volgende stappen 
 
 Als u wilt opnieuw verwerken van een groep toegewezen licenties, de volgende stappen uit:
 
-1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **gebruikers en groepen** in het navigatiemenu.
+4. Klik op **gebruikers en groepen** in het navigatiemenu.
 
-5.  Klik op **alle groepen**.
+5. Klik op **alle groepen**.
 
-6.  **Search** voor de groep waarin u geïnteresseerd bent en **klikt u op de rij** om te selecteren.
+6. **Search** voor de groep waarin u geïnteresseerd bent en **klikt u op de rij** om te selecteren.
 
-7.  Klik op **licenties** om te zien welke licenties die de groep momenteel is toegewezen.
+7. Klik op **licenties** om te zien welke licenties die de groep momenteel is toegewezen.
 
-8.  Klik op de **opnieuw verwerken** knop om ervoor te zorgen dat de licenties zijn toegewezen aan leden van deze groep bijgewerkt zijn. Dit kan lang duren, afhankelijk van de grootte en complexiteit van de groep.
+8. Klik op de **opnieuw verwerken** knop om ervoor te zorgen dat de licenties zijn toegewezen aan leden van deze groep bijgewerkt zijn. Dit kan lang duren, afhankelijk van de grootte en complexiteit van de groep.
 
    >[!NOTE]
    >Om dit te doen sneller, kunt u tijdelijk een licentie rechtstreeks aan de gebruiker toewijzen. [Een gebruiker een licentie toewijzen](#problems-with-application-consent).
@@ -390,32 +390,32 @@ Als u wilt opnieuw verwerken van een groep toegewezen licenties, de volgende sta
 
 Als u wilt een licentie toewijzen aan een groep, de volgende stappen uit:
 
-1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **gebruikers en groepen** in het navigatiemenu.
+4. Klik op **gebruikers en groepen** in het navigatiemenu.
 
-5.  Klik op **alle groepen**.
+5. Klik op **alle groepen**.
 
-6.  **Search** voor de groep waarin u geïnteresseerd bent en **klikt u op de rij** om te selecteren.
+6. **Search** voor de groep waarin u geïnteresseerd bent en **klikt u op de rij** om te selecteren.
 
-7.  Klik op **licenties** om te zien welke licenties die de groep momenteel is toegewezen.
+7. Klik op **licenties** om te zien welke licenties die de groep momenteel is toegewezen.
 
-8.  Klik op de **toewijzen** knop.
+8. Klik op de **toewijzen** knop.
 
-9.  Selecteer **een of meer producten** uit de lijst met beschikbare producten.
+9. Selecteer **een of meer producten** uit de lijst met beschikbare producten.
 
 10. **Optionele** klikt u op de **toewijzingsopties** item om toe te wijzen granulair producten. Klik op **Ok** wanneer dit is voltooid.
 
 11. Klik op de **toewijzen** knop deze licenties toewijzen aan deze groep. Dit kan lang duren, afhankelijk van de grootte en complexiteit van de groep.
 
-   >[!NOTE]
-   >Om dit te doen sneller, kunt u tijdelijk een licentie rechtstreeks aan de gebruiker toewijzen. [Een gebruiker een licentie toewijzen](#problems-with-application-consent).
-   > 
-   >
+    >[!NOTE]
+    >Om dit te doen sneller, kunt u tijdelijk een licentie rechtstreeks aan de gebruiker toewijzen. [Een gebruiker een licentie toewijzen](#problems-with-application-consent).
+    > 
+    >
 
 ## <a name="problems-with-conditional-access-policies"></a>Problemen met beleid voor voorwaardelijke toegang
 
@@ -423,19 +423,19 @@ Als u wilt een licentie toewijzen aan een groep, de volgende stappen uit:
 
 Om te controleren of een voorwaardelijk toegangsbeleid valideren:
 
-1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het navigatiemenu.
+4. Klik op **bedrijfstoepassingen** in het navigatiemenu.
 
-5.  Klik op de **voorwaardelijke toegang** navigatie-item.
+5. Klik op de **voorwaardelijke toegang** navigatie-item.
 
-6.  Klik op het beleid dat u geïnteresseerd bent in het inspecteren.
+6. Klik op het beleid dat u geïnteresseerd bent in het inspecteren.
 
-7.  Controleer of er zijn geen specifieke voorwaarden, toewijzingen of andere instellingen die gebruikerstoegang mogelijk blokkeert.
+7. Controleer of er zijn geen specifieke voorwaarden, toewijzingen of andere instellingen die gebruikerstoegang mogelijk blokkeert.
 
    >[!NOTE]
    >Mogelijk wilt u dit beleid om te controleren of deze geen gevolgen heeft tijdelijk te deactiveren aanmeldingen. Om dit te doen, stel de **beleid inschakelen** in-/ uitschakelen op **Nee** en klikt u op de **opslaan** knop.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 4370cc5e39b7d1b9a50e8fc8af9f7bfc58f6356a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 05df154db27dcf1b07506c6bf9c2a681408de61e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602746"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091814"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit voor Eclipse gebruiken voor het maken van Apache Spark-toepassingen voor een HDInsight-cluster
 
@@ -141,12 +141,12 @@ U kunt een normale cluster koppelen met behulp van de gebruikersnaam van de Amba
    a. In Package Explorer met de rechtermuisknop op de projectnaam en selecteer vervolgens **Spark-toepassing verzenden naar HDInsight**.        
    b. In de **Spark inzending** in het dialoogvenster, geef de volgende waarden op en selecteer vervolgens **indienen**:
       
-      * Voor **clusternaam**, selecteert u het HDInsight Spark-cluster waarop u wilt dat uw toepassing uit te voeren.
-      * Selecteer een artefact in de Eclipse-project, of Selecteer een van een harde schijf. De standaardwaarde is afhankelijk van het item dat u met de rechtermuisknop in Package Explorer.
-      * In de **de naam van de Main-klasse** vervolgkeuzelijst, de verzending van wizard worden alle objectnamen van uw project. Selecteer of typ een die u wilt uitvoeren. Als u een artefact van een harde schijf hebt geselecteerd, moet u de naam van de main-klasse handmatig invoeren. 
-      * Omdat de toepassingscode in dit voorbeeld niet opdrachtregelargumenten of verwijzen naar JAR-bestanden of bestanden, kunt u de resterende tekstvakken leeg laten.
+   * Voor **clusternaam**, selecteert u het HDInsight Spark-cluster waarop u wilt dat uw toepassing uit te voeren.
+   * Selecteer een artefact in de Eclipse-project, of Selecteer een van een harde schijf. De standaardwaarde is afhankelijk van het item dat u met de rechtermuisknop in Package Explorer.
+   * In de **de naam van de Main-klasse** vervolgkeuzelijst, de verzending van wizard worden alle objectnamen van uw project. Selecteer of typ een die u wilt uitvoeren. Als u een artefact van een harde schijf hebt geselecteerd, moet u de naam van de main-klasse handmatig invoeren. 
+   * Omdat de toepassingscode in dit voorbeeld niet opdrachtregelargumenten of verwijzen naar JAR-bestanden of bestanden, kunt u de resterende tekstvakken leeg laten.
         
-      ![In het dialoogvenster voor verzending van Spark](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
+     ![In het dialoogvenster voor verzending van Spark](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
 1. De **Spark inzending** tabblad moet beginnen met het weergeven van de voortgang. U kunt de toepassing stoppen door het selecteren van de rode knop in de **Spark inzending** venster. Ook vindt u de logboeken voor deze specifieke toepassing die wordt uitgevoerd door de hele wereld-pictogram (aangeduid met het blauwe vak in de afbeelding) te selecteren.
       
    ![Verzending van Spark-venster](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)

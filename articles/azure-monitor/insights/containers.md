@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 58f16b0aa068c8b333ef4e7986bb49327b002fbb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e8afdfece258986f5dc4cc6f1c7e66aed24e0500
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195418"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092545"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Container Monitoring-oplossing in Azure Monitor
 
@@ -100,19 +100,19 @@ Gebruik de volgende informatie om de oplossing te installeren en configureren.
 1. Container Monitoring solution toevoegen aan uw Log Analytics-werkruimte van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen bewakingsoplossingen van de galerie van oplossingen](../../azure-monitor/insights/solutions.md).
 
 2. Installeer en Docker gebruiken met een Log Analytics-agent. Op basis van uw besturingssysteem en de Docker-orchestrator, kunt u de volgende methoden gebruiken om de agent te configureren.
-  - Voor zelfstandige hosts:
-    - Installeren op ondersteunde Linux-besturingssystemen, en het uitvoeren van Docker en het vervolgens installeert en configureert de [Log Analytics-agent voor Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
-    - In CoreOS, kunt u de Log Analytics-agent voor Linux niet uitvoeren. In plaats daarvan kunt u een beperkte versie van de Log Analytics-agent voor Linux uitvoeren. Bekijk Linux containerhosts met inbegrip van CoreOS of Azure Government Linux containerhosts met inbegrip van CoreOS als u met containers in Azure Government-Cloud werkt.
-    - De Docker-Engine en -client installeren op Windows Server 2016 en Windows 10, en verbinding maken met een agent om te verzamelen en te verzenden naar Azure Monitor. Beoordeling [installeren en configureren van Windows-containerhosts](#install-and-configure-windows-container-hosts) hebt u een Windows-omgeving.
-  - Voor het indelen van Docker-meerdere host:
-    - Als u een Red Hat OpenShift-omgeving hebt, raadpleegt u een Log Analytics-agent voor Red Hat OpenShift configureren.
-    - Als u een Kubernetes-cluster met behulp van de Azure Container Service:
+   - Voor zelfstandige hosts:
+     - Installeren op ondersteunde Linux-besturingssystemen, en het uitvoeren van Docker en het vervolgens installeert en configureert de [Log Analytics-agent voor Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
+     - In CoreOS, kunt u de Log Analytics-agent voor Linux niet uitvoeren. In plaats daarvan kunt u een beperkte versie van de Log Analytics-agent voor Linux uitvoeren. Bekijk Linux containerhosts met inbegrip van CoreOS of Azure Government Linux containerhosts met inbegrip van CoreOS als u met containers in Azure Government-Cloud werkt.
+     - De Docker-Engine en -client installeren op Windows Server 2016 en Windows 10, en verbinding maken met een agent om te verzamelen en te verzenden naar Azure Monitor. Beoordeling [installeren en configureren van Windows-containerhosts](#install-and-configure-windows-container-hosts) hebt u een Windows-omgeving.
+   - Voor het indelen van Docker-meerdere host:
+     - Als u een Red Hat OpenShift-omgeving hebt, raadpleegt u een Log Analytics-agent voor Red Hat OpenShift configureren.
+     - Als u een Kubernetes-cluster met behulp van de Azure Container Service:
        - Beoordeling [configureren een Log Analytics Linux-agent voor Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Beoordeling [configureren van een Log Analytics-Windows-agent voor Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Bekijk Helm gebruiken voor het implementeren van Log Analytics-agent op Linux Kubernetes.
-    - Als u een Azure Container Service DC/OS-cluster hebt, voor meer informatie naar [een Azure Container Service DC/OS-cluster bewaken met Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
-    - Als u een Docker Swarm mode-omgeving hebt, te weten op configureren een Log Analytics-agent voor Docker Swarm.
-    - Als u een Service Fabric-cluster hebt, voor meer informatie naar [-containers bewaken met Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
+     - Als u een Azure Container Service DC/OS-cluster hebt, voor meer informatie naar [een Azure Container Service DC/OS-cluster bewaken met Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+     - Als u een Docker Swarm mode-omgeving hebt, te weten op configureren een Log Analytics-agent voor Docker Swarm.
+     - Als u een Service Fabric-cluster hebt, voor meer informatie naar [-containers bewaken met Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Controleer de [Docker-Engine op Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) artikel voor meer informatie over het installeren en configureren uw Docker-Engines op computers waarop Windows wordt uitgevoerd.
 
@@ -476,17 +476,17 @@ Voor het gebruik van helm om Log Analytics-agent op uw Linux Kubernetes-omgeving
     LAST DEPLOYED: Tue Sep 19 20:37:46 2017
     NAMESPACE: default
     STATUS: DEPLOYED
- 
+ 
     RESOURCES:
     ==> v1/Secret
     NAME            TYPE    DATA  AGE
     omsagent-msoms  Opaque  3     17m
- 
+ 
     ==> v1beta1/DaemonSet
     NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
     omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
-Ga voor meer informatie naar [Container-oplossing Helm-diagram](https://aka.ms/omscontainerhelm).
+   Ga voor meer informatie naar [Container-oplossing Helm-diagram](https://aka.ms/omscontainerhelm).
 
 ### <a name="install-and-configure-windows-container-hosts"></a>Installeer en configureer de hosts van de Windows-container
 

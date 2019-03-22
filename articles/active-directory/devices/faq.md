@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbae902e7074207453938b14b9e79628e437e1cc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: eaaad0d7351c398c9b2cc013f40d62461a2dd3f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737345"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845527"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Apparaatbeheer via Azure Active Directory Veelgestelde vragen
 
@@ -237,7 +237,13 @@ Hybride Azure AD join heeft voorrang op de status geregistreerd bij Azure AD. Du
 
 **V: Moeten Windows 10 hybride Azure AD gekoppelde apparaten verbinding met de domeincontroller om toegang tot cloudbronnen te krijgen?**
 
-**A:** Nee. Na het Windows 10 hybride Azure AD join is voltooid, en de gebruiker heeft ten minste één keer aangemeld, het apparaat geen verbinding met de domeincontroller voor toegang tot cloud-bronnen vereist. Windows 10 kunt krijgen eenmalige aanmelding bij Azure AD-toepassingen vanaf elke locatie met een internetverbinding, behalve wanneer een wachtwoord is gewijzigd. Als een wachtwoord is gewijzigd buiten het bedrijfsnetwerk bevinden (bijvoorbeeld met behulp van Azure AD SSPR), moet de gebruiker heeft verbinding met de domeincontroller voordat ze kunnen aanmelden op het apparaat met het nieuwe wachtwoord. Anders, ze kunnen zich alleen aanmelden met hun oude wachtwoord, die ongeldig is gemaakt door Azure AD en wordt voorkomen dat eenmalige aanmelding op. Dit probleem niet wordt echter optreden wanneer u Windows Hello voor bedrijven gebruiken. Gebruikers die Meld u aan met Windows Hello voor bedrijven gaan om op te halen één zich aanmelden bij Azure AD-toepassingen nadat een wachtwoord hebt gewijzigd, zelfs als ze geen verbinding met de domeincontroller. 
+**A:** In het algemeen Nee, behalve wanneer het wachtwoord van de gebruiker wordt gewijzigd. Na het Windows 10 hybride Azure AD join is voltooid, en de gebruiker heeft ten minste één keer aangemeld, het apparaat geen verbinding met de domeincontroller voor toegang tot cloud-bronnen vereist. Windows 10 kunt krijgen eenmalige aanmelding bij Azure AD-toepassingen vanaf elke locatie met een internetverbinding, behalve wanneer een wachtwoord is gewijzigd. Gebruikers die Meld u aan met Windows Hello voor bedrijven gaan om op te halen één zich aanmelden bij Azure AD-toepassingen, zelfs nadat een wachtwoord hebt gewijzigd, zelfs als ze geen verbinding met de domeincontroller. 
+
+---
+
+**V: Wat gebeurt er als een gebruiker het wachtwoord wordt gewijzigd en aanmelden bij hun Windows 10-hybride Azure AD wil gekoppeld apparaat buiten het bedrijfsnetwerk bevinden?**
+
+**A:** Als een wachtwoord is gewijzigd buiten het bedrijfsnetwerk bevinden (bijvoorbeeld met behulp van Azure AD SSPR), klikt u vervolgens mislukt de aanmelding van de gebruiker met het nieuwe wachtwoord. On-premises Active Directory is voor hybride Azure AD gekoppelde apparaten, de primaire-instantie. Wanneer een apparaat geen verbinding met de domeincontroller, is het niet valideren van het nieuwe wachtwoord. Dus de gebruiker moet verbinding maken met de domeincontroller (ofwel via een VPN- of dat deze zich in het bedrijfsnetwerk) voordat ze kunnen aanmelden op het apparaat met het nieuwe wachtwoord. Anders, ze kunnen zich alleen aanmelden met hun oude wachtwoord vanwege de mogelijkheid van de aanmelding in de cache in Windows. Echter het oude wachtwoord is ongeldig gemaakt door Azure AD tijdens token aanvragen en daarom wordt voorkomen dat eenmalige aanmelding op en een beleid voor voorwaardelijke toegang op basis van apparaat mislukt. Dit probleem optreden niet als u Windows Hello voor bedrijven gebruiken. 
 
 ---
 

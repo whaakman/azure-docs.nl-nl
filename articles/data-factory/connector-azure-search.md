@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: aa6c6a35a66569d5db182e1871012b9697c2802c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023342"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852838"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Gegevens kopiëren naar een Azure Search-index met behulp van Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-azure-search-connector.md)
 > * [Huidige versie](connector-azure-search.md)
 
@@ -169,10 +169,10 @@ De volgende tabel geeft aan of een Azure Search-gegevenstype of niet wordt onder
 
 | Azure Search-gegevenstype | Ondersteund in Azure Search-Sink |
 | ---------------------- | ------------------------------ |
-| Reeks | J |
+| String | J |
 | Int32 | J |
 | Int64 | J |
-| Double-waarde | J |
+| Double | J |
 | Booleaans | J |
 | DataTimeOffset | J |
 | String-matrix | N |

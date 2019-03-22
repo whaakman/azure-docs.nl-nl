@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: ec0211c71b8be66262ef0f19dcd1f952051c97b8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332673"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110275"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gebruik en kosten voor Application Insights beheren
 
@@ -167,15 +167,15 @@ Omdat dit plan alleen van toepassing op klanten met een Operations Management Su
 ### <a name="how-the-enterprise-plan-works"></a>De werking van het Enterprise-plan
 
 * U betaalt voor elk knooppunt dat telemetrie voor alle apps in het Enterprise-plan verzendt.
- * Een *knooppunt* is een fysieke of virtuele server-machine of een rol van de platform-as-a-service-exemplaar dat als host fungeert voor uw app.
- * Ontwikkeling machines, clientbrowsers en mobiele apparaten wordt niet gerekend als knooppunten.
- * Als uw app heeft verschillende onderdelen die verzenden van telemetriegegevens, zoals een webservice en een back-end-worker, worden de onderdelen afzonderlijk gerekend.
- * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) gegevens wordt niet geteld voor prijsbepaling. In een abonnement zijn uw kosten per knooppunt, niet per app. Als u vijf knooppunten hebt die verzenden van telemetrie voor 12 apps, de kosten zijn voor vijf knooppunten.
+  * Een *knooppunt* is een fysieke of virtuele server-machine of een rol van de platform-as-a-service-exemplaar dat als host fungeert voor uw app.
+  * Ontwikkeling machines, clientbrowsers en mobiele apparaten wordt niet gerekend als knooppunten.
+  * Als uw app heeft verschillende onderdelen die verzenden van telemetriegegevens, zoals een webservice en een back-end-worker, worden de onderdelen afzonderlijk gerekend.
+  * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) gegevens wordt niet geteld voor prijsbepaling. In een abonnement zijn uw kosten per knooppunt, niet per app. Als u vijf knooppunten hebt die verzenden van telemetrie voor 12 apps, de kosten zijn voor vijf knooppunten.
 * Hoewel de kosten worden genoteerd per maand, u betaalt alleen voor elk uur dat een knooppunt telemetrie vanuit een app verzendt. Het uurtarief is het tussen aanhalingstekens maandelijkse bedrag gedeeld door 744 (het aantal uren in een maand van 31 dagen).
 * Een toewijzing van de gegevens-volume van 200 MB per dag is opgegeven voor elk knooppunt dat wordt gedetecteerd (met een granulariteit per uur). Toewijzing van niet-gebruikte gegevens wordt niet van één dag overgedragen naar de volgende.
- * Als u ervoor de onderneming prijsplan kiest, krijgt elk abonnement een dagelijks toegestane hoeveelheid gegevens op basis van het aantal knooppunten dat telemetrie wordt verzonden naar de Application Insights-resources in het desbetreffende abonnement. Dus als u vijf knooppunten die gegevens alle dag verzenden hebt, u hebt een gezamenlijke limiet van 1 GB die worden toegepast op alle Application Insights-resources in het desbetreffende abonnement. Het maakt niet uit of bepaalde knooppunten meer gegevens dan andere knooppunten verzenden omdat de hoeveelheid gegevens verdeeld over alle knooppunten. Als de Application Insights-resources op een bepaalde dag meer gegevens ontvangen dan is opgenomen in de dagelijkse toewijzing van gegevens voor dit abonnement, de per GB-overschrijding gegevens in rekening gebracht. 
- * De dagelijkse limiet voor de gegevens wordt berekend als het aantal uren op een dag (met behulp van UTC) dat elk knooppunt gedeeld door 24 uur per dag verzendt, vermenigvuldigd met 200 MB telemetrie verzendt. Dus als u vier knooppunten die tijdens 15 van de 24 uur per dag telemetriegegevens verzendt hebt, de hoeveelheid gegevens voor die dag zou zijn ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Voor de prijs van 2.30 USD per GB voor overschrijding van gegevens, zou de kosten in rekening gebracht 1.15 USD zijn als de knooppunten 1 GB aan gegevens op die dag verzenden.
- * De dagelijks toegestane voor Enterprise-plan niet worden gedeeld met toepassingen waarvoor u het Basic-abonnement hebt gekozen. Niet-gebruikte limiet wordt niet overgedragen van dag tot dag. 
+  * Als u ervoor de onderneming prijsplan kiest, krijgt elk abonnement een dagelijks toegestane hoeveelheid gegevens op basis van het aantal knooppunten dat telemetrie wordt verzonden naar de Application Insights-resources in het desbetreffende abonnement. Dus als u vijf knooppunten die gegevens alle dag verzenden hebt, u hebt een gezamenlijke limiet van 1 GB die worden toegepast op alle Application Insights-resources in het desbetreffende abonnement. Het maakt niet uit of bepaalde knooppunten meer gegevens dan andere knooppunten verzenden omdat de hoeveelheid gegevens verdeeld over alle knooppunten. Als de Application Insights-resources op een bepaalde dag meer gegevens ontvangen dan is opgenomen in de dagelijkse toewijzing van gegevens voor dit abonnement, de per GB-overschrijding gegevens in rekening gebracht. 
+  * De dagelijkse limiet voor de gegevens wordt berekend als het aantal uren op een dag (met behulp van UTC) dat elk knooppunt gedeeld door 24 uur per dag verzendt, vermenigvuldigd met 200 MB telemetrie verzendt. Dus als u vier knooppunten die tijdens 15 van de 24 uur per dag telemetriegegevens verzendt hebt, de hoeveelheid gegevens voor die dag zou zijn ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Voor de prijs van 2.30 USD per GB voor overschrijding van gegevens, zou de kosten in rekening gebracht 1.15 USD zijn als de knooppunten 1 GB aan gegevens op die dag verzenden.
+  * De dagelijks toegestane voor Enterprise-plan niet worden gedeeld met toepassingen waarvoor u het Basic-abonnement hebt gekozen. Niet-gebruikte limiet wordt niet overgedragen van dag tot dag. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Voorbeelden van het aantal afzonderlijke knooppunten bepalen
 

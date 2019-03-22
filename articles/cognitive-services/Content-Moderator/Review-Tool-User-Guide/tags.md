@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 942b30ab9949a28c42949913d90e7448c22b658f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fa3b7be6ac7cc398685bf5ad7d21173bcb072b69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206270"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118405"
 ---
 # <a name="create-and-use-moderation-tags"></a>Maak en gebruik toezicht op Tags
 
@@ -23,15 +23,15 @@ Naast de twee standaard-tags, **isadult** (**een**) en **isracy** (**r**), kunt 
 
 ## <a name="create-tags"></a>Tags maken
 
-1.  Tags selecteren op het tabblad instellingen.
+1. Tags selecteren op het tabblad instellingen.
 
-  ![Content Moderation Tags](images/tags-1.png)
+   ![Content Moderation Tags](images/tags-1.png)
 
-2.  Voer een korte code van twee letters voor de tag.
-3.  Voer een naam voor het label. Houd de naam kort en beschrijvend. Bijvoorbeeld, **isbullying**.
-4.  Voer een beschrijving.
-5.  Klik op Toevoegen.
-6.  Klik op opslaan wanneer u klaar bent met het maken van het tags.
+2. Voer een korte code van twee letters voor de tag.
+3. Voer een naam voor het label. Houd de naam kort en beschrijvend. Bijvoorbeeld, **isbullying**.
+4. Voer een beschrijving.
+5. Klik op Toevoegen.
+6. Klik op opslaan wanneer u klaar bent met het maken van het tags.
 
 ![Content Moderation Tags definiëren](images/tags-2-define.png)
 

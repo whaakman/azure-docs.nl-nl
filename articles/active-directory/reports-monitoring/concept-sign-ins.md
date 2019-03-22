@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b958a8d7aa8566c62d5fdaf6b5b51064e4e5123
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32720669ae9d8941abce4429471c13608a18cbc5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183744"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294889"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -149,7 +149,7 @@ Als u extra velden toevoegt aan uw aanmeldingsweergave, worden deze velden autom
 
 ## <a name="download-sign-in-activities"></a>Aanmeldactiviteiten downloaden
 
-U kunt [downloaden van de aanmeldingsgegevens](quickstart-download-sign-in-report.md) als u wilt werken met deze buiten de Azure-portal. Te klikken op **downloaden** biedt de mogelijkheid om een CSV-bestand of JSCON bestand van de meest recente 250.000 records te maken.  
+U kunt [downloaden van de aanmeldingsgegevens](quickstart-download-sign-in-report.md) als u wilt werken met deze buiten de Azure-portal. Te klikken op **downloaden** biedt u de optie voor het maken van een CSV of JSON-bestand van de meest recente 250.000 records.  
 
 ![Downloaden](./media/concept-sign-ins/71.png "Downloaden")
 
@@ -168,7 +168,7 @@ Naast Azure AD biedt Azure portal de extra toegangspunten voor aanmeldingsgegeve
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Gegevens van de gebruikers-aanmeldingen in Identiteitbeveiliging en-bescherming
 
-De gebruiker aanmelden grafiek in de **Identiteitbeveiliging en-bescherming** overzichtspagina aanmeldingsgrafiek van aanmelding bevat modules voor alle gebruikers in een bepaalde periode. De standaard ingestelde periode is 30 dagen.
+De gebruiker aanmelden grafiek in de **Identiteitbeveiliging en-bescherming** overzichtspagina toont de aanmeldingsgrafiek van aanmeldingen voor alle gebruikers in een bepaalde periode. De standaard ingestelde periode is 30 dagen.
 
 ![Aanmeldingsactiviteit](./media/concept-sign-ins/06.png "Aanmeldingsactiviteit")
 
@@ -214,7 +214,7 @@ Uw beginpunt voor deze gegevens is het overzicht van de drie populairste toepass
 
 ![Aanmeldingsactiviteit](./media/concept-sign-ins/10.png "Aanmeldingsactiviteit")
 
-In de grafiek over appgebruik staat een wekelijks overzicht van alle aanmeldingen bij de drie populairste toepassingen gedurende een bepaalde periode. De standaard ingestelde periode is 30 dagen.
+De app-gebruik graph aanmeldingsgrafiek van aanmeldingen betreft voor de eerste 3-toepassingen in een bepaalde periode. De standaard ingestelde periode is 30 dagen.
 
 ![Aanmeldingsactiviteit](./media/concept-sign-ins/47.png "Aanmeldingsactiviteit")
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1eaeef9b-4479-4a9f-b1b2-bc13b857c75c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65f8e023e087c3ca49e0d53f5760fbcd9a5f4d9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 395d3887e35d6e9c043d4d947b605e71eb58bd6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869204"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897330"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Zelfstudie: Azure Active Directory-integratie met iProva
 
@@ -134,7 +134,7 @@ Voer deze stappen uit om eenmalige aanmelding van Azure AD bij iProva te configu
 
 6. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding. Volg deze stappen.
 
-    | Naam | Bronkenmerk| Naamruimte |
+    | Name | Bronkenmerk| Naamruimte |
     | ---------------| -------- | -----|
     | `samaccountname` | `user.onpremisessamaccountname`| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     | | |
@@ -221,7 +221,7 @@ In dit gedeelte gaat u een testgebruiker met de naam Britta Simon maken in de Az
 
     a. Voer in het vak **Naam** een naam in, zoals **BrittaSimon**.
   
-    b. Voer in het vak **Gebruikersnaam** *yourname@yourcompanydomain.extension* in. 
+    b. In de **gebruikersnaam** Voer *uwnaam\@yourcompanydomain.extension*. 
     Een voorbeeld is BrittaSimon@contoso.com.
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
@@ -266,14 +266,14 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 5. Selecteer **Toevoegen**.
 
-6. Voer in het vak **Username** *brittasimon@yourcompanydomain.extension* in. 
+6. In de **gebruikersnaam** Voer *brittasimon\@yourcompanydomain.extension*. 
     Een voorbeeld is BrittaSimon@contoso.com.
 
 7. Voer in het vak **Full name** de volledige naam in, zoals **BrittaSimon**.
 
 8. Selecteer de optie **No password (use single sign-on)**.
 
-9. Typ *yourname@yourcompanydomain.extension* in het vak **E-mail address**. 
+9. In de **e-mailadres** Voer *uwnaam\@yourcompanydomain.extension*. 
    Een voorbeeld is BrittaSimon@contoso.com.
 
 10. Scrol omlaag naar het einde van de pagina en selecteer **Finish**.

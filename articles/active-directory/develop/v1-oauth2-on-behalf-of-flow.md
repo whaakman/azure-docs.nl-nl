@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd5d724583dd4682fb6c0b01e8ec11196936289b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211900"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116262"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service-naar-service aanroepen die gebruik gedelegeerde gebruikersidentiteit in de On-Behalf-Of-stroom
 
@@ -63,12 +63,12 @@ Registreer de middelste laag en de clienttoepassing in Azure AD.
     1. De aanmeldings-URL of de omleidings-URL, afhankelijk van het type ingesteld op de basis-URL.
     1. Selecteer **maken** om de toepassing te maken.
 1. Het genereren van een clientgeheim vóór het afsluiten van de Azure-portal.
-    1. In de Azure-portal, kiest u uw toepassing en selecteer **instellingen**.
-    1. Selecteer **sleutels** in het menu instellingen en voeg een sleutel met een duur van de sleutel van één jaar of twee jaar.
-    1. Als u deze pagina opslaat, wordt de sleutelwaarde in de Azure-portal weergegeven. Kopieer en bewaar de sleutelwaarde op een veilige locatie.
+   1. In de Azure-portal, kiest u uw toepassing en selecteer **instellingen**.
+   1. Selecteer **sleutels** in het menu instellingen en voeg een sleutel met een duur van de sleutel van één jaar of twee jaar.
+   1. Als u deze pagina opslaat, wordt de sleutelwaarde in de Azure-portal weergegeven. Kopieer en bewaar de sleutelwaarde op een veilige locatie.
 
-    > [!IMPORTANT]
-    > U moet de sleutel voor het configureren van de toepassingsinstellingen in uw implementatie. De waarde van deze sleutel niet opnieuw wordt weergegeven en is het niet worden opgehaald door een andere manier. Noteer deze zodra deze zichtbaar in de Azure portal is.
+      > [!IMPORTANT]
+      > U moet de sleutel voor het configureren van de toepassingsinstellingen in uw implementatie. De waarde van deze sleutel niet opnieuw wordt weergegeven en is het niet worden opgehaald door een andere manier. Noteer deze zodra deze zichtbaar in de Azure portal is.
 
 ### <a name="register-the-client-application"></a>De clienttoepassing registreren
 

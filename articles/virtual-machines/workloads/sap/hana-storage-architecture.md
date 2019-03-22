@@ -14,16 +14,16 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c5f1d8d7a9c84d807db53933f0cbb176f9fb7f2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 02272ee16cf3303890a8ba6d35d38676e98c788c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551951"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006107"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architectuur voor SAP HANA (grote instanties)
 
-De opslagindeling voor SAP HANA op Azure (grote instanties) is geconfigureerd door SAP HANA op het klassieke implementatiemodel per SAP aanbevolen richtlijnen. De richtlijnen worden beschreven in de [opslagvereisten voor SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) technisch document.
+De opslagindeling voor SAP HANA op Azure (grote instanties) is geconfigureerd door SAP HANA op het klassieke implementatiemodel per SAP aanbevolen richtlijnen. De richtlijnen worden beschreven in de [opslagvereisten voor SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) technisch document.
 
 De HANA grote instantie van het Type ik klasse wordt geleverd met vier keer het geheugen volume als opslagvolume. De opslag is niet voor de klasse Type II van HANA grote instantie eenheden, vier keer meer. De eenheden worden geleverd met een volume dat is bedoeld voor het opslaan van HANA transactielogboekback-ups. Zie voor meer informatie, [installeren en configureren van SAP HANA (grote instanties) op Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -100,10 +100,10 @@ De opslag die wordt gebruikt in HANA grote instanties heeft een maximale bestand
 > [!IMPORTANT]
 > Om te voorkomen dat een poging om te groeien gegevensbestanden voorbij de maximale bestandsgrootte 16 TB aan opslag van HANA grote instantie HANA, moet u de volgende parameters in het configuratiebestand global.ini van HANA instellen
 > 
-- datavolume_striping=true
-- datavolume_striping_size_gb = 15000
-- Zie ook SAP Opmerking [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-- Houd rekening met SAP-notitie [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - datavolume_striping=true
+> - datavolume_striping_size_gb = 15000
+> - Zie ook SAP Opmerking [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - Houd rekening met SAP-notitie [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 

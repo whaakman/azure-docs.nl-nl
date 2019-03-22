@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 19206278f838b77954c28e95e9171a857ba1338a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1cf5fb00e9f1a202fe7ad46253f916e3e6bee7a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670647"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295569"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -46,15 +46,14 @@ Om uit te voeren de LUIS-container, moet u het volgende hebt:
 
 Deze container biedt ondersteuning voor minimale en aanbevolen waarden voor de instellingen:
 
-|Instelling| Minimum | Aanbevolen |
-|-----------|---------|-------------|
-|Kerngeheugens<BR>`--cpus`|1 kern|1 kern|
-|Geheugen<BR>`--memory`|2 GB|4 GB|
-|Transacties per seconde<BR>(TPS)|20 TPS|40 TPS|
+|Container| Minimum | Aanbevolen | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|LUIS|1 core, 2 GB geheugen|1 core, 4 GB geheugen|20,40|
 
-Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
+* Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
+* TPS - transacties per seconde
 
-De `--cpus` en `--memory` instellingen worden gebruikt als onderdeel van de `docker run` opdracht.
+Kernen en geheugen komen overeen met de `--cpus` en `--memory` instellingen die worden gebruikt als onderdeel van de `docker run` opdracht.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Met de installatiekopie van de container ophalen `docker pull`
 

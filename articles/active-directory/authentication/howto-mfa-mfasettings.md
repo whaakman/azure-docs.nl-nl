@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6c6559b5dd6c6a6e357ff2f258bad79d57205c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 9809993d47141b70484892103e318a6f55381a2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192639"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856257"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
@@ -64,7 +64,7 @@ Gebruik de _blokkeren of te deblokkeren gebruikers_ functie om te voorkomen dat 
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
 2. Blader naar **Azure Active Directory** > **MFA** > **gebruikers blokkeren/deblokkeren**.
 3. Selecteer **toevoegen** om een gebruiker te blokkeren.
-4. Selecteer de **replicatiegroep**. Voer de gebruikersnaam voor de geblokkeerde gebruiker als **username@domain.com**. Voer een opmerking in het **reden** veld.
+4. Selecteer de **replicatiegroep**. Voer de gebruikersnaam voor de geblokkeerde gebruiker als **gebruikersnaam\@domein.com**. Voer een opmerking in het **reden** veld.
 5. Selecteer **toevoegen** voltooid blokkeren van de gebruiker.
 
 ### <a name="unblock-a-user"></a>Een gebruiker deblokkeren
@@ -154,7 +154,7 @@ De _eenmalig overslaan_ functie kunt u een gebruiker zich één keer verifiëren
 2. Blader naar **Azure Active Directory** > **MFA** > **eenmalig overslaan**.
 3. Selecteer **Toevoegen**.
 4. Selecteer indien nodig de replicatiegroep voor de mogelijkheid tot overslaan.
-5. Voer de gebruikersnaam als **username@domain.com**. Voer het aantal seconden dat de mogelijkheid tot overslaan moet duren. Voer de reden voor de mogelijkheid tot overslaan.
+5. Voer de gebruikersnaam als **gebruikersnaam\@domein.com**. Voer het aantal seconden dat de mogelijkheid tot overslaan moet duren. Voer de reden voor de mogelijkheid tot overslaan.
 6. Selecteer **Toevoegen**. De tijdslimiet gaat direct in. De gebruiker moet zich aanmelden voordat het eenmalig overslaan verloopt.
 
 ### <a name="view-the-one-time-bypass-report"></a>Bekijk het rapport met eenmalig overslaan
@@ -252,7 +252,7 @@ Gebruikers kunnen geen app-wachtwoorden maken standaard. De functie voor app-wac
 
 Gebruikers kunnen app-wachtwoorden maken tijdens de initiële inschrijving. De gebruiker heeft de optie voor het maken van app-wachtwoorden aan het einde van het registratieproces.
 
-Gebruikers kunnen ook app-wachtwoorden maken na de registratie. De app-wachtwoorden kunnen worden gewijzigd via de instellingen in de Azure-portal of de Office 365-portal. Zie voor meer informatie en gedetailleerde stappen voor uw gebruikers [wat zijn app-wachtwoorden in Azure multi-factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Gebruikers kunnen ook app-wachtwoorden maken na de registratie. Zie voor meer informatie en gedetailleerde stappen voor uw gebruikers [wat zijn app-wachtwoorden in Azure multi-factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="trusted-ips"></a>Goedgekeurde IP-adressen
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ff7e754a55e15a8fa8a32f846efbbbe5025e46e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297856"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102074"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Genereren en exporteren van certificaten voor punt-naar-Site-verbindingen met MakeCert
 
@@ -28,16 +28,16 @@ Terwijl het wordt aangeraden de [Windows 10 PowerShell stappen](vpn-gateway-cert
 De volgende stappen laten zien hoe u een zelfondertekend certificaat met MakeCert maken. Deze stappen zijn niet specifiek implementatiemodel. Ze zijn geldig voor zowel klassieke als Resource Manager.
 
 1. Download en installeer [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. Na de installatie kunt u doorgaans het hulpprogramma makecert.exe onder dit pad kunt vinden: "C:\Program Files (x86) \Windows Kits\10\bin\<arch >'. Hoewel het is mogelijk dat deze is geïnstalleerd op een andere locatie. Open een opdrachtprompt als beheerder en navigeer naar de locatie van het hulpprogramma MakeCert. U kunt het volgende voorbeeld gebruiken aanpassen voor de juiste locatie:
+2. Na de installatie, kunt u het hulpprogramma makecert.exe onder dit pad doorgaans vinden: 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. Hoewel het is mogelijk dat deze is geïnstalleerd op een andere locatie. Open een opdrachtprompt als beheerder en navigeer naar de locatie van het hulpprogramma MakeCert. U kunt het volgende voorbeeld gebruiken aanpassen voor de juiste locatie:
 
-  ```cmd
-  cd C:\Program Files (x86)\Windows Kits\10\bin\x64
-  ```
+   ```cmd
+   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
+   ```
 3. Maak en installeer een certificaat in het persoonlijke certificaatarchief op uw computer. Het volgende voorbeeld wordt een bijbehorende *.cer* -bestand dat u naar Azure uploadt bij het configureren van P2S. Vervang 'P2SRootCert' en 'P2SRootCert.cer' met de naam die u wilt gebruiken voor het certificaat. Het certificaat bevindt zich in uw 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten'.
 
-  ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
-  ```
+   ```cmd
+   makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
+   ```
 
 ## <a name="cer"></a>Exporteer de openbare sleutel (.cer)
 
@@ -61,14 +61,14 @@ De volgende stappen helpen u bij het genereren van een certificaat van een zelfo
  
 1. Open een opdrachtprompt als beheerder op dezelfde computer die u gebruikt voor het maken van de zelf-ondertekend certificaat.
 2. Wijzig en voer het voorbeeld om een clientcertificaat genereren uit.
-  * Wijziging *'P2SRootCert'* op de naam van het zelfondertekend basiscertificaat dat u het clientcertificaat van genereert. Zorg ervoor dat u de naam van het basiscertificaat dat alles wat is de ' CN =' de waarde is die u hebt opgegeven tijdens het maken van het zelfondertekend basiscertificaat.
-  * Wijziging *P2SChildCert* op de naam die u een clientcertificaat wilt te genereren.
+   * Wijziging *'P2SRootCert'* op de naam van het zelfondertekend basiscertificaat dat u het clientcertificaat van genereert. Zorg ervoor dat u de naam van het basiscertificaat dat alles wat is de ' CN =' de waarde is die u hebt opgegeven tijdens het maken van het zelfondertekend basiscertificaat.
+   * Wijziging *P2SChildCert* op de naam die u een clientcertificaat wilt te genereren.
 
-  Als u het volgende voorbeeld uitvoert zonder het te wijzigen, is het resultaat een clientcertificaat met de naam P2SChildcert in het persoonlijke certificaatarchief bevinden die is gegenereerd op basis van basiscertificaat P2SRootCert.
+   Als u het volgende voorbeeld uitvoert zonder het te wijzigen, is het resultaat een clientcertificaat met de naam P2SChildcert in het persoonlijke certificaatarchief bevinden die is gegenereerd op basis van basiscertificaat P2SRootCert.
 
-  ```cmd
-  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
-  ```
+   ```cmd
+   makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
+   ```
 
 ### <a name="clientexport"></a>Een clientcertificaat exporteren
 

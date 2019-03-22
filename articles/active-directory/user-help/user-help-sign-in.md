@@ -13,20 +13,20 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c892d616609151b5ad6025b4d0b535c494e6af82
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 84c71430d05bf0755fd8a7c096a2afcb2f69d292
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454218"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116721"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Meld u aan met behulp van verificatie of verificatie in twee stappen de beveiligingsgegevens
 Na het instellen van verificatie in twee stappen of -beveiligingsgegevens, kunt u moet zich aanmelden bij uw account met behulp van de opgegeven verificatiemethode.
 
->[!Note]
->Als u nog steeds de verificatie-ervaring voor verificatie in twee stappen, moet u uw verificatiemethoden instellen door de instructies in de [instellen van mijn account voor verificatie in twee stappen](multi-factor-authentication-end-user-first-time.md) artikel.
-
->Als de beheerder de ervaring van de informatie over beveiliging is ingeschakeld, moet u uw verificatiemethoden met behulp van deze stapsgewijze artikelen instellen:<ul><li>[Beveiligingsgegevens ingesteld voor het gebruik van een verificatie-app](security-info-setup-auth-app.md)</li><li>[Beveiligingsgegevens instellen om sms-berichten te gebruiken](security-info-setup-text-msg.md)</li><li>[Beveiligingsgegevens ingesteld voor het gebruik van een telefonische oproep](security-info-setup-phone-number.md)</li></ul>
+> [!Note]
+> Als u nog steeds de verificatie-ervaring voor verificatie in twee stappen, moet u uw verificatiemethoden instellen door de instructies in de [instellen van mijn account voor verificatie in twee stappen](multi-factor-authentication-end-user-first-time.md) artikel.
+> 
+> Als de beheerder de ervaring van de informatie over beveiliging is ingeschakeld, moet u uw verificatiemethoden met behulp van deze stapsgewijze artikelen instellen:<ul><li>[Beveiligingsgegevens ingesteld voor het gebruik van een verificatie-app](security-info-setup-auth-app.md)</li><li>[Beveiligingsgegevens instellen om sms-berichten te gebruiken](security-info-setup-text-msg.md)</li><li>[Beveiligingsgegevens ingesteld voor het gebruik van een telefonische oproep](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Meld u aan met behulp van een verificator-app-melding op uw mobiele apparaat
 

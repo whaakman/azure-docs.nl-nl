@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 01d34ef722034ef5b56c842bab97a3415a02b0bb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890930"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Ophalen van eigendom van Azure-abonnementen van andere gebruikers
 
@@ -96,7 +96,8 @@ In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREEN
    |Geannuleerd|Iemand met toegang tot de overdrachtsaanvraag de aanvraag geannuleerd|
    |Geweigerd|De gebruiker heeft de aanvraag geweigerd|
 
-6. Selecteer een aanvraag om details weer te geven. De pagina met details van overdracht bevat de volgende informatie: <!-- Todo - Add a screenshot -->
+6. Selecteer een aanvraag om details weer te geven. De pagina met details van overdracht bevat de volgende informatie:
+   <!-- Todo - Add a screenshot -->
 
    |Kolom  |Definitie|
    |---------|---------|
@@ -149,7 +150,7 @@ Abonnement van typen of biedt, maar CSP biedt kan worden overgedragen.
 
 ### <a name="cancel-a-transfer-request"></a>Een overdrachtsaanvraag annuleren
 
-U kunt de overdrachtsaanvraag annuleren totdat de aanvraag is goedgekeurd of afgewezen. De overdrachtsaanvraag annuleren [Ga naar de pagina met details van overdracht](#check-status-of-your-transfer-request-in-the-Azure-portal) en selecteer onderaan de pagina te annuleren.
+U kunt de overdrachtsaanvraag annuleren totdat de aanvraag is goedgekeurd of afgewezen. Als u wilt de overdrachtsaanvraag annuleren, gaat u naar de pagina met details van overdracht en selecteer annuleren vanaf de onderkant van de pagina.
 
 ### <a name="software-as-a-service-saas-transfer"></a>Software als een Service (SaaS)-overdracht
 
@@ -158,7 +159,7 @@ SaaS-producten worden niet overgedragen aan de abonnementen. Vraag de gebruiker 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Toegang tot een Microsoft-KLANTOVEREENKOMST controleren
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
 Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
 

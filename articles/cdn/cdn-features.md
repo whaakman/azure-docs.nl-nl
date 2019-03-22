@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/01/2018
+ms.date: 02/28/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a025c8e12f224bff4d90a924cf415143da9421b5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: cce28b031b146d8a56d37647022261294f07f0be
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892598"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213565"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Azure CDN-producteigenschappen vergelijken
 
@@ -33,13 +33,19 @@ De volgende tabel vergelijkt de functies die beschikbaar zijn voor elk product.
 | [Dynamische siteversnelling](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamische siteversnelling - adaptieve afbeeldingscompressie](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamische siteversnelling - vooraf ophalen van objecten](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
-| [Optimalisatie van videostreaming](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | \* | **&#x2713;**  | \* |  \* |
-| [Optimalisatie van grote bestanden](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | \* | **&#x2713;**  | \* |  \* |
+| [Algemene web delivery optimization](https://docs.microsoft.com/azure/cdn/cdn-optimization-overview#general-web-delivery)  | **&#x2713;** | **&#x2713;**, Selecteer dit optimalisatietype als de gemiddelde grootte kleiner dan 10 MB is  | **&#x2713;** |  **&#x2713;** |
+| [Optimalisatie van videostreaming](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | via algemene webweergave | **&#x2713;**  | via algemene webweergave |  via algemene webweergave |
+| [Optimalisatie van grote bestanden](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | via algemene webweergave | **&#x2713;**, Selecteert u dit type eindpuntoptimalisatie als de gemiddelde grootte groter is dan 10 MB   | via algemene webweergave |  via algemene webweergave |
+| Optimalisatietype wijzigen | |**&#x2713;** | | |
+| Poort van oorsprong |Alle TCP-poorten |[Toegestane oorsprong](https://docs.microsoft.com/previous-versions/azure/mt757337(v%3Dazure.100)#allowed-origin-ports) |Alle TCP-poorten |Alle TCP-poorten |
 | [Global server load balancing (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Snel leegmaken](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Snel leegmaken](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;**, Alles leegmaken en leegmaken met jokertekens worden momenteel niet ondersteund door Azure CDN van Akamai |**&#x2713;** |**&#x2713;** |
 | [Vooraf laden van assets](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
 | Instellingen voor cache/koptekst (met behulp van [regels voor opslaan in cache](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
+| Bestemde, aanpasbare regels op basis van de engine voor contentlevering (met behulp van [regels-engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
 | Instellingen voor cache/koptekst (met behulp van [regels-engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| Omleidings-URL/herschrijfbewerking (met behulp van [regels-engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| Regels voor mobiele apparaten (met behulp van [regels-engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
 | [Queryreeksen opslaan in cache](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 dual stack | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Ondersteuning voor HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -65,11 +71,11 @@ De volgende tabel vergelijkt de functies die beschikbaar zijn voor elk product.
 | **Gebruiksgemak** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | Eenvoudige integratie met Azure-services, zoals [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md) en [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Beheer via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) of [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Aanpasbare, op regels gebaseerde engine voor contentlevering](cdn-rules-engine.md)  |  | | |**&#x2713;** |
-| URL-omleidings-/herschrijfbewerking (met behulp van [regels-engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Regels voor mobiele apparaten (met behulp van [regels-engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| [Compressie MIME-typen](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |Standaard alleen |Configureerbare |Configureerbare  |Configureerbare  |
+| Compressie coderingen  |gzip, brotli |gzip |gzip, deflate, bzip2, brotili  |gzip, deflate, bzip2, brotili  |
 
-\* Microsoft en Verizon ondersteunen de levering van grote bestanden en media rechtstreeks via de optimalisatie van algemene webweergave.
+
+
 
 
 

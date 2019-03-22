@@ -3,20 +3,20 @@ title: Overzicht van vereisten voor het gebruik van de Azure Database Migration 
 description: Meer informatie over een overzicht van de vereisten voor het gebruik van de Azure Database Migration Service om uit te voeren van de databasemigraties.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: a6dc9b31052e49eb0312006ea40056067e92b5ee
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 6e26ae7dd8637a71b9f4e2f6ea1ed6063cf0ec40
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790412"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181194"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Overzicht van vereisten voor het gebruik van de Azure Database Migration Service
 Er zijn verschillende vereisten die zijn vereist om ervoor te zorgen dat de Azure Database Migration Service probleemloos werkt bij het uitvoeren van de databasemigraties. Sommige van de vereisten van toepassing in alle scenario's (bron-doelparen) die wordt ondersteund door de service, terwijl andere vereiste onderdelen uniek voor een specifiek scenario zijn.

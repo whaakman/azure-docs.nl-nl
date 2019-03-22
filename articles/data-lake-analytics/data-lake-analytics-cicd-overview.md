@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 937e261405634e88ab234d2fe43ee660a3acc417
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b6c5df1ef0c93508595e27cbda315281aa3461b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233656"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124283"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Een CI/CD-pijplijn instellen voor Azure Data Lake Analytics  
 
@@ -328,17 +328,17 @@ Naast de opdrachtregel, kunt u Visual Studio bouwen of een taak MSBuild om U-SQL
    ![CI/CD MSBuild-taak voor een U-SQL-project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
 
-1.  Toevoegen van een taak voor het herstellen van NuGet om op te halen van het pakket NuGet oplossing-waarnaar wordt verwezen, waaronder `Azure.DataLake.USQL.SDK`, zodat MSBuild de U-SQL-taal-doelen vindt. Stel **Geavanceerd** > **doelmap** naar `$(Build.SourcesDirectory)/packages` als u wilt gebruiken in het voorbeeld MSBuild-argumenten rechtstreeks in stap 2.
+1. Toevoegen van een taak voor het herstellen van NuGet om op te halen van het pakket NuGet oplossing-waarnaar wordt verwezen, waaronder `Azure.DataLake.USQL.SDK`, zodat MSBuild de U-SQL-taal-doelen vindt. Stel **Geavanceerd** > **doelmap** naar `$(Build.SourcesDirectory)/packages` als u wilt gebruiken in het voorbeeld MSBuild-argumenten rechtstreeks in stap 2.
 
-    ![CI/CD-NuGet-taak voor een U-SQL-project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
+   ![CI/CD-NuGet-taak voor een U-SQL-project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.  MSBuild-argumenten in hulpprogramma's voor het bouwen van Visual Studio of in een taak MSBuild ingesteld zoals wordt weergegeven in het volgende voorbeeld. Of u de variabelen voor deze argumenten in de Azure-pijplijnen build-pijplijn kunt definiëren.
+2. MSBuild-argumenten in hulpprogramma's voor het bouwen van Visual Studio of in een taak MSBuild ingesteld zoals wordt weergegeven in het volgende voorbeeld. Of u de variabelen voor deze argumenten in de Azure-pijplijnen build-pijplijn kunt definiëren.
 
    ![CI/CD MSBuild-variabelen voor een project U-SQL-database definiëren](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
-    ```
-    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
-    ```
+   ```
+   /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
+   ```
  
 ### <a name="u-sql-database-project-build-output"></a>De uitvoer van U-SQL-database project build
 

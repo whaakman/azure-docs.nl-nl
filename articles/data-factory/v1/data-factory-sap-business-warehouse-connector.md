@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e972ee64d60f0fc9703e766c3ab45c3057c32a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019874"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893251"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Gegevens verplaatsen van SAP Business Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -292,27 +292,27 @@ Bij het verplaatsen van gegevens van SAP BW, worden de volgende toewijzingen van
 Het gegevenstype in de ABAP-woordenlijst | .NET-gegevenstype
 -------------------------------- | --------------
 ACCP |  Int
-CHAR | Reeks
-CLNT | Reeks
-VAL | Decimaal
-CUKY | Reeks
-DECEMBER | Decimaal
-FLTP | Double-waarde
+CHAR | String
+CLNT | String
+CURR | Decimal
+CUKY | String
+DEC | Decimal
+FLTP | Double
 INT1 | Byte
 INT2 | Int16
 INT4 | Int
-LANG | Reeks
-LCHR | Reeks
+LANG | String
+LCHR | String
 LRAW | Byte[]
 PREC | Int16
-QUAN | Decimaal
-ONBEWERKTE | Byte[]
+QUAN | Decimal
+RAW | Byte[]
 RAWSTRING | Byte[]
-TEKENREEKS | Reeks
-EENHEID | Reeks
-DATS | Reeks
-NUMC | Reeks
-TIM | Reeks
+TEKENREEKS | String
+EENHEID | String
+DATS | String
+NUMC | String
+TIMS | String
 
 > [!NOTE]
 > Zie het toewijzen van kolommen in de brongegevensset op kolommen uit de sink-gegevensset [toewijzing van kolommen in Azure Data Factory](data-factory-map-columns.md).

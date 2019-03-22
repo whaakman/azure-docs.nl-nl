@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/10/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 67cc955e4a265a2b29893bd0484dd905f4f2c2b2
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f1d557396f17357afd6f9e5d701e946668fcee65
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632430"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861040"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Facetnavigatie implementeren in Azure Search
 Facetnavigatie is een filteren mechanisme waarmee Self-directed drilldown navigatie in zoektoepassingen. De term 'meervoudige navigatie' kan niet bekend zijn, maar u hebt waarschijnlijk eerder gebruikt. Zoals in het volgende voorbeeld wordt weergegeven, is meervoudige navigatie niets meer dan de categorieën die worden gebruikt om resultaten te filteren.
@@ -70,7 +70,7 @@ Precisie, begrepen zoals de mogelijkheid om te filteren irrelevante treffers wor
 -   **Search =**  
     De waarde van deze parameter om te achterhalen van de zoekopdracht. Het is mogelijk een los stukje van tekst of een complexe zoekquery-expressie met meerdere voorwaarden en operators. Op de server, wordt een zoekopdracht voor zoeken in volledige tekst, uitvoeren van query's doorzoekbare velden in de index voor het afstemmen van de voorwaarden, retourneren van resultaten in de volgorde van de positie gebruikt. Als u instelt `search` op null, query wordt uitgevoerd gedurende de gehele index (dat wil zeggen, `search=*`). In dit geval andere elementen van de query, zoals een `$filter` of scoringprofiel, worden de primaire factoren die invloed hebben op welke documenten worden geretourneerd `($filter`) en in welke volgorde (`scoringProfile` of `$orderby`).
 
--   **$filter =**  
+-   **$filter=**  
     Een filter is een krachtig mechanisme voor het beperken van de grootte van search-resultaten op basis van de waarden van specifieke documentkenmerken. Een `$filter` wordt eerst geëvalueerd, gevolgd door onderverdeling logica die de beschikbare waarden en de bijbehorende aantallen voor elke waarde genereert
 
 Expressies voor complexe zoekquery verminderen de prestaties van de query. Waar mogelijk, gebruikt u goed Filterexpressies voor betere nauwkeurigheid en queryprestaties verbeteren.
@@ -435,7 +435,7 @@ Voor meer inzicht in ontwerpprincipes voor meervoudige navigatie raden we aan de
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
+[https://www.odata.org/documentation/odata-version-2-0/overview/]: https://www.odata.org/documentation/odata-version-2-0/overview/ 
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
 [Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
 

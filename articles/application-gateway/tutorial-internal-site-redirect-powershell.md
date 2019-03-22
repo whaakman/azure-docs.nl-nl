@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: victorh
-ms.openlocfilehash: 8dc619638783755ef6f401762e0475cbf444a6d4
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 115fe33bd1839cd9ce0f969352bc396df4f50b9a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308802"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101734"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Een toepassingsgateway maken met de interne omleiding met behulp van Azure PowerShell
 
-U kunt Azure Powershell gebruiken om te configureren [web verkeer omleiden](application-gateway-multi-site-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie definieert u een back endpool met behulp van een schaalset voor virtuele machines. Configureert u listeners en regels op basis van domeinnamen waarvan u eigenaar bent om ervoor te zorgen dat webverkeer aankomt op de juiste groep. Deze zelfstudie wordt ervan uitgegaan dat u voorbeelden van meerdere domeinen en maakt gebruik van de eigenaar bent *www.contoso.com* en *www.contoso.org*.
+U kunt Azure Powershell gebruiken om te configureren [web verkeer omleiden](application-gateway-multi-site-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie definieert u een back endpool met behulp van een schaalset voor virtuele machines. Configureert u listeners en regels op basis van domeinnamen waarvan u eigenaar bent om ervoor te zorgen dat webverkeer aankomt op de juiste groep. Deze zelfstudie wordt ervan uitgegaan dat u voorbeelden van meerdere domeinen en maakt gebruik van de eigenaar bent *www\.contoso.com* en *www\.contoso.org*.
 
 In dit artikel leert u het volgende:
 
@@ -114,7 +114,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>De eerste listener en regel maken
 
-Als u de toepassingsgateway wilt inschakelen om het verkeer op de juiste manier naar de back-endpool te routeren, is een listener vereist. In deze zelfstudie maakt u twee listeners voor de twee domeinen. In dit voorbeeld listeners zijn gemaakt voor de domeinen van *www.contoso.com* en *www.contoso.org*.
+Als u de toepassingsgateway wilt inschakelen om het verkeer op de juiste manier naar de back-endpool te routeren, is een listener vereist. In deze zelfstudie maakt u twee listeners voor de twee domeinen. In dit voorbeeld listeners zijn gemaakt voor de domeinen van *www\.contoso.com* en *www\.contoso.org*.
 
 Maken van de eerste listener met de naam *contosoComListener* met behulp van [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) met de front-end-configuratie en de frontend-poort die u eerder hebt gemaakt. Er is een regel vereist, zodat de listener weet welke back-endpool moet worden gebruikt voor binnenkomend verkeer. Maak een eenvoudige regel met de naam *contosoComRule* met behulp van [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -302,7 +302,7 @@ Voer uw domeinnaam in de adresbalk van de browser in. Bijvoorbeeld http://www.co
 
 ![Contoso-site testen in toepassingsgateway](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 
-Wijzig het adres naar het andere domein, bijvoorbeeld http://www.contoso.org en u ziet dat het verkeer is omgeleid naar de listener voor www.contoso.com.
+Wijzig het adres naar het andere domein, bijvoorbeeld http://www.contoso.org en u ziet dat het verkeer is omgeleid naar de listener voor de www\.contoso.com.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a842c0807a3cfbad78a43bcffa896c83bceedfb9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 1070cc97624b39ec929f5083f7073179fb1f068c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959286"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899142"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Referentieassets in Azure Automation
 
-Een Automation-referentieasset bevat een object dat beveiligingsreferenties, zoals een gebruikersnaam en wachtwoord bevat. Runbooks en DSC-configuraties kunnen-cmdlets die een PSCredential-object voor de verificatie accepteren gebruiken of ze kunnen extraheren de gebruikersnaam en het wachtwoord van de PSCredential-object om te bieden voor enkele toepassing of service-verificatie vereist. De eigenschappen van een referentie worden veilig opgeslagen in Azure Automation en kunnen worden geopend in het runbook of DSC-configuratie met de [Get-AutomationPSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) activiteit.
+Een Automation-referentieasset bevat een object dat beveiligingsreferenties, zoals een gebruikersnaam en wachtwoord bevat. Runbooks en DSC-configuraties kunnen-cmdlets die een PSCredential-object voor de verificatie accepteren gebruiken of ze kunnen extraheren de gebruikersnaam en het wachtwoord van de PSCredential-object om te bieden voor enkele toepassing of service-verificatie vereist. De eigenschappen van een referentie worden veilig opgeslagen in Azure Automation en kunnen worden geopend in het runbook of DSC-configuratie met de [Get-AutomationPSCredential](#activities) activiteit.
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -31,10 +31,10 @@ De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van au
 
 | Cmdlets | Description |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Haalt informatie op over een referentie-element. U kunt alleen de referentie op die zelf ophalen uit **Get-AutomationPSCredential** activiteit. |
-| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Hiermee maakt u een nieuw Automation-referentie. |
-| [Remove- AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Hiermee verwijdert u een Automation-referentie. |
-| [Set- AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Hiermee stelt u de eigenschappen voor een bestaande Automation-referentie. |
+| [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential) |Haalt informatie op over een referentie-element. U kunt alleen de referentie op die zelf ophalen uit **Get-AutomationPSCredential** activiteit. |
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Hiermee maakt u een nieuw Automation-referentie. |
+| [Remove-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Hiermee verwijdert u een Automation-referentie. |
+| [Set-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Hiermee stelt u de eigenschappen voor een bestaande Automation-referentie. |
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell-cmdlets
 
@@ -42,10 +42,10 @@ De cmdlets in de volgende tabel worden gebruikt voor AzureRM, maken en beheren v
 
 | Cmdlets | Description |
 |:--- |:--- |
-| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |Haalt informatie op over een referentie-element.  |
-| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Hiermee maakt u een nieuw Automation-referentie. |
-| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Hiermee verwijdert u een Automation-referentie. |
-| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |Hiermee stelt u de eigenschappen voor een bestaande Automation-referentie. |
+| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential) |Haalt informatie op over een referentie-element.  |
+| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential) |Hiermee maakt u een nieuw Automation-referentie. |
+| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential) |Hiermee verwijdert u een Automation-referentie. |
+| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential) |Hiermee stelt u de eigenschappen voor een bestaande Automation-referentie. |
 
 ## <a name="activities"></a>Activiteiten
 
@@ -53,7 +53,7 @@ De activiteiten in de volgende tabel worden gebruikt voor toegang tot de referen
 
 | Activiteiten | Description |
 |:--- |:--- |
-| Get-AutomationPSCredential |Hiermee haalt u een referentie op die moet worden gebruikt in een runbook of DSC-configuratie. Retourneert een [System.Management.Automation.PSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential) object. |
+| Get-AutomationPSCredential |Hiermee haalt u een referentie op die moet worden gebruikt in een runbook of DSC-configuratie. Retourneert een [System.Management.Automation.PSCredential](/dotnet/api/system.management.automation.pscredential) object. |
 
 > [!NOTE]
 > Vermijd het gebruik van variabelen in de parameter-Name van Get-AutomationPSCredential omdat dit kan detecteren van afhankelijkheden tussen runbooks of DSC-configuraties bemoeilijken en referentieassets tijdens de ontwerpfase.
@@ -93,7 +93,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 
 ## <a name="using-a-powershell-credential"></a>Met behulp van een PowerShell-referentie
 
-Ophalen van een referentie-element in een runbook of DSC-configuratie met de **Get-AutomationPSCredential** activiteit. Hiermee wordt een [PSCredential-object](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) die u kunt gebruiken met een activiteit of cmdlet waarvoor een PSCredential-parameter. U kunt ook de eigenschappen van het referentieobject u afzonderlijk ophalen. Het object heeft een eigenschap voor de gebruikersnaam en het veilig wachtwoord, of kunt u de **GetNetworkCredential** methode om terug te keren een [NetworkCredential](https://msdn.microsoft.com/library/system.net.networkcredential.aspx) object dat een niet-beveiligde versie van de het wachtwoord.
+Ophalen van een referentie-element in een runbook of DSC-configuratie met de **Get-AutomationPSCredential** activiteit. Hiermee wordt een [PSCredential-object](/dotnet/api/system.management.automation.pscredential) die u kunt gebruiken met een activiteit of cmdlet waarvoor een PSCredential-parameter. U kunt ook de eigenschappen van het referentieobject u afzonderlijk ophalen. Het object heeft een eigenschap voor de gebruikersnaam en het veilig wachtwoord, of kunt u de **GetNetworkCredential** methode om terug te keren een [NetworkCredential](/dotnet/api/system.net.networkcredential) object dat een niet-beveiligde versie van de het wachtwoord.
 
 ### <a name="textual-runbook-sample"></a>Tekstuele runbook-voorbeeld
 

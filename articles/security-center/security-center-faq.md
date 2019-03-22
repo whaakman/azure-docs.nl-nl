@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2019
+ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: e42deed992496cc28bdf92c01934d74361f2de6f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7e4a4572a53338dc0c7b5d7d11dca7130c8979be
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444018"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226892"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen vindt u antwoorden op vragen over Azure Security Center, een service die u bij het voorkomen helpt, detecteren en direct reageren op bedreigingen met verbeterde zichtbaarheid en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -52,7 +52,7 @@ Security Center beoordeelt de configuratie van uw resources om beveiligingsprobl
 Zie [machtigingen in Azure Security Center](security-center-permissions.md) voor meer informatie over de functies en toegestane acties in Security Center.
 
 ## <a name="data-collection-agents-and-workspaces"></a>Het verzamelen van gegevens, agents en werkruimten
-Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse.
+Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's), virtuele-machineschaalsets (VMSS), IaaS-containers en niet-Azure (met inbegrip van on-premises) computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse.
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Word ik gefactureerd voor Azure Monitor-logboeken op de werkruimten die zijn gemaakt door Security Center?
 Nee. Werkruimten die zijn gemaakt door Security Center, terwijl geconfigureerd voor Azure Monitor-logboeken per knooppunt facturering, doen niet Azure Monitor logboeken kosten in rekening gebracht. Security Center-facturering is altijd gebaseerd op het Security Center-beveiligingsbeleid en de oplossingen die zijn geïnstalleerd op een werkruimte:
@@ -74,7 +74,7 @@ Windows- of Linux IaaS-VM's in aanmerking komt als:
 
 - De Microsoft Monitoring Agent-extensie is momenteel niet geïnstalleerd op de virtuele machine.
 - De virtuele machine wordt uitgevoerd.
-- De Windows- of Linux VM-Agent is geïnstalleerd.
+- De Windows- of Linux [Azure Virtual Machine Agent](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-windows) is geïnstalleerd.
 - De virtuele machine wordt niet gebruikt als een apparaat, zoals de web application firewall of de firewall van volgende generatie.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Kan ik de Standaardwerkruimten die zijn gemaakt door Security Center wilt verwijderen?
@@ -115,21 +115,23 @@ Selecteer een bestaande Log Analytics-werkruimte:
 
    - Selecteer **annuleren** om de bewerking te annuleren.
 
-### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Wat gebeurt er als dat de Microsoft Monitoring Agent al is geïnstalleerd als een uitbreiding op de virtuele machine?
-Security Center wordt de bestaande verbindingen met werkruimten van de gebruiker niet overschreven. Security Center worden beveiligingsgegevens van de virtuele machine opgeslagen in de werkruimte is al verbonden. Security Center werkt de versie van de extensie om op te nemen van de Azure-resource-ID van de virtuele machine voor de ondersteuning van Security Center gebruik.
+### Wat gebeurt er als dat de Microsoft Monitoring Agent al is geïnstalleerd als een uitbreiding op de virtuele machine?<a name="mmaextensioninstalled"></a>
+Wanneer de Monitoring Agent is geïnstalleerd als een uitbreiding, kan de configuratie van de extensie aan slechts één werkruimte rapporteren. Security Center wordt de bestaande verbindingen met werkruimten van de gebruiker niet overschreven. Security Center worden beveiligingsgegevens van een virtuele machine opgeslagen in een werkruimte die al is verbonden, mits de "security" of "securityFree" oplossing erop is geïnstalleerd. Security Center kan de versie van de extensie upgraden naar de meest recente versie van dit proces.
 
-### <a name="what-if-i-had-a-microsoft-monitoring-agent-installed-on-the-machine-but-not-as-an-extension"></a>Wat gebeurt er als ik heb een Microsoft Monitoring Agent geïnstalleerd op de computer, maar niet als een uitbreiding?
-Als de Microsoft Monitoring Agent rechtstreeks op de virtuele machine (en niet als een Azure-extensie) is geïnstalleerd, de Microsoft Monitoring Agent wordt niet geïnstalleerd door Security Center en beveiligingsbewaking is beperkt.
+Zie voor meer informatie, [automatische inrichting in geval van een bestaande installatie van de agent](security-center-enable-data-collection.md#preexisting).
 
-Zie voor meer informatie de volgende sectie [wat gebeurt er als een SCOM of OMS directe agent al is geïnstalleerd op mijn VM?](#scomomsinstalled)
 
-### Wat gebeurt er als een SCOM of OMS agent aansturen op mijn virtuele machine is al geïnstalleerd?<a name="scomomsinstalled"></a>
-Security Center kan niet van tevoren identificeren dat een agent is geïnstalleerd.  Security Center probeert te installeren van de Microsoft Monitoring Agent-extensie en mislukt als gevolg van de bestaande geïnstalleerde agent.  Deze fout wordt voorkomen dat de verbindingsinstellingen van de agent voor de werkruimte te overschrijven en voorkomt het maken van multihoming.
+### Wat gebeurt er als ik heb een Microsoft Monitoring Agent rechtstreeks geïnstalleerd op de computer, maar niet als een uitbreiding (Direct Agent)?<a name="directagentinstalled"></a>
+Als de Microsoft Monitoring Agent rechtstreeks op de virtuele machine (en niet als een Azure-extensie) is geïnstalleerd, wordt in Security Center de Microsoft Monitoring Agent-extensie wordt geïnstalleerd en kan de Microsoft Monitoring agent upgraden naar de nieuwste versie.
+De agent is geïnstalleerd om te rapporteren aan de reeds geconfigureerd werkruimten wordt voortgezet, en daarnaast rapporteren aan de werkruimte die is geconfigureerd in Security Center (multihoming wordt ondersteund).
+Als de geconfigureerde werkruimte is een gebruikerswerkruimte (geen standaardwerkruimte van Security Center bevinden), moet u voor het installeren van de "security /"securityFree"-oplossing op het Security Center om te verwerken van gebeurtenissen starten van virtuele machines en computers rapporteren aan deze werkruimte.
 
-> [!NOTE]
-> De agent-versie is bijgewerkt naar de meest recente versie van de OMS-agent.  Dit geldt ook voor SCOM-gebruikers.
->
->
+Voor bestaande machines op abonnementen toegevoegd aan Security Center voor 2019-03-17, wanneer een bestaande agent wordt gedetecteerd, wordt de Microsoft Monitoring Agent-extensie niet geïnstalleerd en de machine worden niet beïnvloed. Zie de aanbeveling voor 'Los de problemen met de agent controleren op uw virtuele machines' om op te lossen, het installeren van beveiligingsagenten oplossen op deze machines voor deze machines
+
+ Zie voor meer informatie de volgende sectie [wat gebeurt er als een SCOM of OMS directe agent al is geïnstalleerd op mijn VM?](#scomomsinstalled)
+
+### Wat gebeurt er als een SCOM-agent is al geïnstalleerd op mijn VM?<a name="scomomsinstalled"></a>
+Security center installeert de Microsoft Monitoring Agent-extensie side-by-side aan de bestaande SCOM. De bestaande SCOM-agent blijft normaal rapporteren aan de SCOM-server. Houd er rekening mee dat de SCOM-agent en de Microsoft Monitoring Agent delen algemene runtime-bibliotheken, die wordt bijgewerkt naar de meest recente versie tijdens deze weer.
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>Wat zijn de gevolgen van het verwijderen van deze extensies?
 Als u de extensie voor Microsoft Monitoring verwijdert, Security Center kan geen beveiligingsgegevens verzamelen van de virtuele machine en enkele aanbevelingen voor beveiliging en waarschuwingen zijn niet beschikbaar. Security Center bepaalt binnen 24 uur dat de virtuele machine in de uitbreiding ontbreekt en de extensie opnieuw geïnstalleerd.

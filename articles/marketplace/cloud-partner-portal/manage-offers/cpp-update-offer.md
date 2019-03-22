@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 690ce08aa15a9677b04931ed1965ef819614ee84
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 76b607502324c3ca25b3536d5197a97dbb80399d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102142"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Aanbiedingen voor Azure Marketplace en AppSource bijwerken
 
@@ -68,19 +68,19 @@ Deze wijzigingen wilt implementeren, volgt u de volgende stappen uit.
 
 Voor Azure Marketplace-aanbiedingen:
 
-2. Selecteer de **SKU's** tabblad.  Selecteer de SKU te wijzigen.
-3. Klik op de **landen selecteren** knop onder de **land/regio beschikbaarheid** veld.
-4. In het dialoogvenster van de beschikbaarheid van regio toevoegen of verwijderen van de regio's voor deze SKU.
+1. Selecteer de **SKU's** tabblad.  Selecteer de SKU te wijzigen.
+1. Klik op de **landen selecteren** knop onder de **land/regio beschikbaarheid** veld.
+1. In het dialoogvenster van de beschikbaarheid van regio toevoegen of verwijderen van de regio's voor deze SKU.
 
 Voor AppSource biedt het volgende:
 
-2. Selecteer de **Storefront Details** tabblad.
-3. Naast de **landen/regio's ondersteund** label, klikt u op **landen/regio's ondersteund**. 
-4. In het dialoogvenster ondersteunde landen/regio's toevoegen of verwijderen van de regio's voor deze aanbieding.
+1. Selecteer de **Storefront Details** tabblad.
+1. Naast de **landen/regio's ondersteund** label, klikt u op **landen/regio's ondersteund**. 
+1. In het dialoogvenster ondersteunde landen/regio's toevoegen of verwijderen van de regio's voor deze aanbieding.
 
 Voor beide marketplace:
 
-5. Klik op **publiceren** het publicatieproces te starten. 
+1. Klik op **publiceren** het publicatieproces te starten. 
 
 Als u een SKU wordt beschikbaar gesteld in een nieuwe regio, hebt u de mogelijkheid om op te geven van de prijzen voor die bepaalde regio via het **prijzen gegevens exporteren** functionaliteit. Als u een regio weer die eerder beschikbaar was toevoegt, kunt u de prijzen omdat prijswijzigingen zijn niet toegestaan niet bijwerken.
 

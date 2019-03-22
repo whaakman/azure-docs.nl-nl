@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 92ce35e88cc73c16e3d3670e07ff8b996192b825
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103418"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109811"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Inzicht in Cloudyn-rapporten voor kosten
 
@@ -41,7 +41,7 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
       - Asset-management
       - Optimalisatie
 
-  Typ de naam van een filter en klik op **opslaan**.
+   Typ de naam van een filter en klik op **opslaan**.
 
 3. **Tags**
 
@@ -71,55 +71,55 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
       - Cloudyn kosten entity-tags
       - Abonnement tag categorieën voor doel voor het toewijzen van kosten
 
-  Voorbeelden zijn onder andere:
-     - Kostenplaats
-     - Afdeling
-     - Toepassing
-     - Omgeving
-     - Kosten code
+   Voorbeelden zijn onder andere:
+   - Kostenplaats
+   - Afdeling
+   - Toepassing
+   - Omgeving
+   - Kosten code
 
-    Hier volgt een lijst van ingebouwde groepen in rapporten beschikbaar:
+     Hier volgt een lijst van ingebouwde groepen in rapporten beschikbaar:
 
-    - **Kostentype**
-      - Selecteer een kostentype of meerdere kostensoorten of Alles selecteren. Kostensoorten zijn onder andere:
-        - Eenmalig
-        - Ondersteuning
-        - Gebruikskosten
-    - **De klant**
-        - Selecteer een specifieke klant, meerdere klanten, of alle klanten.
-    - **Accountnaam**
-        - De naam van het account of abonnement. In Azure is de naam van het Azure-abonnement.
-    - **Geen account**
-        - Selecteer een account, meerdere accounts of alle accounts. In Azure is de GUID van het Azure-abonnement.
-    - **Bovenliggende Account**
-        - Selecteer de bovenliggende account, meerdere accounts of selecteren.
-    - **Service**
-        - Selecteer een service, meerdere services, of alle services.
-    - **Provider**
-        - De cloudprovider waarin activa en kosten gekoppeld worden.
-    - **Regio**
-        - De regio waar de resource wordt gehost.
-    - **Binnen een Beschikbaarheidszone**
-        - AWS geïsoleerd locaties binnen een regio.
-    - **Resourcetype**
-        - Het type resource in gebruik.
-    - **Sub-Type**
-        - Selecteer het subtype.
-    - **Bewerking**
-        - Selecteer de bewerking of **Show all**.
-    - **Prijsmodel**
-        - Alle kosten vooraf
-        - Geen kosten vooraf
-        - Gedeeltelijk kosten vooraf
-        - Op aanvraag
-        - Reservering
-        - Positie
-    - **Type van de kosten in rekening gebracht**
-        - Selecteer negatieve of positieve kosten type of beide.
-    - **Tenants**
-        - Of een virtuele machine wordt uitgevoerd als een toegewezen machine.
-    -   **Gebruikstype**
-          - Gebruikstype zijn eenmalige kosten of terugkerende kosten.
+     - **Kostentype**
+     - Selecteer een kostentype of meerdere kostensoorten of Alles selecteren. Kostensoorten zijn onder andere:
+       - Eenmalig
+       - Ondersteuning
+       - Gebruikskosten
+     - **De klant**
+       - Selecteer een specifieke klant, meerdere klanten, of alle klanten.
+     - **Accountnaam**
+       - De naam van het account of abonnement. In Azure is de naam van het Azure-abonnement.
+     - **Geen account**
+       - Selecteer een account, meerdere accounts of alle accounts. In Azure is de GUID van het Azure-abonnement.
+     - **Bovenliggende Account**
+       - Selecteer de bovenliggende account, meerdere accounts of selecteren.
+     - **Service**
+       - Selecteer een service, meerdere services, of alle services.
+     - **Provider**
+       - De cloudprovider waarin activa en kosten gekoppeld worden.
+     - **Regio**
+       - De regio waar de resource wordt gehost.
+     - **Binnen een Beschikbaarheidszone**
+       - AWS geïsoleerd locaties binnen een regio.
+     - **Resourcetype**
+       - Het type resource in gebruik.
+     - **Sub-Type**
+       - Selecteer het subtype.
+     - **Bewerking**
+       - Selecteer de bewerking of **Show all**.
+     - **Prijsmodel**
+       - Alle kosten vooraf
+       - Geen kosten vooraf
+       - Gedeeltelijk kosten vooraf
+       - Op aanvraag
+       - Reservering
+       - Positie
+     - **Type van de kosten in rekening gebracht**
+       - Selecteer negatieve of positieve kosten type of beide.
+     - **Tenants**
+       - Of een virtuele machine wordt uitgevoerd als een toegewezen machine.
+     - **Gebruikstype**
+       - Gebruikstype zijn eenmalige kosten of terugkerende kosten.
 
 5. **Filters**
 
@@ -139,7 +139,7 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
     - Kopen van gereserveerde instanties kosten
     - Sommige items voor de Azure Marketplace.
 
-  Selecteer onder afschrijving, **afgeschreven kosten** of **werkelijke kosten**.
+   Selecteer onder afschrijving, **afgeschreven kosten** of **werkelijke kosten**.
 
 8. **Resolutie**
 
@@ -162,7 +162,7 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
 
     De optie weergeven/verbergen heeft geen effect in rapporten.
 
-12.   **Weergave-indelingen**
+12. **Weergave-indelingen**
 
     Weergave-indelingen gebruiken verschillende weergaven voor graph of de tabel selecteren.
 

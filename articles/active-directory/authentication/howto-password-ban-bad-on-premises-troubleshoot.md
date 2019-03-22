@@ -1,6 +1,6 @@
 ---
-title: Problemen oplossen in Azure AD wachtwoord protection preview
-description: Inzicht in Azure AD wachtwoord protection preview algemene problemen oplossen
+title: Problemen oplossen in Azure AD-wachtwoordbeveiliging
+description: Inzicht in Azure AD wachtwoord beveiliging algemene probleemoplossing
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7ac97d7bda56a871e0b8f6de6d5d7262f3f44667
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006950"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285697"
 ---
-# <a name="preview-azure-ad-password-protection-troubleshooting"></a>Preview: Azure AD-wachtwoordbeveiliging oplossen
-
-|     |
-| --- |
-| Beveiliging van Azure AD-wachtwoord is een openbare preview-functie van Azure Active Directory. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD-wachtwoordbeveiliging oplossen
 
 Na de implementatie van Azure AD-wachtwoord beveiliging, probleemoplossing mogelijk zijn vereist. In dit artikel gaat gedetailleerd inzicht in bepaalde algemene stappen voor probleemoplossing.
 
@@ -101,7 +96,7 @@ Zodra de degradatie is voltooid en de domeincontroller opnieuw is opgestart en w
 
 ## <a name="removal"></a>Verwijdering
 
-Als deze wordt besloten dat u wilt de openbare preview-software en opschonen alle gerelateerde status verwijderen uit de domeinen en forests, kan deze taak worden uitgevoerd met behulp van de volgende stappen uit:
+Als de software voor de beveiliging van Azure AD wachtwoord en opschonen alle gerelateerde status verwijderen uit de domeinen en forest wordt besloten, kan deze taak worden uitgevoerd met behulp van de volgende stappen uit:
 
 > [!IMPORTANT]
 > Het is belangrijk dat u deze stappen in volgorde uitvoeren. Als een willekeurig exemplaar van de Proxy-service actief wordt periodiek opnieuw gemaakt het object serviceConnectionPoint. Als een willekeurig exemplaar van de DC-agent-service actief wordt periodiek opnieuw gemaakt het object serviceConnectionPoint en de sysvol-status.
@@ -120,7 +115,7 @@ Als deze wordt besloten dat u wilt de openbare preview-software en opschonen all
 
    De resulterende objecten gevonden de `Get-ADObject` opdracht kan worden doorgesluisd naar `Remove-ADObject`, of handmatig verwijderd.
 
-4. Verwijder handmatig alle connection points van de DC-agent in elke naamgevingscontext voor domein. Er kan ook een deze objecten per domeincontroller in het forest, afhankelijk van hoe ver de openbare preview-software is geïmplementeerd. De locatie van het object kan worden gedetecteerd met de volgende Active Directory PowerShell-opdracht:
+4. Verwijder handmatig alle connection points van de DC-agent in elke naamgevingscontext voor domein. Er kan ook een deze objecten per domeincontroller in het forest, afhankelijk van hoe ver de software is geïmplementeerd. De locatie van het object kan worden gedetecteerd met de volgende Active Directory PowerShell-opdracht:
 
    ```PowerShell
    $scp = "serviceConnectionPoint"

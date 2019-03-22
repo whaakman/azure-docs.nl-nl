@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 188e58261cec90e9afcc885f3da21fa3fab3b746
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2925ca5a303876a68b6d605c7312d43af102b6e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875430"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088465"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Zelfstudie: Verbinding maken met de Bing Nieuws zoeken-API met behulp van Connected Services in Visual Studio en C#
 
@@ -87,14 +87,14 @@ Dit artikel bevat informatie voor het gebruik van de functie Connected Services 
 
 Nu u ondersteuning voor de Bing Nieuws zoeken-API hebt toegevoegd aan uw project, kunt u de API als volgt gebruiken om een slimme zoekfunctie toe te voegen aan een webpagina.
 
-1.  Voeg in het bestand *Startup.cs*, in de methode `ConfigureServices`, een aanroep naar `IServiceCollection.AddSingleton` toe. Hierdoor is het configuratieobject met de belangrijkste instellingen beschikbaar voor de code in uw project.
+1. Voeg in het bestand *Startup.cs*, in de methode `ConfigureServices`, een aanroep naar `IServiceCollection.AddSingleton` toe. Hierdoor is het configuratieobject met de belangrijkste instellingen beschikbaar voor de code in uw project.
  
    ```csharp
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddMvc();
-            services.AddSingleton<IConfiguration>(Configuration);
-        }
+       public void ConfigureServices(IServiceCollection services)
+       {
+           services.AddMvc();
+           services.AddSingleton<IConfiguration>(Configuration);
+       }
    ```
 
 

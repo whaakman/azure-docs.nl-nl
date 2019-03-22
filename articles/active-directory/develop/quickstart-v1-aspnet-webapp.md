@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185313"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007624"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snelstartgids: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
 
@@ -146,7 +146,8 @@ Maak in Visual Studio een nieuwe weergave om de aanmeldknop toe te voegen en geb
 
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
-<!--start-collapse--> Met deze pagina wordt een aanmeldknop toegevoegd, in de SVG-indeling met een zwarte achtergrond:<br/>![Aanmelden met Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Ga voor meer soorten aanmeldknoppen naar [Huisstijlrichtlijnen voor toepassingen](howto-add-branding-in-azure-ad-apps.md).
+<!--start-collapse-->
+Deze pagina wordt een knop aanmelden in SVG-indeling met een zwarte achtergrond toegevoegd:<br/>![Aanmelden met Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Ga voor meer soorten aanmeldknoppen naar [Huisstijlrichtlijnen voor toepassingen](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>Stap 7: Claims van gebruikers weergeven door een controller toe te voegen
@@ -300,7 +301,7 @@ Daarnaast ziet u een tabel met alle gebruikersclaims uit de verificatieaanvraag.
 
 In deze stap test u de toegang tot de claimscontroller als een anonieme gebruiker:<br/>
 Selecteer de koppeling om de gebruiker af te melden en de afmelding te voltooien.<br/>
-Typ nu in de browser http://localhost:{port}/claims voor toegang tot de controller die is beveiligd met het kenmerk `[Authorize]`
+Typ nu in de browser `http://localhost:{port}/claims` voor toegang tot de controller die is beveiligd met het kenmerk `[Authorize]`
 
 #### <a name="expected-results"></a>Verwachte resultaten
 

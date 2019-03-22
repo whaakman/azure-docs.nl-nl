@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a37e67f299262a7e0b353564c24c789859dcec7c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 0b1ba5c6d342fb0bf6f888af4bc3a4e1c8ef939e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605004"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074707"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Verbinding maken met Apache Kafka in HDInsight via een Azure-netwerk
 
@@ -31,29 +31,29 @@ HDInsight kan geen rechtstreekse verbinding met Kafka via het openbare internet.
 
 * Een particulier netwerk, zoals uw on-premises netwerk verbinden met het virtuele netwerk. Deze configuratie kan clients in uw on-premises netwerk rechtstreeks werken met Kafka. Als u wilt deze configuratie inschakelt, moet u de volgende taken uitvoeren:
 
-    1. Maak een virtueel netwerk.
-    2. Een VPN-gateway die gebruikmaakt van een site-naar-site-configuratie maken. De configuratie die in dit document wordt gebruikt, maakt verbinding met een VPN-gateway-apparaat in uw on-premises netwerk.
-    3. Maak een DNS-server in het virtuele netwerk.
-    4. Doorsturen van tussen de DNS-server in elk netwerk configureren.
-    5. Maken van een Kafka op HDInsight-cluster in het virtuele netwerk.
+  1. Maak een virtueel netwerk.
+  2. Een VPN-gateway die gebruikmaakt van een site-naar-site-configuratie maken. De configuratie die in dit document wordt gebruikt, maakt verbinding met een VPN-gateway-apparaat in uw on-premises netwerk.
+  3. Maak een DNS-server in het virtuele netwerk.
+  4. Doorsturen van tussen de DNS-server in elk netwerk configureren.
+  5. Maken van een Kafka op HDInsight-cluster in het virtuele netwerk.
 
-    Zie voor meer informatie de [verbinding maken met Apache Kafka vanuit een on-premises netwerk](#on-premises) sectie. 
+     Zie voor meer informatie de [verbinding maken met Apache Kafka vanuit een on-premises netwerk](#on-premises) sectie. 
 
 * Afzonderlijke computers verbinden met het virtuele netwerk met behulp van een VPN-gateway en VPN-client. Als u wilt deze configuratie inschakelt, moet u de volgende taken uitvoeren:
 
-    1. Maak een virtueel netwerk.
-    2. Een VPN-gateway die gebruikmaakt van een punt-naar-site-configuratie maken. Deze configuratie kan worden gebruikt met zowel Windows als Mac OS-clients.
-    3. Maken van een Kafka op HDInsight-cluster in het virtuele netwerk.
-    4. Kafka voor IP-reclame configureren. Deze configuratie kan de client verbinding maken met behulp van de broker IP-adressen in plaats van domeinnamen.
-    5. Download en gebruik van de VPN-client op het ontwikkelingssysteem.
+  1. Maak een virtueel netwerk.
+  2. Een VPN-gateway die gebruikmaakt van een punt-naar-site-configuratie maken. Deze configuratie kan worden gebruikt met zowel Windows als Mac OS-clients.
+  3. Maken van een Kafka op HDInsight-cluster in het virtuele netwerk.
+  4. Kafka voor IP-reclame configureren. Deze configuratie kan de client verbinding maken met behulp van de broker IP-adressen in plaats van domeinnamen.
+  5. Download en gebruik van de VPN-client op het ontwikkelingssysteem.
 
-    Zie voor meer informatie de [verbinding maken met Apache Kafka met een VPN-client](#vpnclient) sectie.
+     Zie voor meer informatie de [verbinding maken met Apache Kafka met een VPN-client](#vpnclient) sectie.
 
-    > [!WARNING]  
-    > Deze configuratie wordt alleen aanbevolen voor ontwikkelingsdoeleinden vanwege de volgende beperkingen:
-    >
-    > * Elke client moet verbinding maken met behulp van een VPN-softwareclient.
-    > * De VPN-client geeft niet aanvragen voor naamomzetting met het virtuele netwerk, zodat u IP-adressen om te communiceren met Kafka moet gebruiken. IP-communicatie vereist aanvullende configuratie van het Kafka-cluster.
+     > [!WARNING]  
+     > Deze configuratie wordt alleen aanbevolen voor ontwikkelingsdoeleinden vanwege de volgende beperkingen:
+     >
+     > * Elke client moet verbinding maken met behulp van een VPN-softwareclient.
+     > * De VPN-client geeft niet aanvragen voor naamomzetting met het virtuele netwerk, zodat u IP-adressen om te communiceren met Kafka moet gebruiken. IP-communicatie vereist aanvullende configuratie van het Kafka-cluster.
 
 Zie voor meer informatie over het gebruik van HDInsight in een virtueel netwerk [HDInsight uitbreiden met behulp van Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
 
@@ -232,8 +232,8 @@ Gebruik de stappen in deze sectie om te maken van de volgende configuratie:
         -SubnetName $defaultSubnet.Id
     ```
 
-  > [!WARNING]  
-  > Dit proces duurt ongeveer 15 minuten om te voltooien.
+   > [!WARNING]  
+   > Dit proces duurt ongeveer 15 minuten om te voltooien.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Kafka configureren voor IP-advertenties
 
@@ -323,23 +323,23 @@ Gebruik de volgende stappen om te maken en uitvoeren van een Python-producent en
 
 3. Voor het verzenden van gegevens met Kafka, gebruik de volgende Python-code:
 
-  ```python
-  from kafka import KafkaProducer
-  # Replace the `ip_address` entries with the IP address of your worker nodes
-  # NOTE: you don't need the full list of worker nodes, just one or two.
-  producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
-  for _ in range(50):
+   ```python
+   from kafka import KafkaProducer
+   # Replace the `ip_address` entries with the IP address of your worker nodes
+   # NOTE: you don't need the full list of worker nodes, just one or two.
+   producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
+   for _ in range(50):
       producer.send('testtopic', b'test message')
-  ```
+   ```
 
     Vervang de `'kafka_broker'` items met de adressen die zijn geretourneerd uit stap 1 in deze sectie:
 
-    * Als u een __Software VPN-client__, vervangen de `kafka_broker` items met het IP-adres van uw worker-knooppunten.
+   * Als u een __Software VPN-client__, vervangen de `kafka_broker` items met het IP-adres van uw worker-knooppunten.
 
-    * Als u hebt __naamomzetting via een aangepaste DNS-server ingeschakeld__, vervangen de `kafka_broker` items met de FQDN-naam van de worker-knooppunten.
+   * Als u hebt __naamomzetting via een aangepaste DNS-server ingeschakeld__, vervangen de `kafka_broker` items met de FQDN-naam van de worker-knooppunten.
 
-    > [!NOTE]
-    > Deze code verzendt de tekenreeks `test message` naar het onderwerp `testtopic`. De standaardconfiguratie van Kafka in HDInsight is het maken van het onderwerp, als deze niet bestaat.
+     > [!NOTE]
+     > Deze code verzendt de tekenreeks `test message` naar het onderwerp `testtopic`. De standaardconfiguratie van Kafka in HDInsight is het maken van het onderwerp, als deze niet bestaat.
 
 4. Als u wilt de berichten ophalen uit Kafka, gebruik de volgende Python-code:
 

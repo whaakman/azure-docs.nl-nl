@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: 62683aaf7dda048b5828e9494ba8cafe6c8b8f9f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 012a352b00de2e2d1bf64fd18125ddd10faba5cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417936"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122804"
 ---
 # <a name="assessment-calculations"></a>Beoordelingsberekeningen
 
@@ -118,14 +118,14 @@ Als u de grootte instelt op basis van de prestaties, heeft Azure Migrate de gebr
 
    Hieronder worden de redenen waarom een evaluatie kan een laag betrouwbaarheidsclassificatie ophalen betreft:
 
-   - U hebt uw omgeving niet geprofileerd gedurende de periode waarvoor u de evaluatie maakt. Bijvoorbeeld, als u de evaluatie maakt waarbij de duur van de prestaties is ingesteld op 1 dag, moet u na het starten van de detectie minimaal een dag wachten voordat alle gegevenspunten zijn verzameld.
+- U hebt uw omgeving niet geprofileerd gedurende de periode waarvoor u de evaluatie maakt. Bijvoorbeeld, als u de evaluatie maakt waarbij de duur van de prestaties is ingesteld op 1 dag, moet u na het starten van de detectie minimaal een dag wachten voordat alle gegevenspunten zijn verzameld.
 
-   - Er zijn enkele VM's uitgeschakeld geweest in de periode waarover de evaluatie wordt berekend. Als er VM's zijn die gedurende een bepaalde periode uitgeschakeld zijn geweest, kunnen er voor die periode geen prestatiegegevens worden verzameld.
+- Er zijn enkele VM's uitgeschakeld geweest in de periode waarover de evaluatie wordt berekend. Als er VM's zijn die gedurende een bepaalde periode uitgeschakeld zijn geweest, kunnen er voor die periode geen prestatiegegevens worden verzameld.
 
-   - Er zijn enkele VM's gemaakt tijdens de periode waarover de evaluatie wordt berekend. Als u bijvoorbeeld een evaluatie maakt voor de prestatiegeschiedenis van de laatste maand, maar er een week geleden enkele VM's in de omgeving zijn gemaakt. In dergelijke gevallen is de prestatiegeschiedenis van de nieuwe virtuele machines niet voor de hele periode beschikbaar.
+- Er zijn enkele VM's gemaakt tijdens de periode waarover de evaluatie wordt berekend. Als u bijvoorbeeld een evaluatie maakt voor de prestatiegeschiedenis van de laatste maand, maar er een week geleden enkele VM's in de omgeving zijn gemaakt. In dergelijke gevallen is de prestatiegeschiedenis van de nieuwe virtuele machines niet voor de hele periode beschikbaar.
 
-   > [!NOTE]
-   > Als de betrouwbaarheidsclassificatie van een evaluatie lager dan 5 sterren is, we raden u aan te wachten op ten minste een dag voor het apparaat aan het profiel van de omgeving en vervolgens *opnieuw berekenen* de evaluatie. Als de voorgaande stappen niet kunnen worden uitgevoerd, wordt de grootte mogelijk niet op betrouwbare wijze ingesteld. In dat geval doet u er verstandig aan over te schakelen naar *instelling van de grootte op basis van 'zoals on-premises'* door de evaluatie-eigenschappen te wijzigen.
+  > [!NOTE]
+  > Als de betrouwbaarheidsclassificatie van een evaluatie lager dan 5 sterren is, we raden u aan te wachten op ten minste een dag voor het apparaat aan het profiel van de omgeving en vervolgens *opnieuw berekenen* de evaluatie. Als de voorgaande stappen niet kunnen worden uitgevoerd, wordt de grootte mogelijk niet op betrouwbare wijze ingesteld. In dat geval doet u er verstandig aan over te schakelen naar *instelling van de grootte op basis van 'zoals on-premises'* door de evaluatie-eigenschappen te wijzigen.
 
 ## <a name="monthly-cost-estimation"></a>Schatting van de maandelijkse kosten
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0fb2103b982d5b2fc1a04455b451459ede12166e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1363dd3c620789b9f3c8ce1dbe0892ee61d66051
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336932"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108202"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Herstel bij noodgeval en geodistributie
 
@@ -24,7 +24,7 @@ ms.locfileid: "53336932"
 Alle status is opgeslagen in duurzame functies in Azure Storage. Een [taak hub](durable-functions-task-hubs.md) is een logische container voor Azure Storage-resources die worden gebruikt voor indelingen. Orchestrator en activiteit functies kunnen alleen met elkaar communiceren wanneer ze deel uitmaken van dezelfde taak hub.
 De beschreven scenario's voorstellen implementatieopties voor betere beschikbaarheid en uitvaltijd tijdens de disaster recovery activiteiten.
 
-Het is belangrijk dat u ziet dat deze scenario's zijn gebaseerd op actief-passief-configuraties, omdat ze worden geleid door het gebruik van Azure Storage. Dit patroon bestaat uit een back-up (passieve) functie-app implementeren naar een andere regio. Traffic Manager bewaakt de primaire (actieve) functie-app voor beschikbaarheid. Het wordt failover naar de back-functie-app als de primaire mislukt. Zie voor meer informatie, [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)van [prioriteit Verkeersrouteringsmethode.](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)
+Het is belangrijk dat u ziet dat deze scenario's zijn gebaseerd op actief-passief-configuraties, omdat ze worden geleid door het gebruik van Azure Storage. Dit patroon bestaat uit een back-up (passieve) functie-app implementeren naar een andere regio. Traffic Manager bewaakt de primaire (actieve) functie-app voor beschikbaarheid. Het wordt failover naar de back-functie-app als de primaire mislukt. Zie voor meer informatie, [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)van [prioriteit Verkeersrouteringsmethode.](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)
 
 >[!NOTE]
 >

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: e71999e9c5b118fbf31d0d735d03cddb321b0065
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 74940f3b89237233acd575aa5df441163e00d178
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773415"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000935"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Een punt-naar-site-verbinding configureren met behulp van verificatie via een certificaat (klassiek)
 
@@ -69,9 +69,9 @@ Gebruik de volgende waarden om een testomgeving te maken of verwijs ernaar om me
    - **Resourcegroep**: voer *TestRG* in. Selecteer **Nieuwe maken** als de resourcegroep niet bestaat.
    - **Locatie**: selecteer **US - oost** in de lijst.
 
- - **Instellingen voor VPN-verbinding**
-   - **Verbindingstype**: selecteer **Punt-naar-site**.
-   - **Clientadresruimte**: voer *172.16.201.0/24* in. VPN-clients die verbinding maken met het VNet via deze punt-naar-site-verbinding, ontvangen een IP-adres van de opgegeven pool.
+  - **Instellingen voor VPN-verbinding**
+    - **Verbindingstype**: selecteer **Punt-naar-site**.
+    - **Clientadresruimte**: voer *172.16.201.0/24* in. VPN-clients die verbinding maken met het VNet via deze punt-naar-site-verbinding, ontvangen een IP-adres van de opgegeven pool.
 
 - **Configuratie-instellingen voor gatewaysubnet**
    - **Naam**: automatisch ingevuld met *GatewaySubnet*.
@@ -89,7 +89,7 @@ Controleer eerst of u een Azure-abonnement hebt. Als u nog geen Azure-abonnement
 
 Als u nog geen virtueel netwerk (VNet) hebt, maakt u er een. De schermafbeeldingen dienen alleen als voorbeeld. Zorg dat u de waarden vervangt door die van uzelf. Volg de volgende stappen om een VNet te maken met behulp van Azure Portal:
 
-1. Meld u aan bij de [Azure-portal](http://portal.azure.com) en selecteer **Create a resource**. De pagina **Nieuw** wordt geopend. 
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en selecteer **Create a resource**. De pagina **Nieuw** wordt geopend. 
 
 2. Voer in het veld **Search the marketplace** *virtueel netwerk* in en selecteer **Virtueel netwerk** in de geretourneerde lijst. De pagina **Virtueel netwerk** wordt geopend.
 
@@ -121,26 +121,26 @@ In deze stap maakt u een gatewaysubnet en een gateway voor dynamische routering.
 
 2. Selecteer op de pagina voor uw virtuele netwerk de optie **Overzicht** en selecteer in de sectie **VPN-verbindingen** de optie **Gateway**.
 
-  ![Selecteren om een gateway te maken](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
+   ![Selecteren om een gateway te maken](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
 3. Selecteer op de pagina **Nieuwe VPN-verbinding** de optie **Punt-naar-site**.
 
-  ![Verbindingstype punt-naar-site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
+   ![Verbindingstype punt-naar-site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
 4. Voor **Client-adresruimte** voegt u het IP-adresbereik toe vanwaaruit de VPN-clients een IP-adres ontvangen wanneer er verbinding wordt gemaakt. Gebruik een privé-IP-adresbereik dat niet overlapt met de on-premises locatie waarvanaf u verbinding maakt of met het VNet waarmee u verbinding maakt. U kunt het automatisch ingevulde bereik overschrijven met het privé-IP-adresbereik dat u wilt gebruiken. In dit voorbeeld ziet u het automatisch ingevulde bereik. 
 
-  ![Clientadresruimte](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
+   ![Clientadresruimte](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
 5. Selecteer **Gateway onmiddellijk maken** en vervolgens **Optionele gatewayconfiguratie** om de pagina **Gatewayconfiguratie** te openen.
 
-  ![Optionele gatewayconfiguratie selecteren](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
+   ![Optionele gatewayconfiguratie selecteren](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
 
 6. Selecteer op de pagina **Gatewayconfiguratie** de optie **Subnet** om het gatewaysubnet toe te voegen. Het is mogelijk om een gatewaysubnet van slechts /29 te maken. U wordt echter aangeraden een groter subnet met meer adressen te maken door ten minste /28 of /27 te selecteren. Hierdoor beschikt u over genoeg adressen voor eventuele aanvullende configuraties. Als u met gatewaysubnetten werkt, vermijd dan om een netwerkbeveiligingsgroep (NSG) te koppelen aan het gatewaysubnet. Een koppeling van een netwerkbeveiligingsgroep naar dit subnet zorgt er mogelijk voor dat uw VPN-gateway niet werkt zoals verwacht. Selecteer **OK** om deze instelling op te slaan.
 
-  ![GatewaySubnet toevoegen](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
+   ![GatewaySubnet toevoegen](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
 7. Selecteer de gateway **Grootte**. De grootte is de gateway-SKU voor de gateway van uw virtuele netwerk. In de Azure-portal is de standaard-SKU ingesteld op **Standaard**. Zie [Over VPN-gatewayinstellingen](vpn-gateway-about-vpn-gateway-settings.md#gwsku) voor informatie over gateway-SKU's.
 
-  ![Grootte van de gateway](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
+   ![Grootte van de gateway](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
 8. Selecteer het **Routeringstype** voor uw gateway. P2S-configuraties vereisen een **Dynamisch** routeringstype. Selecteer **OK** wanneer u klaar bent met het configureren van deze pagina.
 
-  ![Routeringstype configureren](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
+   ![Routeringstype configureren](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
 
 9. Selecteer **OK** onder aan de pagina **Nieuwe VPN-verbinding** om de virtuele-netwerkgateway te gaan maken. Een VPN-gateway wordt binnen maximaal 45 minuten voltooid. De daadwerkelijke instelduur hangt af van de gateway-SKU die u selecteert.
  
@@ -164,11 +164,11 @@ Wanneer de gateway is gemaakt, uploadt u het CER-bestand (dat de informatie over
 
 1. Selecteer in de sectie **VPN-verbindingen** van de pagina voor uw VNet de afbeelding clients om de pagina **Punt-naar-site VPN-verbinding** te openen.
 
-  ![Clients](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
+   ![Clients](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
 
 2. Selecteer op de pagina **Punt-naar-site-verbinding** de optie **Certificaat beheren** om de pagina **Certificaten** te openen.
 
-  ![De pagina Certificaten](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)
+   ![De pagina Certificaten](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)
 
 1. Selecteer op de pagina **Certificaten** de optie **Uploaden** om de pagina **Certificaat uploaden** te openen.
 
@@ -176,7 +176,7 @@ Wanneer de gateway is gemaakt, uploadt u het CER-bestand (dat de informatie over
 
 4. Selecteer de afbeelding van de map om het CER-bestand te zoeken. Selecteer het bestand en selecteer vervolgens **OK**. Het geüploade certificaat wordt weergegeven op de pagina **Certificaten**.
 
-  ![Certificaat uploaden](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
+   ![Certificaat uploaden](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
 
 
 ## <a name="configure-the-client"></a>De client configureren
@@ -191,10 +191,10 @@ U kunt hetzelfde configuratiepakket voor de VPN-client gebruiken op elke clientc
 
 2. Selecteer op de pagina **Punt-naar-site VPN-verbinding** het downloadpakket dat overeenkomt met het besturingssysteem van de client waarop het wordt geïnstalleerd:
 
-  * Selecteer voor 64-bits clients **VPN-clients (64-bits)**.
-  * Selecteer voor 32-bits clients **VPN-clients (32-bits)**.
+   * Selecteer voor 64-bits clients **VPN-clients (64-bits)**.
+   * Selecteer voor 32-bits clients **VPN-clients (32-bits)**.
 
-  ![Het configuratiepakket voor de VPN-client downloaden](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
+   ![Het configuratiepakket voor de VPN-client downloaden](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
 
 3. Nadat het pakket is gegenereerd, downloadt u het en installeert u het op de clientcomputer. Selecteer **Meer info** en vervolgens **Toch uitvoeren** als u een SmartScreen-melding ziet. U kunt het pakket ook opslaan en op andere clientcomputers installeren.
 
@@ -226,7 +226,7 @@ Als u een P2S-verbinding wilt maken vanaf een andere clientcomputer dan de compu
 1. Controleer of uw VPN-verbinding actief is. Open een opdrachtprompt met verhoogde bevoegdheid op de clientcomputer en voer **ipconfig/all** uit.
 2. Bekijk de resultaten. Het IP-adres dat u hebt ontvangen, is een van de adressen binnen het adresbereik van de punt-naar-site-verbinding dat u hebt opgegeven tijdens het maken van het VNet. De resultaten moeten er als volgt uitzien:
 
-  ```
+   ```
     PPP adapter VNet1:
         Connection-specific DNS Suffix .:
         Description.....................: VNet1
@@ -237,7 +237,7 @@ Als u een P2S-verbinding wilt maken vanaf een andere clientcomputer dan de compu
         Subnet Mask.....................: 255.255.255.255
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 ## <a name="connect-to-a-virtual-machine"></a>Verbinding maken met een virtuele machine
 

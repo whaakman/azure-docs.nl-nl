@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 2/5/2019
-ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.date: 3/14/2019
+ms.openlocfilehash: 422813c1ddb77aa11195d3021484744839c4e3bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994341"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Zelfstudie: Gegevens opnemen in Azure Data Explorer zonder één regel code
 
@@ -38,29 +38,44 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Azure Monitor-gegevensprovider - diagnostische logboeken en activiteitenlogboeken
 
-Bekijk en begrijp de gegevens die worden geleverd door de diagnostische logboeken en activiteitenlogboeken van Azure Monitor. We gaan een opnamepijplijn maken op basis van deze gegevensschema's.
+Bekijken en te begrijpen van de gegevens van de Azure Monitor diagnostische logboeken en het activiteit hieronder. We gaan een opnamepijplijn maken op basis van deze gegevensschema's. Houd er rekening mee dat elke gebeurtenis in een logboek een matrix van records heeft. Deze matrix van records gesplitst later in de zelfstudie.
 
 ### <a name="diagnostic-logs-example"></a>Voorbeeld van diagnostische logboeken
 
-Diagnostische logboeken van Azure bevatten metrische gegevens afkomstig van een Azure-service die gegevens levert over de werking van die service. Gegevens worden samengevoegd met een tijdsinterval van 1 minuut. Elke gebeurtenis in een diagnostisch logboek bevat één record. Hier volgt een voorbeeld van een metrisch gebeurtenisschema voor Azure Data Explorer, op basis van queryduur:
+Diagnostische logboeken van Azure bevatten metrische gegevens afkomstig van een Azure-service die gegevens levert over de werking van die service. Gegevens worden samengevoegd met een tijdsinterval van 1 minuut. Hier volgt een voorbeeld van een metrisch gebeurtenisschema voor Azure Data Explorer, op basis van queryduur:
 
 ```json
 {
-    "count": 14,
-    "total": 0,
-    "minimum": 0,
-    "maximum": 0,
-    "average": 0,
-    "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
-    "time": "2018-12-20T17:00:00.0000000Z",
-    "metricName": "QueryDuration",
-    "timeGrain": "PT1M"
+    "records": [
+    {
+        "count": 14,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-20T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    },
+    {
+        "count": 12,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-21T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    }
+    ]
 }
 ```
 
 ### <a name="activity-logs-example"></a>Voorbeeld van activiteitenlogboeken
 
-Azure-activiteitenlogboeken zijn aan een abonnement gekoppelde logboeken met een verzameling records. De logboeken bieden inzicht in de bewerkingen die worden uitgevoerd op resources in uw abonnement. In tegenstelling tot diagnostische logboeken bevat een gebeurtenis in een activiteitenlogboek een matrix van records. Verderop in deze zelfstudie gaan we deze matrix van records opsplitsen. Hier volgt een voorbeeld van een gebeurtenis in een activiteitenlogboek voor het controleren van toegang:
+Azure-activiteitenlogboeken zijn abonnementsniveau logboeken die inzicht geven in de bewerkingen die worden uitgevoerd op resources in uw abonnement. Hier volgt een voorbeeld van een gebeurtenis in een activiteitenlogboek voor het controleren van toegang:
 
 ```json
 {
@@ -129,6 +144,8 @@ Selecteer **Query** in uw *TestDatabase*-database van Azure Data Explorer om de 
 
 ### <a name="create-the-target-tables"></a>De doeltabellen maken
 
+De structuur van de logboeken van Azure Monitor is niet in tabelvorm. U de gegevens te manipuleren en elke gebeurtenis worden uitgebreid tot een of meer records. De onbewerkte gegevens die worden zal worden opgenomen in een tussenliggende tabel met de naam *ActivityLogsRawRecords* voor activiteitenlogboeken en *DiagnosticLogsRawRecords* voor diagnostische logboeken. Dat is het moment waarop de gegevens worden bewerkt en uitgebreid. Met behulp van een updatebeleid, de uitgebreide gegevens wordt vervolgens worden opgenomen in de *ActivityLogsRecords* tabel voor activiteitenlogboeken en *DiagnosticLogsRecords* voor diagnostische logboeken. Dit betekent dat u moet twee aparte tabellen voor het opnemen van activiteitenlogboeken en worden twee afzonderlijke tabellen voor het opnemen van diagnostische logboeken te maken.
+
 Gebruik de web-UI van Azure Data Explorer om de doeltabellen te maken in de Azure Data Explorer-database.
 
 #### <a name="the-diagnostic-logs-table"></a>De tabel met diagnostische logboeken
@@ -143,9 +160,13 @@ Gebruik de web-UI van Azure Data Explorer om de doeltabellen te maken in de Azur
 
     ![Query uitvoeren](media/ingest-data-no-code/run-query.png)
 
-#### <a name="the-activity-logs-tables"></a>De tabellen voor activiteitenlogboeken
+1. De tabel van de tussentijdse gegevens met de naam *DiagnosticLogsRawRecords* in de *TestDatabase* database voor het manipuleren van gegevens met behulp van de volgende query uit. Selecteer **Uitvoeren** om de tabel te maken.
 
-Omdat de structuur van de activiteitenlogboeken geen tabelvorm heeft, moet u de gegevens manipuleren en elke gebeurtenis uitbreiden tot een of meer records. De onbewerkte gegevens worden opgenomen in de tussenliggende tabel met de naam *ActivityLogsRawRecords*. Dat is het moment waarop de gegevens worden bewerkt en uitgebreid. De uitgebreide gegevens worden vervolgens opgenomen in de tabel *ActivityLogsRecords* met behulp van een updatebeleid. Dit betekent dat u twee afzonderlijke tabellen moet maken voor het opnemen van activiteitenlogboeken.
+    ```kusto
+    .create table DiagnosticLogsRawRecords (Records:dynamic)
+    ```
+
+#### <a name="the-activity-logs-tables"></a>De tabellen voor activiteitenlogboeken
 
 1. Maak een tabel met de naam *ActivityLogsRecords* in de *TestDatabase*-database om records voor activiteitenlogboeken te ontvangen. Voer de volgende Azure Data Explorer-query uit om de tabel te maken:
 
@@ -174,7 +195,7 @@ Omdat de structuur van de activiteitenlogboeken geen tabelvorm heeft, moet u de 
 Gebruik de volgende query om de gegevens uit de diagnostische logboeken toe te wijzen aan de tabel:
 
 ```kusto
-.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
+.create table DiagnosticLogsRawRecords ingestion json mapping 'DiagnosticLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
 #### <a name="table-mapping-for-activity-logs"></a>Tabeltoewijzing voor activiteitenlogboeken
@@ -185,9 +206,11 @@ Gebruik de volgende query om de gegevens uit de activiteitenlogboeken toe te wij
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-the-update-policy-for-activity-logs-data"></a>Het updatebeleid maken voor de gegevens uit de activiteitenlogboeken
+### <a name="create-the-update-policy-for-log-data"></a>Het updatebeleid voor logboekgegevens maken
 
-1. Maak een [functie](/azure/kusto/management/functions) waarmee de verzameling records wordt uitgebreid zodat elke waarde in de verzameling een afzonderlijke rij ontvangt. Gebruik de operator [`mvexpand`](/azure/kusto/query/mvexpandoperator):
+#### <a name="activity-log-data-update-policy"></a>Gegevens van een activiteitenlogboek beleid bijwerken
+
+1. Maak een [functie](/azure/kusto/management/functions) die de verzameling van records in logboek registreren activiteit wordt uitgebreid, zodat elke waarde in de verzameling een afzonderlijke rij ontvangt. Gebruik de operator [`mvexpand`](/azure/kusto/query/mvexpandoperator):
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
@@ -212,6 +235,32 @@ Gebruik de volgende query om de gegevens uit de activiteitenlogboeken toe te wij
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    ```
+
+#### <a name="diagnostic-log-data-update-policy"></a>Diagnostische logboekgegevens beleid bijwerken
+
+1. Maak een [functie](/azure/kusto/management/functions) die het verzamelen van diagnostische logboekrecords wordt uitgebreid, zodat elke waarde in de verzameling een afzonderlijke rij ontvangt. Gebruik de operator [`mvexpand`](/azure/kusto/query/mvexpandoperator):
+     ```kusto
+    .create function DiagnosticLogRecordsExpand() {
+        DiagnosticLogsRawRecords
+        | mvexpand events = Records
+        | project
+            Timestamp = todatetime(events["time"]),
+            ResourceId = tostring(events["resourceId"]),
+            MetricName = tostring(events["metricName"]),
+            Count = toint(events["count"]),
+            Total = todouble(events["total"]),
+            Minimum = todouble(events["minimum"]),
+            Maximum = todouble(events["maximum"]),
+            Average = todouble(events["average"]),
+            TimeGrain = tostring(events["timeGrain"])
+    }
+    ```
+
+2. Voeg het [updatebeleid](/azure/kusto/concepts/updatepolicy) toe aan de doeltabel. Dit beleid wordt automatisch de query uitvoeren op alle nieuwe opgenomen gegevens in de *DiagnosticLogsRawRecords* tussenliggende ' gegevenstabel ' en nemen de resultaten in de *DiagnosticLogsRecords* tabel:
+
+    ```kusto
+    .alter table DiagnosticLogsRecords policy update @'[{"Source": "DiagnosticLogsRawRecords", "Query": "DiagnosticLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>Een Azure Event Hubs-naamruimte maken
@@ -252,12 +301,12 @@ Selecteer een resource van waaruit u metrische gegevens wilt exporteren. Verschi
     ![Diagnostische instellingen](media/ingest-data-no-code/diagnostic-settings.png)
 
 1. Het deelvenster **Diagnostische instellingen** wordt geopend. Voer de volgende stappen uit:
-    1. Geef de gegevens uit uw diagnostische logboeken de naam *ADXExportedData*.
-    1. Selecteer onder **METRIC** het selectievakje **AllMetrics** (optioneel).
-    1. Schakel het selectievakje **Streamen naar een event hub** in.
-    1. Selecteer **Configureren**.
+   1. Geef de gegevens uit uw diagnostische logboeken de naam *ADXExportedData*.
+   1. Selecteer onder **METRIC** het selectievakje **AllMetrics** (optioneel).
+   1. Schakel het selectievakje **Streamen naar een event hub** in.
+   1. Selecteer **Configureren**.
 
-    ![Het deelvenster Diagnostische instellingen](media/ingest-data-no-code/diagnostic-settings-window.png)
+      ![Het deelvenster Diagnostische instellingen](media/ingest-data-no-code/diagnostic-settings-window.png)
 
 1. Configureer in het deelvenster **Een event hub selecteren** hoe gegevens uit diagnostisch logboeken moeten worden geëxporteerd naar de event hub die u hebt gemaakt:
     1. Selecteer in de lijst **Naamruimte van de Event Hub selecteren** de optie *AzureMonitoringData*.
@@ -330,7 +379,7 @@ Nu moet u de gegevensverbindingen voor uw diagnostische logboeken en activiteite
 
      **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
-    | **Tabel** | *DiagnosticLogsRecords* | De tabel die u hebt gemaakt in de *TestDatabase*-database. |
+    | **Tabel** | *DiagnosticLogsRawRecords* | De tabel die u hebt gemaakt in de *TestDatabase*-database. |
     | **Gegevensindeling** | *JSON* | De indeling die in de tabel wordt gebruikt. |
     | **Toewijzen van kolommen** | *DiagnosticLogsRecordsMapping* | De toewijzing die u hebt gemaakt in de *TestDatabase*-database, waarmee binnenkomende JSON-gegevens worden toegewezen aan de kolomnamen en gegevenstypen van de tabel *DiagnosticLogsRecords*.|
     | | |
@@ -400,6 +449,7 @@ ActivityLogsRecords
 ```
 
 Queryresultaten:
+
 |   |   |
 | --- | --- |
 |   |  avg(DurationMs) |

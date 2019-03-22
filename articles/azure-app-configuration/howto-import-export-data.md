@@ -12,61 +12,61 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 851a8705b3cfa9c88e369af7b961a653dee8fd7a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 846472e00bc048de906ee8e14f6de38e366f3571
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959847"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225226"
 ---
 # <a name="import-or-export-configuration-data"></a>Configuratiegegevens importeren of exporteren
 
-Azure App ondersteunt configuratiegegevens importeren en exporteren van bewerkingen. Dit kunnen u werken met de configuratiegegevens in bulk als goed als exchange-gegevens tussen uw app-configuratie opslaan en project-code. U kunt bijvoorbeeld één app-configuratie-winkel voor testen en een andere voor productie en kopieer toepassingsinstellingen tussen deze via een bestand instellen zodat u niet moet de gegevens tweemaal op enter.
+Azure App ondersteunt configuratiegegevens importeren en exporteren van bewerkingen. Deze bewerkingen gebruiken om te werken met de configuratiegegevens in bulk en exchange-gegevens tussen uw app opslaan van de configuratie en de code project. U kunt bijvoorbeeld één app-configuratie-winkel voor testen en één voor productie instellen. U kunt vervolgens toepassingsinstellingen tussen deze via een bestand kopiëren zodat u geen gegevens tweemaal op enter.
 
 Dit artikel bevat een handleiding voor het importeren en exporteren van gegevens met App-configuratie.
 
 ## <a name="import-data"></a>Gegevens importeren
 
-Import worden configuratie opslaan van gegevens in de App-configuratie van een bestaande gegevensbron, in plaats van handmatig in te voeren. U kunt de importfunctie gebruiken om gegevens te migreren naar een app opslaan van de configuratie- of statistische gegevens uit meerdere bronnen. Ondersteuning voor App-configuratie importeren uit een bestand met JSON, YAML of eigenschappen.
+Import worden configuratie opslaan van gegevens in een App-configuratie van een bestaande gegevensbron, in plaats van handmatig in te voeren. De importfunctie gebruiken om gegevens te migreren naar een app opslaan van de configuratie- of statistische gegevens uit meerdere bronnen. App-configuratie biedt ondersteuning voor importeren uit een bestand met JSON, YAML of eigenschappen.
 
-U kunt importeren gegevens met behulp van de [Azure-portal](https://aka.ms/azconfig/portal) of [Azure CLI](./scripts/cli-import.md). Voer de volgende stappen uit vanuit de Azure-portal:
+Gegevens importeren met behulp van de [Azure-portal](https://aka.ms/azconfig/portal) of de [Azure CLI](./scripts/cli-import.md). Voer de volgende stappen uit vanuit de Azure-portal:
 
-1. Blader naar de opslaan van de configuratie van uw app en klikt u op **Import/Export**.
+1. Blader naar uw app-configuratiearchief, en selecteer **Import/Export**.
 
-2. In de **importeren** tabblad **bron service** en **configuratiebestand**.
+2. Op de **importeren** tabblad **bron service** > **configuratiebestand**.
 
-3. Kies **voor taal** en **bestandstype**.
+3. Selecteer **voor taal** > **bestandstype**.
 
-4. Klik op de **map** pictogram en blader naar het bestand te importeren.
+4. Selecteer de **map** pictogram en blader naar het bestand te importeren.
 
     ![Bestand importeren](./media/import-file.png)
 
-5. Kies een **scheidingsteken** en (optioneel) Voer een **voorvoegsel** moet worden gebruikt voor geïmporteerde sleutelnamen.
+5. Selecteer een **scheidingsteken**, en (optioneel) Voer een **voorvoegsel** moet worden gebruikt voor geïmporteerde sleutelnamen.
 
-6. Kies desgewenst een **Label**.
+6. Selecteer desgewenst een **Label**.
 
-7. Klik op **toepassen** om uit te voeren van het importeren.
+7. Selecteer **toepassen** importeren voltooid.
 
-    ![Bestand importeren voltooid](./media/import-file-complete.png)
+    ![Bestand importeren is voltooid](./media/import-file-complete.png)
 
 ## <a name="export-data"></a>Gegevens exporteren
 
-Uitvoer schrijft configuratiegegevens zijn opgeslagen in de App-configuratie naar een andere bestemming. Kunt u de exportfunctie, bijvoorbeeld bij het opslaan van gegevens in een configuratie van apps naar een bestand dat tijdens de implementatie met code van uw toepassing worden ingesloten.
+Uitvoer schrijft configuratiegegevens zijn opgeslagen in de App-configuratie naar een andere bestemming. Gebruik de functie exporteren, bijvoorbeeld bij het opslaan van gegevens in een configuratie van apps naar een bestand dat ingesloten met de code van uw toepassing tijdens de implementatie.
 
-U kunt gegevens met behulp van exporteren de [Azure-portal](https://aka.ms/azconfig/portal) of [Azure CLI](./scripts/cli-export.md). Voer de volgende stappen uit vanuit de Azure-portal:
+Gegevens exporteren met behulp van de [Azure-portal](https://aka.ms/azconfig/portal) of de [Azure CLI](./scripts/cli-export.md). Voer de volgende stappen uit vanuit de Azure-portal:
 
-1. Blader naar de opslaan van de configuratie van uw app en klikt u op **Import/Export**.
+1. Blader naar uw app-configuratiearchief, en selecteer **Import/Export**.
 
-2. In de **exporteren** tabblad **doel service** en **configuratiebestand**.
+2. Op de **exporteren** tabblad **doel service** > **configuratiebestand**.
 
-3. (Optioneel) Voer een **voorvoegsel** en kies een **Label** en een point-in-time voor sleutels moet worden geëxporteerd.
+3. (Optioneel) Voer een **voorvoegsel** en selecteer een **Label** en een point-in-time voor sleutels moet worden geëxporteerd.
 
-4. Kies een **bestandstype** en **scheidingsteken**.
+4. Selecteer een **bestandstype** > **scheidingsteken**.
 
-5. Klik op **toepassen** naar de export voltooien.
+5. Selecteer **toepassen** naar de export voltooien.
 
-    ![Volledige-bestand exporteren](./media/export-file-complete.png)
+    ![Voltooide-bestand exporteren](./media/export-file-complete.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Snelstart: Een ASP.NET-web-app maken](./quickstart-aspnet-core-app.md)  
+* [Snelstart: een ASP.NET-web-app maken](./quickstart-aspnet-core-app.md)  

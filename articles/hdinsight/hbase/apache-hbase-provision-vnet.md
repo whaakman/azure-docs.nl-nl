@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 31e4f4a8cfe9a82cf5320cd364905c7c91de0959
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 73ac2072a087f0931b6c9c776d3ad0bfedb4320b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653795"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199525"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Apache HBase-clusters maken in HDInsight in Azure Virtual Network
 Informatie over het maken van Azure HDInsight Apache HBase-clusters in een [Azure Virtual Network][1].
@@ -50,7 +50,7 @@ In deze sectie maakt u een Apache HBase op basis van Linux-cluster maken met het
 >
 >
 
-1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen. De sjabloon bevindt zich in [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
+1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen. De sjabloon bevindt zich in [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Uit de **aangepaste implementatie** blade, voer de volgende eigenschappen:
@@ -64,7 +64,7 @@ In deze sectie maakt u een Apache HBase op basis van Linux-cluster maken met het
    * **Ik ga akkoord met de voorwaarden en de bovenstaande voorwaarden**: (Selecteren)
 3. Klik op **Kopen**. Het duurt ongeveer 20 minuten om een cluster te maken. Zodra het cluster is gemaakt, kunt u de clusterblade in de portal om dit te openen.
 
-Nadat u de zelfstudie hebt voltooid, is het raadzaam om het cluster te verwijderen. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. Zie voor de instructies van het verwijderen van een cluster, [beheren Apache Hadoop-clusters in HDInsight met behulp van de Azure-portal](../hdinsight-administer-use-management-portal.md#delete-clusters).
+Nadat u de zelfstudie hebt voltooid, is het raadzaam om het cluster te verwijderen. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. Zie voor de instructies van het verwijderen van een cluster, [beheren Apache Hadoop-clusters in HDInsight met behulp van de Azure-portal](../hdinsight-administer-use-portal-linux.md#delete-clusters).
 
 Als u wilt werken met uw nieuwe HBase-cluster, kunt u de procedures die zijn gevonden in [aan de slag met Apache HBase met Hadoop in HDInsight Apache](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -90,9 +90,9 @@ Als u wilt werken met uw nieuwe HBase-cluster, kunt u de procedures die zijn gev
      2. Klik op **Hosts** in het menu bovenaan.
    * Gebruik Curl REST-aanroepen:
 
-    ```bash
+     ```bash
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
-    ```
+     ```
 
      In het JavaScript Object Notation (JSON)-gegevens die zijn geretourneerd, vindt u de vermelding 'hostnaam'. Het bevat de FQDN-naam voor de knooppunten in het cluster. Bijvoorbeeld:
 
@@ -105,7 +105,7 @@ Als u wilt werken met uw nieuwe HBase-cluster, kunt u de procedures die zijn gev
 
      De volgende Azure PowerShell-script gebruiken om te registreren de **Get-ClusterDetail** functie, die kan worden gebruikt om te retourneren van de DNS-achtervoegsel:
 
-    ```powershell
+     ```powershell
         function Get-ClusterDetail(
             [String]
             [Parameter( Position=0, Mandatory=$true )]
@@ -195,13 +195,13 @@ Als u wilt werken met uw nieuwe HBase-cluster, kunt u de procedures die zijn gev
                 Write-host $Suffix
             }
         }
-    ```
+     ```
 
      Nadat de Azure PowerShell-script is uitgevoerd, gebruikt u de volgende opdracht uit om terug te keren van de DNS-achtervoegsel met behulp van de **Get-ClusterDetail** functie. De naam van HDInsight HBase-cluster, naam van de beheerder en beheerderswachtwoord opgeven wanneer u deze opdracht.
 
-    ```powershell
+     ```powershell
         Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
-    ```
+     ```
 
      Met deze opdracht retourneert de DNS-achtervoegsel. Bijvoorbeeld, **yourclustername.b4.internal.cloudapp.net**.
 

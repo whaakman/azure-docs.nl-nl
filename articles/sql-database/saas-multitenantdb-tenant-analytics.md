@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 5de707f3f2e6a82d880363eea91fb8ce644fb3aa
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 340c08841b7bedc9f2453617aeff111beb810961
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888175"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Cross-tenant-analytics met behulp van de opgehaalde gegevens - app met meerdere tenants
  
@@ -94,7 +94,7 @@ In de volgende stappen uit, implementeert u de store analytics, met de naam **te
     - Als u wilt gebruiken SQL database met columnstore, **$DemoScenario** = **3**  
 3. Druk op **F5** de demoscript uit te voeren (die roept de *implementeren TenantAnalytics<XX>.ps1* script) waarmee wordt gemaakt van de tenant analytics-store. 
 
-Nu dat u hebt de toepassing is geïmplementeerd en ingevuld interessante gegevens van de tenant, [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) om verbinding te **tenants1-mt -\<gebruiker\>**  en **catalogus-mt -\<gebruiker\>**  servers met behulp van aanmelding = *developer*, wachtwoord = *P@ssword1*.
+Nu dat u hebt de toepassing is geïmplementeerd en ingevuld interessante gegevens van de tenant, [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) om verbinding te **tenants1-mt -\<gebruiker\>**  en **catalogus-mt -\<gebruiker\>**  servers met behulp van aanmelding = *developer*, wachtwoord = *P\@ssword1*.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -176,7 +176,7 @@ Gebruik de volgende stappen uit om te verbinden met Power BI, en voor het import
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. Selecteer **Database** in het linkerdeelvenster, voert u de gebruikersnaam van de = *developer*, en Voer wachtwoord = *P@ssword1*. Klik op **Verbinden**.  
+5. Selecteer **Database** in het linkerdeelvenster, voert u de gebruikersnaam van de = *developer*, en Voer wachtwoord = *P\@ssword1*. Klik op **Verbinden**.  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 

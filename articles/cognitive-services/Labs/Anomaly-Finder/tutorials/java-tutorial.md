@@ -10,12 +10,12 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 8f087e07bbf5033698b18b4349c4d13e862a1555
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: ba66c96f9129b253fc5897c3a2eaaefb53056cea
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223337"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548725"
 ---
 # <a name="tutorial-anomaly-detection-with-java-application"></a>Zelfstudie: Anomaliedetectie met Java-toepassing
 
@@ -28,7 +28,7 @@ In het voorbeeld worden de gegevens van de tijdreeks naar de Anomaliedetectie-AP
 
 ### <a name="platform-requirements"></a>Platformvereisten
 
-Deze zelfstudie is ontwikkeld met [IntelliJ IDEA](https://www.jetbrains.com/idea). En u moet ook de [Java Development Kit (JDK)](https://aka.ms/azure-jdks) versie 1.8 + en een recent hulpprogramma voor het compileren van [Apache Maven](http://maven.apache.org/) installeren.
+Deze zelfstudie is ontwikkeld met [IntelliJ IDEA](https://www.jetbrains.com/idea). En u moet ook de [Java Development Kit (JDK)](https://aka.ms/azure-jdks) versie 1.8 + en een recent hulpprogramma voor het compileren van [Apache Maven](https://maven.apache.org/) installeren.
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Abonneer u op Anomaliedetectie en haal een abonnementssleutel op 
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183468"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833498"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configureer de VM wordt gehost op Azure
 
@@ -28,7 +28,8 @@ In dit artikel wordt uitgelegd hoe u het formaat van, bijwerken en een virtuele 
 
 ## <a name="sizing-the-vhds"></a>Grootte van de VHD 's
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Als u een van de virtuele machines die vooraf zijn geconfigureerd met een besturingssysteem (en eventueel extra services) hebt geselecteerd, wordt u al een standaard Azure-VM-grootte, verzameld zoals beschreven in [VM-SKU's tabblad](./cpp-skus-tab.md).  Uw oplossing beginnen met een vooraf geconfigureerde besturingssysteem is de aanbevolen methode.  Echter, als u een besturingssysteem handmatig installeert, klikt u vervolgens u moet het formaat van uw primaire VHD in uw VM-installatiekopie:
+<!--TD: Check if the following assertion is true. I didn't understand the original content. -->
+Als u een van de virtuele machines die vooraf zijn geconfigureerd met een besturingssysteem (en eventueel extra services) hebt geselecteerd, wordt u al een standaard Azure-VM-grootte, verzameld zoals beschreven in [VM-SKU's tabblad](./cpp-skus-tab.md).  Uw oplossing beginnen met een vooraf geconfigureerde besturingssysteem is de aanbevolen methode.  Echter, als u een besturingssysteem handmatig installeert, klikt u vervolgens u moet het formaat van uw primaire VHD in uw VM-installatiekopie:
 
 - Voor Windows, het besturingssysteem VHD moet worden gemaakt als een 127-128 GB vaste indeling VHD. 
 - Voor Linux, deze VHD moet worden gemaakt als een 30-50 GB vaste indeling VHD.
@@ -44,7 +45,7 @@ De basisinstallatiekopieën van besturingssysteem VM's bevatten de meest recente
 
 Voor Windows Server 2016, voert u de **controleren op Updates** opdracht.  Raadpleeg anders voor oudere versies van Windows [over het verkrijgen van een update via Windows Update](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update).  Windows update wordt automatisch de meest recente van essentiële en belangrijke beveiligingsupdates geïnstalleerd.
 
-Updates zijn vaak voor Linux-distributies, gedownload en geïnstalleerd via een opdrachtregel-hulpprogramma of een grafisch hulpprogramma.  Bijvoorbeeld, Ubuntu Linux biedt de [apt-get](http://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) opdracht en de [-Updatebeheerder](http://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) hulpprogramma voor het bijwerken van het besturingssysteem.
+Updates zijn vaak voor Linux-distributies, gedownload en geïnstalleerd via een opdrachtregel-hulpprogramma of een grafisch hulpprogramma.  Bijvoorbeeld, Ubuntu Linux biedt de [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) opdracht en de [-Updatebeheerder](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) hulpprogramma voor het bijwerken van het besturingssysteem.
 
 
 ## <a name="perform-additional-security-checks"></a>Extra beveiligingscontroles uitvoeren
@@ -72,7 +73,7 @@ Windows-OS-schijven zijn gegeneraliseerd met het [hulpprogramma sysprep](https:/
 > [!WARNING]
 >  Omdat updates automatisch uitgevoerd zodra u sysprep uitvoert, moet u de VM uitschakelen, totdat deze is geïmplementeerd.  Deze afsluiting zal voorkomen dat latere updates instantiefout wijzigingen aanbrengen in de OS VHD of services zijn geïnstalleerd.
 
-Zie voor meer informatie over het uitvoeren van sysprep [stappen voor het generaliseren van een VHD] ()https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+Zie voor meer informatie over het uitvoeren van sysprep [stappen voor het generaliseren van een VHD](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
 
 ### <a name="linux"></a>Linux
 

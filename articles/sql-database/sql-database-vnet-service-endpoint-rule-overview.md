@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 15ca464e8e44183b445bfdabe9abf5dd560a4f70
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 4af27ad4fb5096f3ccac5de901c76e8d7464e1f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312253"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887116"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Gebruik virtual network-service-eindpunten en regels voor database-servers
 
@@ -175,58 +175,60 @@ PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQL Data Warehouse
 #### <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 1.  Installeer Azure PowerShell volgens dit [handleiding](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Als u een voor algemeen gebruik v1- of blob storage-account hebt, moet u eerst upgraden naar algemeen gebruik v2 met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  U moet hebben **vertrouwde Microsoft-services voor toegang tot dit storage-account toestaan** onder Azure Storage-account ingeschakeld **Firewalls en virtuele netwerken** instellingenmenu. Verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) voor meer informatie.
  
 #### <a name="steps"></a>Stappen
-1.  In PowerShell **registreren van uw SQL Database-server** met Azure Active Directory (AAD):
+1. In PowerShell **registreren van uw SQL Database-server** met Azure Active Directory (AAD):
 
-    ```powershell
-    Connect-AzAccount
-    Select-AzSubscription -SubscriptionId your-subscriptionId
-    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
-    ```
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
     
- 1. Maak een **voor algemeen gebruik v2-Opslagaccount** met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+   1. Maak een **voor algemeen gebruik v2-Opslagaccount** met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
-    > [!NOTE]
-    > - Als u een voor algemeen gebruik v1- of blob storage-account hebt, moet u **eerst upgraden naar v2** met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-    > - Voor bekende problemen met Azure Data Lake Storage Gen2 Raadpleeg dit [handleiding](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > [!NOTE]
+   > - Als u een voor algemeen gebruik v1- of blob storage-account hebt, moet u **eerst upgraden naar v2** met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+   > - Voor bekende problemen met Azure Data Lake Storage Gen2 Raadpleeg dit [handleiding](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1.  Onder uw storage-account, gaat u naar **Access Control (IAM)**, en klikt u op **roltoewijzing toevoegen**. Toewijzen **Gegevensbijdrager voor Blob (Preview)** RBAC-rol met uw SQL Database-server.
+1. Onder uw storage-account, gaat u naar **Access Control (IAM)**, en klikt u op **roltoewijzing toevoegen**. Toewijzen **Gegevensbijdrager voor Blob (Preview)** RBAC-rol met uw SQL Database-server.
 
-    > [!NOTE] 
-    > Alleen leden met de eigenaar van bevoegdheden kunnen deze stap uitvoeren. Voor de verschillende ingebouwde rollen voor Azure-resources, verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > [!NOTE] 
+   > Alleen leden met de eigenaar van bevoegdheden kunnen deze stap uitvoeren. Voor de verschillende ingebouwde rollen voor Azure-resources, verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
-1.  **Polybase-verbinding met de Azure Storage-account:**
+1. **Polybase-verbinding met de Azure Storage-account:**
 
-    1. Maak een database **[hoofdsleutel](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)** als u een eerder hebt gemaakt:
-        ```SQL
-        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
-        ```
+   1. Maak een database **[hoofdsleutel](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** als u een eerder hebt gemaakt:
+       ```SQL
+       CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
+       ```
     
-    1. Maken van database-scoped referentie met **id = 'Beheerde Service-identiteit'**:
+   1. Maken van database-scoped referentie met **id = 'Beheerde Service-identiteit'**:
 
-        ```SQL
-        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
-        ```
-        > [!NOTE] 
-        > - Er is niet nodig om op te geven van GEHEIM met de Azure Storage-toegangssleutel omdat dit mechanisme gebruikt [beheerde identiteit](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) op de achtergrond.
-        > - Identiteitsnaam van de moet **'Beheerde Service-identiteit'** voor PolyBase-verbinding met het werken met Azure Storage-account is beveiligd met VNet.    
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - Er is niet nodig om op te geven van GEHEIM met de Azure Storage-toegangssleutel omdat dit mechanisme gebruikt [beheerde identiteit](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) op de achtergrond.
+       > - Identiteitsnaam van de moet **'Beheerde Service-identiteit'** voor PolyBase-verbinding met het werken met Azure Storage-account is beveiligd met VNet.    
     
-    1. Externe gegevensbron maken met abfss: / / kleurenschema voor de verbinding met uw opslagaccount voor algemeen gebruik v2 met PolyBase:
+   1. Externe gegevensbron maken met abfss: / / kleurenschema voor de verbinding met uw opslagaccount voor algemeen gebruik v2 met PolyBase:
 
-        ```SQL
-        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
-        ```
-        > [!NOTE] 
-        > - Als u al externe tabellen die zijn gekoppeld aan voor algemeen gebruik v1- of blob storage-account hebt, moet u eerst verwijderen die externe tabellen en zet de bijbehorende externe gegevensbron. Maak vervolgens de externe gegevensbron met abfss: / / verbinding maken met het opslagaccount voor algemeen gebruik v2 als hierboven-schema en de externe tabellen met behulp van deze nieuwe externe gegevensbron opnieuw te maken. U kunt [genereren en Scripts Wizard publiceren](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017) maken-scripts voor de externe tabellen voor een eenvoudige genereren.
-        > - Voor meer informatie over abfss: / / -schema, verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-        > - Voor meer informatie over CREATE EXTERNAL DATA SOURCE verwijzen naar dit [handleiding](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       ```SQL
+       CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+       ```
+       > [!NOTE] 
+       > - Als u al externe tabellen die zijn gekoppeld aan voor algemeen gebruik v1- of blob storage-account hebt, moet u eerst verwijderen die externe tabellen en zet de bijbehorende externe gegevensbron. Maak vervolgens de externe gegevensbron met abfss: / / verbinding maken met het opslagaccount voor algemeen gebruik v2 als hierboven-schema en de externe tabellen met behulp van deze nieuwe externe gegevensbron opnieuw te maken. U kunt [genereren en Scripts Wizard publiceren](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) maken-scripts voor de externe tabellen voor een eenvoudige genereren.
+       > - Voor meer informatie over abfss: / / -schema, verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - Voor meer informatie over CREATE EXTERNAL DATA SOURCE verwijzen naar dit [handleiding](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
         
-    1. Query als normale [externe tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Query als normale [externe tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### <a name="azure-sql-database-blob-auditing"></a>Controlefunctie voor Azure SQL Database
 
@@ -256,7 +258,7 @@ Er is een verbindingsfout 40914 gekoppeld aan *virtuele netwerkregels*, zoals op
 
 *Tekst van:* Server kan niet worden geopend '{0}' aangevraagd door de aanmelding. De client met IP-adres{1}' is niet toegestaan voor toegang tot de server.
 
-*Foutbeschrijving:* De client probeert verbinding maken vanaf een IP-adres dat is niet geautoriseerd voor verbinding met de Azure SQL Database-server. De firewall van de server heeft geen IP-adres-regel waarmee een client voor de communicatie van de opgegeven IP-adres met de SQL-Database.
+*Foutbeschrijving:* De client probeert verbinding maken vanaf een IP-adres dat is niet geautoriseerd voor verbinding met de Azure SQL Database-server. Op de firewall van de server is geen regel voor IP-adressen ingesteld die een client toestemming geeft om vanaf het opgegeven IP-adres te communiceren met de SQL-database.
 
 *Fout-oplossing:* Voer het IP-adres van de client als een IP-regel. Dit doen met behulp van het deelvenster Firewall in Azure portal.
 

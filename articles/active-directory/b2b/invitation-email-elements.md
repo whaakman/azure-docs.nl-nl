@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014913"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295620"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>De elementen van de B2B-samenwerking uitnodigingse-mail - Azure Active Directory
 
 Uitnodigingen per e-mail zijn een essentieel onderdeel om partners aan boord als gebruikers van B2B-samenwerking in Azure AD. U kunt ze gebruiken te verhogen van de vertrouwensrelatie van de ontvanger. u kunt geldigheid toevoegen en het e-mailbericht, om te controleren of de ontvanger het sociale bewijs lijkt vertrouwd bent met het selecteren van de **aan de slag** knop de uitnodiging te accepteren. Deze vertrouwensrelatie is dat een sleutel betekent dat u wilt delen wrijving verminderen. En u ook wilt maken van het e-mailbericht er fantastisch uitzien.
 
-![Azure AD B2b uitnodigingse-mail](media/invitation-email-elements/invitation-email.png)
+![Schermopname van de B2B-uitnodiging per e-mail](media/invitation-email-elements/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>Het e-mailbericht waarin wordt uitgelegd
 We kijken naar enkele elementen van het e-mailbericht, zodat u hoe het beste weet om hun mogelijkheden te gebruiken.
@@ -51,12 +51,12 @@ De weergavenaam van de afzender van de uitnodiging is opgenomen in het e-mailber
 
 Als u uw eigen profielfoto nog hebt ingesteld, ziet u een pictogram met de initialen van de afzender van de uitnodiging in plaats van de afbeelding:
 
-  ![Initialen van de afzender van de uitnodiging weergeven](media/invitation-email-elements/inviters-initials.png)
+  ![Schermopname van de uitnodiging met de afzender van de uitnodiging initialen weergegeven](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Hoofdtekst
 De hoofdtekst bevat het bericht dat de afzender van de uitnodiging stelt wanneer bericht [uitnodigen van een gastgebruiker naar de directory, groep of app](add-users-administrator.md) of [met behulp van de uitnodiging API](customize-invitation-api.md). Dit is een tekstgebied zodat HTML-codes uit veiligheidsoverwegingen worden niet verwerkt.
 
-  ![afbeelding van de hoofdtekst van e-mail](media/invitation-email-elements/invitation-email-body.png)
+  ![Schermopname van de hoofdtekst van de uitnodiging per e-mail](media/invitation-email-elements/invitation-email-body.png)
 
 ### <a name="footer-section"></a>Voettekst
 De voettekst bevat de huisstijl van het Microsoft-bedrijf en kan de geadresseerde weten als het e-mailbericht is verzonden vanaf een niet-gecontroleerde alias. 
@@ -65,12 +65,12 @@ Speciale gevallen:
 
 - De afzender van de uitnodiging geen een e-mailadres in de uitnodigende tenancy
 
-  ![afbeelding van afzender van de uitnodiging geen een e-mailadres in de uitnodigende tenancy](media/invitation-email-elements/inviter-no-email.png)
+  ![Schermopname als een afzender van de uitnodiging geen e-mailadres in de uitnodigende tenancy](media/invitation-email-elements/inviter-no-email.png)
 
 
 - De ontvanger nodig niet om in te wisselen van de uitnodiging
 
-  ![Wanneer de ontvanger hoeft niet te uitnodiging inwisselen](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+  ![Schermopname wanneer de ontvanger niet nodig hebt om te wisselen van uitnodiging](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 ## <a name="how-the-language-is-determined"></a>Hoe de taal die wordt bepaald
 De taal die wordt gepresenteerd aan de gastgebruiker in de uitnodiging per e-mail wordt bepaald door de volgende instellingen. Deze instellingen worden weergegeven in de volgorde van prioriteit. Als een instelling niet is geconfigureerd, bepaalt de volgende instelling in de lijst de taal. 

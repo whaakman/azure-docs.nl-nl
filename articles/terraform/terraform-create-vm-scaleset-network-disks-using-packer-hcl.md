@@ -2,19 +2,19 @@
 title: Een virtuele Azure-machineschaalset maken van een aangepaste Packer-installatiekopie met behulp van Terraform
 description: Met behulp van Terraform een virtuele Azure-machineschaalset maken van een aangepaste installatiekopie die is gegenereerd met Packer (compleet met een virtueel netwerk en beheerde gekoppelde schijven).
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, schaalset, virtuele machine, netwerk, opslag, modules, aangepaste installatiekopieën, packer
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: 12c6ebc9b29c356ad169dbd921e71c7aa0c273b7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077501"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001986"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Een virtuele Azure-machineschaalset maken van een aangepaste Packer-installatiekopie met behulp van Terraform
 
@@ -180,7 +180,7 @@ In deze stap maakt u de volgende resources in het netwerk dat eerder is geïmple
 - Azure backend-adresgroep en deze toewijzen aan de load balancer 
 - Een statustestpoort die door de toepassing wordt gebruikt en wordt geconfigureerd op de load balancer 
 - Een virtuele machineschaalset die zich achter de load balancer bevindt die wordt uitgevoerd op het eerder geïmplementeerde VNET
-- [Nginx](http://nginx.org/) op de knooppunten van de virtuele-machineschaalset die is geïnstalleerd op basis van de aangepaste installatiekopie
+- [Nginx](https://nginx.org/) op de knooppunten van de virtuele-machineschaalset die is geïnstalleerd op basis van de aangepaste installatiekopie
 
 
 Voeg de volgende code aan het einde van het bestand `vmss.tf` toe.

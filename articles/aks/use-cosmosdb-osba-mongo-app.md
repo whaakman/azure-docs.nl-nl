@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
-ms.openlocfilehash: 0655176a044da6b4dd6b7327aedf5eb17d79f04a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432785"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991987"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Integratie van bestaande MongoDB-toepassing met Azure Cosmos DB API voor MongoDB en Open Service Broker for Azure (OSBA)
 
@@ -81,7 +81,7 @@ Uw toepassing te starten en deze gebruiken de *mongodb* profiel:
 java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 ```
 
-Navigeer naar http://localhost:8080 in uw browser.
+Navigeer naar `http://localhost:8080` in uw browser.
 
 ![Spring Music-app met standaardgegevens](media/music-app.png)
 
@@ -184,7 +184,7 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 U ziet uw toepassing nog steeds gebruikt de *mongodb* profiel en een URI die met begint *mongodb: / /* verbinding maken met de Cosmos DB-database. De [Azure Cosmos DB-API voor MongoDB](../cosmos-db/mongodb-introduction.md) biedt deze compatibiliteit. Hierdoor kan uw toepassing om te blijven functioneren als een MongoDB-database wordt gebruikt, maar wordt deze daadwerkelijk gebruik van Cosmos DB maakt.
 
-Navigeer naar http://localhost:8080 in uw browser. U ziet dat de gegevens die standaard is hersteld. Communiceren met het door het verwijderen van een paar bestaande albums en enkele nieuwe maken. U kunt controleren of dat uw wijzigingen worden doorgevoerd door uw toepassing te stoppen en te navigeren naar het in uw browser te starten. U ziet de wijzigingen die u hebt aangebracht, zijn er nog. De wijzigingen worden persistent gemaakt met de Cosmos DB hebt gemaakt met behulp van Open Service Broker voor Azure.
+Navigeer naar `http://localhost:8080` in uw browser. U ziet dat de gegevens die standaard is hersteld. Communiceren met het door het verwijderen van een paar bestaande albums en enkele nieuwe maken. U kunt controleren of dat uw wijzigingen worden doorgevoerd door uw toepassing te stoppen en te navigeren naar het in uw browser te starten. U ziet de wijzigingen die u hebt aangebracht, zijn er nog. De wijzigingen worden persistent gemaakt met de Cosmos DB hebt gemaakt met behulp van Open Service Broker voor Azure.
 
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>Uw toepassing uitvoeren in uw AKS-cluster

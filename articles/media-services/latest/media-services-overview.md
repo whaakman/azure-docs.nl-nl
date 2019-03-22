@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/26/2019
+ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 018392db2ffb510d41385d8e0af19635c35678e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960646"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003412"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Wat is Azure Media Services v3?
 
@@ -49,9 +49,9 @@ Deze versie biedt de volgende mogelijkheden:
 
 * **Transformaties** waarmee u eenvoudige werkstromen voor mediaverwerking of analytische taken kunt definiëren. Transformeren is een proces voor het verwerken van uw video- en audiobestanden. U kunt het proces vervolgens herhaaldelijk toepassen om alle bestanden in de inhoudsbibliotheek te verwerken door het verzenden van taken naar de transformatie.
 * **Taken** voor het verwerken (coderen of analyseren) van uw video's. De invoerinhoud voor een taak kan worden opgegeven met HTTPS-URL's, SAS-URL's of paden naar bestanden in Azure Blob-opslag. Op dit moment biedt AMS v3 geen ondersteuning voor gesegmenteerde overdrachtscodering via HTTPS-URL's.
-* **Meldingen** voor het controleren van de taakvoortgang of taakstatus, of het starten/stoppen van live kanalen en foutgebeurtenissen. Meldingen zijn geïntegreerd met het meldingssysteem van Azure Event Grid. U kunt zich eenvoudig abonneren op gebeurtenissen voor verschillende resources in Azure Media Services. 
-* Gebruik sjablonen van **Azure Resource Management** voor het maken en implementeren van bijvoorbeeld transformaties, streaming-eindpunten en kanalen.
-* **Toegangsbeheer op basis van rollen** kan worden ingesteld op het niveau van de resource, zodat u de toegang tot specifieke resources zoals transformaties en kanalen kunt bepalen.
+* **Meldingen** die taakvoortgang of Staten of Live gebeurtenissen starten/stoppen en de fout gebeurtenissen controleren. Meldingen zijn geïntegreerd met het meldingssysteem van Azure Event Grid. U kunt zich eenvoudig abonneren op gebeurtenissen voor verschillende resources in Azure Media Services. 
+* **Azure Resource Management** sjablonen maken en implementeren van transformaties, Streaming-eindpunten en Live gebeurtenissen kunnen worden gebruikt.
+* **Op rollen gebaseerd toegangsbeheer** kan worden ingesteld op het resourceniveau van de, zodat u kunt toegang tot bepaalde resources, zoals transformaties en Live gebeurtenissen vergrendelen.
 * **Client-SDK's** in meerdere talen: .NET, .NET core, Python, Ga, Java en Node.js.
 
 ## <a name="naming-conventions"></a>Naamconventies
@@ -82,7 +82,7 @@ Zie [Aan de slag met ontwikkelen](developers-guide.md) voor meer informatie over
 
 De Media Services v3-inhoud is ingedeeld op basis van de volgende structuur (wordt ook weergegeven in de inhoudsopgave):
 
-|Secties| Beschrijving|
+|Secties| Description|
 |---|---|
 | Overzicht | Geeft uitleg over de functies van Media Services en wat u kunt doen met de service.|
 | Snelstartgidsen | Basisinstructies voor nieuwe klanten die Media Services snel willen uitproberen.|

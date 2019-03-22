@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aac24072bcebb0095c12cee1cfa21cfb9868dc5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4b72ec628e048560fbfb9da63123bbb7461811b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548589"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074281"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>De toewijzing van een gebruiker of groep verwijderen uit een enterprise-app in Azure Active Directory
 Het is gemakkelijk om te verwijderen van een gebruiker of groep toegang worden toegewezen aan een van uw bedrijfstoepassingen in Azure Active Directory (Azure AD). U moet de juiste machtigingen voor het beheren van de enterprise-app hebt en u moet globale beheerder voor de map.
@@ -67,7 +67,7 @@ Het is gemakkelijk om te verwijderen van een gebruiker of groep toegang worden t
     #To remove the App role assignment run the following command.
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ``` 
-## <a name="next-steps"></a>Volgende stappen
+   ## <a name="next-steps"></a>Volgende stappen
 
 - [Zie alle Mijn groepen](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Een gebruiker of groep toewijzen aan een enterprise-app](assign-user-or-group-access-portal.md)

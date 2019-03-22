@@ -1,7 +1,7 @@
 ---
 title: Kernels voor Jupyter-notebook in Spark-clusters in Azure HDInsight
 description: Meer informatie over de PySpark, PySpark3 en Spark kernels voor Jupyter-notitieblok met Spark-clusters in Azure HDInsight.
-keywords: jupyter-notebook in spark, spark jupyter
+keywords: jupyter notebook on spark,jupyter spark
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 937f6ffb9865419611c35b95ac84832bb2f1f3fe
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 92ffa02959f020789d14b3bea71763f3f5b9bb47
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791807"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084095"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels voor Jupyter-notebook op Apache Spark-clusters in Azure HDInsight 
 
@@ -59,15 +59,15 @@ Hier volgen enkele voordelen van het gebruik van de nieuwe kernels op Jupyter-no
 
 - **Vooraf ingestelde contexten**. Met **PySpark**, **PySpark3**, of de **Spark** kernels, hoeft u niet expliciet de Spark- of Hive-contexten instellen voordat u aan de slag gaat met uw toepassingen. Dit zijn standaard beschikbaar zijn. Deze context zijn:
    
-   * **sc** - voor Spark-context
-   * **sqlContext** - voor Hive-context
+  * **sc** - voor Spark-context
+  * **sqlContext** - voor Hive-context
    
-   U moet dus geen instructies als volgt om in te stellen de contexten worden uitgevoerd:
+    U moet dus geen instructies als volgt om in te stellen de contexten worden uitgevoerd:
    
-          sc = SparkContext('yarn-client')
-          sqlContext = HiveContext(sc)
+         sc = SparkContext('yarn-client')
+         sqlContext = HiveContext(sc)
    
-   U kunt de vooraf ingestelde contexten in plaats daarvan rechtstreeks in uw toepassing gebruiken.
+    U kunt de vooraf ingestelde contexten in plaats daarvan rechtstreeks in uw toepassing gebruiken.
 
 - **Cel-magics**. De PySpark-kernel biedt enkele vooraf gedefinieerde "kunt", die zijn speciale opdrachten die u met aanroepen kunt `%%` (bijvoorbeeld `%%MAGIC` <args>). De magic-opdracht moet de eerste woord in een codecel en toestaan voor meerdere regels van inhoud. Het magische woord moet het eerste woord in de cel. Toevoegen van voordat de Magic-pakket, zelfs commentaar, veroorzaakt een fout.     Zie voor meer informatie over magics [hier](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
@@ -87,7 +87,7 @@ Hier volgen enkele voordelen van het gebruik van de nieuwe kernels op Jupyter-no
    > [!NOTE]  
    > Naast de magics die door de PySpark-kernel toegevoegd, kunt u ook gebruiken de [ingebouwde IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), waaronder `%%sh`. U kunt de `%%sh` magic-blok van code en scripts uitvoeren op het hoofdknooppunt van het cluster.
 
-2. **Visualisatie automatisch**. De **Pyspark** kernel automatisch de uitvoer van Hive- en SQL-query's worden gevisualiseerd. U kunt kiezen tussen de verschillende typen visualisaties, met inbegrip van de tabel, Pie, regel, gebied, -balk.
+1. **Visualisatie automatisch**. De **Pyspark** kernel automatisch de uitvoer van Hive- en SQL-query's worden gevisualiseerd. U kunt kiezen tussen de verschillende typen visualisaties, met inbegrip van de tabel, Pie, regel, gebied, -balk.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>Parameters die worden ondersteund met de %% sql Magic-pakket
 De `%%sql` Magic-pakket biedt ondersteuning voor verschillende parameters die u gebruiken kunt voor het beheren van het type van de uitvoer die u ontvangt wanneer u query's uitvoeren. De volgende tabel bevat de uitvoer.

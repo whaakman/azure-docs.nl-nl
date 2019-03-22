@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 6e3c456b3ee92f30b3b152a39faf3f1fe483013f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fdc3c42da7f3d2290806a8cd00d7c90d16f3b87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876599"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103924"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Verzamel inzichten over uw DNS-infrastructuur met de oplossing DNS Analytics Preview
 
@@ -66,7 +66,7 @@ Klik op het dashboard van de oplossing **configuratie** om de pagina configurati
 
 - **Goedgekeurde domeinnamen**. De opzoekquery's worden niet door de oplossing worden verwerkt. Wordt een lijst met toegestane domeinnaamachtervoegsels bijgehouden. De lookup-query's die worden omgezet naar de domeinnamen die overeenkomen met de naam van domeinachtervoegsels in deze lijst met toegestane adressen worden niet verwerkt door de oplossing. Verwerkt geen domeinnamen in de whitelist opgenomen helpt bij het optimaliseren van de gegevens die worden verzonden naar Azure Monitor. De standaard goedgekeurde lijst bevat populaire openbare domeinnamen, zoals www.google.com en www.facebook.com. U kunt de volledige lijst met weergeven door te schuiven.
 
- De lijst om toe te voegen van eventuele achtervoegsel domeinnaam die u wilt opzoeken inzichten voor weergeven, kunt u wijzigen. U kunt ook een achtervoegsel domeinnaam die u niet wilt opzoeken inzichten voor verwijderen.
+  De lijst om toe te voegen van eventuele achtervoegsel domeinnaam die u wilt opzoeken inzichten voor weergeven, kunt u wijzigen. U kunt ook een achtervoegsel domeinnaam die u niet wilt opzoeken inzichten voor verwijderen.
 
 - **Dremepelwaarde voor zeer actieve Client**. DNS-clients die groter zijn dan de drempelwaarde voor het aantal opzoekaanvragen zijn gemarkeerd de **DNS-Clients** blade. De standaarddrempelwaarde is 1000. U kunt de drempel voor bewerken.
 

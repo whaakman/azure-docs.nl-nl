@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: bc3dd038a21786a75d6b519ef8523dc328829705
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192885"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119034"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Serverlogboeken in Azure Database for MySQL
 In Azure Database voor MySQL is het logboek voor langzame query's beschikbaar voor gebruikers. Toegang tot het transactielogboek wordt niet ondersteund. Het logboek voor langzame query's kan worden gebruikt om knelpunten in de prestaties voor het oplossen van problemen. 
@@ -52,7 +52,7 @@ Azure Database voor MySQL is geïntegreerd met Azure Monitor diagnostische logbo
 De volgende tabel wordt beschreven wat er in elk logboek. Afhankelijk van de uitvoermethode, zijn de velden die zijn opgenomen en de volgorde waarin ze worden weergegeven kunnen verschillen.
 
 | **Eigenschap** | **Beschrijving** |
-|---|---|---|
+|---|---|
 | TenantId | Uw tenant-ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Tijdstempel wanneer het logboek is vastgelegd in UTC |

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 6a5c2df6859a0020160ae0de9b6e498f63dc253b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a4e3d37b2eb32fa0384986e37781f21b906bed42
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871979"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077306"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Quickstart: Video's zoeken met de Bing Video's zoeken-REST API en Node.js
 
@@ -61,19 +61,19 @@ Gebruik deze quickstart om voor het eerst de Bing Video's zoeken-API aan te roep
     };
     ```
     
-    2. Als `end` wordt gesignaleerd, gebruikt u `response.on()` om de headers (beginnend met `bingapis` of `x-msedge-`) met betrekking tot Bing op te slaan. Parseer vervolgens het JSON-bestand met behulp van `JSON.parse()`, converteer het met `JSON.stringify()` naar een tekenreeks en druk deze af.
+   1. Als `end` wordt gesignaleerd, gebruikt u `response.on()` om de headers (beginnend met `bingapis` of `x-msedge-`) met betrekking tot Bing op te slaan. Parseer vervolgens het JSON-bestand met behulp van `JSON.parse()`, converteer het met `JSON.stringify()` naar een tekenreeks en druk deze af.
 
-        ```javascript
-        response.on('end', function () {
-            for (var header in response.headers)
-                // header keys are lower-cased by Node.js
-                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                     console.log(header + ": " + response.headers[header]);
-            body = JSON.stringify(JSON.parse(body), null, '  ');
-            //JSON Response body
-            console.log(body);
-        });
-        ```
+       ```javascript
+       response.on('end', function () {
+           for (var header in response.headers)
+               // header keys are lower-cased by Node.js
+               if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                    console.log(header + ": " + response.headers[header]);
+           body = JSON.stringify(JSON.parse(body), null, '  ');
+           //JSON Response body
+           console.log(body);
+       });
+       ```
 
 # <a name="create-and-send-the-search-request"></a>De zoekaanvraag samenstellen en verzenden
 

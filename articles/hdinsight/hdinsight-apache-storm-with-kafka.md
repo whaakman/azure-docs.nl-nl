@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 341278237bc18bfbb8f4bb1e5d600e2cab894926
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b6717bc76caffb9c4b6f7743cc5356a80a8f742b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343354"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111851"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Zelfstudie: Apache Storm gebruiken met Apache Kafka in HDInsight
 
@@ -129,7 +129,7 @@ Er worden twee topologieën meegeleverd in deze zelfstudie:
     >
     > Als u de sjabloon in dit document niet gebruikt om het Storm-cluster te maken, moet u de scriptactie handmatig toepassen op het cluster.
     >
-    > De scriptactie bevindt zich op `https://hdiconfigactions2.blob.core.windows.net/stormextlib/stormextlib.sh` en wordt toegepast op de supervisor- en nimbus-knooppunten van het Storm-cluster. Zie het document [Op Linux gebaseerde HDInsight-clusters aanpassen met behulp van scriptacties](hdinsight-hadoop-customize-cluster-linux.md) voor meer informatie over het gebruik van scriptacties.
+    > De scriptactie bevindt zich op `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh` en wordt toegepast op de supervisor- en nimbus-knooppunten van het Storm-cluster. Zie het document [Op Linux gebaseerde HDInsight-clusters aanpassen met behulp van scriptacties](hdinsight-hadoop-customize-cluster-linux.md) voor meer informatie over het gebruik van scriptacties.
 
 De topologieën worden gedefinieerd met [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux werd geïntroduceerd in Storm 0.10.x en stelt u in staat om de topologieconfiguratie te scheiden van de code. In het geval van topologieën die gebruikmaken van het Flux-framework, wordt de topologie gedefinieerd in een YAML-bestand. Het YAML-bestand kan worden opgenomen als onderdeel van de topologie. Het kan ook een zelfstandig bestand zijn dat wordt gebruikt wanneer u de topologie indient. Flux ondersteunt ook het vervangen van variabelen tijdens runtime, wat we in dit voorbeeld doen.
 
@@ -367,7 +367,7 @@ streams:
 
 Het project bevat een bestand met de naam `dev.properties` dat wordt gebruikt voor het doorgeven van parameters die worden gebruikt door de topologieën. Het bestand bevat definities voor deze eigenschappen:
 
-| Bestand dev.properties | Beschrijving |
+| Bestand dev.properties | Description |
 | --- | --- |
 | `kafka.zookeeper.hosts` | De [Apache ZooKeeper](https://zookeeper.apache.org/)-hosts voor het Kafka-cluster. |
 | `kafka.broker.hosts` | De broker-hosts van Kafka (werkknooppunten). |
@@ -400,26 +400,26 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
     * Kafka in HDInsight versie 3.6 (drie werkknooppunten)
     * Storm in HDInsight versie 3.6 (drie werkknooppunten)
 
-  > [!WARNING]  
-  > Om beschikbaarheid van Kafka op HDInsight te garanderen, moet uw cluster ten minste drie werkknooppunten bevatten. Met deze sjabloon maakt u een Kafka-cluster dat drie werkknooppunten bevat.
+   > [!WARNING]  
+   > Om beschikbaarheid van Kafka op HDInsight te garanderen, moet uw cluster ten minste drie werkknooppunten bevatten. Met deze sjabloon maakt u een Kafka-cluster dat drie werkknooppunten bevat.
 
 2. Gebruik de volgende informatie voor het invullen van de velden in de sectie **Aangepaste sjabloon**:
 
-    2. Gebruik de volgende informatie voor het vullen van de vermeldingen in de sectie **Aangepaste sjabloon**:
+   1. Gebruik de volgende informatie voor het vullen van de vermeldingen in de sectie **Aangepaste sjabloon**:
 
-    | Instelling | Waarde |
-    | --- | --- |
-    | Abonnement | Uw Azure-abonnement |
-    | Resourcegroep | De resourcegroep die de resources bevat. |
-    | Locatie | De Azure-regio waarin de bronnen worden gemaakt. |
-    | Naam Kafka-cluster | De naam van het Kafka-cluster. |
-    | Naam Storm-cluster | De naam van het Storm-cluster. |
-    | Gebruikersnaam voor clusteraanmelding | De beheerdersnaam voor de clusters. |
-    | Wachtwoord voor clusteraanmelding | Het beheerderswachtwoord voor de clusters. |
-    | SSH-gebruikersnaam | De SSH-gebruiker die voor de clusters wordt gemaakt. |
-    | SSH-wachtwoord | Het wachtwoord voor de SSH-gebruiker. |
+      | Instelling | Value |
+      | --- | --- |
+      | Abonnement | Uw Azure-abonnement |
+      | Resourcegroep | De resourcegroep die de resources bevat. |
+      | Locatie | De Azure-regio waarin de bronnen worden gemaakt. |
+      | Naam Kafka-cluster | De naam van het Kafka-cluster. |
+      | Naam Storm-cluster | De naam van het Storm-cluster. |
+      | Gebruikersnaam voor clusteraanmelding | De beheerdersnaam voor de clusters. |
+      | Wachtwoord voor clusteraanmelding | Het beheerderswachtwoord voor de clusters. |
+      | SSH-gebruikersnaam | De SSH-gebruiker die voor de clusters wordt gemaakt. |
+      | SSH-wachtwoord | Het wachtwoord voor de SSH-gebruiker. |
    
-    ![Afbeelding van de sjabloonparameters](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      ![Afbeelding van de sjabloonparameters](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
 
 3. Lees de **voorwaarden** en schakel vervolgens het selectievakje **Ik ga akkoord met de bovenstaande voorwaarden** in.
 
@@ -434,17 +434,17 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
 
 2. Gebruik in de map **hdinsight-storm-java-kafka** de volgende opdracht om het project te compileren en een pakket voor implementatie te maken:
 
-  ```bash
-  mvn clean package
-  ```
+   ```bash
+   mvn clean package
+   ```
 
     Er wordt een bestand met de naam `KafkaTopology-1.0-SNAPSHOT.jar` gemaakt in de map `target`.
 
 3. Gebruik de volgende opdrachten om het pakket naar het Storm-cluster in HDInsight te kopiëren. Vervang `sshuser` door de SSH-gebruikersnaam voor het cluster. Vervang `stormclustername` door de naam van het __Storm__-cluster.
 
-  ```bash
-  scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
-  ```
+   ```bash
+   scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+   ```
 
     Voer als hierom wordt gevraagd het wachtwoord in dat u hebt gebruikt tijdens het maken van de clusters.
 
@@ -518,7 +518,7 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
 4. Sla het bestand `dev.properties` op en gebruik vervolgens de volgende opdracht om het bestand te uploaden naar het **Storm**-cluster:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
+    scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Vervang **USERNAME** door de SSH-gebruikersnaam voor het cluster. Vervang **BASENAME** door de basisnaam die u hebt gebruikt bij het maken van het cluster.
@@ -577,9 +577,9 @@ Kafka slaat gegevens op in een _onderwerp_. U moet het onderwerp maken voordat u
 
 1. Gebruik vanuit de SSH-sessie met het Storm-cluster de volgende opdracht om de topologie voor de reader te starten:
 
-  ```bash
-  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
-  ```
+   ```bash
+   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
+   ```
 
 2. Wacht een minuut en gebruik vervolgens de volgende opdracht om de bestanden te bekijken die zijn gemaakt door de topologie voor de reader:
 

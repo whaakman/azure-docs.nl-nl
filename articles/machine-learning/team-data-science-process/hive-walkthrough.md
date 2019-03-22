@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a0b4c41d347ba556e737d422af22fb5a47c7c4ff
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108718"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881143"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Het Team Data Science Process in actie: Azure HDInsight Hadoop-clusters gebruiken
-In dit scenario gebruiken we de [Team Data Science Process (TDSP)](overview.md) in een end-to-end-scenario. We gebruiken een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/) wilt opslaan, verkennen, en de functie-engineering gegevens uit de openbaar beschikbare [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset, en down-sampling van de gegevens. Voor het afhandelen van binaire en multiklassen classificatie en de voorspellende taken regressie, bouwen we modellen van de gegevens met Azure Machine Learning. 
+In dit scenario gebruiken we de [Team Data Science Process (TDSP)](overview.md) in een end-to-end-scenario. We gebruiken een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/) wilt opslaan, verkennen, en de functie-engineering gegevens uit de openbaar beschikbare [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) gegevensset, en down-sampling van de gegevens. Voor het afhandelen van binaire en multiklassen classificatie en de voorspellende taken regressie, bouwen we modellen van de gegevens met Azure Machine Learning. 
 
 Zie voor een overzicht waarin wordt getoond hoe u voor het afhandelen van een grotere gegevensset, [Team Data Science Process - met behulp van Azure HDInsight Hadoop-Clusters op een gegevensset van 1 TB](hive-criteo-walkthrough.md).
 
@@ -84,7 +84,7 @@ U kunt een Azure-omgeving voor geavanceerde analyses, waardoor een HDInsight-clu
 > 
 > 
 
-Kopiëren van de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset naar de computer van de openbare locatie, gebruikt u een van de methoden die worden beschreven in [verplaatsen van gegevens en naar Azure Blob-opslag](move-azure-blob.md).
+Kopiëren van de [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) gegevensset naar de computer van de openbare locatie, gebruikt u een van de methoden die worden beschreven in [verplaatsen van gegevens en naar Azure Blob-opslag](move-azure-blob.md).
 
 Hier wordt beschreven hoe u AzCopy gebruiken om over te dragen van de bestanden met gegevens. Volg de instructies op om te downloaden en installeren van AzCopy, [aan de slag met het AzCopy-opdrachtregelprogramma](../../storage/common/storage-use-azcopy.md).
 
@@ -516,7 +516,7 @@ Voer de volgende opdracht uit vanaf de opdrachtregel Hadoop-console:
 
 Mogelijk wilt u weten of er een verschil tussen de directe afstand tussen twee locaties en de werkelijke reis afstand van de taxi. Een passagier mogelijk minder waarschijnlijk, als ze weten dat het stuurprogramma opzettelijk ze heeft genomen voor een langere route tip.
 
-Om te zien van de vergelijking tussen de werkelijke reis afstand en de [Haversine afstand](http://en.wikipedia.org/wiki/Haversine_formula) tussen twee lengtegraad, breedtegraad punten (de "great cirkel" afstand), kunt u de trigonometrische functies die beschikbaar zijn in de component:
+Om te zien van de vergelijking tussen de werkelijke reis afstand en de [Haversine afstand](https://en.wikipedia.org/wiki/Haversine_formula) tussen twee lengtegraad, breedtegraad punten (de "great cirkel" afstand), kunt u de trigonometrische functies die beschikbaar zijn in de component:
 
     set R=3959;
     set pi=radians(180);
@@ -822,8 +822,8 @@ U kunt nu doorgaan naar modellen bouwen en implementeren van modellen in [Machin
 In dit voorbeeld scenario en de bijbehorende scripts worden gedeeld door Microsoft onder de MIT-licentie. Zie voor meer informatie de **LICENSE.txt** bestand in de map van de voorbeeldcode op GitHub.
 
 ## <a name="references"></a>Verwijzingen
-• [Andrés Monroy NYC Taxi Trips downloadpagina](http://www.andresmh.com/nyctaxitrips/)  
-• [FOILing NYC Taxi reisgegevens door Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [Andrés Monroy NYC Taxi Trips downloadpagina](https://www.andresmh.com/nyctaxitrips/)  
+• [FOILing NYC Taxi reisgegevens door Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 • [NYC Taxi en Limousine Commissie onderzoek en statistieken](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png

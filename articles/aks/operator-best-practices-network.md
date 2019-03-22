@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175452"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176579"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor verbinding met het netwerk en beveiliging in Azure Kubernetes Service (AKS)
 
@@ -116,7 +116,7 @@ Een controller voor binnenkomend verkeer dat wordt gedistribueerd naar de servic
 
 ![Een web application firewall (WAF), zoals Azure App Gateway kan beveiligen en distribueren van verkeer voor uw AKS-cluster](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Een web application firewall (WAF) biedt een extra laag van beveiliging door het filteren van het binnenkomende verkeer. De Open Web Application Security Project (OWASP) biedt een set regels om te bekijken van aanvallen zoals cross-site scripting of cookie aanvallen. [Azure Application Gateway] [ app-gateway] is een WAF die kan worden geïntegreerd met AKS-clusters voor deze beveiligingsfuncties, voordat het verkeer uw AKS-cluster en toepassingen bereikt. Andere oplossingen van derden ook uitvoeren deze functies, zodat u kunt echter ook doorgaan met het bestaande investeringen expertise in een bepaald product.
+Een web application firewall (WAF) biedt een extra laag van beveiliging door het filteren van het binnenkomende verkeer. De Open Web Application Security Project (OWASP) biedt een set regels om te bekijken van aanvallen zoals cross-site scripting of cookie aanvallen. [Azure Application Gateway] [ app-gateway] (momenteel in preview in AKS) is een WAF die kan worden geïntegreerd met AKS-clusters voor deze beveiligingsfuncties, voordat het verkeer uw AKS-cluster en toepassingen bereikt. Andere oplossingen van derden ook uitvoeren deze functies, zodat u kunt echter ook doorgaan met het bestaande investeringen expertise in een bepaald product.
 
 Load balancer of ingress resources blijven om uit te voeren in uw AKS-cluster om de distributie van verkeer verder te verfijnen. App-Gateway kan centraal worden beheerd als een controller voor binnenkomend verkeer met een resourcedefinitie. Aan de slag [maken van een Application Gateway-ingangscontroller][app-gateway-ingress].
 
@@ -124,7 +124,7 @@ Load balancer of ingress resources blijven om uit te voeren in uw AKS-cluster om
 
 **Aanbevolen procedurerichtlijn** -netwerkbeleid wilt toestaan of weigeren van verkeer naar schillen gebruiken. Standaard wordt al het verkeer toegestaan tussen schillen binnen een cluster. Definieert de regels die pod communicatie beperken voor verbeterde beveiliging.
 
-Beleid voor netwerken is een Kubernetes-functie waarmee u kunt de verkeersstroom tussen schillen beheren. U kunt toestaan of weigeren van verkeer op basis van de labels van de instellingen zoals die zijn toegewezen, naamruimte of verkeer poort. Het gebruik van netwerkbeleid profiteert van een cloud-eigen methode voor het beheren van de stroom van het verkeer. Nadat er schillen zijn dynamisch gemaakt in een AKS-cluster, kunnen het vereiste netwerkbeleid automatisch worden toegepast. Gebruik geen beveiligingsgroepen van Azure-netwerk wilt pod-pod-verkeer beheren, gebruikt u netwerkbeleid.
+Netwerkbeleid (momenteel in preview in AKS) is een Kubernetes-functie waarmee u kunt de verkeersstroom tussen schillen beheren. U kunt toestaan of weigeren van verkeer op basis van de labels van de instellingen zoals die zijn toegewezen, naamruimte of verkeer poort. Het gebruik van netwerkbeleid profiteert van een cloud-eigen methode voor het beheren van de stroom van het verkeer. Nadat er schillen zijn dynamisch gemaakt in een AKS-cluster, kunnen het vereiste netwerkbeleid automatisch worden toegepast. Gebruik geen beveiligingsgroepen van Azure-netwerk wilt pod-pod-verkeer beheren, gebruikt u netwerkbeleid.
 
 Als u wilt gebruiken, kan de functie moet worden ingeschakeld wanneer u een AKS-cluster maakt. U kunt beleid voor netwerken in een bestaand AKS-cluster niet inschakelen. Plan vooruit om ervoor te zorgen dat u netwerkbeleid op clusters inschakelen en deze indien nodig kunt gebruiken.
 

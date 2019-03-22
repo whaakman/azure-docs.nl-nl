@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 84eb458c68c7accf1b638b8e21907516328cb892
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 26b560434e6305689781b8c39c7cf814af9bf8aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545087"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112293"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Zelfstudie: Verbinding maken, instellen, het activeren van Azure Data Box-Gateway (Preview) 
 
@@ -80,12 +80,12 @@ U bent nu op de **Dashboard** van uw apparaat.
    
     Bij het configureren van netwerkinstellingen, houd rekening met het volgende:
 
-    - Als DHCP is ingeschakeld in uw omgeving, worden netwerkinterfaces automatisch geconfigureerd. Daarom kan worden een IP-adres, subnet, gateway en DNS automatisch toegewezen.
-    - Als DHCP niet is ingeschakeld, kunt u statische IP-adressen kunt toewijzen, indien nodig.
-    - U kunt uw netwerk-interface configureren als IPv4.
+   - Als DHCP is ingeschakeld in uw omgeving, worden netwerkinterfaces automatisch geconfigureerd. Daarom kan worden een IP-adres, subnet, gateway en DNS automatisch toegewezen.
+   - Als DHCP niet is ingeschakeld, kunt u statische IP-adressen kunt toewijzen, indien nodig.
+   - U kunt uw netwerk-interface configureren als IPv4.
 
-    >[!NOTE] 
-    > We raden aan dat u het lokale IP-adres van de netwerkinterface van statisch naar DHCP, niet overschakelen, tenzij u een ander IP-adres verbinding maken met het apparaat hebt. Als u met behulp van een netwerkinterface en u overschakelen naar DHCP, zou er geen manier om te bepalen van de DHCP-adres. Als u wijzigen in een DHCP-adres wilt, wachten totdat het apparaat is geregistreerd bij de service en vervolgens wijzigen. U kunt bekijken, de IP-adressen van alle netwerkadapters in de **apparaateigenschappen** in Azure portal voor uw service.
+     >[!NOTE] 
+     > We raden aan dat u het lokale IP-adres van de netwerkinterface van statisch naar DHCP, niet overschakelen, tenzij u een ander IP-adres verbinding maken met het apparaat hebt. Als u met behulp van een netwerkinterface en u overschakelen naar DHCP, zou er geen manier om te bepalen van de DHCP-adres. Als u wijzigen in een DHCP-adres wilt, wachten totdat het apparaat is geregistreerd bij de service en vervolgens wijzigen. U kunt bekijken, de IP-adressen van alle netwerkadapters in de **apparaateigenschappen** in Azure portal voor uw service.
 
 4. (Optioneel) Configureer uw webproxyserver. Hoewel webproxyconfiguratie optioneel is, er rekening mee dat als u een webproxy gebruikt, u alleen deze hier configureren kunt.
    

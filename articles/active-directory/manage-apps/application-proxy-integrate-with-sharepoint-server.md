@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3f0d7907fa755483ef5a92b3376c18d54467cc7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7dc80b78bbba369e0ddb5c2c1e9fd90834dc0148
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191194"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120411"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Externe toegang tot SharePoint met Azure AD-toepassingsproxy inschakelen
 
@@ -50,7 +50,7 @@ Als u KCD instelt voor een SharePoint-server, gebruik de procedures in de volgen
 Controleer eerst of de SharePoint-webtoepassing wordt uitgevoerd onder een domeinaccount--niet lokaal systeem, lokale service of NetworkService. Dit doen zodat u de service principal names (SPN's) aan dit account koppelen kunt. SPN's zijn hoe het Kerberos-protocol wordt aangegeven met verschillende services. En u moet het account later naar de KCD configureren.
 
 > [!NOTE]
-U moet beschikken over een eerder gemaakte Azure AD-account voor de service. Het is raadzaam dat u voor een automatische wachtwoordwijziging toestaan. Zie voor meer informatie over de volledige set van stappen en het oplossen van problemen, [automatisch veranderen van wachtwoorden in SharePoint configureren](https://technet.microsoft.com/library/ff724280.aspx).
+> U moet beschikken over een eerder gemaakte Azure AD-account voor de service. Het is raadzaam dat u voor een automatische wachtwoordwijziging toestaan. Zie voor meer informatie over de volledige set van stappen en het oplossen van problemen, [automatisch veranderen van wachtwoorden in SharePoint configureren](https://technet.microsoft.com/library/ff724280.aspx).
 
 Om ervoor te zorgen dat uw sites worden uitgevoerd onder een opgegeven service-account, moet u de volgende stappen uitvoeren:
 
@@ -58,7 +58,7 @@ Om ervoor te zorgen dat uw sites worden uitgevoerd onder een opgegeven service-a
 2. Ga naar **Security** en selecteer **service-accounts configureren**.
 3. Selecteer **Web-groep van toepassingen - SharePoint - 80**. De opties mogelijk enigszins verschillen op basis van de naam van uw web-groep, of als de webpool voor SSL wordt standaard gebruikt.
 
-  ![Opties voor het configureren van een service-account](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
+   ![Opties voor het configureren van een service-account](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
 4. Als **selecteert u een account voor dit onderdeel** veld is ingesteld op **lokale Service** of **netwerkservice**, moet u een account maken. Zo niet, u klaar bent en u kunt verplaatsen naar de volgende sectie.
 5. Selecteer **nieuw beheerd account registreren**. Nadat uw account is gemaakt, moet u instellen **toepassingen** voordat u het account kunt gebruiken.
@@ -108,7 +108,7 @@ Voor het configureren van de KCD, herhaalt u de volgende stappen uit voor elke c
 6. Selecteer in de lijst van de SPN's die u eerder hebt gemaakt voor het serviceaccount.
 7. Klik op **OK**. Klik op **OK** opnieuw de wijzigingen wilt opslaan.
   
-  ![De delegatie-instellingen](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
+   ![De delegatie-instellingen](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
 
 ## <a name="step-2-configure-azure-ad-proxy"></a>Stap 2: Azure AD-toepassingsproxy configureren
 
@@ -142,18 +142,18 @@ Volgende stap is het uitbreiden van de SharePoint-webtoepassing aan een nieuwe z
 1. Start de **SharePoint-beheershell**.
 2. Voer het volgende script uit te breiden de web-App aan de zone met Extranet en Kerberos-verificatie inschakelen:
 
-  ```powershell
-  # Replace "http://spsites/" with the URL of your web application
-  # Replace "https://sharepoint-f128.msappproxy.net/" with the External URL in your Azure AD proxy application
-  $winAp = New-SPAuthenticationProvider -UseWindowsIntegratedAuthentication -DisableKerberos:$false
-  Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-f128.msappproxy.net/" -AuthenticationProvider $winAp
-  ```
+   ```powershell
+   # Replace "http://spsites/" with the URL of your web application
+   # Replace "https://sharepoint-f128.msappproxy.net/" with the External URL in your Azure AD proxy application
+   $winAp = New-SPAuthenticationProvider -UseWindowsIntegratedAuthentication -DisableKerberos:$false
+   Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-f128.msappproxy.net/" -AuthenticationProvider $winAp
+   ```
 
 3. Open de **Centraal beheer van SharePoint** site.
 4. Onder **systeeminstellingen**, selecteer **alternatieve toegangstoewijzingen configureren**. Hiermee opent u het vak Alternatieve toewijzingen voor toegang.
 5. Selecteer uw site, bijvoorbeeld **SharePoint - 80**. Voor dit moment geen Extranet zone de interne URL nog correct is ingesteld:
 
-  ![Alternatieve toegangstoewijzingen vak](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
+   ![Alternatieve toegangstoewijzingen vak](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
 
 6. Klik op **interne URL's toevoegen**.
 7. In **URL-protocol, host en poort** tekstvak, type de **interne URL** geconfigureerd in Azure AD-proxy, bijvoorbeeld <https://SharePoint/>.
@@ -161,7 +161,7 @@ Volgende stap is het uitbreiden van de SharePoint-webtoepassing aan een nieuwe z
 9. Klik op **Opslaan**.
 10. De alternatieve toegangstoewijzingen moet er nu als volgt uitzien:
 
-  ![Alternatieve toegangstoewijzingen corrigeren](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
+    ![Alternatieve toegangstoewijzingen corrigeren](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
 
 ## <a name="step-4-ensure-that-an-https-certificate-is-configured-for-the-iis-site-of-the-extranet-zone"></a>Stap 4: Zorg ervoor dat er een HTTPS-certificaat is geconfigureerd voor de IIS-site van het Extranet zone
 
@@ -170,13 +170,13 @@ SharePoint-configuratie is nu voltooid, maar omdat de interne URL van het Extran
 1. Open Windows PowerShell-console.
 2. Voer het volgende script om een zelfondertekend certificaat genereren en MY store toevoegen aan de computer:
 
-  ```powershell
-  # Replace "SharePoint" with the actual hostname of the Internal URL of your Azure AD proxy application
-  New-SelfSignedCertificate -DnsName "SharePoint" -CertStoreLocation "cert:\LocalMachine\My"
-  ```
+   ```powershell
+   # Replace "SharePoint" with the actual hostname of the Internal URL of your Azure AD proxy application
+   New-SelfSignedCertificate -DnsName "SharePoint" -CertStoreLocation "cert:\LocalMachine\My"
+   ```
 
-  > [!NOTE]
-  Zelfondertekende certificaten zijn alleen geschikt voor test-doeleinden. In een productieomgeving, is het raadzaam het gebruik van certificaten uitgegeven door een certificeringsinstantie in plaats daarvan.
+   > [!NOTE]
+   > Zelfondertekende certificaten zijn alleen geschikt voor test-doeleinden. In een productieomgeving, is het raadzaam het gebruik van certificaten uitgegeven door een certificeringsinstantie in plaats daarvan.
 
 3. Open de console van de 'Internet Information Services Manager'.
 4. Vouw de server in de structuurweergave uit, vouw "Sites", selecteer de site 'SharePoint – AAD Proxy' en klik op **bindingen**.

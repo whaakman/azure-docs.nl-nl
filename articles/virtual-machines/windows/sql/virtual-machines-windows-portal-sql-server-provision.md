@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fd01fdd3f7f8803dc7221bd0bd6c993120a83d44
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: MT
+ms.openlocfilehash: ee6c05b2da4347ed034ae6e7318d6f5d90ea7884
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330888"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099641"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hoe u een Windows SQL Server-machine inrichten in Azure portal
 
@@ -178,7 +178,7 @@ Als u de mogelijkheid om via internet verbinding te maken met de database-engine
 
 In het algemeen kunt u de beveiliging verbeteren door te kiezen voor de meest beperkende connectiviteit die voor uw scenario mogelijk is. Alle opties kunnen echter worden beveiligd via regels van de netwerkbeveiligingsgroep en SQL/Windows-verificatie. U kunt de netwerkbeveiligingsgroep bewerken nadat de virtuele machine is gemaakt. Zie [Veiligheidsoverwegingen voor SQL Server in virtuele Azure-machines](virtual-machines-windows-sql-security.md) voor meer informatie.
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 
 Als u SQL Server-verificatie vereist, klikt u onder **SQL-verificatie** op **Inschakelen**.
 
@@ -247,7 +247,7 @@ De volgende tabel bevat de vereiste parameters voor het configureren van de Azur
 
 | PARAMETER | BESCHRIJVING | VOORBEELD |
 | --- | --- | --- |
-| **Key Vault-URL** |De locatie van de sleutelkluis. |https://contosokeyvault.vault.azure.net/ |
+| **Key Vault-URL** |De locatie van de sleutelkluis. |<https://contosokeyvault.vault.azure.net/> |
 | **Principal-naam** |Principal-naam voor de Azure Active Directory-service. Deze naam wordt ook wel aangeduid als de Client-ID. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Principal-geheim** |Principal-geheim voor de Azure Active Directory-service. Dit geheim wordt ook wel aangeduid als het Clientgeheim. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Referentienaam** |**Referentienaam**: Azure Sleutelkluis-integratie maakt u een referentie binnen SQL Server, zodat de virtuele machine toegang heeft tot de key vault. Kies een naam voor deze referentie. |mycred1 |

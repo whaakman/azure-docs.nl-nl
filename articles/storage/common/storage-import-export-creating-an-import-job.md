@@ -8,28 +8,28 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 42246a5d2c8515c26ed399f041476c8ad70decfe
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fa76f4fb5d4da5fd00bb9fa4ed862c6977a47e90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442134"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102176"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Een importtaak voor de Azure Import/Export-service maken
 
 Het maken van een import-taak voor de Microsoft Azure Import/Export-service met behulp van de REST-API omvat de volgende stappen:
 
--   Voorbereiden van harde schijven met de Azure Import/Export-hulpprogramma.
+- Voorbereiden van harde schijven met de Azure Import/Export-hulpprogramma.
 
--   Het ophalen van de locatie waarnaar u wilt het station verzenden.
+- Het ophalen van de locatie waarnaar u wilt het station verzenden.
 
--   Het maken van de import-taak.
+- Het maken van de import-taak.
 
--   Verzending van de schijven naar Microsoft via een ondersteunde Provider-service.
+- Verzending van de schijven naar Microsoft via een ondersteunde Provider-service.
 
--   De import-taak bijwerken met de verzendgegevens.
+- De import-taak bijwerken met de verzendgegevens.
 
- Zie [met behulp van de Microsoft Azure Import/Export-service gegevens overbrengen naar Blob-opslag](storage-import-export-service.md) voor een overzicht van de Import/Export-service en een zelfstudie waarin wordt gedemonstreerd hoe u de [Azure-portal](https://portal.azure.com/) maken en beheren van importeren en exporteren van taken.
+  Zie [met behulp van de Microsoft Azure Import/Export-service gegevens overbrengen naar Blob-opslag](storage-import-export-service.md) voor een overzicht van de Import/Export-service en een zelfstudie waarin wordt gedemonstreerd hoe u de [Azure-portal](https://portal.azure.com/) maken en beheren van importeren en exporteren van taken.
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Schijven met het hulpprogramma Azure Import/Export voorbereiden
 
@@ -39,21 +39,21 @@ Hieronder volgt een kort overzicht van de voorbereiding van station. Raadpleeg d
 
 Voorbereiden van het station bestaat uit:
 
--   Identificeren van de gegevens worden geïmporteerd.
+- Identificeren van de gegevens worden geïmporteerd.
 
--   Hoe identificeert u de blobs doel in Windows Azure Storage.
+- Hoe identificeert u de blobs doel in Windows Azure Storage.
 
--   Met behulp van de Azure Import/Export-hulpprogramma gegevens kopiëren naar een of meer harde schijven.
+- Met behulp van de Azure Import/Export-hulpprogramma gegevens kopiëren naar een of meer harde schijven.
 
- De Azure Import/Export-hulpprogramma wordt ook een manifestbestand voor elk van de stations gegenereerd als deze wordt voorbereid. Een manifestbestand bevat:
+  De Azure Import/Export-hulpprogramma wordt ook een manifestbestand voor elk van de stations gegenereerd als deze wordt voorbereid. Een manifestbestand bevat:
 
--   Een inventarisatie van alle bestanden die zijn bedoeld voor het uploaden en de toewijzingen van deze bestanden tot blobs.
+- Een inventarisatie van alle bestanden die zijn bedoeld voor het uploaden en de toewijzingen van deze bestanden tot blobs.
 
--   Controlesommen van de segmenten van elk bestand.
+- Controlesommen van de segmenten van elk bestand.
 
--   Informatie over de metagegevens en eigenschappen om te koppelen aan elke blob.
+- Informatie over de metagegevens en eigenschappen om te koppelen aan elke blob.
 
--   Een overzicht van de actie moet worden uitgevoerd als een blob die wordt geüpload dezelfde naam als een bestaande blob in de container heeft. Mogelijke opties zijn: a) de blob wordt overschreven door het bestand, (b) het bewaren van de bestaande blob en het bestand te uploaden overslaan, c) een achtervoegsel aan de naam toegevoegd zodat deze niet in strijd met andere bestanden.
+- Een overzicht van de actie moet worden uitgevoerd als een blob die wordt geüpload dezelfde naam als een bestaande blob in de container heeft. Mogelijke opties zijn: a) de blob wordt overschreven door het bestand, (b) het bewaren van de bestaande blob en het bestand te uploaden overslaan, c) een achtervoegsel aan de naam toegevoegd zodat deze niet in strijd met andere bestanden.
 
 ## <a name="obtaining-your-shipping-location"></a>Het ophalen van de locatie van uw verzending
 

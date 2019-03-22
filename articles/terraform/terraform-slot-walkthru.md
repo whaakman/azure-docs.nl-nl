@@ -2,19 +2,19 @@
 title: Terraform met Azure-implementatiesites voor providers
 description: Zelfstudie over het gebruik van Terraform met Azure-implementatiesites voor providers
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtuele machine, azure, implementatiesites
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: 1564991ecfe29b1977837c2fdff4be7b3a3e1797
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 08e90a69791b0555a6497166f6008e8619f40704
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074815"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992230"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Gebruik Terraform om infrastructuur in te richten met Azure-implementatiesites
 
@@ -26,11 +26,11 @@ In dit artikel ziet u een voorbeeld van het gebruik van implementatiesites waarb
 
 - **Azure-abonnement**: Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
 
-- **GitHub-account**: u hebt een [GitHub](http://www.github.com)-account nodig om te splitsen en de GitHub-testopslagplaats te gebruiken.
+- **GitHub-account**: u hebt een [GitHub](https://www.github.com)-account nodig om te splitsen en de GitHub-testopslagplaats te gebruiken.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Het Terraform-plan maken en toepassen
 
-1. Blader naar [Azure Portal](http://portal.azure.com).
+1. Blader naar [Azure Portal](https://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). Als u nog geen omgeving hebt geselecteerd, selecteert u **Bash** als uw omgeving.
 

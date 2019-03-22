@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/05/2018
+ms.date: 03/11/2019
 ms.author: ramamill
-ms.openlocfilehash: fd434ed8d5b625a1a0ed1ff195da0f864a4024b0
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: ba80c8ce57495eaa46e915cb0c472eb4aabcee57
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769422"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863624"
 ---
 # <a name="manage-process-servers"></a>Processervers beheren
 
@@ -30,7 +30,7 @@ Een processerver die wordt uitgevoerd on-premises of in Azure (voor failback tes
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
 
 > [!NOTE]
-  Wanneer u de installatiekopie van de Azure-galerie gebruiken om u te maken van een processerver in Azure voor de doeleinden van failback, wordt dit meestal de meest recente beschikbare versie uitgevoerd. De Site Recovery teams release oplossingen en verbeteringen op gezette tijden, en we raden dat u processervers up-to-date houden.
+>   Wanneer u de installatiekopie van de Azure-galerie gebruiken om u te maken van een processerver in Azure voor de doeleinden van failback, wordt dit meestal de meest recente beschikbare versie uitgevoerd. De Site Recovery teams release oplossingen en verbeteringen op gezette tijden, en we raden dat u processervers up-to-date houden.
 
 ## <a name="balance-the-load-on-process-server"></a>Verdeel de belasting op de processerver
 
@@ -91,23 +91,23 @@ Als de processerver een proxy verbinding maken met Site Recovery in Azure, gebru
 
 1. Meld u aan bij de server-machine proces. 
 2. Open een opdrachtvenster Admin PowerShell en voer de volgende opdracht uit:
-  ```powershell
-  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
-  net stop obengine
-  net start obengine
-  ```
+   ```powershell
+   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
+   net stop obengine
+   net start obengine
+   ```
 2. Blader naar de map **%PROGRAMDATA%\ASR\Agent**, en voer de volgende opdracht uit:
-  ```
-  cmd
-  cdpcli.exe --registermt
+   ```
+   cmd
+   cdpcli.exe --registermt
 
-  net stop obengine
+   net stop obengine
 
-  net start obengine
+   net start obengine
 
-  exit
-  ```
+   exit
+   ```
 
 
 ## <a name="remove-a-process-server"></a>Een processerver verwijderen

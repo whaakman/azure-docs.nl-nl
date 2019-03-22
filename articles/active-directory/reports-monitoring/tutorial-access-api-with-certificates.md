@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b6fcdb117033e69db82d8f9bb083891794ed72
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8706414b27969efd6aa26085370f8a0b1f891d69
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187080"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095191"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Zelfstudie: Gegevens ophalen met de Azure Active Directory rapportage-API met certificaten
 
@@ -87,15 +87,15 @@ In deze zelfstudie leert u hoe u een testcertificaat gebruikt voor toegang tot d
   
 7. Nu kunt u een toegangstoken ophalen voor de MS Graph API met behulp van dit certificaat. Gebruik de **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet uit de MSCloudIdUtils PowerShell-module, doorgeven in de toepassings-ID en de vingerafdruk die u hebt verkregen in de vorige stap. 
 
- ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 8. Het toegangstoken in uw Powershell-script gebruiken om te vragen van de Graph API. Gebruik de **Invoke-MSCloudIdMSGraphQuery** cmdlet uit de MSCloudIDUtils het eindpunt signins en directoryAudits inventariseren. Deze cmdlet met meerdere pagina's met zoekresultaten verwerkt, en stuurt deze resultaten naar de PowerShell-pijplijn.
 
 9. Query uitvoeren op het eindpunt directoryAudits om op te halen van de auditlogboeken. 
- ![Azure Portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+   ![Azure-portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 10. Query uitvoeren op het eindpunt signins om op te halen van de logboeken van de aanmelding.
- ![Azure Portal](./media/tutorial-access-api-with-certificates/query-signins.png)
+    ![Azure-portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 11. Nu kunt u deze gegevens exporteren naar een CSV en opslaan in een SIEM-systeem. U kunt uw script ook verpakken in een geplande taak om periodiek gegevens van Azure AD op te halen uit uw tenant zonder dat u toepassingssleutels hoeft op te slaan in de broncode. 
 

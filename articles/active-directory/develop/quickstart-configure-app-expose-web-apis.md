@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 940ca126eb18b81fd31f1ee2876948563e9d97af
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188373"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080842"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Quickstart: Een toepassing configureren voor het beschikbaar maken van web-API's (preview)
 
@@ -65,7 +65,7 @@ Een nieuw bereik beschikbaar maken via de gebruikersinterface:
 
 1. Wanneer de pagina **Een bereik toevoegen** wordt weergegeven, voert u de gegevens van het bereik in:
 
-    | Veld | Beschrijving |
+    | Veld | Description |
     |-------|-------------|
     | **Naam van bereik** | Voer een beschrijvende naam voor het bereik in.<br><br>Bijvoorbeeld `Employees.Read.All`. |
     | **Wie kan toestemming verlenen?** | Selecteer of gebruikers toestemming kunnen verlenen voor dit bereik, of dat toestemming van de beheerder is vereist. Selecteer **Alleen beheerders** voor machtigingen met meer bevoegdheden. |
@@ -74,7 +74,7 @@ Een nieuw bereik beschikbaar maken via de gebruikersinterface:
 
     Als gebruikers toestemming kunnen verlenen voor het bereik, voegt u ook waarden toe voor de volgende velden:
 
-    | Veld | Beschrijving |
+    | Veld | Description |
     |-------|-------------|
     | **Weergavenaam van gebruikerstoestemming** | Voer een beschrijvende naam voor het bereik in. Deze wordt zichtbaar voor gebruikers.<br><br>Bijvoorbeeld: `Read-only access to your Employee records` |
     | **Beschrijving van gebruikerstoestemming** | Voer een duidelijke beschrijving voor het bereik in. Deze wordt zichtbaar voor gebruikers.<br><br>Bijvoorbeeld: `Allow the application to have read-only access to your Employee data.` |
@@ -106,12 +106,12 @@ Een nieuw bereik beschikbaar maken via het toepassingsmanifest:
       }
       ```
 
-  > [!NOTE]
-  > De waarde `id` moet worden gegenereerd via een programma of met behulp van een hulpprogramma voor het genereren van een GUID zoals [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). De `id` staat voor een unieke id voor het bereik zoals het wordt weergegeven door de web-API. Nadat een client op de juiste wijze is geconfigureerd met machtigingen voor toegang tot de web-API, wordt er een OAuth 2.0-toegangstoken voor uitgegeven via Azure AD. Wanneer de client de web-API aanroept, presenteert deze het toegangstoken waarvan de bereikclaim (scp is) is ingesteld op de machtigingen die zijn aangevraagd in de registratie van de toepassing.
-  >
-  > U kunt aanvullende bereiken indien nodig later weergeven. Houd er rekening mee dat uw web-API mogelijk meerdere bereiken weergeeft die zijn gekoppeld aan een verscheidenheid van verschillende functies. Via de resource kan toegang tot de web-API tijdens runtime worden beheerd, door het evalueren van de bereikclaim(s) (`scp`) in het ontvangen OAuth 2.0-toegangstoken.
+   > [!NOTE]
+   > De waarde `id` moet worden gegenereerd via een programma of met behulp van een hulpprogramma voor het genereren van een GUID zoals [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). De `id` staat voor een unieke id voor het bereik zoals het wordt weergegeven door de web-API. Nadat een client op de juiste wijze is geconfigureerd met machtigingen voor toegang tot de web-API, wordt er een OAuth 2.0-toegangstoken voor uitgegeven via Azure AD. Wanneer de client de web-API aanroept, presenteert deze het toegangstoken waarvan de bereikclaim (scp is) is ingesteld op de machtigingen die zijn aangevraagd in de registratie van de toepassing.
+   >
+   > U kunt aanvullende bereiken indien nodig later weergeven. Houd er rekening mee dat uw web-API mogelijk meerdere bereiken weergeeft die zijn gekoppeld aan een verscheidenheid van verschillende functies. Via de resource kan toegang tot de web-API tijdens runtime worden beheerd, door het evalueren van de bereikclaim(s) (`scp`) in het ontvangen OAuth 2.0-toegangstoken.
 
-1. Klik op **Opslaan** als u klaar bent. Uw web-API is nu geconfigureerd voor gebruik door andere toepassingen in uw directory.
+1. Wanneer u klaar bent, klikt u op **Opslaan**. Uw web-API is nu geconfigureerd voor gebruik door andere toepassingen in uw directory.
 1. Volg de stappen om te [controleren of de web-API beschikbaar is gemaakt voor andere toepassingen](#verify-the-web-api-is-exposed-to-other-applications).
 
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Controleren of de web-API beschikbaar is gemaakt voor andere toepassingen

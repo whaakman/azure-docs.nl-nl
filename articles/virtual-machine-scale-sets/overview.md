@@ -16,12 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: manayar
-ms.openlocfilehash: 5cd9593bba1e97f52bfa37467920959b1ef0f698
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 1ace0ddd3b29f844488eb7579934541fa8273fa0
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329603"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199899"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Wat zijn schaalsets voor virtuele machines?
 Met behulp van schaalsets voor virtuele Azure-machines kunt u een groep identieke VM's met gelijke taakverdeling maken en beheren. Het aantal VM-exemplaren kan automatisch toenemen of afnemen in reactie op vraag of een ingesteld schema. Schaalsets bieden een hoge beschikbaarheid voor uw toepassingen. Een ander voordeel is dat u vanaf één plek een groot aantal virtuele machines kunt beheren, configureren en bijwerken. Met schaalsets voor virtuele machines kunt u grootschalige services bouwen voor zaken zoals rekenkracht, big data en containerworkloads.
@@ -46,7 +46,7 @@ Schaalsets voor virtuele Azure-machines bieden beheermogelijkheden voor toepassi
     - Automatisch schalen betekent enerzijds dat er geen overbodige VM-exemplaren actief zijn om uw toepassing uit te voeren op momenten dat de vraag klein is, en anderzijds dat klanten ook een aanvaardbaar prestatieniveau krijgen wanneer de vraag toeneemt omdat er dan automatisch extra VM-exemplaren worden toegevoegd. Hierdoor is het mogelijk om de kosten te verlagen en op een efficiënte manier Azure-resources te maken zodra deze nodig zijn.
 
 - **Werkt op grote schaal**
-    - Schaalsets ondersteunen maximaal 1000 VM-exemplaren. Als u uw eigen aangepaste VM-installatiekopieën maakt en upload, is de limiet 300 VM-exemplaren.
+    - Schaalsets ondersteunen maximaal 1000 VM-exemplaren. Als u maken en uw eigen aangepaste VM-installatiekopieën uploaden, is de limiet 600 VM-exemplaren.
     - Gebruik [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) voor de beste prestaties met productieworkloads.
 
 

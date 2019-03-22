@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 01/29/2019
+ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 81b2db2da7c1efe0d09c065270c3493f297e49ad
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 551b1d4924c354eb6fd501c1b82ed306a7ea4822
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55235968"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305291"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>Wat is ExpressRoute globaal bereik?
 
@@ -49,7 +49,7 @@ Nee. Om in te schakelen connectiviteit tussen twee van uw on-premises netwerken,
 
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>Wat is de doorvoer van het netwerk die ik tussen mijn on-premises netwerken verwachten kan nadat ik ExpressRoute globaal bereik hebt ingeschakeld?
 
-De netwerkdoorvoer tussen uw on-premises netwerken, ingeschakeld door ExpressRoute globaal bereik, wordt beperkt door de kleinste hoeveelheid van de twee ExpressRoute-circuits.
+De netwerkdoorvoer tussen uw on-premises netwerken, ingeschakeld door ExpressRoute globaal bereik, wordt beperkt door de kleinste hoeveelheid van de twee ExpressRoute-circuits. Premises-to-Azure-verkeer en premises-to-premises delen hetzelfde circuit en zijn onderworpen aan de dezelfde Bandbreedtelimiet. 
 
 ### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>Met ExpressRoute globaal bereik, wat zijn de limieten voor het aantal routes dat ik kunt adverteren en het aantal routes dat ik ontvang?
 

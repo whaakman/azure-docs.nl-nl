@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/18/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 587661236e28b9e0fdf7d527b762897d417d0d98
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 8a6a46708b78b3f92087ace02173f9f081fa85b2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866845"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170510"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Snelstartgids: Een knowledge base publiceren in QnA Maker met behulp van C#
 
@@ -41,7 +41,7 @@ In deze snelstart worden QnA Maker-API's aangeroepen:
 ## <a name="create-knowledge-base-project"></a>Een project met knowledge base maken
 
 1. Open Visual Studio 2017 Community Edition.
-1. Maak een nieuw **consoletoepassingsproject (.NET Core)** en noem het project `QnaMakerQuickstart`. Accepteer de standaardwaarden voor de overige instellingen.
+1. Maak een nieuwe **Console-App (.NET Core)** project en noem het project `QnaMakerQuickstart`. Accepteer de standaardwaarden voor de overige instellingen.
 
 ## <a name="add-required-dependencies"></a>Vereiste afhankelijkheden toevoegen
 

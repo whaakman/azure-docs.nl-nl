@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 2f949265e3961794e2fc4b0efbce107762a75ef7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 5e88602aa3b983e1533248253d53967f39e6b5eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837521"
 ---
 # <a name="using-the-graph-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>De BulkExecutor .NET-bibliotheek voor grafen gebruiken om bulkbewerkingen uit te voeren in Cosmos DB Gremlin API
 
@@ -128,7 +128,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 Deze opslagplaats bevat het GraphBulkExecutor-voorbeeld met de volgende bestanden:
 
-File|Beschrijving
+File|Description
 ---|---
 `App.config`|Hier worden de voor de toepassing en database specifieke parameters gespecificeerd. Dit bestand moet eerst worden aangepast om verbinding te kunnen maken met de doeldatabase en de verzamelingen.
 `Program.cs`| Dit bestand bevat de logica voor het maken van de `DocumentClient`-verzameling. Het verwerkt het opschonen van gegevens en verzenden van de BulkExecutor-aanvragen.
@@ -136,7 +136,7 @@ File|Beschrijving
 
 In het `App.config`-bestand zijn de configuratiewaarden die kunnen worden opgegeven, als volgt:
 
-Instelling|Beschrijving
+Instelling|Description
 ---|---
 `EndPointUrl`|Dit is uw **.NET SDK-eindpunt**. Dit is aanwezig in de blade Overzicht van uw Azure Cosmos DB Gremlin API-databaseaccount. De indeling is `https://your-graph-database-account.documents.azure.com:443/`
 `AuthorizationKey`|Dit is de primaire of secundaire sleutel die vermeld staat onder uw Azure Cosmos DB-account. Meer informatie over [Toegang verkrijgen tot Azure Cosmos DB-gegevens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys)
@@ -155,6 +155,6 @@ Instelling|Beschrijving
 3. Evalueer de resultaten door een query uit te voeren op de grafendatabase. Als de optie `ShouldCleanupOnFinish` is ingesteld op waar, wordt de database automatisch verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Details van de BulkExecutor-SDK](sql-api-sdk-bulk-executor-dot-net.md) voor informatie over Nuget-pakketdetails en releaseopmerkingen van de BulkExecutor. 
+* Zie voor meer informatie over de details van de Nuget-pakket en release-opmerkingen van bulksgewijs executor .NET-bibliotheek, [bulksgewijs details over de SDK van de executor](sql-api-sdk-bulk-executor-dot-net.md). 
 * Lees de [Tips voor prestaties](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) om het gebruik van de BulkExecutor verder te optimaliseren.
 * Lees het artikel [BulkExecutor.Graph](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) voor meer informatie over de klassen en methoden die in deze naamruimte zijn gedefinieerd.

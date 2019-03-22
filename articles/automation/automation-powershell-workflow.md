@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7ab6b387a28df06758e5e0c1ce197781fc4be3c5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436804"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168082"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Leren van concepten van belangrijke Windows PowerShell-werkstroom voor Automation-runbooks
 
@@ -226,7 +226,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Controlepunten
 
-Een *controlepunt* is een momentopname van de huidige status van de werkstroom die de huidige waarde van variabelen en eventuele gegenereerde uitvoer naar dat punt bevat. Als een werkstroom in fout eindigt of is onderbroken, wordt klikt u vervolgens de volgende keer dat deze wordt uitgevoerd gestart vanaf de laatste controlepunt in plaats van het begin van de werkstroom.  U kunt een controlepunt instellen in een werkstroom met de **Checkpoint-Workflow** activiteit.
+Een *controlepunt* is een momentopname van de huidige status van de werkstroom die de huidige waarde van variabelen en eventuele gegenereerde uitvoer naar dat punt bevat. Als een werkstroom in fout eindigt of is onderbroken, wordt klikt u vervolgens de volgende keer dat deze wordt uitgevoerd gestart vanaf de laatste controlepunt in plaats van het begin van de werkstroom.  U kunt een controlepunt instellen in een werkstroom met de **Checkpoint-Workflow** activiteit. Azure Automation is een functie, genaamd [evenredige deel](automation-runbook-execution.md#fair-share), waar een runbook dat wordt uitgevoerd voor drie uur ongedaan is gemaakt om toe te staan van andere runbooks om uit te voeren. Uiteindelijk wordt opnieuw geladen het runbook ongedaan gemaakt en wanneer deze is, deze kan worden uitgevoerd vanaf het laatste controlepunt genomen in het runbook wordt hervat. Om te kunnen garanderen dat het runbook uiteindelijk wordt voltooid, moet u controlepunten toevoegen met tussenpozen die voor minder dan drie uur uitgevoerd. Als tijdens de uitvoering van elke nieuw controlepunt wordt toegevoegd, en als het runbook na 3 uur vanwege een fout wordt verwijderd, wordt klikt u vervolgens het runbook hervat voor onbepaalde tijd.
 
 In de volgende voorbeeldcode treedt een uitzondering op na activiteit2 waardoor de werkstroom te beëindigen. Wanneer de werkstroom wordt opnieuw uitgevoerd, begint deze door het uitvoeren van activiteit2 aangezien dit vlak nadat het laatst controlepunt ingestelde.
 
