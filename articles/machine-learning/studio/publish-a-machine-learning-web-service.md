@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: e56ab4d74b54e1da8b07de6081766c8669bfb68a
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576630"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895722"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Een Azure Machine Learning Studio-webservice implementeren
 
@@ -93,17 +93,17 @@ De RRS-test-pagina wordt weergegeven voor de invoer, uitvoer en alle globale par
 
 Als u wilt testen met behulp van RRS, uit de lijst met weergave-modus, geef de juiste waarden voor de invoer en klikt u op **testen Aanvraagantwoord**. De voorspellingsresultaten op die worden weergegeven in de uitvoerkolom aan de linkerkant.
 
-![De webservice implementeren](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
+![Geef de juiste waarden voor het testen van uw webservice](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 Als u wilt uw BES testen, klikt u op **Batch**. Klik op Bladeren onder uw invoer en selecteer een CSV-bestand met de juiste voorbeeldwaarden op de pagina van de test Batch. Als u een CSV-bestand hoeft, en u uw Voorspellend experiment met behulp van Machine Learning Studio hebt gemaakt, kunt u de gegevensset voor uw Voorspellend experiment downloaden en gebruiken.
 
 Voor het downloaden van de gegevensset, opent u Machine Learning Studio. Open uw Voorspellend experiment en klikt u met de rechtermuisknop op de invoer voor uw experiment. Selecteer in het contextmenu **gegevensset** en selecteer vervolgens **downloaden**.
 
-![De webservice implementeren](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
+![Uw gegevensset van het canvas Studio downloaden](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
 Klik op **Test**. De status van de uitvoering van de Batch-taak wordt weergegeven aan de rechterkant onder **Test batchtaken**.
 
-![De webservice implementeren](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
+![Uw taak Batch niet uitvoeren met de webportal van de service testen](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
@@ -161,7 +161,7 @@ Nu dat de Voorspellend experiment voldoende is voorbereid, kunt u deze kunt impl
 
 Als u wilt uw Voorspellend experiment implementeren, klikt u op **uitvoeren** canvas aan de onderkant van het experiment en klik vervolgens op **webservice implementeren**. De webservice is ingesteld en u in het dashboard van de webservice worden geplaatst.
 
-![De webservice implementeren](./media/publish-a-machine-learning-web-service/figure-2.png)
+![Uw webservice vanuit Studio implementeren](./media/publish-a-machine-learning-web-service/figure-2.png)
 
 ### <a name="test-your-classic-web-service"></a>Uw klassieke webservice testen
 
@@ -181,7 +181,7 @@ U kunt een beschrijving voor uw invoergegevens, de uitvoergegevens en het web se
 
 U kunt logboekregistratie inschakelen om opsporen van fouten die u ziet wanneer uw webservice wordt geopend. Zie voor meer informatie, [logboekregistratie inschakelen voor Machine Learning Studio-webservices](web-services-logging.md).
 
-![De webservice configureren](./media/publish-a-machine-learning-web-service/figure-4.png)
+![Logboekregistratie inschakelen in de web services-portal](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 U kunt ook de eindpunten voor de webservice configureren in de portal voor Azure Machine Learning-webservices die vergelijkbaar is met de procedure eerder weergegeven in de sectie nieuwe web-service. Zijn er andere opties, kunt u toevoegen of wijzigen van de beschrijving van de service, logboekregistratie inschakelen en de voorbeeldgegevens inschakelen voor het testen.
 
@@ -218,7 +218,6 @@ Een optie voor het bijwerken van de webservice is aan het model programmatisch o
 * Zie voor meer informatie over hoe u aan uw model klaar om te implementeren, [over het voorbereiden van uw model voor implementatie in Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
 
 * Er zijn verschillende manieren om de REST-API te gebruiken en toegang te krijgen tot de webservice. Zie [hoe u een Azure Machine Learning Studio-webservice gebruiken](consume-web-services.md).
-
 
 <!-- internal links -->
 [Een opleidingsexperiment maken]: #create-a-training-experiment

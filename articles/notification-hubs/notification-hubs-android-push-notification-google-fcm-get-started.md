@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/05/2019
 ms.author: jowargo
-ms.openlocfilehash: d2de4a4be8838cf696d2d3ed6589e8f154a6ca05
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 2fe448f3ed91f2c6dd242c24aa378c3541eceecc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959825"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857943"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Zelfstudie: Pushmeldingen naar Android-apparaten met behulp van Azure Notification Hubs en Google Firebase Cloud Messaging
 
@@ -29,7 +29,7 @@ ms.locfileid: "55959825"
 
 In deze zelfstudie wordt gedemonstreerd hoe u met Azure Notification Hubs en Firebase Cloud Messaging (FCM) meldingen kunt pushen naar een Android-toepassing. In deze zelfstudie gaat u een lege Android-app maken die pushmeldingen ontvangt via Firebase Cloud Messaging (FCM).
 
-U kunt de voltooide code voor deze zelfstudie [hier](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase) downloaden op GitHub.
+U kunt de voltooide code voor deze zelfstudie [hier](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp) downloaden op GitHub.
 
 In deze zelfstudie voert u de volgende stappen uit:
 
@@ -92,7 +92,7 @@ De Notification Hub is nu geconfigureerd voor Firebase Cloud Messaging en u hebt
 1. Voeg in het bestand `Build.Gradle` voor de **app** de volgende regels toe in het gedeelte **afhankelijkheden**.
 
     ```gradle
-    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
     implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
@@ -101,7 +101,7 @@ De Notification Hub is nu geconfigureerd voor Firebase Cloud Messaging en u hebt
     ```gradle
     repositories {
         maven {
-            url "http://dl.bintray.com/microsoftazuremobile/SDK"
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
         }
     }
     ```
@@ -111,7 +111,7 @@ De Notification Hub is nu geconfigureerd voor Firebase Cloud Messaging en u hebt
 1. Voeg in het bestand `Build.Gradle` voor de **app** de volgende regels toe aan het gedeelte **dependencies** als die er nog niet staan. 
 
     ```gradle
-    implementation 'com.google.firebase:firebase-core:16.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.7'
     ```
 
 2. Voeg de volgende invoegtoepassing toe aan het einde van het bestand als deze er nog niet staat: 
@@ -174,8 +174,8 @@ De Notification Hub is nu geconfigureerd voor Firebase Cloud Messaging en u hebt
 
     Zorg ervoor dat u de volgende drie tijdelijke aanduidingen in de volgende code bijwerkt voor de klasse `NotificationSettings`:
 
-   * **HubListenConnectionString**: De verbindingsreeks **DefaultListenAccessSignature** voor de hub. Kopieer deze verbindingsreeks door te klikken op **Toegangsbeleid** in uw hub in [Azure Portal].
-   * **HubName**: Gebruik de naam van uw Notification Hub die wordt weergegeven op de hubpagina in de [Azure Portal].
+   * **HubListenConnectionString**: De verbindingsreeks **DefaultListenAccessSignature** voor de hub. Kopieer deze verbindingsreeks door te klikken op **Toegangsbeleid** in uw hub in [Azure-portal].
+   * **HubName**: Gebruik de naam van uw Notification Hub die wordt weergegeven op de hubpagina in de [Azure-portal].
 
      `NotificationSettings`-code:
 
@@ -186,8 +186,8 @@ De Notification Hub is nu geconfigureerd voor Firebase Cloud Messaging en u hebt
         }
         ```
 
-    > [!IMPORTANT]
-    > Voer de **naam** en de **DefaultListenSharedAccessSignature** van uw notification hub voordat u verdergaat. 
+     > [!IMPORTANT]
+     > Voer de **naam** en de **DefaultListenSharedAccessSignature** van uw notification hub voordat u verdergaat. 
 2. Voeg een andere klasse toe met de naam `MyInstanceIDService`. Deze klasse is de implementatie van uw exemplaar-id listenerservice.
 
     De code voor deze klasse roept uw `IntentService` aan voor het op de achtergrond [vernieuwen van het FCM-token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
@@ -523,7 +523,7 @@ De Notification Hub is nu geconfigureerd voor Firebase Cloud Messaging en u hebt
 
 ## <a name="test-send-notification-from-the-notification-hub"></a>Testen van melding verzenden vanuit de Notification Hub
 
-U kunt pushmeldingen verzenden vanuit de [Azure Portal] door de volgende acties uit te voeren:
+U kunt pushmeldingen verzenden vanuit de [Azure-portal] door de volgende acties uit te voeren:
 
 1. Ga in de Azure-portal naar de pagina **Notification Hub** voor uw notification hub en selecteer **Verzenden testen** in het gedeelte **Probleemoplossing**.
 3. Selecteer voor **Platforms** de optie **Android**.
@@ -554,8 +554,8 @@ In deze zelfstudie hebt u Firebase Cloud Messaging gebruikt om meldingen te push
 <!-- URLs. -->
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure Portal]: https://portal.azure.com
+[Azure-portal]: https://portal.azure.com

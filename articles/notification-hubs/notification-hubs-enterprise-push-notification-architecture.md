@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 369f3ebca0ca2f5862d8300934dee57a73d8bada
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c934a3b16f5cdd2b4f703b1be15ce16ddc6d8746
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903399"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338476"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Hulp voor architectuur via pushmeldingen van het bedrijf
 
@@ -265,7 +265,7 @@ De volledige voorbeeldcode is beschikbaar op [Notification Hub-voorbeelden]. Dit
 ### <a name="running-the-sample"></a>Het voorbeeld uitvoeren
 
 1. Zorg ervoor dat de webtaak correct wordt uitgevoerd en gepland om te worden continu worden uitgevoerd.
-2. Voer de ** EnterprisePushMobileApp, waarmee de Windows Store-app wordt gestart.
+2. Voer de **EnterprisePushMobileApp**, Hiermee start u de Windows Store-app.
 3. Voer de **EnterprisePushBackendSystem** consoletoepassing, deze simuleert de LoB back-end en begint met het verzenden van berichten en ziet u pop-upmeldingen weergegeven zoals in de volgende afbeelding:
 
     ![][5]

@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 863b380d4f36e24119e64fbd4a59e8cd66c911e1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: da24c437a1dbe8744579cd26ee1348f50c4815ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779416"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884741"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Pushmeldingen verzenden met Azure Notification Hubs: Veelgestelde vragen
 
@@ -217,22 +217,22 @@ U kunt ook programmatisch toegang tot metrische gegevens. Raadpleeg voor meer in
 > Meldingen over voltooide betekent alleen dat pushmeldingen te verzenden naar de externe PNS (bijvoorbeeld, APNS van Apple) of FCM voor Google zijn geleverd. Het is de verantwoordelijkheid van de PNS om te leveren van de meldingen aan doelapparaten. De PNS maakt normaal gesproken niet beschikbaar voor levering van metrische gegevens aan derden.  
 
 [Azure-portal]: https://portal.azure.com
-[Prijzen van Notification Hubs]: http://azure.microsoft.com/pricing/details/notification-hubs/
-[Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
+[Prijzen van Notification Hubs]: https://azure.microsoft.com/pricing/details/notification-hubs/
+[Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Casestudy: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [Casestudy: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [Casestudy: Seattle tijden]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [Casestudy: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [Casestudy: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification Hubs REST-API 's]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Notification Hubs aan de slag-zelfstudies]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Zelfstudie voor chrome-Apps]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
-[Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
+[Notification Hubs aan de slag-zelfstudies]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Zelfstudie voor chrome-Apps]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
+[Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Registratie van de back-end-richtlijnen]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Richtlijnen voor back-end-registratie 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Notification Hubs-beveiligingsmodel]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Notification Hubs beveiligde Push-zelfstudie]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Notification Hubs oplossen van problemen]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Notification Hubs beveiligde Push-zelfstudie]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Notification Hubs oplossen van problemen]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs metrische gegevens]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Registraties exporteren/importeren]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure-portal]: https://portal.azure.com

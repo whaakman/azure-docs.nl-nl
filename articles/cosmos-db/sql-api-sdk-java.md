@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: ebb6fe9f583c2658f187d3cca1185f1525fb1bf5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c2b0c52ca78f2b9c4273280aa9da16a5ef1bbc00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003239"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -43,12 +43,23 @@ De SQL API Java-SDK biedt ondersteuning voor synchrone bewerkingen. Voor asynchr
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
+### <a name="a-name210213"></a><a name="2.1.0"/>2.1.3
+* Bug verholpen in PartitionKey voor hash-V2.
+
+### <a name="a-name210212"></a><a name="2.1.0"/>2.1.2
+* Er is ondersteuning toegevoegd voor samengestelde indexen.
+* Bug verholpen in globaal eindpunt voor manager om af te dwingen vernieuwen.
+* Probleem opgelost voor de upsert-bewerking met de voorwaarden in de directe modus.
+
+### <a name="a-name210211"></a><a name="2.1.0"/>2.1.1
+* Probleem opgelost in de cache van gateway-adres.
+
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Ondersteuning voor meerdere regio's schrijven toegevoegd voor de directe modus.
 * Er is ondersteuning toegevoegd voor het verwerken van IOExceptions gegenereerd als ServiceUnavailable uitzonderingen, van een proxy.
 * Beleid voor opnieuw proberen van eindpunt detectie, een bug vast.
 * Een opgelost om ervoor te zorgen null-aanwijzer uitzonderingen worden niet in BaseDatabaseAccountConfigurationProvider veroorzaakt.
-* Een opgelost om ervoor te zorgen dat query Iterator geen null-waarden geretourneerd.
+* Een opgelost om ervoor te zorgen dat queryiterator geen null-waarden geretourneerd.
 * Een probleem opgelost om ervoor te zorgen dat grote PartitionKey is toegestaan
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -212,7 +223,10 @@ Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK w
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
-| 2.1.1 |21 november 2018 |--- |
+| [2.1.3](#2.1.3) |13 maart 2018 |--- |
+| [2.1.2](#2.1.2) |09 maart 2018 |--- |
+| [2.1.1](#2.1.1) |13 december 2018 |--- |
+| [2.1.0](#2.1.0) |20 november 2018 |--- |
 | [2.0.0](#2.0.0) |21 september 2018 |--- |
 | [1.16.4](#1.16.4) |10 september 2018 |--- |
 | [1.16.3](#1.16.3) |09 september 2018 |--- |
