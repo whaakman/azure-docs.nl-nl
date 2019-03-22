@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: fa13ffe450b60bd8c896636911268a98b49bbc0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994098"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104128"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Toegang tot de API van Azure Media Services met Azure AD-verificatie  
  
@@ -71,20 +71,20 @@ In het voorgaande diagram vertegenwoordigen de nummers in de stroom van de aanvr
 1. Een gebruiker om referenties gevraagd.
 2. Aanvragen van een Azure AD-toegangstoken met de volgende parameters:  
 
-    * Azure AD-tenant-eindpunt.
+   * Azure AD-tenant-eindpunt.
 
-        De tenant-gegevens kan worden opgehaald uit de Azure-portal. Plaats de cursor boven de naam van de aangemelde gebruiker in de rechterbovenhoek.
-    * Media Services-resource-URI. 
+       De tenant-gegevens kan worden opgehaald uit de Azure-portal. Plaats de cursor boven de naam van de aangemelde gebruiker in de rechterbovenhoek.
+   * Media Services-resource-URI. 
 
-        Deze URI is hetzelfde voor Media Services-accounts die zich in dezelfde Azure-omgeving (bijvoorbeeld https://rest.media.azure.net).
+       Deze URI is hetzelfde voor Media Services-accounts die zich in dezelfde Azure-omgeving (bijvoorbeeld https://rest.media.azure.net).
 
-    * Media Services (systeemeigen) toepassingsclient-id.
-    * Media Services (native modus)-toepassing omleidings-URI.
-    * Resource-URI voor de REST-mediaservices.
+   * Media Services (systeemeigen) toepassingsclient-id.
+   * Media Services (native modus)-toepassing omleidings-URI.
+   * Resource-URI voor de REST-mediaservices.
         
-        De URI vertegenwoordigt de REST-API-eindpunt (bijvoorbeeld https://test03.restv2.westus.media.azure.net/api/).
+       De URI vertegenwoordigt de REST-API-eindpunt (bijvoorbeeld https://test03.restv2.westus.media.azure.net/api/).
 
-    Als u waarden voor deze parameters, Zie [Azure portal gebruiken voor toegang tot Azure AD-verificatie-instellingen](media-services-portal-get-started-with-aad.md) met behulp van de optie voor verificatie.
+     Als u waarden voor deze parameters, Zie [Azure portal gebruiken voor toegang tot Azure AD-verificatie-instellingen](media-services-portal-get-started-with-aad.md) met behulp van de optie voor verificatie.
 
 3. Het Azure AD-toegangstoken wordt verzonden naar de client.
 4. De client stuurt een aanvraag naar de Azure REST-API voor Media met de Azure AD-toegangstoken.
@@ -113,20 +113,20 @@ De getallen in de afbeelding hierboven gelden voor de stroom van de aanvragen in
     
 1. Een app van de middelste laag (web-API of webtoepassing) vraagt een toegangstoken van Azure AD dat de volgende parameters heeft:  
 
-    * Azure AD-tenant-eindpunt.
+   * Azure AD-tenant-eindpunt.
 
-        De tenant-gegevens kan worden opgehaald uit de Azure-portal. Plaats de cursor boven de naam van de aangemelde gebruiker in de rechterbovenhoek.
-    * Media Services-resource-URI. 
+       De tenant-gegevens kan worden opgehaald uit de Azure-portal. Plaats de cursor boven de naam van de aangemelde gebruiker in de rechterbovenhoek.
+   * Media Services-resource-URI. 
 
-        Deze URI is hetzelfde voor Media Services-accounts die zich in dezelfde Azure-omgeving (bijvoorbeeld https://rest.media.azure.net).
+       Deze URI is hetzelfde voor Media Services-accounts die zich in dezelfde Azure-omgeving (bijvoorbeeld https://rest.media.azure.net).
 
-    * Resource-URI voor de REST-mediaservices.
+   * Resource-URI voor de REST-mediaservices.
 
-        De URI vertegenwoordigt de REST-API-eindpunt (bijvoorbeeld https://test03.restv2.westus.media.azure.net/api/).
+       De URI vertegenwoordigt de REST-API-eindpunt (bijvoorbeeld https://test03.restv2.westus.media.azure.net/api/).
 
-    * Waarden van Azure AD-toepassing: de client-ID en clientgeheim.
+   * Waarden van Azure AD-toepassing: de client-ID en clientgeheim.
     
-    Als u waarden voor deze parameters, Zie [Azure portal gebruiken voor toegang tot Azure AD-verificatie-instellingen](media-services-portal-get-started-with-aad.md) met behulp van de optie voor de service-principal verificatie.
+     Als u waarden voor deze parameters, Zie [Azure portal gebruiken voor toegang tot Azure AD-verificatie-instellingen](media-services-portal-get-started-with-aad.md) met behulp van de optie voor de service-principal verificatie.
 
 2. Het Azure AD-toegangstoken wordt verzonden naar de middelste laag.
 4. De middelste laag stuurt de aanvraag naar de Azure REST-API voor Media met de Azure AD-token.

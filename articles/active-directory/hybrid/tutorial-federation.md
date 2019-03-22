@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc6d1d53fd292a936c833450fee3af91671eec86
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171160"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102397"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Zelfstudie: Een enkele AD-forestomgeving federeren in de cloud
 
@@ -83,7 +83,7 @@ Om het bouwen van de virtuele machine te voltooien, moet u de installatie van he
 
 1. Ga naar Hyper-V Manager en dubbelklik op de virtuele machine
 2. Klik op de knop Start.
-3.  U wordt gevraagd om op een willekeurige toets te drukken om op te starten vanaf cd of dvd. Druk op een willekeurige toets.
+3. U wordt gevraagd om op een willekeurige toets te drukken om op te starten vanaf cd of dvd. Druk op een willekeurige toets.
 4. Selecteer uw taal in het opstartscherm van Windows Server en klik op **Volgende**.
 5. Klik op **Nu installeren**.
 6. Voer uw licentiecode in en klik op **Volgende**.
@@ -246,7 +246,7 @@ We gaan nu Azure AD Connect downloaden en installeren.  Zodra dat is gebeurd, ne
 
 1. Voer in het scherm Verbinding maken met Azure Active Directory de gebruikersnaam en het wachtwoord van de globale beheerder, die eerder is gemaakt, in en klik op **Volgende**.
 2. Klik in het scherm Verbinding maken met uw mappen op **Volgende**.  Selecteer vervolgens **nieuw AD-account maken**, voer de gebruikersnaam en het wachtwoord in voor contoso\Administrator en klik op **OK**.
-3. Klik op **Volgende**.
+3. Klik op **volgende**.
 4. Selecteer op het scherm van de configuratie van aanmelding bij Azure Active Directory **Doorgaan zonder alle UPN-achtervoegsels op geverifieerde domeinen af te stemmen** en klik op **volgende.**
 5. Klik in het scherm Domein- en OE-filteren op **Volgende**.
 6. In het scherm voor het uniek identificeren uw gebruikers, klikt u op **volgende**.
@@ -256,10 +256,10 @@ We gaan nu Azure AD Connect downloaden en installeren.  Zodra dat is gebeurd, ne
 10. Zorg ervoor dat in het scherm voor AD FS-farm **Een nieuwe AD FS-farm configureren** is geselecteerd.
 11. Selecteer **Gebruik van een certificaat geïnstalleerd op de federatieservers** en klik op **Bladeren**.
 12. Voer DC1 in het zoekvak in en selecteer dit als het is gevonden.  Klik op **OK**.
-13. Selecteer uit de vervolgkeuzelijst **Certificaatbestand****adfs.contoso.com** het certificaat dat eerder is gemaakt.  Klik op **Volgende**.
+13. Selecteer uit de vervolgkeuzelijst **Certificaatbestand****adfs.contoso.com** het certificaat dat eerder is gemaakt.  Klik op **volgende**.
 ![Federatie](media/tutorial-federation/fed2.png)
 
-1. Klik op het scherm van de AD FS-server op **Bladeren** en voer DC1 in het zoekvak in en selecteer dit als het is gevonden.  Klik op **OK**.  Klik op **Volgende**.
+1. Klik op het scherm van de AD FS-server op **Bladeren** en voer DC1 in het zoekvak in en selecteer dit als het is gevonden.  Klik op **OK**.  Klik op **volgende**.
 ![Federatie](media/tutorial-federation/fed3.png)
 
 1. Klik op het scherm Web application Proxy-servers op **Volgende**.
@@ -281,9 +281,9 @@ We gaan nu controleren of de gebruikers die aanwezig waren in onze on-premises a
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Aanmelden testen met een van onze gebruikers
 
-1.  Ga naar [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
+1. Ga naar [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Meld u aan met een gebruikersaccount dat is gemaakt in onze nieuwe tenant.  U moet zich aanmelden met de volgende indeling: (user@domain.onmicrosoft.com). Gebruik het wachtwoord waarmee de gebruiker zich on-premises aanmeldt.
-![Verifiëren](media/tutorial-password-hash-sync/verify1.png)
+   ![Verifiëren](media/tutorial-password-hash-sync/verify1.png)
 
 U hebt nu een omgeving met een hybride identiteit ingesteld die u kunt gebruiken voor testdoeleinden en om bekend te raken met wat Azure te bieden heeft.
 

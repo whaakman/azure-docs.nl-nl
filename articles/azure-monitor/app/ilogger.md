@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: c456f8f7f08fdbd0020bfc49ceeec262fa0ac773
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 14c9a453913a9a8080c840df3f23751487b86c34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457977"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006152"
 ---
 # <a name="ilogger"></a>ILogger
 
@@ -219,6 +219,26 @@ services.AddApplicationInsightsTelemetry("ikeyhere");
 In dit voorbeeld wordt de configuratie die wordt gebruikt door `ApplicationInsightsLoggerProvider` is hetzelfde als die worden gebruikt door regelmatig toepassingsbewaking. Daarom beide `ILogger` traceringen en andere telemetrie (aanvragen, afhankelijkheden, enzovoort) wordt dezelfde set uitgevoerd `TelemetryInitializers`, `TelemetryProcessors`, en `TelemetryChannel`. Ze zullen worden gecorreleerd en steekproef/niet voorbeelden worden gemaakt op dezelfde manier.
 
 Er is echter een uitzondering op dit gedrag. De standaardwaarde `TelemetryConfiguration` is niet volledig ingesteld wanneer registreren iets uit `Program.cs` of `Startup.cs` zelf, zodat deze logboeken niet de standaardconfiguratie heeft. Elke andere logboek (bijvoorbeeld: logboeken van domeincontrollers, modellen, enzovoort) zou echter de configuratie te delen.
+
+## <a name="control-logging-level"></a>Niveau van logboekregistratie voor controle
+
+Naast de logboeken op code zoals in de bovenstaande voorbeelden filteren, het is ook mogelijk om te bepalen het niveau van logboekregistratie van Application Insights worden vastgelegd, door het wijzigen van de `appsettings.json`. De [ASP.NET logboekregistratie fundamentals documentatie](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering) laat zien hoe u om dit te bereiken. Speciaal voor Application Insights, is de naam van de provider-alias `ApplicationInsights`, zoals weergegeven in het onderstaande voorbeeld configureren `ApplicationInsights` om vast te leggen alleen logboeken van `Warning` en hoger uit alle categorieën.
+
+```json
+{
+  "Logging": {
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

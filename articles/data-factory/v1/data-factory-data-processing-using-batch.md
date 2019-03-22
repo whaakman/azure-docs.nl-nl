@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6ffed81390419898847ce1b1b9e6b2b48a749cdf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548469"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124147"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grootschalige gegevenssets verwerken met behulp van Data Factory en Batch
 > [!NOTE]
@@ -802,8 +802,8 @@ In deze stap maakt u een pijplijn met één activiteit, de aangepaste activiteit
    * De **linkedServiceName** eigenschap van de aangepaste activiteit wijst naar **AzureBatchLinkedService**, waarin staat dat Data Factory die de aangepaste activiteit moet worden uitgevoerd op Batch.
    * De **gelijktijdigheid** instelling is belangrijk. Als u de standaardwaarde 1, is zelfs als u twee of meer in de Batch-pool rekenknooppunten, de segmenten worden verwerkt na elkaar. Daarom worden niet u u profiteert van de parallelle verwerking van de mogelijkheid van Batch. Als u instelt **gelijktijdigheid** naar een hogere waarde, bijvoorbeeld 2 is, betekent dit dat twee segmenten (komt overeen met twee taken in Batch) op hetzelfde moment kunnen worden verwerkt. In dit geval wordt worden de virtuele machines in de Batch-pool gebruikt. De eigenschap gelijktijdigheid van taken op de juiste wijze ingesteld.
    * Slechts één taak (segment) wordt uitgevoerd op een virtuele machine op elk gewenst moment standaard. Standaard **maximum aantal taken per VM** is ingesteld op 1 voor een Batch-pool. Als onderdeel van de vereisten, kunt u een groep gemaakt met deze eigenschap is ingesteld op 2. Daarom kunnen twee gegevenssegmenten voor factory uitvoeren op een virtuele machine op hetzelfde moment.
-    - De **isPaused** eigenschap is standaard ingesteld op false. De pijplijn wordt onmiddellijk uitgevoerd in dit voorbeeld omdat de segmenten in het verleden. U kunt deze eigenschap instellen op **waar** onderbreken van de pijplijn en weer in **false** opnieuw te starten.
-    -   De **start** en **end** tijden zijn vijf uur uit elkaar liggen. Segmenten worden per uur geproduceerd, zodat de vijf segmenten worden geproduceerd door de pijplijn.
+     - De **isPaused** eigenschap is standaard ingesteld op false. De pijplijn wordt onmiddellijk uitgevoerd in dit voorbeeld omdat de segmenten in het verleden. U kunt deze eigenschap instellen op **waar** onderbreken van de pijplijn en weer in **false** opnieuw te starten.
+     -   De **start** en **end** tijden zijn vijf uur uit elkaar liggen. Segmenten worden per uur geproduceerd, zodat de vijf segmenten worden geproduceerd door de pijplijn.
 
 1. Selecteer in de opdrachtbalk **Implementeren** om de pijplijn te implementeren.
 

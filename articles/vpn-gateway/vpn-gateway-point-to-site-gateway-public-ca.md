@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: d4f75a7bc552a7764a46865bf300b8fc5ffb350e
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750783"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848922"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Overgaan naar een openbaar CA-gatewaycertificaat voor een punt-naar-site-verbinding
 
@@ -20,7 +20,6 @@ Azure VPN-Gateway wordt niet meer op Azure-niveau zelfondertekende certificaten 
 
 >[!NOTE]
 > * Zelfondertekende certificaten gebruikt voor verificatie van P2S-client worden niet beïnvloed door deze wijziging van het certificaat op Azure-niveau. U kunt blijven uitgeven en zelfondertekende certificaten als normale gebruiken.
-> * Web-Apps worden niet beïnvloed door deze wijziging.
 >
 
 De certificaten in deze context zijn een certificaat met aanvullende Azure-niveau. Ze zijn niet de certificaatketens die u gebruikt bij het genereren van uw eigen zelfondertekende basiscertificaten en clientcertificaten voor verificatie. Deze certificaten blijven ongewijzigd en vervalt op de datums dat u zo gegenereerd.
@@ -39,7 +38,7 @@ Alleen oude gateways worden beïnvloed door deze wijziging. Als uw gatewaycertif
 >
 > **Alle resterende gateways veranderen maart 12 2019 vanaf 18:00 UTC**.
 >
-> Het gateway-proces overgang duurt maximaal twee uur om te voltooien. Klanten ontvangen een e-mailbericht wanneer de gateway de overgang-proces is voltooid.
+> Klanten ontvangen een e-mailbericht wanneer de gateway de overgang-proces is voltooid.
 > 
 
 ## <a name="1-verify-your-certificate"></a>1. Controleer of het certificaat
@@ -51,8 +50,8 @@ Alleen oude gateways worden beïnvloed door deze wijziging. Als uw gatewaycertif
 2. Open of pak het zipbestand en blader naar de map "Generic". In de algemene map, ziet u twee bestanden, van de een *VPNSettings.xml*.
 3. Open *VPNSettings.xml* in een xml-viewer/editor. In het xml-bestand, zoek naar de volgende velden:
 
-  * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
-  * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
+   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
+   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Als *ServerCertRotCn* en *ServerCertIssuerCn* 'DigiCert globale basis-CA' zijn, u niet worden beïnvloed door deze update en u niet wilt doorgaan met de stappen in dit artikel. Als ze iets anders worden weergegeven, het gatewaycertificaat maakt deel uit van de update en overgezet.
 
 ### <a name="classic"></a>Klassiek

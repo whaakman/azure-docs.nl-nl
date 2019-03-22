@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3adae3e0-f43b-492f-b373-6a512d2d6046
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589aa227352a839e1d77a35412d2193fa05df420
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873441"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888703"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Zelfstudie: Azure Active Directory-integratie met Brightidea
 
@@ -56,7 +56,7 @@ Als u de integratie van Brightidea in Azure AD wilt configureren, moet u Brighti
 
 **Voer de volgende stappen uit als u Brightidea vanuit de galerie wilt toevoegen:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -163,18 +163,18 @@ Voer de volgende stappen uit als u eenmalige aanmelding van Azure AD met Brighti
     
     ![Configuratie van Brightidea](./media/brightidea-tutorial/configure4.png)
     
-     * Voer een naam in bij **SAML Profile Name**, bijvoorbeeld `Azure Ad SSO`
+   * Voer een naam in bij **SAML Profile Name**, bijvoorbeeld `Azure Ad SSO`
     
-     * Klik voor **Upload Metadata** op Bestand kiezen en upload het gedownloade metagegevensbestand in de Azure-portal.
+   * Klik voor **Upload Metadata** op Bestand kiezen en upload het gedownloade metagegevensbestand in de Azure-portal.
 
      > [!NOTE]
      > Nadat u het metagegevensbestand hebt gedownload, worden de resterende velden, **Single Sign-on Service, Identity Provider Issuer, Upload Public Key**, automatisch gevuld.
 
-     * Voer in het tekstvak **Email** de waarde in als `mail`.
+   * Voer in het tekstvak **Email** de waarde in als `mail`.
      
-     * Voer in het tekstvak **Screen Name** de waarde in als `givenName`.
+   * Voer in het tekstvak **Screen Name** de waarde in als `givenName`.
      
-     * Klik op **Wijzigingen opslaan**.  
+   * Klik op **Wijzigingen opslaan**.  
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
@@ -194,7 +194,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon** in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veld, typt u **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -233,7 +233,7 @@ In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in Brightide
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u in het toegangsvenster op de tegel Brightidea klikt, wordt u automatisch aangemeld bij de instantie van Brightidea waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

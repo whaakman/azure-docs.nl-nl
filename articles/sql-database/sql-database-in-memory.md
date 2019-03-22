@@ -7,27 +7,33 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jodebrui
-ms.author: jodebrui
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: fcfe8ed0bc132377fbaefaccb03e1d6a9374b8d6
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/19/2019
+ms.openlocfilehash: d2c852b48c219283bba2304a993dd26e802b3252
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312471"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226977"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren met behulp van technologieën In het geheugen in SQL-Database
 
-In-Memory-technologieën in Azure SQL Database kunnen u de prestaties van uw toepassing te verbeteren en kosten van de database mogelijk te reduceren. U kunt met behulp van In-Memory-technologieën in Azure SQL Database, verbeterde prestaties met verschillende workloads bereiken:
+In-Memory-technologieën in Azure SQL Database kunnen u de prestaties van uw toepassing te verbeteren en kosten van de database mogelijk te reduceren. 
+
+## <a name="when-to-use-in-memory-technologies"></a>Wanneer u In-Memory-technologieën
+
+U kunt met behulp van In-Memory-technologieën in Azure SQL Database, verbeterde prestaties met verschillende workloads bereiken:
 
 - **Transactionele** (online transacties (OLTP) verwerken) waar de meeste van de aanvragen lezen of bijwerken van kleinere set gegevens (bijvoorbeeld CRUD-bewerkingen).
 - **Analytische** (online analytical processing (OLAP)) waar de meeste van de query's complexe berekeningen voor het melden van hebt gebruikt, met een bepaald aantal query's die worden geladen en gegevens toevoegen aan de bestaande tabellen (dus bulksgewijs laden genoemd) of verwijderen de gegevens uit de tabellen. 
 - **Gemengde** (hybride transactie/analytische verwerking (HTAP)) waarin zowel OLTP en OLAP-query's worden uitgevoerd op dezelfde set gegevens.
 
-Technologieën in het geheugen kunnen de prestaties verbeteren van deze workloads doordat de gegevens die moeten worden verwerkt in het geheugen, met systeemeigen compilatie van de query's, of geavanceerde verwerking van dergelijke als batch verwerkt en SIMD instructies die beschikbaar zijn op de de onderliggende hardware.
+Technologieën in het geheugen kunnen de prestaties verbeteren van deze workloads doordat de gegevens die moeten worden verwerkt in het geheugen, met systeemeigen compilatie van de query's, of geavanceerde verwerking van dergelijke als batch verwerkt en SIMD instructies die beschikbaar zijn op de de onderliggende hardware. 
+
+## <a name="overview"></a>Overzicht
 
 Azure SQL-Database heeft de volgende In-Memory-technologieën:
 - *[In-Memory OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)*  , verhoogt u het aantal transacties per seconde en vermindert de latentie voor transactieverwerking. Scenario's die baat bij In-Memory OLTP hebben zijn: hoge doorvoer transactieverwerking zoals handelspartners en games, opname van gegevens mogelijk gebeurtenissen of IoT-apparaten, caching, laden van gegevens, en de tijdelijke tabel en de variabele scenario's voor een tabel.
@@ -77,7 +83,7 @@ In-memory OLTP-technologie biedt zeer snelle bewerkingen voor gegevenstoegang do
 
 - **Geoptimaliseerd voor geheugen rowstore** indeling waarin elke rij een afzonderlijke geheugenruimte-object is. Dit is een klassieke In-Memory OLTP-indeling dat is geoptimaliseerd voor high-performance OLTP-workloads. Er zijn twee soorten tabellen geoptimaliseerd voor geheugen die in de indeling van de rowstore geoptimaliseerd voor geheugen kunnen worden gebruikt:
   - *Duurzame tabellen* (SCHEMA_AND_DATA) waar de rijen geplaatst in het geheugen blijven behouden nadat de server opnieuw is opgestart. Dit type tabellen gedraagt zich als een traditioneel rowstore-tabel met de extra voordelen van de optimalisaties in het geheugen.
-  - *Niet-duurzame tabellen* (SCEMA_ONLY) waar de rijen worden niet bewaard na opnieuw opstarten. Dit type tabel is ontworpen voor tijdelijke gegevens (bijvoorbeeld vervanging van tijdelijke tabellen) of tabellen waar u nodig hebt om snel gegevens laden voordat u deze naar een permanente tabel verplaatst (dus faseringstabellen genoemd).
+  - *Niet-duurzame tabellen* (SCHEMA_ONLY) waar de rijen worden niet bewaard na opnieuw opstarten. Dit type tabel is ontworpen voor tijdelijke gegevens (bijvoorbeeld vervanging van tijdelijke tabellen) of tabellen waar u nodig hebt om snel gegevens laden voordat u deze naar een permanente tabel verplaatst (dus faseringstabellen genoemd).
 - **Geoptimaliseerd voor geheugen columnstore** indeling waarin de gegevens zijn onderverdeeld in kolommen. Deze structuur is ontworpen voor HTAP scenario's waarin u wilt uitvoeren van analytische query's op de dezelfde gegevensstructuur waarop uw OLTP-werkbelasting wordt uitgevoerd.
 
 > [!Note]
@@ -198,6 +204,6 @@ Als u hebt een **geclusterde** columnstore-index, de hele tabel niet meer beschi
 
 ### <a name="tools"></a>Hulpprogramma's
 
-- [Azure Portal](https://portal.azure.com/)
+- [Azure-portal](https://portal.azure.com/)
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 - [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

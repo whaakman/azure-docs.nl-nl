@@ -9,19 +9,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 01aa3d45d3b168c67603861a0a947026d4f2e08c
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650883"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898870"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel beschrijft de verschillende typen uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. De uitvoergegevens die worden gebruikt, kunt u doen verdere bedrijfsanalyses en datawarehousing van uw gegevens.
 
 Bij het ontwerpen van uw Stream Analytics-query, verwijzen naar de naam van het gebruik van de uitvoer de [component INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). U kunt een enkele uitvoer per taak of meerdere uitvoer per streaming-taak als u nodig hebt door te geven meerdere INTO-componenten in de query.
 
-Maken, bewerken en testen van Stream Analytics-taak weergeeft, kunt u de [Azure-portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST-API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), en [Visual Studio](stream-analytics-quick-create-vs.md).
+Maken, bewerken en testen van Stream Analytics-taak weergeeft, kunt u de [Azure-portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST-API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), en [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Sommige typen ondersteuning voor uitvoer [partitioneren](#partitioning), en [uitvoer van de batch-grootten](#output-batch-size) variëren voor het optimaliseren van doorvoer.
 
@@ -169,7 +169,7 @@ Azure Stream Analytics bijgewerkt het gegevensmodel in runtime dynamisch als het
 Deze tabel bevat informatie over de conversie van het gegevenstype van [Stream Analytics-gegevenstypen](https://msdn.microsoft.com/library/azure/dn835065.aspx) naar BIs Power [Entity Data Model (EDP) typen](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) als een POWER BI-gegevensset en een tabel niet bestaat.
 
 Van Stream Analytics | Met Power BI
------|-----|------------
+-----|-----
 bigint | Int64
 nvarchar(max) | Reeks
 datum/tijd | Datum en tijd
@@ -186,7 +186,7 @@ Vorige/huidige | Int64 | Reeks | Datum en tijd | Double-waarde
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Reeks | Reeks | Double-waarde
 Double-waarde | Double-waarde | Reeks | Reeks | Double-waarde
-Reeks | Reeks | Reeks | Reeks |  | Reeks |
+Reeks | Reeks | Reeks | Reeks | Reeks 
 Datum en tijd | Reeks | Reeks |  Datum en tijd | Reeks
 
 
@@ -261,6 +261,7 @@ Azure Cosmos DB-uitvoer van Stream Analytics is momenteel niet beschikbaar in de
 > Andere Azure Cosmos DB-API's zijn nog niet ondersteund. Als u punt Azure Stream Analytics met de Azure Cosmos DB-accounts die zijn gemaakt met andere API's, zijn de gegevens mogelijk niet juist opgeslagen.
 
 De volgende tabel beschrijft de eigenschappen voor het maken van een Azure Cosmos DB-uitvoer.
+
 | Naam van eigenschap | description |
 | --- | --- |
 | Uitvoeralias | Een alias om te verwijzen deze uitvoer in uw Stream Analytics-query. |
@@ -331,7 +332,7 @@ De volgende tabel worden enkele van de overwegingen voor de uitvoer batchverwerk
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
-
+> 
 > [Snelstart: Een Stream Analytics-taak maken met behulp van Azure portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

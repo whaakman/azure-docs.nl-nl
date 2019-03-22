@@ -16,12 +16,12 @@ ms.date: 02/26/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31cfcc6d2309b90565f71a7827fb7057145323c3
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 6269d00c9a6a8f827a4e31044d9d20efb0f8471b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192409"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092579"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installeer Azure AD Connect met behulp van SQL delegated administrator-machtigingen
 Voordat u de nieuwste build van Azure AD Connect, met beheerdersrechten de delegatie, bij het implementeren van configuraties die SQL vereist, niet wordt ondersteund.  Gebruikers die wil Azure AD Connect installeert die nodig zijn om machtigingen voor serverbeheerders (SA) op de SQL server.
@@ -44,19 +44,19 @@ Gebruik de volgende stappen voor het inrichten van de buiten-band-database en Az
 >Hoewel het niet vereist is, is het **ten zeerste aangeraden** dat de sortering Latin1_General_CI_AS is geselecteerd bij het maken van de database.
 
 
- 1. De SQL-beheerder de ADSync-database maken met een reeks hoofdlettergevoelige sortering **(Latin1_General_CI_AS)**.  De database moet de naam **ADSync**.  Het herstelmodel, compatibiliteitsniveau en containment-type zijn bijgewerkt naar de juiste waarden als Azure AD Connect is geïnstalleerd.  Maar de volgorde moet correct zijn ingesteld door de SQL-beheerder anders blokkeren Azure AD Connect de installatie.  Als u wilt herstellen van de SA moeten verwijderen en opnieuw maken van de database.
+1. De SQL-beheerder de ADSync-database maken met een reeks hoofdlettergevoelige sortering **(Latin1_General_CI_AS)**.  De database moet de naam **ADSync**.  Het herstelmodel, compatibiliteitsniveau en containment-type zijn bijgewerkt naar de juiste waarden als Azure AD Connect is geïnstalleerd.  Maar de volgorde moet correct zijn ingesteld door de SQL-beheerder anders blokkeren Azure AD Connect de installatie.  Als u wilt herstellen van de SA moeten verwijderen en opnieuw maken van de database.
  
- ![Sortering](./media/how-to-connect-install-sql-delegation/sql4.png)
- 2. De Azure AD Connect-beheerder en het domeinaccount van de service de volgende machtigingen verlenen:
-    - SQL-aanmelding 
-    - **database-owner(dbo)** rechten.
+   ![Sortering](./media/how-to-connect-install-sql-delegation/sql4.png)
+2. De Azure AD Connect-beheerder en het domeinaccount van de service de volgende machtigingen verlenen:
+   - SQL-aanmelding 
+   - **database-owner(dbo)** rechten.
  
- ![Machtigingen](./media/how-to-connect-install-sql-delegation/sql3a.png)
+   ![Machtigingen](./media/how-to-connect-install-sql-delegation/sql3a.png)
 
- >[!NOTE]
- >Azure AD Connect biedt geen ondersteuning voor aanmeldingen met een genest lidmaatschap.  Dit betekent dat uw Azure AD Connect administrator-account en de domein-serviceaccount moeten worden gekoppeld aan een aanmelding die is toegestaan dbo-rechten.  Het lid van een groep die is toegewezen aan een aanmelding met dbo rechten kan gewoon niet.
+   >[!NOTE]
+   >Azure AD Connect biedt geen ondersteuning voor aanmeldingen met een genest lidmaatschap.  Dit betekent dat uw Azure AD Connect administrator-account en de domein-serviceaccount moeten worden gekoppeld aan een aanmelding die is toegestaan dbo-rechten.  Het lid van een groep die is toegewezen aan een aanmelding met dbo rechten kan gewoon niet.
 
- 3. Een e-mailbericht verzenden naar de Azure AD Connect-beheerder die wijzen op de naam van SQL server en het exemplaar dat moet worden gebruikt bij het installeren van Azure AD Connect.
+3. Een e-mailbericht verzenden naar de Azure AD Connect-beheerder die wijzen op de naam van SQL server en het exemplaar dat moet worden gebruikt bij het installeren van Azure AD Connect.
 
 ## <a name="additional-information"></a>Aanvullende informatie
 Zodra de database is ingericht, wordt dit door de beheerder van de Azure AD Connect kunt installeren en configureren van on-premises synchronisatie op het gebruiksgemak.

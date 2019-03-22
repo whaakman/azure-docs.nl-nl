@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4c431b149edb0677585da3c84e37d64873478ccf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 905d084b46919ad945cf44f5517b95d5321ee3de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432733"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116195"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -197,28 +197,28 @@ Als niet aan de vereisten wordt voldaan, wordt Azure Data Factory controleert of
 1. **Bron gekoppelde service** is van het type: **AzureStorage** of **AzureDataLakeStore met service-principal verificatie**.
 2. De **invoergegevensset** is van het type: **AzureBlob** of **AzureDataLakeStore**, en de indeling typt u onder `type` eigenschappen is **OrcFormat**, **ParquetFormat**, of **TextFormat** met de volgende configuraties:
 
-    1. `rowDelimiter` moet **\n**.
-    2. `nullValue` is ingesteld op **lege tekenreeks** (""), of `treatEmptyAsNull` is ingesteld op **waar**.
-    3. `encodingName` is ingesteld op **utf-8**, die is **standaard** waarde.
-    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, en `skipLineCount` zijn niet opgegeven.
-    5. `compression` kan **geen compressie**, **GZip**, of **Deflate**.
+   1. `rowDelimiter` moet **\n**.
+   2. `nullValue` is ingesteld op **lege tekenreeks** (""), of `treatEmptyAsNull` is ingesteld op **waar**.
+   3. `encodingName` is ingesteld op **utf-8**, die is **standaard** waarde.
+   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, en `skipLineCount` zijn niet opgegeven.
+   5. `compression` kan **geen compressie**, **GZip**, of **Deflate**.
 
-    ```JSON
-    "typeProperties": {
-        "folderPath": "<blobpath>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8"
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
-        }
-    },
-    ```
+      ```JSON
+      "typeProperties": {
+       "folderPath": "<blobpath>",
+       "format": {
+           "type": "TextFormat",
+           "columnDelimiter": "<any delimiter>",
+           "rowDelimiter": "\n",
+           "nullValue": "",
+           "encodingName": "utf-8"
+       },
+       "compression": {
+           "type": "GZip",
+           "level": "Optimal"
+       }
+      },
+      ```
 
 3. Er is geen `skipHeaderLineCount` bij **BlobSource** of **AzureDataLakeStore** voor de kopieeractiviteit in de pijplijn.
 4. Er is geen `sliceIdentifierColumnName` bij **SqlDWSink** voor de kopieeractiviteit in de pijplijn. (PolyBase zorgt ervoor dat alle gegevens worden bijgewerkt of niet in een enkele uitvoeren bijgewerkt wordt. Om te realiseren **herhaalbaarheid**, kunt u `sqlWriterCleanupScript`).

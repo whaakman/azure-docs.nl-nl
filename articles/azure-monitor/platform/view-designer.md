@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887898"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286564"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Aangepaste weergaven maken met behulp van Designer bekijken in Azure Monitor
 Met behulp van Designer bekijken in Azure Monitor, kunt u tal van aangepaste weergaven maken in Azure portal waarmee u gegevens visualiseren in uw Log Analytics-werkruimte kunt. In dit artikel geeft een overzicht van de Weergaveontwerper en procedures voor het maken en bewerken van aangepaste weergaven.
@@ -43,6 +43,9 @@ De weergaven die u met de Weergaveontwerper maakt bevatten de elementen die word
 | Tegels | Worden weergegeven op uw Azure-Monitor **overzicht** pagina. Elke tegel geeft een visueel overzicht van de aangepaste weergave vertegenwoordigt. Elk tegeltype biedt een andere visualisatie van uw records. U selecteert een tegel om een aangepaste weergave weer te geven. |
 | Aangepaste weergave | Weergegeven wanneer u een tegel selecteert. Elke weergave bevat een of meer onderdelen van de visualisatie. |
 | Visualisatie delen | Een visualisatie van gegevens in de Log Analytics-werkruimte op basis van een of meer presenteren [query's bijgehouden](../log-query/log-query-overview.md). De meeste onderdelen zijn een koptekst, waarmee u een visualisatie op hoog niveau, en een lijst waarin de belangrijkste resultaten worden weergegeven. Elk onderdeeltype biedt een andere visualisatie van de records in de Log Analytics-werkruimte. U selecteren elementen in het gedeelte om uit te voeren een query voor waarmee gedetailleerde records. |
+
+## <a name="required-permissions"></a>Vereiste machtigingen
+U moet ten minste [machtigingen op het niveau van Inzender](manage-access.md#manage-accounts-and-users) in de Log Analytics-werkruimte maken of wijzigen van weergaven. Als u deze machtiging niet hebt, wordt niet de optie Weergaveontwerper worden weergegeven in het menu.
 
 
 ## <a name="work-with-an-existing-view"></a>Werken met een bestaande weergave

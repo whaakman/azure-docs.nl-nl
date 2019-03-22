@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818554"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094970"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Werkstroom voor offline back-ups voor DPM en Azure Backup-Server
 Azure Backup heeft diverse ingebouwde efficiëntie die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Initiële volledige back-ups wordt gewoonlijk grote hoeveelheden gegevens overdragen en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / plaatsvindt worden overgedragen. Azure Backup wordt de eerste back-ups gecomprimeerd. Door het proces van het offline-seeding, kunt Azure Backup gebruiken schijven voor de gecomprimeerde eerste back-upgegevens offline uploaden naar Azure.
@@ -55,7 +55,7 @@ Zorg ervoor dat de volgende vereisten wordt voldaan voordat u begint de werkstro
 
 * Een Azure Storage-account met *klassieke* implementatiemodel is gemaakt in het abonnement waarvan u het publish settings-bestand gedownload, zoals hieronder weergegeven: 
 
- ![Het maken van een klassiek opslagaccount](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![Het maken van een klassiek opslagaccount](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * Een tijdelijke locatie, dit kan een netwerkshare of een extra station op de computer, intern of extern, met voldoende schijfruimte voor het opslaan van uw eerste kopie wordt gemaakt. Bijvoorbeeld, als u back-up van een bestandsserver met 500 GB wilt, controleert u of het faseringsgebied ten minste 500 GB. (Een lager bedrag vanwege compressie wordt gebruikt.)
 * Zorg ervoor dat alleen 2,5 inch SSD, of 2,5-inch of 3,5-inch SATA/III II interne harde schijven worden gebruikt met betrekking tot de schijven die worden verzonden naar Azure. Harde schijven kunt u maximaal 10 TB. Controleer de [documentatie voor Azure Import/Export-service](../storage/common/storage-import-export-requirements.md#supported-hardware) voor de meest recente set van schijven die ondersteuning biedt voor de service.
@@ -74,12 +74,12 @@ De informatie in deze sectie helpt u de werkstroom voor offline back-ups uitvoer
 
     De beschrijving van de invoer is als volgt:
 
-    * **Faseringslocatie**: De tijdelijke opslaglocatie waarop de eerste back-up is geschreven. Faseringslocatie mogelijk op een netwerkshare of een lokale computer. Als de computer kopiëren en de broncomputer verschillend zijn, wordt u aangeraden dat u het volledige netwerk-pad van de faseringslocatie opgeven.
-    * **Azure Import-taaknaam**: De unieke naam die Azure Import-service en Azure Backup de overdracht van gegevens die worden verzonden op schijven naar Azure bijhouden.
-    * **Azure Publish-instellingen**: Geef het lokale pad naar het publish settings-bestand.
-    * **Azure-abonnement-ID**: De Azure-abonnement-ID voor het abonnement aan vanaf waar u het bestand Azure Publish-instellingen hebt gedownload. 
-    * **Azure Storage-Account**: De naam van het opslagaccount in de Azure-abonnement dat is gekoppeld aan het Azure Publish-instellingenbestand.
-    * **Azure-Opslagcontainer**: De naam van de bestemmings-blob-opslag in de Azure-opslagaccount waarin de back-upgegevens wordt geïmporteerd.
+   * **Faseringslocatie**: De tijdelijke opslaglocatie waarop de eerste back-up is geschreven. Faseringslocatie mogelijk op een netwerkshare of een lokale computer. Als de computer kopiëren en de broncomputer verschillend zijn, wordt u aangeraden dat u het volledige netwerk-pad van de faseringslocatie opgeven.
+   * **Azure Import-taaknaam**: De unieke naam die Azure Import-service en Azure Backup de overdracht van gegevens die worden verzonden op schijven naar Azure bijhouden.
+   * **Azure Publish-instellingen**: Geef het lokale pad naar het publish settings-bestand.
+   * **Azure-abonnement-ID**: De Azure-abonnement-ID voor het abonnement aan vanaf waar u het bestand Azure Publish-instellingen hebt gedownload. 
+   * **Azure Storage-Account**: De naam van het opslagaccount in de Azure-abonnement dat is gekoppeld aan het Azure Publish-instellingenbestand.
+   * **Azure-Opslagcontainer**: De naam van de bestemmings-blob-opslag in de Azure-opslagaccount waarin de back-upgegevens wordt geïmporteerd.
 
      Sla de *faseringslocatie* en de *Azure Import-taaknaam* u hebt opgegeven als het nodig is om voor te bereiden van de schijven.  
      
@@ -102,14 +102,14 @@ De *AzureOfflineBackupDiskPrep* hulpprogramma wordt gebruikt voor het voorbereid
 
 1. Ga naar de map en kopieer de **AzureOfflineBackupDiskPrep** map naar een kopie-computer waarop de SATA-schijven worden voorbereid zijn verbonden. Zorg ervoor dat de volgende met betrekking tot de computer kopiëren:
 
-    * De computer kopiëren hebt toegang tot de faseringslocatie voor de werkstroom voor offline-seeding via hetzelfde netwerkpad dat is opgegeven in de **start offline back-up** werkstroom.
-    * BitLocker is ingeschakeld op de computer kopiëren.
-    * De computer kopiëren, hebben toegang tot de Azure-portal.
+   * De computer kopiëren hebt toegang tot de faseringslocatie voor de werkstroom voor offline-seeding via hetzelfde netwerkpad dat is opgegeven in de **start offline back-up** werkstroom.
+   * BitLocker is ingeschakeld op de computer kopiëren.
+   * De computer kopiëren, hebben toegang tot de Azure-portal.
 
-    Indien nodig, is de computer kopiëren hetzelfde als de broncomputer kan verzenden. 
+     Indien nodig, is de computer kopiëren hetzelfde als de broncomputer kan verzenden. 
     
-    > [!IMPORTANT] 
-    > Als de broncomputer een virtuele machine is, is het verplichte gebruik van een andere fysieke server of client-computer als de computer kopiëren.
+     > [!IMPORTANT] 
+     > Als de broncomputer een virtuele machine is, is het verplichte gebruik van een andere fysieke server of client-computer als de computer kopiëren.
     
     
 2. Open een opdrachtprompt met verhoogde bevoegdheid op de computer kopiëren met de *AzureOfflineBackupDiskPrep* hulpprogramma directory als de huidige map en voer de volgende opdracht uit:

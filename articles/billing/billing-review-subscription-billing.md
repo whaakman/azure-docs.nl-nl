@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: 3a487b56c3ce81f3a13add767a9bf7ad59cf79cd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 15725989ef786f94421eddf647f101e3e73633fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315942"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890760"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Abonnement facturering met behulp van REST-API's bekijken
 
@@ -35,7 +35,7 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-## <a name="build-the-request"></a>De aanvraag voor het samenstellen
+## <a name="build-the-request"></a>De aanvraag maken
 
 De `{subscriptionID}` parameter is vereist en identificeert het doelabonnement.
 
@@ -92,7 +92,7 @@ Elk item in **waarde** vertegenwoordigt een details met betrekking tot het gebru
 |**meterDetails** | Gedetailleerde informatie over het gebruik. |
 |**nextLink**| Als de waarde, Hiermee geeft u een URL voor de volgende "page" van gegevens. Leeg wanneer de pagina de laatste is. |
 
-In dit voorbeeld is afgekort; Zie [lijst met informatie over het gebruik](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) voor een volledige beschrijving van elk antwoordveld.
+In dit voorbeeld is afgekort; Zie [lijst met informatie over het gebruik](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) voor een volledige beschrijving van elk antwoordveld.
 
 Andere statuscodes duiden op fouten. In dergelijke gevallen wordt het object response uitgelegd waarom de aanvraag is mislukt.
 

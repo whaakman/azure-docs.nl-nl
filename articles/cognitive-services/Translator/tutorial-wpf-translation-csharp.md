@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 97766472ea5f7b62a452e6cc5a71a77426e975ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235407"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078122"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Zelfstudie: Een vertaal-app maken met WPF
 
@@ -37,7 +37,7 @@ In deze zelfstudie leert u het volgende:
 
 Deze lijst bevat de Cognitive Services in deze zelfstudie worden gebruikt. Klik op de koppeling om de API-naslaginformatie van elke functie te bekijken.
 
-| Service | Functie | Beschrijving |
+| Service | Functie | Description |
 |---------|---------|-------------|
 | Translator Text | [Talen ophalen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Hiermee haalt u een volledige lijst ondersteunde talen op voor het vertalen van tekst. |
 | Translator Text | [Vertalen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Hiermee vertaalt u tekst naar meer dan 60 talen. |
@@ -108,7 +108,7 @@ Laten we eens bekijken wat we bouwen.
 
 De gebruikersinterface bevat de volgende onderdelen:
 
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox | Hiermee wordt een lijst weergegeven met alle talen die door Microsoft Translator worden ondersteund voor het vertalen van tekst. De gebruiker selecteert de taal waaruit hij vertaalt. |
 | `ToLanguageComboBox` | ComboBox | Hiermee wordt dezelfde lijst met talen weergegeven als met `FromComboBox`, maar dit element wordt gebruikt om de taal te selecteren waarin de gebruiker vertaalt. |
@@ -240,11 +240,11 @@ Het volledige project bevindt zich in de klasse `MainWindow : Window`. We beginn
    // In the following sections, we'll add code below this.
    }
    ```
-   4. Voeg uw Cognitive Services-abonnementssleutel toe en sla de wijzigingen op.
+   1. Voeg uw Cognitive Services-abonnementssleutel toe en sla de wijzigingen op.
 
 In dit codeblok hebben we twee variabelen opgegeven die informatie bevatten over de talen die beschikbaar zijn voor vertaling:
 
-| Variabele | Type | Beschrijving |
+| Variabele | Type | Description |
 |----------|------|-------------|
 |`languageCodes` | Matrix van tekenreeksen |Hiermee worden de taalcodes opgeslagen in de cache. De Translator-service gebruikt korte codes om talen te identificeren, bijvoorbeeld `en` voor Engels. |
 |`languageCodesAndTitles` | Gesorteerde woordenlijst | Hiermee worden de beschrijvende namen in de gebruikersinterface terugverwezen naar de korte codes die in de API worden gebruikt. Ze worden op alfabetische volgorde gesorteerd, zonder rekening te houden met het gebruik van hoofdletters. |

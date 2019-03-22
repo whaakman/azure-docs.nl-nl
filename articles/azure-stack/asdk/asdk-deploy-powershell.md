@@ -17,12 +17,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 0fb3e9cd193e570a965d6bbd3e16c86dc39de350
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e8d3653049b0160fac155ebc49329c17cb27224f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984270"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014386"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>De ASDK vanaf de opdrachtregel implementeren
 De ASDK is een omgeving voor testen en ontwikkeling die u implementeren kunt om te evalueren en Azure Stack-functies en -services demonstreren. Als u deze moet actief en werkend is, u de hardware van de omgeving voorbereiden en sommige scripts (dit duurt enkele uren) uitgevoerd. Hierna kunt u zich de portals beheerder en gebruiker aan de slag met Azure Stack.
@@ -138,6 +138,7 @@ Als er geen DHCP ingeschakeld voor uw omgeving is, moet u de volgende extra para
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>Optionele parameters ASDK InstallAzureStackPOC.ps1
+
 |Parameter|Vereist/optioneel|Description|
 |-----|-----|-----|
 |AdminPassword|Vereist|Hiermee stelt het lokale administrator-account en alle accounts van andere gebruikers op alle virtuele machines die worden gemaakt als onderdeel van de implementatie van development kit. Dit wachtwoord moet overeenkomen met de huidige lokale beheerderswachtwoord op de host.|

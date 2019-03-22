@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: d73638e0c02af5dc07e80084dd2ce5a7e090ecd2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 4b04a1a5805ff11ad51cec53cdcccf2ea34f1c65
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043444"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443246"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: Zelfstudie Aan de slag met SQL API
 
@@ -62,14 +62,14 @@ Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt d
 1. Open **Visual Studio 2017** op uw computer.
 2. Selecteer in het menu **Bestand** de optie **Nieuw** en kies vervolgens **Project**.
 3. Selecteer in het dialoogvenster **Nieuw project** achtereenvolgens **Sjablonen** / **Visual C#** / **Consoletoepassing**, geef een naam op voor uw op en klik vervolgens op **OK**.
-   ![Schermopname van het venster Nieuw project](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
+   ![Schermopname van het venster Nieuw Project](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
 4. Klik in **Solution Explorer** met de rechtermuisknop op uw nieuwe consoletoepassing. Deze bevindt zich onder uw Visual Studio-oplossing. Klik vervolgens op **Manage NuGet Packages...**
     
-    ![Schermopname van het rechtsklikmenu voor het project](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+    ![Schermafbeelding van het rechtsklikmenu voor het project](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 5. Klik op het tabblad **NuGet** op **Bladeren** en typ **azure documentdb** in het zoekvak.
 6. Zoek **Microsoft.Azure.DocumentDB** in de resultaten en klik op **Installeren**.
    De pakket-id voor de Azure Cosmos DB SQL-API-clientbibliotheek is [Microsoft Azure Cosmos DB-clientbibliotheek](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
-   ![Schermopname van het NuGet-menu voor het zoeken naar de Azure Cosmos DB-client-SDK](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   ![Schermopname van het NuGet-Menu voor het vinden van Azure Cosmos DB-Client-SDK](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Als u een bericht ontvangt over het controleren van wijzigingen in de oplossing, klikt u op **OK**. Als u een bericht ontvangt over het accepteren van de licentie, klikt u op **Accepteren**.
 
@@ -108,7 +108,7 @@ Ga in Azure Portal naar uw Azure Cosmos DB-account en klik op **Sleutels**.
 
 Kopieer in de portal de URI en plak deze in `<your endpoint URL>` in het bestand program.cs. Kopieer vervolgens de PRIMAIRE SLEUTEL van de portal en plak deze in `<your primary key>`.
 
-![Schermopname van Azure Portal die voor de NoSQL-zelfstudie wordt gebruikt om een C#-consoletoepassing te maken. Hierin wordt een Azure Cosmos DB-account weergegeven met de hub ACTIEF gemarkeerd. Verder is de knop SLEUTELS gemarkeerd op de Azure Cosmos DB-accountpagina en zijn de waarden URI, PRIMAIRE SLEUTEL en SECUNDAIRE SLEUTEL gemarkeerd op de pagina Sleutels][keys]
+![Schermafbeelding van de Azure portal gebruikt voor de NoSQL-zelfstudie voor het maken een C# consoletoepassing. Hierin wordt een Azure Cosmos DB-account weergegeven met de hub ACTIEF gemarkeerd. Verder is de knop SLEUTELS gemarkeerd op de Azure Cosmos DB-accountpagina en zijn de waarden URI, PRIMAIRE SLEUTEL en SECUNDAIRE SLEUTEL gemarkeerd op de pagina Sleutels][keys]
 
 We starten nu de toepassing door een nieuwe instantie van de **DocumentClient** te maken.
 

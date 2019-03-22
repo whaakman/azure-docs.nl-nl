@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: mayg
-ms.openlocfilehash: c4309b20664520bc1912adadee72d614a085f573
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 99c7309e22d8ebe61a0a85b38c92bd3027977848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338950"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013124"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Instellen van netwerktoewijzing en IP-adressering voor vnet 's
 
@@ -76,6 +76,7 @@ Het IP-adres voor elke NIC op een virtuele doelmachine wordt als volgt geconfigu
 **Bron- en subnetten** | **Details**
 --- | ---
 Dezelfde-adresruimte | IP-adres van de VM NIC-bron is ingesteld als de doel-VM NIC IP-adres.<br/><br/> Als het adres beschikbaar is, wordt het volgende beschikbare IP-adres is ingesteld als het doel.
+
 Andere adresruimte<br/><br/> Het eerstvolgende beschikbare IP-adres in het doelsubnet is ingesteld als de doel-VM NIC-adres.
 
 

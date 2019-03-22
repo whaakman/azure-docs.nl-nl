@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: b8f343c2293df6a1dec808addf8881c27514fc06
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436644"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082038"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>De versie 2 van Azure Custom Script-extensie gebruiken met virtuele Linux-machines
 De Custom Script Extension versie 2 downloads en scripts uitvoeren op Azure virtual machines. Deze uitbreiding is handig voor post-implementatieconfiguratie, software-installatie of een andere Configuratiebeheer /-taak. U kunt scripts downloaden via Azure Storage of een andere toegankelijke internetlocatie of u ze aan de extensie-runtime kunt leveren. 
@@ -124,7 +124,7 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 ### <a name="property-value-details"></a>Details van eigenschap
 * `skipDos2Unix`: (optioneel, boolean) dos2unix conversie van URL's op basis van een script bestand of script overslaan.
 * `timestamp` (optioneel, 32-bits geheel getal) te gebruiken in dit veld alleen voor het activeren van een opnieuw uitvoeren van het script door de waarde van dit veld te wijzigen.  Een geheel getal-waarde is toegestaan. alleen moet deze anders is dan de vorige waarde.
- * `commandToExecute`: (**vereist** als script niet is ingesteld, string) het invoerpunt-script om uit te voeren. Dit veld in plaats daarvan gebruiken als uw opdracht geheimen zoals wachtwoorden bevat.
+  * `commandToExecute`: (**vereist** als script niet is ingesteld, string) het invoerpunt-script om uit te voeren. Dit veld in plaats daarvan gebruiken als uw opdracht geheimen zoals wachtwoorden bevat.
 * `script`: (**vereist** als commandToExecute niet ingesteld, string) een base64-gecodeerd (en eventueel gzip'ed) script/bin/sh uitgevoerd.
 * `fileUris`: (optioneel, string-matrix) de URL's voor bestanden die moeten worden gedownload.
 * `storageAccountName`: (optioneel, string) de naam van de storage-account. Als u de storage-referenties opgeeft alle `fileUris` moet URL's voor Azure-Blobs.

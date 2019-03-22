@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: b35d3d22ce154420c9099143894688389e8af420
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
-ms.translationtype: HT
+ms.openlocfilehash: 9b4bceba53658cb8ac3c73e75e0d19faf3fe3f0b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58078037"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259751"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage analytics metrics (klassiek)
 
@@ -23,10 +23,10 @@ Storage Analytics kan metrische gegevens opslaan die samengevoegde transactiesta
 
 > [!NOTE]
 > Storage Analytics metrische gegevens zijn beschikbaar voor de services Blob, wachtrij, tabel en bestand.
-> Storage Analytics metrische gegevens zijn nu klassieke metrische gegevens. Microsoft adviseert om [metrische opslaggegevens in Azure Monitor](/azure/storage/common/storage-metrics-in-azure-monitor.md) in plaats van Storage Analytics metrics.
+> Storage Analytics metrische gegevens zijn nu klassieke metrische gegevens. Microsoft adviseert om [metrische opslaggegevens in Azure Monitor](storage-metrics-in-azure-monitor.md) in plaats van Storage Analytics metrics.
 
 ## <a name="transaction-metrics"></a>Metrische gegevens de transactie  
- Een robuuste set gegevens wordt vastgelegd met intervallen van uren of minuten voor elke service-opslag en de aangevraagde API-bewerking, waaronder Inkomend/uitgaand verkeer, beschikbaarheid, fouten, en aanvraag percentages gecategoriseerd. Ziet u een volledige lijst van de transactiedetails van de in de [tabelschema van metrische gegevens van Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md) onderwerp.  
+ Een robuuste set gegevens wordt vastgelegd met intervallen van uren of minuten voor elke service-opslag en de aangevraagde API-bewerking, waaronder Inkomend/uitgaand verkeer, beschikbaarheid, fouten, en aanvraag percentages gecategoriseerd. Ziet u een volledige lijst van de transactiedetails van de in de [tabelschema van metrische gegevens van Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema) onderwerp.  
 
  Transactiegegevens wordt vastgelegd bij twee niveaus: het serviceniveau van de en het niveau van de API-bewerking. Op het serviceniveau van de aangevraagd statistieken samenvatting van alle API-bewerkingen worden geschreven naar een Tabelentiteit elk uur, zelfs als er geen aanvragen zijn aangebracht in de service. Op het niveau van de API-bewerking, worden statistieken alleen geschreven naar een entiteit als de bewerking binnen dat uur is aangevraagd.  
 
@@ -45,7 +45,7 @@ Storage Analytics kan metrische gegevens opslaan die samengevoegde transactiesta
 - **ContainerCount**: Het aantal blob-containers in het opslagaccount-Blob-service.  
 - **ObjectCount**: Het aantal vastgelegde en niet-doorgevoerde blok of pagina-blobs in Blob-service van het storage-account.  
 
-  Zie voor meer informatie over de metrische gegevens over de capaciteit, [tabelschema van metrische gegevens van Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).  
+  Zie voor meer informatie over de metrische gegevens over de capaciteit, [tabelschema van metrische gegevens van Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
 
 ## <a name="how-metrics-are-stored"></a>Hoe metrische gegevens worden opgeslagen  
 
@@ -123,7 +123,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 Zie voor meer informatie over het gebruik van een .NET-taal voor het configureren van metrische opslaggegevens [Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx).  
 
-Raadpleeg voor algemene informatie over het configureren van metrische gegevens met behulp van de REST-API voor Storage [inschakelen en configureren van Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics.md).  
+Raadpleeg voor algemene informatie over het configureren van metrische gegevens met behulp van de REST-API voor Storage [inschakelen en configureren van Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
 ##  <a name="viewing-storage-metrics"></a>Weergeven van metrische opslaggegevens  
 Na het configureren van Storage Analytics metrics voor het bewaken van uw storage-account registreert Storage Analytics de metrische gegevens in een set met bekende tabellen in uw opslagaccount. U kunt grafieken voor het weergeven van metrische gegevens van per uur in configureren de [Azure-portal](https://portal.azure.com):
@@ -144,7 +144,7 @@ Als u wilt voor het downloaden van de metrische gegevens voor langetermijnopslag
 |Minuut metrische gegevens|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Kan alleen worden ingeschakeld met behulp van PowerShell of via een programma.<br /><br /> Metrische gegevens voor de File-service zijn beschikbaar vanaf versie 2015-04-05.|  
 |Capaciteit|$MetricsCapacityBlob|Alleen voor BLOB-service.|  
 
-Volledige details van de schema's vindt u voor deze tabellen aan [tabelschema van metrische gegevens van Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md). Het onderstaande voorbeeldrijen slechts een subset van de beschikbare kolommen weergeven, maar illustratie van enkele belangrijke functies van de manier waarop die metrische opslaggegevens Hiermee slaat u deze metrische gegevens:  
+Volledige details van de schema's vindt u voor deze tabellen aan [tabelschema van metrische gegevens van Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema). Het onderstaande voorbeeldrijen slechts een subset van de beschikbare kolommen weergeven, maar illustratie van enkele belangrijke functies van de manier waarop die metrische opslaggegevens Hiermee slaat u deze metrische gegevens:  
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
@@ -227,6 +227,6 @@ De capaciteit die wordt gebruikt door de tabellen voor metrische gegevens is ook
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Een Opslagaccount controleren](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
-* [Tabelschema van metrische gegevens van Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)   
-* [Storage Analytics vastgelegd Operations en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)   
+* [Tabelschema van metrische gegevens van Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
+* [Storage Analytics vastgelegd Operations en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
 * [Logboekregistratie van opslag Analytics](storage-analytics-logging.md)

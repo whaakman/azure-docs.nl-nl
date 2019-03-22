@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8e20d617da12aea857308f4020fbd0cfe711430
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: MT
+ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651308"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094749"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configuraties van SAP-werkbelasting met Azure-Beschikbaarheidszones
 [Azure-Beschikbaarheidszones](https://docs.microsoft.com/azure/availability-zones/az-overview) is een van de functies voor hoge beschikbaarheid die Azure biedt. De algemene beschikbaarheid van SAP-workloads op Azure met Beschikbaarheidszones worden verbeterd. Deze functie is al beschikbaar in bepaalde [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/). In de toekomst, is deze beschikbaar in meer regio's.
@@ -109,8 +109,8 @@ De volgende overwegingen zijn van toepassing voor deze configuratie:
 - Voor alle virtuele machines die u implementeert, moet u gebruiken [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Niet-beheerde schijven worden niet ondersteund voor zonegebonden implementaties.
 - Azure Premium Storage en [Ultra SSD-opslag](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) bieden geen ondersteuning voor elk type opslagreplicatie in zones. De toepassing (DBMS-systemen of SAP Central Services) moet belangrijke gegevens repliceren.
 - Hetzelfde geldt voor de gedeelde sapmnt-map een gedeelde schijf (Windows), een CIFS-share (Windows) of een NFS-share (Linux is). U moet een technologie die worden gerepliceerd van deze gedeelde schijven of shares tussen de zones te gebruiken. Deze technologieën worden ondersteund:
-    - Voor Windows, een oplossing die gebruikmaakt van SIOS DataKeeper, zoals beschreven in [Cluster een SAP ASCS/SCS-exemplaar op een Windows-failovercluster met behulp van een gedeelde clusterschijf in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
-    - Voor SUSE Linux, een NFS-share die ingebouwd, zoals beschreven in [hoge beschikbaarheid voor NFS op Azure VM's in SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+  - Voor Windows, een oplossing die gebruikmaakt van SIOS DataKeeper, zoals beschreven in [Cluster een SAP ASCS/SCS-exemplaar op een Windows-failovercluster met behulp van een gedeelde clusterschijf in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
+  - Voor SUSE Linux, een NFS-share die ingebouwd, zoals beschreven in [hoge beschikbaarheid voor NFS op Azure VM's in SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
     
     Op dit moment de oplossing die gebruikmaakt van Microsoft Scale-Out File Server, zoals beschreven in [voorbereiden Azure-infrastructuur voor hoge beschikbaarheid van SAP met behulp van een Windows failover cluster en de bestandsshare voor instanties van SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), is het niet ondersteund in zones.
 - De derde zone wordt gebruikt voor het hosten van het apparaat SBD in het geval u bouwt een [SUSE Linux Pacemaker cluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) of exemplaren van een extra toepassing.

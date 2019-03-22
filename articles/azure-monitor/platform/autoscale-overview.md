@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: ae1828210345eb35f9d22664285a0d348ea50d48
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478328"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085640"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Overzicht van automatisch schalen in een Microsoft Azure Virtual Machines, Cloud Services en Web-Apps
 Dit artikel wordt beschreven welke Microsoft Azure voor automatisch schalen is, de voordelen ervan, en hoe u aan de slag met behulp van deze.  
@@ -36,7 +36,7 @@ Wanneer de regelvoorwaarden wordt voldaan, kan een of meer acties voor automatis
 
 De volgende uitleg geldt voor de onderdelen van het vorige diagram.   
 
-## <a name="resource-metrics"></a>Metrische gegevens voor resources
+## <a name="resource-metrics"></a>Metrische gegevens voor resource
 Resources metrische gegevens verzenden, deze metrische gegevens later door regels worden verwerkt. Metrische gegevens worden geleverd via verschillende methoden.
 Virtuele-machineschaalsets gebruik telemetriegegevens van Azure diagnostics-agents dat telemetrie voor Web-apps en cloudservices afkomstig rechtstreeks van de Azure-infrastructuur is. Enkele veelgebruikte statistische gegevens omvatten CPU-gebruik, geheugengebruik, aantallen threads, lengte van de wachtrij en schijfgebruik. Zie voor een lijst van welke telemetrische gegevens die u kunt gebruiken, [algemene metrische gegevens voor automatisch schalen](../../azure-monitor/platform/autoscale-common-metrics.md).
 
@@ -66,15 +66,15 @@ Automatisch schalen gebruik de volgende terminologie en de structuur.
 
 - Een **instelling voor automatisch schalen** wordt gelezen door de engine voor automatisch schalen om te bepalen of omhoog of omlaag schalen. Het bevat een of meer profielen, informatie over de doelresource en instellingen voor meldingen.
 
-    - Een **profiel voor automatisch schalen** is een combinatie van a:
+  - Een **profiel voor automatisch schalen** is een combinatie van a:
 
-        - **capaciteit**, wat aangeeft dat het minimum, maximum en standaardwaarden voor het aantal exemplaren.
-        - **verzameling van regels**, die elk een trigger (tijd of metrische gegevens) en een schaalactie (omhoog of omlaag) bevat.
-        - **terugkeerpatroon**, waarmee wordt aangegeven wanneer automatisch schalen moet dit profiel tot stand is gebracht.
+    - **capaciteit**, wat aangeeft dat het minimum, maximum en standaardwaarden voor het aantal exemplaren.
+    - **verzameling van regels**, die elk een trigger (tijd of metrische gegevens) en een schaalactie (omhoog of omlaag) bevat.
+    - **terugkeerpatroon**, waarmee wordt aangegeven wanneer automatisch schalen moet dit profiel tot stand is gebracht.
 
-        U kunt meerdere profielen, waarmee u regelt verschillende overlappende vereisten hebben. U kunt profielen voor verschillende automatisch schalen voor verschillende tijdstippen van de dag of dagen van de week, bijvoorbeeld hebben.
+      U kunt meerdere profielen, waarmee u regelt verschillende overlappende vereisten hebben. U kunt profielen voor verschillende automatisch schalen voor verschillende tijdstippen van de dag of dagen van de week, bijvoorbeeld hebben.
 
-    - Een **meldingsinstelling** wordt gedefinieerd welke meldingen moeten worden uitgevoerd als een gebeurtenis voor automatisch schalen op basis van die voldoet aan de criteria van een van de instelling voor automatisch schalen van profielen. Automatisch schalen kan een of meer e-mailadressen in kennis of aanroepen naar een of meer webhooks.
+  - Een **meldingsinstelling** wordt gedefinieerd welke meldingen moeten worden uitgevoerd als een gebeurtenis voor automatisch schalen op basis van die voldoet aan de criteria van een van de instelling voor automatisch schalen van profielen. Automatisch schalen kan een of meer e-mailadressen in kennis of aanroepen naar een of meer webhooks.
 
 
 ![Instelling voor automatisch schalen van Azure, het profiel en regelstructuur](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)
@@ -96,7 +96,7 @@ Zie voor meer informatie, [verticaal schalen met Azure Automation virtuele Azure
 ## <a name="methods-of-access"></a>Methoden voor toegang
 U kunt automatisch schalen via instellen
 
-* [Azure Portal](../../azure-monitor/platform/autoscale-get-started.md)
+* [Azure-portal](../../azure-monitor/platform/autoscale-get-started.md)
 * [PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 * [Platformonafhankelijke opdrachtregelinterface (CLI)](../../azure-monitor/platform/cli-samples.md#autoscale)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
@@ -110,7 +110,7 @@ U kunt automatisch schalen via instellen
 | Virtual Machines: Windows-Schaalsets |[Schalen van virtuele-machineschaalset Hiermee stelt u in Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Virtual Machines: Linux-Schaalsets |[Schalen van virtuele-machineschaalset Hiermee stelt u in Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtual Machines: Windows-voorbeeld |[Geavanceerde configuratie van de voor automatisch schalen met behulp van Resource Manager-sjablonen voor VM-Schaalsets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
-| API Management-service|[Automatisch schalen van een Azure API Management-exemplaar](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
+| API Management-service|[Exemplaar van Azure API Management automatisch schalen](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Volgende stappen
 Voor meer informatie over automatisch schalen, gebruik de Autoscale Walkthroughs eerder is vermeld, of raadpleegt u de volgende bronnen:

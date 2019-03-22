@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 67b9be6f7788acd44ac60fe0c71133d69a2c122e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: a1e1be24f9cb6d762d5480385843e9a5356d4a29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313834"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889779"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Overzicht van de taken van Elastic Database installeren
 
@@ -27,12 +27,12 @@ ms.locfileid: "57313834"
 
 [**Taken voor elastic Database** ](sql-database-elastic-jobs-overview.md) kan worden geïnstalleerd via PowerShell of via de Azure-portal. U kunt toegang krijgen als u wilt maken en beheren van taken met behulp van de PowerShell-API alleen als u het PowerShell-pakket installeert. Daarnaast bieden de PowerShell-APIs meer functionaliteit dan de portal op dit moment.
 
-Als u al hebt geïnstalleerd **taken voor Elastic Database** via de Portal vanaf een bestaande **elastische pool**, de meest recente Powershell-voorbeeld bevat de scripts voor het upgraden van uw bestaande installatie. Het is raadzaam een upgrade naar de meest recente **taken voor Elastic Database** onderdelen om te profiteren van nieuwe functionaliteit die via de PowerShell-APIs.
+Als u al hebt geïnstalleerd **taken voor Elastic Database** via de Portal vanaf een bestaande **elastische pool**, de meest recente PowerShell-voorbeeld bevat de scripts voor het upgraden van uw bestaande installatie. Het is raadzaam een upgrade naar de meest recente **taken voor Elastic Database** onderdelen om te profiteren van nieuwe functionaliteit die via de PowerShell-APIs.
 
 ## <a name="prerequisites"></a>Vereisten
 * Een Azure-abonnement. Zie voor een gratis proefversie [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Installeer de nieuwste versie met de [Web Platform Installer](https://go.microsoft.com/fwlink/p/?linkid=320376). Zie voor gedetailleerde informatie [Installeren en configureren van Azure PowerShell](/powershell/azure/overview).
-* [NuGet-opdrachtregelprogramma](https://nuget.org/nuget.exe) wordt gebruikt om de Elastic Database jobs-pakket te installeren. Zie voor meer informatie, http://docs.nuget.org/docs/start-here/installing-nuget.
+* [NuGet-opdrachtregelprogramma](https://nuget.org/nuget.exe) wordt gebruikt om de Elastic Database jobs-pakket te installeren. Zie voor meer informatie, https://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Downloaden en importeren van het pakket met elastische taken PowerShell
 1. Start Microsoft Azure PowerShell-opdrachtvenster en navigeer naar de map waar u NuGet-opdrachtregelprogramma (nuget.exe) gedownload.
@@ -75,9 +75,7 @@ De parameters op voor dit voorbeeld-aanroepen die kunnen worden gewijzigd voor d
     <td>Naam van de Azure-resourcegroep gemaakt waartoe de zojuist gemaakte Azure-onderdelen bevat. Deze parameter wordt standaard ingesteld op '__ElasticDatabaseJob'. Het wordt niet aanbevolen om deze waarde te wijzigen.</td>
     </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ResourceGroupLocation</td>
     <td>Biedt de Azure-locatie moet worden gebruikt voor de zojuist gemaakte Azure-onderdelen. Deze parameter wordt standaard ingesteld op de locatie VS-midden.</td>
 </tr>
@@ -85,28 +83,24 @@ De parameters op voor dit voorbeeld-aanroepen die kunnen worden gewijzigd voor d
 <tr>
     <td>ServiceWorkerCount</td>
     <td>Geeft het aantal werknemers van de service te installeren. Deze parameter wordt standaard ingesteld op 1. Een groter aantal werknemers kan worden gebruikt om uit de service te schalen en hoge beschikbaarheid. Het verdient "2" gebruiken voor implementaties die hoge beschikbaarheid van de service nodig hebt.</td>
-    </tr>
-
 </tr>
-    <tr>
+
+<tr>
     <td>ServiceVmSize</td>
     <td>Biedt de VM-grootte voor gebruik binnen de Service in de Cloud. Deze parameter wordt standaard ingesteld op A0. De parameterwaarden van... /.. / A3, waardoor de werkrol te gebruiken een grootte ExtraSmall/kleine/gemiddeld/groot, respectievelijk worden geaccepteerd. Voor meer informatie over de rolgrootten werknemer, Zie [elastische taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerDatabaseSlo</td>
     <td>Biedt de compute-grootte voor een Standard-editie. Deze parameter standaard S0. Parameterwaarden van... /.. /.. /.. / S9/S12 zijn geaccepteerd dit leidt ertoe dat de Azure SQL Database om de grootte van het respectieve compute gebruiken. Zie voor meer informatie over SQL Database-compute-grootten [elastische taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorUserName</td>
     <td>Biedt de beheerdersnaam voor de nieuwe Azure SQL Database-server. Als niet is opgegeven, wordt u vragen om de referenties een PowerShell-referenties-venster geopend.</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorPassword</td>
     <td>Biedt het beheerderswachtwoord voor de nieuwe Azure SQL Database-server. Als niet is opgegeven, wordt u vragen om de referenties een PowerShell-referenties-venster geopend.</td>
 </tr>
@@ -131,22 +125,17 @@ Voer het volgende script met de parameters die zijn bijgewerkt met de waarden va
   <th>Description</th>
 </tr>
 
-  <tr>
+<tr>
     <td>ResourceGroupName</td>
     <td>Geeft de naam van de Azure-resource die wordt gebruikt wanneer de onderdelen van Elastic Database-taak in eerste instantie zijn geïnstalleerd. Deze parameter wordt standaard ingesteld op '__ElasticDatabaseJob'. Aangezien dit niet aangeraden wordt om deze waarde te wijzigen, moet u al dan niet mogen deze parameter opgeeft.</td>
-    </tr>
 </tr>
 
-</tr>
-
-  <tr>
+<tr>
     <td>ServiceWorkerCount</td>
     <td>Geeft het aantal werknemers van de service te installeren.  Deze parameter wordt standaard ingesteld op 1.  Een groter aantal werknemers kan worden gebruikt om uit de service te schalen en hoge beschikbaarheid.  Het verdient "2" gebruiken voor implementaties die hoge beschikbaarheid van de service nodig hebt.</td>
 </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ServiceVmSize</td>
     <td>Biedt de VM-grootte voor gebruik binnen de Service in de Cloud. Deze parameter wordt standaard ingesteld op A0. De parameterwaarden van... /.. / A3, waardoor de werkrol te gebruiken een grootte ExtraSmall/kleine/gemiddeld/groot, respectievelijk worden geaccepteerd. Voor meer informatie over de rolgrootten werknemer, Zie [elastische taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>

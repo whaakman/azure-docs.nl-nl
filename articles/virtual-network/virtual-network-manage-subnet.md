@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 895499865fb1d47669fcca2aeaa571b2fb79237b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b4fd3d7cd1d25415ba5938586aee448bdc512aa7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438717"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100459"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Toevoegen, wijzigen of verwijderen van een subnet van een virtueel netwerk
 
@@ -52,7 +52,7 @@ Het account dat u zich aanmelden bij of verbinding maken met Azure, moet worden 
 
        Als u wilt verwijderen van een service-eindpunt, hef de selectie van de service die u wilt verwijderen van de service-eindpunt voor. Zie voor meer informatie over service-eindpunten en de services die kan worden ingeschakeld voor [overzicht van Virtual network service endpoints](virtual-network-service-endpoints-overview.md). Wanneer u een service-eindpunt voor een service hebt ingeschakeld, moet u ook toegang tot het netwerk voor het subnet voor een resource die zijn gemaakt met de service inschakelen. Bijvoorbeeld, als u de service-eindpunt voor inschakelen *Microsoft.Storage*, moet u ook toegang tot het netwerk aan alle Azure Storage-accounts die u wilt verlenen van toegang tot het netwerk inschakelen. Zie de documentatie voor de afzonderlijke service die u voor het service-eindpunt ingeschakeld voor meer informatie over het inschakelen op subnetten die een service-eindpunt is ingeschakeld voor toegang tot het netwerk.
 
-    Om te valideren dat een service-eindpunt is ingeschakeld voor een subnet, geven de [effectieve routes](diagnose-network-routing-problem.md) voor een netwerkinterface in het subnet. Wanneer u een eindpunt is geconfigureerd, ziet u een *standaard* route met de adresvoorvoegsels van de service en een nextHopType van **VirtualNetworkServiceEndpoint**. Zie voor meer informatie over routering, [routeringoverzicht](virtual-networks-udr-overview.md).
+     Om te valideren dat een service-eindpunt is ingeschakeld voor een subnet, geven de [effectieve routes](diagnose-network-routing-problem.md) voor een netwerkinterface in het subnet. Wanneer u een eindpunt is geconfigureerd, ziet u een *standaard* route met de adresvoorvoegsels van de service en een nextHopType van **VirtualNetworkServiceEndpoint**. Zie voor meer informatie over routering, [routeringoverzicht](virtual-networks-udr-overview.md).
 6. Het subnet toevoegen aan het virtuele netwerk dat u hebt geselecteerd, selecteert u **OK**.
 
 **Opdrachten**

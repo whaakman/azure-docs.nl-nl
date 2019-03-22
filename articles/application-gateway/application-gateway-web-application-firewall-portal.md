@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: d89e5d6fd21fdc37bffcc730fb20bae30ecc4f7c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 510a243b9133fe0ef0fe33b4dccce97f9d65e301
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315024"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074960"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Een toepassingsgateway maken met een firewall voor webtoepassingen met behulp van de Azure portal
 
@@ -45,21 +45,21 @@ U hebt een virtueel netwerk nodig voor communicatie tussen de resources die u ma
 2. Selecteer **Netwerken** en vervolgens **Application Gateway** in de lijst Aanbevolen.
 3. Voer deze waarden in voor de toepassingsgateway:
 
-    - *myAppGateway* als de naam van de toepassingsgateway.
-    - *myResourceGroupAG* als de nieuwe resourcegroep.
-    - Selecteer *WAF* voor de laag van de toepassingsgateway.
+   - *myAppGateway* als de naam van de toepassingsgateway.
+   - *myResourceGroupAG* als de nieuwe resourcegroep.
+   - Selecteer *WAF* voor de laag van de toepassingsgateway.
 
-    ![Nieuwe toepassingsgateway maken](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
+     ![Nieuwe toepassingsgateway maken](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
 4. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
 5. Klik op **Een virtueel netwerk kiezen**, klik op **Nieuw maken** en voer deze waarden in voor het virtuele netwerk:
 
-    - *myVnet* als de naam van het virtuele netwerk.
-    - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
-    - *myAGSubnet* als de naam van het subnet.
-    - *10.0.0.0/24* als de adresruimte van het subnet.
+   - *myVnet* als de naam van het virtuele netwerk.
+   - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
+   - *myAGSubnet* als de naam van het subnet.
+   - *10.0.0.0/24* als de adresruimte van het subnet.
 
-    ![Virtueel netwerk maken](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
+     ![Virtueel netwerk maken](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
 6. Klik op **OK** om het virtuele netwerk en subnet te maken.
 7. Klik op **een openbaar IP-adres kiezen**, klikt u op **nieuw**, en voer de naam van het openbare IP-adres. In dit voorbeeld is de naam van het openbare IP-adres *myAGPublicIPAddress*. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.

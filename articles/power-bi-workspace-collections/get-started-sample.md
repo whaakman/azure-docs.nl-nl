@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 4a7da4a6e7b4b395063f7e4c9a3e97d610492ef6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 222c2983d83fe2373159ea542260be7b5a8d8ce5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882659"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885178"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Aan de slag met Power BI Workspace Collections-voorbeeld
 
@@ -91,9 +91,9 @@ Nadat u een rapport op de **EmbedSample** web-App moet er ongeveer uitzien dit:
 
 ![Voorbeeldrapport weergeven in toepassing](media/get-started-sample/sample-web-app.png)
 
-## <a name="explore-the-sample-code"></a>Nu de voorbeeldcode verkennen
+## <a name="explore-the-sample-code"></a>De voorbeeldcode verkennen
 
-De **Microsoft Power BI Workspace Collections** voorbeeld is een voorbeeld-web-app waarin wordt uitgelegd hoe u integreert **Power BI** rapporten in uw app. Het ontwerppatroon voor een Model-View-Controller (MVC) gebruikt om de aanbevolen procedures. In deze sectie worden de onderdelen van de voorbeeldcode die u kunt nu bekijken binnen de **Power BI embedded** web-app-oplossing. Het patroon Model-View-Controller (MVC) scheidt het modelleren van het domein, de presentatie en de acties op basis van de invoer van de gebruiker in drie afzonderlijke klassen: Model, weergeven en beheren. Zie voor meer informatie over MVC, [meer informatie over ASP.NET](http://www.asp.net/mvc).
+De **Microsoft Power BI Workspace Collections** voorbeeld is een voorbeeld-web-app waarin wordt uitgelegd hoe u integreert **Power BI** rapporten in uw app. Het ontwerppatroon voor een Model-View-Controller (MVC) gebruikt om de aanbevolen procedures. In deze sectie worden de onderdelen van de voorbeeldcode die u kunt nu bekijken binnen de **Power BI embedded** web-app-oplossing. Het patroon Model-View-Controller (MVC) scheidt het modelleren van het domein, de presentatie en de acties op basis van de invoer van de gebruiker in drie afzonderlijke klassen: Model, weergeven en beheren. Zie voor meer informatie over MVC, [meer informatie over ASP.NET](https://www.asp.net/mvc).
 
 De **Microsoft Power BI Workspace Collections** voorbeeldcode als volgt worden gescheiden. Elke sectie bevat de bestandsnaam in de Power BI-embedded.sln-oplossing, zodat u de code eenvoudig in het voorbeeld vinden kunt.
 
@@ -270,4 +270,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Voorbeeld van ingesloten JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Nog vragen? [Probeer de Power BI-community](http://community.powerbi.com/)
+Nog vragen? [Probeer de Power BI-community](https://community.powerbi.com/)

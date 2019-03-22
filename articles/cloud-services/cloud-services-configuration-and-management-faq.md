@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: dd7351d2948526905c91f2eac52e48b25cf063ac
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191425"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259581"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuratie en problemen met voor Azure Cloud Services: Veelgestelde vragen (FAQ's)
 
@@ -109,7 +109,7 @@ U kunt deze taak automatiseren met behulp van een opstartscript (batch/cmd/Power
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Wat is het doel van het certificaat 'Microsoft Azure Service Management voor MachineKey'?
 
-Dit certificaat wordt gebruikt voor het versleutelen van computersleutels op webrollen van Azure. Bekijk voor meer informatie dit advies [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
+Dit certificaat wordt gebruikt voor het versleutelen van computersleutels op webrollen van Azure. Bekijk voor meer informatie, [dit advies](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
 Raadpleeg voor meer informatie de volgende artikelen:
 - [Over het configureren en uitvoeren van opstarttaken voor een Cloudservice](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
@@ -143,7 +143,7 @@ Zie de volgende documenten voor meer informatie:
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Hoe schakel ik WAD logboekregistratie voor Cloud Services?
 U kunt logboekregistratie in Windows Azure Diagnostics (WAD) via de volgende opties inschakelen:
 1. [Inschakelen vanuit Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Schakel via .net-code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [Schakel via .NET-code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Schakel via Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 Om de huidige WAD-instellingen van uw Cloudservice, kunt u [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd of u kunt deze weergeven via de portal blade 'Cloudservices--> extensies'.
@@ -190,7 +190,7 @@ Microsoft controleert voortdurend servers, netwerken en toepassingen voor het de
 Windows 10 en Windows Server 2016 worden geleverd met ondersteuning voor HTTP/2 zowel client als server aan. Als uw (browser)-client verbinding maakt met de IIS-server via TLS die onderhandelt over HTTP/2 via TLS-uitbreidingen, wordt u niet wilt een wijziging aanbrengt aan de serverzijde. Dit komt doordat via TLS, de h2-14-header op te geven gebruik van HTTP/2 worden standaard verzonden. Als de client daarentegen een Upgrade-header om te upgraden naar HTTP/2 verzendt wordt, moet u de wijziging onder aan de serverzijde om ervoor te zorgen dat de Upgrade werkt en u uiteindelijk een HTTP/2-verbinding maken. 
 
 1. Regedit.exe worden uitgevoerd.
-2. Blader naar de registersleutel: Hkey_local_machine\software\microsoft\cryptography\mscep.
+2. Blader naar de registersleutel: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Maak een nieuwe DWORD-waarde met de naam **DuoEnabled**.
 4. Stel de waarde ervan in op 1.
 5. Start de server opnieuw.
@@ -226,7 +226,7 @@ Microsoft volgt een strikte proces dat niet toe interne technici met extern bure
 
 ### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Ik kan geen extern bureaublad voor Cloud Service-VM met behulp van het RDP-bestand. Ik u de volgende fout: Er is een verificatiefout opgetreden (Code: 0x80004005)
 
-Deze fout kan optreden als u het RDP-bestand van een virtuele machine die is gekoppeld aan Azure Active Directory. U lost dit probleem, de volgende stappen uit:
+Deze fout kan optreden als u het RDP-bestand van een virtuele machine die is gekoppeld aan Azure Active Directory. Volg deze stappen om dit probleem op te lossen:
 
 1. Met de rechtermuisknop op het gedownloade RDP-bestand en selecteer vervolgens **bewerken**.
 2. Voeg toe '&#92;' als voorvoegsel voor de gebruikersnaam. Gebruik bijvoorbeeld **. \username** in plaats van **gebruikersnaam**.
@@ -311,7 +311,7 @@ De SNI-binding kan worden geconfigureerd met behulp van de PowerShell-cmdlet **N
     
 Zoals wordt beschreven [hier](https://technet.microsoft.com/library/ee790567.aspx), de $sslFlags mogelijk een van de waarden als het volgende:
 
-|Waarde|Betekenis|
+|Value|Betekenis|
 ------|------
 |0|Er is geen SNI|
 |1|SNI ingeschakeld |

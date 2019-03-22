@@ -1,6 +1,6 @@
 ---
 title: Een Service Fabric-cluster schalen in Azure | Microsoft Docs
-description: In deze zelfstudie leert u hoe u snel een Service Fabric-cluster kunt schalen in Azure.
+description: In deze zelfstudie leert u hoe u kunt een Service Fabric-cluster schalen in Azure.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,30 +12,31 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/01/2018
+ms.date: 03/19/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 975b4558c0501423211553c1c2e330bced2c74a6
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 315e3c05e23d68edb701e705fd1ed02a840a8936
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674143"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226807"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Zelfstudie: Een Service Fabric-cluster schalen in Azure
 
-Deze zelfstudie is deel twee van een serie. Hier ziet u hoe u een bestaand cluster kunt in- en uitschalen. Aan het einde van deze zelfstudie weet u hoe u een cluster kunt schalen en eventuele resterende resources kunt opschonen.
+Deze zelfstudie is deel drie van een reeks en laat zien hoe u een bestaand cluster in- en uitschalen u. Aan het einde van deze zelfstudie weet u hoe u een cluster kunt schalen en eventuele resterende resources kunt opschonen.  Lees voor meer informatie over het schalen van een cluster in Azure uitvoert, [schalen van Service Fabric-clusters](service-fabric-cluster-scaling.md).
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Het aantal clusterknooppunten lezen
-> * Clusterknooppunten toevoegen (uitschalen)
-> * Clusterknooppunten verwijderen (inschalen)
+> * Toevoegen en verwijderen van knooppunten (scale-out en inschalen)
+> * Toevoegen en verwijderen van knooppunttypen (scale-out en inschalen)
+> * Knooppunt-resources (Omhoog schalen) verhogen
 
 In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
 > * Een beveiligd [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) maken in Azure met behulp van een sjabloon
+> * [Een cluster bewaken](service-fabric-tutorial-monitor-cluster.md)
 > * Een cluster in- of uitschalen
 > * [De runtime van een cluster upgraden](service-fabric-tutorial-upgrade-cluster.md)
 > * [Een cluster verwijderen](service-fabric-tutorial-delete-cluster.md)
@@ -47,207 +48,824 @@ Voor u met deze zelfstudie begint:
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installeer de [Azure Powershell-module, versie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) of de [Azure CLI](/cli/azure/install-azure-cli).
 * Een beveiligd [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) maken in Azure
-* Stel een Windows-ontwikkelomgeving in. Installeer [Visual Studio 2017](https://www.visualstudio.com) en de workloads voor **Azure-ontwikkeling**, **ASP.NET-ontwikkeling en webontwikkeling** en **.NET Core platformoverschrijdende ontwikkeling**.  Richt vervolgens een [.NET-ontwikkelomgeving in](service-fabric-get-started.md).
 
-## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+## <a name="important-considerations-and-guidelines"></a>Belangrijke overwegingen en richtlijnen
 
-Meld u aan bij uw Azure-account en selecteer uw abonnement voordat u Azure-opdrachten gaat uitvoeren.
+Werkbelastingen van toepassingen na verloop van tijd veranderen, hoeft uw bestaande services meer (of minder) bronnen?  [Toevoegen of verwijderen van knooppunten](#add-nodes-to-or-remove-nodes-from-a-node-type) van een knooppunt dat u wilt vergroten of verkleinen van clusterresources.
+
+Wilt u meer dan 100 knooppunten toevoegen aan uw cluster?  Een enkele Service Fabric-knooppunt type/scale set kan niet meer dan 100 knooppunten/virtuele machines bevatten.  Voor het schalen van een cluster met meer dan 100 knooppunten [toevoegen van extra knooppunttypen](#add-nodes-to-or-remove-nodes-from-a-node-type).
+
+Uw toepassing beschikt over meerdere services en moet een van deze openbare of internetservices zijn?  Typische toepassingen bevatten een gateway in de front-end-service die de invoer van een client ontvangt en een of meer back-end-services die communiceren met de front-end-services. In dit geval raden we u [toevoegen ten minste twee typen](#add-nodes-to-or-remove-nodes-from-a-node-type) aan het cluster.  
+
+Uw services beschikt over de infrastructuur voor verschillende behoeften, zoals meer RAM-geheugen of hogere CPU-cycli? Uw toepassing bevat bijvoorbeeld een front-end-service en een back-endservice. De front-end-service kunt uitvoeren op kleinere virtuele machines (VM-grootten, zoals D2) die poorten zijn geopend met het internet. De back-endservice echter is berekening intensieve en moet worden uitgevoerd op grotere virtuele machines (met VM-grootten, zoals D4, D6, D15) die niet internet gericht. In dit geval het wordt aangeraden dat u [toevoegen van twee of meer knooppunttypen](#add-nodes-to-or-remove-nodes-from-a-node-type) met uw cluster. Hierdoor kan elk knooppunttype om afzonderlijke eigenschappen zoals verbinding met internet of VM-grootte. Het aantal virtuele machines kan worden geschaald, onafhankelijk van elkaar, maar ook.
+
+Wanneer u een Azure-cluster, houd rekening met de volgende richtlijnen:
+
+* Een enkele Service Fabric-knooppunt type/scale set kan niet meer dan 100 knooppunten/virtuele machines bevatten.  Om te schalen in een cluster met meer dan 100 knooppunten, moet u extra knooppunttypen toevoegen.
+* Primaire knooppunttypen uitvoeren van productieworkloads moet een [duurzaamheidsniveau] [ durability] Gold of zilver en hebben altijd het vijf of meer knooppunten.
+* niet-primaire knooppunttypen uitvoeren van stateful productieworkloads moeten altijd vijf of meer knooppunten hebben.
+* niet-primaire knooppunttypen uitvoeren van productieworkloads stateless moeten altijd twee of meer knooppunten hebben.
+* Elk knooppunttype [duurzaamheidsniveau] [ durability] Gold of Silver moet altijd zijn vijf of meer knooppunten.
+* Als inschalen (verwijderen van knooppunten van) een primaire knooppunttype, moet u nooit het aantal exemplaren die lager is dan wat een lager de [betrouwbaarheidsniveau] [ reliability] is vereist.
+
+Lees voor meer informatie, [richtlijnen van de capaciteit van cluster](service-fabric-cluster-capacity.md).
+
+## <a name="export-the-template-for-the-resource-group"></a>De sjabloon voor de resourcegroep exporteren
+
+Na het maken van een veilige [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) en instellen van de resourcegroep, de Resource Manager-sjabloon voor de resourcegroep exporteren. De sjabloon exporteren, kunt u voor het automatiseren van toekomstige implementaties van het cluster en de resources, omdat de sjabloon de volledige infrastructuur bevat.  Lees voor meer informatie over het exporteren van sjablonen [resourcegroepen beheren van Azure Resource Manager met behulp van de Azure-portal](/azure/azure-resource-manager/manage-resource-groups-portal).
+
+1. In de [Azure-portal](https://portal.azure.com), gaat u naar de resourcegroep met het cluster (**sfclustertutorialgroup**, als u deze zelfstudie volgt). 
+
+2. Selecteer in het linkerdeelvenster **implementaties**, of Selecteer de koppeling onder **implementaties**. 
+
+3. Selecteer de meest recente geslaagde implementatie in de lijst.
+
+4. Selecteer in het linkerdeelvenster **sjabloon** en selecteer vervolgens **downloaden** de sjabloon exporteren als een ZIP-bestand.  Sla de sjabloon en parameters op uw lokale computer.
+
+## <a name="add-nodes-to-or-remove-nodes-from-a-node-type"></a>Knooppunten toevoegen of verwijderen uit een knooppunttype
+
+In en uit te schalen of horizontaal schalen, wijzigt het aantal knooppunten in het cluster. Wanneer u in of uit te schalen, kunt u meer exemplaren van de virtuele machine toevoegen aan de schaalset. Deze instanties worden de knooppunten die door Service Fabric worden gebruikt. Service Fabric weet wanneer er meer exemplaren aan de schaalset zijn toegevoegd (door uitschaling) en reageert daar automatisch op. U kunt het cluster schalen op elk gewenst moment, zelfs wanneer workloads worden uitgevoerd op het cluster.
+
+### <a name="update-the-template"></a>De sjabloon bijwerken
+
+[Een sjabloon en parameters-bestand exporteren](#export-the-template-for-the-resource-group) uit de resourcegroep voor de meest recente implementatie.  Open de *parameters.json* bestand.  Als u het cluster met behulp geïmplementeerd de [voorbeeldsjabloon] [ template] in deze zelfstudie, er zijn drie typen in het cluster en drie parameters die het aantal knooppunten ingesteld voor elk knooppunttype:  *nt0InstanceCount*, *nt1InstanceCount*, en *nt2InstanceCount*.  De *nt1InstanceCount* parameter, bijvoorbeeld: Hiermee stelt u het aantal exemplaren voor het tweede knooppunttype en wordt het aantal virtuele machines in de bijbehorende virtuele-machineschaalset ingesteld.
+
+Dit het geval is, door het bijwerken van de waarde van de *nt1InstanceCount* wijzigen van het aantal knooppunten in het tweede knooppunttype.  Denk eraan dat u een knooppunttype uit met meer dan 100 knooppunten kan niet schalen.  niet-primaire knooppunttypen uitvoeren van stateful productieworkloads moeten altijd vijf of meer knooppunten hebben. niet-primaire knooppunttypen uitvoeren van productieworkloads stateless moeten altijd twee of meer knooppunten hebben.
+
+Als u inschalen bent, verwijderen van knooppunten van een knooppunttype Brons [duurzaamheidsniveau] [ durability] moet u [handmatig verwijderen van de status van deze knooppunten](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Voor informatie over de duurzaamheidslaag van Silver en Gold, worden deze stappen automatisch uitgevoerd door het platform.
+
+### <a name="deploy-the-updated-template"></a>De bijgewerkte sjabloon implementeren
+Opslaan van wijzigingen in de *template.json* en *parameters.json* bestanden.  Voer de volgende opdracht voor het implementeren van de bijgewerkte sjabloon:
 
 ```powershell
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
+```
+Of de volgende Azure CLI-opdracht uit:
+```azure-cli
+az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
-```azurecli
-az login
-az account set --subscription <guid>
+## <a name="add-a-node-type-to-the-cluster"></a>Een knooppunttype toevoegen aan het cluster
+
+Elk knooppunttype die is gedefinieerd in een Service Fabric-cluster worden uitgevoerd in Azure is ingesteld als een [afzonderlijke virtuele-machineschaalset](service-fabric-cluster-nodetypes.md). Vervolgens kan elk knooppunttype afzonderlijk worden beheerd. U kunt onafhankelijk elk knooppunttype omhoog of omlaag schalen, verschillende open poorten bevatten en verschillende capaciteitsstatistieken gebruiken. U kunt ook afzonderlijk de SKU van het besturingssysteem die worden uitgevoerd op elk clusterknooppunt wijzigen, maar houd er rekening mee dat er geen een combinatie van Windows en Linux die worden uitgevoerd in het voorbeeld-cluster. Een enkel knooppunt/schaalset mag niet meer dan 100 knooppunten bevatten.  U kunt een cluster horizontaal op meer dan 100 knooppunten schalen door extra knooppunt typen/schaalsets toe te voegen. U kunt het cluster schalen op elk gewenst moment, zelfs wanneer workloads worden uitgevoerd op het cluster.
+
+### <a name="update-the-template"></a>De sjabloon bijwerken
+
+[Een sjabloon en parameters-bestand exporteren](#export-the-template-for-the-resource-group) uit de resourcegroep voor de meest recente implementatie.  Open de *parameters.json* bestand.  Als u het cluster met behulp geïmplementeerd de [voorbeeldsjabloon] [ template] in deze zelfstudie, er zijn drie typen van de knooppunten in het cluster.  In deze sectie kunt u een vierde knooppunttype toevoegen door te werken en implementeren van een Resource Manager-sjabloon. 
+
+Naast de nieuwe knooppunttype u ook de bijbehorende VM-schaalset (die wordt uitgevoerd in een apart subnet van het virtuele netwerk) toevoegen en beveiligingsgroep.  U kunt nieuwe of bestaande openbare IP-adres en resources voor Azure load balancer voor de nieuwe schaalset toe te voegen.  Het nieuwe knooppunttype heeft een [duurzaamheidsniveau] [ durability] van Silver en de grootte van 'Standard_D2_V2'.
+
+In de *template.json* bestand, zijn de volgende nieuwe parameters toegevoegd:
+```json
+"nt3InstanceCount": {
+    "defaultValue": 5,
+    "type": "Int",
+    "metadata": {
+        "description": "Instance count for node type"
+    }
+},
+"vmNodeType3Size": {
+    "defaultValue": "Standard_D2_V2",
+    "type": "String"
+},
 ```
 
-## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
+In de *template.json* bestand, voeg de volgende nieuwe variabelen:
+```json
+"lbID3": "[resourceId('Microsoft.Network/loadBalancers',concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType3Name')))]",
+"lbIPConfig3": "[concat(variables('lbID3'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
+"lbPoolID3": "[concat(variables('lbID3'),'/backendAddressPools/LoadBalancerBEAddressPool')]",
+"lbProbeID3": "[concat(variables('lbID3'),'/probes/FabricGatewayProbe')]",
+"lbHttpProbeID3": "[concat(variables('lbID3'),'/probes/FabricHttpGatewayProbe')]",
+"lbNatPoolID3": "[concat(variables('lbID3'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]",
+"vmNodeType3Name": "[toLower(concat('NT4', variables('vmName')))]",
+"vmStorageAccountName3": "[toLower(concat(uniqueString(resourceGroup().id), '1', '3' ))]",
+"nt3applicationStartPort": "20000",
+"nt3applicationEndPort": "30000",
+"nt3ephemeralStartPort": "49152",
+"nt3ephemeralEndPort": "65534",
+"nt3fabricTcpGatewayPort": "19000",
+"nt3fabricHttpGatewayPort": "19080",
+"nt3reverseProxyEndpointPort": "19081",
+"subnet3Name": "Subnet-3",
+"subnet3Prefix": "10.0.3.0/24",
+"subnet3Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet3Name'))]",
+```
 
-Om dit deel van de zelfstudie te voltooien, moet u verbinding maken met het Service Fabric-cluster en de virtuele-machineschaalset (die als host fungeert voor het cluster). De virtuele-machineschaalset is de Azure-resource die als host fungeert voor Service Fabric op Azure.
+In de *template.json* bestand, een nieuw subnet toevoegen aan de VM-resource:
+```json
+{
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "[variables('virtualNetworkName')]",
+    "apiVersion": "2018-08-01",
+    "location": "[variables('computeLocation')]",
+    "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+    },
+    "properties": {
+        "addressSpace": {
+            "addressPrefixes": [
+                "[variables('addressPrefix')]"
+            ]
+        },
+        "subnets": [
+            ...
+            {
+                "name": "[variables('subnet3Name')]",
+                "properties": {
+                    "addressPrefix": "[variables('subnet3Prefix')]",
+                    "networkSecurityGroup": {
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat('nsg', variables('subnet3Name')))]"
+                    }
+                }
+            }
+        ]
+    },
+    "dependsOn": [
+        ...
+        "[concat('Microsoft.Network/networkSecurityGroups/', concat('nsg', variables('subnet3Name')))]"
+    ]
+},
+```
 
-Wanneer u verbinding maakt met een cluster, kunt u hieruit informatie opvragen. U kunt het cluster gebruiken om te weten te komen welke knooppunten het cluster herkent. Om verbinding te maken met het cluster wordt in de volgende code hetzelfde certificaat gebruikt dat ook in het eerste deel van deze serie is gebruikt. Let erop dat u de variabelen `$endpoint` en `$thumbprint` instelt op uw waarden.
+In de *template.json* bestand, het toevoegen van nieuwe openbare IP-adres en de load balancer-resources:
+```json
+{
+    "type": "Microsoft.Network/publicIPAddresses",
+    "name": "[concat(variables('lbIPName'),'-',variables('vmNodeType3Name'))]",
+    "apiVersion": "2018-08-01",
+    "location": "[variables('computeLocation')]",
+    "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+    },
+    "properties": {
+        "dnsSettings": {
+            "domainNameLabel": "[concat(variables('dnsName'),'-','nt4')]"
+        },
+        "publicIPAllocationMethod": "Dynamic"
+    }
+},
+        {
+    "type": "Microsoft.Network/loadBalancers",
+    "name": "[concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType3Name'))]",
+    "apiVersion": "2018-08-01",
+    "location": "[variables('computeLocation')]",
+    "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+    },
+    "properties": {
+        "frontendIPConfigurations": [
+            {
+                "name": "LoadBalancerIPConfig",
+                "properties": {
+                    "publicIPAddress": {
+                        "id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('lbIPName'),'-',variables('vmNodeType3Name')))]"
+                    }
+                }
+            }
+        ],
+        "backendAddressPools": [
+            {
+                "name": "LoadBalancerBEAddressPool",
+                "properties": {}
+            }
+        ],
+        "loadBalancingRules": [
+            {
+                "name": "LBRule",
+                "properties": {
+                    "backendAddressPool": {
+                        "id": "[variables('lbPoolID3')]"
+                    },
+                    "backendPort": "[variables('nt3fabricTcpGatewayPort')]",
+                    "enableFloatingIP": "false",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig3')]"
+                    },
+                    "frontendPort": "[variables('nt3fabricTcpGatewayPort')]",
+                    "idleTimeoutInMinutes": "5",
+                    "probe": {
+                        "id": "[variables('lbProbeID3')]"
+                    },
+                    "protocol": "tcp"
+                }
+            },
+            {
+                "name": "LBHttpRule",
+                "properties": {
+                    "backendAddressPool": {
+                        "id": "[variables('lbPoolID3')]"
+                    },
+                    "backendPort": "[variables('nt3fabricHttpGatewayPort')]",
+                    "enableFloatingIP": "false",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig3')]"
+                    },
+                    "frontendPort": "[variables('nt3fabricHttpGatewayPort')]",
+                    "idleTimeoutInMinutes": "5",
+                    "probe": {
+                        "id": "[variables('lbHttpProbeID3')]"
+                    },
+                    "protocol": "tcp"
+                }
+            },
+            {
+                "name": "AppPortLBRule1",
+                "properties": {
+                    "backendAddressPool": {
+                        "id": "[variables('lbPoolID3')]"
+                    },
+                    "backendPort": "[parameters('loadBalancedAppPort1')]",
+                    "enableFloatingIP": "false",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig3')]"
+                    },
+                    "frontendPort": "[parameters('loadBalancedAppPort1')]",
+                    "idleTimeoutInMinutes": "5",
+                    "probe": {
+                        "id": "[concat(variables('lbID3'),'/probes/AppPortProbe1')]"
+                    },
+                    "protocol": "tcp"
+                }
+            },
+            {
+                "name": "AppPortLBRule2",
+                "properties": {
+                    "backendAddressPool": {
+                        "id": "[variables('lbPoolID3')]"
+                    },
+                    "backendPort": "[parameters('loadBalancedAppPort2')]",
+                    "enableFloatingIP": "false",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig3')]"
+                    },
+                    "frontendPort": "[parameters('loadBalancedAppPort2')]",
+                    "idleTimeoutInMinutes": "5",
+                    "probe": {
+                        "id": "[concat(variables('lbID3'),'/probes/AppPortProbe2')]"
+                    },
+                    "protocol": "tcp"
+                }
+            }
+        ],
+        "probes": [
+            {
+                "name": "FabricGatewayProbe",
+                "properties": {
+                    "intervalInSeconds": 5,
+                    "numberOfProbes": 2,
+                    "port": "[variables('nt3fabricTcpGatewayPort')]",
+                    "protocol": "tcp"
+                }
+            },
+            {
+                "name": "FabricHttpGatewayProbe",
+                "properties": {
+                    "intervalInSeconds": 5,
+                    "numberOfProbes": 2,
+                    "port": "[variables('nt3fabricHttpGatewayPort')]",
+                    "protocol": "tcp"
+                }
+            },
+            {
+                "name": "AppPortProbe1",
+                "properties": {
+                    "intervalInSeconds": 5,
+                    "numberOfProbes": 2,
+                    "port": "[parameters('loadBalancedAppPort1')]",
+                    "protocol": "tcp"
+                }
+            },
+            {
+                "name": "AppPortProbe2",
+                "properties": {
+                    "intervalInSeconds": 5,
+                    "numberOfProbes": 2,
+                    "port": "[parameters('loadBalancedAppPort2')]",
+                    "protocol": "tcp"
+                }
+            }
+        ],
+        "inboundNatPools": [
+            {
+                "name": "LoadBalancerBEAddressNatPool",
+                "properties": {
+                    "backendPort": "3389",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig3')]"
+                    },
+                    "frontendPortRangeEnd": "4500",
+                    "frontendPortRangeStart": "3389",
+                    "protocol": "tcp"
+                }
+            }
+        ]
+    },
+    "dependsOn": [
+        "[concat('Microsoft.Network/publicIPAddresses/',concat(variables('lbIPName'),'-',variables('vmNodeType3Name')))]"
+    ]
+},
+```
+
+In de *template.json* bestand, nieuwe netwerk beveiliging groep en virtual machine scale set resources toevoegen.  De eigenschap NodeTypeRef binnen de Service Fabric-extensie-eigenschappen van de virtuele-machineschaalset wordt het type opgegeven knooppunt toegewezen aan de schaalset.
+
+```json
+{
+    "type": "Microsoft.Network/networkSecurityGroups",
+    "name": "[concat('nsg', variables('subnet3Name'))]",
+    "apiVersion": "2018-08-01",
+    "location": "[resourceGroup().location]",
+    "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+    },
+    "properties": {
+        "securityRules": [
+            {
+                "name": "allowSvcFabSMB",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "445",
+                    "direction": "Inbound",
+                    "priority": 3950,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "sourcePortRange": "*",
+                    "description": "allow SMB traffic within the net, used by fabric to move packages around"
+                }
+            },
+            {
+                "name": "allowSvcFabCluser",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "1025-1027",
+                    "direction": "Inbound",
+                    "priority": 3920,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "sourcePortRange": "*",
+                    "description": "allow ports within vnet that are used by the fabric to talk between nodes"
+                }
+            },
+            {
+                "name": "allowSvcFabEphemeral",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[concat(variables('nt3ephemeralStartPort'), '-', variables('nt3ephemeralEndPort'))]",
+                    "direction": "Inbound",
+                    "priority": 3930,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "sourcePortRange": "*",
+                    "description": "allow fabric ephemeral ports within the vnet"
+                }
+            },
+            {
+                "name": "allowSvcFabPortal",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[variables('nt3fabricHttpGatewayPort')]",
+                    "direction": "Inbound",
+                    "priority": 3900,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow port used to access the fabric cluster web portal"
+                }
+            },
+            {
+                "name": "allowSvcFabClient",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[variables('nt3fabricTcpGatewayPort')]",
+                    "direction": "Inbound",
+                    "priority": 3910,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow port used by the fabric client (includes powershell)"
+                }
+            },
+            {
+                "name": "allowSvcFabApplication",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[concat(variables('nt3applicationStartPort'), '-', variables('nt3applicationEndPort'))]",
+                    "direction": "Inbound",
+                    "priority": 3940,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow fabric application ports within the vnet"
+                }
+            },
+            {
+                "name": "blockAll",
+                "properties": {
+                    "access": "Deny",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "*",
+                    "direction": "Inbound",
+                    "priority": 4095,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "block all traffic except what we've explicitly allowed"
+                }
+            },
+            {
+                "name": "allowVNetRDP",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "3389",
+                    "direction": "Inbound",
+                    "priority": 3960,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow RDP within the net"
+                }
+            },
+            {
+                "name": "allowSvcFabReverseProxy",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[variables('nt3reverseProxyEndpointPort')]",
+                    "direction": "Inbound",
+                    "priority": 3980,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow port used to access the fabric cluster using reverse proxy"
+                }
+            },
+            {
+                "name": "allowAppPort1",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[parameters('loadBalancedAppPort1')]",
+                    "direction": "Inbound",
+                    "priority": 2001,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow public application port 1"
+                }
+            },
+            {
+                "name": "allowAppPort2",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "[parameters('loadBalancedAppPort2')]",
+                    "direction": "Inbound",
+                    "priority": 2002,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "*",
+                    "sourcePortRange": "*",
+                    "description": "allow public application port 2"
+                }
+            }
+        ]
+    }
+},
+{
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    "sku": {
+        "name": "[parameters('vmNodeType3Size')]",
+        "capacity": "[parameters('nt3InstanceCount')]",
+        "tier": "Standard"
+    },
+    "name": "[variables('vmNodeType3Name')]",
+    "apiVersion": "2018-10-01",
+    "location": "[variables('computeLocation')]",
+    "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+    },
+    "properties": {
+        "overprovision": "[variables('overProvision')]",
+        "upgradePolicy": {
+            "mode": "Automatic"
+        },
+        "virtualMachineProfile": {
+            "extensionProfile": {
+                "extensions": [
+                    {
+                        "name": "[concat(variables('vmNodeType3Name'),'OMS')]",
+                        "properties": {
+                            "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                            "type": "MicrosoftMonitoringAgent",
+                            "typeHandlerVersion": "1.0",
+                            "autoUpgradeMinorVersion": true,
+                            "settings": {
+                                "workspaceId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename')), '2015-11-01-preview').customerId]"
+                            },
+                            "protectedSettings": {
+                                "workspaceKey": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename')),'2015-11-01-preview').primarySharedKey]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType3Name')]",
+                        "properties": {
+                            "type": "ServiceFabricNode",
+                            "autoUpgradeMinorVersion": true,
+                            "protectedSettings": {
+                                "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+                                "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+                            },
+                            "publisher": "Microsoft.Azure.ServiceFabric",
+                            "settings": {
+                                "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                                "nodeTypeRef": "[variables('vmNodeType3Name')]",
+                                "dataPath": "D:\\SvcFab",
+                                "durabilityLevel": "Silver",
+                                "enableParallelJobs": true,
+                                "nicPrefixOverride": "[variables('subnet3Prefix')]",
+                                "certificate": {
+                                    "thumbprint": "[parameters('certificateThumbprint')]",
+                                    "x509StoreName": "[parameters('certificateStoreValue')]"
+                                }
+                            },
+                            "typeHandlerVersion": "1.0"
+                        }
+                    },
+                    {
+                        "name": "[concat('VMDiagnosticsVmExt','_vmNodeType3Name')]",
+                        "properties": {
+                            "type": "IaaSDiagnostics",
+                            "autoUpgradeMinorVersion": true,
+                            "protectedSettings": {
+                                "storageAccountName": "[variables('applicationDiagnosticsStorageAccountName')]",
+                                "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('applicationDiagnosticsStorageAccountName')),'2015-05-01-preview').key1]",
+                                "storageAccountEndPoint": "https://core.windows.net/"
+                            },
+                            "publisher": "Microsoft.Azure.Diagnostics",
+                            "settings": {
+                                "WadCfg": {
+                                    "DiagnosticMonitorConfiguration": {
+                                        "overallQuotaInMB": "50000",
+                                        "EtwProviders": {
+                                            "EtwEventSourceProviderConfiguration": [
+                                                {
+                                                    "provider": "Microsoft-ServiceFabric-Actors",
+                                                    "scheduledTransferKeywordFilter": "1",
+                                                    "scheduledTransferPeriod": "PT5M",
+                                                    "DefaultEvents": {
+                                                        "eventDestination": "ServiceFabricReliableActorEventTable"
+                                                    }
+                                                },
+                                                {
+                                                    "provider": "Microsoft-ServiceFabric-Services",
+                                                    "scheduledTransferPeriod": "PT5M",
+                                                    "DefaultEvents": {
+                                                        "eventDestination": "ServiceFabricReliableServiceEventTable"
+                                                    }
+                                                }
+                                            ],
+                                            "EtwManifestProviderConfiguration": [
+                                                {
+                                                    "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                                                    "scheduledTransferLogLevelFilter": "Information",
+                                                    "scheduledTransferKeywordFilter": "4611686018427387904",
+                                                    "scheduledTransferPeriod": "PT5M",
+                                                    "DefaultEvents": {
+                                                        "eventDestination": "ServiceFabricSystemEventTable"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                "StorageAccount": "[variables('applicationDiagnosticsStorageAccountName')]"
+                            },
+                            "typeHandlerVersion": "1.5"
+                        }
+                    },
+                    {
+                        "name": "[concat('VMIaaSAntimalware','_vmNodeType3Name')]",
+                        "properties": {
+                            "publisher": "Microsoft.Azure.Security",
+                            "type": "IaaSAntimalware",
+                            "typeHandlerVersion": "1.5",
+                            "settings": {
+                                "AntimalwareEnabled": "true",
+                                "Exclusions": {
+                                    "Paths": "D:\\SvcFab;D:\\SvcFab\\Log;C:\\Program Files\\Microsoft Service Fabric",
+                                    "Processes": "Fabric.exe;FabricHost.exe;FabricInstallerService.exe;FabricSetup.exe;FabricDeployer.exe;ImageBuilder.exe;FabricGateway.exe;FabricDCA.exe;FabricFAS.exe;FabricUOS.exe;FabricRM.exe;FileStoreService.exe"
+                                },
+                                "RealtimeProtectionEnabled": "true",
+                                "ScheduledScanSettings": {
+                                    "isEnabled": "true",
+                                    "scanType": "Quick",
+                                    "day": "7",
+                                    "time": "120"
+                                }
+                            },
+                            "protectedSettings": null
+                        }
+                    }
+                ]
+            },
+            "networkProfile": {
+                "networkInterfaceConfigurations": [
+                    {
+                        "name": "[concat(variables('nicName'), '-2')]",
+                        "properties": {
+                            "ipConfigurations": [
+                                {
+                                    "name": "[concat(variables('nicName'),'-',2)]",
+                                    "properties": {
+                                        "loadBalancerBackendAddressPools": [
+                                            {
+                                                "id": "[variables('lbPoolID3')]"
+                                            }
+                                        ],
+                                        "loadBalancerInboundNatPools": [
+                                            {
+                                                "id": "[variables('lbNatPoolID3')]"
+                                            }
+                                        ],
+                                        "subnet": {
+                                            "id": "[variables('subnet3Ref')]"
+                                        }
+                                    }
+                                }
+                            ],
+                            "primary": true
+                        }
+                    }
+                ]
+            },
+            "osProfile": {
+                "adminPassword": "[parameters('adminPassword')]",
+                "adminUsername": "[parameters('adminUsername')]",
+                "computernamePrefix": "[variables('vmNodeType3Name')]",
+                "secrets": [
+                    {
+                        "sourceVault": {
+                            "id": "[parameters('sourceVaultValue')]"
+                        },
+                        "vaultCertificates": [
+                            {
+                                "certificateStore": "[parameters('certificateStoreValue')]",
+                                "certificateUrl": "[parameters('certificateUrlValue')]"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "storageProfile": {
+                "imageReference": {
+                    "publisher": "[parameters('vmImagePublisher')]",
+                    "offer": "[parameters('vmImageOffer')]",
+                    "sku": "[parameters('vmImageSku')]",
+                    "version": "[parameters('vmImageVersion')]"
+                },
+                "osDisk": {
+                    "caching": "ReadOnly",
+                    "createOption": "FromImage",
+                    "managedDisk": {
+                        "storageAccountType": "[parameters('storageAccountType')]"
+                    }
+                }
+            }
+        }
+    },
+    "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+        "[concat('Microsoft.Network/loadBalancers/', concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType3Name')))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
+    ]
+},
+```
+
+In de *template.json* bestand, bijwerken van de cluster-bron en een nieuw knooppunttype toevoegen:
+```json
+{
+    "type": "Microsoft.ServiceFabric/clusters",
+    "name": "[parameters('clusterName')]",
+    "apiVersion": "2018-02-01",
+    "location": "[parameters('clusterLocation')]",
+    "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+    },
+    "properties": {
+        "nodeTypes": [
+            ...
+            {
+                "name": "[variables('vmNodeType3Name')]",
+                "applicationPorts": {
+                    "endPort": "[variables('nt3applicationEndPort')]",
+                    "startPort": "[variables('nt3applicationStartPort')]"
+                },
+                "clientConnectionEndpointPort": "[variables('nt3fabricTcpGatewayPort')]",
+                "durabilityLevel": "Silver",
+                "ephemeralPorts": {
+                    "endPort": "[variables('nt3ephemeralEndPort')]",
+                    "startPort": "[variables('nt3ephemeralStartPort')]"
+                },
+                "httpGatewayEndpointPort": "[variables('nt3fabricHttpGatewayPort')]",
+                "isPrimary": false,
+                "reverseProxyEndpointPort": "[variables('nt3reverseProxyEndpointPort')]",
+                "vmInstanceCount": "[parameters('nt3InstanceCount')]"
+            }
+        ],    
+    }
+}                
+```
+
+In de *parameters.json* bestand, voeg de volgende nieuwe parameters en waarden toe:
+```json
+"nt3InstanceCount": {
+    "Value": 5    
+},
+"vmNodeType3Size": {
+    "Value": "Standard_D2_V2"
+},
+```
+
+### <a name="deploy-the-updated-template"></a>De bijgewerkte sjabloon implementeren
+Opslaan van wijzigingen in de *template.json* en *parameters.json* bestanden.  Voer de volgende opdracht voor het implementeren van de bijgewerkte sjabloon:
 
 ```powershell
-$endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
-$thumbprint = "63EB5BA4BC2A3BADC42CA6F93D6F45E5AD98A1E4"
+New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
+```
+Of de volgende Azure CLI-opdracht uit:
+```azure-cli
+az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
+```
 
-Connect-ServiceFabricCluster -ConnectionEndpoint $endpoint `
+## <a name="remove-a-node-type-from-the-cluster"></a>Een knooppunttype uit het cluster verwijderen
+Na het maken van een Service Fabric-cluster, kunt u een cluster horizontaal schalen door een knooppunttype (virtuele-machineschaalset) en alle bijbehorende knooppunten te verwijderen. U kunt het cluster schalen op elk gewenst moment, zelfs wanneer workloads worden uitgevoerd op het cluster. Als het cluster wordt geschaald, wordt uw toepassingen automatisch ook schalen.
+
+> [!WARNING]
+> Remove-AzureRmServiceFabricNodeType gebruiken om te verwijderen van een knooppunttype uit een productiecluster wordt niet aanbevolen moet regelmatig worden gebruikt. Het is een opdracht als de resource VM scale set achter het knooppunttype worden verwijderd. 
+
+Als u wilt verwijderen van het knooppunttype, voer de [Remove-AzureRmServiceFabricNodeType](/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype) cmdlet.  Het knooppunttype moet Silver- of Gold [duurzaamheidsniveau] [ durability] de cmdlet Hiermee verwijdert u de schaalset die is gekoppeld aan het knooppunttype en duurt enige tijd om te voltooien.  Voer vervolgens de [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdlet uit op elk van de knooppunten te verwijderen, verwijdert de status en Hiermee verwijdert u de knooppunten van het cluster. Als er services op de knooppunten zijn, klikt u vervolgens de services eerst verplaatst uit naar een ander knooppunt. Als de clustermanager een knooppunt niet voor de replica/service vinden kan, klikt u vervolgens is de bewerking vertraagd/geblokkeerd.
+
+```powershell
+$groupname = "sfclustertutorialgroup"
+$nodetype = "nt4vm"
+$clustername = "mysfcluster123"
+
+Remove-AzureRmServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+
+Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.eastus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint $thumbprint `
-          -FindType FindByThumbprint -FindValue $thumbprint `
+          -X509Credential -ServerCertThumbprint <thumbprint> `
+          -FindType FindByThumbprint -FindValue <thumbprint> `
           -StoreLocation CurrentUser -StoreName My
 
-Get-ServiceFabricClusterHealth
-```
+$nodes = Get-ServiceFabricNode | Where-Object {$_.NodeType -eq $nodetype} | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending
 
-```azurecli
-sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
---pem ./aztestcluster201709151446.pem --no-verify
-```
-
-Wanneer de verbinding is gemaakt, kunt u een opdracht gebruiken om de status van elk knooppunt in het cluster op te vragen. Voor **PowerShell** gebruikt u de opdracht `Get-ServiceFabricClusterHealth` en voor **sfctl** de opdracht `sfctl cluster select`.
-
-## <a name="scale-out"></a>Uitschalen
-
-Wanneer u uitschaalt, voegt u meer instanties van de virtuele machine toe aan de schaalset. Deze instanties worden de knooppunten die door Service Fabric worden gebruikt. Service Fabric weet wanneer er meer exemplaren aan de schaalset zijn toegevoegd (door uitschaling) en reageert daar automatisch op. Met de volgende code verkrijgt u een schaalset op naam en verhoogt u de **capaciteit** van de schaalset met 1.
-
-```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
-$scaleset.Sku.Capacity += 1
-
-Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
-```
-
-Met deze code stelt u de capaciteit in op 6.
-
-```azurecli
-# Get the name of the node with
-az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
-
-# Use the name to scale
-az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
-```
-
-## <a name="scale-in"></a>Inschalen
-
-Inschalen is hetzelfde als uitschalen; u gebruikt alleen een lagere waarde voor de **capaciteit**. Wanneer u de schaalset inschaalt, verwijdert u instanties van de virtuele machine uit de schaalset. Normaal gesproken merkt Service Fabric niets van wat is er gebeurd en lijkt het alsof er een knooppunt verloren is gegaan. Service Fabric rapporteert daarom een onjuiste status voor het cluster. Om deze onjuiste status te voorkomen, moet u aan Service Fabric doorgeven dat u verwacht dat het knooppunt verdwijnt.
-
-### <a name="remove-the-service-fabric-node"></a>Het Service Fabric-knooppunt verwijderen
-
-> [!NOTE]
-> Dit gedeelte is alleen van toepassing op de *Bronzen* duurzaamheidslaag. Voor meer informatie over duurzaamheid raadpleegt u [Service Fabric cluster capacity planning][durability] (Capaciteitsplanning voor Service Fabric-clusters).
-
-Als u de knooppunten van het cluster gelijkmatig verdeeld wilt houden in upgrade- en foutdomeinen en op die manier gelijkmatig gebruik wilt inschakelen, moet het meest recent gemaakte knooppunt eerst worden verwijderd. Met andere woorden - de knooppunten moeten op basis van 'last in, first out' worden verwijderd. Het meest recent gemaakte knooppunt heeft de hoogste `virtual machine scale set InstanceId`-eigenschapswaarde. Met de onderstaande codevoorbeelden wordt het meest recent gemaakte knooppunt geretourneerd.
-
-```powershell
-Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
-```
-
-```azurecli
-sfctl node list --query "sort_by(items[*], &name)[-1]"
-```
-
-Het Service Fabric-cluster moet weten dat dit knooppunt zal worden verwijderd. Er zijn drie stappen die u moet uitvoeren:
-
-1. Schakel het knooppunt uit zodat het geen replica meer is voor gegevens.  
-PowerShell: `Disable-ServiceFabricNode`  
-sfctl: `sfctl node disable`
-
-2. Stop het knooppunt zodat de Service Fabric-runtime netjes wordt afgesloten en uw app een beëindigingsaanvraag ontvangt.  
-PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
-sfctl: `sfctl node transition --node-transition-type Stop`
-
-2. Verwijder het knooppunt uit het cluster.  
-PowerShell: `Remove-ServiceFabricNodeState`  
-sfctl: `sfctl node remove-state`
-
-Nadat deze drie stappen op het knooppunt zijn toegepast, kan het knooppunt worden verwijderd uit de schaalset. Als u naast de [bronzen][durability] duurzaamheidslaag nog een andere duurzaamheidslaag gebruikt, worden deze stappen voor u uitgevoerd wanneer de schaalsetinstantie wordt verwijderd.
-
-In het volgende codeblok wordt het laatst gemaakte knooppunt opgehaald en wordt het knooppunt uitgeschakeld, gestopt en uit het cluster verwijderd.
-
-```powershell
-#### After you've connected.....
-# Get the node that was created last
-$node = Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
-
-# Node details for the disable/stop process
-$nodename = $node.NodeName
-$nodeid = $node.NodeInstanceId
-
-$loopTimeout = 10
-
-# Run disable logic
-Disable-ServiceFabricNode -NodeName $nodename -Intent RemoveNode -TimeoutSec 300 -Force
-
-$state = Get-ServiceFabricNode | Where-Object NodeName -eq $nodename | Select-Object -ExpandProperty NodeStatus
-
-while (($state -ne [System.Fabric.Query.NodeStatus]::Disabled) -and ($loopTimeout -ne 0))
+Foreach($node in $nodes)
 {
-    Start-Sleep 5
-    $loopTimeout -= 1
-    $state = Get-ServiceFabricNode | Where-Object NodeName -eq $nodename | Select-Object -ExpandProperty NodeStatus
-    Write-Host "Checking state... $state found"
-}
-
-# Exit if the node was unable to be disabled
-if ($state -ne [System.Fabric.Query.NodeStatus]::Disabled)
-{
-    Write-Error "Disable failed with state $state"
-}
-else
-{
-    # Stop node
-    $stopid = New-Guid
-    Start-ServiceFabricNodeTransition -Stop -OperationId $stopid -NodeName $nodename -NodeInstanceId $nodeid -StopDurationInSeconds 300
-
-    $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
-    $loopTimeout = 10
-
-    # Watch the transaction
-    while (($state -eq [System.Fabric.TestCommandProgressState]::Running) -and ($loopTimeout -ne 0))
-    {
-        Start-Sleep 5
-        $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
-        Write-Host "Checking state... $state found"
-    }
-
-    if ($state -ne [System.Fabric.TestCommandProgressState]::Completed)
-    {
-        Write-Error "Stop transaction failed with $state"
-    }
-    else
-    {
-        # Remove the node from the cluster
-        Remove-ServiceFabricNodeState -NodeName $nodename -TimeoutSec 300 -Force
-    }
+    Remove-ServiceFabricNodeState -NodeName $node.NodeName -TimeoutSec 300 -Force 
 }
 ```
 
-In onderstaande **sfctl**-code wordt de volgende opdracht gebruikt om de waarde van **knooppuntnaam** op te halen van het laatst gemaakte knooppunt: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
+## <a name="increase-node-resources"></a>Knooppunt resources verhogen 
+Na het maken van een Service Fabric-cluster, kunt u een cluster-knooppunttype verticaal schalen (de resources van de knooppunten wijzigen) of een upgrade van het besturingssysteem van het knooppunttype VM's.  
 
-```azurecli
-# Inform the node that it is going to be removed
-sfctl node disable --node-name _nt1vm_5 --deactivation-intent 4 -t 300
+> [!WARNING]
+> We raden u aan de VM-SKU van een scale set/knooppunttype niet te wijzigen, tenzij het wordt uitgevoerd op Silver duurzaamheid of hoger. De VM-SKU-grootte te wijzigen, is een gegevens-destructieve ter plekke infrastructuur-bewerking. Zonder enige mogelijkheid vertraging of bewaken van deze wijziging, is het mogelijk dat de bewerking kan leiden gegevensverlies voor stateful services tot of andere onvoorziene operationele problemen, zelfs voor staatloze werkbelastingen veroorzaken.
 
-# Stop the node using a random guid as our operation id
-sfctl node transition --node-instance-id 131541348482680775 --node-name _nt1vm_5 --node-transition-type Stop --operation-id c17bb4c5-9f6c-4eef-950f-3d03e1fef6fc --stop-duration-in-seconds 14400 -t 300
+> [!WARNING]
+> We raden u aan de VM-SKU van het primaire knooppunttype, dat is een bewerking op schadelijke en niet-ondersteunde niet te wijzigen.  Als u meer clustercapaciteit nodig hebt, kunt u meer VM-exemplaren of extra knooppunttypen toevoegen.  Als dat niet mogelijk is, kunt u een nieuw cluster maken en [toepassingsstatus terugzetten](service-fabric-reliable-services-backup-restore.md) (indien van toepassing) van het oude cluster.  Als dat niet mogelijk is, kunt u [wijzigen van de VM-SKU van het primaire knooppunttype](service-fabric-scale-up-node-type.md).
 
-# Remove the node from the cluster
-sfctl node remove-state --node-name _nt1vm_5
-```
+### <a name="update-the-template"></a>De sjabloon bijwerken
 
-> [!TIP]
-> Gebruik de volgende **sfctl**-query's om de status van elke stap te controleren
->
-> **Deactiveringsstatus controleren**
-> `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
->
-> **Stopstatus controleren**
-> `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
->
+[Een sjabloon en parameters-bestand exporteren](#export-the-template-for-the-resource-group) uit de resourcegroep voor de meest recente implementatie.  Open de *parameters.json* bestand.  Als u het cluster met behulp geïmplementeerd de [voorbeeldsjabloon] [ template] in deze zelfstudie, er zijn drie typen van de knooppunten in het cluster.  
 
-### <a name="scale-in-the-scale-set"></a>De schaalset inschalen
+De grootte van de virtuele machines in het tweede knooppunttype is ingesteld in de *vmNodeType1Size* parameter.  Wijziging de *vmNodeType1Size* parameterwaarde van Standard_D2_V2 naar [Standard_D3_V2](/azure/virtual-machines/windows/sizes-general#dv2-series), die de resources van elke VM-exemplaar verdubbeld.
 
-Nu het Service Fabric-knooppunt is verwijderd uit het cluster, kan de virtuele-machineschaalset worden ingeschaald. In onderstaand voorbeeld wordt de capaciteit van de schaalset verminderd met 1.
+De VM-SKU voor alle drie typen is ingesteld in de *vmImageSku* parameter.  Nogmaals, wijzigen van de VM-SKU van een knooppunttype moet worden gerealiseerd met waarschuwing en wordt niet aanbevolen voor het primaire knooppunttype.
+
+### <a name="deploy-the-updated-template"></a>De bijgewerkte sjabloon implementeren
+Opslaan van wijzigingen in de *template.json* en *parameters.json* bestanden.  Voer de volgende opdracht voor het implementeren van de bijgewerkte sjabloon:
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
-$scaleset.Sku.Capacity -= 1
-
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
-
-Met deze code stelt u de capaciteit in op 5.
-
-```azurecli
-# Get the name of the node with
-az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
-
-# Use the name to scale
-az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
+Of de volgende Azure CLI-opdracht uit:
+```azure-cli
+az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -255,12 +873,15 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Het aantal clusterknooppunten lezen
-> * Clusterknooppunten toevoegen (uitschalen)
-> * Clusterknooppunten verwijderen (inschalen)
+> * Toevoegen en verwijderen van knooppunten (scale-out en inschalen)
+> * Toevoegen en verwijderen van knooppunttypen (scale-out en inschalen)
+> * Knooppunt-resources (Omhoog schalen) verhogen
 
 Daarna gaat u verder met de volgende zelfstudie, waarin u leert hoe u een upgrade uitvoert van de runtime van een cluster.
 > [!div class="nextstepaction"]
 > [De runtime van een cluster upgraden](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

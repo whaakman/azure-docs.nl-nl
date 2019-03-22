@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16caf8b6fd48b5dca676b1c8ee046ad01264ca03
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 561d7f5b28775e5f431d35d956cff6f800cc11b2
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211424"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294505"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Hoe gebruikers in uw organisatie kunnen uitnodigen van gastgebruikers ook kunnen aan een app
 
@@ -36,15 +37,15 @@ Nadat een app is geconfigureerd voor self-service, kunnen toepassingseigenaren h
 1. Uw Toegangsvenster openen door te gaan naar `https://myapps.microsoft.com`.
 2. Verwijzen naar de app, selecteer het beletselteken (**...** ), en selecteer vervolgens **beheren app**.
  
-   ![Toegangsdeelvensters beheren app](media/add-users-iw/access-panel-manage-app.png)
+   ![Schermopname van het Manage app-submenu voor de Salesforce-app](media/add-users-iw/access-panel-manage-app.png)
  
 3. Aan de bovenkant van de lijst met gebruikers, selecteert u **+**.
    
-   ![Toegangsvenster een gebruiker toevoegen](media/add-users-iw/access-panel-manage-app-add-user.png)
+   ![Schermopname van het plusteken voor het toevoegen van leden aan de app.](media/add-users-iw/access-panel-manage-app-add-user.png)
    
 4. In de **leden toevoegen** het zoekvak, typ de e-mailadres voor de gastgebruiker. U kunt optioneel een welkomstbericht toevoegen.
    
-   ![Toegang tot de uitnodiging voor deelvenster](media/add-users-iw/access-panel-invitation.png)
+   ![Schermopname van het venster voor het toevoegen van een gast leden](media/add-users-iw/access-panel-invitation.png)
    
 5. Selecteer **toevoegen** een uitnodiging voor de gastgebruiker te verzenden. Nadat u de uitnodiging verzendt, wordt het gebruikersaccount automatisch toegevoegd aan de map als gast.
 
@@ -55,19 +56,19 @@ Nadat u een app is geconfigureerd voor self-service, kunnen toepassingseigenaren
 2. Uw Toegangsvenster openen door te gaan naar `https://myapps.microsoft.com`.
 3. Selecteer de **groepen** app.
    
-   ![Toegang tot Configuratiescherm-app van groepen](media/add-users-iw/access-panel-groups.png)
+   ![Schermopname van de app groepen in het toegangsvenster](media/add-users-iw/access-panel-groups.png)
    
 4. Onder **mijn groepen**, selecteer de groep die toegang heeft tot de app die u wilt delen.
    
-   ![Toegangsvenster groepen die mijn bezit](media/add-users-iw/access-panel-groups-i-own.png)
+   ![Schermopname die laat zien waar een groep onder mijn groepen selecteren](media/add-users-iw/access-panel-groups-i-own.png)
    
 5. Selecteer aan de bovenkant van de lijst met groepsleden **+**.
    
-   ![Toegangsvenster groepen toevoegen lid](media/add-users-iw/access-panel-groups-add-member.png)
+   ![Schermopname van het plusteken voor het toevoegen van leden aan de groep](media/add-users-iw/access-panel-groups-add-member.png)
    
 6. In de **leden toevoegen** het zoekvak, typ de e-mailadres voor de gastgebruiker. U kunt optioneel een welkomstbericht toevoegen.
    
-   ![Uitnodiging voor toegang tot deelvenster groep](media/add-users-iw/access-panel-invitation.png)
+   ![Schermopname van het venster voor het toevoegen van een gast leden](media/add-users-iw/access-panel-invitation.png)
    
 7. Selecteer **toevoegen** voor het automatisch verzenden van de uitnodiging voor de gastgebruiker. Nadat u de uitnodiging verzendt, wordt het gebruikersaccount automatisch toegevoegd aan de map als gast.
 

@@ -4,17 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: aa58890f74c7c667189fa10c009769de043227c4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f00da12519f21410f773afb96a5e9a83c56166d9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457857"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58052221"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Algemene fouten bij de migratie van klassiek naar Azure Resource Manager
 In dit artikel behandelen we de meest voorkomende fouten en oplossingen tijdens de migratie van IaaS-resources van het klassieke Azure-implementatiemodel naar de Azure Resource Manager-stack.
 
 ## <a name="list-of-errors"></a>Lijst met fouten
+
 | Fouttekenreeks | Oplossing |
 | --- | --- |
 | Interne serverfout |In sommige gevallen is dit een tijdelijke fout die bij een nieuwe poging is verdwenen. Als deze fout zich blijft voordoen, [neem dan contact op met de ondersteuning van Azure](../articles/azure-supportability/how-to-create-azure-support-request.md). De platformlogboeken moeten namelijk worden onderzocht. <br><br> **OPMERKING:** Zodra het incident wordt gevolgd door het ondersteuningsteam,. Probeer niet alle zelfstandige risicobeperking omdat deze mogelijk ongewenste gevolgen voor uw omgeving. |

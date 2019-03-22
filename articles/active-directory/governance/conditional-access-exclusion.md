@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75ff08111e96fd4b210dfeb09db521856f4f5e52
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727499"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892712"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Gebruik Azure AD-Toegangsbeoordelingen voor het beheren van gebruikers die zijn uitgesloten van beleid voor voorwaardelijke toegang
 
@@ -102,7 +102,7 @@ We hebben betrekking op twee voorbeelden waar u toegangsbeoordelingen gebruiken 
 Stel dat u hebt een beleid voor voorwaardelijke toegang die blokkeert de toegang van bepaalde landen. Het bevat een groep die is uitgesloten van het beleid. Hier volgt een aanbevolen toegangsbeoordeling waar leden van de groep worden gecontroleerd.
 
 > [!NOTE]
-> Een rol globale beheerder of beheerder van gebruikersaccounts is vereist voor het maken van toegangsbeoordelingen.
+> Een globale beheerder of de gebruiker administrator-rol is vereist voor het maken van toegangsbeoordelingen.
 
 1. De evaluatie wordt elke week opnieuw.
 

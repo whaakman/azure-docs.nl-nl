@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4fa8e28d9ccc16482ca937a220eae83e282da7e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: MT
+ms.openlocfilehash: 2b801df6036566840dd96bde0801ab018d0614b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103091"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Ondersteuningsmatrix voor herstel na noodgevallen van Hyper-V-machines naar een secundaire site
 
@@ -66,7 +66,7 @@ Gast-VM Windows/Linux - statisch IP-adres | Ja
 Gast-VM - Multi-NIC | Ja
 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 
 ### <a name="host-storage"></a>Opslag van de host
 
@@ -109,7 +109,7 @@ Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen (binnen of tussen
 De Provider coördineert de communicatie tussen VMM-servers. 
 
 **Latest** | **Updates**
---- | --- | --- | --- | ---
+--- | --- 
 5.1.19 ([beschikbaar is via de portal](https://aka.ms/downloaddra) | [Nieuwste functies en correcties](https://support.microsoft.com/kb/3155002)
 
 

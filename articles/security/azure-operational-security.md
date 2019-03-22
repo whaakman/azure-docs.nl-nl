@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5a407db97803d3c3be898893b7da6c1cb4aa94bb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536994"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901505"
 ---
 # <a name="azure-operational-security"></a>Azure operationele beveiliging
 ## <a name="introduction"></a>Inleiding
@@ -149,7 +149,7 @@ Om klanten te helpen bedreigingen te voorkomen, te detecteren en erop te reagere
 
 -   **Gegevensscheiding**: Gegevens worden bewaard logische manier apart op elk onderdeel van de service. Alle gegevens worden gemarkeerd per organisatie. Deze markering blijft aanwezig gedurende de levenscyclus van de gegevens en deze wordt afgedwongen op elke laag van de service.
 
--   **Gegevenstoegang**: Aanbevelingen voor beveiliging te bieden en mogelijke bedreigingen te onderzoeken, Microsoft-personeel kunnen toegang krijgen tot gegevens die worden verzameld of geanalyseerd door Azure-services, waaronder crashdumpbestanden, procesgebeurtenissen, momentopnamen van de VM-schijf en verwerken artefacten, die procesgebeurtenissen omvatten mogelijk klantgegevens of persoonlijke gegevens van uw virtuele machines. We voldoen aan de [privacyverklaring voor Microsoft Online Services-voorwaarden en](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), waarin staat dat Microsoft geen maakt gebruik van klantgegevens of afleidt voor reclame- of vergelijkbare commerciële doeleinden.
+-   **Gegevenstoegang**: Aanbevelingen voor beveiliging te bieden en mogelijke bedreigingen te onderzoeken, Microsoft-personeel kunnen toegang krijgen tot gegevens die worden verzameld of geanalyseerd door Azure-services, waaronder crashdumpbestanden, procesgebeurtenissen, momentopnamen van de VM-schijf en verwerken artefacten, die procesgebeurtenissen omvatten mogelijk klantgegevens of persoonlijke gegevens van uw virtuele machines. We voldoen aan de [privacyverklaring voor Microsoft Online Services-voorwaarden en](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), waarin staat dat Microsoft geen maakt gebruik van klantgegevens of afleidt voor reclame- of vergelijkbare commerciële doeleinden.
 
 -   **Gegevensgebruik**: Microsoft maakt gebruik van patronen en bedreigingsinformatie gezien tussen meerdere tenants voor het verbeteren van onze mogelijkheden voor voorkoming en detectie; We doen in overeenstemming met de privacyverplichtingen beschreven in onze [privacyverklaring](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
@@ -271,6 +271,7 @@ De volgende typen geverifieerde en anonieme aanvragen worden geregistreerd.
 | Aanvragen via een Shared Access Signature (SAS), met inbegrip van mislukte en geslaagde aanvragen |Time-out van fouten voor zowel client als server |
 |   Aanvragen voor het analytics-gegevens |    GET-aanvragen is mislukt met foutcode 304 (niet gewijzigd) |
 | Aanvragen van Storage Analytics zelf, zoals logboekbestanden worden gemaakt of verwijderd, worden niet geregistreerd. Een volledige lijst van de gegevens in het logboek wordt beschreven in de [Storage Analytics geregistreerde bewerkingen en statusberichten](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) en [Storage Analytics logboekindeling](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) onderwerpen. | Alle andere mislukte anonieme aanvragen worden niet geregistreerd. Een volledige lijst van de gegevens in het logboek wordt beschreven in de [Storage Analytics geregistreerde bewerkingen en statusberichten](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) en [Storage Analytics logboekindeling](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
+
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
 Azure AD bevat ook een volledige suite met mogelijkheden voor identiteitsbeheer zoals meervoudige verificatie, device Registration service, eigen wachtwoordbeheer, selfservice groepsbeheer, bevoegd accountmanagement, op basis van de rol controle, bewaking van toepassingsgebruik, uitgebreide controle, en beveiligingsbewaking en waarschuwingen.
@@ -293,7 +294,7 @@ De rapporten bevatten de controlerecord voor de naam van de gebeurtenis, de acto
 |Aanmeldingen vanaf mogelijk geïnfecteerde apparaten |Afzonderlijke gebruikersactiviteiten |   |
 |Gebruikers met afwijkende aanmeldingsactiviteiten |Rapport met groepsactiviteiten |   |
 | |Rapport voor de registratie van opnieuw ingestelde wachtwoorden |   |
-| |Activiteit voor wachtwoord opnieuw instellen |   | |
+| |Activiteit voor wachtwoord opnieuw instellen |   |
 
 
 

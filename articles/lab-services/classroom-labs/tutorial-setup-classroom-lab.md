@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: HT
+ms.openlocfilehash: 6816c21d30ff5340441d58aff202c271eb1c836a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649580"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090318"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Zelfstudie: Een leslokaallab instellen 
 In deze zelfstudie stelt u een leslokaallab in met virtuele machines die worden gebruikt door studenten in het leslokaal.  
@@ -69,9 +69,9 @@ Een labeigenaar kan andere gebruikers toevoegen aan de rol **Labmaker**. Zo kan 
 
     ![Sjabloonpagina configureren nadat deze is voltooid](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Voer de volgende stappen uit op de pagina **Sjabloon configureren**: Deze stappen zijn **optioneel** voor de zelfstudie.
-    2. De sjabloon-VM verbinden door **Verbinding maken** te selecteren. 
-    3. Software installeren en configureren op uw sjabloon-VM.     
-    5. Een **Beschrijving** voor de sjabloon invoeren
+   1. De sjabloon-VM verbinden door **Verbinding maken** te selecteren. 
+   1. Software installeren en configureren op uw sjabloon-VM.     
+   1. Een **Beschrijving** voor de sjabloon invoeren
 9. Selecteer **Volgende** op de sjabloonpagina. 
 10. Voer op de pagina **De sjabloon publiceren** de volgende acties uit. 
     1. Als u de sjabloon onmiddellijk wilt publiceren, selecteert u **Publiceren**.  
@@ -89,10 +89,10 @@ Een labeigenaar kan andere gebruikers toevoegen aan de rol **Labmaker**. Zo kan 
     ![Sjabloon publiceren - gelukt](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. U ziet het **dashboard** voor het lab. 
     
-    ![Dashboard Leslokaallab](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
+     ![Dashboard Leslokaallab](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 4. Schakel over naar de pagina **Virtuele machines** door Virtuele machines te selecteren in het menu links of door de tegel Virtuele machines te selecteren. Controleer of u virtuele machines ziet met de status **Niet-toegewezen**. Deze virtuele machines zijn nog niet toegewezen aan studenten. Deze horen de status **Gestopt** te hebben. Op deze pagina kunt u een student-VM starten, verbinding maken met de virtuele machine, de virtuele machine stoppen en de virtuele machine verwijderen. U kunt de virtuele machines zelf starten vanaf deze pagina of ze laten starten door de studenten. 
 
-    ![Virtuele machines met de status Gestopt](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+     ![Virtuele machines met de status Gestopt](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## <a name="add-users-to-the-lab"></a>Gebruikers toevoegen aan het lab
 

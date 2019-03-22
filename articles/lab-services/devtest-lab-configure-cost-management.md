@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: bc81f479305f39024b8d946e1ace3fc84ecb6253
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: 1f6887a403e03ac11bb080a1d9855daff66ca088
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588853"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096772"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>De kosten die zijn gekoppeld aan een lab in Azure DevTest Labs bijhouden
 In dit artikel bevat informatie over hoe u kunt de kosten van uw lab bijhouden. Het laat zien hoe u om weer te geven de geschatte kosten Theo voor de huidige kalendermaand voor de testomgeving. Het artikel ziet u ook de kosten maand tot heden per resource weergeven in het lab.
@@ -41,19 +41,19 @@ Als u wilt de grafiek maandelijkse Trend voor de geschatte kosten weergeven, de 
 
     De kosten worden naar boven afgerond op het dichtstbijzijnde gehele getal. Bijvoorbeeld: 
 
-    * 5.01 afgerond tot 6 
-    * 5.50 afgerond tot 6
-    * 5.99 afgerond tot 6
+   * 5.01 afgerond tot 6 
+   * 5.50 afgerond tot 6
+   * 5.99 afgerond tot 6
 
-    Als deze boven de grafiek staat, de kosten die u standaard in de grafiek ziet worden *geschatte* kosten met behulp van [betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) tarieven aanbieden. U kunt ook uw eigen uitgaven doelen die worden weergegeven in de grafieken door instellen [beheren van de doelen van de kosten voor uw testomgeving.](#managing-cost-targets-for-your-lab)
+     Als deze boven de grafiek staat, de kosten die u standaard in de grafiek ziet worden *geschatte* kosten met behulp van [betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) tarieven aanbieden. U kunt ook uw eigen uitgaven doelen die worden weergegeven in de grafieken door instellen [beheren van de doelen van de kosten voor uw testomgeving.](#managing-cost-targets-for-your-lab)
 
-    De volgende kosten zijn *niet* opgenomen in de berekening van de kosten:
+     De volgende kosten zijn *niet* opgenomen in de berekening van de kosten:
 
-    * CSP- en Dreamspark-abonnementen worden momenteel niet ondersteund als Azure DevTest Labs gebruikt de [API's van Azure facturering](../billing/billing-usage-rate-card-overview.md) voor het berekenen van de testomgeving kosten, die biedt geen ondersteuning voor CSP of Dreamspark-abonnementen.
-    * De tarieven voor uw aanbieding. U kunt de tarieven van de aanbieding (die wordt weergegeven onder uw abonnement) dat u hebt onderhandeld met Microsoft of Microsoft partners op dit moment niet gebruiken. Alleen betalen per gebruik-tarieven worden gebruikt.
-    * Uw belastingen
-    * Slevy
-    * De valuta op uw factuur. Op dit moment wordt de kosten voor het testlab alleen weergegeven in USD valuta.
+   * CSP- en Dreamspark-abonnementen worden momenteel niet ondersteund als Azure DevTest Labs gebruikt de [API's van Azure facturering](../billing/billing-usage-rate-card-overview.md) voor het berekenen van de testomgeving kosten, die biedt geen ondersteuning voor CSP of Dreamspark-abonnementen.
+   * De tarieven voor uw aanbieding. U kunt de tarieven van de aanbieding (die wordt weergegeven onder uw abonnement) dat u hebt onderhandeld met Microsoft of Microsoft partners op dit moment niet gebruiken. Alleen betalen per gebruik-tarieven worden gebruikt.
+   * Uw belastingen
+   * Slevy
+   * De valuta op uw factuur. Op dit moment wordt de kosten voor het testlab alleen weergegeven in USD valuta.
 
 ### <a name="managing-cost-targets-for-your-lab"></a>Doelen van de kosten voor uw lab beheren
 DevTest Labs kunt u beter de kosten in uw testomgeving door in te stellen van een bestedingslimiet doel dat u vervolgens in de grafiek maandelijkse Trend voor de geschatte kosten weergeven kunt te beheren. DevTest Labs kunnen ook sturen u een melding wanneer het opgegeven doel uitgaven of de drempelwaarde is bereikt. 
@@ -76,11 +76,11 @@ DevTest Labs kunt u beter de kosten in uw testomgeving door in te stellen van ee
 
        ![Meldingsvenster configureren](./media/devtest-lab-configure-cost-management/configure-notification.png)
 
-      - Als u opgeeft **waarschuwen**, moet u een webhook-URL opgeven.
-      - Op dezelfde manier als u een webhook-URL hebt gedefinieerd, moet u instellen **melding** naar **op** in het deelvenster van de drempelwaarde kosten.
-      - Een webhook voordat u hier invoert, moet u maken.  
+     - Als u opgeeft **waarschuwen**, moet u een webhook-URL opgeven.
+     - Op dezelfde manier als u een webhook-URL hebt gedefinieerd, moet u instellen **melding** naar **op** in het deelvenster van de drempelwaarde kosten.
+     - Een webhook voordat u hier invoert, moet u maken.  
 
-      Zie voor meer informatie over webhooks [maken van een webhook of API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+       Zie voor meer informatie over webhooks [maken van een webhook of API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 ## <a name="view-cost-by-resource"></a>Weergave-kosten per resource 
 De maandelijkse kosten trend-functie in labs kunt u zien hoeveel u in de huidige kalendermaand hebt besteed. U ziet ook de projectie van de uitgaven tot het einde van de maand, op basis van uw uitgaven in de afgelopen zeven dagen. Om te begrijpen waarom de uitgaven in het lab voldoet aan de drempelwaarden vroeg ingeschakeld, kunt u de **kosten per resource** functie waarin u de kosten maand tot heden **per resource** in een tabel.

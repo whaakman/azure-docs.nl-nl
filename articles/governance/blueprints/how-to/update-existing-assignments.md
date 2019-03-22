@@ -1,6 +1,6 @@
 ---
-title: Het bijwerken van een bestaande toewijzing
-description: Meer informatie over het mechanisme voor het bijwerken van een bestaande toewijzing in blauwdrukken voor Azure.
+title: Het bijwerken van een bestaande toewijzing van de portal
+description: Meer informatie over het mechanisme voor het bijwerken van een bestaande toewijzing van de portal in Azure blauwdrukken.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: edfc14e837c92cac5bab589e33069bb771a53cb7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818252"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999846"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Het bijwerken van een bestaande blauwdruktoewijzing van
 
@@ -26,9 +26,9 @@ Wanneer een blauwdruk wordt toegewezen, kan de toewijzing kan worden bijgewerkt.
 
 ## <a name="updating-assignments"></a>Toewijzingen bijwerken
 
-1. Selecteer **alle services** in het linkerdeelvenster. Zoek en selecteer **blauwdrukken**.
+1. Selecteer **Alle services** in het linkerdeelvenster. Zoek en selecteer **Blauwdrukken**.
 
-1. Selecteer **toegewezen blauwdrukken** op de pagina aan de linkerkant.
+1. Selecteer **Toegewezen blauwdrukken** op de pagina aan de linkerkant.
 
 1. In de lijst met blauwdrukken, de blauwdruktoewijzing te klikken. Klik vervolgens op de **toewijzing bijwerken** of met de rechtermuisknop op de blauwdruktoewijzing en selecteer **toewijzing bijwerken**.
 
@@ -69,8 +69,8 @@ Er is geen limiet voor het aantal keren dat een toewijzing kunnen worden bijgewe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [levenscyclus van een blauwdruk](../concepts/lifecycle.md)
-- Informatie over hoe u [statische en dynamische parameters](../concepts/parameters.md) gebruikt
-- Meer informatie over hoe u de [blauwdrukvolgorde](../concepts/sequencing-order.md) aanpast
-- Ontdek hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](../concepts/resource-locking.md)
-- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md)
+- Meer informatie over de [levenscyclus van een blauwdruk](../concepts/lifecycle.md).
+- Meer informatie over hoe u [statische en dynamische parameters](../concepts/parameters.md) gebruikt.
+- Meer informatie over hoe u de [blauwdrukvolgorde](../concepts/sequencing-order.md) aanpast.
+- Meer informatie over hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](../concepts/resource-locking.md).
+- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md).

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1f1fbc49a42ec9b72ebe74a96ee099630d7416b1
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 06478cb3366054bd20239bf80f026562efd26232
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570645"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087394"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Syntaxis voor OData-expressie voor filters en order by-componenten in Azure Search
 
@@ -55,62 +55,62 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 ### <a name="filter-operators"></a>Voor de filteroperators  
 
--   Logische operators (en, of niet).  
+- Logische operators (en, of niet).  
 
--   Vergelijkingsexpressies (`eq, ne, gt, lt, ge, le`). Tekenreeksvergelijkingen zijn hoofdlettergevoelig.  
+- Vergelijkingsexpressies (`eq, ne, gt, lt, ge, le`). Tekenreeksvergelijkingen zijn hoofdlettergevoelig.  
 
--   Constanten van de ondersteunde [Entiteitgegevensmodel](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDP)-typen (Zie [ondersteunde gegevenstypen &#40;Azure Search&#41; ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) voor een lijst met ondersteunde typen). Constanten van verzamelingtypen worden niet ondersteund.  
+- Constanten van de ondersteunde [Entiteitgegevensmodel](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDP)-typen (Zie [ondersteunde gegevenstypen &#40;Azure Search&#41; ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) voor een lijst met ondersteunde typen). Constanten van verzamelingtypen worden niet ondersteund.  
 
--   Verwijzingen naar de veldnamen. Alleen `filterable` velden kunnen worden gebruikt in filterexpressies.  
+- Verwijzingen naar de veldnamen. Alleen `filterable` velden kunnen worden gebruikt in filterexpressies.  
 
--   `any` zonder parameters. Deze test of een veld van het type `Collection(Edm.String)` worden elementen bevat.  
+- `any` zonder parameters. Deze test of een veld van het type `Collection(Edm.String)` worden elementen bevat.  
 
--   `any` en `all` met ondersteuning voor beperkte lambda-expressie. 
+- `any` en `all` met ondersteuning voor beperkte lambda-expressie. 
     
-    -   `any/all` worden ondersteund in de velden van het type `Collection(Edm.String)`. 
+  -   `any/all` worden ondersteund in de velden van het type `Collection(Edm.String)`. 
     
-    -   `any` kan alleen worden gebruikt met eenvoudige gelijkheid expressies of een `search.in` functie. Eenvoudige expressies bestaan uit een vergelijking tussen één veld en een letterlijke waarde, bijvoorbeeld `Title eq 'Magna Carta'`.
+  -   `any` kan alleen worden gebruikt met eenvoudige gelijkheid expressies of een `search.in` functie. Eenvoudige expressies bestaan uit een vergelijking tussen één veld en een letterlijke waarde, bijvoorbeeld `Title eq 'Magna Carta'`.
     
-    -   `all` kan alleen worden gebruikt met eenvoudige ongelijkheid expressies of een `not search.in`.   
+  -   `all` kan alleen worden gebruikt met eenvoudige ongelijkheid expressies of een `not search.in`.   
 
--   Georuimtelijke functies `geo.distance` en `geo.intersects`. De `geo.distance` functie wordt de afstand in kilometer zijn verwijderd tussen de twee punten, één wordt een veld en één een constante wordt doorgegeven als onderdeel van het filter. De `geo.intersects` functie retourneert ' True ' als een opgegeven punt zich binnen een bepaalde veelhoek, waar het punt een veld is en de veelhoek is opgegeven als een constante doorgegeven als onderdeel van het filter.  
+- Georuimtelijke functies `geo.distance` en `geo.intersects`. De `geo.distance` functie wordt de afstand in kilometer zijn verwijderd tussen de twee punten, één wordt een veld en één een constante wordt doorgegeven als onderdeel van het filter. De `geo.intersects` functie retourneert ' True ' als een opgegeven punt zich binnen een bepaalde veelhoek, waar het punt een veld is en de veelhoek is opgegeven als een constante doorgegeven als onderdeel van het filter.  
 
-    De veelhoek is een tweedimensionale oppervlak opgeslagen als een reeks punten definiëren van een selectiekader ring (Zie het onderstaande voorbeeld). De veelhoek moet worden gesloten, wat betekent dat de eerste en laatste punt sets moeten hetzelfde zijn. [Punten in een polygoon moeten zich in tegen de klok in volgorde](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+  De veelhoek is een tweedimensionale oppervlak opgeslagen als een reeks punten definiëren van een selectiekader ring (Zie het onderstaande voorbeeld). De veelhoek moet worden gesloten, wat betekent dat de eerste en laatste punt sets moeten hetzelfde zijn. [Punten in een polygoon moeten zich in tegen de klok in volgorde](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
-    `geo.distance` retourneert de afstand in kilometer zijn verwijderd in Azure Search. Dit wijkt af van andere services die ondersteuning bieden voor OData georuimtelijke bewerkingen, die doorgaans afstanden in meters te retourneren.  
+  `geo.distance` retourneert de afstand in kilometer zijn verwijderd in Azure Search. Dit wijkt af van andere services die ondersteuning bieden voor OData georuimtelijke bewerkingen, die doorgaans afstanden in meters te retourneren.  
 
-    > [!NOTE]  
-    >  Wanneer u geo.distance in een filter, moet u de afstand die zijn geretourneerd door de functie met een constante met vergelijken `lt`, `le`, `gt`, of `ge`. De operators `eq` en `ne` worden niet ondersteund bij het vergelijken van afstanden. Dit is bijvoorbeeld een correct gebruik van geo.distance: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.  
+  > [!NOTE]  
+  >  Wanneer u geo.distance in een filter, moet u de afstand die zijn geretourneerd door de functie met een constante met vergelijken `lt`, `le`, `gt`, of `ge`. De operators `eq` en `ne` worden niet ondersteund bij het vergelijken van afstanden. Dit is bijvoorbeeld een correct gebruik van geo.distance: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.  
 
--   De `search.in` functie test of een opgegeven tekenreeks-veld gelijk aan een van een opgegeven lijst met waarden is. Het kan ook worden gebruikt in een of meer aan een enkele waarde van een verzameling tekenreeksveld met een opgegeven lijst met waarden te vergelijken. Gelijkheid van het veld en van elke waarde in de lijst wordt bepaald op een hoofdlettergevoelige manier, dezelfde manier als voor de `eq` operator. Daarom een expressie, zoals `search.in(myfield, 'a, b, c')` is gelijk aan `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, behalve dat `search.in` leidt tot veel betere prestaties. 
+- De `search.in` functie test of een opgegeven tekenreeks-veld gelijk aan een van een opgegeven lijst met waarden is. Het kan ook worden gebruikt in een of meer aan een enkele waarde van een verzameling tekenreeksveld met een opgegeven lijst met waarden te vergelijken. Gelijkheid van het veld en van elke waarde in de lijst wordt bepaald op een hoofdlettergevoelige manier, dezelfde manier als voor de `eq` operator. Daarom een expressie, zoals `search.in(myfield, 'a, b, c')` is gelijk aan `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, behalve dat `search.in` leidt tot veel betere prestaties. 
 
-    De eerste parameter voor de `search.in` functie is de tekenreeks veldverwijzing (of een variabele bereik via een tekenreeksveld verzameling in het geval waarbij `search.in` wordt gebruikt binnen een `any` of `all` expressie). De tweede parameter is een tekenreeks met de lijst met waarden, gescheiden door spaties en/of komma's. Als u gebruiken, scheidingstekens dan spaties en komma's wilt omdat de waarden die tekens bevatten, kunt u een optionele derde parameter `search.in`. 
+  De eerste parameter voor de `search.in` functie is de tekenreeks veldverwijzing (of een variabele bereik via een tekenreeksveld verzameling in het geval waarbij `search.in` wordt gebruikt binnen een `any` of `all` expressie). De tweede parameter is een tekenreeks met de lijst met waarden, gescheiden door spaties en/of komma's. Als u gebruiken, scheidingstekens dan spaties en komma's wilt omdat de waarden die tekens bevatten, kunt u een optionele derde parameter `search.in`. 
 
-    Deze derde parameter is een tekenreeks waarin elk teken van de tekenreeks of een subset van deze tekenreeks wordt beschouwd als scheidingsteken bij het parseren van de lijst met waarden in de tweede parameter.
+  Deze derde parameter is een tekenreeks waarin elk teken van de tekenreeks of een subset van deze tekenreeks wordt beschouwd als scheidingsteken bij het parseren van de lijst met waarden in de tweede parameter.
 
-    > [!NOTE]   
-    > Sommige scenario's vereist een veld op basis van een groot aantal constante waarden vergelijken. Bijvoorbeeld: implementatie van security trimming wordt geregeld met filters mogelijk vergelijken van het document-ID-veld op basis van een lijst met id's waarvoor de aanvragende gebruiker leestoegang wordt verleend. In scenario's zoals dit is het raadzaam met behulp van de `search.in` functie in plaats van een meer complexe scheiding van gelijkheid expressies. Gebruik bijvoorbeeld `search.in(Id, '123, 456, ...')` in plaats van `Id eq 123 or Id eq 456 or ....`. 
-    >
-    > Als u `search.in`, u krijgt dan een seconde reactietijd wanneer de tweede parameter een lijst met honderden of duizenden waarden bevat. Houd er rekening mee dat er geen expliciete limiet voor het aantal items dat u kunt doorgeven is aan `search.in`, hoewel u nog steeds worden beperkt door de grootte van de maximale aanvraag. Echter, de latentie zal toenemen naarmate het aantal waarden groeit.
+  > [!NOTE]   
+  > Sommige scenario's vereist een veld op basis van een groot aantal constante waarden vergelijken. Bijvoorbeeld: implementatie van security trimming wordt geregeld met filters mogelijk vergelijken van het document-ID-veld op basis van een lijst met id's waarvoor de aanvragende gebruiker leestoegang wordt verleend. In scenario's zoals dit is het raadzaam met behulp van de `search.in` functie in plaats van een meer complexe scheiding van gelijkheid expressies. Gebruik bijvoorbeeld `search.in(Id, '123, 456, ...')` in plaats van `Id eq 123 or Id eq 456 or ....`. 
+  >
+  > Als u `search.in`, u krijgt dan een seconde reactietijd wanneer de tweede parameter een lijst met honderden of duizenden waarden bevat. Houd er rekening mee dat er geen expliciete limiet voor het aantal items dat u kunt doorgeven is aan `search.in`, hoewel u nog steeds worden beperkt door de grootte van de maximale aanvraag. Echter, de latentie zal toenemen naarmate het aantal waarden groeit.
 
--   De `search.ismatch` functie zoekopdracht wordt geëvalueerd als onderdeel van een filterexpressie. De documenten die overeenkomen met de zoekopdracht worden geretourneerd in de resultatenset. De volgende overloads van deze functie zijn beschikbaar:
-    - `search.ismatch(search)`
-    - `search.ismatch(search, searchFields)`
-    - `search.ismatch(search, searchFields, queryType, searchMode)`
+- De `search.ismatch` functie zoekopdracht wordt geëvalueerd als onderdeel van een filterexpressie. De documenten die overeenkomen met de zoekopdracht worden geretourneerd in de resultatenset. De volgende overloads van deze functie zijn beschikbaar:
+  - `search.ismatch(search)`
+  - `search.ismatch(search, searchFields)`
+  - `search.ismatch(search, searchFields, queryType, searchMode)`
 
-    Waar: 
+  Waar: 
   
-    - `search`: de query (in een [eenvoudige](query-simple-syntax.md) of [volledige](query-lucene-syntax.md) querysyntaxis). 
-    - `queryType`: 'eenvoudige' of 'volledig' standaard 'simple'. Hiermee geeft u op welke querytaal is gebruikt in de `search` parameter.
-    - `searchFields`: door komma's gescheiden lijst met doorzoekbare velden om te zoeken, standaard ingesteld op alle doorzoekbare velden in de index.    
-    - `searchMode`: 'een' of 'alle' standaard ingesteld op 'alle'. Geeft aan of een of meer van de zoektermen overeen moeten komen voor het tellen van het document als een overeenkomst.
+  - `search`: de query (in een [eenvoudige](query-simple-syntax.md) of [volledige](query-lucene-syntax.md) querysyntaxis). 
+  - `queryType`: 'eenvoudige' of 'volledig' standaard 'simple'. Hiermee geeft u op welke querytaal is gebruikt in de `search` parameter.
+  - `searchFields`: door komma's gescheiden lijst met doorzoekbare velden om te zoeken, standaard ingesteld op alle doorzoekbare velden in de index.    
+  - `searchMode`: 'een' of 'alle' standaard ingesteld op 'alle'. Geeft aan of een of meer van de zoektermen overeen moeten komen voor het tellen van het document als een overeenkomst.
 
-    De bovenstaande parameters gelijk zijn aan de bijbehorende [zoeken aanvraagparameters](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+  De bovenstaande parameters gelijk zijn aan de bijbehorende [zoeken aanvraagparameters](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
--   De `search.ismatchscoring` functioneren, zoals de `search.ismatch` functie, retourneert ' True ' voor documenten die overeenkomen met de query doorgegeven als parameter. Het verschil is dat de relevantie score van documenten die overeenkomt met de `search.ismatchscoring` query dragen bij aan de totale score document, terwijl in het geval van `search.ismatch`, de document-score niet meer gewijzigd. De volgende overloads van deze functie zijn beschikbaar met parameters die identiek zijn aan die van `search.ismatch`:
-    - `search.ismatchscoring(search)`
-    - `search.ismatchscoring(search, searchFields)`
-    - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
+- De `search.ismatchscoring` functioneren, zoals de `search.ismatch` functie, retourneert ' True ' voor documenten die overeenkomen met de query doorgegeven als parameter. Het verschil is dat de relevantie score van documenten die overeenkomt met de `search.ismatchscoring` query dragen bij aan de totale score document, terwijl in het geval van `search.ismatch`, de document-score niet meer gewijzigd. De volgende overloads van deze functie zijn beschikbaar met parameters die identiek zijn aan die van `search.ismatch`:
+  - `search.ismatchscoring(search)`
+  - `search.ismatchscoring(search, searchFields)`
+  - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
 
   De `search.ismatch` en `search.ismatchscoring` functies zijn volledig rechthoekige met elkaar en met de rest van de wiskundige filter. Dit betekent dat beide functies in de dezelfde filterexpressie kunnen worden gebruikt. 
 

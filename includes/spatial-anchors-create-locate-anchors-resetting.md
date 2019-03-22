@@ -1,1 +1,9 @@
-Als u de omgevingsgegevens die zijn opgenomen in uw sessie herstellen, kunt u het opnieuw instellen van methode aanroepen.
+---
+ms.openlocfilehash: 16a9d77ed337b0a1e7b13c1d8b03fcaef1acabd2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58016279"
+---
+Als u de omgevingsgegevens die zijn opgenomen in uw sessie herstellen, kunt u Reset () aanroepen.

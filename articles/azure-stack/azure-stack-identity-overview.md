@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 564c4b011b26f2bc6b034233d014542172a4a739
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 665f8ac9a8b0738ed23649673c548bc6b1774d2d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885297"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259955"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Overzicht van de identiteit voor Azure Stack
 
@@ -65,7 +65,7 @@ In Azure Stack, gebruikersaccounts:
 - Zijn beperkt tot de map waar ze zich registreren, dit de map van hun organisatie is.
 - Kan worden geïmporteerd vanuit uw on-premises adreslijsten. Zie voor meer informatie, [uw on-premises directory's integreren met Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
 
-Wanneer u zich bij de tenantportal van uw organisatie aanmelden, gebruikt u de *https://portal.local.azurestack.external* URL. Tijdens het aanmelden bij de Azure Stack-portal uit andere domeinen dan het account dat wordt gebruikt voor het registreren van Azure Stack, de domeinnaam die wordt gebruikt voor het registreren van Azure Stack moet worden toegevoegd aan de portal url. Bijvoorbeeld, als Azure Stack is geregistreerd bij fabrikam.onmicrosoft.com en de account van de gebruiker zich aanmeldt is admin@contoso.com, de URL te gebruiken om aan te melden bij de gebruikersportal: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Wanneer u zich bij de tenantportal van uw organisatie aanmelden, gebruikt u de *https:\//portal.local.azurestack.external* URL. Tijdens het aanmelden bij de Azure Stack-portal uit andere domeinen dan het account dat wordt gebruikt voor het registreren van Azure Stack, de domeinnaam die wordt gebruikt voor het registreren van Azure Stack moet worden toegevoegd aan de portal url. Bijvoorbeeld, als Azure Stack is geregistreerd bij fabrikam.onmicrosoft.com en de account van de gebruiker zich aanmeldt is admin@contoso.com, de URL te gebruiken om aan te melden bij de gebruikersportal: https:\//portal.local.azurestack.external/ Fabrikam.onmicrosoft.com.
 
 ### <a name="guest-users"></a>Gastgebruikers
 
@@ -73,7 +73,7 @@ Gastgebruikers zijn gebruikersaccounts van andere directorytenants die zijn verl
 
 Als u wilt uitnodigen van gastgebruikers, cloudoperators en gebruikers kunnen gebruikmaken van [Azure AD B2B-samenwerking](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Uitgenodigde gebruikers krijgen toegang tot documenten, bronnen en toepassingen van uw directory, en u controle over uw eigen resources en de gegevens beheert. 
 
-Als een gastgebruiker, kunt u zich aanmelden bij een andere organisatie directory-tenant. Om dit te doen, u de mapnaam van die organisatie toevoegen aan de portal URL. Bijvoorbeeld, als u deel uitmaken van de Contoso-organisatie en wilt aanmelden bij de Fabrikam-map, u https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Als een gastgebruiker, kunt u zich aanmelden bij een andere organisatie directory-tenant. Om dit te doen, u de mapnaam van die organisatie toevoegen aan de portal URL. Bijvoorbeeld, als u deel uitmaken van de Contoso-organisatie en wilt aanmelden bij de Fabrikam-map, u https:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### <a name="applications"></a>Applicaties
 
@@ -156,10 +156,10 @@ Voor toepassingen en gebruikers, wordt de architectuur van Azure Stack door vier
 
 Als u wilt verifiëren met de id-provider en een JSON Web Token ontvangt, hebt u de volgende informatie:
 
-1. **URL voor de identiteitssysteem (Authority)**: De URL waarmee uw id-provider kan worden bereikt. Bijvoorbeeld *https://login.windows.net*.
+1. **URL voor de identiteitssysteem (Authority)**: De URL waarmee uw id-provider kan worden bereikt. Bijvoorbeeld, *https:\//login.windows.net*.
 2. **URI van de App-ID voor Azure Resource Manager**: De unieke id voor Azure Resource Manager die is geregistreerd bij uw id-provider. Het is ook uniek is voor elke Azure Stack-installatie.
 3. **referenties**: De referentie op die u gebruikt voor verificatie met de id-provider.
-4. **URL voor Azure Resource Manager**: De URL is de locatie van de Azure Resource Manager-service. Bijvoorbeeld, *https://management.azure.com* of *https://management.local.azurestack.external*.
+4. **URL voor Azure Resource Manager**: De URL is de locatie van de Azure Resource Manager-service. Bijvoorbeeld, *https:\//management.azure.com* of *https:\//management.local.azurestack.external*.
 
 Wanneer een principal (een client, een toepassing of een gebruiker) een verificatieaanvraag voor toegang tot een resource maakt, moet de aanvraag zijn onder andere:
 

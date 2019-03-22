@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 017f665f3d0d19746854e2cf566034f801b32a04
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2c317bbdef2511728d23b33d8eef1c4a41a87d97
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310211"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201514"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Gelijktijdigheid van taken in Azure Search beheren
 
@@ -170,7 +170,7 @@ De volgende code ziet u accessCondition controleert op belangrijke update-bewerk
 
 Een ontwerppatroon voor het implementeren van optimistische gelijktijdigheid bevatten een lus die pogingen van de voorwaarde toegang controleren, een test voor de voorwaarde toegang en eventueel een bijgewerkte resource opgehaald voordat u de wijzigingen opnieuw toepassen.
 
-Dit codefragment ziet u het toevoegen van een synonymmap, die vervolgens naar een index die al bestaat. Deze code is afkomstig van de [synoniem (preview) C# zelfstudie voor Azure Search](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk).
+Dit codefragment ziet u het toevoegen van een synonymmap, die vervolgens naar een index die al bestaat. Deze code is afkomstig van de [synoniem (preview) C# voorbeeld voor Azure Search](https://docs.microsoft.com/azure/search/search-synonyms-example-sdk).
 
 Het codefragment wordt de index "hotels", controleert de Objectversie voor een updatebewerking, een uitzondering genereert als de voorwaarde is mislukt, en vervolgens probeert om opnieuw de bewerking (maximaal drie keer), beginnen met het ophalen van de index van de server naar de meest recente versie.
 

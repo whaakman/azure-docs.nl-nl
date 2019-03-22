@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 1a7f58960111b3fba6283830b262a9b901b8e2fd
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a78167e9b143a4c8d424947b489043dd45dfe2db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546229"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886419"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>Oplossen van verbindingsproblemen met Azure Database for PostgreSQL
 
@@ -48,7 +48,7 @@ Als de toepassing niet permanent verbinding maken met Azure Database for Postgre
 
 * Server firewall-configuratie: Zorg ervoor dat de Azure Database for PostgreSQL-server-firewall is geconfigureerd voor verbindingen van uw client, met inbegrip van de WAP-servers en gateways.
 * Firewall-configuratie van client: De firewall op de client moet toestaan verbindingen met uw database-server. IP-adressen en poorten van de server die is niet mogelijk om moeten worden toegestaan en de toepassingsnamen zoals PostgreSQL in sommige firewalls.
-* Gebruikersfout: U hebt verbindingsparameters, zoals de naam van de server in de verbindingsreeks of een ontbrekend verkeerd *@servername* -achtervoegsel in de naam van de gebruiker.
+* Gebruikersfout: U hebt verbindingsparameters, zoals de naam van de server in de verbindingsreeks of een ontbrekend verkeerd  *\@servername* -achtervoegsel in de naam van de gebruiker.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Stappen voor het oplossen van problemen met de permanente netwerkverbinding
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: 7fa76a2c5b01e623e490edd0091f7fb372b7085f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 7ce845fb272cea1d621e8ccc18203e3a071e8c29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093235"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992008"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Verizon-specifieke HTTP-headers voor regels-engine van Azure CDN
 
@@ -27,22 +27,22 @@ Voor **Azure CDN Premium van Verizon** -producten, wanneer een HTTP-aanvraag wor
 
 Als u wilt om te voorkomen dat een van deze gereserveerde kopteksten in de Azure CDN (Content Delivery Network) POP-aanvraag naar de oorspronkelijke server wordt toegevoegd, moet u een regel met de [speciale-kopteksten, Proxy-functie](cdn-rules-engine-reference-features.md#proxy-special-headers) in de regelengine. In deze regel, sluit u de header die u wilt verwijderen uit de standaardlijst van headers in het veld headers. Als u hebt ingeschakeld de [fouten opsporen in Cache antwoordheaders functie](cdn-rules-engine-reference-features.md#debug-cache-response-headers), zorg ervoor dat u het toevoegen van de benodigde `X-EC-Debug` headers. 
 
-Bijvoorbeeld, om te verwijderen de `Via` header, het veld headers van de regel moet de volgende lijst met kopteksten bevatten: *X doorgestuurd voor, X-doorgestuurd-protocol, X-Host, X-Midgress, X-Gateway-lijst, X-EG-Name, Host*. 
+Bijvoorbeeld, om te verwijderen de `Via` header, het veld headers van de regel moet de volgende lijst met kopteksten opnemen: *X doorgestuurd voor, X-doorgestuurd-protocol, X-Host, X-Midgress, X-Gateway-lijst, X-EG-naam, Host*. 
 
 ![Proxy speciale Headers regel](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
 
 De volgende tabel beschrijft de headers die kunnen worden toegevoegd door de Verizon CDN pop-locatie in de aanvraag:
 
-Aanvraagheader | Beschrijving | Voorbeeld
+Aanvraagheader | Description | Voorbeeld
 ---------------|-------------|--------
-[via](#via-request-header) | Identificeert de dat via proxy POP-server de aanvraag voor een bronserver. | HTTP/1.1 ECS (dca/1A2B)
+[Via](#via-request-header) | Identificeert de dat via proxy POP-server de aanvraag voor een bronserver. | HTTP/1.1 ECS (dca/1A2B)
 X doorgestuurd voor | Geeft aan dat de IP-adres van de aanvrager.| 10.10.10.10
-X-doorgestuurd-protocol | Geeft aan van de aanvraag-protocol. | http
-X-Host | Geeft aan dat de hostnaam van de aanvraag. | CDN.mydomain.com
+X-Forwarded-Proto | Geeft aan van de aanvraag-protocol. | http
+X-Host | Geeft aan dat de hostnaam van de aanvraag. | cdn.mydomain.com
 X-Midgress | Geeft aan of de aanvraag via proxy via een extra CDN-server is. Bijvoorbeeld, een POP-server-naar-origin shield-server of een POP-server-naar-ADN-gatewayserver. <br />Deze header is toegevoegd aan de aanvraag, alleen wanneer midgress verkeer plaatsvindt. In dit geval is de header ingesteld op 1 om aan te geven dat de aanvraag via proxy via een extra CDN-server is.| 1
-[Host](#host-request-header) | Hiermee geeft u de host en de poort waarop de gevraagde inhoud kan worden gevonden. | Marketing.mydomain.com:80
-[X-Gateway-List](#x-gateway-list-request-header) | ADN: Hiermee geeft u de failover-lijst ADN-Gateway-servers die zijn toegewezen aan de oorsprong van een klant. <br />Oorsprong shield: geeft aan dat de set shield bronservers toegewezen aan de oorsprong van een klant. | `icn1,hhp1,hnd1`
-X-EG -_&lt;naam&gt;_ | Aanvraagheaders die met beginnen *X-EG* (bijvoorbeeld: X-EG-Tag, [X-EG-Debug](cdn-http-debug-headers.md)) zijn gereserveerd voor gebruik door het CDN.| WAF-productie
+[Host](#host-request-header) | Hiermee geeft u de host en de poort waarop de gevraagde inhoud kan worden gevonden. | marketing.mydomain.com:80
+[X-Gateway-List](#x-gateway-list-request-header) | ADN: Hiermee geeft u de failover-lijst ADN-Gateway-servers die zijn toegewezen aan de oorsprong van een klant. <br />Oorsprong shield: Geeft aan dat de set shield bronservers toegewezen aan de oorsprong van een klant. | `icn1,hhp1,hnd1`
+X-EC-_&lt;name&gt;_ | Aanvraagheaders die met beginnen *X-EG* (bijvoorbeeld: X-EG-Tag, [X-EG-Debug](cdn-http-debug-headers.md)) zijn gereserveerd voor gebruik door het CDN.| WAF-productie
 
 ## <a name="via-request-header"></a>Via de aanvraagheader
 De indeling waarmee de `Via` aanvraag header geeft aan een POP-server is opgegeven door de volgende syntaxis:
@@ -53,15 +53,16 @@ De in de syntaxis van de gebruikte termen zijn als volgt gedefinieerd:
 - Protocol: Geeft aan dat de versie van het protocol (bijvoorbeeld: HTTP/1.1) naar een proxy gebruikt met de aanvraag. 
 
 - Platform: Geeft aan dat het platform waarop de inhoud is aangevraagd. De volgende codes zijn ongeldig voor dit veld: 
+
     Code | Platform
     -----|---------
-    ECAcc | HTTP-groot
-    ECS   | HTTP-klein
+    ECAcc | HTTP Large
+    ECS   | HTTP Small
     ECD   | Application delivery network (ADN)
 
-- Pop-server: Geeft aan dat de [POP](cdn-pop-abbreviations.md) die de aanvraag verwerkt. 
+- POP-SERVER: Geeft aan dat de [POP](cdn-pop-abbreviations.md) die de aanvraag verwerkt. 
 
-- -ID: alleen voor intern gebruik.
+- Id: Alleen voor intern gebruik.
 
 ### <a name="example-via-request-header"></a>Voorbeeld Via aanvraagheader
 

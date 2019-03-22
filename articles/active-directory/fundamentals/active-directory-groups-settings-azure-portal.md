@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5802634fe070f5d71fae01706c3cb4e83e04a72e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 691f705574050b15869a0ac8b7d128507e5aae10
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192061"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285629"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Bewerk de groepsgegevens van uw met behulp van Azure Active Directory
 
@@ -39,7 +39,7 @@ Met behulp van Azure Active Directory (Azure AD), kunt u de instellingen van een
 
 4. Selecteer de groep **MDM-beleid - West**, en selecteer vervolgens **eigenschappen** uit de **beheren** gebied.
 
-    ![Pagina overzicht met aantal en de leden en de lid-optie is gemarkeerd](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Overzichtspagina van de groep met de optie lid en gemarkeerde gegevens](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. Update de **algemene instellingen** gegevens naar behoefte, waaronder:
 

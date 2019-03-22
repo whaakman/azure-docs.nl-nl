@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1ab799ef7eb9d7c591e76ab9180d4e3f4ba6ba59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811661"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007276"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Het Blob storage gebruiken met iOS
 
@@ -124,7 +124,7 @@ Elke blob in Azure Storage moet zich bevinden in een container. Het volgende voo
 }
 ```
 
-U kunt bevestigen dat dit werkt door te kijken de [Microsoft Azure Storage Explorer](http://storageexplorer.com) en te verifiëren dat *newcontainer* is in de lijst met containers voor uw Storage-account.
+U kunt bevestigen dat dit werkt door te kijken de [Microsoft Azure Storage Explorer](https://storageexplorer.com) en te verifiëren dat *newcontainer* is in de lijst met containers voor uw Storage-account.
 
 ## <a name="set-container-permissions"></a>Machtigingen van de Container instellen
 De machtigingen van een container zijn geconfigureerd voor **persoonlijke** toegang standaard. Containers bieden echter een aantal verschillende opties voor toegang tot de container:
@@ -203,7 +203,7 @@ Het volgende voorbeeld ziet u hoe u een blok-blob uit een NSString uploadt. Als 
 }
 ```
 
-U kunt bevestigen dat dit werkt door te kijken de [Microsoft Azure Storage Explorer](http://storageexplorer.com) en te verifiëren dat de container, *containerpublic*, bevat de blob *sampleblob*. In dit voorbeeld hebben we een openbare container gebruikt, zodat u ook controleren kunt of deze toepassing heeft gewerkt door te gaan naar de URI van de blobs:
+U kunt bevestigen dat dit werkt door te kijken de [Microsoft Azure Storage Explorer](https://storageexplorer.com) en te verifiëren dat de container, *containerpublic*, bevat de blob *sampleblob*. In dit voorbeeld hebben we een openbare container gebruikt, zodat u ook controleren kunt of deze toepassing heeft gewerkt door te gaan naar de URI van de blobs:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -378,10 +378,10 @@ Het volgende voorbeeld ziet hoe u een container.
 Nu dat u hebt geleerd hoe u Blob-opslag op iOS gebruiken, volgt u deze koppelingen voor meer informatie over de iOS-bibliotheek en de Storage-service.
 
 * [Azure Storage-clientbibliotheek voor iOS](https://github.com/azure/azure-storage-ios)
-* [Azure Storage-iOS-referentiedocumentatie](http://azure.github.io/azure-storage-ios/)
+* [Azure Storage-iOS-referentiedocumentatie](https://azure.github.io/azure-storage-ios/)
 * [REST-API voor Azure Storage-services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog van het Azure Storage-team](https://blogs.msdn.com/b/windowsazurestorage)
 
-Als u vragen over deze bibliotheek hebt, kunt u plaatsen op onze [Azure MSDN-forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) of [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Als u vragen over deze bibliotheek hebt, kunt u plaatsen op onze [Azure MSDN-forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) of [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Hebt u suggesties voor functies voor Azure Storage, kunt u plaatsen op [Azure Storage Feedback](https://feedback.azure.com/forums/217298-storage/).
 

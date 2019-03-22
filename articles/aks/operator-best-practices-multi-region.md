@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 9958f5f0f1435af231c1426a249c745f4a2352c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 926f470b8a4dbdb6d6cbfe09ee61349a819600e7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098624"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor zakelijke continuïteit en herstel na noodgevallen in Azure Kubernetes Service (AKS)
 
@@ -21,11 +21,11 @@ Wanneer u clusters in Azure Kubernetes Service (AKS) beheert, wordt het belangri
 Deze aanbevolen procedures voor artikel richt zich op overwegingen waarmee u van plan bent voor zakelijke continuïteit en herstel na noodgevallen in AKS. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-* Plan voor AKS-clusters in meerdere regio 's
-* Verkeer doorverbinden tussen meerdere clusters met Azure Traffic Manager
-* Gebruik van geo-replicatie voor uw installatiekopie-containerregisters
-* Plan voor de status van de toepassing in meerdere clusters
-* Opslag in meerdere regio's repliceren
+> * Plan voor AKS-clusters in meerdere regio 's
+> * Verkeer doorverbinden tussen meerdere clusters met Azure Traffic Manager
+> * Gebruik van geo-replicatie voor uw installatiekopie-containerregisters
+> * Plan voor de status van de toepassing in meerdere clusters
+> * Opslag in meerdere regio's repliceren
 
 ## <a name="plan-for-multi-region-deployment"></a>Plan voor implementatie in meerdere regio 's
 
@@ -62,7 +62,7 @@ Voor instructies over het instellen van deze eindpunten en routering, Zie [confi
 
 ### <a name="layer-7-application-routing-with-azure-front-door"></a>Laag 7 voordeur met Azure-toepassingsroutering
 
-Met Azure Traffic Manager gebruikt DNS (laag 3) voor verkeer van de vorm. [Azure voordeur (preview)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) biedt een optie voor het routeren van HTTP/HTTPS (layer 7). Extra functies van de voordeur zijn SSL-beëindiging, aangepaste domein, Web Application Firewall, herschrijven van URL's en sessie-affiniteit.
+Met Azure Traffic Manager gebruikt DNS (laag 3) voor verkeer van de vorm. [Azure voordeur (momenteel in Preview-versie)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) biedt een optie voor het routeren van HTTP/HTTPS (layer 7). Extra functies van de voordeur zijn SSL-beëindiging, aangepaste domein, Web Application Firewall, herschrijven van URL's en sessie-affiniteit.
 
 Bekijk de behoeften van uw toepassingsverkeer om te begrijpen welke oplossing het meest geschikt is.
 

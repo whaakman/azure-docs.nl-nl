@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: c7eb490bdf484651613c5c7a72d2a31be5306634
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773789"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002931"
 ---
 # <a name="understand-and-work-with-scopes"></a>Bereiken begrijpen en gebruiken
 
@@ -146,9 +146,9 @@ Facturering-gebruikers hebben geen toegang tot van beheergroepen omdat ze explic
 
 Cloud Solution Provider (CSP) partners worden niet ondersteund in Cost Management vandaag nog. In plaats daarvan kunt u [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
-## <a name="how-to-switch-between-scopes-within-cost-management"></a>Schakelen tussen bereiken in Cost Management
+## <a name="switch-between-scopes-in-cost-management"></a>Schakelen tussen bereiken in Cost Management
 
-Alle Cost Management ervaringen in Azure portal omvatten een **bereik** pill in de linkerbovenhoek van de blade, waarmee u toegang hebt om snel bereik wijzigen. Te klikken op de **bereik** pill Hiermee opent u een bereik kiezen waarin facturering accounts, de root management-groep en alle abonnementen die niet worden genest onder het root-beheergroep. Als u wilt een bereik selecteert, klikt u op de achtergrond Markeer deze en klik vervolgens op de **Selecteer** knop aan de onderkant. Als u wilt inzoomen op geneste bereiken (bijvoorbeeld resourcegroepen binnen een abonnement), klikt u op de koppeling van de naam van bereik. Als u wilt het bovenliggende bereik op het niveau van alle geneste selecteren, klikt u op de **Selecteer deze optie <scope>**  knop aan de bovenkant van de bereikskiezer voor.
+Alle weergaven van Cost Management in Azure portal zijn onder meer een **bereik** pill in de linkerbovenhoek van de weergave. Gebruik dit voor het snel bereik wijzigen. Klik op de **bereik** pill openen de bereikskiezer voor. U ziet facturering accounts, de root management-groep en abonnementen die niet worden genest onder het root-beheergroep. Als u wilt een bereik selecteert, klikt u op de achtergrond Markeer deze en klik vervolgens op **Selecteer** aan de onderkant. Als u wilt inzoomen in op de geneste bereiken, zoals resourcegroepen in een abonnement, klikt u op de koppeling van de naam van bereik. Klik om te selecteren in het bovenliggende bereik op het niveau van alle geneste, **Selecteer deze optie &lt;bereik&gt;**  aan de bovenkant van de bereikskiezer voor.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identificeren van de resource-ID voor een bereik
 
@@ -218,7 +218,7 @@ Als u werkt met Cost Management-API's, weet dat het bereik is van essentieel bel
 4. Kopieer de waarde van het resource-ID-veld.
 5. Uw bereik is: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Cost Management is momenteel niet ondersteund in Azure Global (https://management.azure.com) en Azure Government (https://management.usgovcloudapi.net). Zie voor meer informatie over Azure Government [Azure Global en overheid API-eindpunten](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
+Cost Management is momenteel niet ondersteund in [Azure Global](https://management.azure.com) en [Azure Government](https://management.usgovcloudapi.net). Zie voor meer informatie over Azure Government [Azure Global en overheid API-eindpunten](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
 
 ## <a name="next-steps"></a>Volgende stappen
 

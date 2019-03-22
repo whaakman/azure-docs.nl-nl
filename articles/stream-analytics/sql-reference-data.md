@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: efd450edb87316e75fc240cac80eda93151a22b3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084307"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Gebruik van referentiegegevens uit een SQL-Database voor een Azure Stream Analytics-taak (Preview)
 
@@ -173,7 +173,7 @@ Bij het gebruik van de delta-query [tijdelijke tabellen in Azure SQL Database](.
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```
  
-  Houd er rekening mee dat door Stream Analytics runtime periodiek de snapshot-query naast de delta-query voor het opslaan van controlepunten kan worden uitgevoerd.
+   Houd er rekening mee dat door Stream Analytics runtime periodiek de snapshot-query naast de delta-query voor het opslaan van controlepunten kan worden uitgevoerd.
 
 ## <a name="faqs"></a>Veelgestelde vragen
 

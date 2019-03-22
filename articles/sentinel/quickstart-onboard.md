@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: c711ea3636a3ea045b4a145481f9da156b8c5bfc
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 30f6d08594bdf2e5d78bc8c7881a135d6e57f397
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852192"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Voorbeeld van de trein Azure Sentinel
 
@@ -43,8 +43,9 @@ Nadat u verbinding maakt met uw gegevensbronnen, kunt u kiezen uit een galerie m
 - Inzender voor machtigingen aan uw tenant om in te schakelen Azure Sentinel
 
 - Globale tenant of beheerder beveiligingsmachtigingen
+ 
 
-## <a name="enable-azure-sentinel"></a>Azure Sentinel inschakelen
+## Azure Sentinel inschakelen <a name="enable"></a>
 
 1. Ga in de Azure-portal.
 2. Zorg ervoor dat het abonnement waarin Azure Sentinel is gemaakt, is geselecteerd. 
@@ -56,9 +57,10 @@ Nadat u verbinding maakt met uw gegevensbronnen, kunt u kiezen uit een galerie m
 
    ![zoeken](./media/quickstart-onboard/choose-workspace.png)
 
-  >[!NOTE] 
-  > - **De locatie van** is het belangrijk om te begrijpen dat alle gegevens die u naar Azure Sentinel streamen is opgeslagen in de geografische locatie van de werkruimte die u hebt geselecteerd.  
-  > - Standaardwerkruimten die zijn gemaakt door Azure Security Center wordt niet weergegeven in de lijst. u kunt Azure Sentinel niet installeren op deze.
+   >[!NOTE] 
+   > - **De locatie van** is het belangrijk om te begrijpen dat alle gegevens die u naar Azure Sentinel streamen is opgeslagen in de geografische locatie van de werkruimte die u hebt geselecteerd.  
+   > - Standaardwerkruimten die zijn gemaakt door Azure Security Center wordt niet weergegeven in de lijst. u kunt Azure Sentinel niet installeren op deze.
+   > - Azure Sentinel kunt uitvoeren op werkruimten die zijn geïmplementeerd in een van de volgende regio's:  Australië-Zuidoost, Canada centraal, centraal-India, VS-Oost, VS-Oost 2 EUAP (Canarische), Japan-Oost, Zuidoost-Azië, VK Zuid, West-Europa, VS-West 2.
 
 6. Klik op **toevoegen Azure Sentinel**.
   

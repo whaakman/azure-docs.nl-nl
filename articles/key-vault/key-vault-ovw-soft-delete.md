@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 09/25/2017
-ms.openlocfilehash: 3ca08f12e3f389265fd3a77b3aa82c086085a10a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 526b0b135c8d5c1741ddf5f3fe6fb32f259a3e2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403692"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092987"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Overzicht van Azure Key Vault-functie voor voorlopig verwijderen
 
@@ -44,9 +44,9 @@ Voorlopig verwijderen is een optionele Key Vault-gedrag en is **niet standaard i
 ### <a name="purge-protection--flag"></a>Vlag van de beveiliging verwijderen
 Beveiliging verwijderen (**--inschakelen opschonen beveiliging** in de Azure CLI) vlag is standaard uitgeschakeld. Als deze vlag is ingeschakeld, een kluis of een object status verwijderd kan niet worden verwijderd totdat is de bewaarperiode van 90 dagen verstreken. Deze kluis of het object kan nog steeds worden hersteld. Met deze markering biedt extra zekerheid voor klanten die een kluis of een object kan nooit worden definitief verwijderd totdat de bewaartermijn is verstreken. U kunt de vlag opschonen-beveiliging inschakelen alleen als de functie voor voorlopig verwijderen-vlag ingeschakeld is, of bij het maken van kluizen inschakelen beide voorlopig verwijderen en beveiliging verwijderen.
 
-> [!NOTE] 
-   De vereiste voor het inschakelen van leegmaken van de beveiliging is hebt u voorlopig verwijderen zijn ingeschakeld.
-De opdracht uit om dit te doen in Azure CLI 2 is
+> [!NOTE]
+>    De vereiste voor het inschakelen van leegmaken van de beveiliging is hebt u voorlopig verwijderen zijn ingeschakeld.
+> De opdracht uit om dit te doen in Azure CLI 2 is
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

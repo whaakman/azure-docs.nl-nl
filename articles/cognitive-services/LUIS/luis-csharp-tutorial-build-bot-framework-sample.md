@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 1fd472c452b476820414d51b8d13bce8a72dfb3d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ca4cd1aa074353914f5187e353c233f8b45140eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091678"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot in C# met Bot Framework 3.x en de Azure-Web-app-bot
 
@@ -46,16 +46,16 @@ Bouw met behulp van C# een chatbot met ingebouwd taalbegrip (LUIS). Deze chatbot
 3. Klik in het venster Web App-Bot **maken**.
 
 4. In **Bot Service**, geef de vereiste gegevens op en klik op **maken**. Hiermee maakt en implementeert de botservice en LUIS-app in Azure. Als u wilt gebruiken [spraak voorbereiden](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), Bekijk [regio vereisten](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming) voordat het maken van uw bot. 
-    * Stel **appnaam** op de naam van uw bot. De naam wordt gebruikt als het subdomein wanneer uw bot wordt geïmplementeerd naar de cloud (bijvoorbeeld mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Selecteer het abonnement [resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan en [locatie](https://azure.microsoft.com/regions/).
-    * Voor **Bot sjabloon**selecteert:
-        * **SDK-v3**
-        * **C#**
-        * **Taalbegrip**
-    * Selecteer de **LUIS-App locatie**. Dit is het ontwerpen van [regio](luis-reference-regions.md) in de app is gemaakt.
-    * Selecteer het selectievakje bevestiging voor de juridische kennisgeving. De voorwaarden van de juridische kennisgeving staan hieronder het selectievakje in.
+   * Stel **appnaam** op de naam van uw bot. De naam wordt gebruikt als het subdomein wanneer uw bot wordt geïmplementeerd naar de cloud (bijvoorbeeld mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * Selecteer het abonnement [resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan en [locatie](https://azure.microsoft.com/regions/).
+   * Voor **Bot sjabloon**selecteert:
+       * **SDK-v3**
+       * **C#**
+       * **Taalbegrip**
+   * Selecteer de **LUIS-App locatie**. Dit is het ontwerpen van [regio](luis-reference-regions.md) in de app is gemaakt.
+   * Selecteer het selectievakje bevestiging voor de juridische kennisgeving. De voorwaarden van de juridische kennisgeving staan hieronder het selectievakje in.
 
-    ![Bot-service](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
+     ![Bot-service](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
 
 5. Bevestig dat de botservice is geïmplementeerd.
@@ -86,9 +86,9 @@ Open **toepassingsinstellingen** en bewerk de **LuisAppId** veld bevat de toepas
 > 1. Klik op **mijn apps**. 
 > 2. De LUIS-app die u eerder hebt gemaakt, waarin de intenties en entiteiten uit het domein HomeAutomation vinden.
 > 3. In de **instellingen** pagina voor de app LUIS, zoeken en kopiëren van de app-ID. Zorg ervoor dat dit [getrainde](luis-interactive-test.md) en [gepubliceerd](luis-how-to-publish-app.md). 
-
-    > [!WARNING]
-    > If you delete your app ID or LUIS key, the bot will stop working.
+> 
+> [!WARNING]
+> Als u uw app-ID of een LUIS-sleutel verwijdert, wordt de bot werken niet meer.
 
 ## <a name="modify-the-bot-code"></a>De bot-code wijzigen
 

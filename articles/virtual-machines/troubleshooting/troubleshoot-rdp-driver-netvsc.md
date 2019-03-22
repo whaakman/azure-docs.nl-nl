@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: c6918126c36e1940daf564ee7eae562e31b280c3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449101"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994632"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Kan niet extern verbinding maken met een Windows 10 of Windows Server 2016-VM in Azure vanwege netvsc.sys
 
@@ -28,7 +28,7 @@ In dit artikel wordt uitgelegd hoe u een probleem waarbij er geen netwerkverbind
 
 U kan geen verbinding maken met een Azure Windows 10 of Windows Server 2016-VM met behulp van Remote Desktop Protocol (RDP). In [diagnostische gegevens over opstarten](boot-diagnostics.md), het scherm ziet u een rode x via de netwerkinterfacekaart (NIC). Hiermee wordt aangegeven dat de virtuele machine geen verbinding heeft nadat het besturingssysteem volledig geladen is.
 
-Dit probleem treedt meestal, op in Windows [bouwen 14393](http://support.microsoft.com/help/4093120/) en [15063 bouwen](http://support.microsoft.com/help/4015583/). Als de versie van het besturingssysteem hoger dan deze versies is, geldt dit artikel niet op uw scenario. Om te controleren of de versie van het systeem, opent u een CMD-sessie in [de toegang tot de seriële Console-functie](serial-console-windows.md), en voer **Ver**.
+Dit probleem treedt meestal, op in Windows [bouwen 14393](https://support.microsoft.com/help/4093120/) en [15063 bouwen](https://support.microsoft.com/help/4015583/). Als de versie van het besturingssysteem hoger dan deze versies is, geldt dit artikel niet op uw scenario. Om te controleren of de versie van het systeem, opent u een CMD-sessie in [de toegang tot de seriële Console-functie](serial-console-windows.md), en voer **Ver**.
 
 ## <a name="cause"></a>Oorzaak
 
@@ -55,8 +55,8 @@ Verbinding maken met [de seriële Console, open een PowerShell-exemplaar](serial
 
 2. Download de update naar een nieuwe of bestaande gegevensschijf die is gekoppeld aan een werkende virtuele machine uit dezelfde regio bevinden:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) of een latere update
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) of een latere update
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) of een latere update
+   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) of een latere update
 
 3. Het hulpprogramma schijf loskoppelen van de werkende virtuele machine, en koppel deze vervolgens aan de verbroken VM.
 
@@ -98,22 +98,22 @@ Verbinding maken met [de seriële Console, open een PowerShell-exemplaar](serial
 
 12. Download de juiste update:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) of een latere update
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) of een latere update
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) of een latere update
+    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) of een latere update
 
 13. De schijf koppelen als een gegevensschijf op een redden virtuele machine waarop u kunt de update te downloaden.
 
 14. Voer de volgende opdracht om de update installeren op de virtuele machine:
 
-   ```
-   dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
-   ```
+    ```
+    dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
+    ```
 
 15. Voer de volgende opdracht ontkoppelen van de componenten:
 
-   ```
-   reg unload HKLM\BROKENSYSTEM
-   ```
+    ```
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 16. [De schijf loskoppelen en opnieuw maken van de virtuele machine](../windows/troubleshoot-recovery-disks-portal.md).
 

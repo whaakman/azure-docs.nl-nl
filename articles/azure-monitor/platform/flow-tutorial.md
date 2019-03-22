@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: f38d9b40143391be34ce5f72627720e2f5119dc6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993772"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123144"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Azure Monitor log processen automatiseren met de connector voor Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) kunt u geautomatiseerde werkstromen met behulp van honderden acties voor verschillende services maken. Uitvoer van een actie kan worden gebruikt als invoer voor andere zodat u kunt maken van de integratie tussen verschillende services.  De Azure Log Analytics-connector voor Microsoft Flow kunt u werkstromen kunnen opzetten waarmee gegevens opgehaald door bits-logboeken-query's vanuit een Log Analytics-werkruimte in Azure Monitor.
@@ -48,13 +48,13 @@ De in dit artikel leert u hoe u een stroom maken die de resultaten van een query
 
 1. Geef de details voor uw werkruimte, waaronder de abonnement-ID, resourcegroep, en de naam van de werkruimte.
 2. Toevoegen van de volgende log-query uit om de **Query** venster.  Dit is slechts een voorbeeld-query en u kunt vervangen door een andere waarmee gegevens worden geretourneerd.
-```
+   ```
     Event
     | where EventLevelName == "Error" 
     | where TimeGenerated > ago(1day)
     | summarize count() by Computer
     | sort by Computer
-```
+   ```
 
 2. Selecteer **HTML-tabel** voor de **grafiektype**.<br><br>![Log Analytics-actie](media/flow-tutorial/flow03.png)
 

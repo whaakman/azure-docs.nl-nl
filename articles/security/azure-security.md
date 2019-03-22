@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 934046ac4be6c0e85ee687cefb46b61ec8affca6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543356"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904249"
 ---
 # <a name="introduction-to-azure-security"></a>Inleiding tot Azure-beveiliging
 ## <a name="overview"></a>Overzicht
@@ -59,7 +59,7 @@ De functies in de lijst te volgen zijn mogelijkheden die u bekijken kunt om te b
 | [Secure Platform](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Privacy- en besturingselementen](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Naleving](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Transparantie](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [Beveiliging ontwikkelingscyclus](https://www.microsoft.com/en-us/sdl/), interne controles zijn uitgevoerd | [Uw gegevens continu beheren](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [Vertrouwenscentrum](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Hoe Microsoft de klantgegevens in Azure-services beveiligt](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
-| [Verplichte beveiligingstraining, achtergrondonderzoek](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Op de locatie van gegevens beheren](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Algemene besturingselementen Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Hoe de locatie van gegevens in Azure-services voor het beheren van Microsoft](http://azuredatacentermap.azurewebsites.net/)|
+| [Verplichte beveiligingstraining, achtergrondonderzoek](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Op de locatie van gegevens beheren](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Algemene besturingselementen Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Hoe de locatie van gegevens in Azure-services voor het beheren van Microsoft](https://azuredatacentermap.azurewebsites.net/)|
 | [Indringingstests](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [inbraakdetectie, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [controles & logboekregistratie](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Gegevenstoegang bieden op uw voorwaarden](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [De Cloud-Services vanwege de zorgvuldigheid controlelijst](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Wie er binnen Microsoft kan toegang tot uw gegevens op welke voorwaarden](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Datacenter voor geavanceerde](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), fysieke beveiliging [netwerk beveiligen](https://docs.microsoft.com/azure/security/security-network-overview) | [Reageren op Justitie en politie](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Naleving op service, de locatie en de branche](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Hoe Microsoft de klantgegevens in Azure-services beveiligt](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
 |  [Security Incident response](https://aka.ms/SecurityResponsepaper), [gedeelde verantwoordelijkheid](https://aka.ms/sharedresponsibility) |[Strikte privacystandaard](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Certificering voor Azure-services, transparantie hub bekijken](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|

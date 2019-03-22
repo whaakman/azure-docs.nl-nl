@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 24e2d7be0dfc32e499bc864f2fdf7e2b1c108969
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440205"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107794"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS integratieruntime toevoegen aan een virtueel netwerk
 Uw Azure-SSIS integratieruntime (IR) toevoegen aan een Azure-netwerk in de volgende scenario's: 
@@ -26,7 +26,7 @@ Uw Azure-SSIS integratieruntime (IR) toevoegen aan een Azure-netwerk in de volge
 
 - Als u beheert de SQL Server Integration Services (SSIS)-catalogusdatabase in Azure SQL Database met virtual network service-eindpunten/beheerd exemplaar. 
 
- Azure Data Factory kunt u uw Azure-SSIS integratieruntime toevoegen aan een virtueel netwerk die zijn gemaakt via het klassieke implementatiemodel of het implementatiemodel Azure Resource Manager. 
+  Azure Data Factory kunt u uw Azure-SSIS integratieruntime toevoegen aan een virtueel netwerk die zijn gemaakt via het klassieke implementatiemodel of het implementatiemodel Azure Resource Manager. 
 
 > [!IMPORTANT]
 > Het klassieke virtuele netwerk is op dit moment wordt afgeschaft, dus gebruik de Azure Resource Manager-virtuele netwerk in plaats daarvan.  Als u al het klassieke virtuele netwerk, ga dan voor het gebruik van het virtuele netwerk van Azure Resource Manager zo snel mogelijk.

@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5b2b3a3ec0e9aec603a69211a7493afc31e83283
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 9d789572abf0545eb51b357da091e5a1d712eab2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236546"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433804"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>Wat is Azure Cache voor Redis
 
@@ -33,7 +33,7 @@ Azure Cache voor Redis biedt toegang tot een beveiligde, toegewezen Azure Cache 
 
 Er zijn veel algemene patronen waar Azure Cache voor Redis wordt gebruikt ter ondersteuning van toepassingsarchitectuur of ter verbetering van de prestaties van toepassingen. Sommige van de meest voorkomende zijn de volgende:
 
-| Patroon      | Beschrijving                                        |
+| Patroon      | Description                                        |
 | ------------ | -------------------------------------------------- |
 | [Cache-Aside](cache-web-app-cache-aside-leaderboard.md) | Aangezien een database groot kan zijn, is het laden van een volledige database in een cache niet de aanbevolen aanpak. Het is gebruikelijk om het [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside)-patroon te gebruiken voor het laden van gegevensitems in de cache, alleen indien dit nodig is. Als het systeem wijzigingen aanbrengt in de back-endgegevens, kan het op dat moment ook de cache bijwerken, die wordt gedistribueerd met andere clients. Het systeem kan bovendien een vervaldatum instellen voor gegevensitems of een verwijderingsbeleid gebruiken om te zorgen dat gegevensupdates opnieuw worden geladen in de cache.|
 | [Inhoud in cache opslaan](cache-aspnet-output-cache-provider.md) | De meeste webpagina's worden gegenereerd op basis van sjablonen met kopteksten, voetteksten, werkbalken, menu's, enzovoort. Ze worden feitelijk niet vaak gewijzigd en moeten niet dynamisch worden gegenereerd. Met behulp van een cache in het geheugen, zoals Azure Cache voor Redis, krijgen uw webservers snel toegang tot dit type statische inhoud vergeleken met de back-end-datastores. Dit patroon vermindert de verwerkingstijd en serverbelasting die nodig zouden zijn voor het dynamisch genereren van de inhoud. Hierdoor kunnen webservers sneller reageren en hebt u minder servers nodig voor het afhandelen van belasting. Azure Cache voor Redis biedt de Redis Output Cache Provider om dit patroon te ondersteunen met ASP.NET.|
@@ -45,7 +45,7 @@ Er zijn veel algemene patronen waar Azure Cache voor Redis wordt gebruikt ter on
 
 Azure Cache voor Redis is beschikbaar in de volgende lagen:
 
-| Laag | Beschrijving |
+| Laag | Description |
 |---|---|
 Basic | Een cache met één knooppunt. Deze laag biedt ondersteuning voor meerdere geheugengrootten (250 MB - 53 GB). Dit is een ideale laag voor het ontwikkelen/testen en voor niet-essentiële werkbelastingen. De Basic-laag heeft geen SLA (Service Level Agreement) |
 | Standard | Een gerepliceerde cache in een configuratie met twee knooppunten (primair/secundair) die door Microsoft wordt beheerd, met een SLA met hoge beschikbaarheid (99,9%). |
@@ -57,7 +57,7 @@ Basic | Een cache met één knooppunt. Deze laag biedt ondersteuning voor meerde
 
 U kunt de cache opschalen naar een hogere laag nadat u de cache al hebt gemaakt. Omlaag schalen naar een lagere laag wordt niet ondersteund. Zie voor stapsgewijze instructies [De schaal aanpassen van Azure Cache voor Redis](cache-how-to-scale.md) en [Een schaalbewerking automatiseren](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-### <a name="feature-comparision"></a>Vergelijking van functies
+### <a name="feature-comparison"></a>Vergelijking van functies
 
 De pagina [Prijzen van Azure Cache voor Redis](https://azure.microsoft.com/pricing/details/cache/) bevat een gedetailleerde vergelijking van elke laag. In de volgende tabel worden de functies beschreven die door elke laag worden ondersteund:
 

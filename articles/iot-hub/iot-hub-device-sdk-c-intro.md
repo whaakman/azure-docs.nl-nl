@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: fe34668577efb1552731af7760896bccbb99cf67
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: a0099fa085e21c381b74dc2690ffcf0870345f21
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009185"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992349"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT device-SDK voor C
 
@@ -89,7 +89,7 @@ Als u niet bekend met het hulpprogramma device explorer bent, geeft de volgende 
 
 1. Als u het programma uitvoert, ziet u deze interface:
 
-  ![Schermafbeelding van de dubbele Device Explorer](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
+   ![Schermafbeelding van de dubbele Device Explorer](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
 1. Voer uw **IoT Hub-verbindingsreeks** in het eerste veld en klikt u op **Update**. Deze stap configureert u het hulpprogramma, zodat deze met IoT Hub communiceren kan. 
 
@@ -97,17 +97,17 @@ De **Connection String** kunt u vinden onder **IoT Hub-Service** > **instellinge
 
 1. Wanneer de IoT Hub-verbindingsreeks is geconfigureerd, klikt u op de **Management** tabblad:
 
-  ![Device Explorer dubbele / Management-schermafbeelding](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
+   ![Device Explorer dubbele / Management-schermafbeelding](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 Dit tabblad is waar u de apparaten die zijn geregistreerd in uw IoT-hub beheren.
 
 1. U maakt een apparaat door te klikken op de **maken** knop. Er wordt een dialoogvenster weergegeven met een reeks vooraf gevulde sleutels (primaire en secundaire). Voer een **apparaat-ID** en klik vervolgens op **maken**.
 
-  ![Schermafbeelding van het apparaat maken](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
+   ![Schermafbeelding van het apparaat maken](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
 1. Wanneer het apparaat wordt gemaakt, wordt er door de apparaten updates lijst met alle geregistreerde apparaten, inclusief de functie die u zojuist hebt gemaakt. Als u met de rechtermuisknop op het nieuwe apparaat, ziet u dit menu:
 
-  ![Device Explorer dubbele met de rechtermuisknop op resultaat](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
+   ![Device Explorer dubbele met de rechtermuisknop op resultaat](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
 1. Als u ervoor kiest **Kopieer de verbindingsreeks voor het geselecteerde apparaat**, de verbindingsreeks naar het Klembord is gekopieerd. Bewaar een kopie van de verbindingsreeks van het apparaat. U hebt deze nodig bij het uitvoeren van de voorbeeldtoepassingen die worden beschreven in de volgende secties.
 
@@ -351,7 +351,7 @@ Net als bij het vorige voorbeeld bevat deze een enkele NuGet-pakketten:
 
 U kunt de meeste van deze pakketten in het vorige voorbeeld hebt gezien, maar **Microsoft.Azure.IoTHub.Serializer** is er nieuw. Dit pakket is vereist wanneer u de **serializer** bibliotheek.
 
-U vindt de implementatie van de voorbeeldtoepassing in de ***iothub_client\_voorbeelden\_iothub_convenience_sample** bestand.
+U vindt de implementatie van de voorbeeldtoepassing in de **iothub_client\_voorbeelden\_iothub_convenience_sample** bestand.
 
 De volgende secties helpen u via de belangrijkste onderdelen van dit voorbeeld.
 

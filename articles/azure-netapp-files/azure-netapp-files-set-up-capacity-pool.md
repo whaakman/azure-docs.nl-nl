@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 7cb9cc6cc5ce98eb88e9b9cdf76f000c33f5509e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8f50b2ad34c705c8d3831d8243f136c41d750dc0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780708"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074434"
 ---
 # <a name="set-up-a-capacity-pool"></a>Een capaciteitspool instellen
 
@@ -41,19 +41,19 @@ U moet al een NetApp-account hebben gemaakt.
     Het venster Nieuwe capaciteitspool wordt weergegeven.
 
 3. Geef de volgende informatie op voor de nieuwe capaciteitspool:  
-  * **Naam**  
-    Geef de naam op voor de capaciteitspool.  
-    De naam van de capaciteitspool moet uniek zijn voor elk NetApp-account.
+   * **Naam**  
+     Geef de naam op voor de capaciteitspool.  
+     De naam van de capaciteitspool moet uniek zijn voor elk NetApp-account.
 
-  * **Serviceniveau**   
-    In dit veld worden de doelprestaties voor de capaciteitspool weergegeven.  
-    Geef het serviceniveau op voor de capaciteitspool: [**Premium**](azure-netapp-files-service-levels.md#Premium) of [**Standard**](azure-netapp-files-service-levels.md#Standard).
+   * **Serviceniveau**   
+     In dit veld worden de doelprestaties voor de capaciteitspool weergegeven.  
+     Geef het serviceniveau op voor de capaciteitspool: [**Premium**](azure-netapp-files-service-levels.md#Premium) of [**Standard**](azure-netapp-files-service-levels.md#Standard).
 
-  * **Grootte**     
-    Geef de grootte op van de capaciteitspool die u aanschaft.        
-    De minimale grootte van de capaciteitspool is 4 TiB. U kunt een pool maken met een grootte die een veelvoud is van 4 TiB.   
+   * **Grootte**     
+     Geef de grootte op van de capaciteitspool die u aanschaft.        
+     De minimale grootte van de capaciteitspool is 4 TiB. U kunt een pool maken met een grootte die een veelvoud is van 4 TiB.   
       
-    ![Nieuwe capaciteitspool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+     ![Nieuwe capaciteitspool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
 4. Klik op **OK**.
 

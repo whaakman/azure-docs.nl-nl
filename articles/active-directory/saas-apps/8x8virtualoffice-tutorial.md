@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a7fa7d95a3ce00c1a906b0c1b2bd8cc6852f84f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 9385ec6a86c24e619ffafdae67bc66f66e099f3b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865464"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Zelfstudie: Azure Active Directory-integratie met 8x8 Virtual Office
 
@@ -56,7 +56,7 @@ Als u de integratie van 8x8 Virtual Office met Azure AD wilt configureren, moet 
 
 **Voer de volgende stappen uit als u 8x8 Virtual Office wilt toevoegen vanuit de galerie:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -128,41 +128,41 @@ Voor het configureren van Azure AD-eenmalige aanmelding met 8x8 Virtual Office, 
 
 ### <a name="configure-8x8-virtual-office-single-sign-on"></a>Eenmalige aanmelding configureren voor 8x8 Virtual Office
 
-7. Meld u als beheerder aan bij uw 8x8 Virtual Office-tenant.
+1. Meld u als beheerder aan bij uw 8x8 Virtual Office-tenant.
 
-8. Selecteer **Virtual Office-accountbeheer** in het toepassingsvenster.
+1. Selecteer **Virtual Office-accountbeheer** in het toepassingsvenster.
 
     ![Configureren aan de toepassingszijde](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
-9. Selecteer het **bedrijfs**account dat u wilt beheren en klik op **Aanmelden**.
+1. Selecteer het **bedrijfs**account dat u wilt beheren en klik op **Aanmelden**.
 
     ![Configureren aan de toepassingszijde](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
-10. Klik op het tabblad **ACCOUNTS** in de menulijst.
+1. Klik op het tabblad **ACCOUNTS** in de menulijst.
 
-    ![Configureren aan de toepassingszijde](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+   ![Configureren aan de toepassingszijde](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
-11. Klik op **Eenmalige aanmelding** in de lijst met accounts.
+1. Klik op **Eenmalige aanmelding** in de lijst met accounts.
   
-    ![Configureren aan de toepassingszijde](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
+   ![Configureren aan de toepassingszijde](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
-12. Selecteer **Eenmalige aanmelding** bij de verificatiemethoden en klik op **SAML**.
+1. Selecteer **Eenmalige aanmelding** bij de verificatiemethoden en klik op **SAML**.
 
-    ![Configureren aan de toepassingszijde](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+   ![Configureren aan de toepassingszijde](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
-13. In het gedeelte voor **SAML-eenmalige aanmelding** voert u de volgende stappen uit:
+1. In het gedeelte voor **SAML-eenmalige aanmelding** voert u de volgende stappen uit:
 
-    ![Configureren aan de toepassingszijde](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
+   ![Configureren aan de toepassingszijde](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
 
-    a. Plak in het tekstvak voor de **URL voor eenmalige aanmelding** de waarde van de **aanmeldings-URL** die u uit de Azure-portal hebt gekopieerd.
+   a. Plak in het tekstvak voor de **URL voor eenmalige aanmelding** de waarde van de **aanmeldings-URL** die u uit de Azure-portal hebt gekopieerd.
 
-    b. Plak in het tekstvak voor de **afmeldings-URL** de waarde van de **afmeldings-URL** die u uit de Azure-portal hebt gekopieerd.
+   b. Plak in het tekstvak voor de **afmeldings-URL** de waarde van de **afmeldings-URL** die u uit de Azure-portal hebt gekopieerd.
 
-    c. Plak in het tekstvak voor de **certificaatverlener** de waarde van de **Azure AD-id** die u uit de Azure-portal hebt gekopieerd.
+   c. Plak in het tekstvak voor de **certificaatverlener** de waarde van de **Azure AD-id** die u uit de Azure-portal hebt gekopieerd.
 
-    d. Klik op **Bladeren** om het certificaat te uploaden dat u uit de Azure-portal hebt gedownload.
+   d. Klik op **Bladeren** om het certificaat te uploaden dat u uit de Azure-portal hebt gedownload.
 
-    e. Klik op de knop **Opslaan**.
+   e. Klik op de knop **Opslaan**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
@@ -182,7 +182,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -224,7 +224,7 @@ In dit gedeelte wordt een gebruiker met de naam Britta Simon gemaakt in 8x8 Virt
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de 8x8 Virtual Office-tegel in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van 8x8 Virtual Office waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

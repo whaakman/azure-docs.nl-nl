@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 76d2794d45e9cd73ae8faf203ba29c4dbba64eae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 86e28c3561968b1411a3baa9ec0daecfab6ac73f
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004624"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202874"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store kritieke zakelijke gegevens in Azure Blob-opslag
 
@@ -180,7 +180,7 @@ Een container kan zowel een juridische bewaring en een op tijd gebaseerd bewaarb
 
 **Beleid voor juridische bewaring zijn alleen bedoeld voor gerechtelijke procedure of zijn er andere scenario's voor gebruiken?**
 
-Nee, juridische houdt, is alleen de algemene term die wordt gebruikt voor een bewaarbeleid voor niet-op basis van tijd. Het hoeft niet alleen worden gebruikt voor rechtszaak procedures die betrekking hebben. Juridische bewaring beleidsregels zijn handig voor het uitschakelen van overschrijven en verwijderen voor het beveiligen van belangrijke enterprise WORM gegevens, waar de bewaarperiode is onbekend. U kunt deze als een enterprise-beleid op uw WORM bedrijfskritieke beveiligen of gebruiken als een faseringsbeleid voordat een trigger voor de aangepaste gebeurtenis het gebruik van een op tijd gebaseerd bewaarbeleid vereist. 
+Nee, juridische houdt, is alleen de algemene term die wordt gebruikt voor een bewaarbeleid voor niet-op basis van tijd. Het hoeft niet alleen worden gebruikt voor rechtszaak procedures die betrekking hebben. Juridische bewaring beleidsregels zijn handig voor het uitschakelen van overschrijven en verwijderen voor het beveiligen van belangrijke enterprise WORM gegevens, waar de bewaarperiode is onbekend. U kunt deze als een enterprise-beleid aan uw WORM bedrijfskritieke beveiligen of gebruiken als een faseringsbeleid voordat een trigger voor de aangepaste gebeurtenis het gebruik van een op tijd gebaseerd bewaarbeleid vereist. 
 
 **Wat gebeurt er als ik een container probeer te verwijderen die een *vergrendeld* retentiebeleid op basis van tijd of een juridische bewaring heeft?**
 

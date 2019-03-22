@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 8e1f880c57b0db0a2f68fbe26e99679769fdee6c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 0a06293a648460694bbe222f36f81bea2d6acdac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841171"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Quickstart: gesproken tekst in JavaScript herkennen in een browser met behulp van de Speech SDK
 
@@ -26,7 +26,7 @@ De toepassing is gebaseerd op de Microsoft Cognitive Services Speech SDK ([downl
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een abonnementssleutel voor de Speech-service. Zie [Probeer de Speech-service gratis uit](get-started.md).
+* Een abonnementssleutel voor de Speech-service. Zie [de Speech Services gratis uitproberen](get-started.md).
 * Een pc of Mac, met een werkende microfoon.
 * Een teksteditor.
 * Een actuele versie van Chrome of Microsoft Edge.
@@ -49,12 +49,12 @@ Maak een nieuw bestand in de map met de naam `index.html` en open dit bestand me
 
 1. Maak de volgende HTML-basis:
 
-  ```html
-  <html>
-  <head>
+   ```html
+   <html>
+   <head>
       <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
-  </head>
-  <body>
+   </head>
+   <body>
     <!-- UI code goes here -->
 
     <!-- SDK reference goes here -->
@@ -62,21 +62,21 @@ Maak een nieuw bestand in de map met de naam `index.html` en open dit bestand me
     <!-- Optional authorization token request goes here -->
 
     <!-- Sample code goes here -->
-  </body>
-  </html>
-  ```
+   </body>
+   </html>
+   ```
 
 1. Voeg de volgende gebruikersinterfacecode toe aan het bestand, onder de eerste opmerking:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
 
 1. Voeg een verwijzing toe aan de Speech SDK
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
 1. Stel handlers in voor de velden die gerelateerd zijn aan de spraakherkenningsknop, het spraakherkenningsresultaat en het abonnement die zijn gedefinieerd door de gebruikersinterfacecode:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 
 ## <a name="create-the-token-source-optional"></a>De tokenbron maken (optioneel)
 
@@ -85,11 +85,11 @@ Op die manier verlaat uw abonnementssleutel nooit uw server en is het gebruikers
 
 1. Maak een nieuw bestand met de naam `token.php`. In dit voorbeeld gaan we er van uit dat uw webserver de PHP-scripttaal ondersteunt. Voer de volgende code in:
 
-  [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
+   [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
 
 1. Bewerk het bestand `index.html` en voeg de volgende code toe aan het bestand:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
 
 > [!NOTE]
 > Autorisatietokens hebben slechts een beperkte levensduur.

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 46cf3b01a3c5e653d5588e463f26540fef15f4e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125059"
 ---
 #### <a name="to-download-hotfixes"></a>Hotfixes downloaden
 
@@ -99,12 +99,12 @@ Voer de volgende stappen uit om hotfixes in de normale modus te installeren en t
     De volgende versies moeten worden weergegeven:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17820`
+   * `HcsSoftwareVersion: 6.3.9600.17820`
    
-    Als het versienummer niet is gewijzigd nadat de update is toegepast, kon de hotfix blijkbaar niet worden toegepast. Neem in dat geval contact op met [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) voor verdere hulp.
+     Als het versienummer niet is gewijzigd nadat de update is toegepast, kon de hotfix blijkbaar niet worden toegepast. Neem in dat geval contact op met [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) voor verdere hulp.
      
-    > [!IMPORTANT]
-    > U moet opnieuw opstarten van de actieve controller via de `Restart-HcsController` cmdlet voordat u de volgende update is toegepast.
+     > [!IMPORTANT]
+     > U moet opnieuw opstarten van de actieve controller via de `Restart-HcsController` cmdlet voordat u de volgende update is toegepast.
      
 7. Herhaal stap 3-5 voor het installeren van de configuratie-items/MDS-agent die is gedownload naar uw _FirstOrderUpdate_ map. 
 8. Herhaal stap 3 t/m 5 om de tweede belangrijkste updates te installeren. **Voor de tweede belangrijkste updates, meerdere updates kunnen worden geïnstalleerd door gewoon de `Start-HcsHotfix cmdlet` en die verwijst naar de map waar de tweede belangrijkste updates zich bevinden. De cmdlet voert alle updates die beschikbaar zijn in de map.** Als een update al is geïnstalleerd, wordt dit door de updatelogica gedetecteerd en wordt die update niet toegepast. 

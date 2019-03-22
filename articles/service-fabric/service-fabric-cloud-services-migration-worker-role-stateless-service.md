@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f23f29d15c4c8f05551b20d42b92dda5632cde08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049946"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078734"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Handleiding voor Web- en werkrollen converteren naar de stateless Service Fabric-services
 In dit artikel wordt beschreven hoe u uw Cloud Services-Web- en werkrollen migreren naar Service Fabric stateless services. Dit is het eenvoudigste migratiepad van Cloud Services naar Service Fabric voor toepassingen waarvan de algehele architectuur gaat ongeveer hetzelfde blijven.
@@ -43,8 +43,8 @@ Net als bij Werkrol, een Webrol ook vertegenwoordigt een staatloze werkbelasting
 | --- | --- | --- |
 | ASP.NET Web Forms |Nee |Converteren naar ASP.NET Core, 1 MVC |
 | ASP.NET MVC |Met de migratie |Een upgrade uit naar ASP.NET Core-1 MVC |
-| ASP.NET Web API |Met de migratie |Gebruik zelf-hostend server of ASP.NET Core 1 |
-| ASP.NET Core, 1 |Ja |N/A |
+| ASP.NET Web-API |Met de migratie |Gebruik zelf-hostend server of ASP.NET Core 1 |
+| ASP.NET Core 1 |Ja |N/A |
 
 ## <a name="entry-point-api-and-lifecycle"></a>Vermelding punt API en de levenscyclus
 Werkrol en Service Fabric service-API's bieden vergelijkbare toegangspunten: 
@@ -110,8 +110,8 @@ Een primaire "uitvoeren" onderdrukking waarin om te beginnen met verwerking hebb
 
 Er zijn enkele belangrijke verschillen tussen de levenscyclus en levensduur van werkrollen en Service Fabric-services:
 
-* **Levenscyclus:** het belangrijkste verschil is dat een Werkrol een virtuele machine is en dus de levenscyclus is gekoppeld aan de virtuele machine, waaronder gebeurtenissen voor wanneer de virtuele machine wordt gestart en gestopt. Een Service Fabric-service heeft een levenscyclus dat is gescheiden van de levenscyclus van de virtuele machine, zodat deze omvatten geen gebeurtenissen voor wanneer de host virtuele machine of computer wordt gestart en gestopt, omdat ze niet zijn gerelateerd.
-* **Levensduur:** werknemer van een rolinstantie wordt gerecycled als de `Run` methode afgesloten. De `RunAsync` methode in een Service Fabric-service kan echter tot voltooiing uitgevoerd en het service-exemplaar blijven. 
+* **Levenscyclus:** Het belangrijkste verschil is dat een Werkrol een virtuele machine is en dus de levenscyclus is gekoppeld aan de virtuele machine, waaronder gebeurtenissen voor wanneer de virtuele machine wordt gestart en gestopt. Een Service Fabric-service heeft een levenscyclus dat is gescheiden van de levenscyclus van de virtuele machine, zodat deze omvatten geen gebeurtenissen voor wanneer de host virtuele machine of computer wordt gestart en gestopt, omdat ze niet zijn gerelateerd.
+* **Levensduur:** Een werknemer rolinstantie wordt gerecycled als de `Run` methode afgesloten. De `RunAsync` methode in een Service Fabric-service kan echter tot voltooiing uitgevoerd en het service-exemplaar blijven. 
 
 Service Fabric biedt een ingangspunt voor optionele communicatie-instellingen voor de services die naar aanvragen van clients luisteren. De RunAsync en de communicatie toegangspunt zijn optioneel onderdrukkingen in Service Fabric-services - uw-service kiezen alleen luisteren naar aanvragen van clients of alleen een lus verwerking, of beide worden uitgevoerd - daarom zijn de methode RunAsync is toegestaan om af te sluiten zonder opnieuw te starten het service-exemplaar, omdat deze mogelijk blijven om te luisteren naar aanvragen van clients.
 
@@ -209,7 +209,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 Opstarttaken zijn acties die worden uitgevoerd voordat een toepassing wordt gestart. Een opstarttaak wordt doorgaans gebruikt setup-scripts met verhoogde bevoegdheden uit te voeren. Ondersteuning voor opstarten taken zowel Cloud Services en Service Fabric. Het belangrijkste verschil is dat in Cloud Services, een opstarttaak is gebonden aan een virtuele machine omdat deze deel uitmaakt van een rolinstantie, terwijl in Service Fabric een opstarttaak is gekoppeld aan een service, die is niet gekoppeld aan een bepaalde virtuele machine.
 
 | Service Fabric | Cloud Services |
-| --- | --- | --- |
+| --- | --- |
 | Locatie van de configuratie |ServiceDefinition.csdef |
 | Bevoegdheden |"beperkt" of "uitgebreide" |
 | Sequentiëren |'eenvoudige', "achtergrond", "voorgrond" |

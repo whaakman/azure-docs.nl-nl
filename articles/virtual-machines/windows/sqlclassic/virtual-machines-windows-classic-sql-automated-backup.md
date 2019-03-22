@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3aba118354c51285d714bb127e6f5984f8a50057
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: aeb97d661d330ed6afb3ca5e5e1eb924dacc4024
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329749"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096296"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Automatische back-up voor SQL Server in Azure Virtual Machines (klassiek)
 > [!div class="op_single_selector"]
@@ -73,7 +73,8 @@ De volgende tabel beschrijft de opties die kunnen worden geconfigureerd voor aut
 | **Bewaarperiode** |1-30 dagen (30 dagen) |Het aantal dagen dat een back-up behouden. |
 | **Opslagaccount** |Azure storage-account (de storage-account gemaakt voor de opgegeven virtuele machine) |Azure storage-account te gebruiken voor het opslaan van bestanden van geautomatiseerde back-ups in blob-opslag. Een container is gemaakt op deze locatie voor het opslaan van alle back-upbestanden. De naamconventie voor back-upbestand bevat de datum, tijd en de machinenaam van de. |
 | **Versleuteling** |In-of uitschakelen (uitgeschakeld) |Hiermee schakelt versleuteling of. Als versleuteling is ingeschakeld, worden de certificaten voor het herstellen van de back-up bevinden zich in het opgegeven opslagaccount in dezelfde automaticbackup container met behulp van de dezelfde naamgevingsregel. Als het wachtwoord wordt gewijzigd, wordt een nieuw certificaat met dit wachtwoord wordt gegenereerd, maar wordt het oude certificaat voor het herstellen van eerdere back-ups blijft. |
-| **Wachtwoord** |Wachtwoord-tekst (geen) |Een wachtwoord voor versleutelingssleutels. Dit is alleen vereist als versleuteling is ingeschakeld. Als u wilt een versleutelde back-ups hebt hersteld, moet u het juiste wachtwoord en het bijbehorende certificaat dat is gebruikt op het moment dat de back-up is gehaald hebben. | **Back-up van systeemdatabases** | In-of uitschakelen (uitgeschakeld) | Volledige back-ups maken van Master, Model en MSDB |
+| **Wachtwoord** |Wachtwoord-tekst (geen) |Een wachtwoord voor versleutelingssleutels. Dit is alleen vereist als versleuteling is ingeschakeld. Als u wilt een versleutelde back-ups hebt hersteld, moet u het juiste wachtwoord en het bijbehorende certificaat dat is gebruikt op het moment dat de back-up is gehaald hebben. |
+| **Back-up van systeemdatabases** | In-of uitschakelen (uitgeschakeld) | Volledige back-ups maken van Master, Model en MSDB |
 | **Back-upschema configureren** | Handmatig/geautomatiseerde (automatisch) | Selecteer **automatisch** automatisch volledige en logboekback-ups op basis van de groei van het logboek. Selecteer **handmatig** om op te geven van de planning voor volledige en logboekback-ups. |
 
 ## <a name="configuration-with-powershell"></a>Configuratie met PowerShell

@@ -1,17 +1,17 @@
 ---
 title: Werken met index paden in Azure Cosmos DB
 description: Overzicht van de paden van de index in Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/5/2018
-ms.author: rimman
-ms.openlocfilehash: c22d8d69284c546a4fccc86302672d81ce65b9e8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 3/13/2019
+ms.author: mjbrown
+ms.openlocfilehash: d0fce763822ded374eab2f70c3f319aba0c89267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032768"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992824"
 ---
 # <a name="index-paths-in-azure-cosmos-db"></a>Paden van de index in Azure Cosmos DB
 
@@ -25,12 +25,12 @@ Hier volgen de algemene patronen voor het opgeven van index paden:
 
 | **Pad** | **Beschrijving/use-case** |
 | ---------- | ------- |
-| /   | Het standaardpad voor de verzameling. Recursieve en is van toepassing op de structuur van de hele document.|
-| / prop /?  | Index-pad voor het uitvoeren van query's zoals de volgende (met de typen hash- of -bereik, respectievelijk):<br><br>Selecteer uit verzameling c waar c.prop = "waarde"<br><br>Selecteer uit verzameling c waar c.prop > 5<br><br>Selecteer uit verzameling c ORDER BY c.prop  |
-| / prop / *  | Pad van de index voor alle paden onder het opgegeven label. Werkt met de volgende query 's<br><br>Selecteer uit verzameling c waar c.prop = "waarde"<br><br>Selecteer uit verzameling c waar c.prop.subprop > 5<br><br>Selecteer uit verzameling c waar c.prop.subprop.nextprop = "waarde"<br><br>Selecteer uit verzameling c ORDER BY c.prop |
-| / Eigenschappen / [] /?  | Index-pad is vereist voor het beheer iteratie en JOIN-query's op matrices met hoeken, zoals ["a", "b", "c"]:<br><br>Selecteer taggen van code IN collection.props waar tag = "waarde"<br><br>Selecteer tag van verzameling c JOIN-tag IN c.props waar code > 5  |
+| /          | Het standaardpad voor de verzameling. Recursieve en is van toepassing op de structuur van de hele document.|
+| / prop /?    | Index-pad voor het uitvoeren van query's zoals de volgende (met bereik typen, respectievelijk): <br><br>Selecteer uit verzameling c waar c.prop = "waarde"<br><br>Selecteer uit verzameling c waar c.prop > 5 <br><br>Selecteer uit verzameling c ORDER BY c.prop  |
+| / prop / *    | Pad van de index voor alle paden onder het opgegeven label. Werkt met de volgende query 's <br><br>Selecteer uit verzameling c waar c.prop = "waarde"<br><br>Selecteer uit verzameling c waar c.prop.subprop > 5<br><br>Selecteer uit verzameling c waar c.prop.subprop.nextprop = "waarde"<br><br>Selecteer uit verzameling c ORDER BY c.prop |
+| / Eigenschappen / [] /?| Index-pad is vereist voor het beheer iteratie en JOIN-query's op matrices met hoeken, zoals ["a", "b", "c"]:<br><br>Selecteer taggen van code IN collection.props waar tag = "waarde"<br><br>Selecteer tag van verzameling c JOIN-tag IN c.props waar code > 5 |
 | /props/ [] /subprop/? | Pad van de index is vereist om herhaling van dienst en JOIN-query's op matrices met objecten, zoals [{subprop: "a"}, {subprop: "b"}]:<br><br>Selecteer taggen van code IN collection.props waar tag.subprop = "waarde"<br><br>Selecteer taggen van verzameling c JOIN-tag IN c.props waar tag.subprop = "waarde" |
-| / prop/subprop /? | Index-pad voor het uitvoeren van query's (met de typen hash- of -bereik, respectievelijk):<br><br>Selecteer uit verzameling c waar c.prop.subprop = "waarde"<br><br>Selecteer uit verzameling c waar c.prop.subprop > 5  |
+| / prop/subprop /? | Index-pad voor het uitvoeren van query's (met bereik typen, respectievelijk):<br><br>Selecteer uit verzameling c waar c.prop.subprop = "waarde"<br><br>Selecteer uit verzameling c waar c.prop.subprop > 5  |
 
 Als u aangepaste index paden instelt, moet u bent de standaardregel voor indexering voor het volledige artikel, aangeduid met de speciale pad opgeven `/*`.
 

@@ -1,3 +1,11 @@
-## <a name="updating-properties-on-an-existing-cloud-spatial-anchor"></a>Eigenschappen van een bestaande cloud ruimtelijke anker bijwerken
+---
+ms.openlocfilehash: eafe71902ee849c310847f4537214722e129ad42
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57907635"
+---
+## <a name="update-properties"></a>Eigenschappen bijwerken
 
-Voor het bijwerken van de eigenschappen van een anker, moet u de methode UpdateAnchorPropertiesAsync gebruiken. Als twee of meer apparaten wilt bijwerken van eigenschappen voor het anker dezelfde op hetzelfde moment, gebruiken we een model optimistische gelijktijdigheid. Wat betekent dat de eerste schrijfactie wint.  Alle andere schrijfbewerkingen krijgt een foutmelding "Gelijktijdigheid": een vernieuwing van de eigenschappen nodig zou zijn voordat u doorgaat.
+Voor het bijwerken van de eigenschappen van een anker, moet u de methode UpdateAnchorProperties gebruiken. Als twee of meer apparaten wilt bijwerken van eigenschappen voor het anker dezelfde op hetzelfde moment, gebruiken we een model optimistische gelijktijdigheid. Wat betekent dat de eerste schrijfactie wint.  Alle andere schrijfbewerkingen krijgt een foutmelding "Gelijktijdigheid": een vernieuwing van de eigenschappen nodig zou zijn voordat u doorgaat.

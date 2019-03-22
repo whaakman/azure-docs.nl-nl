@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: bb315ff19aedd839c2b0638726be84343dcf4ec3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 78cc200a7bbaa2673cf6fea71d9be123fc96a75f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545359"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258068"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Herkenning van entiteit met de naam gebruiken in Text Analytics (Preview)
 
@@ -62,8 +62,9 @@ Entiteiten koppelen in verschillende talen, moet met behulp van een betreffende 
 | DateTime      | Duur      | '1 minuut en 45 seconden'   | 
 | DateTime      | Instellen           | "elke dinsdag"     | 
 | DateTime      | TimeZone      |    | 
-| URL           | N.V.T.\*         | "https://www.bing.com"    |
+| URL           | N.V.T.\*         | "https:\//www.bing.com"    |
 | Email         | N.V.T.\*         | "support@contoso.com" |
+
 \* Afhankelijk van de invoer- en uitgepakte entiteiten, bepaalde entiteiten kunnen laat de `SubType`.
 
 

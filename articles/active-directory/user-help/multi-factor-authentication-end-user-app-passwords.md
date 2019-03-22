@@ -14,12 +14,12 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee21080fd95815289f73654cc5bc650296c8e8dd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433362"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177395"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>App-wachtwoorden voor verificatie in twee stappen beheren
 
@@ -89,7 +89,7 @@ Als u verificatie in twee stappen met uw werk of school-account en uw Office 365
 
 1. Meld u aan bij uw werk- of schoolaccount.
 
-2. Ga naar https://portal.office.com, selecteer de **instellingen** pictogram in de rechterbovenhoek van de **Office 365-portal** pagina uit en vouw vervolgens **aanvullende beveiligingsverificatie**.
+2. Ga naar [ https://portal.office.com ](https://portal.office.com), selecteer de **instellingen** pictogram in de rechterbovenhoek van de **Office 365-portal** pagina uit en vouw vervolgens **extra beveiliging verificatie**.
 
     ![Office-portal met extra beveiliging verificatie gebied uitgevouwen](media/security-info/security-info-o365password.png)
 
@@ -105,7 +105,7 @@ Als u verificatie in twee stappen met uw werk of school-account en uw Office 365
 
 1. Meld u aan bij uw werk- of schoolaccount.
 
-2. Ga naar https://portal.office.com, selecteer de **instellingen** pictogram in de rechterbovenhoek van de **Office 365-portal** pagina en selecteer vervolgens **aanvullende beveiligingsverificatie**.
+2. Ga naar [ https://portal.office.com ](https://portal.office.com), selecteer de **instellingen** pictogram in de rechterbovenhoek van de **Office 365-portal** pagina en selecteer vervolgens **extra beveiliging verificatie**.
 
 3. Selecteer de tekst waarin wordt gemeld, **maken en beheren van app-wachtwoorden** te openen de **app-wachtwoorden** pagina.
 

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8f549c20480e3866725717aa054af6653ab5a913
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 236e4e7079da792d055a8de148d03852ca1012ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343992"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877357"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 release-opmerkingen
 
@@ -180,9 +180,9 @@ Als u activa of Accountfilters tussen 09/28 en 10 gemaakt/12 met Media Services 
 
 ## <a name="may-2018---preview"></a>Mei 2018 - Preview
 
-### <a name="net-sdk"></a>.Net SDK
+### <a name="net-sdk"></a>.NET SDK
 
-De volgende functies zijn aanwezig in de .net SDK:
+De volgende functies zijn aanwezig in de .NET SDK:
 
 * **Transformeert** en **taken** om te coderen of media-inhoud analyseren. Zie voor voorbeelden van [Stream bestanden](stream-files-tutorial-with-api.md) en [analyseren](analyze-videos-tutorial-with-api.md).
 * **Streaming-Locators** voor het publiceren en streaming van inhoud naar apparaten van eindgebruikers

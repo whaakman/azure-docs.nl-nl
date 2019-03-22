@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7284dfb6-df62-41f1-a4a4-1b8322b7ef44
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f816a6629ef561067f5a40ba15064b98b34c99
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 2f8be215f1a972539aff47347395f041d89d4e81
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871431"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Zelfstudie: Integratie van Azure Active Directory met Accredible
 
@@ -51,9 +51,9 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van Accredible met Microsoft Azure Active Directory, moet u Accredible vanuit de galerie aan uw lijst met beheerde SaaS-apps toevoegen.
 
-**Als u Accredible vanuit de galerie wilt toevoegen, voert u de volgende stappen uit:**
+**Om toe te voegen Accredible uit de galerie, voer de volgende stappen uit:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -152,9 +152,9 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon** in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veld, typt u **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -189,11 +189,11 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 ### <a name="create-accredible-test-user"></a>Accredible-testgebruiker maken
 
-In deze sectie gaat u een gebruiker maken met de naam Britta Simon in Accredible. U moet de e-mail-id van de gebruiker verzenden naar het [Accredible-ondersteuningsteam](mailto:support@accredible.com). Zij verifiëren de e-mail en sturen u de uitnodigingsmail zodat u de gebruiker aan het Accredible-platform kunt toevoegen.
+In deze sectie gaat u een gebruiker maken met de naam Britta Simon in Accredible. U wilt verzenden van e-mail-id van de gebruiker naar [Accredible ondersteuningsteam](mailto:support@accredible.com), en ze controleren of het e-mailbericht en u de uitnodiging-mail verzenden zodat u gebruikers in accredible platform toevoegen kunt.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel Accredible in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van Accredible waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

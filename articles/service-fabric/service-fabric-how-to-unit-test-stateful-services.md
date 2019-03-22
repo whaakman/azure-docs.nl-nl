@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: a030860bcef41d7276e1356553b984f55e27ae1e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 65fccada665743cf293b4ee4bb8f786a4c01c58a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164152"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093902"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Eenheidstests voor Stateful Services maken
 Eenheidstesten stateful Service Fabric-services kunt verwerven op basis veelvoorkomende fouten die zou niet per se worden opgepikt door conventionele toepassing of domeinspecifieke Eenheidstesten. Tijdens het ontwikkelen van eenheidstests voor stateful services, zijn er enkele speciale overwegingen die moeten worden opgeslagen in gedachten.
@@ -42,13 +42,13 @@ Vanaf versie 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/Service
 Als onderdeel van het gedeelte rangschikken van een test, een mock replicaset en status manager wordt gemaakt. Het maken van een exemplaar van de geteste service voor elke replica wordt vervolgens eigenaar van de replicaset. Levenscyclusgebeurtenissen voor het uitvoeren wordt tevens zoals eigenaar `OnChangeRole` en `RunAsync`. Het model de status manager zorgt ervoor dat alle bewerkingen die worden uitgevoerd op basis van de status manager worden uitgevoerd en bewaard als de huidige status manager.
 
 1. Maak een service factory gemachtigde die wordt een exemplaar van de service worden getest. Dit moet lijken op of hetzelfde zijn als de service factory callback gewoonlijk in `Program.cs` voor een Service Fabric-service of een actor. Dit moet de volgende handtekening volgen:
-```csharp
-MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
-```
+   ```csharp
+   MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
+   ```
 2. Maak een instantie van `MockReliableStateManager` klasse. Hiermee worden alle interacties met de status manager model.
 3. Maak een instantie van `MockStatefulServiceReplicaSet<TStatefulService>` waar `TStatefulService` is het type van de service worden getest. Hiervoor moet de gemachtigde die zijn gemaakt in stap 1 # en de status manager geïnstantieerd in #2
 4. Replica's toevoegen aan de replicaset. Geef de rol (zoals primair, ActiveSecondary, IdleSecondary) en de ID van de replica
-> Houd de replica-id's! Deze zal waarschijnlijk worden gebruikt tijdens de handeling en delen van een moduletest assert.
+   > Houd de replica-id's! Deze zal waarschijnlijk worden gebruikt tijdens de handeling en delen van een moduletest assert.
 
 ```csharp
 //service factory to instruct how to create the service instance

@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 748f4562e1efd613b87dd5ab44a83d3d50171f67
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3126be88e272ab3891caa94ee15b622b0dfbdbdf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539918"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860496"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migratie en application development-partners
 
@@ -32,10 +32,10 @@ Van de migratie van de NoSQL ontwikkeling van toepassingen, kunt u kiezen uit ta
 |![Altoros ontwikkeling, LLC][3]    |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling |   Verenigde Staten, Noorwegen, Finland, Belarus, Argentinië |  [Website](https://www.altoros.com/)     |
 |![Attunix Redapt][4]     |   NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling      |    USA     |  [Website](https://www.attunix.com/)       |
 | ![Avanade][26] | Nieuwe appontwikkeling <br/> Innovatie van apps (bestaande apps) | Oostenrijk, Duitsland, Zwitserland, Italië, Noorwegen, Spanje, Verenigd Koninkrijk | [Website](https://www.avanade.com/)
-|![Bluemetal Architects][5]     |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling       |    Noord-Amerika, Azië en Stille Oceaan     |  [Website](http://www.bluemetal.com/)       |
+|![Bluemetal Architects][5]     |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling       |    Noord-Amerika, Azië en Stille Oceaan     |  [Website](https://www.bluemetal.com/)       |
 |![Globale LLC Capax][6]     |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling       |    USA     |  [Website](https://www.capaxglobal.com/)       |
 | ![Voor Capgemini][14] | NoSQL-migratie; Innovatie van apps (bestaande apps); Nieuwe app-ontwikkeling | Verenigde Staten, Frankrijk, Verenigd Koninkrijk, Nederland, Finland  | [Website](https://www.capgemini.com/) | 
-|![Coeo][7]     |   Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling |    VK     |  [Website](http://www.coeo.com/)       |
+|![Coeo][7]     |   Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling |    VK     |  [Website](https://www.coeo.com/)       |
 | ![Cognizant][15] | NoSQL-migratie |Verenigde Staten, Canada, Verenigd Koninkrijk, Denemarken, Nederland, Zwitserland, Australië, Japan | [Website](https://www.cognizant.com/)|
 |![Infosys][8]     |  NoSQL-migratie       |    Wereldwijd     |  [Website](https://www.infosys.com/)       |
 | ![Lagash][16] | NoSQL-migratie <br/> Nieuwe app-ontwikkeling | Argentinië, Chili, Colombia, Mexico| [Website](https://www.lagash.com/)|

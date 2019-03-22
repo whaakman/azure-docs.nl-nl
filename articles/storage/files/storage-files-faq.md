@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 7305fbf21557061250a80e095998ad7ea2f35510
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 561c8c9d942210a9bbdc70feff9bc468fa69967e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995865"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -27,19 +27,19 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
 ## <a name="general"></a>Algemeen
 * <a id="why-files-useful"></a>
-**Wat is Azure Files handig?**  
+  **Wat is Azure Files handig?**  
    U kunt Azure Files gebruiken om bestandsshares te maken in de cloud, zonder dat verantwoordelijk is voor het beheren van de overhead van een fysieke server, een apparaat of een apparaat. Wij doen het monotone werk voor u, met inbegrip van het toepassen van updates van het besturingssysteem en beschadigde schijven vervangen. Zie voor meer informatie over de scenario's voor Azure Files u met kunt [waarom Azure Files handig is](storage-files-introduction.md#why-azure-files-is-useful).
 
 * <a id="file-access-options"></a>
-**Wat zijn verschillende manieren toegang krijgen tot bestanden in Azure Files?**  
-    U kunt de bestandsshare koppelen op uw lokale computer met behulp van het SMB 3.0-protocol of kunt u hulpprogramma's zoals [Opslagverkenner](http://storageexplorer.com/) toegang krijgen tot bestanden in de bestandsshare. Vanuit uw toepassing, kunt u clientbibliotheken, REST-API's, PowerShell of Azure CLI kunt gebruiken voor toegang tot uw bestanden in de Azure-bestandsshare.
+  **Wat zijn verschillende manieren toegang krijgen tot bestanden in Azure Files?**  
+    U kunt de bestandsshare koppelen op uw lokale computer met behulp van het SMB 3.0-protocol of kunt u hulpprogramma's zoals [Opslagverkenner](https://storageexplorer.com/) toegang krijgen tot bestanden in de bestandsshare. Vanuit uw toepassing, kunt u clientbibliotheken, REST-API's, PowerShell of Azure CLI kunt gebruiken voor toegang tot uw bestanden in de Azure-bestandsshare.
 
 * <a id="what-is-afs"></a>
-**Wat is Azure File Sync?**  
+  **Wat is Azure File Sync?**  
     U kunt Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert uw Windows Server-machines naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, Network File System (NFS) en File Transfer Protocol-Service (FTPS) gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
 
 * <a id="files-versus-blobs"></a>
-**Waarom zou ik een Azure-bestandsshare ten opzichte van Azure Blob-opslag gebruiken voor mijn gegevens?**  
+  **Waarom zou ik een Azure-bestandsshare ten opzichte van Azure Blob-opslag gebruiken voor mijn gegevens?**  
     Azure Files en Azure Blob storage bieden beide manieren om grote hoeveelheden gegevens opslaan in de cloud, maar ze zijn nuttig voor verschillende doeleinden. 
     
     Azure Blob-opslag is handig voor zeer grote schaal, cloud-eigen toepassingen die nodig hebt voor het opslaan van ongestructureerde gegevens. Azure Blob-opslag is voor maximale prestaties en schaalbaarheid, een eenvoudigere opslag abstractie dan een echt bestandssysteem. U kunt toegang krijgen tot de Azure Blob-opslag alleen via op REST-gebaseerde clientbibliotheken (of rechtstreeks via het protocol op basis van REST).
@@ -58,42 +58,42 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     Zie voor meer informatie over een optie voor het instellen van een krachtige en maximaal beschikbare bestandsserver in Azure [implementeren IaaS VM-gastclusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Zie voor een gedetailleerdere beschrijving van de verschillen tussen Azure Files en Azure-schijven, [beslissen wanneer u het gebruik van Azure Blob-opslag, Azure Files of Azure-schijven](../common/storage-decide-blobs-files-disks.md). Zie voor meer informatie over Azure-schijven, [overzicht Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 * <a id="get-started"></a>
-**Hoe ga ik aan de slag met Azure Files?**  
+  **Hoe ga ik aan de slag met Azure Files?**  
    Aan de slag met Azure Files is heel eenvoudig. Eerste, [een bestandsshare maken](storage-how-to-create-file-share.md), en koppel deze vervolgens in uw favoriete besturingssysteem: 
 
-    * [Koppelen aan Windows](storage-how-to-use-files-windows.md)
-    * [Koppelen in Linux](storage-how-to-use-files-linux.md)
-    * [Koppelen in macOS](storage-how-to-use-files-mac.md)
+  * [Koppelen aan Windows](storage-how-to-use-files-windows.md)
+  * [Koppelen in Linux](storage-how-to-use-files-linux.md)
+  * [Koppelen in macOS](storage-how-to-use-files-mac.md)
 
-   Zie voor een uitgebreidere handleiding over het implementeren van een Azure-bestandsshare voor het vervangen van productie-bestandsshares in uw organisatie, [Planning voor de implementatie van Azure Files](storage-files-planning.md).
+    Zie voor een uitgebreidere handleiding over het implementeren van een Azure-bestandsshare voor het vervangen van productie-bestandsshares in uw organisatie, [Planning voor de implementatie van Azure Files](storage-files-planning.md).
 
 * <a id="redundancy-options"></a>
-**Welke opties voor opslagredundantie worden ondersteund door Azure Files?**  
+  **Welke opties voor opslagredundantie worden ondersteund door Azure Files?**  
     Azure Files ondersteunt momenteel lokaal redundante opslag (LRS), zone-redundante opslag (ZRS) en geografisch redundante opslag (GRS). Wij van plan bent te leestoegang geografisch redundante opslag met (RA-GRS) in de toekomst, maar er zijn geen tijdlijnen om te delen op dit moment.
 
 * <a id="tier-options"></a>
-**Welke opslaglagen worden ondersteund in Azure Files?**  
+  **Welke opslaglagen worden ondersteund in Azure Files?**  
     Azure Files ondersteunt momenteel alleen de laag standard-opslag. Er zijn geen tijdlijnen voor premium storage en cool storage-ondersteuning op dit moment delen. 
     
     > [!NOTE]
     > U kunt geen Azure-bestandsshares maken van alleen-blob storage-accounts of van premium storage-accounts.
 
 * <a id="give-us-feedback"></a>
-**Ik wil om te zien van een specifieke functie die is toegevoegd aan Azure-bestanden. Kunt u deze toevoegen?**  
+  **Ik wil om te zien van een specifieke functie die is toegevoegd aan Azure-bestanden. Kunt u deze toevoegen?**  
     Het team van Azure Files is geïnteresseerd in alle feedback hebt over onze service horen. Neem stemmen op de functieaanvragen bij een [Azure bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! We willen doorsturen naar u verwennen met veel nieuwe functies.
 
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
-**Welke regio's worden ondersteund voor Azure File Sync?**  
+  **Welke regio's worden ondersteund voor Azure File Sync?**  
     De lijst met beschikbare regio's te vinden in de [beschikbaarheid in regio](storage-sync-files-planning.md#region-availability) sectie van de planning van de Azure File Sync begeleiden. Er wordt continu ondersteuning voor extra regio's, inclusief niet-openbare regio's toevoegen.
 
 * <a id="cross-domain-sync"></a>
-**Kan ik in de groep voor synchronisatie met hetzelfde domein en niet-domein-servers hebben?**  
+  **Kan ik in de groep voor synchronisatie met hetzelfde domein en niet-domein-servers hebben?**  
     Ja. Een synchronisatiegroep mag servereindpunten waarvoor verschillende lidmaatschappen voor Active Directory, zelfs als ze niet domein zijn. Hoewel deze configuratie technisch werkt, niet aangeraden dit als een typische configuratie omdat toegangsbeheerlijsten (ACL's) die zijn gedefinieerd voor bestanden en mappen op één server mogelijk niet worden afgedwongen door andere servers in de groep voor synchronisatie. Voor optimale resultaten, wordt u aangeraden synchroniseren tussen de servers die zich in hetzelfde Active Directory-forest, tussen servers die zich in verschillende Active Directory-forests, maar die ingestelde vertrouwensrelaties, of tussen servers die zich niet in een domein. Het is raadzaam om te voorkomen dat met behulp van een combinatie van deze configuraties.
 
 * <a id="afs-change-detection"></a>
-**Kan ik een bestand rechtstreeks in mijn Azure-bestandsshare gemaakt met behulp van SMB of in de portal. Hoe lang duurt het om het bestand te synchroniseren met de servers in de groep voor synchronisatie?**  
+  **Kan ik een bestand rechtstreeks in mijn Azure-bestandsshare gemaakt met behulp van SMB of in de portal. Hoe lang duurt het om het bestand te synchroniseren met de servers in de groep voor synchronisatie?**  
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 * <a id="afs-conflict-resolution"></a>**Wat gebeurt er als hetzelfde bestand is gewijzigd op twee servers op ongeveer hetzelfde moment?**  
@@ -104,66 +104,66 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     De eerste conflicterende CompanyReport.docx zou bijvoorbeeld CompanyReport CentralServer.docx worden als CentralServer is waar de oudere schrijven is opgetreden. De naam van het tweede conflict zou CompanyReport-CentralServer-1.docx.
 
 * <a id="afs-storage-redundancy"></a>
-**Geografisch redundante opslag is wordt ondersteund voor Azure File Sync?**  
+  **Geografisch redundante opslag is wordt ondersteund voor Azure File Sync?**  
     Ja, Azure Files ondersteunt zowel lokaal redundante opslag (LRS) en geografisch redundante opslag (GRS). Als u een failover voor het account van opslag tussen twee gekoppelde regio's van een account dat is geconfigureerd voor GRS hebt gestart, wordt aangeraden dat u de nieuwe regio als een back-up van gegevens behandelen. Azure File Sync begint niet automatisch gesynchroniseerd met de nieuwe primaire regio. 
 
 * <a id="sizeondisk-versus-size"></a>
-**Waarom niet de *ruimte op de schijf* eigenschap voor een bestand overeen met de *grootte* eigenschap na het gebruik van Azure File Sync?**  
- Zie [inzicht in Cloud-Opslaglagen](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
+  **Waarom niet de *ruimte op de schijf* eigenschap voor een bestand overeen met de *grootte* eigenschap na het gebruik van Azure File Sync?**  
+  Zie [inzicht in Cloud-Opslaglagen](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
 
 * <a id="is-my-file-tiered"></a>
-**Hoe weet ik of een bestand is gelaagd?**  
- Zie [inzicht in Cloud-Opslaglagen](storage-sync-cloud-tiering.md#is-my-file-tiered).
+  **Hoe weet ik of een bestand is gelaagd?**  
+  Zie [inzicht in Cloud-Opslaglagen](storage-sync-cloud-tiering.md#is-my-file-tiered).
 
 * <a id="afs-recall-file"></a>**Een bestand dat ik wil gebruiken gelaagde. Hoe kan ik het bestand op schijf om lokaal gebruiken intrekken?**  
- Zie [inzicht in Cloud-Opslaglagen](storage-sync-cloud-tiering.md#afs-recall-file).
+  Zie [inzicht in Cloud-Opslaglagen](storage-sync-cloud-tiering.md#afs-recall-file).
 
 * <a id="afs-force-tiering"></a>
-**Hoe Dwing ik een bestand of map in tiers worden verdeeld?**  
- Zie [inzicht in Cloud-Opslaglagen](storage-sync-cloud-tiering.md#afs-force-tiering).
+  **Hoe Dwing ik een bestand of map in tiers worden verdeeld?**  
+  Zie [inzicht in Cloud-Opslaglagen](storage-sync-cloud-tiering.md#afs-force-tiering).
 
 * <a id="afs-effective-vfs"></a>
-**Hoe wordt *vrije ruimte op volume* geïnterpreteerd wanneer ik meerdere servereindpunten op een volume heb?**  
- Zie [inzicht in Cloud-Opslaglagen](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  **Hoe wordt *vrije ruimte op volume* geïnterpreteerd wanneer ik meerdere servereindpunten op een volume heb?**  
+  Zie [inzicht in Cloud-Opslaglagen](storage-sync-cloud-tiering.md#afs-effective-vfs).
 
 * <a id="afs-files-excluded"></a>
-**Welke bestanden of mappen worden automatisch uitgesloten door Azure File Sync?**  
+  **Welke bestanden of mappen worden automatisch uitgesloten door Azure File Sync?**  
     Azure File Sync niet standaard van toepassing op de volgende bestanden:
-    * desktop.ini
-    * thumbs.db
-    * ehthumbs.db
-    * ~$\*.\*
-    * \*.laccdb
-    * \*.tmp
-    * 635D02A9D91C401B97884B82B3BCDAEA.\*
+  * desktop.ini
+  * thumbs.db
+  * ehthumbs.db
+  * ~$\*.\*
+  * \*.laccdb
+  * \*.tmp
+  * 635D02A9D91C401B97884B82B3BCDAEA.\*
 
     De volgende mappen worden standaard ook uitgesloten:
 
-    * \System volume Information
-    * \$RECYCLE.BIN
-    * \SyncShareState
+  * \System volume Information
+  * \$RECYCLE.BIN
+  * \SyncShareState
 
 * <a id="afs-os-support"></a>
-**Kan ik Azure File Sync gebruiken met Windows Server 2008 R2, Linux of mijn apparaat network-attached storage (NAS)?**  
+  **Kan ik Azure File Sync gebruiken met Windows Server 2008 R2, Linux of mijn apparaat network-attached storage (NAS)?**  
     Azure File Sync ondersteunt momenteel alleen Windows Server 2016 en Windows Server 2012 R2. Op dit moment is er geen andere plannen die we kunt delen, maar we zijn open op de ondersteuning van extra platforms op basis van vraag van klanten. Laat het ons weten op [Azure bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) welke platforms u graag voor de ondersteuning.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
-**Waarom bestaan er gelaagde bestanden buiten de server eindpunt-naamruimte?**  
+  **Waarom bestaan er gelaagde bestanden buiten de server eindpunt-naamruimte?**  
     Azure File Sync geblokkeerd voordat u Azure File Sync-agentversie 3, de verplaatsing van gelaagde bestanden buiten het servereindpunt, maar op hetzelfde volume als het servereindpunt. Kopieerbewerkingen, verplaatst van niet-gelaagde bestanden en wordt verplaatst van gelaagde in andere volumes zijn niet beïnvloed. De reden voor dit gedrag is de impliciete veronderstelling dat File Explorer en andere Windows-API's hebben dat verplaatsingsbewerkingen op hetzelfde volume (bijna) onmiddellijk zijn Wijzig de naam van bewerkingen. Dit betekent verplaatst maakt Verkenner of andere verplaatsingsmethoden (zoals vanaf de opdrachtregel of PowerShell) wordt niet meer reageert geopend terwijl Azure File Sync de gegevens vanuit de cloud roept. Beginnen met [versie van Azure File Sync-agent 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure File Sync kunt u een gelaagd bestand buiten het servereindpunt verplaatsen. We te voorkomen dat de negatieve effecten die eerder is vermeld dat het gelaagde bestand bestaat als een gelaagd bestand buiten het servereindpunt en vervolgens terughalen van het bestand op de achtergrond. Dit betekent dat verplaatst op hetzelfde volume zijn onmiddellijk en we hebben al het werk om in te trekken van het bestand op schijf na de verplaatsing is voltooid. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
-**Ik ondervind een probleem met Azure File Sync op mijn server (sync, cloud cloudlagen, enzovoort). Moet ik verwijderen en opnieuw maken van mijn servereindpunt?**  
+  **Ik ondervind een probleem met Azure File Sync op mijn server (sync, cloud cloudlagen, enzovoort). Moet ik verwijderen en opnieuw maken van mijn servereindpunt?**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
-**Kan ik de opslagsynchronisatieservice en/of de storage-account verplaatsen naar een andere resourcegroep of abonnement?**  
+  **Kan ik de opslagsynchronisatieservice en/of de storage-account verplaatsen naar een andere resourcegroep of abonnement?**  
    Ja, de opslagsynchronisatieservice en/of de storage-account kan worden verplaatst naar een andere resourcegroep of abonnement binnen de bestaande Azure AD-tenant. Als het opslagaccount is verplaatst, moet u de hybride File Sync-Service toegang geven tot het opslagaccount (Zie [Zorg ervoor dat Azure File Sync heeft toegang tot het opslagaccount](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Azure File Sync biedt geen ondersteuning voor het verplaatsen van het abonnement naar een andere Azure AD-tenant.
     
 * <a id="afs-ntfs-acls"></a>
-**Behoudt Azure File Sync directory/bestandsniveau NTFS ACL's samen met de gegevens die zijn opgeslagen in Azure Files?**
+  **Behoudt Azure File Sync directory/bestandsniveau NTFS ACL's samen met de gegevens die zijn opgeslagen in Azure Files?**
 
     NTFS ACL's uitgevoerd vanuit on-premises bestand servers door Azure File Sync als metagegevens zijn opgeslagen. Azure Files biedt geen ondersteuning voor verificatie met Azure AD-referenties voor toegang tot bestandsshares die worden beheerd door de Azure File Sync-service.
     
@@ -261,7 +261,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
     U kunt de bestandsshare koppelt via het SMB-protocol als poort 445 (TCP uitgaand) geopend is en de client het SMB 3.0-protocol ondersteunt (bijvoorbeeld, als u Windows 10 of Windows Server 2016). Als poort 445 wordt geblokkeerd door het beleid van uw organisatie of door uw Internetprovider, kunt u Azure File Sync kunt gebruiken voor toegang tot uw Azure-bestandsshare.
 
-## <a name="backup"></a>Back-up
+## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Hoe kan ik maak een back-up van mijn Azure-bestand delen?**  
     U kunt periodieke [momentopnamen van bestandsshares](storage-snapshots-files.md) voor bescherming tegen onbedoeld verwijderen. Ook kunt u AzCopy, Robocopy of een back-uphulpprogramma van derden die back-up van een gekoppelde bestandsshare. Azure Backup biedt back-up van Azure Files. Meer informatie over [maakt u een back-up van Azure-bestandsshares door Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).

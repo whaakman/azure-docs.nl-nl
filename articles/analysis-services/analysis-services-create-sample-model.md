@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 03/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 78b309336b21c3b6a58a37b1729f675db111c5d0
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 32c46f0a488d775275b3a367aa2913f034569041
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903926"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Zelfstudie: Een voorbeeldmodel toevoegen via de portal
 
@@ -57,7 +57,7 @@ Meld u aan bij de [portal](https://portal.azure.com/).
 
 In het voorbeeldmodel worden cachegeheugenbronnen gebruikt. Verwijder het voorbeeldmodel van uw server als u dit niet gebruikt voor het testen.
 
-In deze stappen wordt beschreven hoe u een model verwijdert van een server met behulp van SSMS. U kunt een model ook verwijderen met behulp van de previewfunctie van Web Designer.
+In deze stappen wordt beschreven hoe u een model verwijdert van een server met behulp van SSMS.
 
 1. Klik in SSMS > **Objectverkenner** op **Verbinding maken** > **Analysis Services**.
 

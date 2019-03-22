@@ -1,6 +1,6 @@
 ---
 title: Blob-pad van de standaardwaarde wijzigen | Microsoft Docs
-description: Meer informatie over het instellen van een Azure-functie naam wijzigen van een pad naar een blob
+description: Meer informatie over het instellen van een Azure-functie de naam van een pad naar een blob wijzigen
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,72 +14,72 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: f73d9dcedee5165af752b9e10fb70de860e8e98b
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27862397"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011628"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Een blobpad van het standaardpad wijzigen
 
-Wanneer u de gegevens worden omgezet door de StorSimple Data Manager-service, standaard wordt de getransformeerde blobs in een storage-container, zoals opgegeven tijdens het maken van de doelopslagplaats. Als de blobs op deze locatie binnenkomen, kunt u deze blobs verplaatsen naar een alternatieve locatie. Dit artikel wordt beschreven hoe u een Azure-functie te wijzigen van een standaard blob-bestandspad en de blobs daarom verplaatsen naar een andere locatie.
+Wanneer u de service StorSimple Data Manager de gegevens worden getransformeerd, standaard wordt de getransformeerde blobs in een storage-container, zoals is opgegeven tijdens het maken van de doelopslagplaats. Wanneer de blobs op deze locatie binnenkomen, kunt u deze blobs verplaatsen naar een alternatieve locatie. Dit artikel wordt beschreven hoe u een Azure-functie te wijzigen van een standaardpad voor de blob-bestand en kan daarom de blobs te verplaatsen naar een andere locatie kunt instellen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Zorg ervoor dat u een juist geconfigureerde taakdefinitie in uw StorSimple Data Manager-service.
+Zorg ervoor dat u een correct geconfigureerde taakdefinitie in uw StorSimple Data Manager-service hebt.
 
 ## <a name="create-an-azure-function"></a>Een Azure-functie maken
 
-Voor het maken van een Azure-functie kunt u de volgende stappen uitvoeren:
+Voor het maken van een Azure-functie, kunt u de volgende stappen uitvoeren:
 
-1. Ga naar de [Azure Portal](http://portal.azure.com/).
+1. Ga naar de [Azure Portal](https://portal.azure.com/).
 
-2. Klik op **+ maken van een resource**. In de **Search** in het vak **functie-App** en druk op **Enter**. Selecteer en klik op **functie-app** in de lijst met apps die worden weergegeven.
+2. Klik op **+ een resource maken**. In de **zoeken** in het vak **functie-App** en druk op **Enter**. Selecteer en klik op **functie-app** in de lijst met apps weergegeven.
 
-    ![Typ 'Functie-App' in het vak Zoeken](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
+    ![Typ '-functie-App' in het zoekvak in](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 
 3. Klik op **Create**.
 
-    ![De knop functie-App venster 'Maken'](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
+    ![De knop 'Maken' van functie-App-venster](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
 
-4. Op de **functie-App** blade van de configuratie van de volgende stappen uitvoeren:
+4. Op de **functie-App** configuratieblade, voer de volgende stappen uit:
 
     1. Geef een unieke **appnaam**.
-    2. Selecteer in de vervolgkeuzelijst de **abonnement**. Dit abonnement moet gelijk zijn aan met uw StorSimple Data Manager-service is gekoppeld.
+    2. Selecteer in de vervolgkeuzelijst de **abonnement**. Dit abonnement moet hetzelfde zijn als de waarde die is gekoppeld aan uw StorSimple Data Manager-service.
     3. Selecteer **nieuw** resourcegroep.
-    4. Voor de **die als host fungeert van plan bent** vervolgkeuzelijst, selecteer **verbruik plannen**.
-    5. Geef een locatie waar de functie wordt uitgevoerd. Wilt u dezelfde regio waar de StorSimple Data Manager-service en het opslagaccount die is gekoppeld aan de taakdefinitie zich bevinden.
-    6. Selecteer een bestaand opslagaccount of maak een nieuw opslagaccount. Een opslagaccount wordt intern gebruikt voor de functie.
+    4. Voor de **abonnement voor webhosting** vervolgkeuzelijst **Verbruiksabonnement**.
+    5. Geef een locatie waar uw functie wordt uitgevoerd. Wilt u dezelfde regio waar de service StorSimple Data Manager en het opslagaccount dat is gekoppeld aan de taakdefinitie van de zich bevinden.
+    6. Selecteer een bestaand opslagaccount of maak een nieuw opslagaccount. Een storage-account wordt intern gebruikt voor de functie.
 
-        ![Voer de nieuwe functie-App-configuratiegegevens](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
+        ![Nieuwe functie-App-configuratie-gegevens invoeren](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
 
     7. Klik op **Create**. De functie-app wordt gemaakt.
      
         ![Functie-App gemaakt](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
 
-5. Selecteer **functies**, en klik op **+ een nieuwe functie**.
+5. Selecteer **functies**, en klikt u op **+ nieuwe functie**.
 
-    ![Klik op + een nieuwe functie](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
+    ![Klik op + nieuwe functie](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
 
-6. Selecteer **C#** voor de taal. Selecteer in de matrix van sjabloon tegels **C#** in de **QueueTrigger CSharp** tegel.
+6. Selecteer **C#** voor de taal. Selecteer in de matrix van sjabloon tegels **C#** in de **QueueTrigger-CSharp** tegel.
 
-7. In de **wachtrij trigger**:
+7. In de **wachtrijtrigger**:
 
-    1. Voer een **naam** voor de functie.
-    2. In de **wachtrijnaam** typt u de naam van uw data transformation taak definitie.
-    3. Onder **Storage-account verbinding**, klikt u op **nieuwe**. Selecteer in de lijst met opslagaccounts, de account die is gekoppeld aan de taakdefinitie van de. Noteer de naam van de verbinding (gemarkeerd). De naam van de is later in de Azure-functie vereist.
+    1. Voer een **naam** voor uw functie.
+    2. In de **wachtrijnaam** typt u de taakdefinitienaam transformatie van gegevens.
+    3. Onder **opslagaccountverbinding**, klikt u op **nieuwe**. Selecteer in de lijst met opslagaccounts, het account dat is gekoppeld aan de taakdefinitie van de. Noteer de naam van de verbinding (gemarkeerd). De naam is vereist later in de Azure-functie.
 
-        ![Maak een nieuwe C#-functie](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
+        ![Maak een nieuwe C# functie](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
 
     4. Klik op **Create**. De **functie** wordt gemaakt.
 
      
 10. Voer in het venster functie _.csx_ bestand.
 
-    ![Maak een nieuwe C#-functie](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
+    ![Maak een nieuwe C# functie](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
-    De volgende stappen uitvoeren.
+    Voer de volgende stappen uit.
 
     1. Plak de volgende code:
 
@@ -183,23 +183,23 @@ Voor het maken van een Azure-functie kunt u de volgende stappen uitvoeren:
 
         ```
 
-    2. Vervang **STORAGE_CONNECTIONNAME** op regel 11 met de storage-account verbinding (Zie stap 7 c).
+    2. Vervang **STORAGE_CONNECTIONNAME** op regel 11 met verbinding met uw opslagaccount (Zie stap 7 c).
 
-        ![De verbindingsnaam opslag kopiëren](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
+        ![Kopieer de naam van de opslag-verbinding](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
 
     3. **Sla** de functie.
 
-        ![De functie opslaan](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
+        ![Functie opslaan](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
 
-12. Voor het voltooien van de functie toevoegen één meer bestand de volgende stappen uit als volgt:
+12. Toevoegen voor het voltooien van de functie één meer bestand door de volgende stappen:
 
     1. Klik op **bestanden bekijken**.
 
-       ![De koppeling 'Bestanden weergeven'](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
+       ![De koppeling "Bestanden weergeven"](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
 
-    2. Klik op **+ toevoegen**.
+    2. Klik op **+ Toevoegen**.
         
-        ![De koppeling 'Bestanden weergeven'](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
+        ![De koppeling "Bestanden weergeven"](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
     3. Type **project.json**, en druk vervolgens op **Enter**. In de **project.json** bestand, plak de volgende code:
 
@@ -219,9 +219,9 @@ Voor het maken van een Azure-functie kunt u de volgende stappen uitvoeren:
     
     4. Klik op **Opslaan**.
 
-        ![De koppeling 'Bestanden weergeven'](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
+        ![De koppeling "Bestanden weergeven"](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
-U hebt een Azure-functie gemaakt. Deze functie wordt telkens wanneer die een nieuwe blob wordt gegenereerd door de taak Gegevenstransformatie geactiveerd.
+U kunt een Azure-functie hebt gemaakt. Deze functie wordt geactiveerd telkens wanneer die een nieuwe blob wordt gegenereerd door de taak voor gegevenstransformatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
