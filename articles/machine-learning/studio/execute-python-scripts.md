@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.date: 03/05/2019
-ms.openlocfilehash: f508d16330bad7044a69ccff2ddf84ece74e78a2
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.date: 03/12/2019
+ms.openlocfilehash: 4b4f3877b56752756050de0af226571ac2a93293
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888145"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Python-scripts voor Machine Learning uitvoeren in Azure Machine Learning Studio
 
@@ -62,13 +62,14 @@ Studio gegevenssets zijn niet gelijk zijn aan Panda gegevensframes. Als gevolg h
 | Index vectoren | Niet-ondersteunde * |
 | De namen van kolommen van niet-tekenreeks | Bel `str` op de namen van kolommen |
 | Dubbele kolomnamen | Numeriek achtervoegsel toevoegen: (1), (2), (3), enzovoort.
+
 **Alle invoergegevens frames in de Python-functie altijd een 64-bits numerieke index hebben van 0 aan het aantal rijen min 1*
 
 ## <a id="import-modules"></a>Bestaande Python-script-modules importeren
 
-De back-end gebruikt voor het uitvoeren van Python is gebaseerd op [Anaconda](https://store.continuum.io/cshop/anaconda/), een wetenschappelijke Python-distributie veelvuldig worden gebruikt. Het wordt geleverd met bijna 200 van de meest voorkomende Python-pakketten die worden gebruikt in gegevensgerichte werkbelastingen. Echter, merkt u misschien de noodzaak om op te nemen meer bibliotheken.
+De back-end gebruikt voor het uitvoeren van Python is gebaseerd op [Anaconda](https://store.continuum.io/cshop/anaconda/), een wetenschappelijke Python-distributie veelvuldig worden gebruikt. Het wordt geleverd met bijna 200 van de meest voorkomende Python-pakketten die worden gebruikt in gegevensgerichte werkbelastingen. Studio biedt momenteel geen ondersteuning voor het gebruik van pakket beheersystemen, zoals Pip of Conda te installeren en beheren van externe-bibliotheken.  Als u de noodzaak om op te nemen meer bibliotheken kunt vinden, gebruikt u het volgende scenario als richtlijn.
 
-Een veelvoorkomende use-case is het opnemen van bestaande Python-scripts in de Studio-experimenten. De [Execute Python Script] [ execute-python-script] module een zipbestand met de Python-modules op de derde invoerpoort accepteert. Het bestand is uitgepakt het Framework kan worden uitgevoerd tijdens runtime en de inhoud worden toegevoegd aan het pad naar de bibliotheek van de Python-interpreter. De `azureml_main` toegangspunt dat deze modules kunt vervolgens rechtstreeks importeren door de functie.
+Een veelvoorkomende use-case is het opnemen van bestaande Python-scripts in de Studio-experimenten. De [Execute Python Script] [ execute-python-script] module een zipbestand met de Python-modules op de derde invoerpoort accepteert. Het bestand is uitgepakt het Framework kan worden uitgevoerd tijdens runtime en de inhoud worden toegevoegd aan het pad naar de bibliotheek van de Python-interpreter. De `azureml_main` toegangspunt dat deze modules kunt vervolgens rechtstreeks importeren door de functie. 
 
 Houd rekening met het bestand met een eenvoudige 'Hallo, wereld'-functie Hello.py als voorbeeld.
 
@@ -87,6 +88,25 @@ Upload het zip-bestand als een gegevensset in Studio. Vervolgens maken en uitvoe
 De module-uitvoer ziet u dat het zip-bestand uitgepakt is en dat de functie `print_hello` is uitgevoerd.
 
 ![Module-uitvoer van de gebruiker gedefinieerde functie](./media/execute-python-scripts/figure7.png)
+
+## <a name="accessing-azure-storage-blobs"></a>Toegang tot Azure Storage-Blobs
+
+U kunt toegang tot gegevens die zijn opgeslagen in een Azure Blob Storage-account met de volgende stappen:
+
+1. Download de [Azure Blob Storage-pakket voor Python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) lokaal.
+1. Upload het zip-bestand naar de Studio-werkruimte als een gegevensset.
+1. Uw BlobService object maken `protocol='http'`
+
+```
+from azure.storage.blob import BlockBlobService
+
+# Create the BlockBlockService that is used to call the Blob service for the storage account
+block_blob_service = BlockBlobService(account_name='account_name', account_key='account_key', protocol='http')
+```
+
+1. Uitschakelen **veilige overdracht vereist** in uw opslag **configuratie** tabblad instellingen
+
+![Veilige overdracht vereist in de Azure-portal uitschakelen](./media/execute-python-scripts/disable-secure-transfer-required.png)
 
 ## <a name="operationalizing-python-scripts"></a>Tot het operationaliseren van Python-scripts
 

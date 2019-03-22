@@ -4,57 +4,47 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f56d53d7-5a08-490a-bfb9-78fefc2751ec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2018
+ms.topic: tutorial
+ms.date: 03/01/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3166a4e19bc137d57b97dbb516e7037228e1c020
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2851383ed992b314af541b24e7753b1e6b12b28d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188814"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898666"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Zelfstudie: Azure Active Directory-integratie met N2F - onkostennota 's
 
 In deze zelfstudie leert u hoe u integreert N2F - onkostennota's met Azure Active Directory (Azure AD).
-
 Integratie N2F - onkostennota's met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot N2F heeft - 's onkostennota.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij N2F - onkostennota's (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt beheren in Azure AD die toegang tot N2F heeft - 's onkostennota.
+* U kunt uw gebruikers worden automatisch aangemeld N2F - onkostennota's (Single Sign-On) met hun Azure AD-accounts inschakelen.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met N2F - onkostennota's, moet u de volgende items:
 
-- Een Azure AD-abonnement
-- Een N2F - onkostennota eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* N2F - onkostennota eenmalige aanmelding ingeschakeld abonnement
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-1. N2F - onkostennota's uit de galerie toevoegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+* N2F - onkostennota's ondersteunt **SP** en **IDP** gestart door SSO
 
 ## <a name="adding-n2f---expense-reports-from-the-gallery"></a>N2F - onkostennota's uit de galerie toevoegen
 
@@ -62,133 +52,160 @@ Als u wilt configureren van de integratie van N2F - onkostennota's in Azure AD, 
 
 **Als u wilt toevoegen, N2F - onkostennota's uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
 3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
 4. Typ in het zoekvak **N2F - onkostennota**, selecteer **N2F - onkostennota** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![N2F - onkostennota's in de lijst met resultaten](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_addfromgallery.png)
+     ![N2F - onkostennota's in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie configureert u en test Azure AD eenmalige aanmelding met N2F - onkostennota's op basis van een testgebruiker met de naam 'Britta Simon'.
-
-Voor eenmalige aanmelding voor het werk, Azure AD moet weten wat de equivalente-gebruiker in N2F - onkostennota is aan een gebruiker in Azure AD. Met andere woorden, een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in N2F - onkostennota's moet tot stand worden gebracht.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met N2F - onkostennota's op basis van een testgebruiker met de naam **Britta Simon**.
+Onkostennota's voor single sign-on bij werk-, is de relatie van een koppeling tussen een Azure AD-gebruiker en de gerelateerde gebruiker in N2F - behoeften tot stand is gebracht.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met N2F - onkostennota's, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-3. **Maken van een N2F - onkostennota testgebruiker** - dat een equivalent van Britta Simon in N2F - onkostennota's dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
+2. **[N2F configureren - onkostennota's Single Sign-On](#configure-n2f---expense-reports-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+5. **[Maken van N2F - onkostennota testgebruiker](#create-n2f---expense-reports-test-user)**  - dat een equivalent van Britta Simon in N2F - onkostennota's dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van eenmalige aanmelding in uw N2F - onkostennota's toepassing.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD Voer eenmalige aanmelding met N2F - onkostennota's, de volgende stappen uit:**
+Voor het configureren van Azure AD Voer eenmalige aanmelding met N2F - onkostennota's, de volgende stappen uit:
 
-1. In de Azure-portal op de **N2F - onkostennota** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/)op de **N2F - onkostennota** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_samlbase.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-3. Op de **N2F - onkostennota's domein en URL's** sectie, als u wilt configureren van de toepassing in **IDP** gestart modus wordt de gebruiker hoeft niet te werk als de app al vooraf geïntegreerd met is Azure.
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    ![N2F - onkostennota domein en URL's, eenmalige aanmelding informatie](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_url1.png)
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+4. Op de **SAML-basisconfiguratie** sectie, als u wilt configureren van de toepassing in **IDP** gestart modus wordt de gebruiker hoeft niet te werk als de app al vooraf geïntegreerd in Azure is.
 
-    ![N2F - onkostennota domein en URL's, eenmalige aanmelding informatie](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_url2.png)
+    ![N2F - onkostennota domein en URL's, eenmalige aanmelding informatie](common/preintegrated.png)
 
-    In de **aanmeldings-URL** tekstvak typt u de URL: `https://www.n2f.com/app/`
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+    ![N2F - onkostennota domein en URL's, eenmalige aanmelding informatie](common/metadata-upload-additional-signon.png)
 
-    ![De link om het certificaat te downloaden](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_certificate.png)
+    In het tekstvak **Aanmeldings-URL** typt u een URL: `https://www.n2f.com/app/`
 
-6. Klik op **opslaan** knop.
+6. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/n2f-expensereports-tutorial/tutorial_general_400.png)
+    ![De link om het certificaat te downloaden](common/copy-metadataurl.png)
 
-7. Op de **N2F - onkostennota's configuratie** sectie, klikt u op **configureren N2F - onkostennota** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID** uit de **Naslaggids sectie.**
+7. Op de **myPolicies instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
 
-    ![N2F - onkostennota configuratie](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_configure.png)
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-8. In een ander browservenster, moet u zich aanmelden bij uw N2F - onkosten rapporten bedrijf site als beheerder.
+    a. Aanmeldings-URL
 
-9. Klik op **instellingen** en selecteer vervolgens **geavanceerde instellingen** in de vervolgkeuzelijst.
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-n2f---expense-reports-single-sign-on"></a>N2F - onkostennota's, eenmalige aanmelding configureren
+
+1. In een ander browservenster, moet u zich aanmelden bij uw N2F - onkosten rapporten bedrijf site als beheerder.
+
+2. Klik op **instellingen** en selecteer vervolgens **geavanceerde instellingen** in de vervolgkeuzelijst.
 
     ![N2F - onkostennota configuratie](./media/n2f-expensereports-tutorial/configure1.png)
 
-10. Selecteer **Accountinstellingen** tabblad.
+3. Selecteer **Accountinstellingen** tabblad.
 
     ![N2F - onkostennota configuratie](./media/n2f-expensereports-tutorial/configure2.png)
 
-11. Selecteer **verificatie** en selecteer vervolgens **+ toevoegen van een verificatiemethode** tabblad.
+4. Selecteer **verificatie** en selecteer vervolgens **+ toevoegen van een verificatiemethode** tabblad.
 
     ![N2F - onkostennota configuratie](./media/n2f-expensereports-tutorial/configure3.png)
 
-12. Selecteer **SAML Microsoft Office 365** als verificatiemethode.
+5. Selecteer **SAML Microsoft Office 365** als verificatiemethode.
 
     ![N2F - onkostennota configuratie](./media/n2f-expensereports-tutorial/configure4.png)
 
-13. Op de **verificatiemethode** sectie, voert u de volgende stappen uit:
+6. Op de **verificatiemethode** sectie, voert u de volgende stappen uit:
 
     ![N2F - onkostennota configuratie](./media/n2f-expensereports-tutorial/configure5.png)
 
-    a. In de **entiteit-ID** tekstvak, plak de **SAML entiteit-ID** waarde die u hebt gekopieerd vanuit Azure portal.
+    a. In de **entiteit-ID** tekstvak, plak de **Azure AD-id** waarde die u hebt gekopieerd vanuit Azure portal.
 
     b. In de **metagegevens-URL** tekstvak, plak de **App-Url voor federatieve metagegevens** waarde die u hebt gekopieerd vanuit Azure portal.
 
     c. Klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-   ![Maak een testgebruiker Azure AD][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![De Azure Active Directory-knop](./media/n2f-expensereports-tutorial/create_aaduser_01.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/n2f-expensereports-tutorial/create_aaduser_02.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![De knop toevoegen](./media/n2f-expensereports-tutorial/create_aaduser_03.png)
-
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/n2f-expensereports-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
 
-### <a name="create-a-n2f---expense-reports-test-user"></a>Maken van een N2F - onkostennota gebruiker testen
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
+
+In deze sectie maakt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan N2F inschakelen - onkostennota's.
+
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **N2F - onkostennota**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
+2. Selecteer in de lijst met toepassingen, **N2F - onkostennota**.
+
+    ![De N2F - onkostennota's koppeling in de lijst met toepassingen](common/all-applications.png)
+
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-n2f---expense-reports-test-user"></a>Maken van N2F - onkostennota gebruiker testen
 
 Om Azure AD-gebruikers zich aanmelden bij N2F - onkostennota's, moeten ze worden ingericht voor N2F - onkostennota's. In het geval van N2F - onkostennota's, is inrichten een handmatige taak.
 
@@ -198,7 +215,7 @@ Om Azure AD-gebruikers zich aanmelden bij N2F - onkostennota's, moeten ze worden
 
 2. Klik op **instellingen** en selecteer vervolgens **geavanceerde instellingen** in de vervolgkeuzelijst.
 
-   ![N2F - gebruiker onkosten toevoegen](./media/n2f-expensereports-tutorial/configure1.png)
+    ![N2F - gebruiker onkosten toevoegen](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. Selecteer **gebruikers** tabblad in het linkernavigatievenster.
 
@@ -206,17 +223,17 @@ Om Azure AD-gebruikers zich aanmelden bij N2F - onkostennota's, moeten ze worden
 
 4. Selecteer **+ nieuwe gebruiker** tabblad.
 
-   ![N2F - onkostennota configuratie](./media/n2f-expensereports-tutorial/user2.png)
+    ![N2F - onkostennota configuratie](./media/n2f-expensereports-tutorial/user2.png)
 
 5. Op de **gebruiker** sectie, voert u de volgende stappen uit:
 
     ![N2F - onkostennota configuratie](./media/n2f-expensereports-tutorial/user3.png)
 
-    a. In de **e-mailadres** tekstvak, voer het e-mailadres van gebruiker, zoals **brittasimon@contoso.com**.
+    a. In de **e-mailadres** tekstvak, voer het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
 
-    b. In de **voornaam** tekstvak, geef de voornaam van de gebruiker, zoals **Julia**.
+    b. Voer in het tekstvak **First name** de voornaam van de gebruiker in, zoals **Britta**.
 
-    c. In de **naam** tekstvak, voer de naam van gebruiker, zoals **BrittaSimon**.
+    c. Voer in het tekstvak **Volledige naam** de volledige naam van de gebruiker in, bijvoorbeeld **Britta Simon**.
 
     d. Kies **rol (N + 1) de directe manager**, en **deling** volgens de vereisten van uw organisatie.
 
@@ -225,59 +242,17 @@ Om Azure AD-gebruikers zich aanmelden bij N2F - onkostennota's, moeten ze worden
     > [!NOTE]
     > Als u problemen ondervindt tijdens het toevoegen van de gebruiker, contact op met [N2F - ondersteuningsteam onkostennota](mailto:support@n2f.com)
 
-### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
-
-In deze sectie maakt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan N2F inschakelen - onkostennota's.
-
-![De de gebruikersrol toewijzen][200]
-
-**Britta Simon om aan te wijzen N2F - onkostennota's, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201]
-
-2. Selecteer in de lijst met toepassingen, **N2F - onkostennota**.
-
-    ![De N2F - onkostennota's koppeling in de lijst met toepassingen](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_app.png)  
-
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![De koppeling 'Gebruikers en groepen'][202]
-
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Het deelvenster toewijzing toevoegen][203]
-
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u klikt op de N2F - onkostennota tegel in het toegangsvenster, u moet u automatisch aangemeld bij uw N2F: onkostennota's toepassing.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Wanneer u klikt op de N2F - onkostennota tegel in het toegangsvenster, moet u worden automatisch aangemeld bij de N2F - onkostennota's waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/n2f-expensereports-tutorial/tutorial_general_01.png
-[2]: ./media/n2f-expensereports-tutorial/tutorial_general_02.png
-[3]: ./media/n2f-expensereports-tutorial/tutorial_general_03.png
-[4]: ./media/n2f-expensereports-tutorial/tutorial_general_04.png
-
-[100]: ./media/n2f-expensereports-tutorial/tutorial_general_100.png
-
-[200]: ./media/n2f-expensereports-tutorial/tutorial_general_200.png
-[201]: ./media/n2f-expensereports-tutorial/tutorial_general_201.png
-[202]: ./media/n2f-expensereports-tutorial/tutorial_general_202.png
-[203]: ./media/n2f-expensereports-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

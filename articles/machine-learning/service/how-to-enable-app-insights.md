@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 1/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: da1e4cf1780ffdfedb0e194fbd721277db90e45c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 32dc55927f614a91c390a417595b7a00c16e9386
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821307"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847946"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Uw Azure Machine Learning-modellen met Application Insights bewaken
 
@@ -30,7 +30,7 @@ In dit artikel leert u hoe u Azure Application Insights instellen voor uw Azure 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
+* Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 * Een Azure Machine Learning-werkruimte en een lokale map met uw scripts en de Azure Machine Learning-SDK voor Python geïnstalleerd. Zie voor meer informatie over het verkrijgen van deze vereisten, [het configureren van een ontwikkelomgeving](how-to-configure-environment.md).
 * Een getrainde machine learning-model worden toegepast op Azure Kubernetes Service (AKS) of Azure Container exemplaar (ACI). Als u niet hebt, raadpleegt u de [Train installatiekopie classificeringsmodel](tutorial-train-models-with-aml.md) zelfstudie.

@@ -6,16 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 10/27/2016
-ms.openlocfilehash: 22fe9a6bc6eaec1f4c73f9b92e30f174dd7855f2
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 102d06f6d4a51f7edc1fc269180f8fb3e5b0626c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820379"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121465"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Application Lifecycle Management in Azure Machine Learning Studio
 Azure Machine Learning Studio is een hulpprogramma voor het ontwikkelen van machine learning-experimenten die zijn geoperationaliseerd in het Azure-cloud-platform. Het is, zoals de Visual Studio IDE en schaalbare cloudservice samengevoegd in één platform. U kunt op verschillende activa implementatie en uitvoering van geautomatiseerde standaardprocedures Application Lifecycle Management (ALM) van versiebeheer opnemen in Azure Machine Learning Studio. In dit artikel komen enkele van de opties en benaderingen.

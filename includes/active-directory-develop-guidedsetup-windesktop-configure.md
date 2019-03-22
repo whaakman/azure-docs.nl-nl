@@ -4,7 +4,7 @@ description: bestand opnemen
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: b26b88d0e089217fa9915bdbdcb8f913731bcc67
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 220723988f349bf015d2de7633af78782bc03bac
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203182"
 ---
 ## <a name="register-your-application"></a>Uw toepassing registreren
 
 U kunt uw toepassing registreren in een van de twee manieren.
 
-### <a name="option-1-express-mode"></a>Optie 1: Snelle modus
+### <a name="option-1-express-mode"></a>Optie 1: De Express-modus
 
 U kunt snel uw toepassing registreren met het volgende te doen:
 1. Ga naar de [Microsoft-portal voor app-registratie](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure).

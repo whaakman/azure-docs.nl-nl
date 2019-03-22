@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 60ff63a049f225886d69c1a89a2930671e533d78
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 435c041bb5fb0a398f92914f943166108cc20080
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910910"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258340"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Installeren en gebruiken Presto op Hadoop-gebaseerde HDInsight-clusters
 
-In dit artikel wordt uitgelegd hoe u Presto installeren op Hadoop-gebaseerde Adobe HDInsight-clusters met behulp van scriptacties. U leert ook hoe u Airpal installeren op een bestaande Presto HDInsight-cluster.
+In dit artikel wordt uitgelegd hoe u Presto installeren op Azure HDInsight Hadoop-gebaseerde clusters met behulp van scriptacties. U leert ook hoe u Airpal installeren op een bestaande Presto HDInsight-cluster.
 
 HDInsight biedt ook de toepassing stervorm Presto voor Apache Hadoop-clusters. Zie voor meer informatie, [Apache Hadoop-toepassingen van derden installeren op Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications).
 
@@ -42,11 +42,11 @@ In deze sectie wordt uitgelegd hoe u het voorbeeldscript gebruiken wanneer u een
 
 1. Start het inrichten van een cluster door de stappen in [clusters in HDInsight op basis van Linux maken met behulp van de Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md). Zorg ervoor dat u het cluster maakt met behulp van de **aangepaste** stroom maken van het cluster. Het cluster moet voldoen aan de volgende vereisten:
 
-    * Het moet een Hadoop-cluster met HDInsight versie 3.6.
+   * Het moet een Hadoop-cluster met HDInsight versie 3.6.
 
-    * Het moet Azure Storage gebruiken als het gegevensarchief. Presto met behulp van op een cluster dat gebruik maakt van Azure Data Lake Storage als de opslagoptie voor is niet nog een optie.
+   * Het moet Azure Storage gebruiken als het gegevensarchief. Presto met behulp van op een cluster dat gebruik maakt van Azure Data Lake Storage als de opslagoptie voor is niet nog een optie.
 
-    ![HDInsight, aangepast (grootte, instellingen en apps)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
+     ![HDInsight, aangepast (grootte, instellingen en apps)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
 2. In de **geavanceerde instellingen** gedeelte **scriptacties**. Geef de volgende informatie. U kunt ook de **Presto installeren** optie voor het scripttype:
    
@@ -163,7 +163,6 @@ Voor het aanpassen van de installatie, moet u de volgende stappen uitvoeren:
 
 5. Wachten op het nieuwe exemplaar gereed is. Houd rekening met het adres Presto coordinator:
 
-
     `sudo slider registry --name presto1 --getexp presto`
 
 ## <a name="generate-benchmark-data-for-hdinsight-clusters-that-run-presto"></a>Benchmark-gegevens voor HDInsight-clusters met Presto genereren
@@ -176,8 +175,6 @@ TPC DS is de industriestandaard voor het meten van de prestaties van veel system
 * [Installeren en Hue gebruiken op HDInsight Hadoop-clusters](hdinsight-hadoop-hue-linux.md). HUE is een webinterface waarmee u eenvoudig maken, uitvoeren en opslaan van Apache Pig en Hive-taken.
 
 * [Apache Giraph installeren op HDInsight Hadoop-clusters en Giraph gebruiken om grootschalige grafieken te verwerken](hdinsight-hadoop-giraph-install-linux.md). Aanpassing van de cluster Giraph installeren op HDInsight Hadoop-gebaseerde clusters gebruiken. Met Giraph, kunt u grafische verwerking uitvoeren met behulp van Hadoop. Het kan ook worden gebruikt met Azure HDInsight.
-
-* [Installeren en gebruiken van Apache Solr op HDInsight Hadoop-clusters](hdinsight-hadoop-solr-install-linux.md). Aanpassing van de cluster Solr installeren op HDInsight Hadoop-gebaseerde clusters gebruiken. Met behulp van Solr, kunt u krachtige zoek-bewerkingen voor opgeslagen gegevens uitvoeren.
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

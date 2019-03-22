@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: dkshir
-ms.openlocfilehash: 465dd2a69ad42b8b6a88268eb35a1aa7d8d922c5
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229393"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535379"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Zelfstudie: Uw gebouw inrichten en uw werkomstandigheden controleren met Azure Digital Twins
 
@@ -257,7 +257,7 @@ Als er aan de gecontroleerd voorwaarde wordt voldaan, stelt de door de gebruiker
 
 Als u Azure Digital Twins niet verder wilt verkennen, kunt u de resources die in deze zelfstudie zijn gemaakt, gerust verwijderen:
 
-1. Klik in het linkermenu in de [Azure-portal](http://portal.azure.com) op **Alle resources**, selecteer de Digital Twins-resourcegroep en selecteer **Verwijderen**.
+1. Klik in het linkermenu in de [Azure-portal](https://portal.azure.com) op **Alle resources**, selecteer de Digital Twins-resourcegroep en selecteer **Verwijderen**.
 
     > [!TIP]
     > Als u problemen hebt bij het verwijderen van uw Digital Twins-exemplaar, is er een service-update met de oplossing hiervoor beschikbaar. Probeer opnieuw of u het exemplaar kunt verwijderen.

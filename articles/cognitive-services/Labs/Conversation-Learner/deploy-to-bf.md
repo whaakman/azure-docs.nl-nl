@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bc04afead8742c9f384287ecb8d33c54770456b6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447384"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994646"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Over het implementeren van een bot Conversatiecursist
 
@@ -45,7 +45,7 @@ Dit is het verkrijgen van de model-ID:
     npm run ui
     ```
 
-2. Open de browser naar http://localhost:5050 
+2. Open de browser naar `http://localhost:5050` 
 
 3. Klik op het Conversatiecursist model dat u wilt ophalen van de ID voor
 
@@ -109,20 +109,20 @@ Hieronder vindt u stapsgewijze instructies voor het implementeren van een cursis
 
 3. Bewerk de Web App-Bot-resource die u zojuist hebt gemaakt in de Azure-portal.
 
-    1. Klik op 'Instellingen' nav item aan de linkerkant
-    1. Schuif omlaag naar het gedeelte 'App-instellingen'
-    2. Voeg deze instellingen toe:
+   1. Klik op 'Instellingen' nav item aan de linkerkant
+   1. Schuif omlaag naar het gedeelte 'App-instellingen'
+   2. Voeg deze instellingen toe:
 
-        Omgevingsvariabele | waarde
-        --- | --- 
-        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_MODEL_ID      | Aanvraag-Id-GUID, verkregen via de gebruikersinterface van de cursist conversatie onder 'instellingen' voor het model >
-        LUIS_AUTHORING_KEY               | LUIS-sleutel voor dit model ontwerpen
-        LUIS_SUBSCRIPTION_KEY            | Niet vereist, maar aanbevolen voor gepubliceerde bots om te voorkomen dat met behulp van uw quotum ontwerpen.
+       Omgevingsvariabele | waarde
+       --- | --- 
+       CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
+       CONVERSATION_LEARNER_MODEL_ID      | Aanvraag-Id-GUID, verkregen via de gebruikersinterface van de cursist conversatie onder 'instellingen' voor het model >
+       LUIS_AUTHORING_KEY               | LUIS-sleutel voor dit model ontwerpen
+       LUIS_SUBSCRIPTION_KEY            | Niet vereist, maar aanbevolen voor gepubliceerde bots om te voorkomen dat met behulp van uw quotum ontwerpen.
     
-    4. Klik op 'Opslaan' aan de bovenkant van de pagina
-    5. Open 'Build' nav-item aan de linkerkant
-    6. Klik op "Continue implementatie configureren" 
-    7. Klik op het pictogram 'Instellen' onder implementaties
-    8. Klik op 'Instellingen vereist'
-    9. Selecteer de bron waar de code van uw bot beschikbaar is en configureer de bron.
+   4. Klik op 'Opslaan' aan de bovenkant van de pagina
+   5. Open 'Build' nav-item aan de linkerkant
+   6. Klik op "Continue implementatie configureren" 
+   7. Klik op het pictogram 'Instellen' onder implementaties
+   8. Klik op 'Instellingen vereist'
+   9. Selecteer de bron waar de code van uw bot beschikbaar is en configureer de bron.

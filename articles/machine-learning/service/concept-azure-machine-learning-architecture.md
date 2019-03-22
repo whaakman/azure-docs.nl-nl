@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: haining
-author: hning86
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1b2934ceb402dab5e9cf98e7e0a53b1b438c66a8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1640b1cdb9410f33f6556667f36aafcfe575a082
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111846"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080319"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
@@ -118,7 +117,7 @@ Een compute-doel is de compute-resource die u kunt uw trainingsscript uitgevoerd
 | Uw lokale computer | ✓ | &nbsp; |
 | Azure Machine Learning-Computing | ✓ | &nbsp; |
 | Een virtuele Linux-machine in Azure</br>(zoals de Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; |
 | Azure Data Lake Analytics | ✓ | &nbsp; |
 | Apache Spark voor HDInsight | ✓ | &nbsp; |
 | Azure Container Instances | &nbsp; | ✓ |

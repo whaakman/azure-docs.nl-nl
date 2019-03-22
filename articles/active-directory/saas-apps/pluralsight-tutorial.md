@@ -4,23 +4,22 @@ description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/26/2018
+ms.date: 03/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 844e8abff45f663b39846c9b8dc9b55be0d43f4f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: b2d8d98fb9c953ef8063bf2081201f7d9bdf3649
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875613"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Zelfstudie: Azure Active Directory-integratie met Pluralsight
 
@@ -47,13 +46,15 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 * Pluralsight ondersteunt door **SP** geïnitieerde eenmalige aanmelding (SSO)
 
+* Biedt ondersteuning voor Pluralsight **just-in-time** inrichten van gebruikers 
+
 ## <a name="adding-pluralsight-from-the-gallery"></a>Pluralsight toevoegen vanuit de galerie
 
 Voor het configureren van de integratie van Pluralsight in Azure AD moet u Pluralsight uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Voer de volgende stappen uit om Pluralsight toe te voegen vanuit de galerie:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -114,16 +115,15 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Pluralsight moet u d
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en antwoord-URL. Neem contact op met het [ondersteuningsteam van Pluralsight](mailto:support@pluralsight.com) om de waarde te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-5. In de Pluralsight-toepassing wordt verwacht dat de SAML-asserties een specifieke indeling hebben. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
-
+5. Pluralsight-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram  **Bewerken**  om het dialoogvenster  **Gebruikerskenmerken**  te openen.
     ![image](common/edit-attribute.png)
 
     >[!NOTE]
     >U kunt ook het kenmerk **Unieke id** toevoegen met de juiste waarde, zoals EmployeeID of iets anders dat geschikt is voor uw organisatie. Let op: dit is niet het vereiste kenmerk; u kunt het echter toevoegen om de unieke gebruiker te identificeren.
 
-6. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
+6. Pluralsight toepassing verwacht met bovenstaande bovendien enkele meer kenmerken moeten worden doorgegeven in SAML-antwoord. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
     
-    | Naam | Bronkenmerk|
+    | Name | Bronkenmerk|
     | --------------- | --------- |
     | Voornaam  | user.givenname  |
     | Achternaam  | user.surname  |
@@ -173,7 +173,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -208,17 +208,17 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 ### <a name="create-pluralsight-test-user"></a>Een testgebruiker maken in Pluralsight
 
-Het doel van deze sectie is het maken van een gebruiker met de naam Britta Simon in Pluralsight. Werk samen met het [ondersteuningsteam van Pluralsight](mailto:support@pluralsight.com) om de gebruikers toe te voegen in het Pluralsight-account.  Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in onze partner Pluralsight. Pluralsight biedt ondersteuning voor just-in-time-gebruikersinrichting, dat standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet in Pluralsight bestaat, wordt een nieuw gemaakt nadat verificatie.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel Pluralsight in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van Pluralsight waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 

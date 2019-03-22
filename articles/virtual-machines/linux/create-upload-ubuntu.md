@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 62d17670a068304e0764c85d49da0aa9a736c477
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7776e0005facb57d223a1ba1e73d1efa30edec49
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444427"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004899"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Een virtuele Ubuntu-machine voor Azure voorbereiden
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="official-ubuntu-cloud-images"></a>Officiële cloud Ubuntu-installatiekopieën
-Nu publiceren officiële Azure-VHD's voor downloaden op Ubuntu [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/). Als u uw eigen gespecialiseerde Ubuntu-installatiekopie bouwen voor Azure wilt, in plaats daarvan dan de handmatige procedure hieronder gebruiken het verdient aanbeveling om te starten met deze bekende VHD's werkt en indien nodig aanpassen. De meest recente versies van de installatiekopie kunnen altijd worden gevonden op de volgende locaties:
+Nu publiceren officiële Azure-VHD's voor downloaden op Ubuntu [ https://cloud-images.ubuntu.com/ ](https://cloud-images.ubuntu.com/). Als u uw eigen gespecialiseerde Ubuntu-installatiekopie bouwen voor Azure wilt, in plaats daarvan dan de handmatige procedure hieronder gebruiken het verdient aanbeveling om te starten met deze bekende VHD's werkt en indien nodig aanpassen. De meest recente versies van de installatiekopie kunnen altijd worden gevonden op de volgende locaties:
 
 * Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 14.04/betrouwbare: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
-* Ubuntu 18.10/Cosmic: [cosmic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/cosmic/current/cosmic-server-cloudimg-amd64.vhd.zip)
+* Ubuntu 14.04/betrouwbare: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
+* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
+* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
+* Ubuntu 18.10/Cosmic: [cosmic-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/cosmic/current/cosmic-server-cloudimg-amd64.vhd.zip)
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u hebt een Ubuntu Linux-besturingssysteem geïnstalleerd op een virtuele harde schijf. Er bestaan meerdere hulpprogramma's voor het maken van VHD-bestanden, bijvoorbeeld een oplossing voor netwerkvirtualisatie zoals Hyper-V. Zie voor instructies [de Hyper-V-rol installeren en configureren van een virtuele Machine](https://technet.microsoft.com/library/hh846766.aspx).
@@ -47,7 +47,7 @@ In dit artikel wordt ervan uitgegaan dat u hebt een Ubuntu Linux-besturingssyste
 
 ## <a name="manual-steps"></a>Handmatige stappen
 > [!NOTE]
-> Voordat u probeert te maken van uw eigen aangepaste Ubuntu-installatiekopie voor Azure, overweeg dan de afbeeldingen vooraf gebouwd en getest in [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/) in plaats daarvan.
+> Voordat u probeert te maken van uw eigen aangepaste Ubuntu-installatiekopie voor Azure, overweeg dan de afbeeldingen vooraf gebouwd en getest in [ https://cloud-images.ubuntu.com/ ](https://cloud-images.ubuntu.com/) in plaats daarvan.
 > 
 > 
 
@@ -122,8 +122,8 @@ In dit artikel wordt ervan uitgegaan dat u hebt een Ubuntu Linux-besturingssyste
         # sudo apt-get update
         # sudo apt-get install walinuxagent
 
-    >[!Note]
-    De `walinuxagent` pakket kan verwijderen de `NetworkManager` en `NetworkManager-gnome` pakketten, als ze zijn geïnstalleerd.
+   > [!Note]
+   >  De `walinuxagent` pakket kan verwijderen de `NetworkManager` en `NetworkManager-gnome` pakketten, als ze zijn geïnstalleerd.
 
 Voor Ubuntu 18.04/18.10, werkt u de Azure-gegevensbron, te bewerken: /etc/cloud/cloud.cfg.d/90-azure.cfg, voeg deze code toe aan het einde van het bestand:
 
@@ -135,13 +135,13 @@ datasource:
      agent_command: [service, walinuxagent, start]
 ```
 
-8. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
+1. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
    
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-9. Klik op **actie-Afsluiten omlaag >** in Hyper-V-beheer. De VHD met Linux is nu klaar om te worden geüpload naar Azure.
+1. Klik op **actie-Afsluiten omlaag >** in Hyper-V-beheer. De VHD met Linux is nu klaar om te worden geüpload naar Azure.
 
 ## <a name="references"></a>Verwijzingen
 [Ubuntu hardware activering (HWE) kernel](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)

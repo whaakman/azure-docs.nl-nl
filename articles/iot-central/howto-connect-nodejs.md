@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c04358734923654366eb679505910e14d0e0059b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4d2701f078a26c22f52aebd0ef562dd60eaca923
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767529"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097971"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
 
@@ -41,7 +41,7 @@ Voeg de volgende telemetrie in de **metingen** pagina:
 | Druk     | pressure    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-  Het gegevenstype van de meting telemetrie is een drijvende-kommagetal zijn.
+>   Het gegevenstype van de meting telemetrie is een drijvende-kommagetal zijn.
 
 Veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat invoeren. Als de veldnamen niet de namen van eigenschappen in de bijbehorende apparaatcode overeenkomen, kan de telemetrie kan niet worden weergegeven in de toepassing.
 
@@ -54,7 +54,7 @@ Voeg de volgende status hebben in de **metingen** pagina:
 | Ventilatormodus     | ventilatormodus     | 1       | In uitvoering      | 0       | Gestopt      |
 
 > [!NOTE]
-  Het gegevenstype van de meting van de status is een tekenreeks.
+>   Het gegevenstype van de meting van de status is een tekenreeks.
 
 Veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat invoeren. Als de veldnamen niet de namen van eigenschappen in de bijbehorende apparaatcode overeenkomen, kan de status kan niet worden weergegeven in de toepassing.
 
@@ -67,7 +67,7 @@ Voeg de volgende gebeurtenis in de **metingen** pagina:
 | Oververhitting  | overheat    | Fout    |
 
 > [!NOTE]
-  Het gegevenstype van de meting van de gebeurtenis is een tekenreeks.
+>   Het gegevenstype van de meting van de gebeurtenis is een tekenreeks.
 
 ### <a name="device-properties"></a>Apparaateigenschappen
 
@@ -279,5 +279,5 @@ Als operator in uw Azure IoT Central-toepassing voor uw echte apparaat kunt u:
 ## <a name="next-steps"></a>Volgende stappen
 
 U hebt geleerd hoe u een algemene Node.js-client verbinden met uw Azure IoT Central-toepassing, vindt hier u de voorgestelde volgende stappen:
-* [Voorbereiden en verbinding maken met een Raspberry Pi](howto-connect-raspberry-pi-python.md)
+* [Raspberry Pi voorbereiden en verbinden](howto-connect-raspberry-pi-python.md)
 <!-- Next how-tos in the sequence -->

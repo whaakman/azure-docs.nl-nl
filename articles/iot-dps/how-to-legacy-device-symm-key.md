@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: cf4ee8b1b9d96ad4d32a0ac8b1682968b90653f9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c43d3b236a305f1e6d2bd392527a5206b6a5c974
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541487"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074893"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Over het inrichten van verouderde apparaten met behulp van symmetrische sleutels
 
@@ -120,17 +120,17 @@ De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde a
 
 3. Op **Registratiegroep toevoegen**, voer de volgende informatie en klik op de **opslaan** knop.
 
-    - **Naam van groep**: Enter **mylegacydevices**.
+   - **Naam van groep**: Enter **mylegacydevices**.
 
-    - **Type Attestation**: Selecteer **symmetrische sleutel**.
+   - **Type Attestation**: Selecteer **symmetrische sleutel**.
 
-    - **Sleutels automatisch genereren**: schakel dit selectievakje in.
+   - **Sleutels automatisch genereren**: schakel dit selectievakje in.
 
-    - **Selecteer de gewenste apparaten toewijzen aan hubs**: Selecteer **statische configuratie** , zodat u aan een specifieke hub toewijzen kunt.
+   - **Selecteer de gewenste apparaten toewijzen aan hubs**: Selecteer **statische configuratie** , zodat u aan een specifieke hub toewijzen kunt.
 
-    - **Selecteer de IoT-hubs deze groep kan worden toegewezen aan**: Selecteer een van uw hubs.
+   - **Selecteer de IoT-hubs deze groep kan worden toegewezen aan**: Selecteer een van uw hubs.
 
-    ![Registratiegroep voor attestation-symmetrische sleutel toevoegen](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![Registratiegroep voor attestation-symmetrische sleutel toevoegen](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
 4. Zodra u uw inschrijving hebt opgeslagen, worden de **primaire sleutel** en **secundaire sleutel** gegenereerd en aan de inschrijvingsvermelding toegevoegd. De symmetrische sleutel inschrijvingsgroep wordt weergegeven als **mylegacydevices** onder de *groepsnaam* kolom in de *Registratiegroepen* tabblad. 
 

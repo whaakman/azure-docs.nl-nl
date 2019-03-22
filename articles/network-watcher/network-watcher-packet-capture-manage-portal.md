@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: jdial
-ms.openlocfilehash: 827a3c2f831c8e8fb459e494dcad58e3661e78bd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 22bdd50f129a48ade97db323f904f7e652a00d39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348154"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889978"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Pakketopname beheren met Azure Network Watcher met behulp van de portal
 
@@ -41,29 +41,29 @@ Als een netwerkbeveiligingsgroep gekoppeld aan de netwerkinterface, of het subne
 1. Navigeer in uw browser naar de [Azure-portal](https://portal.azure.com) en selecteer **alle services**, en selecteer vervolgens **Network Watcher** in de **netwerksectie**.
 2. Selecteer **pakketopname** onder **diagnostische hulpprogramma's voor het netwerk**. Eventuele bestaande pakketopnamen worden weergegeven, ongeacht hun status.
 3. Selecteer **toevoegen** te maken van een pakketopname. U kunt waarden voor de volgende eigenschappen selecteren:
-   - **Abonnement**: het abonnement waarin de virtuele machine die u wilt maken van de pakketopname voor zich bevindt.
-   - **Resourcegroep**: de resourcegroep van de virtuele machine.
-   - **Doel van de virtuele machine**: de virtuele machine die u wilt maken van de pakketopname voor.
-   - **Naam van pakketopname**: een naam op voor de pakketopname.
+   - **Abonnement**: Het abonnement waarin de virtuele machine die u wilt maken van het pakket worden vastgelegd voor heeft.
+   - **Resourcegroep**: De resourcegroep van de virtuele machine.
+   - **Doel-virtuele-machine**: De virtuele machine die u wilt maken van de pakketopname voor.
+   - **Naam van pakketopname**: Een naam voor de pakketopname.
    - **Storage-account of het bestand**: Selecteer **opslagaccount**, **bestand**, of beide. Als u selecteert **bestand**, het vastleggen wordt geschreven naar een pad vanuit de virtuele machine.
-   - **Lokaal bestandspad**: het lokale pad op de virtuele machine waar de pakketopname wordt opgeslagen (alleen geldig als *bestand* is geselecteerd). Het pad moet een geldig pad. Als u van een virtuele Linux-machine gebruikmaakt, het pad moet beginnen met */var/vastgelegd*.
-   - **Storage-accounts**: een bestaand opslagaccount selecteren als u hebt geselecteerd *opslagaccount*. Deze optie is alleen beschikbaar als u hebt geselecteerd **opslag**.
+   - **Lokaal bestandspad**: Het lokale pad op de virtuele machine waar de pakketopname wordt opgeslagen (alleen geldig als *bestand* is geselecteerd). Het pad moet een geldig pad. Als u van een virtuele Linux-machine gebruikmaakt, het pad moet beginnen met */var/vastgelegd*.
+   - **Storage-accounts**: Selecteer een bestaand opslagaccount, als u hebt geselecteerd *opslagaccount*. Deze optie is alleen beschikbaar als u hebt geselecteerd **opslag**.
    
      > [!NOTE]
      > Premium storage-accounts worden momenteel niet ondersteund voor het opslaan van pakket vastgelegd.
 
-   - **Maximum aantal bytes per pakket**: het aantal bytes van elk pakket die zijn vastgelegd. Als dit veld leeg blijft, worden alle bytes zijn vastgelegd.
-   - **Maximum aantal bytes per sessie**: het totale aantal bytes die worden vastgelegd. Wanneer de waarde is de packet capture stopt is bereikt.
-   - **Tijdslimiet (seconden)**: de tijdslimiet voordat de pakketopname is gestopt. De standaardwaarde is 18.000 seconden.
+   - **Maximum aantal bytes per pakket**: Het aantal bytes van elk pakket die zijn vastgelegd. Als dit veld leeg blijft, worden alle bytes zijn vastgelegd.
+   - **Maximum aantal bytes per sessie**: Het totale aantal bytes die worden vastgelegd. Wanneer de waarde is de packet capture stopt is bereikt.
+   - **Tijdslimiet (seconden)**: De tijdslimiet voordat de pakketopname is gestopt. De standaardwaarde is 18.000 seconden.
    - Filteren (optioneel). Selecteer **+ filter toevoegen**
-     - **Protocol**: het protocol om te filteren op de pakketopname. De beschikbare waarden zijn TCP, UDP en alle.
-     - **Lokaal IP-adres**: filtert de pakketopname voor pakketten waarvan het lokale IP-adres overeenkomt met deze waarde.
-     - **Lokale poort**: filtert de pakketopname voor pakketten waar de lokale poort komt overeen met deze waarde.
-     - **Extern IP-adres**: filtert de pakketopname voor pakketten die het externe IP-adres overeenkomt met deze waarde.
-     - **Externe poort**: filtert de pakketopname voor pakketten waarbij de externe poort komt overeen met deze waarde.
+     - **Protocol**: Het protocol om te filteren op de pakketopname. De beschikbare waarden zijn TCP, UDP en alle.
+     - **Lokaal IP-adres**: Filtert de pakketopname voor pakketten waarvan het lokale IP-adres overeenkomt met deze waarde.
+     - **Lokale poort**: Filtert de pakketopname voor pakketten, waarbij de lokale poort komt overeen met deze waarde.
+     - **Extern IP-adres**: Filtert de pakketopname voor pakketten die het externe IP-adres overeenkomt met deze waarde.
+     - **Externe poort**: Filtert de pakketopname voor pakketten, waarbij de externe poort komt overeen met deze waarde.
     
-    > [!NOTE]
-    > Poort- en IP-adres-waarden mag bestaan uit één waarde, bereik van waarden of een bereik, zoals 80-1024, voor de poort. U kunt zoveel filters definiëren.
+     > [!NOTE]
+     > Poort- en IP-adres-waarden mag bestaan uit één waarde, bereik van waarden of een bereik, zoals 80-1024, voor de poort. U kunt zoveel filters definiëren.
 
 4. Selecteer **OK**.
 
@@ -88,7 +88,7 @@ Selecteer in de weergave van het vastleggen van pakketten **...**  aan de rechte
 
 ## <a name="download-a-packet-capture"></a>Een pakketopname downloaden
 
-Zodra uw pakket opnamesessie is voltooid, wordt de capture-bestand wordt geüpload naar blob-opslag of naar een lokaal bestand op de virtuele machine. De opslaglocatie van de pakketopname is gedefinieerd tijdens het maken van de pakketopname. Er is een handige hulpprogramma voor vastleggen van bestanden die zijn opgeslagen in een storage-account toegang tot Microsoft Azure Storage Explorer, die u kunt [downloaden](http://storageexplorer.com/).
+Zodra uw pakket opnamesessie is voltooid, wordt de capture-bestand wordt geüpload naar blob-opslag of naar een lokaal bestand op de virtuele machine. De opslaglocatie van de pakketopname is gedefinieerd tijdens het maken van de pakketopname. Er is een handige hulpprogramma voor vastleggen van bestanden die zijn opgeslagen in een storage-account toegang tot Microsoft Azure Storage Explorer, die u kunt [downloaden](https://storageexplorer.com/).
 
 Als een storage-account is opgegeven, worden pakketten vastleggen van bestanden worden opgeslagen in een storage-account op de volgende locatie:
 

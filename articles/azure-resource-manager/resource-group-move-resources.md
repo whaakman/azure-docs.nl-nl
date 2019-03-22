@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 579c23fc3092acb785e89ddfa390e9495fc004d3
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081250"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
-In dit artikel wordt beschreven hoe u Azure-resources verplaatsen naar een andere Azure-abonnement of een andere resourcegroep onder hetzelfde abonnement. U kunt de Azure portal, Azure PowerShell, Azure CLI of de REST-API gebruiken om resources te verplaatsen. Zie voor een zelfstudie doorloopt, [zelfstudie: Azure-resources verplaatsen naar een andere resourcegroep of abonnement](./resource-manager-tutorial-move-resources.md).
+In dit artikel wordt beschreven hoe u Azure-resources verplaatsen naar een andere Azure-abonnement of een andere resourcegroep onder hetzelfde abonnement. U kunt de Azure portal, Azure PowerShell, Azure CLI of de REST-API gebruiken om resources te verplaatsen. Zie voor een zelfstudie doorloopt, [zelfstudie: Azure-resources verplaatsen naar een andere resourcegroep of een ander abonnement](./resource-manager-tutorial-move-resources.md).
 
 Zowel de brongroep en de doelgroep worden vergrendeld tijdens de verplaatsing. Schrijf- en verwijderingsbewerkingen voor de resourcegroepen worden vergrendeld tot de bewerking is voltooid. Deze vergrendeling betekent dat u resources in de resourcegroepen niet kunt toevoegen, bijwerken of verwijderen. Dit betekent niet dat de resources bevroren zijn. Als u bijvoorbeeld een SQL-server en de bijbehorende database naar een nieuwe resourcegroep verplaatst, heeft de toepassing die gebruikmaakt van de database geen last van downtime. De server kan nog steeds naar de database schrijven en deze lezen.
 
-Verplaatsen van een resource alleen verplaatst naar een nieuwe resourcegroep. De bewerking voor verplaatsen wijzigen de locatie van de resource niet. De nieuwe resourcegroep mogelijk een andere locatie, maar dat de locatie van de resource niet wijzigen.
+Als u een resource verplaatst, wordt deze alleen verplaatst naar een nieuwe resourcegroep. Door het verplaatsen wordt niet de locatie van de resource gewijzigd. De nieuwe resourcegroep mogelijk een andere locatie, maar dat de locatie van de resource niet wijzigen.
 
 > [!NOTE]
 > In dit artikel wordt beschreven hoe u resources wilt verplaatsen tussen de bestaande Azure-abonnementen. Als u wilt upgraden van uw Azure-abonnement (zoals het overschakelen van gratis naar betalen per gebruik), moet u uw abonnement te zetten.
@@ -65,7 +65,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Azure Database for PostgreSQL
 * Azure DevOps - Azure DevOps-organisaties met niet-Microsoft-extensie aankopen moet [hun aankopen annuleren](https://go.microsoft.com/fwlink/?linkid=871160) voordat hij verder kan het account voor abonnementen.
 * Azure Maps
-* Logboeken in Azure Monitor
+* Azure Monitor-logboeken
 * Azure Relay
 * Azure Stack - registraties
 * Batch
@@ -255,58 +255,58 @@ Om klassieke resources verplaatsen naar een nieuw abonnement, de REST-bewerkinge
 
 1. Controleer als van het bronabonnement deel uitmaken van een verplaatsing van kruislings abonnement. Gebruik de volgende bewerking:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      In de hoofdtekst van de aanvraag, zijn onder andere:
 
-  ```json
-  {
+   ```json
+   {
     "role": "source"
-  }
-  ```
+   }
+   ```
 
      Het antwoord voor de validatiebewerking is in de volgende indeling:
 
-  ```json
-  {
+   ```json
+   {
     "status": "{status}",
     "reasons": [
       "reason1",
       "reason2"
     ]
-  }
-  ```
+   }
+   ```
 
 2. Controleer als het doelabonnement deel uitmaken van een verplaatsing van kruislings abonnement. Gebruik de volgende bewerking:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      In de hoofdtekst van de aanvraag, zijn onder andere:
 
-  ```json
-  {
+   ```json
+   {
     "role": "target"
-  }
-  ```
+   }
+   ```
 
      Het antwoord is in dezelfde indeling als de validatie van het abonnement.
 3. Als beide abonnementen zijn gevalideerd, alle klassieke resources wilt verplaatsen van één abonnement naar een ander abonnement met de volgende bewerking:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+   ```
 
     In de hoofdtekst van de aanvraag, zijn onder andere:
 
-  ```json
-  {
+   ```json
+   {
     "target": "/subscriptions/{target-subscription-id}"
-  }
-  ```
+   }
+   ```
 
 De bewerking kan enkele minuten uitgevoerd.
 
@@ -345,52 +345,52 @@ Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden u
 
 1. De bron- en doelabonnementen moeten aanwezig zijn in dezelfde [Azure Active Directory-tenant](../active-directory/develop/quickstart-create-new-tenant.md). Om te controleren dat beide abonnementen dezelfde tenant-ID hebben, gebruikt u Azure PowerShell of Azure CLI.
 
-  Voor Azure PowerShell gebruiken:
+   Voor Azure PowerShell gebruiken:
 
-  ```azurepowershell-interactive
-  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
-  ```
+   ```azurepowershell-interactive
+   (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+   (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
+   ```
 
-  Gebruik voor Azure CLI:
+   Gebruik voor Azure CLI:
 
-  ```azurecli-interactive
-  az account show --subscription <your-source-subscription> --query tenantId
-  az account show --subscription <your-destination-subscription> --query tenantId
-  ```
+   ```azurecli-interactive
+   az account show --subscription <your-source-subscription> --query tenantId
+   az account show --subscription <your-destination-subscription> --query tenantId
+   ```
 
-  Als de tenant-id's voor de bron- en doelabonnementen niet hetzelfde zijn, moet u de volgende methoden gebruiken om af te stemmen van de tenant-id's:
+   Als de tenant-id's voor de bron- en doelabonnementen niet hetzelfde zijn, moet u de volgende methoden gebruiken om af te stemmen van de tenant-id's:
 
-  * [Eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md)
-  * [Een Azure-abonnement koppelen of toevoegen aan Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+   * [Eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md)
+   * [Een Azure-abonnement koppelen of toevoegen aan Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. Het doelabonnement moet zijn geregistreerd voor de resourceprovider van de resource die wordt verplaatst. Als u niet het geval is, ontvangt u een foutmelding waarin staat dat de **abonnement is niet geregistreerd voor een resourcetype**. U kunt deze fout tegenkomen wanneer u een resource verplaatst naar een nieuw abonnement maar in dat abonnement nooit is gebruikt met dat resourcetype.
 
-  Gebruik de volgende opdrachten om op te halen van de registratiestatus voor PowerShell:
+   Gebruik de volgende opdrachten om op te halen van de registratiestatus voor PowerShell:
 
-  ```azurepowershell-interactive
-  Set-AzContext -Subscription <destination-subscription-name-or-id>
-  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
-  ```
+   ```azurepowershell-interactive
+   Set-AzContext -Subscription <destination-subscription-name-or-id>
+   Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+   ```
 
-  Gebruik het volgende voor het registreren van een resourceprovider:
+   Gebruik het volgende voor het registreren van een resourceprovider:
 
-  ```azurepowershell-interactive
-  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
-  ```
+   ```azurepowershell-interactive
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+   ```
 
-  Gebruik de volgende opdrachten om op te halen van de status van de registratie voor Azure CLI:
+   Gebruik de volgende opdrachten om op te halen van de status van de registratie voor Azure CLI:
 
-  ```azurecli-interactive
-  az account set -s <destination-subscription-name-or-id>
-  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-  ```
+   ```azurecli-interactive
+   az account set -s <destination-subscription-name-or-id>
+   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+   ```
 
-  Gebruik het volgende voor het registreren van een resourceprovider:
+   Gebruik het volgende voor het registreren van een resourceprovider:
 
-  ```azurecli-interactive
-  az provider register --namespace Microsoft.Batch
-  ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.Batch
+   ```
 
 1. Het verplaatsen van de resources account moet ten minste de volgende machtigingen hebben:
 

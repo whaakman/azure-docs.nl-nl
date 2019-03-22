@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
-ms.date: 03/07/2019
-ms.openlocfilehash: 4e7f344dfa0b5cf38d36cec786169c5c7a51af3b
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 760b292e75b4cc64b85eaf51ffad0521b721dabf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895648"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>De transparante gegevensversleuteling (TDE)-beveiliging met behulp van PowerShell draaien
 
@@ -36,6 +36,8 @@ Deze handleiding wordt beschreven twee opties voor het draaien van de TDE-beveil
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 - In deze gebruiksaanwijzing wordt ervan uitgegaan dat u al van een sleutel uit Azure Key Vault als de TDE-beveiliging voor een Azure SQL Database of het datawarehouse gebruikmaakt. Zie [Transparent Data Encryption met BYOK-ondersteuning](transparent-data-encryption-byok-azure-sql.md).
 - Azure PowerShell installeren en uitvoeren, moet u hebben.

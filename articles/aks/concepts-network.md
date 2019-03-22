@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 360caaec0033136ffa250d636864fbed8359b8ef
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: cbdbf7dcd6269991d23c61d316dcee68e6678171
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244228"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175663"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Netwerkconcepten voor toepassingen in Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ In dit artikel worden de belangrijkste concepten waarmee u toegang tot uw toepas
 
 Kubernetes biedt voor toegang tot uw toepassingen, of voor onderdelen van de toepassing om te communiceren met elkaar, een abstractielaag voor virtuele netwerken. Kubernetes-knooppunten zijn verbonden met een virtueel netwerk en krijgt u inkomende en uitgaande connectiviteit voor schillen. De *kube-proxy* onderdeel wordt uitgevoerd op elk knooppunt voor deze functies het netwerk.
 
-In Kubernetes, *Services* schillen om toe te staan voor directe toegang via een IP-adres of de DNS-naam en op een specifieke poort, logisch groeperen. U kunt ook verdelen verkeer met behulp van een *netwerktaakverdeler*. Meer complexe routering van toepassingsverkeer kan ook worden bereikt met *inkomend Controllers*. Beveiliging en het filteren van het netwerkverkeer voor schillen er mogelijk is met Kubernetes *netwerkbeleidsregels*.
+In Kubernetes, *Services* schillen om toe te staan voor directe toegang via een IP-adres of de DNS-naam en op een specifieke poort, logisch groeperen. U kunt ook verdelen verkeer met behulp van een *netwerktaakverdeler*. Meer complexe routering van toepassingsverkeer kan ook worden bereikt met *inkomend Controllers*. Beveiliging en het filteren van het netwerkverkeer voor schillen er mogelijk is met Kubernetes *netwerkbeleidsregels* (in preview in AKS).
 
 Het Azure-platform helpt ook bij voor het vereenvoudigen van virtuele netwerken voor AKS-clusters. Wanneer u een Kubernetes-load balancer maakt, wordt de onderliggende Azure-load balancer-resource gemaakt en geconfigureerd. Als u netwerkpoorten schillen opent, wordt de bijbehorende Azure regels voor netwerkbeveiligingsgroepen zijn geconfigureerd. Voor het HTTP-toepassingsroutering, Azure ook configureren *externe DNS-server* als nieuwe ingang routes zijn geconfigureerd.
 
@@ -108,7 +108,7 @@ Een netwerkbeveiligingsgroep filtert het verkeer voor virtuele machines, zoals d
 
 Standaard kunnen alle schillen in een AKS-cluster verzonden en ontvangen van verkeer zonder beperkingen. Voor betere beveiliging, kunt u regels definiëren die de stroom van het verkeer te regelen. Back-endtoepassingen vaak alleen zichtbaar zijn voor de vereiste front-end-services of databaseonderdelen zijn alleen toegankelijk is voor de toepassingslagen die verbinding met deze maken.
 
-Beleid voor netwerken is een Kubernetes-functie waarmee u kunt de verkeersstroom tussen schillen beheren. U kunt toestaan of weigeren van verkeer op basis van de labels van de instellingen zoals die zijn toegewezen, naamruimte of verkeer poort. Netwerkbeveiligingsgroepen zijn meer voor de AKS-knooppunten niet schillen. Het gebruik van beleid voor netwerken is een geschikte, cloud-eigen manier voor het beheren van de stroom van verkeer. Nadat er schillen zijn dynamisch gemaakt in een AKS-cluster, kunnen het vereiste netwerkbeleid automatisch worden toegepast.
+Netwerkbeleid is een Kubernetes-functie die momenteel in preview in AKS waarmee u kunt de verkeersstroom tussen schillen beheren. U kunt toestaan of weigeren van verkeer op basis van de labels van de instellingen zoals die zijn toegewezen, naamruimte of verkeer poort. Netwerkbeveiligingsgroepen zijn meer voor de AKS-knooppunten niet schillen. Het gebruik van beleid voor netwerken is een geschikte, cloud-eigen manier voor het beheren van de stroom van verkeer. Nadat er schillen zijn dynamisch gemaakt in een AKS-cluster, kunnen het vereiste netwerkbeleid automatisch worden toegepast.
 
 Zie voor meer informatie, [beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service (AKS)][use-network-policies].
 

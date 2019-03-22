@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 97734ad6119e89c00634035b1646bc29ac6549bd
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a8f756385b62dfb21e910b9373dc275c7f679d3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237849"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009653"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Zelfstudie: Een MongoDB-, Express-, AngularJS- en Node.js- (MEAN-)stack maken op een virtuele Linux-machine in Azure
 
@@ -91,13 +91,13 @@ sudo apt-get install -y nodejs
 ```
 
 ## <a name="install-mongodb-and-set-up-the-server"></a>MongoDB installeren en de server instellen
-Met [MongoDB](http://www.mongodb.com) worden gegevens opgeslagen in flexibele JSON-achtige documenten. Velden in een database kunnen per document variëren en de gegevensstructuur kan in de loop van de tijd worden gewijzigd. Voor deze toepassing voegen we boekrecords aan MongoDB toe die de naam, de isbn, de auteur en het aantal pagina's van het boek bevatten. 
+Met [MongoDB](https://www.mongodb.com) worden gegevens opgeslagen in flexibele JSON-achtige documenten. Velden in een database kunnen per document variëren en de gegevensstructuur kan in de loop van de tijd worden gewijzigd. Voor deze toepassing voegen we boekrecords aan MongoDB toe die de naam, de isbn, de auteur en het aantal pagina's van het boek bevatten. 
 
 1. Stel MongoDB in op de VM met behulp van de bash-shell die u met SSH hebt geopend.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-    echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     ```
 
 2. Werk de pakketmanager met de sleutel bij.
@@ -149,7 +149,7 @@ Met [MongoDB](http://www.mongodb.com) worden gegevens opgeslagen in flexibele JS
 
 ## <a name="install-express-and-set-up-routes-to-the-server"></a>Express installeren en routes naar de server instellen
 
-[Express](https://expressjs.com) is een minimaal en flexibel Node.js-webtoepassingsframework dat functies biedt voor web- en mobiele toepassingen. In deze zelfstudie wordt Express gebruikt om boekgegevens door te geven naar en vanaf de MongoDB-database. [Mongoose](http://mongoosejs.com) biedt een eenvoudige, op schema's gebaseerde oplossing voor het modelleren van uw toepassingsgegevens. In deze zelfstudie wordt Mongoose gebruikt om een boekschema voor de database te bieden.
+[Express](https://expressjs.com) is een minimaal en flexibel Node.js-webtoepassingsframework dat functies biedt voor web- en mobiele toepassingen. In deze zelfstudie wordt Express gebruikt om boekgegevens door te geven naar en vanaf de MongoDB-database. [Mongoose](https://mongoosejs.com) biedt een eenvoudige, op schema's gebaseerde oplossing voor het modelleren van uw toepassingsgegevens. In deze zelfstudie wordt Mongoose gebruikt om een boekschema voor de database te bieden.
 
 1. Installeer Express en Mongoose.
 

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 195b513d7cc878045449ed137a2ea72f291a9f6e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308148"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901930"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Gegevens verplaatsen tussen uitgeschaalde clouddatabases
 
@@ -29,7 +29,7 @@ Het hulpprogramma voor splitsen en samenvoegen wordt uitgevoerd als een Azure-we
 
 ## <a name="download"></a>Downloaden
 
-[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
+[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>Documentatie
 
@@ -136,7 +136,7 @@ De service voor splitsen en samenvoegen-pakket bevat een werkrol en een Webrol. 
 
 - **Shard-toewijzing**
 
- De volgende sectie van de parameters van de aanvraag wordt informatie geboden over de shard-toewijzing en de database die als host fungeert voor de shard-toewijzing. In het bijzonder, moet u de naam van de Azure SQL Database-server en de database die als host fungeert de shardmap referenties verbinding maken met de database voor shard, en ten slotte de naam van de shard-toewijzing op te geven. De bewerking accepteert momenteel alleen een enkele set referenties. Deze referenties moeten beschikken over voldoende machtigingen voor het uitvoeren van wijzigingen in de shard-toewijzing evenals garantie voor de gebruikersgegevens op de shards.
+  De volgende sectie van de parameters van de aanvraag wordt informatie geboden over de shard-toewijzing en de database die als host fungeert voor de shard-toewijzing. In het bijzonder, moet u de naam van de Azure SQL Database-server en de database die als host fungeert de shardmap referenties verbinding maken met de database voor shard, en ten slotte de naam van de shard-toewijzing op te geven. De bewerking accepteert momenteel alleen een enkele set referenties. Deze referenties moeten beschikken over voldoende machtigingen voor het uitvoeren van wijzigingen in de shard-toewijzing evenals garantie voor de gebruikersgegevens op de shards.
 
 - **Bron-bereik (splitsen en samenvoegen)**
 
@@ -217,6 +217,8 @@ De service voor splitsen en samenvoegen maakt gebruik van Azure Diagnostics op b
 ## <a name="deploy-diagnostics"></a>Diagnostische gegevens implementeren
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 Als u controle en diagnostische gegevens met behulp van de diagnostische configuratie voor de web- en werknemersrollen geleverd door het NuGet-pakket, voert u de volgende opdrachten met behulp van Azure PowerShell:
 

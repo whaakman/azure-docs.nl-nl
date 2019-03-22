@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c982707b24f18e840e866b1dcc858fe2aceb686e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 4f72738d0ca9b8c6dc170892a985d821923a4405
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894016"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters en dynamische manifesten
 
@@ -34,7 +34,7 @@ In dit onderwerp worden algemene scenario's waarin nuttig is om uw klanten en ko
 ## <a name="overview"></a>Overzicht
 Wanneer uw inhoud levert aan klanten (streaming live gebeurtenissen of video on demand) is het doel een video van hoge kwaliteit te leveren op verschillende apparaten met verschillende netwerkomstandigheden. Voor dit doel het volgende te doen:
 
-* uw stream coderen naar multi-bitrate ([adaptieve bitrate](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) videostream (Dit zorgt voor kwaliteit en netwerkomstandigheden) en 
+* uw stream coderen naar multi-bitrate ([adaptieve bitrate](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) videostream (Dit zorgt voor kwaliteit en netwerkomstandigheden) en 
 * Media Services gebruiken [dynamische verpakking](media-services-dynamic-packaging-overview.md) dynamisch opnieuw pakket opslaan van uw stream in verschillende protocollen (Dit zorgt voor streaming op verschillende apparaten). Media Services ondersteunt de levering van de volgende adaptive bitrate streaming-technologieën: HTTP Live Streaming (HLS), Smooth Streaming en MPEG DASH. 
 
 ### <a name="manifest-files"></a>Manifestbestanden

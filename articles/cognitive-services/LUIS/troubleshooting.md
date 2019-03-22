@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: diberry
-ms.openlocfilehash: 39e942b3694ebc59d3cf7d9f4b6a02c4f025e0d0
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: b9304e151bbce691b752f12aeec8a5376e517a8d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120768"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding Frequently Asked Questions (FAQ)
 
@@ -147,7 +147,7 @@ Zie de [Batch testen](luis-tutorial-batch-testing.md) zelfstudie.
 
 ### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Wanneer een app is geëxporteerd en geïmporteerd in een nieuwe app (met een nieuwe app-ID), is de voorspelling LUIS scores zijn verschillend. Waarom gebeurt dit?
 
-Zie [voorspelling verschillen tussen exemplaren van dezelfde app](luis-concept-prediction-score.md#differences-with-predictions).
+Zie [voorspelling verschillen tussen exemplaren van dezelfde app](luis-concept-prediction-score.md#review-intents-with-similar-scores).
 
 ### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Sommige uitingen gaat u naar de verkeerde bedoelingen nadat ik wijzigingen in mijn app aangebracht. Het probleem lijkt niet meer zichtbaar in willekeurige volgorde. Hoe herstel ik deze? 
 

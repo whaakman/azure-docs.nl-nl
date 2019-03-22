@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382a32d0ff9de0a7b372e3b7ff2de7170a791aab
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085079"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Beveiligingsgegevens (preview) ingesteld voor het gebruik van telefoongesprekken
 U kunt deze stappen om toe te voegen uw tweeledige verificatie en methoden voor wachtwoord opnieuw instellen. Nadat u hebt dit tijdens de eerste keer hebt ingesteld, kunt u terugkeren naar de **beveiligingsgegevens** pagina toevoegen, bijwerken of verwijderen van uw beveiligingsgegevens.
@@ -26,10 +26,10 @@ Als u wordt gevraagd om in te stellen deze onmiddellijk nadat u zich aanmeldt bi
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
->[!Note]
->Beveiligingsgegevens biedt geen ondersteuning voor het gebruik van doorkiesnummers zijn. Zelfs als u de juiste indeling toevoegt, worden de 4255551234 + 1 X-12345, de extensies worden verwijderd voordat de oproep wordt gedaan.
-
->Als u een optie niet ziet, is het mogelijk dat uw organisatie niet toe dat u een telefoonnummer voor verificatie gebruiken. In dit geval moet u een andere methode kiezen of neem contact op met uw beheerder voor meer informatie.
+> [!Note]
+> Beveiligingsgegevens biedt geen ondersteuning voor het gebruik van doorkiesnummers zijn. Zelfs als u de juiste indeling toevoegt, worden de 4255551234 + 1 X-12345, de extensies worden verwijderd voordat de oproep wordt gedaan.
+> 
+> Als u een optie niet ziet, is het mogelijk dat uw organisatie niet toe dat u een telefoonnummer voor verificatie gebruiken. In dit geval moet u een andere methode kiezen of neem contact op met uw beheerder voor meer informatie.
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>Telefoongesprekken instellen vanuit de pagina beveiligingsgegevens
 Afhankelijk van instellingen van uw organisatie, kunt u mogelijk telefoongesprekken gebruiken als een van de beveiligingsmethoden voor informatie.

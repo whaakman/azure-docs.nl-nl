@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 113408b49297a292967be9215291b3cecfa7384d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 949bf52a586603fc6a82c0da553cf70877a8f4be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431595"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085011"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimalisatie van uw Active Directory-omgeving met de oplossing statuscontrole van Active Directory in Azure Monitor
 
@@ -111,10 +111,10 @@ De beoordelingen samengevatte naleving voor uw infrastructuur en aanbevelingen v
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aanbevelingen voor een aandachtsgebied weergeven en neemt u corrigerende maatregelen
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-4. Op de **overzicht** pagina, klikt u op de **statuscontrole van Active Directory** tegel.
-5. Op de **statuscontrole** pagina, Controleer de samenvattingsinformatie in een van de focus gebied blades en klik vervolgens op een om aanbevelingen voor die aandachtsgebied weer te geven.
-6. Op een van de focus gebiedspagina's, kunt u de aanbevelingen met prioriteit gemaakt voor uw omgeving bekijken. Klik op een aanbeveling onder **betrokken objecten** voor meer informatie over waarom de aanbeveling is gedaan.<br><br> ![afbeelding van aanbevelingen voor de statuscontrole](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-7. U kunt ondernemen corrigerende maatregelen voorgesteld in **voorgestelde acties**. Wanneer het item is opgelost, hoger evaluaties records die acties aanbevolen zijn uitgevoerd en worden uw nalevingsscore verhoogd. Gecorrigeerde items worden weergegeven als **doorgegeven objecten**.
+1. Op de **overzicht** pagina, klikt u op de **statuscontrole van Active Directory** tegel.
+1. Op de **statuscontrole** pagina, Controleer de samenvattingsinformatie in een van de focus gebied blades en klik vervolgens op een om aanbevelingen voor die aandachtsgebied weer te geven.
+1. Op een van de focus gebiedspagina's, kunt u de aanbevelingen met prioriteit gemaakt voor uw omgeving bekijken. Klik op een aanbeveling onder **betrokken objecten** voor meer informatie over waarom de aanbeveling is gedaan.<br><br> ![afbeelding van aanbevelingen voor de statuscontrole](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+1. U kunt ondernemen corrigerende maatregelen voorgesteld in **voorgestelde acties**. Wanneer het item is opgelost, hoger evaluaties records die acties aanbevolen zijn uitgevoerd en worden uw nalevingsscore verhoogd. Gecorrigeerde items worden weergegeven als **doorgegeven objecten**.
 
 ## <a name="ignore-recommendations"></a>Aanbevelingen negeren
 Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Azure Monitor wordt gebruikt om te voorkomen dat de aanbevelingen wordt weergegeven in de resultaten van de evaluatie maken.

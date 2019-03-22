@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e947b71fe6bb9e6bd884b8b2dd0397a63bea2a95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8b5ec711f0e43d9d29d962d43ed8b1d86338db87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203638"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881211"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Zelfstudie: Azure Active Directory-integratie met xMatters OnDemand
 
@@ -114,6 +114,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![Eenmalige aanmelding configureren](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
     a. In het tekstvak **Id** typt u een URL met het volgende patroon:
+
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -123,6 +124,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | `https://<companyname>.xmatters.com.au/`|
 
     b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie:
+    
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au`|
@@ -154,7 +156,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Admin](./media/xmatters-ondemand-tutorial/IC776795.png "Admin")
 
-1. Op de **SAML-configuratie** pagina, voert u de volgende stappen uit:
+1. Voer de volgende stappen uit op de pagina **SAML Configuration**:
 
     ![De SAML-configuratie](./media/xmatters-ondemand-tutorial/IC776796.png "SAML-configuratie")
 
@@ -209,9 +211,9 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 
 1. Meld u aan bij uw **XMatters OnDemand** tenant.
 
-1.  Klik op **gebruikers** tabblad en klik vervolgens op **gebruiker toevoegen**.
+1. Klik op **gebruikers** tabblad en klik vervolgens op **gebruiker toevoegen**.
 
-    ![Gebruikers](./media/xmatters-ondemand-tutorial/IC781048.png "Gebruikers")
+   ![Gebruikers](./media/xmatters-ondemand-tutorial/IC781048.png "Gebruikers")
 
 1. In de **toevoegen van een gebruiker** sectie, voert u de volgende stappen uit:
 
@@ -221,9 +223,9 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 
     b. In de **gebruikers-ID** tekstvak, type de gebruikers-id van gebruiker, zoals Brittasimon@contoso.com.
 
-    c. In de **voornaam** tekstvak, type de voornaam van de gebruiker, zoals Julia.
+    c. Typ in het tekstvak **First Name** de voornaam van de gebruiker, bijvoorbeeld Britta.
 
-    d. In de **achternaam** tekstvak Achternaam van de gebruiker, zoals Simon type.
+    d. Typ in het tekstvak **Last Name** de achternaam van de gebruiker, bijvoorbeeld Simon.
 
     e. In de **Site** tekstvak, voer de geldige site van een geldige Azure AD-account die u inrichten wilt.
 
@@ -268,7 +270,7 @@ Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

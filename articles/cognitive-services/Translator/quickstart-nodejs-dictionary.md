@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 7cfcf68a7725ba6c8a7ad4e0a88c5eed814b38ba
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 4b8d26868c3880852e0d2f9c43b06ca1b25d094f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729709"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176375"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Quickstart: Woorden opzoeken in een tweetalige woordenlijst met Node.js
 
@@ -32,7 +32,7 @@ Voor deze snelstart zijn de volgende zaken vereist:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Een project maken en de vereiste modules importeren
 
-Maak een nieuw project met uw favoriete IDE of editor. Kopieer dit codefragment naar uw project in een bestand met de naam `dictionary-lookup.js`.
+Maak een nieuw project met behulp van uw favoriete IDE of editor, of maak een nieuwe map op uw bureaublad. Dit codefragment kopiëren naar de projectmap in een bestand met de naam `alt-translations.js`.
 
 ```javascript
 const request = require('request');
@@ -92,7 +92,7 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 
 U kunt aanvragen het eenvoudigst verifiëren door uw abonnementssleutel op te geven als `Ocp-Apim-Subscription-Key`-header. Dat doen we in dit voorbeeld dan ook. Als alternatief kunt u in plaats van uw abonnementssleutel een toegangstoken gebruiken en het toegangstoken opgeven als `Authorization`-header voor het valideren van uw aanvraag. Zie [Verificatie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) voor meer informatie.
 
@@ -114,7 +114,7 @@ request(options, function(err, res, body){
 Dat was het. U hebt een eenvoudig programma gemaakt dat we de Translator Text-API zullen noemen. Er is een JSON-antwoord geretourneerd. Het is nu tijd om uw programma uit te voeren:
 
 ```console
-node dictionary-lookup.js
+node alt-translations.js
 ```
 
 Als u uw code graag wilt vergelijken met de onze, kunt u het volledige voorbeeld vinden op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).

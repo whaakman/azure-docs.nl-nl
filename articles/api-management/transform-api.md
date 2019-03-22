@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: e50c5d942bdbafc60bf0e2b8c74b008ac12b3bc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084977"
 ---
-# <a name="transform-and-protect-your-api"></a>Uw API transformeren en beveiligen 
+# <a name="transform-and-protect-your-api"></a>Uw API transformeren en beveiligen
 
 In de zelfstudie ziet u hoe u uw API kunt transformeren zodat deze geen persoonlijke back-endgegevens vrijgeeft. U kunt bijvoorbeeld de gegevens verbergen over de technologiestack die op de back-end wordt uitgevoerd. U kunt ook de oorspronkelijke URL's verbergen die worden weergegeven in de hoofdtekst van het HTTP-antwoord van de API, en deze in plaats hiervan omleiden naar de APIM-gateway.
 
@@ -30,19 +30,20 @@ In deze zelfstudie kunt u ook zien hoe eenvoudig het is om beveiliging toe te vo
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een API transformeren om antwoordheaders te verwijderen
-> * Oorspronkelijke URL's in de hoofdtekst van het API-antwoord vervangen door APIM-gateway-URL's
-> * Een API beveiligen door beleid voor frequentielimieten toe te voegen
-> * De transformaties testen
+>
+> -   Een API transformeren om antwoordheaders te verwijderen
+> -   Oorspronkelijke URL's in de hoofdtekst van het API-antwoord vervangen door APIM-gateway-URL's
+> -   Een API beveiligen door beleid voor frequentielimieten toe te voegen
+> -   De transformaties testen
 
 ![Beleidsregels](./media/transform-api/api-management-management-console.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-+ Informatie over de [terminologie van Azure API Management](api-management-terminology.md).
-+ Inzicht in het [beleidsconcept in Azure API Management](api-management-howto-policies.md).
-+ Voltooi de volgende quickstart: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
-+ Voltooi ook de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
+-   Informatie over de [terminologie van Azure API Management](api-management-terminology.md).
+-   Inzicht in het [beleidsconcept in Azure API Management](api-management-howto-policies.md).
+-   Voltooi de volgende quickstart: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
+-   Voltooi ook de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -50,8 +51,8 @@ In deze zelfstudie leert u het volgende:
 
 In deze sectie wordt beschreven hoe u de HTTP-headers kunt verbergen die u niet wilt weergeven aan gebruikers. In dit voorbeeld worden de volgende headers in het HTTP-antwoord verwijderd:
 
-* **X-Powered-By**
-* **X-AspNet-Version**
+-   **X-Powered-By**
+-   **X-AspNet-Version**
 
 ### <a name="test-the-original-response"></a>Het oorspronkelijke antwoord testen
 
@@ -78,13 +79,14 @@ Het oorspronkelijke antwoord moet er als volgt uitzien:
 5. Plaats de cursor in het **&lt;uitgaande&gt;** element.
 6. Klik in het rechtervenster onder **Transformatiebeleid** twee keer op **+ HTTP-header instellen** (om twee beleidsfragmenten in te voegen).
 
-    ![Beleidsregels](./media/transform-api/transform-api.png)
+   ![Beleidsregels](./media/transform-api/transform-api.png)
+
 7. Wijzig de code **<outbound>** zodat deze er als volgt uitziet:
 
-        <set-header name="X-Powered-By" exists-action="delete" />
-        <set-header name="X-AspNet-Version" exists-action="delete" />
+       <set-header name="X-Powered-By" exists-action="delete" />
+       <set-header name="X-AspNet-Version" exists-action="delete" />
 
-    ![Beleidsregels](./media/transform-api/set-policy.png)
+   ![Beleidsregels](./media/transform-api/set-policy.png)
 
 8. Klik op de knop **Opslaan**.
 
@@ -99,7 +101,7 @@ Het oorspronkelijke antwoord zien:
 1. Selecteer **Demo Conference API**.
 2. Klik bovenaan het scherm op het tabblad **Testen**.
 3. Selecteer de bewerking **GetSpeakers**.
-4. Klik onderaan het scherm op de knop **Verzenden**. 
+4. Klik onderaan het scherm op de knop **Verzenden**.
 
     Zoals u kunt zien, ziet het oorspronkelijke antwoord er als volgt uit:
 
@@ -107,13 +109,13 @@ Het oorspronkelijke antwoord zien:
 
 ### <a name="set-the-transformation-policy"></a>Transformatiebeleid instellen
 
-1. Selecteer **Demo Conference API**.
-2. Selecteer **Alle bewerkingen**.
-3. Selecteer boven in het scherm het tabblad **Ontwerp**.
-4. Klik in de sectie **Uitgaande verwerking** op het pictogram **</>**.
-5. Plaats de cursor in het **&lt;uitgaande&gt;** element.
-6. Klik in het rechtervenster onder **Transformatiebeleid** twee keer op **+ Tekenreeks in hoofdtekst zoeken en vervangen**.
-7. Wijzig de **find-and-replace**-code (in het **\<uitgaande element\>**) om de URL te vervangen zodat deze overeenkomt met de APIM-gateway. Bijvoorbeeld:
+1.  Selecteer **Demo Conference API**.
+2.  Selecteer **Alle bewerkingen**.
+3.  Selecteer boven in het scherm het tabblad **Ontwerp**.
+4.  Klik in de sectie **Uitgaande verwerking** op het pictogram **</>**.
+5.  Plaats de cursor in het **&lt;uitgaande&gt;** element.
+6.  Klik in het rechtervenster onder **Transformatiebeleid** twee keer op **+ Tekenreeks in hoofdtekst zoeken en vervangen**.
+7.  Wijzig de **find-and-replace**-code (in het **\<uitgaande element\>**) om de URL te vervangen zodat deze overeenkomt met de APIM-gateway. Bijvoorbeeld:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -123,18 +125,18 @@ In deze sectie wordt beschreven hoe u beveiliging voor uw back-end-API kunt toev
 
 ![Beleid voor binnenkomende verwerking instellen](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
 
-1. Selecteer **Demo Conference API**.
-2. Selecteer **Alle bewerkingen**.
-3. Selecteer boven in het scherm het tabblad **Ontwerp**.
-4. Klik in de sectie **Binnenkomende verwerking** op het pictogram **</>**.
-5. Plaats de cursor in het **&lt;binnenkomende&gt;** element.
-6. Klik in het rechtervenster onder **Toegang tot beperkingsbeleid** op **+ Aantal oproepen per sleutel beperken**.
-7. Wijzig uw **rate-limit-by-key**-code (in het **\<inkomende\>** element) in de volgende code:
+1.  Selecteer **Demo Conference API**.
+2.  Selecteer **Alle bewerkingen**.
+3.  Selecteer boven in het scherm het tabblad **Ontwerp**.
+4.  Klik in de sectie **Binnenkomende verwerking** op het pictogram **</>**.
+5.  Plaats de cursor in het **&lt;binnenkomende&gt;** element.
+6.  Klik in het rechtervenster onder **Toegang tot beperkingsbeleid** op **+ Aantal oproepen per sleutel beperken**.
+7.  Wijzig uw **rate-limit-by-key**-code (in het **\<inkomende\>** element) in de volgende code:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
 ## <a name="test-the-transformations"></a>De transformaties testen
-        
+
 Als u nu naar de code in de code-editor kijkt, ziet uw beleid er als volgt uit:
 
     <policies>
@@ -148,6 +150,7 @@ Als u nu naar de code in de code-editor kijkt, ziet uw beleid er als volgt uit:
         <outbound>
             <set-header name="X-Powered-By" exists-action="delete" />
             <set-header name="X-AspNet-Version" exists-action="delete" />
+            <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
             <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
             <base />
         </outbound>
@@ -202,10 +205,11 @@ In de rest van deze sectie worden de beleidstransformaties getest die u in dit a
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Een API transformeren om antwoordheaders te verwijderen
-> * Oorspronkelijke URL's in de hoofdtekst van het API-antwoord vervangen door APIM-gateway-URL's
-> * Een API beveiligen door beleid voor frequentielimieten toe te voegen
-> * De transformaties testen
+>
+> -   Een API transformeren om antwoordheaders te verwijderen
+> -   Oorspronkelijke URL's in de hoofdtekst van het API-antwoord vervangen door APIM-gateway-URL's
+> -   Een API beveiligen door beleid voor frequentielimieten toe te voegen
+> -   De transformaties testen
 
 Ga door naar de volgende zelfstudie:
 

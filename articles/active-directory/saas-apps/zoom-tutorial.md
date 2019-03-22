@@ -7,20 +7,20 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/05/2019
+ms.date: 03/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4175b626040f5fcb7ec157120f19b89508e67239
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 641fe5439e320208d41969b9563293257648d488
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872604"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842087"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Zelfstudie: Azure Active Directory-integratie met Zoom
 
@@ -53,7 +53,7 @@ Voor het configureren van de integratie van Zoom in Azure AD moet u Zoom uit de 
 
 **Als u Zoom uit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -112,20 +112,20 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zoom, moet u de volg
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met het [Zoom-ondersteuningsteam](https://support.zoom.us/hc/en-us) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-5. Zoom verwacht dat de SAML-asserties een specifieke indeling hebben. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
+5. Inzoomen op aanvraag wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram  **Bewerken**  om het dialoogvenster  **Gebruikerskenmerken**  te openen.
 
     ![image](common/edit-attribute.png)
 
-6. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
+6. Ook als u wilt inzoomen, toepassing wordt verwacht dat enkele meer kenmerken moeten worden doorgegeven in SAML-antwoord. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
     
-    | Naam | Naamruimte  |  Bronkenmerk|
+    | Name | Naamruimte  |  Bronkenmerk|
     | ---------------| --------------- | --------- |
-    | E-mailadres  | user.mail  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail |
-    | Voornaam  | user.givenname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |
-    | Achternaam  | user.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
-    | Telefoonnummer  | User.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
-    | Afdeling  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
-    | role |    user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+    | E-mailadres  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
+    | Voornaam  | user.givenname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
+    | Achternaam  | user.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
+    | Telefoonnummer  | User.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
+    | Afdeling  | user.department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
+    | role |    user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
 
     > [!NOTE]
     > Klik [hier](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) als u wilt weten hoe u rollen in Azure AD moet configureren
@@ -179,13 +179,23 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zoom, moet u de volg
 
     a. Plak in het tekstvak **Aanmeldingspagina-URL** de waarde van **Aanmeldings-URL** die u hebt gekopieerd uit Azure Portal.
 
-    b. Plak in het tekstvak **Afmeldingspagina-URL** de waarde van **Afmeldings-URL** die u hebt gekopieerd uit Azure Portal.
+    b. Voor **URL voor afmelden pagina** waarde, moet u gaat u naar de Azure-portal en klikt u op **Azure Active Directory** aan de linkerkant en navigeer vervolgens naar **App-registraties**.
 
-    c. Open het base-64 gecodeerde certificaat in Kladblok, kopieer de inhoud ervan naar het klembord en plak het in het tekstvak **Id-providercertificaat**.
+    ![De knop Azure Active Directory](./media/zoom-tutorial/appreg.png)
 
-    d. Plak in het tekstvak **Verlener** de waarde van **Azure AD-id**, die u hebt gekopieerd uit Azure Portal. 
+    c. Klik op **eindpunten**
 
-    e. Klik op **Opslaan**.
+    ![De knop eindpunt](./media/zoom-tutorial/endpoint.png)
+
+    d. Kopieer de **SAML-P afmelding EINDPUNT** en plak deze in **afmelding pagina-URL** tekstvak.
+
+    ![De knop kopiëren beëindigen](./media/zoom-tutorial/endpoint1.png)
+
+    e. Open het base-64 gecodeerde certificaat in Kladblok, kopieer de inhoud ervan naar het klembord en plak het in het tekstvak **Id-providercertificaat**.
+
+    f. In de **verlener** tekstvak, plak de waarde van **Azure AD-id** die u hebt gekopieerd vanuit Azure portal. 
+
+    g. Klik op **Opslaan**.
 
     > [!NOTE]
     > Ga naar de Zoom-documentatie voor meer informatie[https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
@@ -208,7 +218,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -270,7 +280,7 @@ Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Zoom, moeten ze wor
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel Zoom in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van Zoom waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

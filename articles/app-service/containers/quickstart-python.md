@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/08/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 24d282b6e6e6f627d5893bb3514a77e4f82968e1
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 5cca0d866442583c87665b3a1db8c65c66d12f0a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309437"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285374"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Een Python-app maken in Azure App Service op Linux (preview)
 
@@ -109,12 +109,12 @@ Checking connectivity... done.
 
 Ga naar de map die de voorbeeldcode bevat en voer de opdracht `az webapp up` uit.
 
-Vervang in de volgende opdracht <app-naam> door een unieke app-naam.
+Vervang < app-naam > door een unieke naam in het volgende voorbeeld.
 
 ```bash
 cd python-docs-hello-world
 
-az webapp up -n <app_name>
+az webapp up -n <app-name>
 ```
 
 Het kan enkele minuten duren voor deze opdracht is uitgevoerd. De opdracht geeft informatie weer die lijkt op het volgende voorbeeld:
@@ -125,15 +125,15 @@ Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
 App service plan creation complete
-Creating app '<app_name>' ....
+Creating app '<app-name>' ....
 Webapp creation complete
 Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
 Preparing to deploy contents to app.
 All done.
 {
-  "app_url": "https:/<app_name>.azurewebsites.net",
+  "app_url": "https:/<app-name>.azurewebsites.net",
   "location": "Central US",
-  "name": "<app_name>",
+  "name": "<app-name>",
   "os": "Linux",
   "resourcegroup": "appsvc_rg_Linux_CentralUS ",
   "serverfarm": "appsvc_asp_Linux_CentralUS",
@@ -144,22 +144,14 @@ All done.
 }
 ```
 
-Met de opdracht `az webapp up` worden de volgende acties uitgevoerd:
-
-- Er wordt een standaardresourcegroep gemaakt.
-
-- Er wordt een standaardserviceplan voor de app gemaakt.
-
-- Er wordt een app met de opgegeven naam gemaakt.
-
-- Er worden via zip bestanden van de huidige werkmap naar de app [geïmplementeerd](https://docs.microsoft.com/azure/app-service/deploy-zip).
+[!INCLUDE [AZ Webapp Up Note](../../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## <a name="browse-to-the-app"></a>Bladeren naar de app
 
 Blader naar de geïmplementeerde toepassing via uw webbrowser.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 De Python-voorbeeldcode wordt uitgevoerd in een App Service op Linux met een ingebouwde installatiekopie.
@@ -182,10 +174,10 @@ return "Hello Azure!"
 
 Sla uw wijzigingen op en sluit de editor af. Sla op met de opdracht `^S` en sluit af met `^Q`.
 
-U gaat nu de app opnieuw implementeren. Vervang `<app_name>` door uw app.
+U gaat nu de app opnieuw implementeren. Vervang `<app-name>` door uw app.
 
 ```bash
-az webapp up -n <app_name>
+az webapp up -n <app-name>
 ```
 
 Wanneer de implementatie is voltooid, gaat u terug naar het browservenster dat is geopend in de stap **Bladeren naar de app** en vernieuwt u de pagina.

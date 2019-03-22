@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: 3c64841656f81f2f78c02c54f08ca24cccd78586
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b7bf73c2948b302ec8294b7dc2ff2dc8f220c91b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186859"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843880"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Snelstartgids: Zoeken op internet met behulp van de REST API voor Bing Web Search en Go
 
-Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Deze Go-toepassing stuurt een query naar de API en geeft het antwoord weer. Hoewel deze toepassing in Go is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
+Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Deze Go-App een zoekaanvraag verzendt naar de API en het antwoord. Hoewel deze toepassing in Go is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
@@ -309,7 +309,7 @@ func main() {
 
 ## <a name="sample-response"></a>Voorbeeldantwoord  
 
-Antwoorden afkomstig van de Bing Webzoekopdrachten-API worden geretourneerd in de JSON-indeling. Dit voorbeeldantwoord is opgemaakt met behulp van de struct `BingAnswer` en erin worden de `result.Name` en `result.URL` weergegeven.
+Antwoorden afkomstig van de Bing Webzoekopdrachten-API worden geretourneerd in de JSON-indeling. Deze voorbeeld-reactie is geformatteerd met behulp van de `BingAnswer` struct en toont de `result.Name` en `result.URL`.
 
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services

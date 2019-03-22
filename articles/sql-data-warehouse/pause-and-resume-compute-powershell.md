@@ -5,19 +5,20 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/17/2018
+ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6dd378f69dbf0c7cffe04d4b6a18fd3e6cda6b8b
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 1aebe3086704c3823bcde470640f547de2beaaee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409972"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884190"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Quickstart: Onderbreken en hervatten compute in Azure SQL Data Warehouse met PowerShell
+
 Gebruik PowerShell om te onderbreken compute in Azure SQL Data Warehouse om kosten te besparen. [Compute hervatten](sql-data-warehouse-manage-compute-overview.md) wanneer u bent klaar voor gebruik van het datawarehouse.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -36,13 +37,13 @@ Meld u aan bij uw Azure-abonnement met de [Connect AzAccount](/powershell/module
 Connect-AzAccount
 ```
 
-Als u wilt zien welke abonnement dat u gebruikt, [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
+Als u wilt zien welke abonnement dat u gebruikt, [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
 
 ```powershell
 Get-AzSubscription
 ```
 
-Als u gebruiken een ander abonnement dan de standaard wilt, voert u [Set AzContext](/powershell/module/az.profile/set-azcontext).
+Als u gebruiken een ander abonnement dan de standaard wilt, voert u [Set AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -65,6 +66,7 @@ Volg deze stappen om de locatiegegevens voor uw datawarehouse op te zoeken.
 6. Als uw server foo.database.windows.net is, gebruikt u alleen het eerste deel als de servernaam in de PowerShell-cmdlets. Op de voorgaande afbeelding is de volledige servernaam newserver 20171113.database.windows.net. Verwijder het achtervoegsel en gebruik **newserver-20171113** als de naam van de server in de PowerShell-cmdlet.
 
 ## <a name="pause-compute"></a>De rekencapaciteit onderbreken
+
 Om kosten te besparen, kunt u onderbreken en hervatten van de compute-resources op de aanvraag. Bijvoorbeeld, als u de database niet tijdens de nacht en tijdens het weekend gebruikt, kunt u tijdens deze perioden onderbreken, en hervatten gedurende de dag. Er zijn geen kosten voor compute-resources, terwijl de database is onderbroken. U blijven echter in rekening gebracht voor opslag.
 
 Als u wilt onderbreken van een database, gebruikt u de [stand-by-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase) cmdlet. Het volgende voorbeeld wordt een datawarehouse met de naam onderbroken **mySampleDataWarehouse** die worden gehost op een server met de naam **newserver-20171113**. De server zich in een Azure-resourcegroep met de naam **myResourceGroup**.
@@ -86,6 +88,7 @@ $resultDatabase
 
 
 ## <a name="resume-compute"></a>De rekencapaciteit hervatten
+
 Voor het starten van een database, gebruikt u de [hervatten AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) cmdlet. Het volgende voorbeeld wordt een database met de naam die wordt gehost op een server met de naam newserver-20171113 mySampleDataWarehouse gestart. De server zich in een Azure-resourcegroep met de naam myResourceGroup.
 
 ```Powershell
@@ -115,17 +118,18 @@ Volg deze stappen om de resources op te schonen zoals gewenst.
 
     ![Resources opschonen](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. Als u het berekenen wilt onderbreken, klikt u op de knop **Onderbreken**. Als het datawarehouse is onderbroken, ziet u een knop **Start**.  Als u het berekenen wilt hervatten, klikt u op **Start**.
+2. Als u het berekenen wilt onderbreken, klikt u op de knop **Onderbreken**. Als het datawarehouse is onderbroken, ziet u een knop **Start**.  Als u het berekenen wilt hervatten, klikt u op **Start**.
 
-2. Als u de datawarehouse wilt verwijderen zodat er geen kosten in rekening worden gebracht voor berekenen of opslaan, klikt u op **Verwijderen**.
+3. Als u de datawarehouse wilt verwijderen zodat er geen kosten in rekening worden gebracht voor berekenen of opslaan, klikt u op **Verwijderen**.
 
-3. Als u wilt verwijderen van de SQL-server die u hebt gemaakt, klikt u op **mynewserver-20171113.database.windows.net**, en klik vervolgens op **verwijderen**.  Wees voorzichtig met verwijderen. Als u de server verwijdert, worden ook alle databases verwijderd die zijn toegewezen aan de server.
+4. Als u wilt verwijderen van de SQL-server die u hebt gemaakt, klikt u op **mynewserver-20171113.database.windows.net**, en klik vervolgens op **verwijderen**.  Wees voorzichtig met verwijderen. Als u de server verwijdert, worden ook alle databases verwijderd die zijn toegewezen aan de server.
 
-4. Als u de resourcegroep wilt verwijderen, klikt u op **myResourceGroup**. Klik vervolgens op **Resourcegroep verwijderen**.
+5. Als u de resourcegroep wilt verwijderen, klikt u op **myResourceGroup**. Klik vervolgens op **Resourcegroep verwijderen**.
 
 
 ## <a name="next-steps"></a>Volgende stappen
+
 U hebt nu onderbroken en hervat de rekenkracht voor uw datawarehouse. Voor meer informatie over Azure SQL Data Warehouse gaat u verder met de zelfstudie voor het laden van gegevens.
 
 > [!div class="nextstepaction"]
->[Gegevens laden in een SQL-datawarehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Gegevens laden in een SQL-datawarehouse](load-data-from-azure-blob-storage-using-polybase.md)

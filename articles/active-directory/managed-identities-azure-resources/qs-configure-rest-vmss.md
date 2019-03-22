@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d208cab8b39b777fea7809be418613f17751b1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b35470daf8ef037a72516690c75980a6d07e8e29
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170283"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097163"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configureren van beheerde identiteiten voor Azure-resources op een VM-schaalset met behulp van REST-API aanroepen
 
@@ -72,7 +72,7 @@ Voor het maken van een virtuele-machineschaalset met het systeem toegewezen behe
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Een Bearer-toegangstoken, die u in de volgende stap in de autorisatie-header wordt gebruiken om uw virtuele-machineschaalset met een beheerde identiteit voor het systeem toegewezen ophalen.
+3. Een Bearer-toegangstoken, die u in de volgende stap in de autorisatie-header wordt gebruiken om uw virtuele-machineschaalset met een beheerde identiteit voor het systeem toegewezen ophalen.
 
    ```azurecli-interactive
    az account get-access-token
@@ -81,23 +81,23 @@ Voor het maken van een virtuele-machineschaalset met het systeem toegewezen behe
 4. Maak een VM-schaalset met CURL om aan te roepen van het Azure Resource Manager REST-eindpunt. Het volgende voorbeeld wordt een virtuele-machineschaalset met de naam *myVMSS* in de *myResourceGroup* beheerd met een door het systeem toegewezen identiteit, zoals vermeld in de hoofdtekst van de aanvraag door de waarde `"identity":{"type":"SystemAssigned"}`. Vervang `<ACCESS TOKEN>` met de waarde u hebt ontvangen in de vorige stap wanneer u een Bearer-toegangstoken aangevraagd en de `<SUBSCRIPTION ID>` waarde als geschikt is voor uw omgeving.
 
    ```bash   
-  curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
-  ```
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-  **Aanvraagheaders**
+   **Aanvraagheaders**
 
-  |Aanvraagheader  |Description  |
-  |---------|---------|
-  |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
-  |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken. | 
+   |Aanvraagheader  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
+   |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken. | 
 
-  **Aanvraagtekst**
+   **Aanvraagtekst**
 
-  ```JSON
+   ```JSON
     {
        "sku":{
           "tier":"Standard",
@@ -158,7 +158,7 @@ Voor het maken van een virtuele-machineschaalset met het systeem toegewezen behe
           }
        }
     }  
-  ```  
+   ```  
 
 ### <a name="enable-system-assigned-managed-identity-on-a-existing-virtual-machine-scale-set"></a>De beheerde inschakelen door het systeem toegewezen identiteit op een bestaande virtuele-machineschaalset
 
@@ -313,7 +313,7 @@ Als u wilt een systeem toegewezen identiteit op een bestaande virtuele-machinesc
 
    Als u het systeem toegewezen beheerde identiteit van een virtuele-machineschaalset waarvoor de gebruiker toegewezen beheerde identiteiten, wilt verwijderen `SystemAssigned` uit de `{"identity":{"type:" "}}` waarde terwijl de `UserAssigned` waarde en de `userAssignedIdentities` woordenlijst waarden als u met behulp van zijn **API-versie 2018-01-06**. Als u **API-versie 2017-12-01** of eerder, houden de `identityIds` matrix.
 
-## <a name="user-assigned-managed-identity"></a>de gebruiker toegewezen beheerde identiteit
+## <a name="user-assigned-managed-identity"></a>Door een gebruiker toegewezen beheerde identiteit
 
 In deze sectie leert u hoe u toevoegen en verwijderen van beheerde identiteit op een virtuele-machineschaalset met CURL aanroepen met de Azure Resource Manager REST-eindpunt instellen door de gebruiker toegewezen.
 
@@ -331,7 +331,7 @@ In deze sectie leert u hoe u toevoegen en verwijderen van beheerde identiteit op
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Een Bearer-toegangstoken, die u in de volgende stap in de autorisatie-header wordt gebruiken om uw virtuele-machineschaalset met een beheerde identiteit voor het systeem toegewezen ophalen.
+3. Een Bearer-toegangstoken, die u in de volgende stap in de autorisatie-header wordt gebruiken om uw virtuele-machineschaalset met een beheerde identiteit voor het systeem toegewezen ophalen.
 
    ```azurecli-interactive
    az account get-access-token

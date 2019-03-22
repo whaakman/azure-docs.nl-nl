@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 894fc42954182171588d81e2f7f1e37141af9add
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821248"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837759"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Onboarding updatebeheer, wijzigingen bijhouden en inventaris oplossingen van een virtuele machine van Azure
 
@@ -26,7 +26,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>De oplossingen inschakelen
 
-Ga naar een bestaande virtuele machine. Onder **OPERATIONS**, selecteer **updatebeheer**, **voorraad**, of **wijzigingen bijhouden**.
+Ga naar een bestaande virtuele machine. Onder **OPERATIONS**, selecteer **updatebeheer**, **voorraad**, of **wijzigingen bijhouden**. De virtuele machine kan bestaan in andere regio's, ongeacht de locatie van uw Automation-Account.
 
 Zorg ervoor dat zodat de oplossing voor de virtuele machine alleen **inschakelen voor deze virtuele machine** is geselecteerd. Onboarding meerdere virtuele machines aan de oplossing selecteert **inschakelen voor virtuele machines in dit abonnement**, en selecteer vervolgens **Selecteer machines om in te schakelen**. Voor meer informatie over hoe onboarding meerdere virtuele machines in één keer, Zie [onboarding updatebeheer, wijzigingen bijhouden en inventaris oplossingen](automation-onboard-solutions-from-automation-account.md).
 

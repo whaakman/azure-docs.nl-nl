@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 88d94492cb6ed3191e146f117a648293bc9e50f9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243717"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892469"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Weergeven en downloaden van uw organisatie Azure-prijzen
 
-Azure-klanten met een Enterprise Agreement (EA) of [Microsoft KLANTOVEREENKOMST](#check-your-access-to-a-microsoft-customer-agreement) kunnen weergeven en downloaden van de prijzen van Azure portal. Als u een KLANTOVEREENKOMST van Microsoft hebt, raadpleegt u [weergeven en downloaden van de prijzen voor uw Microsoft-KLANTOVEREENKOMST](#View-and-download-pricing-for-your-billing-profile).
+Azure-klanten met een Enterprise Agreement (EA) of [Microsoft KLANTOVEREENKOMST](#check-your-access-to-a-microsoft-customer-agreement) kunnen weergeven en downloaden van de prijzen van Azure portal. Als u een KLANTOVEREENKOMST van Microsoft hebt, raadpleegt u weergeven en downloaden van de prijzen voor uw Microsoft-KLANTOVEREENKOMST.
 
 ## <a name="view-and-download-ea-pricing"></a>Bekijk en installeer EA-prijzen
 

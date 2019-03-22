@@ -1,7 +1,7 @@
 ---
 title: 'Zelfstudie: Integratie van virtuele netwerken en firewalls inschakelen in Event Hubs | Microsoft Docs'
 description: In deze zelfstudie leert u hoe u Event Hubs integreert met virtuele netwerken en Firewalls om toegang te beveiligen.
-services: event-hubs-messaging
+services: event-hubs
 author: axisc
 manager: darosa
 ms.author: aschhab
@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: tutorial
 ms.service: event-hubs-messaging
 ms.custom: mvc
-ms.openlocfilehash: e47c2af353a7f365534ba4cf9ce574c16a0ea4ca
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 9eea40a8ad2f08099b2662a0e7539c326d4d143e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233136"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779042"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Zelfstudie: Integratie van virtuele netwerken en firewalls inschakelen in Event Hubs-naamruimte
 

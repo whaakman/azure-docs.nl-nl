@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 183a6ddf3fd47be552ba13ce42c1f6e29fca4410
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a30281012d28489a40e3366585164628d87c220
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162234"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994603"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Zelfstudie: Bulksgewijs gebruikers uitnodigen voor Microsoft Azure AD B2B-samenwerking
 
@@ -119,7 +119,7 @@ Controleer of de uitgenodigde gebruikers zijn toegevoegd aan Microsoft Azure AD 
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
-U moet nu de uitgenodigde gebruikers zien met een user principal name (UPN) in de indeling *e-mailadres*#EXT #@*domein*. Bijvoorbeeld: *sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com*, waarbij contoso.onmicrosoft.com staat voor de organisatie waarvoor u de uitnodigingen hebt verzonden.
+U ziet dat de gebruikers die u hebt uitgenodigd weergegeven, met een user principal name (UPN) in de indeling *emailaddress*EXT #\@*domein*. Bijvoorbeeld, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, waarbij contoso.onmicrosoft.com staat voor de organisatie waarvan u de uitnodigingen verzonden.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: d4293bf6a375f3e1a26c0c4fb50fcdc7bb5b8e8e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bf1ff4391e65fea68ac019be8fde8709fb4422b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243853"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181347"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes-belangrijkste concepten voor Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ U kunt bouwen en uitvoeren van moderne, draagbare, op basis van microservices-to
 
 Als een open platform kunt met Kubernetes u uw toepassingen met uw favoriete programmeertaal, besturingssysteem, bibliotheken of bus messaging. Bestaande continue integratie en continue levering (CI/CD) hulpprogramma's kunnen integreren met Kubernetes voor het plannen en implementeren van releases.
 
-Azure Kubernetes Service (AKS) biedt een beheerde Kubernetes-service die de complexiteit voor implementatie en core-beheertaken, waaronder upgrades coördineren. De AKS-cluster-modellen worden beheerd door de Azure-platform en u betaalt alleen voor de AKS-knooppunten waarop uw toepassingen worden uitgevoerd. AKS is gebaseerd op de Engine voor open-source Azure Kubernetes Service (aks-engine).
+Azure Kubernetes Service (AKS) biedt een beheerde Kubernetes-service die de complexiteit voor implementatie en core-beheertaken, waaronder upgrades coördineren. De AKS-cluster-modellen worden beheerd door de Azure-platform en u betaalt alleen voor de AKS-knooppunten waarop uw toepassingen worden uitgevoerd. AKS is gebaseerd op de open-source Azure Kubernetes Service Engine ([aks-engine][aks-engine]).
 
 ## <a name="kubernetes-cluster-architecture"></a>Architectuur van de Kubernetes-cluster
 

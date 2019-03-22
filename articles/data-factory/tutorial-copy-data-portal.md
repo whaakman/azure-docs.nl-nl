@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 1aca53c876b6cc982c141d74cdf727f9c966adfe
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: a4041d7d2cc9d3fd42a541c316d8d739b3ab733d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233860"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539867"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren van Azure Blob-opslag naar een SQL database met Azure Data Factory
 In deze zelfstudie maakt u een data factory met behulp van de Azure Data Factory-gebruikersinterface. Met de pijplijn in deze data factory worden gegevens gekopieerd van Azure Blob-opslag naar een SQL database. Het configuratiepatroon in deze zelfstudie geldt voor het kopiëren van een gegevensarchief op basis van bestanden naar een relationeel gegevensarchief. Zie de tabel [Ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als sink.
@@ -53,7 +53,7 @@ Voer nu de volgende stappen uit om uw blobopslag en SQL database voor te bereide
     Jane,Doe
     ```
 
-1. Maak in de blobopslag een container met de naam **adftutorial**. Maak een map aan met de naam **invoer** in deze container. Vervolgens kunt u het bestand **emp.txt** uploaden naar de map **invoer**. Gebruik de Azure-portal of hulpprogramma's zoals [Azure Storage Explorer](http://storageexplorer.com/) voor deze taken.
+1. Maak in de blobopslag een container met de naam **adftutorial**. Maak een map aan met de naam **invoer** in deze container. Vervolgens kunt u het bestand **emp.txt** uploaden naar de map **invoer**. Gebruik de Azure-portal of hulpprogramma's zoals [Azure Storage Explorer](https://storageexplorer.com/) voor deze taken.
 
 #### <a name="create-a-sink-sql-table"></a>Een SQL-sink-tabel maken
 
@@ -176,7 +176,7 @@ In deze zelfstudie begint u met het maken van de pijplijn. Vervolgens maakt u ge
 1. Ga naar het tabblad **Sink** en selecteer **+Nieuw** om een sink-gegevensset te maken. 
 
     ![Sink-gegevensset](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-1. Voer in het venster **Nieuwe gegevensset** 'SQL' in het zoekvak in om de connectoren te filteren, selecteer vervolgens **Azure SQL Database** en selecteer vervolgens **Voltooien**. In deze zelfstudie kopieert u gegevens naar een SQL database. 
+1. In de **nieuwe gegevensset** venster 'SQL' in het zoekvak om de connectoren filteren en selecteer vervolgens de invoer **Azure SQL Database**, en selecteer vervolgens **voltooien**. In deze zelfstudie kopieert u gegevens naar een SQL database. 
 
     ![SQL database selecteren](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
 1. Op het tabblad **Algemeen** van het venster **Eigenschappen** geeft u **OutputSqlDataset** op als **Naam**. 
@@ -232,7 +232,7 @@ U kunt fouten opsporen in een pijplijn voordat u artefacten (gekoppelde services
 
 1. Selecteer **Fouten opsporen** om fouten op te sporen in de pijplijn. De status van de pijplijnuitvoering wordt weergegeven op het tabblad **Uitvoer** onder in het venster. 
 
-1. Zodra de pijplijn met succes kan worden uitgevoerd, selecteert u **Alles publiceren** in de bovenste werkbalk. Met deze actie publiceert u entiteiten (gegevenssets en pijplijnen) die u hebt gemaakt met Data Factory.
+1. Zodra de pijplijn is, in de bovenste werkbalk uitvoeren kunt selecteert **Alles publiceren**. Met deze actie publiceert u entiteiten (gegevenssets en pijplijnen) die u hebt gemaakt met Data Factory.
 
     ![Publiceren](./media/tutorial-copy-data-portal/publish-button.png)
 

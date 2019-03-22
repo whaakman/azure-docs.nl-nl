@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: eca1379c4f721a0201b01f149b581859c49c6540
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234370"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835449"
 ---
 # <a name="u-sql-programmability-guide"></a>Handleiding voor het programmeren van U-SQL
 
@@ -133,7 +133,7 @@ Zoals eerder aangegeven, code van U-SQL-wordt uitgevoerd in een 64-bits (x 64)-i
 
 Elke assembly DLL-bestand geüpload en resource-bestand, zoals een andere runtime, een systeemeigen assembly of een config-bestand mag maximaal 400 MB. De totale grootte van geïmplementeerde resources, via de RESOURCE implementeren of via de verwijzingen naar assembly's en de bijbehorende extra bestanden niet langer zijn dan 3 GB.
 
-Ten slotte Opmerking elke U-SQL-database mag slechts één versie van een bepaalde assembly. Als u zowel versie 7 en 8-versie van de bibliotheek NewtonSoft Json.Net nodig hebt, moet u bijvoorbeeld deze registreren in twee verschillende databases. Bovendien kan elk script alleen verwijzen naar een versie van een bepaalde assembly DLL-bestand. In dit opzicht volgt U-SQL de C#-assembly beheer- en versiebeheer semantiek.
+Ten slotte Opmerking elke U-SQL-database mag slechts één versie van een bepaalde assembly. Als u zowel versie 7 en 8-versie van de bibliotheek NewtonSoft Json.NET nodig hebt, moet u bijvoorbeeld deze registreren in twee verschillende databases. Bovendien kan elk script alleen verwijzen naar een versie van een bepaalde assembly DLL-bestand. In dit opzicht volgt U-SQL de C#-assembly beheer- en versiebeheer semantiek.
 
 ## <a name="use-user-defined-functions-udf"></a>De gebruiker gedefinieerde functies gebruiken: UDF
 U-SQL-gebruiker gedefinieerde functies of UDF, programmeert routines die parameters accepteren, het uitvoeren van een actie (zoals een complexe berekening) en het resultaat van de actie als een waarde. De geretourneerde waarde van UDF mag alleen één scalair. U-SQL-UDF kan worden aangeroepen in U-SQL-Standaardscript net als elke andere C# scalaire functie.

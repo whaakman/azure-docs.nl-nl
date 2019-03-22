@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 19895ef706ab5a5ec0aa390465ce260e68d71d78
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 2da6a5c93d4bf4fcf8763be47b9eb629b930e3b3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903108"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843470"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Waarom is mijn Azure-abonnement uitgeschakeld en hoe ik het opnieuw activeren?
 
@@ -36,7 +36,7 @@ Als u zich voor een gratis Azure-account aanmelden, krijgt u een gratis proefabo
 Azure-abonnementen met zoals gratis proefversie en Visual Studio Enterprise-tegoed hebben bestedingslimieten hierop. Dit betekent dat u kunt alleen services tot de opgenomen tegoed gebruiken. Als uw gebruik van de bestedingslimiet is bereikt, wordt uw abonnement voor de rest van de factureringsperiode uitgeschakeld in Azure. Uw abonnement is om u te beschermen tegen onbedoelde kosten voor gebruik boven het tegoed bij uw abonnement uitgeschakeld. Als u wilt uw bestedingslimiet verwijderen, Zie [de bestedingslimiet verwijderen in het Accountcentrum](billing-spending-limit.md#remove).
 
 > [!NOTE] 
-> Als u een gratis proefversie van abonnement hebt en u de bestedingslimiet verwijderen, wordt uw abonnement wordt omgezet naar betalen per gebruik aan het einde van de gratis proefversie. U mag uw resterende tegoed houden voor de volledige 30 dagen nadat u het abonnement hebt gemaakt. U hebt ook toegang tot gratis services voor 12 maanden.
+> Als u een gratis proefversie van abonnement hebt en u de bestedingslimiet verwijderen, wordt uw abonnement wordt omgezet naar betalen per gebruik aan het einde van de gratis proefversie. U mag uw resterende tegoed houden voor de volledige 30 dagen nadat u het abonnement hebt gemaakt. U hebt ook gedurende 12 maanden toegang tot gratis services.
 
 Als u wilt controleren en beheren van facturatieactiviteit voor Azure, Zie [voorkomen van onverwachte kosten met Azure-facturering en kostenbeheer](billing-getting-started.md).
 
@@ -63,4 +63,4 @@ Voor andere abonnementstypen [contact op met ondersteuning](https://portal.azure
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

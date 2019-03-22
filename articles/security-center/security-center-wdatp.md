@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 09e8ee05017c47c5b01bc529135004eff19b846f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ee5ed8871ea5c021ad8c87e35f45e42ad641a324
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118459"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124164"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection met Azure Security Center
 
@@ -64,11 +64,11 @@ Security Center onboarden-servers, klikt u op **gaat u naar Azure Security Cente
 1. In de **Onboarding** blade selecteert of maakt u een werkruimte waarin gegevens worden opgeslagen. <br>
 2. Als u al uw werkruimten niet ziet, kan het worden vanwege een gebrek aan machtigingen, zorg ervoor dat uw werkruimte is ingesteld op Azure Security Standard-laag. Zie voor meer informatie [een upgrade uitvoert naar Standard van Security Center-prijscategorie voor verbeterde beveiliging](security-center-pricing.md).
     
-3.  Selecteer **servers toevoegen** voor de instructies voor het installeren van de Microsoft Monitoring Agent. 
+3. Selecteer **servers toevoegen** voor de instructies voor het installeren van de Microsoft Monitoring Agent. 
 
-4.  Na de onboarding, kunt u de machines onder bewaken **reken- en apps**.
+4. Na de onboarding, kunt u de machines onder bewaken **reken- en apps**.
 
-  ![Onboarding-computers](media/security-center-wdatp/onboard-computers.png)
+   ![Onboarding-computers](media/security-center-wdatp/onboard-computers.png)
 
 
 ## <a name="enable-windows-defender-atp-integration"></a>Windows Defender ATP-integratie inschakelen

@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: U kunt een QnA Maker-knowledge base (KB) maken van uw eigen inhoud, zoals veelgestelde vragen of producthandleidingen. De QnA Maker-KB in dit voorbeeld is gemaakt op basis van een eenvoudige webpagina met veelgestelde vragen waarop vragen worden beantwoord over het herstel van BitLocker-sleutels.
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2ac6e6fcd73abddcee668b8f73184b923aeab5d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3f7b24af3d48075150ae7c192ccf421b928a7aa3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876994"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113696"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Uw QnA Maker-knowledge base maken, trainen en publiceren
 
@@ -53,7 +54,7 @@ U kunt een QnA Maker-knowledge base (KB) maken van uw eigen inhoud, zoals veelge
 
 10. Selecteer in de rechterbovenhoek **Add QnA pair** (QnA-set toevoegen) om een nieuwe rij toe te voegen in de sectie **Editorial** (Redactioneel) van de KB. Typ onder **Question** (Vraag) **Hoi.** Typ onder **Answer** (Antwoord) **Hallo. Stel mij vragen over bitlocker.**
 
-   ![Een QnA-set toevoegen](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+    ![Een QnA-set toevoegen](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
 11. Selecteer in de rechterbovenhoek **Save and train** (Opslaan en trainen) om de wijzigingen op te slaan en het QnA Maker-model te trainen. Bewerkingen worden alleen bewaard als ze worden opgeslagen.
 
@@ -61,7 +62,7 @@ U kunt een QnA Maker-knowledge base (KB) maken van uw eigen inhoud, zoals veelge
 
 13. Selecteer **Inspect** (Inspecteren) om het antwoord gedetailleerder te onderzoeken. Het testvenster wordt gebruikt om uw wijzigingen in de KB te testen voordat ze worden gepubliceerd.
 
-   ![Testvenster](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Testvenster](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
 14. Selecteer **Test** (Testen) nogmaals om de pop-up **Test** te sluiten.
 
@@ -69,7 +70,7 @@ U kunt een QnA Maker-knowledge base (KB) maken van uw eigen inhoud, zoals veelge
 
 16. De QnA Maker-service is nu gepubliceerd. U kunt het eindpunt in uw toepassing of botcode gebruiken.
 
-   ![Publiceren](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![Publiceren](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

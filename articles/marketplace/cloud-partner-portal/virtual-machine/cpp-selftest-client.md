@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7afa64ebedb38b4514bbd155bf8f29268d420d18
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: MT
+ms.openlocfilehash: aa46fbce9d11a8fd380a5ee1990c0e7924079a9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745755"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078683"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Maak een zelftest-client voor het vooraf valideren van een installatiekopie van een virtuele machine van Azure
 
@@ -297,8 +297,8 @@ Gebruik de volgende stappen uit om de clientapp te registreren.
     - Selecteer **opslaan** om de sleutel te genereren.
     - Onder **waarde**, Kopieer de sleutel.
 
-     >[!Important]
-     >Niet mogelijk om te zien van de sleutelwaarde nadat u sluiten de **sleutels** formulier.
+      >[!Important]
+      >Niet mogelijk om te zien van de sleutelwaarde nadat u sluiten de **sleutels** formulier.
 
     ![Sleutelwaarde formulier](./media/stclient-create-key.png)
 

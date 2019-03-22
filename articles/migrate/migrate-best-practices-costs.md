@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6f6440e12840538614b4092b173ab25ae37a68a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700635"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110274"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Aanbevolen procedures voor workloads met kosten en sizing gemigreerd naar Azure
 
@@ -40,17 +40,18 @@ Er zijn een aantal hulpprogramma's die kunt u voor een prognose van uw maandelij
 
 - **Azure prijscalculator**: U selecteert de producten die u wenst te schatten, bijvoorbeeld virtuele machines en opslag. Er worden kosten in de prijscalculator, voor het bouwen van een schatting ingevoerd.
 
- ![Azure prijscalculator](./media/migrate-best-practices-costs/pricing.png) *prijscalculator van Azure*
+  ![Azure prijscalculator](./media/migrate-best-practices-costs/pricing.png) *prijscalculator van Azure*
 
 - **Azure Migrate**: Voor een schatting van de kosten die u wilt controleren en voor alle resources die zijn vereist voor het uitvoeren van uw workloads in Azure-account. Om te verkrijgen van deze gegevens, maakt u de inventaris van uw assets, met inbegrip van servers, virtuele machines, databases en opslag. U kunt Azure Migrate gebruiken om deze informatie te verzamelen.
 
- - Azure Migrate wordt gedetecteerd en uw on-premises omgeving voor een inventaris beoordeelt.
- - Azure Migrate kunt toewijzen en u afhankelijkheden tussen virtuele machines weergeven zodat u beschikt over een volledig overzicht.
- - Een Azure Migrate-evaluatie bevat de geschatte kosten.
+  - Azure Migrate wordt gedetecteerd en uw on-premises omgeving voor een inventaris beoordeelt.
+  - Azure Migrate kunt toewijzen en u afhankelijkheden tussen virtuele machines weergeven zodat u beschikt over een volledig overzicht.
+  - Een Azure Migrate-evaluatie bevat de geschatte kosten.
     - De rekenkosten: Met behulp van de Azure-VM-grootte aanbevolen wanneer u een evaluatie maken, Azure Migrate maakt gebruik van de facturering-API voor het berekenen van de geschatte maandelijkse kosten voor virtuele machine. De schatting van de rekening gehouden met het besturingssysteem, software assurance, gereserveerde instanties, VM uptime, locatie en valuta-instellingen. Het combineert de kosten voor alle virtuele machines in de evaluatie en een totale maandelijkse kosten worden berekend.
     - Kosten voor gegevensopslag: Azure Migrate berekent de totale maandelijkse kosten voor opslag door samenvoeging van de kosten voor opslag van alle virtuele machines in een evaluatie. U kunt de maandelijkse opslagkosten voor voor een specifieke machine berekenen door samenvoeging van de maandelijkse kosten van alle gekoppelde schijven. 
 
-    ![Azure Migrate](./media/migrate-best-practices-costs/assess.png) *Azure Migrate-evaluatie*
+    ![Azure Migrate](./media/migrate-best-practices-costs/assess.png)
+    *Azure Migrate-evaluatie*
 
 **Meer informatie:**
 - [Gebruik](https://azure.microsoft.com/pricing/calculator/) de prijscalculator van Azure.
@@ -92,13 +93,13 @@ Afstemmen en onderhouden van on-premises opslag (SAN- of NAS), en de netwerken v
 
 Azure biedt verschillende typen gegevens in de opslag.
 
-**Gegevenstype** | **Details** | **Gebruik** 
---- | --- |  ---
-**Blobs** | Geoptimaliseerd voor het opslaan van grote hoeveelheden ongestructureerde objecten, zoals tekst of binaire gegevens<br/><br/> | Toegang tot gegevens vanaf elke locatie via HTTP/HTTPS. | Gebruik voor scenario's voor streamen en willekeurige toegang. Bijvoorbeeld behoeve van afbeeldingen en documenten rechtstreeks aan een browser, video en audio streamen en opslaan van gegevens voor herstel na noodgevallen en back-ups.
-**Bestanden** | Beheerde bestandsshares via SMB 3.0 | Gebruik bij het migreren van on-premises bestandsshares, en om meerdere toegang/verbindingen met gegevens uit een bestand.
-**Schijven** | Gebaseerd op de pagina-blobs.<br/><br/> Schijftype (snelheid): Standaard (HDD of SSD) of Premium (SSD).<br/><br/>Schijfbeheer: Niet-beheerde (u beheert instellingen voor schijven en opslag) of beheerd (selecteert u het schijftype en Azure beheert de schijf voor u). | Premium-schijven voor virtuele machines gebruiken. Beheerde schijven gebruiken voor eenvoudig beheer en schalen.
-**wachtrijen** | Store en op te halen van grote aantallen berichten benaderd via geverifieerde oproepen (HTTP of HTTPS) | Verbinding maken met app-onderdelen met asynchrone message Queuing.
-**Tabellen** | Store tabellen. | Nu onderdeel van Azure Cosmos DB Table-API.
+| **Gegevenstype** | **Details** | **Gebruik** |
+|--- | --- |  --- |
+|**Blobs** | Geoptimaliseerd voor het opslaan van grote hoeveelheden ongestructureerde objecten, zoals tekst of binaire gegevens<br/>Toegang tot gegevens vanaf elke locatie via HTTP/HTTPS. | Gebruik voor scenario's voor streamen en willekeurige toegang. Bijvoorbeeld behoeve van afbeeldingen en documenten rechtstreeks aan een browser, video en audio streamen en opslaan van gegevens voor herstel na noodgevallen en back-ups.|
+|**Bestanden** | Beheerde bestandsshares via SMB 3.0 | Gebruik bij het migreren van on-premises bestandsshares, en om meerdere toegang/verbindingen met gegevens uit een bestand.|
+|**Schijven** | Gebaseerd op de pagina-blobs.<br/><br/> Schijftype (snelheid): Standaard (HDD of SSD) of Premium (SSD).<br/><br/>Schijfbeheer: Niet-beheerde (u beheert instellingen voor schijven en opslag) of beheerd (selecteert u het schijftype en Azure beheert de schijf voor u). | Premium-schijven voor virtuele machines gebruiken. Beheerde schijven gebruiken voor eenvoudig beheer en schalen.|
+|**wachtrijen** | Store en op te halen van grote aantallen berichten benaderd via geverifieerde oproepen (HTTP of HTTPS) | Verbinding maken met app-onderdelen met asynchrone message Queuing.|
+|**Tabellen** | Store tabellen. | Nu onderdeel van Azure Cosmos DB Table-API.|
 
 
 
@@ -211,19 +212,21 @@ In Cost Management, kunt u het volgende doen:
 
 
 - **Maak een budget**: Maak een budget voor financiële aansprakelijkheid.
-    - U kunt een account maken voor de services die u verbruikt of zich abonneert op voor een bepaalde periode (maandelijks, elk kwartaal, per jaar) en een bereik (abonnementen/resourcegroepen). Bijvoorbeeld, kunt u het budget van een Azure-abonnement gedurende een maand, per kwartaal of jaar.
-    - Nadat u een budget gemaakt, wordt deze weergegeven in kostenanalyse. Voor het weergeven van uw budget voor de huidige uitgaven is een van de eerste stappen die nodig zijn bij het analyseren van uw kosten en uitgaven.
-    - E-mailmeldingen kunnen worden verzonden wanneer de budgetdrempels wordt bereikt.
-    - U kunt kosten beheergegevens exporteren naar Azure storage, voor analyse.
+  - U kunt een account maken voor de services die u verbruikt of zich abonneert op voor een bepaalde periode (maandelijks, elk kwartaal, per jaar) en een bereik (abonnementen/resourcegroepen). Bijvoorbeeld, kunt u het budget van een Azure-abonnement gedurende een maand, per kwartaal of jaar.
+  - Nadat u een budget gemaakt, wordt deze weergegeven in kostenanalyse. Voor het weergeven van uw budget voor de huidige uitgaven is een van de eerste stappen die nodig zijn bij het analyseren van uw kosten en uitgaven.
+  - E-mailmeldingen kunnen worden verzonden wanneer de budgetdrempels wordt bereikt.
+  - U kunt kosten beheergegevens exporteren naar Azure storage, voor analyse.
 
-    ![Cost Management budget](./media/migrate-best-practices-costs/budget.png) *Azure Cost Management budget*
+    ![Cost Management budget](./media/migrate-best-practices-costs/budget.png)
+    *Azure Cost Management budget*
 
 - **Voer een kostenanalyse**: Een kostenanalyse te verkennen en analyseren van uw organisatie kosten, zodat u inzicht in hoe de kosten worden opgebouwd, ophalen en trends in uitgaven te identificeren.
-    - Kostenanalyse is beschikbaar voor EA-gebruikers.
-    - U kunt gegevens van cost analysis voor een aantal scopes, met inbegrip van afdeling, account, abonnement of resourcegroep weergeven.
-    - U krijgt een kostenanalyse waarin de totale kosten voor de huidige maand en de totale dagelijkse kosten. 
+  - Kostenanalyse is beschikbaar voor EA-gebruikers.
+  - U kunt gegevens van cost analysis voor een aantal scopes, met inbegrip van afdeling, account, abonnement of resourcegroep weergeven.
+  - U krijgt een kostenanalyse waarin de totale kosten voor de huidige maand en de totale dagelijkse kosten. 
 
-    ![Kosten van analysis Management](./media/migrate-best-practices-costs/analysis.png) *analyse van Azure Cost Management*
+    ![Kosten van analysis Management](./media/migrate-best-practices-costs/analysis.png)
+    *analyse van Azure Cost Management*
 - **Ontvang aanbevelingen**: Ontvang aanbevelingen van Advisor waarin u u ziet hoe u kunt optimaliseren en efficiëntie te verbeteren.
 
 

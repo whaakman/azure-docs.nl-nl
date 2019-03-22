@@ -3,23 +3,22 @@ title: Apparaatstatus synchroniseren vanuit Azure IoT Hub | Microsoft Docs
 description: Gebruik apparaatdubbels om de status te synchroniseren tussen uw apparaten en uw IoT hub
 services: iot-hub
 documentationcenter: ''
-author: dominicbetts
-manager: timlt
-ms.assetid: ''
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2019
-ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 63ef5a36dc5a9d770e3474e15b4733d4165b9937
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: b0e6e75f962383055d4f28356c3db57aac4a088b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421909"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088074"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -60,7 +59,7 @@ Download het Node.js-voorbeeldproject van https://github.com/Azure-Samples/azure
 
 Om deze zelfstudie te voltooien moet uw Azure-abonnement een IoT hub bevatten met een apparaat toegevoegd aan het apparaatidentiteitsregister. Met de vermelding in het apparaatidentiteitsregister kan het gesimuleerd apparaat dat u in deze zelfstudie uitvoert, verbinding maken met uw hub.
 
-Als u nog geen IoT hub hebt ingesteld in uw abonnement, kunt u er een instellen met het volgende CLI-script. Dit script gebruikt de naam **zelfstudie-iot-hub** voor de IoT hub, u moet deze naam vervangen door een eigen unieke naam wanneer u dit uitvoert. Het script maakt de brongroep en hub in de regio **US - centraal** die u kunt wijzigen in een regio dichterbij. Met het script wordt uw verbindingsreeks voor de IoT hub, die u gebruikt in het back-endvoorbeeld om verbinding te maken met uw IoT hub:
+Als u nog een IoT-hub geconfigureerd in uw abonnement hebt, kunt u een instellen met de volgende CLI-script. Dit script gebruikt de naam **zelfstudie-iot-hub** voor de IoT hub, u moet deze naam vervangen door een eigen unieke naam wanneer u dit uitvoert. Het script maakt de brongroep en hub in de regio **US - centraal** die u kunt wijzigen in een regio dichterbij. Met het script wordt uw verbindingsreeks voor de IoT hub, die u gebruikt in het back-endvoorbeeld om verbinding te maken met uw IoT hub:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -76,7 +75,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -241,7 +240,7 @@ De volgende schermafbeelding toont de uitvoer van de gesimuleerd apparaattoepass
 
 ![Gesimuleerd apparaat](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-De volgende schermafbeelding toont de uitvoer van de back-endtoepassing en accentueert hoe het een update voor de gerapporteerde eigenschap vanaf een apparaat ontvangt en verwerkt:
+De volgende schermafbeelding ziet u de uitvoer van de back-endtoepassing en wordt uitgelegd hoe het ontvangt en verwerkt een gerapporteerde eigenschap van een apparaat bij te werken:
 
 ![Back-endtoepassing](./media/tutorial-device-twins/BackEnd2.png)
 
@@ -263,4 +262,4 @@ az group delete --name tutorial-iot-hub-rg
 In deze zelfstudie hebt u geleerd hoe u statusgegevens synchroniseert tussen uw apparaten en uw IoT hub. Ga naar de volgende zelfstudie om te leren hoe u apparaatdubbels gebruikt om een updateproces voor firmware te implementeren.
 
 > [!div class="nextstepaction"]
-[Een apparaatfirmware-updateproces implementeren](tutorial-firmware-update.md)
+> [Een apparaatfirmware-updateproces implementeren](tutorial-firmware-update.md)

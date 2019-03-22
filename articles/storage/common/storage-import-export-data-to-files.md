@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 1cf2276ca1995df19cc7068764a31916e4981100
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e3cd9d0036a55a3e6de49988dddcd6a91b81b078
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452691"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088652"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Files
 
@@ -50,60 +50,60 @@ Voer de volgende stappen voor het voorbereiden van de schijven.
 2. Maak een enkele NTFS-volume op elke schijf. Een stationsletter toewijzen aan het volume. Stel de volgende parameter niet gebruiken
 3. Wijzig de *dataset.csv* bestand in de hoofdmap waarin het hulpprogramma zich bevindt. Afhankelijk van of u importeren van een bestand of map of beide wilt, vermeldingen toe te voegen in de *dataset.csv* bestand die vergelijkbaar is met de volgende voorbeelden.  
 
-    - **Een bestand importeren**: In het volgende voorbeeld is de gegevens te kopiëren bevindt zich in de C:-station. Het bestand *MyFile1.txt* wordt gekopieerd naar de hoofdmap van de *MyAzureFileshare1*. Als de *MyAzureFileshare1* niet bestaat, wordt deze gemaakt in de Azure Storage-account. Mapstructuur wordt bijgehouden.
+   - **Een bestand importeren**: In het volgende voorbeeld is de gegevens te kopiëren bevindt zich in de C:-station. Het bestand *MyFile1.txt* wordt gekopieerd naar de hoofdmap van de *MyAzureFileshare1*. Als de *MyAzureFileshare1* niet bestaat, wordt deze gemaakt in de Azure Storage-account. Mapstructuur wordt bijgehouden.
 
-        ```
-            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+       ```
+           BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
-        ```
-    - **Voor het importeren van een map**: Alle bestanden en mappen onder *MyFolder2* worden recursief gekopieerd naar de bestandsshare. Mapstructuur wordt bijgehouden.
+       ```
+   - **Voor het importeren van een map**: Alle bestanden en mappen onder *MyFolder2* worden recursief gekopieerd naar de bestandsshare. Mapstructuur wordt bijgehouden.
 
-        ```
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-            
-        ```
-    Meerdere vermeldingen kunnen worden gemaakt in hetzelfde bestand overeenkomt met de mappen of bestanden die worden geïmporteerd. 
+       ```
+           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+            
+       ```
+     Meerdere vermeldingen kunnen worden gemaakt in hetzelfde bestand overeenkomt met de mappen of bestanden die worden geïmporteerd. 
 
-        ```
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-                        
-        ```
-    Meer informatie over [voorbereiden van de gegevensset CSV-bestand](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
+       ```
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+                        
+       ```
+     Meer informatie over [voorbereiden van de gegevensset CSV-bestand](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
 
 4. Wijzig de *driveset.csv* bestand in de hoofdmap waarin het hulpprogramma zich bevindt. Toevoegen van items in de *driveset.csv* bestand die vergelijkbaar is met de volgende voorbeelden. Het bestand driveset heeft de lijst van schijven en de bijbehorende stationsletters zodat het hulpprogramma kan de lijst met schijven worden voorbereid correct kiezen.
 
     In dit voorbeeld wordt ervan uitgegaan dat twee schijven zijn gekoppeld en eenvoudige NTFS-volumes G:\ en H:\ worden gemaakt. H:\is niet versleuteld wanneer G: al is versleuteld. Het hulpprogramma maakt en versleutelt de schijf die als host H:\ alleen fungeert (en niet G:\).
 
-    - **Voor een schijf die is niet versleuteld**: Geef *versleutelen* inschakelen van BitLocker-versleuteling op de schijf.
+   - **Voor een schijf die is niet versleuteld**: Geef *versleutelen* inschakelen van BitLocker-versleuteling op de schijf.
 
-        ```
-        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-        H,Format,SilentMode,Encrypt,
-        ```
+       ```
+       DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+       H,Format,SilentMode,Encrypt,
+       ```
     
-    - **Voor een schijf die al is versleuteld**: Geef *AlreadyEncrypted* en de BitLocker-sleutel hebt opgegeven.
+   - **Voor een schijf die al is versleuteld**: Geef *AlreadyEncrypted* en de BitLocker-sleutel hebt opgegeven.
 
-        ```
-        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
-        ```
+       ```
+       DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+       G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
+       ```
 
-    Meerdere vermeldingen kunnen worden gemaakt in hetzelfde bestand overeenkomt met meerdere stations. Meer informatie over [voorbereiden van het CSV-bestand driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
+     Meerdere vermeldingen kunnen worden gemaakt in hetzelfde bestand overeenkomt met meerdere stations. Meer informatie over [voorbereiden van het CSV-bestand driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
 
-5.  Gebruik de `PrepImport` optie om te kopiëren en voorbereiden van gegevens naar de schijf. Voor de eerste kopie-sessie om te kopiëren van mappen en/of bestanden met een nieuwe kopieersessie, kunt u de volgende opdracht uitvoeren:
+5. Gebruik de `PrepImport` optie om te kopiëren en voorbereiden van gegevens naar de schijf. Voor de eerste kopie-sessie om te kopiëren van mappen en/of bestanden met een nieuwe kopieersessie, kunt u de volgende opdracht uitvoeren:
 
-        ```
-        .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
-        ```
+       ```
+       .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+       ```
 
-    Hieronder ziet u een voorbeeld van invoer.
+   Hieronder ziet u een voorbeeld van invoer.
   
-        ```
-        .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
-        ```
+       ```
+       .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
+       ```
  
 6. Een logboekbestand met de naam die u hebt opgegeven met `/j:` parameter is gemaakt voor elke uitvoering van de opdrachtregel. Elke schijf die u voorbereidt heeft een logboekbestand dat moet worden geüpload bij het maken van de import-taak. Stations zonder logboek bestanden niet worden verwerkt.
 

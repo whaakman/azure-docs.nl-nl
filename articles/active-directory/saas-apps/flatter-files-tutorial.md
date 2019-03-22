@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f86fe5e3-0e91-40d6-869c-3df6912d27ea
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 24fa4297701e5144ba58d6d0e8ec034a6cdda570
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 48c5804df53c084715cac872aa431cf8694c6d35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Zelfstudie: Azure Active Directory-integratie met Flatter Files
 
@@ -52,7 +52,7 @@ Voor het configureren van de integratie van Flatter Files met Azure AD moet u Fl
 
 **Als u Flatter Files vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -140,8 +140,8 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Flatter Files moet u
    
     a. Typ uw geregistreerde domein in het tekstvak **Domein**.
    
-    >[!NOTE]
-    >Als u nog geen domein hebt geregistreerd, neemt u contact op met het ondersteuningsteam van Flatter Files via [support@flatterfiles.com](mailto:support@flatterfiles.com). 
+   > [!NOTE]
+   > Als u nog geen domein hebt geregistreerd, neemt u contact op met het ondersteuningsteam van Flatter Files via [support@flatterfiles.com](mailto:support@flatterfiles.com). 
     
     b. Plak in het tekstvak voor de **URL van de identiteitsprovider** de waarde van de **aanmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
    
@@ -167,7 +167,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -229,7 +229,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam Britta Simon
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u in het toegangsvenster op de tegel Flatter Files klikt, wordt u als het goed is automatisch aangemeld bij de instantie van Flatter Files waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

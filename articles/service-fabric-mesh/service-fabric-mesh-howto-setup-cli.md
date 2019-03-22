@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d28776b8501a1467a77cd0ad4225d1267d768052
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7b817eefc7a17966060eb7ca05e21f70f04d0878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767813"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885450"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI instellen
 De Service Fabric Mesh CLI (opdrachtregelinterface) is vereist voor het implementeren en beheren van resources, zowel lokaal als in Azure Service Fabric Mesh. 
@@ -55,7 +55,7 @@ Volg de instructies in [Service Fabric CLI instellen](https://docs.microsoft.com
 Als u de Maven CLI wilt gebruiken, moet het volgende op de computer zijn geïnstalleerd: 
 
 * [Java](https://www.azul.com/downloads/zulu/)
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * Azure Mesh CLI (az mesh): voor Azure Service Fabric Mesh 
 * SFCTL (sfctl): voor lokale clusters 

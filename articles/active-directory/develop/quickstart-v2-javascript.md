@@ -4,7 +4,7 @@ description: Informatie over hoe met JavaScript-toepassingen een API kan worden 
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 694eb49244afb6761ce274572f15273ccef6cbb5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: fe8c2287da7a7eabc26ff134d8bb44c5e45085f1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195027"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203044"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Quickstart: Gebruikers aanmelden en een toegangstoken verkrijgen van een JavaScript-toepassing
 
@@ -29,7 +29,7 @@ ms.locfileid: "57195027"
 
 In deze quickstart leert u hoe u een codevoorbeeld gebruikt waarmee wordt gedemonstreerd hoe via een toepassing met één pagina (SPA) van JavaScript persoonlijke accounts, en werk- en schoolaccounts kunnen worden aangemeld, en een toegangstoken kan worden opgehaald om de Microsoft Graph API of een andere web-API aan te roepen.
 
-![Hoe de voorbeeld-app werkt die is gegenereerd door deze snelstart](media/quickstart-v2-javascript/javascriptspa-intro.png)
+![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-javascript/javascriptspa-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>De quickstart-toepassing registreren en downloaden

@@ -16,25 +16,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 206e50107e52d631cb33b7cb8dcc03474dd27e64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456411"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884673"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>De virtuele Machine voor Datatechnologie voor Linux (Ubuntu) inrichten
 
 De virtuele Machine voor Datatechnologie voor Linux is een virtuele machine op basis van een Ubuntu-installatiekopie waarmee u eenvoudig aan de slag met machine learning, met inbegrip van deep learning, in Azure. Hulpprogramma's voor deep learning omvatten:
 
-  * [Caffe](http://caffe.berkeleyvision.org/): Een deep learning-frameworks die is gebouwd voor snelheid, expressivity en modulariteit mogelijk te maken
+  * [Caffe](https://caffe.berkeleyvision.org/): Een deep learning-frameworks die is gebouwd voor snelheid, expressivity en modulariteit mogelijk te maken
   * [Caffe2](https://github.com/caffe2/caffe2): Een cross-platform-versie van Caffe
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): Een deep learning toolkit voor software van Microsoft Research
   * [H2O](https://www.h2o.ai/): Een open source big data-platform en de grafische gebruikersinterface
   * [Keras](https://keras.io/): Een op hoog niveau neural network API in Python voor TensorFlow, Cognitive Toolkit van Microsoft en Theano
-  * [MXNet](http://mxnet.io/): Een flexibele en efficiënte deep learning-bibliotheek met veel taalbindingen
+  * [MXNet](https://mxnet.io/): Een flexibele en efficiënte deep learning-bibliotheek met veel taalbindingen
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): Een grafische systeem dat algemene taken voor deep learning vereenvoudigt
-  * [PyTorch](http://pytorch.org/): Een Python-bibliotheek met ondersteuning voor dynamische netwerken op hoog niveau
+  * [PyTorch](https://pytorch.org/): Een Python-bibliotheek met ondersteuning voor dynamische netwerken op hoog niveau
   * [TensorFlow](https://www.tensorflow.org/): Een open-source-bibliotheek voor machine-intelligentie van Google
   * [Theano](http://deeplearning.net/software/theano/): Een Python-bibliotheek voor het definiëren en efficiënt evalueren van wiskundige expressies met betrekking tot multi-dimensionale matrixen optimaliseren
   * [Torch](http://torch.ch/): Een wetenschappelijke computing framework met brede ondersteuning voor machine learning-algoritmen
@@ -120,7 +120,7 @@ U kunt toegang tot de Ubuntu-DSVM drie methoden gebruiken:
 
 ### <a name="ssh"></a>SSH
 
-Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van SSH. Gebruik de accountreferenties op die u hebt gemaakt in de **basisbeginselen** sectie van stap 3 voor de tekst shell-interface. In Windows kunt u een SSH-clienthulpprogramma zoals [Putty](http://www.putty.org) downloaden. Als u liever een grafische desktop (X Windows-systeem), kunt u X11 doorsturen op Putty gebruiken of de X2Go-client installeren.
+Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van SSH. Gebruik de accountreferenties op die u hebt gemaakt in de **basisbeginselen** sectie van stap 3 voor de tekst shell-interface. In Windows kunt u een SSH-clienthulpprogramma zoals [Putty](https://www.putty.org) downloaden. Als u liever een grafische desktop (X Windows-systeem), kunt u X11 doorsturen op Putty gebruiken of de X2Go-client installeren.
 
 > [!NOTE]
 > De client X2Go beter dan X11 doorsturen tests uitgevoerd. Het is raadzaam om met behulp van de client X2Go voor een grafische interface voor het bureaublad.
@@ -130,7 +130,7 @@ Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van S
 ### <a name="x2go"></a>X2Go
 De Linux-VM is al ingericht met X2Go-server en gereed voor clientverbindingen accepteren. Voor verbinding met het bureaublad van de Linux-VM-grafische, voer de volgende procedure op de client:
 
-1. Download en installeer de client X2Go voor uw clientplatform van [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Download en installeer de client X2Go voor uw clientplatform van [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. De X2Go-client wordt uitgevoerd, en selecteer **nieuwe sessie**. Er verschijnt een configuratievenster met meerdere tabbladen. Voer de volgende configuratieparameters:
    * **Tabblad sessie**:
      * **Host**: De hostnaam of IP-adres van uw Linux Data Science VM.
@@ -205,7 +205,7 @@ R is een van de meest populaire talen voor data-analyse en machine learning. Als
 
 Console te starten, R, typt u **R** in de shell. Hiermee gaat u naar een interactieve omgeving. Voor het ontwikkelen van uw R-programma, u doorgaans een editor zoals Emacs of vi gebruiken en voer de scripts in R. Met RStudio hebt u een volledige grafische IDE-omgeving voor het ontwikkelen van uw R-programma.
 
-Er is ook een R-script voor installatie de [Top 20 R-pakketten](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) als u wilt. Met dit script kan worden uitgevoerd nadat u zich in de interactieve interface van R, die kan worden ingevoerd (zoals vermeld) door te typen **R** in de shell.  
+Er is ook een R-script voor installatie de [Top 20 R-pakketten](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) als u wilt. Met dit script kan worden uitgevoerd nadat u zich in de interactieve interface van R, die kan worden ingevoerd (zoals vermeld) door te typen **R** in de shell.  
 
 ### <a name="python"></a>Python
 Anaconda Python is geïnstalleerd met Python 2.7 en 3,5-omgevingen. De 2,7 omgeving heet _hoofdmap_, en de 3,5 omgeving heet _py35_. Deze verdeling bevat de basis Python samen met ongeveer 300 van de meest populaire math, engineering en data analytics-pakketten. 
@@ -276,7 +276,7 @@ U kunt de Hadoop stoppen gerelateerde services wanneer u ze niet nodig door uit 
 ### <a name="ides-and-editors"></a>IDE's en editors
 U hebt een ruime keuze aan verschillende code-editors. Dit omvat vi/VIM, Emacs, PyCharm, RStudio en IntelliJ. IntelliJ, RStudio PyCharm grafische editors zijn en moet u zijn aangemeld met een grafische bureaublad om ze te gebruiken. Deze editors hebben bureaublad- en toepassingsservices snelkoppelingen in het menu te starten.
 
-**VIM** en **Emacs** editors op basis van tekst zijn. Op Emacs, hebben we een add-on pakket met de naam Emacs spreekt statistieken (eldingen ONDERDRUKKEN) die werken met R gemakkelijker in de editor Emacs geïnstalleerd. Meer informatie kunt vinden op [ERDRUKKEN](http://ess.r-project.org/).
+**VIM** en **Emacs** editors op basis van tekst zijn. Op Emacs, hebben we een add-on pakket met de naam Emacs spreekt statistieken (eldingen ONDERDRUKKEN) die werken met R gemakkelijker in de editor Emacs geïnstalleerd. Meer informatie kunt vinden op [ERDRUKKEN](https://ess.r-project.org/).
 
 **LaTex** wordt geïnstalleerd via de texlive-package samen met een invoegtoepassing Emacs [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) pakket vereenvoudigt het ontwerpen van uw documenten LaTex binnen Emacs.  
 

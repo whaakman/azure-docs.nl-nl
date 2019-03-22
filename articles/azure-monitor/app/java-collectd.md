@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: c8320a0f504927830c47400f1f1ef0369c0e1cad
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 783cef6ff4e107838bb3ff7502fb4a8e9189ec3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116531"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011183"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>verzamelde: Linux-prestatiegegevens in Application Insights
 
@@ -26,14 +26,12 @@ Om te verkennen van metrische gegevens voor prestaties Linux-systeem in [Applica
 
 Doorgaans gebruikt u verzamelde als u al hebt [uw Java-webservice met Application Insights geïnstrumenteerd][java]. Dit biedt u meer gegevens u helpen bij het verbeteren van de prestaties van uw app of problemen diagnosticeren. 
 
-![Voorbeeldgrafieken](./media/java-collectd/sample.png)
-
 ## <a name="get-your-instrumentation-key"></a>De instrumentatiesleutel ophalen
 In de [Microsoft Azure portal](https://portal.azure.com), open de [Application Insights](../../azure-monitor/app/app-insights-overview.md) resource waar u de gegevens worden weergegeven. (Of [Maak een nieuwe resource](../../azure-monitor/app/create-new-resource.md ).)
 
 Neemt een kopie van de instrumentatiesleutel die de resource.
 
-![Door alles bladeren, opent u de bron en klik vervolgens in de vervolgkeuzelijst Essentials Selecteer en kopieer de Instrumentatiesleutel](./media/java-collectd/02-props.png)
+![Door alles bladeren, opent u de bron en klik vervolgens in de vervolgkeuzelijst Essentials Selecteer en kopieer de Instrumentatiesleutel](./media/java-collectd/instrumentation-key-001.png)
 
 ## <a name="install-collectd-and-the-plug-in"></a>Verzamelde en de invoegtoepassing installeren
 Op uw Linux-server-machines:
@@ -93,9 +91,7 @@ Configureer andere [verzamelde invoegtoepassingen](https://collectd.org/wiki/ind
 Opnieuw opstarten van verzamelde volgens de [handmatige](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>De gegevens in Application Insights weergeven
-Open in uw Application Insights-resource [Metrics Explorer en grafieken toevoegen][metrics], de metrische gegevens die u wilt zien van de aangepaste categorie selecteren.
-
-![](./media/java-collectd/result.png)
+Open in uw Application Insights-resource [metrische gegevens en grafieken toevoegen][metrics], de metrische gegevens die u wilt zien van de aangepaste categorie selecteren.
 
 Standaard worden de metrische gegevens worden samengevoegd voor alle hostmachines waarvan de metrische gegevens zijn verzameld. Als u wilt weergeven van de metrische gegevens per host, op de blade grafiek, schakelt u groeperen en kies vervolgens te groeperen op verzamelde-Host.
 

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 6c4c001fc538e5ad93a5c4fc3d6405209be7fc53
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 1d60e875b12f02c957ebd6259eb0e7267f23ee51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309363"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897602"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>De vereiste waarden voor het verifiëren van toegang tot SQL Database van de code van een toepassing ophalen
 
@@ -26,8 +26,8 @@ Als u wilt maken en beheren van SQL-Database vanuit code moet u uw app registrer
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Een service-principal maken voor toegang tot resources van een toepassing
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-U moet beschikken over de meest recente [Azure PowerShell](/powershell/azure) geïnstalleerd en worden uitgevoerd. Zie voor gedetailleerde informatie [hoe u Azure PowerShell installeren](/powershell/azure/install-az-ps).
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 Het volgende PowerShell-script maakt de Active Directory-toepassing (AD) en de service-principal die we nodig hebben om onze C#-app te verifiëren. Het script voert de waarden uit die we nodig hebben voor het voorgaande C#-voorbeeld. Zie [Use Azure PowerShell to create a service principal to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md) (Azure PowerShell gebruiken om een service-principal te maken voor toegang tot resources) voor gedetailleerde informatie.
 
@@ -47,7 +47,7 @@ Het volgende PowerShell-script maakt de Active Directory-toepassing (AD) en de s
     $uri = "http://{app-name}"
     $secret = "{app-password}"
 
-    # Create a AAD app
+    # Create an AAD app
     $azureAdApplication = New-AzADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
 
     # Create a Service Principal for the app

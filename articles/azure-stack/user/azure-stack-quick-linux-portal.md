@@ -12,12 +12,12 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: d9a17bdad0bfa4965d36fbe2a2cf3a7890060e98
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 39298d34a0d29eb1e5a4234ffe0e0fcca844226e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772565"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858181"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Snelstartgids: een virtuele Linux-server-machine maken met de Azure Stack-portal
 
@@ -43,7 +43,7 @@ U kunt een Ubuntu Server 16.04 LTS-machine maken met behulp van de Azure Stack-p
 
    Als u de Azure Stack Development Kit (ASDK) gebruikt, u mogelijk geen toegang tot een SSH-client. Als u een client moet, zijn er verschillende pakketten met een SSH-client. PuTTY bevat bijvoorbeeld een SSH-client en een SSH-sleutel generator (puttygen.exe). Lees de volgende Azure-artikel voor meer informatie over beschikbare pakketten: [Het SSH-sleutels gebruiken met Windows op Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
-   In deze snelstartgids maakt gebruik van PuTTY voor het genereren van de SSH-sleutels en verbinding maken met de virtuele machine voor Linux-server. Als u wilt downloaden en installeren van PuTTY, gaat u naar [ https://www.putty.org/ ](http://www.putty.org).
+   In deze snelstartgids maakt gebruik van PuTTY voor het genereren van de SSH-sleutels en verbinding maken met de virtuele machine voor Linux-server. Als u wilt downloaden en installeren van PuTTY, gaat u naar [ https://www.putty.org/ ](https://www.putty.org).
 
 ## <a name="create-an-ssh-key-pair"></a>Een SSH-sleutelpaar maken
 
@@ -77,8 +77,8 @@ Aanmelden bij de Azure Stack-portal. Het adres van de Azure Stack-portal, is afh
 
 4. Typ de informatie van de virtuele machine. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel**. Plakken in de openbare SSH-sleutel die u opgeslagen en klik vervolgens op **OK**.
 
-   >[!NOTE]
- Zorg ervoor dat u een willekeurig stuk witruimte voorloop- en volgspaties verwijderen voor deze sleutel.
+   > [!NOTE]
+   > Zorg ervoor dat u een willekeurig stuk witruimte voorloop- en volgspaties verwijderen voor deze sleutel.
 
    ![Basisbeginselen van het deelvenster - virtuele machine configureren](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
@@ -88,10 +88,10 @@ Aanmelden bij de Azure Stack-portal. Het adres van de Azure Stack-portal, is afh
 
 6. Op de **instellingen** pagina, de gewenste wijzigingen aanbrengen in de standaardinstellingen.
    
-    - Vanaf versie van Azure Stack 1808, kunt u configureren **opslag** waarin u kunt kiezen om te gebruiken *beheerde schijven*. Voorafgaand aan versie 1808 kunnen alleen niet-beheerde schijven worden gebruikt.    
-      ![Configureren van opslag voor beheerde schijven](media/azure-stack-quick-linux-portal/linux-03.PNG)
+   - Vanaf versie van Azure Stack 1808, kunt u configureren **opslag** waarin u kunt kiezen om te gebruiken *beheerde schijven*. Voorafgaand aan versie 1808 kunnen alleen niet-beheerde schijven worden gebruikt.    
+     ![Configureren van opslag voor beheerde schijven](media/azure-stack-quick-linux-portal/linux-03.PNG)
     
-    Wanneer uw configuraties klaar bent, selecteert u **OK** om door te gaan.
+     Wanneer uw configuraties klaar bent, selecteert u **OK** om door te gaan.
 
 7. Op de **samenvatting** pagina, klikt u op **OK** implementatie van virtuele machine te starten.  
    ![Implementeren](media/azure-stack-quick-linux-portal/deploy.png)

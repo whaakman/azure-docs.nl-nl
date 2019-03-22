@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 2f16a8fdb124cd2ee69fbdef74f3999800b55157
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: a35f4d8c1d5bf5943ecba02ff262fbc7fc0730fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261993"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108220"
 ---
 # <a name="start-monitoring-your-website"></a>Start met het controleren van uw website
 
@@ -25,7 +25,7 @@ Deze quickstart helpt u bij het toevoegen van de [opensource Application Insight
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze quickstart:
+Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 - U hebt een Azure-abonnement nodig.
 
@@ -87,7 +87,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
         });
         
         window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
-</script>
+   </script>
    ```
 
 3. Bewerk ``hello_world.html`` en voeg de instrumentatiesleutel toe.
@@ -127,7 +127,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
 5. Als we een complexere website met meerdere pagina's hadden geïnstrumenteerd, was het hulpprogramma [**Gebruikersstromen**](../../azure-monitor/app/usage-flows.md) ook heel handig geweest. Met **Gebruikersstromen** kunt u het traject volgen dat bezoekers afleggen door de diverse onderdelen van uw website.
 
-  ![Gebruikersstromen visualiseren](./media/website-monitoring/user-flows.png)
+   ![Gebruikersstromen visualiseren](./media/website-monitoring/user-flows.png)
 
 Zie de [naslagdocumentatie over de JavaScript SDK API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md) als u meer wilt weten over geavanceerdere configuraties voor het controleren van websites.
 

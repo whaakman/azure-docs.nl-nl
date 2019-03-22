@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d4b7f49edca6c72681734f70dba3be8722edd91
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: 3d3d7a864bf6941dfb0bf7496b291639e7e5ea6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269290"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180548"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Abonneren op gebeurtenissen voor een Azure-abonnement met PowerShell
 
@@ -29,9 +29,13 @@ Voor het voorbeeldscript van de preview is de Event Grid-module vereist. Voer `I
 
 ## <a name="sample-script---stable"></a>Voorbeeldscript - stabiel
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription.ps1 "Subscribe to Azure subscription")]
 
 ## <a name="sample-script---preview-module"></a>Voorbeeldscript - preview-module
+
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription-preview/subscribe-to-azure-subscription-preview.ps1 "Subscribe to Azure subscription")]
 
@@ -41,7 +45,7 @@ In dit script wordt de volgende opdracht gebruikt om het abonnement op de gebeur
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [New-AzureRmEventGridSubscription](https://docs.microsoft.com/powershell/module/azurerm.eventgrid/new-azurermeventgridsubscription) | Hiermee wordt een Event Grid-abonnement gemaakt. |
+| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Hiermee wordt een Event Grid-abonnement gemaakt. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

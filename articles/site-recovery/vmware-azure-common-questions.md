@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 9e192c736235fcf8b8b5374787ad94aaf87427bf
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
-ms.translationtype: MT
+ms.openlocfilehash: 24682156cf0c50ccf69c39f83f59e9b867bbcf0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727073"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901845"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -39,7 +39,7 @@ U moet een Azure-abonnement, een Recovery Services-kluis, een cache-opslagaccoun
 Als u een abonnementsbeheerder bent, hebt u de replicatiemachtigingen die u nodig hebt. Als u niet bent, moet u machtigingen voor het maken van een Azure-VM in de resourcegroep en het virtuele netwerk dat u opgeeft wanneer u Site Recovery- en schrijfmachtigingen voor het geselecteerde opslagaccount configureren of een beheerde schijf op basis van uw configuratie. [Meer informatie](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>Kan ik Gastbesturingssysteem server-licentie gebruiken op Azure?
-Ja, Microsoft Software Assurance-klanten kunnen gebruikmaken van [Azure Hybrid Benefit](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) om op te slaan op de licentiekosten voor **Windows Server-machines** die zijn gemigreerd naar Azure of naar het gebruik van Azure voor herstel na noodgevallen.
+Ja, Microsoft Software Assurance-klanten kunnen gebruikmaken van [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) om op te slaan op de licentiekosten voor **Windows Server-machines** die zijn gemigreerd naar Azure of naar het gebruik van Azure voor herstel na noodgevallen.
 
 ## <a name="pricing"></a>Prijzen
 
@@ -50,6 +50,27 @@ Raadpleeg onze Veelgestelde vragen over licenties [hier](https://aka.ms/asr_pric
 ### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>Hoe kan ik de geschatte kosten in rekening gebracht tijdens het gebruik van Site Recovery berekenen?
 
 U kunt [prijscalculator](https://aka.ms/asr_pricing_calculator) kosten wilt ramen tijdens het gebruik van Azure Site Recovery. De tool voor implementatieplanning voor gedetailleerde raming van kosten worden uitgevoerd (https://aka.ms/siterecovery_deployment_planner) en analyseren van de [kosten van het rapport met kostenramingen](https://aka.ms/asr_DP_costreport).
+
+### <a name="is-there-any-difference-in-cost-when-i-replicate-directly-to-managed-disk"></a>Is er een verschil in kosten als ik repliceer rechtstreeks op een beheerde schijf?
+
+Beheerde schijven worden in rekening gebracht iets anders dan de storage-accounts. Zie het voorbeeld hieronder voor een schijf die als bron van de grootte van 100 GiB. Het voorbeeld is specifiek voor differentiële kosten voor opslag. Deze kosten omvat de kosten voor momentopnamen, cacheopslag en transacties.
+
+* Standard storage-account Visual Studio. Standard HDD Managed Disk
+
+    - **Schijf van de ingerichte opslag voor ASR**: S10
+    - **Standard-opslagaccount in rekening gebracht op volume verbruikt**: $5 per maand
+    - **Standard-beheerde schijven in rekening gebracht op ingerichte volume**: $5.89 per maand
+
+* Premium storage-account Visual Studio. Premium SSD Managed Disk 
+    - **Schijf van de ingerichte opslag voor ASR**: P10
+    - **Premium storage-account in rekening gebracht op ingerichte volume**: $17.92 per maand
+    - **Premium beheerde schijven in rekening gebracht op ingerichte volume**: $17.92 per maand
+
+Meer informatie over [gedetailleerde prijsinformatie van beheerde schijven](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+### <a name="do-i-incur-additional-charges-for-cache-storage-account-with-managed-disks"></a>Ik extra kosten voor Cache-Opslagaccount met beheerde schijven?
+
+Nee, u doet geen extra kosten voor cache. Cache is altijd onderdeel van VMware naar Azure-architectuur. Als u naar standard storage-account repliceert, is deze cacheopslag deel uitmaken van hetzelfde doel-opslagaccount.
 
 ### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>Ik ben al meer dan een maand gebruiker van Azure Site Recovery. Krijg ik nog steeds de eerste 31 dagen gratis voor elke beschermde instantie?
 
@@ -125,6 +146,14 @@ Ja, ExpressRoute kan worden gebruikt voor het repliceren van virtuele machines n
 
 U moet uitschakelen en inschakelen van replicatie om te upgraden of downgraden van het opslagaccounttype.
 
+### <a name="can-i-replicate-to-storage-accounts-for-new-machine"></a>Kan ik repliceren naar storage-accounts voor nieuwe machine?
+
+Nee, vanaf maart-19, kunt u repliceren naar managed disks op Azure vanuit de portal. Replicatie naar storage-accounts voor een nieuwe virtuele machine is alleen beschikbaar via REST-API en Powershell. API-versie 2016-08-10- of 2018-01-10 gebruiken voor het repliceren naar storage-accounts.
+
+### <a name="what-are-the-benefits-in-replicating-to-managed-disks"></a>Wat zijn de voordelen bij het repliceren naar managed disks?
+
+Lees het artikel over hoe u [Azure Site Recovery herstel na noodgeval met beheerde schijven vereenvoudigt](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/).
+
 ### <a name="how-can-i-change-managed-disk-type-after-machine-is-protected"></a>Hoe kan ik Managed Disk-type wijzigen nadat de machine is beveiligd?
 
 Ja, kunt u eenvoudig het type beheerde schijf wijzigen. [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Echter wanneer u het type beheerde schijf wijzigt, zorg ervoor dat u wacht op de nieuwe herstelpunten moeten worden gegenereerd als u wilt testfailover of failover plaatsen deze activiteit.
@@ -148,10 +177,10 @@ Replicatie is continue bij het repliceren van virtuele VMware-machines naar Azur
 Ja, kunt u het IP-adres bij failover behouden. Zorg ervoor dat u het doel-IP-adres op 'berekening en netwerk-blade voordat de failover wordt vermeld. Zorg er ook voor de machines afsluiten op het moment van failover naar het IP-conflicten te voorkomen dat op het moment van failback.
 
 ### <a name="can-i-extend-replication"></a>Kan ik replicatie verlengen?
-Uitgebreide of gekoppelde replicatie wordt niet ondersteund. Deze functie in aanvragen [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+Uitgebreide of gekoppelde replicatie wordt niet ondersteund. Deze functie in aanvragen [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Kan ik een offline initiële replicatie?
-Nee, dit wordt niet ondersteund. Aanvragen van deze functie in de [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Nee, dit wordt niet ondersteund. Aanvragen van deze functie in de [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Kan ik schijven uitsluiten?
 Ja, kunt u schijven uitsluiten van replicatie.
@@ -208,9 +237,11 @@ Tijdens het mogelijk is moet de virtuele Azure-machine waarop de configuratieser
 We raden u aan om regelmatig geplande back-ups van de configuratieserver. Voor succesvolle failback wordt de virtuele machine wordt een failback moet aanwezig zijn in de database van de configuratieserver en de configuratieserver moet worden uitgevoerd en een verbonden status heeft. U kunt meer informatie over algemene beheertaken voor configuration server [hier](vmware-azure-manage-configuration-server.md).
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Als ik van de configuratieserver instelt ben, kan ik handmatig downloaden en installeren MySQL?
+
 Ja. Downloaden van MySQL en plaats deze in de **C:\Temp\ASRSetup** map. Installeer deze vervolgens handmatig. Bij het instellen van de virtuele machine van de configuratieserver en de voorwaarden accepteren, MySQL wordt vermeld als **al geïnstalleerd** in **Download en installeer**.
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Kan ik te voorkomen dat het downloaden van MySQL, maar kunt Site Recovery installeren?
+
 Ja. Download het installatieprogramma van MySQL en plaats deze in de **C:\Temp\ASRSetup** map.  Bij het instellen van de virtuele machine van de configuratieserver, de voorwaarden accepteren en klik op **Download en installeer**, de portal wordt het installatieprogramma dat u hebt toegevoegd voor het installeren van MySQL gebruikt.
  
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Kan ik de virtuele machine van de configuratieserver voor iets anders gebruiken?

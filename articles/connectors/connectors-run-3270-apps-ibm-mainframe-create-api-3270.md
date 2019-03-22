@@ -10,12 +10,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: fb61935c7e7b45699d4142293f31bbfe39e4cb78
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: ebf858ba86758b11ee896d745d70bdf2f0d0cde6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457068"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878377"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>3270 scherm gebaseerde apps voor IBM-mainframes integreren met Azure met behulp van Azure Logic Apps en IBM 3270 connector
 
@@ -410,7 +410,7 @@ Wanneer u klaar bent met al deze stappen, kunt u de actie die u in uw logische a
 
 ## <a name="connector-reference"></a>Connector-verwijzing
 
-Voor technische informatie over triggers en acties beperken die worden beschreven van de connector openapi (voorheen Swagger) beschrijving van de connector controleren [-verwijzingspagina](/connectors/<*replace-with-api-topic-file-name*>).
+Voor technische informatie over triggers en acties beperken die worden beschreven van de connector openapi (voorheen Swagger) beschrijving van de connector-verwijzingspagina bekijken: [ https://docs.microsoft.com/connectors/<replace-with-api-topic-file-name> ](/connectors/).
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 

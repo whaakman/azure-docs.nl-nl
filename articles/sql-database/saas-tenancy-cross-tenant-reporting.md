@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 39ff70670d628ca672022b84e59ed3cc8a17d925
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447017"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096024"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Cross-tenant-rapportage met behulp van gedistribueerde query 's
 
@@ -27,7 +27,7 @@ In deze zelfstudie hebt u gedistribueerde query's uitvoeren voor de volledige se
 In deze zelfstudie komen deze onderwerpen aan bod:
 
 > [!div class="checklist"]
-
+> 
 > * Over het implementeren van een rapportagedatabase
 > * Het uitvoeren van gedistribueerde query's in alle tenantdatabases
 > * Hoe algemene weergaven in elke database kunnen inschakelen efficiënte query's voor tenants
@@ -148,7 +148,7 @@ Nu de *ad-hoc reporting* database is ingesteld, gaat u verder en sommige gedistr
 
 Bij de inspectie van het abonnement kan worden uitgevoerd, Beweeg de muisaanwijzer over de pictogrammen plan voor meer informatie. 
 
-Belangrijk te weten, is deze instelling **distributie = SHARDED(VenueId)** verbetert de prestaties voor veel scenario's wanneer de externe gegevensbron is gedefinieerd. Aangezien aan elk *VenueId* wordt toegewezen aan een individuele database, is eenvoudig gefilterd op afstand, alleen de benodigde gegevens retourneren.
+Belangrijk te weten, is deze instelling **distributie = SHARDED(VenueId)** verbetert de prestaties voor veel scenario's wanneer de externe gegevensbron is gedefinieerd. Aangezien aan elk *VenueId* wordt toegewezen aan een individuele database, is eenvoudig gefilterd op afstand, retourneert alleen de gegevens die nodig zijn.
 
 1. Open... \\Learning Modules\\Operational Analytics\\ad-hoc Reporting\\*Demo-AdhocReportingQueries.sql* in SSMS.
 2. Zorg ervoor dat u bent verbonden met de **ad-hoc reporting** database.
@@ -181,7 +181,7 @@ Belangrijk te weten, is deze instelling **distributie = SHARDED(VenueId)** verbe
 In deze zelfstudie hebt u het volgende geleerd:
 
 > [!div class="checklist"]
-
+> 
 > * Gedistribueerde query's uitvoeren voor alle databases van de tenant
 > * Implementeren van een reporting-database en het schema dat is vereist voor het uitvoeren van gedistribueerde query's definiëren.
 

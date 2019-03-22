@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fa07ebf3dbf3e5d3e5f4e96cdf4b77a3710c1d1e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 56620dc1d3e315caa3e259715ed84a539b91356d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888584"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Beveiliging-Frame: Verificatie | Oplossingen 
+
 | Product/Service | Artikel |
 | --------------- | ------- |
 | **Web-App**    | <ul><li>[Overweeg het gebruik van een standaard-verificatiemechanisme voor verificatie bij de Web-App](#standard-authn-web-app)</li><li>[Toepassingen moeten omgaan met scenario's voor mislukte verificatie veilig](#handle-failed-authn)</li><li>[Stap van inschakelen of adaptieve verificatie](#step-up-adaptive-authn)</li><li>[Zorg ervoor dat administratieve interfaces op de juiste wijze zijn vergrendeld](#admin-interface-lockdown)</li><li>[Implementeer vergeten wachtwoord functionaliteiten veilig](#forgot-pword-fxn)</li><li>[Zorg ervoor dat de wachtwoord- en -beleid worden toegepast](#pword-account-policy)</li><li>[Besturingselementen om te voorkomen dat de gebruikersnaam (opsomming) worden geïmplementeerd.](#controls-username-enum)</li></ul> |
@@ -338,7 +339,7 @@ De `<netMsmqBinding/>` element van het configuratiebestand WCF Hiermee geeft u W
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [Verificatie en autorisatie in ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [Services van externe verificatie met ASP.NET Web-API (C#)](http://www.asp.net/web-api/overview/security/external-authentication-services) |
+| **Verwijzingen**              | [Verificatie en autorisatie in ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [Services van externe verificatie met ASP.NET Web-API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
 | **Stappen** | <p>Verificatie is het proces waarbij een entiteit aantoont de identiteit, doorgaans via referenties, zoals een gebruikersnaam en wachtwoord dat. Er zijn meerdere protocollen voor verificatie beschikbaar die kunnen worden beschouwd. Sommige hiervan worden hieronder vermeld:</p><ul><li>Clientcertificaten</li><li>Op Windows gebaseerd</li><li>Op basis van formulieren</li><li>Federation - AD FS</li><li>Federation - Azure AD</li><li>Federation - Identiteitsserver</li></ul><p>Koppelingen in de sectie Verwijzingen bieden details op laag niveau over hoe elk van de verificatiemethoden voor het beveiligen van een Web-API kan worden geïmplementeerd.</p>|
 
 ## <a id="authn-aad"></a>Standard verificatiescenario's die worden ondersteund door Azure Active Directory gebruiken
@@ -489,7 +490,7 @@ await deviceClient.SendEventAsync(message);
     var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
     var client = clientFromConnectionString(connectionString);
     ```
-#### <a name="sas-token"></a>SAS-token
+  #### <a name="sas-token"></a>SAS-token
 * Met deze eigenschap wordt intern gegenereerd bij het gebruik van de symmetrische sleutel, maar we kunnen genereren en deze ook expliciet gebruiken
 * Definieer een protocol: `var Http = require('azure-iot-device-http').Http;`
 * Maak een sas-token:
@@ -506,7 +507,7 @@ await deviceClient.SendEventAsync(message);
     var base64UriEncoded = encodeURIComponent(base64signature);
     // construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "%2fdevices%2f"+deviceName+"&sig="
-    + base64UriEncoded + "&se=" + expires;
+  + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
@@ -514,7 +515,7 @@ await deviceClient.SendEventAsync(message);
     ```javascript
     Client.fromSharedAccessSignature(sas, Http); 
     ```
-#### <a name="certificates"></a>Certificaten
+  #### <a name="certificates"></a>Certificaten
 * Een zelf-ondertekend X509 genereren van het certificaat met behulp van een hulpprogramma zoals OpenSSL voor het genereren van een .cert- en .key-bestanden voor het opslaan van het certificaat en de sleutel respectievelijk
 * Inrichten van een apparaat dat beveiligde verbinding met behulp van certificaten accepteert.
     ```javascript

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135012"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079994"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Zelfstudie: E-mailmeldingen over gebeurtenissen van Azure IoT Hub verzenden met Logic Apps
 
@@ -162,14 +162,14 @@ In deze sectie configureert u de IoT-hub voor het publiceren van gebeurtenissen 
    ![Nieuw gebeurtenisabonnement maken](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Maak het gebeurtenisabonnement met de volgende waarden: 
-    * **Gebeurtenistype**: Schakel Abonneren op alle gebeurtenistypen uit en selecteer **Het apparaat is gemaakt** in het menu.
-    * **Eindpuntdetails**: Selecteer Eindpunttype als **Webhook**, klik op Eindpunt selecteren, plak de URL die u hebt gekopieerd in uw logische app en bevestig uw selectie.
+   * **Gebeurtenistype**: Schakel Abonneren op alle gebeurtenistypen uit en selecteer **Het apparaat is gemaakt** in het menu.
+   * **Eindpuntdetails**: Selecteer Eindpunttype als **Webhook**, klik op Eindpunt selecteren, plak de URL die u hebt gekopieerd in uw logische app en bevestig uw selectie.
 
-    ![eindpunt-URL selecteren](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
+     ![eindpunt-URL selecteren](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **Gebeurtenisabonnementdetails**: Geef een beschrijvende naam op en selecteer **Gebeurtenisrasterschema**
+   * **Gebeurtenisabonnementdetails**: Geef een beschrijvende naam op en selecteer **Gebeurtenisrasterschema**
 
-  Als u klaar bent, moet het formulier er als volgt uitzien: 
+   Als u klaar bent, moet het formulier er als volgt uitzien: 
 
     ![Voorbeeld van formulier voor gebeurtenisabonnement](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
@@ -177,8 +177,8 @@ In deze sectie configureert u de IoT-hub voor het publiceren van gebeurtenissen 
 
 6. Maak de volgende filters:
 
-  * **Onderwerp begint met**: Voer `devices/Building1_` in om te filteren op apparaatgebeurtenissen in gebouw 1.
-  * **Onderwerp eindigt met**: Voer `_Temperature` in om te filteren op apparaatgebeurtenissen die te maken hebben met temperatuur.
+   * **Onderwerp begint met**: Voer `devices/Building1_` in om te filteren op apparaatgebeurtenissen in gebouw 1.
+   * **Onderwerp eindigt met**: Voer `_Temperature` in om te filteren op apparaatgebeurtenissen die te maken hebben met temperatuur.
 
 5. Selecteer **Maken** om het gebeurtenisabonnement op te slaan.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e940d7593b6760a81a781fd72c0bb45347b00c2a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4494996ed54b25be71367dd3e3043023d0958074
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168140"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224036"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Zelfstudie: Azure Active Directory-integratie met StatusPage
 
@@ -114,23 +114,25 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![Eenmalige aanmelding configureren](./media/statuspage-tutorial/tutorial_statuspage_url.png)
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon:
+
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/` |
     | `https://<subdomain>.statuspage.io/` |
 
     b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: 
+    
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |
     | `https://<subdomain>.statuspage.io/sso/saml/consume` |
 
-    > [!NOTE]
-    > Neem contact op met het ondersteuningsteam StatusPage op [ SupportTeam@statuspage.io ](mailto:SupportTeam@statuspage.io)om aan te vragen van metagegevens die nodig zijn voor het configureren van eenmalige aanmelding. 
-    >
-    >a. Kopieer de uitgeverwaarde van de metagegevens en plak deze in de **id** tekstvak.
-    >
-    >b. De antwoord-URL kopiëren van de metagegevens en plak deze in de **antwoord-URL** tekstvak.
+   > [!NOTE]
+   > Neem contact op met het ondersteuningsteam StatusPage op [ SupportTeam@statuspage.io ](mailto:SupportTeam@statuspage.io)om aan te vragen van metagegevens die nodig zijn voor het configureren van eenmalige aanmelding. 
+   > 
+   > a. Kopieer de uitgeverwaarde van de metagegevens en plak deze in de **id** tekstvak.
+   > 
+   > b. De antwoord-URL kopiëren van de metagegevens en plak deze in de **antwoord-URL** tekstvak.
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
@@ -156,15 +158,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Voer de volgende stappen uit op de pagina instellingen voor eenmalige aanmelding:
    
-    ![Eenmalige aanmelding configureren](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
+      ![Eenmalige aanmelding configureren](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
-    ![Eenmalige aanmelding configureren](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
+      ![Eenmalige aanmelding configureren](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-    a. In de **doel-URL voor eenmalige aanmelding** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
+      a. In de **doel-URL voor eenmalige aanmelding** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
 
-    b. Open het gedownloade certificaat in Kladblok, Kopieer de inhoud en plak deze in de **certificaat** tekstvak. 
+      b. Open het gedownloade certificaat in Kladblok, Kopieer de inhoud en plak deze in de **certificaat** tekstvak. 
 
-    c. Klik op **configuratie opslaan**.
+      c. Klik op **configuratie opslaan**.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -269,7 +271,7 @@ Wanneer u op de tegel StatusPage in het toegangsvenster, u moet u automatisch aa
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

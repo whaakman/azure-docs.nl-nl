@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5584e4ecc78a8805135cb3f36bd5f5cd7079129
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5122c9142eccf12193e7e429a3af5ac44fbb8fd6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767070"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111324"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Self-service groepsbeheer in Azure Active Directory instellen 
 
@@ -46,8 +46,8 @@ Groepen die zijn gemaakt in | Standaardgedrag voor beveiliging groep | Standaard
 2. Selecteer **Gebruikers en groepen** en selecteer vervolgens **Groepsinstellingen**.
 3. Stel **Self-service voor groepsbeheer is ingeschakeld** in op **Ja**.
 4. Stel **Gebruikers kunnen beveiligingsgroepen maken** of **Gebruikers kunnen Office 365-groepen maken** in op **Ja**.
-  * Als deze instellingen zijn ingeschakeld, kunnen alle gebruikers in uw directory nieuwe beveiligingsgroepen maken en leden toevoegen aan deze groepen. Deze nieuwe groepen zullen ook verschijnen in het Toegangsvenster voor alle andere gebruikers. Als de beleidsinstelling van de groep dit toestaat, kunnen andere gebruikers verzoeken maken om lid te worden van deze groepen. 
-  * Als deze instellingen zijn uitgeschakeld, kunnen gebruikers geen groepen maken en kunnen ze bestaande groepen waarvan ze een eigenaar zijn niet wijzigen. Ze kunnen echter nog steeds de lidmaatschappen van die groepen beheren en aanvragen van andere gebruikers om lid te worden van hun groep goedkeuren.
+   * Als deze instellingen zijn ingeschakeld, kunnen alle gebruikers in uw directory nieuwe beveiligingsgroepen maken en leden toevoegen aan deze groepen. Deze nieuwe groepen zullen ook verschijnen in het Toegangsvenster voor alle andere gebruikers. Als de beleidsinstelling van de groep dit toestaat, kunnen andere gebruikers verzoeken maken om lid te worden van deze groepen. 
+   * Als deze instellingen zijn uitgeschakeld, kunnen gebruikers geen groepen maken en kunnen ze bestaande groepen waarvan ze een eigenaar zijn niet wijzigen. Ze kunnen echter nog steeds de lidmaatschappen van die groepen beheren en aanvragen van andere gebruikers om lid te worden van hun groep goedkeuren.
 
 U kunt ook **Gebruikers die beveiligingsgroepen kunnen beheren** en **Gebruikers die Office 365-groepen kunnen beheren** gebruiken voor een meer fijnmazig toegangsbeheer over het self-servicegroepsbeheer voor uw gebruikers. Als **Gebruikers kunnen groepen maken** is ingeschakeld, kunnen alle gebruikers in uw tenant nieuwe groepen maken en leden toevoegen aan deze groepen. Door deze optie in te stellen op **Enkele**, beperkt u het groepsbeheer tot slechts een beperkte groep gebruikers. Als deze optie is ingesteld op **Enkele** moet u gebruikers toevoegen aan de groep SSGMSecurityGroupsUsers alvorens ze nieuwe groepen en leden hieraan kunnen toevoegen. Door **Gebruikers die self-service kunnen gebruiken voor beveiligingsgroepen** en **Gebruikers die Office 365-groepen kunnen beheren** in te stellen op **Alle**, kunt u alle gebruikers in uw tenant de mogelijkheid geven om nieuwe groepen te maken.
 

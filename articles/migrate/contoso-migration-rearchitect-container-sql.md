@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 243b19d19fbce11d77f60bc2eccc4d1c58c85b80
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: cb984bcbe79b69c0614579d66a3b853cd38a7e12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892181"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099083"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migratie van Contoso: Een on-premises Apps naar een Azure container en Azure SQL Database opnieuw modelleren
 
@@ -402,10 +402,10 @@ Contoso-beheerders om de app converteren naar een container met behulp van Visua
 4. Ze Herhaal het proces voor SmartHotel.Registration.WCF app.
 5. Zij controleren nu hoe de oplossing is gewijzigd.
 
-    - De nieuwe app is **SmartHotel.RegistrationApplication/**
-    - Deze bevat twee services: **SmartHotel.Registration.WCF** en **SmartHotel.Registration.Web**.
+   - De nieuwe app is **SmartHotel.RegistrationApplication/**
+   - Deze bevat twee services: **SmartHotel.Registration.WCF** en **SmartHotel.Registration.Web**.
 
-    ![Container](./media/contoso-migration-rearchitect-container-sql/container4.png)
+     ![Container](./media/contoso-migration-rearchitect-container-sql/container4.png)
 
 6. Visual Studio het Docker-bestand gemaakt en opgevraagd de vereiste afbeeldingen lokaal op de machine voor ontwikkelaars.
 
@@ -488,7 +488,7 @@ Beheerders van Contoso is nu configureren voor Azure DevOps-Services voor het ui
 
 16. Houd er bovendien rekening mee dat de trigger voor continue implementatie is ingeschakeld.
 
-   ![Continue implementatie ingeschakeld](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
+    ![Continue implementatie ingeschakeld](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
 
 17. Ze klikt u op **opslaan** > **maken van een release**.
 

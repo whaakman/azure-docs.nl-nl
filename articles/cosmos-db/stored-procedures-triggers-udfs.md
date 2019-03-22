@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 89cc7906c0503daa11f0a34520c17552a4e6b5af
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d1960fbc9fc9e8c1d672b66d3cf1f41399842059
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083195"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Opgeslagen procedures, triggers en gebruikersgedefinieerde functies
 
@@ -26,7 +26,7 @@ Opgeslagen procedures, triggers en gebruikersgedefinieerde functies (UDF's) in J
 
 * **Atomische transacties:** Azure Cosmos DB garandeert dat de databasebewerkingen die worden uitgevoerd binnen een opgeslagen procedure met één of een trigger atomisch zijn. Deze atomic functionaliteit kunt een toepassing gerelateerde bewerkingen in één batch, combineren, zodat alle bewerkingen slagen of geen van beide slagen.
 
-- **Prestaties:** De JSON-gegevens is intrinsiek toegewezen aan de JavaScript-typesysteem taal. Deze toewijzing kunt u een aantal optimalisaties, zoals vertraagde materialisatie van JSON-documenten in de buffergroep en u ze on-demand beschikbaar voor het uitvoeren van code. Er zijn andere prestatievoordelen die zijn gekoppeld aan het verzenden van bedrijfslogica op de database, waaronder:
+* **Prestaties:** De JSON-gegevens is intrinsiek toegewezen aan de JavaScript-typesysteem taal. Deze toewijzing kunt u een aantal optimalisaties, zoals vertraagde materialisatie van JSON-documenten in de buffergroep en u ze on-demand beschikbaar voor het uitvoeren van code. Er zijn andere prestatievoordelen die zijn gekoppeld aan het verzenden van bedrijfslogica op de database, waaronder:
 
    * *Batchverwerking:* U kunt bewerkingen zoals toevoegingen groep en legt deze in één bulkbewerking. De netwerkkosten voor de latentie van verkeer en de store-overhead voor het maken van afzonderlijke transacties zijn aanzienlijk verminderd.
 
@@ -34,7 +34,7 @@ Opgeslagen procedures, triggers en gebruikersgedefinieerde functies (UDF's) in J
 
    * *Sequentiëren:* Soms bewerkingen moeten een activerende mechanisme waarmee een of meer updates voor de gegevens. Naast atomisch zijn er ook prestatievoordelen bij het uitvoeren van op de server.
 
-- **Inkapseling:** Opgeslagen procedures kunnen worden gebruikt voor het groeperen van logica op één plek. Inkapseling wordt toegevoegd een abstractielaag bovenop de gegevens, waarmee u uw toepassingen onafhankelijk van de gegevens veranderen. Deze laag van abstractie is handig wanneer de gegevens zonder schema en u hoeft te beheren met het toevoegen van aanvullende logica rechtstreeks in uw toepassing. De abstrahering kunt uw houden die de gegevens beveiligen door de toegang van de scripts te stroomlijnen.
+* **Inkapseling:** Opgeslagen procedures kunnen worden gebruikt voor het groeperen van logica op één plek. Inkapseling wordt toegevoegd een abstractielaag bovenop de gegevens, waarmee u uw toepassingen onafhankelijk van de gegevens veranderen. Deze laag van abstractie is handig wanneer de gegevens zonder schema en u hoeft te beheren met het toevoegen van aanvullende logica rechtstreeks in uw toepassing. De abstrahering kunt uw houden die de gegevens beveiligen door de toegang van de scripts te stroomlijnen.
 
 > [!TIP]
 > Opgeslagen procedures zijn het meest geschikt voor bewerkingen die zijn zware schrijven. Wanneer u bepaalt waar u het gebruik van opgeslagen procedures, optimaliseren om de maximale hoeveelheid schrijfbewerkingen mogelijk encapsulating. Opgeslagen procedures zijn algemeen, niet de meest efficiënte manier om grote aantallen leesbewerkingen te doen, zodat het gewenste voordeel niet opgeslagen procedures om grote aantallen leesbewerkingen batch te gebruiken om terug te keren naar de client tot leidt.

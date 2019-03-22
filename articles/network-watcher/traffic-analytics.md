@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: bc738dd93a43a1a3610323b9dd05abfd5b5c0091
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d4c3ab7e33d3d4bd8d5d5ee15c8264d1d41c858e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408799"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081063"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -201,7 +201,7 @@ Sommige van de inzichten te krijgen nadat Traffic Analytics is volledig geconfig
 - Statistieken van het verkeer geblokkeerd.
     - Waarom is een host een aanzienlijke hoeveelheid goedaardig verkeer blokkeren? Dit probleem vereist verder onderzoek en waarschijnlijk optimalisatie van de configuratie
 - Statistieken van schadelijk verkeer toegestaan/geblokkeerd
-    - Waarom is er een host ontvangen schadelijk verkeer en waarom stromen van schadelijke bron is toegestaan? Dit gedrag vereist verder onderzoek en waarschijnlijk optimalisatie van de configuratie.
+  - Waarom is er een host ontvangen schadelijk verkeer en waarom stromen van schadelijke bron is toegestaan? Dit gedrag vereist verder onderzoek en waarschijnlijk optimalisatie van de configuratie.
 
     Selecteer **alle**onder **Host**, zoals wordt weergegeven in de volgende afbeelding:
 
@@ -260,8 +260,8 @@ Sommige van de inzichten te krijgen nadat Traffic Analytics is volledig geconfig
 **Zoeken**
 
 - Distributie van verkeer per datacentrum, zoals de meest gebruikte bronnen van verkeer naar een datacenter, top rogue netwerken discussiëren met het datacenter en boven toepassingsprotocollen bespreken.
-    - Als u meer belasting van een datacenter geobserveerd, kunt u van plan bent voor efficiënte verkeersdistributie.
-    - Als rogue-netwerken in het datacenter bespreken worden, klikt u vervolgens NSG-regels voor het blokkeren van ze te corrigeren.
+  - Als u meer belasting van een datacenter geobserveerd, kunt u van plan bent voor efficiënte verkeersdistributie.
+  - Als rogue-netwerken in het datacenter bespreken worden, klikt u vervolgens NSG-regels voor het blokkeren van ze te corrigeren.
 
     Selecteer **kaart weergeven** onder **uw omgeving**, zoals wordt weergegeven in de volgende afbeelding:
 
@@ -282,8 +282,8 @@ Sommige van de inzichten te krijgen nadat Traffic Analytics is volledig geconfig
 **Zoeken**
 
 - Distributie van verkeer per virtueel netwerk, topologie, meest gebruikte bronnen van verkeer naar het virtuele netwerk, top rogue netwerken bespreken met het virtuele netwerk en boven toepassingsprotocollen bespreken.
-    - Weten welk virtuele netwerk is bespreken met welke virtuele netwerk. Als de conversatie niet verwacht wordt, kan worden gecorrigeerd.
-    - Als een rogue-netwerken zijn discussiëren met een virtueel netwerk, kunt u NSG-regels voor het blokkeren van de rogue-netwerken kunt oplossen.
+  - Weten welk virtuele netwerk is bespreken met welke virtuele netwerk. Als de conversatie niet verwacht wordt, kan worden gecorrigeerd.
+  - Als een rogue-netwerken zijn discussiëren met een virtueel netwerk, kunt u NSG-regels voor het blokkeren van de rogue-netwerken kunt oplossen.
  
     Selecteer **weergave VNets** onder **uw omgeving**, zoals wordt weergegeven in de volgende afbeelding:
 
@@ -323,7 +323,7 @@ Distributie van verkeer per toepassingsgateway & Load Balancer, topologie, meest
 **Zoeken**
 
 - Welke poorten openen via het internet zijn bespreken?
-    - Als er onverwachte poorten open zijn gevonden, kunt u uw configuratie corrigeren:
+  - Als er onverwachte poorten open zijn gevonden, kunt u uw configuratie corrigeren:
 
     ![Dashboard weergeven poorten ontvangen en verzenden van verkeer naar internet](./media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
@@ -347,9 +347,9 @@ Hebt u schadelijk verkeer in uw omgeving? Waar wordt deze die afkomstig zijn van
 
 - De volgende afbeeldingen tonen tijd trends voor treffers van NSG-regels en de details van de bron-doel productiestroom voor een netwerkbeveiligingsgroep:
 
-    - Snel te detecteren welke nsg's en de NSG regels schadelijke stromen zijn doorlopen en zijn de belangrijkste schadelijke IP-adressen toegang tot uw cloudomgeving
-    - Identificeren welke NSG/NSG-regels toestaan/blokkeren significant netwerkverkeer
-    - Selecteer boven filters voor gedetailleerde controle van een NSG of de NSG regels
+  - Snel te detecteren welke nsg's en de NSG regels schadelijke stromen zijn doorlopen en zijn de belangrijkste schadelijke IP-adressen toegang tot uw cloudomgeving
+  - Identificeren welke NSG/NSG-regels toestaan/blokkeren significant netwerkverkeer
+  - Selecteer boven filters voor gedetailleerde controle van een NSG of de NSG regels
 
     ![Die laat zien tijd trends voor treffers van NSG-regel en belangrijkste NSG-regels](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 

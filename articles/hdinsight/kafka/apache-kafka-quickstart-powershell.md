@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 6883ebe1e103f9ed1f06aa4ee0e6281667fc46b8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 5e636617a61de3c2f8e3dd891b205c17caaaf454
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424928"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090369"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Quickstart: een Apache Kafka-cluster maken in HDInsight
 
@@ -39,9 +39,9 @@ In deze snelstartgids leert u hoe u met Azure PowerShell een [Apache Kafka](http
 
     De opdracht `ssh` wordt standaard ondersteund op Linux, Unix- en macOS-systemen. In Windows 10 gebruikt u een van de volgende methoden om de opdracht `ssh` te installeren:
 
-    * Gebruik [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). De cloud-shell biedt de opdracht `ssh` en kan worden geconfigureerd om Bash of PowerShell te gebruiken als de shell-omgeving.
+  * Gebruik [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). De cloud-shell biedt de opdracht `ssh` en kan worden geconfigureerd om Bash of PowerShell te gebruiken als de shell-omgeving.
 
-    * [Installeer het Windows-subsysteem voor Linux](https://docs.microsoft.com/windows/wsl/install-win10). De Linux-distributies die beschikbaar zijn via de Microsoft Store bieden de opdracht `ssh`.
+  * [Installeer het Windows-subsysteem voor Linux](https://docs.microsoft.com/windows/wsl/install-win10). De Linux-distributies die beschikbaar zijn via de Microsoft Store bieden de opdracht `ssh`.
 
     > [!IMPORTANT]  
     > Bij de stappen in dit document wordt ervan uitgegaan dat u van een van de hierboven genoemde SSH-clients gebruikt. Als u een andere SSH-client gebruikt en er problemen optreden, raadpleegt u de documentatie voor uw SSH-client.

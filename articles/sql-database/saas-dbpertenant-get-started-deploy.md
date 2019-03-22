@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 97570a16c7d87a3c8182909b61c04fde30b3fe9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453668"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000200"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementeren en een multitenant SaaS-app die gebruikmaakt van het patroon van de database-per-tenant met SQL Database verkennen
 
@@ -56,7 +56,7 @@ Kies de namen van de nu en schrijf ze op.
 
 1. Als u de sjabloon van de implementatie van de database-per-tenant Wingtip Tickets SaaS in Azure portal, schakelt **implementeren in Azure**.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. Voer waarden in de sjabloon voor de vereiste parameters.
 
@@ -186,9 +186,9 @@ Als u wilt beheren en controleren van de achtergrondtaken, gebruikt u de volgend
 
 4. Als `$OneTime = $false`, de load-generator begint de achtergrondtaken en vervolgens om uit te voeren. Elke 10 seconden, bewaakt het voor alle nieuwe tenants die zijn ingericht. Als u `$OneTime = $true`, de LoadGenerator begint de achtergrondtaken en vervolgens niet meer werkt op de voorgrond is geplaatst. Voor deze zelfstudie laat u `$OneTime = $false`.
 
-  Ctrl + C of stoppen bewerking Ctrl-Break gebruiken als u wilt stoppen of opnieuw starten van de load-generator.
+   Ctrl + C of stoppen bewerking Ctrl-Break gebruiken als u wilt stoppen of opnieuw starten van de load-generator.
 
-  Als u de load-generator die worden uitgevoerd in de voorgrond is geplaatst, gebruikt u een ander exemplaar van de PowerShell ISE andere PowerShell-scripts uit te voeren.
+   Als u de load-generator die worden uitgevoerd in de voorgrond is geplaatst, gebruikt u een ander exemplaar van de PowerShell ISE andere PowerShell-scripts uit te voeren.
 
 &nbsp;
 
@@ -221,7 +221,7 @@ Vernieuw de Events Hub zodat de nieuwe tenant weergegeven in de lijst.
 
 Nu u bent begonnen met het uitvoeren van een werklast in de verzameling van tenants, laten we bekijken enkele van de resources die zijn geïmplementeerd.
 
-1. In de [Azure-portal](http://portal.azure.com), blader naar de lijst met SQL-servers. Open vervolgens de **catalogus-dpt -&lt;gebruiker&gt;** server.
+1. In de [Azure-portal](https://portal.azure.com), blader naar de lijst met SQL-servers. Open vervolgens de **catalogus-dpt -&lt;gebruiker&gt;** server.
     - De catalogusserver bevat twee databases: **tenantcatalog** en **basetenantdb** (een sjabloondatabase die voor het maken van nieuwe tenants worden gekopieerd).
 
    ![Databases](./media/saas-dbpertenant-get-started-deploy/databases.png)

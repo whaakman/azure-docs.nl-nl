@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b099d1765f0ed56d6768501086bf8b9f83d5a86a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.openlocfilehash: f5ac1c53a97fc2a3749582c5f48b967e3ce0c2c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112266"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104264"
 ---
-# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Zelfstudie: Failover uitvoeren voor containerservices met Service Fabric en deze schalen
+# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Zelfstudie: Failover uitvoeren en schalen van containerservices met Service Fabric demonstreren
 
 Deze zelfstudie is deel drie van een serie. In deze zelfstudie leert u hoe failovers worden verwerkt in Service Fabric-containertoepassingen. Bovendien leert u hoe u containers kunt schalen. In deze zelfstudie hebt u:
 
@@ -63,8 +63,8 @@ Doe het volgende om de webfront-end te schalen:
 
 U kunt er nu voor kiezen om het aantal exemplaren van de webfront-end te schalen.
 
-3. Wijzig het aantal in **2** en klik op **Service schalen**.
-4. Klik op het knooppunt **fabric:/TestContainer/azurevotefront** in de structuurweergave en vouw het partitieknooppunt uit (vertegenwoordigd door een GUID).
+1. Wijzig het aantal in **2** en klik op **Service schalen**.
+1. Klik op het knooppunt **fabric:/TestContainer/azurevotefront** in de structuurweergave en vouw het partitieknooppunt uit (vertegenwoordigd door een GUID).
 
 ![sfxscaledone][sfxscaledone]
 

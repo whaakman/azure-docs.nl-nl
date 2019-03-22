@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: aeeab619ac2366796a1039bf85cc71f89a10b83c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: cc0d004a20aa5497c40b07e04e0eeae7758a9826
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158496"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085249"
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd X.509-apparaat met de SDK met Node.js maken en inrichten voor Azure IoT Hub Device Provisioning Service
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -25,8 +25,8 @@ Deze stappen laten zien hoe in u een vermelding voor apparaatinschrijving kunt m
 Als u niet bekend bent met het proces van automatisch inrichten, bekijk dan ook de [Concepten voor automatische inrichting](concepts-auto-provisioning.md). Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat. 
 
 Azure IoT Device Provisioning Service ondersteunt twee typen inschrijvingen:
-- [Registratiegroepen](concepts-service.md#enrollment-group): wordt gebruikt om meerdere gerelateerde apparaten in te schrijven.
-- [Afzonderlijke inschrijvingen](concepts-service.md#individual-enrollment): wordt gebruikt om een enkel apparaat in te schrijven.
+- [Inschrijvingsgroepen](concepts-service.md#enrollment-group): Wordt gebruikt om meerdere gerelateerde apparaten in te schrijven.
+- [Afzonderlijke inschrijvingen](concepts-service.md#individual-enrollment): Wordt gebruikt om één apparaat in te schrijven.
 
 In dit artikel worden afzonderlijke registraties gedemonstreerd.
 
@@ -80,17 +80,17 @@ U gaat voorbeeldcode van de [Azure IoT C-SDK voor Node.js](https://github.com/Az
 5. Selecteer **Manage enrollments** in de overzichtsblade van Device Provisioning Service. Selecteer het tabblad **Afzonderlijke registraties** en klik vervolgens op de knop **Afzonderlijke inschrijving toevoegen** bovenaan. 
 
 6. Voer onder het deelvenster **Inschrijving toevoegen** de volgende gegevens in:
-    - Selecteer **X.509** als *mechanisme* voor identiteitscontrole.
-    - Klik onder het *PEM- of CER-bestand van het primaire certificaat* op *Selecteer een bestand* om het certificaatbestand **{certificate-name}_cert.pem** te selecteren dat in de vorige stappen is gemaakt.  
-    - Desgewenst kunt u de volgende informatie verstrekken:
-      - Selecteer een IoT-hub die is gekoppeld aan uw inrichtingsservice.
-      - Voer een unieke apparaat-id in. Vermijd gevoelige gegevens bij het benoemen van uw apparaat. 
-      - Werk de **initiële status van de apparaatdubbel** bij met de gewenste beginconfiguratie voor het apparaat.
-   - Klik op de knop **Save** als u klaar bent. 
+   - Selecteer **X.509** als *mechanisme* voor identiteitscontrole.
+   - Klik onder het *PEM- of CER-bestand van het primaire certificaat* op *Selecteer een bestand* om het certificaatbestand **{certificate-name}_cert.pem** te selecteren dat in de vorige stappen is gemaakt.  
+   - Desgewenst kunt u de volgende informatie verstrekken:
+     - Selecteer een IoT-hub die is gekoppeld aan uw inrichtingsservice.
+     - Voer een unieke apparaat-id in. Vermijd gevoelige gegevens bij het benoemen van uw apparaat. 
+     - Werk de **initiële status van de apparaatdubbel** bij met de gewenste beginconfiguratie voor het apparaat.
+     - Klik op de knop **Save** als u klaar bent. 
 
-    [![Afzonderlijke inschrijving voor X.509-attestation toevoegen in de portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
+     [![Afzonderlijke inschrijving voor X.509-attestation toevoegen in de portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
-    Als het apparaat is ingeschreven, wordt uw X.509-apparaat weergegeven als **{certificatename}** onder de kolom *Registratie-id* op het tabblad *Afzonderlijke inschrijvingen*. Noteer deze waarde voor later.
+     Als het apparaat is ingeschreven, wordt uw X.509-apparaat weergegeven als **{certificatename}** onder de kolom *Registratie-id* op het tabblad *Afzonderlijke inschrijvingen*. Noteer deze waarde voor later.
 
 ## <a name="simulate-the-device"></a>Het apparaat simuleren
 

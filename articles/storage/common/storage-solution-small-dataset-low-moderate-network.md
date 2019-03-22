@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 7cdaebe62c7071b26c29e599bb0614dbe7631085
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778022"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124300"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>De overdracht van gegevens voor kleine gegevenssets met weinig aan gemiddelde netwerkbandbreedte
  
@@ -49,16 +49,16 @@ De opties aanbevolen in dit scenario zijn:
 
 De volgende tabel geeft een overzicht van de verschillen in de belangrijkste mogelijkheden.
 
-| Functie                                                            | Azure Opslagverkenner                    | Azure Portal  | AzCopy<br>Azure PowerShell<br>Azure-CLI            | Azure Storage REST-API's of -SDK 's |
-|----------------------------------------------|-------------------------------------------|--------------------------------------|-------------------|---------------------------------------|
-| Beschikbaarheid                                                       | Downloaden en installeren <br>Zelfstandige hulpprogramma | Webgebaseerde hulpprogramma's in Azure portal           | Vanaf de opdrachtregel-hulpprogramma |Programmeerbare interfaces in .NET, Java, Python, JavaScript, C++, Go, Ruby en PHP                                                         |
-| Grafische interface                                              | Ja                                       | Ja                                                     | Nee                | Nee                                                      |
-| Ondersteunde platforms                                              | Windows, Mac, Linux                       | Webconsole     |Windows, Mac, Linux     |Alle platforms                                                         |
-| Blob-opslagbewerkingen toegestaan<br>voor blobs en mappen            | Uploaden<br>Downloaden<br>Beheren    | Uploaden<br>Downloaden<br>Beheren  |Uploaden<br>Downloaden<br>Beheren             | Ja, aanpasbare                                                        |
-| Toegestane Gen1 van Data Lake-opslag<br>bewerkingen voor bestanden en mappen  | Uploaden<br>Downloaden<br>Beheren                | Nee |Uploaden<br>Downloaden<br>Beheren                   |      Nee                                                   |
-| Bestand-opslagbewerkingen toegestaan<br>voor bestanden en mappen        | Uploaden<br>Downloaden<br>Beheren       | Uploaden<br>Downloaden<br>Beheren   |Uploaden<br>Downloaden<br>Beheren |                                                         |Ja, aanpasbare
-| Tabel-opslagbewerkingen toegestaan<br>voor tabellen                      |Beheren                            | Nee            |Ondersteuning van de tabel in versie 7 van AzCopy |Ja, aanpasbare|
-| Toegestane Queue storage                                              | Beheren                                    | Nee  |Nee | Ja, kan worden aangepast|
+| Functie | Azure Opslagverkenner | Azure Portal | AzCopy<br>Azure PowerShell<br>Azure-CLI | Azure Storage REST-API's of -SDK 's |
+|---------|------------------------|--------------|-----------------------------------------|---------------------------------|
+| Beschikbaarheid | Downloaden en installeren <br>Zelfstandige hulpprogramma | Webgebaseerde hulpprogramma's in Azure portal | Vanaf de opdrachtregel-hulpprogramma |Programmeerbare interfaces in .NET, Java, Python, JavaScript, C++, Go, Ruby en PHP |
+| Grafische interface | Ja | Ja | Nee | Nee |
+| Ondersteunde platforms | Windows, Mac, Linux | Webconsole |Windows, Mac, Linux |Alle platforms |
+| Blob-opslagbewerkingen toegestaan<br>voor blobs en mappen | Uploaden<br>Downloaden<br>Beheren | Uploaden<br>Downloaden<br>Beheren |Uploaden<br>Downloaden<br>Beheren | Ja, aanpasbare |
+| Toegestane Gen1 van Data Lake-opslag<br>bewerkingen voor bestanden en mappen | Uploaden<br>Downloaden<br>Beheren | Nee |Uploaden<br>Downloaden<br>Beheren                   | Nee |
+| Bestand-opslagbewerkingen toegestaan<br>voor bestanden en mappen | Uploaden<br>Downloaden<br>Beheren | Uploaden<br>Downloaden<br>Beheren   |Uploaden<br>Downloaden<br>Beheren | Ja, aanpasbare |
+| Tabel-opslagbewerkingen toegestaan<br>voor tabellen |Beheren | Nee |Ondersteuning van de tabel in versie 7 van AzCopy |Ja, aanpasbare|
+| Toegestane Queue storage | Beheren | Nee  |Nee | Ja, kan worden aangepast|
 
 
 ## <a name="next-steps"></a>Volgende stappen

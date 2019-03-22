@@ -8,17 +8,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a86a965a746ed659b73c359ee44fb9be250aae97
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5f46e7846a5b0cd9479f19d475d4604f37bead4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714280"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168738"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Extra opslagaccounts toevoegen aan HDInsight
 
-Informatie over het gebruik van scriptacties aanvullende Azure storage-accounts toevoegen aan HDInsight. De stappen in dit document wordt een storage-account toevoegen aan een bestaand HDInsight op basis van Linux-cluster.
+Informatie over het gebruik van scriptacties aanvullende Azure storage-accounts toevoegen aan HDInsight. De stappen in dit document wordt een storage-account toevoegen aan een bestaand HDInsight op basis van Linux-cluster. In dit artikel is van toepassing op [Azure Storage](hdinsight-hadoop-use-blob-storage.md) en alleen extra opslagaccounts (niet de standaard cluster storage-account). In dit artikel geldt niet voor [Azure Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md) en [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
 > De informatie in dit document is over het toevoegen van extra opslag aan een cluster nadat deze is gemaakt. Zie voor meer informatie over het toevoegen van storage-accounts tijdens het maken van een cluster [clusters instellen in HDInsight met Apache Hadoop, Apache Spark en Apache Kafka](hdinsight-hadoop-provision-linux-clusters.md).

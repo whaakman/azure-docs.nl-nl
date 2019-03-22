@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4761a50905f28c215a47d579b931ab5db9d7e424
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b3ffc9794967f44708d8330d4dc5d5de11b794d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468067"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079176"
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Een ondersteuningsticket maken voor SQL Data Warehouse
 Als u problemen ondervindt met SQL Data Warehouse, kunt u een ondersteuningsticket maken zodat ons technisch ondersteuningsteam u kan helpen.
@@ -35,8 +35,8 @@ Als u problemen ondervindt met SQL Data Warehouse, kunt u een ondersteuningstick
      
      Als u een Premier-ondersteuningsplan hebt, kunt u ook problemen met betrekking tot SQL Data Warehouse rapporteren in de [Microsoft Premier Online-portal][Microsoft Premier online portal].  Zie [Azure-ondersteuningsplannen][Azure support plan] voor meer informatie over de verschillende ondersteuningsplannen, waaronder bereik, reactietijden, prijzen enzovoort.  Zie [Veelgestelde vragen over ondersteuning van Azure][Azure support FAQs] voor veelgestelde vragen over de ondersteuning van Azure.  
         
-    ![Blade basisbeginselen](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
-    ![BladeBasisbeginselen1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
+     ![Blade basisbeginselen](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
+     ![BladeBasisbeginselen1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
 4. Vul de blade **Probleem** in.
     ![Problem_blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
@@ -46,7 +46,7 @@ Als u problemen ondervindt met SQL Data Warehouse, kunt u een ondersteuningstick
    > 
    
 5. Voer uw **contactgegevens** in.
-![Contact_information](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
+   ![Contact_information](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
 
     
 6. Klik op **Maken** om het ondersteuningsverzoek in te dienen.

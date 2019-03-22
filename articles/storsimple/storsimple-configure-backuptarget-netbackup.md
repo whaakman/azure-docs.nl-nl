@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
-ms.openlocfilehash: 913df079b56e131a3120971b635c49c2c04b2b1e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 17428405a0be45854a2eaaef831864f529ed145a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871567"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994466"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple als back-updoel met NetBackup
 
@@ -94,6 +94,7 @@ De volgende tabellen tonen de initiële richtlijnen voor apparaat-model-naar-arc
 |------------------------|---------------|-----------------|
 | Lokale opslagcapaciteit | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Cloudopslagcapaciteit | &gt; 200 TiB\* | &gt; 500 TiB\* |
+
 \* Maximale grootte wordt ervan uitgegaan dat er geen gegevensontdubbeling of compressie.
 
 **StorSimple-capaciteiten voor primaire en secundaire back-ups**
@@ -207,16 +208,16 @@ Instellen van uw oplossing op basis van de richtlijnen in de volgende gedeelten.
 
 ### <a name="operating-system-best-practices"></a>Aanbevolen procedures voor besturingssysteem
 
--   Windows Server-versleuteling en Ontdubbeling voor het NTFS-bestandssysteem uitgeschakeld.
--   Uitschakelen van Windows Server-defragmentatie op de StorSimple-volumes.
--   Indexeren van Windows Server op het StorSimple-volumes uitschakelen.
--   Voer een antivirusprogramma uit op de bronhost (niet op basis van de StorSimple-volumes).
--   De standaardwaarde uitschakelen [onderhoud van Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Taakbeheer. Dit op een van de volgende manieren doen:
-    - De configurator onderhoud in Windows Taakplanner uitschakelen.
-    - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) van Windows Sysinternals. Nadat u PsExec hebt gedownload, voert u de Windows PowerShell als beheerder, en typ:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Windows Server-versleuteling en Ontdubbeling voor het NTFS-bestandssysteem uitgeschakeld.
+- Uitschakelen van Windows Server-defragmentatie op de StorSimple-volumes.
+- Indexeren van Windows Server op het StorSimple-volumes uitschakelen.
+- Voer een antivirusprogramma uit op de bronhost (niet op basis van de StorSimple-volumes).
+- De standaardwaarde uitschakelen [onderhoud van Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Taakbeheer. Dit op een van de volgende manieren doen:
+  - De configurator onderhoud in Windows Taakplanner uitschakelen.
+  - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) van Windows Sysinternals. Nadat u PsExec hebt gedownload, voert u de Windows PowerShell als beheerder, en typ:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>Aanbevolen procedures voor StorSimple
 
@@ -257,6 +258,7 @@ Op basis van de voorgaande veronderstellingen, maak een 26-TiB StorSimple gelaag
 | Jaarlijks volledige | 1  | 10 | 10 |
 | Algemene vereisten |   | 38 |   |
 | Uitbreiding van uw quotum  | 4  |   | 42 totale algemene vereiste  |
+
 \* De algemene vermenigvuldiger is het aantal exemplaren dat u wilt beveiligen en te behouden om te voldoen aan de vereisten van uw back-upbeleid.
 
 ## <a name="set-up-netbackup-storage"></a>NetBackup opslag instellen
@@ -302,7 +304,7 @@ Hier volgt een voorbeeld van een algemene rotatieschema vier weken, maandelijkse
 |---|---|---|
 | Wekelijks (weken 1-4) | zaterdag | Monday-Friday |
 | Maandelijks  | zaterdag  |   |
-| Per jaar | zaterdag  |   |   |
+| Per jaar | zaterdag  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>StorSimple-volumes toewijzen aan een back-uptaak NetBackup
 
@@ -310,69 +312,69 @@ De volgende procedure wordt ervan uitgegaan dat NetBackup en de doelhost in over
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-backup-job"></a>StorSimple-volumes toewijzen aan een back-uptaak NetBackup
 
-1.  Selecteer in de beheerconsole NetBackup **NetBackup Management**, met de rechtermuisknop op **beleid**, en selecteer vervolgens **nieuw beleid**.
+1. Selecteer in de beheerconsole NetBackup **NetBackup Management**, met de rechtermuisknop op **beleid**, en selecteer vervolgens **nieuw beleid**.
 
-    ![NetBackup-beheerconsole een nieuw beleid maken](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
+   ![NetBackup-beheerconsole een nieuw beleid maken](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
-2.  In de **een nieuw beleid toevoegen** in het dialoogvenster, Geef een naam voor het beleid en selecteer vervolgens de **gebruik beleid configuratiewizard** selectievakje. Selecteer **OK**.
+2. In de **een nieuw beleid toevoegen** in het dialoogvenster, Geef een naam voor het beleid en selecteer vervolgens de **gebruik beleid configuratiewizard** selectievakje. Selecteer **OK**.
 
-    ![NetBackup Administrator-Console in het dialoogvenster Nieuw beleid toevoegen](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
+   ![NetBackup Administrator-Console in het dialoogvenster Nieuw beleid toevoegen](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
 
-3.  In de Wizard Back-beleid configureren voor het back-uptype u wilt en selecteer vervolgens kiezen **volgende**.
+3. In de Wizard Back-beleid configureren voor het back-uptype u wilt en selecteer vervolgens kiezen **volgende**.
 
-    ![NetBackup-beheerconsole, selecteer back-uptype](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
+   ![NetBackup-beheerconsole, selecteer back-uptype](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
 
-4.  Als u het beleidstype, selecteert u **Standard**, en selecteer vervolgens **volgende**.
+4. Als u het beleidstype, selecteert u **Standard**, en selecteer vervolgens **volgende**.
 
-    ![NetBackup-beheerconsole, selecteer beleidstype](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
+   ![NetBackup-beheerconsole, selecteer beleidstype](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5.  Selecteer de host, selecteer de **client-besturingssysteem detecteren** selectievakje en selecteer vervolgens **toevoegen**. Selecteer **Volgende**.
+5. Selecteer de host, selecteer de **client-besturingssysteem detecteren** selectievakje en selecteer vervolgens **toevoegen**. Selecteer **Volgende**.
 
-    ![NetBackup-beheerconsole, lijst met clients in een nieuw beleid](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
+   ![NetBackup-beheerconsole, lijst met clients in een nieuw beleid](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
-6.  Selecteer de stations die u back wilt-up.
+6. Selecteer de stations die u back wilt-up.
 
-    ![NetBackup-beheerconsole, back-up van de selecties voor een nieuw beleid](./media/storsimple-configure-backup-target-using-netbackup/nbimage11.png)
+   ![NetBackup-beheerconsole, back-up van de selecties voor een nieuw beleid](./media/storsimple-configure-backup-target-using-netbackup/nbimage11.png)
 
-7.  Selecteer de frequentie en het vasthouden van waarden die voldoen aan de vereisten van uw back-rotatie.
+7. Selecteer de frequentie en het vasthouden van waarden die voldoen aan de vereisten van uw back-rotatie.
 
-    ![NetBackup-beheerconsole, back-upfrequentie en draaien voor een nieuw beleid](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
+   ![NetBackup-beheerconsole, back-upfrequentie en draaien voor een nieuw beleid](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8.  Selecteer **volgende** > **volgende** > **voltooien**.  U kunt het schema wijzigen nadat het beleid is gemaakt.
+8. Selecteer **volgende** > **volgende** > **voltooien**.  U kunt het schema wijzigen nadat het beleid is gemaakt.
 
-9.  Selecteer op het uitbreiden van het beleid dat u zojuist hebt gemaakt en selecteer vervolgens **planningen**.
+9. Selecteer op het uitbreiden van het beleid dat u zojuist hebt gemaakt en selecteer vervolgens **planningen**.
 
-    ![NetBackup-beheerconsole, schema's voor een nieuw beleid](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
+   ![NetBackup-beheerconsole, schema's voor een nieuw beleid](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
 
-10.  Met de rechtermuisknop op **differentiële Inc**, selecteer **kopiëren naar nieuwe**, en selecteer vervolgens **OK**.
+10. Met de rechtermuisknop op **differentiële Inc**, selecteer **kopiëren naar nieuwe**, en selecteer vervolgens **OK**.
 
     ![NetBackup-beheerconsole, schema voor het kopiëren naar een nieuw beleid](./media/storsimple-configure-backup-target-using-netbackup/nbimage14.png)
 
-11.  Met de rechtermuisknop op de zojuist gemaakte planning en selecteer vervolgens **wijziging**.
+11. Met de rechtermuisknop op de zojuist gemaakte planning en selecteer vervolgens **wijziging**.
 
-12.  Op de **kenmerken** tabblad de **Opslagselectie beleid overschrijven** selectievakje en selecteert u het volume waar maandag incrementele back-ups gaat.
+12. Op de **kenmerken** tabblad de **Opslagselectie beleid overschrijven** selectievakje en selecteert u het volume waar maandag incrementele back-ups gaat.
 
     ![NetBackup-beheerconsole, schema wijzigen](./media/storsimple-configure-backup-target-using-netbackup/nbimage15.png)
 
-13.  Op de **Start venster** tabblad, selecteert u het tijdvenster voor uw back-ups.
+13. Op de **Start venster** tabblad, selecteert u het tijdvenster voor uw back-ups.
 
     ![NetBackup Administrator-Console start wijzigingsvenster](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
 
-14.  Selecteer **OK**.
+14. Selecteer **OK**.
 
-15.  Herhaal stap 10: 14 voor elke incrementele back-up. Selecteer het juiste volume en de planning voor elke back-up die u maakt.
+15. Herhaal stap 10: 14 voor elke incrementele back-up. Selecteer het juiste volume en de planning voor elke back-up die u maakt.
 
-16.  Met de rechtermuisknop op de **differentiële Inc** plannen en deze te verwijderen.
+16. Met de rechtermuisknop op de **differentiële Inc** plannen en deze te verwijderen.
 
-17.  Wijzig uw volledige schema om te voldoen aan de behoeften van uw back-up.
+17. Wijzig uw volledige schema om te voldoen aan de behoeften van uw back-up.
 
     ![NetBackup Administration Console, de volledige schema wijzigen](./media/storsimple-configure-backup-target-using-netbackup/nbimage17.png)
 
-18.  Het startvenster wijzigen.
+18. Het startvenster wijzigen.
 
     ![NetBackup Administration Console, de begin-venster wijzigen](./media/storsimple-configure-backup-target-using-netbackup/nbimage18.png)
 
-19.  De laatste planning ziet er als volgt:
+19. De laatste planning ziet er als volgt:
 
     ![NetBackup-beheerconsole, laatste plannen](./media/storsimple-configure-backup-target-using-netbackup/nbimage19.png)
 
@@ -400,6 +402,7 @@ De volgende tabel laat zien hoe het instellen van back-ups uit te voeren op de l
 | Maandelijks volledige |StorSimple-schijf (langlopende) | 1 | 12 | 12 |
 | Jaarlijks volledige |StorSimple-schijf (langlopende) | 1 | 1 | 1 |
 |Vereiste grootte van algemene volumes |  |  |  | 18*|
+
 \* Totale capaciteit omvat 17 TiB van StorSimple-schijven en 1 TiB aan lokale RAID-volume.
 
 
@@ -412,7 +415,7 @@ De volgende tabel laat zien hoe het instellen van back-ups uit te voeren op de l
 | Week 3 | StorSimple weken 2-4 |   |   |   |   |   |
 | Week 4 | StorSimple weken 2-4 |   |   |   |   |   |
 | Maandelijks | Maandelijks StorSimple |   |   |   |   |   |
-| Per jaar | StorSimple jaarlijks  |   |   |   |   |   |   |
+| Per jaar | StorSimple jaarlijks  |   |   |   |   |   |
 
 
 ## <a name="assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>StorSimple-volumes toewijzen aan een taak van archief- en duplicatie NetBackup
@@ -427,41 +430,41 @@ Nadat u de eerste schijfgroepen hebt gedefinieerd, moet u drie aanvullende lifec
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>StorSimple-volumes toewijzen aan een taak van archief- en duplicatie NetBackup
 
-1.  Selecteer in de beheerconsole NetBackup **opslag** > **Lifecycle-beleid voor opslag** > **Lifecycle-beleid voor nieuwe opslag**.
+1. Selecteer in de beheerconsole NetBackup **opslag** > **Lifecycle-beleid voor opslag** > **Lifecycle-beleid voor nieuwe opslag**.
 
-    ![NetBackup-beheerconsole, nieuwe lifecycle-beleid voor opslag](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
+   ![NetBackup-beheerconsole, nieuwe lifecycle-beleid voor opslag](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
-2.  Voer een naam voor de momentopname en selecteer vervolgens **toevoegen**.
+2. Voer een naam voor de momentopname en selecteer vervolgens **toevoegen**.
 
-3.  In de **nieuwe bewerking** dialoogvenster op de **eigenschappen** tabblad voor **bewerking**, selecteer **back-up**. Selecteer de waarden die u wilt gebruiken voor **doelopslag**, **retentie type**, en **bewaarperiode**. Selecteer **OK**.
+3. In de **nieuwe bewerking** dialoogvenster op de **eigenschappen** tabblad voor **bewerking**, selecteer **back-up**. Selecteer de waarden die u wilt gebruiken voor **doelopslag**, **retentie type**, en **bewaarperiode**. Selecteer **OK**.
 
-    ![NetBackup Administrator-Console in het dialoogvenster voor nieuwe bewerking](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
+   ![NetBackup Administrator-Console in het dialoogvenster voor nieuwe bewerking](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
-    Hiermee definieert u de eerste back-upbewerking en de opslagplaats.
+   Hiermee definieert u de eerste back-upbewerking en de opslagplaats.
 
-4.  Selecteer op de vorige bewerking markeren en selecteer vervolgens **toevoegen**. In de **wijziging opslagbewerking** dialoogvenster vak, selecteert u de waarden die u wilt gebruiken voor **doelopslag**, **retentie type**, en **bewaarperiode**.
+4. Selecteer op de vorige bewerking markeren en selecteer vervolgens **toevoegen**. In de **wijziging opslagbewerking** dialoogvenster vak, selecteert u de waarden die u wilt gebruiken voor **doelopslag**, **retentie type**, en **bewaarperiode**.
 
-    ![NetBackup Administrator-Console in het dialoogvenster van de opslagbewerking wijzigen](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
+   ![NetBackup Administrator-Console in het dialoogvenster van de opslagbewerking wijzigen](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
 
-5.  Selecteer op de vorige bewerking markeren en selecteer vervolgens **toevoegen**. In de **Lifecycle-beleid voor nieuwe opslag** dialoogvenster vak, maandelijkse back-ups voor een jaar toevoegen.
+5. Selecteer op de vorige bewerking markeren en selecteer vervolgens **toevoegen**. In de **Lifecycle-beleid voor nieuwe opslag** dialoogvenster vak, maandelijkse back-ups voor een jaar toevoegen.
 
-    ![NetBackup Administrator-Console in het dialoogvenster voor nieuwe Lifecycle-beleid voor opslag](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
+   ![NetBackup Administrator-Console in het dialoogvenster voor nieuwe Lifecycle-beleid voor opslag](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
 
-6.  Herhaal stap 4 en 5 totdat u het uitgebreide SLP bewaarbeleid die u nodig hebt gemaakt.
+6. Herhaal stap 4 en 5 totdat u het uitgebreide SLP bewaarbeleid die u nodig hebt gemaakt.
 
-    ![NetBackup-beheerconsole, voeg beleidsregels toe in het dialoogvenster Nieuwe Lifecycle-beleid voor opslag](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
+   ![NetBackup-beheerconsole, voeg beleidsregels toe in het dialoogvenster Nieuwe Lifecycle-beleid voor opslag](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
 
-7.  Wanneer u bent klaar onder het bewaarbeleid SLP definiëren **beleid**, een back-upbeleid definiëren met de volgende stappen uiteengezet in [toewijzen van StorSimple-volumes naar een back-uptaak NetBackup](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
+7. Wanneer u bent klaar onder het bewaarbeleid SLP definiëren **beleid**, een back-upbeleid definiëren met de volgende stappen uiteengezet in [toewijzen van StorSimple-volumes naar een back-uptaak NetBackup](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
 
-8.  Onder **planningen**, in de **schema wijzigen** in het dialoogvenster met de rechtermuisknop op **volledige**, en selecteer vervolgens **wijziging**.
+8. Onder **planningen**, in de **schema wijzigen** in het dialoogvenster met de rechtermuisknop op **volledige**, en selecteer vervolgens **wijziging**.
 
-    ![NetBackup Administrator-Console in het dialoogvenster voor schema wijzigen](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
+   ![NetBackup Administrator-Console in het dialoogvenster voor schema wijzigen](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
 
-9.  Selecteer de **Opslagselectie beleid overschrijven** selectievakje en selecteer vervolgens het beleid voor het bewaren van SLP die u hebt gemaakt in stap 1-6.
+9. Selecteer de **Opslagselectie beleid overschrijven** selectievakje en selecteer vervolgens het beleid voor het bewaren van SLP die u hebt gemaakt in stap 1-6.
 
-    ![NetBackup-beheerconsole, overschrijven beleid Opslagselectie](./media/storsimple-configure-backup-target-using-netbackup/nbimage27.png)
+   ![NetBackup-beheerconsole, overschrijven beleid Opslagselectie](./media/storsimple-configure-backup-target-using-netbackup/nbimage27.png)
 
-10.  Selecteer **OK**, en Herhaal voor de incrementele back-upschema.
+10. Selecteer **OK**, en Herhaal voor de incrementele back-upschema.
 
     ![NetBackup Administrator-Console in het dialoogvenster schema wijzigen voor incrementele back-ups](./media/storsimple-configure-backup-target-using-netbackup/nbimage28.png)
 
@@ -474,6 +477,7 @@ Nadat u de eerste schijfgroepen hebt gedefinieerd, moet u drie aanvullende lifec
 | Jaarlijks volledige | 1  | 10 | 10 |
 | Algemene vereisten  |     |     | 38 |
 | Uitbreiding van uw quotum  | 4  |    | 42 totale algemene vereiste |
+
 \* De algemene vermenigvuldiger is het aantal exemplaren dat u wilt beveiligen en te behouden om te voldoen aan de vereisten van uw back-upbeleid.
 
 ## <a name="storsimple-cloud-snapshots"></a>StorSimple cloud-momentopnamen
@@ -503,13 +507,13 @@ De volgende sectie wordt beschreven hoe u een korte script om te starten en verw
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Om te starten of een cloudmomentopname verwijderen
 
-1.  [Installeer Azure PowerShell](/powershell/azure/overview).
+1. [Installeer Azure PowerShell](/powershell/azure/overview).
 2. Downloaden en installeren [beheren CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell-script.
 3. Voer op de server waarop het script wordt uitgevoerd, PowerShell als beheerder. Zorg ervoor dat u het script uitgevoerd `-WhatIf $true` om te zien wat het script verandert maakt. Nadat de validatie voltooid is, doorgeven `-WhatIf $false`. Voer de onderstaande opdracht:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
-4.  Het script toevoegen aan uw back-uptaak in NetBackup. U doet dit door uw NetBackup taak options vooraf verwerken en bewerken na het verwerken van opdrachten.
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. Het script toevoegen aan uw back-uptaak in NetBackup. U doet dit door uw NetBackup taak options vooraf verwerken en bewerken na het verwerken van opdrachten.
 
 > [!NOTE]
 > Het is raadzaam dat u uw back-upbeleid van StorSimple cloud-momentopname als een na verwerking script aan het einde van uw dagelijkse back-uptaak uitvoeren. Voor meer informatie over hoe u het back-up en herstellen van uw back-uptoepassing omgeving om te voldoen aan de RPO en de RTO, neem contact op met uw back-architect.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f699e40a4a31b6d57b12a43ae307806d3f010015
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267178"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881058"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementeren StorSimple Virtual Array - Set om als bestandsserver via Azure portal
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -129,15 +129,15 @@ Voer de volgende stappen uit in de [Azure-portal](https://portal.azure.com/) om 
     ![Een bestandsserver configureren](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Klik op **configureren** op de opdrachtbalk. Hiermee opent u de **configureren** blade. In de **configureren** blade, doet u het volgende:
    
-    1. Naam van de bestandsserver wordt automatisch ingevuld.
+   1. Naam van de bestandsserver wordt automatisch ingevuld.
     
-    2. Zorg ervoor dat de versleuteling van cloudopslag is ingesteld op **ingeschakeld**. Hiermee worden alle gegevens die worden verzonden naar de cloud gecodeerd. 
+   2. Zorg ervoor dat de versleuteling van cloudopslag is ingesteld op **ingeschakeld**. Hiermee worden alle gegevens die worden verzonden naar de cloud gecodeerd. 
     
-    3. Een 256-bits AES-sleutel wordt gebruikt door de gebruiker gedefinieerde sleutel voor versleuteling. Geef een sleutel van 32 tekens en Bevestig de sleutel om het te bevestigen. Noteer de sleutel in een beheerapp voor toekomstig gebruik.
+   3. Een 256-bits AES-sleutel wordt gebruikt door de gebruiker gedefinieerde sleutel voor versleuteling. Geef een sleutel van 32 tekens en Bevestig de sleutel om het te bevestigen. Noteer de sleutel in een beheerapp voor toekomstig gebruik.
     
-    4. Klik op **vereiste instellingen configureren** om op te geven van de referenties van het opslagaccount moet worden gebruikt met uw apparaat. Klik op **nieuwe toevoegen** als er geen opslagaccountreferenties geconfigureerd zijn. **Zorg ervoor dat het opslagaccount dat u gebruikt ondersteunt blok-blobs. Pagina-blobs worden niet ondersteund.** Meer informatie over [blobs en pagina-blobs geblokkeerd](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Klik op **vereiste instellingen configureren** om op te geven van de referenties van het opslagaccount moet worden gebruikt met uw apparaat. Klik op **nieuwe toevoegen** als er geen opslagaccountreferenties geconfigureerd zijn. **Zorg ervoor dat het opslagaccount dat u gebruikt ondersteunt blok-blobs. Pagina-blobs worden niet ondersteund.** Meer informatie over [blobs en pagina-blobs geblokkeerd](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-    ![Een bestandsserver configureren](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Een bestandsserver configureren](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. In de **toevoegen van een opslagaccountreferenties** blade, doet u het volgende: 
 
     1. Huidige abonnement kiezen als het opslagaccount zich in hetzelfde abonnement als de service. Geef andere is het storage-account is buiten het service-abonnement. 
@@ -175,26 +175,26 @@ Voer in de [Azure-portal](https://portal.azure.com/) de volgende stappen uit om 
    ![Een share toevoegen](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Geef de volgende instellingen voor delen:
 
-    1. Een unieke naam voor de share. De naam moet een tekenreeks met 3 tot en met 127 tekens.
+   1. Een unieke naam voor de share. De naam moet een tekenreeks met 3 tot en met 127 tekens.
     
-    2. Een optionele **beschrijving** voor de share. De beschrijving kunt identificeren de eigenaren van de share.
+   2. Een optionele **beschrijving** voor de share. De beschrijving kunt identificeren de eigenaren van de share.
     
-    3. Een **Type** voor de share. Het type kan worden **gelaagd** of **lokaal vastgemaakt**, met lagen wordt de standaardwaarde. Voor workloads waarvoor lokale garanties, lage latenties en betere prestaties, selecteert u een **lokaal vastgemaakt** delen. Voor alle andere gegevens, selecteert u een **gelaagd** delen.
-    Een lokaal vastgemaakt share is compact ingericht en zorgt ervoor dat de primaire gegevens op de share lokaal op het apparaat blijft en wordt niet naar de cloud worden gelekt. Een gelaagde share wordt aan de andere kant dun ingericht. Bij het maken van een gelaagde share wordt 10% van de ruimte is ingericht op de lokale laag en 90% van de ruimte in de cloud is ingericht. Bijvoorbeeld, als u een volume van 1 TB hebt ingericht, 100 GB zou bevinden zich in de lokale ruimte en 900 GB zou in de cloud worden gebruikt wanneer de gegevenslagen. Dit wordt op zijn beurt betekent dat als u van de lokale ruimte op het apparaat uitvoert, kunt u een gelaagde share niet inrichten.
+   3. Een **Type** voor de share. Het type kan worden **gelaagd** of **lokaal vastgemaakt**, met lagen wordt de standaardwaarde. Voor workloads waarvoor lokale garanties, lage latenties en betere prestaties, selecteert u een **lokaal vastgemaakt** delen. Voor alle andere gegevens, selecteert u een **gelaagd** delen.
+      Een lokaal vastgemaakt share is compact ingericht en zorgt ervoor dat de primaire gegevens op de share lokaal op het apparaat blijft en wordt niet naar de cloud worden gelekt. Een gelaagde share wordt aan de andere kant dun ingericht. Bij het maken van een gelaagde share wordt 10% van de ruimte is ingericht op de lokale laag en 90% van de ruimte in de cloud is ingericht. Bijvoorbeeld, als u een volume van 1 TB hebt ingericht, 100 GB zou bevinden zich in de lokale ruimte en 900 GB zou in de cloud worden gebruikt wanneer de gegevenslagen. Dit wordt op zijn beurt betekent dat als u van de lokale ruimte op het apparaat uitvoert, kunt u een gelaagde share niet inrichten.
    
-    4. In de **standaard volledige machtigingen ingesteld op** veld, de machtigingen toewijzen aan de gebruiker of de groep die toegang heeft tot deze share. Geef de naam van de gebruiker of de gebruikersgroep in *john@contoso.com* indeling. U wordt aangeraden dat u een gebruikersgroep (in plaats van één gebruiker) gebruiken om toe te staan van beheerdersbevoegdheden voor toegang tot deze shares. Als u de bevoegdheden hier hebt toegewezen, kunt u Verkenner gebruiken om de bevoegdheden te wijzigen.
+   4. In de **standaard volledige machtigingen ingesteld op** veld, de machtigingen toewijzen aan de gebruiker of de groep die toegang heeft tot deze share. Geef de naam van de gebruiker of de gebruikersgroep in *john\@contoso.com* indeling. U wordt aangeraden dat u een gebruikersgroep (in plaats van één gebruiker) gebruiken om toe te staan van beheerdersbevoegdheden voor toegang tot deze shares. Als u de bevoegdheden hier hebt toegewezen, kunt u Verkenner gebruiken om de bevoegdheden te wijzigen.
    
-    5. Klik op **toevoegen** om de share te maken. 
+   5. Klik op **toevoegen** om de share te maken. 
     
-        ![Een share toevoegen](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Een share toevoegen](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
-        U ontvangt een melding als wordt begonnen met het maken van de share.
+       U ontvangt een melding als wordt begonnen met het maken van de share.
    
-        ![Een share toevoegen](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Een share toevoegen](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
-    Nadat de share is gemaakt met de opgegeven instellingen, de **Shares** blade wordt bijgewerkt om de nieuwe share weer te geven. Controle- en back-up zijn standaard ingeschakeld voor de share.
+      Nadat de share is gemaakt met de opgegeven instellingen, de **Shares** blade wordt bijgewerkt om de nieuwe share weer te geven. Controle- en back-up zijn standaard ingeschakeld voor de share.
    
-    ![Een share toevoegen](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Een share toevoegen](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>Stap 4: Verbinding maken met de share
 U moet nu verbinding maken met een of meer shares die u in de vorige stap hebt gemaakt. Voer deze stappen uit op uw Windows Server-host die is verbonden met uw StorSimple Virtual Array.

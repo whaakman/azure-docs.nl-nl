@@ -3,20 +3,20 @@ title: Migratie-scenario databasestatus | Microsoft Docs
 description: Meer informatie over de status van de migratie-scenario's ondersteund door de Azure Database Migration Service.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: fea50b896c769587b21b8a4e2ce8c585d7aee8c4
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b07f36055f9c0690450e8d4ab5abacb8c84d9bf2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791559"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182537"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Status van het migratiescenario's ondersteund door de Azure Database Migration Service
 Azure Database Migration Service is ontworpen ter ondersteuning van verschillende migratiescenario's (bron-/ doelparen) voor zowel offline (eenmalig) en online (doorlopende synchronisatie). De dekking scenario is geleverd door de Azure Database Migration Service wordt uitgebreid na verloop van tijd. Nieuwe scenario's er worden regelmatig toegevoegd. In dit artikel geeft de migratiescenario's die momenteel worden ondersteund door de Azure Database Migration Service en de status (privé [of beperkte] Preview, Public Preview of algemeen beschikbaar) of elk scenario.

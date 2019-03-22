@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 22f9daedf1438af30006bce48826d842942309ea
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 35ac227bd420b614525d468f2d3332a2a02b5388
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659997"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111086"
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Gegevens kopiëren van Azure Database for PostgreSQL met behulp van Azure Data Factory
 
@@ -48,7 +48,7 @@ De volgende eigenschappen worden ondersteund voor Azure Database voor PostgreSQL
 Een gebruikelijke verbindingsreeks is `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Meer eigenschappen die u per uw situatie instellen kunt:
 
 | Eigenschap | Description | Opties | Vereist |
-|:--- |:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |:--- |
 | EncryptionMethod (EM)| De methode voor het stuurprogramma wordt gebruikt voor het versleutelen van gegevens die worden verzonden tussen het stuurprogramma en de database-server. Bijvoorbeeld `ValidateServerCertificate=<0/1/6>;`| 0 (geen versleuteling) **(standaard)** / 1 (SSL) / 6 (RequestSSL) | Nee |
 | ValidateServerCertificate (VSC) | Hiermee bepaalt u of het certificaat dat door de database-server wordt verzonden wanneer de SSL-versleuteling is ingeschakeld wordt gevalideerd door het stuurprogramma (versleutelingsmethode = 1). Bijvoorbeeld `ValidateServerCertificate=<0/1>;`| 0 (uitgeschakeld) **(standaard)** / 1 (ingeschakeld) | Nee |
 

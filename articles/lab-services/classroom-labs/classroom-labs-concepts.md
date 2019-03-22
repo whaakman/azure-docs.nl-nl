@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: f0f45e50fba4587e604add937ed45fc78228d44f
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 82f9d7090d7283e0b00b36e0928fffb3395ca4c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960238"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102632"
 ---
 # <a name="classroom-labs-concepts"></a>Concepten van leslokaallabs
 De volgende lijst bevat belangrijke concepten voor Lab-Services en definities:
@@ -26,7 +26,7 @@ De volgende lijst bevat belangrijke concepten voor Lab-Services en definities:
 ## <a name="quota"></a>Quota
 Quotum is de tijdslimiet (in uren) die een docent kunt instellen voor een student een lab-virtuele machine gebruiken. Het kan worden ingesteld op 0, onbeperkt of een bepaald aantal uren. Als het quotum is ingesteld op 0, kunt een student de virtuele machine alleen gebruiken als een planning wordt uitgevoerd of als een docent handmatig op de virtuele machine voor de studenten wordt.
  
-##<a name="schedules"></a>Planningen
+## <a name="schedules"></a>Planningen
 Schema's zijn de time-sleuven (één keer of terugkerende) die een docent kunt maken voor de klasse. Alle virtuele machines in het lab worden automatisch gestart aan het begin aan de planning en ze gestopt zijn aan het einde van de planning. Quotum uur worden niet gebruikt wanneer een schema wordt uitgevoerd.
 
 ## <a name="template-virtual-machine"></a>Sjabloon voor virtuele machine

@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860615"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Bouw geavanceerde schema's en herhalingen voor taken in Azure Scheduler
 
@@ -65,13 +65,13 @@ Deze tabel bevat een overzicht op hoog niveau voor de belangrijkste JSON-element
 
 | Element | Vereist | Description | 
 |---------|----------|-------------|
-| **startTime** | Nee | Een datum/tijd-tekenreeks-waarde in [ISO 8601-notatie](http://en.wikipedia.org/wiki/ISO_8601) die aangeeft wanneer de taak eerst wordt gestart in een eenvoudige planning. <p>In complexe planningen begint de taak niet eerder dan **startTime**. | 
+| **startTime** | Nee | Een datum/tijd-tekenreeks-waarde in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601) die aangeeft wanneer de taak eerst wordt gestart in een eenvoudige planning. <p>In complexe planningen begint de taak niet eerder dan **startTime**. | 
 | **recurrence** | Nee | Het terugkeerpatroon van de regels voor wanneer de taak wordt uitgevoerd. De **terugkeerpatroon** object ondersteunt deze elementen: **frequentie**, **interval**, **planning**, **aantal**, en **endTime**. <p>Als u de **terugkeerpatroon** -element, moet u ook gebruiken de **frequentie** -element, terwijl andere **terugkeerpatroon** elementen zijn optioneel. |
 | **frequency** | Ja, wanneer u **terugkeerpatroon** | De tijdseenheid tussen exemplaren en ondersteuning biedt voor deze waarden: 'Minuut', 'Uur', 'Dag', 'Week', 'Month' en 'Year' | 
 | **interval** | Nee | Een positief geheel getal dat het aantal tijdseenheden tussen exemplaren bepaalt op basis van **frequentie**. <p>Bijvoorbeeld, als **interval** is 10 en **frequentie** ' week ', de taak elke 10 weken uitgevoerd. <p>Hier is het hoogste aantal intervallen voor elke frequentie: <p>-18 maanden <br>-78 weken <br>-548 dagen <br>-Voor uren en minuten, het bereik is 1 < = <*interval*>< = 1000. | 
 | **schedule** | Nee | Wijzigingen definieert voor het terugkeerpatroon op basis van de opgegeven minuut-merken uur-markeringen, dagen van de week en dagen van de maand | 
 | **count** | Nee | Een positief geheel getal waarmee het aantal keren dat de taak wordt uitgevoerd voordat u klaar bent. <p>Bijvoorbeeld, wanneer een dagelijkse taak heeft **aantal** ingesteld op 7 en de begindatum is maandag, de taak is uitgevoerd op zondag. Als de begindatum al is gepasseerd, wordt de eerste keer uitvoert berekend vanaf het moment dat het maken. <p>Zonder **endTime** of **aantal**, de taak oneindig wordt uitgevoerd. U kunt de beide gebruiken **aantal** en **endTime** in dezelfde taak, maar de regel die klaar is met het eerst wordt herkend. | 
-| **endTime** | Nee | De waarde voor een datum of datum/tijd-tekenreeks in [ISO 8601-notatie](http://en.wikipedia.org/wiki/ISO_8601) die aangeeft wanneer de taak stopt uitgevoerd. U kunt een waarde instellen voor **endTime** die zich in het verleden. <p>Zonder **endTime** of **aantal**, de taak oneindig wordt uitgevoerd. U kunt de beide gebruiken **aantal** en **endTime** in dezelfde taak, maar de regel die klaar is met het eerst wordt herkend. |
+| **endTime** | Nee | De waarde voor een datum of datum/tijd-tekenreeks in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601) die aangeeft wanneer de taak stopt uitgevoerd. U kunt een waarde instellen voor **endTime** die zich in het verleden. <p>Zonder **endTime** of **aantal**, de taak oneindig wordt uitgevoerd. U kunt de beide gebruiken **aantal** en **endTime** in dezelfde taak, maar de regel die klaar is met het eerst wordt herkend. |
 |||| 
 
 Deze JSON-schema worden beschreven, bijvoorbeeld voor een eenvoudige planning en het terugkeerpatroon voor een taak: 
@@ -94,9 +94,9 @@ Deze JSON-schema worden beschreven, bijvoorbeeld voor een eenvoudige planning en
 
 *Datums en datum-/ tijdwaarden*
 
-* Datums in de Scheduler-taken alleen de datum en volg de [ISO 8601-specificatie](http://en.wikipedia.org/wiki/ISO_8601).
+* Datums in de Scheduler-taken alleen de datum en volg de [ISO 8601-specificatie](https://en.wikipedia.org/wiki/ISO_8601).
 
-* En tijden in Scheduler-taken omvatten zowel datum en tijd, volgt u de [ISO 8601-specificatie](http://en.wikipedia.org/wiki/ISO_8601), en wordt ervan uitgegaan dat UTC wanneer er geen UTC-offset is opgegeven. 
+* En tijden in Scheduler-taken omvatten zowel datum en tijd, volgt u de [ISO 8601-specificatie](https://en.wikipedia.org/wiki/ISO_8601), en wordt ervan uitgegaan dat UTC wanneer er geen UTC-offset is opgegeven. 
 
 Zie voor meer informatie, [concepten, terminologie en entiteiten](../scheduler/scheduler-concepts-terms.md).
 

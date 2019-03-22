@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 84403729d6d31ef9dea82b228a1c21bfb847b0ce
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f3a0651d3641a547722528fb33f688cce1913e6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453436"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886640"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Periodieke back-up en herstel in Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Service Fabric biedt een set API's voor het bereiken van de volgende functionali
 ## <a name="prerequisites"></a>Vereisten
 * Service Fabric-cluster met Fabric versie 6.2 en hoger. Het cluster moet worden ingesteld op Windows Server. Verwijzen naar dit [artikel](service-fabric-cluster-creation-for-windows-server.md) voor stappen om vereiste pakket te downloaden.
 * X.509-certificaat voor het versleutelen van geheimen die nodig zijn voor het verbinding maken met opslag voor het opslaan van back-ups. Raadpleeg [artikel](service-fabric-windows-cluster-x509-security.md) te weten hoe u aan te schaffen of te maken van een zelfondertekend X.509-certificaat.
-* Betrouwbare Stateful van service Fabric-toepassing die is gebouwd met behulp van Service Fabric SDK versie 3.0 of hoger. Voor toepassingen die gericht is op .net Core 2.0, toepassing moet worden gemaakt met behulp van Service Fabric SDK versie 3.1 of hoger.
+* Betrouwbare Stateful van service Fabric-toepassing die is gebouwd met behulp van Service Fabric SDK versie 3.0 of hoger. Voor toepassingen die gericht is op .NET Core 2.0, toepassing moet worden gemaakt met behulp van Service Fabric SDK versie 3.1 of hoger.
 
 ## <a name="enabling-backup-and-restore-service"></a>Back-up en herstel-service inschakelen
 U moet eerst om in te schakelen de _back-up en herstellen van service_ in uw cluster. De sjabloon ophalen voor het cluster dat u wilt implementeren. U kunt de [-voorbeeldsjablonen](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples). Schakel de _back-up en herstellen van service_ met de volgende stappen uit:

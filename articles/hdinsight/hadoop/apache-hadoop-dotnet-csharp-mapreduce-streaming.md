@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 130ca849b39336637f53b32043874b5d037a8f0d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 09b652b236e1fbe68d93298f0f8793854e411aad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342920"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095667"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Gebruik C# met MapReduce, streaming van Apache Hadoop in HDInsight
 
@@ -161,13 +161,13 @@ Na het maken van de toepassing, bouw het voor het produceren van de `/bin/Debug/
 
 5. Als u wilt het .exe-bestanden uploaden, moet u een van de volgende methoden gebruiken:
 
-    * Als een __Azure Storage-Account__, klik op het uploadpictogram en blader vervolgens naar de **bin\debug** map voor de **mapper** project. Selecteer ten slotte de **mapper.exe** -bestand en klik op **Ok**.
+   * Als een __Azure Storage-Account__, klik op het uploadpictogram en blader vervolgens naar de **bin\debug** map voor de **mapper** project. Selecteer ten slotte de **mapper.exe** -bestand en klik op **Ok**.
 
-        ![pictogram uploaden](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
+       ![pictogram uploaden](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
     
-    * Als u __Azure Data Lake Storage__, met de rechtermuisknop op een leeg gebied in de lijst en selecteer vervolgens __uploaden__. Selecteer ten slotte de **mapper.exe** -bestand en klik op **Open**.
+   * Als u __Azure Data Lake Storage__, met de rechtermuisknop op een leeg gebied in de lijst en selecteer vervolgens __uploaden__. Selecteer ten slotte de **mapper.exe** -bestand en klik op **Open**.
 
-    Zodra de __mapper.exe__ uploaden is voltooid, herhaalt u het uploadproces voor de __reducer.exe__ bestand.
+     Zodra de __mapper.exe__ uploaden is voltooid, herhaalt u het uploadproces voor de __reducer.exe__ bestand.
 
 ## <a name="run-a-job-using-an-ssh-session"></a>Een taak uitvoeren: Met behulp van een SSH-sessie
 
@@ -175,32 +175,32 @@ Na het maken van de toepassing, bouw het voor het produceren van de `/bin/Debug/
 
 2. Gebruik een van de volgende opdrachten om de MapReduce-taak te starten:
 
-    * Als u __Data Lake Storage Gen2__ als standaardopslag:
+   * Als u __Data Lake Storage Gen2__ als standaardopslag:
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
 
-    * Als u __Data Lake Storage Gen1__ als standaardopslag:
+   * Als u __Data Lake Storage Gen1__ als standaardopslag:
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
     
-    * Als u __Azure Storage__ als standaardopslag:
+   * Als u __Azure Storage__ als standaardopslag:
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
 
-    De volgende lijst beschrijft wat elke parameter doet:
+     De volgende lijst beschrijft wat elke parameter doet:
 
-    * `hadoop-streaming.jar`: Het jar-bestand met de functionaliteit voor streaming MapReduce.
-    * `-files`: Voegt de `mapper.exe` en `reducer.exe` bestanden naar deze taak. De `abfs:///`,`adl:///` of `wasb:///` voordat elk bestand het pad naar de hoofdmap van de standaardopslag voor het cluster is.
-    * `-mapper`: Hiermee geeft u op welk bestand het toewijzen van de implementeert.
-    * `-reducer`: Hiermee geeft u op welk bestand implementeert de reducer.
-    * `-input`: De ingevoerde gegevens.
-    * `-output`: De uitvoermap.
+   * `hadoop-streaming.jar`: Het jar-bestand met de functionaliteit voor streaming MapReduce.
+   * `-files`: Voegt de `mapper.exe` en `reducer.exe` bestanden naar deze taak. De `abfs:///`,`adl:///` of `wasb:///` voordat elk bestand het pad naar de hoofdmap van de standaardopslag voor het cluster is.
+   * `-mapper`: Hiermee geeft u op welk bestand het toewijzen van de implementeert.
+   * `-reducer`: Hiermee geeft u op welk bestand implementeert de reducer.
+   * `-input`: De ingevoerde gegevens.
+   * `-output`: De uitvoermap.
 
 3. Nadat de MapReduce-taak is voltooid, gebruikt u de volgende om de resultaten weer te geven:
 

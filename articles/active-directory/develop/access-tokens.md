@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 03/15/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45275a02467ab5e8592399e4eeae7f74a582c87a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e960e06cc51cc4540a8360cefe90ce68fc7e1f17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009919"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-toegangstokens
 
@@ -59,7 +59,7 @@ Dit token v2.0 in weergeven [JWT.ms](https://jwt.ms/#access_token=eyJ0eXAiOiJKV1
 
 ## <a name="claims-in-access-tokens"></a>Claims in toegangstokens
 
-JWTs worden onderverdeeld in drie onderdelen: 
+JWTs worden onderverdeeld in drie onderdelen:
 
 * **Koptekst** -vindt u informatie over hoe u [valideren van het token](#validating-tokens) , waaronder informatie over het type token en hoe het is ondertekend.
 * **Nettolading** -bevat alle belangrijke gegevens over de gebruiker of de app die u probeert om aan te roepen uw service.
@@ -88,7 +88,7 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app moet
 |-----|--------|-------------|
 | `aud` | Tekenreeks, een URI van de App-ID | Hiermee geeft u de beoogde ontvanger van het token. In de toegangstokens te geven is de doelgroep van uw app toepassings-ID, toegewezen aan uw app in Azure portal. Uw app moet deze waarde te valideren en het token te negeren als de waarde komt niet overeen met. |
 | `iss` | Tekenreeks, een STS-URI | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token en de Azure AD-tenant waarin de gebruiker is geverifieerd. Als het token dat is uitgegeven, een v2.0-token is (Zie de `ver` claim), de URI eindigt `/v2.0`. De GUID die wordt aangegeven dat de gebruiker een consument gebruiker vanuit een Microsoft-account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Uw app moet de GUID-gedeelte van de claim gebruiken om het beperken van de set van tenants die kunnen zich aanmelden bij de app, indien van toepassing. |
-|`idp`|Tekenreeks, meestal een STS-URI | Registreert de identiteitsprovider waarmee het onderwerp van het token is geverifieerd. Deze waarde is gelijk aan de waarde van de claim van verlener, tenzij het gebruikersaccount niet in dezelfde tenant als de verlener - gasten, bijvoorbeeld. Als de claim is niet aanwezig is, betekent dit dat de waarde van `iss` in plaats daarvan kan worden gebruikt.  Voor persoonlijke accounts worden gebruikt in de context van een organisatie (bijvoorbeeld een persoonlijk account is uitgenodigd voor een Azure AD-tenant), de `idp` claim mogelijk 'live.com' of een STS URI met de tenant van Microsoft-account `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
+|`idp`| Tekenreeks, meestal een STS-URI | Registreert de identiteitsprovider waarmee het onderwerp van het token is geverifieerd. Deze waarde is gelijk aan de waarde van de claim van verlener, tenzij het gebruikersaccount niet in dezelfde tenant als de verlener - gasten, bijvoorbeeld. Als de claim is niet aanwezig is, betekent dit dat de waarde van `iss` in plaats daarvan kan worden gebruikt.  Voor persoonlijke accounts worden gebruikt in de context van een organisatie (bijvoorbeeld een persoonlijk account is uitgenodigd voor een Azure AD-tenant), de `idp` claim mogelijk 'live.com' of een STS URI met de tenant van Microsoft-account `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
 | `iat` | int, een UNIX-timestamp | "Verleend aan" geeft aan wanneer de verificatie voor dit token is opgetreden. |
 | `nbf` | int, een UNIX-timestamp | De claim 'nbf"(niet voor) geeft de tijd waarbinnen de JWT moet niet worden geaccepteerd voor verwerking. |
 | `exp` | int, een UNIX-timestamp | De claim 'exp' (verlooptijd) identificeert de verlooptijd op of na die de JWT moet niet worden geaccepteerd voor verwerking. Het is belangrijk te weten dat een resource het token voordat deze tijd, afwijzen kan zoals wanneer een wijziging in de verificatie vereist is of intrekken van een token is gedetecteerd. |
@@ -101,18 +101,18 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app moet
 | `azpacr` | "0", "1" of "2" | Alleen aanwezig in v2.0-tokens. Geeft aan hoe de client is geverifieerd. De waarde is voor een openbare client "0". Als de client-ID en het clientgeheim worden gebruikt, is de waarde "1". Als u een clientcertificaat is gebruikt voor verificatie, is de waarde "2". |
 | `groups` | JSON-matrix van GUID 's | Object-id's die staan voor groepslidmaatschappen van de certificaathouder biedt. Deze waarden zijn unieke (Zie de Object-ID) en veilig kunnen worden gebruikt voor het beheren van toegang, zoals het afdwingen van machtiging voor toegang tot een resource. De groepen die zijn opgenomen in de claim van groepen op basis van per toepassing worden geconfigureerd via de `groupMembershipClaims` eigenschap van de [toepassingsmanifest](reference-app-manifest.md). Een null-waarde wordt alle groepen uitsluit, een waarde van 'Toewijzingsmodule' bevat alleen lidmaatschappen voor Active Directory-beveiligingsgroepen, en de waarde 'Alle' wordt opgenomen beveiligingsgroepen en distributielijsten van Office 365. <br><br>Zie de `hasgroups` claim hieronder voor meer informatie over het gebruik van de `groups` claim met de impliciete toekenning. <br>Voor andere stromen als het nummer van de gebruiker zich in groepen gaat via een limiet (150 voor SAML, 200 voor JWT), klikt u vervolgens een overschrijding claim toegevoegd aan de claim bronnen aan te wijzen aan de Graph-eindpunt met de lijst met groepen voor de gebruiker. |
 | `hasgroups` | Booleaans | Indien aanwezig, altijd `true`, die aangeeft van de gebruiker is in ten minste één groep. Gebruikt in plaats van de `groups` claim voor JWTs in impliciete goedkeuring voor stromen als de volledige groepen claim gelden de URI-fragment buiten de URL-lengte-limieten (momenteel abonnement van 6 of meer groepen). Geeft aan dat de client de grafiek gebruiken moet om te bepalen van de gebruiker groepen (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
-| `groups:src1` | JSON-object | Token aanvragen die niet beperkt de lengte zijn (Zie `hasgroups` hierboven), maar nog steeds te groot is voor het token, een koppeling naar de volledige lijst van de gebruiker worden opgenomen. Voor JWTs als een gedistribueerde claim, voor SAML als een nieuwe claim in plaats van de `groups` claim. <br><br>**Voorbeeldwaarde JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
+| `groups:src1` | JSON-object | Token aanvragen die niet beperkt de lengte zijn (Zie `hasgroups` hierboven), maar nog steeds te groot is voor het token, een koppeling naar de volledige lijst van de gebruiker worden opgenomen. Voor JWTs als een gedistribueerde claim, voor SAML als een nieuwe claim in plaats van de `groups` claim. <br><br>**Voorbeeldwaarde JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
 | `preferred_username` | String | De primaire gebruikersnaam die de gebruiker aangeeft. Het is mogelijk een e-mailadres, telefoonnummer of een algemene gebruikersnaam zonder een indeling die is opgegeven. De waarde ervan is veranderlijke en na verloop van tijd veranderen. Omdat dit veranderlijke, moet deze waarde niet worden gebruikt om autorisatie beslissingen te nemen.  Het kan worden gebruikt voor de gebruikersnaam hints echter. De `profile` bereik is vereist voor het ontvangen van deze claim. |
 | `name` | String | Biedt een leesbare waarde die aangeeft in het onderwerp van het token. De waarde kan niet worden gegarandeerd uniek te zijn, is het veranderlijke en is ontworpen om alleen worden gebruikt voor weer te geven. De `profile` bereik is vereist voor het ontvangen van deze claim. |
 | `oid` | Tekenreeks, een GUID | De onveranderbare id voor een object in de Microsoft identity-platform, in dit geval een gebruikersaccount. Het kan ook worden gebruikt voor het uitvoeren van controles autorisatie veilig en als een sleutel in databasetabellen. Deze ID is uniek voor de gebruiker voor toepassingen: twee verschillende toepassingen die zich in dezelfde gebruiker ontvangt de dezelfde waarde in de `oid` claim. Dus `oid` kunnen worden gebruikt bij het maken van query's voor Microsoft online services, zoals de Microsoft Graph. De Microsoft Graph retourneert deze ID als de `id` eigenschap voor een bepaalde gebruikersaccount. Omdat de `oid` kunnen meerdere apps correleren van gebruikers, de `profile` bereik is vereist voor het ontvangen van deze claim. Houd er rekening mee dat als een enkele gebruiker in meerdere tenants bestaat, de gebruiker een ander object-ID in elke tenant bevat: deze worden beschouwd als andere accounts, zelfs als de gebruiker meldt zich aan bij elk account met dezelfde referenties. |
 | `rh` | Opaque String | Een interne claim die door Azure gebruikt voor het valideren van tokens. Resources moeten deze claim niet gebruiken. |
 | `scp` | Tekenreeks, een spatie gescheiden lijst met scopes | De set met scopes die worden weergegeven door uw toepassing waarvoor de clienttoepassing heeft aangevraagd (en ontvangen) toestemming geven. Uw app moet controleren of deze bereiken geldige die door uw app beschikbaar gesteld zijn en autorisatiebeslissingen te op basis van de waarde van deze bereiken nemen. Alleen opgenomen voor [gebruikerstokens](#user-and-application-tokens). |
-| `roles`| Tekenreeks, een spatie gescheiden lijst met machtigingen | De set met machtigingen die worden weergegeven door uw toepassing die de aanvragende toepassing heeft zijn gemachtigd om aan te roepen. Dit wordt gebruikt tijdens de [-clientreferenties](v1-oauth2-client-creds-grant-flow.md) flow in plaats van de gebruiker bereiken en is alleen aanwezig in [toepassing tokens](#user-and-application-tokens). |
+| `roles` | Tekenreeks, een spatie gescheiden lijst met machtigingen | De set met machtigingen die worden weergegeven door uw toepassing die de aanvragende toepassing heeft zijn gemachtigd om aan te roepen. Dit wordt gebruikt tijdens de [-clientreferenties](v1-oauth2-client-creds-grant-flow.md) flow in plaats van de gebruiker bereiken en is alleen aanwezig in [toepassing tokens](#user-and-application-tokens). |
 | `sub` | Tekenreeks, een GUID | De principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een app. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Deze controles uit te voeren autorisatie veilig, zoals wanneer het token wordt gebruikt voor toegang tot een bron kan worden gebruikt en kan worden gebruikt als een sleutel in databasetabellen. Omdat het onderwerp altijd is aanwezig zijn in de tokens dat problemen met Azure AD, wordt u aangeraden deze waarde in een autorisatiesysteem voor algemeen gebruik. Het onderwerp is echter een pairwise id - het is uniek is voor een bepaalde toepassing-ID. Als een enkele gebruiker zich in twee verschillende apps met behulp van de twee andere client-id's, krijgen die apps dus twee verschillende waarden voor de claim onderwerp. Dit kan wel of niet kan worden gewenst is afhankelijk van uw architectuur en privacy-vereisten. |
 | `tid` | Tekenreeks, een GUID | Hiermee geeft u de Azure AD-tenant die door de gebruiker uit. De GUID is voor werk- en schoolaccounts accounts, de onveranderbare tenant-ID van de organisatie die de gebruiker behoort. De waarde voor persoonlijke accounts heeft `9188040d-6c67-4c5b-b112-36a304b66dad`. De `profile` bereik is vereist voor het ontvangen van deze claim. |
 | `unique_name` | String | Alleen aanwezig in v1.0 tokens. Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. Deze waarde is niet noodzakelijkerwijs uniek zijn binnen een tenant en mag alleen worden gebruikt voor weer te geven. |
 | `uti` | Opaque String | Een interne claim die door Azure gebruikt voor het valideren van tokens. Resources moeten deze claim niet gebruiken. |
-| `ver` | Tekenreeks, 1.0 of 2.0 | Geeft de versie van het toegangstoken. |
+| `ver` | Tekenreeks, ofwel `1.0` of `2.0` | Geeft de versie van het toegangstoken. |
 
 #### <a name="v10-basic-claims"></a>basic claims V1.0
 
@@ -121,7 +121,7 @@ De volgende claims worden opgenomen in v1.0 tokens indien van toepassing, maar w
 | Claim | Indeling | Description |
 |-----|--------|-------------|
 | `ipaddr`| String | De gebruiker is geverifieerd vanaf het IP-adres. |
-| `onprem_sid`| Tekenreeks, in [SID-indeling](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | In gevallen waar de gebruiker een on-premises-verificatie heeft, biedt deze claim hun SID. U kunt `onprem_sid` voor autorisatie voor oudere toepassingen. |
+| `onprem_sid`| Tekenreeks, in [SID-indeling](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | In gevallen waar de gebruiker een on-premises-verificatie heeft, biedt deze claim hun SID. U kunt `onprem_sid` voor autorisatie voor oudere toepassingen.|
 | `pwd_exp`| int, een UNIX-timestamp | Geeft aan wanneer het wachtwoord van de gebruiker is verlopen. |
 | `pwd_url`| String | Een URL waar gebruikers hun wachtwoord opnieuw in te kunnen worden verzonden. |
 | `in_corp`|booleaans | Signalen als de client is aangemeld vanuit het bedrijfsnetwerk bevinden. Als dat niet het geval is, is de claim niet opgenomen. |
@@ -132,7 +132,7 @@ De volgende claims worden opgenomen in v1.0 tokens indien van toepassing, maar w
 
 #### <a name="the-amr-claim"></a>De `amr` claim
 
-Microsoft-identiteiten kunnen verifiëren in tal van manieren, die mogelijk relevant zijn voor uw toepassing. De `amr` claim is een matrix met meerdere items zoals bevatten kan `["mfa", "rsa", "pwd"]`, voor een verificatie met een wachtwoord en de Authenticator-app gebruikt. 
+Microsoft-identiteiten kunnen verifiëren in tal van manieren, die mogelijk relevant zijn voor uw toepassing. De `amr` claim is een matrix met meerdere items zoals bevatten kan `["mfa", "rsa", "pwd"]`, voor een verificatie met een wachtwoord en de Authenticator-app gebruikt.
 
 | Value | Description |
 |-----|-------------|
@@ -203,7 +203,7 @@ Deze stap worden bepaald door de bedrijfslogica van uw toepassing, hieronder enk
 * Controleer of de `tid` komt overeen met een tenant die is toegestaan voor het aanroepen van uw API.
 * Gebruik de `acr` claim om te controleren of de gebruiker MFA is uitgevoerd. Dit moet worden afgedwongen met behulp van [voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Als u hebt aangevraagd de `roles` of `groups` claims in het toegangstoken controleren of de gebruiker in de groep mag deze actie uit te voeren.
-  * Voor tokens opgehaald met behulp van de impliciete stroom, waarschijnlijk moet u om op te vragen de [Microsoft Graph](https://developer.microsoft.com/graph/) voor deze gegevens, zoals deze is vaak te groot voor in het token. 
+  * Voor tokens opgehaald met behulp van de impliciete stroom, waarschijnlijk moet u om op te vragen de [Microsoft Graph](https://developer.microsoft.com/graph/) voor deze gegevens, zoals deze is vaak te groot voor in het token.
 
 ## <a name="user-and-application-tokens"></a>Gebruikers en toepassingen-tokens
 
@@ -226,14 +226,14 @@ Vernieuwen van tokens kunnen worden ongeldig gemaakt of ingetrokken op elk gewen
 
 ### <a name="revocation"></a>Intrekken
 
-|   | Cookie op basis van wachtwoorden | Token op basis van wachtwoorden | Niet-wachtwoord gebaseerde cookie | Niet-password-based token | Vertrouwelijke client-token| 
-|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
-| Wachtwoord verloopt | Blijft actief| Blijft actief | Blijft actief | Blijft actief | Blijft actief |
+|   | Cookie op basis van wachtwoorden | Token op basis van wachtwoorden | Niet-wachtwoord gebaseerde cookie | Niet-password-based token | Vertrouwelijke client-token |
+|---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
+| Wachtwoord verloopt | Blijft actief | Blijft actief | Blijft actief | Blijft actief | Blijft actief |
 | Wachtwoord gewijzigd door gebruiker | Ingetrokken | Ingetrokken | Blijft actief | Blijft actief | Blijft actief |
 | Gebruiker heeft SSPR | Ingetrokken | Ingetrokken | Blijft actief | Blijft actief | Blijft actief |
 | Beheerderswachtwoord opnieuw instellen van wachtwoorden | Ingetrokken | Ingetrokken | Blijft actief | Blijft actief | Blijft actief |
-| Gebruiker trekt u hun vernieuwingstokens [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Ingetrokken | Ingetrokken |Ingetrokken | Ingetrokken |Ingetrokken | Ingetrokken |
-| Beheerder alle vernieuwingstokens ingetrokken voor de tenant [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Ingetrokken | Ingetrokken |Ingetrokken | Ingetrokken |Ingetrokken | Ingetrokken |
+| Gebruiker trekt u hun vernieuwingstokens [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Ingetrokken | Ingetrokken | Ingetrokken | Ingetrokken | Ingetrokken |
+| Beheerder alle vernieuwingstokens ingetrokken voor de tenant [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Ingetrokken | Ingetrokken |Ingetrokken | Ingetrokken | Ingetrokken |
 | [Eenmalige afmelding](v1-protocols-openid-connect-code.md#single-sign-out) op het web | Ingetrokken | Blijft actief | Ingetrokken | Blijft actief | Blijft actief |
 
 > [!NOTE]

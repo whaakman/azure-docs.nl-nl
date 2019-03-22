@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7609f3b0c04bdf74c87123f1125973219e6dda17
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567210"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012659"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Een zelfstandige één tenant-toepassing die gebruikmaakt van Azure SQL Database implementeren en verkennen
 
@@ -76,11 +76,11 @@ De app worden venues die als host gebeurtenissen fungeren gepresenteerd.  De ven
 
 1. Open de pagina gebeurtenissen voor elk van de drie tenants in afzonderlijke browsertabbladen:
 
-    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
 
-    (In elke URL vervangen &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie.)
+     (In elke URL vervangen &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie.)
 
    ![Gebeurtenissen](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
@@ -96,7 +96,7 @@ In een productieomgeving, doorgaans maakt u een CNAME-DNS-record [ *internetdome
 
 Laten we kijken enkele van de resources die zijn geïmplementeerd:
 
-1. In de [Azure-portal](http://portal.azure.com), blader naar de lijst met resourcegroepen.
+1. In de [Azure-portal](https://portal.azure.com), blader naar de lijst met resourcegroepen.
 2. Hier ziet u de resourcegroepen drie tenant.
 3. Open de **wingtip-sa-fabrikam -&lt;gebruiker&gt;**  resourcegroep, die de resources voor de implementatie van Fabrikam Jazz Club bevat.  De **fabrikamjazzclub -&lt;gebruiker&gt;**  server bevat de **fabrikamjazzclub** database.
 

@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00cde6f9d17eb44fefae10d8694a89abf51540a5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e822906a072ec8244c7108e98289482adebb5a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182051"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098675"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Ondersteuning voor meerdere domeinen voor federatie met Azure AD
 De volgende documentatie bevat richtlijnen over het gebruik van meerdere op het hoogste niveau domeinen en subdomeinen wanneer Federatie met Office 365 of Azure AD-domeinen.
@@ -69,7 +69,7 @@ Een andere dingen die `-SupportMultipleDomain` heeft is dat het zorgt ervoor dat
 
 Dus tijdens de verificatie met Azure AD of Office 365, het element IssuerUri in token van de gebruiker is gebruikt voor het vinden van het domein in Azure AD.  Als een overeenkomst kan niet worden gevonden, mislukt de verificatie.
 
-Bijvoorbeeld, als een gebruiker van het UPN is bsimon@bmcontoso.com, de IssuerUri-element in het token, problemen met AD FS wordt ingesteld op http://bmcontoso.com/adfs/services/trust. Dit element komt overeen met de Azure AD-configuratie en verificatie slaagt.
+Bijvoorbeeld, als een gebruiker van het UPN is bsimon@bmcontoso.com, de IssuerUri-element in het token, problemen met AD FS wordt ingesteld op <http://bmcontoso.com/adfs/services/trust>. Dit element komt overeen met de Azure AD-configuratie en verificatie slaagt.
 
 Hier volgt de aangepaste claimregel die deze logische implementeert:
 

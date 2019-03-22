@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: c66ce1d59cf7bd4878b2903615457b3d1dbf2ba0
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670448"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875234"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -184,13 +184,13 @@ Volg deze stappen voor het gebruik van beheerde verificatie:
 
 1. **Een groep maken in Azure AD.** De beheerde identiteit een lid van de groep maken.
     
-    1. Zoek de identiteit van de data factory beheerd vanuit de Azure-portal. Ga naar uw data factory **eigenschappen**. Kopieer de SERVICE-identiteit-ID.
+   1. Zoek de identiteit van de data factory beheerd vanuit de Azure-portal. Ga naar uw data factory **eigenschappen**. Kopieer de SERVICE-identiteit-ID.
     
-    1. Installeer de [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Meld u aan met behulp van de `Connect-AzureAD` opdracht. Voer de volgende opdrachten een groep maken en toevoegen van de beheerde identiteit als een lid.
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
-    ```
+   1. Installeer de [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Meld u aan met behulp van de `Connect-AzureAD` opdracht. Voer de volgende opdrachten een groep maken en toevoegen van de beheerde identiteit als een lid.
+      ```powershell
+      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
+      ```
     
 1. **[Een Azure Active Directory-beheerder inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-server in Azure portal als u dat nog niet hebt gedaan. De Azure AD-beheerder kan een Azure AD-gebruiker of een Azure AD-groep zijn. Als u de groep met beheerde identiteit een beheerdersrol toewijst, moet u de stappen 3 en 4 overslaan. De beheerder heeft volledige toegang tot de database.
 
@@ -582,7 +582,7 @@ BEGIN
       UPDATE SET State = source.State
   WHEN NOT MATCHED THEN
       INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category)
+      VALUES (source.ProfileID, source.State, source.Category);
 END
 ```
 
@@ -592,14 +592,11 @@ In de database, definieert het tabeltype met dezelfde naam als de **sqlWriterTab
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
     [State] [varchar](256) NOT NULL,
-    [Category] [varchar](256) NOT NULL,
+    [Category] [varchar](256) NOT NULL
 )
 ```
 
 De opgeslagen procedure-functie maakt gebruik van [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
-
->[!NOTE]
->Als u naar Money/Smallmoney-gegevenstype door aanroepen opgeslagen Procedure schrijft, kunnen waarden worden afgerond. Geef het bijbehorende gegevenstype in TVP als decimaal in plaats van geld/Smallmoney te beperken. 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>De gegevenstypetoewijzing voor Azure SQL Database
 

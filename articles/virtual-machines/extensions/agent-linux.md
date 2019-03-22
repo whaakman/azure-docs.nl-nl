@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243876"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011591"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informatie over en het gebruik van de Azure Linux Agent
 
@@ -73,18 +73,18 @@ De gegevensstroom van het platform aan de agent vindt plaats via twee kanalen:
 De volgende systemen zijn getest en bekend is dat ze werken met de Azure Linux Agent:
 
 > [!NOTE]
-> Deze lijst kan verschillen van de officiële lijst met ondersteunde systemen op het Microsoft Azure-Platform, zoals hier wordt beschreven: [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Deze lijst kan verschillen van de officiële lijst met ondersteunde systemen op het Microsoft Azure-Platform, zoals hier wordt beschreven: [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
 * CoreOS
 * CentOS 6.3+
-* Red Hat Enterprise Linux 6.7 +
-* Debian 7.0 +
-* Ubuntu 12.04 +
-* openSUSE 12.3 +
+* Red Hat Enterprise Linux 6.7+
+* Debian 7.0+
+* Ubuntu 12.04+
+* openSUSE 12.3+
 * SLES 11 SP3 +
-* Oracle Linux 6.4 +
+* Oracle Linux 6.4+
 
 Andere ondersteunde systemen:
 
@@ -93,8 +93,8 @@ Andere ondersteunde systemen:
 De Linux-agent is afhankelijk van sommige systeempakketten alleen juist werken:
 
 * Python 2.6 +
-* OpenSSL 1.0 +
-* OpenSSH 5.3 +
+* OpenSSL 1.0+
+* OpenSSH 5.3+
 * Hulpprogramma's voor bestandssysteem: sfdisk, fdisk, mkfs, gescheiden
 * Wachtwoord-hulpprogramma's: chpasswd, sudo
 * Tekst voor het verwerken van hulpprogramma's: sed, grep
@@ -108,12 +108,12 @@ Raadpleeg de documentatie in de [Azure Linux Agent-opslagplaats op GitHub](https
 
 ## <a name="command-line-options"></a>Opdrachtregelopties
 ### <a name="flags"></a>Vlaggen
-* uitgebreide: detailniveau van de opgegeven opdracht verhogen
-* afdwingen: interactieve bevestiging voor bepaalde opdrachten overslaan
+* uitgebreide: Detailniveau van de opgegeven opdracht verhogen
+* afdwingen: Interactieve bevestiging overslaan voor bepaalde opdrachten
 
 ### <a name="commands"></a>Opdrachten
-* Help: geeft een lijst van de ondersteunde opdrachten en vlaggen.
-* inrichting: poging voor opschonen van het systeem en maken deze geschikt is voor beëindiging. De volgende bewerking verwijdert:
+* Help: Bevat de ondersteunde opdrachten en vlaggen.
+* inrichting ongedaan maken: Poging voor opschonen van het systeem en maken deze geschikt is voor beëindiging. De volgende bewerking verwijdert:
   
   * Alle SSH-hostsleutels (als Provisioning.RegenerateSshHostKeyPair 'y' in het configuratiebestand is)
   * Configuratie van de naamserver in /etc/resolv.conf
@@ -126,11 +126,11 @@ Raadpleeg de documentatie in de [Azure Linux Agent-opslagplaats op GitHub](https
 > 
 > 
 
-* inrichting + gebruiker: alles in - inrichting (hierboven) wordt uitgevoerd en ook Hiermee verwijdert u de laatste ingerichte gebruikersaccount (verkregen van /var/lib/waagent) en gegevens die zijn gekoppeld. Deze parameter is bij het inrichten van een installatiekopie die eerder is ingericht op Azure, zodat deze kan worden vastgelegd en hergebruikt ongedaan maken.
-* versie: geeft de versie van waagent
+* inrichting + gebruiker: Alles wordt uitgevoerd in - inrichting (hierboven) en ook Hiermee verwijdert u de laatste ingerichte gebruikersaccount (verkregen van /var/lib/waagent) en gegevens die zijn gekoppeld. Deze parameter is bij het inrichten van een installatiekopie die eerder is ingericht op Azure, zodat deze kan worden vastgelegd en hergebruikt ongedaan maken.
+* Versie: Geeft de versie van waagent
 * serialconsole: Hiermee configureert u WORMGATEN als u wilt markeren ttyS0 (de eerste seriële poort) als de opstart-console. Dit zorgt ervoor dat de kernel wordt logboeken worden verzonden naar de seriële poort en beschikbaar gesteld voor foutopsporing.
-* daemon: waagent uitvoeren als een daemon voor het beheren van interactie met het platform. Dit argument wordt opgegeven voor waagent in het waagent init-script.
-* Start: waagent als achtergrondproces uitgevoerd
+* daemon: Waagent worden uitgevoerd als een daemon voor het beheren van interactie met het platform. Dit argument wordt opgegeven voor waagent in het waagent init-script.
+* Starten: Waagent als achtergrondproces uitgevoerd
 
 ## <a name="configuration"></a>Configuratie
 Een configuratiebestand (/ etc/waagent.conf) bepaalt de acties van waagent. Hieronder ziet u een voorbeeld-configuratiebestand:
@@ -330,7 +330,7 @@ In- of uitschakelen van automatische updates voor de doelstatus verwerken; Stand
 
 
 
-## <a name="ubuntu-cloud-images"></a>Cloud Ubuntu-installatiekopieën
+## <a name="ubuntu-cloud-images"></a>Ubuntu Cloud Images
 Gebruikmaken van Ubuntu Cloudinstallatiekopieën [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) om uit te voeren veel configuratietaken die anders zouden worden beheerd door de Azure Linux Agent. De volgende punten zijn van toepassing:
 
 * **Provisioning.Enabled** standaard ingesteld op "n" op Ubuntu Cloud afbeeldingen die cloud-init gebruiken voor het inrichtingsproces taken uitvoeren.
@@ -344,6 +344,6 @@ Gebruikmaken van Ubuntu Cloudinstallatiekopieën [cloud-init](https://launchpad.
 
 * Zie voor meer informatie de volgende bronnen voor het configureren van het koppelpunt van de resource-schijf en wisselruimte op Ubuntu Cloudinstallatiekopieën tijdens het inrichten van:
   
-  * [Ubuntu-Wiki: Wisselen partities configureren](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki: Swap-partities configureren](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Aangepaste gegevens injecteren in een virtuele Machine van Azure](../windows/classic/inject-custom-data.md)
 

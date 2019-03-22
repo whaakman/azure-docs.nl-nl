@@ -1,19 +1,19 @@
 ---
 title: Een Azure Database for MySQL-server maken en configureren met behulp van Ansible
 description: Ontdek hoe u Ansible gebruikt om een Azure Database for MySQL-server te maken en configureren
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, mysql, database
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: 85f3957af599c80c46871a126681d29dfa513431
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 63472cf9c4b6b16f74ececfb6c6e61cf5f89ff9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051013"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095395"
 ---
 # <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible"></a>Een Azure Database for MySQL-server maken en configureren met behulp van Ansible
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) is een beheerde service waarmee u MySQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. 
@@ -134,14 +134,14 @@ U kunt [MySQL downloaden](https://dev.mysql.com/downloads/) en vervolgens op uw 
 Voer de volgende opdrachten in: 
 
 1. Verbinding maken met de server met het opdrachtregelprogramma **mysql**:
-```azurecli-interactive
- mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
-```
+   ```azurecli-interactive
+   mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
+   ```
 
 2. De serverstatus bekijken:
-```sql
- mysql> status
-```
+   ```sql
+   mysql> status
+   ```
 
 Als alles goed gaat, geeft het opdrachtregelprogramma de volgende tekst weer:
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: fb976842f3ea6f5df81c795b3be775ed57798b90
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: dd60897d19ef4de7369b2b127c88e778363a387f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870942"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852262"
 ---
 # <a name="quickstart-change-model-using-c"></a>Snelstartgids: Model wijzigen met behulp van C#
 
@@ -37,7 +37,7 @@ ms.locfileid: "55870942"
 
 ## <a name="create-quickstart-code"></a>Snelstartcode maken 
 
-Maak in Visual Studio een nieuwe **Windows Classic Desktop Console**-app met behulp van het .Net Framework. 
+In Visual Studio, maak een nieuwe **Windows Classic Desktop Console** app met behulp van .NET Framework. 
 
 ![Visual Studio-projecttype](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: 563b54fe9b4ab65cd8d3008e9d3955618194031f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985985"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899543"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Zelfstudie: Met behulp van Azure Portal taakverdeling voor virtuele machines uitvoeren binnen een beschikbaarheidszone met Standard Load Balancer
 
@@ -41,7 +41,7 @@ Als u dat liever wilt, kunt u [Azure CLI](load-balancer-standard-public-zonal-cl
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-public-standard-load-balancer-instance"></a>Een openbare Standard Load Balancer-instantie maken
 
@@ -50,20 +50,20 @@ Standard Load Balancer biedt alleen ondersteuning voor een standaard, openbaar I
 1. Selecteer **Een resource maken** > **Netwerken** > **Load Balancer** linksboven in het scherm.
 2. Voer op het tabblad **Basis** van de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Controleren + maken**:
 
-    | Instelling                 | Waarde                                              |
+    | Instelling                 | Value                                              |
     | ---                     | ---                                                |
     | Abonnement               | Selecteer uw abonnement.    |    
     | Resourcegroep         | Selecteer **Nieuwe maken** en typ *MyResourceGroupZLB* in het tekstvak.|
-    | Naam                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Regio         | Selecteer **Europa - west**.                                        |
     | Type          | Selecteer **Openbaar**.                                        |
     | SKU           | selecteer **Standaard**.                          |
     | Openbaar IP-adres | Selecteer **Nieuw maken**. |
-    | Naam openbare IP-adres              | Typ *myPublicIP* in het tekstvak.   |
+    | Naam openbaar IP-adres              | Typ *myPublicIP* in het tekstvak.   |
     |Beschikbaarheidszone| Selecteer **1**.    |
 3. Klik op het tabblad **Controleren + Maken** op **Maken**.   
 
- ## <a name="create-backend-servers"></a>Back-endservers maken
+   ## <a name="create-backend-servers"></a>Back-endservers maken
 
 In deze sectie gaat u een virtueel netwerk maken. U gaat ook twee virtuele machines maken in dezelfde zone (namelijk in zone 1) voor de regio die aan de back-endpool van de load balancer wordt toegevoegd. Vervolgens installeert u IIS op de virtuele machines om de zone-redundante Load Balancer te testen. Als u dit op één virtuele machine mislukt, mislukt de statustest voor de virtuele machine in dezelfde regio. Verkeer blijft worden aangeleverd door andere virtuele machines binnen dezelfde regio.
 
@@ -80,8 +80,8 @@ In deze sectie gaat u een virtueel netwerk maken. U gaat ook twee virtuele machi
 
 1. Selecteer **Een resource maken** linksboven in het scherm. Voer in het zoekvak **Netwerkbeveiligingsgroep** in. Selecteer **Maken** op de pagina Netwerkbeveiligingsgroep.
 2. Voer deze waarden in op de pagina **Netwerkbeveiligingsgroep** maken:
-    - **myNetworkSecurityGroup** als naam van de netwerkbeveiligingsgroep.
-    - **myResourceGroupLBAZ** als naam van de bestaande resourcegroep.
+   - **myNetworkSecurityGroup** als naam van de netwerkbeveiligingsgroep.
+   - **myResourceGroupLBAZ** als naam van de bestaande resourcegroep.
    
      ![Een netwerkbeveiligingsgroep maken](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 

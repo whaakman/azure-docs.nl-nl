@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: dc85477d6f1b86552c26170e7d437220d8269abb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 96088d1e4f42edc47f1b4a1a7a4effacca02b3c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864873"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875563"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-curl-in-computer-vision"></a>Quickstart: een externe afbeelding analyseren met behulp van de REST API en cURL in Computer Vision
 
-In deze snelstart analyseert u een extern opgeslagen afbeelding om visuele kenmerken te verkrijgen met behulp van de REST-API van Computer Vision. Met de [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-methode kunt u visuele kenmerken verkrijgen op basis van de afbeeldingsinhoud.
+In deze quickstart maakt analyseren u een extern opgeslagen afbeelding om uit te pakken visuele kenmerken met behulp van de Computer Vision-REST API. Met de [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-methode kunt u visuele kenmerken verkrijgen op basis van de afbeeldingsinhoud.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) aan voordat u begint.
 
@@ -105,10 +105,6 @@ Een geslaagd antwoord wordt geretourneerd in JSON-indeling. De voorbeeldtoepassi
   }
 }
 ```
-
-## <a name="clean-up-resources"></a>Resources opschonen
-
-Sluit het opdrachtpromptvenster en de teksteditor wanneer deze niet meer nodig zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 02/06/2019
 ms.author: aahi
-ms.openlocfilehash: 7051c8e6cc6464e8ff274e92bdb543638c9af46a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: b48d9a9d8c28173de90ed3d27bc67a383563550d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238180"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551183"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Snelstartgids: Afbeeldingen zoeken met de REST API voor Bing Image Search en C#
 
@@ -26,7 +26,7 @@ De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azu
 ## <a name="prerequisites"></a>Vereisten
 * Elke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * Het [Json.NET](https://www.newtonsoft.com/json)-framework, beschikbaar als NuGet-pakket.
-* Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](http://www.mono-project.com/).
+* Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -210,7 +210,7 @@ Antwoorden die afkomstig zijn van de Bing Afbeeldingen zoeken-API, worden gereto
 
 * [Wat is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Online interactieve demo proberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
-* [Prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) voor Bing Zoeken-API's. 
+* [Prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) voor Bing Zoek-API's. 
 * [Gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Documentatie van Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
 * [Naslag voor Bing Afbeeldingen zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

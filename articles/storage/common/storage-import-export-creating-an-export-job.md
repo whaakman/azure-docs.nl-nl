@@ -8,44 +8,44 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 33234c03a3e691a95e61f825a0351cf481431294
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: e0513bc18f1cf14beb4c1becfc1835235a5ddc96
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731391"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092222"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Een exporttaak voor de Azure Import/Export-service maken
 Het maken van een exporttaak voor de Microsoft Azure Import/Export-service met behulp van de REST-API omvat de volgende stappen:
 
--   Selecteren van de blobs te exporteren.
+- Selecteren van de blobs te exporteren.
 
--   Het verkrijgen van een locatie voor verzending.
+- Het verkrijgen van een locatie voor verzending.
 
--   Het maken van de taak voor het exporteren.
+- Het maken van de taak voor het exporteren.
 
--   Verzend uw lege schijven naar Microsoft via een ondersteunde Provider-service.
+- Verzend uw lege schijven naar Microsoft via een ondersteunde Provider-service.
 
--   De exporttaak bijwerken met de pakketgegevens.
+- De exporttaak bijwerken met de pakketgegevens.
 
--   De schijven ontvangt terug van Microsoft.
+- De schijven ontvangt terug van Microsoft.
 
- Zie [met behulp van de Windows Azure Import/Export-service gegevens overbrengen naar Blob-opslag](storage-import-export-service.md) voor een overzicht van de Import/Export-service en een zelfstudie waarin wordt gedemonstreerd hoe u de [Azure-portal](https://portal.azure.com/) te maken en beheren van importeren en exporteren van taken.
+  Zie [met behulp van de Windows Azure Import/Export-service gegevens overbrengen naar Blob-opslag](storage-import-export-service.md) voor een overzicht van de Import/Export-service en een zelfstudie waarin wordt gedemonstreerd hoe u de [Azure-portal](https://portal.azure.com/) te maken en beheren van importeren en exporteren van taken.
 
 ## <a name="selecting-blobs-to-export"></a>Te exporteren blobs selecteren
  Voor het maken van een exporttaak bekijken, moet u een lijst met blobs die u wilt exporteren uit uw opslagaccount opgeven. Er zijn een aantal manieren om te selecteren van blobs worden geëxporteerd:
 
--   U kunt een relatief pad naar één blob en alle bijbehorende momentopnamen te selecteren.
+- U kunt een relatief pad naar één blob en alle bijbehorende momentopnamen te selecteren.
 
--   U kunt een relatief pad naar gebruiken om te selecteren van één blob met uitzondering van de momentopnamen ervan verwijderd.
+- U kunt een relatief pad naar gebruiken om te selecteren van één blob met uitzondering van de momentopnamen ervan verwijderd.
 
--   U kunt een relatief pad naar en de tijd van een momentopname gebruiken om te selecteren van een momentopname van een enkele.
+- U kunt een relatief pad naar en de tijd van een momentopname gebruiken om te selecteren van een momentopname van een enkele.
 
--   Een blob-voorvoegsel kunt u alle blobs en -momentopnamen met het opgegeven voorvoegsel selecteren.
+- Een blob-voorvoegsel kunt u alle blobs en -momentopnamen met het opgegeven voorvoegsel selecteren.
 
--   U kunt exporteren alle blobs en momentopnamen in de storage-account.
+- U kunt exporteren alle blobs en momentopnamen in de storage-account.
 
- Zie voor meer informatie over het opgeven van blobs voor het exporteren van de [plaatsen taak](/rest/api/storageimportexport/jobs) bewerking.
+  Zie voor meer informatie over het opgeven van blobs voor het exporteren van de [plaatsen taak](/rest/api/storageimportexport/jobs) bewerking.
 
 ## <a name="obtaining-your-shipping-location"></a>Het ophalen van de locatie van uw verzending
 Voordat u een exporttaak bekijken, moet u eerst een verzending locatienaam en adres door het aanroepen van de [locatie ophalen](https://portal.azure.com) of [lijst met locaties](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) bewerking. `List Locations` retourneert een lijst met locaties en hun e-mailadressen. U kunt een locatie in de geretourneerde lijst selecteren en verzending van uw harde schijven naar dat adres. U kunt ook de `Get Location` bewerking rechtstreeks verkrijgen van het verzendadres voor een specifieke locatie.

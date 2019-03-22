@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075711"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Variabelen voor het opslaan en beheren van waarden in Azure Logic Apps maken
 
@@ -74,9 +74,9 @@ U kunt een variabele maken en de gegevens van het type en de initiële waarde - 
 
    | Eigenschap | Vereist | Value |  Beschrijving |
    |----------|----------|-------|--------------|
-   | Name | Ja | <*naam van de variabele*> | De naam van de variabele moet worden verhoogd | 
-   | Type | Ja | <*variabele-type*> | Het gegevenstype voor de variabele | 
-   | Value | Nee | <*Start-waarde*> | De beginwaarde van uw variabele <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd weet de beginwaarde voor de variabele wat. | 
+   | Name | Ja | <*variable-name*> | De naam van de variabele moet worden verhoogd | 
+   | Type | Ja | <*variable-type*> | Het gegevenstype voor de variabele | 
+   | Value | Nee | <*start-value*> | De beginwaarde van uw variabele <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd weet de beginwaarde voor de variabele wat. | 
    ||||| 
 
    ![Variabele initialiseren](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -210,8 +210,8 @@ Om te verhogen of *verhoging* toevoegen van een variabele met een constante waar
 
    | Eigenschap | Vereist | Value |  Beschrijving |
    |----------|----------|-------|--------------|
-   | Name | Ja | <*naam van de variabele*> | De naam van de variabele moet worden verhoogd | 
-   | Value | Nee | <*incrementele waarde*> | De waarde die wordt gebruikt voor het verhogen van de variabele. De standaardwaarde is een. <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd de waarde weet voor uw variabele verhoogd. | 
+   | Name | Ja | <*variable-name*> | De naam van de variabele moet worden verhoogd | 
+   | Value | Nee | <*increment-value*> | De waarde die wordt gebruikt voor het verhogen van de variabele. De standaardwaarde is een. <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd de waarde weet voor uw variabele verhoogd. | 
    |||| 
 
    Bijvoorbeeld: 
@@ -330,8 +330,8 @@ Hier worden de eigenschappen voor de **variabele verlagen** actie:
 
 | Eigenschap | Vereist | Value |  Beschrijving |
 |----------|----------|-------|--------------|
-| Name | Ja | <*naam van de variabele*> | De naam van de variabele verlagen | 
-| Value | Nee | <*incrementele waarde*> | De waarde voor de variabele afneemt. De standaardwaarde is een. <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd de specifieke waarde voor afneemt uw variabele weet. | 
+| Name | Ja | <*variable-name*> | De naam van de variabele verlagen | 
+| Value | Nee | <*increment-value*> | De waarde voor de variabele afneemt. De standaardwaarde is een. <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd de specifieke waarde voor afneemt uw variabele weet. | 
 ||||| 
 
 Als u van de ontwerpfunctie voor de weergave-editor overschakelt, volgt u de manier waarop de **variabele verlagen** actie wordt weergegeven in het definitie logische app, dat zich in de JSON-indeling.
@@ -365,8 +365,8 @@ Hier worden de eigenschappen voor de **variabele instellen** actie:
 
 | Eigenschap | Vereist | Value |  Beschrijving | 
 |----------|----------|-------|--------------| 
-| Name | Ja | <*naam van de variabele*> | De naam van de variabele te wijzigen | 
-| Value | Ja | <*nieuwe waarde*> | De waarde die u wilt toewijzen van de variabele. Beide moeten hetzelfde gegevenstype hebben. | 
+| Name | Ja | <*variable-name*> | De naam van de variabele te wijzigen | 
+| Value | Ja | <*new-value*> | De waarde die u wilt toewijzen van de variabele. Beide moeten hetzelfde gegevenstype hebben. | 
 ||||| 
 
 > [!NOTE]
@@ -414,17 +414,18 @@ Voor variabelen waarin tekenreeksen of matrices, u kunt invoegen of *append* van
 
 1. Zoek en selecteer een van deze acties die zijn gebaseerd op of de variabele een tekenreeks of een matrix is: 
 
-  * **Variabelen - toevoegen aan een tekenreeksvariabele**
-  * **Variabelen - toevoegen aan een matrixvariabele** 
+   * **Variabelen - toevoegen aan een tekenreeksvariabele**
+   * **Variabelen - toevoegen aan een matrixvariabele** 
 
-2. Geef de waarde toe te voegen als het laatste item in de matrix of tekenreeks. Deze waarde is verplicht. 
+2. Geef de waarde toe te voegen als het laatste item in de matrix of tekenreeks. 
+   Deze waarde is verplicht. 
 
 Hier worden de eigenschappen voor de **toevoegen aan...**  acties:
 
 | Eigenschap | Vereist | Value |  Beschrijving | 
 |----------|----------|-------|--------------| 
-| Name | Ja | <*naam van de variabele*> | De naam van de variabele te wijzigen | 
-| Value | Ja | <*toevoeg-waarde*> | De waarde die u toevoegen wilt, en die elk type kan hebben | 
+| Name | Ja | <*variable-name*> | De naam van de variabele te wijzigen | 
+| Value | Ja | <*append-value*> | De waarde die u toevoegen wilt, en die elk type kan hebben | 
 |||||  
 
 Als u van de ontwerpfunctie voor de weergave-editor overschakelt, volgt u de manier waarop de **toevoegen aan een matrixvariabele** actie wordt weergegeven in het definitie logische app, dat zich in de JSON-indeling.

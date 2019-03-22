@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/02/2019
-ms.openlocfilehash: 8441f6793140bcb565b97776a0cd86c7319db9c1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e6a528ae7eda7e10ab06c6f338fd05d20332a9fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448900"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089009"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Opmerkingen bij de release voor Azure HDInsight
 
@@ -1309,116 +1309,116 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 
 ## <a name="known-issues"></a>Bekende problemen
 
--   **HDInsight-integratie met ADLS Gen 2** zijn er twee problemen op ESP HDInsight-clusters met behulp van Azure Data Lake Storage Gen 2 en gebruiker mappen en machtigingen:
+- **HDInsight-integratie met ADLS Gen 2** zijn er twee problemen op ESP HDInsight-clusters met behulp van Azure Data Lake Storage Gen 2 en gebruiker mappen en machtigingen:
    
-   1. Basismappen voor gebruikers worden niet ophalen van gemaakt op de hoofd-knooppunt 1. Als tijdelijke oplossing, de mappen handmatig maken en wijzigen in eigendom van de betreffende gebruiker UPN.
+  1. Basismappen voor gebruikers worden niet ophalen van gemaakt op de hoofd-knooppunt 1. Als tijdelijke oplossing, de mappen handmatig maken en wijzigen in eigendom van de betreffende gebruiker UPN.
    
-   2. Machtigingen voor /hdp directory is momenteel niet ingesteld op 751. Dit moet worden ingesteld op 
-      ```bash
-      chmod 751 /hdp 
-      chmod –R 755 /hdp/apps
-      ```
+  2. Machtigingen voor /hdp directory is momenteel niet ingesteld op 751. Dit moet worden ingesteld op 
+     ```bash
+     chmod 751 /hdp 
+     chmod –R 755 /hdp/apps
+     ```
 
--   **Spark 2.3**
+- **Spark 2.3**
 
-    -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] onjuiste resultaten die worden veroorzaakt door de regel OptimizeMetadataOnlyQuery
+  -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] onjuiste resultaten die worden veroorzaakt door de regel OptimizeMetadataOnlyQuery
 
-    -   \[[*SPARK-23406* ](https://issues.apache.org/jira/browse/SPARK-23406) \] Bugs in stream-stream zelf-joins
+  -   \[[*SPARK-23406* ](https://issues.apache.org/jira/browse/SPARK-23406) \] Bugs in stream-stream zelf-joins
 
-    -   Spark-voorbeeldnotitieblokken zijn niet beschikbaar wanneer Azure Data Lake Storage (Gen2) standaardopslag van het cluster is.
+  -   Spark-voorbeeldnotitieblokken zijn niet beschikbaar wanneer Azure Data Lake Storage (Gen2) standaardopslag van het cluster is.
 
--   **Enterprise Security Package**
+- **Enterprise Security Package**
 
-    - Spark Thrift-Server accepteert geen verbindingen van ODBC-clients.
-      Tijdelijke oplossing stappen:
-      1. Wacht ongeveer 15 minuten na het maken van het cluster.
-      2. Ranger-gebruikersinterface aanwezigheid van hivesampletable_policy controleren.
-      3. Spark-service opnieuw starten.
-         Verbinding van de STS kunnen nu worden gebruikt.
+  - Spark Thrift-Server accepteert geen verbindingen van ODBC-clients.
+    Tijdelijke oplossing stappen:
+    1. Wacht ongeveer 15 minuten na het maken van het cluster.
+    2. Ranger-gebruikersinterface aanwezigheid van hivesampletable_policy controleren.
+    3. Spark-service opnieuw starten.
+       Verbinding van de STS kunnen nu worden gebruikt.
 
--   **Tijdelijke oplossing voor Ranger-service mislukt**
+- **Tijdelijke oplossing voor Ranger-service mislukt**
 
-    -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Tijdelijke oplossing voor Ranger-service mislukt tijdens de upgrade naar HDP 2.6.2 van eerdere HDP-versies.
+  -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Tijdelijke oplossing voor Ranger-service mislukt tijdens de upgrade naar HDP 2.6.2 van eerdere HDP-versies.
 
-        > [!NOTE]  
-        > Alleen als Ranger is SSL is ingeschakeld. 
+      > [!NOTE]  
+      > Alleen als Ranger is SSL is ingeschakeld. 
      
-    Dit probleem doet zich voor wanneer u probeert te upgraden naar HDP-2.6.1 van eerdere versies van HDP via Ambari. Ambari een curl-aanroep voor de controle van een service voor Ranger service Ambari gebruikt. Als de versie van de JDK die wordt gebruikt door Ambari JDK 1.7 is, de curl-aanroep mislukt met de onderstaande fout:
+  Dit probleem doet zich voor wanneer u probeert te upgraden naar HDP-2.6.1 van eerdere versies van HDP via Ambari. Ambari een curl-aanroep voor de controle van een service voor Ranger service Ambari gebruikt. Als de versie van de JDK die wordt gebruikt door Ambari JDK 1.7 is, de curl-aanroep mislukt met de onderstaande fout:
     
-    `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
+  `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
     
-    De reden voor deze fout is de tomcat-versie die wordt gebruikt in Ranger Tomcat-7.0.7\*. Met behulp van JDK 1.7 veroorzaakt een conflict met de standaard-coderingen die zijn opgegeven in de Tomcat-7.0.7\*.
+  De reden voor deze fout is de tomcat-versie die wordt gebruikt in Ranger Tomcat-7.0.7\*. Met behulp van JDK 1.7 veroorzaakt een conflict met de standaard-coderingen die zijn opgegeven in de Tomcat-7.0.7\*.
     
-    U kunt dit probleem op twee manieren oplossen:
+  U kunt dit probleem op twee manieren oplossen:
     
-    -   Bijwerken van de JDK die wordt gebruikt in Ambari van JDK 1.7 naar JDK 1.8 (Zie de sectie [wijzigt u de versie van de JDK](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) in de Ambari-Referentiegids).
+  -   Bijwerken van de JDK die wordt gebruikt in Ambari van JDK 1.7 naar JDK 1.8 (Zie de sectie [wijzigt u de versie van de JDK](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) in de Ambari-Referentiegids).
     
-    -   Als u doorgaan met het ondersteunen van een omgeving JDK 1.7 wilt:
+  -   Als u doorgaan met het ondersteunen van een omgeving JDK 1.7 wilt:
     
-        1.  De eigenschap ranger.tomcat.ciphers toevoegen in de sectie ranger-admin-site in uw configuratie Ambari Ranger met de onderstaande waarde:
+      1.  De eigenschap ranger.tomcat.ciphers toevoegen in de sectie ranger-admin-site in uw configuratie Ambari Ranger met de onderstaande waarde:
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
         
-        2.  Als uw omgeving is geconfigureerd voor Ranger-KMS, de eigenschap ranger.tomcat.ciphers toevoegen in de sectie theranger-kms-site in uw configuratie Ambari Ranger met de onderstaande waarde:
+      2.  Als uw omgeving is geconfigureerd voor Ranger-KMS, de eigenschap ranger.tomcat.ciphers toevoegen in de sectie theranger-kms-site in uw configuratie Ambari Ranger met de onderstaande waarde:
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
     
-    >[!NOTE]  
-    >De vermelde waarden werkt voorbeelden en mogelijk niet voor uw omgeving. Zorg ervoor dat de manier waarop u deze eigenschappen instelt overeenkomt met hoe uw omgeving is geconfigureerd.   
+  >[!NOTE]  
+  >De vermelde waarden werkt voorbeelden en mogelijk niet voor uw omgeving. Zorg ervoor dat de manier waarop u deze eigenschappen instelt overeenkomt met hoe uw omgeving is geconfigureerd.   
 
--   **RangerUI: Escape van beleid voorwaardetekst is ingevoerd in het formulier**
+- **RangerUI: Escape van beleid voorwaardetekst is ingevoerd in het formulier**
     
-    **Het onderdeel is betrokken:** Ranger
+  **Onderdeel beïnvloed:** Ranger
     
-    **Beschrijving van probleem**
+  **Beschrijving van probleem**
     
-    Als een gebruiker wil dat beleid te maken met aangepaste beleidsvoorwaarden en de expressie of tekst speciale tekens bevat, klikt u vervolgens werkt afdwingen van beleid niet. Speciale tekens worden geconverteerd naar ASCII voordat u het beleid opslaat in de database.
+  Als een gebruiker wil dat beleid te maken met aangepaste beleidsvoorwaarden en de expressie of tekst speciale tekens bevat, klikt u vervolgens werkt afdwingen van beleid niet. Speciale tekens worden geconverteerd naar ASCII voordat u het beleid opslaat in de database.
     
-    **Speciale tekens:**   &  &lt; &gt; ' \` '
+  **Speciale tekens:**  &  &lt; &gt; ' \` '
     
-    Bijvoorbeeld, de voorwaarde tags.attributes\["type"\]= 'abc' zou worden geconverteerd naar het volgende wanneer het beleid is opgeslagen.
+  Bijvoorbeeld, de voorwaarde tags.attributes\["type"\]= 'abc' zou worden geconverteerd naar het volgende wanneer het beleid is opgeslagen.
     
-    tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
+  tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
     
-    U ziet de beleidsvoorwaarde met de volgende tekens door het openen van het beleid in de bewerkingsmodus.
+  U ziet de beleidsvoorwaarde met de volgende tekens door het openen van het beleid in de bewerkingsmodus.
     
-    **Tijdelijke oplossing**
+  **Tijdelijke oplossing**
     
-    - **Optie \#1: Via de Rest-API voor Ranger beleid maken/bijwerken**
+  - **Optie \#1: Via de Rest-API voor Ranger beleid maken/bijwerken**
         
-        REST-URL: http://&lt;host&gt;: 6080/service/plugins/beleid
+      REST-URL: http://&lt;host&gt;: 6080/service/plugins/beleid
         
-        **Het maken van beleid met beleidsvoorwaarde:**
+      **Het maken van beleid met beleidsvoorwaarde:**
         
-        Het volgende voorbeeld maakt beleid met tags als \`tags-test\` en wijs deze toe aan \`openbare\` groep beleid voorwaarde astags.attr\["type"\]== 'abc' door het selecteren van alle hive-onderdeel machtigingen wilt selecteren, bijwerken, maken, verwijderen, wijzigen en indexeren, vergrendelen, alle.
+      Het volgende voorbeeld maakt beleid met tags als \`tags-test\` en wijs deze toe aan \`openbare\` groep beleid voorwaarde astags.attr\["type"\]== 'abc' door het selecteren van alle hive-onderdeel machtigingen wilt selecteren, bijwerken, maken, verwijderen, wijzigen en indexeren, vergrendelen, alle.
         
-        **Voorbeeld:**
+      **Voorbeeld:**
         
-        `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
+      `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
         
-        **Bestaande beleid met beleidsvoorwaarde bijwerken:**
+      **Bestaande beleid met beleidsvoorwaarde bijwerken:**
         
-        Het volgende voorbeeld beleid wordt bijgewerkt met tags als \`tags-test\` en wijs deze toe aan \`openbare\` groep beleid voorwaarde astags.attr\["type"\]== 'abc' door het selecteren van alle hive-onderdeel machtigingen wilt selecteren, bijwerken, maken, verwijderen, wijzigen en indexeren, vergrendelen, alle.
+      Het volgende voorbeeld beleid wordt bijgewerkt met tags als \`tags-test\` en wijs deze toe aan \`openbare\` groep beleid voorwaarde astags.attr\["type"\]== 'abc' door het selecteren van alle hive-onderdeel machtigingen wilt selecteren, bijwerken, maken, verwijderen, wijzigen en indexeren, vergrendelen, alle.
         
-        REST URL: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
+      REST-URL: http://&lt;hostnaam&gt;:6080/service/plugins/beleid/&lt;beleid-id&gt;
         
-        **Voorbeeld:**
+      **Voorbeeld:**
         
-        `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
+      `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
         
-    - **Optie \#2: Javascript wijzigingen toepassen**
+  - **Optie \#2: Javascript wijzigingen toepassen**
         
-        Stappen voor het bijwerken van JS-bestand:
+      Stappen voor het bijwerken van JS-bestand:
         
-        1.  Ontdek PermissionList.js bestand onder /usr/hdp/current/ranger-admin
+      1.  Ontdek PermissionList.js bestand onder /usr/hdp/current/ranger-admin
         
-        2.  Meer informatie de definitie van functie renderPolicyCondtion (regel Nee: 404).
+      2.  Meer informatie de definitie van functie renderPolicyCondtion (regel Nee: 404).
         
-        3.  De volgende regel van de Internet Explorer die functie verwijderen onder de weergavefunctie (regel Nee: 434)
+      3.  De volgende regel van de Internet Explorer die functie verwijderen onder de weergavefunctie (regel Nee: 434)
             
-            val = \_.escape(val);//Line Nee: 460
+          val = \_.escape(val);//Line Nee: 460
             
-            Na het verwijderen van de bovenstaande regel, de Ranger-gebruikersinterface kunt u beleidsregels maken met beleidsvoorwaarde met speciale tekens en beleid kan evaluatie wel gemaakt voor hetzelfde beleid.
+          Na het verwijderen van de bovenstaande regel, de Ranger-gebruikersinterface kunt u beleidsregels maken met beleidsvoorwaarde met speciale tekens en beleid kan evaluatie wel gemaakt voor hetzelfde beleid.
 
 **HDInsight-integratie met ADLS Gen 2: Gebruiker machtigingen voor mappen en probleem met ESP-clusters**
     1.  Basismappen voor gebruikers worden niet ophalen van gemaakt op de hoofd-knooppunt 1. Tijdelijke oplossing is het handmatig maken en wijzigen in eigendom van de betreffende gebruiker UPN.

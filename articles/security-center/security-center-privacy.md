@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8cbe391f756dab35abda411c3a6c943a51eae302
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: fcec410df631a58b76878a4cb327ca2fb04a2105
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115977"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117844"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gebruikersgegevens in Azure Security Center beheren
 In dit artikel bevat informatie over hoe u de gegevens van de gebruiker in Azure Security Center kunt beheren. Gebruikersgegevens beheren, biedt de mogelijkheid te openen, verwijderen of exporteren van gegevens.
@@ -68,25 +68,25 @@ Security Center van een gebruiker de rol van lezer, eigenaar, Inzender toegeweze
 
 - Uitvoeren van een kopie van de Azure-portal
 - Uitvoeren van de Azure REST API-aanroep GET HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
+  ```
 
 Een Security Center-gebruiker die de rol van de accountbeheerder kan exporteren de [just-in-time-beleid](security-center-just-in-time.md) door het IP-adres met adressen:
 
 - Uitvoeren van een kopie van de Azure-portal
 - Uitvoeren van de Azure REST API-aanroep GET HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
+  ```
 
 Een accountbeheerder kan de details van de waarschuwing door te exporteren:
 
 - Uitvoeren van een kopie van de Azure-portal
 - Uitvoeren van de Azure REST API-aanroep GET HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
+  ```
 
 Zie [beveiligingswaarschuwingen ophalen (verzameling ophalen)](https://msdn.microsoft.com/library/mt704050.aspx) voor meer informatie.
 

@@ -11,22 +11,22 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: a1eb946d3f1b18aaa86735dedcfbaa1fd6a89621
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326820"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089978"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Oplossen van fouten bij het verwijderen van het storage-resource
 
 In bepaalde scenario's, verschijnt een van de volgende fouten zijn opgetreden terwijl u probeert te verwijderen van een Azure storage-account, container of blob in een Azure Resource Manager-implementatie:
 
->**Storage-account 'StorageAccountName' verwijderen is mislukt. Fout: Het storage-account kan niet worden verwijderd omdat de artefacten die in gebruik.**
-
->**# Buiten # container (s) verwijderen is mislukt:<br>VHD's: Er is momenteel een lease voor de container en er is geen lease-ID is opgegeven in de aanvraag.**
-
->**# Buiten # blobs verwijderen is mislukt:<br>BlobName.vhd: Er is momenteel een lease op de blob en er is geen lease-ID is opgegeven in de aanvraag.**
+> **Storage-account 'StorageAccountName' verwijderen is mislukt. Fout: Het storage-account kan niet worden verwijderd omdat de artefacten die in gebruik.**
+> 
+> **# Buiten # container (s) verwijderen is mislukt:<br>VHD's: Er is momenteel een lease voor de container en er is geen lease-ID is opgegeven in de aanvraag.**
+> 
+> **# Buiten # blobs verwijderen is mislukt:<br>BlobName.vhd: Er is momenteel een lease op de blob en er is geen lease-ID is opgegeven in de aanvraag.**
 
 De VHD's in virtuele machines van Azure zijn .vhd-bestanden die zijn opgeslagen als pagina-blobs in een standard- of premium storage-account in Azure. Zie voor meer informatie over Azure-schijven, onze [Inleiding tot beheerde schijven](../linux/managed-disks-overview.md).
 

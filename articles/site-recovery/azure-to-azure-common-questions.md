@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: c251a159ec28d7fb03009ebcdc84056da739f937
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: MT
+ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587426"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008647"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Veelgestelde vragen: Replicatie van Azure naar Azure
 
@@ -26,6 +26,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over het implementeren 
 1.  **[Multi-VM-consistentie](#multi-vm-consistency)** 
 1.  **[Plan voor herstel](#recovery-plan)** 
 1.  **[Opnieuw beveiligen en failback](#reprotection-and-failback)** 
+2.  **[Capaciteit](#capacity)**
 1.  **[Beveiliging](#security)** 
 
 
@@ -35,7 +36,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over het implementeren 
 Beoordeling [prijzen voor Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) details.
 ### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Hoe werkt de gratis laag voor Azure Site Recovery-werk?
 Elk exemplaar dat wordt beschermd met Azure Site Recovery, wordt de eerste 31 dagen gratis beschermd. Vanaf de 32e dag wordt de bescherming voor het exemplaar in rekening gebracht tegen de bovenstaande tarieven.
-###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Worden er gedurende de eerste 31 dagen andere Azure-kosten in rekening gebracht?
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Worden er gedurende de eerste 31 dagen andere Azure-kosten in rekening gebracht?
 Ja, hoewel Azure Site Recovery gratis is gedurende de eerste 31 dagen van een beschermd exemplaar, worden er mogelijk kosten in rekening gebracht voor Azure Storage, opslagtransacties en gegevensoverdracht. Voor een herstelde virtuele machine worden mogelijk ook Azure-rekenkosten in rekening gebracht. Meer informatie over prijzen ophalen [hier](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Wat zijn de aanbevolen procedures voor het configureren van Site Recovery op Azure Virtual machines?
@@ -117,7 +118,7 @@ De volgende schermafbeelding ziet u het voorbeeld. In de schermafbeelding:
 1. Tijd van minder dan het afgelopen uur, zijn er herstelpunten met een frequentie van vijf minuten.
 2. Site Recovery houdt gedurende de periode voorbij het afgelopen uur, slechts 1 herstelpunt.
 
-  ![Lijst met gegenereerde herstelpunten](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+   ![Lijst met gegenereerde herstelpunten](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
 
 ### <a name="how-far-back-can-i-recover"></a>Hoe ver terug kan ik gegevens herstellen?
@@ -220,7 +221,12 @@ Dat hangt ervan af op de situatie. Bijvoorbeeld, als de bronregio VM bestaat, zi
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Hoeveel tijd doet het allemaal voor failback van toets maken?
 Na het opnieuw beveiligen is de hoeveelheid tijd voor failback meestal vergelijkbaar met de tijd voor de failover van de primaire regio naar een secundaire regio. 
 
-## <a name="a-namesecuritysecurity"></a><a name="security">Beveiliging
+## <a name="capacity"></a>Capaciteit
+### <a name="does-site-recovery-work-with-reserved-instance"></a>Werkt Site Recovery met gereserveerde instantie?
+Ja, u kunt kopen [exemplaren reserveren](https://azure.microsoft.com/pricing/reserved-vm-instances/) in de DR-regio en ASR failover-bewerkingen worden gebruikt. </br> Er is geen aanvullende configuratie vereist van de klanten.
+
+
+## <a name="security"></a>Beveiliging
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Worden er replicatiegegevens verzonden naar de Site Recovery-service?
 Nee, Site Recovery biedt geen gerepliceerde gegevens worden onderschept en er geen informatie over wat wordt uitgevoerd op uw virtuele machines. Alleen de metagegevens die nodig zijn om replicatie en failover te organiseren, worden naar de Site Recovery-service verzonden.  
 Site Recovery is ISO 27001: 2013, 27018, HIPAA, DPA gecertificeerd en wordt momenteel SOC2 en FedRAMP JAB-beoordelingen.

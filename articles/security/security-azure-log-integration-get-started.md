@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 7e43af7d749719c2f69df9b53766c5452931884b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 244b2d1764f30f790c3e51e23cd2fa0af6375960
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542910"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894373"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure-Logboekintegratie met Azure Diagnostics-logboeken en Windows event forwarding
 
@@ -113,37 +113,37 @@ Nadat u de basisconfiguratie hebt voltooid, u kunt na de installatie en validati
 1. Open PowerShell als beheerder. Ga vervolgens naar C:\Program Files\Microsoft Azure-Logboekintegratie.
 2. Importeer de Azure-Logboekintegratie-cmdlets. Voer het script voor het importeren van de cmdlets `LoadAzlogModule.ps1`. ENTER `.\LoadAzlogModule.ps1`, en druk op Enter (Let op het gebruik van **.\\**  in deze opdracht). U ziet er ongeveer als wat wordt weergegeven in de volgende afbeelding:
 
-  ![Schermafbeelding van de uitvoer van de opdracht LoadAzlogModule.ps1](./media/security-azure-log-integration-get-started/loaded-modules.png)
+   ![Schermafbeelding van de uitvoer van de opdracht LoadAzlogModule.ps1](./media/security-azure-log-integration-get-started/loaded-modules.png)
 3. Configureer vervolgens de Azure-Logboekintegratie voor het gebruik van een specifieke Azure-omgeving. Een *Azure-omgeving* is het type Azure-clouddatacenter die u wilt werken. Hoewel er verschillende Azure-omgevingen, die momenteel zijn, zijn de desbetreffende opties **AzureCloud** of **AzureUSGovernment**. Uitvoeren van PowerShell als beheerder, zorg ervoor dat u zich in C:\Program Files\Microsoft Azure Log Integration\. Voer deze opdracht uit:
 
-  `Set-AzlogAzureEnvironment -Name AzureCloud` (voor **AzureCloud**)
+   `Set-AzlogAzureEnvironment -Name AzureCloud` (voor **AzureCloud**)
   
-  Als u gebruiken de US Government Azure-cloud wilt, gebruikt u **AzureUSGovernment** voor de **-naam** variabele. Op dit moment worden niet andere Azure-clouds ondersteund.  
+   Als u gebruiken de US Government Azure-cloud wilt, gebruikt u **AzureUSGovernment** voor de **-naam** variabele. Op dit moment worden niet andere Azure-clouds ondersteund.  
 
-  > [!NOTE]
-  > U kunt feedback niet ontvangen wanneer de opdracht is geslaagd. 
+   > [!NOTE]
+   > U kunt feedback niet ontvangen wanneer de opdracht is geslaagd. 
 
 4. Voordat u een systeem bewaken kunt, moet u de naam van het opslagaccount dat wordt gebruikt voor Azure Diagnostics. In de Azure-portal, gaat u naar **virtuele machines**. Zoek naar een Windows virtuele machine die u wilt bewaken. In de **eigenschappen** sectie, selecteer **diagnostische instellingen**.  Selecteer **Agent**. Noteer de naam van opslagaccount dat opgegeven. U moet deze accountnaam voor een latere stap.
 
-  ![Schermafbeelding van het deelvenster diagnostische instellingen van Azure](./media/security-azure-log-integration-get-started/storage-account-large.png) 
+   ![Schermafbeelding van het deelvenster diagnostische instellingen van Azure](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
-  ![Schermafbeelding van inschakelen bewaking op gastniveau-knop](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
+   ![Schermafbeelding van inschakelen bewaking op gastniveau-knop](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
 
-  > [!NOTE]
-  > Als controle is niet ingeschakeld wanneer de virtuele machine is gemaakt, kunt u dit inschakelen zoals wordt weergegeven in de voorgaande afbeelding.
+   > [!NOTE]
+   > Als controle is niet ingeschakeld wanneer de virtuele machine is gemaakt, kunt u dit inschakelen zoals wordt weergegeven in de voorgaande afbeelding.
 
 5. Ga nu terug naar de Azure-Logboekintegratie-machine. Controleer of dat u verbinding hebt met de storage-account uit het systeem waarop u Azure-Logboekintegratie hebt geïnstalleerd. De computer waarop de service Azure-Logboekintegratie moet toegang hebben tot het opslagaccount om informatie die wordt vastgelegd door Azure Diagnostics op elk van de bewaakte systemen te halen. Connectiviteit controleren: 
-  1. [Download Azure Storage Explorer](http://storageexplorer.com/).
-  2. Voer setup uit.
-  3. Wanneer de installatie is voltooid, selecteert u **volgende**. Laat de **Start Microsoft Azure Storage Explorer** selectievakje is ingeschakeld.  
-  4. Meld u aan bij Azure.
-  5. Controleer of u het opslagaccount dat u hebt geconfigureerd voor Azure Diagnostics kunt zien: 
+   1. [Download Azure Storage Explorer](https://storageexplorer.com/).
+   2. Voer setup uit.
+   3. Wanneer de installatie is voltooid, selecteert u **volgende**. Laat de **Start Microsoft Azure Storage Explorer** selectievakje is ingeschakeld.  
+   4. Meld u aan bij Azure.
+   5. Controleer of u het opslagaccount dat u hebt geconfigureerd voor Azure Diagnostics kunt zien: 
 
    ![Schermopname van het storage-accounts in Storage Explorer](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
-  6. Een paar opties worden weergegeven onder de storage-accounts. Onder **tabellen**, ziet u een tabel met de naam **WADWindowsEventLogsTable**.
+   1. Een paar opties worden weergegeven onder de storage-accounts. Onder **tabellen**, ziet u een tabel met de naam **WADWindowsEventLogsTable**.
 
-  Als controle is niet ingeschakeld wanneer de virtuele machine is gemaakt, kunt u, zoals eerder beschreven.
+   Als controle is niet ingeschakeld wanneer de virtuele machine is gemaakt, kunt u, zoals eerder beschreven.
 
 
 ## <a name="integrate-windows-vm-logs"></a>Windows VM-logboeken integreren
@@ -156,36 +156,36 @@ Als u wilt deze stap hebt voltooid, moet u een aantal dingen:
 * **StorageKey**: De opslagsleutel voor het opslagaccount waarin de Azure Diagnostics-gegevens zijn opgeslagen voor deze virtuele machine.  
 
 Als u wilt de opslagsleutel, voert u de volgende stappen uit:
-1. Ga naar de [Azure Portal](http://portal.azure.com).
+1. Ga naar de [Azure Portal](https://portal.azure.com).
 2. Selecteer in het navigatiedeelvenster **alle services**.
 3. In de **Filter** Voer **opslag**. Selecteer **opslagaccounts**.
 
-  ![Schermafbeelding van storage-accounts in alle services](./media/security-azure-log-integration-get-started/filter.png)
+   ![Schermafbeelding van storage-accounts in alle services](./media/security-azure-log-integration-get-started/filter.png)
 
 4. Er wordt een lijst weergegeven van de storage-accounts. Dubbelklik op het account dat u aan te melden opslag toegewezen.
 
-  ![Schermafbeelding van een lijst met storage-accounts](./media/security-azure-log-integration-get-started/storage-accounts.png)
+   ![Schermafbeelding van een lijst met storage-accounts](./media/security-azure-log-integration-get-started/storage-accounts.png)
 
 5. Selecteer **Toegangssleutels** bij **Instellingen**.
 
-  ![Schermafbeelding van de optie toegang sleutels in het menu](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
+   ![Schermafbeelding van de optie toegang sleutels in het menu](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
 
 6. Kopie **key1**, en sla deze op een veilige locatie die toegankelijk is voor de volgende stap.
 7. Open een opdrachtpromptvenster als beheerder op de server waarop u Azure-Logboekintegratie hebt geïnstalleerd. (Zorg ervoor dat open een opdrachtpromptvenster als beheerder, en niet PowerShell).
 8. Ga naar C:\Program Files\Microsoft Azure-Logboekintegratie.
 9. Voer deze opdracht uit: `Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>`.
  
-  Voorbeeld:
+   Voorbeeld:
   
-  `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+   `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
-  Als u de abonnements-ID wilt worden weergegeven in de gebeurtenis XML, moet u de abonnements-ID toevoegen aan de beschrijvende naam:
+   Als u de abonnements-ID wilt worden weergegeven in de gebeurtenis XML, moet u de abonnements-ID toevoegen aan de beschrijvende naam:
 
-  `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
+   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  Voorbeeld:
+   Voorbeeld:
   
-  `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
 > [!NOTE]
 > Wacht tot 60 minuten en bekijk vervolgens de gebeurtenissen die worden opgehaald uit het opslagaccount. Als u wilt de gebeurtenissen in Azure-Logboekintegratie weergeven, selecteert u **logboeken** > **Windows logboeken** > **doorgestuurde gebeurtenissen**.
@@ -200,11 +200,11 @@ Als gegevens niet wordt weergegeven in de map doorgestuurde gebeurtenissen na ee
 
 1. Controleer de machine waarop de Azure-Logboekintegratie-service wordt uitgevoerd. Controleer of deze toegang heeft tot Azure. Connectiviteit wilt testen, in een browser, probeert u naar de [Azure-portal](https://portal.azure.com).
 2. Zorg ervoor dat het gebruikersaccount Azlog schrijfmachtiging voor de map users\Azlog heeft.
-  1. Open Verkenner.
-  2. Ga naar C:\users.
-  3. Met de rechtermuisknop op C:\users\Azlog.
-  4. Selecteer **Security**.
-  5. Selecteer **NT Service\Azlog**. Controleer de machtigingen voor het account. Als het account ontbreekt op dit tabblad, of als de juiste machtigingen niet worden weergegeven, kunt u de machtigingen van de account op dit tabblad verlenen.
+   1. Open Verkenner.
+   2. Ga naar C:\users.
+   3. Met de rechtermuisknop op C:\users\Azlog.
+   4. Selecteer **Security**.
+   5. Selecteer **NT Service\Azlog**. Controleer de machtigingen voor het account. Als het account ontbreekt op dit tabblad, of als de juiste machtigingen niet worden weergegeven, kunt u de machtigingen van de account op dit tabblad verlenen.
 3. Wanneer u de opdracht uitvoert `Azlog source list`, zorg ervoor dat het opslagaccount dat is toegevoegd in de opdracht `Azlog source add` wordt weergegeven in de uitvoer.
 4. Als u wilt zien als er fouten worden gerapporteerd door de service Azure-Logboekintegratie, gaat u naar **logboeken** > **Windows logboeken** > **toepassing**.
 
@@ -224,15 +224,15 @@ De Azure-activiteitenlogboek is een abonnementlogboek biedt inzicht in gebeurten
 2. Voer deze opdracht uit:  ```azlog createazureid```
 
     Met deze opdracht vraagt u om uw Azure-aanmelding. De opdracht maakt u een Azure Active Directory service-principal in de Azure AD-tenants die als host fungeren de waarin zich de aangemelde gebruiker een beheerder, CO-beheerder of eigenaar van een Azure-abonnementen. De opdracht mislukt als de gebruiker aangemeld alleen een gastgebruiker in de Azure AD-tenant is. Azure-verificatie wordt gedaan via Azure AD. Een service-principal voor Azure-Logboekintegratie maakt, wordt de Azure AD-identiteit die toegang krijgt tot het lezen van de Azure-abonnementen.
-3.  Voer de volgende opdracht om de Azure-Logboekintegratie service-principal gemaakt in de vorige stap toegang tot het lezen van het activiteitenlogboek voor het abonnement. U moet een eigenaar van het abonnement van de opdracht uit te voeren.
+3. Voer de volgende opdracht om de Azure-Logboekintegratie service-principal gemaakt in de vorige stap toegang tot het lezen van het activiteitenlogboek voor het abonnement. U moet een eigenaar van het abonnement van de opdracht uit te voeren.
 
-    ```Azlog.exe authorize subscriptionId``` Voorbeeld:
+   ```Azlog.exe authorize subscriptionId``` Voorbeeld:
 
    ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
 
-4.  Controleer de volgende mappen om te bevestigen dat de Azure Active Directory audit log JSON-bestanden worden gemaakt in deze:
-    - C:\Users\azlog\AzureResourceManagerJson
-    - C:\Users\azlog\AzureResourceManagerJsonLD
+4. Controleer de volgende mappen om te bevestigen dat de Azure Active Directory audit log JSON-bestanden worden gemaakt in deze:
+   - C:\Users\azlog\AzureResourceManagerJson
+   - C:\Users\azlog\AzureResourceManagerJsonLD
 
 > [!NOTE]
 > Neem contact op met de leverancier van uw SIEM voor specifieke instructies over hoe u de informatie in de JSON-bestanden in uw beveiligingsgegevens en event management (SIEM) system brengt.

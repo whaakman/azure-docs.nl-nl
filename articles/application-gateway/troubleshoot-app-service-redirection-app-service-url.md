@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: cd15e139b2bcd0046d2cfbd7603809936adf1cfc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 359d75f10f95b0e41ccd9a869d49247355f0d5d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548129"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123178"
 ---
 # <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>Problemen met Application Gateway oplossen met App Service – Omleiding naar de URL van App Service
 
@@ -42,7 +42,7 @@ Een App Service kunnen alleen worden geopend met de geconfigureerde hostnamen in
 
 Om dit te doen met Application Gateway, wordt de switch 'Kies hostnaam van back-end-adres' gebruiken in de HTTP-instellingen en voor de test om te werken, gebruiken we 'Kies hostnaam van back-end-HTTP-instellingen' in de Testconfiguratie.
 
-![appservice-1](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-1.png)
+![appservice-1](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
 
 Hiervan wanneer de App Service een omleiding biedt gebruikt de hostnaam 'example.azurewebsites.net' in de Location-header in plaats van de oorspronkelijke hostnaam, tenzij anders is geconfigureerd. U kunt het voorbeeld van de aanvraag- en reactieheaders hieronder controleren.
 ```
@@ -78,7 +78,7 @@ Om dit te doen, moet u een aangepast domein en volg de procedure die hieronder w
 
 - Het domein aan de lijst aangepaste domein van de App Service registreren. Hiervoor moet u een CNAME in uw aangepaste domein die verwijst naar de App Service-FQDN hebben. Zie voor meer informatie, [een bestaande aangepaste DNS-naam toewijzen in Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
 
-![appservice-2](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-2.png)
+![appservice-2](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
 - Wanneer dat is gebeurd, wordt uw App Service klaar om te accepteren van de hostnaam 'www.contoso.com'. Wijzig nu de CNAME-vermelding in DNS naar het beheerpunt waarmee deze terug naar de FQDN van de toepassingsgateway. Bijvoorbeeld, "appgw.eastus.cloudapp.azure.com'.
 
@@ -94,7 +94,7 @@ Om dit te doen, moet u een aangepast domein en volg de procedure die hieronder w
 - Koppelen van de aangepaste test terug naar de back-end-HTTP-instellingen en controleer of de back-endstatus als deze in orde is.
 
 - Zodra dit is gebeurd, Application Gateway moet nu de dezelfde hostnaam 'www.contoso.com' doorsturen naar de App-Service en de omleiding wordt uitgevoerd op de dezelfde hostnaam. U kunt het voorbeeld van de aanvraag- en reactieheaders hieronder controleren.
-```
+  ```
   ## Request headers to Application Gateway:
 
   Request URL: http://www.contoso.com/path
@@ -114,7 +114,7 @@ Om dit te doen, moet u een aangepast domein en volg de procedure die hieronder w
   Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=www.contoso.com
 
   X-Powered-By: ASP.NET
-```
-## <a name="next-steps"></a>Volgende stappen
+  ```
+  ## <a name="next-steps"></a>Volgende stappen
 
 Als de voorgaande stappen het probleem niet verhelpen, opent u een [ondersteuningsticket](https://azure.microsoft.com/support/options/).

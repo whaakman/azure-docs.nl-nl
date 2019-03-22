@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: d872c4eff3d55ddf5d98243055e831a7a223a8ef
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: aed0eb6ba4cdaa57d282ac4484e0c27c0697afb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115450"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58083127"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure toegewezen HSM-netwerken
 
@@ -51,8 +51,8 @@ Een vereiste voor de huidige architectuur is de configuratie van een gateway ER 
 Bij het maken van cloud-gebaseerde bronnen, is een typische vereiste voor een particuliere verbinding naar on-premises IT-resources. In het geval van toegewezen HSM, wordt dit voornamelijk zijn voor de clientsoftware van de HSM om de HSM-apparaten te configureren en ook voor activiteiten, zoals back-ups en logboeken ophalen uit HSM's voor analyse. Een belangrijke beslissing hier is de aard van de verbinding, omdat er opties zijn.  De meest flexibele optie is Site-naar-Site VPN, omdat er waarschijnlijk meerdere on-premises bronnen waarvoor veilige communicatie met resources (met inbegrip van HSM's) in de Azure-cloud. Hiervoor moet de organisatie van een klant een VPN-apparaat om de verbinding mogelijk te maken hebben. Een punt-naar-Site VPN-verbinding kan worden gebruikt als er on-premises, zoals een werkstation voor beheer van één alleen een enkel eindpunt wordt.
 Zie voor meer informatie over opties voor netwerkconnectiviteit, [VPN-Gateway opties](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable).
 
->[!NOTE]
-ExpressRoute is op dit moment geen een optie voor verbinding met on-premises bronnen. Er moet ook worden opgemerkt dat de ExpressRoute-Gateway gebruikt, zoals hierboven beschreven, is niet voor verbindingen met on-premises infrastructuur.
+> [!NOTE]
+> ExpressRoute is op dit moment geen een optie voor verbinding met on-premises bronnen. Er moet ook worden opgemerkt dat de ExpressRoute-Gateway gebruikt, zoals hierboven beschreven, is niet voor verbindingen met on-premises infrastructuur.
 
 ### <a name="point-to-site-vpn"></a>Punt-naar-Site-VPN
 
@@ -80,8 +80,8 @@ De HSM-apparaten hebben de mogelijkheid via software-bibliotheken, verkeer omlei
 
 Wereldwijd gedistribueerde toepassingen of voor hoge beschikbaarheid regionale failover-scenario's, is het vereist voor het verbinding maken met virtuele netwerken tussen regio's. Met Azure toegewezen HSM, kan hoge beschikbaarheid worden bereikt via een VPN-Gateway waarmee een beveiligde tunnel tussen de twee virtuele netwerken. Voor meer informatie over Vnet-naar-Vnet-verbindingen met behulp van VPN-Gateway, Zie het artikel [wat is VPN-Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V)
 
->[!NOTE]
-Wereldwijde Vnet-peering is niet beschikbaar in de regio-overschrijdende verbinding scenario's met toegewezen HSM's op dit moment en de VPN-gateway in plaats daarvan moeten worden gebruikt. 
+> [!NOTE]
+> Wereldwijde Vnet-peering is niet beschikbaar in de regio-overschrijdende verbinding scenario's met toegewezen HSM's op dit moment en de VPN-gateway in plaats daarvan moeten worden gebruikt. 
 
 ![globale vnet](media/networking/global-vnet.png)
 

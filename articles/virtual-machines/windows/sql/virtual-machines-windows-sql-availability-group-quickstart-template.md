@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5390885ccb4bbc3e1552d3f5e80c1b451b7bee38
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4b4527bfaacc592c13552e362de0cba620314cd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570161"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122043"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Gebruik Azure-Snelstartsjablonen voor AlwaysOn-beschikbaarheidsgroep configureren voor SQL Server op een Azure VM
 Dit artikel wordt beschreven hoe u met de Azure-Snelstartsjablonen gedeeltelijk de implementatie van een Always On configuratie beschikbaarheidsgroep voor SQL Server Virtual Machines in Azure te automatiseren. Er zijn twee Azure Quickstart-sjablonen die worden gebruikt in dit proces. 
@@ -76,8 +76,8 @@ Zodra uw SQL Server-VM's zijn geregistreerd met de nieuwe resourceprovider voor 
 1. Als u akkoord met de voorwaarden en bepalingen gaat, selecteert u het selectievakje in naast **ik ga akkoord met de voorwaarden en bepalingen bovenstaande** en selecteer **aankoop** voor het voltooien van de Quick Start-sjabloonimplementatie. 
 1. Voor het controleren van uw implementatie, selecteert u de implementatie van de **meldingen** belpictogram in de banner van de bovenste navigatiebalk of Ga naar uw **resourcegroep** in Azure portal, selecteert u  **Implementaties** in de **instellingen** veld en kiest u de implementatie 'Microsoft.Template'. 
 
-  >[!NOTE]
-  > Referenties die zijn opgegeven tijdens de sjabloonimplementatie van de worden alleen opgeslagen voor de lengte van de implementatie. Nadat de implementatie is voltooid, deze wachtwoorden worden verwijderd en u wordt gevraagd om dit te regelen opnieuw moet u meer SQL Server-VM's aan het cluster toevoegen. 
+   >[!NOTE]
+   > Referenties die zijn opgegeven tijdens de sjabloonimplementatie van de worden alleen opgeslagen voor de lengte van de implementatie. Nadat de implementatie is voltooid, deze wachtwoorden worden verwijderd en u wordt gevraagd om dit te regelen opnieuw moet u meer SQL Server-VM's aan het cluster toevoegen. 
 
 
 ## <a name="step-2---manually-create-the-availability-group"></a>Stap 2: de beschikbaarheidsgroep handmatig maken 
@@ -150,8 +150,8 @@ De ILB configureren en de AG-listener maakt, doet u het volgende:
 1. Als u akkoord met de voorwaarden en bepalingen gaat, selecteert u het selectievakje in naast **ik ga akkoord met de voorwaarden en bepalingen bovenstaande** en selecteer **aankoop** voor het voltooien van de Quick Start-sjabloonimplementatie. 
 1. Voor het controleren van uw implementatie, selecteert u de implementatie van de **meldingen** belpictogram in de banner van de bovenste navigatiebalk of Ga naar uw **resourcegroep** in Azure portal, selecteert u  **Implementaties** in de **instellingen** veld en kiest u de implementatie 'Microsoft.Template'. 
 
-  >[!NOTE]
-  >Als uw implementatie halverwege mislukt, u moet handmatig [verwijderen van de zojuist gemaakte listener](#remove-availability-group-listener) voordat het opnieuw te implementeren met behulp van PowerShell het **101-sql-vm-aglistener-setup** quickstart-sjabloon. 
+   >[!NOTE]
+   >Als uw implementatie halverwege mislukt, u moet handmatig [verwijderen van de zojuist gemaakte listener](#remove-availability-group-listener) voordat het opnieuw te implementeren met behulp van PowerShell het **101-sql-vm-aglistener-setup** quickstart-sjabloon. 
 
 ## <a name="remove-availability-group-listener"></a>-Listener voor beschikbaarheidsgroep verwijderen
 Als u later verwijderen van de beschikbaarheidsgroep-listener geconfigureerd door de sjabloon wilt, moet u de SQL-VM-resourceprovider doorlopen. Omdat de listener is geregistreerd via de SQL-VM-resourceprovider, is deze alleen worden verwijderd via SQL Server Management Studio onvoldoende. Daadwerkelijk moet worden verwijderd via de SQL-VM-resourceprovider met behulp van PowerShell. In dat geval wordt de metagegevens van de Beschikbaarheidsgroep-listener verwijderd uit de SQL-VM-resourceprovider en verwijdert de listener fysiek uit de beschikbaarheidsgroep. 
@@ -183,17 +183,17 @@ Deze fout kan worden veroorzaakt door een van twee redenen. De opgegeven domeina
 
  Controleer of het account bestaat. Als dit het geval is, kunt u worden uitgevoerd in de tweede situatie. U kunt dit oplossen door het volgende te doen:
 
- 1. Open op de domeincontroller, de **Active Directory: gebruikers en Computers** -venster de **extra** optie **Serverbeheer**. 
- 2. Navigeer naar de account door te selecteren **gebruikers** in het linkerdeelvenster.
- 3. Met de rechtermuisknop op het gewenste account en selecteer **eigenschappen**.
- 4. Selecteer de **Account** tabblad en controleer of als de **aanmeldingsnaam van gebruiker** is leeg. Als dit het geval is, is dit de oorzaak van de fout. 
+1. Open op de domeincontroller, de **Active Directory: gebruikers en Computers** -venster de **extra** optie **Serverbeheer**. 
+2. Navigeer naar de account door te selecteren **gebruikers** in het linkerdeelvenster.
+3. Met de rechtermuisknop op het gewenste account en selecteer **eigenschappen**.
+4. Selecteer de **Account** tabblad en controleer of als de **aanmeldingsnaam van gebruiker** is leeg. Als dit het geval is, is dit de oorzaak van de fout. 
 
-     ![Lege gebruikersaccount wordt aangegeven dat ontbrekende UPN](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
+    ![Lege gebruikersaccount wordt aangegeven dat ontbrekende UPN](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
- 5. Vul de **aanmeldingsnaam van gebruiker** moet overeenkomen met de naam van de gebruiker en selecteer het juiste domein in de vervolgkeuzelijst omlaag. 
- 6. Selecteer **toepassen** Sla uw wijzigingen op en sluit het dialoogvenster selecteert **OK**. 
+5. Vul de **aanmeldingsnaam van gebruiker** moet overeenkomen met de naam van de gebruiker en selecteer het juiste domein in de vervolgkeuzelijst omlaag. 
+6. Selecteer **toepassen** Sla uw wijzigingen op en sluit het dialoogvenster selecteert **OK**. 
 
- Nadat deze wijzigingen zijn aangebracht, probeert u zodra er meer implementeren van de Azure Quickstart-sjabloon. 
+   Nadat deze wijzigingen zijn aangebracht, probeert u zodra er meer implementeren van de Azure Quickstart-sjabloon. 
 
 
 

@@ -16,19 +16,19 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce4ad48a81d5f3b3b8574237b8d8685ad9b141ec
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194196"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852946"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: Upgraden van DirSync
 Azure AD Connect is de opvolger van DirSync. In dit onderwerp vindt u de manieren voor het upgraden van DirSync. Deze stappen werken niet voor een upgrade van een andere versie van Azure AD Connect of Azure AD Sync.
 
 Zorg ervoor dat u, voordat u begint met de installatie van Azure AD Connect, [Azure AD Connect downloadt](https://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen uitvoert in [Azure AD Connect: Hardware en vereisten](how-to-connect-install-prerequisites.md). In het bijzonder raden we u aan het volgende te lezen, omdat deze gebieden verschillen van DirSync:
 
-* De vereiste versie van .Net en PowerShell. Nieuwere versies zijn vereist op de server voor DirSync.
+* De vereiste versie van .NET en PowerShell. Nieuwere versies zijn vereist op de server voor DirSync.
 * De proxyserverconfiguratie. Als u een proxyserver gebruikt om verbinding te maken met internet, moet deze instelling worden geconfigureerd voordat u een upgrade uitvoert. DirSync gebruikte altijd de proxyserver die was geconfigureerd voor de gebruiker die de installatie uitvoerde, maar Azure AD Connect gebruikt de instellingen van de machine.
 * De URL's die moeten zijn geopend in de proxyserver. Voor algemene scenario's die ook worden ondersteund door DirSync, zijn de vereisten hetzelfde. Als u gebruik wilt maken van een van de nieuwe functies van Azure AD Connect, moeten er een aantal nieuwe URL's worden geopend.
 
@@ -41,7 +41,7 @@ Als u niet een van DirSync upgrade, ziet u de bijbehorende documentatie voor and
 Er zijn verschillende opties voor de upgrade, afhankelijk van uw huidige DirSync-implementatie. Als de verwachte tijd voor de upgrade korter is dan drie uur, wordt het aanbevolen om een in-place upgrade uit te voeren. Als de verwachte tijd voor de upgrade langer is dan drie uur, wordt het aanbevolen om een parallelle implementatie uit te voeren op een andere server. Als u meer dan 50.000 objecten hebt, schatten we dat de upgrade langer dan drie uur duurt.
 
 | Scenario |
-| --- | --- |
+| --- |
 | [In-place upgrade](#in-place-upgrade) |
 | [Parallelle implementatie](#parallel-deployment) |
 

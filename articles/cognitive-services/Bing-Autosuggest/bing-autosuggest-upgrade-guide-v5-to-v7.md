@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4768e96b9f29983e07edd4449bc24131cc3206ad
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 51f057a1dd0da866a50a0219574c70c3c805882e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000000"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Automatische suggestie-handleiding voor API bijwerken
 
@@ -25,7 +25,7 @@ Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van d
 
 ### <a name="endpoints"></a>Eindpunten
 
-- Het versienummer van het eindpunt is gewijzigd van versie 5 in versie 7. Bijvoorbeeld, https://api.cognitive.microsoft.com/bing/\ * \*v7.0 ** / suggesties.
+- Het versienummer van het eindpunt is gewijzigd van versie 5 in versie 7. Bijvoorbeeld: https:\//api.cognitive.microsoft.com/bing/\*\*v7.0 ** / suggesties.
 
 ### <a name="error-response-objects-and-error-codes"></a>Fout antwoordobjecten en foutcodes
 

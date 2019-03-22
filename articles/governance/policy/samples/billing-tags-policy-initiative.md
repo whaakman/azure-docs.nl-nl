@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: b659d6f681b980b956992f0d488995fd1a55de93
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 3964d75aa87fe76432af6b28e74a48fd1f2b49ef
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337594"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543829"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Voorbeeld: beleidsinitiatief voor factureringstags
 
@@ -29,7 +29,7 @@ U kunt deze sjabloon implementeren met behulp van de [Azure-portal](#deploy-with
 
 ## <a name="deploy-with-the-portal"></a>Implementeren met portal
 
-[![Implementeren in Azure](http://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Implementeren in Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>Implementeren met PowerShell
 

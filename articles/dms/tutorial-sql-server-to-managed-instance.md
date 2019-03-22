@@ -3,20 +3,20 @@ title: 'Zelfstudie: DMS gebruiken om te migreren naar een beheerd exemplaar voor
 description: Meer informatie over het migreren van on-premises SQL Server naar een beheerd exemplaar voor Azure SQL Database met behulp van de Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 243ffb4167060fb2b74d9b7ebf280fec6a540da5
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: HT
+ms.openlocfilehash: 450d47e4c20da1d9d9760ababf58c75eef2814b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791763"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182367"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Zelfstudie: SQL Server migreren naar een beheerd exemplaar voor Azure SQL Database offline met behulp van DMS
 

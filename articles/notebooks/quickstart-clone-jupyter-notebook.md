@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ced279575c0dd6ca2509911a53a23c2ebf9eb77e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: cfce5765cda1e3a1dfb7eb073719191b13b0696e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089196"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Quickstart: Een notebook klonen
 
@@ -40,13 +40,13 @@ Klonen wordt een kopie gemaakt van een GitHub-notebook in uw Azure-notitieblokke
 
 1. In de **GitHub-opslagplaats uploaden** die wordt weergegeven, invoeren of stel de volgende details en selecteer vervolgens **importeren**:
 
-    - **GitHub-opslagplaats**: Microsoft/cognitieve-services-notitieblokken (deze naam wordt de Jupyter-notebooks voor Azure Cognitive Services op gekloond [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
-    - **Klonen recursief**: (uitgeschakeld)
-    - **Naam van het project**: Kloon van de cognitive Services
-    - **Project-ID**: cognitive services-kloon
-    - **Openbare**: (uitgeschakeld)
+   - **GitHub-opslagplaats**: Microsoft/cognitieve-services-notitieblokken (deze naam wordt de Jupyter-notebooks voor Azure Cognitive Services op gekloond [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
+   - **Klonen recursief**: (uitgeschakeld)
+   - **Naam van het project**: Kloon van de cognitive Services
+   - **Project-ID**: cognitive services-kloon
+   - **Openbare**: (uitgeschakeld)
 
-    ![GitHub-opslagplaats pop-upvenster voor het verzamelen van informatie van de opslagplaats uploaden](media/quickstarts/upload-github-repo-popup.png)
+     ![GitHub-opslagplaats pop-upvenster voor het verzamelen van informatie van de opslagplaats uploaden](media/quickstarts/upload-github-repo-popup.png)
 
 1. Niet beschikbaar is even geduld terwijl het proces is voltooid; een opslagplaats klonen, kan een paar minuten duren.
 

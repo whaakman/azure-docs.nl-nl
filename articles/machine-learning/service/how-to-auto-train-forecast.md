@@ -1,7 +1,7 @@
 ---
-title: Automatisch-trein een prognosemodel
+title: Automatisch-trein een prognose time series-model
 titleSuffix: Azure Machine Learning service
-description: Informatie over het gebruik van Azure Machine Learning-service een regressie prognosemodel met behulp van geautomatiseerde machine learning te trainen.
+description: Informatie over het gebruik van Azure Machine Learning-service met het trainen van een tijdreeks prognoses regressie model met behulp van automatische leerprocessen.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -9,17 +9,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 03/08/2019
-ms.openlocfilehash: 7c34040180cd7c6b635d55e59498908b1373ae1b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/19/2019
+ms.openlocfilehash: cc5aae0e46e181e8063a4e01a832e68eab0eae0e
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57786617"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226605"
 ---
-# <a name="auto-train-a-forecast-model"></a>Automatisch-trein een prognosemodel
+# <a name="auto-train-a-time-series-forecast-model"></a>Automatisch-trein een prognose time series-model
 
-In dit artikel leert u hoe u met het trainen van een regressie prognosemodel met geautomatiseerde machine learning in Azure Machine Learning-service. Configureren van een Voorspellend model is vergelijkbaar met het instellen van een standard regressiemodel met behulp van geautomatiseerde machine learning, maar bepaalde configuratie-opties en de voorverwerking stappen bestaan voor het werken met time series-gegevens. De volgende voorbeelden ziet u hoe aan:
+In dit artikel leert u hoe u met het trainen van een time series regressie prognosemodel met geautomatiseerde machine learning in Azure Machine Learning-service. Configureren van een Voorspellend model is vergelijkbaar met het instellen van een standard regressiemodel met behulp van geautomatiseerde machine learning, maar bepaalde configuratie-opties en de voorverwerking stappen bestaan voor het werken met time series-gegevens. De volgende voorbeelden ziet u hoe aan:
 
 * Gegevens voorbereiden voor de time series modelleren
 * Configureren van specifieke time series-parameters in een [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object
@@ -58,7 +58,7 @@ In dit geval de gegevens is al oplopend gesorteerd door het tijdveld `week_start
 
 ```python
 X_train = data.iloc[:950]
-X_test = data.iloc[50:]
+X_test = data.iloc[-50:]
 
 y_train = X_train.pop("sales_quantity").values
 y_test = X_test.pop("sales_quantity").values

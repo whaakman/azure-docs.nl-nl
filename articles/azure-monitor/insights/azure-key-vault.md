@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: c3148ebe11ba0e23cbded5965234ece9fb6082aa
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b2c43ff2ae45b4adccb8f19873070a4c3a9dbe99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317693"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078757"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Azure Key Vault-analyse-oplossing in Log Analytics
 
@@ -138,13 +138,13 @@ De bijgewerkte oplossing gebruiken:
 1. [Diagnostische gegevens rechtstreeks naar Log Analytics worden verzonden vanuit Key Vault configureren](#enable-key-vault-diagnostics-in-the-portal)  
 2. De oplossing Azure Key Vault inschakelen met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../../azure-monitor/insights/solutions.md)
 3. Bijwerken van een opgeslagen query's, dashboards of waarschuwingen gebruik van het nieuwe gegevenstype
-  + Type is een wijziging ten opzichte van: KeyVaults naar AzureDiagnostics. Het ResourceType kunt u filteren op Logboeken van Key Vault.
-  - In plaats van: `KeyVaults`, gebruiken `AzureDiagnostics | where ResourceType'=="VAULTS"`
-  + Velden: (Veldnamen zijn hoofdlettergevoelig)
-  - Voor elk veld dat een achtervoegsel van \_s, \_d, of \_g in de naam wijzigen van het eerste teken in kleine letters
-  - Voor elk veld dat een achtervoegsel van \_o in naam van de gegevens is opgesplitst in afzonderlijke velden op basis van de geneste veldnamen. Bijvoorbeeld, is de UPN van de aanroeper opgeslagen in een veld `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
-   - Veld CallerIpAddress gewijzigd in CallerIPAddress
-   - Veld RemoteIPCountry is niet meer aanwezig
+   + Type is een wijziging ten opzichte van: KeyVaults naar AzureDiagnostics. Het ResourceType kunt u filteren op Logboeken van Key Vault.
+   + In plaats van: `KeyVaults`, gebruiken `AzureDiagnostics | where ResourceType'=="VAULTS"`
+   + Velden: (Veldnamen zijn hoofdlettergevoelig)
+   + Voor elk veld dat een achtervoegsel van \_s, \_d, of \_g in de naam wijzigen van het eerste teken in kleine letters
+   + Voor elk veld dat een achtervoegsel van \_o in naam van de gegevens is opgesplitst in afzonderlijke velden op basis van de geneste veldnamen. Bijvoorbeeld, is de UPN van de aanroeper opgeslagen in een veld `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   + Veld CallerIpAddress gewijzigd in CallerIPAddress
+   + Veld RemoteIPCountry is niet meer aanwezig
 4. Verwijder de *Key Vault Analytics (afgeschaft)* oplossing. Als u met behulp van PowerShell, gebruikt u `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Gegevens die worden verzameld voordat de wijziging niet zichtbaar in de nieuwe oplossing is. U kunt zoeken naar deze gegevens met behulp van de oude Type en de veldnamen.

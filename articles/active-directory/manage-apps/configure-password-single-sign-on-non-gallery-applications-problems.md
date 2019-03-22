@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bacefaada8ab0d63bb17d22f67b91c51a789de8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172328"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857994"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Probleem bij het configureren wachtwoord eenmalige aanmelding voor een toepassing buiten de galerie
 
@@ -46,25 +46,25 @@ In het algemeen **als automatische aanmeldingsvelden vastleggen niet werkt, prob
 
 Het configureren van **wachtwoord gebaseerde Single Sign-on** voor het gebruik van een toepassing **automatische aanmeldingsvelden vastleggen**, volg de onderstaande stappen:
 
-1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
+4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
 
-5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
+   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
 
-6.  Selecteer de toepassing die u wilt configureren van eenmalige aanmelding.
+6. Selecteer de toepassing die u wilt configureren van eenmalige aanmelding.
 
-7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
+7. Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
 
-8.  Selecteer de modus **wachtwoord gebaseerde aanmelding.**
+8. Selecteer de modus **wachtwoord gebaseerde aanmelding.**
 
-9.  Voer de **aanmeldings-URL**, de URL waar gebruikers hun gebruikersnaam en wachtwoord aan te melden bij invoeren. **Zorg ervoor dat de aanmelding-velden worden weergegeven op de URL die u opgeeft**.
+9. Voer de **aanmeldings-URL**, de URL waar gebruikers hun gebruikersnaam en wachtwoord aan te melden bij invoeren. **Zorg ervoor dat de aanmelding-velden worden weergegeven op de URL die u opgeeft**.
 
 10. Klik op de knop **Opslaan**.
 
@@ -76,25 +76,25 @@ Voor het handmatig aanmeldingsvelden vastleggen, moet u eerst de toegang tot dee
 
 Het configureren van **wachtwoord gebaseerde Single Sign-on** voor het gebruik van een toepassing **handmatige aanmeldingsvelden vastleggen**, volg de onderstaande stappen:
 
-1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
+4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
 
-5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
    * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
 
-6.  Selecteer de toepassing die u wilt configureren van eenmalige aanmelding.
+6. Selecteer de toepassing die u wilt configureren van eenmalige aanmelding.
 
-7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
+7. Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
 
-8.  Selecteer de modus **wachtwoord gebaseerde aanmelding.**
+8. Selecteer de modus **wachtwoord gebaseerde aanmelding.**
 
-9.  Voer de **aanmeldings-URL**, de URL waar gebruikers hun gebruikersnaam en wachtwoord aan te melden bij invoeren. **Zorg ervoor dat de aanmelding-velden worden weergegeven op de URL die u opgeeft**.
+9. Voer de **aanmeldings-URL**, de URL waar gebruikers hun gebruikersnaam en wachtwoord aan te melden bij invoeren. **Zorg ervoor dat de aanmelding-velden worden weergegeven op de URL die u opgeeft**.
 
 10. Klik op de knop **Opslaan**.
 
@@ -174,21 +174,21 @@ U kunt ook de extensie voor Chrome en Firefox downloaden via de rechtstreekse ko
 
 U kunt de details van een portalmelding zien door de onderstaande stappen te volgen:
 
-1.  Klik op de **meldingen** pictogram (de klok) in de rechterbovenhoek van de Azure-portal
+1. Klik op de **meldingen** pictogram (de klok) in de rechterbovenhoek van de Azure-portal
 
-2.  Selecteer een bericht in een **fout** status (die met een rode (!) ernaast).
+2. Selecteer een bericht in een **fout** status (die met een rode (!) ernaast).
 
-  >! Houd er rekening mee] u kunt niet klikken meldingen in een **geslaagd** of **In voortgang** staat.
-  >
-  >
+   >! Houd er rekening mee] u kunt niet klikken meldingen in een **geslaagd** of **In voortgang** staat.
+   >
+   >
 
-3.  De **Meldingsdetails** deelvenster wordt geopend.
+3. De **Meldingsdetails** deelvenster wordt geopend.
 
-4.  Gebruik de informatie zelf om meer informatie over het probleem te begrijpen.
+4. Gebruik de informatie zelf om meer informatie over het probleem te begrijpen.
 
-5.  Als u nog steeds hulp nodig hebt, kunt u ook de informatie delen met een ondersteuningsmedewerker of de productgroep voor hulp bij het probleem.
+5. Als u nog steeds hulp nodig hebt, kunt u ook de informatie delen met een ondersteuningsmedewerker of de productgroep voor hulp bij het probleem.
 
-6.  Klik op de **kopie** **pictogram** aan de rechterkant van de **fout kopiëren** tekstvak kopiëren alle details van de melding om te delen met een medewerker van de groep ondersteuning of product.
+6. Klik op de **kopie** **pictogram** aan de rechterkant van de **fout kopiëren** tekstvak kopiëren alle details van de melding om te delen met een medewerker van de groep ondersteuning of product.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Hulp krijgen door de details van melding verzenden naar een ondersteuningsmedewerker
 
@@ -226,7 +226,7 @@ De hieronder wordt uitgelegd meer wat elk van de melding betekent dat items, en 
 
 -   **UPN** – de gebruiker die de bewerking heeft uitgevoerd
 
-    -   Voorbeeld: **tperkins@f128.info**
+    -   Voorbeeld: **tperkins\@f128.info**
 
 -   **Tenant-ID** : de unieke ID van de tenant die de gebruiker die de bewerking heeft uitgevoerd, een lid van is
 
@@ -240,11 +240,11 @@ De hieronder wordt uitgelegd meer wat elk van de melding betekent dat items, en 
 
 -   **Weergavenaam** – **(mag leeg zijn)** een meer gedetailleerde weergavenaam voor de fout
 
-    -   Voorbeeld van de * – **Application proxy-instellingen**
+    -   Voorbeeld: **Application proxy-instellingen**
 
 -   **Status** – de specifieke status van de melding
 
-    -   Voorbeeld van de * – **is mislukt**
+    -   Voorbeeld: **is mislukt**
 
 -   **Object-ID** – **(mag leeg zijn)** de object-ID op basis waarvan de bewerking is uitgevoerd
 
@@ -252,7 +252,7 @@ De hieronder wordt uitgelegd meer wat elk van de melding betekent dat items, en 
 
 -   **Details** : de gedetailleerde beschrijving van wat is het gevolg van de bewerking
 
-    -   Voorbeeld: **interne url 'https://bing.com/' is ongeldig omdat deze al in gebruik**
+    -   Voorbeeld: **interne url '<https://bing.com/>' is ongeldig omdat deze al in gebruik**
 
 -   **Fout kopiëren** : klik op de **kopieerpictogram** aan de rechterkant van de **fout kopiëren** tekstvak kopiëren alle details van de melding om te delen met een groep ondersteuning of product engineer
 

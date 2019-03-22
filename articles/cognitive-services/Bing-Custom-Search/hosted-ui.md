@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: fbe865a5d9ef6c44b80c811a023c86f6446c3bb8
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: af1e65cc7dfe1a0934056ad141f4c62a96627bbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233877"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084129"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configureren van uw gehoste gebruikersinterface-ervaring
 
@@ -43,10 +43,10 @@ Volg deze stappen voor het configureren van een gehoste UI voor uw webtoepassing
     
 5. Selecteer een kleurenthema. U kunt de kleuren aanpassen aan uw toepassing door te klikken op **aanpassen thema**. Als u wilt een kleur wijzigen, een hexadecimale RGB-waarde van de kleur invoeren (bijvoorbeeld `#366eb8`), of klik op de kleur Preview-versie.
 
-  U kunt uw wijzigingen aan de rechterkant van de portal bekijken. Te klikken op **standaardinstellingen herstellen** uw wijzigingen aan de standaardkleuren voor het geselecteerde thema wordt hersteld.
+   U kunt uw wijzigingen aan de rechterkant van de portal bekijken. Te klikken op **standaardinstellingen herstellen** uw wijzigingen aan de standaardkleuren voor het geselecteerde thema wordt hersteld.
 
-  > [!NOTE]
-  > Houd rekening met toegankelijkheid bij het kiezen van kleuren.
+   > [!NOTE]
+   > Houd rekening met toegankelijkheid bij het kiezen van kleuren.
 
 6. Onder **aanvullende configuraties**, geef de waarden waar nodig voor uw app. Deze instellingen zijn optioneel. Het effect van het toepassen of verwijderen, Zie het voorbeeldvenster aan de rechterkant. Beschikbare opties zijn:  
 

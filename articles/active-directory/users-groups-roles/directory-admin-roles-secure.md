@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a31d41dedf7b925287a5beda15c7bfeb2bc59c96
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 81d09978c3333a5b76c09f8c7dac85998d342f03
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201871"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287227"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Beveiligen van bevoegde toegang voor cloud- en hybride implementaties in Azure AD
 
@@ -261,7 +261,7 @@ Als u al Azure AD Privileged Identity Management, pas deze tijdsbestek voor tijd
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>De blootstelling aan op basis van wachtwoorden aanmelden protocollen bepalen (als u Exchange Online)
 
-In het verleden uitgegaan protocollen dat de combinaties van gebruikersnaam en wachtwoord zijn ingesloten in apparaten, e-mailaccounts en telefoons. Maar nu met het risico voor cyberaanvallen in de cloud, raden we aan identificeren van elke mogelijke gebruiker door wie, als hun referenties zijn aangetast, kan catastrofale aan de organisatie worden en kunnen uitsluiten aanmelden bij hun e-mail via gebruikersnaam / het wachtwoord door het implementeren van sterke verificatievereisten en voorwaardelijke toegang. 
+In het verleden uitgegaan protocollen dat de combinaties van gebruikersnaam en wachtwoord zijn ingesloten in apparaten, e-mailaccounts en telefoons. Maar nu met het risico voor cyberaanvallen in de cloud, raden we aan identificeren van elke mogelijke gebruiker door wie, als hun referenties zijn aangetast, kan catastrofale aan de organisatie worden en kunnen uitsluiten aanmelden bij hun e-mail via gebruikersnaam / het wachtwoord door het implementeren van sterke verificatievereisten en voorwaardelijke toegang. U kunt blokkeren [verouderde verificatie door middel van voorwaardelijke toegang](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/block-legacy-authentication). Controleer de details op [het blokkeren van basisverificatie](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) via Exchnage online. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Voer een evaluatie van de beoordeling rollen voor Office 365-rollen (als u Office 365)
 

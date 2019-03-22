@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8abc6129e1179378ac90278fd2032737b2b828b2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888531"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125158"
 ---
 #### <a name="to-download-hotfixes"></a>Hotfixes downloaden
 
@@ -100,12 +100,12 @@ Voer de volgende stappen uit om hotfixes in de normale modus te installeren en t
     De volgende versies moeten worden weergegeven:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 5.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17845`
+   * `HcsSoftwareVersion: 6.3.9600.17845`
    
-    Als het versienummer niet is gewijzigd nadat de update is toegepast, kon de hotfix blijkbaar niet worden toegepast. Neem in dat geval contact op met [Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) voor verdere hulp.
+     Als het versienummer niet is gewijzigd nadat de update is toegepast, kon de hotfix blijkbaar niet worden toegepast. Neem in dat geval contact op met [Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) voor verdere hulp.
      
-    > [!IMPORTANT]
-    > U moet opnieuw opstarten van de actieve controller via de `Restart-HcsController` cmdlet voordat u de volgende update is toegepast.
+     > [!IMPORTANT]
+     > U moet opnieuw opstarten van de actieve controller via de `Restart-HcsController` cmdlet voordat u de volgende update is toegepast.
      
 8. Herhaal stap 3-6 voor het installeren van de _CisMDSAgentupdate.exe_ agent gedownload naar uw _FirstOrderUpdate_ map.
 8. Herhaal stap 3-6 voor het installeren van de tweede belangrijkste updates. 

@@ -13,21 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: kaanan
-ms.openlocfilehash: 5532174b6fc72f51e7ba7a946e601e7d97c7808e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 45224b1b0ec4a4b3c93393c178f1f03baa58e10b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408439"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189135"
 ---
 # <a name="virtual-network-tap"></a>Virtual Network TAP
 
 Met Azure virtual network TAP (Terminal Access Point) kunt u continu stroom netwerkverkeer van uw virtuele machine naar een netwerk-pakket collector of analytics-hulpprogramma. De collector of analytics-hulpprogramma wordt geleverd door een [virtueel netwerkapparaat](https://azure.microsoft.com/solutions/network-appliances/) partner. Zie voor een lijst met oplossingen van partners die zijn gevalideerd om te werken met het virtuele netwerk-TAP's [partneroplossingen](#virtual-network-tap-partner-solutions).
 
 > [!IMPORTANT]
-> Virtueel netwerk Tik is momenteel in developer preview in de WestCentralUS Azure-regio. Voor het gebruik van virtueel netwerk-TAP, moet u zich inschrijven in de Preview-versie door te sturen een e-mail naar <azurevnettap@microsoft.com> met uw abonnements-ID. U ontvangt een e-mailbevestiging zodra uw abonnement is geregistreerd. U niet de mogelijkheid gebruiken totdat u een e-mail ter bevestiging ontvangt. Deze developer preview wordt aangeboden zonder een service level agreement, en mag niet worden gebruikt voor werkbelastingen voor productie. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Zie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+> Virtual network TAP is momenteel in preview in alle Azure-regio's. Voor het gebruik van virtueel netwerk-TAP, moet u zich inschrijven in de Preview-versie door te sturen een e-mail naar <azurevnettap@microsoft.com> met uw abonnements-ID. U ontvangt een e-mailbevestiging zodra uw abonnement is geregistreerd. U niet de mogelijkheid gebruiken totdat u een e-mail ter bevestiging ontvangt. Deze preview wordt aangeboden zonder een service level agreement, en mag niet worden gebruikt voor werkbelastingen voor productie. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Zie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 ## <a name="virtual-network-tap-partner-solutions"></a>Virtueel netwerk-TAP partneroplossingen
 
@@ -40,9 +40,11 @@ Met Azure virtual network TAP (Terminal Access Point) kunt u continu stroom netw
 ### <a name="security-analytics-networkapplication-performance-management"></a>Beveiligingsanalyses, netwerk-/ prestatiebeheer
 
 - [Actief beveiliging](https://awakesecurity.com/technology-partners/microsoft-azure/)
+- [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Fidelis Cyberbeveiliging](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
+- [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
 - [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [RSA NetWitness® Platform](https://www.rsa.com/azure)

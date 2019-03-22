@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: a95b781d0d08cdca96cf4e98ac9dce43da535d13
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a3ccf76b2722c04a9353fcc7020ff1387bc454c6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889178"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125288"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Een update installeren via Azure Portal
 
@@ -35,7 +35,7 @@ ms.locfileid: "55889178"
    * **Statuscontroles hardwareonderdelen** om te controleren of alle hardwareonderdelen op uw StorSimple-apparaat in orde zijn.
    * **DATA 0-controles** om te controleren of DATA 0 is ingeschakeld op uw apparaat. Als deze interface niet is ingeschakeld, schakelt u deze in en probeert u het vervolgens opnieuw.
 
-    De update wordt gedownload en geïnstalleerd alleen als alle controles zijn voltooid. U krijgt een melding wanneer de controles worden uitgevoerd. Als de apparaatupdates is mislukt, klikt u vervolgens ontvangt u met de oorzaak van de fout. Deze problemen op te lossen en probeer het vervolgens opnieuw. Mogelijk moet u contact opnemen met Microsoft-ondersteuning als u deze problemen niet zelf kunt oplossen.
+     De update wordt gedownload en geïnstalleerd alleen als alle controles zijn voltooid. U krijgt een melding wanneer de controles worden uitgevoerd. Als de apparaatupdates is mislukt, klikt u vervolgens ontvangt u met de oorzaak van de fout. Deze problemen op te lossen en probeer het vervolgens opnieuw. Mogelijk moet u contact opnemen met Microsoft-ondersteuning als u deze problemen niet zelf kunt oplossen.
 
 7. Nadat de apparaatupdates zijn voltooid, wordt een updatetaak gemaakt. U krijgt een melding wanneer de bijwerktaak is gemaakt.
    
@@ -53,5 +53,5 @@ ms.locfileid: "55889178"
 
 10. Nadat de taak voltooid is, gaat u naar de **apparaatinstellingen > apparaatupdates**. Versie van de software moet nu worden bijgewerkt.
 
-    ![Maken van bijwerktaak](./media/storsimple-8000-install-update4-via-portal/update9.png)
+   ![Maken van bijwerktaak](./media/storsimple-8000-install-update4-via-portal/update9.png)
 

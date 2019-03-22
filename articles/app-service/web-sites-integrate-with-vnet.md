@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 951f8f887a7b29aac67b50ff8f92ddfd4a66e26b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766875"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112616"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uw app integreren met een Azure-netwerk
 Dit document beschrijft de functie voor integratie met virtueel netwerk Azure App Service en laat zien hoe u om in te stellen met apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Virtuele netwerken van Azure] [ VNETOverview] (VNets) kunt u veel van uw Azure-resources in een niet-routeerbare internetnetwerk plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van VPN-technologieën. 
@@ -284,13 +284,13 @@ Met de nieuwe functie:
 
 1. Ga naar de gebruikersinterface van netwerken in de portal. Als uw app kan de nieuwe functie wilt gebruiken, ziet u een mogelijkheid om te gebruiken van de nieuwe preview-functie.  
 
- ![Selecteer de nieuwe preview-VNet-integratie][6]
+   ![Selecteer de nieuwe preview-VNet-integratie][6]
 
 1. Selecteer **VNet toevoegen (preview)**.  
 
 1. Selecteer het Resource Manager VNet die u wilt integreren in en klikt u vervolgens een nieuw subnet maken of kies een bestaand leeg subnet. De integratie van neemt minder dan een minuut in beslag. Uw app wordt tijdens de integratie wordt opnieuw gestart.  Als integratie is voltooid, ziet u details over de VNet die u kunnen worden geïntegreerd in en een banner aan de bovenkant waarin u dat de functie is beschikbaar als preview.
 
- ![Selecteer het VNet en subnet][7]
+   ![Selecteer het VNet en subnet][7]
 
 Als u wilt inschakelen voor de app de DNS-server die uw VNet is geconfigureerd met te gebruiken, moet u een toepassingsinstelling voor uw app, waarbij de naam van de WEBSITE_DNS_SERVER en de waarde is het IP-adres van de server maken.  Als u een secundaire DNS-server hebt, maakt u een andere toepassingsinstelling waarbij de naam van de WEBSITE_DNS_ALT_SERVER en de waarde is het IP-adres van de server. 
 

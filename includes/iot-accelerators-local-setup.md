@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
-ms.openlocfilehash: 1f31189a83b6659371fcd0b34423f2fb681526c2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ec382217bfa32da19c0b98e656f3782739b26cc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55147936"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125182"
 ---
 ## <a name="download-the-source-code"></a>De broncode downloaden
 
@@ -53,16 +53,16 @@ Als u de vereiste Azure-resources is nog niet hebt gemaakt, volgt u deze stappen
     ```
 
 1. Voer de **start.cmd** script. Het script vraagt u om de volgende informatie:
-    * De naam van een oplossing.
-    * Het te gebruiken Azure-abonnement.
-    * De locatie van het Azure-datacenter te gebruiken.
+   * De naam van een oplossing.
+   * Het te gebruiken Azure-abonnement.
+   * De locatie van het Azure-datacenter te gebruiken.
 
-    Het script wordt de resourcegroep gemaakt in Azure met de naam van uw oplossing. Deze resourcegroep bevat de Azure-resources die maakt gebruik van de solution accelerator. Nadat u de bijbehorende resources niet meer nodig hebt, kunt u deze resourcegroep verwijderen.
+     Het script wordt de resourcegroep gemaakt in Azure met de naam van uw oplossing. Deze resourcegroep bevat de Azure-resources die maakt gebruik van de solution accelerator. Nadat u de bijbehorende resources niet meer nodig hebt, kunt u deze resourcegroep verwijderen.
 
-    Het script wordt ook een set van omgevingsvariabelen met een voorvoegsel toegevoegd **pc's** naar uw lokale computer. Wanneer u de Docker-containers of lokaal microservice-projecten start, lezen ze hun configuratiewaarden van deze omgevingsvariabelen.
+     Het script wordt ook een set van omgevingsvariabelen met een voorvoegsel toegevoegd **pc's** naar uw lokale computer. Wanneer u de Docker-containers of lokaal microservice-projecten start, lezen ze hun configuratiewaarden van deze omgevingsvariabelen.
 
-    > [!TIP]
-    > Wanneer het script is voltooid, ook wordt opgeslagen in de omgevingsvariabelen van een bestand met de naam  **\<uw basismap\>\\.pcs\\\<oplossingsnaam\>.env** . U kunt deze gebruiken voor toekomstige solution accelerator-implementaties. Houd er rekening mee dat omgevingsvariabelen instellen op uw lokale computer, overschrijven de waarden in de **services\\scripts\\lokale\\.env** tijdens het uitvoeren van het bestand **docker-compose**.
+     > [!TIP]
+     > Wanneer het script is voltooid, ook wordt opgeslagen in de omgevingsvariabelen van een bestand met de naam  **\<uw basismap\>\\.pcs\\\<oplossingsnaam\>.env** . U kunt deze gebruiken voor toekomstige solution accelerator-implementaties. Houd er rekening mee dat omgevingsvariabelen instellen op uw lokale computer, overschrijven de waarden in de **services\\scripts\\lokale\\.env** tijdens het uitvoeren van het bestand **docker-compose**.
 
 1. Afsluiten van uw opdrachtregelomgeving.
 

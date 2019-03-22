@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: jdial
-ms.openlocfilehash: 5689cdb2e9f8028f8e1e05a9b43cc00719701fce
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 19fdf2e7e1c7c56b6bfe8ddbf7329d3722f4e8de
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213905"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188608"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) over virtuele Azure-netwerk
 
@@ -52,7 +52,7 @@ U kunt de volgende hulpprogramma's gebruiken om te maken of een VNet configurere
 * Een netwerkconfiguratiebestand (netcfg - voor alleen klassieke VNets). Zie de [een VNet configureren met een netwerkconfiguratiebestand](virtual-networks-using-network-configuration-file.md) artikel.
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Welke adresbereiken kan ik gebruiken in mijn VNets?
-Elk IP-adresbereik is gedefinieerd in [RFC 1918](http://tools.ietf.org/html/rfc1918). Bijvoorbeeld: 10.0.0.0/16. U kunt de volgende adresbereiken niet toevoegen:
+Elk IP-adresbereik is gedefinieerd in [RFC 1918](https://tools.ietf.org/html/rfc1918). Bijvoorbeeld: 10.0.0.0/16. U kunt de volgende adresbereiken niet toevoegen:
 * 224.0.0.0/4 (Multicast)
 * 255.255.255.255/32 (Broadcast)
 * 127.0.0.0/8 (Loopback)
@@ -285,7 +285,7 @@ Nee. VNet-peering, lokaal of globaal, legt bandbreedtebeperkingen voor. Bandbree
 ## <a name="virtual-network-tap"></a>Virtual Network TAP
 
 ### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Welke Azure-regio's zijn beschikbaar voor het virtuele netwerk-TAP?
-Developer preview-versie, de mogelijkheid is beschikbaar in de regio West-Centraal VS. De bewaakte netwerkinterfaces, de bron van virtueel netwerk te TIKKEN en de collector of analytics-oplossing moeten worden geïmplementeerd in dezelfde regio.
+Virtual network TAP preview is beschikbaar in alle Azure-regio's. De bewaakte netwerkinterfaces, de bron van virtueel netwerk te TIKKEN en de collector of analytics-oplossing moeten worden geïmplementeerd in dezelfde regio.
 
 ### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>Virtual Network TAP ondersteunt filters gebruiken om mogelijkheden van de gespiegelde pakketten?
 Filtermogelijkheden worden niet ondersteund met de preview van virtueel netwerk te TIKKEN. Wanneer een Tik-configuratie wordt toegevoegd aan een netwerkinterface een grondige kopie van alle inkomende en uitgaande verkeer op de netwerkinterface wordt gestreamd naar de bestemming te TIKKEN.
@@ -298,7 +298,7 @@ Ja. Hetzelfde virtuele netwerk te TIKKEN resource kan worden gebruikt voor stati
 
 ### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Zijn er prestatie-overwegingen on productieverkeer als ik de configuratie van een virtueel netwerk te TIKKEN op een netwerkinterface inschakelen?
 
-Virtueel netwerk te TIKKEN wordt developer preview. Tijdens de preview is er geen serviceovereenkomst. De mogelijkheid mag niet worden gebruikt voor werkbelastingen voor productie. Wanneer de netwerkinterface van een virtuele machine met een Tik-configuratie is ingeschakeld, worden dezelfde resources op de azure-host toegewezen aan de virtuele machine om de productieverkeer te verzenden wordt gebruikt om de mirroring functie uitvoeren en het verzenden van de gespiegelde pakketten. Selecteer de juiste [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) grootte van de virtuele machine om ervoor te zorgen dat er voldoende bronnen beschikbaar zijn voor de virtuele machine voor het verzenden van productieverkeer van de en de gespiegelde zijn.
+Virtueel netwerk TIKKEN is in preview. Tijdens de preview is er geen serviceovereenkomst. De mogelijkheid mag niet worden gebruikt voor werkbelastingen voor productie. Wanneer de netwerkinterface van een virtuele machine met een Tik-configuratie is ingeschakeld, worden dezelfde resources op de azure-host toegewezen aan de virtuele machine om de productieverkeer te verzenden wordt gebruikt om de mirroring functie uitvoeren en het verzenden van de gespiegelde pakketten. Selecteer de juiste [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) grootte van de virtuele machine om ervoor te zorgen dat er voldoende bronnen beschikbaar zijn voor de virtuele machine voor het verzenden van productieverkeer van de en de gespiegelde zijn.
 
 ### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>Versneld netwerken voor [Linux](create-vm-accelerated-networking-cli.md) of [Windows](create-vm-accelerated-networking-powershell.md) met virtual network TAP ondersteund?
 
@@ -370,7 +370,7 @@ De verwijdering van de Azure-service-account is een onafhankelijke bewerking en 
 Wanneer service-eindpunten zijn ingeschakeld, schakelt u de bron-IP-adressen van de resources in uw virtuele netwerk subnet van het gebruik van openbare IPV4-adressen in het Azure-netwerk privé IP-adressen voor verkeer naar Azure-service. Houd er rekening mee dat dit leiden specifieke IP-firewall die zijn ingesteld op openbaar IPV4-adres eerder op de Azure-services tot kan mislukken. 
 
 ### <a name="does-service-endpoint-route-always-take-precedence"></a>Service-eindpuntroute hebben altijd voorrang?
-Service-eindpunten toevoegen een systeemroute heeft voorrang op de BGP-routes en bieden een optimale routering voor het service-eindpunt-verkeer. Service-eindpunten altijd dat serviceverkeer rechtstreeks van uw virtuele netwerk naar de service op de Microsoft Azure-backbone-netwerk. Voor meer informatie over hoe Azure een route selecteert, Zie [Azure Virtual network routering van verkeer] (virtuele-netwerken-udr-overview.md).
+Service-eindpunten toevoegen een systeemroute heeft voorrang op de BGP-routes en bieden een optimale routering voor het service-eindpunt-verkeer. Service-eindpunten altijd dat serviceverkeer rechtstreeks van uw virtuele netwerk naar de service op de Microsoft Azure-backbone-netwerk. Zie voor meer informatie over hoe Azure een route selecteert, [verkeersroutering van Azure Virtual network](virtual-networks-udr-overview.md).
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>Hoe werkt NSG op een subnet met service-eindpunten?
 Als u wilt de Azure-service bereiken, moeten nsg's uitgaande connectiviteit toegestaan. Als uw nsg's zijn met alle uitgaande internetverkeer geopend, klikt u vervolgens werkt het service-eindpunt verkeer. U kunt ook het uitgaande verkeer naar de service IP-adressen alleen met behulp van de servicetags beperken.  

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ee05c117fb45cbd96a82ede524db7a6b098830f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854752"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285782"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>De naam van uw aangepaste domein met behulp van de Azure Active Directory-portal toevoegen
 Elke nieuwe Azure AD-tenant wordt geleverd met een initiële domeinnaam *domainname*. onmicrosoft.com. U niet wijzigen of verwijderen van de initiële domeinnaam, maar u kunt de namen van uw organisatie toevoegen aan de lijst. Toevoegen van aangepaste domeinnamen, helpt u bij het maken van de gebruikersnamen die bekend bij uw gebruikers, zoals zijn *alain\@contoso.com*.
@@ -31,7 +31,7 @@ Nadat u uw domeinnaam hebt ontvangen, kunt u uw eerste Azure AD-directory maken.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) voor uw directory, met behulp van een account met de **eigenaar** rol voor het abonnement en selecteer vervolgens **Azure Active Directory**. Zie voor meer informatie over rollen van abonnement [klassiek abonnement beheerder functies, Azure RBAC-rollen en Azure AD-beheerdersrollen](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
-    ![Azure Portal-scherm](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    ![Azure portal scherm, met de Azure AD-optie](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
     > Als u van plan bent om uw on-premises Windows Server AD te federeren met Azure AD, moet u het selectievakje **Ik wil dit domein configureren voor eenmalige aanmelding met mijn lokale Active Directory** inschakelen wanneer u het hulpprogramma Azure AD Connect uitvoert om uw directory's te synchroniseren. Daarnaast moet u dezelfde domeinnaam registreren die u selecteert voor het federeren met uw on-premises directory in de stap **Azure AD-domein** in de wizard. [In deze instructies](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation) ziet u hoe die stap van de wizard eruitziet. Als u het hulpprogramma Azure AD Connect niet hebt, kunt u het [hier](https://go.microsoft.com/fwlink/?LinkId=615771) downloaden.
@@ -46,7 +46,7 @@ Nadat u uw directory hebt gemaakt, kunt u uw aangepaste domeinnaam toevoegen.
 
 1. Selecteer **aangepaste-domeinnamen**, en selecteer vervolgens **aangepast domein toevoegen**.
 
-    ![Fabrikam - aangepast domein namen pagina, met de optie aangepast domein toevoegen gemarkeerd](media/add-custom-domain/add-custom-domain.png)
+    ![Aangepast domein namen pagina, met de aangepaste domein toevoegen wordt weergegeven](media/add-custom-domain/add-custom-domain.png)
 
 2. Geef nieuwe domeinnaam van uw organisatie in de **aangepaste domeinnaam** vak (bijvoorbeeld _contoso.com_), en selecteer vervolgens **domein toevoegen**.
 
@@ -55,7 +55,7 @@ Nadat u uw directory hebt gemaakt, kunt u uw aangepaste domeinnaam toevoegen.
     >[!Important]
     >U moet opnemen .com, .net of andere op het hoogste niveau extensie voor deze goed te laten werken.
 
-    ![Fabrikam - aangepast domein namen pagina, met domain-knop toevoegen gemarkeerd](media/add-custom-domain/add-custom-domain-blade.png)
+    ![Aangepast domein namen pagina, met de pagina aangepast domein toevoegen](media/add-custom-domain/add-custom-domain-blade.png)
 
 4. Kopieer de DNS-gegevens van de **Contoso** pagina. Bijvoorbeeld, MS = ms64983159.
 

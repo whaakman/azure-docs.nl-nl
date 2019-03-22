@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: b21d9fe7c92edef13e717399c1f7a2b0e704e583
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1d0905900b81a0c7775011774b55565217d13b71
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433481"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011551"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Oracle Golden Gate implementeren op een Azure Linux-VM 
 
@@ -349,79 +349,79 @@ SQL> EXIT;
 ### <a name="download-golden-gate-software"></a>Golden Gate software downloaden
 Om te downloaden en bereidt u de Oracle Golden Gate-software, voert u de volgende stappen uit:
 
-1. Download de **fbo_ggs_Linux_x64_shiphome.zip** -bestand uit de [Oracle Golden Gate-downloadpagina](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Onder de titel downloaden **12.x.x.x Oracle GoldenGate voor Oracle Linux x86-64**, moet er een set ZIP-bestanden te downloaden.
+1. Download de **fbo_ggs_Linux_x64_shiphome.zip** -bestand uit de [Oracle Golden Gate-downloadpagina](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Onder de titel downloaden **12.x.x.x Oracle GoldenGate voor Oracle Linux x86-64**, moet er een set ZIP-bestanden te downloaden.
 
 2. Nadat u het ZIP-bestanden naar uw client-computer downloaden, gebruikt u Secure Copy Protocol (SCP) de bestanden naar uw virtuele machine te kopiëren:
 
-  ```bash
-  $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
-  ```
+   ```bash
+   $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
+   ```
 
 3. Verplaats de ZIP-bestanden naar de **/ opt** map. Wijzig de eigenaar van de bestanden als volgt:
 
-  ```bash
-  $ sudo su -
-  # mv <folder>/*.zip /opt
-  ```
+   ```bash
+   $ sudo su -
+   # mv <folder>/*.zip /opt
+   ```
 
 4. Pak de bestanden (installatie van de Linux unzip hulpprogramma als deze nog niet geïnstalleerd):
 
-  ```bash
-  # yum install unzip
-  # cd /opt
-  # unzip fbo_ggs_Linux_x64_shiphome.zip
-  ```
+   ```bash
+   # yum install unzip
+   # cd /opt
+   # unzip fbo_ggs_Linux_x64_shiphome.zip
+   ```
 
 5. De machtiging wijzigen:
 
-  ```bash
-  # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
-  ```
+   ```bash
+   # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
+   ```
 
 ### <a name="prepare-the-client-and-vm-to-run-x11-for-windows-clients-only"></a>Voorbereiden van de client en de virtuele machine om uit te voeren x11 (voor alleen voor Windows-clients)
 Dit is een optionele stap. U kunt deze stap overslaan als u een Linux-client of al x11 hebt setup.
 
 1. Download PuTTY en Xming op uw Windows-computer:
 
-  * [Download PuTTY](http://www.putty.org/)
-  * [Xming downloaden](https://xming.en.softonic.com/)
+   * [Download PuTTY](https://www.putty.org/)
+   * [Xming downloaden](https://xming.en.softonic.com/)
 
-2.  Nadat u PuTTY, in de PuTTY-map (bijvoorbeeld C:\Program Files\PuTTY) hebt geïnstalleerd, voert u puttygen.exe (PuTTY-Sleutelgenerator).
+2. Nadat u PuTTY, in de PuTTY-map (bijvoorbeeld C:\Program Files\PuTTY) hebt geïnstalleerd, voert u puttygen.exe (PuTTY-Sleutelgenerator).
 
-3.  In de PuTTY Serversleutelgenerator:
+3. In de PuTTY Serversleutelgenerator:
 
-  - Voor het genereren van een sleutel, selecteer de **genereren** knop.
-  - Kopieer de inhoud van de sleutel (**Ctrl + C**).
-  - Selecteer de **persoonlijke sleutel opslaan** knop.
-  - Negeer de waarschuwing die wordt weergegeven, en selecteer vervolgens **OK**.
+   - Voor het genereren van een sleutel, selecteer de **genereren** knop.
+   - Kopieer de inhoud van de sleutel (**Ctrl + C**).
+   - Selecteer de **persoonlijke sleutel opslaan** knop.
+   - Negeer de waarschuwing die wordt weergegeven, en selecteer vervolgens **OK**.
 
-    ![Schermafbeelding van de pagina PuTTY serversleutelgenerator](./media/oracle-golden-gate/puttykeygen.png)
+   ![Schermafbeelding van de pagina PuTTY serversleutelgenerator](./media/oracle-golden-gate/puttykeygen.png)
 
-4.  Voer deze opdrachten uit in uw VM:
+4. Voer deze opdrachten uit in uw VM:
 
-  ```bash
-  # sudo su - oracle
-  $ mkdir .ssh (if not already created)
-  $ cd .ssh
-  ```
+   ```bash
+   # sudo su - oracle
+   $ mkdir .ssh (if not already created)
+   $ cd .ssh
+   ```
 
 5. Maak een bestand met de naam **authorized_keys**. Plak de inhoud van de sleutel in dit bestand en sla het bestand.
 
-  > [!NOTE]
-  > De sleutel moet de tekenreeks bevatten `ssh-rsa`. De inhoud van de sleutel moet bovendien één regel tekst.
-  >  
+   > [!NOTE]
+   > De sleutel moet de tekenreeks bevatten `ssh-rsa`. De inhoud van de sleutel moet bovendien één regel tekst.
+   >  
 
 6. Start PuTTY. In de **categorie** venster **verbinding** > **SSH** > **Auth**. In de **bestand met persoonlijke sleutel voor verificatie** vak, blader naar de sleutel die u eerder hebt gegenereerd.
 
-  ![Schermafbeelding van de pagina persoonlijke sleutel instellen](./media/oracle-golden-gate/setprivatekey.png)
+   ![Schermafbeelding van de pagina persoonlijke sleutel instellen](./media/oracle-golden-gate/setprivatekey.png)
 
 7. In de **categorie** venster **verbinding** > **SSH** > **X11**. Selecteer vervolgens de **inschakelen X11 doorsturen** vak.
 
-  ![Schermafbeelding van de pagina X11 inschakelen](./media/oracle-golden-gate/enablex11.png)
+   ![Schermafbeelding van de pagina X11 inschakelen](./media/oracle-golden-gate/enablex11.png)
 
 8. In de **categorie** deelvenster, Ga naar **sessie**. Voer de informatie over de host en selecteer vervolgens **Open**.
 
-  ![Schermafbeelding van de sessie-pagina](./media/oracle-golden-gate/puttysession.png)
+   ![Schermafbeelding van de sessie-pagina](./media/oracle-golden-gate/puttysession.png)
 
 ### <a name="install-golden-gate-software"></a>Golden Gate-software installeren
 
@@ -429,43 +429,43 @@ Voor het installeren van Oracle Golden Gate, voert u de volgende stappen uit:
 
 1. Meld u als oracle. (U moet aanmelden zonder een wachtwoord wordt gevraagd.) Zorg ervoor dat Xming voordat u begint met de installatie wordt uitgevoerd.
  
-  ```bash
-  $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
-  $ ./runInstaller
-  ```
+   ```bash
+   $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
+   $ ./runInstaller
+   ```
 2. Selecteer 'Oracle GoldenGate voor Oracle Database 12c'. Selecteer vervolgens **volgende** om door te gaan.
 
-  ![Schermafbeelding van de pagina van de installatie selecteert u installatieprogramma](./media/oracle-golden-gate/golden_gate_install_01.png)
+   ![Schermafbeelding van de pagina van de installatie selecteert u installatieprogramma](./media/oracle-golden-gate/golden_gate_install_01.png)
 
 3. Wijzig de locatie van de software. Selecteer vervolgens de **Manager Start** in en voert u de locatie van de database. Selecteer **Volgende** om door te gaan.
 
-  ![Schermafbeelding van de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_02.png)
+   ![Schermafbeelding van de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_02.png)
 
 4. Wijzig de directory inventaris en selecteer vervolgens **volgende** om door te gaan.
 
-  ![Schermafbeelding van de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_03.png)
+   ![Schermafbeelding van de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_03.png)
 
 5. Op de **samenvatting** scherm, selecteer **installeren** om door te gaan.
 
-  ![Schermafbeelding van de pagina van de installatie selecteert u installatieprogramma](./media/oracle-golden-gate/golden_gate_install_04.png)
+   ![Schermafbeelding van de pagina van de installatie selecteert u installatieprogramma](./media/oracle-golden-gate/golden_gate_install_04.png)
 
 6. U mogelijk gevraagd om uit te voeren een script op als 'root'. Als dit het geval is, opent u een afzonderlijke sessie, ssh met de virtuele machine, sudo aan basis-, en voer het script. Selecteer **OK** blijven.
 
-  ![Schermafbeelding van de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_05.png)
+   ![Schermafbeelding van de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_05.png)
 
 7. Wanneer de installatie is voltooid, selecteert u **sluiten** om het proces te voltooien.
 
-  ![Schermafbeelding van de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_06.png)
+   ![Schermafbeelding van de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### <a name="set-up-service-on-myvm1-primary"></a>Instellen van de service op myVM1 (primair)
 
 1. Maken of bijwerken van het bestand tnsnames.ora:
 
-  ```bash
-  $ cd $ORACLE_HOME/network/admin
-  $ vi tnsnames.ora
+   ```bash
+   $ cd $ORACLE_HOME/network/admin
+   $ vi tnsnames.ora
 
-  cdb1=
+   cdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -478,7 +478,7 @@ Voor het installeren van Oracle Golden Gate, voert u de volgende stappen uit:
       )
     )
 
-  pdb1=
+   pdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -490,13 +490,13 @@ Voor het installeren van Oracle Golden Gate, voert u de volgende stappen uit:
         (SERVICE_NAME=pdb1)
       )
     )
-  ```
+   ```
 
 2. De Golden Gate eigenaars- en -accounts maken.
 
-  > [!NOTE]
-  > De van eigenaarsaccount moet het voorvoegsel van C# hebben.
-  >
+   > [!NOTE]
+   > De van eigenaarsaccount moet het voorvoegsel van C# hebben.
+   >
 
     ```bash
     $ sqlplus / as sysdba
@@ -510,124 +510,124 @@ Voor het installeren van Oracle Golden Gate, voert u de volgende stappen uit:
 
 3. De Golden Gate test-gebruikersaccount maken:
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ sqlplus system/OraPasswd1@pdb1
-  SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
-  SQL> GRANT connect, resource, dba TO test;
-  SQL> ALTER USER test QUOTA 100M on USERS;
-  SQL> connect test/test@pdb1
-  SQL> @demo_ora_create
-  SQL> @demo_ora_insert
-  SQL> EXIT;
-  ```
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ sqlplus system/OraPasswd1@pdb1
+   SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
+   SQL> GRANT connect, resource, dba TO test;
+   SQL> ALTER USER test QUOTA 100M on USERS;
+   SQL> connect test/test@pdb1
+   SQL> @demo_ora_create
+   SQL> @demo_ora_insert
+   SQL> EXIT;
+   ```
 
 4. Configureer het parameterbestand extraheren.
 
- Start de Golden gate-opdrachtregelinterface (ggsci):
+   Start de Golden gate-opdrachtregelinterface (ggsci):
 
-  ```bash
-  $ sudo su - oracle
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
-  GGSCI> DBLOGIN USERID test@pdb1, PASSWORD test
-  Successfully logged into database  pdb1
-  GGSCI>  ADD SCHEMATRANDATA pdb1.test
-  2017-05-23 15:44:25  INFO    OGG-01788  SCHEMATRANDATA has been added on schema test.
-  2017-05-23 15:44:25  INFO    OGG-01976  SCHEMATRANDATA for scheduling columns has been added on schema test.
+   ```bash
+   $ sudo su - oracle
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ ./ggsci
+   GGSCI> DBLOGIN USERID test@pdb1, PASSWORD test
+   Successfully logged into database  pdb1
+   GGSCI>  ADD SCHEMATRANDATA pdb1.test
+   2017-05-23 15:44:25  INFO    OGG-01788  SCHEMATRANDATA has been added on schema test.
+   2017-05-23 15:44:25  INFO    OGG-01976  SCHEMATRANDATA for scheduling columns has been added on schema test.
 
-  GGSCI> EDIT PARAMS EXTORA
-  ```
+   GGSCI> EDIT PARAMS EXTORA
+   ```
 5. Voeg de volgende naar het parameterbestand EXTRACT (met behulp van vi opdrachten). Druk op Esc-toets, ': wq! " bestand op te slaan. 
 
-  ```bash
-  EXTRACT EXTORA
-  USERID C##GGADMIN, PASSWORD ggadmin
-  RMTHOST 10.0.0.5, MGRPORT 7809
-  RMTTRAIL ./dirdat/rt  
-  DDL INCLUDE MAPPED
-  DDLOPTIONS REPORT 
-  LOGALLSUPCOLS
-  UPDATERECORDFORMAT COMPACT
-  TABLE pdb1.test.TCUSTMER;
-  TABLE pdb1.test.TCUSTORD;
-  ```
+   ```bash
+   EXTRACT EXTORA
+   USERID C##GGADMIN, PASSWORD ggadmin
+   RMTHOST 10.0.0.5, MGRPORT 7809
+   RMTTRAIL ./dirdat/rt  
+   DDL INCLUDE MAPPED
+   DDLOPTIONS REPORT 
+   LOGALLSUPCOLS
+   UPDATERECORDFORMAT COMPACT
+   TABLE pdb1.test.TCUSTMER;
+   TABLE pdb1.test.TCUSTORD;
+   ```
 6. Register pak--geïntegreerde extraheren:
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ ./ggsci
 
-  GGSCI> dblogin userid C##GGADMIN, password ggadmin
-  Successfully logged into database CDB$ROOT.
+   GGSCI> dblogin userid C##GGADMIN, password ggadmin
+   Successfully logged into database CDB$ROOT.
 
-  GGSCI> REGISTER EXTRACT EXTORA DATABASE CONTAINER(pdb1)
+   GGSCI> REGISTER EXTRACT EXTORA DATABASE CONTAINER(pdb1)
 
-  2017-05-23 15:58:34  INFO    OGG-02003  Extract EXTORA successfully registered with database at SCN 1821260.
+   2017-05-23 15:58:34  INFO    OGG-02003  Extract EXTORA successfully registered with database at SCN 1821260.
 
-  GGSCI> exit
-  ```
+   GGSCI> exit
+   ```
 7. Instellen van controlepunten extract en realtime extract starten:
 
-  ```bash
-  $ ./ggsci
-  GGSCI>  ADD EXTRACT EXTORA, INTEGRATED TRANLOG, BEGIN NOW
-  EXTRACT (Integrated) added.
+   ```bash
+   $ ./ggsci
+   GGSCI>  ADD EXTRACT EXTORA, INTEGRATED TRANLOG, BEGIN NOW
+   EXTRACT (Integrated) added.
 
-  GGSCI>  ADD RMTTRAIL ./dirdat/rt, EXTRACT EXTORA, MEGABYTES 10
-  RMTTRAIL added.
+   GGSCI>  ADD RMTTRAIL ./dirdat/rt, EXTRACT EXTORA, MEGABYTES 10
+   RMTTRAIL added.
 
-  GGSCI>  START EXTRACT EXTORA
+   GGSCI>  START EXTRACT EXTORA
 
-  Sending START request to MANAGER ...
-  EXTRACT EXTORA starting
+   Sending START request to MANAGER ...
+   EXTRACT EXTORA starting
 
-  GGSCI > info all
+   GGSCI > info all
 
-  Program     Status      Group       Lag at Chkpt  Time Since Chkpt
+   Program     Status      Group       Lag at Chkpt  Time Since Chkpt
 
-  MANAGER     RUNNING
-  EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
-  ```
-In deze stap maakt zoeken u de eerste SCN, die later worden gebruikt in een andere sectie:
+   MANAGER     RUNNING
+   EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
+   ```
+   In deze stap maakt zoeken u de eerste SCN, die later worden gebruikt in een andere sectie:
 
-  ```bash
-  $ sqlplus / as sysdba
-  SQL> alter session set container = pdb1;
-  SQL> SELECT current_scn from v$database;
-  CURRENT_SCN
-  -----------
+   ```bash
+   $ sqlplus / as sysdba
+   SQL> alter session set container = pdb1;
+   SQL> SELECT current_scn from v$database;
+   CURRENT_SCN
+   -----------
       1857887
-  SQL> EXIT;
-  ```
+   SQL> EXIT;
+   ```
 
-  ```bash
-  $ ./ggsci
-  GGSCI> EDIT PARAMS INITEXT
-  ```
+   ```bash
+   $ ./ggsci
+   GGSCI> EDIT PARAMS INITEXT
+   ```
 
-  ```bash
-  EXTRACT INITEXT
-  USERID C##GGADMIN, PASSWORD ggadmin
-  RMTHOST 10.0.0.5, MGRPORT 7809
-  RMTTASK REPLICAT, GROUP INITREP
-  TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 1857887'; 
-  ```
+   ```bash
+   EXTRACT INITEXT
+   USERID C##GGADMIN, PASSWORD ggadmin
+   RMTHOST 10.0.0.5, MGRPORT 7809
+   RMTTASK REPLICAT, GROUP INITREP
+   TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 1857887'; 
+   ```
 
-  ```bash
-  GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
-  ```
+   ```bash
+   GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
+   ```
 
 ### <a name="set-up-service-on-myvm2-replicate"></a>Instellen van de service op myVM2 (repliceren)
 
 
 1. Maken of bijwerken van het bestand tnsnames.ora:
 
-  ```bash
-  $ cd $ORACLE_HOME/network/admin
-  $ vi tnsnames.ora
+   ```bash
+   $ cd $ORACLE_HOME/network/admin
+   $ vi tnsnames.ora
 
-  cdb1=
+   cdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -640,7 +640,7 @@ In deze stap maakt zoeken u de eerste SCN, die later worden gebruikt in een ande
       )
     )
 
-  pdb1=
+   pdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -652,72 +652,72 @@ In deze stap maakt zoeken u de eerste SCN, die later worden gebruikt in een ande
         (SERVICE_NAME=pdb1)
       )
     )
-  ```
+   ```
 
 2. Een repliceren account maken:
 
-  ```bash
-  $ sqlplus / as sysdba
-  SQL> alter session set container = pdb1;
-  SQL> create user repuser identified by rep_pass container=current;
-  SQL> grant dba to repuser;
-  SQL> exec dbms_goldengate_auth.grant_admin_privilege('REPUSER',container=>'PDB1');
-  SQL> connect repuser/rep_pass@pdb1 
-  SQL> EXIT;
-  ```
+   ```bash
+   $ sqlplus / as sysdba
+   SQL> alter session set container = pdb1;
+   SQL> create user repuser identified by rep_pass container=current;
+   SQL> grant dba to repuser;
+   SQL> exec dbms_goldengate_auth.grant_admin_privilege('REPUSER',container=>'PDB1');
+   SQL> connect repuser/rep_pass@pdb1 
+   SQL> EXIT;
+   ```
 
 3. Maak een Golden Gate test-gebruikersaccount:
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ sqlplus system/OraPasswd1@pdb1
-  SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
-  SQL> GRANT connect, resource, dba TO test;
-  SQL> ALTER USER test QUOTA 100M on USERS;
-  SQL> connect test/test@pdb1
-  SQL> @demo_ora_create
-  SQL> EXIT;
-  ```
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ sqlplus system/OraPasswd1@pdb1
+   SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
+   SQL> GRANT connect, resource, dba TO test;
+   SQL> ALTER USER test QUOTA 100M on USERS;
+   SQL> connect test/test@pdb1
+   SQL> @demo_ora_create
+   SQL> EXIT;
+   ```
 
 4. Het parameterbestand REPLICAT voor het repliceren van wijzigingen: 
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
-  GGSCI> EDIT PARAMS REPORA  
-  ```
-  De inhoud van het parameterbestand REPORA:
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ ./ggsci
+   GGSCI> EDIT PARAMS REPORA  
+   ```
+   De inhoud van het parameterbestand REPORA:
 
-  ```bash
-  REPLICAT REPORA
-  ASSUMETARGETDEFS
-  DISCARDFILE ./dirrpt/repora.dsc, PURGE, MEGABYTES 100
-  DDL INCLUDE MAPPED
-  DDLOPTIONS REPORT
-  DBOPTIONS INTEGRATEDPARAMS(parallelism 6)
-  USERID repuser@pdb1, PASSWORD rep_pass
-  MAP pdb1.test.*, TARGET pdb1.test.*;
-  ```
+   ```bash
+   REPLICAT REPORA
+   ASSUMETARGETDEFS
+   DISCARDFILE ./dirrpt/repora.dsc, PURGE, MEGABYTES 100
+   DDL INCLUDE MAPPED
+   DDLOPTIONS REPORT
+   DBOPTIONS INTEGRATEDPARAMS(parallelism 6)
+   USERID repuser@pdb1, PASSWORD rep_pass
+   MAP pdb1.test.*, TARGET pdb1.test.*;
+   ```
 
 5. Instellen van een controlepunt repliceren:
 
-  ```bash
-  GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
-  GGSCI> EDIT PARAMS INITREP
+   ```bash
+   GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
+   GGSCI> EDIT PARAMS INITREP
 
-  ```
+   ```
 
-  ```bash
-  REPLICAT INITREP
-  ASSUMETARGETDEFS
-  DISCARDFILE ./dirrpt/tcustmer.dsc, APPEND
-  USERID repuser@pdb1, PASSWORD rep_pass
-  MAP pdb1.test.*, TARGET pdb1.test.*;   
-  ```
+   ```bash
+   REPLICAT INITREP
+   ASSUMETARGETDEFS
+   DISCARDFILE ./dirrpt/tcustmer.dsc, APPEND
+   USERID repuser@pdb1, PASSWORD rep_pass
+   MAP pdb1.test.*, TARGET pdb1.test.*;   
+   ```
 
-  ```bash
-  GGSCI> ADD REPLICAT INITREP, SPECIALRUN
-  ```
+   ```bash
+   GGSCI> ADD REPLICAT INITREP, SPECIALRUN
+   ```
 
 ### <a name="set-up-the-replication-myvm1-and-myvm2"></a>Instellen van de replicatie (myVM1 en myVM2)
 

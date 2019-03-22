@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: b5bca3b4c9f5fbe4c9d7dd917b4e2f0767abf145
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9b04ca359a0c71a04e762452fa33345201f37e84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341014"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124317"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -92,7 +92,7 @@ Gebruik Visual Studio Enterprise om een websessie op te nemen.
 
     ![Maak in de Visual Studio Enterprise-versieneen project vanaf de sjabloon Web Performance en Load Test.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
- * *Ziet u de sjabloon Web Performance en Load Test niet?* Sluit Visual Studio Enterprise. Open **Visual Studio Installer** om de Visual Studio Enterprise-installatie te wijzigen. Selecteer onder **Afzonderlijke onderdelen** de optie **Hulpprogramma's voor webprestaties en belastingstests**.
+   * *Ziet u de sjabloon Web Performance en Load Test niet?* Sluit Visual Studio Enterprise. Open **Visual Studio Installer** om de Visual Studio Enterprise-installatie te wijzigen. Selecteer onder **Afzonderlijke onderdelen** de optie **Hulpprogramma's voor webprestaties en belastingstests**.
 
 2. Open het bestand .webtest en begin met opnemen.
 

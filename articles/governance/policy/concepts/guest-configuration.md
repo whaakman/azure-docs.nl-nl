@@ -4,17 +4,17 @@ description: Meer informatie over hoe Azure Policy Gast-configuratie gebruikt vo
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e6621172734ea02f971bd5064b403ad4844210a3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.openlocfilehash: d97ac99cae963ddb9df4de06736c64d5d8ceafb5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960754"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187656"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informatie over Azure Policy Gast-configuratie
 
@@ -64,7 +64,7 @@ De volgende tabel bevat een overzicht van de lokale hulpprogramma's die op elk o
 
 ### <a name="validation-frequency"></a>Validatie frequentie
 
-De configuratie van de Gast-client controleert nieuwe inhoud om de 5 minuten. Nadat de toewijzing van een Gast is ontvangen, worden de instellingen in een interval van 15 minuten gecontroleerd. Resultaten worden verzonden naar de configuratie van de Gast-resourceprovider als de controle is voltooid. Wanneer een beleid [evaluatie trigger](../how-to/get-compliance-data.md#evaluation-triggers) optreedt, de status van de machine wordt geschreven bij de configuratie van de Gast-resourceprovider. Deze gebeurtenis, wordt het Azure-beleid om te evalueren van de Azure Resource Manager-eigenschappen. Een evaluatie van het beleid op aanvraag haalt de laatste waarde van de configuratie van de Gast-resourceprovider. Echter activeren niet het van een nieuwe controle van de configuratie van de virtuele machine.
+De configuratie van de Gast-client controleert nieuwe inhoud om de 5 minuten. Nadat de toewijzing van een Gast is ontvangen, worden de instellingen in een interval van 15 minuten gecontroleerd. Resultaten worden verzonden naar de configuratie van de Gast-resourceprovider als de controle is voltooid. Wanneer een beleid [evaluatie trigger](../how-to/get-compliance-data.md#evaluation-triggers) optreedt, de status van de machine wordt geschreven bij de configuratie van de Gast-resourceprovider. Dit zorgt ervoor dat Azure-beleid om te evalueren van de Azure Resource Manager-eigenschappen. Een evaluatie van het beleid op aanvraag haalt de laatste waarde van de configuratie van de Gast-resourceprovider. Echter activeren niet het van een nieuwe controle van de configuratie van de virtuele machine.
 
 ### <a name="supported-client-types"></a>Ondersteunde client-typen
 
@@ -74,22 +74,18 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen op Azure-
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |credativ|Debian|8, 9|
-|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter|
+|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
+|Microsoft|Windows-client|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
 |Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Configuratie van de Gast kan elke server met een ondersteund besturingssysteem controleren.  Als u controleren van servers die een aangepaste installatiekopie gebruiken wilt, moet u voor het dupliceren van de **DeployIfNotExists** definitie en wijzig de **als** sectie om op te nemen van uw installatiekopie-eigenschappen.
+> Configuratie van de Gast kunt controleren knooppunten waarop een ondersteund besturingssysteem wordt uitgevoerd.  Als u controleren van virtuele machines die gebruikmaken van een aangepaste installatiekopie wilt, moet u voor het dupliceren van de **DeployIfNotExists** definitie en wijzig de **als** sectie om op te nemen van uw installatiekopie-eigenschappen.
 
 ### <a name="unsupported-client-types"></a>Niet-ondersteunde client-typen
 
-De volgende tabel geeft een overzicht van de besturingssystemen die niet worden ondersteund:
-
-|Besturingssysteem|Opmerkingen|
-|-|-|
-|Windows-client | Client-besturingssystemen (zoals Windows 7 en Windows 10) worden niet ondersteund.
-|Windows Server 2016 Nano Server | Wordt niet ondersteund.|
+Windows Server Nano Server wordt niet ondersteund in elke versie.
 
 ### <a name="guest-configuration-extension-network-requirements"></a>Vereisten voor uitbreiding van Gast-configuratie
 
@@ -123,15 +119,29 @@ Azure Policy maakt gebruik van de configuratie van de Gast-resourceproviders **c
 > [!NOTE]
 > Voor elke definitie van de Gast-configuratie, zowel de **DeployIfNotExists** en **Audit** beleidsdefinities moeten bestaan.
 
-Alle ingebouwde beleidsregels voor de configuratie van de Gast zijn opgenomen in een initiatief aan groep de definities voor gebruik in toewijzingen. De ingebouwde *[Preview]: Controle-instellingen van wachtwoord-beveiliging in virtuele machines voor Linux en Windows* initiatief 18 beleid bevat. Er zijn zes **DeployIfNotExists** en **Audit** beleid definitie paren voor Windows en drie sets voor Linux.
-Voor elk, de **DeployIfNotExists** [beleidsdefinitieregel](definition-structure.md#policy-rule) beperkt de systemen die wordt geëvalueerd.
+Alle ingebouwde beleidsregels voor de configuratie van de Gast zijn opgenomen in een initiatief aan groep de definities voor gebruik in toewijzingen. De ingebouwde initiatief met de naam *[Preview]: Controle-instellingen van wachtwoord-beveiliging in virtuele machines voor Linux en Windows* 18 beleid bevat. Er zijn zes **DeployIfNotExists** en **Audit** paren voor Windows en drie sets voor Linux. In elk geval wordt de logica in de definitie van de alleen het doel valideert besturingssysteem wordt geëvalueerd op basis van de [beleidsregel](definition-structure.md#policy-rule) definitie.
+
+## <a name="client-log-files"></a>Logboekbestanden van client
+
+De configuratie van de Gast-extensie schrijft logboekbestanden naar de volgende locaties:
+
+Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log`
+
+Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
+
+## <a name="guest-configuration-samples"></a>Voorbeelden van configuraties van de Gast
+
+Voorbeelden voor configuratie van beleid voor gast zijn beschikbaar in de volgende locaties:
+
+- [Voorbeelden van index - Gast-configuratie](../samples/index.md#guest-configuration)
+- [Azure Policy-voorbeelden voor GitHub-opslagplaats](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bekijk voorbeelden op [Azure Policy-voorbeelden](../samples/index.md)
-- Controleer de [structuur van beleidsdefinities](definition-structure.md)
-- Beoordeling [effecten beleid begrijpen](effects.md)
-- Begrijpen hoe u [programmatisch beleid maken](../how-to/programmatically-create.md)
-- Meer informatie over het [Nalevingsgegevens ophalen](../how-to/getting-compliance-data.md)
-- Meer informatie over het [herstellen van niet-compatibele resources](../how-to/remediate-resources.md)
-- Bekijk wat een beheergroep is met [Resources organiseren met Azure-beheergroepen](../../management-groups/index.md)
+- Bekijk voorbeelden op [voorbeelden voor Azure Policy](../samples/index.md).
+- Bekijk de [structuur van Azure Policy-definities](definition-structure.md).
+- Lees [Informatie over de effecten van het beleid](effects.md).
+- Begrijpen hoe u [programmatisch beleid maken](../how-to/programmatically-create.md).
+- Meer informatie over het [ophalen compatibiliteitsgegevens](../how-to/getting-compliance-data.md).
+- Meer informatie over het [herstellen van niet-compatibele resources](../how-to/remediate-resources.md).
+- Lees wat een beheergroep met is [organiseren van uw resources met Azure-beheergroepen](../../management-groups/index.md).

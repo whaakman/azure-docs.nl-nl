@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 386662a4e98b881228a82de3777632ed002bb5b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: d1ecac243ee4cfd3385d0fc69c9ce7c9e2afd95c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989146"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898836"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Gebruik Azure Webhooks voor het bewaken van taakmeldingen Media Services met .NET 
 
@@ -49,7 +49,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 
 ## <a name="create-a-function-app"></a>Een functie-app maken
 
-1. Ga naar de [Azure-portal](http://portal.azure.com) en meld u aan met uw Azure-account.
+1. Ga naar de [Azure-portal](https://portal.azure.com) en meld u aan met uw Azure-account.
 2. Een functie-app maken zoals wordt beschreven [hier](../../azure-functions/functions-create-function-app-portal.md).
 
 ## <a name="configure-function-app-settings"></a>Instellingen voor functie-app configureren
@@ -379,22 +379,22 @@ In deze sectie wordt de code die door een webhook-melding worden toegevoegd aan 
 2. Gebruik [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) voor het installeren van Azure Media Services.
 3. App.config-bestand bijwerken met de juiste waarden: 
     
-    * Azure Media Services-verbindingsgegevens 
-    * webhook-URL die wordt verwacht dat de meldingen wilt ontvangen 
-    * de ondertekeningssleutel die overeenkomt met de sleutel die de webhook wordt verwacht. De ondertekeningssleutel is de waarde van de 64-byte-Base64-gecodeerd die wordt gebruikt om te beschermen en beveiligen van uw webhooks callbacks van Azure Media Services. 
+   * Azure Media Services-verbindingsgegevens 
+   * webhook-URL die wordt verwacht dat de meldingen wilt ontvangen 
+   * de ondertekeningssleutel die overeenkomt met de sleutel die de webhook wordt verwacht. De ondertekeningssleutel is de waarde van de 64-byte-Base64-gecodeerd die wordt gebruikt om te beschermen en beveiligen van uw webhooks callbacks van Azure Media Services. 
 
-    ```xml
-            <appSettings>
-                <add key="AMSAADTenantDomain" value="domain" />
-                <add key="AMSRESTAPIEndpoint" value="endpoint" />
+     ```xml
+           <appSettings>
+               <add key="AMSAADTenantDomain" value="domain" />
+               <add key="AMSRESTAPIEndpoint" value="endpoint" />
 
-                <add key="AMSClientId" value="clinet id" />
-                <add key="AMSClientSecret" value="client secret" />
+               <add key="AMSClientId" value="clinet id" />
+               <add key="AMSClientSecret" value="client secret" />
 
-                <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
-                <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
-            </appSettings>
-    ```
+               <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
+               <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
+           </appSettings>
+     ```
 
 4. Update voor het bestand Program.cs door de volgende code:
 

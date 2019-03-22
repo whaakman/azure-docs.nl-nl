@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ba2bde039cec65a1afe33efac58752d26f22c2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d9cdb842c4cebe48f2f6534417a7fe6aa4686d1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171890"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894679"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Zelfstudie: Azure Active Directory-integratie met Zscaler persoonlijke toegang beheerder
 
@@ -217,7 +217,7 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden voor persoonlijke Zscaler Acce
 
     ![Gebruikersbeheerder Zscaler persoonlijke toegang beheerder](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-    a. In de **gebruikersnaam** tekstvak, voer het e-mailadres van gebruiker, zoals **BrittaSimon@contoso.com**.
+    a. In de **gebruikersnaam** tekstvak, voer het e-mailadres van gebruiker, zoals **BrittaSimon\@contoso.com**.
 
     b. In de **wachtwoord** tekstvak typt u het wachtwoord.
 
@@ -225,7 +225,7 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden voor persoonlijke Zscaler Acce
 
     d. Selecteer **rol** als **Zscaler persoonlijke toegang beheerder**.
 
-    e. Voer in het tekstvak **Email** het e-mailadres van de gebruiker in, bijvoorbeeld **BrittaSimon@contoso.com**.
+    e. In de **e** tekstvak, voer het e-mailadres van gebruiker, zoals **BrittaSimon\@contoso.com**.
 
     f. In de **Phone** tekstvak typt u het telefoonnummer.
 
@@ -272,7 +272,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

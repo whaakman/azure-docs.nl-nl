@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/06/2018
+ms.date: 03/20/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9ae3a17c9756a38414ee25fd24f7d12d6179e95f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285807"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305266"
 ---
-Wanneer u een virtuele netwerkgateway maakt, moet u de gewenste gateway-SKU opgeven. Selecteer de SKU die aan uw vereisten voldoet op basis van de typen werkbelasting, doorvoer, functies en SLA's.
+Wanneer u een virtuele netwerkgateway maakt, moet u de gewenste gateway-SKU opgeven. Selecteer de SKU die aan uw vereisten voldoet op basis van de typen werkbelasting, doorvoer, functies en SLA's. Zie voor de virtuele netwerkgateway-SKU's in Azure-Beschikbaarheidszones, [Azure Availability Zones Gateway-SKU's](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
 ###  <a name="benchmark"></a>Gateway-SKU's per tunnel, verbinding en doorvoer
 
@@ -29,13 +29,13 @@ De nieuwe VPN-gateway SKU's stroomlijnen de functiesets die worden aangeboden op
 
 | **SKU**| **Functies**|
 | ---    | ---         |
-|**Basic** (\*\*)   | **Op route gebaseerde VPN**: 10 tunnels voor S2S-verbindingen /; geen RADIUS-verificatie voor P2S; geen IKEv2 voor P2S<br>**Op beleid gebaseerde VPN**: (IKEv1): 1/S2S-verbinding tunnel; geen P2S|
+|**Basic** (*)   | **Op route gebaseerde VPN**: 10 tunnels voor S2S/verbindingen; Er zijn geen RADIUS-verificatie voor P2S; Er is geen IKEv2 voor P2S<br>**Op beleid gebaseerde VPN**: (IKEv1): 1/S2S-verbinding tunnel; Er is geen P2S|
 | **VpnGw1, VpnGw2 en VpnGw3** | **Op route gebaseerde VPN**: maximaal 30 tunnels (*), P2S, BGP, actief-actief, aangepast IPsec/IKE-beleid, ExpressRoute/VPN co-existentie |
 |        |             |
 
 ( * ) U kunt "PolicyBasedTrafficSelectors" configureren om een op route gebaseerde VPN-gateway (VpnGw1, VpnGw2, VpnGw3) te verbinden met meerdere on-premises, op beleid gebaseerde firewallapparaten. Raadpleeg [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (VPN-gateways verbinden met meerdere on-premises,op beleid gebaseerde VPN-apparaten met behulp van PowerShell) voor meer informatie.
 
-(\*\*) De basis-SKU wordt beschouwd als een verouderde SKU. De basis-SKU heeft bepaalde beperkingen van de functie. U kunt geen formaat van een gateway die gebruikmaakt van een basis-SKU naar een van de nieuwe gateway-SKU's, moet u in plaats daarvan naar een nieuwe SKU, verwijderen en opnieuw maken van uw VPN-gateway te wijzigen.
+(\*\*) De basis-SKU wordt beschouwd als een verouderde SKU. Deze SKU kent bepaalde functiebeperkingen. Zo kunt u een gateway die gebruikmaakt van een Basic-SKU, niet overzetten naar een van de nieuwe gateway-SKU's. In plaats daarvan moet u een nieuwe SKU gebruiken, wat betekent dat u uw VPN-gateway eerst moet verwijderen en vervolgens opnieuw moet maken.
 
 ###  <a name="workloads"></a>Gateway-SKU's - productie vs. werkbelastingen voor ontwikkelen en testen
 
@@ -44,9 +44,9 @@ Vanwege de verschillen in sla's en functiesets raden we aan de volgende SKU's vo
 | **Workload**                       | **SKU's**               |
 | ---                                | ---                    |
 | **Productie, kritieke werkbelastingen** | VpnGw1, VpnGw2, VpnGw3 |
-| **Ontwikkelen en testen of conceptontwerpen**   | Basic (\*\*)                 |
+| **Ontwikkelen en testen of conceptontwerpen**   | Basic (**)                 |
 |                                    |                        |
 
-(\*\*) De basis-SKU wordt beschouwd als een verouderde SKU en beperkingen van de functie heeft. Controleer of dat de functie die u nodig hebt voordat u de basis-SKU wordt ondersteund.
+(\*\*) De basis-SKU wordt beschouwd als een verouderde SKU en beperkingen van de functie heeft. Controleer of de functie die u nodig hebt, wordt ondersteund voordat u kiest voor de Basic-SKU.
 
 Als u de oude SKU's (oud) gebruikt, zijn de aanbevelingen voor de productie-SKU Standard en HighPerformance. Zie voor informatie en instructies voor het oude SKU's, [Gateway-SKU's (verouderd)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).

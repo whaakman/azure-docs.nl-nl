@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: a2f0d775f061ab221092c9354d9d04b9241c9430
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f457246b429062625e6542cfdaf00f3526a85209
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543883"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083229"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Maken en beheren van Azure Database voor MariaDB-firewallregels met behulp van de Azure CLI
 Firewallregels op serverniveau kunnen beheerders toegang tot een Azure Database voor MariaDB-Server beheren vanaf een specifiek IP-adres of een bereik van IP-adressen. Met behulp van handige Azure CLI-opdrachten, kunt u maken, bijwerken, verwijderen, lijst, en firewallregels voor het beheren van uw server weergeven. Zie voor een overzicht van Azure Database voor MariaDB firewalls, [Azure Database voor MariaDB server firewall-regels](./concepts-firewall-rules.md)
@@ -35,10 +35,10 @@ Opdrachten:
 Veilig verbinding maken met Azure CLI met uw Azure-account met behulp van de **az login** opdracht.
 
 1. Voer de volgende opdracht uit vanaf de opdrachtregel:
-```azurecli
-az login
-```
-Met deze opdracht voert een die moet worden gebruikt in de volgende stap.
+   ```azurecli
+   az login
+   ```
+   Met deze opdracht voert een die moet worden gebruikt in de volgende stap.
 
 2. Gebruik een webbrowser om de pagina te openen [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin), en voer de code.
 

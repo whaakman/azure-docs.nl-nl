@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2d1818f42cb2bcb19f979f25962a6c9bdea10155
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 642f479aba62e5cc9dde63aed7c30de39b513a5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093346"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Beheren van resourceverbruik en laden in Service Fabric met metrische gegevens
 *Metrische gegevens* zijn de resources die uw care services over en die worden geleverd door de knooppunten in het cluster. Een metrische waarde is alles wat u wilt beheren om te verbeteren of de prestaties van uw services controleren. U kunt bijvoorbeeld geheugenverbruik als u wilt weten als uw service is overbelast bekijken. Een andere toepassing is om te achterhalen of de service elders waar geheugen dat minder beperkt is om betere prestaties kan verplaatsen.
@@ -45,6 +45,7 @@ Voor algemene werkbelastingen bieden de standaard metrische gegevens over een go
 Dit is wat u krijgt:
 
 <center>
+
 ![Cluster-indeling met standaard metrische gegevens][Image1]
 </center>
 
@@ -215,6 +216,7 @@ Deze syntaxis is als een herinnering ("MetricName, MetricWeight, PrimaryDefaultL
 We gaan nu kijken welke een mogelijke cluster indeling kan er als volgt uitzien:
 
 <center>
+
 ![Cluster Gebalanceerd met zowel standaard als aangepaste metrische gegevens][Image2]
 </center>
 
@@ -239,6 +241,7 @@ De werkelijke invloed van verschillende metrische gewichten in het cluster is da
 We bekijken een voorbeeld van sommige rapporten laden en hoe verschillende metrische gegevens gewicht resultaten in andere toewijzingen in het cluster. In dit voorbeeld ziet u dat het relatieve gewicht van de metrische gegevens over te schakelen met Cluster Resource Manager te maken van verschillende structuren van services veroorzaakt.
 
 <center>
+
 ![Gewicht van de metrische voorbeeld en de invloed ervan op taakverdelingsoplossingen][Image3]
 </center>
 
@@ -256,6 +259,7 @@ Er zijn meerdere gewichten die worden voor elke metrische gegevens bijgehouden. 
 Wat er zou gebeuren als met Cluster Resource Manager is niet het belangrijkst globale en lokale saldo? Goed, is het eenvoudig om oplossingen die wereldwijd worden verdeeld, maar die leiden tot slechte resourceverdeling voor afzonderlijke services samen te stellen. In het volgende voorbeeld gaan we kijken naar een service die is geconfigureerd met alleen de standaard metrische gegevens en kijken wat er gebeurt wanneer alleen globale taakverdeling wordt beschouwd als:
 
 <center>
+
 ![De Impact van een globale oplossing voor alleen][Image4]
 </center>
 

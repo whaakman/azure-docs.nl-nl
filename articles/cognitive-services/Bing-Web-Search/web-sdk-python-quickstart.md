@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: ec7221837145db73386f146aa839b83ee23c1510
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 273922c8cf48c24ff3b1b55fa44b36b69e061057
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865103"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863896"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Quickstart: De Bing Web Search SDK voor Python gebruiken
 
@@ -81,7 +81,9 @@ Nu u de virtuele omgeving hebt ingesteld en de afhankelijkheden hebt geïnstalle
 Als het antwoord webpagina's, afbeeldingen, nieuws of video's bevat, wordt het eerste resultaat voor elk item weergegeven.
 
 1. Maak een nieuw Python-project met uw favoriete IDE of editor.
-2. Kopieer de volgende voorbeeldcode naar uw project:  
+
+1. Kopieer de volgende voorbeeldcode naar uw project:  
+
     ```python
     # Import required modules.
     from azure.cognitiveservices.search.websearch import WebSearchAPI
@@ -161,19 +163,22 @@ Als het antwoord webpagina's, afbeeldingen, nieuws of video's bevat, wordt het e
     else:
         print("Didn't find any videos...")
     ```
-3. Vervang `subscription_key` door een geldige abonnementssleutel.
-4. Voer het programma uit. Bijvoorbeeld: `python your_program.py`.
+
+1. Vervang `subscription_key` door een geldige abonnementssleutel.
+
+1. Voer het programma uit. Bijvoorbeeld: `python your_program.py`.
 
 ## <a name="define-functions-and-filter-results"></a>Functies definiëren en resultaten filteren
 
-Nu u voor het eerst de Bing Webzoekopdrachten-API hebt aangeroepen, kunnen we enkele functies bekijken die een voorbeeld zijn van SDK-functionaliteit voor het verfijnen van query's en het filteren van resultaten. Elke functie kan worden toegevoegd aan uw Python-programma dat in de vorige sectie is gemaakt.
+Nu u de eerste aanroep van de Bing webzoekopdrachten-API hebt aangebracht, gaan we bekijken enkele functies. De volgende gedeelten SDK-functionaliteit voor query's verfijnen en filteren van resultaten. Elke functie kan worden toegevoegd aan het Python-programma dat u in de vorige sectie hebt gemaakt.
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Het aantal resultaten beperken dat door Bing wordt geretourneerd
 
-In dit voorbeeld worden de parameters `count` en `offset` gebruikt voor het beperken van het aantal resultaten dat wordt geretourneerd met de [`search`-methode](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) van de SDK. De `name` en `URL` voor het eerste resultaat worden weergegeven.
+In dit voorbeeld worden de parameters `count` en `offset` gebruikt voor het beperken van het aantal resultaten dat wordt geretourneerd met de [`search`-methode](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) van de SDK. De `name` en `url` voor het eerste resultaat worden weergegeven.
 
 1. Voeg deze code toe aan uw Python-project:
-    ```python
+
+   ```python
     # Declare the function.
     def web_results_with_count_and_offset(subscription_key):
         client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
@@ -203,13 +208,15 @@ In dit voorbeeld worden de parameters `count` en `offset` gebruikt voor het bepe
         except Exception as err:
             print("Encountered exception. {}".format(err))
     ```
-2. Voer het programma uit.
+
+1. Voer het programma uit.
 
 ### <a name="filter-for-news-and-freshness"></a>Filteren op nieuws en actuele items
 
-In dit voorbeeld worden de parameters `response_filter` en `freshness` gebruikt om de zoekresultaten te filteren met de [`search`-methode](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations) van de SDK. De geretourneerde zoekresultaten zijn beperkt tot nieuwsartikelen en pagina's die Bing heeft gedetecteerd gedurende de afgelopen 24 uur. De `name` en `URL` voor het eerste resultaat worden weergegeven.
+In dit voorbeeld worden de parameters `response_filter` en `freshness` gebruikt om de zoekresultaten te filteren met de [`search`-methode](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations) van de SDK. De geretourneerde zoekresultaten zijn beperkt tot nieuwsartikelen en pagina's die Bing heeft gedetecteerd gedurende de afgelopen 24 uur. De `name` en `url` voor het eerste resultaat worden weergegeven.
 
 1. Voeg deze code toe aan uw Python-project:
+
     ```python
     # Declare the function.
     def web_search_with_response_filter(subscription_key):
@@ -251,13 +258,15 @@ In dit voorbeeld worden de parameters `response_filter` en `freshness` gebruikt 
     # Call the function.
     web_search_with_response_filter(subscription_key)
     ```
-2. Voer het programma uit.
+
+1. Voer het programma uit.
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Gebruik de parameters voor veilig zoeken, aantal antwoorden en het filter voor het promoten van zoekresultaten
 
-In dit voorbeeld worden de parameters `answer_count`, `promote` en `safe_search` gebruikt om de zoekresultaten te filteren met de [`search`-methode](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) van de SDK. De `name` en `URL` voor het eerste resultaat worden weergegeven.
+In dit voorbeeld worden de parameters `answer_count`, `promote` en `safe_search` gebruikt om de zoekresultaten te filteren met de [`search`-methode](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) van de SDK. De `name` en `url` voor het eerste resultaat worden weergegeven.
 
 1. Voeg deze code toe aan uw Python-project:
+
     ```python
     # Declare the function.
     def web_search_with_answer_count_promote_and_safe_search(subscription_key):
@@ -294,7 +303,8 @@ In dit voorbeeld worden de parameters `answer_count`, `promote` en `safe_search`
         except Exception as err:
             print("Encountered exception. {}".format(err))
     ```
-2. Voer het programma uit.
+
+1. Voer het programma uit.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

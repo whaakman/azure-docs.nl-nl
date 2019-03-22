@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: df0dc1a8f574f8df23100528d822891178418b6c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 01bb628a6520488dcebf49a1e868213b955abc31
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241354"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895606"
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>FMLE-coderingsprogramma gebruiken voor het verzenden van een single-bitrate live stream 
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.locfileid: "57241354"
 >
 >
 
-In dit artikel laat zien hoe het configureren van de [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) encoder (FMLE) voor het verzenden van een single-bitrate stream aan AMS kanalen die zijn ingeschakeld voor live codering. Zie [Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
+In dit artikel laat zien hoe het configureren van de [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) encoder (FMLE) voor het verzenden van een single-bitrate stream aan AMS kanalen die zijn ingeschakeld voor live codering. Zie [Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
 
 In deze zelfstudie laat zien hoe Azure Media Services (AMS) beheren met Azure Media Services Explorer (AMSE)-hulpprogramma. Dit hulpprogramma wordt alleen uitgevoerd op Windows-PC. Als u van Mac- of Linux gebruikmaakt, de Azure portal gebruiken voor het maken van [kanalen](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) en [programma's](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Deze zelfstudie wordt beschreven met behulp van AAC. FMLE ondersteunt niet echter AAC standaard. U moet een invoegtoepassing voor de AAC-codering zoals invoegtoepassing van MainConcept kopen: [AAC-invoegtoepassing](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Deze zelfstudie wordt beschreven met behulp van AAC. FMLE ondersteunt niet echter AAC standaard. U moet een invoegtoepassing voor de AAC-codering zoals invoegtoepassing van MainConcept kopen: [AAC-invoegtoepassing](https://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Vereisten
 * [Een Azure Media Services-account maken](media-services-portal-create-account.md)

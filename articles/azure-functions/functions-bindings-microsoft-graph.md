@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100779"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997544"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindingen voor Azure Functions
 
@@ -360,6 +360,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 ### <a name="excel-input---usage"></a>Excel invoer - gebruik
 
 Deze binding hoort vereist de volgende Azure AD-machtigingen:
+
 |Resource|Machtiging|
 |--------|--------|
 |Microsoft Graph|Gebruikersbestanden lezen|
@@ -522,6 +523,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 ### <a name="excel-output---usage"></a>Excel uitvoer - gebruik
 
 Deze binding hoort vereist de volgende Azure AD-machtigingen:
+
 |Resource|Machtiging|
 |--------|--------|
 |Microsoft Graph|Volledige toegang tot gebruikersbestanden|
@@ -664,6 +666,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 ### <a name="file-input---usage"></a>Bestandsinvoer - gebruik
 
 Deze binding hoort vereist de volgende Azure AD-machtigingen:
+
 |Resource|Machtiging|
 |--------|--------|
 |Microsoft Graph|Gebruikersbestanden lezen|
@@ -811,6 +814,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 #### <a name="file-output---usage"></a>Bestand uitvoer - gebruik
 
 Deze binding hoort vereist de volgende Azure AD-machtigingen:
+
 |Resource|Machtiging|
 |--------|--------|
 |Microsoft Graph|Volledige toegang tot gebruikersbestanden|
@@ -960,6 +964,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 ### <a name="outlook-output---usage"></a>Outlook uitvoer - gebruik
 
 Deze binding hoort vereist de volgende Azure AD-machtigingen:
+
 |Resource|Machtiging|
 |--------|--------|
 |Microsoft Graph|E-mail verzenden als gebruiker|

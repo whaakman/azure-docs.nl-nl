@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 2e34aef9a6f184c60fbb23023f798941a1fc11da
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 3ec3abffc7962051f4cfc02d5369581ca193d70e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894425"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775574"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Zelfstudie: Toegang tot een leslokaallab in Azure Lab Services
 In deze zelfstudie maakt u als student verbinding met een virtuele machine (VM) in een leslokaallab. 
@@ -44,8 +44,9 @@ In deze zelfstudie voert u de volgende acties uit:
 1. Selecteer **Verbinding maken** op de tegel van de virtuele machine van het lab dat u wilt openen. 
 
     ![Verbinding maken met de virtuele machine](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
-2. Sla het RDP-bestand op de harde schijf op en open het (ervan uitgaande dat het een Windows-VM is)
-3. Gebruik de **gebruikersnaam** en het **wachtwoord** dat u van uw docent hebt gekregen om zich aan te melden bij de computer. 
+2. Voer een van de volgende stappen uit: 
+    1. Voor **Windows** opslaan voor virtuele machines, de **RDP** bestand naar de harde schijf. Open het RDP-bestand verbinding maken met de virtuele machine. Gebruik de **gebruikersnaam** en **wachtwoord** u ophalen uit uw docenten/professor aan te melden bij de computer. 
+    3. Voor **Linux** virtuele machines, kopiëren en opslaan van de SSH-verbindingsreeks op de **verbinding maken met uw virtuele machine** in het dialoogvenster. Deze verbindingsreeks vanuit een SSH-terminal gebruiken (zoals [Putty](https://www.putty.org/)) verbinding maken met de virtuele machine. 
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u een leslokaallab geopend met behulp van de registratiekoppeling die u van uw docent krijgt.

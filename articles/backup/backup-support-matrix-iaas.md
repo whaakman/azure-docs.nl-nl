@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 264f10be1ecb22b6261a14f7185f88b101242d36
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 512e07f2892f9c4adf47956d3a5b07debf870e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440774"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849904"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Ondersteuningsmatrix voor Azure VM backup
 U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises computers en werkbelastingen en virtuele Azure-machines (VM's). In dit artikel bevat een overzicht van instellingen voor de ondersteuning en beperkingen wanneer u back-up van virtuele Azure-machines met Azure Backup.
@@ -40,7 +40,7 @@ Meer informatie over back-up [met behulp van een back-upserver](backup-architect
 
 **Actie** | **Ondersteuning**
 --- | ---
-Back-up inschakelen wanneer u een virtuele Windows Azure-machine maken | Ondersteund voor:  Windows Server 2016 (Datacenter/Datacenter Core); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 SP1
+Back-up inschakelen wanneer u een virtuele Windows Azure-machine maken | Ondersteund voor:  WindowsServer 2019 (Datacenter/Datacenter-Core), WindowsServer 2016 (Datacenter/Datacenter-Core); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM en SP1)
 Back-up inschakelen wanneer u een Linux-VM maken | Ondersteund voor:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3<br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Back-up van een virtuele machine die VM afsluiten/offline/om te zoeken | Ondersteund.<br/><br/> Is een crash-consistente momentopname alleen, niet toepassingsconsistent is.
 Back-up van schijven na de migratie naar schijven beheerde | Ondersteund.<br/><br/> Back-ups blijven werken. Geen actie vereist.
@@ -61,7 +61,7 @@ De volgende tabel geeft een overzicht van de ondersteunde besturingssystemen wan
 
 **Scenario** | **Ondersteuning voor het besturingssysteem**
 --- | ---
-Back-up maken met Azure VM agent-extensie | Windows-Client: Niet ondersteund<br/><br/> Windows Server: Windows Server 2008 R2 of hoger
+Back-up maken met Azure VM agent-extensie | Windows-Client: Niet ondersteund<br/><br/> WindowsServer 2019 (Datacenter/Datacenter-Core), WindowsServer 2016 (Datacenter/Datacenter-Core); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM en SP1)
 Back-up maken met de MARS-agent | [Ondersteund](backup-support-matrix-mars-agent.md#support-for-direct-backups) besturingssystemen.
 Back-up met DPM/MABS | Ondersteunde besturingssystemen voor back-up met [MABS](backup-mabs-protection-matrix.md) en [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 

@@ -4,133 +4,120 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/16/2018
+ms.topic: tutorial
+ms.date: 03/13/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a4e640ba87adf54363611a708b1fec9b00b99e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 13986b3ca5515ea07ba5bba2355b1cc67c1c3ebe
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168220"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223373"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Zelfstudie: Azure Active Directory-integratie met Sansan
 
 In deze zelfstudie leert u hoe u Sansan integreren met Azure Active Directory (Azure AD).
-
 Sansan integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot Sansan heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Sansan (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
+* U kunt beheren in Azure AD die toegang tot Sansan heeft.
+* U kunt uw gebruikers worden automatisch aangemeld Sansan (Single Sign-On) met hun Azure AD-accounts inschakelen.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met Sansan, moet u de volgende items:
 
-- Een Azure AD-abonnement
-- Een Sansan eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Eenmalige aanmelding Sansan ingeschakeld abonnement
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Sansan uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
+
+* Biedt ondersteuning voor Sansan **SP** gestart door SSO
 
 ## <a name="adding-sansan-from-the-gallery"></a>Sansan uit de galerie toe te voegen
+
 Voor het configureren van de integratie van Sansan in Azure AD, moet u Sansan uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen Sansan uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
-    ![Active Directory][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![Applicaties][2]
-    
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
 3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Applicaties][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Sansan**.
+4. Typ in het zoekvak **Sansan**, selecteer **Sansan** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/sansan-tutorial/tutorial_sansan_search.png)
+     ![Sansan in de lijst met resultaten](common/search-new-app.png)
 
-5. Selecteer in het deelvenster resultaten **Sansan**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-    ![Het maken van een Azure AD-testgebruiker](./media/sansan-tutorial/tutorial_sansan_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Sansan op basis van een testgebruiker 'Julia steen' genoemd.
-
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Sansan is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Sansan tot stand worden gebracht.
-
-In Sansan, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Sansan op basis van een testgebruiker met de naam **Britta Simon**.
+Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Sansan tot stand worden gebracht.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Sansan, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker Sansan](#creating-a-sansan-test-user)**  : als u wilt een equivalent van Britta Simon in Sansan die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Configureren van eenmalige aanmelding Sansan](#configure-sansan-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Maken van de testgebruiker Sansan](#create-sansan-test-user)**  : als u wilt een equivalent van Britta Simon in Sansan die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Sansan.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Sansan, moet u de volgende stappen uitvoeren:**
+Voor het configureren van Azure AD eenmalige aanmelding met Sansan, moet u de volgende stappen uitvoeren:
 
-1. In de Azure-portal op de **Sansan** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/)op de **Sansan** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/sansan-tutorial/tutorial_sansan_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-3. Op de **Sansan domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren](./media/sansan-tutorial/tutorial_sansan_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende patronen: 
-    
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
+
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+
+    ![Sansan domein en URL's, eenmalige aanmelding informatie](common/sp-signonurl.png)
+
+    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon:
     | Omgeving | URL |
     |:--- |:--- |
     | PC-web |`https://ap.sansan.com/v/saml2/<company name>/acs` |
     | Systeemeigen mobiele app |`https://internal.api.sansan.com/saml2/<company name>/acs` |
     | Instellingen voor mobiele browser |`https://ap.sansan.com/s/saml2/<company name>/acs` |  
 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke aanmeldings-URL. Neem contact op met [Sansan Client ondersteuningsteam](https://www.sansan.com/form/contact) om deze waarden te verkrijgen. 
-     
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
+    > [!NOTE]
+    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Sansan Client ondersteuningsteam](https://www.sansan.com/form/contact) om de waarde. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    ![Eenmalige aanmelding configureren](./media/sansan-tutorial/tutorial_sansan_certificate.png) 
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-5. Klik op de knop **Save**.
-
-    ![Eenmalige aanmelding configureren](./media/sansan-tutorial/tutorial_general_400.png)
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
 6. Sansan toepassing verwacht meerdere **id's** en **antwoord-URL's** ter ondersteuning van meerdere omgevingen (PC web, systeemeigen mobiele Apps en instellingen voor mobiele browser), die kunnen worden geconfigureerd met behulp van PowerShell script. Gedetailleerde stappen worden hieronder beschreven.
 
@@ -140,11 +127,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     a. Ga naar de **eigenschappen** pagina van **Sansan** toepassing en kopieert u de **Object-ID** met behulp van **kopie** knop en plak deze in Kladblok.
 
-    b. De **Object-ID**, die u hebt gekopieerd vanuit Azure portal wordt gebruikt als **ServicePrincipalObjectId** in PowerShell-scripts die later in de zelfstudie wordt gebruikt. 
+    b. De **Object-ID**, die u hebt gekopieerd vanuit Azure portal wordt gebruikt als **ServicePrincipalObjectId** in PowerShell-scripts die later in de zelfstudie wordt gebruikt.
 
     c. Open nu een Windows PowerShell-opdrachtprompt met verhoogde bevoegdheid.
-    
-    >[!NOTE] 
+
+    >[!NOTE]
     > U moet de AzureAD-module installeren (Gebruik de opdracht `Install-Module -Name AzureAD`). Als u hierom wordt gevraagd om een NuGet-module of de nieuwe Azure Active Directory V2 PowerShell-module te installeren, typt u Y en druk op ENTER.
 
     d. Voer `Connect-AzureAD` en meld u aan met een globale beheerdersaccount voor de gebruiker.
@@ -187,112 +174,92 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     }
     ```
 
-8. Na voltooiing van de PowerShell-script, het resultaat van het script is als volgt zoals hieronder wordt weergegeven en de URL-waarden wordt bijgewerkt, maar ze wordt niet ophalen zichtbaar zijn in Azure portal. 
+8. Na voltooiing van de PowerShell-script, het resultaat van het script is als volgt zoals hieronder wordt weergegeven en de URL-waarden wordt bijgewerkt, maar ze wordt niet ophalen zichtbaar zijn in Azure portal.
 
     ![Script voor eenmalige aanmelding configureren](./media/sansan-tutorial/tutorial_sansan_powershell.png)
 
+9. Op de **Sansan instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
 
-9. Op de **Sansan configuratie** sectie, klikt u op **configureren Sansan** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    ![Eenmalige aanmelding configureren](./media/sansan-tutorial/tutorial_sansan_configure.png) 
+    a. Aanmeldings-URL
 
-10. Het configureren van eenmalige aanmelding op **Sansan** zijde, moet u voor het verzenden van de gedownloade **certificaat**, **afmelding URL**, **SAML entiteit-ID**, en **Single Sign-On Service URL voor SAML** naar [Sansan ondersteuningsteam](https://www.sansan.com/form/contact). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+    b. Azure AD-id
 
->[!NOTE]
->PC-browserinstelling werkt ook voor mobiele Apps en mobiele browser, samen met PC-website. 
+    c. Afmeldings-URL
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+### <a name="configure-sansan-single-sign-on"></a>Sansan voor eenmalige aanmelding configureren
+
+Het configureren van eenmalige aanmelding op **Sansan** zijde, moet u voor het verzenden van de gedownloade **certificaat (Base64)** en toepassing van de gekopieerde URL's van Azure portal om te [Sansan Client ondersteuningsteam](https://www.sansan.com/form/contact). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/sansan-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/sansan-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/sansan-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/sansan-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-sansan-test-user"></a>Het maken van een testgebruiker Sansan
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Sansan. Sansan toepassing moet de gebruiker moet worden ingericht in de toepassing voordat u eenmalige aanmelding. 
-
->[!NOTE]
->Als u wilt maken van een gebruiker handmatig of batch-gebruikers, moet u contact opnemen met de [Sansan ondersteuningsteam](https://www.sansan.com/form/contact). 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
 In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Sansan.
 
-![Gebruiker toewijzen][200] 
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Sansan**.
 
-**Als u wilt Britta Simon aan Sansan toewijst, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201] 
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
 2. Selecteer in de lijst met toepassingen, **Sansan**.
 
-    ![Eenmalige aanmelding configureren](./media/sansan-tutorial/tutorial_sansan_app.png) 
+    ![De koppeling Sansan in de lijst met toepassingen](common/all-applications.png)
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![Gebruiker toewijzen][202] 
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![Gebruiker toewijzen][203]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-sansan-test-user"></a>Sansan testgebruiker maken
+
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Sansan. Sansan toepassing moet de gebruiker moet worden ingericht in de toepassing voordat u eenmalige aanmelding.
+
+> [!NOTE]
+> Als u wilt maken van een gebruiker handmatig of batch-gebruikers, moet u contact opnemen met de [Sansan ondersteuningsteam](https://www.sansan.com/form/contact).
+
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel Sansan in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Sansan.
-Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de tegel Sansan in het toegangsvenster, moet u worden automatisch aangemeld bij de Sansan waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/sansan-tutorial/tutorial_general_01.png
-[2]: ./media/sansan-tutorial/tutorial_general_02.png
-[3]: ./media/sansan-tutorial/tutorial_general_03.png
-[4]: ./media/sansan-tutorial/tutorial_general_04.png
-
-[100]: ./media/sansan-tutorial/tutorial_general_100.png
-
-[200]: ./media/sansan-tutorial/tutorial_general_200.png
-[201]: ./media/sansan-tutorial/tutorial_general_201.png
-[202]: ./media/sansan-tutorial/tutorial_general_202.png
-[203]: ./media/sansan-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

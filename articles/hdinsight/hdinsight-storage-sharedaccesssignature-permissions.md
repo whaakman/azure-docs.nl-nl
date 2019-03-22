@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 1e55552e238e16f2221b138b6e12afa5635d2ab2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743354"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202670"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage Shared Access Signatures gebruiken om u te beperken van toegang tot gegevens in HDInsight
 
@@ -101,7 +101,7 @@ Zie voor meer informatie over handtekeningen voor gedeelde toegang [inzicht in h
 
    * beleid\_naam: De naam moet worden gebruikt voor het opgeslagen beleid te maken.
 
-   * opslag\_account\_naam: De naam van uw storage-account.
+   * opslag\_account\_naam: De naam van uw opslagaccount.
 
    * opslag\_account\_sleutel: De sleutel voor het opslagaccount.
 
@@ -163,7 +163,7 @@ Een voorbeeld van het maken van een HDInsight-cluster dat gebruik maakt van de S
     Connect-AzureRmAccount
     ```
 
-    Wanneer u hierom wordt gevraagd, meld u aan met het account voor uw Azure-abonnement.
+    Wanneer u hierom wordt gevraagd, meldt u zich aan met het account voor uw Azure-abonnement.
 
     Als uw account gekoppeld aan meerdere Azure-abonnementen is, moet u mogelijk gebruik `Select-AzureRmSubscription` om te selecteren van het abonnement dat u wilt gebruiken.
 
@@ -219,13 +219,7 @@ Als u een bestaande op basis van Linux-cluster hebt, kunt u de SAS toevoegen de 
 
 ## <a name="test-restricted-access"></a>Testen met beperkte toegang
 
-Als u wilt controleren of u toegang hebt beperkt, moet u de volgende methoden gebruiken:
-
-* Voor **op basis van Windows** HDInsight-clusters, extern bureaublad gebruiken voor verbinding met het cluster. Zie voor meer informatie, [verbinding maken met HDInsight met behulp van RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
-
-    Zodra de verbinding is gemaakt, gebruikt u de **Hadoop opdrachtregel** pictogram op het bureaublad om een opdrachtprompt te openen.
-
-* Voor **op basis van Linux** HDInsight-clusters gebruikmaken van SSH verbinding maken met het cluster. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+Als u wilt controleren of u toegang hebt beperkt, SSH verbinding maken met het cluster te gebruiken. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 Eenmaal verbinding hebben met het cluster, gebruikt u de volgende stappen uit om te controleren of dat u alleen lezen en de lijst met items in de SAS-storage-account kunt:
 
@@ -288,7 +282,7 @@ Eenmaal verbinding hebben met het cluster, gebruikt u de volgende stappen uit om
 
 **Oorzaak**: Deze fout kan optreden als u de SSH-gebruiker een wachtwoord voor de beheerder/HTTP-gebruiker voor het cluster, of (voor Linux gebaseerde clusters) gebruikt.
 
-**Resolutie**: Gebruik een wachtwoord dat voldoet aan de volgende criteria:
+**Oplossing**: Gebruik een wachtwoord dat voldoet aan de volgende criteria:
 
 * Moet ten minste 10 tekens lang zijn.
 * Moet ten minste één cijfer bevatten.

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 17f27ac36ed5c0f348495b5364ef37e3f1632243
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: d1cf75d8e678bc5bd3e3036930eea42526194df1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588688"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125179"
 ---
 ## <a name="create-a-queue-in-the-azure-portal"></a>Een wachtrij maken in de Microsoft Azure-portal
-4. Selecteer op de pagina **Service Bus-naamruimte** de optie **Wachtrijen** in het linkernavigatiemenu.
-5. Selecteer op de pagina **Wachtrijen** de optie **+ Wachtrij** op de werkbalk.
-5. Voer een **naam** voor de wachtrij in en hanteer voor de andere waarden de standaardinstellingen.
-6. Selecteer nu **Maken**.
+1. Selecteer op de pagina **Service Bus-naamruimte** de optie **Wachtrijen** in het linkernavigatiemenu.
+1. Selecteer op de pagina **Wachtrijen** de optie **+ Wachtrij** op de werkbalk.
+1. Voer een **naam** voor de wachtrij in en hanteer voor de andere waarden de standaardinstellingen.
+1. Selecteer nu **Maken**.
  
     ![Wachtrijen -> + Wachtrij > Voer naam in -> Maken](./media/service-bus-create-queue-portal/create-queue3.png)
 

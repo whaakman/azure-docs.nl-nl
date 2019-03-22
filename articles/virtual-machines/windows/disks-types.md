@@ -9,14 +9,18 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: f537e6d31950ce66b7b218ec449276108b80220e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 91318489e715fccd7c99b968c60509e4642afd5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975692"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
+
+Als u beginnen met behulp van ultra SSD's wilt, raadpleegt u ons artikel over dit onderwerp: [Inschakelen van Azure ultra SSD's](disks-enable-ultra-ssd.md).
+
+[!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 
 Zie de sectie voor meer informatie over momentopnamen van momentopnamen in de [beheerde schijf overzicht](managed-disks-overview.md).
 
