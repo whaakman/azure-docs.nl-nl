@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbee5316b78838bedc62454e8c1954eb5f9205ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317117"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370360"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Gebruikersportal voor de Azure Multi-Factor Authentication-server
 
@@ -28,7 +28,7 @@ Er kunnen beheerders voor de gebruikersportal worden ingesteld. Aan hen kan ook 
 
 Afhankelijk van uw omgeving kan het raadzaam zijn om de gebruikersportal te implementeren op dezelfde server als de Azure Multi-Factor Authentication Server of op een andere internetgerichte server.
 
-![MFA-gebruikersportal](./media/howto-mfaserver-deploy-userportal/portal.png)
+![Aanmeldingspagina van Gebruikersportal van MFA-Server](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
 > De gebruikersportal is alleen beschikbaar met Multi-Factor Authentication Server. Als u Multi-Factor Authentication in de cloud gebruikt, verwijst u uw gebruikers naar [Uw account instellen voor verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-first-time.md) of [Uw instellingen beheren voor verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-manage-settings.md).
@@ -118,6 +118,7 @@ Nu de gebruikersportal is geïnstalleerd, dient u de Azure Multi-Factor Authenti
 3. Geef op het tabblad **Beheerders** aan wie de beheerders moeten zijn. U kunt gedetailleerde beheerdersmachtigingen maken met behulp van de selectievakjes en vervolgkeuzelijsten in de vakken voor toevoegen en bewerken.
 
 Optionele configuratie:
+
 - **Beveiligingsvragen** -Definieer goedgekeurde beveiligingsvragen voor uw omgeving en de taal waarin ze worden weergegeven.
 - **Doorgegeven sessies** - Configureer de integratie van de gebruikersportal met een formuliergebaseerde website met MFA.
 - **Vertrouwde IP-adressen** -U kunt toestaan dat gebruikers MFA overslaan wanneer ze worden geverifieerd aan de hand van een lijst met vertrouwde IP-adressen of bereiken.
@@ -141,9 +142,12 @@ De Azure Multi-Factor Authentication-server biedt verschillende opties voor de g
 | OATH-token gebruiken als terugvaloptie | Hiermee kunt u het gebruik van een OATH-token toestaan als verificatie in twee stappen is mislukt. U kunt ook de sessietime-out in minuten opgeven. |
 | Logboekregistratie inschakelen | Hiermee schakelt u de logboekregistratie in op de gebruikersportal. De logboekbestanden bevinden zich op: C:\Program Files\Multi-Factor Authentication Server\Logs. |
 
+> [!IMPORTANT]
+> Vanaf maart van 2019 de opties telefoongesprek zich niet beschikbaar voor gebruikers van de MFA-Server in vrij/proefversie van Azure AD-tenants. SMS-berichten worden niet beïnvloed door deze wijziging. Telefonische oproep blijft beschikbaar voor gebruikers in betaalde Azure AD-tenants. Deze wijziging geldt alleen voor gratis/proefversie van Azure AD-tenants.
+
 Deze instellingen zijn zichtbaar voor de gebruiker in de portal zodra deze zijn ingeschakeld en de gebruiker zich bij de gebruikersportal heeft aangemeld.
 
-![Instellingen gebruikersportal](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
+![Uw MFA-Server-account met behulp van de gebruikersportal beheren](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
 
 ### <a name="self-service-user-enrollment"></a>Selfservice voor gebruikersregistratie
 
@@ -159,7 +163,7 @@ Als de gebruiker bij de verificatie een pincode moet gebruiken, wordt de gebruik
 
 Als de gebruiker de verificatiemethode Sms-bericht selecteert of vooraf is geconfigureerd om die methode te gebruiken, wordt de gebruiker gevraagd zijn of haar mobiele telefoonnummer op te geven. Als de gebruiker bij de verificatie een pincode moet gebruiken, wordt de gebruiker ook gevraagd een pincode op te geven.  Nadat de gebruiker zijn of haar telefoonnummer en pincode (indien van toepassing) heeft ingevoerd, klikt de gebruiker op de knop **Sms me nu om te authenticeren**. Azure Multi-Factor Authentication zal een sms-verificatie uitvoeren met behulp van de mobiele telefoon van de gebruiker. De gebruiker ontvangt een sms-bericht met een eenmalige-wachtwoordcode (OTP). Vervolgens beantwoordt de gebruiker het bericht met die OTP plus de pincode (indien van toepassing).
 
-![Sms gebruikersportal](./media/howto-mfaserver-deploy-userportal/text.png)
+![Portal-gebruikersverificatie via SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
 Als de gebruiker de verificatiemethode Mobiele app selecteert, wordt de gebruiker op de pagina gevraagd om de Microsoft Authenticator-app op zijn of haar apparaat te installeren en een activeringscode te genereren. Na de installatie van de app klikt de gebruiker op de knop Activeringscode genereren.
 

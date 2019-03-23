@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d433a480165424e47d4d84e67e7fd02648ebe2d1
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: f9df65d143fbb0eaf6276a0f38971e19c0741786
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223424"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370955"
 ---
-# <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows-computers verbinden met de service Log Analytics in Azure
+# <a name="connect-windows-computers-to-azure-monitor"></a>Windows-computers verbinden met Azure Monitor
 
-Als u wilt bewaken en beheren van virtuele machines of fysieke computers in uw lokale datacenter of andere cloudomgeving met Log Analytics, moet u de Log Analytics-agent (ook aangeduid als de Microsoft Monitoring Agent (MMA)) implementeren en deze configureren rapporteren aan een of meer Log Analytics-werkruimten. De agent biedt ook ondersteuning voor de functie Hybrid Runbook Worker voor Azure Automation.  
+Als u wilt bewaken en beheren van virtuele machines of fysieke computers in uw lokale datacenter of andere cloudomgeving met Azure Monitor, moet u de Log Analytics-agent (ook aangeduid als de Microsoft Monitoring Agent (MMA)) implementeren en deze configureren rapporteren aan een of meer Log Analytics-werkruimten. De agent biedt ook ondersteuning voor de functie Hybrid Runbook Worker voor Azure Automation.  
 
-De agent wordt op een bewaakte Windows-computer wordt vermeld als de service Microsoft Monitoring Agent. De service Microsoft Monitoring Agent verzamelt gebeurtenissen van logboekbestanden en Windows-gebeurtenislogboek, prestatiegegevens en andere telemetrie. Zelfs als de agent kan niet communiceren met de Log Analytics-service rapporteert, wordt de agent blijft om uit te voeren en de verzamelde gegevens op de schijf van de bewaakte computer in de wachtrij geplaatst. Wanneer de verbinding wordt hersteld, verzendt de Microsoft Monitoring Agent-service de verzamelde gegevens naar de service.
+De agent wordt op een bewaakte Windows-computer wordt vermeld als de service Microsoft Monitoring Agent. De service Microsoft Monitoring Agent verzamelt gebeurtenissen van logboekbestanden en Windows-gebeurtenislogboek, prestatiegegevens en andere telemetrie. Zelfs als de agent kan niet communiceren met Azure Monitor rapporteert, wordt de agent blijft om uit te voeren en de verzamelde gegevens op de schijf van de bewaakte computer in de wachtrij geplaatst. Wanneer de verbinding wordt hersteld, verzendt de Microsoft Monitoring Agent-service de verzamelde gegevens naar de service.
 
 De agent kan worden geïnstalleerd met behulp van een van de volgende methoden. De meeste installaties gebruik een combinatie van deze methoden voor het installeren van verschillende sets computers, waar nodig.  Later in dit artikel vindt u informatie over het gebruik van elke methode.
 
@@ -40,7 +40,7 @@ De agent kan worden geïnstalleerd met behulp van een van de volgende methoden. 
 Als u meer wilt weten over de ondersteunde configuratie, kunt u de informatie over [ondersteunde Windows-besturingssystemen](log-analytics-agent.md#supported-windows-operating-systems) en de [ netwerkconfiguratie voor de firewall](log-analytics-agent.md#network-firewall-requirements) raadplegen.
 
 ## <a name="obtain-workspace-id-and-key"></a>Werkruimte-ID en -sleutel ophalen
-Voordat u de Log Analytics-agent voor Windows installeert, moet u de werkruimte-ID en sleutel voor uw Log Analytics-werkruimte.  Deze informatie is vereist tijdens de installatie van elke installatiemethode correct configureren van de agent en ervoor zorgen dat deze kan communiceren met Log Analytics in Azure commerciële en US Government-cloud.  
+Voordat u de Log Analytics-agent voor Windows installeert, moet u de werkruimte-ID en sleutel voor uw Log Analytics-werkruimte.  Deze informatie is vereist tijdens de installatie van elke installatiemethode correct configureren van de agent en ervoor zorgen dat deze kan communiceren met Azure Monitor in Azure commerciële en US Government-cloud.  
 
 1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. In de lijst met Log Analytics-werkruimten, selecteer de werkruimte die u van plan bent over het configureren van de agent om te rapporteren aan.
@@ -68,7 +68,7 @@ Configureren van .NET Framework 4.6 of later cryptografie, als door het standaar
 5. Het systeem om de instellingen van kracht opnieuw opstarten. 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>De agent installeren met de wizard setup
-De volgende stappen uit installeren en configureren van de agent voor Log Analytics in Azure en Azure Government-cloud met behulp van de wizard setup voor de agent op uw computer. Als u wilt meer informatie over het configureren van de agent ook een rapport met een beheergroep van System Center Operations Manager, Zie [Operations Manager-agent met de Wizard Setup van Agent implementeren](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
+De volgende stappen uit installeren en configureren van de Log Analytics-agent in Azure en Azure Government-cloud met behulp van de wizard setup voor de agent op uw computer. Als u wilt meer informatie over het configureren van de agent ook een rapport met een beheergroep van System Center Operations Manager, Zie [Operations Manager-agent met de Wizard Setup van Agent implementeren](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
 
 1. In uw Log Analytics-werkruimte van de **Windows Servers** pagina die u eerder hebt, selecteert u de juiste navigeren **Windows-Agent downloaden** versie te downloaden, afhankelijk van de processorarchitectuur van het Windows-besturingssysteem.   
 2. Voer Setup uit om de agent op de computer te installeren.
@@ -184,15 +184,14 @@ Zodra de installatie van de agent is voltooid, is controle is verbonden en rappo
 
 Bij de computer in **Configuratiescherm**, zoek het item **Microsoft Monitoring Agent**.  Selecteer deze en klik op de **Azure Log Analytics** tabblad en de agent moet worden weergegeven een bericht weergegeven: **De Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite-service.**<br><br> ![Verbindingsstatus van MMA met Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
-U kunt ook een eenvoudige zoekopdrachten in Logboeken uitvoeren in Azure portal.  
+U kunt ook een eenvoudige logboekquery uitvoeren in Azure portal.  
 
-1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.  
-2. Op de pagina van de Log Analytics-werkruimte, selecteert u de doelwerkruimte en selecteer vervolgens de **zoeken in logboeken** tegel. 
-2. In het deelvenster Zoeken in Logboeken in het querytype-veld:  
+1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Azure Monitor**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Azure Monitor**.  
+2. Selecteer **logboeken** in het menu. 
+2. In het deelvenster Logboeken in het querytype-veld:  
 
     ```
-    search * 
-    | where Type == "Heartbeat" 
+    Heartbeat 
     | where Category == "Direct Agent" 
     | where TimeGenerated > ago(30m)  
     ```

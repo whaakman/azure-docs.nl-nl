@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852437"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371136"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Mapping Data Flow Sink Transformation
 
@@ -57,7 +57,7 @@ Als u wilt uw kolomtoewijzingen herstellen, drukt u op de knop 'Wijst' in te ste
 ## <a name="file-name-options"></a>Opties voor bestandsnamen
 
    * Standaard: Toestaan dat Spark op de naam van bestanden op basis van standaardinstellingen voor onderdeel
-   * Patroon: Voer een naam voor de uitvoerbestanden
+   * Patroon: Geef een patroon voor de uitvoerbestanden. Bijvoorbeeld, 'leningen [n]' maakt loans1.csv, loans2.csv,...
    * Per partitie: Geef een bestandsnaam per partitie
    * Als de gegevens in de kolom: Het uitvoerbestand ingesteld op de waarde van een kolom
 
@@ -66,11 +66,16 @@ Als u wilt uw kolomtoewijzingen herstellen, drukt u op de knop 'Wijst' in te ste
 
 ## <a name="database-options"></a>Opties voor de database
 
-* Toestaan dat insert, update, delete, upsert-bewerking. De standaardwaarde is om te kunnen worden ingevoegd. Als u bijwerken, upsert of invoegrijen wilt, moet u eerst een transformatie van de rij alter toevoegen aan de rijen van de code voor deze specifieke acties.
+* Toestaan dat insert, update, delete, upsert-bewerking. De standaardwaarde is om te kunnen worden ingevoegd. Als u bijwerken, upsert of rijen verwijderen wilt, moet u eerst een transformatie van de rij alter toevoegen aan de rijen van de code voor deze specifieke acties. Het uitschakelen van 'Insert toestaan', stopt ADF van het invoegen van nieuwe rijen vanuit de bron.
 * Afkappen van tabel (alle rijen uit de doeltabel verwijderd voordat de gegevensstroom is voltooid)
 * Maak de tabel (voert drop/maken van de doeltabel voordat de gegevensstroom is voltooid)
 * Batchgrootte voor grote hoeveelheden gegevens worden geladen. Voer een getal en bucket schrijfbewerkingen in segmenten
 * Faseringsmodus inschakelen: Deze instructies voor ADF Polybase gebruiken bij het laden van Azure Data Warehouse als het sink-gegevensset
+
+> [!NOTE]
+> In de gegevensstroom, kunt u vragen ADF kunt u de tabeldefinitie van een nieuwe maken in de doeldatabase door in te stellen van een gegevensset in de Sink-transformatie die de naam van een nieuwe tabel heeft. In de SQL-gegevensset, klikt u op 'Bewerken' onder de tabelnaam van de en voer de naam van een nieuwe tabel. Vervolgens, in de transformatie Sink inschakelen 'Schema Drift toestaan'. Seth de instelling 'Schema importeren' op None.
+
+![Schema van de gegevensbron transformatie](media/data-flow/dataset2.png "SQL-Schema")
 
 ![SQL-Sink opties](media/data-flow/alter-row2.png "SQL-opties")
 

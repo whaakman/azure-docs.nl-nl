@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 534307cfd71551de5427a196902b275a15ad44b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e8c06f0a3a33133c7b1595db52204d15b03d6aab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436371"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372468"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimalisatie van uw SQL-omgeving met de oplossing statuscontrole van SQL Server in Log Analytics
 
@@ -53,7 +53,7 @@ Als u de statuscontrole voor uw SQL Server-servers, hiervoor een agent en de ver
 
 1. Installeer de [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) als de server niet door System Center 2016 - Operations Manager of Operations Manager 2012 R2 bewaakt wordt.
 2. Als deze wordt bewaakt met System Center 2016 - Operations Manager of Operations Manager 2012 R2 en de beheergroep is niet geïntegreerd met de service Log Analytics, op de server een multihomed met Log Analytics voor het verzamelen van gegevens en door te sturen naar de service en nog steeds kan worden toegepast worden bewaakt door Operations Manager.  
-3. Anders, als uw Operations Manager-beheergroep is geïntegreerd met de service, moet u de domeincontrollers voor het verzamelen van gegevens toevoegen door de service die de stappen onder [toevoegen door agents beheerde computers](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) nadat u hebt ingeschakeld de oplossing in uw werkruimte.  
+3. Anders, als uw Operations Manager-beheergroep is geïntegreerd met de service, moet u de domeincontrollers voor het verzamelen van gegevens toevoegen door de service die de stappen onder [toevoegen door agents beheerde computers](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) nadat u hebt ingeschakeld de oplossing in uw werkruimte.  
 
 De agent op uw SQL-Server die rapporten in een Operations Manager-beheergroep, verzamelt gegevens, worden doorgestuurd naar de toegewezen beheerserver, en vervolgens rechtstreeks vanaf een beheerserver verzonden naar de Log Analytics-service.  De gegevens worden niet naar de Operations Manager-databases geschreven.  
 

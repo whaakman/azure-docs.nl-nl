@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: 236e4e7079da792d055a8de148d03852ca1012ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6746fa193331aff66b8726da1cb3afe49fdc9bf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877357"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351541"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 release-opmerkingen
 
@@ -34,9 +34,13 @@ Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u
 
 Zie voor meer informatie, [migratierichtlijnen voor het verplaatsen van Media Services v2 naar v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="march-2019"></a>Maart 2019
+
+Dynamische verpakking nu ondersteunt Dolby Atmos. Zie voor meer informatie, [Audio-codecs ondersteund door dynamische pakketten](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+
 ## <a name="february-2019"></a>Februari 2019
 
-Media Services v3 is nu upported in Azure, nationale clouds. Niet alle functies zijn nog beschikbaar in alle clouds. Zie voor meer informatie, [Clouds en regio's in welke Azure Media Services v3 bestaat](azure-clouds-regions.md).
+Media Services v3 wordt nu ondersteund in Azure, nationale clouds. Niet alle functies zijn nog beschikbaar in alle clouds. Zie voor meer informatie, [Clouds en regio's in welke Azure Media Services v3 bestaat](azure-clouds-regions.md).
 
 [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) gebeurtenis is toegevoegd aan de Azure Event Grid-schema's voor Media Services.
 
@@ -63,7 +67,7 @@ De CLI 2.0-module is nu beschikbaar voor [Azure Media Services v3 GA](https://do
 
 ### <a name="new-commands"></a>Nieuwe CLI-opdrachten
 
-- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [AZ ams-account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
 - [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
 - [AZ ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
 - [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)

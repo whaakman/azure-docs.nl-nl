@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: ef34985e7897aa751275231a28c6031d6c9747b0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321030"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369958"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Taken in containers uitvoeren met beleid voor opnieuw opstarten
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Voorbeeld van de voltooiing worden uitgevoerd
 
-Als u wilt het beleid voor opnieuw opstarten in actie zien, maakt een containerinstantie van de [aci-microsoft-wordcount] [ aci-wordcount-image] installatiekopie en geef de `OnFailure` beleid voor opnieuw opstarten. Deze voorbeeld-container wordt uitgevoerd een Python-script dat standaard de tekst van de Shakespeare analyseert [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), schrijft de 10 meest voorkomende woorden STDOUT en vervolgens wordt afgesloten.
+Als u wilt het beleid voor opnieuw opstarten in actie zien, maakt u een containerinstantie van de Microsoft [aci-wordcount] [ aci-wordcount-image] installatiekopie en geef de `OnFailure` beleid voor opnieuw opstarten. Deze voorbeeld-container wordt uitgevoerd een Python-script dat standaard de tekst van de Shakespeare analyseert [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), schrijft de 10 meest voorkomende woorden STDOUT en vervolgens wordt afgesloten.
 
 De voorbeeld-container uitvoeren met de volgende [az container maken] [ az-container-create] opdracht:
 
@@ -54,7 +54,7 @@ De voorbeeld-container uitvoeren met de volgende [az container maken] [ az-conta
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
@@ -129,7 +129,7 @@ Bijvoorbeeld, kunt u het gedrag van het script in de container voorbeeld door de
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=5 MinLength=8
 ```
@@ -164,7 +164,7 @@ Bijvoorbeeld, om te bepalen van de eerste 3 vijf letters woorden in *Valentijn e
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer3 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=3 MinLength=5 \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
@@ -189,7 +189,7 @@ Uitvoer:
 Zie voor meer informatie over het behouden van de uitvoer van de containers die worden uitgevoerd tot voltooiing [koppelen van een Azure-bestandsshare met Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
 <!-- LINKS - External -->
-[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create

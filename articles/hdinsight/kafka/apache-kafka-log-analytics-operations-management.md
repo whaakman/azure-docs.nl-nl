@@ -9,18 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 281b4b8d20957cbbbf0f4ff52166e8c3a78b3e7d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5154058bb1562b670e24f8813e979588a536f086
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108134"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359854"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Logboeken voor Apache Kafka in HDInsight analyseren
 
 Informatie over het gebruik van Azure Monitor-logboeken voor het analyseren van logboeken die worden gegenereerd door Apache Kafka in HDInsight.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Azure Monitor-logboeken voor Apache Kafka inschakelen
 
@@ -33,7 +35,7 @@ De stappen voor het inschakelen van Azure Monitor-logboeken voor HDInsight zijn 
 3. Configureer de Kafka-cluster voor het gebruik van Azure Monitor-Logboeken. Zie voor meer informatie de [gebruikt Azure Monitor-logboeken voor het controleren van HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) document.
 
     > [!NOTE]  
-    > U kunt ook configureren met het cluster voor het gebruik van Azure Monitor-logboeken met behulp van de `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. Deze cmdlet vereist de volgende gegevens:
+    > U kunt ook configureren met het cluster voor het gebruik van Azure Monitor-logboeken met behulp van de `Enable-AzHDInsightOperationsManagementSuite` cmdlet. Deze cmdlet vereist de volgende gegevens:
     >
     > * De naam van het HDInsight-cluster.
     > * De werkruimte-ID voor Azure Monitor-Logboeken. U kunt de werkruimte-ID vinden in uw Log Analytics-werkruimte.

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25450d49fd32adf12ac6c8a71671a9cb796b06c4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c5d7f9623a7594aaa79c4cff187486360b1befc8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317439"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369017"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Schakel gecombineerd security informatie registratie (preview)
 
 Voordat u de nieuwe ervaring inschakelt, lees dan het artikel [security informatie registratie (preview) gecombineerd](concept-registration-mfa-sspr-combined.md) zodat u inzicht in de functionaliteit en de impact van deze functie.
 
-![Gecombineerde security informatie registratie verbeterde ervaring voor het aanvragen van meer informatie bij het aanmelden. Voorbeeld ziet u Microsoft Authenticator-app registreren als eerste methode.](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+![Gecombineerde informatie registratie verbeterde ervaring](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 |     |
 | --- |
@@ -37,7 +37,7 @@ Volg de volgende stappen voor het gecombineerde registratie inschakelen:
 2. Blader naar **Azure Active Directory** > **gebruikersinstellingen** > **beheren van instellingen voor toegang tot deelvenster preview-functies**.
 3. Onder **gebruikers kunnen gebruiken preview-functies voor het registreren en beheren van beveiligingsgegevens - vernieuwen**, kiezen om in te schakelen voor een **geselecteerde** groep van gebruikers of voor **alle** gebruikers.
 
-![De gecombineerde security info preview-ervaring voor alle gebruikers in de Azure AD-portal inschakelen](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+![De gecombineerde security info preview-ervaring voor alle gebruikers inschakelen](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
 > Vanaf maart van 2019 de opties telefoongesprek zich niet beschikbaar voor gebruikers voor MFA en Self-service voor Wachtwoordherstel in vrij/proefversie van Azure AD-tenants. SMS-berichten worden niet beïnvloed door deze wijziging. Telefonische oproep blijft beschikbaar voor gebruikers in betaalde Azure AD-tenants. Deze wijziging geldt alleen voor gratis/proefversie van Azure AD-tenants.

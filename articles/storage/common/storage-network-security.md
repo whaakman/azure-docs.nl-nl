@@ -5,21 +5,21 @@ services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c7f7768406ae64615b46abeb396b5469caf2f6e9
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c34af90f946542608eaf20f4f21d4986f3c80e6b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750647"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369391"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-firewalls en virtuele netwerken configureren
 
 Azure Storage biedt een gelaagd beveiligingsmodel. Dit model kunt u voor het beveiligen van uw storage-accounts naar een specifieke set ondersteunde netwerken. Als het netwerkregels zijn geconfigureerd, toegang alleen toepassingen waarbij gegevens uit meer dan de opgegeven set netwerken worden gevraagd een opslagaccount.
 
-Een toepassing die toegang heeft tot een storage-account wanneer het netwerkregels zijn van kracht is juiste verificatie bij de aanvraag vereist. Autorisatie wordt ondersteund met Azure Active Directory (AD)-referenties (voor blobs en wachtrijen) (preview), een geldige toegangssleutel of een SAS-token.
+Een toepassing die toegang heeft tot een storage-account wanneer het netwerkregels zijn van kracht is juiste verificatie bij de aanvraag vereist. Autorisatie wordt ondersteund met de referenties voor blobs en wachtrijen van Azure Active Directory (Azure AD), met een geldige toegangssleutel of met een SAS-token.
 
 > [!IMPORTANT]
 > Firewall-regels voor uw storage-account inschakelen binnenkomende aanvragen voor gegevens standaard geblokkeerd, tenzij de aanvragen afkomstig zijn van een service die wordt uitgevoerd binnen een Azure Virtual Network (VNet). Aanvragen die zijn geblokkeerd omvatten die van andere Azure-services vanuit de Azure-portal van logboekregistratie en metrische gegevens over services, enzovoort.

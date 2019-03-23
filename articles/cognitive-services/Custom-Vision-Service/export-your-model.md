@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 080a4691869c4deaf86f0e27961e80b60d439f05
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 405b6ebd06091536749751a94362d8c4a6495dbc
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857241"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351288"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Exporteren van het model voor gebruik met een mobiel apparaat
 
-Custom Vision Service kunt classificaties om uit te voeren offline worden geëxporteerd. U kunt uw geëxporteerde classificatie insluiten in een toepassing en het lokaal uitvoeren op een apparaat voor realtime classificatie. 
+Custom Vision Service kunt classificaties om uit te voeren offline worden geëxporteerd. U kunt uw geëxporteerde classificatie insluiten in een toepassing en het lokaal uitvoeren op een apparaat voor realtime classificatie.
 
 Custom Vision Service ondersteunt de volgende uitvoer:
 
@@ -37,7 +37,7 @@ Custom Vision Service ondersteunt de volgende uitvoer:
 
 > [!NOTE]
 > De stappen in deze sectie zijn alleen van toepassing als u een bestaande classificatie die niet is ingesteld op het domein te comprimeren.
- 
+
 Als u wilt converteren van het domein van een bestaande classificatie, gebruikt u de volgende stappen uit:
 
 1. Uit de [Custom vision pagina](https://customvision.ai), selecteer de __Start__ pictogram om een lijst van uw projecten weer te geven. U kunt ook de [ https://customvision.ai/projects ](https://customvision.ai/projects) om te zien van uw projecten.

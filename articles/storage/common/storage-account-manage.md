@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.author: tamram
-ms.openlocfilehash: d3f6009c77618bc043586771a6f67442533b2a0d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444052"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370386"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Instellingen van opslagaccount in Azure portal beheren
 
@@ -20,9 +20,9 @@ Een aantal instellingen voor uw storage-account zijn beschikbaar in de [Azure-po
 
 ## <a name="access-control"></a>Toegangsbeheer
 
-Azure Storage biedt ondersteuning voor verificatie met Azure Active Directory voor Blob storage en Queue storage (preview) via op rollen gebaseerd toegangsbeheer (RBAC). Zie voor meer informatie over verificatie met Azure AD, [verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory (Preview)](storage-auth-aad.md).
+Azure Storage biedt ondersteuning voor verificatie met Azure Active Directory voor Blob storage en Queue storage via op rollen gebaseerd toegangsbeheer (RBAC). Zie voor meer informatie over verificatie met Azure AD, [verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory](storage-auth-aad.md).
 
-De **toegangsbeheer** instellingen in de Azure portal biedt een eenvoudige manier om RBAC-rollen toewijzen aan gebruikers, groepen, service-principals en beheerde identiteiten. Zie voor meer informatie over het toewijzen van RBAC-rollen [beheren toegangsrechten tot blob- en wachtrijservices gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
+De **toegangsbeheer** instellingen in de Azure portal biedt een eenvoudige manier om RBAC-rollen toewijzen aan gebruikers, groepen, service-principals en beheerde identiteiten. Zie voor meer informatie over het toewijzen van RBAC-rollen [beheren toegangsrechten tot blob- en wachtrijservices gegevens met RBAC](storage-auth-aad-rbac.md).
 
 > [!NOTE]
 > Verifiëren van gebruikers of toepassingen die gebruikmaken van Azure AD-referenties biedt uitstekende beveiliging en gebruiksgemak ten opzichte van andere middelen van autorisatie. Terwijl u kunt echter ook doorgaan met de gedeelde sleutel autorisatie met uw toepassingen, heeft met behulp van Azure AD de noodzaak voor het opslaan van uw toegangssleutel voor uw code. U kunt ook blijven gebruiken van handtekeningen voor gedeelde toegang (SAS) om te voorzien in specifieke toegang tot resources in uw opslagaccount verlenen, maar Azure AD biedt vergelijkbare mogelijkheden zonder de noodzaak om te beheren van SAS-tokens of zorgen over het intrekken van een SAS waarmee is geknoeid. 

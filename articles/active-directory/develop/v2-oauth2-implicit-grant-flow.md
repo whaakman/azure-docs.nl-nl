@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9ce388c53a28d6b04bf7685da397eade4b1fd94
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112208"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371771"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocollen - kuuroorden met behulp van de impliciete stroom
 
@@ -55,7 +55,7 @@ Het volgende diagram toont hoe het gehele impliciete-aanmeldingsstroom uitziet e
 In eerste instantie het tekenen van de gebruiker in uw app, kunt u sturen een [OpenID Connect](v2-protocols-oidc.md) autorisatie-aanvraag aan en ontvang een `id_token` van het v2.0-eindpunt.
 
 > [!IMPORTANT]
-> Om aan te vragen is een ID-token, dat de app-registratie in de [registratieportal](https://apps.dev.microsoft.com) ze beschikken over de **impliciete stroom toestaan** ingeschakeld voor de webclient. Als deze niet is ingeschakeld, een `unsupported_response` fout geretourneerd: **De opgegeven waarde voor de invoerparameter 'response_type' is niet toegestaan voor deze client. Verwachte waarde is 'code'**
+> Om aan te vragen is een ID-token, dat de app-registratie in de [Azure portal - App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina moet de impliciete stroom correct ingeschakeld door het selecteren van **toegangstokens** en **ID-tokens** onder de **impliciete** sectie. Als deze niet is ingeschakeld, een `unsupported_response` fout geretourneerd: **De opgegeven waarde voor de invoerparameter 'response_type' is niet toegestaan voor deze client. Verwachte waarde is 'code'**
 
 ```
 // Line breaks for legibility only
@@ -77,7 +77,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter |  | Description |
 | --- | --- | --- |
 | `tenant` | vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | vereist |De toepassings-Id die de portal voor wachtwoordregistratie ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) uw app is toegewezen. |
+| `client_id` | vereist |De toepassing (client)-ID die de [Azure portal - App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina toegewezen aan uw app. |
 | `response_type` | vereist |Moet bevatten `id_token` voor aanmelding OpenID Connect. Het kan ook het response_type bevatten `token`. Met behulp van `token` hier kunnen uw app ontvangt een toegangstoken onmiddellijk uit het geautoriseerde eindpunt zonder te hoeven maken van een tweede aanvraag naar het geautoriseerde eindpunt. Als u de `token` response_type, de `scope` parameter moet een scope die aangeeft welke resource voor het uitgeven van het token voor bevatten. |
 | `redirect_uri` | Aanbevolen |De redirect_uri van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. |
 | `scope` | vereist |Een door spaties gescheiden lijst van [scopes](v2-permissions-and-consent.md). Voor de OpenID Connect, moet deze het bereik bevatten `openid`, die wordt omgezet in de machtiging 'Aanmelden' in de gebruikersinterface voor toestemming. (Optioneel) u kunt ook om op te nemen de `email` of `profile` bereiken voor het verkrijgen van toegang tot aanvullende gegevens. U kunt ook andere bereiken in deze aanvraag voor het aanvragen van toestemming aan verschillende resources opnemen. |

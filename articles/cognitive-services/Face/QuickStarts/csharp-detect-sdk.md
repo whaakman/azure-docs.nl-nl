@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: eaaeda1460ecffc2b1a53bb46901aedc2e9563c4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: e9f613b6cd02bd1e85b75db7a3b2c2b4adccce3f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313310"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372128"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Quickstart: Gezichten in een afbeelding detecteren met behulp van de Face .NET SDK
 
@@ -32,8 +32,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 1. Maak in Visual Studio een nieuw **Console-app (.NET Framework)**-project en noem het **FaceDetection**. 
 1. Als uw oplossing nog meer projecten bevat, selecteert u deze als het enkele opstartproject.
-1. Download de vereiste NuGet-pakketten. Klik met de rechtermuisknop op het project in Solution Explorer en selecteer **NuGet-pakketten beheren**. Klik op het tabblad **Bladeren** en selecteer **voorlopige release opnemen**. Zoek en installeer vervolgens het volgende pakket:
+1. Download de vereiste NuGet-pakketten. Klik met de rechtermuisknop op het project in Solution Explorer en selecteer **NuGet-pakketten beheren**. Klik op de **Bladeren** tabblad en selecteer **Include prerelease**; vinden en installeren van de volgende pakketten:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+    - Microsoft.Rest.ClientRuntime
+    - Microsoft.Rest.ClientRuntime.Azure
+    - Newtonsoft.Json
 
 ## <a name="add-face-detection-code"></a>Gezichtsdetectiecode toevoegen
 

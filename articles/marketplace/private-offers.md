@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: qianw211
-ms.openlocfilehash: 1efe65feaac6e71437958451e8c1a44027495fce
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: c3294aaa2b6c88e08028c8958d2ab3a7297aea74
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620010"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351810"
 ---
 # <a name="private-offers"></a>Persoonlijke aanbiedingen
 
@@ -55,6 +55,9 @@ Persoonlijke aanbiedingen zijn alleen kan worden gedetecteerd via de [Azure-port
 ![[Persoonlijke aanbiedingen]](./media/marketplace-publishers-guide/private-offer.png)
 
 Persoonlijke aanbiedingen worden ook weergegeven in zoekresultaten. Kijk uit voor de badge 'Persoonlijke'.
+
+> [!Note]
+> Persoonlijke aanbiedingen worden niet ondersteund met abonnementen tot stand gebracht via een reseller van het programma Cloud Solution Provider (CSP).
 
 ## <a name="next-steps"></a>Volgende stappen
 

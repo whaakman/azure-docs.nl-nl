@@ -1,6 +1,6 @@
 ---
-title: Een index in code met behulp van PowerShell en de REST-API - Azure Search maken
-description: Een volledige tekst doorzoekbare index in code met behulp van HTTP-aanvragen en de Azure Search REST-API maken.
+title: Maken, laden en query uitvoeren in een index met behulp van PowerShell en de REST-API - Azure Search
+description: Maken, laden en query uitvoeren in een index met behulp van PowerShell, Invoke-RestMethod en de Azure Search REST-API.
 ms.date: 03/15/2019
 author: heidisteen
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285123"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372111"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Quickstart: Een Azure Search-index met behulp van PowerShell en de REST-API maken
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ In dit artikel begeleidt u bij het proces van het maken, laden en opvragen van e
 
 [PowerShell 5.1 of hoger](https://github.com/PowerShell/PowerShell), met [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) voor opeenvolgende en interactieve stappen.
 
-Een URL-eindpunt en de admin api-sleutel van uw search-service. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
+Lees het URL-eindpunt en de admin api-sleutel van uw search-service. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
 
 1. In de Azure-portal in uw zoekservice **overzicht** pagina, de URL ophalen. Een voorbeeld-eindpunt kan er uitzien zoals https:\//my-service-name.search.windows.net.
 
@@ -371,11 +371,7 @@ Probeer Franse beschrijvingen toe te voegen aan de index. Het volgende voorbeeld
         {
             "@search.action": "merge",
             "hotelId": "2",
-            "description_fr": "Hôtel le moins cher en ville",
-        },
-        {
-            "@search.action": "delete",
-            "hotelId": "6"
+            "description_fr": "Hôtel le moins cher en ville"
         }
     ]
 }

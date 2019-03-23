@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d926f7312b62e788289939dfd81c236a33503b43
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317524"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370462"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Het oplossen van gecombineerde security informatie registratie (preview)
 
@@ -31,7 +31,7 @@ De informatie in dit artikel kan beheerders voor het oplossen van problemen met 
 
 De gebeurtenissen die zijn vastgelegd voor gecombineerde registratie zijn onder de categorie 'Verificatiemethoden' in de Azure AD auditlogboeken.
 
-![Interface met beveiligingsvoorzieningen informatiegebeurtenissen registratie voor een nieuwe gebruiker in de map Azure AD-auditlogboeken](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
+![Azure AD-auditlogboeken interface weergeven inschrijving gebeurtenissen](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
 Hieronder vindt u alle controlegebeurtenissen die worden gegenereerd door de registratie van de gecombineerde:
 
@@ -162,4 +162,4 @@ Gebruikers wordt niet meer gevraagd om u te registreren met behulp van de previe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Meer informatie over de openbare preview van gecombineerde registratie voor self-service voor wachtwoord opnieuw instellen en Azure multi-factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Meer informatie over de openbare preview van gecombineerde registratie voor self-service voor wachtwoord opnieuw instellen en Azure multi-factor Authentication](concept-registration-mfa-sspr-combined.md)

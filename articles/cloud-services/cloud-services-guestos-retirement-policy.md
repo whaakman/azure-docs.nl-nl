@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338629"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351011"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure Guest OS-beleid voor ondersteuning en buiten gebruik stellen
 De informatie op deze pagina is gekoppeld aan het Azure-gastbesturingssysteem ([Guest OS](cloud-services-guestos-update-matrix.md)) voor Cloud Services worker en webservice-rollen (PaaS). Dit geldt niet voor virtuele Machines (IaaS).
@@ -57,7 +57,7 @@ Na 60 dagen in de levensduur van een versie is '*uitgeschakeld*'. "Uitgeschakeld
 
 Enige tijd opnieuw uit nadat u "uitgeschakeld", versie van het Gast-besturingssysteem 'verloopt' en alle installaties die verlopen versie nog wordt uitgevoerd worden blootgesteld aan beveiligings- en beveiligingsproblemen problemen. Over het algemeen is verlopen uitgevoerd in batches, zodat de periode van deactivering tot vervaldatum kan verschillen.
 
-Klanten die hun services voor het bijwerken van het Gastbesturingssysteem handmatig configureren moet ervoor zorgen dat hun implementaties worden uitgevoerd op een ondersteunde Gastbesturingssystemen. Als een service is geconfigureerd voor het automatisch bijwerken van het Gastbesturingssysteem, wordt het onderliggende platform zorgt ervoor dat de naleving en wordt een upgrade naar de meest recente Gastbesturingssysteem.
+Klanten die hun services voor het bijwerken van het Gastbesturingssysteem handmatig configureren moet ervoor zorgen dat hun services worden uitgevoerd op een ondersteunde Gastbesturingssystemen. Als een service is geconfigureerd voor het automatisch bijwerken van het Gastbesturingssysteem, wordt het onderliggende platform zorgt ervoor dat de naleving en wordt een upgrade naar de meest recente Gastbesturingssysteem.
 
 Deze punten kunnen worden verricht langer goeddunken van Microsoft om de overgang van de klant. Eventuele wijzigingen zullen worden meegedeeld de [Azure Guest OS Releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 

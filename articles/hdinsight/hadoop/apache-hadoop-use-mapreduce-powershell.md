@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6f1620c9977f997b4037fbf3f823c429e43b4f6a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 015728a43e091e36dcf02b5cc17f0135a64428ca
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436259"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361945"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>MapReduce-taken uitvoeren met Apache Hadoop op HDInsight met behulp van PowerShell
 
@@ -23,6 +23,8 @@ ms.locfileid: "53436259"
 Dit document bevat een voorbeeld van het gebruik van Azure PowerShell een MapReduce-taak uitvoeren in een Hadoop op HDInsight-cluster.
 
 ## <a id="prereq"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **Een Azure HDInsight (Hadoop op HDInsight)-cluster**
 
@@ -37,15 +39,15 @@ Azure PowerShell biedt *cmdlets* waarmee u op afstand MapReduce-taken uitvoeren 
 
 De volgende cmdlets worden gebruikt bij het uitvoeren van MapReduce-taken in een extern HDInsight-cluster.
 
-* **Connect-AzureRmAccount**: Azure PowerShell geverifieerd bij uw Azure-abonnement.
+* **Connect-AzAccount**: Azure PowerShell geverifieerd bij uw Azure-abonnement.
 
-* **Nieuwe AzureRmHDInsightMapReduceJobDefinition**: Maakt u een nieuwe *taak definitie* met behulp van de opgegeven MapReduce-informatie.
+* **New-AzHDInsightMapReduceJobDefinition**: Maakt u een nieuwe *taak definitie* met behulp van de opgegeven MapReduce-informatie.
 
-* **Start-AzureRmHDInsightJob**: De taakdefinitie verzendt naar HDInsight en wordt de taak wordt gestart. Een *taak* object wordt geretourneerd.
+* **Start-AzHDInsightJob**: De taakdefinitie verzendt naar HDInsight en wordt de taak wordt gestart. Een *taak* object wordt geretourneerd.
 
-* **Wacht AzureRmHDInsightJob**: Maakt gebruik van het taakobject om de status van de taak te controleren. Wacht totdat de taak is voltooid of de wachttijd is overschreden.
+* **Wait-AzHDInsightJob**: Maakt gebruik van het taakobject om de status van de taak te controleren. Wacht totdat de taak is voltooid of de wachttijd is overschreden.
 
-* **Get-AzureRmHDInsightJobOutput**: Gebruikt voor het ophalen van de uitvoer van de taak.
+* **Get-AzHDInsightJobOutput**: Gebruikt voor het ophalen van de uitvoer van de taak.
 
 De volgende stappen laten zien hoe u deze cmdlets gebruikt voor het uitvoeren van een taak in uw HDInsight-cluster.
 
@@ -92,7 +94,7 @@ Als er geen gegevens worden geretourneerd als de taak is voltooid, kunt u fouten
 ```powershell
 # Print the output of the WordCount job.
 Write-Host "Display the standard output ..." -ForegroundColor Green
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
         -HttpCredential $creds `

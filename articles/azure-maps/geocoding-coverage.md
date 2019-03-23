@@ -1,19 +1,19 @@
 ---
 title: Dekking voor geocodering van Azure Maps | Microsoft Docs
 description: Meer informatie over de dekking voor Geocodering van Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 05/07/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 664d52a96f1e724502f82f5f72567f87c74e716b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 733d27549542d3ebdd0cfba429aeaaab9f8be473
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444253"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370300"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps-dekking voor geocodering
 
@@ -27,25 +27,25 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 
 ## <a name="americas"></a>Noord- en Zuid-Amerika
 
-| Regio             | Adres verwijst | Huis cijfers | Naam van de straat niveau | Niveau plaats | Punten van belang zijn |
+| Land/regio                                       | Adres verwijst | Huis cijfers | Naam van de straat niveau | Niveau plaats | Punten van belang zijn |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
 | Antarctica                                          |                 |                |              |      ✓     |          ✓         |
 | Antigua en Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
-| Argentinië                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Argentinië                                           |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | Aruba                                               |                 |                |              |      ✓     |          ✓         |
 | Bahama's                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Barbados                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Belize                                              |                 |                |              |      ✓     |          ✓         |
 | Bermuda                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bolivia                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Bonaire, Sint Eustatius en Saba|                 |                |              |      ✓     |          ✓         |
+| Bonaire, Sint Eustatius en Saba                   |                 |                |              |      ✓     |          ✓         |
 | Brazilië                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Canada                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kaaimaneilanden                                      |                 |                |       ✓      |      ✓     |          ✓         |
-| Chili                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Chili                                               |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | Clipperton-eiland                                   |                 |                |              |      ✓     |                    |
-| Colombia                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Colombia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Costa Rica                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Cuba                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Dominica                                            |                 |                |       ✓      |      ✓     |          ✓         |
@@ -55,10 +55,10 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Falklandeilanden                                    |                 |                |              |      ✓     |          ✓         |
 | Frans-Guyana                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Grenada                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Guadeloupe|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Guadeloupe                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Guyana        |                |             |           |      ✓     |                 |
+| Guyana                                              |                |             |           |      ✓     |                 |
 | Haiti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Jamaica                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -67,14 +67,14 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Montserrat                                          |                 |                |              |      ✓     |          ✓         |
 | Nicaragua                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Panama                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Paraguay                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Peru                                                |                 |                |       ✓      |      ✓     |          ✓         |
+| Paraguay                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Peru                                                |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Puerto Rico                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Saint-Barthélemy                                    |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Kitts en Nevis                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Lucia                                         |                 |                |              |      ✓     |          ✓         |
 | Saint-Martin                                        |                 |                |       ✓      |      ✓     |          ✓         |
-| Saint-Pierre en Miquelon|                 |                |       ✓      |      ✓     |          ✓         |
+| Saint-Pierre en Miquelon                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Vincent en de Grenadines                    |                 |                |              |      ✓     |          ✓         |
 | Sint Maarten                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Zuid-Georgia en de Zuidelijke Sandwicheilanden        |                 |                |              |      ✓     |          ✓         |
@@ -82,14 +82,14 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Trinidad en Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Amerikaanse ondergeschikte afgelegen eilanden                |                 |                |              |      ✓     |          ✓         |
 | Verenigde Staten van Amerika                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Uruguay                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Britse Maagdeneilanden - Groot-Brittannië                            |                 |                |              |      ✓     |          ✓         |
 | Britse Maagdeneilanden - Verenigde Staten                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Azië en Stille Oceaan
 
-| Regio             | Adres verwijst |Huis cijfers | Naam van de straat niveau | Niveau plaats | Punten van belang zijn |
+| Land/regio                                      | Adres verwijst |Huis cijfers | Naam van de straat niveau | Niveau plaats | Punten van belang zijn |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Amerikaans-Samoa                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australië                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -98,26 +98,27 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Brits Indische Oceaanterritorium                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Cambodja                                            |                 |                |              |      ✓     |          ✓         |
-| China |                 |                |              |      ✓     |          ✓         |
+| China                                               |        ✓        |        ✓       |              |      ✓     |          ✓         |
 | Christmaseiland                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
-| Cocos-Keeling-eilanden|                 |                |              |      ✓     |          ✓         |
-| Comoren|                 |                |              |      ✓     |          ✓         |
+| Cocos-Keeling-eilanden                             |                 |                |              |      ✓     |          ✓         |
+| Comoren                                             |                 |                |              |      ✓     |          ✓         |
 | Cookeilanden                                        |                 |                |              |      ✓     |          ✓         |
-| Fiji |                 |                |              |      ✓     |          ✓         |
+| Fiji                                                |                  |                |              |      ✓     |          ✓         |
 | Frans-Polynesië                                    |                 |                |              |      ✓     |          ✓         |
 | Heard- en McDonald-eilanden                   |                 |                |              |      ✓     |          ✓         |
-| Hongkong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Hongkong SAR                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesië                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| India       |        ✓        |        ✓       |       ✓      |      ✓     |                   |
+| India                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japan                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
+| Korea                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| Macao                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Macau SAR                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Maleisië                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Micronesia |                 |                |              |      ✓     |          ✓         |
+| Micronesia                                          |                 |                |              |      ✓     |          ✓         |
 | Mongolië                                            |                 |                |              |      ✓     |          ✓         |
 | Nauru                                               |                 |                |              |      ✓     |          ✓         |
-| Napal|                 |                |              |      ✓     |          ✓         |
+| Nepal                                               |                 |                |              |      ✓     |          ✓         |
 | Nieuw-Caledonië                                       |                 |                |              |      ✓     |          ✓         |
 | Nieuw-Zeeland                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Niue                                                |                 |                |              |      ✓     |          ✓         |
@@ -125,7 +126,7 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Noord-Korea                                         |                 |                |              |      ✓     |          ✓         |
 | Noordelijke Marianen                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Pakistan                                            |                 |                |              |      ✓     |          ✓         |
-| Palau |                 |                |              |      ✓     |          ✓         |
+| Palau                                               |                 |                |              |      ✓     |          ✓         |
 | Papoea-Nieuw-Guinea                                    |                 |                |              |      ✓     |          ✓         |
 | Paracel-eilanden                                     |                 |                |              |      ✓     |                    |
 | Filipijnen                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -134,7 +135,6 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Senkaku-eilanden                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapore                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Salomonseilanden                                     |                 |                |              |      ✓     |          ✓         |
-| Zuid-Korea                                         |                 |                |              |      ✓     |          ✓         |
 | Zuidelijke Kurils                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Spratly eilanden                                     |                 |                |              |      ✓     |                    |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
@@ -146,21 +146,21 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Tuvalu                                              |                 |                |              |      ✓     |          ✓         |
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
 | Vietnam                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Wallis en Futuna|                 |                |              |      ✓     |          ✓         |
+| Wallis en Futuna                                   |                 |                |              |      ✓     |          ✓         |
 
 ## <a name="europe"></a>Europa
 
-| Regio             | Adres verwijst |Huis cijfers | Naam van de straat niveau | Niveau plaats | Punten van belang zijn |
+| Land/regio                                      | Adres verwijst |Huis cijfers | Naam van de straat niveau | Niveau plaats | Punten van belang zijn |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Albanië                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorra                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Armenië                                             |                 |                |              |      ✓     |          ✓         |
+| Armenië                                             |        ✓        |        ✓       |              |      ✓     |          ✓         |
 | Oostenrijk                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Azerbeidzjan                                          |                 |                |              |      ✓     |          ✓         |
+| Azerbeidzjan                                          |        ✓        |        ✓       |              |      ✓     |          ✓         |
 | België                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Bosnië en Herzegovina                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Bulgarije                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Belarus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Bosnië en Herzegovina                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Bulgarije                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Belarus                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kroatië                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cyprus                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Tsjechië                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -169,39 +169,40 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Faeröer                                       |                 |                |              |      ✓     |          ✓         |
 | Finland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Frankrijk                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Georgië                                             |                 |                |              |      ✓     |          ✓         |
+| Georgië                                             |        ✓        |        ✓       |              |      ✓     |          ✓         |
 | Duitsland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Gibralter                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Griekenland                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Gibraltar                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Griekenland                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Groenland                                           |                 |                |              |      ✓     |          ✓         |
 | Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Hongarije                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| IJsland                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Ierland (Republiek)                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Hongarije                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| IJsland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Ierland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Isle Of Man                                         |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Italië                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Jan Mayen                                           |        ✓        |                |              |      ✓     |          ✓         |
 | Jersey                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Kazachstan                                          |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Kazachstan                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kosovo                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Kirgizië                                          |                 |                |              |      ✓     |          ✓         |
 | Letland                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Litouwen                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Litouwen                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxemburg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Macedonië                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| Macedonië (FYROM)                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Moldavië                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Moldavië                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Montenegro                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Nederland                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Noorwegen                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Polen                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Portugal                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| +Azores and Madeira                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Roemenië                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Russische Federatie                                  |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | San Marino                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Servië                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Servië                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Slowakije                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Slovenië                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Spanje                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -211,7 +212,7 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Tadzjikistan                                          |                 |                |              |      ✓     |          ✓         |
 | Turkije                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Turkmenistan                                        |                 |                |              |      ✓     |          ✓         |
-| Oekraïne                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Oekraïne                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Verenigd Koninkrijk                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Oezbekistan                                          |                 |                |              |      ✓     |          ✓         |
 | Vaticaanstad                                        |                 |                |       ✓      |      ✓     |          ✓         |
@@ -219,30 +220,30 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 
 ## <a name="middle-east-and-africa"></a>Midden-Oosten en Afrika
 
-| Regio             | Adres verwijst |Huis cijfers | Naam van de straat niveau | Niveau plaats | Punten van belang zijn |
+| Land/regio                                      | Adres verwijst |Huis cijfers | Naam van de straat niveau | Niveau plaats | Punten van belang zijn |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Afghanistan                                         |                 |                |              |      ✓     |          ✓         |
 | Algerije                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Angola                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Bahrein                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Bahrein                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
 | Benin                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Botswana                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Bouveteiland                                       |                 |                |              |      ✓     |          ✓         |
 | Burkina Faso                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Burundi                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Kameroen                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Cabo Verde|                 |                |       ✓      |      ✓     |          ✓         |
+| Cabo Verde                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Centraal-Afrikaanse Republiek                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Tsjaad                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Congo-Brazzaville                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Ivoorkust                                       |                 |                |       ✓      |      ✓     |          ✓         |
-| Congo (DRC)                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Congo (DRC)                    |                 |                |       ✓      |      ✓     |          ✓         |
 | Djibouti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egypte                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Equatoriaal-Guinea, Republiek                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Eritrea                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Ethiopië                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Franse Zuidelijke Gebieden|                 |                |              |      ✓     |          ✓         |
+| Franse Zuidelijke Gebieden|                        |                |              |      ✓     |          ✓         |
 | Gabon                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Gambia                                              |                 |                |              |      ✓     |          ✓         |
 | Ghana                                               |                 |                |       ✓      |      ✓     |          ✓         |
@@ -250,34 +251,34 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Guinea-Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Iran                                                |                 |                |              |      ✓     |          ✓         |
 | Irak                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Israël                                              |                 |                |              |      ✓     |          ✓         |
-| Jordanië                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Israël                                              |        ✓        |       ✓        |              |      ✓     |          ✓         |
+| Jordanië                                              |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
 | Kenia                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Koeweit                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Libanon                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Libanon                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Lesotho                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Liberia                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Libië|                 |                |       ✓      |      ✓     |          ✓         |
+| Libië                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Madagascar                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Malawi                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Maldiven |                 |                |              |      ✓     |          ✓         |
+| Maldiven                                            |                 |                |              |      ✓     |          ✓         |
 | Mali                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Marshalleilanden |                 |                |              |      ✓     |          ✓         |
+| Marshalleilanden                                    |                 |                |              |      ✓     |          ✓         |
 | Mauretanië                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Mauritius                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Mayotte                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Marokko                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Marokko                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mozambique                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Myanmar                                             |                 |                |              |      ✓     |          ✓         |
 | Namibië                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Niger                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Nigeria                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Nigeria                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Oman                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Qatar                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Réunion|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Qatar                                               |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Réunion                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Rwanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Sint-Helena                                        |                 |                |              |      ✓     |          ✓         |
-| Saoedi-Arabië                                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Saoedi-Arabië                                        |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Senegal                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Seychellen                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Sierra Leone                                        |                 |                |       ✓      |      ✓     |          ✓         |
@@ -287,10 +288,10 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Soedan                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Swaziland                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Syrië                                               |                 |                |              |      ✓     |          ✓         |
-| Sao Tomé en principe, Democratische Republiek       |                 |                |       ✓      |      ✓     |          ✓         |
+| São Tomé en Príncipe                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Tanzania                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Togo                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Tunesië                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Tunesië                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Oeganda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Verenigde Arabische Emiraten                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Westelijke Jordaanoever                                           |                 |                |              |      ✓     |          ✓         |

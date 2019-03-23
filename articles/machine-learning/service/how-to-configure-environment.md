@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a51e57cfac326663d41b545c9f2883a446467d3
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340759"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361792"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -40,7 +40,7 @@ Als u al een Python 3-omgeving hebt, of alleen de basisstappen voor het installe
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een werkruimte van Azure Machine Learning-service. Zie voor het maken van de werkruimte, [aan de slag met Azure Machine Learning-service](quickstart-get-started.md).
+- Een werkruimte van Azure Machine Learning-service. Zie voor het maken van de werkruimte, [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md).
 
 - Een van beide de [Anaconda](https://www.anaconda.com/download/) of [Miniconda](https://conda.io/miniconda.html) Pakketbeheer.
 
@@ -61,7 +61,7 @@ Als u al een Python 3-omgeving hebt, of alleen de basisstappen voor het installe
 * De SDK van Azure Machine Learning is al geïnstalleerd.
 * Nadat u een werkruimte van de service Azure Machine Learning in Azure portal maakt, kunt u klikt op een knop automatisch configureren aan de Notebook van Azure-omgeving werkt met de werkruimte.
 
-Om te beginnen met ontwikkelen met Azure-laptops, Zie [aan de slag met Azure Machine Learning-service](quickstart-get-started.md).
+Om te beginnen met ontwikkelen met Azure-laptops, Zie [aan de slag met Azure Machine Learning-service](quickstart-run-cloud-notebook.md).
 
 Azure-notitieblokken gebruikt standaard een gratis service-laag die is beperkt tot 4GB geheugen en 1GB aan gegevens. U kunt deze limieten echter verwijderen door het koppelen van een Data Science Virtual Machine-instantie aan het project Azure notitieblokken. Zie voor meer informatie, [beheren en configureren van Azure-notitieblokken projecten - Compute-laag](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
@@ -156,7 +156,7 @@ Wanneer u een lokale computer (die mogelijk ook een externe virtuele machine), e
     conda activate myenv
     ```
 
-    Dit voorbeeld maakt u een omgeving met behulp van python 3.6.5, maar specifieke subversions kunnen worden gekozen. Compatibiliteit van de SDK kan niet worden gegarandeerd met bepaalde primaire versies (3.5 + wordt aanbevolen), en het is raadzaam om te proberen een verschillende versie/subversion in uw omgeving Anaconda als u fouten ondervindt. Het duurt enkele minuten voor het maken van de omgeving, terwijl onderdelen en -pakketten zijn gedownload.
+    Dit voorbeeld maakt u een omgeving met behulp van python 3.6.5, maar specifieke subversions kunnen worden gekozen. Compatibiliteit van de SDK kan niet worden gegarandeerd met bepaalde primaire versies (3.5 + wordt aanbevolen), en het is raadzaam om te proberen een verschillende versie/subversion in uw omgeving Anaconda als u fouten ondervindt. Het duurt enkele minuten om de omgeving te maken terwijl onderdelen en pakketten worden gedownload.
 
 1. Voer de volgende opdrachten in uw nieuwe omgeving om in te schakelen omgevingsspecifieke ipython-kernels. Dit zorgt ervoor dat het verwachte kernel en pakket importeren gedrag bij het werken met Jupyter-Notebooks in Anaconda omgevingen:
 
@@ -350,7 +350,7 @@ U kunt dit bestand vanuit uw code gebruiken `ws=Workspace.from_config()`. Deze c
 
 U kunt het configuratiebestand op drie manieren maken:
 
-* **Ga als volgt de [Azure Machine Learning-snelstartgids](quickstart-get-started.md)**: Een *config.json* bestand wordt gemaakt in uw Azure-notitieblokken-bibliotheek. Het bestand bevat de configuratiegegevens voor uw werkruimte. U kunt downloaden of kopieer de *config.json* in andere omgevingen ontwikkeling.
+* **Volg de stappen in [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md#sdk)**: Een *config.json* bestand wordt gemaakt in uw Azure-notitieblokken-bibliotheek. Het bestand bevat de configuratiegegevens voor uw werkruimte. U kunt downloaden of kopieer de *config.json* in andere omgevingen ontwikkeling.
 
 * **Maak het bestand handmatig**: Met deze methode maakt u een teksteditor. U vindt de waarden die het configuratiebestand opdoen uw werkruimte in de [Azure-portal](https://portal.azure.com). Kopieer de naam van de werkruimte, de resourcegroep en de abonnement-id-waarden en deze gebruiken in het configuratiebestand.
 

@@ -11,14 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd1a96393f3dd9481705e3de8cc42375de7869e7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b9a1bb630c14ef504cb60a6847643a60f1cc90a1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311543"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368644"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Versiegeschiedenis van Azure AD wachtwoord Protection agent
+
+## <a name="121250"></a>1.2.125.0
+
+Uitgebracht op: 3/22/2019
+
+* Los de problemen van kleine typefout in gebeurtenislogboekberichten
+* EULA-overeenkomst bijwerken naar de definitieve versie van de algemene beschikbaarheid
 
 ## <a name="121160"></a>1.2.116.0
 

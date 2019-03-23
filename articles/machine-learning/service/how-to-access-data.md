@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6e1b304b90b37c93bed22bcb720a646680ee083
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: c171e35c6542febffc666ad5abfab50e093bb698
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223611"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359276"
 ---
 # <a name="access-data-from-your-datastores"></a>Toegang tot gegevens uit uw gegevensopslag
 
@@ -32,7 +32,7 @@ Deze procedure ziet u voorbeelden voor de volgende taken:
 
 Voor het gebruik van gegevensopslag, moet u een [werkruimte](concept-azure-machine-learning-architecture.md#workspace) eerste. 
 
-Begin door een van beide [het maken van een nieuwe werkruimte](quickstart-create-workspace-with-python.md) of bij het ophalen van een bestaande:
+Begin door een van beide [het maken van een nieuwe werkruimte](setup-create-workspace.md#sdk) of bij het ophalen van een bestaande:
 
 ```Python
 import azureml.core
@@ -40,8 +40,6 @@ from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
-
-Of, [uitvoeren van deze quickstart Python](quickstart-create-workspace-with-python.md) naar de SDK gebruiken om uw werkruimte maken en aan de slag.
 
 <a name="access"></a>
 

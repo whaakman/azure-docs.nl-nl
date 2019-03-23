@@ -5,25 +5,25 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f8fd3cdcf73749d787fc6f1c2222946961091f80
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6c57367a3a11aeb5bdded8e19ce57b7e265aeea9
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849836"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369238"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell"></a>Een Azure AD-identiteit gebruiken voor toegang tot Azure Storage met CLI of PowerShell
 
-Azure Storage biedt extensies voor Azure CLI en PowerShell waarmee u zich aanmeldt en uitvoeren van opdrachten in het script onder de identiteit van een Azure Active Directory (Azure AD). De identiteit van de Azure AD kan een gebruiker, groep of toepassing service-principal, of kan een [beheerde identiteit voor de Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md). U kunt machtigingen voor toegang tot opslagresources naar de Azure AD-identiteit via op rollen gebaseerd toegangsbeheer (RBAC) toewijzen. Zie voor meer informatie over RBAC-rollen in Azure Storage, [beheren rechten voor het Azure Storage-gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
+Azure Storage biedt extensies voor Azure CLI en PowerShell waarmee u zich aanmelden en het uitvoeren van opdrachten in het script onder de identiteit van een Azure Active Directory (Azure AD). De identiteit van de Azure AD kan een gebruiker, groep of toepassing service-principal, of kan een [beheerde identiteit voor de Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md). U kunt machtigingen voor toegang tot opslagresources naar de Azure AD-identiteit via op rollen gebaseerd toegangsbeheer (RBAC) toewijzen. Zie voor meer informatie over RBAC-rollen in Azure Storage, [beheren rechten voor het Azure Storage-gegevens met RBAC](storage-auth-aad-rbac.md).
 
-Wanneer u zich aanmeldt bij Azure CLI of PowerShell met een Azure AD-identiteit, wordt een toegangstoken geretourneerd voor toegang tot Azure Storage onder die identiteit. Dit token wordt vervolgens automatisch gebruikt door de CLI of PowerShell om bewerkingen op Azure Storage. Voor ondersteunde bewerkingen hoeft u niet meer om door te geven van een sleutel of een SAS-token met de opdracht.
+Wanneer u zich aanmeldt bij Azure CLI of PowerShell met een Azure AD-identiteit, wordt een toegangstoken voor toegang tot Azure Storage onder die identiteit geretourneerd. Dit token wordt vervolgens automatisch gebruikt door de CLI of PowerShell om bewerkingen op Azure Storage. Voor ondersteunde bewerkingen hoeft u niet meer om door te geven van een sleutel of een SAS-token met de opdracht.
 
 ## <a name="supported-operations"></a>Ondersteunde bewerkingen
 
-De extensies worden ondersteund voor bewerkingen voor containers en wachtrijen. Welke bewerkingen u kunt aanroepen, is afhankelijk van de machtigingen verleend aan de Azure AD-identiteit waarmee u zich aanmeldt bij Azure CLI of PowerShell. Machtigingen voor het Azure Storage-containers of wachtrijen worden toegewezen via op rollen gebaseerd toegangsbeheer (RBAC). Bijvoorbeeld, als een gegevenslezer-rol wordt toegewezen aan de identiteit, kunt klikt u vervolgens u uitvoeren scripting opdrachten die gegevens uit een container of de wachtrij lezen. Als een inzender Data-rol wordt toegewezen aan de identiteit, kunt u opdrachten in het script dat lezen, schrijven of verwijderen van een container of wachtrij of de gegevens die ze bevatten uitvoeren. 
+De extensies worden ondersteund voor bewerkingen voor containers en wachtrijen. Welke bewerkingen u kunt aanroepen, is afhankelijk van de machtigingen verleend aan de Azure AD-identiteit in waarmee u zich aanmelden bij Azure CLI of PowerShell. Machtigingen voor het Azure Storage-containers of wachtrijen worden toegewezen via op rollen gebaseerd toegangsbeheer (RBAC). Bijvoorbeeld, als een gegevenslezer-rol wordt toegewezen aan de identiteit, kunt klikt u vervolgens u uitvoeren scripting opdrachten die gegevens uit een container of de wachtrij lezen. Als een inzender Data-rol wordt toegewezen aan de identiteit, kunt u opdrachten in het script dat lezen, schrijven of verwijderen van een container of wachtrij of de gegevens die ze bevatten uitvoeren. 
 
 Zie voor meer informatie over de machtigingen die vereist zijn voor elke Azure Storage-bewerking in een container of een wachtrij [machtigingen voor het aanroepen van REST-bewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 
@@ -61,10 +61,10 @@ Het volgende voorbeeld ziet hoe u een container maken in een nieuw opslagaccount
         --encryption-services blob
     ```
     
-1. Voordat u de container maken, toewijzen de [Gegevensbijdrager voor Blob (preview)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rol aan uzelf. Hoewel u eigenaar van het account zijn, moet u expliciete machtigingen voor het uitvoeren van bewerkingen voor het opslagaccount. Zie voor meer informatie over het toewijzen van RBAC-rollen [toegang verlenen tot Azure-containers en wachtrijen met RBAC in Azure portal (preview)](storage-auth-aad-rbac.md).
+1. Voordat u de container maken, toewijzen de [Gegevensbijdrager voor Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rol aan uzelf. Hoewel u eigenaar van het account zijn, moet u expliciete machtigingen voor het uitvoeren van bewerkingen voor het opslagaccount. Zie voor meer informatie over het toewijzen van RBAC-rollen [toegang verlenen tot Azure-containers en wachtrijen met RBAC in Azure portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > Tijdens de Preview-versie van Azure AD-ondersteuning voor blobs en wachtrijen duurt RBAC-roltoewijzingen tot vijf minuten worden doorgegeven.
+    > RBAC-roltoewijzingen duurt een paar minuten worden doorgegeven.
     
 1. Roep de [az storage container maken](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) opdracht met de `--auth-mode` parameter ingesteld op `login` om de container met behulp van uw Azure AD-referenties te maken:
 
@@ -114,10 +114,10 @@ Het volgende voorbeeld ziet hoe u een container maken in een nieuw opslagaccount
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Voordat u de container maken, toewijzen de [Gegevensbijdrager voor Blob (preview)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rol aan uzelf. Hoewel u eigenaar van het account zijn, moet u expliciete machtigingen voor het uitvoeren van bewerkingen voor het opslagaccount. Zie voor meer informatie over het toewijzen van RBAC-rollen [toegang verlenen tot Azure-containers en wachtrijen met RBAC in Azure portal (preview)](storage-auth-aad-rbac.md).
+1. Voordat u de container maken, toewijzen de [Gegevensbijdrager voor Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rol aan uzelf. Hoewel u eigenaar van het account zijn, moet u expliciete machtigingen voor het uitvoeren van bewerkingen voor het opslagaccount. Zie voor meer informatie over het toewijzen van RBAC-rollen [toegang verlenen tot Azure-containers en wachtrijen met RBAC in Azure portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > Tijdens de Preview-versie van Azure AD-ondersteuning voor blobs en wachtrijen duurt RBAC-roltoewijzingen tot vijf minuten worden doorgegeven.
+    > RBAC-roltoewijzingen duurt een paar minuten worden doorgegeven.
 
 1. Een container maken door het aanroepen van [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Omdat deze aanroep maakt gebruik van de context in de vorige stappen hebt gemaakt, wordt de container gemaakt met behulp van uw Azure AD-referenties. 
 
@@ -128,6 +128,6 @@ Het volgende voorbeeld ziet hoe u een container maken in een nieuw opslagaccount
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over RBAC-rollen voor Azure-opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
-- Zie voor meer informatie over het gebruik van beheerde identiteiten voor Azure-resources met Azure Storage, [verifiëren toegang tot blobs en wachtrijen met Azure beheerde identiteiten voor Azure-Resources (Preview)](storage-auth-aad-msi.md).
+- Zie voor meer informatie over RBAC-rollen voor Azure-opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md).
+- Zie voor meer informatie over het gebruik van beheerde identiteiten voor Azure-resources met Azure Storage, [verifiëren toegang tot blobs en wachtrijen met Azure beheerde identiteiten voor Azure-Resources](storage-auth-aad-msi.md).
 - Zie voor informatie over het toestaan van toegang tot containers en wachtrijen van binnen uw storage-toepassingen, [gebruik Azure AD met opslagtoepassingen](storage-auth-aad-app.md).

@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 0972df18c65ee6b61db4113eaebc1f2912cd6064
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 88ec8b93e2429fd394eb3a8d10460a2a80d9e56f
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892877"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349481"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>PowerShell gebruiken voor het controleren en schalen van één Azure SQL-database
 
@@ -34,7 +34,10 @@ Als u ervoor kiest om te installeren en lokaal gebruik van PowerShell, voor deze
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=15-16 "Monitor and scale single database")]
 
 > [!TIP]
-> Gebruik [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) naar de status van databasebewerkingen halen en gebruik [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity) annuleert aan een updatebewerking op de database.
+> Zie voor een volledige lijst met metrische gegevens, [ondersteunde metrische gegevens](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases).
+
+> [!TIP]
+> Gebruik [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) naar de status van databasebewerkingen halen en gebruik [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity) om een database-update-bewerking te annuleren.
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 

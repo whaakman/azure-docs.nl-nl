@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/18/2019
+ms.date: 03/22/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e7ab09522184f5c2d1c5168b24b2948f58e5189e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189560"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368958"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Rijgroep kwaliteit voor columnstore maximaliseren
 
@@ -67,7 +67,7 @@ from cte;
 ```
 
 De trim_reason_desc geeft aan of de rijgroep is verkleind (trim_reason_desc = NO_TRIM impliceert dat er is geen inkorten en Rijengroep is van de optimale kwaliteit). De volgende redenen knippen geven voortijdige inkorten van de rijgroep:
-- BULKLOAD: Knippen om die reden wordt gebruikt wanneer de binnenkomende batch rijen voor het laden van minder dan 1 miljoen rijen heeft. De engine maakt gecomprimeerde Rijgroepen nodig als er meer dan 100.000 rijen worden ingevoegd (in plaats van in de store delta invoegen), maar wordt de beperkende reden ingesteld op BULKLOAD. In dit scenario kunt u verhoging van uw batch load-venster als u wilt meer rijen worden verzameld. Evalueer ook uw partitieschema om te controleren of dat dit is niet te gedetailleerde omdat Rijgroepen kunnen niet de grenzen van partities omvatten.
+- BULKLOAD: Knippen om die reden wordt gebruikt wanneer de binnenkomende batch rijen voor het laden van minder dan 1 miljoen rijen heeft. De engine maakt gecomprimeerde Rijgroepen nodig als er meer dan 100.000 rijen worden ingevoegd (in plaats van in de store delta invoegen), maar wordt de beperkende reden ingesteld op BULKLOAD. In dit scenario kunt u toenemende uw batch-belasting om op te nemen meer rijen. Evalueer ook uw partitieschema om te controleren of dat dit is niet te gedetailleerde omdat Rijgroepen kunnen niet de grenzen van partities omvatten.
 - MEMORY_LIMITATION: Een bepaalde hoeveelheid werkgeheugen is vereist voor het maken van Rijgroepen met 1 miljoen rijen, door de engine. Wanneer het beschikbare geheugen van de sessie laden is kleiner dan het vereiste geheugen van de werkende, krijgen voortijdig Rijgroepen bijgesneden. In de volgende secties wordt uitgelegd hoe u schat geheugen die nodig is en meer geheugen toewijzen.
 - DICTIONARY_SIZE: Knippen daarom geeft aan dat rijgroep trimming opgetreden omdat er ten minste één kolom met tekenreeksen met brede en/of hoge kardinaliteit tekenreeksen. Grootte van de bibliotheek is beperkt tot 16 MB in het geheugen en zodra deze limiet is bereikt de rijgroep is gecomprimeerd. Als u in deze situatie uitvoert, kunt u overwegen de problematische kolom in een afzonderlijke tabel isoleren.
 

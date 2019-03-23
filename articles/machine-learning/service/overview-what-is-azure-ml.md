@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f8f3da82d5c8747398882fd589e3ff91aaaa9739
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c9f8e13ad089fd40cde22bb76587b171a1c52c7b
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849207"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361886"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Wat is de Azure Machine Learning-service?
 
@@ -87,7 +87,7 @@ U ontvangt tegoed wat u kunt uitgeven aan Azure-services. Als uw tegoed op is, k
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Maak een werkruimte voor Machine Learning service om aan de slag te gaan [met de Azure-portal](quickstart-get-started.md) (zonder installatie) of [in Python](quickstart-create-workspace-with-python.md) (met installatie van de SDK).
+- [Maken van een werkruimte van de service Machine Learning](setup-create-workspace.md) aan de slag.
 
 - Volg de volledige zelfstudies: 
   + [Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md) 
@@ -99,4 +99,4 @@ U ontvangt tegoed wat u kunt uitgeven aan Azure-services. Als uw tegoed op is, k
 
 - Lees het gedetailleerde artikel [Azure Machine Learning service architecture and concepts](concept-azure-machine-learning-architecture.md) (Architectuur en begrippen van de Azure Machine Learning-service).
 
-- Raadpleeg [andere machine learning-producten van Microsoft](./overview-more-machine-learning.md) voor meer informatie.
+- Raadpleeg [andere machine learning-producten van Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning) voor meer informatie.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 82f54e31b76b2b2f7dbf0afb59fa706e916fe2d0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 264b4737974010baffd82b38275a8fe56163e1f2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438521"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361435"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Op basis van Linux-clusters maken in HDInsight met behulp van Azure PowerShell
 
@@ -26,15 +26,18 @@ Azure PowerShell is een krachtige scripting omgeving die u gebruiken kunt om te 
 > Azure PowerShell is alleen beschikbaar op Windows-clients. Als u van een Linux-, Unix- of Mac OS X-client gebruikmaakt, Zie [maken van een Linux gebaseerde HDInsight-cluster met behulp van de klassieke Azure-CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) voor informatie over het gebruik van de klassieke CLI om een cluster te maken.
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 U kunt het volgende voordat u begint met deze procedure moet zijn:
 
 * Een Azure-abonnement. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
+* [Azure PowerShell](/powershell/azure/install-Az-ps)
 
     > [!IMPORTANT]  
     > Azure PowerShell-ondersteuning voor het beheer van HDInsight-resources met behulp van Azure Service Manager is **afgeschaft** en per 1 januari 2017 verdwenen. In de stappen in dit document worden de nieuwe HDInsight-cmdlets gebruikt die met Azure Resource Manager werken.
     >
-    > Volg de stappen in [Azure PowerShell installeren](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) voor het installeren van de meest recente versie van Azure PowerShell. Als u scripts hebt die moeten worden gewijzigd om ze te kunnen gebruiken met de nieuwe cmdlets die werken met Azure Resource Manager, raadpleegt u [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migreren naar op Azure Resource Manager gebaseerde hulpprogramma’s voor HDInsight-clusters) voor meer informatie.
+    > Volg de stappen in [Azure PowerShell installeren](https://docs.microsoft.com/powershell/azure/install-Az-ps) voor het installeren van de meest recente versie van Azure PowerShell. Als u scripts hebt die moeten worden gewijzigd om ze te kunnen gebruiken met de nieuwe cmdlets die werken met Azure Resource Manager, raadpleegt u [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migreren naar op Azure Resource Manager gebaseerde hulpprogramma’s voor HDInsight-clusters) voor meer informatie.
 
 ## <a name="create-cluster"></a>Cluster maken
 
@@ -64,7 +67,7 @@ Het kan duren voordat tot 20 minuten om een cluster te maken.
 
 ## <a name="create-cluster-configuration-object"></a>Cluster maken: Configuratie-object
 
-U kunt ook maken een gebruiken voor het object HDInsight configuratie `New-AzureRmHDInsightClusterConfig` cmdlet. U kunt dit configuratieobject zodat extra configuratieopties voor uw cluster wijzigen. Gebruik tot slot de `-Config` parameter van de `New-AzureRmHDInsightCluster` cmdlet de configuratie te gebruiken.
+U kunt ook maken een gebruiken voor het object HDInsight configuratie `New-AzHDInsightClusterConfig` cmdlet. U kunt dit configuratieobject zodat extra configuratieopties voor uw cluster wijzigen. Gebruik tot slot de `-Config` parameter van de `New-AzHDInsightCluster` cmdlet de configuratie te gebruiken.
 
 Het volgende script maakt u een configuratieobject voor het configureren van een R Server op HDInsight-clustertype. De configuratie maakt het mogelijk een edge-knooppunt, RStudio en een extra opslagaccount.
 

@@ -5,20 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: 0c43c81528c2de656e1d788f6af6ba337d7aacb8
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 3e7e292f36296ce09af89f03e8b154b57e18b55c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403019"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369987"
 ---
 # <a name="set-environment-variables"></a>Omgevingsvariabelen instellen
 
 Omgevingsvariabelen instellen in uw container instances kunt u dynamische configuratie van de toepassing of script uitvoeren op de container. Omgevingsvariabelen instellen in een container, geeft u deze wanneer u een containerinstantie maken. U kunt omgevingsvariabelen instellen bij het starten van een container met de [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), en de [Azure-portal](#azure-portal-example).
 
-Als u bijvoorbeeld de [aci-microsoft-wordcount] [ aci-wordcount] containerinstallatiekopie, kunt u het gedrag wijzigen door de volgende omgevingsvariabelen op te geven:
+Bijvoorbeeld, als u de Microsoft [aci-wordcount] [ aci-wordcount] containerinstallatiekopie, kunt u het gedrag wijzigen door de volgende omgevingsvariabelen op te geven:
 
 *NumWords*: Het aantal woorden die worden verzonden naar de STDOUT.
 
@@ -28,13 +28,13 @@ Als u nodig hebt om door te geven van geheimen als omgevingsvariabelen, Azure Co
 
 ## <a name="azure-cli-example"></a>Azure CLI-voorbeeld
 
-Om te zien van de standaarduitvoer van de [aci-microsoft-wordcount] [ aci-wordcount] container, eerst uitvoeren met dit [az container maken] [ az-container-create] opdracht (Nee omgevingsvariabelen opgegeven):
+Om te zien van de standaarduitvoer van de [aci-wordcount] [ aci-wordcount] container, eerst uitvoeren met dit [az container maken] [ az-container-create] opdracht (Nee omgevingsvariabelen opgegeven):
 
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer1 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
@@ -44,7 +44,7 @@ Als u wilt wijzigen van de uitvoer, start u een tweede container met de `--envir
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
@@ -83,13 +83,13 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 Omgevingsvariabelen instellen in PowerShell is vergelijkbaar met de CLI, maar maakt gebruik van de `-EnvironmentVariable` opdrachtregelargument.
 
-Eerst, start de [aci-microsoft-wordcount] [ aci-wordcount] container in de standaardconfiguratie met deze [New-AzContainerGroup] [ new-Azcontainergroup] opdracht:
+Eerst, start de [aci-wordcount] [ aci-wordcount] container in de standaardconfiguratie met deze [New-AzContainerGroup] [ new-Azcontainergroup] opdracht:
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer1 `
-    -Image microsoft/aci-wordcount:latest
+    -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
 Voer nu de volgende [New-AzContainerGroup] [ new-Azcontainergroup] opdracht. Deze geeft de *NumWords* en *MinLength* omgevingsvariabelen na het vullen van een matrixvariabele `envVars`:
@@ -99,7 +99,7 @@ $envVars = @{'NumWords'='5';'MinLength'='8'}
 New-AzContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer2 `
-    -Image microsoft/aci-wordcount:latest `
+    -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest `
     -RestartPolicy OnFailure `
     -EnvironmentVariable $envVars
 ```
@@ -143,7 +143,7 @@ Om in te stellen omgevingsvariabelen bij het starten van een container in Azure 
 
 Wanneer u met de portal implementeert, kunt u momenteel maximaal drie variabelen en moet u deze invoeren in deze indeling: `"variableName":"value"`
 
-Als u wilt zien, start de [aci-microsoft-wordcount] [ aci-wordcount] container met de *NumWords* en *MinLength* variabelen.
+Als u wilt zien, start de [aci-wordcount] [ aci-wordcount] container met de *NumWords* en *MinLength* variabelen.
 
 1. In **configuratie**, stel de **beleid voor opnieuw opstarten** naar *bij fout*
 2. Voer `"NumWords":"5"` selecteren voor de eerste variabele **Ja** onder **toevoegen van aanvullende omgevingsvariabelen**, en voer `"MinLength":"8"` voor de tweede variabele. Selecteer **OK** om te controleren en vervolgens de container te implementeren.
@@ -246,7 +246,7 @@ Taakgebaseerde scenario's, zoals een grote gegevensset met meerdere containers v
 [portal-env-vars-02]: ./media/container-instances-environment-variables/portal-env-vars-02.png
 
 <!-- LINKS - External -->
-[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 251a2a3fed57e957de11a20189b6b6d553d98a78
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310265"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351453"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Wat is Azure Media Services v3?
 
@@ -77,24 +77,11 @@ Voorbeelden hiervan zijn onder andere
 
 Bekijk het voorbeeld, [Beleid voor inhoudssleutels ophalen - .NET](get-content-key-policy-dotnet-howto.md).
 
-## <a name="how-can-i-get-started-with-v3"></a>Hoe ga ik aan de slag met v3?
-
-Zie [Aan de slag met ontwikkelen](developers-guide.md) voor meer informatie over hoe u aan de slag gaat met het ontwikkelen met de Media Services v3 API met behulp van verschillende hulpprogramma's en SDK's.
-
-## <a name="v3-content-map"></a>Inhoudsstructuur van v3
-
-De Media Services v3-inhoud is ingedeeld op basis van de volgende structuur (wordt ook weergegeven in de inhoudsopgave):
-
-|Secties| Description|
-|---|---|
-| Overzicht | Geeft uitleg over de functies van Media Services en wat u kunt doen met de service.|
-| Snelstartgidsen | Basisinstructies voor nieuwe klanten die Media Services snel willen uitproberen.|
-| Zelfstudies | Op scenario's gebaseerde procedures weergeven voor een aantal veelgebruikte Media Services-taken.|
-| Voorbeelden | Links naar voorbeelden van code. |
-| Concepten | Bevat gedetailleerde uitleg van [Media Services v3-concepten en functies](concepts-overview.md). Bekijk de basisconcepten die worden beschreven in de volgende onderwerpen voordat u start met de ontwikkeling.<br/><br/>* Uploaden naar en opslaan in de cloud<br/>* Codering<br/>* Media Analytics<br/>* Verpakking, levering, beveiliging<br/>* Live streamen<br/>* Bewaken<br/>* Afspeel-clients<br/><br/>en meer. |
-| Handleidingen | Laat zien hoe u een taak voltooit.|
-
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt zien hoe eenvoudig het is om videobestanden te coderen en streamen, gaat u naar [Snelstartgids: Videobestanden streamen - .NET](stream-files-dotnet-quickstart.md). 
+Hoe ga ik aan de slag met v3? 
+
+> [!div class="nextstepaction"]
+> [Meer informatie over basisconcepten](concepts-overview.md)<br/>
+> [Ontwikkelen met de Media Services v3-API met behulp van SDK 's](developers-guide.md) 
 

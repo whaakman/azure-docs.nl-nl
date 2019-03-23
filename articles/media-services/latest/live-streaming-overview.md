@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 67876532496aa0a295bf32692534b16d38599492
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a31cd950ae241eb55c840c716f4679c5a67b1379
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839505"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350009"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
@@ -28,23 +28,46 @@ Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. 
 - Een coderingsprogramma voor live video dat signalen vanaf een camera (of een ander apparaat, zoals een laptop) converteert naar een bijdrage feed die wordt verzonden naar Media Services. De feed bijdrage kan signalen met betrekking tot reclame, zoals SCTE 35 markeringen bevatten.<br/>Zie voor een lijst met aanbevolen live streaming-coderingsprogramma's, [live coderingsprogramma's streamen](recommended-on-premises-live-encoders.md). Controleer ook of deze blog bekijken: [Live streaming productie met IB](https://link.medium.com/ttuwHpaJeT).
 - Onderdelen in Media Services, waarmee u om op te nemen, preview, inpakken, registreren, versleutelen en uitzenden van de live-gebeurtenis aan uw klanten of aan een CDN voor verdere distributie.
 
-Met Media Services, kunt u profiteren van **dynamische pakketten**, waarmee u preview uit te zenden van uw live streams in [MPEG DASH, HLS en Smooth Streaming-indelingen](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) van de bijdrage feed te sturen naar de service. De doelgroep kunnen de live stream met een compatibele spelers HLS, DASH of Smooth Streaming worden afgespeeld. U kunt [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) in uw web- of mobiele toepassingen voor het leveren van uw stroom in een van deze protocollen.
+In dit artikel biedt een overzicht en richtlijnen voor live streamen met Media Services en koppelingen naar andere relevante artikelen.
 
-Media Services kunt u uw inhoud dynamisch wordt versleuteld bezorgen (**dynamische versleuteling**) met Advanced Encryption Standard (AES-128) of een van de drie belangrijkste digital rights management (DRM)-systemen: Microsoft PlayReady, Google Widevine en FairPlay van Apple. Media Services biedt ook een service voor het leveren van AES-sleutels en DRM-licenties naar geautoriseerde clients. Zie voor meer informatie over het versleutelen van uw inhoud met Media Services [overzicht inhoud beveiligen](content-protection-overview.md)
+> [!NOTE]
+> U kunt de Azure-portal op dit moment niet gebruiken om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), of een van de ondersteunde [SDK's](developers-guide.md).
 
-U kunt ook dynamische filteren, die kunnen worden gebruikt voor het beheren van de aantal sporen te wissen, indelingen bitsnelheden, en presentatie tijdvensters die worden verzonden naar de spelers toepassen. Zie voor meer informatie, [Filters en dynamische manifesten](filters-dynamic-manifest-overview.md).
+## <a name="dynamic-packaging"></a>Dynamische verpakking
 
-In dit artikel biedt een overzicht en richtlijnen voor live streamen met Media Services.
+Met Media Services, kunt u profiteren van dynamische Packaging](dynamic-packaging-overview.md), zodat u kunt het voorbeeld uit te zenden van uw live streams in [MPEG DASH, HLS en Smooth Streaming-indelingen](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) van de bijdrage de feed die u naar de service verzendt. De doelgroep kunnen de live stream met een compatibele spelers HLS, DASH of Smooth Streaming worden afgespeeld. U kunt [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) in uw web- of mobiele toepassingen voor het leveren van uw stroom in een van deze protocollen.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="dynamic-encryption"></a>Dynamische versleuteling
 
-Voor meer informatie over de werkstroom voor live streaming in Media Services v3, die u moet controleren en begrijpen van de volgende concepten: 
+Dynamische versleuteling kunt u uw inhoud live of on-demand met AES-128 of een van de drie belangrijkste digital rights management (DRM)-systemen dynamisch wordt versleuteld: Microsoft PlayReady, Google Widevine en FairPlay van Apple. Media Services biedt ook een service voor het leveren van AES-sleutels en DRM (PlayReady, Widevine en FairPlay) licenties voor geautoriseerde clients. Zie voor meer informatie, [dynamische versleuteling](content-protection-overview.md).
+
+## <a name="dynamic-manifest"></a>Dynamische Manifest
+
+Dynamische filtering is gebruikt om te bepalen het aantal sporen te wissen, indelingen bitsnelheden en presentatie tijdvensters die worden verzonden naar de spelers. Zie voor meer informatie, [filters en dynamische manifesten](filters-dynamic-manifest-overview.md).
+
+## <a name="live-event-types"></a>Live gebeurtenistypen
+
+Een Live-gebeurtenis kan een van twee typen zijn: Pass Through- en live codering. Zie voor meer informatie over live streamen in Media Services v3 [Live evenementen en Live uitvoer](live-events-outputs-concept.md).
+
+### <a name="pass-through"></a>Pass-through
+
+![Pass Through-query](./media/live-streaming/pass-through.svg)
+
+Bij het gebruik van de pass-through **Live gebeurtenis**, afhankelijk van uw on-premises live coderingsprogramma meerdere bitrate videostream genereren en verzenden dat er als de bijdrage feed aan de Live-gebeurtenis (met behulp van RTMP- of gefragmenteerde MP4-protocol). De Live gebeurtenis wordt vervolgens via de binnenkomende video stromen zonder verdere verwerking. Dergelijke een Pass Through-Live-gebeurtenis is geoptimaliseerd voor langlopende live gebeurtenissen of 24 x lineair 365 live streamen. 
+
+### <a name="live-encoding"></a>Live Encoding  
+
+![Live encoding](./media/live-streaming/live-encoding.svg)
+
+Wanneer u live coderen met Media Services, zou u uw on-premises live coderingsprogramma voor het verzenden van een single-bitrate video als de bijdrage feed om de Live-gebeurtenis (met behulp van RTMP- of Fragmented Mp4-protocol) te configureren. De Live gebeurtenis codeert die binnenkomende single-bitrate stream naar een [meerdere bitrate videostream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), maakt deze beschikbaar zijn voor de levering van voor het afspelen van apparaten via protocollen, zoals MPEG-DASH, HLS en Smooth Streaming. 
+
+## <a name="live-streaming-workflow"></a>Werkstroom voor live streaming
+
+Voor meer informatie over de werkstroom voor live streaming in Media Services v3, moet u eerst controleren en begrijpen van de volgende concepten: 
 
 - [Streaming-eindpunten](streaming-endpoint-concept.md)
 - [Live-evenementen en Live-uitvoer](live-events-outputs-concept.md)
 - [Streaming-Locators](streaming-locators-concept.md)
-
-## <a name="live-streaming-workflow"></a>Werkstroom voor live streaming
 
 Hier volgen de stappen voor een live streaming-werkstroom:
 

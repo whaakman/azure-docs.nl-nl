@@ -3,7 +3,7 @@ title: 'Zelfstudie: Infrastructuur voor een Service Fabric-cluster maken in AWS 
 description: In deze zelfstudie leert u hoe u de AWS-infrastructuur instelt voor het uitvoeren van een Service Fabric-cluster.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6b7d2223d33abb429ab5f59b14c80d43c70598dc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9a0c56ecb20857b8fe2f5e55851e5d0d98ed3038
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209647"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369106"
 ---
-# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Zelfstudie: AWS-infrastructuur maken voor het hosten van een Service Fabric-cluster
+# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Zelfstudie: AWS-infrastructuur voor het hosten van een Service Fabric-cluster maken
 
 Zelfstandige Service Fabric-clusters bieden u de mogelijkheid om uw eigen omgeving te kiezen en een cluster te maken als onderdeel van de benadering "Elk besturingssysteem, elke cloud" die we in Service Fabric hanteren. In deze reeks zelfstudies maakt u een zelfstandig cluster dat in AWS wordt gehost en installeert u vervolgens een toepassing in het cluster.
 
@@ -50,7 +50,7 @@ Selecteer **Launch Instance** en kies in het volgende scherm **Select** naast Mi
 
 ![EC2-exemplaar selecteren][aws-ec2instance]
 
-Selecteer **t2.medium**, selecteer **Next: Configure Instance Details**, wijzig op het volgende scherm het aantal exemplaren in `3` en selecteer **Advanced Details**om die sectie uit te vouwen.
+Selecteer **t2.medium**en selecteer vervolgens **volgende: Exemplaardetails configureren**op het volgende scherm het aantal exemplaren wijzigen `3`en selecteer vervolgens **geavanceerde Details** aan die sectie uit vouwen.
 
 Om uw virtuele machines te verbinden in Service Fabric, moeten de VM's die uw infrastructuur hosten dezelfde referenties hebben.  Er zijn twee manieren om consistente referenties te hanteren: alle machines toevoegen aan hetzelfde domein of op elke VM hetzelfde beheerderswachtwoord instellen.  Voor deze zelfstudie gebruikt u een script met gebruikersgegevens om voor alle EC2-exemplaren hetzelfde wachtwoord in te stellen.  In een productieomgeving is het veiliger om de hosts lid te maken van een Windows-domein.
 
@@ -110,7 +110,7 @@ Als u alle IP-adressen hebt genoteerd, selecteert u een van de exemplaren om hie
 
 Als er verbinding is met het exemplaar, controleert u of u zonder problemen verbinding kunt maken en of u bestanden kunt delen.  U hebt de IP-adressen voor alle exemplaren verzameld. Selecteer een exemplaar waarmee geen verbinding is gemaakt. Ga naar **Start**, voer `cmd` in en selecteer **Opdrachtprompt**.
 
-In deze voorbeelden is een RDP-verbinding gemaakt met het volgende IP-adres: 172.31.21.141. Alle connectiviteitstesten vinden vervolgens plaats naar het andere IP-adres: 172.31.20.163.
+In deze voorbeelden is de RDP-verbinding gemaakt met de volgende IP-adres: 172.31.21.141. Alle verbindingen testen vervolgens plaatsvinden naar het IP-adres: 172.31.20.163.
 
 Als u wilt controleren of de basisconnectiviteit werkt, gebruikt u de ping-opdracht.
 

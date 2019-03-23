@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97e5976603ee1574e8410702069b97a9f0ef6198
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: be66ead6521bdb21626caaecd582fac4da6f664b
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768742"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351266"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedure: Verouderde verificatie met Azure AD met voorwaardelijke toegang blokkeren   
 
@@ -54,6 +54,8 @@ Azure AD biedt ondersteuning voor diverse van de meest gebruikte verificatie en 
 Één-factor authentication (bijvoorbeeld gebruikersnaam en wachtwoord) is niet voldoende tegenwoordig. Wachtwoorden zijn ongeldig omdat ze gemakkelijk te raden en we (mens) ongeldige zijn bij het kiezen van goede wachtwoorden. Wachtwoorden zijn ook kwetsbaar voor tal van aanvallen zoals phishing en het wachtwoord spray. Een van de eenvoudigste dingen die u doen kunt om te beveiligen tegen bedreigingen van wachtwoord is voor het implementeren van MFA. Met MFA, zelfs als een aanvaller Hiermee haalt u in bezit is van het wachtwoord van een gebruiker, is het wachtwoord alleen niet voldoende om te verifiëren en toegang tot de gegevens.
 
 Hoe kunt u voorkomen dat apps met behulp van verouderde verificatie van toegang tot resources van uw tenant? De aanbeveling is om te blokkeren dat ze alleen met een beleid voor voorwaardelijke toegang. Indien nodig, kunt u alleen bepaalde gebruikers en specifieke netwerklocaties apps die zijn gebaseerd op verouderde verificatie gebruiken.
+
+Beleid voor voorwaardelijke toegang wordt afgedwongen nadat de verificatie van de eerste factor is voltooid. Daarom is voorwaardelijke toegang niet zozeer bedoeld als een eerste verdedigingslinie voor bijvoorbeeld DoS-aanvallen (Denial of Service), maar kan het gebruikmaken van signalen van dergelijke gebeurtenissen (bijvoorbeeld het niveau van aanmeldingsrisico, de locatie van de aanvraag, enzovoort) om wel of geen toegang te verlenen.
 
 
 

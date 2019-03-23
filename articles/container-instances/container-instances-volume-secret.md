@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
-ms.openlocfilehash: 9aa80cf3cb02237cea11e370151eda8c67c7b10e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 3c1c83bb0c3e46a7eaab519050d9c556e2cc1a7a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856748"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372254"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Koppelen van een geheime volume in Azure Container Instances
 
@@ -31,7 +31,7 @@ Voor het implementeren van een container met een of meer geheimen met behulp van
 az container create \
     --resource-group myResourceGroup \
     --name secret-volume-demo \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --secrets mysecret1="My first secret FOO" mysecret2="My second secret BAR" \
     --secrets-mount-path /mnt/secrets
 ```
@@ -68,7 +68,7 @@ properties:
   - name: aci-tutorial-app
     properties:
       environmentVariables: []
-      image: microsoft/aci-helloworld:latest
+      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
       ports: []
       resources:
         requests:
@@ -105,7 +105,8 @@ Vervolgens voor elke container in containergroep waarin u wilt koppelen de *gehe
 
 De volgende Resource Manager-sjabloon definieert een containergroep met een container die koppelt een *geheim* volume aan `/mnt/secrets`. Het geheime volume heeft twee geheimen, "mysecret1" en "mysecret2."
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json --> [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
+[!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
 Opslaan als wilt implementeren met behulp van de Resource Manager-sjabloon, de eerder vermelde JSON naar een bestand met de naam `deploy-aci.json`, voer de [az group deployment maken] [ az-group-deployment-create] opdracht met de `--template-file` parameter:
 

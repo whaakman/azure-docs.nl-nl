@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 906b1dde3d145268df4fb1ff5c243c7daa8396ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992431"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370105"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Toegangsbeheer in Azure Data Lake Storage Gen2
 
@@ -279,7 +279,18 @@ De gebruiker die eigenaar is kan de machtigingen van het bestand wijzigen en zic
 
 ### <a name="why-do-i-sometimes-see-guids-in-acls"></a>Waarom zie ik soms GUID's in de ACL's?
 
-Er wordt een GUID weergegeven als de betekenis van een gebruiker en dat de gebruiker niet in meer Azure AD bestaat. Dit gebeurt doorgaans wanneer gebruikers het bedrijf verlaten of hun accounts zijn verwijderd in Azure AD. Bovendien service-principals en beveiligingsgroepen beschikt niet over een UPN (User Principal Name) om ze te identificeren en zodat ze worden vertegenwoordigd door de OID-kenmerk (guid). 
+Er wordt een GUID weergegeven als de betekenis van een gebruiker en dat de gebruiker niet in meer Azure AD bestaat. Dit gebeurt doorgaans wanneer gebruikers het bedrijf verlaten of hun accounts zijn verwijderd in Azure AD. Bovendien service-principals en beveiligingsgroepen beschikt niet over een UPN (User Principal Name) om ze te identificeren en zodat ze worden vertegenwoordigd door de OID-kenmerk (guid).
+
+### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>Hoe stel ik ACL's goed voor een service principal?
+
+Bij het definiëren van ACL's voor service-principals, is het belangrijk dat u de Object-ID (OID) van de *service-principal* voor de appregistratie van de die u hebt gemaakt. Het is belangrijk te weten dat geregistreerde apps een afzonderlijke service-principal in de specifieke hebben Azure AD-tenant. Geregistreerde apps hebben een OID die zichtbaar is in de Azure-portal, maar de *service-principal* heeft een andere (verschillende) OID.
+
+Als u de OID voor de service-principal die corresonds aan een app-registratie, kunt u de `az ad sp show` opdracht. Geef de toepassings-ID als de parameter. Hier volgt een voorbeeld over het verkrijgen van de OID voor de service-principal die overeenkomt met de appregistratie van een met App-Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Voer de volgende opdracht uit in de Azure CLI:
+
+`az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>`
+
+Als u de juiste OID voor de service-principal hebt, gaat u naar de Storage Explorer **Manage Access** pagina de OID toevoegen en toewijzen van de juiste machtigingen voor de OID. Zorg ervoor dat u selecteert **opslaan**.
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 biedt ondersteuning voor overname van ACL's?
 

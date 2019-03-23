@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/12/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b475eae337b7e6a7e26b3e5a7518be0e461c9fa4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6a303319a3f87f684b72bcddd8d30cd4a2c60642
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170612"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351521"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
@@ -144,20 +144,25 @@ In het beleid voor voorwaardelijke toegang, kunt u **Browsers** als client-app.
 Deze instelling werkt met alle browsers. Echter, om te voldoen aan een apparaatbeleid, zoals een vereiste compatibel apparaat, de volgende besturingssystemen en browsers worden ondersteund:
 
 
-| OS                     | Browsers                            | Ondersteuning     |
-| :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Selecteren][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Selecteren][1] |
-| Windows 7              | Internet Explorer, Chrome           | ![Selecteren][1] |
-| iOS                    | Safari, Intune Managed Browser      | ![Selecteren][1] |
-| Android                | Chrome, Intune Managed Browser      | ![Selecteren][1] |
-| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Selecteren][1] |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Selecteren][1] |
-| Windows Server 2016    | Chrome                              | Binnenkort beschikbaar |
-| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
-| macOS                  | Chrome, Safari                      | ![Selecteren][1] |
+| OS                     | Browsers                                      |
+| :--                    | :--                                           |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                     |
+| Windows 7              | Internet Explorer, Chrome                     |
+| iOS                    | Safari, Intune Managed Browser                |
+| Android                | Chrome, Intune Managed Browser                |
+| Windows Phone          | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Chrome                                        |
+| Windows Server 2012 R2 | Internet Explorer, Chrome                     |
+| Windows Server 2008 R2 | Internet Explorer, Chrome                     |
+| macOS                  | Chrome, Safari                                |
+ 
 
+
+#### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Waarom zie ik een certificaat in de browser wordt gevraagd
+
+Op Windows 7, iOS, Android en macOS identificeert Azure AD het apparaat met behulp van een clientcertificaat dat is ingericht als het apparaat is geregistreerd bij Azure AD.  Wanneer een gebruiker zich eerst via de browser wordt de gebruiker gevraagd om het certificaat te selecteren. De gebruiker moet dit certificaat selecteren voordat u de browser.
 
 
 #### <a name="chrome-support"></a>Ondersteuning voor chrome

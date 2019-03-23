@@ -3,7 +3,7 @@ title: Zelfstudie over het installeren van een toepassing op uw zelfstandige Ser
 description: In deze zelfstudie leert u hoe u een toepassing kunt installeren in uw zelfstandige Service Fabric-cluster.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 65c0ca98393fbb4f54eee2f4864218f231765904
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 392fcdd9b9df3eb37c8e105c846a6bddfddeb4d1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208570"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370428"
 ---
-# <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Zelfstudie: een toepassing implementeren in een zelfstandig Service Fabric-cluster
+# <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Zelfstudie: Een toepassing op uw zelfstandige Service Fabric cluster implementeren
 
 Zelfstandige Service Fabric-clusters bieden u de mogelijkheid om uw eigen omgeving te kiezen en een cluster te maken als onderdeel van de benadering "Elk besturingssysteem, elke cloud" die we in Service Fabric hanteren. In deze serie zelfstudies maakt u een op AWS gehoste zelfstandige cluster en implementeert u een toepassing daarop.
 

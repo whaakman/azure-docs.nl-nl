@@ -1,7 +1,7 @@
 ---
-title: Gebruiker bedoelingen
+title: Intents
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Een doel vertegenwoordigt een taak of actie de gebruiker wil om uit te voeren. Het is een doel of het doel, uitgedrukt in van een gebruiker utterance.
+description: Een enkele intent vertegenwoordigt een taak of actie de gebruiker wil om uit te voeren. Het is een doel of het doel, uitgedrukt in van een gebruiker utterance. Een set intents die overeenkomt met voor acties die gebruikers te nemen in uw toepassing wilt definiëren.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae1dd16e3296c11d6bce6ea623f590deaee8f65d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871350"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371108"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Concepten over intents in uw LUIS-app
 
@@ -31,7 +31,7 @@ App-intents reizen   |   Voorbeelden van utterances   |
  CheckWeather | "Wat is het weer, zoals in Boston?" <br/> 'Toon de prognose voor dit weekend' |
  Geen         | 'Ophalen me een cookie recept'<br>"De Lakers te winnen?" |
 
-Alle toepassingen die worden geleverd met de vooraf gedefinieerde intentie "[geen](#none-intent-is-fallback-for-app)" Dit is de terugval intentie. 
+Alle toepassingen die worden geleverd met de vooraf gedefinieerde intentie "[geen](#none-intent-is-fallback-for-app)', die de terugval bedoeling is. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>Vooraf gemaakte domeinen bieden intents
 Naast intents die u definieert, kunt u vooraf gedefinieerde intents uit een van de vooraf gemaakte domeinen gebruiken. Zie voor meer informatie, [vooraf gemaakte domeinen in LUIS-apps gebruiken](luis-how-to-use-prebuilt-domains.md) voor meer informatie over het aanpassen van de intenties van een vooraf gedefinieerde domein voor gebruik in uw app.
@@ -57,7 +57,11 @@ Op dezelfde manier populariteit [uitingen](luis-concept-utterance.md) komen over
 
 [Vooraf gemaakte domeinen](luis-how-to-use-prebuilt-domains.md) intents met uitingen hebben.  
 
-## <a name="none-intent-is-fallback-for-app"></a>Geen intentie is terugval voor app
+## <a name="none-intent"></a>None- intent
+
+De **geen** intentie is belangrijk om elke app en mag geen nul uitingen bevatten.
+
+### <a name="none-intent-is-fallback-for-app"></a>Geen intentie is terugval voor app
 De **geen** bedoeling is de bedoeling van een catch-all of terugval. Het wordt gebruikt om te leren LUIS uitingen die in het app-domein (onderwerpsgebied) niet belangrijk zijn. De **geen** bedoeling moet tussen 10 en 20 procent van de totale uitingen in de toepassing. Laat niet de geen leeg zijn. 
 
 ### <a name="none-intent-helps-conversation-direction"></a>Geen intentie helpt conversatie richting
@@ -76,6 +80,12 @@ De **geen** kunt u lezen wat is een vereiste bedoeling en kan niet worden verwij
 
 ## <a name="negative-intentions"></a>Negatieve bedoelingen 
 Als u wilt bepalen negatief als positief bedoelingen, zoals ' ik **wilt** een auto "en" ik **niet** wilt van een auto ", kunt u twee intents (één positieve en negatieve één) maken en juiste utterances voor toevoegen elke. Of u kunt maken van een enkele kunt u lezen wat en markeren van de twee verschillende positieve en negatieve voorwaarden als een entiteit.  
+
+## <a name="intents-and-patterns"></a>Intents en patronen
+
+Hebt u voorbeeld-uitingen die kunnen worden gedefinieerd gedeeltelijk of geheel als een reguliere expressie, kunt u overwegen de [reguliere expressie entiteit](luis-concept-entity-types.md#regular-expression-entity) paren met een [patroon](luis-concept-patterns.md). 
+
+Het ophalen van gegevens met behulp van een entiteit reguliere expressie wordt gegarandeerd zodat het patroon overeenkomt. Het patroon overeenkomende garandeert dat een exacte intent wordt geretourneerd. 
 
 ## <a name="intent-balance"></a>Intentie saldo
 De app-intents domein moeten een balans tussen uitingen voor elk doel hebben. Beschikt niet over een doel met 10 uitingen en een ander doel met 500 uitingen. Dit is niet met gelijke taakverdeling. Als u deze situatie hebt, raadpleegt u de bedoeling van 500 uitingen om te zien als veel van de intenties kunnen opnieuw worden gerangschikt in een [patroon](luis-concept-patterns.md). 
@@ -96,6 +106,8 @@ Meer informatie over het combineren van LUIS en QnA maker-apps met de [verzendin
 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Help-informatie voor apps met een groot aantal intenties Request
 Neem contact op met ondersteuning als het aantal intents te verminderen of uw intenties verdelen in meerdere apps niet voor u werkt. Als uw Azure-abonnement voor ondersteuningsservices bevat, neem dan contact op met [technische ondersteuning van Azure](https://azure.microsoft.com/support/options/). 
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

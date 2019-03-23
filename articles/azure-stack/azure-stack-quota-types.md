@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339546"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349702"
 ---
 # <a name="quota-types-in-azure-stack"></a>Quotatypen in Azure Stack
 
@@ -40,7 +40,10 @@ ms.locfileid: "58339546"
 | Maximale capaciteit (in GB) van de standard-beheerde schijven | 2048 | De maximale capaciteit van standard beheerde schijven die kunnen worden gemaakt op deze locatie. |
 | Maximale capaciteit (in GB) van de premium-beheerde schijf | 2048 | De maximale capaciteit van premium beheerde schijven die kunnen worden gemaakt op deze locatie. |
 
-## <a name="storage-quota-types"></a>Opslagtypen quotum
+> [!NOTE]  
+> Maximum-capaciteit van niet-beheerde schijf (pagina-blobs) is gescheiden van beheerde schijfquotum, deze moet worden ingesteld in de opslaglimiet.
+
+## <a name="storage-quota-types"></a>Opslagtypen quotum 
 
 | **Item** | **Standaardwaarde** | **Beschrijving** |
 | --- | --- | --- |
@@ -48,7 +51,7 @@ ms.locfileid: "58339546"
 | Totale aantal opslagaccounts |20 |Het maximale aantal opslagaccounts die een abonnement op deze locatie maken kunt. |
 
 > [!NOTE]  
-> Het kan maximaal twee uur duren voordat een opslaglimiet wordt afgedwongen.
+> Het kan maximaal twee uur duren voordat een opslaglimiet wordt afgedwongen. Maximum-capaciteit van beheerde schijf is gescheiden van het totale opslagquotum, deze moet worden ingesteld in het quotum voor Compute.
 
 ## <a name="network-quota-types"></a>Netwerk quotatypen
 

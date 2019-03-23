@@ -14,19 +14,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 9c3fbe7cd7ebd41f59be360f40d66b8d38dbce5e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6084687f54be265e88e6755e7d082da7c32eda1b
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318934"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349515"
 ---
-# <a name="saas-fulfillment-apis"></a>SaaS-API's voor uitvoering
+# <a name="saas-fulfillment-apis"></a>SaaS-uitvoerings-API's
 
 De API van de vervulling SaaS kunnen onafhankelijke softwareleveranciers (ISV's) hun SaaS-toepassingen integreren met de Azure Marketplace. Deze API maakt het ISV-toepassingen om deel te nemen in alle commerce ingeschakeld kanalen: direct, door partner geleide (reseller) en onder leiding van een veld.  Deze API is een vereiste voor aanbieding dat transactable SaaS-aanbiedingen op Azure Marketplace.
-
-De huidige versie van deze API is versie 2, die moet worden gebruikt voor alle nieuwe SaaS biedt.  Versie 1 van de API is afgeschaft en wordt onderhouden voor de ondersteuning van bestaande aanbiedingen.
-
 
 ## <a name="business-model-support"></a>Ondersteuning voor bedrijven-model
 
@@ -40,4 +37,4 @@ Deze API biedt ondersteuning voor de volgende zakelijke model mogelijkheden; U k
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Gebruik de meest recente versie van deze interface voor het ontwikkelen van: [SaaS vervulling API-versie 2](./cpp-saas-fulfillment-api-v2.md).
+Deze interface gebruiken voor het ontwikkelen van: [SaaS vervulling API-versie 2](./cpp-saas-fulfillment-api-v2.md).

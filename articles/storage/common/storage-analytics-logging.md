@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ab235c67e3a0e60999a0348d03a6e938944f7030
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: a350576742a9bcb899405aae19c032cc9b966975
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260180"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351318"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage analytics-Logboeken
 
@@ -144,15 +144,13 @@ U kunt de storage-services die u wilt vastleggen, evenals de bewaarperiode (in d
  De volgende opdracht schakelt logboekregistratie voor lezen, schrijven en verwijderen van aanvragen in de Queue-service in uw storage-standaardaccount met een bewaarperiode van ingesteld op vijf dagen:  
 
 ```  
-Set-AzureStorageServiceLoggingProperty -ServiceType Queue   
--LoggingOperations read,write,delete -RetentionDays 5  
+Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  De volgende opdracht schakelt uit logboekregistratie voor de table-service in uw storage-standaardaccount:  
 
 ```  
-Set-AzureStorageServiceLoggingProperty -ServiceType Table   
--LoggingOperations none  
+Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Zie voor informatie over het configureren van de Azure PowerShell-cmdlets om te werken met uw Azure-abonnement en het selecteren van het standaardopslagaccount te gebruiken: [Hoe u Azure PowerShell installeren en configureren](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

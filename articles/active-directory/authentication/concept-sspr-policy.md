@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36959582a3866426f8dc0e9969210e29e751ea60
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311897"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360500"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en beperkingen in Azure Active Directory
 
@@ -93,7 +93,7 @@ De volgende tabel beschrijft de instellingen voor het beleid toegepast op gebrui
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Verloopbeleid voor wachtwoorden instellen in Azure AD
 
-Een globale beheerder voor een Microsoft-cloudservice kunt u de Microsoft Azure AD-Module voor Windows PowerShell gebruiken om in te stellen wachtwoorden van gebruikers niet om te verlopen. U kunt ook Windows PowerShell-cmdlets gebruiken om te verwijderen de-verloopt nooit configuratie of om te zien welke gebruiker wachtwoorden zijn ingesteld op nooit verlopen. 
+Een globale beheerder of Gebruikerbeheerder voor een Microsoft-cloudservice kunt de Microsoft Azure AD-Module voor Windows PowerShell gebruiken om in te stellen wachtwoorden van gebruikers niet om te verlopen. U kunt ook Windows PowerShell-cmdlets gebruiken om te verwijderen de-verloopt nooit configuratie of om te zien welke gebruiker wachtwoorden zijn ingesteld op nooit verlopen. 
 
 Deze handleiding is van toepassing op andere providers, zoals Intune en Office 365, die ook afhankelijk van Azure AD voor identiteits- en directory services zijn. Wachtwoord verloopt, is het enige deel van het beleid dat kan worden gewijzigd.
 
@@ -107,7 +107,7 @@ Als u wilt beginnen, moet u [downloaden en installeren van de Azure AD PowerShel
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Het vervalbeleid voor wachtwoord controleren
 
-1. Verbinding maken met Windows PowerShell met behulp van de administrator-referenties van uw bedrijf.
+1. Verbinding maken met Windows PowerShell met behulp van uw beheerder of beheerder bedrijfsreferenties.
 1. Voer een van de volgende opdrachten:
 
    * Als u wilt zien als het wachtwoord van een enkele gebruiker is ingesteld op nooit verlopen, kunt u de volgende cmdlet uitvoeren met behulp van de UPN (bijvoorbeeld *aprilr\@contoso.onmicrosoft.com*) of de gebruikers-ID van de gebruiker die u wilt controleren: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -115,7 +115,7 @@ Als u wilt beginnen, moet u [downloaden en installeren van de Azure AD PowerShel
 
 ### <a name="set-a-password-to-expire"></a>Stel een wachtwoord verlopen
 
-1. Verbinding maken met Windows PowerShell met behulp van de administrator-referenties van uw bedrijf.
+1. Verbinding maken met Windows PowerShell met behulp van uw beheerder of beheerder bedrijfsreferenties.
 1. Voer een van de volgende opdrachten:
 
    * Als u wilt het wachtwoord van een gebruiker zo instellen dat het wachtwoord is verlopen, moet u de volgende cmdlet uitvoeren met behulp van de UPN of de gebruikers-ID van de gebruiker: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
@@ -123,7 +123,7 @@ Als u wilt beginnen, moet u [downloaden en installeren van de Azure AD PowerShel
 
 ### <a name="set-a-password-to-never-expire"></a>Stel een wachtwoord op nooit verlopen
 
-1. Verbinding maken met Windows PowerShell met behulp van de administrator-referenties van uw bedrijf.
+1. Verbinding maken met Windows PowerShell met behulp van uw beheerder of beheerder bedrijfsreferenties.
 1. Voer een van de volgende opdrachten:
 
    * Om het wachtwoord van een gebruiker op nooit verlopen, moet u de volgende cmdlet uitvoeren met behulp van de UPN of de gebruikers-ID van de gebruiker: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`

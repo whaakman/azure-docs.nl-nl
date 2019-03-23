@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 949bf52a586603fc6a82c0da553cf70877a8f4be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3b5da6c9046fc694bd5eb0f55cf031b82b6d0103
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085011"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370530"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimalisatie van uw Active Directory-omgeving met de oplossing statuscontrole van Active Directory in Azure Monitor
 
@@ -55,7 +55,7 @@ Als u de statuscontrole voor uw domeincontrollers die lid van het domein zijn mo
 
 1. Installeer de [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) als de domeincontroller niet door System Center 2016 - Operations Manager of Operations Manager 2012 R2 bewaakt wordt.
 2. Als deze wordt bewaakt met System Center 2016 - Operations Manager of Operations Manager 2012 R2 en de beheergroep is niet geïntegreerd met Azure Monitor, kan de domeincontroller worden met Azure Monitor voor het verzamelen van gegevens en door te sturen naar de service en nog steeds multihomed worden bewaakt door Operations Manager.  
-3. Anders, als uw Operations Manager-beheergroep is geïntegreerd met de service, moet u de domeincontrollers voor het verzamelen van gegevens toevoegen door de service die de stappen onder [toevoegen door agents beheerde computers](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) nadat u hebt ingeschakeld de oplossing in uw werkruimte.  
+3. Anders, als uw Operations Manager-beheergroep is geïntegreerd met de service, moet u de domeincontrollers voor het verzamelen van gegevens toevoegen door de service die de stappen onder [toevoegen door agents beheerde computers](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) nadat u hebt ingeschakeld de oplossing in uw werkruimte.  
 
 De agent op uw domeincontroller welke rapporten in een Operations Manager-beheergroep, verzamelt gegevens, doorstuurt naar de toegewezen beheerserver, en vervolgens rechtstreeks vanaf een beheerserver verzonden naar Azure Monitor.  De gegevens worden niet naar de Operations Manager-databases geschreven.  
 

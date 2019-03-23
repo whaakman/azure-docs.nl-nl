@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 47b589d32accc4a699e7260b9e4b2de4cca58f2b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314667"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369612"
 ---
-# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>Verbinding maken met computers zonder toegang tot het internet met behulp van de Log Analytics-gateway
+# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Verbinding maken met computers zonder toegang tot het internet met behulp van de Log Analytics-gateway in Azure Monitor
 
 >[!NOTE]
 >Als Microsoft Operations Management Suite (OMS) in Microsoft Azure Monitor verandert, wordt terminologie gewijzigd. In dit artikel verwijst naar de OMS-Gateway als de Azure Log Analytics-gateway. 
 >
 
-In dit artikel wordt beschreven hoe u communicatie met Azure Automation en Log Analytics configureren met behulp van de Log Analytics-gateway wanneer de computers die rechtstreeks zijn verbonden of die worden bewaakt door Operations Manager hebben geen toegang tot internet. 
+In dit artikel wordt beschreven hoe u communicatie met Azure Automation en Azure Monitor configureren met behulp van de Log Analytics-gateway wanneer de computers die rechtstreeks zijn verbonden of die worden bewaakt door Operations Manager hebben geen toegang tot internet. 
 
-De Log Analytics-gateway is een forward HTTP-proxy die ondersteuning biedt voor HTTP-tunneling met de opdracht HTTP-verbinding. Deze gateway kan gegevens verzamelen en te verzenden naar Azure Automation en Log Analytics namens de computers die niet zijn verbonden met internet.  
+De Log Analytics-gateway is een forward HTTP-proxy die ondersteuning biedt voor HTTP-tunneling met de opdracht HTTP-verbinding. Deze gateway kan gegevens verzamelen en te verzenden naar Azure Automation en Log Analytics-werkruimte in Azure Monitor namens de computers die niet zijn verbonden met internet.  
 
 De Log Analytics-gateway ondersteunt:
 
 * Rapportage tot de dezelfde vier Log Analytics werkruimte agents die erachter zijn en die zijn geconfigureerd met Azure Automation Hybrid Runbook Workers.  
-* Windows-computers waarop de Microsoft Monitoring Agent rechtstreeks is verbonden met een Log Analytics-werkruimte.
-* Linux-computers waarop een Log Analytics-agent voor Linux rechtstreeks is verbonden met een Log Analytics-werkruimte.  
+* Windows-computers waarop de Microsoft Monitoring Agent rechtstreeks is verbonden met een Log Analytics-werkruimte in Azure Monitor.
+* Linux-computers waarop een Log Analytics-agent voor Linux rechtstreeks is verbonden met een Log Analytics-werkruimte in Azure Monitor.  
 * System Center Operations Manager 2012 SP1 UR7, Operations Manager 2012 R2 met UR3 of een beheergroep in Operations Manager 2016 of hoger die is geïntegreerd met Log Analytics.  
 
-Sommige het beveiligingsbeleid van verbinding met internet voor computers in het netwerk niet is toegestaan. Deze niet-verbonden computers mogelijk punt van apparaten verkooppunten (POS) of de servers die ondersteuning bieden IT-services, bijvoorbeeld. Als u wilt deze apparaten verbinden met Azure Automation of Log Analytics, zodat u kunt beheren en bewaken configureren, zodat deze communiceren rechtstreeks met de Log Analytics-gateway. De Log Analytics-gateway kan ontvangen configuratie-informatie en doorsturen van gegevens in hun naam. Als de computers zijn geconfigureerd met de Log Analytics-agent rechtstreeks verbinding maken met een Log Analytics-werkruimte, worden de computers in plaats daarvan communiceren met de Log Analytics-gateway.  
+Sommige het beveiligingsbeleid van verbinding met internet voor computers in het netwerk niet is toegestaan. Deze niet-verbonden computers mogelijk punt van apparaten verkooppunten (POS) of de servers die ondersteuning bieden IT-services, bijvoorbeeld. Als u wilt deze apparaten verbinden met Azure Automation of een Log Analytics-werkruimte, zodat u kunt beheren en bewaken configureren, zodat deze communiceren rechtstreeks met de Log Analytics-gateway. De Log Analytics-gateway kan ontvangen configuratie-informatie en doorsturen van gegevens in hun naam. Als de computers zijn geconfigureerd met de Log Analytics-agent rechtstreeks verbinding maken met een Log Analytics-werkruimte, worden de computers in plaats daarvan communiceren met de Log Analytics-gateway.  
 
 De Log Analytics-gateway gegevens worden overgebracht van de agents met de service rechtstreeks. Deze een van de gegevens die onderweg zijn niet geanalyseerd.
 
 Wanneer een Operations Manager-beheergroep is geïntegreerd met Log Analytics, worden de beheerservers geconfigureerd om te verbinden met de Log Analytics-gateway naar configuratie-informatie ontvangen en verzenden van verzamelde gegevens, afhankelijk van de oplossing die u hebt ingeschakeld .  Operations Manager-agents verzenden gegevens naar de beheerserver. Voor agents worden verzonden, Operations Manager waarschuwingen, configuratie-evaluatiegegevens ruimte Instantiegegevens en capaciteitsgegevens. Andere gegevens van hoge volumes, zoals Internet Information Services (IIS)-Logboeken, prestatiegegevens en beveiligingsgebeurtenissen, wordt rechtstreeks naar de gateway voor Log Analytics verzonden. 
 
-Als een of meer Operations Manager-Gateway-servers worden geïmplementeerd voor het controleren van niet-vertrouwde systemen in een perimeternetwerk of in een geïsoleerd netwerk, worden deze servers kunnen niet communiceren met een Log Analytics-gateway.  Operations Manager-gatewayservers kunnen alleen met een beheerserver rapporteren.  Wanneer een Operations Manager-beheergroep is geconfigureerd om te communiceren met de Log Analytics-gateway, wordt de proxy-configuratie-informatie automatisch gedistribueerd naar elke agent beheerde computer die is geconfigureerd voor het verzamelen van gegevens voor Log Analytics, zelfs Als de instelling leeg is.    
+Als een of meer Operations Manager-Gateway-servers worden geïmplementeerd voor het controleren van niet-vertrouwde systemen in een perimeternetwerk of in een geïsoleerd netwerk, worden deze servers kunnen niet communiceren met een Log Analytics-gateway.  Operations Manager-gatewayservers kunnen alleen met een beheerserver rapporteren.  Wanneer een Operations Manager-beheergroep is geconfigureerd om te communiceren met de Log Analytics-gateway, wordt de proxy-configuratie-informatie automatisch gedistribueerd naar elke agent beheerde computer die is geconfigureerd voor het verzamelen van gegevens aan het logboek voor Azure Monitor zelfs als de instelling leeg is.    
 
-Voor maximale beschikbaarheid voor direct verbonden of bewerkingen beheergroepen die communiceren met Log Analytics via de gateway gebruiken voor netwerktaakverdeling (NLB) om te leiden en distribueren van verkeer tussen meerdere gatewayservers. Op die manier als een gatewayserver uitvalt, wordt het verkeer doorgestuurd naar een ander beschikbaar knooppunt.  
+Voor maximale beschikbaarheid voor direct verbonden of bewerkingen beheergroepen die communiceren met Log Analytics-werkruimte via de gateway gebruiken voor netwerktaakverdeling (NLB) om te leiden en distribueren van verkeer tussen meerdere gatewayservers. Op die manier als een gatewayserver uitvalt, wordt het verkeer doorgestuurd naar een ander beschikbaar knooppunt.  
 
 De Log Analytics-Windows-agent voor het identificeren van de service-eindpunten die de gateway nodig heeft om te communiceren met vereist de computer met de Log Analytics-gateway De agent moet ook om te leiden van de gateway om te rapporteren aan de dezelfde werkruimten die de agents of Operations Manager-beheergroep achter de gateway zijn geconfigureerd met. Deze configuratie kunt de gateway en de agent kan communiceren met hun toegewezen werkruimte.
 

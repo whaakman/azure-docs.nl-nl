@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba8a1976fa9fc2a02f7f3e8419de10ebba7df950
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 71b7784d054f279dfccdb3a2424fd427789ca658
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316300"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370071"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Azure multi-factor Authentication-Server configureren voor maximale beschikbaarheid
 
@@ -26,7 +26,7 @@ Voor het bereiken van hoge beschikbaarheid met uw Azure-Server MFA-implementatie
 
 De architectuur van de service Azure MFA-Server bestaat uit verschillende onderdelen, zoals wordt weergegeven in het volgende diagram:
 
- ![Architectuur van MFA-Server](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
+ ![Architectuur van MFA-Server-onderdelen](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
 
 Een MFA-Server is een Windows-Server die de Azure multi-factor Authentication software is geïnstalleerd. Het MFA-Server-exemplaar moet worden geactiveerd door de MFA-Service in Azure naar functie. Meer dan één MFA-Server worden geïnstalleerd on-premises.
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569022"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369163"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Gegevenstransformatie stroom bron toewijzen
 
@@ -74,7 +74,7 @@ U kunt eventueel kiezen voor het partitioneren van de verbindingen op basis van 
 ## <a name="source-file-management"></a>Beheer van bron
 ![Nieuwe instellingen voor gegevensbron](media/data-flow/source2.png "nieuwe instellingen")
 
-* Jokerteken pad naar het kiezen van een reeks van bestanden uit de bronmap die overeenkomen met een patroon. Dit overschrijft elk bestand dat u hebt ingesteld in de gegevenssetdefinitie van de.
+* Pad met jokertekens om op te halen van een reeks van bestanden uit de bronmap die overeenkomen met een patroon. Dit overschrijft elk bestand dat u hebt ingesteld in de gegevenssetdefinitie van de.
 * Lijst met bestanden. Hetzelfde als een bestandsset. Verwijzen naar een tekstbestand dat u met een lijst van bestanden maakt voor het verwerken van relatief pad.
 * Kolom voor het opslaan van bestandsnaam slaat de naam van het bestand van de bron in een kolom in uw gegevens. Voer hier een nieuwe naam voor het opslaan van de tekenreeks met de bestandsnaam.
 * Na voltooiing (u kunt niets met het bronbestand doen nadat de gegevensstroom wordt uitgevoerd, de bron-bestanden verwijderen of verplaatsen van de bronbestanden. De paden voor verplaatsing zijn relatieve paden.
@@ -83,7 +83,7 @@ U kunt eventueel kiezen voor het partitioneren van de verbindingen op basis van 
 
 Wanneer u van Azure SQL DB of Azure SQL DW als de bron gebruikmaakt, hebt u extra opties.
 
-* Query: Voer een SQL-query voor de bron. Instellen van een query wordt een tabel die u hebt gekozen in de gegevensset wordt overschreven. Houd er rekening mee dat Order By-componenten niet hier worden ondersteund.
+* Query: Voer een SQL-query voor de bron. Instellen van een query wordt een tabel die u hebt gekozen in de gegevensset wordt overschreven. Houd er rekening mee dat Order By-componenten niet hier worden ondersteund. Echter, kunt u een volledige instructie SELECT FROM hier instellen.
 
 * Batchgrootte: Voer een batchgrootte voor grote hoeveelheden gegevens in de batch-formaat leesbewerkingen wordt verdeeld.
 

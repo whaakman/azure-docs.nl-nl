@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77c6ce205c40b5814f9b26f9099d868d434d3ce
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316446"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369221"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Aanpassen van de Azure AD-functionaliteit voor self-service voor wachtwoord opnieuw instellen
 
@@ -26,12 +26,12 @@ IT-professionals die u wilt om de selfservice voor wachtwoordherstel (SSPR) impl
 
 Zelfs als SSPR niet is ingeschakeld, hebben gebruikers nog steeds een koppeling 'Neem contact op met uw beheerder' op de wachtwoord-portal opnieuw instellen. Als de gebruiker kiest deze koppeling klikt, wordt een van beide:
 
-   * Een e-mail van uw beheerders en voor hulp bij het wijzigen van het wachtwoord van de gebruiker wordt gevraagd.
-   * Uw gebruikers verzendt naar een URL die u voor hulp opgeeft.
+* Een e-mail van uw beheerders en voor hulp bij het wijzigen van het wachtwoord van de gebruiker wordt gevraagd.
+* Uw gebruikers verzendt naar een URL die u voor hulp opgeeft.
 
 U wordt aangeraden dat u deze contact op met ingesteld op iets bijvoorbeeld een e-mailadres of een website die uw gebruikers al voor ondersteuningsvragen gebruiken.
 
-![Neem contact op met][Contact]
+![Voorbeeld van een aanvraag opnieuw in te stellen e-mailbericht verzonden naar de beheerder][Contact]
 
 Het contact op met e-mailbericht is verzonden naar de volgende ontvangers in de volgende volgorde:
 
@@ -68,8 +68,8 @@ De afbeeldingen die u kiest, worden weergegeven in de volgende omstandigheden:
 
 * Nadat een gebruiker moet hun gebruikersnaam invoeren
 * Als de gebruiker toegang heeft tot de aangepaste URL:
-    * Door door te geven de `whr` parameter voor het wachtwoord opnieuw instellen pagina, zoals `https://login.microsoftonline.com/?whr=contoso.com`
-    * Door door te geven de `username` parameter voor het wachtwoord opnieuw instellen pagina, zoals `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Door door te geven de `whr` parameter voor het wachtwoord opnieuw instellen pagina, zoals `https://login.microsoftonline.com/?whr=contoso.com`
+   * Door door te geven de `username` parameter voor het wachtwoord opnieuw instellen pagina, zoals `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Meer informatie vinden over het configureren van aangepaste huisstijl in het artikel [Huisstijlwijzigingen naar de aanmeldingspagina in Azure AD](../fundamentals/customize-branding.md).
 

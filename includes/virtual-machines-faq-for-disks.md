@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 03e10497b033fc3d97fde4cd524b358c05fdc943
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 94893a5b5716c9bd207ad2a8bc8ca457974dddd4
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57457755"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395703"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -105,7 +105,7 @@ Ja, niet-beheerde en beheerde schijven worden ondersteund. U wordt aangeraden da
 
 Nee.
 
-**Als ik een schijf van 128 GB maken en vervolgens de grootte tot 130 GiB verhogen, moet ik betalen voor de volgende schijfgrootte (256 GB)?**
+**Als ik een schijf van 128 GB maken en vervolgens de grootte tot 130 gibibytes (GiB verhogen), moet ik betalen voor de volgende schijfgrootte (256 GB)?**
 
 Ja.
 
@@ -115,7 +115,7 @@ Azure Managed Disks ondersteunt momenteel alleen lokaal redundante opslag met be
 
 **Kan ik verkleinen of krimpen mijn beheerde schijven?**
 
-Nee. Deze functie wordt momenteel niet ondersteund. 
+Nee. Deze functie wordt momenteel niet ondersteund.
 
 **Kan ik een lease verbreken op de schijf?**
 
@@ -179,7 +179,7 @@ Ja, dat is mogelijk. Raadpleeg [converteren Azure managed disks-opslag van stand
 -AccountType StandardSSD_LRS
 
 **Wat is het voordeel van het gebruik van Standard-SSD-schijven in plaats van HDD?**
-Standard-SSD-schijven bieden betere latentie, consistentie, beschikbaarheid en betrouwbaarheid ten opzichte van HDD-schijven. Werkbelastingen van toepassingen soepeler veel op Standard-SSD vanwege die. Houd er rekening mee, Premium-SSD-schijven zijn de aanbevolen oplossing voor de meeste i/o-intensieve productieworkloads. 
+Standard-SSD-schijven bieden betere latentie, consistentie, beschikbaarheid en betrouwbaarheid ten opzichte van HDD-schijven. Werkbelastingen van toepassingen soepeler veel op Standard-SSD vanwege die. Houd er rekening mee, Premium-SSD-schijven zijn de aanbevolen oplossing voor de meeste i/o-intensieve productieworkloads.
 
 **Kan ik standaard SSD's als niet-beheerde schijven gebruiken?**
 Nee, Standard-SSD-schijven zijn alleen beschikbaar als beheerde schijven.
@@ -191,7 +191,7 @@ Nee, Standard-SSD's geen enkel exemplaar VM SLA. Premium-SSD-schijven gebruiken 
 
 **Zijn er gevolgen van de migratie op de prestaties van Managed Disks?**
 
-Migratie omvat het verkeer van de schijf van de ene opslaglocatie naar de andere. Dit is georganiseerd via achtergrond kopiëren van gegevens kan enkele uren duren, doorgaans minder dan 24 uur, afhankelijk van de hoeveelheid gegevens in de schijven. Gedurende die tijd kunt uw toepassing ervaringen hoger dan normaal leeslatentie bij het aantal leesbewerkingen kunnen ophalen omgeleid naar de oorspronkelijke locatie en kunnen het langer duren om. Er zijn geen gevolgen voor schrijven latentie tijdens deze periode.  
+Migratie omvat het verkeer van de schijf van de ene opslaglocatie naar de andere. Dit is georganiseerd via achtergrond kopiëren van gegevens, die kan enkele uren duren, meestal minder dan 24 uur per dag uur, afhankelijk van de hoeveelheid gegevens in de schijven. Gedurende die tijd kunt uw toepassing ervaringen hoger dan normaal leeslatentie bij het aantal leesbewerkingen kunnen ophalen omgeleid naar de oorspronkelijke locatie en kunnen het langer duren om. Er zijn geen gevolgen voor schrijven latentie tijdens deze periode.  
 
 **Welke wijzigingen vereist zijn in een bestaande Azure Backup-service configuration voorafgaande/na de migratie naar Managed Disks?**
 
@@ -205,7 +205,7 @@ Ja, back-ups werken naadloos.
 
 Er zijn geen wijzigingen vereist.
 
-**Sets van niet-beheerde schijven naar beheerde schijven die worden ondersteund voor automatische migratie van een bestaande virtuele-machineschaalset is?**
+**Wordt automatische migratie van een bestaande virtuele-machineschaalset ingesteld van niet-beheerde schijven naar beheerde schijven die worden ondersteund?**
 
 Nee. U kunt een nieuwe schaalset met Managed Disks met behulp van de installatiekopie van uw oude schaalset met niet-beheerde schijven kunt maken.
 
@@ -333,25 +333,29 @@ Bestaande kleine premium-schijven kleiner is dan 64 GiB nog steeds gefactureerd 
 
 U kunt een momentopname van de kleine schijven en maak vervolgens een schijf voor het automatisch de prijscategorie overschakelen naar P4 of P6 op basis van de ingerichte grootte.
 
-**Kunt u de grootte van bestaande beheerde schijven van grootte minder dan 4 TiB aan nieuwe geïntroduceerde schijfgrootten tot 32 TiB?**
+**Kunt u het formaat van bestaande beheerde schijven van grootte minder dan 4 tebibytes (TiB) naar nieuwe geïntroduceerde schijfgrootten tot 32 TiB?**
 
 Nieuwe Managed Disk-groottes TiB 8, 16 TiB en 32 TiB zijn momenteel in Preview. Nog niet wordt ondersteund bestaande schijfgrootten naar de nieuwe schijfgrootten vergroten of verkleinen.
 
-**Wat is de grootste schijfgrootten die worden ondersteund door Azure Backup en Azure Site Recovery-service?**
+**Wat zijn de grootste schijfgrootten die worden ondersteund door Azure Backup en Azure Site Recovery-service?**
 
 De grootste schijfgrootte wordt ondersteund door Azure Backup en Azure Site Recovery-service is 4 TiB.
 
-**Wat zijn de aanbevolen VM-grootten voor grote schijven (> 4TiB) voor Standard-SSD en standaard harde schijven te bereiken geoptimaliseerd schijf-IOPS en bandbreedte?**
+**Wat zijn de aanbevolen VM-grootten voor grotere schijfgrootten (> 4 TiB) voor Standard-SSD en standaard harde schijven te bereiken geoptimaliseerd schijf-IOPS en bandbreedte?**
 
-De schijfdoorvoer van Standard-SSD en HDD Standard grote schijfgrootten bereiken (> 4TB) meer dan 500 IOPS en 60 MiB/s, moet u een van de volgende VM-grootten gebruiken om uw prestaties te optimaliseren: B-serie, DSv2-serie, Dsv3-serie, ESv3-serie, Fs-serie, Fsv2-serie, M-serie, GS-serie, NCv2-serie, uit de NCv3-serie of Ls-serie VM's.
+De schijfdoorvoer van Standard-SSD en HDD Standard grote schijfgrootten bereiken (> 4 TiB) meer dan 500 IOPS en 60 MiB/s, raden we u een nieuwe VM implementeren vanaf een van de volgende VM-grootten voor het optimaliseren van prestaties van uw: B-serie, DSv2-serie, Dsv3-serie, ESv3-serie, Fs-serie, Fsv2-serie, M-serie, GS-serie, NCv2-serie, uit de NCv3-serie of Ls-serie VM's. Grote schijven koppelen aan bestaande virtuele machines of virtuele machines die niet met behulp van de aanbevolen groottes die hierboven, kan de lagere prestaties optreden.
 
-**Welke regio's zijn groter is dan 4 TiB ondersteund in de grootte van de beheerde schijven?**
+**Hoe kan ik mijn schijven upgraden (> 4 TiB) die zijn geïmplementeerd tijdens de grotere schijf grootten preview om op te halen van de hogere IOPS en bandbreedte op algemene beschikbaarheid?**
 
-De Preview-versie van de grootte van de beheerde schijf dan 4 TiB worden ondersteund in alle productie van Azure-regio's behalve (overheid), China en Duitsland. 
+U kunt de stop en start de virtuele machine die de schijf is gekoppeld aan of loskoppelen en opnieuw koppelen van de schijf. De prestatiedoelen van grotere schijfgrootten zijn verhoogd voor zowel premium SSD's en standaard SSD's bij algemene beschikbaarheid.
 
-**Ondersteunen we Host opslaan in cache inschakelen op de nieuwere schijfgrootten?**
+**Welke regio's zijn de grootte van de beheerde schijven van 8 TiB, 16 TiB en 32 TiB ondersteund?**
 
-Dankzij Host opslaan in cache van de alleen-lezen en lezen/schrijven schijfgrootten kleiner is dan 4TiB. Voor schijfgrootten meer dan 4 TiB wordt niet ondersteund als optie dan geen caching. Het is raadzaam om gebruik te maken van in cache opslaan voor kleinere schijfgrootten waar u kunt verwachten boost voor betere prestaties zien met gegevens in de cache opgeslagen met de virtuele machine.
+De TiB 8, 16 TiB en 32 TiB schijf-SKU's worden ondersteund in alle regio's onder algemene Azure. Ondersteuning voor Microsoft Azure Government en Azure China 21Vianet is nog niet beschikbaar.
+
+**Ondersteunen we Host opslaan in cache inschakelen op alle schijfgrootten?**
+
+Dankzij Host opslaan in cache van de alleen-lezen en lezen/schrijven schijfgrootten minder dan 4 TiB. Voor schijfgrootten meer dan 4 TiB wordt niet ondersteund als optie dan geen caching. Het is raadzaam om gebruik te maken van in cache opslaan voor kleinere schijfgrootten waar u kunt verwachten boost voor betere prestaties zien met gegevens in de cache opgeslagen met de virtuele machine.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Wat gebeurt er als mijn vraag hier niet wordt beantwoord?
 

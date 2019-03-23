@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3d187851fda9054bbfbae245ef34440b66ad017e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309312"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351544"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Diagnostische logboeken naar Log Analytics in Azure Stream
 
@@ -100,6 +100,39 @@ De `--resource-group` argument is alleen vereist als `--workspace` is niet een o
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Hoe ik de gegevens in Log Analytics op te vragen?
 
 U kunt de logboeken met diagnostische gegevens als onderdeel van de oplossing Log Management onder de tabel AzureDiagnostics opvragen in de blade zoeken in Logboeken in de portal of Advanced Analytics-ervaring als onderdeel van Log Analytics. Er zijn ook [verschillende oplossingen voor Azure-resources](../../azure-monitor/insights/solutions.md) u kunt installeren als u onmiddellijk inzicht in de logboekgegevens die u wilt verzenden naar Log Analytics.
+
+### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Bekende beperking: kolomlimiet in AzureDiagnostics
+Omdat veel resources verzenden gegevenstypen worden verzonden naar dezelfde tabel (_AzureDiagnostics_), het schema van deze tabel is de Super set de schema's van alle verschillende gegevenstypen die worden verzameld. Bijvoorbeeld, als u diagnostische instellingen voor het verzamelen van de volgende gegevenstypen hebt gemaakt, alle verstuurd naar dezelfde werkruimte:
+- Controlelogboeken van bron 1 (met een schema dat bestaat uit kolommen A, B en C)  
+- Foutenlogboeken van Resource-2 (met een schema dat bestaat uit kolommen D, E en F)  
+- Stroomlogboeken van de gegevens van de Resource-3 (met een schema dat bestaat uit de kolommen G, H en ik)  
+ 
+De tabel AzureDiagnostics eruit als volgt met wat voorbeeldgegevens:  
+ 
+| ResourceProvider | Categorie | A | B | C | D | E | F | G | H | I |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+| Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+| Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+| Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+| ... |
+ 
+Er is een expliciete limiet van een opgegeven Azure Log-tabel niet met meer dan 500 kolommen. Wanneer is bereikt, wordt op het moment van opname met gegevens met een andere kolom buiten de eerste 500 rijen verwijderd. De tabel AzureDiagnostics is in het bijzonder gevoelig beïnvloed als deze limiet. Dit gebeurt meestal omdat een grote verscheidenheid aan gegevensbronnen worden verzonden naar dezelfde werkruimte, of verschillende zeer uitgebreide gegevensbronnen worden verzonden naar dezelfde werkruimte. 
+ 
+#### <a name="azure-data-factory"></a>Azure Data Factory  
+Azure Data Factory, vanwege een zeer uitgebreide set zich aanmeldt, is een resource die bekend is met name beïnvloed door deze limiet. In het bijzonder:  
+- *Parameters van de gebruiker gedefinieerd voor elke activiteit in de pijplijn*: Er is een nieuwe kolom die is gemaakt voor elke parameter van de gebruiker een unieke naam op basis van een activiteit. 
+- *Invoer en uitvoer*: deze variëren van activiteit-naar-activiteit en genereren van een grote hoeveelheid kolommen vanwege hun uitgebreide aard. 
+ 
+Als met de bredere tijdelijke oplossing voorstellen die hieronder, het verdient aanbeveling om te isoleren van ADF Logboeken in hun eigen werkruimte te minimaliseren, de kans dat deze logboeken die invloed hebben op andere typen logboeken die worden verzameld in uw werkruimten. We verwachten hebt gecureerd logboeken voor Azure Data Factory beschikbaar door mid April 2019.
+ 
+#### <a name="workarounds"></a>Tijdelijke oplossingen
+Korte termijn, totdat de limiet van 500-kolom is gedefinieerd, is het aanbevolen om te typen uitgebreide gegevens verdelen in afzonderlijke werkruimten te verminderen van de mogelijkheid om de limiet hebt bereikt.
+ 
+Langere termijn Azure Diagnostics wordt worden verplaatst van een uniforme, sparse-schema in afzonderlijke tabellen per elk gegevenstype; in combinatie met ondersteuning voor dynamische typen, verbetert dit aanzienlijk de bruikbaarheid van gegevens die afkomstig zijn in Logboeken van Azure via de Azure Diagnostics-mechanisme. U kunt al dit zien voor select typen Azure-resources, bijvoorbeeld [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) of [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) Logboeken. Raadpleeg voor nieuws over nieuwe resourcetypen in Azure ondersteunen deze gecureerde logboeken op de [Azure Updates](https://azure.microsoft.com/updates/) blog!
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

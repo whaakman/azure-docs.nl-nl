@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e71247c9a6527bc7372af1a902028aae72bf4a73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 35039dc05103ac6528f668fd76e1372ed7cc0708
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162693"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370548"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Zelfstudie: Risicogebeurtenissen gebruiken als trigger voor Multi-Factor Authentication en het wijzigen van wachtwoorden
 
@@ -61,7 +61,7 @@ Azure AD Identity Protection bevat een standaardbeleid dat u kan helpen bij het 
    1. Door beleid in te stellen, moeten alle gebruikers methoden registreren ter voorbereiding van het gebruik van Multi-Factor Authentication.
 1. Klik op **Opslaan**.
 
-   ![Vereisen dat gebruikers zich registreren voor MFA bij het aanmelden met behulp van Azure AD Identity Protection](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
+   ![Vereisen dat gebruikers zich registreren voor MFA bij het aanmelden](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 
 ### <a name="enable-risk-based-password-changes"></a>Op risicogebeurtenissen gebaseerde wachtwoordwijzigingen inschakelen
 

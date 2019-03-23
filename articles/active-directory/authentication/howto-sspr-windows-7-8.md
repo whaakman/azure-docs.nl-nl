@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316351"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370445"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Procedure: Wachtwoord opnieuw instellen van Windows 7, 8 en 8.1 inschakelen
 
@@ -46,7 +46,7 @@ In tegenstelling tot Windows 10 machines, Windows 7, 8 en 8.1 computers hebben e
 1. Na het opnieuw opstarten, op het aanmeldingsscherm Kies een gebruiker en klik op 'Wachtwoord vergeten?' voor het starten van het wachtwoord opnieuw instellen van werkstroom.
 1. De werkstroom die de stappen op het scherm om uw wachtwoord opnieuw in te voltooien.
 
-![Voorbeeld van de Windows 7 geklikt 'Wachtwoord vergeten?' Self-service voor wachtwoord opnieuw instellen van flow](media/howto-sspr-windows-7-8/windows-7-sspr.png)
+![Voorbeeld van de Windows 7 geklikt 'Wachtwoord vergeten?' SSPR-stroom](media/howto-sspr-windows-7-8/windows-7-sspr.png)
 
 ### <a name="silent-installation"></a>Installatie op de achtergrond
 
@@ -67,13 +67,11 @@ Gebeurtenissen worden geregistreerd op de machine én in Azure AD.
 
 Azure AD-gebeurtenissen bevat informatie over de IP-adres en het ClientType waarop het wachtwoord opnieuw instellen is opgetreden.
 
-![Voorbeeld van de Windows 7 schermwachtwoord opnieuw instellen in het auditlogboek van Azure AD](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
+![Voorbeeld van de Windows 7-wachtwoord opnieuw instellen in het auditlogboek van Azure AD](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
 
 Als aanvullende logboekregistratie vereist is, kan een registersleutel op de machine worden gewijzigd als uitgebreide logboekregistratie wilt inschakelen. Uitgebreide logboekregistratie in voor het oplossen van problemen alleen inschakelen.
 
-```
-HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
-```
+`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
 * Maak een REG_DWORD zodat uitgebreide logboekregistratie: 'EnableLogging', en stel deze in op 1.
 * Voor uitgebreide logboekregistratie uitschakelen, wijzigt u de REG_DWORD "EnableLogging" in 0.
@@ -82,4 +80,4 @@ Als uw Windows 7, 8 en 8.1 machines achter een proxyserver of firewall, moet de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Windows 10-gebruikers hun wachtwoord op het aanmeldingsscherm opnieuw in te schakelen](tutorial-sspr-windows.md)
+* [Windows 10-gebruikers hun wachtwoord op het aanmeldingsscherm opnieuw in te schakelen](tutorial-sspr-windows.md)

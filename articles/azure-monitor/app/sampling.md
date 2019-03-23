@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: 83c286be6429376d4d0b4009b18c5f751a4b158f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: cd0369f45529082ac929b1d87608204033cd78f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226688"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370513"
 ---
 # <a name="sampling-in-application-insights"></a>Steekproeven in Application Insights
 
@@ -517,7 +517,14 @@ De client-side (JavaScript) SDK maakt deel uit van steekproeven in combinatie me
 
 *Er zijn bepaalde zeldzaam gebeurtenissen die ik altijd wil weergeven. Hoe vind ik ze voorbij de steekproefmodule?*
 
-* Initialiseren van een afzonderlijk exemplaar van de TelemetryClient met een nieuwe TelemetryConfiguration (niet de standaard actief is). Gebruikt u dat uw zeldzaam gebeurtenissen verzendt.
+* De beste manier om dit te bereiken is het schrijven van een aangepaste [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), waarin de `SamplingPercentage` 100 op het item telemetrie u wilt behouden, zoals hieronder wordt weergegeven. Dit zorgt ervoor dat alle steekproeven technieken dit object geen maatregelen steekproef worden genegeerd.
+
+```csharp
+    if(somecondition)
+    {
+        ((ISupportSampling)item).SamplingPercentage = 100;
+    }
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213a55cb02c718628a4a2d64bdee98ab66af5ce3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 970e570d9ad27da2690cd38fe480823128322db0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317048"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370700"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Azure Multi-Factor Authentication-server configureren om met AD FS in Windows Server te werken
 
@@ -45,30 +45,22 @@ Houd rekening met de volgende informatie voordat u begint:
 2. Klik in de beheerconsole van de Azure Multi-Factor Authentication-server op het pictogram **AD FS**. Selecteer de opties **Registreren van gebruikers toestaan** en **Toestaan dat gebruikers de methode selecteren**.
 3. Selecteer de aanvullende opties die u wilt opgeven voor uw organisatie.
 4. Klik op **AD FS-adapter installeren**.
-   
-   <center>
-   
-   ![Cloud](./media/howto-mfaserver-adfs-2012/server.png)</center>
+
+   ![De AD FS-Adapter installeren via de MFA-Server-console](./media/howto-mfaserver-adfs-2012/server.png)
 
 5. Als het Active Directory-venster wordt weergegeven, betekent dit twee dingen. Uw computer is lid van een domein en de Active Directory-configuratie voor de beveiliging van de communicatie tussen de AD FS-adapter en de Multi-Factor Authentication-service is niet voltooid. Klik op **Volgende** om deze configuratie automatisch te voltooien of schakel het selectievakje **Automatische Active Directory-configuratie overslaan en instellingen handmatig configureren** in. Klik op **volgende**.
 6. Als het venster Lokale groep wordt weergegeven, betekent dit twee dingen. Uw computer is geen lid van een domein en de configuratie van de lokale groep voor de beveiliging van de communicatie tussen de AD FS-adapter en de Multi-Factor Authentication-service is niet voltooid. Klik op **Volgende** om deze configuratie automatisch te voltooien of schakel het selectievakje **Automatische lokale groep-configuratie overslaan en instellingen handmatig configureren** in. Klik op **volgende**.
 7. Klik in de installatiewizard op **Volgende**. Azure Multi-Factor Authentication-server maakt de PhoneFactor Admins-groep en voegt de AD FS-serviceaccount toe aan de PhoneFactor Admins-groep.
-   <center>
-   
-   ![Cloud](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
 8. Klik op de pagina **Installatieprogramma uitvoeren** op **Volgende**.
 9. Klik in het installatieprogramma voor de Multi-Factor Authentication AD FS-adapter op **Volgende**.
 10. Klik op **Sluiten** nadat de installatie is voltooid.
-11. Wanneer de adapter is geïnstalleerd, moet u deze registreren bij AD FS. Open Windows PowerShell en voer de volgende opdracht uit:<br>
+11. Wanneer de adapter is geïnstalleerd, moet u deze registreren bij AD FS. Open Windows PowerShell en voer de volgende opdracht uit:
+
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
-    <center>
-    
-    ![Cloud](./media/howto-mfaserver-adfs-2012/pshell.png)</center>
+
 12. Bewerk het algemene authenticatiebeleid in AD FS om de zojuist geregistreerde adapter te gebruiken. Ga in de AD FS-beheerconsole naar het knooppunt **Authentication Policies**. Klik in het gedeelte **Multi-factor Authentication** op de koppeling **Edit** naast het gedeelte **Global Settings**. Selecteer in het venster **Edit Global Authentication Policy** **Multi-Factor Authentication** als een aanvullende verificatiemethode en klik op **OK**. De adapter wordt geregistreerd als WindowsAzureMultiFactorAuthentication. Start de AD FS-service opnieuw op voordat de registratie van kracht wordt.
 
-<center>
-
-![Cloud](./media/howto-mfaserver-adfs-2012/global.png)</center>
+![Algemene verificatiebeleid bewerken](./media/howto-mfaserver-adfs-2012/global.png)
 
 De Multi-Factor Authentication-server is nu ingesteld voor gebruik als een extra verificatieprovider voor gebruik met AD FS.
 
@@ -85,6 +77,7 @@ De Multi-Factor Authentication-server is nu ingesteld voor gebruik als een extra
 5. Klik op **Sluiten** nadat de installatie is voltooid.
 
 ## <a name="edit-the-multifactorauthenticationadfsadapterconfig-file"></a>Bewerk het bestand MultiFactorAuthenticationAdfsAdapter.config
+
 Volg deze stappen om het bestand MultiFactorAuthenticationAdfsAdapter.config te bewerken:
 
 1. Stel het knooppunt **UseWebServiceSdk** in op **true**.  
@@ -138,20 +131,22 @@ Voor de beveiliging van uw cloudresource stelt u een claimregel in die ervoor zo
 2. Selecteer **Relying Party-vertrouwensrelaties** aan de linkerkant.
 3. Klik met de rechtermuisknop op **Identiteitsplatform van Microsoft Office 365** en selecteer **Claimregels bewerken...**
 
-   ![Cloud](./media/howto-mfaserver-adfs-2012/trustedip1.png)
+   ![De claimregels in de AD FS-console bewerken](./media/howto-mfaserver-adfs-2012/trustedip1.png)
 
 4. Klik bij Uitgifte transformatieregels op **Regel toevoegen**.
 
-   ![Cloud](./media/howto-mfaserver-adfs-2012/trustedip2.png)
+   ![De transformatieregels in de AD FS-console bewerken](./media/howto-mfaserver-adfs-2012/trustedip2.png)
 
 5. Selecteer in de wizard Transformatieclaimregels toevoegen **Passthrough of Een binnenkomende claim filteren** in de vervolgkeuzelijst en klik op **Volgende**.
 
-   ![Cloud](./media/howto-mfaserver-adfs-2012/trustedip3.png)
+   ![Wizard claimregel voor transformatie toevoegen](./media/howto-mfaserver-adfs-2012/trustedip3.png)
 
 6. Geef de regel een naam.
 7. Selecteer **Authenticatiemethodereferenties** als het type voor binnenkomende claims.
 8. Selecteer **Alle claimwaarden doorgeven**.
+
     ![Wizard Claimregel voor transformatie toevoegen](./media/howto-mfaserver-adfs-2012/configurewizard.png)
+
 9. Klik op **Voltooien**. Sluit de AD FS-beheerconsole.
 
 ## <a name="troubleshooting-logs"></a>Problemen met logboeken oplossen

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93313557781c6b3788d8b4d43d6676fc17625709
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d8f7808401b2e11a38b239a353e3b7af2ffcffb3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201310"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361299"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Voor clusters op basis van HDInsight Windows Script Action-scripts ontwikkelen
 Informatie over het schrijven van scripts met Script Action voor HDInsight. Zie voor meer informatie over het gebruik van Script Action-scripts [aanpassen HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster-linux.md). Zie voor hetzelfde artikel is geschreven voor Linux gebaseerde HDInsight-clusters, [ontwikkelen Script Action-scripts voor HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -32,6 +32,8 @@ Script Action kan worden gebruikt om aanvullende software die wordt uitgevoerd o
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage : De term 'Opslaan-HDIFile' wordt niet herkend als de naam van een cmdlet, functie, scriptbestand of programma. Controleer de spelling van de naam, of als een pad opgenomen is, dat het pad juist is en probeer het opnieuw.
 > 
 > Dit is omdat u niet de helpermethoden hebt opgenomen.  Zie [helpermethoden voor aangepaste scripts](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sample-scripts"></a>Voorbeeldscripts
 De scriptactie is voor het maken van HDInsight-clusters op Windows-besturingssysteem, Azure PowerShell-script. Het volgende script is een voorbeeld voor het configureren van de bestanden van de site-configuratie:
@@ -191,8 +193,8 @@ Scripts die worden gebruikt voor het aanpassen van een cluster moeten aan een zi
 
 In dit voorbeeld moet u ervoor zorgen dat de container `somecontainer` in storage-account `somestorageaccount` openbaar toegankelijk is. Anders wordt het script een 'Niet gevonden'-uitzondering genereert en mislukken.
 
-### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Parameters doorgeven aan de cmdlet Add-AzureRmHDInsightScriptAction
-Meerdere parameters doorgeven aan de cmdlet Add-AzureRmHDInsightScriptAction, moet u de indeling van de tekenreekswaarde bevat alle parameters voor het script. Bijvoorbeeld:
+### <a name="pass-parameters-to-the-add-azhdinsightscriptaction-cmdlet"></a>Parameters doorgeven aan de cmdlet Add-AzHDInsightScriptAction
+Meerdere parameters doorgeven aan de cmdlet Add-AzHDInsightScriptAction, moet u de indeling van de tekenreekswaarde bevat alle parameters voor het script. Bijvoorbeeld:
 
     "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 

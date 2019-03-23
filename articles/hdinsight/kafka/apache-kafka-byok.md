@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 61a4be19000265910493963db9f29df143a7e21c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173920"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360347"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Breng uw eigen sleutel voor Apache Kafka op Azure HDInsight (Preview)
 
@@ -26,6 +26,8 @@ BYOK-codering is een proces één stap is verwerkt tijdens het maken van een clu
 Alle berichten naar het Kafka-cluster (met inbegrip van replica's die door Kafka worden onderhouden) worden versleuteld met een symmetrische gegevens Gegevensversleutelingsleutel (DEK). De DEK is beveiligd met behulp van de sleutel versleuteling sleutel (KEK) van uw key vault. De processen van versleuteling en ontsleuteling worden volledig door Azure HDInsight afgehandeld. 
 
 U kunt de Azure portal of Azure CLI gebruiken veilig de om sleutels te rouleren in de key vault. Wanneer een sleutel draait, begint de HDInsight Kafka-cluster met behulp van de nieuwe sleutel binnen enkele minuten. De functies van de sleutelbeveiliging "Niet leegmaken" en 'Voorlopig verwijderen' om te beveiligen tegen ransomware-scenario's en onopzettelijk verwijderen inschakelen. Sleutels zonder deze beveiligingsfuncties worden niet ondersteund.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>Aan de slag met BYOK
 
@@ -99,7 +101,7 @@ U kunt de Azure portal of Azure CLI gebruiken veilig de om sleutels te rouleren 
 
 **Hoe kan ik het cluster herstellen als de sleutels worden verwijderd?**
 
-   Omdat alleen 'Voorlopig verwijderen' ingeschakeld sleutels worden ondersteund als de sleutels zijn hersteld in de key vault, moet het cluster toegang tot de sleutels weer. Zie voor het herstellen van een Azure Key Vault-sleutel, [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey).
+   Omdat alleen 'Voorlopig verwijderen' ingeschakeld sleutels worden ondersteund als de sleutels zijn hersteld in de key vault, moet het cluster toegang tot de sleutels weer. Zie voor het herstellen van een Azure Key Vault-sleutel, [terugzetten AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 **Kan ik de producent/klanttoepassingen werken met een cluster met BYOK en een niet-BYOK-cluster tegelijk hebben?**
 

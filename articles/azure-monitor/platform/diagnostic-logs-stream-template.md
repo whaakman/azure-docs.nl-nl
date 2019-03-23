@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: e6185a7b62e3c599a7c3588824e3a9c4ac60cb53
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7edce5175a1dda66abf3316cb8f0eb33e9f64ef7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467625"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371465"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Automatisch diagnostische instellingen inschakelen bij het maken van resources met behulp van Resource Manager-sjabloon
-In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-authoring-templates.md) diagnostische instellingen configureren op een resource als deze wordt gemaakt. Hiermee kunt u automatisch wilt streamen uw logboeken met diagnostische gegevens en metrische gegevens naar Event Hubs, archiveren in een Opslagaccount of ze naar Log Analytics verzenden wanneer een resource wordt gemaakt.
+In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-authoring-templates.md) diagnostische instellingen configureren op een resource als deze wordt gemaakt. Hiermee kunt u uw logboeken met diagnostische gegevens en metrische gegevens naar Event Hubs streamen, archiveren in een Opslagaccount of deze te verzenden naar Log Analytics-werkruimte als u een resource maakt automatisch wordt gestart.
 
 > [!WARNING]
 > De indeling van de logboekgegevens in het opslagaccount wordt op 1 november 2018 gewijzigd in JSON Lines. [Raadpleeg dit artikel voor een beschrijving van de gevolgen en hoe u uw tooling kunt bijwerken om de nieuwe indeling te verwerken. ](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -40,7 +40,7 @@ We geven hieronder een voorbeeld van het JSON-bestand van het sjabloon u moet vo
 ## <a name="non-compute-resource-template"></a>Niet-Compute-resource-sjabloon
 Voor niet-Compute-resources moet u twee dingen doen:
 
-1. Parameters toevoegen aan de parameters-blob voor de storage-accountnaam, de event hub autorisatie regel-ID en/of de Log Analytics-werkruimte-ID (waardoor archivering van logboeken met diagnostische gegevens in een opslagaccount, streamen van logboeken naar Event Hubs en/of Logboeken verzenden naar Log Analytics).
+1. Parameters toevoegen aan de parameters-blob voor de storage-accountnaam, de event hub autorisatie regel-ID en/of de Log Analytics-werkruimte-ID (waardoor archivering van logboeken met diagnostische gegevens in een opslagaccount, streamen van logboeken naar Event Hubs en/of Logboeken verzenden naar Azure Monitor).
    
     ```json
     "settingName": {

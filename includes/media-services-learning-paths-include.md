@@ -2,21 +2,27 @@
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4c803b4915823b3a723728732479b605d9d7ee8a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 135232e3e9894bcef1ef657e41f5ad3a5e307289
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52269690"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352469"
 ---
-Bekijk de nieuwste versie van Azure Media Services: [Azure Media Services v3](https://docs.microsoft.com/azure/media-services/latest/).
+### <a name="media-services-v3-latest"></a>Media Services v3 (latest)
 
-U kunt beginnen met de volgende onderwerpen: 
+Ga naar de nieuwste versie van Azure Media Services. 
 
 * [Overzicht](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
-* [Video’s uploaden, coderen en streamen met behulp van API’s](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-api)
-* [Analyseren](https://docs.microsoft.com/azure/media-services/latest/analyze-videos-tutorial-with-api)
-* [Live streamen](https://docs.microsoft.com/azure/media-services/latest/stream-live-tutorial-with-api)
-* [Uw inhoud beveiligen](https://docs.microsoft.com/azure/media-services/latest/protect-with-aes128)
+* [Concepten](https://docs.microsoft.com/azure/media-services/latest/concepts-overview)
+* [Begin te ontwikkelen](https://docs.microsoft.com/azure/media-services/latest/developers-guide)
+* [Hulp bij de migratie van v2 naar v3](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3)
+
+### <a name="media-services-v2-legacy"></a>Media Services v2 (verouderde)
+
+* [Overzicht](https://docs.microsoft.com/azure/media-services/previous/media-services-overview)
+* [Account maken](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-create-account)
+* [Op aanvraag leveren](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-vod-get-started)
+* [Live leveren](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)

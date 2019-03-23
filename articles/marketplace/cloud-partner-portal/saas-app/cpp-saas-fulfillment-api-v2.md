@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 7e1fa82e71738ac113bfe748a7117d0c3a10b14b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 81213d1f7cfeb7ea10cdadfb124047ecb76aa7d4
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318759"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352082"
 ---
-# <a name="saas-fulfillment-api-version-2"></a>SaaS vervulling API-versie 2
+# <a name="saas-fulfillment-api"></a>Afhandeling van SaaS API
 
 Dit artikel worden de API waarmee u independent software vendors (ISV) hun SaaS-toepassingen integreren met de Azure Marketplace. Deze API maakt het ISV-toepassingen om deel te nemen in alle commerce ingeschakeld kanalen: direct, door partner geleide (reseller) en onder leiding van een veld.  Deze API is een vereiste voor aanbieding dat transactable SaaS-aanbiedingen op Azure Marketplace.
 
@@ -61,7 +61,7 @@ Het volgende diagram toont de acties wanneer een update wordt geïnitieerd door 
 
 ![API-aanroepen wanneer de update wordt geïnitieerd door de SaaS-service.](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
-#### <a name="suspended"></a>Suspended
+#### <a name="suspended"></a>Uitgesteld
 
 Deze status geeft aan dat de betaling van een klant is niet ontvangen. Door het beleid bieden we de klant een respijtperiode voor het abonnement unfulfilling. Een abonnement heeft wanneer deze status: 
 

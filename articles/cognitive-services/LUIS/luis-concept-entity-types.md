@@ -1,7 +1,7 @@
 ---
 title: Entiteitstypen
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Entiteiten (belangrijke gegevens in het domein van uw toepassing) in Language Understanding Intelligent Service (LUIS)-apps toevoegen.
+description: 'Entiteiten extraheren gegevens uit de utterance. Entiteitstypen bieden u voorspelbare extractie van gegevens. Er zijn twee soorten entiteiten: machine geleerd en niet-machine-hebt geleerd. Het is belangrijk te weten welk type entiteit die u in uitingen werkt.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844585"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372519"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entiteitstypen en hun ten behoeve van LUIS
 
-Entiteiten zijn woorden of zinsdelen in uitingen die belangrijke gegevens in het domein van uw toepassing zijn.
+Entiteiten extraheren gegevens uit de utterance. Entiteitstypen bieden u voorspelbare extractie van gegevens. Er zijn twee soorten entiteiten: machine geleerd en niet-machine-hebt geleerd. Het is belangrijk te weten welk type entiteit die u in uitingen werkt. 
 
 ## <a name="entity-compared-to-intent"></a>Entiteit in vergelijking met opzet
 
@@ -190,7 +190,7 @@ De entiteit is een goede aanpassen wanneer:
 
 * De gegevens komt overeen met een algemene use-case wordt ondersteund door vooraf gemaakte entiteiten voor uw taal-cultuur. 
 
-Vooraf gemaakte entiteiten kunnen worden toegevoegd en verwijderd op elk gewenst moment. Als u dat een vooraf gedefinieerde entiteit wordt vastgesteld voor een voorbeeld-utterance, waardoor de markering van uw aangepaste entiteit onmogelijk, de vooraf gedefinieerde entiteit verwijderen uit de app, uw entiteit markeren en vervolgens weer de vooraf gedefinieerde entiteit toevoegen. 
+Vooraf gemaakte entiteiten kunnen worden toegevoegd en verwijderd op elk gewenst moment.
 
 ![Aantal vooraf gedefinieerde entiteit](./media/luis-concept-entities/number-entity.png)
 
@@ -198,6 +198,29 @@ Vooraf gemaakte entiteiten kunnen worden toegevoegd en verwijderd op elk gewenst
 [Voorbeeld van JSON-antwoord voor entiteit](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Sommige van deze vooraf gemaakte entiteiten zijn gedefinieerd in de open-source [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text) project. Als uw specifieke cultuur of de entiteit wordt momenteel niet ondersteund, dragen bij aan het project. 
+
+### <a name="troubleshooting-prebuilt-entities"></a>Oplossen van problemen met vooraf gemaakte entiteiten
+
+In de portal LUIS als een vooraf gedefinieerde entiteit is gemarkeerd in plaats van uw aangepaste entiteit, hebt u een paar opties van hoe u dit probleem oplossen.
+
+De vooraf gemaakte entiteiten die zijn toegevoegd aan de app wordt _altijd_ worden geretourneerd, zelfs als de utterance aangepaste entiteiten voor dezelfde tekst te extraheren. 
+
+#### <a name="change-tagged-entity-in-example-utterance"></a>Met tags entiteit in voorbeeld utterance wijzigen
+
+Als de vooraf gedefinieerde entiteit de dezelfde tekst of tokens als de aangepaste entiteit is, selecteert u de tekst in het voorbeeld utterance en wijzigen van de gemarkeerde utterance. 
+
+Als de vooraf gedefinieerde entiteit is gemarkeerd met meer tekst- of -tokens dan uw aangepaste entiteit, hebt u een aantal opties van hoe u dit probleem oplossen:
+
+* [Voorbeeld utterance verwijderen](#remove-example-utterance-to-fix-tagging) methode
+* [Vooraf gedefinieerde entiteit verwijderen](#remove-prebuilt-entity-to-fix-tagging) methode
+
+#### <a name="remove-example-utterance-to-fix-tagging"></a>Voorbeeld utterance om op te lossen de tags verwijderen 
+
+Uw eerste keuze is aan de voorbeeld-utterance verwijderen en opnieuw trainen van de app. Alleen het woord weer toevoegen of meer woorden die de entiteit als een voorbeeld-utterance en de entiteit en train markeren. Nu toevoegen weer de vooraf gemaakte entiteiten en de oorspronkelijke voorbeeld utterance. De aangepaste entiteit moet nog steeds in plaats van de vooraf gedefinieerde entiteit worden gemarkeerd. 
+
+#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Vooraf gedefinieerde entiteit om op te lossen de tags verwijderen
+
+Als tweede keuze is aan de vooraf gedefinieerde entiteit verwijderen uit de app vervolgens code van de aangepaste entiteit in de voorbeeld-utterance en daarna de vooraf gedefinieerde entiteit toevoegen terug naar de app. Deze oplossing wordt ervan uitgegaan dat de vooraf gedefinieerde entiteit maakt geen deel uit van een samengestelde entiteit. 
 
 ## <a name="regular-expression-entity"></a>Een entiteit in de vorm van een reguliere expressie 
 

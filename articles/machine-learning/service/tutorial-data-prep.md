@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca49cb65331373832b00b8489d731d51e8a8e004
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ee49299dbbe8095ef98be51dc8619c28891abc5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182911"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361384"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
@@ -58,7 +58,7 @@ Nadat u de onderstaande stappen hebt uitgevoerd, voert u het notebook **tutorial
 
 Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.  Nadat u de stappen hebt uitgevoerd, voert u het notebook **tutorials/regression-part1-data-prep.ipynb** uit.
 
-1. Voltooi de [Python-quickstart voor Azure Machine Learning](quickstart-create-workspace-with-python.md) om een Miniconda-omgeving te maken.  U kunt het gedeelte **Een werkruimte maken** nu desgewenst overslaan, maar dit gedeelte is wel vereist voor [deel 2](tutorial-auto-train-models.md) van deze reeks zelfstudies.
+1. Volledige installatie van de stappen in [ [Azure Machine Learning Python-quickstart](quickstart-run-local-notebook.md) ](setup-create-workspace.md#python) om een Miniconda-omgeving te maken.  U kunt het gedeelte **Een werkruimte maken** nu desgewenst overslaan, maar dit gedeelte is wel vereist voor [deel 2](tutorial-auto-train-models.md) van deze reeks zelfstudies.
 1. Installeer de Data Prep SDK in uw omgeving met `pip install azureml-dataprep`.
 1. Kloon [de GitHub-opslagplaats](https://aka.ms/aml-notebooks).
 
@@ -70,17 +70,18 @@ Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.
 
     ```shell
     jupyter notebook
+    ```
 
-## <a name="start"></a>Set up your development environment
+## <a name="start"></a>De ontwikkelomgeving instellen
 
-All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+De configuratie van uw ontwikkelomgeving kan worden uitgevoerd met een Python-notebook. De configuratie bestaat uit de volgende acties:
 
-* Install the SDK
-* Import Python packages
+* De SDK installeren
+* Python-pakketten importeren
 
-### Install and import packages
+### <a name="install-and-import-packages"></a>Installeren en importeren van pakketten
 
-Use the following to install necessary packages if you don't already have them.
+Gebruik het volgende nodig om pakketten te installeren als u deze nog niet hebt.
 
 ```shell
 pip install azureml-dataprep

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6bd67e500756fe5a7ba5ee29db88b9aedb103e4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315977"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371856"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
@@ -155,13 +155,13 @@ Gebruikers hebben mogelijk een combinatie van maximaal 5 OATH-tokens voor hardwa
 
 OATH is een open standaard die aangeeft hoe eenmalig wachtwoord (OTP)-codes worden gegenereerd. Azure AD ondersteunt het gebruik van de mobiele TOTP-SHA-1-OATH-tokens van de verschillende 30 seconden of 60 seconden. Klanten kunnen deze tokens verkrijgen van de leverancier van hun keuze. Houd er rekening mee dat de geheime sleutels zijn beperkt tot 128 tekens die niet compatibel met alle tokens.
 
-![OATH-tokens geüpload naar de blade van de MFA Server OATH-tokens in Azure portal](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+![OATH-tokens geüpload naar de blade MFA Server OATH-tokens](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
 Hardware-OATH-tokens worden ondersteund als onderdeel van een openbare preview. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Zodra de tokens worden verkregen moet het worden geüpload in een indeling met door komma's gescheiden waarden (CSV) met inbegrip van de UPN, serienummer, geheime sleutel, tijdsinterval, de fabrikant en model als in het voorbeeld hieronder ziet.
 
-```
+```csv
 upn,serial number,secret key,timeinterval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```

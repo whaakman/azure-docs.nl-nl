@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 34076b790a91b1c0e9d8bee224423aab0db7c8f3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6f878e05255be8f65868d8d1dcdbacb3ccfa2729
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891804"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369935"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Beveiligde toegang in Azure Logic Apps
 
@@ -34,7 +34,7 @@ Hier volgen de elementen in uw logische app waar u toegang kunt beveiligen:
 Wanneer uw logische app maakt gebruik van een trigger met een HTTP-aanvraag, zoals de [aanvraag](../connectors/connectors-native-reqres.md) of [Webhook](../connectors/connectors-native-webhook.md) trigger, u kunt de toegang beperken zodat alleen geautoriseerde clients met uw logische app beginnen kunnen. Alle aanvragen zijn ontvangen door een logische app worden versleuteld en beveiligd met Secure Sockets Layer (SSL)-protocol. Hier zijn verschillende manieren kunt u toegang tot dit triggertype beveiligen:
 
 * [Handtekeningen voor gedeelde toegang genereren](#sas)
-* [Inkomende IP-adressen beperken](#restrict-incoming-IP)
+* [Inkomende IP-adressen beperken](#restrict-incoming-ip-addresses)
 * [Azure Active Directory, OAuth of andere beveiliging toevoegen](#add-authentication)
 
 <a name="sas"></a>

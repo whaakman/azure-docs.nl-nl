@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dd26bbb06310439aae065349c14c6df1c1c12e6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316929"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369043"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporten in de Azure multi-factor Authentication
 
@@ -36,9 +36,7 @@ Azure multi-factor Authentication biedt verschillende rapporten die kunnen worde
 2. Selecteer aan de linkerkant **Azure Active Directory** > **MFA-Server**.
 3. Selecteer het rapport dat u wilt weergeven.
 
-   <center>
-   
-   ![Cloud](./media/howto-mfa-reporting/report.png)</center>
+   ![Statusrapport van MFA-Server-server in Azure portal](./media/howto-mfa-reporting/report.png)
 
 ## <a name="azure-ad-sign-ins-report"></a>Rapport van Azure AD-aanmeldingen
 
@@ -55,7 +53,7 @@ Het aanmeldingenrapport kunt u voorzien van informatie over het gebruik van behe
 
 Deze gegevens zijn beschikbaar via de [Azure-portal](https://portal.azure.com) en de [rapportage-API](../reports-monitoring/concept-reporting-api.md).
 
-![Cloud](./media/howto-mfa-reporting/sign-in-report.png)
+![Azure AD-aanmeldingen rapport in de Azure portal](./media/howto-mfa-reporting/sign-in-report.png)
 
 ### <a name="sign-ins-report-structure"></a>Structuur van de rapport-aanmeldingen
 

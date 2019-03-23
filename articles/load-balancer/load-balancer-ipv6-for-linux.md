@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2019
 ms.author: kumud
-ms.openlocfilehash: ea1ef845f55fbdadeea1992e167ef6568572abc9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141710"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369629"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>DHCPv6 configureren voor virtuele Linux-machines
 
@@ -54,7 +54,18 @@ Dit document wordt beschreven hoe u DHCPv6 inschakelen, zodat uw virtuele Linux-
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
+Vanaf Ubuntu 17.10, het standaardmechanisme voor de configuratie van netwerk is [NETPLAN]( https://netplan.io).  Bij installatie/instantiëring NETPLAN netwerkconfiguratie leest uit YAML-configuratiebestanden op deze locatie: / {lib,etc,run}/netplan/*.yaml.
 
+Neem een *dhcp6:true* -instructie voor elke ethernet-interface in uw configuratie.  Bijvoorbeeld:
+  
+        network:
+          version: 2
+          ethernets:
+            eno1:
+              dhcp6: true
+
+Tijdens het opstarten van vroege, de netplan 'netwerk renderer' schrijft configuratie/uitvoert met de hand uit controle over apparaten van de opgegeven VPN-daemon voor naslaginformatie over NETPLAN, Zie https://netplan.io/reference.
+ 
 ## <a name="debian"></a>Debian
 
 1. Bewerk de */etc/dhcp/dhclient6.conf* bestand en voeg de volgende regel toe:

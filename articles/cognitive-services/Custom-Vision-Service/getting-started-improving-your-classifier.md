@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: f96b4bb75a22e51586820a2e7be08c09cf7b26dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 13c0346324ae8e3cf3485985a9014f9999230630
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104417"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351436"
 ---
 # <a name="how-to-improve-your-classifier"></a>Hoe u de classificatie verbeteren
 
@@ -29,7 +29,7 @@ Hier volgt een algemeen patroon waarmee u een meer nauwkeurige classificatie:
 1. Nieuwe installatiekopieën gebruiken voor het testen van voorspelling
 1. Bestaande trainingsgegevens op basis van voorspellingsresultaten wijzigen
 
-## <a name="overfitting"></a>Overfitting
+## <a name="prevent-overfitting"></a>Te voorkomen
 
 Een classificatie leert soms voorspellingen op basis van willekeurige kenmerken die uw installatiekopieën gemeen hebben. Als u een classificatie voor appels versus citrus maakt en u afbeeldingen van appels in handen en citrus op wit platen hebt gebruikt, kan de classificatie onnodige belang in de handen versus platen, in plaats van appels versus citrus geven.
 

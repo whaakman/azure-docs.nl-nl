@@ -1,17 +1,17 @@
 ---
 title: Gebruikers maken in Azure Database for PostgreSQL-server
 description: Dit artikel wordt beschreven hoe u nieuwe gebruikersaccounts om te communiceren met een Azure Database for PostgreSQL-server kunt maken.
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 8b1bf6f1eccefb9235751c9e113c90566dfdff79
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 33c107c46b314136fa3d43f8e7881e096afa374c
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540822"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351079"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Gebruikers maken in Azure Database for PostgreSQL-server 
 Dit artikel wordt beschreven hoe u gebruikers in een Azure Database for PostgreSQL-server kunt maken.
@@ -26,7 +26,7 @@ De Azure Database for PostgreSQL-server wordt gemaakt met het 3 standaardrollen 
 
 De gebruiker met beheerdersrechten van uw server is lid van de rol azure_pg_admin. Het serverbeheerdersaccount is echter geen onderdeel van de rol azure_superuser. Aangezien deze service een beheerde PaaS-service is, is alleen Microsoft onderdeel van de rol van supergebruiker. 
 
-De PostgreSQL-engine maakt gebruik van bevoegdheden voor het beheren van toegang tot de database-objecten, zoals beschreven in de [PostgreSQL-productdocumentatie](https://www.postgresql.org/docs/current/static/sql-createrole.html). In Azure Database for PostgreSQL, wordt de gebruiker server admin deze bevoegdheden verleend: AANMELDING, NOSUPERUSER, OVERNEMEN, CREATEDB, CREATEROLE, NOREPLICATION
+De PostgreSQL-engine maakt gebruik van bevoegdheden voor het beheren van toegang tot de database-objecten, zoals beschreven in de [PostgreSQL-productdocumentatie](https://www.postgresql.org/docs/current/static/sql-createrole.html). In Azure Database for PostgreSQL, wordt de gebruiker server admin deze bevoegdheden verleend: LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION
 
 De gebruiker van het serverbeheerdersaccount kan worden gebruikt voor het maken van extra gebruikers en die gebruikers aan de rol azure_pg_admin verlenen. Het serverbeheerdersaccount kan ook worden gebruikt om minder bevoegde gebruikers en rollen die toegang tot afzonderlijke databases en schema's hebben te maken.
 

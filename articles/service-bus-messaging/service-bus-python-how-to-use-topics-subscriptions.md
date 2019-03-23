@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: aschhab
-ms.openlocfilehash: 476c51d1835a1be0178faf28e6dd8a3c95371929
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a12288de2f9a7682fb433dd0d5c7905cc76c12b9
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240963"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351657"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Service Bus-onderwerpen en abonnementen gebruiken met Python
 
@@ -167,7 +167,7 @@ Service Bus biedt functionaliteit om netjes te herstellen bij fouten in uw toepa
 
 Er is ook een time-out gekoppeld aan een bericht dat in het abonnement is vergrendeld, en als de toepassing niet kan het bericht te verwerken voordat u de vergrendeling time-out is verlopen (bijvoorbeeld, als de toepassing vastloopt), wordt de Service Bus het bericht automatisch ontgrendelen en maakt deze beschikbaar zijn om opnieuw te ontvangen.
 
-In het geval dat de toepassing is vastgelopen na het verwerken van het bericht, maar voordat de `delete` methode wordt aangeroepen, wordt het bericht zal opnieuw worden bezorgd bij de toepassing opnieuw wordt gestart. Dit gedrag wordt vaak genoemd. Ten minste eenmaal verwerken *; dat wil zeggen, elk bericht ten minste één keer wordt verwerkt, maar in bepaalde situaties hetzelfde bericht opnieuw kan worden bezorgd. Als in het scenario dubbele verwerking niet wordt getolereerd, dan moeten toepassingsontwikkelaars extra logica toevoegen aan de toepassing om dubbele berichtbezorging af te handelen. Om dit te doen, kunt u de **MessageId** eigenschap van het bericht dat gelijk bij meerdere bezorgingspogingen blijft.
+In het geval dat de toepassing is vastgelopen na het verwerken van het bericht, maar voordat de `delete` methode wordt aangeroepen, wordt het bericht zal opnieuw worden bezorgd bij de toepassing opnieuw wordt gestart. Dit gedrag wordt vaak genoemd. Ten minste één keer worden verwerkt\*; dat wil zeggen, elk bericht ten minste één keer wordt verwerkt, maar in bepaalde situaties hetzelfde bericht opnieuw kan worden bezorgd. Als in het scenario dubbele verwerking niet wordt getolereerd, dan moeten toepassingsontwikkelaars extra logica toevoegen aan de toepassing om dubbele berichtbezorging af te handelen. Om dit te doen, kunt u de **MessageId** eigenschap van het bericht dat gelijk bij meerdere bezorgingspogingen blijft.
 
 ## <a name="delete-topics-and-subscriptions"></a>Onderwerpen en abonnementen verwijderen
 

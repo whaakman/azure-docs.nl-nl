@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729156"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369442"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Quickstart: Een containerinstantie in Azure met behulp van de Azure-portal implementeren
 
@@ -38,12 +38,12 @@ Selecteer **Een nieuwe resource maken** > **Containers** > **Container Instances
 Voer de waarden voor de volgende tekstvakken in: **Containernaam**, **Containerinstallatiekopie** en **Resourcegroep**. Laat de andere waarden op de standaardwaarden staan en selecteer vervolgens **OK**.
 
 * Containernaam: `mycontainer`
-* Containerinstallatiekopie: `microsoft/aci-helloworld`
+* Containerinstallatiekopie: `mcr.microsoft.com/azuredocs/aci-helloworld`
 * Resourcegroep: **Nieuwe maken** > `myResourceGroup`
 
 ![Basisinstellingen configureren voor een nieuwe containerinstantie in Azure Portal][aci-portal-03]
 
-In deze Quick Start laat de standaardinstelling van **openbare** implementeren van de openbare `microsoft/aci-helloworld` installatiekopie. Deze installatiekopie bevat een kleine web-app die is geschreven in Node.js en die een statische HTML-pagina dient.
+In deze Quick Start laat de standaardinstelling van **openbare** implementeren van de openbare Microsoft `aci-helloworld` installatiekopie. Deze installatiekopie bevat een kleine web-app die is geschreven in Node.js en die een statische HTML-pagina dient.
 
 Geef onder **configuratie** een **DNS-naamlabel** op voor uw container. De naam moet uniek zijn binnen Azure-regio waarin u de containerinstantie maken. De container zal openbaar bereikbaar zijn op `<dns-name-label>.<region>.azurecontainer.io`. Als u een foutbericht 'DNS-naamlabel niet beschikbaar' ontvangt, probeert u een ander DNS-naamlabel.
 
@@ -89,7 +89,7 @@ Selecteer **Ja** als het bevestigingsvenster verschijnt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u een Azure-containerinstantie van een installatiekopie gemaakt in een openbare Docker Hub-opslagplaats. Als u zelf een containerinstallatiekopie wilt bouwen en deze wilt implementeren met behulp van een privé Azure Container-register, gaat u verder met de zelfstudie voor Azure Container Instances.
+In deze Quick Start, kunt u een Azure containerexemplaar gemaakt van een installatiekopie van de openbare Microsoft. Als u zelf een containerinstallatiekopie wilt bouwen en deze wilt implementeren met behulp van een privé Azure Container-register, gaat u verder met de zelfstudie voor Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Zelfstudie voor Azure Container Instances](./container-instances-tutorial-prepare-app.md)

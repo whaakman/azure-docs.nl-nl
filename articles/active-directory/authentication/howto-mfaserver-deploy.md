@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 260da2d58ab6e3342fe372bd51e4877d83b26bfd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0ae1db992984e8bb1dca71afed9fadd6b411b3dd
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313053"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370241"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Aan de slag met de Azure Multi-Factor Authentication-server
 
 <center>
 
-![MFA on-premises](./media/howto-mfaserver-deploy/server2.png)</center>
+![Aan de slag met MFA-Server on-premises](./media/howto-mfaserver-deploy/server2.png)</center>
 
 Nu u hebt vastgesteld dat on-premises Multi-Factor Authentication-server moet worden gebruikt, gaat u aan de slag. Op deze pagina vindt u informatie over een nieuwe installatie van de server en leert u deze in te stellen met on-premises Active Directory. Als u de MFA-server hebt geïnstalleerd en op zoek bent naar een upgrade, raadpleegt u [Upgraden naar de meest recente Azure Multi-Factor Authentication-server](howto-mfaserver-deploy-upgrade.md). Zie [De webservice voor de mobiele app van de Azure Multi-Factor Authentication-server implementeren](howto-mfaserver-deploy-mobileapp.md) voor meer informatie over het installeren van de webservice.
 
@@ -97,11 +97,14 @@ Volg deze stappen om de Azure Multi-Factor Authentication-server te downloaden v
 3. Selecteer **Serverinstellingen**.
 4. Selecteer **Downloaden** en volg de instructies op de downloadpagina om het installatieprogramma op te slaan. 
 
-   ![MFA-server downloaden](./media/howto-mfaserver-deploy/downloadportal.png)
+   ![MFA-Server downloaden via de Azure-portal](./media/howto-mfaserver-deploy/downloadportal.png)
 
 5. Houd deze pagina open want er wordt naar verwezen na het uitvoeren van het installatieprogramma.
 
 ## <a name="install-and-configure-the-mfa-server"></a>De MFA-server installeren en configureren
+
+> [!WARNING]
+> Vanaf maart van de MFA-Server 2019 is downloads alleen beschikbaar voor betaalde tenants. Gratis proefversie/tenants wordt niet langer kunnen downloaden of genereren en gebruiken van activering.
 
 Nu u de server hebt gedownload, kunt u deze installeren en configureren. Zorg ervoor dat de server waarop u deze installeert aan de vereisten in de planningssectie voldoet.
 
@@ -110,7 +113,7 @@ Nu u de server hebt gedownload, kunt u deze installeren en configureren. Zorg er
 3. Nadat de installatie is voltooid, klikt u op **Voltooien**. De configuratiewizard wordt gestart.
 4. Schakel in het welkomstscherm van de configuratiewizard het selectievakje **De wizard Verificatieconfiguratie overslaan** en klik op **Volgende**. De wizard wordt gesloten en de server wordt gestart.
 
-   ![Cloud](./media/howto-mfaserver-deploy/skip2.png)
+   ![De wizard Authenticatieconfiguratie overslaan](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Klik op de pagina waarvan u de server hebt gedownload, op de knop **Activeringsreferenties genereren**. Kopieer deze informatie naar de Azure MFA-server in de desbetreffende vakken en klik op **Activeren**.
 
@@ -130,7 +133,7 @@ Klik op het e-mailpictogram links om de instellingen voor het verzenden van deze
 
 Op het tabblad E-mailinhoud ziet u alle beschikbare e-mailsjablonen waaruit u kunt kiezen. Afhankelijk van hoe u uw gebruikers hebt geconfigureerd voor het uitvoeren van verificatie in twee stappen, kiest u de sjabloon die voor u het meest geschikt is.
 
-![E-mailsjablonen voor MFA-server](./media/howto-mfaserver-deploy/email2.png)
+![MFA Server e-mailsjablonen in de console](./media/howto-mfaserver-deploy/email2.png)
 
 ## <a name="import-users-from-active-directory"></a>Gebruikers uit Active Directory importeren
 
@@ -143,7 +146,7 @@ Nu de server is geïnstalleerd, kunt u gebruikers gaan toevoegen. U kunt handmat
 3. Nu kunt u zoeken naar afzonderlijke gebruikers of in de AD-directory zoeken naar organisatie-eenheden met gebruikers. In dit geval geeft u de organisatie-eenheid met gebruikers op.
 4. Markeer rechts alle gebruikers en klik op **Importeren**. Normaal verschijnt dan een pop-upvenster met de melding dat het importeren is gelukt. Sluit het importvenster.
 
-   ![Gebruikers importeren op MFA-server](./media/howto-mfaserver-deploy/import2.png)
+   ![MFA-Server gebruikers importeren uit Active Directory](./media/howto-mfaserver-deploy/import2.png)
 
 ### <a name="automated-synchronization-with-active-directory"></a>Automatische synchronisatie met Active Directory
 
@@ -169,6 +172,9 @@ Wanneer u de Multi-Factor Authentication (MFA)-server on-premises gebruikt, word
 * Client-IP – indien beschikbaar
 
 Naast de bovenstaande velden worden ook het verificatieresultaat (geslaagd/geweigerd) en de reden voor eventuele weigeringen opgeslagen met de verificatiegegevens en beschikbaar gesteld in de verificatie-/gebruiksrapporten.
+
+> [!IMPORTANT]
+> Vanaf maart van 2019 de opties telefoongesprek zich niet beschikbaar voor gebruikers van de MFA-Server in vrij/proefversie van Azure AD-tenants. SMS-berichten worden niet beïnvloed door deze wijziging. Telefonische oproep blijft beschikbaar voor gebruikers in betaalde Azure AD-tenants. Deze wijziging geldt alleen voor gratis/proefversie van Azure AD-tenants.
 
 ## <a name="back-up-and-restore-azure-mfa-server"></a>Back-ups maken van Azure MFA-server en deze terugzetten
 

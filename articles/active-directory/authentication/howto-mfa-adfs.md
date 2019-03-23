@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f508475166346c56b3bd0c8607c27beb7aba66c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316470"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371525"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Cloudresources beveiligen met Azure Multi-Factor Authentication en AD FS
 
@@ -30,15 +30,15 @@ Voor de beveiliging van uw cloudresource stelt u een claimregel in die ervoor zo
 2. Selecteer **Relying Party-vertrouwensrelaties** aan de linkerkant.
 3. Klik met de rechtermuisknop op **Identiteitsplatform van Microsoft Office 365** en selecteer **Claimregels bewerken**.
 
-   ![Cloud](./media/howto-mfa-adfs/trustedip1.png)
+   ![Console voor AD FS - vertrouwensrelaties van Relying Party](./media/howto-mfa-adfs/trustedip1.png)
 
 4. Klik bij Uitgifte transformatieregels op**Regel toevoegen**.
 
-   ![Cloud](./media/howto-mfa-adfs/trustedip2.png)
+   ![Transformatieregels voor uitgifte bewerken](./media/howto-mfa-adfs/trustedip2.png)
 
 5. Selecteer in de wizard Transformatieclaimregels toevoegen **Passthrough of Een binnenkomende claim filteren** in de vervolgkeuzelijst en klik op **Volgende**.
 
-   ![Cloud](./media/howto-mfa-adfs/trustedip3.png)
+   ![Wizard Claimregel voor transformatie toevoegen](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Geef de regel een naam. 
 7. Selecteer **Authenticatiemethodereferenties** als het type voor binnenkomende claims.
@@ -58,15 +58,15 @@ Het eerste wat we moeten doen is de AD FS-claims configureren. U maakt twee clai
 
 1. Open AD FS-beheer.
 2. Selecteer **Relying Party-vertrouwensrelaties** aan de linkerkant.
-3. Klik met de rechtermuisknop op het **identiteitsplatform van Microsoft Office 365** en selecteer **Claimregels bewerken...**
-   ![Cloud](./media/howto-mfa-adfs/trustedip1.png)
-4. Klik bij Uitgifte transformatieregels op**Regel toevoegen.**
-   ![Cloud](./media/howto-mfa-adfs/trustedip2.png)
+3. Met de rechtermuisknop op **Identiteitsplatform van Microsoft Office 365** en selecteer **Claimregels bewerken... ** 
+    ![Console ADFS - Claimregels bewerken](./media/howto-mfa-adfs/trustedip1.png)
+4. Klik bij uitgifte Transformatieregels op **regel toevoegen.** 
+    ![Toevoegen van een Claimregel](./media/howto-mfa-adfs/trustedip2.png)
 5. Selecteer in de wizard Transformatieclaimregels toevoegen **Passthrough of Een binnenkomende claim filteren** in de vervolgkeuzelijst en klik op **Volgende**.
-   ![Cloud](./media/howto-mfa-adfs/trustedip3.png)
+   ![Wizard Claimregel voor transformatie toevoegen](./media/howto-mfa-adfs/trustedip3.png)
 6. Geef de claimregel een naam in het vak bij Naam claimregel. Bijvoorbeeld: InsideCorpNet.
 7. In de vervolgkeuzelijst naast Binnenkomend claimtype, selecteert u **Binnen bedrijfsnetwerk**.
-   ![Cloud](./media/howto-mfa-adfs/trustedip4.png)
+   ![Als u toevoegt binnen bedrijfsnetwerk claim](./media/howto-mfa-adfs/trustedip4.png)
 8. Klik op **Voltooien**.
 9. Klik bij Uitgifte transformatieregels op**Regel toevoegen**.
 10. Selecteer in de wizard Transformatieclaimregels toevoegen **Claim verzenden met een aangepaste regel** in de vervolgkeuzelijst en klik op **Volgende**.
@@ -75,7 +75,7 @@ Het eerste wat we moeten doen is de AD FS-claims configureren. U maakt twee clai
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Cloud](./media/howto-mfa-adfs/trustedip5.png)
+    ![Maken van aangepaste claim gebruikers aangemeld houden](./media/howto-mfa-adfs/trustedip5.png)
 13. Klik op **Voltooien**.
 14. Klik op **Toepassen**.
 15. Klik op **OK**.

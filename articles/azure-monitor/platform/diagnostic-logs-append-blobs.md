@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f626ef4cfb385a62f68ab611b77dd0c307cd3820
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882376"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370054"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Indeling wijzigen naar diagnostische logboeken van Azure Monitor gearchiveerd naar een opslagaccount voorbereiden
 
@@ -24,7 +24,7 @@ ms.locfileid: "54882376"
 
 ## <a name="what-is-changing"></a>Wat wordt gewijzigd
 
-Azure Monitor biedt een functie waarmee u voor het verzenden van diagnostische gegevens van resources en gegevens van een activiteitenlogboek in Azure storage-account, Event Hubs-naamruimte, of in Log Analytics. Teneinde een prestatieprobleem systeem op **1 November 2018 om 12:00 middernacht UTC** de indeling van het logboek gegevens verzenden naar de blob storage wordt gewijzigd. Als u het hulpprogramma-dat wil zeggen lezen van gegevens uit blob-opslag hebt, moet u uw hulpprogramma's voor meer informatie over de indeling van de nieuwe bijwerken.
+Azure Monitor biedt een functie waarmee u voor het verzenden van diagnostische gegevens van resources en gegevens van een activiteitenlogboek in Azure storage-account, Event Hubs-naamruimte, of in een Log Analytics-werkruimte in Azure Monitor. Teneinde een prestatieprobleem systeem op **1 November 2018 om 12:00 middernacht UTC** de indeling van het logboek gegevens verzenden naar de blob storage wordt gewijzigd. Als u het hulpprogramma-dat wil zeggen lezen van gegevens uit blob-opslag hebt, moet u uw hulpprogramma's voor meer informatie over de indeling van de nieuwe bijwerken.
 
 * Donderdag, November 1 2018 om 12:00 middernacht UTC, de blob-indeling wordt gewijzigd, zodat worden [JSON regels](http://jsonlines.org/). Dit betekent dat elke record wordt worden gescheiden door een nieuwe regel, met geen matrix buitenste records en geen komma's tussen de JSON-records.
 * De wijzigingen aan de indeling blob voor alle diagnostische instellingen voor alle abonnementen in één keer. Het eerste bestand PT1H.json dat is verzonden voor 1 November gebruikmaken van deze nieuwe indeling. Namen van de blob en container blijven hetzelfde.

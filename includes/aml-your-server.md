@@ -9,14 +9,15 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: 18ba86ce7876ba8275eb4853e4fc9ea0f35fa186
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 8d8b314965253dc00b39d0b068b1d6fb3e4aa471
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302184"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395534"
 ---
-1. Voltooi de [Python-quickstart voor Azure Machine Learning](../articles/machine-learning/service/quickstart-create-workspace-with-python.md) om de SDK te installeren en een werkruimte te maken.  U kunt de sectie **De notebook gebruiken** overslaan als u wilt.
+1. Volg de instructies op [maken van een werkruimte van de service Azure Machine Learning](../articles/machine-learning/service/setup-create-workspace.md#portal) voor het maken van een omgeving Miniconda, een werkruimte maken en een werkruimte-configuratiebestand schrijven (**aml_config/config.json**) .
+
 1. Kloon [de GitHub-opslagplaats](https://aka.ms/aml-notebooks).
 
     ```
@@ -24,7 +25,7 @@ ms.locfileid: "55302184"
     ```
 
 1. Voeg een configuratiebestand voor de werkruimte toe met een van deze methoden:
-    * Kopieer het **aml_config\config.json**-bestand dat u met behulp van de vereiste quickstart hebt gemaakt naar de gekloonde map.
+    * Kopieer de **aml_config/config.json** bestand dat u hebt gemaakt met behulp van de vereiste Quick Start in de gekloonde map.
     * Maak een nieuwe werkruimte met behulp van code in [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
 1. Start de notebookserver vanuit de gekloonde map.
     

@@ -16,12 +16,12 @@ ms.workload: billing
 ms.date: 5/10/2018
 ms.author: erikre
 ms.custom: seodec18
-ms.openlocfilehash: 944623943fc49f4f6856c3a62f30ea61f901c16d
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cd1688cd9d3d19242800b04e7e29c8875879cffc
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579410"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351556"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure facturerings-API's gebruiken om via een programma inzicht uw gebruik van Azure
 Gebruik Azure facturering API's voor pull-gebruik en de resource-gegevens in uw favoriete hulpprogramma's voor gegevensanalyse. De Azure Resource Usage- en RateCard-API’s kunnen u helpen uw kosten nauwkeurig te voorspellen en te beheren. De API's worden geïmplementeerd als een Resource Provider en een deel van de API's beschikbaar gemaakt door de Azure Resource Manager-familie.  
@@ -30,7 +30,7 @@ Gebruik Azure facturering API's voor pull-gebruik en de resource-gegevens in uw 
 Zodra de [aanmelden is voltooid](billing-manage-access.md#opt-in), downloaden van facturen met behulp van de preview-versie van [factuur API](/rest/api/billing). De functies zijn onder andere:
 
 * **Azure Role-based Access Control** -configureren toegangsbeleid op de [Azure-portal](https://portal.azure.com) of via [Azure PowerShell-cmdlets](/powershell/azure/overview) om op te geven welke gebruikers of toepassingen toegang tot krijgen kunnen de gegevens over het gebruik van het abonnement. Aanroepers moeten standaard Azure Active Directory-tokens gebruiken voor verificatie. De oproepende functie toevoegen aan de factureren voor lezer, lezer, eigenaar, Inzender rol of toegang krijgen tot gegevens over gebruik voor een specifieke Azure-abonnement.
-* **Datum filteren** -gebruik de `$filter` parameter om op te halen van alle facturen in omgekeerde volgorde door de einddatum van de factuur. 
+* **Datum filteren** -gebruik de `$filter` parameter om op te halen van alle facturen in omgekeerde volgorde door de einddatum van de factuur.
 
 > [!NOTE]
 > Deze functie is in eerste versie van de Preview-versie en zijn mogelijk onderhevig aan wijzigingen achterwaarts compatibel. Het is momenteel niet beschikbaar voor bepaalde abonnementaanbiedingen (EA, CSP, AIO niet ondersteund) en Azure Duitsland.
@@ -48,7 +48,7 @@ Gebruik de Azure [Resource Usage API](https://msdn.microsoft.com/library/azure/m
 Gebruik de [RateCard API van Azure Resource](https://msdn.microsoft.com/library/azure/mt219005) om op te halen van de lijst met beschikbare Azure-resources en de geschatte informatie over de prijzen voor elk. De API omvat:
 
 * **Azure Role-based Access Control** -het-beleid configureren op de [Azure-portal](https://portal.azure.com) of via [Azure PowerShell-cmdlets](/powershell/azure/overview) om op te geven welke gebruikers of toepassingen toegang tot krijgen kunnen de RateCard-gegevens. Aanroepers moeten standaard Azure Active Directory-tokens gebruiken voor verificatie. De oproepende functie toevoegen aan de lezer, de eigenaar of Inzender rol toegang krijgen tot gegevens over gebruik voor een bepaald Azure-abonnement.
-* **Ondersteuning voor betalen per gebruik, MSDN, monetaire toezegging en monetaire creditaanbiedingen (EA en [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) niet ondersteund)** -deze API biedt Azure-aanbieding op serverniveau snelheid informatie.  De aanroeper van deze API moet doorgeven in de informatie over de aanbieding om details van de resource en tarieven te verkrijgen. We zijn momenteel niet voor EA-tarieven omdat EA-aanbiedingen tarieven per inschrijving hebt aangepast. 
+* **Ondersteuning voor betalen per gebruik, MSDN, monetaire toezegging en monetaire creditaanbiedingen (EA en [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) niet ondersteund)** -deze API biedt Azure-aanbieding op serverniveau snelheid informatie.  De aanroeper van deze API moet doorgeven in de informatie over de aanbieding om details van de resource en tarieven te verkrijgen. We zijn momenteel niet voor EA-tarieven omdat EA-aanbiedingen tarieven per inschrijving hebt aangepast.
 
 ## <a name="scenarios"></a>Scenario's
 Hier volgen enkele van de scenario's die zijn aangebracht mogelijk is met de combinatie van het gebruik en de APIs RateCard:
@@ -58,12 +58,10 @@ Hier volgen enkele van de scenario's die zijn aangebracht mogelijk is met de com
 * **Factuur voorspellen** – Get uw geschatte verbruik en de cloud besteden en machine learning-algoritmen om te voorspellen wat de factuur is aan het einde van de factureringscyclus van toepassing.
 * **Vooraf verbruikskosten analysis** – de RateCard API gebruiken om te voorspellen hoeveel uw factuur zou zijn voor uw verwachte gebruik wanneer u uw werkbelastingen naar Azure verplaatsen. Als u bestaande workloads in andere clouds en privéclouds hebt, kunt u ook uw gebruik met de Azure toewijzen tarieven voor een betere schatting van de Azure-uitgaven. Deze schatting biedt u de mogelijkheid om terug te draaien op de aanbieding, en vergelijk en Maak onderscheid tussen de verschillende aanbiedingstypen dan betalen per gebruik, zoals monetaire toezegging en financieel tegoed. De API is ook biedt u de mogelijkheid om te zien van kostenverschillen per regio en kunt u een wat-als kostenanalyse zodat u implementatie beslissingen kunt komen.
 * **Wat als-analyse** -
-  
+
   * U kunt bepalen of deze rendabeler voor het uitvoeren van workloads in een andere regio, of op een andere configuratie van de Azure-resource is. Kosten voor Azure-resource kunnen verschillen op basis van de Azure-regio u.
   * U kunt ook bepalen als een ander Azure-aanbiedingtype resulteert in een betere rentabiliteit op een Azure-resource.
-  
-## <a name="partner-solutions"></a>Partneroplossingen
-In [Cloud Cruiser en Microsoft Azure Billing API-integratie](billing-usage-rate-card-partner-solution-cloudcruiser.md) wordt beschreven hoe [Cloud Cruiser van Express voor Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) rechtstreeks vanuit de WAP-portal (Windows Azure Pack) werkt. U kunt de operationele en financiële aspecten van de openbare of gehoste openbare cloud van Microsoft Azure naadloos beheren vanuit één gebruikersinterface.   
+
 
 ## <a name="next-steps"></a>Volgende stappen
 * Bekijk de codevoorbeelden op GitHub:
@@ -73,7 +71,4 @@ In [Cloud Cruiser en Microsoft Azure Billing API-integratie](billing-usage-rate-
 
   * [Codevoorbeeld RateCard API](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
-* Zie voor meer informatie over de Azure Resource Manager, [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
-
-
-
+* Zie voor meer informatie over de Azure Resource Manager, [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).

@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8fa77409f1f5c32bc1e8f8644111c38f6115a92d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295807"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362047"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Zelfstudie: Geautomatiseerde machine learning gebruiken om uw regressiemodel te bouwen
 
@@ -67,22 +67,11 @@ Nadat u de onderstaande stappen hebt uitgevoerd, voert u de notebook **tutorials
 
 ### <a name="server"></a>Uw eigen Jupyter Notebook-server gebruiken
 
-Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.  Nadat u de stappen hebt uitgevoerd, voert u de notebook **tutorials/regression-part2-automated-ml.ipynb** uit.
+Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.  Zorg ervoor dat u installeert `matplotlib` en de `automl` en `notebooks` extra's in uw omgeving.
 
-1. Voltooi de [Python-quickstart voor Azure Machine Learning](quickstart-create-workspace-with-python.md) om een Miniconda-omgeving en een werkruimte te maken.
-1. Installeer de extra's voor `automl` en `notebooks` in uw omgeving met `pip install azureml-sdk[automl,notebooks]`.
-1. Installeer `maplotlib` met behulp van `pip install maplotlib`.
-1. Kloon [de GitHub-opslagplaats](https://aka.ms/aml-notebooks).
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. Start de notebookserver vanuit de gekloonde map.
-
-    ```shell
-    jupyter notebook
-    ```
+Nadat u de stappen hebt uitgevoerd, voert u de notebook **tutorials/regression-part2-automated-ml.ipynb** uit.
 
 ## <a name="start"></a>De ontwikkelomgeving instellen
 

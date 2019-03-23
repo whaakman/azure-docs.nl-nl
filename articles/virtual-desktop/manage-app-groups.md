@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: d0b5dede5846b3ff9eac3ee865685fe5b3f773f9
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 455e3b4ac4a5020f68b5201bc19f85892ef62cb1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318104"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368983"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Zelfstudie: App-groepen beheren voor virtuele Windows-Desktop (Preview)
 
@@ -68,7 +68,7 @@ Voordat u begint, [downloaden en importeren van de Windows virtuele bureaublad P
 8. Voer de volgende cmdlet om gebruikers toegang tot de RemoteApps in de app-groep.
 
    ```powershell
-   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalNames <userupn>
+   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalName <userupn>
    ```
 
 ## <a name="next-steps"></a>Volgende stappen

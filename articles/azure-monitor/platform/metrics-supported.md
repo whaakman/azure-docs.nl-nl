@@ -8,14 +8,15 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: f7bfb4f403104bb91fb1a9ba4b70cb164e0738b4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e9b562cb04bb8916245d9df7b9b6d526bd443a24
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113296"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352133"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure Monitor
+
 Azure Monitor biedt verschillende manieren om te communiceren met metrische gegevens, zoals ze in het portaal grafieken, toegang hebben tot deze via de REST-API of uitvoeren van deze query's met behulp van PowerShell of CLI. Hieronder vindt u een volledige lijst van alle metrische gegevens op dit moment met metrische gegevens van Azure Monitor-pijplijn. Andere metrische gegevens is mogelijk beschikbaar in de portal of met verouderde API's. Deze lijst hieronder bevat alleen beschikbaar via de pijplijn voor het metrische gegevens van Azure Monitor samengevoegde metrische gegevens. Query's uitvoeren voor en toegang tot deze metrische gegevens gebruik de [2018-01-01-api-versie](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
@@ -660,7 +661,6 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 | MetadataRequests |    Aanvragen voor metagegevens   |Count| Count   | Het aantal aanvragen voor metagegevens. Azure Cosmos DB houdt verzameling systeemmetagegevens voor elk account, waarmee u het inventariseren van verzamelingen, databases, enzovoort, en de bijbehorende configuraties, gratis.    | DatabaseName, CollectionName, Region, StatusCode| Alle|  |Gebruikt voor het bewaken van vertragingen vanwege aanvragen voor metagegevens.|
 | MongoRequests |   Mongo-aanvragen| Count | Count|  Aantal aanvragen van Mongo   | Databasenaam, CollectionName, regio, CommandName, foutcode| Alle |Snelheid van aanvragen voor mongo-Query, Mongo-Update aanvragen snelheid, Mongo verwijderen snelheid van aanvragen, Mongo invoegen snelheid van aanvragen, snelheid van aanvragen voor Mongo-aantal|   Gebruikt voor het bewaken van Mongo aanvraag fouten, typt u het gebruik van per opdracht. |
 
-
 ### <a name="request-unit-metrics"></a>Aanvraag eenheid metrische gegevens
 
 |Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies| Tijd granulaties| Verouderde metrische toewijzing | Gebruik |
@@ -673,7 +673,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 |Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies| Tijd granulaties| Verouderde metrische toewijzing | Gebruik |
 |---|---|---|---|---|---| ---| ---| ---|
-| AvailableStorage| Beschikbare opslag   |Bytes| Totaal|  Totale beschikbare opslag gerapporteerd op 5 minuten granulatie per regio|   DatabaseName, CollectionName, Region|   5 MIN.| Beschikbare opslag|   Gebruikt voor het bewaken van beschikbare opslag (alleen van toepassing op vaste opslag verzamelingen) capaciteit minimale granulariteit moet 5 minuten.| 
+| AvailableStorage| Beschikbare opslag   |Bytes| Totaal|  Totale beschikbare opslag gerapporteerd op 5 minuten granulatie per regio|   DatabaseName, CollectionName, Region|   5 MIN.| Beschikbare opslag|   Gebruikt voor het bewaken van beschikbare opslag (alleen van toepassing op vaste opslag verzamelingen) capaciteit minimale granulariteit moet 5 minuten.|
 | DataUsage |Gegevensgebruik |Bytes| Totaal   |Gebruik van de totale hoeveelheid gegevens die zijn gerapporteerd op 5 minuten granulatie per regio|    DatabaseName, CollectionName, Region|   5 MIN.  |Gegevensgrootte  | Wordt gebruikt om het gebruik van de totale hoeveelheid gegevens op de verzameling en de regio bewaken, moet minimale granulariteit 5 minuten.|
 | IndexUsage|   Gebruik van de index|    Bytes|  Totaal   |Totaal gebruik van de Index wordt gerapporteerd op 5 minuten granulatie per regio|    DatabaseName, CollectionName, Region|   5 MIN.| Indexgrootte| Wordt gebruikt om het gebruik van de totale hoeveelheid gegevens op de verzameling en de regio bewaken, moet minimale granulariteit 5 minuten. |
 | DocumentQuota|    Document quotum| Bytes|  Totaal|  Totale opslagquotum gerapporteerd op 5 minuten granulatie per regio. Van toepassing op vaste opslag verzamelingen| DatabaseName, CollectionName, Region|   5 MIN.  |Opslagcapaciteit|  Wordt gebruikt voor het bewaken van de totale quotum verzameling en regio, moet minimale granulariteit 5 minuten.|
@@ -805,6 +805,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |ScaleActionsInitiated|Schaalacties geactiveerd|Count|Totaal|De richting van de schaalbewerking.|ScaleDirection|
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
+
 (Preview-versie)
 
 |Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
@@ -1224,7 +1225,6 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Update|Update|Count|Gemiddeld|Update|Computer, Product, classificatie, UpdateState, optioneel, goedgekeurde|
 |Gebeurtenis|Gebeurtenis|Count|Gemiddeld|Gebeurtenis|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
-
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
 |Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
@@ -1608,7 +1608,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |MemoryPercentage|Geheugenpercentage|Procent|Gemiddeld|Geheugenpercentage|Exemplaar|
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Meer informatie over metrische gegevens in Azure Monitor](../../azure-monitor/platform/data-collection.md)
 * [Waarschuwingen over metrische gegevens maken](../../azure-monitor/platform/alerts-overview.md)
 * [Metrische gegevens exporteren naar opslag, Event Hub of Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
-

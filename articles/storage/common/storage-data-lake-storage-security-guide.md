@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ce01301455c7abcd26006e622fcfbb8127e1c511
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008205"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372485"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Azure Data Lake Storage Gen2-beveiligingshandleiding
 
@@ -134,7 +134,7 @@ Beveiliging van gegevens vlak verwijst naar de methoden voor het beveiligen van 
 Hebt u drie opties voor het verlenen van toegang tot objecten in Azure Storage, met inbegrip van:
 
 - Met behulp van Azure AD toegang verlenen aan de bestandssystemen en wachtrijen. Azure AD biedt voordelen ten opzichte van andere methoden voor autorisatie, waaronder de noodzaak voor het opslaan van geheimen in uw code verwijderen. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory](storage-auth-aad.md). 
-- Met behulp van de sleutels van uw storage-account om toegang via gedeelde sleutel te verlenen. Autoriseren via gedeelde sleutel moet opslaan van de sleutels van uw storage-account in uw toepassing, zodat Microsoft raadt het Azure AD in plaats daarvan gebruik waar mogelijk. Voor productie-Apps, of voor het verlenen van toegang tot Azure-tabellen en bestanden, voert u de gedeelde sleutel gebruiken terwijl Azure AD-integratie beschikbaar als preview is.
+- Met behulp van de sleutels van uw storage-account om toegang via gedeelde sleutel te verlenen. Autoriseren via gedeelde sleutel moet opslaan van de sleutels van uw storage-account in uw toepassing, zodat Microsoft raadt het Azure AD in plaats daarvan gebruik waar mogelijk.
 - Met behulp van handtekeningen voor gedeelde toegang te verlenen omschreven machtigingen beschikt voor specifieke objecten gedurende een bepaalde periode.
 
 Naast het beperken van toegang tot en met autorisatie, u kunt ook gebruiken [Firewalls en virtuele netwerken](storage-network-security.md) om te beperken van toegang tot het opslagaccount op basis van netwerkregels.  Met deze benadering kan weigeren van toegang tot openbare internetverkeer en verlenen toegang tot alleen specifieke Azure Virtual Networks of openbare internet IP-adresbereiken.

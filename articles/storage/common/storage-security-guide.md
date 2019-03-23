@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 56c09d9c6d1249713de7c6a0428ad2a124eee157
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013068"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369740"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
@@ -22,7 +22,7 @@ Azure Storage biedt een uitgebreide set met mogelijkheden voor beveiliging die s
 - Alle gegevens die zijn geschreven naar Azure Storage automatisch versleuteld met behulp van [Storage Service Encryption (SSE)](storage-service-encryption.md). Zie voor meer informatie, [standaard codering aankondiging voor Azure Blobs, bestanden, Table en Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) en op rollen gebaseerd toegangsbeheer (RBAC) worden ondersteund voor Azure Storage voor zowel resource management-bewerkingen en bewerkingen voor gegevens, als volgt:   
     - U kunt RBAC-rollen binnen het bereik van het opslagaccount dat aan beveiligings-principals en het gebruik van Azure AD te autoriseren resource management-bewerkingen zoals Sleutelbeheer toewijzen.
-    - Azure AD-integratie wordt ondersteund in de Preview-versie van bewerkingen op de services Blob en wachtrij. U kunt RBAC-rollen binnen het bereik van een abonnement, resourcegroep, opslagaccount, of een afzonderlijke container of wachtrij wilt een beveiligings-principal of een beheerde identiteit voor Azure-resources kunt toewijzen. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)](storage-auth-aad.md).   
+    - Azure AD-integratie wordt ondersteund voor blob- en wachtrijservices gegevensbewerkingen. U kunt RBAC-rollen binnen het bereik van een abonnement, resourcegroep, opslagaccount, of een afzonderlijke container of wachtrij wilt een beveiligings-principal of een beheerde identiteit voor Azure-resources kunt toewijzen. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory](storage-auth-aad.md).   
 - Gegevens in transit tussen een toepassing en Azure kunnen worden beveiligd met behulp van [Clientversleuteling](../storage-client-side-encryption.md), HTTPS en SMB 3.0.  
 - Besturingssysteem en gegevensschijven die worden gebruikt door virtuele machines van Azure kunnen worden versleuteld met [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Gedelegeerde toegang tot de gegevensobjecten in Azure Storage kan worden verleend met behulp van [Shared Access Signatures](../storage-dotnet-shared-access-signature-part-1.md).
@@ -155,8 +155,8 @@ Beveiliging van gegevens vlak verwijst naar de methoden voor het beveiligen van 
 
 Hebt u drie opties voor het verlenen van toegang tot objecten in Azure Storage, met inbegrip van:
 
-- Met behulp van Azure AD om toegang tot containers en wachtrijen (Preview) te verlenen. Azure AD biedt voordelen ten opzichte van andere methoden voor autorisatie, waaronder de noodzaak voor het opslaan van geheimen in uw code verwijderen. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)](storage-auth-aad.md). 
-- Met behulp van de sleutels van uw storage-account om toegang via gedeelde sleutel te verlenen. Autoriseren via gedeelde sleutel moet opslaan van de sleutels van uw storage-account in uw toepassing, zodat Microsoft raadt het Azure AD in plaats daarvan gebruik waar mogelijk. Voor productie-Apps, of voor het verlenen van toegang tot Azure-tabellen en bestanden, voert u de gedeelde sleutel gebruiken terwijl Azure AD-integratie beschikbaar als preview is.
+- Met behulp van Azure AD om toegang tot containers en -wachtrijen te verlenen. Azure AD biedt voordelen ten opzichte van andere methoden voor autorisatie, waaronder de noodzaak voor het opslaan van geheimen in uw code verwijderen. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory](storage-auth-aad.md). 
+- Met behulp van de sleutels van uw storage-account om toegang via gedeelde sleutel te verlenen. Autoriseren via gedeelde sleutel moet opslaan van de sleutels van uw storage-account in uw toepassing, zodat Microsoft raadt het Azure AD in plaats daarvan gebruik waar mogelijk.
 - Met behulp van handtekeningen voor gedeelde toegang te verlenen omschreven machtigingen beschikt voor specifieke objecten gedurende een bepaalde periode.
 
 Bovendien voor Blob Storage kunt u openbare toegang tot uw BLOB door in te stellen het toegangsniveau voor de container met de blobs dienovereenkomstig. Als u toegang hebt ingesteld voor een container voor Blob of Container, kunnen er openbare leestoegang voor de blobs in deze container worden. Dit betekent dat iedereen met een URL die verwijst naar een blob in die container kunt openen in een browser zonder met behulp van een Shared Access Signature of met de storage-accountsleutels.

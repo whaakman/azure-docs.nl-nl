@@ -1,6 +1,6 @@
 ---
-title: In code een index maken met behulp van de .NET API - Azure Search
-description: Lees hoe u een doorzoekbare volledige-tekstindex maakt met behulp van de Azure Search .NET SDK en C#-voorbeeldcode.
+title: Maken van een index in C# -Azure Search
+description: Informatie over het maken van een doorzoekbare index van de volledige tekst in C# met behulp van de Azure Search .NET SDK.
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/20/2019
-ms.openlocfilehash: dbaac1478fdbf1b42fc6b597c3a5c541e007e413
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/22/2019
+ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287142"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370581"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Quickstart: 1 - een Azure Search-index in makenC#
 
@@ -23,7 +23,7 @@ In dit artikel begeleidt u bij het proces voor het maken van [een Azure Search-i
 
 > [!div class="checklist"]
 > * Maak een [ `SearchServiceClient` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) object verbinding maken met een service voor zoeken.
-> * Maak een [ `Index` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) object om door te geven als een parameter op `Indexes.Create`.
+> * Maak een [ `Index` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) object om door te geven als een parameter voor `Indexes.Create`.
 > * Roep de `Indexes.Create` methode voor `SearchServiceClient` voor het verzenden van de `Index` naar een service.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -32,7 +32,7 @@ In dit artikel begeleidt u bij het proces voor het maken van [een Azure Search-i
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alle edities. Voorbeeldcode en instructies zijn getest op de gratis Community-versie.
 
-Een URL-eindpunt en de admin api-sleutel van uw search-service. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
+Lees het URL-eindpunt en de admin api-sleutel van uw search-service. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
 
   1. In de Azure-portal in uw zoekservice **overzicht** pagina, de URL ophalen. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
 
@@ -200,7 +200,9 @@ serviceClient.Indexes.Delete("hotels");
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze quickstart maakt u een lege Azure Search-index op basis van een schema dat gegevenstypen voor velden en het gedrag definieert gemaakt. De volgende snelstartgids in deze reeks wordt uitgelegd hoe u de index met doorzoekbare inhoud laden.
+In deze quickstart maakt u een lege Azure Search-index op basis van een schema dat gegevenstypen voor velden en het gedrag definieert gemaakt. De index is een 'bare bEen' index die bestaan uit een naam en een verzameling van velden toegeschreven. Een realistischer index zou bevatten andere elementen, zoals [scoreprofielen](index-add-scoring-profiles.md), [suggesties](index-add-suggesters.md) voor ondersteuning van typeahead [synoniemen](search-synonyms.md), en mogelijk [ analysevoorzieningen](index-add-custom-analyzers.md). Het is raadzaam om deze mogelijkheden te bezoeken, wanneer u bekend bent met de basiswerkstroom.
+
+De volgende snelstartgids in deze reeks wordt uitgelegd hoe u de index met doorzoekbare inhoud laden.
 
 > [!div class="nextstepaction"]
 > [Gegevens laden in een Azure Search-index metC#](search-import-data-dotnet.md)

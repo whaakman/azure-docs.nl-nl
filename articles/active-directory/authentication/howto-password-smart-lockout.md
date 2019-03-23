@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 402a2d6afc7b58d4dfc1c9fa67e354b4d157bd4c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310231"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370187"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory slimme accountvergrendeling
 
@@ -40,8 +40,8 @@ Slimme accountvergrendelingen kan worden geïntegreerd met hybride implementatie
 
 Bij het gebruik van [Pass through-verificatie](../hybrid/how-to-connect-pta.md), moet u ervoor zorgen dat:
 
-   * De drempelwaarde voor vergrendeling van Azure AD is **minder** dan de drempelwaarde voor vergrendeling van Active Directory-account. Stel de waarden, zodat de drempelwaarde voor vergrendeling van Active Directory-account ten minste twee of drie keer langer zijn dan de drempelwaarde voor vergrendeling van Azure AD is. 
-   * De duur van de Azure AD-vergrendeling **in een paar seconden** is **langer** dan de Active Directory accountvergrendelingsteller opnieuw na duur instellen **minuten**.
+* De drempelwaarde voor vergrendeling van Azure AD is **minder** dan de drempelwaarde voor vergrendeling van Active Directory-account. Stel de waarden, zodat de drempelwaarde voor vergrendeling van Active Directory-account ten minste twee of drie keer langer zijn dan de drempelwaarde voor vergrendeling van Azure AD is. 
+* De duur van de Azure AD-vergrendeling **in een paar seconden** is **langer** dan de Active Directory accountvergrendelingsteller opnieuw na duur instellen **minuten**.
 
 > [!IMPORTANT]
 > Een beheerder kan op dit moment niet de gebruikersaccounts cloud ontgrendelen als ze hebben uit is vergrendeld door de functie Smart Lockout. De beheerder moet wachten tot de duur van de vergrendeling verloopt binnenkort.
@@ -55,7 +55,7 @@ Gebruik de volgende instructies om te controleren of uw on-premises Active Direc
 3. Blader naar **Computerconfiguratie** > **beleid** > **Windows-instellingen** > **beveiligingsinstellingen**   >  **Accountbeleid** > **Account Lockout beleid**.
 4. Controleer of uw **drempel voor accountvergrendelingen** en **teller voor accountvergrendeling opnieuw instellen na** waarden.
 
-![De on-premises Active Directory-account lockout beleid met behulp van een Group Policy Object wijzigen](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![De on-premises Active Directory-account lockout beleid wijzigen](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Azure AD slimme accountvergrendeling waarden beheren
 
@@ -78,9 +78,7 @@ Wanneer de drempel voor accountvergrendelingen slimme wordt geactiveerd, ontvang
 
 **Uw account is tijdelijk vergrendeld om te voorkomen dat het gebruik door onbevoegden. Probeer het later opnieuw, en als u nog steeds problemen ondervindt, neem dan contact op met uw beheerder.**
 
-
 ## <a name="next-steps"></a>Volgende stappen
 
-[Meer informatie over het blokkeren van onjuiste wachtwoorden in uw organisatie met behulp van Azure AD.](howto-password-ban-bad.md)
-
-[Self-service voor wachtwoord opnieuw instellen zodat gebruikers kunnen hun eigen accounts ontgrendelen configureren.](quickstart-sspr.md)
+* [Meer informatie over het blokkeren van onjuiste wachtwoorden in uw organisatie met behulp van Azure AD.](howto-password-ban-bad.md)
+* [Self-service voor wachtwoord opnieuw instellen zodat gebruikers kunnen hun eigen accounts ontgrendelen configureren.](quickstart-sspr.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544236"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371792"
 ---
 # <a name="azure-storage-account-overview"></a>Overzicht van Azure storage-account
 
@@ -84,20 +84,14 @@ Azure Storage biedt verschillende opties voor toegang tot blok-blobgegevens op b
 
 De laag beschikbaar zijn:
 
-> [!NOTE]
-> De [premium-toegangslaag (preview)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), die is geoptimaliseerd voor gevoelige toepassingen met prestaties, lage en consistente latentie met hoge doorvoer en transactie-frequenties biedt. De premium-laag voor access is alleen beschikbaar voor blok-Blob storage-accounts (preview). Zie voor meer informatie, [openbare preview van Azure Premium-blobopslag](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
-
 * De **warm** toegangslaag, die is geoptimaliseerd voor frequente toegang krijgen tot objecten in de storage-account. Toegang tot gegevens in de warme laag is meest rendabele, terwijl de kosten voor opslag enigszins hoger zijn. Nieuwe storage-accounts worden gemaakt in de warme laag standaard.
 * De **Cool** toegangslaag, die is geoptimaliseerd voor het opslaan van grote hoeveelheden gegevens die niet vaak worden geraadpleegd en die gedurende ten minste 30 dagen worden opgeslagen. Opslaan van gegevens in de koude laag rendabeler is, maar toegang tot die gegevens mogelijk iets duurder dan de toegang tot gegevens in de warme laag.
 * De **archief** laag, die alleen beschikbaar voor afzonderlijke blok-blobs is. De Archive-laag is geoptimaliseerd voor gegevens die enkele uren latentie bij het ophalen kan tolereren en blijven in de Archive-laag voor ten minste 180 dagen. De Archive-laag is de meest voordelige optie zijn voor het opslaan van gegevens, maar toegang tot die gegevens is duurder dan de toegang tot gegevens in de warme of koude laag. 
 
-
-Als er een wijziging in het gebruikspatroon van uw gegevens is, kunt u schakelen tussen deze toegangslagen op elk gewenst moment. Zie voor meer informatie over de toegangslagen, [Azure Blob-opslag: Premium (preview), dynamische, statische en Archiefopslaglaag](../blobs/storage-blob-storage-tiers.md).
+Als er een wijziging in het gebruikspatroon van uw gegevens is, kunt u schakelen tussen deze toegangslagen op elk gewenst moment. Zie voor meer informatie over de toegangslagen, [Azure Blob storage: hot, cool en archive toegangslagen](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Wijzigen van de toegangslaag voor een bestaand opslagaccount of blob kan leiden tot extra kosten in rekening gebracht. Zie voor meer informatie de [opslagaccount facturering](#storage-account-billing).
-
-
 
 ## <a name="replication"></a>Replicatie
 
@@ -135,7 +129,7 @@ Elke aanvraag ten opzichte van uw storage-account moet worden toegestaan. Op het
 
 U kunt toegang verlenen tot de gegevens in uw opslagaccount met behulp van een van de volgende methoden:
 
-- **Azure Active Directory:** Gebruik Azure Active Directory (Azure AD)-referenties voor het verifiëren van een gebruiker, groep of andere identiteit voor toegang tot blob- en wachtrijservices gegevens (preview). Als verificatie van een identiteit geslaagd is, retourneert een token maken voor gebruik in het autoriseren van de aanvraag voor Azure Blob-opslag of Queue storage met Azure AD. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (preview)](storage-auth-aad.md).
+- **Azure Active Directory:** Gebruik Azure Active Directory (Azure AD)-referenties voor het verifiëren van een gebruiker, groep of andere identiteit voor toegang tot gegevens voor blob- en wachtrijservices. Als verificatie van een identiteit geslaagd is, retourneert een token maken voor gebruik in het autoriseren van de aanvraag voor Azure Blob-opslag of Queue storage met Azure AD. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory](storage-auth-aad.md).
 - **Gedeelde sleutel-autorisatie:** Gebruik uw toegangssleutel voor opslagaccount te maken van een verbindingsreeks die uw toepassing tijdens runtime worden gebruikt voor toegang tot Azure Storage. De waarden in de verbindingsreeks gebruikt om samen te stellen de *autorisatie* -header die wordt doorgegeven aan Azure Storage. Zie voor meer informatie, [configureren van Azure Storage-verbindingsreeksen](storage-configure-connection-string.md).
 - **Handtekening voor gedeelde toegang:** Een shared access signature gebruiken voor toegang tot resources in uw opslagaccount delegeren als u geen Azure AD-verificatie. Een shared access signature is een token dat alle informatie die nodig zijn voor het autoriseren van een aanvraag naar Azure Storage op de URL wordt ingekapseld. U kunt de storage-resource, machtigingen en het interval op waarover de machtigingen geldig zijn opgeven als onderdeel van de shared access signature. Zie voor meer informatie, [Using shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 

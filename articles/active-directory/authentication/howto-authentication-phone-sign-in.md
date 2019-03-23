@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26dd1bd6717fe0216545d6b3aa729ac2cb19dc9d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47e8541b82a1cd38f07684508a96b9789df20e92
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313325"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370378"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Zonder wachtwoord aanmelden via telefoon met de Microsoft Authenticator-app (preview-versie)
 
 De Microsoft Authenticator-app kan worden gebruikt voor aanmelding bij een Azure AD-account zonder een wachtwoord te gebruiken. Vergelijkbaar met de technologie van [Windows Hello voor bedrijven](/windows/security/identity-protection/hello-for-business/hello-identity-verification), de Microsoft Authenticator gebruikmaakt van verificatie op basis van een sleutel waarmee de referenties van een gebruiker die is gekoppeld aan een apparaat en maakt gebruik van een biometrische of PINCODE.
 
-![Voorbeeld van een browser aanmelding voor gebruiker de aanmeldingspoging in de Microsoft Authenticator-app goedkeuren](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![Voorbeeld van een browser aanmelding voor gebruiker de aanmelding goedkeuren](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 In plaats van Zie een prompt om een wachtwoord na het invoeren van een gebruikersnaam, een persoon die is ingeschakeld aanmelden via telefoon in de Microsoft Authenticator-app een bericht om aan te geven om te tikken een getal in de app te zien. In de app, de gebruiker moet overeenkomen met het aantal, kies goedkeuren en geef vervolgens de PINCODE of biometrische, klikt u vervolgens de verificatie wordt voltooid.
 
@@ -40,17 +40,20 @@ Voor preview-versie, moet een beheerder eerst via powershell om gebruik van de r
 ### <a name="steps-to-enable"></a>Stappen voor het inschakelen
 
 1. Zorg ervoor dat u hebt de nieuwste versie van de openbare Preview-versie van de Azure Active Directory V2 PowerShell-Module. U kunt desgewenst verwijderen en opnieuw installeren om dit te controleren door het uitvoeren van de volgende opdrachten:
+
     ```powershell
     Uninstall-Module -Name AzureADPreview
     Install-Module -Name AzureADPreview
     ```
 
 2. Verifiëren bij Azure AD-tenant te gebruiken van de Azure AD V2 PowerShell-module. De account die gebruikt moet een beveiligingsbeheerder of globale beheerder.
+
     ```powershell
     Connect-AzureAD
     ```
 
 3. Maak het beleid Authenticator aanmelden:
+
     ```powershell
     New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
     ```

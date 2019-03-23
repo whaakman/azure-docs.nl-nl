@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c64e420bd22498fa2d778095def96cce218055
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313954"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369995"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Het werkt als volgt: Azure AD-selfservice wachtwoord opnieuw instellen
 
@@ -76,7 +76,7 @@ Gebruikers kunnen hun wachtwoord alleen opnieuw instellen als ze beschikken over
 > [!WARNING]
 > Accounts die zijn toegewezen Azure-beheerdersrollen is vereist voor het gebruik van methoden, zoals gedefinieerd in de sectie [beheerder opnieuw instellen van beleid verschillen](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Verificatie][Authentication]
+![Verificatie methoden selectie in de Azure portal][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Aantal verificatiemethoden dat is vereist
 
@@ -160,7 +160,7 @@ Voorbeeld: Er zijn vier beheerders in een omgeving. Hun wachtwoord opnieuw inste
 
 Als u installeren, configureren en Azure AD Connect inschakelen, hebt u de volgende aanvullende opties voor on-premises integraties. Als deze opties lichter gekleurd weergegeven zijn, is klikt u vervolgens Write-back niet juist geconfigureerd. Zie voor meer informatie, [configuratie van wachtwoord terugschrijven](howto-sspr-writeback.md).
 
-![Writeback][Writeback]
+![Valideren van het terugschrijven van wachtwoorden is ingeschakeld en werkt][Writeback]
 
 Deze pagina vindt u een snel de status van de on-premises Write-backclient, een van de volgende berichten wordt weergegeven op basis van de huidige configuratie:
 
@@ -180,7 +180,7 @@ Dit besturingselement bepaalt of het terugschrijven van wachtwoorden is ingescha
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Toestaan dat gebruikers voor het ontgrendelen van accounts zonder hun wachtwoord opnieuw instellen
 
-Dit besturingselement Hiermee wordt aangegeven of gebruikers die gaat u naar de portal voor wachtwoord opnieuw instellen van moeten de optie voor het ontgrendelen van hun on-premises Active Directory-accounts zonder hun wachtwoord opnieuw in te krijgen. Azure AD ontgrendelt standaard accounts bij het uitvoeren van een wachtwoord opnieuw instellen. U kunt deze instelling gebruiken voor het scheiden van deze twee bewerkingen. 
+Dit besturingselement Hiermee wordt aangegeven of gebruikers die gaat u naar de portal voor wachtwoord opnieuw instellen van moeten de optie voor het ontgrendelen van hun on-premises Active Directory-accounts zonder hun wachtwoord opnieuw in te krijgen. Azure AD ontgrendelt standaard accounts bij het uitvoeren van een wachtwoord opnieuw instellen. U kunt deze instelling gebruiken voor het scheiden van deze twee bewerkingen.
 
 * Indien ingesteld op **Ja**, en vervolgens gebruikers de mogelijkheid hun wachtwoord opnieuw instellen en het account ontgrendelen of hun account ontgrendelen krijgen zonder dat het wachtwoord opnieuw instellen.
 * Indien ingesteld op **Nee**, klikt u vervolgens gebruikers zijn alleen kunnen worden gecombineerd voor wachtwoordherstel en bewerking ontgrendelen van het account.
@@ -193,9 +193,9 @@ Azure AD-selfservice wachtwoord opnieuw instellen, voert het equivalent van een 
 
 Wachtwoord opnieuw instellen en wijzigen worden volledig ondersteund in alle configuraties met business-to-business (B2B). Wachtwoorden opnieuw instellen van B2B-gebruikers wordt ondersteund in de volgende drie gevallen:
 
-   * **Gebruikers van de partnerorganisatie van een met een bestaande Azure AD-tenant**: Als de organisatie die u zijn een partnerschap aangegaan met een bestaande Azure AD-tenant, we *respecteren ongeacht wachtwoord opnieuw instellen van beleidsregels zijn ingeschakeld op deze tenant*. Voor wachtwoord opnieuw instellen om te werken, moet de partnerorganisatie alleen om ervoor te zorgen dat Azure AD SSPR is ingeschakeld. Er zijn geen extra kosten voor Office 365-klanten en kan worden ingeschakeld met de volgende stappen in onze [aan de slag met wachtwoordbeheer](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) handleiding.
-   * **Gebruikers die zich aanmelden via** self-service-aanmelding: Als de organisatie samenwerking met gebruikt de [self-service-aanmelding](../users-groups-roles/directory-self-service-signup.md) functie om op te halen in een tenant, laat Microsoft ze opnieuw instellen van het wachtwoord met het e-mailbericht ze geregistreerd.
-   * **B2B-gebruikers**: Een nieuwe B2B-gebruikers die zijn gemaakt met behulp van de nieuwe [Azure AD B2B-mogelijkheden](../active-directory-b2b-what-is-azure-ad-b2b.md) worden ook opnieuw instellen van wachtwoorden met het e-mailbericht ze tijdens de uitnodiging hebt geregistreerd.
+* **Gebruikers van de partnerorganisatie van een met een bestaande Azure AD-tenant**: Als de organisatie die u zijn een partnerschap aangegaan met een bestaande Azure AD-tenant, we *respecteren ongeacht wachtwoord opnieuw instellen van beleidsregels zijn ingeschakeld op deze tenant*. Voor wachtwoord opnieuw instellen om te werken, moet de partnerorganisatie alleen om ervoor te zorgen dat Azure AD SSPR is ingeschakeld. Er zijn geen extra kosten voor Office 365-klanten en kan worden ingeschakeld met de volgende stappen in onze [aan de slag met wachtwoordbeheer](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) handleiding.
+* **Gebruikers die zich aanmelden via** self-service-aanmelding: Als de organisatie samenwerking met gebruikt de [self-service-aanmelding](../users-groups-roles/directory-self-service-signup.md) functie om op te halen in een tenant, laat Microsoft ze opnieuw instellen van het wachtwoord met het e-mailbericht ze geregistreerd.
+* **B2B-gebruikers**: Een nieuwe B2B-gebruikers die zijn gemaakt met behulp van de nieuwe [Azure AD B2B-mogelijkheden](../active-directory-b2b-what-is-azure-ad-b2b.md) worden ook opnieuw instellen van wachtwoorden met het e-mailbericht ze tijdens de uitnodiging hebt geregistreerd.
 
 Als u wilt testen in dit scenario, gaat u naar https://passwordreset.microsoftonline.com met een van deze gebruikers van partnerorganisaties. Als ze hebben een alternatief e-mailadres of verificatieadres die zijn gedefinieerd, heeft wachtwoord opnieuw instellen werkt zoals verwacht.
 

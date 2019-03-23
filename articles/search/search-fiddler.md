@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 946d8196fbe49e452dab8fa36e4c746a1bcaf490
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c99380faee8fd1bc42922f7f0e367edde1154a9b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58137620"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368898"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Quickstart: REST API's voor Azure Search verkennen met Fiddler of Postman
 
@@ -85,7 +85,7 @@ Formuleer een aanvraag die vergelijkbaar is met de volgende schermopname. Kies *
 > [!Tip]
 > Uitschakelen van beveiligd webverkeer afwijkende en niet-gerelateerde HTTP-activiteit te verbergen. In de Fiddler **bestand** in het menu uitschakelen **verkeer vastleggen**. 
 
-## <a name="1---create-an-index"></a>1 - een index maken
+## <a name="1---create-an-index"></a>1 - Een index maken
 
 Het hoofdgedeelte van de aanvraag bevat de indexdefinitie. Door het hoofdgedeelte van de aanvraag toe te voegen, voltooit u de aanvraag die uw index produceert.
 
@@ -145,6 +145,7 @@ De aanvraagtekst bevat vier documenten die moeten worden toegevoegd aan de index
              "hotelId": "1",
              "baseRate": 199.0,
              "description": "Best hotel in town",
+             "description_fr": "Meilleur hôtel en ville"
              "hotelName": "Fancy Stay",
              "category": "Luxury",
              "tags": ["pool", "view", "wifi", "concierge"],
@@ -159,6 +160,7 @@ De aanvraagtekst bevat vier documenten die moeten worden toegevoegd aan de index
              "hotelId": "2",
              "baseRate": 79.99,
              "description": "Cheapest hotel in town",
+             "description_fr": "Hôtel le moins cher en ville",
              "hotelName": "Roach Motel",
              "category": "Budget",
              "tags": ["motel", "budget"],
@@ -219,7 +221,7 @@ Wijzig de bewerking in **POST**. Wijzig de URL zodat deze `/docs/index` bevat. K
 
 ![Aanvraagpayload in Fiddler][9]
 
-## <a name="3---search-an-index"></a>3 - een index doorzoeken
+## <a name="3---search-an-index"></a>3 - Een index doorzoeken
 Nu dat er een index en documenten zijn geladen, kunt u query's op te geven met behulp van [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents) REST-API.
 
 + Wijzig de bewerking voor deze stap in **GET**.

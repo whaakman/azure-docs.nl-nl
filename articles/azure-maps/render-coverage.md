@@ -3,17 +3,17 @@ title: Dekking van Azure Maps voor weergave | Microsoft Docs
 description: Meer informatie over de Render-dekking van Azure Maps
 author: jingjing-z
 ms.author: jinzh
-ms.date: 03/07/2018
+ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6e4ebd5bfd7225537046d34dd885d04e8a94878f
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 536a74046f46c7f83907833846e9ec99e8d8a289
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42058672"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370275"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps dekking voor weergave
 
@@ -32,7 +32,7 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 ## <a name="africa"></a>Afrika 
 
 
-| Regio | Raster tegels Unified | Unified Vectortegels |
+| Land/regio | Raster tegels Unified | Unified Vectortegels |
 | ------ | :------------------: | :------------------: |
 | Algerije                          | ✓ | ✓ |
 | Angola                           | ✓ | ✓ |
@@ -40,29 +40,29 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Botswana                         | ✓ | ✓ |
 | Burkina Faso                     | ✓ | ✓ |
 | Burundi                          | ✓ | ✓ |
-| Cabo Verde                       |   | ✓ |
+| Cabo Verde                       | ✓ | ✓ |
 | Kameroen                         | ✓ | ✓ |
-| Centraal-Afrikaanse Republiek         |   | Ø |
-| Tsjaad                             |   | Ø |
-| Comoren                          |   | Ø |
+| Centraal-Afrikaanse Republiek         | ✓ | Ø |
+| Tsjaad                             | ✓ | Ø |
+| Comoren                          | ✓ | Ø |
 | Congo-Brazzaville                            | ✓ | ✓ |
 | Congo (DRC) | ✓ | ✓ |
-| Ivoorkust                    |   | Ø |
-| Djibouti                         |   | Ø |
+| Ivoorkust                    | ✓ | Ø |
+| Djibouti                         | ✓ | Ø |
 | Egypte                            | ✓ | ✓ |
-| Equatoriaal-Guinea                |   | Ø |
-| Eritrea                          |   | Ø |
-| Ethiopië                         |   | Ø |
+| Equatoriaal-Guinea                | ✓ | Ø |
+| Eritrea                          | ✓ | Ø |
+| Ethiopië                         | ✓ | Ø |
 | Gabon                            | ✓ | ✓ |
-| Gambia                           |   | Ø |
+| Gambia                           | ✓ | Ø |
 | Ghana                            | ✓ | ✓ |
-| Guinee                           |   | Ø |
-| Guinea-Bissau                    |   | Ø |
+| Guinee                           | ✓ | Ø |
+| Guinea-Bissau                    | ✓ | Ø |
 | Kenia                            | ✓ | ✓ |
 | Lesotho                          | ✓ | ✓ |
-| Liberia                          |   | Ø |
-| Libië                            |   | Ø |
-| Madagascar                       |   | Ø |
+| Liberia                          | ✓ | Ø |
+| Libië                            | ✓ | Ø |
+| Madagascar                       | ✓ | Ø |
 | Malawi                           | ✓ | ✓ |
 | Mali                             | ✓ | ✓ |
 | Mauretanië                       | ✓ | ✓ |
@@ -75,25 +75,25 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Nigeria                          | ✓ | ✓ |
 | Réunion                          | ✓ | ✓ |
 | Rwanda                           | ✓ | ✓ |
-| Sint-Helena, Ascension en Tristan da Cunha |   | Ø |
-| Sao Tomé en Principe            |   | Ø |
+| Sint-Helena, Ascension en Tristan da Cunha | ✓ | Ø |
+| Sao Tomé en Principe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
-| Sierra Leone                     |   | Ø |
-| Somalië                          |   | Ø |
+| Sierra Leone                     | ✓ | ✓ |
+| Somalië                          | ✓ | ✓ |
 | Zuid-Afrika                     | ✓ | ✓ |
-| Zuid-Sudan                      |   | Ø |
-| Soedan                            |   | Ø |
+| Zuid-Sudan                      | ✓ | ✓ |
+| Soedan                            | ✓ | ✓ |
 | Swaziland                        | ✓ | ✓ |
 | Verenigde Republiek van Tanzania      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
 | Tunesië                          | ✓ | ✓ |
-| Uganda                           | ✓ | ✓ |
+| Oeganda                           | ✓ | ✓ |
 | Zambia                           | ✓ | ✓ |
 | Zimbabwe                         | ✓ | ✓ |
 
 ## <a name="americas"></a>Noord- en Zuid-Amerika
 
-| Regio | Raster tegels Unified | Unified Vectortegels |
+| Land/regio | Raster tegels Unified | Unified Vectortegels |
 | ------ | :------------------: | :------------------: |
 | Anguilla                  | ✓ | ✓ |
 | Antigua en Barbuda       | ✓ | ✓ |
@@ -102,50 +102,50 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Bahama's                   | ✓ | ✓ |
 | Barbados                  | ✓ | ✓ |
 | Belize                    | ✓ | ✓ |
-| Bermuda                   |   | ✓ |
-| Plurinationale staat Bolivia |   | ✓ |
-| Bonaire, Sint Eustatius en Saba |   | ✓ |
+| Bermuda                   | ✓ | ✓ |
+| Bolivia | ✓ | ✓ |
+| Bonaire, Sint Eustatius en Saba | ✓ | ✓ |
 | Brazilië                    | ✓ | ✓ |
 | Canada                    | ✓ | ✓ |
 | Kaaimaneilanden            | ✓ | ✓ |
 | Chili                     | ✓ | ✓ |
-| Clipperton-eiland         |   | ✓ |
+| Clipperton-eiland         | ✓ | ✓ |
 | Colombia                  | ✓ | ✓ |
-| Costa Rica                |   | ✓ |
+| Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |
 | Curaçao                   | ✓ | ✓ |
 | Dominica                  | ✓ | ✓ |
 | Dominicaanse Republiek        | ✓ | ✓ |
-| Ecuador                   |   | ✓ |
-| Falklandeilanden |   | ✓ |
+| Ecuador                   | ✓ | ✓ |
+| Falklandeilanden | ✓ | ✓ |
 | Frans-Guyana             | ✓ | ✓ |
-| Groenland                 |   | Ø |
+| Groenland                 | ✓ | Ø |
 | Grenada                   | ✓ | ✓ |
 | Guadeloupe                | ✓ | ✓ |
-| Guatemala                 |   | ✓ |
+| Guatemala                 | ✓ | ✓ |
 | Guyana                    | ✓ | ✓ |
-| Haïti                     | ✓ | ✓ |
+| Haiti                     | ✓ | ✓ |
 | Honduras                  | ✓ | ✓ |
 | Jamaica                   | ✓ | ✓ |
 | Martinique                | ✓ | ✓ |
 | Mexico                    | ✓ | ✓ |
 | Montserrat                | ✓ | ✓ |
 | Nicaragua                 | ✓ | ✓ |
-| Noordelijke Marianen  |   | ✓ |
+| Noordelijke Marianen  | ✓ | ✓ |
 | Panama                    | ✓ | ✓ | 
-| Paraguay                  |   | ✓ |
+| Paraguay                  | ✓ | ✓ |
 | Peru                      | ✓ | ✓ |
 | Puerto Rico               | ✓ | ✓ |
-| Quebec (Canada)           |   | ✓ |
+| Quebec (Canada)           | ✓ | ✓ |
 | Saint-Barthélemy          | ✓ | ✓ |
 | Saint Kitts en Nevis     | ✓ | ✓ |
 | Saint Lucia               | ✓ | ✓ |
 | Saint-Martin (Franse)     | ✓ | ✓ |
-| Saint-Pierre en Miquelon |   | ✓ |
+| Saint-Pierre en Miquelon | ✓ | ✓ |
 | Saint Vincent en de Grenadines | ✓ | ✓ |
-| Sint-Maarten (Nederlands)      | ✓ | ✓ |
-| Zuid-Georgia en de Zuidelijke Sandwicheilanden |   | ✓ |
-| Suriname                  |   | ✓ |
+| Sint Maarten (Dutch)      | ✓ | ✓ |
+| Zuid-Georgia en de Zuidelijke Sandwicheilanden | ✓ | ✓ |
+| Suriname                  | ✓ | ✓ |
 | Trinidad en Tobago       | ✓ | ✓ |
 | Turks- en Caicoseilanden  | ✓ | ✓ |
 | Verenigde Staten             | ✓ | ✓ |
@@ -156,7 +156,7 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 
 ## <a name="asia"></a>Azië 
 
-| Regio | Raster tegels Unified | Unified Vectortegels |
+| Land/regio | Raster tegels Unified | Unified Vectortegels |
 | ------ | :------------------: | :------------------: |
 | Afghanistan               |   | Ø |
 | Bahrein                   | ✓ | ✓ |
@@ -169,7 +169,8 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Cocos-Keeling-eilanden   |   | Ø |
 | Noord-Korea |   | Ø |
 | Dokdo en Takeshima       |   | Ø |
-| Hongkong                 | ✓ | ✓ |
+| Hongkong SAR                 | ✓ | ✓ |
+| India                     | Ø | ✓ | 
 | Indonesië                 | ✓ | ✓ |
 | Iran                      |   | Ø |
 | Irak                      | ✓ | ✓ |
@@ -181,22 +182,22 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Kirgizië                |   | Ø |
 | Laos |   | Ø |
 | Libanon                   | ✓ | ✓ |
-| Macao                     | ✓ | ✓ |
+| Macau SAR                     | ✓ | ✓ |
 | Maleisië                  | ✓ | ✓ |
 | Maldiven                  |   | Ø |
 | Mongolië                  |   | Ø |
 | Myanmar                   |   | Ø |
-| Napal                     |   | Ø |
+| Nepal                     |   | Ø |
 | Oman                      | ✓ | ✓ |
 | Pakistan                  |   | Ø |
-| Filippijnen               | ✓ | ✓ |
+| Filipijnen               | ✓ | ✓ |
 | Qatar                     | ✓ | ✓ |
 | Republiek Korea         | ✓ | Ø |
 | Saoedi-Arabië              | ✓ | ✓ |
 | Senkaku-eilanden           |   | ✓ |
 | Singapore                 | ✓ | ✓|
 | Sri Lanka                 |   | Ø |
-| Syrië      |   | Ø |
+| Arabische Republiek Syrië      |   | Ø |
 | Taiwan                    | ✓ | ✓ |
 | Tadzjikistan                |   | Ø |
 | Thailand                  | ✓ | ✓ |
@@ -210,7 +211,7 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 
 ## <a name="oceania"></a>Oceanië
 
-| Regio | Raster tegels Unified | Unified Vectortegels |
+| Land/regio | Raster tegels Unified | Unified Vectortegels |
 | ------ | :------------------: | :------------------: |
 | Amerikaans-Samoa            |   | ✓ |
 | Australië                 | ✓ | ✓ |
@@ -240,42 +241,42 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 
 ## <a name="europe"></a>Europa
 
-| Regio | Raster tegels Unified | Unified Vectortegels |
+| Land/regio | Raster tegels Unified | Unified Vectortegels |
 | ------ | :------------------: | :------------------: |
 | Albanië                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
-| Armenië                   |   | Ø |
+| Armenië                   | ✓ | Ø |
 | Oostenrijk                   | ✓ | ✓ |
-| Azerbeidzjan                |   | Ø |
-| Wit-Rusland                   | Ø | ✓ |
+| Azerbeidzjan                | ✓ | Ø |
+| Belarus                   | Ø | ✓ |
 | België                   | ✓ | ✓ |
-| Bosnische        | ✓ | ✓ |
+| Bosnia-Herzegovina        | ✓ | ✓ |
 | Bulgarije                  | ✓ | ✓ |
 | Kroatië                   | ✓ | ✓ |
 | Cyprus                    | ✓ | ✓ |
 | Tsjechië            | ✓ | ✓ |
 | Denemarken                   | ✓ | ✓ |
 | Estland                   | ✓ | ✓ |
-| Faeröer             |   | Ø |
+| Faeröer             | ✓ | Ø |
 | Finland                   | ✓ | ✓ |
 | Frankrijk                    | ✓ | ✓ |
-| Georgië                   |   | Ø |
-| Duitsland                   | ✓ |✓ |
-| Gibraltar                 | ✓ |   |
+| Georgië                   | ✓ | Ø |
+| Duitsland                   | ✓ | ✓ |
+| Gibraltar                 | ✓ | ✓ |
 | Griekenland                    | ✓ | ✓ |
-| Guernsey                  |   | ✓ |
+| Guernsey                  | ✓ | ✓ |
 | Hongarije                   | ✓ | ✓ |
 | IJsland                   | ✓ | ✓ |
-| Ierland (Republiek)     | ✓ | ✓ |
-| Man               |   | ✓ |
+| Ierland                   | ✓ | ✓ |
+| Man               | ✓ | ✓ |
 | Italië                     | ✓ | ✓ |
-| Jan Mayen                 |   | ✓ |
-| Jersey                    |   | ✓ |
+| Jan Mayen                 | ✓ | ✓ |
+| Jersey                    | ✓ | ✓ |
 | Letland                    | ✓ | ✓ |
 | Liechtenstein             | ✓ | ✓ |
 | Litouwen                 | ✓ | ✓ |
 | Luxemburg                | ✓ | ✓ |
-| Macedonië                 | ✓ | ✓ |
+| Macedonië (FYROM)                 | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldavië                   | ✓ | ✓ |
 | Monaco                    | ✓ | ✓ |
@@ -290,10 +291,10 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Servië                    | ✓ | ✓ |
 | Slowakije                  | ✓ | ✓ |
 | Slovenië                  | ✓ | ✓ |
-| Zuidelijke Kurils           |   | ✓ |
+| Zuidelijke Kurils           | ✓ | ✓ |
 | Spanje                     | ✓ | ✓ |
-| Spitsbergen                  |   | ✓ |
-| Zweden                    | ✓ |   |
+| Spitsbergen                  | ✓ | ✓ |
+| Zweden                    | ✓ | ✓ |
 | Zwitserland               | ✓ | ✓ |
 | Turkije                    | ✓ | ✓ |
 | Oekraïne                   | ✓ | ✓ |

@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b433d8556377206ea53ece2764e251dcb266eb95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192350"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369136"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Uw werk-apparaat toevoegen aan het netwerk van uw organisatie
 Toevoegen aan het netwerk van uw organisatie eigendom van het werk Windows 10-apparaat, zodat u toegang hebben tot mogelijk beperkte resources.
@@ -26,7 +26,7 @@ Toevoegen aan het netwerk van uw organisatie eigendom van het werk Windows 10-ap
 ## <a name="what-happens-when-you-join-your-device"></a>Wat gebeurt er wanneer u uw apparaat
 Terwijl u bent lid wordt van uw Windows 10-apparaat op het netwerk van uw organisatie, wordt de volgende acties uitgevoerd:
 
-- Windows-registers uw apparaat op het netwerk van uw organisatie, zodat u toegang tot uw resources met behulp van uw persoonlijke account. Nadat het apparaat is geregistreerd, Windows vervolgens lid wordt van uw apparaat met het netwerk, zodat u de gebruikersnaam en het wachtwoord van uw organisatie gebruiken kunt om te melden en toegang tot beperkte resources.
+- Windows wordt uw apparaat op het netwerk van uw organisatie, zodat u toegang tot uw resources met behulp van uw persoonlijke account geregistreerd. Nadat het apparaat is geregistreerd, Windows vervolgens lid wordt van uw apparaat met het netwerk, zodat u de gebruikersnaam en het wachtwoord van uw organisatie gebruiken kunt om te melden en toegang tot beperkte resources.
 
 - (Optioneel) op basis van de mogelijkheden van uw organisatie, u mogelijk gevraagd voor het instellen van verificatie via een [multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) of [beveiligingsgegevens](user-help-security-info-overview.md).
 

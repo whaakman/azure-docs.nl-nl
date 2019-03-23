@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: c1a0e77f98d269185bc065c86a367c3ed6519fb5
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 28210048cd007fc10dcd4cf5e92577cbd121e2a3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961972"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368269"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack-beheerde schijven: de verschillen en overwegingen met betrekking tot
 
@@ -134,13 +134,27 @@ Azure Stack ondersteunt *beheerde installatiekopieën*, waardoor u een beheerde 
 - U hebt niet-beheerde virtuele machines gegeneraliseerd en wilt gebruikmaken van beheerde schijven voortaan.
 - U hebt een gegeneraliseerde beheerde virtuele machine en wilt maken van meerdere, vergelijkbare beheerde virtuele machines.
 
-### <a name="migrate-unmanaged-vms-to-managed-disks"></a>Niet-beheerde virtuele machines migreren naar beheerde schijven
+### <a name="step-1-generalize-the-vm"></a>Stap 1: De virtuele machine generaliseren
+Voor Windows, volgt u de sectie 'De Windows-VM generaliseren met behulp van Sysprep' hier: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep Voor Linux, volgt u stap 1 hier: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm 
+
+Opmerking: Vergeet niet om te generaliseren van uw virtuele machine. Het maken van een virtuele machine van een installatiekopie die niet goed is gegeneraliseerd zal leiden tot een fout VMProvisioningTimeout.
+
+### <a name="step-2-create-the-managed-image"></a>Stap 2: De beheerde installatiekopie maken
+U kunt de portal, powershell of cli om dit te doen. Ga als volgt hier document van Azure: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
+
+### <a name="step-3-choose-the-use-case"></a>Stap 3: Kies de use-case:
+#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>Geval 1: Niet-beheerde virtuele machines migreren naar beheerde schijven
+Vergeet niet om te generaliseren van uw virtuele machine goed voordat u deze stap uitvoert. Post mag generalisatie, deze virtuele machine niet meer gebruikt. Het maken van een virtuele machine van een installatiekopie die niet goed is gegeneraliseerd zal leiden tot een fout VMProvisioningTimeout. 
 
 Volg de instructies [hier](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) naar een beheerde installatiekopie maken vanaf een gegeneraliseerde VHD in een storage-account. Deze installatiekopie kan worden gebruikt om beheerde virtuele machines gaan maken.
 
-### <a name="create-managed-image-from-vm"></a>Beheerde installatiekopie maken van VM
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Geval 2: Beheerde virtuele machine maken van beheerde installatiekopie met behulp van Powershell
 
 Na het maken van een installatiekopie van een bestaande beheerde schijf-VM met behulp van het script [hier](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , het volgende voorbeeldscript maakt u een dergelijke Linux-VM van een bestaande installatiekopie-object:
+
+Azure Stack powershell-module 1.7.0 of hoger: Volg de instructies [hier](../../virtual-machines/windows/create-vm-generalized-managed.md) 
+
+Azure Stack powershell-module 1.6.0 of onderstaande:
 
 ```powershell
 # Variables for common values
@@ -191,7 +205,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-Zie voor meer informatie, de door Azure beheerde installatiekopie artikelen [maken van een beheerde installatiekopie van een gegeneraliseerde VM in Azure](../../virtual-machines/windows/capture-image-resource.md) en [een virtuele machine maken vanaf een beheerde installatiekopie](../../virtual-machines/windows/create-vm-generalized-managed.md).
+U kunt ook de portal een virtuele machine van een beheerde installatiekopie maken. Zie voor meer informatie, de door Azure beheerde installatiekopie artikelen [maken van een beheerde installatiekopie van een gegeneraliseerde VM in Azure](../../virtual-machines/windows/capture-image-resource.md) en [een virtuele machine maken vanaf een beheerde installatiekopie](../../virtual-machines/windows/create-vm-generalized-managed.md).
 
 ## <a name="configuration"></a>Configuratie
 

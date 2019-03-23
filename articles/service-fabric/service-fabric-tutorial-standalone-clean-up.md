@@ -3,7 +3,7 @@ title: 'Zelfstudie: Zelfstandig Service Fabric-cluster opschonen - Azure Service
 description: In deze zelfstudie leert u hoe u het zelfstandige cluster kunt opschonen
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: d92712200920f135e362e15e1d9536dc2342ebaa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: e3e618bfd141e5cf7159d8df5b2b59f0d17d000f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211086"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372196"
 ---
-# <a name="tutorial-clean-up-your-standalone-cluster"></a>Zelfstudie: Zelfstandig cluster opschonen
+# <a name="tutorial-clean-up-your-standalone-cluster"></a>Zelfstudie: Opschonen van uw zelfstandige cluster
 
 Zelfstandige Service Fabric-clusters bieden u de mogelijkheid om uw eigen omgeving te kiezen en een cluster te maken als onderdeel van de benadering "Elk besturingssysteem, elke cloud" die we in Service Fabric hanteren. In deze reeks zelfstudies maakt u een zelfstandig cluster dat in AWS wordt gehost en installeert u vervolgens een toepassing in het cluster.
 

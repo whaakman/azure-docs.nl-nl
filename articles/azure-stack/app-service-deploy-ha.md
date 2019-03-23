@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: ''
-ms.date: 03/13/2019
+ms.date: 03/23/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: 1c105548f19994c4ca0ce161eedcfe11736864c7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285663"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370020"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>App Service implementeren in een maximaal beschikbare configuratie
 
@@ -54,8 +54,7 @@ Voordat u deze sjabloon gebruikt, zorg ervoor dat de volgende [items voor de Azu
 ### <a name="deploy-the-app-service-infrastructure"></a>De App Service-infrastructuur implementeren
 Gebruik de stappen in deze sectie voor het maken van een aangepaste implementatie met de **appservice-bestandsshare-SQL Server-ha** Azure Stack-Quickstart-sjabloon.
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selecteer **\+** **een resource maken** > **aangepaste**, en vervolgens **sjabloonimplementatie**.
 
@@ -94,8 +93,7 @@ Zorg ervoor dat u elk van deze uitvoerwaarden vastleggen:
 
 Volg deze stappen voor het detecteren van de uitvoerwaarden voor de sjabloon:
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selecteer in de beheerportal **resourcegroepen** en vervolgens de naam van de resourcegroep waarin u hebt gemaakt voor de aangepaste implementatie (**app-service-ha** in dit voorbeeld). 
 
@@ -168,9 +166,20 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![Gegevens van bestandsshare uitvoer](media/app-service-deploy-ha/07.png)
 
-9. Omdat de machine die wordt gebruikt voor het installeren van App Service niet in hetzelfde VNet als de bestandsserver wordt gebruikt bevindt zich voor het hosten van de App Service-bestandsshare, kunt u zich niet kunt oplossen door de naam. Dit is normaal.<br><br>Controleer of de informatie hebt ingevoerd voor de bestandsshare UNC-pad en de accounts informatie juist is en druk op **Ja** op de waarschuwing dialoogvenster om door te gaan met App Service-installatie.
+9. Omdat de machine die wordt gebruikt voor het installeren van App Service niet in hetzelfde VNet als de bestandsserver wordt gebruikt bevindt zich voor het hosten van de App Service-bestandsshare, kunt u zich niet kunt oplossen door de naam. **Dit is normaal**.<br><br>Controleer of de informatie hebt ingevoerd voor de bestandsshare UNC-pad en de accounts informatie juist is en druk op **Ja** op de waarschuwing dialoogvenster om door te gaan met App Service-installatie.
 
     ![Verwachte foutberichtvenster](media/app-service-deploy-ha/08.png)
+
+    Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen de worker-subnet en de bestandsserver aan te geven. Ga naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen:
+    - Bron: Alle
+    - Poortbereik van bron: *
+    - Bestemming: IP-adressen
+    - Doel-IP-adresbereik: Bereik van IP-adressen voor uw bestandsserver
+    - Poortbereik van doel: 445
+    - Protocol: TCP
+    - Actie: Toestaan
+    - Prioriteit: 700
+    - Naam: Outbound_Allow_SMB445
 
 10. Geef de Identiteitstoepassings-ID en het pad en de wachtwoorden voor de identiteit van certificaten en klik op **volgende**:
     - Certificaat voor identiteit-toepassing (in de indeling van **sso.appservice.local.azurestack.external.pfx**)
@@ -189,7 +198,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![SQL Server-verbindingsgegevens](media/app-service-deploy-ha/10.png)
 
-12. Omdat de machine die wordt gebruikt voor het installeren van App Service niet in hetzelfde VNet als de SQL-server wordt gebruikt bevindt zich voor het hosten van de App Service-databases, kunt u zich niet kunt oplossen door de naam.  Dit is normaal.<br><br>Controleer of de informatie hebt ingevoerd voor de SQL Server-naam en de accounts informatie juist is en druk op **Ja** om door te gaan van de installatie van App Service. Klik op **volgende**.
+12. Omdat de machine die wordt gebruikt voor het installeren van App Service niet in hetzelfde VNet als de SQL-server wordt gebruikt bevindt zich voor het hosten van de App Service-databases, kunt u zich niet kunt oplossen door de naam.  **Dit is normaal**.<br><br>Controleer of de informatie hebt ingevoerd voor de SQL Server-naam en de accounts informatie juist is en druk op **Ja** om door te gaan van de installatie van App Service. Klik op **volgende**.
 
     ![SQL Server-verbindingsgegevens](media/app-service-deploy-ha/11.png)
 
@@ -231,3 +240,5 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 [Scale-out App Service](azure-stack-app-service-add-worker-roles.md). Mogelijk moet u extra werkrollen van App Service-infrastructuur rol om te voldoen aan de vraag van de verwachte toepassing in uw omgeving toevoegen. App Service in Azure Stack biedt standaard ondersteuning voor gratis en gedeelde werkrolniveaus. Als u wilt andere werkrolniveaus toevoegen, moet u meer werkrollen toevoegen.
 
 [Implementatiebronnen configureren](azure-stack-app-service-configure-deployment-sources.md). Er is aanvullende configuratie vereist voor de ondersteuning van de implementatie op aanvraag vanuit meerdere cloudproviders voor broncodebeheer zoals GitHub, BitBucket, OneDrive en DropBox.
+
+[Maak een back-up van App Service](app-service-back-up.md). Na een succesvolle implementatie en het configureren van App Service, moet u ervoor zorgen dat alle onderdelen die nodig zijn voor herstel na noodgevallen back-ups om te voorkomen dat gegevens verloren gaan en onnodige service uitvaltijd te voorkomen tijdens herstelbewerkingen.

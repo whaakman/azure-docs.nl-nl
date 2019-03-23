@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: bc4553df239dbb8b62a31414539b10998cd74f02
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e960f662fda4272bbc9763eb04fdb739c4776af8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189645"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371329"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Quickstart: C# gebruiken om de Text Analytics Cognitive Service aan te roepen
 <a name="HOLTop"></a>
@@ -35,7 +35,7 @@ U moet ook de [eindpunt- en toegangssleutel](../How-tos/text-analytics-how-to-ac
 1. Klik met de rechtermuisknop op de oplossing en klik op **Manage NuGet Packages for Solution**.
 1. Schakel het selectievakje **Include Prerelease** in.
 1. Selecteer het tabblad **Browse** en zoek naar **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
-1. Selecteer het NuGet-pakket en installeer het. Mogelijk moet u v2.8.0 voor nu (3-18-2019), v3.0.0, tot een fout in de software niet is opgelost.
+1. Selecteer het NuGet-pakket en installeer het. U moet mogelijk downgraden naar v2.8.0 voorlopig (van 3-18-2019) totdat de voorbeeldcode wordt bijgewerkt met v3.0.0.
 
 > [!Tip]
 >  Hoewel u de [HTTP-eindpunten](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) rechtstreeks vanuit C# kunt aanroepen, maakt de SDK Microsoft.Azure.CognitiveServices.Language het veel gemakkelijker om de service aan te roepen zonder dat u zich zorgen hoeft te maken over het serialiseren en deserialiseren van JSON.

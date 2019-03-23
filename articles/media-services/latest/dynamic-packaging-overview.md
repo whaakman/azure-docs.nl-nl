@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d9c59bdb2e8a7b115761554f70ebedeecaf5d04e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9ba1b5a9b231822fd12d5a349e2518bc77669274
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901719"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351402"
 ---
 # <a name="dynamic-packaging"></a>Dynamische verpakking
 
 Microsoft Azure Media Services kunnen worden gebruikt om veel media bron-bestandsindelingen, streaming-indelingen, media en beveiliging van inhoud die is geformatteerd met tal van client-technologieën (bijvoorbeeld iOS- en XBOX genoemd). Deze clients verschillende protocollen te begrijpen, bijvoorbeeld iOS heeft dat een HTTP Live Streaming (HLS)-indeling en Xbox vereisen Smooth Streaming. Als u een set adaptive bitrate (multi-bitrate) hebt MP4-bestanden (ISO Base Media 14496-12) of een set adaptive bitrate Smooth Streaming-bestanden die u wilt gebruiken op clients die HLS, MPEG-DASH of Smooth Streaming begrijpen, kunt u profiteren van dynamische Verpakking. De pakketten is agnostisch ten opzichte van de video oplossing, SD/HD/UHD - 4K worden ondersteund.
 
-[Streaming-eindpunten](streaming-endpoint-concept.md) is de service voor dynamische pakketten in Media Services gebruikt voor het leveren van media-inhoud naar client spelers. Dynamische pakketten is een functie die wordt standaard geleverd op alle **Streaming-eindpunten** (Standard of Premium). Er zijn geen extra kosten die gepaard gaan met deze functie in Media Services v3. 
+[Streaming-eindpunten](streaming-endpoint-concept.md) is de service voor dynamische pakketten in Media Services gebruikt voor het leveren van media-inhoud naar client spelers. Dynamische pakketten is een functie die wordt standaard geleverd op alle **Streaming-eindpunten** (Standard of Premium). 
 
 Om te profiteren van **dynamische pakketten**, moet u beschikken over een **Asset** met een set adaptive bitrate MP4-bestanden en streaming-configuratiebestanden die nodig zijn voor Media Services dynamische pakketten. Er is één manier om de bestanden naar Codeer uw tussentijds (bron) bestand met Media Services. Als u video's in de gecodeerde Asset beschikbaar voor clients om te worden afgespeeld, u moet maken een **Streaming-Locator gemaakt** en streaming-URL's te bouwen. Klik, op basis van de indeling die is opgegeven in de client streamingmanifest (HLS, DASH of Smooth), u de stream ontvangt in het protocol dat u hebt gekozen.
 
@@ -34,24 +34,8 @@ In Media Services dynamische pakketten gebruikt of u live of on-demand streaming
 
 ![Dynamische verpakking](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-## <a name="common-video-on-demand-workflow"></a>Algemene werkstroom voor video op aanvraag
-
-Hier volgt een algemene Media Services streaming-werkstroom waarbij dynamische pakketten wordt gebruikt.
-
-1. Upload een bestand voor invoer (een tussentijds bestand genoemd). Bijvoorbeeld, H.264 MP4 of WMV (Zie voor de lijst met ondersteunde indelingen [indelingen ondersteund door de Media Encoder Standard](media-encoder-standard-formats.md).
-2. Codeer uw tussentijds bestand op afspelen van H.264 MP4 adaptieve bitrate sets.
-3. Publiceer de asset met de adaptive bitrate die MP4-set. U publiceert door het maken van een **Streaming-Locator gemaakt**.
-4. URL's die zijn gericht op verschillende indelingen (HLS, Dash en Smooth Streaming) maken. De **Streaming-eindpunt** zou zorgen voor de juiste manifest en aanvragen voor deze verschillende indelingen.
-
-## <a name="encode-to-adaptive-bitrate-mp4s"></a>Coderen naar adaptive bitrate MP4s
-
-Voor informatie over [het coderen van een video met Media Services](encoding-concept.md), Zie de volgende voorbeelden:
-
-* [Coderen in een HTTPS-URL met behulp van ingebouwde voorinstellingen](job-input-from-http-how-to.md)
-* [Een lokaal bestand met behulp van ingebouwde voorinstellingen coderen](job-input-from-local-file-how-to.md)
-* [Bouw een aangepaste voorinstelling wilt richten op uw specifieke vereisten voor scenario of het apparaat](customize-encoder-presets-how-to.md)
-
-Zie voor een lijst van Media Encoder Standard indelingen en codecs voor [indelingen en codecs voor](media-encoder-standard-formats.md)
+> [!NOTE]
+> U kunt de Azure-portal op dit moment niet gebruiken om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), of een van de ondersteunde [SDK's](developers-guide.md).
 
 ## <a name="delivery-protocols"></a>Levering protocollen
 
@@ -64,13 +48,60 @@ Zie voor een lijst van Media Encoder Standard indelingen en codecs voor [indelin
 |CMAF VOOR MPEG-DASH|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
+## <a name="common-on-demand-workflow"></a>Algemene werkstroom voor op aanvraag
+
+Hier volgt een algemene Media Services streaming-werkstroom waarbij dynamische pakketten wordt gebruikt.
+
+1. Upload een bestand voor invoer (een tussentijds bestand genoemd). Bijvoorbeeld, H.264 MP4 of WMV (Zie voor de lijst met ondersteunde indelingen [indelingen ondersteund door de Media Encoder Standard](media-encoder-standard-formats.md).
+2. Codeer uw tussentijds bestand op afspelen van H.264 MP4 adaptieve bitrate sets.
+3. Publiceer de asset met de adaptive bitrate die MP4-set. U publiceert door het maken van een **Streaming-Locator gemaakt**.
+4. URL's die zijn gericht op verschillende indelingen (HLS, Dash en Smooth Streaming) maken. De **Streaming-eindpunt** zou zorgen voor de juiste manifest en aanvragen voor deze verschillende indelingen.
+
+### <a name="encode-to-adaptive-bitrate-mp4s"></a>Coderen naar adaptive bitrate MP4s
+
+Voor informatie over [het coderen van een video met Media Services](encoding-concept.md), Zie de volgende voorbeelden:
+
+* [Coderen in een HTTPS-URL met behulp van ingebouwde voorinstellingen](job-input-from-http-how-to.md)
+* [Een lokaal bestand met behulp van ingebouwde voorinstellingen coderen](job-input-from-local-file-how-to.md)
+* [Bouw een aangepaste voorinstelling wilt richten op uw specifieke vereisten voor scenario of het apparaat](customize-encoder-presets-how-to.md)
+
+Zie voor een lijst van Media Encoder Standard indelingen en codecs voor [indelingen en codecs voor](media-encoder-standard-formats.md)
+
+## <a name="common-live-streaming-workflow"></a>Algemene werkstroom voor live streaming
+
+Hier volgen de stappen voor een live streaming-werkstroom:
+
+1. Maak een [Live evenement](live-events-outputs-concept.md).
+1. De opname-URL's ophalen en uw on-premises coderingsprogramma voor het gebruik van de URL voor het verzenden van de bijdrage feed configureren.
+1. De voorbeeld-URL ophalen en deze gebruiken om te controleren dat de invoer van het coderingsprogramma daadwerkelijk worden ontvangen.
+1. Maak een nieuwe **Asset**.
+1. Maak een **uitvoer Live** en gebruikt u de assetnaam van de die u hebt gemaakt.<br/>De **uitvoer Live** worden gearchiveerd de stroom in de **Asset**.
+1. Maak een **Streaming-Locator gemaakt** met de ingebouwde **beleid Streaming** typen.<br/>Als u van plan bent uw inhoud coderen, raadpleegt u [Content protection overzicht](content-protection-overview.md).
+1. Lijst van de paden op de **Streaming-Locator gemaakt** om terug te gaan de URL's te gebruiken.
+1. Ophalen van de hostnaam voor de **Streaming-eindpunt** u wilt streamen uit.
+1. URL's die zijn gericht op verschillende indelingen (HLS, Dash en Smooth Streaming) maken. De **Streaming-eindpunt** zou zorgen voor de juiste manifest en aanvragen voor deze verschillende indelingen.
+
+Een Live-gebeurtenis kan een van twee typen zijn: Pass Through- en live codering. Zie voor meer informatie over live streamen in Media Services v3 [Live streaming overzicht](live-streaming-overview.md).
+
+Het volgende diagram toont de live streamen met dynamische verpakking werkstroom.
+
+![Pass Through-query](./media/live-streaming/pass-through.svg)
+
+## <a name="dynamic-encryption"></a>Dynamische versleuteling
+
+**Dynamische versleuteling** kunt u uw inhoud live of on-demand met AES-128 of een van de drie belangrijkste digital rights management (DRM)-systemen dynamisch versleutelen: Microsoft PlayReady, Google Widevine en FairPlay van Apple. Media Services biedt ook een service voor het leveren van AES-sleutels en DRM (PlayReady, Widevine en FairPlay) licenties voor geautoriseerde clients. Zie voor meer informatie, [dynamische versleuteling](content-protection-overview.md).
+
+## <a name="dynamic-manifest"></a>Dynamische Manifest
+
+Dynamische filtering is gebruikt om te bepalen het aantal sporen te wissen, indelingen bitsnelheden en presentatie tijdvensters die worden verzonden naar de spelers. Zie voor meer informatie, [filters en dynamische manifesten](filters-dynamic-manifest-overview.md).
+
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Codecs invoervideo ondersteund door dynamische verpakking
 
 MP4-bestanden, waarin video gecodeerd met biedt ondersteuning voor dynamische pakketten [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC of AVC1), [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 of hvc1).
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codecs audio wordt ondersteund door dynamische verpakking
 
-MP4-bestanden, waarin de audio die is gecodeerd met biedt ondersteuning voor dynamische pakketten [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, hij AAC v1, v2 HE-AAC), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 of E-AC3), of [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) DTS ( Snelle, DTS LBR, HD DTS, DTS HD zonder verlies).
+MP4-bestanden, waarin de audio die is gecodeerd met biedt ondersteuning voor dynamische pakketten [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, hij AAC v1, v2 HE-AAC), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 of E-AC3), Dolby Atmos, of [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, HD DTS, DTS HD zonder verlies). Streaming van inhoud Dolby Atmos wordt ondersteund voor standaarden, zoals MPEG-DASH-protocol met algemene Streaming-indeling (KVP) of algemene Media toepassing-indeling (CMAF)-gefragmenteerde MP4 en via HTTP Live Streaming (HLS) met CMAF.
 
 > [!NOTE]
 > Bestanden met biedt geen ondersteuning voor dynamische pakketten [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (dit is een verouderde codec).

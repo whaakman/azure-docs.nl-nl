@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317354"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372315"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migreren naar Azure Premium Storage (niet-beheerde schijven)
 
@@ -69,10 +69,10 @@ Premium Storage-accounts hebben de volgende schaalbaarheidsdoelen naast de [Azur
 |:--- |:--- |
 | Capaciteit van de schijf: 35TB<br />Snapshot-capaciteit: 10 TB |Maximaal 50 gigabits per seconde voor binnenkomend en uitgaand |
 
-Bekijk voor meer informatie over specificaties van Premium Storage [schaalbaarheids- en prestatiedoelen voor Azure Storage](storage-scalability-targets.md#premium-storage-account-scale-limits).
+Bekijk voor meer informatie over specificaties van Premium Storage [schaalbaarheids- en prestatiedoelen voor Azure Storage](storage-scalability-targets.md#premium-performance-storage-account-scale-limits).
 
 #### <a name="disk-caching-policy"></a>Beleid voor caching schijf
-Beleid voor caching schijf is standaard *alleen-lezen* voor alle Premium gegevensschijven, en *lezen / schrijven* voor de Premium-schijf die is gekoppeld aan de virtuele machine. Deze configuratieinstelling wordt aanbevolen om de optimale prestaties voor IOs van uw toepassing. Voor schijven schrijfintensief of alleen-schrijven gegevens (zoals SQL Server-logboekbestanden) uitschakelen in schijfcache zodat u betere prestaties van toepassingen kunt bereiken. De cache-instellingen voor bestaande gegevensschijven kunnen worden bijgewerkt met behulp van [Azure Portal](https://portal.azure.com) of de *- HostCaching* parameter van de *Set AzureDataDisk* cmdlet.
+Beleid voor caching schijf is standaard *alleen-lezen* voor alle Premium gegevensschijven, en *lezen / schrijven* voor de Premium-schijf die is gekoppeld aan de virtuele machine. Deze configuratieinstelling wordt aanbevolen om de optimale prestaties voor IOs van uw toepassing. Voor schijven schrijfintensief of alleen-schrijven gegevens (zoals SQL Server-logboekbestanden) uitschakelen in schijfcache zodat u betere prestaties van toepassingen kunt bereiken. De cache-instellingen voor bestaande gegevensschijven kunnen worden bijgewerkt met behulp van de [Azure-portal](https://portal.azure.com) of de *- HostCaching* parameter van de *Set AzureDataDisk* cmdlet.
 
 #### <a name="location"></a>Locatie
 Kies een locatie waar Azure Premium Storage beschikbaar is. Zie [Azure Services per regio](https://azure.microsoft.com/regions/#services) voor actuele informatie over de beschikbare locaties. Virtuele machines zich in dezelfde regio bevinden als het opslagaccount dat winkels de schijven voor de virtuele machine veel betere prestaties krijgt dan als ze zich in verschillende regio's.

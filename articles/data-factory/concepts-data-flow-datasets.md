@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory gegevensstroom gegevenssets toewijzen
-description: Azure Data Factory toewijzing gegevensstroom is sepecific gegevensset compatibel
+description: Azure Data Factory toewijzing gegevensstroom heeft specifieke gegevensset compatibiliteit
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: ad6cfdad519ab3901c58979970ea07439b3106e9
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726920"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371312"
 ---
 # <a name="mapping-data-flow-datasets"></a>Toewijzing van gegevensstroom gegevenssets
 
@@ -42,6 +42,12 @@ Bij het maken van een nieuwe gegevensset, is er een selectievakje met het label 
 ## <a name="import-schemas"></a>Schema's importeren
 
 Bij het importeren van het schema van de gegevensstroom gegevenssets, ziet u een knop Schema importeren. Op deze knop klikt, geeft u twee opties: Importeren uit de bron of importeren uit een lokaal bestand. In de meeste gevallen zult u het schema importeren rechtstreeks vanuit de bron. Echter, als u een bestaand schema-bestand (Parquet-bestanden of CSV met koppen) hebt, u kunt verwijzen naar die lokale bestands- en Data Factory het schema op basis van dat schemabestand definiëren.
+
+## <a name="create-new-table"></a>Nieuwe tabel maken
+
+In de gegevensstroom, kunt u vragen ADF kunt u de tabeldefinitie van een nieuwe maken in de doeldatabase door in te stellen van een gegevensset in de Sink-transformatie die de naam van een nieuwe tabel heeft. In de SQL-gegevensset, klikt u op 'Bewerken' onder de tabelnaam van de en voer de naam van een nieuwe tabel. Vervolgens, in de transformatie Sink inschakelen 'Schema Drift toestaan'. Seth de instelling 'Schema importeren' op None.
+
+![Schema van de gegevensbron transformatie](media/data-flow/dataset2.png "SQL-Schema")
 
 ## <a name="delimited-text-dataset"></a>Tekst met scheidingstekens gegevensset
 

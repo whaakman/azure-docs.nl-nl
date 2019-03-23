@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7243249e7aabf588115ef74f838be8ca67a94c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: cda1b1c2a484f3aa627b8b9cf486528d13f27be8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309500"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369425"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory gebaseerde verificatie op iOS
 
@@ -35,16 +35,16 @@ Deze functie is beschikbaar in preview in Office 365 US Government Defense en fe
 
 | Apps | Ondersteuning |
 | --- | --- |
-| Azure Information Protection-app |![Selecteren][1] |
-| Intune-bedrijfsportal |![Selecteren][1] |
-| Microsoft Teams |![Selecteren][1] |
-| OneNote |![Selecteren][1] |
-| OneDrive |![Selecteren][1] |
-| Outlook |![Selecteren][1] |
-| Power BI |![Selecteren][1] |
-| Skype voor Bedrijven |![Selecteren][1] |
-| Word / Excel / PowerPoint |![Selecteren][1] |
-| Yammer |![Selecteren][1] |
+| Azure Information Protection-app |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Intune-bedrijfsportal |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Microsoft Teams |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| OneNote |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| OneDrive |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Outlook |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Power BI |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Skype voor Bedrijven |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Word / Excel / PowerPoint |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Yammer |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
 
 ## <a name="requirements"></a>Vereisten
 

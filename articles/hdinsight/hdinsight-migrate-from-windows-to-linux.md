@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea808609add942c5cac36e7f0306e4a27ac3bb3a
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 02f698d531555aa9b5498060918a2a361b28817e
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743643"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361248"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migreren van een HDInsight op basis van een Windows-cluster naar een cluster op basis van Linux
 
@@ -24,6 +24,8 @@ HDInsight op basis van Windows biedt een eenvoudige manier om het gebruik van Ap
 
 > [!NOTE]  
 > HDInsight-clusters voor het gebruik van Ubuntu op lange termijn ondersteuning (TNS) als het besturingssysteem voor de knooppunten in het cluster. Zie voor meer informatie over de versie van Ubuntu beschikbaar met HDInsight, samen met andere versiebeheer onderdeelinformatie [HDInsight onderdeel versies](hdinsight-component-versioning.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="migration-tasks"></a>Migratietaken
 
@@ -55,7 +57,7 @@ Nadat u hebt gecontroleerd dat alles werkt zoals verwacht, plant u uitvaltijd vo
 
 Er zijn veel methoden om de gegevens en taken te kopiëren, de twee besproken in deze sectie zijn echter de meest eenvoudige methoden voor het rechtstreeks bestanden verplaatsen naar een testcluster.
 
-#### <a name="hdfs-copy"></a>HDFS-kopie
+#### <a name="hdfs-copy"></a>HDFS copy
 
 Gebruik de volgende stappen uit om gegevens te kopiëren van de productiecluster met de testcluster. Deze stappen wordt gebruikgemaakt van de `hdfs dfs` hulpprogramma dat is opgenomen in HDInsight.
 
@@ -63,7 +65,7 @@ Gebruik de volgende stappen uit om gegevens te kopiëren van de productiecluster
 
     ```powershell
     $clusterName="Your existing HDInsight cluster name"
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
     write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
     write-host "Default container: $clusterInfo.DefaultStorageContainer"
     ```
@@ -93,7 +95,7 @@ Gebruik de volgende stappen uit om gegevens te kopiëren van de productiecluster
 
 #### <a name="direct-copy-between-blobs-in-azure-storage"></a>Directe kopiëren tussen de blobs in Azure Storage
 
-U wilt ook gebruiken de `Start-AzureStorageBlobCopy` Azure PowerShell-cmdlet om te kopiëren van BLOB's tussen opslagaccounts buiten HDInsight. Zie voor meer informatie de sectie van de Azure-Blobs van Azure PowerShell gebruiken met Azure Storage beheren.
+U wilt ook gebruiken de `Start-AzStorageBlobCopy` Azure PowerShell-cmdlet om te kopiëren van BLOB's tussen opslagaccounts buiten HDInsight. Zie voor meer informatie de sectie van de Azure-Blobs van Azure PowerShell gebruiken met Azure Storage beheren.
 
 ## <a name="client-side-technologies"></a>Client-side-technologieën
 
@@ -148,7 +150,7 @@ Veel van de web-UI's die u hebt gebruikt met HDInsight op basis van Windows, zoa
 Zie de volgende documenten voor meer informatie over het werken met Ambari:
 
 * [Apache Ambari Web](hdinsight-hadoop-manage-ambari.md)
-* [Apache Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
 
 ### <a name="ambari-alerts"></a>Ambari-waarschuwingen
 
@@ -195,7 +197,7 @@ De volgende tabel bevat richtlijnen over het migreren van uw Hive-workloads.
 
 | Op Windows gebaseerde ik gebruik... | Op basis van Linux... |
 | --- | --- |
-| **Hive-Editor** |[Apache Hive-weergave in Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md) |
+| **Hive Editor** |[Apache Hive-weergave in Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` inschakelen van Tez |Apache Tez is de engine voor het uitvoeren van standaard voor op basis van Linux-clusters, zodat de set-instructie is niet meer nodig. |
 | C#-door gebruiker gedefinieerde functies | Zie voor meer informatie over het valideren van C#-onderdelen met HDInsight op basis van Linux [migreren .NET-oplossingen op Linux gebaseerde HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD-bestanden of scripts op de server worden aangeroepen als onderdeel van een Hive-taak |Bash-scripts gebruiken |

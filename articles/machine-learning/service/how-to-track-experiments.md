@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 50cd5969ce02ee5eea0637c950069d684d67b5d3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336591"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361452"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Logboek metrische gegevens tijdens de training wordt uitgevoerd in Azure Machine Learning
 
@@ -32,7 +32,7 @@ De volgende metrische gegevens kunnen worden toegevoegd aan een run tijdens het 
 |Lijsten|Functie:<br>`run.log_list(name, value, description='')`<br><br>Voorbeeld:<br>Run.log_list ("nauwkeurigheden," [0,6, 0,7, 0.87]) | Meld u een lijst met waarden voor de uitvoering met de opgegeven naam.|
 |Rij|Functie:<br>`run.log_row(name, description=None, **kwargs)`<br>Voorbeeld:<br>Run.log_row ("Y via X", x = 1, y = 0.4) | Met behulp van *log_row* maakt u een metrische waarde met meerdere kolommen zoals beschreven in kwargs. Elke benoemde parameter genereert een kolom met de opgegeven waarde.  *log_row* kan eenmaal worden aangeroepen voor het melden van een willekeurige tuple of meerdere keren in een lus voor het genereren van een volledige tabel.|
 |Tabel|Functie:<br>`run.log_table(name, value, description='')`<br><br>Voorbeeld:<br>Run.log_table ("Y via X", {"x": [1, 2, 3], "y": [0,6, 0,7, 0,89]}) | Meld u aan een dictionary-object de uitvoeren met de opgegeven naam. |
-|Installatiekopieën|Functie:<br>`run.log_image(name, path=None, plot=None)`<br><br>Voorbeeld:<br>Run.log_image ("ROC" plt) | Meld u aan een installatiekopie van de record uitvoeren. Log_image gebruiken om aan te melden voor een afbeelding of een matplotlib getekend met het uitvoeren.  Deze installatiekopieën worden zichtbaar en vergelijkbare in de record uitvoeren.|
+|Installatiekopieën|Functie:<br>`run.log_image(name, path=None, plot=None)`<br><br>Voorbeeld:<br>`run.log_image("ROC", plt)` | Meld u aan een installatiekopie van de record uitvoeren. Log_image gebruiken om aan te melden voor een afbeelding of een matplotlib getekend met het uitvoeren.  Deze installatiekopieën worden zichtbaar en vergelijkbare in de record uitvoeren.|
 |Een uitvoering taggen|Functie:<br>`run.tag(key, value=None)`<br><br>Voorbeeld:<br>Run.Tag ("ingeschakeld", "Ja") | Tag de uitvoering met een tekenreekssleutel en een optionele tekenreeks-waarde.|
 |Bestand of map uploaden|Functie:<br>`run.upload_file(name, path_or_stream)`<br> <br> Voorbeeld:<br>Run.upload_file ("best_model.pkl", ". / model.pkl") | Upload een bestand naar de record uitvoeren. Wordt uitgevoerd automatisch vastleggen bestand in de map met de opgegeven uitvoer, die standaard ". / levert ' voor de meeste typen die worden uitgevoerd.  Gebruik upload_file alleen als aanvullende bestanden moeten worden geüpload of een map met de uitvoer is niet opgegeven. Het is raadzaam toe te voegen `outputs` op de naam, zodat deze wordt het geüpload naar de map voor uitvoer. U kunt alle bestanden die gekoppeld zijn een lijst met deze record door te voeren met de naam `run.get_file_names()`|
 
@@ -48,7 +48,7 @@ Als u wilt bijhouden of bewaken van uw experiment, moet u code om te starten wan
 ## <a name="set-up-the-workspace"></a>Instellen van de werkruimte
 Voordat u logboekregistratie en het verzenden van een experiment toevoegt, moet u de werkruimte instellen.
 
-1. Laden van de werkruimte. Voor meer informatie over het instellen van de configuratie van de standaardwerkruimte, volgt u de [snelstartgids](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
+1. Laden van de werkruimte. Voor meer informatie over het instellen van de configuratie van de werkruimte, volg de stappen in [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md#sdk).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -218,7 +218,9 @@ In dit voorbeeld is een vervolg op het basismodel sklearn Ridge van boven. Hierv
    ```
 
 ## <a name="cancel-a-run"></a>Een uitvoering annuleren
-Nadat een uitvoering is ingediend, kunt u deze annuleren, zelfs als u de objectverwijzing verloren hebt als u weet de naam van het experiment wat en id uitvoeren. 
+
+ALTER een uitvoering is ingediend, kunt u deze annuleren, zelfs als u de objectverwijzing verloren hebt als u weet de naam van het experiment wat en id. 
+
 
 ```python
 from azureml.core import Experiment
@@ -239,7 +241,7 @@ print(type(r), r.get_status())
 if r.get_status() not in ['Complete', 'Failed']:
     r.cancel()
 ```
-Houd er rekening mee dat momenteel wordt alleen ScriptRun en PipelineRun typen bieden ondersteuning voor de annuleringsbewerking.
+Momenteel wordt alleen ScriptRun en PipelineRun typen bieden ondersteuning voor de annuleringsbewerking.
 
 Bovendien kunt u een uitvoeren via de CLI met behulp van de volgende opdracht uit:
 ```shell

@@ -11,17 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: fa94bffc05879be9d6bbaaa7cd884c36ffe7e0b8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451278"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372298"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-gegevensbronnen in Azure Monitor
-Syslog is een protocol voor het vastleggen van gebeurtenis die geldt voor Linux.  Toepassingen wordt berichten die kunnen worden opgeslagen op de lokale computer of worden geleverd met een Syslog-collector verzonden.  Wanneer de Log Analytics-agent voor Linux is geïnstalleerd, configureert het de lokale Syslog-daemon voor het doorsturen van berichten naar de agent.  De agent verzendt het bericht vervolgens naar Azure Monitor waarin een record wordt gemaakt.  
+Syslog is een protocol voor het vastleggen van gebeurtenis die geldt voor Linux. Toepassingen wordt berichten die kunnen worden opgeslagen op de lokale computer of worden geleverd met een Syslog-collector verzonden. Wanneer de Log Analytics-agent voor Linux is geïnstalleerd, configureert het de lokale Syslog-daemon voor het doorsturen van berichten naar de agent. De agent verzendt het bericht vervolgens naar Azure Monitor waarin een record wordt gemaakt.  
 
 > [!NOTE]
 > Azure Monitor biedt ondersteuning voor verzameling van berichten die worden verzonden door rsyslog of syslog-ng het volgende, waarbij rsyslog de standaard-daemon is. De standaard syslog-daemon op versie 5 van Red Hat Enterprise Linux, CentOS en Oracle Linux-versie (sysklog) wordt niet ondersteund voor de verzameling van syslog. Syslog-gegevens verzamelen uit deze versie van deze distributies de [rsyslog-daemon](http://rsyslog.com) moet worden geïnstalleerd en geconfigureerd ter vervanging van sysklog.
@@ -30,20 +30,38 @@ Syslog is een protocol voor het vastleggen van gebeurtenis die geldt voor Linux.
 
 ![Syslog-verzameling](media/data-sources-syslog/overview.png)
 
+De volgende mogelijkheden worden ondersteund door de Syslog-collector:
+
+* kern
+* user
+* mail
+* daemon
+* auth
+* syslog
+* lpr
+* news
+* uucp
+* cron
+* authpriv
+* ftp
+* local0 local7
+
+Voor elke andere faciliteit [configureren van een gegevensbron van de aangepaste logboeken](data-sources-custom-logs.md) in Azure Monitor.
+ 
 ## <a name="configuring-syslog"></a>Syslog configureren
-De Log Analytics-agent voor Linux worden alleen verzameld voor gebeurtenissen met de faciliteiten en ernstcategorieën die zijn opgegeven in de configuratie.  U kunt Syslog configureren via Azure portal of door het beheer van configuratiebestanden op uw Linux-agents.
+De Log Analytics-agent voor Linux worden alleen verzameld voor gebeurtenissen met de faciliteiten en ernstcategorieën die zijn opgegeven in de configuratie. U kunt Syslog configureren via Azure portal of door het beheer van configuratiebestanden op uw Linux-agents.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Syslog configureren in Azure portal
-Configureren van Syslog uit de [menu van de gegevens in de geavanceerde instellingen](agent-data-sources.md#configuring-data-sources).  Deze configuratie wordt bezorgd in het configuratiebestand op elke Linux-agent.
+Configureren van Syslog uit de [menu van de gegevens in de geavanceerde instellingen](agent-data-sources.md#configuring-data-sources). Deze configuratie wordt bezorgd in het configuratiebestand op elke Linux-agent.
 
-U kunt een nieuwe opslagruimte toevoegen door te klikken en de naam te typen **+**.  Voor elke faciliteit worden alleen berichten met de geselecteerde ernstcategorieën verzameld.  Raadpleeg de ernstcategorieën voor de specifieke faciliteit die u wenst te verzamelen.  U kunt geen eventuele aanvullende criteria om berichten te filteren opgeven.
+U kunt een nieuwe opslagruimte toevoegen door te klikken en de naam te typen **+**. Voor elke faciliteit worden alleen berichten met de geselecteerde ernstcategorieën verzameld.  Raadpleeg de ernstcategorieën voor de specifieke faciliteit die u wenst te verzamelen. U kunt geen eventuele aanvullende criteria om berichten te filteren opgeven.
 
 ![Syslog configureren](media/data-sources-syslog/configure.png)
 
-Standaard worden alle wijzigingen in de configuratie automatisch doorgegeven naar alle agents.  Als u Syslog handmatig configureren op elke Linux-agent wilt, klikt u vervolgens het selectievakje *toepassen op de onderstaande configuratie op mijn Linux-machines*.
+Standaard worden alle wijzigingen in de configuratie automatisch doorgegeven naar alle agents. Als u Syslog handmatig configureren op elke Linux-agent wilt, klikt u vervolgens het selectievakje *toepassen op de onderstaande configuratie op mijn Linux-machines*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Syslog configureren op Linux-agent
-Wanneer de [Log Analytics-agent is geïnstalleerd op een Linux-client](../../azure-monitor/learn/quick-collect-linux-computer.md), het installeren van een standaard syslog-configuratiebestand dat bepaalt de opslagruimte en de ernst van de berichten die worden verzameld.  Dit bestand om de configuratie te wijzigen, kunt u wijzigen.  Het configuratiebestand is verschillend, afhankelijk van de Syslog-daemon die op de client is geïnstalleerd.
+Wanneer de [Log Analytics-agent is geïnstalleerd op een Linux-client](../../azure-monitor/learn/quick-collect-linux-computer.md), het installeren van een standaard syslog-configuratiebestand dat bepaalt de opslagruimte en de ernst van de berichten die worden verzameld. Dit bestand om de configuratie te wijzigen, kunt u wijzigen. Het configuratiebestand is verschillend, afhankelijk van de Syslog-daemon die op de client is geïnstalleerd.
 
 > [!NOTE]
 > Als u de syslog-configuratie bewerken, moet u de syslog-daemon voor de wijzigingen pas van kracht opnieuw opstarten.
@@ -51,7 +69,7 @@ Wanneer de [Log Analytics-agent is geïnstalleerd op een Linux-client](../../azu
 >
 
 #### <a name="rsyslog"></a>rsyslog
-Het configuratiebestand voor rsyslog bevindt zich in **/etc/rsyslog.d/95-omsagent.conf**.  De Standaardinhoud worden hieronder weergegeven.  Dit syslog-berichten verzonden vanaf de lokale agent voor alle installaties met een niveau van de waarschuwing of hoger worden verzameld.
+Het configuratiebestand voor rsyslog bevindt zich in **/etc/rsyslog.d/95-omsagent.conf**. De Standaardinhoud worden hieronder weergegeven. Dit syslog-berichten verzonden vanaf de lokale agent voor alle installaties met een niveau van de waarschuwing of hoger worden verzameld.
 
     kern.warning       @127.0.0.1:25224
     user.warning       @127.0.0.1:25224
@@ -71,13 +89,13 @@ Het configuratiebestand voor rsyslog bevindt zich in **/etc/rsyslog.d/95-omsagen
     local6.warning     @127.0.0.1:25224
     local7.warning     @127.0.0.1:25224
 
-U kunt een faciliteit verwijderen door het verwijderen van een sectie van het configuratiebestand.  U kunt de ernstcategorieën die door het wijzigen van deze faciliteit vermelding voor een bepaalde opslagruimte worden verzameld beperken.  Bijvoorbeeld, als u wilt beperken van de installatie van de gebruiker voor de berichten met een ernst van fout of hoger moet u deze regel van het configuratiebestand met de volgende wijzigen:
+U kunt een faciliteit verwijderen door het verwijderen van een sectie van het configuratiebestand. U kunt de ernstcategorieën die door het wijzigen van deze faciliteit vermelding voor een bepaalde opslagruimte worden verzameld beperken. Bijvoorbeeld, als u wilt beperken van de installatie van de gebruiker voor de berichten met een ernst van fout of hoger moet u deze regel van het configuratiebestand met de volgende wijzigen:
 
     user.error    @127.0.0.1:25224
 
 
 #### <a name="syslog-ng"></a>Syslog-ng het volgende
-Het configuratiebestand voor syslog-ng het volgende is een locatie op **/etc/syslog-ng/syslog-ng.conf**.  De Standaardinhoud worden hieronder weergegeven.  Dit syslog-berichten verzonden vanaf de lokale agent voor alle faciliteiten en alle ernstcategorieën worden verzameld.   
+Het configuratiebestand voor syslog-ng het volgende is een locatie op **/etc/syslog-ng/syslog-ng.conf**.  De Standaardinhoud worden hieronder weergegeven. Dit syslog-berichten verzonden vanaf de lokale agent voor alle faciliteiten en alle ernstcategorieën worden verzameld.   
 
     #
     # Warnings (except iptables) in one file:
@@ -128,7 +146,7 @@ Het configuratiebestand voor syslog-ng het volgende is een locatie op **/etc/sys
     filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
-U kunt een faciliteit verwijderen door het verwijderen van een sectie van het configuratiebestand.  U kunt de ernstcategorieën die voor een bepaalde opslagruimte worden verzameld door deze te verwijderen uit de lijst kunt beperken.  Bijvoorbeeld, als u wilt de installatie van de gebruiker voor de berichten alleen waarschuwingen en kritieke beperken, moet u die sectie van het configuratiebestand met de volgende wijzigen:
+U kunt een faciliteit verwijderen door het verwijderen van een sectie van het configuratiebestand. U kunt de ernstcategorieën die voor een bepaalde opslagruimte worden verzameld door deze te verwijderen uit de lijst kunt beperken.  Bijvoorbeeld, als u wilt de installatie van de gebruiker voor de berichten alleen waarschuwingen en kritieke beperken, moet u die sectie van het configuratiebestand met de volgende wijzigen:
 
     #OMS_facility = user
     filter f_user_oms { level(alert,crit) and facility(user); };
@@ -168,7 +186,7 @@ U kunt het poortnummer dat door het maken van twee configuratiebestanden wijzige
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
         auth.warning              @127.0.0.1:%SYSLOG_PORT%
 
-* De configuratie van de syslog-ng het volgende moet worden gewijzigd door het kopiëren van de voorbeeldconfiguratie hieronder wordt weergegeven en de aangepaste gewijzigde instellingen toe te voegen aan het einde van het configuratiebestand van de syslog-ng.conf zich in `/etc/syslog-ng/`.  Voer **niet** gebruiken het standaardlabel **% WORKSPACE_ID % _oms** of **% WORKSPACE_ID_OMS**, definiëren van een aangepaste label voor het te onderscheiden van de wijzigingen.  
+* De configuratie van de syslog-ng het volgende moet worden gewijzigd door het kopiëren van de voorbeeldconfiguratie hieronder wordt weergegeven en de aangepaste gewijzigde instellingen toe te voegen aan het einde van het configuratiebestand van de syslog-ng.conf zich in `/etc/syslog-ng/`. Voer **niet** gebruiken het standaardlabel **% WORKSPACE_ID % _oms** of **% WORKSPACE_ID_OMS**, definiëren van een aangepaste label voor het te onderscheiden van de wijzigingen.  
 
     > [!NOTE]
     > Als u de standaardwaarden in het configuratiebestand wijzigt, wordt deze overschreven wanneer de agent van toepassing een standaardconfiguratie is.

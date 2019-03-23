@@ -12,21 +12,22 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0422cc3376caa6c2f99a0838684d84047a5937ed
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: f97b4ee364ecadde7738b8fe077f21d5732365f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313563"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371806"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Adreslijstintegratie tussen Azure MFA-server en Active Directory
 
 Gebruik de sectie Adreslijstintegratie van de Azure MFA-server voor integratie met Active Directory of een andere LDAP-directory. U kunt kenmerken configureren zodat deze overeenkomen met het Active Directory-schema en automatische gebruikerssynchronisatie instellen.
 
 ## <a name="settings"></a>Instellingen
+
 Standaard is de Azure MFA-server (Multi-Factor Authentication) geconfigureerd om de gebruikers van Active Directory te importeren of te synchroniseren.  Op het tabblad Directory-integratie kunt u het standaardgedrag negeren en een binding maken met een andere LDAP-directory, een ADAM-directory of specifieke Active Directory-domeincontroller.  U kunt hier ook LDAP-verificatie gebruiken om een proxy op LDAP uit te voeren of LDAP-binding gebruiken als een RADIUS-doel, pre-authenticatie voor IIS-authenticatie gebruiken of primaire authenticatie voor de gebruikersportal gebruiken.  De volgende tabel beschrijft de afzonderlijke instellingen.
 
-![Instellingen](./media/howto-mfaserver-dir-ad/dirint.png)
+![LDAP-configuratie in de MFA-Server bewerken](./media/howto-mfaserver-dir-ad/dirint.png)
 
 | Functie | Description |
 | --- | --- |
@@ -50,9 +51,10 @@ De volgende tabel beschrijft de LDAP-configuratie-instellingen.
 | Knop Testen |Klik op de knop **Testen** om de binding met de LDAP-server te testen.  <br><br>U hoeft de optie **LDAP gebruiken** niet te selecteren om de binding te testen. Hiermee kan de binding worden getest voordat u de LDAP-configuratie gebruikt. |
 
 ## <a name="filters"></a>Filters
+
 Met behulp van filters kunt u criteria instellen om records te kwalificeren bij het uitvoeren van een directoryzoekopdracht.  Door het filter in te stellen kunt u het bereik bepalen van de objecten die u wilt synchroniseren.  
 
-![Filters](./media/howto-mfaserver-dir-ad/dirint2.png)
+![Directory filteren in de MFA-Server configureren](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 Azure Multi-Factor Authentication heeft de volgende drie filteropties:
 
@@ -61,11 +63,12 @@ Azure Multi-Factor Authentication heeft de volgende drie filteropties:
 * **Gebruikersfilter** - Geef de filtercriteria op die worden gebruikt om gebruikersrecords te kwalificeren bij het uitvoeren van een directoryzoekopdracht.  Voor Active Directory en ADAM wordt meestal (&(objectClass=user)(objectCategory=person)) gebruikt.  Voor andere LDAP-mappen gebruikt u (objectClass=inetOrgPerson) of iets soortgelijks, afhankelijk van het Active Directory-schema. <br>Opmerking:  Als dit veld leeg blijft, wordt (& (objectCategory=person)(objectClass=user)) gebruikt standaard.
 
 ## <a name="attributes"></a>Kenmerken
+
 U kunt kenmerken, indien nodig, aanpassen voor een specifieke directory.  Hierdoor kunt u aangepaste kenmerken toevoegen en de synchronisatie afstemmen op alleen de kenmerken die u nodig hebt. Gebruik de naam van het kenmerk zoals gedefinieerd in de directory-schema voor de waarde van elk kenmerkveld bevindt. De volgende tabel bevat aanvullende informatie over elke functie.
 
 Kenmerken kunnen handmatig worden ingevoerd en hoeven niet overeen te komen met een kenmerk in de lijst met kenmerken.
 
-![Kenmerken](./media/howto-mfaserver-dir-ad/dirint3.png)
+![Kenmerken voor directory-integratie in de MFA-Server aanpassen](./media/howto-mfaserver-dir-ad/dirint3.png)
 
 | Functie | Description |
 | --- | --- |
@@ -96,9 +99,10 @@ Kenmerken kunnen handmatig worden ingevoerd en hoeven niet overeen te komen met 
 
 Klik op het tabblad Kenmerken op **Bewerken** om de kenmerken te bewerken.  U ziet nu een venster waarin u de kenmerken kunt bewerken. Selecteer de **...** naast een willekeurig kenmerk om een venster te openen waarin u kunt kiezen welke kenmerken moeten worden weergegeven.
 
-![Kenmerken bewerken](./media/howto-mfaserver-dir-ad/dirint4.png)
+![Toewijzing van directory-kenmerk in de MFA-Server bewerken](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>Synchronisatie
+
 Synchronisatie houdt de Azure MFA-gebruikersdatabase gesynchroniseerd met de gebruikers in Active Directory of een andere LDAP-directory (Lightweight Directory Access Protocol). Het proces is vergelijkbaar met het handmatig importeren van gebruikers uit Active Directory, maar pollt periodiek naar te verwerken wijzigingen in Active Directory-gebruikers en -beveiligingsgroepen.  Ook worden gebruikers ingeschakeld of verwijderd die zijn verwijderd uit een container, beveiligingsgroep of Active Directory.
 
 De Multi-Factor Authentication-service ADSync is een Windows-service die de periodieke polling van Active Directory uitvoert.  Verwar dit niet met Azure AD Sync of Azure AD Connect.  Hoewel de Multi-Factor Authentication-service ADSync is gebouwd op een vergelijkbare codebasis, is deze service specifiek voor de Azure Multi-Factor Authentication-server.  Deze service wordt geïnstalleerd met een status Gestopt en wordt gestart door de service van de Multi-Factor Authentication-server wanneer deze is geconfigureerd om te worden uitgevoerd.  Als u een Multi-Factor Authentication-serverconfiguratie met meerdere servers hebt, kan de Multi-Factor Authentication-service ADSync slechts op één server worden uitgevoerd.
@@ -107,7 +111,7 @@ De Multi-Factor Authentication-service ADSync maakt gebruik van de DirSync LDAP-
 
 Als de LDAP-directory ondersteuning biedt en is geconfigureerd voor DirSync, wordt een poll naar wijzigingen in gebruikers en groepsbeveiligingen op dezelfde manier uitgevoerd als bij Active Directory.  Als de LDAP-directory geen ondersteuning biedt voor het besturingselement DirSync, wordt bij elke cyclus een volledige synchronisatie uitgevoerd.
 
-![Synchronisatie](./media/howto-mfaserver-dir-ad/dirint5.png)
+![Synchronisatie van directory-objecten naar MFA-Server](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 De volgende tabel bevat aanvullende informatie over elk van de instellingen op het tabblad Synchronisatie.
 
@@ -133,7 +137,8 @@ Met de knoppen Omhoog en Omlaag kan de beheerder de volgorde van de synchronisat
 > [!TIP]
 > Na het verwijderen van synchronisatie-items moet een volledige synchronisatie worden uitgevoerd.  Na het rangschikken van synchronisatie-items moet een volledige synchronisatie worden uitgevoerd.  Klik op **Nu synchroniseren** om een volledige synchronisatie uit te voeren.
 
-## <a name="multi-factor-auth-servers"></a>Multi-Factor Auth-servers
-Extra Multi-Factor Authentication-servers kunnen worden ingesteld om te fungeren als een back-up-RADIUS-proxy, LDAP-proxy of voor IIS-authenticatie. De configuratie van de synchronisatie wordt gedeeld tussen alle agents. De service van de Multi-Factor Authentication-server kan echter slechts op één van deze agents worden uitgevoerd. Op dit tabblad kunt u de Multi-Factor Authentication-server selecteren die voor synchronisatie moet worden ingeschakeld.
+## <a name="multi-factor-authentication-servers"></a>Multi-factor Authentication-servers
 
-![Multi-Factor Auth-servers](./media/howto-mfaserver-dir-ad/dirint6.png)
+Extra multi-factor Authentication-servers kunnen worden ingesteld om te fungeren als een back-up-RADIUS-proxy, LDAP-proxy, of voor IIS-verificatie. De configuratie van de synchronisatie wordt gedeeld tussen alle agents. Slechts één van deze agents hebben echter de multi-factor Authentication-server-service actief is. Op dit tabblad kunt u de multi-factor Authentication-server die moet worden ingeschakeld voor synchronisatie selecteren.
+
+![Gerelateerde multi-factor Authentication-Servers](./media/howto-mfaserver-dir-ad/dirint6.png)

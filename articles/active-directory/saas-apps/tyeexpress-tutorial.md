@@ -4,129 +4,129 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: B42374E5-2559-4309-8EF2-820BEE7EBB0C
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/03/2017
+ms.topic: tutorial
+ms.date: 03/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 334f5fa2309c44bebe8583f497fdaa3c7578e5ae
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5dc1451d75b14c89fd9fa1742c3e0b078b035d7f
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433413"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Zelfstudie: Azure Active Directory-integratie met T & E Express
 
 In deze zelfstudie leert u hoe u T & E Express integreren met Azure Active Directory (Azure AD).
-
 T & E Express integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot T & E Express heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij T & E Express (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - de Azure Management portal beheren
+* U kunt beheren in Azure AD die toegang tot T & E Express heeft.
+* U kunt uw gebruikers worden automatisch aangemeld T & E Express (Single Sign-On) met hun Azure AD-accounts inschakelen.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-Zie [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Azure AD-integratie configureren met T & E Express, moet u de volgende items:
 
-- Een Azure AD-abonnement
-- Een T & E Express eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- U moet uw productie-omgeving, niet gebruiken als dit nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* T & E Express eenmalige aanmelding ingeschakeld abonnement
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. T & E Express uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
+
+* T & E Express ondersteunt **IDP** gestart door SSO
 
 ## <a name="adding-te-express-from-the-gallery"></a>T & E Express uit de galerie toe te voegen
+
 Voor het configureren van de integratie van d & E Express in Azure AD, moet u T & E Express uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt T & E Express uit de galerie toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure Management Portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
-    ![Active Directory][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![Applicaties][2]
-    
-1. Klik op **toevoegen** knop boven aan het dialoogvenster.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Applicaties][3]
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Typ in het zoekvak **T & E Express**.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/tyeexpress-tutorial/tutorial_tyeexpress_search.png)
+4. Typ in het zoekvak **T & E Express**, selecteer **T & E Express** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-1. Selecteer in het deelvenster resultaten **T & E Express**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![T & E Express in de lijst met resultaten](common/search-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/tyeexpress-tutorial/tutorial_tyeexpress_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding in T & E Express op basis van een testgebruiker 'Julia steen' genoemd.
-
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in T & E Express is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in T & E Express worden gemaakt.
-
-Deze relatie koppeling tot stand is gebracht door toe te wijzen de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in T & E Express.
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding in t & E Express op basis van een testgebruiker met de naam **Britta Simon**.
+Voor eenmalige aanmelding in om te werken, een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker T & E Express moet worden gemaakt.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding in T & E Express, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker T & E Express](#creating-a-te-express-test-user)**  : als u wilt een equivalent van Britta Simon in T & E Express die is gekoppeld aan de Azure AD-weergave van haar zijn.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[T & E Express Single Sign-On configureren](#configure-te-express-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[T & E Express testgebruiker maken](#create-te-express-test-user)**  : als u wilt een equivalent van Britta Simon in T & E Express die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management portal inschakelen en configureren van eenmalige aanmelding in uw toepassing T & E Express.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding in T & E Express, moet u de volgende stappen uitvoeren:**
+Voor het configureren van Azure AD eenmalige aanmelding in T & E Express, moet u de volgende stappen uitvoeren:
 
-1. In de Azure-beheerportal, op de **T & E Express** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/)op de **T & E Express** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster als **modus** Selecteer **SAML gebaseerde aanmelding** voor eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/tyeexpress-tutorial/tutorial_tyeexpress_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **T & E Express domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren](./media/tyeexpress-tutorial/tutorial_tyeexpress_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. In de **id** tekstvak typt u de waarde als: `https://<domain>.tyeexpress.com`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
+4. Op de pagina **Eenmalige aanmelding instellen met SAML** voert u de volgende stappen uit:
 
-    > [!NOTE] 
-    > Houd er rekening mee dat dit niet de werkelijke waarden zijn. U hebt deze waarden bijwerken met de werkelijke id en de antwoord-URL. Wij raden u aan hiervoor de unieke waarde van de tekenreeks in de id te gebruiken. Neem contact op met [T & E Express ondersteuningsteam](http://www.tyeexpress.com/contacto.aspx) om deze waarden te verkrijgen.
+    ![T & E Express domein en URL's, eenmalige aanmelding informatie](common/idp-intiated.png)
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het XML-bestand op uw computer.
+    a. In de **id** tekst typt u de waarde als URL met behulp van het volgende patroon: `https://<domain>.tyeexpress.com`
 
-    ![Eenmalige aanmelding configureren](./media/tyeexpress-tutorial/tutorial_tyeexpress_certificate.png) 
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
-1. Klik op de knop **Save**.
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id en antwoord-URL. Wij raden u aan hiervoor de unieke waarde van de tekenreeks in de id te gebruiken. Neem contact op met [T & E Express-Client ondersteuningsteam](http://www.tyeexpress.com/contacto.aspx) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    ![Eenmalige aanmelding configureren](./media/tyeexpress-tutorial/tutorial_general_400.png)
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
+
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
+
+6. Op de **instellen T & E Express** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-te-express-single-sign-on"></a>T & E Express Single Sign-On configureren
 
 1. Het configureren van eenmalige aanmelding op **T & E snelle** side, meld u aan bij de T & E express toepassing zonder eenmalige SAML-aanmelding over het gebruik van beheerdersreferenties.
 
@@ -138,44 +138,62 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management port
 
     ![Eenmalige aanmelding configureren](./media/tyeexpress-tutorial/tyeAdmin.png)
 
-1. Klik op de **Guardar(Save)** knop de instellingen op te slaan.  
+1. Klik op de **Guardar(Save)** knop de instellingen op te slaan.
 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in de Azure Management portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure Management portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/tyeexpress-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Ga naar **gebruikers en groepen** en klikt u op **alle gebruikers** om de lijst met gebruikers weer te geven.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/tyeexpress-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Aan de bovenkant van het dialoogvenster klikt u op **toevoegen** openen de **gebruiker** dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/tyeexpress-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/tyeexpress-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-te-express-test-user"></a>Het maken van een testgebruiker T & E Express
 
-Om in te schakelen in Azure AD-gebruikers zich aanmelden bij T & E Express, moeten ze worden ingericht in T & E Express.  
-In het geval van T & E Express is inrichten een handmatige taak.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
+
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen tot T & E Express.
+
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **T & E Express**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
+2. Selecteer in de lijst met toepassingen, **T & E Express**.
+
+    ![De T & E Express koppeling in de lijst met toepassingen](common/all-applications.png)
+
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-te-express-test-user"></a>T & E Express testgebruiker maken
+
+Om in te schakelen in Azure AD-gebruikers zich aanmelden bij T & E Express, moeten ze worden ingericht in T & E Express. In het geval van T & E Express is inrichten een handmatige taak.
 
 **Voer de volgende stappen uit om een gebruikersaccount in te richten:**
 
@@ -195,61 +213,17 @@ In het geval van T & E Express is inrichten een handmatige taak.
 
     ![Werknemer toevoegen](./media/tyeexpress-tutorial/tye-userssave.png)
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
-
-In deze sectie maakt inschakelen u Britta Simon haar toegang verlenen tot T & E Express gebruiken Azure eenmalige aanmelding.
-
-![Gebruiker toewijzen][200] 
-
-**Als u wilt toewijzen Britta Simon T & E Express, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-beheerportal, en vervolgens gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201] 
-
-1. Selecteer in de lijst met toepassingen, **T & E Express**.
-
-    ![Eenmalige aanmelding configureren](./media/tyeexpress-tutorial/tutorial_tyeexpress_app.png) 
-
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202] 
-
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel T & E Express in het toegangsvenster, u moet u automatisch aangemeld bij uw T & E Express-toepassing.
+Wanneer u op de tegel T & E Express in het toegangsvenster, moet u worden automatisch aangemeld bij de T & E Express waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/tyeexpress-tutorial/tutorial_general_01.png
-[2]: ./media/tyeexpress-tutorial/tutorial_general_02.png
-[3]: ./media/tyeexpress-tutorial/tutorial_general_03.png
-[4]: ./media/tyeexpress-tutorial/tutorial_general_04.png
-
-[100]: ./media/tyeexpress-tutorial/tutorial_general_100.png
-
-[200]: ./media/tyeexpress-tutorial/tutorial_general_200.png
-[201]: ./media/tyeexpress-tutorial/tutorial_general_201.png
-[202]: ./media/tyeexpress-tutorial/tutorial_general_202.png
-[203]: ./media/tyeexpress-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

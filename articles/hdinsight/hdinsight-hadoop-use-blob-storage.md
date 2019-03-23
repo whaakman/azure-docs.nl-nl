@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: cf6122b45f82b9304acd28819861b9fda2dcb5ed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d88a05b03813eb0ec94a84f60bffb903e1344987
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085725"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361911"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure-opslag gebruiken met Azure HDInsight-clusters
 
@@ -31,9 +31,9 @@ Azure Storage is een robuuste, algemene opslagoplossing die naadloos kan worden 
 
 | Type opslagaccount | Ondersteunde services | Ondersteunde prestatielagen | Ondersteunde toegangslagen |
 |----------------------|--------------------|-----------------------------|------------------------|
-| Algemeen gebruik V2   | Blob               | Standard                    | Hot, Cool archief *    |
+| Algemeen gebruik V2   | Blob               | Standard                    | Hot, Cool en Archive\*    |
 | Algemeen gebruik V1   | Blob               | Standard                    | N/A                    |
-| Blob Storage         | Blob               | Standard                    | Hot, Cool archief *    |
+| Blob Storage         | Blob               | Standard                    | Hot, Cool en Archive\*    |
 
 Het wordt afgeraden om de standaard- blobcontainer te gebruiken voor het opslaan van bedrijfsgegevens. Het is een goede gewoonte om de standaard-blobcontainer na ieder gebruik te verwijderen om de opslagkosten te verlagen. De standaardcontainer bevat toepassings- en Logboeken. Breng de logboeken over naar een andere locatie voordat u de container verwijdert.
 
@@ -108,6 +108,9 @@ Wanneer u een HDInsight-cluster maakt vanuit de portal, kunt u (zoals hieronder 
 
 
 ### <a name="use-azure-powershell"></a>Azure PowerShell gebruiken
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Als u [Azure PowerShell hebt geïnstalleerd en geconfigureerd][powershell-install], kunt u het volgende achter de Azure PowerShell-prompt typen om een opslagaccount en container te maken:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -119,19 +122,19 @@ Als u [Azure PowerShell hebt geïnstalleerd en geconfigureerd][powershell-instal
     $StorageAccountName = "<New Azure Storage Account Name>"
     $containerName = "<New Azure Blob Container Name>"
 
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionID
+    Connect-AzAccount
+    Select-AzSubscription -SubscriptionId $SubscriptionID
 
     # Create resource group
-    New-AzureRmResourceGroup -name $ResourceGroupName -Location $Location
+    New-AzResourceGroup -name $ResourceGroupName -Location $Location
 
     # Create default storage account
-    New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS 
+    New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS 
 
     # Create default blob containers
-    $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-    New-AzureStorageContainer -Name $containerName -Context $destContext
+    $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
+    $destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+    New-AzStorageContainer -Name $containerName -Context $destContext
 
 ### <a name="use-azure-classic-cli"></a>Azure klassieke CLI gebruiken
 
@@ -223,15 +226,15 @@ $containerName = "<BlobStorageContainerName>"  # The default file system contain
 $blob = "example/data/sample.log" # The name of the blob to be downloaded.
 
 # Use Add-AzureAccount if you haven't connected to your Azure subscription
-Connect-AzureRmAccount 
-Select-AzureRmSubscription -SubscriptionID "<Your Azure Subscription ID>"
+Connect-AzAccount 
+Select-AzSubscription -SubscriptionID "<Your Azure Subscription ID>"
 
 Write-Host "Create a context object ... " -ForegroundColor Green
-$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
-$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+$storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
 Write-Host "Download the blob ..." -ForegroundColor Green
-Get-AzureStorageBlobContent -Container $ContainerName -Blob $blob -Context $storageContext -Force
+Get-AzStorageBlobContent -Container $ContainerName -Blob $blob -Context $storageContext -Force
 
 Write-Host "List the downloaded file ..." -ForegroundColor Green
 cat "./$blob"
@@ -244,26 +247,26 @@ $resourceGroupName = "<AzureResourceGroupName>"
 $clusterName = "<HDInsightClusterName>"
 $blob = "example/data/sample.log" # The name of the blob to be downloaded.
 
-$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+$cluster = Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
 $defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
+$defaultStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
 $defaultStorageContainer = $cluster.DefaultStorageContainer
-$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
+$storageContext = New-AzStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
 
 Write-Host "Download the blob ..." -ForegroundColor Green
-Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
+Get-AzStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
 ```
 
 #### <a name="delete-files"></a>Bestanden verwijderen
 
 ```powershell
-Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
+Remove-AzStorageBlob -Container $containerName -Context $storageContext -blob $blob
 ```
 
 #### <a name="list-files"></a>Bestanden in een lijst weergeven
 
 ```powershell
-Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
+Get-AzStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
 ```
 
 #### <a name="run-hive-queries-using-an-undefined-storage-account"></a>Hive-query's uitvoeren met een niet-gedefinieerd opslagaccount
@@ -276,14 +279,14 @@ $clusterName = "<HDInsightClusterName>"
 $undefinedStorageAccount = "<UnboundedStorageAccountUnderTheSameSubscription>"
 $undefinedContainer = "<UnboundedBlobContainerAssociatedWithTheStorageAccount>"
 
-$undefinedStorageKey = Get-AzureStorageKey $undefinedStorageAccount | %{ $_.Primary }
+$undefinedStorageKey = Get-AzStorageKey $undefinedStorageAccount | %{ $_.Primary }
 
-Use-AzureRmHDInsightCluster $clusterName
+Use-AzHDInsightCluster $clusterName
 
 $defines = @{}
 $defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
 
-Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+Invoke-AzHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 ```
 
 ### <a name="use-azure-classic-cli"></a>Azure klassieke CLI gebruiken

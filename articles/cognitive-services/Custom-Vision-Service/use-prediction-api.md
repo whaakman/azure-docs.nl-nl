@@ -7,26 +7,26 @@ author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: sample
-ms.date: 05/03/2018
+ms.topic: article
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: a285bc4c6eecf1a8cdda758af9df1a697c374b5a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e50933ea0231b4be22c2d0f82d33fd02dd0918f5
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533966"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351606"
 ---
-# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Het voorspellingseindpunt gebruiken om afbeeldingen programmatisch te testen met een Custom Vision Service-classificatie
+# <a name="use-the-prediction-endpoint-to-test-images-programmatically"></a>Het eindpunt van de voorspelling voor het testen van installatiekopieën via een programma gebruiken
 
-Nadat u uw model hebt getraind, kunt u afbeeldingen programmatisch testen door ze in te dienen bij de voorspellings-API. 
+Nadat u uw model hebt getraind, kunt u afbeeldingen programmatisch testen door ze in te dienen bij de voorspellings-API.
 
 > [!NOTE]
 > In dit document ziet u hoe u een afbeelding bij de voorspellings-API kunt indienen met behulp van C#. Zie het document [Referentie voorspellings-API](https://go.microsoft.com/fwlink/?linkid=865445) voor meer informatie en voorbeelden van het gebruik van de API.
 
 ## <a name="get-the-url-and-prediction-key"></a>De URL en voorspellingssleutel ophalen
 
-Op de [Custom Vision-webpagina](https://customvision.ai) selecteert u uw project en vervolgens selecteert u het tabblad __Prestaties__. Als u informatie over het gebruik van de voorspellings-API wilt weergeven, inclusief de __voorspellingssleutel__, selecteert u __Voorspellings-URL__. Voor projecten die aan een Azure-resource zijn gekoppeld, kunt u uw __voorspellingssleutel__ ook vinden op de [Azure Portal](https://portal.azure.com)-pagina voor bijbehorende Azure-resources onder __Sleutels__. Kopieer de volgende informatie voor gebruik in de toepassing:
+Op de [Custom Vision-webpagina](https://customvision.ai) selecteert u uw project en vervolgens selecteert u het tabblad __Prestaties__. Als u informatie over het gebruik van de voorspellings-API wilt weergeven, inclusief de __voorspellingssleutel__, selecteert u __Voorspellings-URL__. Voor projecten die zijn gekoppeld aan een Azure-Resource, uw __voorspelling-sleutel__ ook te vinden de [Azure-portal](https://portal.azure.com) -pagina voor gekoppelde Azure-Resource onder __sleutels__. Kopieer de volgende informatie voor gebruik in de toepassing:
 
 * __URL__ voor het gebruik van een __afbeeldingsbestand__.
 * De waarde __Voorspellingssleutel__.
@@ -40,7 +40,7 @@ Op de [Custom Vision-webpagina](https://customvision.ai) selecteert u uw project
 
 1. Maak in Visual Studio een nieuwe C#-consoletoepassing.
 
-2. Gebruik de volgende code als de hoofdtekst van het bestand __Program.cs__.
+1. Gebruik de volgende code als de hoofdtekst van het bestand __Program.cs__.
 
     > [!IMPORTANT]
     > Voer de volgende informatie in:

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: danlep
-ms.openlocfilehash: cdf457eefc88edcc22f1fbaab4859fbcf3b69bca
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: ebbfaba158e7ddb669111f097eb1adde2373aa6c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56653694"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361282"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Vergrendelen van een containerinstallatiekopie in een Azure container registry
 
@@ -35,6 +35,24 @@ Echter, wanneer u een containerinstallatiekopie naar productie implementeert, mo
 Zie de volgende secties voor meer voorbeelden.
 
 ## <a name="lock-an-image-or-repository"></a>Vergrendelen van een afbeelding of de opslagplaats 
+
+### <a name="show-the-current-repository-attributes"></a>De huidige opslagplaats kenmerken weergeven
+Als u wilt zien van de huidige kenmerken van de opslagplaats, voer de volgende [az acr repository show] [ az-acr-repository-show] opdracht:
+
+```azurecli
+az acr repository show \
+    --name myregistry --repository myrepo
+    --output jsonc
+```
+
+### <a name="show-the-current-image-attributes"></a>De huidige kenmerken van de installatiekopie van weergeven
+Als u wilt zien van de huidige kenmerken van een tag, voer de volgende [az acr repository show] [ az-acr-repository-show] opdracht:
+
+```azurecli
+az acr repository show \
+    --name myregistry --image image:tag \
+    --output jsonc
+```
 
 ### <a name="lock-an-image-by-tag"></a>Vergrendelen van een installatiekopie op label
 

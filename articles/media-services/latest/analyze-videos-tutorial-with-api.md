@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 02/18/2019
+ms.date: 03/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9dbe641c5e22129f7db3d3f3b886fea4501300b0
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 6508e90f76a374d628fdd5032c475e4dde8ffa78
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416136"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351776"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Zelfstudie: Video's analyseren met Media Services v3 met behulp van .NET
 
@@ -66,7 +66,7 @@ In het voorbeeld worden de volgende acties uitgevoerd:
 6. De bestanden downloaden die het resultaat zijn van het uitvoeren van de taak. 
 
 > [!NOTE]
-> Wanneer u voorinstellingen voor een Video of Audio Analyzer gebruikt, moet u de Azure-portal gebruiken om uw account in te stellen op 10 S3 Door media gereserveerde eenheden. Zie [Mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md) voor meer informatie.
+> Wanneer u voorinstellingen voor een Video of Audio Analyzer gebruikt, moet u de Azure-portal gebruiken om uw account in te stellen op 10 S3 Door media gereserveerde eenheden. Zie [Mediaverwerking schalen](media-reserved-units-cli-how-to.md) voor meer informatie.
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Starten met het gebruik van Media Services API's met .NET SDK
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 2dafb58a805a2da89852c84ebad08f1c495adb83
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 26bcae12ee5e053289dd18c9f378eff43a0b0e04
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318118"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368167"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Zelfstudie: Een tenant maken in Windows virtueel bureaublad (Preview)
 
@@ -53,16 +53,16 @@ De om servicemachtigingen te verlenen:
 
 ## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>De toepassingsrol TenantCreator toewijzen aan een gebruiker in uw Azure Active Directory-tenant
 
-Toewijzen van een Azure Active Directory-gebruiker kan de toepassingsrol TenantCreator die gebruiker te maken van een virtuele Windows-bureaublad-tenant die is gekoppeld aan de Azure Active Directory. U moet de rol TenantCreator toewijzen aan uw account voor globale beheerders.
+Toewijzen van een Azure Active Directory-gebruiker kan de toepassingsrol TenantCreator die gebruiker te maken van een virtuele Windows-bureaublad-tenant die is gekoppeld aan de Azure Active Directory. U moet uw account globale beheerder gebruiken voor de rol TenantCreator toe te wijzen.
 
-De toepassingsrol TenantCreator toewijzen aan uw globale beheerdersaccount:
+De toepassingsrol TenantCreator met uw globale beheerdersaccount toewijzen:
 
 1. Open een browser en maak verbinding met de [Azure Active Directory-portal](https://aad.portal.azure.com) met uw globale beheerdersaccount.
    - Als u met meerdere Azure AD-tenants werkt, is het aanbevolen procedure opent u een persoonlijke browsersessie en kopiëren en plakken van URL's in het adres.
-2. Selecteer **bedrijfstoepassingen**, zoeken naar **virtuele Windows-bureaublad** en selecteer de toepassing.
+2. Selecteer **bedrijfstoepassingen**, zoeken naar **virtuele Windows-bureaublad**. Hier ziet u de twee toepassingen die u hebt toestemming voor het in de vorige sectie hebt opgegeven. Selecteren van deze twee apps **virtuele Windows-bureaublad**.
 3. Selecteer **gebruikers en groepen**en selecteer vervolgens **gebruiker toevoegen**.
 4. Selecteer gebruikers en groepen in de **toevoegen toewijzing** blade
-5. Zoeken naar een gebruikersaccount dat uw virtuele Windows-bureaublad-tenant maakt. 
+5. Zoeken naar een gebruikersaccount dat uw virtuele Windows-bureaublad-tenant maakt.
    - Dit kan het account globale beheerder zijn voor het gemak.
 6. Selecteer het gebruikersaccount, klik op de **Selecteer** knop en selecteer vervolgens **toewijzen**.
 

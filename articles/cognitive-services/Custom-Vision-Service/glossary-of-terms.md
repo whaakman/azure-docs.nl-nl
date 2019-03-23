@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/08/2017
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: e659367ae13026dbe48ed681d0a68058d686e3ec
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3530dbfe15f6dbdf481df70de6d03979750aa38e
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884338"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352099"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Verklarende woordenlijst voor Custom Vision Service
 
-Hier volgen enkele termen die wordt gebruikt voor Custom Vision Service, en hun betekenis.
+Hier volgen enkele termen die vaak worden gebruikt in Custom Vision Service:
 
 ## <a name="classifier"></a>Classificatie
 
@@ -37,33 +37,21 @@ Als u een project maakt, selecteert u een "domein" voor dat project. Het domein 
 
 De modellen die worden gegenereerd door **comprimeren domeinen** kunnen worden geëxporteerd met de functionaliteit voor het exporteren van iteratie. Ze zijn geoptimaliseerd voor de beperkingen van realtime classificatie op mobiele apparaten. Classificaties die zijn gebouwd met een compact domein mogelijk iets minder nauwkeurig een standaard domein met dezelfde hoeveelheid trainingsgegevens. Een afweging is dat ze klein genoeg moet lokaal in bijna realtime worden uitgevoerd. 
 
-## <a name="training-image"></a>Afbeelding van de training
+## <a name="evaluation"></a>Evaluatie
 
-Voor het maken van een classificatie van hoge precisie moet Custom Vision Service verschillende trainingsafbeeldingen. Een afbeelding training is een foto van de installatiekopie die u wilt dat Custom Vision Service om te classificeren. Als u wilt classificeren sinaasappels, moet u zou bijvoorbeeld verschillende afbeeldingen van sinaasappels uploaden naar de Custom Vision Service zodat de service te maken van een classificatie waarbij sinaasappels kan herkennen. U wordt aangeraden ten minste 30 afbeeldingen per tag.
+Nadat u uw classificatie hebt getraind, kunt u een andere afbeelding voor de evaluatie kunt indienen met behulp van de automatisch gegenereerde https-eindpunt. De gehanteerde classificatie retourneert een set met voorspelde tags in de volgorde van vertrouwen.
 
 ## <a name="iteration"></a>Herhaling
 
 Elke keer dat u Train of opnieuw trainen van uw classificatie, maken van een nieuwe versie van het model. We bewaren verschillende afgelopen iteraties groeit zodat u uw voortgang vergelijken na verloop van tijd. U kunt elke iteratie die niet meer nuttig voor u verwijderen. Houd er rekening mee dat het verwijderen van een iteratie permanent is en u ook alle afbeeldingen en wijzigingen die uniek voor deze herhaling zijn verwijderen. 
 
-## <a name="workspace"></a>Werkruimte
+## <a name="precision"></a>Precisie
 
-Uw werkruimte bevat alle installatiekopieën in uw trainingen en toont alle wijzigingen van de meest recente iteratie zoals verwijderd of installatiekopieën toegevoegd. Wanneer u uw classificatie trainen, maakt u een nieuwe versie van de classificatie, met behulp van de afbeeldingen die aanwezig zijn in uw werkruimte.
-
-## <a name="tags"></a>Tags
-
-Tags gebruiken om te labelen van de objecten in uw trainingen-installatiekopieën. Als u een classificatie voor het identificeren van honden en pony's maakt, plaatst u een 'hond'-tag op afbeeldingen met honden, een 'pony'-tag op afbeeldingen met pony's, en zowel een 'hond' en een 'pony'-tag op afbeeldingen die een hond zowel een pony bevatten.
-
-## <a name="evaluation"></a>Evaluatie
-
-Nadat u uw classificatie hebt getraind, kunt u een andere afbeelding voor de evaluatie kunt indienen met behulp van de automatisch gegenereerde https-eindpunt. De gehanteerde classificatie retourneert een set met voorspelde tags in de volgorde van vertrouwen.
+Wanneer het classificeren van een afbeelding, hoe waarschijnlijk is uw classificatie voor het classificeren van de installatiekopie goed? Uit alle installatiekopieën waarmee u de classificatie (honden en pony's) te trainen, welk percentage het model krijg correct? 99 juiste tags uit 100 afbeeldingen biedt een precisie van 99%.
 
 ## <a name="predictions"></a>Voorspellingen
 
 Als uw classificatie nieuwe afbeeldingen accepteert voor het classificeren, worden de afbeeldingen die voor u opgeslagen. U kunt deze installatiekopieën gebruiken voor het verbeteren van de precisie van de classificatie door te labelen correct de onjuiste voorspelde afbeeldingen. U kunt deze nieuwe installatiekopieën vervolgens gebruiken voor het opnieuw trainen van uw classificatie.
-
-## <a name="precision"></a>Precisie
-
-Wanneer het classificeren van een afbeelding, hoe waarschijnlijk is uw classificatie voor het classificeren van de installatiekopie goed? Uit alle installatiekopieën waarmee u de classificatie (honden en pony's) te trainen, welk percentage het model krijg correct? 99 juiste tags uit 100 afbeeldingen biedt een precisie van 99%.
 
 ## <a name="recall"></a>Terughalen
 
@@ -73,7 +61,7 @@ Uit alle installatiekopieën die moeten correct ingedeeld, hoeveel uw classifice
 
 Er zijn twee soorten instellingen, instellingen en niveau van de gebruiker.
 
-- Niveau van het project instellingen: 
+- Niveau van het project instellingen:
   
   Niveau van het project instellingen gelden voor een project of een classificatie. Ze omvatten:
 
@@ -90,3 +78,15 @@ Er zijn twee soorten instellingen, instellingen en niveau van de gebruiker.
    - Gebruik:
       - Het aantal projecten die zijn gemaakt
       - Het aantal evaluatie/voorspelling API-aanroepen.
+
+## <a name="tags"></a>Tags
+
+Tags gebruiken om te labelen van de objecten in uw trainingen-installatiekopieën. Als u een classificatie voor het identificeren van honden en pony's maakt, plaatst u een 'hond'-tag op afbeeldingen met honden, een 'pony'-tag op afbeeldingen met pony's, en zowel een 'hond' en een 'pony'-tag op afbeeldingen die een hond zowel een pony bevatten.
+
+## <a name="training-image"></a>Afbeelding van de training
+
+Voor het maken van een classificatie van hoge precisie moet Custom Vision Service verschillende trainingsafbeeldingen. Een afbeelding training is een foto van de installatiekopie die u wilt dat Custom Vision Service om te classificeren. Als u wilt classificeren sinaasappels, moet u zou bijvoorbeeld verschillende afbeeldingen van sinaasappels uploaden naar de Custom Vision Service zodat de service te maken van een classificatie waarbij sinaasappels kan herkennen. U wordt aangeraden ten minste 30 afbeeldingen per tag.
+
+## <a name="workspace"></a>Werkruimte
+
+Uw werkruimte bevat alle installatiekopieën in uw trainingen en toont alle wijzigingen van de meest recente iteratie zoals verwijderd of installatiekopieën toegevoegd. Wanneer u uw classificatie trainen, maakt u een nieuwe versie van de classificatie, met behulp van de afbeeldingen die aanwezig zijn in uw werkruimte.

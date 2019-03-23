@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5202d2775e830264543719cafefb5c48fca822d6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9793ad76859fdd14b3194dfeb77e68905ff58fe5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316419"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362064"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -231,11 +231,11 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Communicatie ondersteuning voor gespecialiseerde teams](#teams-communications-support-specialist)**: Gebruikers in deze rol kunnen problemen met communicatie binnen Microsoft Teams en Skype voor bedrijven met behulp van de aanroep van de gebruiker het oplossen van hulpprogramma's in de Microsoft Teams en Skype voor bedrijven-beheercentrum. Gebruikers in deze rol kunnen alleen gebruikersgegevens weergeven in de aanroep voor de specifieke gebruiker dat ze hebt opgezocht. Deze rol heeft geen toegang tot weergeven, maken of ondersteuningstickets beheren.
 
-* **[Gebruikersbeheerder](#user-account-administrator)**: Gebruikers met deze rol kunnen gebruikers maken en beheren van alle aspecten van gebruikers met enkele beperkingen (Zie hieronder). Gebruikers met deze rol kunnen bovendien maken en beheren van alle groepen. Deze rol omvat ook de mogelijkheid om te maken en beheren van gebruikersweergaven, ondersteuningstickets beheren en servicestatus controleren.
+* **[Gebruikersbeheerder](#user-account-administrator)**: Gebruikers met deze rol kunnen gebruikers, maken en beheren van alle aspecten van gebruikers met enkele beperkingen (Zie hieronder) en wachtwoordverloopbeleid kunnen bijwerken. Gebruikers met deze rol kunnen bovendien maken en beheren van alle groepen. Deze rol omvat ook de mogelijkheid om te maken en beheren van gebruikersweergaven, ondersteuningstickets beheren en servicestatus controleren.
 
   | | |
   | --- | --- |
-  |Algemene machtigingen|<p>Gebruikers en groepen maken</p><p>Gebruikersweergaven maken en beheren</p><p>Office-ondersteuningstickets beheren|
+  |Algemene machtigingen|<p>Gebruikers en groepen maken</p><p>Gebruikersweergaven maken en beheren</p><p>Office-ondersteuningstickets beheren<p>Wachtwoordverloopbeleid bijwerken|
   |<p>Op alle gebruikers, met inbegrip van alle beheerders</p>|<p>Licenties beheren</p><p>Eigenschappen van alle gebruikers, behalve de User Principal Name beheren</p>
   |Alleen op gebruikers die niet-beheerders of beperkte beheerdersrollen in het volgende:<ul><li>Adreslijstlezers<li>Gastuitnodiging<li>Helpdeskbeheerder<li>Berichtencentrum-lezer<li>Rapportenlezer<li>Gebruikerbeheerder|<p>Verwijderen en herstellen</p><p>Uitschakelen en inschakelen</p><p>Ongeldig vernieuwingstokens</p><p>Eigenschappen van alle gebruikers met inbegrip van de User Principal Name beheren</p><p>Wachtwoord opnieuw instellen</p><p>Apparaatsleutels (FIDO) bijwerken</p>
   

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2865c19e747ca1c5b0a6cda84b8be18bfaeb9335
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 536d26abf563f18ed7cec6668fcd1d4223f5a135
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317660"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370156"
 ---
 # <a name="combined-security-information-registration-preview"></a>Gecombineerde security informatie registratie (preview)
 
 Vóór de gecombineerde inschrijving gebruikers verificatiemethoden geregistreerd voor Azure multi-factor Authentication (MFA) en selfservice voor wachtwoordherstel (SSPR) via twee verschillende ervaringen. Personen zijn verward dat vergelijkbare methoden zijn gebruikt voor Azure MFA en SSPR, maar ze afzonderlijk registreren voor elke functie heeft. Nu, met de registratie van de gecombineerde, gebruikers kunnen één keer registreren en profiteer van de voordelen van Azure MFA en de self-service voor Wachtwoordherstel.
 
-![Informatie over beveiliging - Mijn profiel geregistreerde beveiligingsgegevens voor een gebruiker, met inbegrip van Microsoft Authenticator en het telefoonnummer voor een voorbeeldgebruiker in de map met gecombineerd.](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![Mijn profiel weergeven geregistreerd beveiligingsgegevens voor een gebruiker](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Bekijk voordat u de nieuwe ervaring is ingeschakeld, deze beheerder gerichte documentatie en de gebruiker gerichte documentatie om te controleren of u informatie over de functionaliteit en de gevolgen van deze functie. Baseer uw training over de documentatie voor de gebruiker voor het voorbereiden van uw gebruikers voor de nieuwe ervaring en ervoor zorgen dat een geslaagde implementatie.
 
@@ -36,7 +36,7 @@ Bekijk voordat u de nieuwe ervaring is ingeschakeld, deze beheerder gerichte doc
 
 De pagina Mijn profiel worden gelokaliseerd op basis van de huidige taalinstellingen op de computer die toegang tot de pagina. De meest recente taal gebruikt in de browser-cache, zodat de daaropvolgende pogingen worden gedaan om toegang te blijven moeten worden weergegeven in de laatste taal die wordt gebruikt door Microsoft wordt opgeslagen. De cache wissen zorgt ervoor dat de pagina's opnieuw te genereren. Als u wilt afdwingen dat een specifieke taal toe te voegen een `?lng=de-DE` aan het einde van de URL waar `de-DE` is ingesteld op de juiste taal code de pagina's om weer te geven in die taal wordt afgedwongen.
 
-![Mijn profiel-interface van beveiligingsgegevens en de mogelijkheid voor gebruikers voor het instellen van SSPR of andere verificatiemethoden voor extra beveiliging.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![Self-service voor Wachtwoordherstel of andere verificatiemethoden voor extra beveiliging instellen](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
 ## <a name="methods-available-in-converged-registration"></a>Methoden die beschikbaar zijn in geconvergeerde registratie
 
@@ -99,7 +99,7 @@ Voorbeeld:
 
 Het volgende stroomdiagram wordt beschreven welke methoden worden weergegeven aan een gebruiker wanneer onderbroken registreren tijdens het aanmelden:
 
-![Gecombineerd security info-stroomdiagram uitleg over het aantal methoden dat is vereist wanneer u meer informatie is vereist bij het aanmelden. Dit kan invloed hebben als er slechts MFA of alleen SSPR vereist is](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+![Stroomdiagram van gecombineerde security info](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
 Als u MFA en SSPR ingeschakeld hebt, raden wij registratie bij MFA af te dwingen.
 

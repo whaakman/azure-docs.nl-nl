@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f36ce51a9f385933cbc21e27280828b0ff0e43e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58016714"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395720"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Welke schijftypen zijn beschikbaar in Azure?
 
@@ -27,9 +27,9 @@ De volgende tabel bevat een vergelijking van ultra solid-state-stations (SSD) (p
 |---------|---------|---------|---------|---------|
 |Schijftype   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |I/o-intensieve workloads zoals SAP HANA, databases van de bovenste laag (bijvoorbeeld SQL, Oracle) en andere transactie zware workloads.   |Productie- en prestatiegevoelige workloads   |Webservers, bedrijfstoepassingen weinig wordt gebruikt en ontwikkelen en testen   |Back-up, niet-kritieke, incidentele toegang   |
-|Schijfgrootte   |65.536 gibibyte (GiB) (Preview)   |4095 giB (GA), 32.767 GiB (Preview)    |4095 (GA) GiB, 32.767 GiB (Preview)   |4095 giB (GA), 32.767 GiB (Preview)   |
-|Max. doorvoer   |2000 MiB/s (Preview)   |250 (GA) MiB/s, 750 MiB/s (Preview)   |60 MiB/s (GA), 500 MiB/s (Preview)   |60 Mib/s (GA), 500 MiB/s (Preview)   |
-|Max. IOP's   |160.000 (preview)   |(GA), 7500 20.000 (Preview)   |500 (GA), 2000 (Preview)   |500 (GA), 2000 (Preview)   |
+|Schijfgrootte   |65.536 gibibyte (GiB) (Preview)   |32,767 GiB    |32,767 GiB   |32,767 GiB   |
+|Max. doorvoer   |2000 MiB/s (Preview)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|Max. IOP's   |160.000 (preview)   |20,000   |6,000   |2,000   |
 
 ## <a name="ultra-ssd-preview"></a>Ultra SSD (preview)
 

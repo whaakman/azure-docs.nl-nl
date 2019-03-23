@@ -17,12 +17,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 50470edff81194b9c8885aa94d1eab1e6c18ad88
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: be6375972747c5c962bf1a8ef9b9b0093402bb7a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984083"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368252"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Zelfstudie: Azure-schijven beheren met Azure PowerShell
 
@@ -49,12 +49,9 @@ Wanneer een virtuele Azure-machine wordt gemaakt, worden automatisch twee schijv
 
 **Tijdelijke schijf**: tijdelijke schijven gebruiken een SSD-schijf die zich op dezelfde Azure-host bevindt als de virtuele machine. Tijdelijke schijven leveren zeer goede prestaties en kunnen worden gebruikt voor bewerkingen als tijdelijke gegevensverwerking. Als de virtuele machine wordt verplaatst naar een nieuwe host, worden gegevens die zijn opgeslagen op een tijdelijke schijf echter verwijderd. De grootte van de tijdelijke schijf wordt bepaald door de [VM-grootte](sizes.md). Tijdelijke schijven krijgen standaard de stationsletter *D:* toegewezen.
 
-
-
 ## <a name="azure-data-disks"></a>Azure-gegevensschijven
 
-Er kunnen extra gegevensschijven worden toegevoegd voor het installeren van toepassingen en opslaan van gegevens. Gegevensschijven moeten worden gebruikt in situaties waarin duurzame en responsieve gegevensopslag nodig is. Elke gegevensschijf heeft een maximale capaciteit van 4 terabyte. De grootte van de virtuele machine bepaalt hoeveel gegevensschijven aan een virtuele machine kunnen worden gekoppeld. Voor elke VM-vCPU kunnen vier schijven worden gekoppeld. 
-
+Er kunnen extra gegevensschijven worden toegevoegd voor het installeren van toepassingen en opslaan van gegevens. Gegevensschijven moeten worden gebruikt in situaties waarin duurzame en responsieve gegevensopslag nodig is. Elke gegevensschijf heeft een maximale capaciteit van 4 terabyte. De grootte van de virtuele machine bepaalt hoeveel gegevensschijven aan een virtuele machine kunnen worden gekoppeld. Voor elke VM-vCPU kunnen vier schijven worden gekoppeld.
 
 ## <a name="vm-disk-types"></a>Typen VM-schijven
 
@@ -65,12 +62,7 @@ Azure biedt twee typen schijven.
 **Premium-schijven** - ondersteund door hoogwaardige schijven met een lage latentie op basis van SSD. Ideaal voor virtuele machines met een productiewerkbelasting. Premium Storage ondersteunt virtuele machines uit de DS-serie, DSv2-serie GS-serie en FS-serie. Er zijn vijf typen Premium-schijven (P10, P20, P30, P40, P50); de grootte van de schijf bepaalt het schijftype. Wanneer u een selectie maakt, wordt de waarde van de schijfgrootte afgerond naar het volgende type. Als de grootte bijvoorbeeld kleiner is dan 128 GB is het schijftype P10, en tussen 129 en 512 GB is de schijf P20.
 
 ### <a name="premium-disk-performance"></a>Prestaties Premium-schijf
-
-|Schijftype voor Premium Storage | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Schijfgrootte (afronden) | 32 GiB | 64 GiB | 128 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB)
-| Max. aantal IOP's per schijf | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 | 12.500 |
-Doorvoer per schijf | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s | 480 MB/s |
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
 In de bovenstaande tabel wordt het max. IOP's per schijf aangegeven, maar er kan een hoger prestatieniveau worden bereikt door striping van meerdere gegevensschijven. Er kunnen bijvoorbeeld 64 gegevensschijven worden gekoppeld aan Standard_GS5 VM. Als voor elk van deze schijven een P30-grootte wordt gebruikt, kan een maximum van 80.000 IOP's worden behaald. Zie [VM-typen en -grootten](./sizes.md) voor gedetailleerde informatie over het maximum aantal IOP's per VM.
 

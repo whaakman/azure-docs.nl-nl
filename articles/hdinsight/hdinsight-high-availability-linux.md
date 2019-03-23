@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 84251b16d91ca74e11298c7aa54c9a7a8b7fd6d6
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: ca6b072ba81f55802bc01d61ed44b06680cedbb2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576715"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361996"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Beschikbaarheid en betrouwbaarheid van Apache Hadoop-clusters in HDInsight
 
@@ -115,7 +115,7 @@ Er zijn een reeks pictogrammen die worden weergegeven naast een service om statu
 
 De volgende waarschuwingen helpen bij het beheren van de beschikbaarheid van een cluster:
 
-| Meldingnaam                               | Description                                                                                                                                                                                  |
+| Naam van de waarschuwing                               | Description                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Status van metrische gegevens controleren                    | Deze waarschuwing geeft aan dat de status van het proces van de metrische gegevens bewaken zoals wordt bepaald door het script van de status monitor.                                                                                   |
 | Ambari Agent Heartbeat                   | Deze waarschuwing wordt geactiveerd als de server contact met een agent is verbroken.                                                                                                                        |
@@ -248,6 +248,8 @@ Selecteer de service die u wilt weergeven van Logboeken voor (bijvoorbeeld, YARN
 
 ## <a name="how-to-configure-the-node-size"></a>Grootte van het knooppunt configureren
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 De grootte van een knooppunt kan alleen worden geselecteerd tijdens het maken van clusters. U vindt een lijst van de verschillende VM-grootten beschikbaar voor HDInsight op de [HDInsight pagina met prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Wanneer u een cluster maakt, kunt u de grootte van de knooppunten opgeven. De volgende informatie bevat richtlijnen voor het opgeven van de grootte met behulp van de [Azure-portal][preview-portal], [Azure PowerShell][azure-powershell], en de [Azure klassieke CLI][azure-cli]:
@@ -258,7 +260,7 @@ Wanneer u een cluster maakt, kunt u de grootte van de knooppunten opgeven. De vo
 
 * **Azure CLI voor klassieke**: Wanneer u de `azure hdinsight cluster create` opdracht, kunt u de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten instellen met behulp van de `--headNodeSize`, `--workerNodeSize`, en `--zookeeperNodeSize` parameters.
 
-* **Azure PowerShell**: Wanneer u de `New-AzureRmHDInsightCluster` cmdlet, u kunt de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten kunt instellen met behulp van de `-HeadNodeVMSize`, `-WorkerNodeSize`, en `-ZookeeperNodeSize` parameters.
+* **Azure PowerShell**: Wanneer u de `New-AzHDInsightCluster` cmdlet, u kunt de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten kunt instellen met behulp van de `-HeadNodeVMSize`, `-WorkerNodeSize`, en `-ZookeeperNodeSize` parameters.
 
 ## <a name="next-steps"></a>Volgende stappen
 

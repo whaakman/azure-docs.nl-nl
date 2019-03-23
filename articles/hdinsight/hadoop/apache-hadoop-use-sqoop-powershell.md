@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7ddf37a2973196f458efb8ecc8e20761006996ef
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 2d44db934832bed9a2339b38bc26c5bd42dfb042
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199508"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359939"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Apache Sqoop taken uitvoeren met behulp van Azure PowerShell voor Apache Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -25,6 +25,9 @@ Leer hoe u Azure PowerShell gebruiken voor het uitvoeren van Apache Sqoop taken 
 > Maar u de procedures in dit artikel met ofwel een Windows- of Linux gebaseerde HDInsight-cluster gebruiken kunt, werken ze alleen vanaf een Windows-client. Als u andere methoden, gebruikt u de tabselector boven aan dit artikel. 
 
 ## <a name="prerequisites"></a>Vereisten 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
 
 * Een werkstation met Azure PowerShell.
@@ -50,8 +53,8 @@ De volgende PowerShell-script vooraf verwerkt het bronbestand en exporteert het 
 
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    try{Get-AzureRmContext}
-    catch{Connect-AzureRmAccount}
+    try{Get-AzContext}
+    catch{Connect-AzAccount}
     #endregion
 
     #region - pre-process the source file
@@ -63,14 +66,14 @@ De volgende PowerShell-script vooraf verwerkt het bronbestand en exporteert het 
     $destBlobName = "tutorials/usesqoop/data/sample.log"
 
     # Define the connection string
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
     $storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
 
     # Create block blob objects referencing the source and destination blob.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $defaultStorageAccountName
-    $storageContainer = ($storageAccount |Get-AzureStorageContainer -Name $defaultBlobContainerName).CloudBlobContainer
+    $storageAccount = Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $defaultStorageAccountName
+    $storageContainer = ($storageAccount |Get-AzStorageContainer -Name $defaultBlobContainerName).CloudBlobContainer
     $sourceBlob = $storageContainer.GetBlockBlobReference($sourceBlobName)
     $destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
 
@@ -134,25 +137,25 @@ De volgende PowerShell-script vooraf verwerkt het bronbestand en exporteert het 
     $sqljdbcdriver = "/user/oozie/share/lib/sqoop/sqljdbc41.jar"
 
     # Submit a Sqoop job
-    $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
+    $sqoopDef = New-AzHDInsightSqoopJobDefinition `
         -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by \0x20 -m 1" `
         -Files $sqljdbcdriver
 
-    $sqoopJob = Start-AzureRmHDInsightJob `
+    $sqoopJob = Start-AzHDInsightJob `
                     -ClusterName $hdinsightClusterName `
                     -HttpCredential $httpCredential `
                     -JobDefinition $sqoopDef #-Debug -Verbose
 
-    Wait-AzureRmHDInsightJob `
+    Wait-AzHDInsightJob `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $hdinsightClusterName `
         -HttpCredential $httpCredential `
         -JobId $sqoopJob.JobId
 
     Write-Host "Standard Error" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardError
+    Get-AzHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardError
     Write-Host "Standard Output" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardOutput
+    Get-AzHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardOutput
     #endregion
 
 ## <a name="limitations"></a>Beperkingen

@@ -4,148 +4,146 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: b33938a1-25a5-484c-8e75-7dc6de2d534d
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/10/2017
+ms.topic: tutorial
+ms.date: 03/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a293535bbda5960dc39640fad1704ddd7390089f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bf87764367580a2842fd856856bd517482a19ff2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195495"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361401"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Zelfstudie: Azure Active Directory-integratie met Sprinklr
 
 In deze zelfstudie leert u hoe u Sprinklr integreren met Azure Active Directory (Azure AD).
-
 Sprinklr integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot Sprinklr heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Sprinklr (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
+* U kunt beheren in Azure AD die toegang tot Sprinklr heeft.
+* U kunt uw gebruikers worden automatisch aangemeld Sprinklr (Single Sign-On) met hun Azure AD-accounts inschakelen.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met Sprinklr, moet u de volgende items:
 
-- Een Azure AD-abonnement
-- Een Sprinklr eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Eenmalige aanmelding Sprinklr ingeschakeld abonnement
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Sprinklr uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
+
+* Biedt ondersteuning voor Sprinklr **SP** gestart door SSO
 
 ## <a name="adding-sprinklr-from-the-gallery"></a>Sprinklr uit de galerie toe te voegen
+
 Voor het configureren van de integratie van Sprinklr in Azure AD, moet u Sprinklr uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen Sprinklr uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
-    ![Active Directory][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![Applicaties][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Applicaties][3]
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Typ in het zoekvak **Sprinklr**.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/sprinklr-tutorial/tutorial_sprinklr_search.png)
+4. Typ in het zoekvak **Sprinklr**, selecteer **Sprinklr** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-1. Selecteer in het deelvenster resultaten **Sprinklr**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+     ![Sprinklr in de lijst met resultaten](common/search-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/sprinklr-tutorial/tutorial_sprinklr_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Sprinklr op basis van een testgebruiker met de naam "Britta Simon."
-
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Sprinklr is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Sprinklr tot stand worden gebracht.
-
-In Sprinklr, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Sprinklr op basis van een testgebruiker met de naam **Britta Simon**.
+Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Sprinklr tot stand worden gebracht.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Sprinklr, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker Sprinklr](#creating-a-sprinklr-test-user)**  : als u wilt een equivalent van Britta Simon in Sprinklr die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Configureren van eenmalige aanmelding Sprinklr](#configure-sprinklr-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Maken van de testgebruiker Sprinklr](#create-sprinklr-test-user)**  : als u wilt een equivalent van Britta Simon in Sprinklr die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Sprinklr.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Sprinklr, moet u de volgende stappen uitvoeren:**
+Voor het configureren van Azure AD eenmalige aanmelding met Sprinklr, moet u de volgende stappen uitvoeren:
 
-1. In de Azure-portal op de **Sprinklr** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/)op de **Sprinklr** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/sprinklr-tutorial/tutorial_sprinklr_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **Sprinklr domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren](./media/sprinklr-tutorial/tutorial_sprinklr_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<subdomain>.sprinklr.com`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<subdomain>.sprinklr.com`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk de waarde bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Sprinklr Client ondersteuningsteam](https://www.sprinklr.com/contact-us/) om deze waarden te verkrijgen. 
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+    ![Sprinklr domein en URL's, eenmalige aanmelding informatie](common/sp-identifier.png)
 
-    ![Eenmalige aanmelding configureren](./media/sprinklr-tutorial/tutorial_sprinklr_certificate.png) 
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<subdomain>.sprinklr.com`
 
-1. Klik op de knop **Save**.
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<subdomain>.sprinklr.com`
 
-    ![Eenmalige aanmelding configureren](./media/sprinklr-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Sprinklr Client ondersteuningsteam](https://www.sprinklr.com/contact-us/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. Op de **Sprinklr configuratie** sectie, klikt u op **configureren Sprinklr** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
+
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
+
+6. Op de **Sprinklr instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-sprinklr-single-sign-on"></a>Sprinklr voor eenmalige aanmelding configureren
 
 1. In een ander browservenster aanmelden bij uw bedrijf Sprinklr site als beheerder.
 
 1. Ga naar **beheer \> instellingen**.
-   
+
     ![Beheer](./media/sprinklr-tutorial/ic782907.png "Beheer")
 
 1. Ga naar **beheren Partner \> eenmalige aanmelding** op in het linkerdeelvenster.
-   
+
     ![Partner beheren](./media/sprinklr-tutorial/ic782908.png "Partner beheren")
 
 1. Klik op **+ invoegtoepassingen voor eenmalige aanmelding**.
-   
+
     ![Eenmalige aanmeldingen](./media/sprinklr-tutorial/ic782909.png "eenmalige aanmeldingen")
 
 1. Op de **voor eenmalige aanmelding** pagina, voert u de volgende stappen uit:
-   
+
     ![Eenmalige aanmeldingen](./media/sprinklr-tutorial/ic782910.png "eenmalige aanmeldingen")
 
     a. Typ in het tekstvak **Name** een naam voor de configuratie (bijvoorbeeld: *WAADSSOTest*).
@@ -153,76 +151,93 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     b. Selecteer **ingeschakeld**.
 
     c. Selecteer **nieuwe SSO-certificaat gebruiken**.
-             
-    e. Het base-64 gecodeerde certificaat openen in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **Provider identiteitscertificaat** tekstvak.
 
-    f. Plak de **SAML entiteit-ID** waarde die u hebt gekopieerd vanuit Azure Portal in de **entiteit-Id** tekstvak.
+    d. Open het base-64 gecodeerde certificaat in Kladblok, kopieer de inhoud ervan naar het klembord en plak het in het tekstvak **Id-providercertificaat**.
 
-    g. Plak de **Single Sign-On Service URL voor SAML** waarde die u hebt gekopieerd vanuit Azure Portal in de **aanmeldings-URL van id-Provider** tekstvak.
+    e. Plak de **Azure AD-id** waarde die u hebt gekopieerd vanuit Azure Portal in de **entiteit-Id** tekstvak.
 
-    h. Plak de **afmelding URL** waarde die u hebt gekopieerd vanuit Azure Portal in de **afmeldings-URL van id-Provider** tekstvak.
-     
-    i. Als **SAML-ID gebruikerstype**, selecteer **verklaring bevat de gebruikersnaam van gebruiker sprinklr.com**.
+    f. Plak de **aanmeldings-URL** waarde die u hebt gekopieerd vanuit Azure Portal in de **aanmeldings-URL van id-Provider** tekstvak.
 
-    j. Als **SAML-ID gebruikerslocatie**, selecteer **gebruikers-ID is in het element met naam-id van het onderwerp overzicht**.
+    g. Plak de **afmeldings-URL van** waarde die u hebt gekopieerd vanuit Azure Portal in de **afmeldings-URL van id-Provider** tekstvak.
 
-    k. Klik op **Opslaan**.
-       
+    h. Als **SAML-ID gebruikerstype**, selecteer **verklaring bevat de gebruikersnaam van gebruiker sprinklr.com**.
+
+    i. Als **SAML-ID gebruikerslocatie**, selecteer **gebruikers-ID is in het element met naam-id van het onderwerp overzicht**.
+
+    j. Klik op **Opslaan**.
+
     ![SAML](./media/sprinklr-tutorial/ic782911.png "SAML")
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/sprinklr-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/sprinklr-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/sprinklr-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/sprinklr-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-sprinklr-test-user"></a>Het maken van een testgebruiker Sprinklr
+
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
+
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Sprinklr.
+
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Sprinklr**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
+2. Selecteer in de lijst met toepassingen, **Sprinklr**.
+
+    ![De koppeling Sprinklr in de lijst met toepassingen](common/all-applications.png)
+
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-sprinklr-test-user"></a>Sprinklr testgebruiker maken
 
 1. Meld u aan bij uw bedrijf Sprinklr site aan als beheerder.
 
 1. Ga naar **beheer \> instellingen**.
-   
+
     ![Beheer](./media/sprinklr-tutorial/ic782907.png "Beheer")
 
 1. Ga naar **Client beheren \> gebruikers** in het linkerdeelvenster.
-   
+
     ![Settings](./media/sprinklr-tutorial/ic782914.png "Settings")
 
 1. Klik op **Add User**.
-   
+
     ![Settings](./media/sprinklr-tutorial/ic782915.png "Settings")
 
 1. Op de **bewerken gebruiker** dialoogvenster, voer de volgende stappen uit:
-   
-    ![Gebruiker bewerken](./media/sprinklr-tutorial/ic782916.png "gebruiker bewerken") 
+
+    ![Gebruiker bewerken](./media/sprinklr-tutorial/ic782916.png "gebruiker bewerken")
 
     a. In de **e**, **voornaam** en **achternaam** tekstvakken, typt u de gegevens van een Azure AD-gebruikersaccount die u inrichten wilt.
 
@@ -233,75 +248,31 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
     d. Selecteer **gebruikerstype**.
 
     e. Klik op **Update**.
-   
-     >[!IMPORTANT]
-     >**Wachtwoord uitgeschakeld** zodat een gebruiker zich aanmelden via een id-provider moet worden geselecteerd. 
-     
+
+    > [!IMPORTANT]
+    > **Wachtwoord uitgeschakeld** zodat een gebruiker zich aanmelden via een id-provider moet worden geselecteerd. 
+
 1. Ga naar **rol**, en voer de volgende stappen uit:
-   
+
     ![Functies van partners](./media/sprinklr-tutorial/ic782917.png "rollen van partners")
 
-    a. Uit de **Global** in de lijst met **alle\_machtigingen**.  
+    a. Uit de **Global** in de lijst met **ALL_Permissions**.  
 
     b. Klik op **Update**.
 
->[!NOTE]
->U kunt alle andere Sprinklr gebruiker-account maken van hulpprogramma's of API's geleverd door Sprinklr voor het inrichten van gebruikersaccounts van de Azure AD. 
+> [!NOTE]
+> U kunt alle andere Sprinklr gebruiker-account maken van hulpprogramma's of API's geleverd door Sprinklr voor het inrichten van gebruikersaccounts van de Azure AD.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
-
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Sprinklr.
-
-![Gebruiker toewijzen][200] 
-
-**Als u wilt Britta Simon aan Sprinklr toewijst, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201] 
-
-1. Selecteer in de lijst met toepassingen, **Sprinklr**.
-
-    ![Eenmalige aanmelding configureren](./media/sprinklr-tutorial/tutorial_sprinklr_app.png) 
-
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202] 
-
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel Sprinklr in het toegangsvenster, krijgt u automatisch aangemeld bij uw toepassing Sprinklr Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel Sprinklr in het toegangsvenster, moet u worden automatisch aangemeld bij de Sprinklr waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/sprinklr-tutorial/tutorial_general_01.png
-[2]: ./media/sprinklr-tutorial/tutorial_general_02.png
-[3]: ./media/sprinklr-tutorial/tutorial_general_03.png
-[4]: ./media/sprinklr-tutorial/tutorial_general_04.png
-
-[100]: ./media/sprinklr-tutorial/tutorial_general_100.png
-
-[200]: ./media/sprinklr-tutorial/tutorial_general_200.png
-[201]: ./media/sprinklr-tutorial/tutorial_general_201.png
-[202]: ./media/sprinklr-tutorial/tutorial_general_202.png
-[203]: ./media/sprinklr-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

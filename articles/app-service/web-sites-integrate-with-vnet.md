@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112616"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369697"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uw app integreren met een Azure-netwerk
 Dit document beschrijft de functie voor integratie met virtueel netwerk Azure App Service en laat zien hoe u om in te stellen met apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Virtuele netwerken van Azure] [ VNETOverview] (VNets) kunt u veel van uw Azure-resources in een niet-routeerbare internetnetwerk plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van VPN-technologieën. 
@@ -247,7 +247,7 @@ Er zijn drie functies waarmee toegang tot resources van de VNet die wordt gehost
 
 Hybride verbindingen, moet u voor het installeren van een relay-agent de hybride verbinding Manager(HCM) in uw netwerk genoemd. De HCM moet geen verbinding maken met Azure en ook met uw toepassing. Hybride verbindingen geen vereist een eindpunt dat binnenkomende internet toegankelijk is voor het externe netwerk, zoals is vereist voor een VPN-verbinding. De HCM kan alleen worden uitgevoerd op Windows en u kunt maximaal vijf exemplaren die worden uitgevoerd voor een hoge beschikbaarheid hebben. Hybride verbindingen biedt alleen ondersteuning voor TCP via en elke HC-eindpunt moet overeenkomen met de combinatie van een specifieke host: poort. 
 
-De functie App Service-omgeving kunt u een exemplaar van één tenant van de Azure App Service uitvoeren in uw VNet. Als uw apps zich in een App Service-omgeving, klikt u vervolgens uw apps toegang hebben tot resources in uw VNet zonder eventuele extra stappen. Met en App Service Environment uw apps uitgevoerd op krachtiger werknemers en kunnen worden opgeschaald tot 100 ASP-instanties. App Service-omgevingen werken met alle van de functies voor netwerkbeheer met inbegrip van ExpressRoute- en Service-eindpunten.  
+De functie App Service-omgeving kunt u een exemplaar van één tenant van de Azure App Service uitvoeren in uw VNet. Als uw apps zich in een App Service-omgeving, klikt u vervolgens uw apps toegang hebben tot resources in uw VNet zonder eventuele extra stappen. Met een App Service Environment worden uw apps uitgevoerd op krachtiger werknemers en kunnen worden opgeschaald tot 100 ASP-instanties. App Service-omgevingen werken met alle van de functies voor netwerkbeheer met inbegrip van ExpressRoute- en Service-eindpunten.  
 
 Hoewel er dat enkele aanvraag overlapping gebruiken, kunnen geen van deze functies van de andere vervangen. Weten welke functie u wilt gebruiken, is gekoppeld aan uw behoeften. Bijvoorbeeld:
 

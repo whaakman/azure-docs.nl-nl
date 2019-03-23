@@ -10,18 +10,20 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4c1d7357dc78ca6c9387fc594f3d49f043008631
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 95a78fafcd83e6f56f26ef6670beaa179085de62
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120567"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359577"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Python MapReduce-programma's voor HDInsight streaming ontwikkelen
 
 Informatie over het gebruik van Python in de streaming-MapReduce-bewerkingen. Apache Hadoop biedt een streaming-API voor MapReduce waarmee u kaart schrijven en functies in een andere taal dan Java verlagen. De stappen in dit document voor het implementeren van de kaart en verminder onderdelen in Python.
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Een Linux-gebaseerde Apache Hadoop op HDInsight-cluster
 
@@ -33,7 +35,7 @@ Informatie over het gebruik van Python in de streaming-MapReduce-bewerkingen. Ap
   > [!IMPORTANT]
   > De teksteditor moet LF gebruiken als het einde van regel. Gebruik een einde van regel van CRLF zorgt ervoor dat fouten bij het uitvoeren van de MapReduce-taak op Linux gebaseerde HDInsight-clusters.
 
-* De `ssh` en `scp` opdrachten of [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
+* De `ssh` en `scp` opdrachten of [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
 ## <a name="word-count"></a>Aantal woorden
 

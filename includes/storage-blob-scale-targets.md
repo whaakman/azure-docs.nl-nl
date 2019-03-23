@@ -2,16 +2,16 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 3/23/2019
 ms.author: tamram
-ms.openlocfilehash: 2f46d1ddc8eeefd7d05c51c1d0640f69774746c4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c4c62876ac2483851a1f60835eeee17b4ae47f13
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553700"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395555"
 ---
-| Resource | Doel |
+| Resource | Doel        |
 |----------|---------------|
 | Maximale grootte van één blob-container | Hetzelfde als de maximale capaciteit-account |
 | Maximum aantal blokken in een blok-blob of toevoeg-blob | 50.000 blokken |
@@ -21,4 +21,3 @@ ms.locfileid: "57553700"
 | Maximale grootte van een toevoeg-blob | 50.000 x 4 MiB (ongeveer 195 GiB) |
 | Maximale grootte van een pagina-blob | 8 TiB |
 | Maximum aantal opgeslagen toegangsbeleid per blob-container | 5 |
-| Doeldoorvoer van één blob | Maximaal 60 MiB per seconde of maximaal 500 aanvragen per seconde |

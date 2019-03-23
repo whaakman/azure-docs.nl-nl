@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 97464115b87ca5facdc055e0031bc5fc4e962a22
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 349f2c4eea743c3e44e492dfa76be4a70f2c37d6
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295654"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362022"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>U kunt ONNX en Azure Machine Learning: Maken en interoperabele AI-modellen implementeren
 
@@ -102,7 +102,7 @@ Zie voor de volledige Python API-verwijzing de [ONNX-Runtime-referentiedocumente
 
 Hier volgt een voorbeeld voor het implementeren van een ONNX-model:
 
-1. Initialiseren van de werkruimte van uw Azure Machine Learning-service. Als u een nog geen hebt, informatie over het maken van een werkruimte in [in deze Quick Start](quickstart-get-started.md).
+1. Initialiseren van de werkruimte van uw Azure Machine Learning-service. Als u een nog geen hebt, krijgt u informatie over het [maken van een werkruimte](setup-create-workspace.md).
 
    ```python
    from azureml.core import Workspace

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05c537b061619aa458663a9dcfcc97155d8a6614
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 59663346fce415d73609f09345048ff321f1a234
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106794"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359822"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Werken met aangepaste domeinen in Azure AD-toepassingsproxy
 
@@ -60,7 +60,8 @@ Wanneer u deze drie vereisten klaar hebt, volgt u deze stappen voor het instelle
 
 6. Het PFX-certificaat uploaden en voer het wachtwoord voor het certificaat. 
 7. Selecteer **opslaan** uw wijzigingen op te slaan. 
-8. Voeg een [DNS-record](../../dns/dns-operations-recordsets-portal.md) die de nieuwe externe URL wordt omgeleid naar het domein msappproxy.net. 
+8. Voeg een [DNS-record](../../dns/dns-operations-recordsets-portal.md) die de nieuwe externe URL wordt omgeleid naar het domein msappproxy.net.
+9. Controleer of de DNS-record is geconfigureerd correct met behulp van de [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) opdracht uit om te controleren of de externe URL bereikbaar is en het domein msapproxy.net weergegeven als een alias wordt.
 
 >[!TIP] 
 >U moet slechts één certificaat per aangepast domein uploaden. Wanneer u een certificaat hebt geüpload, kunt u het aangepaste domein kiezen wanneer u een nieuwe app publiceren en geen extra configuratie, met uitzondering van de DNS-record. 

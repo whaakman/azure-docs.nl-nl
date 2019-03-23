@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0f4a648227e62642bb071a76cbd1f3a50bf78ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b55b439f61c76d6d0524c1f01ba5fef745187d04
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314499"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368286"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Azure Active Directory gebaseerde verificatie op Android
 
@@ -35,16 +35,16 @@ Deze functie is beschikbaar in preview in Office 365 US Government Defense en fe
 
 | Apps | Ondersteuning |
 | --- | --- |
-| Azure Information Protection-app |![Selecteren][1] |
-| Intune-bedrijfsportal |![Selecteren][1] |
-| Microsoft Teams |![Selecteren][1] |
-| OneNote |![Selecteren][1] |
-| OneDrive |![Selecteren][1] |
-| Outlook |![Selecteren][1] |
-| Power BI |![Selecteren][1] |
-| Skype voor Bedrijven |![Selecteren][1] |
-| Word / Excel / PowerPoint |![Selecteren][1] |
-| Yammer |![Selecteren][1] |
+| Azure Information Protection-app |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Intune-bedrijfsportal |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Microsoft Teams |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| OneNote |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| OneDrive |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Outlook |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Power BI |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Skype voor Bedrijven |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Word / Excel / PowerPoint |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
+| Yammer |![Vinkje, wat inhoudt ondersteuning voor deze toepassing][1] |
 
 ### <a name="implementation-requirements"></a>Vereisten voor implementatie
 

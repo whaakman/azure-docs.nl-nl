@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 8bbbe7a924c98c9628ce967892177599a1d13017
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9cb3abff10482ec7e58b4b049f051e99178cb742
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854990"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371976"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps met behulp van een integratie van service-omgeving (ISE)
 
@@ -46,7 +46,14 @@ Zie voor meer informatie over de integratie van service-omgevingen, [toegang tot
 
 * Een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md). Als u een virtueel netwerk hebt, krijgt u informatie over het [maken van een Azure virtual network](../virtual-network/quick-create-portal.md). 
 
-  * Het virtuele netwerk moet vier *leeg* subnetten voor het implementeren en het maken van resources in uw ISE. U kunt deze subnetten vooraf maken of kunt u wachten tot het maken van uw ISE waarin u de subnetten op hetzelfde moment kunt maken. Meer informatie over [subnetvereisten](#create-subnet).
+  * Het virtuele netwerk moet vier *leeg* subnetten voor het implementeren en het maken van resources in uw ISE. U kunt deze subnetten vooraf maken of kunt u wachten tot het maken van uw ISE waarin u de subnetten op hetzelfde moment kunt maken. Meer informatie over [subnetvereisten](#create-subnet). 
+  
+    > [!NOTE]
+    > Als u [ExpressRoute](../expressroute/expressroute-introduction.md), waarmee u een particuliere verbinding met Microsoft cloud-services, moet u [de volgende route toevoegen aan elk subnet](../virtual-network/virtual-network-manage-subnet.md) die worden gebruikt door uw ISE. Als u een routetabel met de subnetten [de volgende route toevoegen aan uw routetabel](../virtual-network/manage-route-table.md):
+    > 
+    > **Naam**: D3655BASE-route<br>
+    > **Adresvoorvoegsel**: 0.0.0.0/0<br>
+    > **Volgende hop**: Internet
 
   * Zorg ervoor dat uw virtuele netwerk [maakt deze poorten beschikbaar](#ports) , zodat uw ISE correct werkt en toegankelijk blijft.
 
@@ -138,6 +145,12 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
      * `10.0.0.0/28` alleen 16 adressen heeft en is te klein omdat 2<sup>(32-28)</sup> 2<sup>4</sup> of 16.
 
      Zie voor meer informatie over het berekenen van adressen, [IPv4 CIDR-blokken](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
+
+   * Als u [ExpressRoute](../expressroute/expressroute-introduction.md), moet u [de volgende route toevoegen aan elk subnet](../virtual-network/virtual-network-manage-subnet.md) die worden gebruikt door uw ISE. Als u een routetabel met de subnetten [de volgende route toevoegen aan deze routetabel](../virtual-network/manage-route-table.md):
+
+     **Naam**: D3655BASE-route<br>
+     **Adresvoorvoegsel**: 0.0.0.0/0<br>
+     **Volgende hop**: Internet
 
    1. Onder de **subnetten** Kies **beheren subnetconfiguratie**.
 

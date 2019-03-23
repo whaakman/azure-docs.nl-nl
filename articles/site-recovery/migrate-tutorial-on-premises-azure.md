@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0daa25cce434b2e97995963918e52df974e2ef9c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 31d08c0dac63662568bf55a021e85ec414c61e52
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336545"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360364"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>On-premises machines migreren naar Azure
 
@@ -38,7 +38,7 @@ Dit is de derde zelfstudie in een reeks. In deze zelfstudie wordt ervan uitgegaa
 Voordat u begint, is het handig om de architectuur voor noodherstel van [VMware](vmware-azure-architecture.md) of [Hyper-V](hyper-v-azure-architecture.md) te bekijken.
 
 > [!TIP]
-> Zoek naar een zonder agent manier voor het migreren van virtuele VMware-machines naar Azure? [Klik hier](https://aka.ms/migrateVMs-signup)
+> Wilt u deelnemen aan onze nieuwe ervaring voor zonder agent voor virtuele VMware-machines migreren naar Azure? [Kom meer te](https://aka.ms/migrateVMs-signup).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -129,7 +129,7 @@ In sommige scenario's vereist de failover extra verwerking die circa acht tot ti
 
 Wanneer machines zijn gemigreerd naar Azure, zijn er nog een aantal stappen die u moet voltooien.
 
-Enkele stappen kunnen worden geautomatiseerd als onderdeel van het migratieproces met behulp van de ingebouwde automation-scripts voor [herstelplannen]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)   
+Enkele stappen kunnen worden geautomatiseerd als onderdeel van het migratieproces met behulp van de ingebouwde automation-scripts voor [herstelplannen](site-recovery-runbook-automation.md)   
 
 
 ### <a name="post-migration-steps-in-azure"></a>Stappen na de migratie in Azure
@@ -140,7 +140,7 @@ Enkele stappen kunnen worden geautomatiseerd als onderdeel van het migratieproce
     - Als u VMware-machines en fysieke servers wilt migreren, installeert het installatieprogramma van de Mobility-service de beschikbaar Azure VM-agent op Windows-machines. Voor Linux VM‘s raden we u aan om de agent te installeren na failover.
     - Als u Azure VM's migreert naar een secundaire regio, moet de Azure VM-agent vóór de migratie worden ingericht op de virtuele machine.
     - Als u Hyper-V VM‘s naar Azure migreert, installeert u de Azure VM-agent na de migratie op de Azure VM.
-- Verwijder eventuele Site Recovery-providers/agenten handmatig van de VM. Als u VMware VM‘s of fysieke servers migreert, [moet u de Mobility-service][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] van de Azure VM verwijderen.
+- Verwijder eventuele Site Recovery-providers/agenten handmatig van de VM. Als u virtuele VMware-machines of fysieke servers migreren, verwijdert u de Mobility-service van de virtuele machine.
 - Voor grotere flexibiliteit:
     - Houd uw gegevens veilig door back-ups van virtuele Azure VM‘s te maken met behulp van de Azure Backup-service. [Meer informatie]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
     - Houd workloads continu beschikbaar door Azure VM‘s naar een secundaire regio te repliceren met Site Recovery. [Meer informatie](azure-to-azure-quickstart.md).

@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: c7dd2fba852881680b43ceabafec2ac6b2751df4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e65f739a9641181381205c7255d0472325e8055c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839590"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359883"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Maken en beheren van Azure Machine Learning-service werkruimten
 
@@ -28,24 +28,19 @@ Een werkruimte te maken, moet u een Azure-abonnement. Als u nog geen Azure-abonn
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="view-a-workspace"></a>Een werkruimte weergeven
+## <a name="view"></a>Een werkruimte weergeven
 
 1. Selecteer in de linkerbovenhoek van de portal, **alle services**. 
 
-1. In de **alle services** filterveld, type **werkruimte van Machine Learning-service**.  
+1. In de **alle services** filterveld, type **machine learning-service**.  
 
-   ![zoeken naar de werkruimte van Azure Machine Learning-service](media/how-to-manage-workspace/allservices-search1.png)
+1. Selecteer **werkruimten voor Machine Learning-service**.
 
-1. Selecteer in de filterresultaten **werkruimte van Machine Learning-service** om een lijst met uw werkruimten weer te geven. 
-
-   ![Lijst met Azure Machine Learning-service werkruimten](media/how-to-manage-workspace/allservices-search.PNG)
+   ![zoeken naar de werkruimte van Azure Machine Learning-service](media/how-to-manage-workspace/all-services.png)
 
 1. Bekijk de lijst met werkruimten die zijn gevonden. U kunt filteren op basis van abonnement, resourcegroepen en locaties.  
 
-   ![Werkruimten weergeven](media/how-to-manage-workspace/allservices_view_workspace.PNG)
-
-1. Selecteer de werkruimte die u zojuist hebt gemaakt om de eigenschappen ervan weer te geven.
-
+1. Selecteer een werkruimte om de eigenschappen ervan weer te geven.
    ![Eigenschappen van de werkruimte](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Een werkruimte verwijderen

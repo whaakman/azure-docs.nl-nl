@@ -11,18 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 580c9080bb2b019e120ea57e5fe4444a71c24e76
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314787"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371363"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Wachtwoord opnieuw instellen zonder registratie door eindgebruikers implementeren
 
 Gegevens van de verificatie moet aanwezig zijn voor het implementeren van Azure Active Directory (Azure AD) selfservice voor wachtwoordherstel (SSPR). Sommige organisaties hebben de gebruikers hun verificatiegegevens zelf opgeven. Maar in veel organisaties liever om te synchroniseren met gegevens die al in Active Directory. De gesynchroniseerde gegevens beschikbaar worden gesteld aan Azure AD en SSPR zonder dat tussenkomst van de gebruiker is vereist als u:
-   * Juiste indeling van de gegevens in uw on-premises directory.
-   * Configureer [Azure AD Connect met behulp van de express-instellingen](../hybrid/how-to-connect-install-express.md).
+
+* Juiste indeling van de gegevens in uw on-premises directory.
+* Configureer [Azure AD Connect met behulp van de express-instellingen](../hybrid/how-to-connect-install-express.md).
 
 Voor een goede werking telefoonnummers moet zich in de indeling *+ CountryCode PhoneNumber*, bijvoorbeeld: + 1 4255551234.
 
@@ -46,7 +47,7 @@ Wanneer het mobiele telefoonnummer wordt gecontroleerd door een gebruiker, wordt
 
 Een globale beheerder kan handmatig de contactgegevens voor verificatie instellen voor een gebruiker, zoals weergegeven in de volgende schermafbeelding.
 
-![Neem contact op met][Contact]
+![Verificatie contact opnemen met informatie over een gebruiker in Azure AD][Contact]
 
 Als het veld telefoon wordt ingevuld en mobiele telefoon in de SSPR-beleid is ingeschakeld, ziet de gebruiker dat nummer op de wachtwoordpagina opnieuw instellen van inschrijving en tijdens het wachtwoord opnieuw instellen van werkstroom.
 
@@ -84,7 +85,7 @@ Als u wilt beginnen, moet u [downloaden en installeren van de Azure AD PowerShel
 
 #### <a name="set-the-authentication-data-with-powershell-version-1"></a>Instellen dat de verificatiegegevens met PowerShell versie 1
 
-```
+```PowerShell
 Connect-MsolService
 
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
@@ -96,7 +97,7 @@ Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("emai
 
 #### <a name="read-the-authentication-data-with-powershell-version-1"></a>Lezen van de gegevens van de verificatie met PowerShell versie 1
 
-```
+```PowerShell
 Connect-MsolService
 
 Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
@@ -110,7 +111,7 @@ Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,Mobi
 
 Om te lezen de **telefoon voor authenticatie** en **Verificatieadres** wanneer u PowerShell versie 1, gebruik de volgende opdrachten:
 
-```
+```PowerShell
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
@@ -122,7 +123,7 @@ Als u wilt beginnen, moet u [downloaden en installeren van de Azure AD PowerShel
 
 Voer de volgende opdrachten voor het snel van recente versies van PowerShell die ondersteuning bieden voor Install-Module installeren. (De eerste regel controleert of de module al is geïnstalleerd.)
 
-```
+```PowerShell
 Get-Module AzureADPreview
 Install-Module AzureADPreview
 Connect-AzureAD
@@ -130,7 +131,7 @@ Connect-AzureAD
 
 #### <a name="set-the-authentication-data-with-powershell-version-2"></a>Instellen dat de verificatiegegevens met PowerShell versie 2
 
-```
+```PowerShell
 Connect-AzureAD
 
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
@@ -142,7 +143,7 @@ Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mo
 
 #### <a name="read-the-authentication-data-with-powershell-version-2"></a>Lezen van de gegevens van de verificatie met PowerShell versie 2
 
-```
+```PowerShell
 Connect-AzureAD
 
 Get-AzureADUser -ObjectID user@domain.com | select otherMails

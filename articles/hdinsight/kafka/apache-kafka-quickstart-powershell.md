@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 5e636617a61de3c2f8e3dd891b205c17caaaf454
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42384d3ef025640e302ef8173a25965580784319
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090369"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361197"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Quickstart: een Apache Kafka-cluster maken in HDInsight
 
@@ -31,9 +31,11 @@ In deze snelstartgids leert u hoe u met Azure PowerShell een [Apache Kafka](http
 
 ## <a name="prerequisites"></a>Vereisten
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-* Azure PowerShell. Zie het document [Azure PowerShell installeren en configureren](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) voor meer informatie.
+* Azure PowerShell. Zie het document [Azure PowerShell installeren en configureren](https://docs.microsoft.com/powershell/azure/install-az-ps) voor meer informatie.
 
 * Een SSH-client. In de stappen in dit document wordt SSH gebruikt om verbinding te maken met het cluster.
 
@@ -50,54 +52,54 @@ In deze snelstartgids leert u hoe u met Azure PowerShell een [Apache Kafka](http
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij uw Azure-abonnement met de cmdlet `Login-AzureRmAccount` en volg de instructies op het scherm.
+Meld u aan bij uw Azure-abonnement met de cmdlet `Login-AzAccount` en volg de instructies op het scherm.
 
 ```powershell
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
-Maak een Azure-resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt u gevraagd om de naam en locatie, waarna er een nieuwe resourcegroep wordt gemaakt:
+Maak een Azure-resourcegroep met behulp van de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt u gevraagd om de naam en locatie, waarna er een nieuwe resourcegroep wordt gemaakt:
 
 ```powershell
 $resourceGroup = Read-Input -Prompt "Enter the resource group name"
 $location = Read-Input -Prompt "Enter the Azure region to use"
 
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
-Kafka in HDInsight maakt gebruik van Azure Managed Disks voor het opslaan van Kafka-gegevens. Daarnaast gebruikt het cluster Azure Storage voor het opslaan van gegevens zoals logboeken. Gebruik [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) om een nieuw opslagaccount te maken.
+Kafka in HDInsight maakt gebruik van Azure Managed Disks voor het opslaan van Kafka-gegevens. Daarnaast gebruikt het cluster Azure Storage voor het opslaan van gegevens zoals logboeken. Gebruik [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) om een nieuw opslagaccount te maken.
 
 ```powershell
 $storageName = Read-Host -Prompt "Enter the storage account name"
 
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
         -ResourceGroupName $resourceGroup `
         -Name $storageName `
         -Type Standard_LRS `
         -Location $location
 ```
 
-HDInsight slaat gegevens op in het opslagaccount in een blob-container. Gebruik [New-AzureStorageContainer](/powershell/module/Azure.Storage/New-AzureStorageContainer) om een nieuwe container te maken.
+HDInsight slaat gegevens op in het opslagaccount in een blob-container. Gebruik [New-AzStorageContainer](/powershell/module/Azure.Storage/New-AzStorageContainer) om een nieuwe container te maken.
 
 ```powershell
 $containerName = Read-Host -Prompt "Enter the container name"
 
-$storageKey = (Get-AzureRmStorageAccountKey `
+$storageKey = (Get-AzStorageAccountKey `
                 -ResourceGroupName $resourceGroup `
                 -Name $storageName)[0].Value
-$storageContext = New-AzureStorageContext `
+$storageContext = New-AzStorageContext `
                     -StorageAccountName $storageName `
                     -StorageAccountKey $storageKey
-New-AzureStorageContainer -Name $containerName -Context $storageContext 
+New-AzStorageContainer -Name $containerName -Context $storageContext 
 ```
 
 ## <a name="create-an-apache-kafka-cluster"></a>Apache Kafka-cluster maken
 
-Maak een Apache Kafka-cluster in HDInsight met [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
+Maken van een Apache Kafka op HDInsight-cluster met [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
 ```powershell
 # Create a Kafka 1.0 cluster
@@ -115,7 +117,7 @@ $disksPerNode=2
 $kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
 $kafkaConfig.Add("kafka", "1.0")
 
-New-AzureRmHDInsightCluster `
+New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroup `
         -ClusterName $clusterName `
         -Location $location `
@@ -138,7 +140,7 @@ New-AzureRmHDInsightCluster `
 > [!TIP]  
 > Met de parameter `-DisksPerWorkerNode` configureert u de schaalbaarheid van Kafka in HDInsight. Kafka in HDInsight gebruikt de lokale schijf van de virtuele machines in het cluster voor het opslaan van gegevens. Omdat Kafka veel gebruikmaakt van invoer/uitvoer, wordt [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) gebruikt voor een hoge doorvoer en meer opslag per knooppunt. 
 >
-> Het type beheerde schijf is __Standaard__ (HDD) of __Premium__ (SSD). Het type schijf is afhankelijk van de VM-grootte die wordt gebruikt door de werkknooppunten (Kafka-brokers). Premium-schijven worden automatisch gebruikt met VM's uit de DS- en GS-serie. Alle andere VM-typen gebruiken standaardschijven. U kunt het type VM instellen met de parameter `-WorkerNodeSize`. Zie de documentatie over [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) voor meer informatie over parameters.
+> Het type beheerde schijf is __Standaard__ (HDD) of __Premium__ (SSD). Het type schijf is afhankelijk van de VM-grootte die wordt gebruikt door de werkknooppunten (Kafka-brokers). Premium-schijven worden automatisch gebruikt met VM's uit de DS- en GS-serie. Alle andere VM-typen gebruiken standaardschijven. U kunt het type VM instellen met de parameter `-WorkerNodeSize`. Zie voor meer informatie over de parameters voor de [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) documentatie.
 
 
 > [!IMPORTANT]  
@@ -333,10 +335,10 @@ U kunt ook programmatisch producenten en consumenten maken. Zie het document [Pr
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep, HDInsight en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt.
+Wanneer u niet meer nodig hebt, kunt u de [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) opdracht voor het verwijderen van de resourcegroep, HDInsight, en alle gerelateerde resources.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 > [!WARNING]  

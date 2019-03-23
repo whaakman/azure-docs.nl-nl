@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 0553bd904cfaabaefce4e6ab3f7fbf5d356922d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f685521adbbd8b9be9128ff77ab38b42860518b6
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100357"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351045"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Traceringsberichten Azure IoT-apparaat-naar-cloud met gedistribueerde tracering (preview)
 
@@ -170,9 +170,16 @@ Deze instructies zijn voor het bouwen van het voorbeeld op Windows. Zie voor and
 
 <!-- For a client app that can receive sampling decisions from the cloud, check out [this sample](https://aka.ms/iottracingCsample).  -->
 
-### <a name="using-third-party-clients"></a>Met behulp van externe clients
+### <a name="workaround-for-third-party-clients"></a>Tijdelijke oplossing voor externe clients
 
-Als u geen gebruik van de C-SDK maakt en nog steeds wilt gedistribueerde tracering voor IoT-Hub bekijken, maken het bericht bevat een `tracestate` eigenschap van de toepassing met de aanmaaktijd van het bericht in de notatie van de unix-tijdstempel. Bijvoorbeeld `tracestate=timestamp=1539243209`. Voor het beheren van het percentage van de berichten die deze eigenschap bevat logica om te luisteren naar gebeurtenissen, zoals apparaatdubbel werkt bij cloud geïnitieerde te implementeren.
+Er **niet trivial** om een voorbeeld van de functie voor gedistribueerde tracering zonder gebruik van de C-SDK. Deze methode wordt daarom niet aanbevolen.
+
+Eerst moet u alle primitieven van de IoT Hub-protocol in uw berichten implementeren door de dev-handleiding [maken en lezen IoT Hub-berichten](iot-hub-devguide-messages-construct.md). Wijzig de eigenschappen voor protocol in de de berichten MQTT/AMQP om toe te voegen `tracestate` als **systeemeigenschap**. Met name:
+
+* Voeg voor MQTT, `%24.tracestate=timestamp%3d1539243209` naar het onderwerp bericht waar `1539243209` moet worden vervangen door de aanmaaktijd van het bericht in de notatie van de unix-tijdstempel. Als u bijvoorbeeld verwijzen naar de implementatie [in de C-SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
+* Voeg voor AMQP, `key("tracestate")` en `value("timestamp=1539243209")` als aantekening bericht. Zie voor een implementatie ter referentie [hier](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
+
+Voor het beheren van het percentage van de berichten die deze eigenschap bevat logica om te luisteren naar gebeurtenissen, zoals apparaatdubbel werkt bij cloud geïnitieerde te implementeren.
 
 ## <a name="update-sampling-options"></a>Opties voor het bijwerken van lijnen 
 

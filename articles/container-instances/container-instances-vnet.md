@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550767"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372401"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Containerexemplaren in een Azure-netwerk implementeren
 
@@ -114,13 +114,13 @@ De volgende secties wordt beschreven hoe u groepen met containers implementeren 
 
 Eerst een containergroep implementeren en geef de parameters op voor een nieuw virtueel netwerk en subnet. Wanneer u deze parameters opgeeft, Azure maakt het virtuele netwerk en subnet, het subnet in Azure Container instances voor netwerkapparaten delegeert, en maakt ook een netwerkprofiel. Zodra deze resources zijn gemaakt, wordt uw containergroep wordt geïmplementeerd op het subnet.
 
-Voer de volgende [az container maken] [ az-container-create] opdracht die Hiermee worden instellingen voor een nieuw virtueel netwerk en subnet. U moet de naam van een resourcegroep die is gemaakt in een regio opgeven die [ondersteunt](#preview-limitations) containergroepen in een virtueel netwerk. Deze opdracht wordt geïmplementeerd de [microsoft/aci-helloworld] [ aci-helloworld] container die wordt uitgevoerd een kleine Node.js-webserver met een statische website-pagina. In de volgende sectie gaat u een tweede containergroep aan hetzelfde subnet implementeren en testen van communicatie tussen de twee containerinstanties.
+Voer de volgende [az container maken] [ az-container-create] opdracht die Hiermee worden instellingen voor een nieuw virtueel netwerk en subnet. U moet de naam van een resourcegroep die is gemaakt in een regio opgeven die [ondersteunt](#preview-limitations) containergroepen in een virtueel netwerk. Deze opdracht wordt de openbare Microsoft geïmplementeerd [aci-helloworld] [ aci-helloworld] container die wordt uitgevoerd een kleine Node.js-webserver met een statische website-pagina. In de volgende sectie gaat u een tweede containergroep aan hetzelfde subnet implementeren en testen van communicatie tussen de twee containerinstanties.
 
 ```azurecli
 az container create \
     --name appcontainer \
     --resource-group myResourceGroup \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --vnet aci-vnet \
     --vnet-address-prefix 10.0.0.0/16 \
     --subnet aci-subnet \
@@ -210,7 +210,7 @@ properties:
   containers:
   - name: appcontaineryaml
     properties:
-      image: microsoft/aci-helloworld
+      image: mcr.microsoft.com/azuredocs/aci-helloworld
       ports:
       - port: 80
         protocol: TCP
@@ -241,9 +241,9 @@ Nadat de implementatie is voltooid, voert de [az container show] [ az-container-
 
 ```console
 $ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
-Name              ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
-----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
-appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
+Name              ResourceGroup    Status    Image                                       IP:ports     Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  ------------------------------------------  -----------  ---------  ---------------  --------  ----------
+appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
@@ -310,7 +310,7 @@ Meerdere virtuele-netwerkbronnen en functies zijn besproken in dit artikel al ko
 [aci-vnet-01]: ./media/container-instances-vnet/aci-vnet-01.png
 
 <!-- LINKS - External -->
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
+[aci-helloworld]: https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->

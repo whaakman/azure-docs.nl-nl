@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1640b1cdb9410f33f6556667f36aafcfe575a082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080319"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361095"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
@@ -70,7 +70,7 @@ Een taxonomie van de werkruimte wordt weergegeven in het volgende diagram:
 
 Een experiment is een groepering van veel worden uitgevoerd op een opgegeven-script. Altijd hoort bij een werkruimte. Wanneer u een uitvoering verzendt, kunt u de naam van een experiment opgeven. Informatie voor de uitvoering wordt onder dit experiment opgeslagen. Als u een uitvoering verzenden en geef de naam van een experiment die niet bestaat, wordt er automatisch een nieuw experiment met de zojuist opgegeven naam gemaakt.
 
-Zie voor een voorbeeld van het gebruik van een experiment [Quick Start: Aan de slag met Azure Machine Learning-service](quickstart-get-started.md).
+Zie voor een voorbeeld van het gebruik van een experiment [Quick Start: Aan de slag met Azure Machine Learning-service](quickstart-run-cloud-notebook.md).
 
 ## <a name="model"></a>Model
 
@@ -80,7 +80,7 @@ Een model wordt geproduceerd door een uitvoering in Azure Machine Learning. U ku
 
 Azure Machine Learning-service is framework-agnostische. Wanneer u een model maakt, kunt u alle populaire machine learning-frameworks, zoals Scikit-informatie, XGBoost PyTorch, TensorFlow, Chainer en Microsoft Cognitive Toolkit (voorheen bekend als CNTK).
 
-Zie voor een voorbeeld van een model te trainen, [Quick Start: Maken van een werkruimte van de service Machine Learning](quickstart-get-started.md).
+Zie voor een voorbeeld van een model te trainen, [zelfstudie: Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
 ### <a name="model-registry"></a>Model-register
 
@@ -143,7 +143,7 @@ Zie voor meer informatie over het selecteren van een compute-doel voor de implem
 
 Als u wilt een model te trainen, moet u de map waarin het trainingsscript en de bijbehorende bestanden opgeven. U geeft ook de naam van een experiment, die wordt gebruikt voor het opslaan van gegevens die zijn verzameld tijdens de training. Tijdens de training, de gehele map is gekopieerd naar de omgeving instrueren (compute-doel) en het script dat opgegeven door de configuratie van de uitvoering is gestart. Een momentopname van de map worden ook opgeslagen onder het experiment in de werkruimte.
 
-Zie voor een voorbeeld [een werkruimte maken met Python](quickstart-get-started.md).
+Zie [Zelfstudie: Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
 ## <a name="run"></a>Voer
 
@@ -156,7 +156,7 @@ Een uitvoering is een record met de volgende informatie:
 
 U maken een uitvoering wanneer u een script voor een model te trainen verzendt. Een uitvoering kan nul of meer onderliggende uitvoeringen hebben. De op het hoogste niveau uitvoeren mogelijk bijvoorbeeld twee onderliggende-wordt uitgevoerd, die elk een eigen onderliggende uitvoeren mogelijk.
 
-Zie voor een voorbeeld van het weergeven van uitvoeringen die worden geproduceerd door het trainen van een model [Quick Start: Aan de slag met Azure Machine Learning-service](quickstart-get-started.md).
+Zie voor een voorbeeld van het weergeven van uitvoeringen die worden geproduceerd door het trainen van een model [Quick Start: Aan de slag met Azure Machine Learning-service](quickstart-run-cloud-notebook.md).
 
 ## <a name="snapshot"></a>Momentopname
 
@@ -206,7 +206,7 @@ Zie voor een voorbeeld van het implementeren van een model als een webservice, [
 
 ### <a name="iot-module"></a>IoT-module
 
-Een geïmplementeerde IoT-module is een Docker-container met het model en bijbehorende script of toepassing en eventuele extra afhankelijkheden. U kunt deze modules implementeren met behulp van Azure IoT Edge op Edge-apparaten.
+Een geïmplementeerde IoT-module is een Docker-container met het model en bijbehorende script of toepassing en eventuele extra afhankelijkheden. U kunt deze modules implementeren met behulp van Azure IoT Edge op edge-apparaten.
 
 Als u de bewaking hebt ingeschakeld, verzamelt telemetriegegevens op Azure uit het model in de Azure IoT Edge-module. De telemetriegegevens die zijn alleen toegankelijk is voor u en deze opgeslagen in uw exemplaar van storage-account.
 
@@ -227,6 +227,6 @@ Wanneer u uw oplossing ontwikkelt, gebruikt u de Azure Machine Learning Python S
 Als u wilt aan de slag met Azure Machine Learning-service, Zie:
 
 * [Wat is Azure Machine Learning Service?](overview-what-is-azure-ml.md)
-* [Snelstart: een werkruimte maken met Python](quickstart-get-started.md)
+* [Een Azure Machine Learning-service-werkruimte maken](setup-create-workspace.md)
 * [Zelfstudie: een model trainen](tutorial-train-models-with-aml.md)
-* [Een werkruimte maken met een resource manager-sjabloon](how-to-create-workspace-template.md)
+* [Een werkruimte maken met een Resource Manager-sjabloon](how-to-create-workspace-template.md)
