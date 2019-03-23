@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/14/2018
+ms.date: 03/19/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6a3a15e8b80983a8df29dd6fe8d13b94c1d3c3a1
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 08c33068845855fca85f793c21264582be423c2f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118912"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368106"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Quickstart: Een virtuele Windows-machine maken in de Azure-portal
 
@@ -37,7 +37,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
 1. Kies in de linkerbovenhoek van Azure Portal **Een resource maken**.
 
-1. Zoek via het zoekvak boven de lijst met Azure Marketplace-resources naar **Windows Server 2016 Datacenter**, selecteer dit en kies **Maken**.
+1. In de **nieuw** pagina onder **populair**, selecteer **Windows Server 2016 Datacenter**.
 
 1. Zorg ervoor dat op het tabblad **Basics** onder **Projectgegevens** het juiste abonnement is geselecteerd, en kies **Nieuwe maken** om een nieuwe resourcegroep te maken. Typ *myResourceGroup* als de naam. 
 

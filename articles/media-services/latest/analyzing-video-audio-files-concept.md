@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: 247d72396d1737d568a89656c544bbe699f11e30
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 8f8af438d4034fc945a717fee0b720e3fe13cf56
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342385"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351997"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video-en audiobestanden analyseren
 
@@ -25,7 +25,7 @@ Azure Media Services v3 kunt u voor het extraheren van inzichten uit uw video en
 Voor het analyseren van uw inhoud met behulp van Media Services v3 voorinstellingen, maakt u een **transformeren** en het verzenden van een **taak** die gebruikmaakt van een van deze standaardinstellingen: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) of **AudioAnalyzerPreset**. Het volgende artikel ziet u hoe u **VideoAnalyzerPreset**: [Zelfstudie: Analyseren van video's met Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
-> Wanneer u voorinstellingen voor een Video of Audio Analyzer gebruikt, moet u de Azure-portal gebruiken om uw account in te stellen op 10 S3 Door media gereserveerde eenheden. Zie [Mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md) voor meer informatie.
+> Wanneer u voorinstellingen voor een Video of Audio Analyzer gebruikt, moet u de Azure-portal gebruiken om uw account in te stellen op 10 S3 Door media gereserveerde eenheden. Zie [Mediaverwerking schalen](media-reserved-units-cli-how-to.md) voor meer informatie.
 
 ## <a name="built-in-presets"></a>Ingebouwde voorinstellingen
 
@@ -253,7 +253,7 @@ Voorbeeld:
 |SpeakerTalkToListenRatio|De berekening is gebaseerd op de tijd die op van de spreker monolog (zonder de stilte in tussen) gedeeld door de totale tijd van de video. De tijd wordt afgerond op de derde decimaalteken.|
 
 
-### <a name="sentiments"></a>sentimenten
+### <a name="sentiments"></a>stemmingen
 
 Sentimenten worden samengevoegd door hun sentimentType veld (positieve/neutraal/negatieve). Bijvoorbeeld, 0-0.1, 0.1 0.2.
 

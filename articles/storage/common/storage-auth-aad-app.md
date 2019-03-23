@@ -1,27 +1,27 @@
 ---
-title: Verifiëren met Azure Active Directory voor toegang tot blob- en wachtrijservices gegevens uit uw toepassingen (Preview) | Microsoft Docs
-description: Gebruik Azure Active Directory om te verifiëren vanaf binnen een toepassing en autorisatie van aanvragen voor blobs en wachtrijen (Preview).
+title: Verifiëren met Azure Active Directory voor toegang tot blob- en wachtrijservices gegevens uit uw toepassingen | Microsoft Docs
+description: Gebruik Azure Active Directory om te verifiëren vanaf binnen een toepassing en autorisatie van aanvragen voor blobs en wachtrijen.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a313061f89d33ee2bf5379dbd37495db06b64440
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456088"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369510"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Verifiëren met Azure Active Directory vanaf een aanvraag voor toegang tot blobs en wachtrijen (Preview)
+# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Verifiëren met Azure Active Directory vanaf een aanvraag voor toegang tot blobs en wachtrijen
 
 Een groot voordeel van het gebruik van Azure Active Directory (Azure AD) met Azure Storage is dat uw referenties niet meer nodig hebt om te worden opgeslagen in uw code. U kunt in plaats daarvan een OAuth 2.0-toegangstoken aanvragen bij Azure AD. Azure AD de verificatie van de beveiligings-principal (een gebruiker, groep of service-principal) wordt de toepassing wordt uitgevoerd. Als de verificatie slaagt, Azure AD retourneert het toegangstoken voor de toepassing en de toepassing vervolgens het toegangstoken kunt gebruiken om aanvragen naar Azure Storage te autoriseren.
 
 In dit artikel laat zien hoe uw toepassing configureren voor verificatie met Azure AD. De code voorbeeld onderdelen .NET, maar andere talen gebruiken een soortgelijke benadering.
 
-Voordat u een beveiligings-principal van uw Azure Storage-toepassing verifiëren kunt, op rollen gebaseerd beheer (RBAC) toegangsinstellingen configureren voor deze beveiligings-principal. Azure Storage definieert RBAC-rollen die machtigingen voor containers en wachtrijen omvatten. Wanneer de RBAC-rol is toegewezen aan een beveiligings-principal, krijgt deze beveiligings-principal toegang tot die resource. Zie voor meer informatie, [beheren-toegangsrechten aan opslag van gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
+Voordat u een beveiligings-principal van uw Azure Storage-toepassing verifiëren kunt, op rollen gebaseerd beheer (RBAC) toegangsinstellingen configureren voor deze beveiligings-principal. Azure Storage definieert RBAC-rollen die machtigingen voor containers en wachtrijen omvatten. Wanneer de RBAC-rol is toegewezen aan een beveiligings-principal, krijgt deze beveiligings-principal toegang tot die resource. Zie voor meer informatie, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md).
 
 Zie voor een overzicht van de OAuth 2.0-stroom voor het verlenen van code, [autoriseren de toegang tot Azure Active Directory web-apps met behulp van de OAuth 2.0-code verlenen stroom](../../active-directory/develop/v1-protocols-oauth-code.md).
 
@@ -29,7 +29,7 @@ Zie voor een overzicht van de OAuth 2.0-stroom voor het verlenen van code, [auto
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Een RBAC-rol toewijzen aan een beveiligings-principal voor Azure AD
 
-Als u wilt een beveiligings-principal van uw Azure Storage-toepassing verifiëren, moet u eerst op basis van rollen (RBAC) instellingen voor toegangsbeheer voor deze beveiligings-principal configureren. Azure Storage definieert RBAC-rollen die machtigingen voor containers en wachtrijen omvatten. Wanneer de RBAC-rol is toegewezen aan een beveiligings-principal, krijgt deze beveiligings-principal toegang tot die resource. Zie voor meer informatie, [beheren toegangsrechten tot Azure BLOB Storage en Queue gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
+Als u wilt een beveiligings-principal van uw Azure Storage-toepassing verifiëren, moet u eerst op basis van rollen (RBAC) instellingen voor toegangsbeheer voor deze beveiligings-principal configureren. Azure Storage definieert RBAC-rollen die machtigingen voor containers en wachtrijen omvatten. Wanneer de RBAC-rol is toegewezen aan een beveiligings-principal, krijgt deze beveiligings-principal toegang tot die resource. Zie voor meer informatie, [beheren toegangsrechten tot Azure BLOB Storage en Queue gegevens met RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Uw toepassing registreren bij een Azure AD-tenant
 
@@ -73,7 +73,7 @@ Het codevoorbeeld toont hoe u een token uit Azure AD. Het toegangstoken wordt ge
 > [!NOTE]
 > Als een eigenaar van uw Azure Storage-account, zijn u machtigingen voor toegang tot gegevens niet automatisch toegewezen. U moet zelf expliciet een RBAC-rol toewijzen voor Azure Storage. U kunt deze op het niveau van uw abonnement, resourcegroep, opslagaccount of container of wachtrij toewijzen. 
 >
-> Bijvoorbeeld, voor het uitvoeren van de voorbeeldcode op een storage-account waarvan u eigenaar bent en onder uw eigen gebruikers-id moet u de RBAC-rol voor inzenders van Blob-gegevens naar uzelf. Anders mislukt de aanroep voor het maken van de blob met de HTTP-statuscode 403 (verboden). Zie voor meer informatie, [beheren-toegangsrechten aan opslag van gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
+> Bijvoorbeeld, voor het uitvoeren van de voorbeeldcode op een storage-account waarvan u eigenaar bent en onder uw eigen gebruikers-id moet u de RBAC-rol voor inzenders van Blob-gegevens naar uzelf. Anders mislukt de aanroep voor het maken van de blob met de HTTP-statuscode 403 (verboden). Zie voor meer informatie, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md).
 
 ### <a name="well-known-values-for-authentication-with-azure-ad"></a>Bekende waarden voor verificatie met Azure AD
 
@@ -105,7 +105,7 @@ Als u de tenant-ID, de volgende stappen uit:
 
 ### <a name="add-references-and-using-statements"></a>Verwijzingen toevoegen en met behulp van instructies  
 
-In Visual Studio, installeert u de preview-versie van de Azure Storage-clientbibliotheek. Uit de **extra** in het menu **Nuget Package Manager**, klikt u vervolgens **Package Manager Console**. Typ de volgende opdracht uit in de console voor het installeren van de meest recente versie van de clientbibliotheek voor .NET:
+Installeer de Azure Storage-clientbibliotheek vanuit Visual Studio. Uit de **extra** in het menu **Nuget Package Manager**, klikt u vervolgens **Package Manager Console**. Typ de volgende opdracht uit in de console voor het installeren van de meest recente versie van de clientbibliotheek voor .NET:
 
 ```
 Install-Package WindowsAzure.Storage
@@ -187,14 +187,10 @@ x-ms-version: 2017-11-09
 Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 ```
 
-Zie voor meer informatie over het machtigen van Azure Storage-bewerkingen van REST [verifiëren met Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
+Zie voor meer informatie over het machtigen van Azure Storage-bewerkingen van REST [verifiëren met Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over RBAC-rollen voor Azure-opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
-- Zie voor meer informatie over het gebruik van beheerde identiteiten voor Azure-resources met Azure Storage, [verifiëren toegang tot blobs en wachtrijen met Azure beheerde identiteiten voor Azure-Resources (Preview)](storage-auth-aad-msi.md).
-- Als u wilt weten hoe u zich aanmeldt bij Azure CLI en PowerShell met een Azure AD-identiteit, Zie [gebruiken van een Azure AD-identiteit voor toegang tot Azure Storage met CLI of PowerShell (Preview)](storage-auth-aad-script.md).
-- Zie voor meer informatie over Azure AD-integratie voor Azure-Blobs en wachtrijen, de blog van het Azure Storage-team plaatst, [aankondiging van de Preview-versie van Azure AD-verificatie voor Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
-
-
-
+- Zie voor meer informatie over RBAC-rollen voor Azure-opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md).
+- Zie voor meer informatie over het gebruik van beheerde identiteiten voor Azure-resources met Azure Storage, [verifiëren toegang tot blobs en wachtrijen met Azure beheerde identiteiten voor Azure-Resources](storage-auth-aad-msi.md).
+- Zie voor informatie over het aanmelden bij Azure CLI en PowerShell met een Azure AD-identiteit, [gebruiken van een Azure AD-identiteit voor toegang tot Azure Storage met CLI of PowerShell](storage-auth-aad-script.md).

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: 7f123187ea869931b0701fd9d68372deb0b272e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879068"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351861"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Zelfstudie: Een ONNX-model uit Custom Vision gebruiken met Windows ML (preview)
 
@@ -51,7 +51,7 @@ De voorbeeldtoepassing is beschikbaar op [https://github.com/Azure-Samples/cogni
 
 1. Gebruik de `F5`-sleutel om de toepassing te starten vanuit Visual Studio. U wordt mogelijk gevraagd de Ontwikkelmodus in te schakelen. Zie het document [Ontwikkeling voor uw apparaat inschakelen](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) voor meer informatie.
 
-2. Wanneer de toepassing wordt gestart, moet u de knop gebruiken om een installatiekopie voor het scoren te selecteren.
+1. Wanneer de toepassing wordt gestart, moet u de knop gebruiken om een installatiekopie voor het scoren te selecteren.
 
 ## <a name="use-your-own-model"></a>Uw eigen model gebruiken
 
@@ -65,8 +65,8 @@ Als u uw eigen model wilt gebruiken, volgt u de volgende stappen:
 
 1. Klik in Solution Explorer met de rechtermuisknop op de map Assets en selecteer __Bestaand item toevoegen__. Selecteer het ONNX-bestand.
 
-1. Selecteer in Solution Explorer het ONNX-bestand in de map Assets. Wijzig de volgende eigenschappen voor het bestand: 
-    
+1. Selecteer in Solution Explorer het ONNX-bestand in de map Assets. Wijzig de volgende eigenschappen voor het bestand:
+
     * __Buildactie__ -> __Inhoud__
     * __Naar uitvoermap kopiëren__ -> __Kopiëren indien nieuwer__
 

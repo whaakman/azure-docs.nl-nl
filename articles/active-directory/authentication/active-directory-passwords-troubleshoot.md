@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 297d32311b6b697b0141488878d170b3f2f4c359
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315484"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369782"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Oplossen van self-service voor wachtwoord opnieuw instellen
 
@@ -35,7 +35,6 @@ Hebt u een probleem met Azure Active Directory (Azure AD) selfservice voor wacht
 | UserNotProperlyConfigured = 14 | We kunnen dat u het wachtwoord op dit moment niet herstellen omdat de benodigde informatie uit uw account. Er is geen verdere actie die u ondernemen kunt om deze situatie oplossen. Neem contact met u beheerder en vraag deze uw wachtwoord opnieuw instellen voor u. Nadat u hebt toegang tot uw account opnieuw, moet u de benodigde informatie te registreren. Voor het registreren van informatie, volg de stappen in de [voor selfservice voor wachtwoordherstel registreren](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register) artikel. | SSPR_0014: Aanvullende beveiligingsgegevens is nodig om uw wachtwoord opnieuw instellen. Als u wilt doorgaan, contact op met uw beheerder en vraag om uw wachtwoord opnieuw instellen. Nadat u toegang tot je account hebt, kunt u aanvullende beveiligingsgegevens op registreren https://aka.ms/ssprsetup. De beheerder kan aanvullende beveiligingsgegevens toevoegen aan uw account met de volgende stappen in [instellen en lezen verificatiegegevens voor wachtwoordherstel](howto-sspr-authenticationdata.md). |
 | OnPremisesAdminActionRequired 29 = | We kunnen dat we het wachtwoord op dit moment niet herstellen vanwege een probleem met de configuratie van uw organisatie wachtwoord opnieuw instellen. Er is geen verdere actie die u ondernemen kunt om deze situatie oplossen. Neem contact op met uw beheerder en vraag deze om te onderzoeken. Zie voor meer informatie over mogelijke problemen, [problemen met wachtwoord terugschrijven oplossen](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029: Er kan geen wachtwoord vanwege een fout in uw on-premises-configuratie opnieuw instellen. Neem contact op met uw beheerder en vraag deze om te onderzoeken. |
 | OnPremisesConnectivityError = 30 | We kunnen dat we het wachtwoord op dit moment niet herstellen vanwege verbindingsproblemen met uw organisatie. Er is geen actie te ondernemen nu, maar het probleem mogelijk opgelost als u het later opnieuw probeert. Als het probleem zich blijft voordoen, neem contact op met uw beheerder en vraag deze om te onderzoeken. Zie voor meer informatie over problemen met de netwerkverbinding, [connectiviteit voor wachtwoord terugschrijven oplossen](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030: We uw wachtwoord vanwege een slechte verbinding met uw on-premises omgeving niet opnieuw instellen. Neem contact op met uw beheerder en vraag deze om te onderzoeken.|
-
 
 ## <a name="troubleshoot-the-password-reset-configuration-in-the-azure-portal"></a>Oplossen van de configuratie van wachtwoord opnieuw instellen in Azure portal
 
@@ -94,7 +93,7 @@ Hebt u een probleem met Azure Active Directory (Azure AD) selfservice voor wacht
 
 ## <a name="password-writeback-event-log-error-codes"></a>Foutcodes voor wachtwoord terugschrijven-logboek
 
-Er is een best practice bij het oplossen van problemen met wachtwoord terugschrijven te inspecteren van het logboek voor toepassingsgebeurtenissen op uw Azure AD Connect-computer. In dit logboek bevat gebeurtenissen die van twee bronnen van belang voor het terugschrijven van wachtwoorden. Bewerkingen en problemen met betrekking tot de werking van het terugschrijven van wachtwoorden, worden de bron PasswordResetService beschreven. Bewerkingen en problemen met betrekking tot het instellen van wachtwoorden in uw Active Directory-omgeving, worden de bron ADSync beschreven.
+Er is een best practice bij het oplossen van problemen met wachtwoord terugschrijven te inspecteren van het toepassingsgebeurtenislogboek op uw Azure AD Connect-computer. In dit logboek bevat gebeurtenissen die van twee bronnen van belang voor het terugschrijven van wachtwoorden. Bewerkingen en problemen met betrekking tot de werking van het terugschrijven van wachtwoorden, worden de bron PasswordResetService beschreven. Bewerkingen en problemen met betrekking tot het instellen van wachtwoorden in uw Active Directory-omgeving, worden de bron ADSync beschreven.
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Als de bron van de gebeurtenis ADSync is
 
@@ -168,8 +167,8 @@ De meest voorkomende storingspunt dat firewall is en of proxy-poorten en niet-ac
 
 Voor Azure AD Connect versie 1.1.443.0 en hoger, u nodig uitgaande HTTPS toegang tot het volgende:
 
-   - passwordreset.microsoftonline.com
-   - servicebus.windows.net
+* passwordreset.microsoftonline.com
+* servicebus.windows.net
 
 Voor meer granulatie, verwijzen naar de bijgewerkte lijst [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653) elke woensdag bijgewerkt en de volgende maandag tot stand is gebracht.
 
@@ -184,7 +183,7 @@ U lost problemen met de netwerkverbinding of andere tijdelijke problemen met de 
 1. Zoek de **Microsoft Azure AD Sync** vermelding.
 1. Met de rechtermuisknop op de servicevermelding, selecteert u **opnieuw**, en wacht totdat de bewerking is voltooid.
 
-   ![De Azure AD Sync-service opnieuw starten][Service restart]
+   ![De Azure AD Sync-service met behulp van de gebruikersinterface opnieuw starten][Service restart]
 
 Deze stappen opnieuw de verbinding maken met de cloudservice en los eventuele onderbrekingen die u mogelijk ondervindt. Als de ADSync-service opnieuw te starten het probleem niet wordt opgelost, wordt u aangeraden dat u wilt uitschakelen en vervolgens de functie voor het terugschrijven van wachtwoord opnieuw inschakelen.
 
@@ -215,7 +214,6 @@ Het is raadzaam dat u deze stap uitvoeren nadat u de eerste twee stappen dat eer
 
 > [!WARNING]
 > Als u de out-of-the-box-synchronisatieregels hebt aangepast *back-up voordat u doorgaat met de upgrade en handmatig opnieuw nadat u klaar bent.*
->
 
 1. Download de nieuwste versie van Azure AD Connect uit de [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=615771).
 1. Omdat u Azure AD Connect al hebt geïnstalleerd, moet u een in-place upgrade voor het bijwerken van uw Azure AD Connect-installatie naar de nieuwste versie uitvoeren.
@@ -231,33 +229,27 @@ Azure AD Connect vereist een Active Directory **wachtwoord opnieuw instellen** m
 
 1. Aanmelden bij de Azure AD Connect-server en start de **Synchronization Service Manager** hiervoor **Start** > **Synchronization Service**.
 1. Onder de **Connectors** tabblad, selecteert u de on-premises **Active Directory Domain Services** -connector en selecteer vervolgens **eigenschappen**.  
-   ![Effectieve machtiging - stap 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+   ![Synchronization Service Manager van het bewerken van eigenschappen](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
 1. Selecteer in het pop-upvenster **verbinding maken met Active Directory-Forest** en noteer de **gebruikersnaam** eigenschap. Deze eigenschap is de AD DS-account gebruikt door Azure AD Connect directorysynchronisatie wordt uitgevoerd. Voor Azure AD Connect om uit te voeren van het terugschrijven van wachtwoorden, het AD DS-account moet zijn opnieuw ingesteld wachtwoord machtiging.  
-   
-   ![Effectieve machtiging - stap 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
+
+   ![De synchronisatie-service Active Directory-gebruikersaccount zoeken](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
 1. Aanmelden bij een on-premises domeincontroller en start de **Active Directory: gebruikers en Computers** toepassing.
 1. Selecteer **weergave** en zorg ervoor dat de **geavanceerde functies** optie is ingeschakeld.  
-   
-   ![Effectieve machtiging - stap 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
+
+   ![Active Directory: gebruikers en Computers weergeven geavanceerde functies](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
 1. Zoek naar het Active Directory-gebruikersaccount dat u wilt controleren. Met de rechtermuisknop op de accountnaam en selecteer **eigenschappen**.  
-   
-   ![Effectieve machtiging - stap 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
-
 1. In het pop-upvenster, gaat u naar de **Security** tabblad en selecteer **Geavanceerd**.  
-   
-   ![Effectieve machtiging - stap 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
-   
 1. In de **geavanceerde beveiligingsinstellingen voor de beheerder** pop-upvenster, Ga naar de **effectieve toegang** tabblad.
 1. Selecteer **selecteert u een gebruiker**, selecteert u de AD DS-account wordt gebruikt door Azure AD Connect (Zie stap 3) en selecteer vervolgens **effectieve toegang weergeven**.
 
-   ![Effectieve machtiging - stap 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
+   ![Effectieve toegang tabblad met het Account voor synchronisatie](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
 1. Schuif naar beneden en zoek naar **wachtwoord opnieuw instellen**. Als er een vinkje is, is het AD DS-account gemachtigd opnieuw instellen van het wachtwoord van het geselecteerde Active Directory-gebruikersaccount.  
-   
-   ![Effectieve machtiging - stap 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
+   ![Valideren dat de synchronisatie-account beschikt over de machtiging van de wachtwoord opnieuw instellen](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
 ## <a name="azure-ad-forums"></a>Azure AD-forums
 
@@ -272,17 +264,17 @@ Goed om u te helpen, vragen we u om zoveel mogelijk details mogelijk te bieden b
 * **Algemene beschrijving van de fout**: Wat is de fout? Wat is het gedrag op dat is gezien? Hoe kunnen we de fout optreedt? Geef zoveel mogelijk details mogelijk.
 * **Page**: Welke pagina u op wanneer u de fout opgemerkt waren? De URL als kunt u of een schermafbeelding van de pagina bevatten.
 * **Ondersteuningscode**: Wat was de ondersteuningscode die is gegenereerd toen de gebruiker zag de fout?
-  * Deze code vindt de fout optreedt, en selecteer vervolgens de **ondersteuningscode** koppelen aan de onderkant van het scherm en de GUID die het resultaat is van de ondersteuningstechnicus verzenden.
+   * Deze code vindt de fout optreedt, en selecteer vervolgens de **ondersteuningscode** koppelen aan de onderkant van het scherm en de GUID die het resultaat is van de ondersteuningstechnicus verzenden.
 
-    ![Zoek de ondersteuningscode aan de onderkant van het scherm][Support code]
+   ![Zoek de ondersteuningscode aan de onderkant van het scherm][Support code]
 
   * Als u een pagina zonder de een ondersteuningscode onderaan, F12 en zoek naar de beveiligings-id en de CID selecteren en deze twee resultaten verzenden naar de ondersteuningstechnicus.
 * **Datum, tijd en tijdzone**: De exacte datum en tijd zijn *met de tijdzone* die de fout is opgetreden.
 * **Gebruikers-ID**: Wie is de gebruiker die de fout hebt gezien? Een voorbeeld is *gebruiker\@contoso.com*.
-    * Is dit een federatieve gebruiker?
-    * Is dit een Pass through-verificatie-gebruiker?
-    * Is dit een wachtwoord-hash gesynchroniseerde gebruiker?
-    * Is dit een alleen-cloud-gebruiker?
+   * Is dit een federatieve gebruiker?
+   * Is dit een Pass through-verificatie-gebruiker?
+   * Is dit een wachtwoord-hash gesynchroniseerde gebruiker?
+   * Is dit een alleen-cloud-gebruiker?
 * **Licentieverlening**: Beschikt de gebruiker over een Azure AD Premium of Azure AD Basic-licentie toegewezen?
 * **Logboek voor toepassingsgebeurtenissen**: Als u het terugschrijven van wachtwoorden en de fout in uw on-premises infrastructuur is, omvatten een gecomprimeerde kopie van het logboek voor toepassingsgebeurtenissen van de Azure AD Connect-server.
 

@@ -4,23 +4,23 @@ description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Ta
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 03/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed1c7cd88bb5abf27066658f175d2447d334ce6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e76e2b9b4778229fc70e90f1ff3af5f19251d424
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872207"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360909"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Zelfstudie: Integratie van Azure Active Directory met TargetProcess
 
@@ -78,10 +78,11 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure 
 U hebt de volgende bouwstenen nodig om eenmalige aanmelding van Azure AD met TargetProcess te configureren en testen:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-3. **[TargetProcess-testgebruiker maken](#create-targetprocess-test-user)**: om een equivalent van Britta Simon te hebben in TargetProcess die is gekoppeld aan de bijbehorende gebruiker in Azure AD.
+2. **[Configureren van eenmalige aanmelding TargetProcess](#configure-targetprocess-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+5. **[TargetProcess-testgebruiker maken](#create-targetprocess-test-user)**: om een equivalent van Britta Simon te hebben in TargetProcess die is gekoppeld aan de bijbehorende gebruiker in Azure AD.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -105,12 +106,12 @@ Voer de volgende stappen uit om eenmalige aanmelding in Azure AD te configureren
 
     ![Informatie over TargetProcess-domein en URL’s voor eenmalige aanmelding](common/sp-identifier.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<subdomain>.tpondemand.com/`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<subdomain>.tpondemand.com/`
 
-    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<subdomain>.tpondemand.com/`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<subdomain>.tpondemand.com/`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id.  Neem contact op met het [klantenserviceteam van TargetProcess](mailto:support@targetprocess.com) om deze waarden op te halen.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [klantenserviceteam van TargetProcess](mailto:support@targetprocess.com) om deze waarden op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
@@ -126,44 +127,43 @@ Voer de volgende stappen uit om eenmalige aanmelding in Azure AD te configureren
 
     c. Afmeldings-URL
 
-7. Als u de configuratie met **TargetProcess** wilt automatiseren, moet u **My Apps-browserextensie voor veilig aanmelden** installeren door op **De extensie installeren** te klikken.
+### <a name="configure-targetprocess-single-sign-on"></a>TargetProcess voor eenmalige aanmelding configureren
+
+1. Als u de configuratie met **TargetProcess** wilt automatiseren, moet u **My Apps-browserextensie voor veilig aanmelden** installeren door op **De extensie installeren** te klikken.
 
     ![image](./media/target-process-tutorial/install_extension.png)
 
-8. Als u op **TargetProcess instellen** klikt nadat u de extensie aan de browser hebt toegevoegd, wordt u doorgestuurd naar de TargetProcess-toepassing. Geef hier de referenties voor de beheerder op om u aan te melden bij TargetProcess. In de browserextensie wordt de toepassing automatisch voor u geconfigureerd en worden stappen 9-13 geautomatiseerd.
+2. Als u op **TargetProcess instellen** klikt nadat u de extensie aan de browser hebt toegevoegd, wordt u doorgestuurd naar de TargetProcess-toepassing. Geef hier de referenties voor de beheerder op om u aan te melden bij TargetProcess. In de browserextensie wordt de toepassing automatisch voor u geconfigureerd en worden stappen 3-7 geautomatiseerd.
 
     **Voer de volgende stappen uit als u de toepassing handmatig wilt configureren:**
 
-9. Meld u bij uw TargetProcess-toepassing aan als beheerder.
+3. Meld u bij uw TargetProcess-toepassing aan als beheerder.
 
-10. Klik in het menu bovenaan op **Instellen**.
+4. Klik in het menu bovenaan op **Instellen**.
 
     ![Instellen](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-11. Klik op **Instellingen**.
+5. Klik op **instellingen** tabblad.
 
     ![Instellingen](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-12. Klik op **Eenmalige aanmelding**.
+6. Klik op **Single Sign-on** tabblad.
 
     ![klik op Eenmalige aanmelding](./media/target-process-tutorial/tutorial_target_process_07.png)
 
-13. Voer in het dialoogvenster Instellingen voor eenmalige aanmelding de volgende stappen uit:
+7. Voer in het dialoogvenster Instellingen voor eenmalige aanmelding de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/target-process-tutorial/tutorial_target_process_08.png)
 
     a. Klik op **Eenmalige aanmelding inschakelen**.
 
-    b. Plak in het tekstvak **Aanmeldings-URL** de waarde van **SAML-service-URL voor eenmalige aanmelding** die u in Azure Portal hebt gekopieerd.
+    b. In **aanmeldings-URL** tekstvak, plak de waarde van **aanmeldings-URL** die u hebt gekopieerd vanuit Azure portal.
 
     c. Open het gedownloade certificaat in Kladblok, kopieer de inhoud en plak deze in het tekstvak **Certificaat**.
 
     d. Klik op **JIT-inrichting inschakelen**.
 
     e. Klik op **Opslaan**.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -198,7 +198,7 @@ In deze sectie stelt u Britta Simon in staat gebruik te maken van eenmalige aanm
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Typ en selecteer **TargetProcess** in de lijst met toepassingen.
+2. Selecteer in de lijst met toepassingen, **TargetProcess**.
 
     ![De koppeling naar TargetProcess in de lijst met toepassingen](common/all-applications.png)
 
@@ -218,7 +218,7 @@ In deze sectie stelt u Britta Simon in staat gebruik te maken van eenmalige aanm
 
 ### <a name="create-targetprocess-test-user"></a>TargetProcess-testgebruiker maken
 
-Dit gedeelte is bedoeld om een gebruiker met de naam Britta Simon te maken in TargetProcess. TargetProcess ondersteunt Just-In-Time-inrichting; deze optie is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Er wordt een nieuwe gebruiker gemaakt als TargetProcess wordt geopend en er nog geen gebruiker bestaat.
+In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in TargetProcess. TargetProcess biedt ondersteuning voor just-in-time-gebruikersinrichting, dat standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet in TargetProcess bestaat, wordt een nieuw gemaakt nadat verificatie.
 
 > [!Note]
 > Neem contact op met het  [ondersteuningsteam van TargetProcess](mailto:support@targetprocess.com) als u handmatig een gebruiker moet maken.
@@ -231,8 +231,8 @@ Als u op de tegel TargetProcess in het toegangsvenster klikt, wordt u automatisc
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f88a560d4fa819a055534530ddc0862e4aa330fe
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004947"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351878"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>End-to-end problemen oplossen met behulp van Azure Storage metrische gegevens en logboekregistratie, AzCopy en Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -29,12 +29,12 @@ Deze zelfstudie bevat een praktische verkenning van een end-to-end-scenario voor
 Om op te lossen met behulp van Microsoft Azure Storage-clienttoepassingen, kunt u een combinatie van hulpprogramma's om te bepalen wanneer er een probleem is opgetreden en wat de oorzaak van het probleem mogelijk. Tot deze hulpmiddelen behoren onder meer:
 
 * **Azure Storage Analytics**. [Azure Storage Analytics](/rest/api/storageservices/Storage-Analytics) metrische gegevens en logboekregistratie voor Azure Storage biedt.
-  
+
   * **Metrische opslaggegevens** transactie metrische gegevens en metrische gegevens over capaciteit voor uw opslagaccount worden bijgehouden. Met metrische gegevens, kunt u bepalen hoe uw toepassing wordt uitgevoerd op basis van tal van verschillende metingen. Zie [tabelschema van metrische gegevens van Storage Analytics](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) voor meer informatie over de typen van metrische gegevens met Storage Analytics wordt bijgehouden.
   * **Logboekregistratie van opslag** elke aanvraag vastgelegd in de Azure Storage-services in een logboek serverzijde. Het logboek worden gedetailleerde gegevens voor elke aanvraag, met inbegrip van de bewerking die wordt uitgevoerd, de status van de bewerking en latentie informatie bijgehouden. Zie [Storage Analytics logboekindeling](/rest/api/storageservices/Storage-Analytics-Log-Format) voor meer informatie over de aanvraag- en gegevens die worden geschreven naar de logboeken door Storage Analytics.
 
 * **Azure-portal**. U kunt metrische gegevens en logboekregistratie configureren voor uw opslagaccount in de [Azure-portal](https://portal.azure.com). U kunt ook diagrammen en grafieken die laten zien hoe uw toepassing wordt uitgevoerd na verloop van tijd weergeven en configureren van waarschuwingen om u te waarschuwen als uw toepassing wordt uitgevoerd anders zijn dan verwacht voor een opgegeven waarde.
-  
+
     Zie [een opslagaccount in Azure portal controleren](storage-monitor-storage-account.md) voor informatie over het configureren van bewaking in Azure portal.
 * **AzCopy**. Serverlogboeken voor Azure Storage worden opgeslagen als blobs, zodat u AzCopy gebruiken kunt om te kopiëren van blobs in de logboeken naar een lokale map voor analyse met behulp van Microsoft Message Analyzer. Zie [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md) voor meer informatie over AzCopy.
 * **Microsoft Message Analyzer**. Message Analyzer is een hulpprogramma dat logboekbestanden verbruikt en wordt weergegeven logboekgegevens in een visuele indeling waarmee u eenvoudig kunt filter, zoeken en groep-logboekgegevens in nuttig sets die u gebruiken kunt om fouten en problemen met de prestaties te analyseren. Zie [Microsoft Message Analyzer-besturingssysteem handleiding](https://technet.microsoft.com/library/jj649776.aspx) voor meer informatie over Message Analyzer.
@@ -79,51 +79,7 @@ In deze zelfstudie gebruiken we Message Analyzer om te werken met drie verschill
 * De **HTTP-netwerk het traceringslogboek**, verzamelt gegevens over HTTP/HTTPS-aanvraag en respons gegevens, inclusief voor bewerkingen op basis van Azure Storage. In deze zelfstudie genereren we de netwerktracering via Message Analyzer.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Server-logboekregistratie en metrische gegevens configureren
-Eerst, we moet configureren voor Azure Storage-logboekregistratie en metrische gegevens, zodat we de gegevens van de clienttoepassing voor het analyseren van hebben. U kunt logboekregistratie en metrische gegevens op verschillende manieren - configureren de [Azure-portal](https://portal.azure.com), met behulp van PowerShell, of via een programma. Zie [metrische opslaggegevens inschakelen en weergeven van metrische gegevens](https://msdn.microsoft.com/library/azure/dn782843.aspx) en [vastleggen van Storage inschakelen en toegang krijgen tot logboekgegevens](https://msdn.microsoft.com/library/azure/dn782840.aspx) op MSDN voor meer informatie over het configureren van logboekregistratie en metrische gegevens.
-
-**Via de Azure-portal**
-
-Het configureren van logboekregistratie en metrische gegevens voor uw storage account met de [Azure-portal](https://portal.azure.com), volg de instructies op [een opslagaccount in Azure portal controleren](storage-monitor-storage-account.md).
-
-> [!NOTE]
-> Het is niet mogelijk om in te stellen minuut metrische gegevens met behulp van de Azure portal. We raden echter aan dat u ze stelt voor het doel van deze zelfstudie, en voor het onderzoeken van prestatieproblemen met uw toepassing. U kunt één minuut metrische gegevens met behulp van PowerShell, zoals hieronder wordt weergegeven of programmatisch met behulp van de storage-clientbibliotheek kunt instellen.
-> 
-> Houd er rekening mee dat de minuut metrische gegevens, alleen per uur metrische gegevens kan niet worden weergegeven door de Azure portal.
-> 
-> 
-
-**Via PowerShell**
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Als u wilt aan de slag met PowerShell voor Azure, Zie [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
-
-1. Gebruik de [toevoegen AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet aan uw account Azure-gebruiker toevoegen aan het PowerShell-venster:
-   
-    ```powershell
-    Add-AzAccount
-    ```
-
-2. In de **aanmelden bij Microsoft Azure** venster, typt u het e-mailadres en wachtwoord die zijn gekoppeld aan uw account. Azure verifieert de referentiegegevens en slaat deze op. Vervolgens wordt het venster gesloten.
-3. Stel het standaardopslagaccount naar het opslagaccount dat u voor de zelfstudie gebruikt door het uitvoeren van deze opdrachten in de PowerShell-venster:
-   
-    ```powershell
-    $SubscriptionName = 'Your subscription name'
-    $StorageAccountName = 'yourstorageaccount'
-    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-    ```
-
-4. Logboekregistratie van opslag voor de Blob-service inschakelen:
-   
-    ```powershell
-    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
-    ```
-
-5. Inschakelen van metrische gegevens van storage voor de Blob-service, waardoor ervoor dat u instelt **- MetricsType** naar `Minute`:
-   
-    ```powershell
-    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
-    ```
+Eerst, we moet configureren voor Azure Storage-logboekregistratie en metrische gegevens, zodat we gegevens uit de kant van de service om te analyseren. U kunt logboekregistratie en metrische gegevens op verschillende manieren - configureren de [Azure-portal](https://portal.azure.com), met behulp van PowerShell, of via een programma. Zie [metrische gegevens inschakelen](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) en [logboekregistratie inschakelen](storage-analytics-logging.md#enable-storage-logging) voor meer informatie over het configureren van logboekregistratie en metrische gegevens.
 
 ### <a name="configure-net-client-side-logging"></a>.NET-clientzijde logboekregistratie configureren
 Schakel .NET diagnostische gegevens in het configuratiebestand van de toepassing (web.config of app.config) voor het configureren van client-side-logboekregistratie voor een .NET-toepassing. Zie [Client-side logboekregistratie met de .NET-Opslagclientbibliotheek](https://msdn.microsoft.com/library/azure/dn782839.aspx) en [Client-side logboekregistratie met de Microsoft Azure Storage SDK voor Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) op MSDN voor meer informatie.
@@ -159,8 +115,8 @@ Voor deze zelfstudie verzamelen en een netwerktracering eerst opslaan in Message
 
 > [!NOTE]
 > Nadat u klaar bent met het verzamelen van uw netwerk-trace, wordt aangeraden dat u de instellingen die u mogelijk zijn gewijzigd in Fiddler te ontsleutelen HTTPS-verkeer herstellen. Schakel in het dialoogvenster Opties voor Fiddler de **vastleggen HTTPS maakt verbinding** en **HTTPS-verkeer ontsleutelen** selectievakjes.
-> 
-> 
+>
+>
 
 Zie [met behulp van de functies voor het traceren van Network](https://technet.microsoft.com/library/jj674819.aspx) op Technet voor meer informatie.
 
@@ -175,8 +131,8 @@ Zie voor meer informatie over het toevoegen en aanpassen van grafieken met metri
 
 > [!NOTE]
 > Het duurt even voordat uw metrische gegevens worden weergegeven in de Azure-portal nadat u metrische opslaggegevens inschakelen. Dit komt doordat het uurtarief metrische gegevens voor het vorige uur worden niet weergegeven in de Azure-portal totdat het huidige uur is verstreken. Bovendien worden minuut metrische gegevens momenteel niet weergegeven in de Azure-portal. Daarom afhankelijk van wanneer u metrische gegevens inschakelen, het duurt maximaal twee uur om te zien van metrische gegevens.
-> 
-> 
+>
+>
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>AzCopy gebruiken om te kopiëren van Logboeken van server naar een lokale map
 Azure-opslag geschreven logboekgegevens van de server tot blobs, terwijl metrische gegevens worden geschreven naar tabellen. Logboek blobs zijn beschikbaar in de bekende `$logs` container voor uw storage-account. Logboek blobs zijn hiërarchisch benoemde door jaar, maand, dag en uur, zodat u het bereik van de tijd die u wilt onderzoeken eenvoudig kan vinden. Bijvoorbeeld, in de `storagesample` account, de container voor de blobs in de logboeken voor 01-02-2015 van 8 en 9 uur 's middags, `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. De afzonderlijke blobs in deze container zijn met de naam sequentieel worden verwerkt, beginnend met `000000.log`.
@@ -211,8 +167,8 @@ Message Analyzer bevat activa voor de Azure-opslag die u helpen bij het analyser
 
 > [!NOTE]
 > Installeer alle van de Azure Storage-activa die worden weergegeven voor de doeleinden van deze zelfstudie.
-> 
-> 
+>
+>
 
 ### <a name="import-your-log-files-into-message-analyzer"></a>Importeren van uw logboekbestanden in Message Analyzer
 U kunt al uw opgeslagen logboekbestanden (serverzijde, client-side en netwerk) importeren in één sessie in Microsoft Message Analyzer voor analyse.
@@ -255,8 +211,8 @@ De afbeelding hieronder toont deze weergave toegepast op de voorbeeldgegevens lo
 
 > [!NOTE]
 > Verschillende logboekbestanden hebben verschillende kolommen, zodat wanneer gegevens uit meerdere logboekbestanden wordt weergegeven in het raster analyse, enkele kolommen geen gegevens voor een bepaalde rij bevat kunnen. Bijvoorbeeld, in de gaten, de client log rijen niet meer weergeven geen gegevens voor de **Timestamp**, **TimeElapsed**, **bron**, en **bestemming**kolommen, omdat deze kolommen niet bestaan in het logboek van de client, maar nog aanwezig zijn in de netwerk-trace. Op dezelfde manier de **Timestamp** kolom timestamp gegevens uit het logboek voor de server worden weergegeven, maar er zijn geen gegevens weergegeven voor de **TimeElapsed**, **bron**, en  **Bestemming** kolommen die geen deel uitmaken van het logboek voor de server.
-> 
-> 
+>
+>
 
 Naast het gebruik van de weergave-indelingen van Azure Storage, kunt u ook definiëren en opslaan van uw eigen weergave-indelingen. U kunt andere gewenste velden voor het groeperen van gegevens selecteren en de groepering opslaan als onderdeel van uw aangepaste lay-out ook.
 
@@ -289,12 +245,12 @@ Nadat dit filter is toegepast, ziet u dat rijen van het logboek van de client zi
 
 > [!NOTE]
 > U kunt filteren op de **StatusCode** kolom en nog steeds gegevens weergeven van alle drie logboeken, met inbegrip van het logboek van de client, als u een expressie toevoegt aan het filter met logboekvermeldingen waar de statuscode null is. Kan dit filterexpressie, gebruikt u:
-> 
+>
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
-> 
+>
 > Dit filter retourneert alle rijen van de client logboek- en alleen de rijen van de serverlogboek- en HTTP-logboek waar de statuscode groter is dan 400. Als u deze op de weergave-indeling gegroepeerd op aanvraag-ID en -module toepast, kunt u zoeken of bladeren door de logboekvermeldingen te vinden die waar alle drie logboeken worden weergegeven.   
-> 
-> 
+>
+>
 
 ### <a name="filter-log-data-to-find-404-errors"></a>De logboekgegevens filter om te zoeken 404-fouten
 De opslag-activa zijn vooraf gedefinieerde filters die u gebruiken kunt om te beperken van logboekgegevens om de fouten of trends die u zoekt te vinden. Vervolgens gaat we twee vooraf gedefinieerde filters toepassen: één waarmee de server en de netwerk-traceerlogboeken voor 404-fouten worden gefilterd en één filter de gegevens op een opgegeven tijdperiode.

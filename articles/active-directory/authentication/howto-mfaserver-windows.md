@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43c21fb3c3e7c00ecdbadb1e730ba5ce303dc869
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 36172850c345fc190c3326413f2883dc2b070e98
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312186"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58367887"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows-verificatie en Azure Multi-Factor Authentication-server
 
@@ -29,9 +29,10 @@ Gebruik de Windows-verificatiesectie van de Azure Multi-Factor Authentication-se
 > [!NOTE]
 > Deze functie wordt niet ondersteund om Terminal Services op Windows Server 2012 R2 te beveiligen.
 
-## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Gebruik de volgende procedure als u een toepassing met Windows-verificatie wilt beveiligen.
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Gebruik de volgende procedure voor het beveiligen van een toepassing met Windows-verificatie,
+
 1. Klik in de Azure Multi-Factor Authentication-server op het pictogram Windows-authenticatie.
-   ![Windows-verificatie](./media/howto-mfaserver-windows/windowsauth.png)
+   ![Windows-verificatie in de MFA-Server](./media/howto-mfaserver-windows/windowsauth.png)
 2. Schakel het selectievakje **Windows-verificatie** in. Dit selectievakje is standaard uitgeschakeld.
 3. Op het tabblad Toepassingen kan de beheerder een of meer toepassingen configureren voor Windows-verificatie.
 4. Selecteer een server of toepassing. Geef op of de server/toepassing is ingeschakeld. Klik op **OK**.

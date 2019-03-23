@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ccb408a427680cffc339797bd3421ed9f53af640
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 80c2d25fa24acff92a462f0289259792f217fbfd
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200681"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361690"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>HDInsight op basis van Linux-clusters aanpassen met behulp van scriptacties
 
@@ -26,6 +26,8 @@ Azure HDInsight biedt een configuratiemethode aangeroepen **scriptacties** die a
 > Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie voor meer informatie, [buitengebruikstelling van HDInsight Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Scriptacties kunnen ook in de Azure Marketplace worden gepubliceerd als een HDInsight-toepassing. Zie voor meer informatie over HDInsight-toepassingen, [een HDInsight-toepassing publiceren in de Azure Marketplace](hdinsight-apps-publish-applications.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="permissions"></a>Machtigingen
 
@@ -131,7 +133,7 @@ Een fout in een script uitvoeren op een reeds actief cluster niet automatisch le
 >
 > Scripts acties uitvoeren met bevoegdheden op hoofdniveau. Zorg ervoor dat u begrijpt wat een script doet voordat u deze op uw cluster toepassen.
 
-Wanneer u een script op een cluster toepassen, de clusterstatus gewijzigd van **met** naar **geaccepteerde**. Vervolgens wordt gewijzigd in **HDInsight configuratie** en ten slotte terug naar **met** voor geslaagde scripts. De status van het script wordt geregistreerd in de geschiedenis van de scriptactie. Deze informatie geeft aan of het script is geslaagd of mislukt. Bijvoorbeeld, de `Get-AzureRmHDInsightScriptActionHistory` PowerShell-cmdlet toont de status van een script. Er wordt informatie weergegeven die vergelijkbaar is met de volgende tekst:
+Wanneer u een script op een cluster toepassen, de clusterstatus gewijzigd van **met** naar **geaccepteerde**. Vervolgens wordt gewijzigd in **HDInsight configuratie** en ten slotte terug naar **met** voor geslaagde scripts. De status van het script wordt geregistreerd in de geschiedenis van de scriptactie. Deze informatie geeft aan of het script is geslaagd of mislukt. Bijvoorbeeld, de `Get-AzHDInsightScriptActionHistory` PowerShell-cmdlet toont de status van een script. Er wordt informatie weergegeven die vergelijkbaar is met de volgende tekst:
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 8/14/2017 7:40:55 PM
@@ -223,7 +225,7 @@ Meer informatie over het implementeren van een sjabloon ophalen:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Een scriptactie tijdens het maken van Azure PowerShell gebruiken
 
-In deze sectie maakt u de [toevoegen AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet voor het aanroepen van scripts voor het aanpassen van een cluster. Voordat u begint, controleert u installeert en configureert u Azure PowerShell. Zie voor meer informatie over het configureren van een werkstation voor het uitvoeren van HDInsight PowerShell-cmdlets [overzicht van Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+In deze sectie maakt u de [toevoegen AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet voor het aanroepen van scripts voor het aanpassen van een cluster. Voordat u begint, controleert u installeert en configureert u Azure PowerShell. Zie voor meer informatie over het configureren van een werkstation voor het uitvoeren van HDInsight PowerShell-cmdlets [overzicht van Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 Het volgende script toont hoe u een scriptactie toepassen wanneer u een cluster maken met behulp van PowerShell:
 
@@ -368,13 +370,13 @@ Zie voor een voorbeeld van het gebruik van de .NET SDK om toe te passen van scri
 
 | cmdlet | Function |
 | --- | --- |
-| `Get-AzureRmHDInsightPersistedScriptAction` |Informatie over het persistente scriptacties ophalen. |
-| `Get-AzureRmHDInsightScriptActionHistory` |Een geschiedenis van scriptacties toegepast op het cluster of de details voor een specifiek script ophalen. |
-| `Set-AzureRmHDInsightPersistedScriptAction` |Een ad-hoc scriptactie naar een persistente scriptactie promoten. |
-| `Remove-AzureRmHDInsightPersistedScriptAction` |Een persistente scriptactie naar een ad-hoc actie degraderen. |
+| `Get-AzHDInsightPersistedScriptAction` |Informatie over het persistente scriptacties ophalen. |
+| `Get-AzHDInsightScriptActionHistory` |Een geschiedenis van scriptacties toegepast op het cluster of de details voor een specifiek script ophalen. |
+| `Set-AzHDInsightPersistedScriptAction` |Een ad-hoc scriptactie naar een persistente scriptactie promoten. |
+| `Remove-AzHDInsightPersistedScriptAction` |Een persistente scriptactie naar een ad-hoc actie degraderen. |
 
 > [!IMPORTANT]  
-> `Remove-AzureRmHDInsightPersistedScriptAction` de acties die worden uitgevoerd door een script niet ongedaan worden gemaakt. Deze cmdlet worden alleen de persistente vlag verwijderd.
+> `Remove-AzHDInsightPersistedScriptAction` de acties die worden uitgevoerd door een script niet ongedaan worden gemaakt. Deze cmdlet worden alleen de persistente vlag verwijderd.
 
 Het volgende voorbeeldscript ziet u de cmdlets gebruiken om te promoten en vervolgens het degraderen van een script.
 

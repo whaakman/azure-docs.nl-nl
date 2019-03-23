@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9f6698eebf184d1df80920b7779512e2fda83a0c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012792"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369085"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>De Azure Storage REST API gebruiken
 
@@ -266,7 +266,7 @@ Nu dat u hoe u de aanvraag te maken begrijpt, roept de service en parseren van d
 ## <a name="creating-the-authorization-header"></a>Het maken van de autorisatie-header
 
 > [!TIP]
-> Azure Storage ondersteunt nu de integratie van Azure Active Directory (Azure AD) voor de Blob en Queue-services (Preview). Azure AD biedt een veel eenvoudiger ervaring voor het verlenen van een aanvraag naar Azure Storage. Zie voor meer informatie over het gebruik van Azure AD te autoriseren REST-bewerkingen [verifiëren met Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Zie voor een overzicht van Azure AD-integratie met Azure Storage, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)](storage-auth-aad.md).
+> Azure Storage ondersteunt nu Azure Active Directory (Azure AD)-integratie voor blobs en wachtrijen. Azure AD biedt een veel eenvoudiger ervaring voor het verlenen van een aanvraag naar Azure Storage. Zie voor meer informatie over het gebruik van Azure AD te autoriseren REST-bewerkingen [verifiëren met Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Zie voor een overzicht van Azure AD-integratie met Azure Storage, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory](storage-auth-aad.md).
 
 Er is een artikel waarin wordt uitgelegd conceptueel gezien (geen code) uitvoeren [-verificatie voor de Azure Storage-Services](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
 Laten we precies distilleer dat artikel omlaag naar nodig is en de code weer te geven.

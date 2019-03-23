@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: cc5aae0e46e181e8063a4e01a832e68eab0eae0e
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226605"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360719"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisch-trein een prognose time series-model
 
@@ -27,7 +27,7 @@ In dit artikel leert u hoe u met het trainen van een time series regressie progn
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een werkruimte van Azure Machine Learning-service. Zie voor het maken van de werkruimte, [aan de slag met Azure Machine Learning-service](quickstart-get-started.md).
+* Een werkruimte van Azure Machine Learning-service. Zie voor het maken van de werkruimte, [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md).
 * In dit artikel wordt ervan uitgegaan dat het zou mooi bij het instellen van een geautomatiseerde machine learning-experiment. Ga als volgt de [zelfstudie](tutorial-auto-train-models.md) of [procedures](how-to-configure-auto-train.md) om te zien van de eenvoudige, geautomatiseerde machine learning-experiment ontwerppatronen.
 
 ## <a name="preparing-data"></a>Voorbereiden van gegevens
