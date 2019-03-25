@@ -6,21 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 8adec2986a286e55ee71f0fddca695d1800b5317
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: fb61567818196c3b501819534a1e5b406c06e8b9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167185"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403728"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Azure Portal gebruiken om gebruikers te beheren in uw Azure Data Box Gateway 
 
 Dit artikel beschrijft hoe u gebruikers beheert in uw Azure Data Box Gateway. U kunt de Azure Data Box Gateway beheren via Azure Portal of via de lokale webinterface. Gebruik Azure Portal om gebruikers toe te voegen, te wijzigen of te verwijderen.
-
-> [!IMPORTANT]
-> - Data Box Gateway verkeert in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
 
 In dit artikel leert u het volgende:
 
@@ -52,7 +49,7 @@ Voer in Azure Portal de volgende stappen uit om een gebruiker toe te voegen.
     ![Klikken op Gebruiker toevoegen](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
-    > Deze gebruikers zijn gereserveerd door het systeem en moeten niet worden gebruikt: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
+    > Deze gebruikers zijn gereserveerd door het systeem en mag niet worden gebruikt: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
 
 3. U krijgt een melding wanneer het maken van de gebruiker wordt gestart en is voltooid. Wanneer de gebruiker is gemaakt, klikt u in de opdrachtbalk op **Vernieuwen** om de bijgewerkte lijst met gebruikers weer te geven.
 

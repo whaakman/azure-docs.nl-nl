@@ -6,27 +6,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 11/13/2018
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 60186ee6aa614c83691c9ce4ab9d8124fd5925fd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: HT
+ms.openlocfilehash: 696f4fee95926009ebda0be3c28672838d89edda
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685953"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400439"
 ---
-# <a name="what-is-azure-data-box-edge-preview"></a>Wat is Azure Data Box Edge (preview-versie)? 
+# <a name="what-is-azure-data-box-edge"></a>Wat is Azure Data Box Edge? 
 
 Azure Data Box Edge is een opslagoplossing waarmee u gegevens kunt verwerken en via een netwerk kunt verzenden naar Azure. In dit artikel staat een overzicht van de Data Box Edge-oplossing, voordelen, belangrijkste mogelijkheden en de scenario’s waarin u dit apparaat kunt implementeren. 
 
 Data Box Edge maakt gebruik van een fysiek apparaat dat door Microsoft wordt geleverd, om de veilige gegevensoverdracht te versnellen. Het fysieke apparaat bevindt zich op uw locatie en u schrijft gegevens ernaar met behulp van het NFS- en SMB-protocol. 
 
 Data Box Edge heeft alle gatewaymogelijkheden van Data Box Gateway. Daarnaast is Data Box voorzien van Edge-rekenmogelijkheden met AI die u helpen gegevens te analyseren, verwerken of filteren terwijl ze naar Azure-blok-blobopslag, Azure-pagina-blobopslag of Azure Files worden verzonden.  
-
-> [!IMPORTANT]
-> - Data Box Edge is in de preview-fase. [Registreer u](#sign-up) voor deze service!
-> - Lees de [gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert.
-
 
 ## <a name="use-cases"></a>Gebruiksvoorbeelden
 
@@ -57,7 +52,7 @@ Data Box Edge biedt de volgende voordelen:
 
 Data Box Edge biedt de volgende mogelijkheden:
 
-|Mogelijkheid |Beschrijving  |
+|Mogelijkheid |Description  |
 |---------|---------|
 |Hoge prestaties     | Volledig geautomatiseerde en zeer geoptimaliseerde gegevensoverdracht en bandbreedte.|
 |Ondersteunde protocollen     | Ondersteuning voor het standaard SMB- en NFS-protocol voor gegevensopname. <br> Ga naar [Systeemvereisten voor Data Box Edge](https://aka.ms/dbe-docs) voor meer informatie over ondersteunde versies.|
@@ -74,9 +69,9 @@ Data Box Edge biedt de volgende mogelijkheden:
 
 Het fysieke Data Box Edge-apparaat biedt de volgende functies:
 
-| Functies/specificaties                                          | Beschrijving              |
+| Functies/specificaties                                          | Description              |
 |---------------------------------------------------------|--------------------------|
-| Dimensies   | Breedte: 43,8 cm Lengte: 69,2 cm Hoogte: 4,5 cm<br>(exclusief oren en voedingseenheidshendels)  |            
+| Dimensies   | Breedte: 17.25" Diepte: 27.25" hoogte: 1.75”<br>(exclusief oren en voedingseenheidshendels)  |            
 | Rackruimte|1U wanneer in het rack geplaatst|
 | Kabels| 2 X voedingskabels<br>2 X 1 Gbps RJ45-kabels<br>2 X 10 Gbps SFP+ koperen kabels|
 | Onderdelen|2 ingebouwde voedingseenheden|
@@ -110,7 +105,7 @@ De Data Box Edge-oplossing bestaat uit een Data Box Edge-resource, een fysiek Da
 Het fysieke Data Box Edge-apparaat, de Azure-resource en het doelopslagaccount waarnaar u gegevens overdraagt hoeven zich niet allemaal in dezelfde regio te bevinden.
 
 - **Beschikbaarheid van resources**: Voor deze release is de Data Box Edge-resource beschikbaar in de volgende regio’s:
-    - **Verenigde Staten** - West 2 en Oost
+    - **Verenigde Staten** - US - west 2 en US - oost
     - **Europese Unie** - West-Europa
     - **Azië en Stille Oceaan** - Zuidoost-Azië
 

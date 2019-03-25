@@ -16,12 +16,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: b358609526c61b5acab83c02bdedd8cc06721425
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a61820dc05752d43774b13399d071c5a2be98483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536477"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400539"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack servicebeleid
 
@@ -35,7 +35,7 @@ Updatepakketten met maandelijkse worden gehost in een beveiligde Azure-eindpunt.
 
 Hotfix-updatepakketten worden gehost in hetzelfde beveiligde Azure-eindpunt. U kunt ze handmatig met behulp van de ingesloten koppelingen in elk van de respectieve hotfix-KB-artikelen; downloaden bijvoorbeeld, [Azure Stack-Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Net als bij de volledige, maandelijkse updatepakketten, Azure Stack-operators kunnen de .xml, .BIN-bestand en .exe-bestanden downloaden en importeren met behulp van de procedure in [toepassen van updates in Azure Stack](azure-stack-apply-updates.md). Azure Stack-operators met verbonden schaaleenheden ziet de hotfixes automatisch weergegeven in de beheerdersportal met het bericht **Update beschikbaar**.
 
-Als uw schaaleenheid niet is verbonden en u wilt worden gewaarschuwd over elke versie van de hotfix, zich abonneren op de [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) of [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) feed die u hebt genoteerd in elke versie.  
+Als uw schaaleenheid niet is verbonden en u wilt worden gewaarschuwd over elke versie van de hotfix, zich abonneren op de [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) of [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) feed die u hebt genoteerd in elke versie.  
 
 ## <a name="update-package-types"></a>Pakkettypen bijwerken
 

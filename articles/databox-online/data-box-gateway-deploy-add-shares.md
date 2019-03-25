@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: f36e13ccf91c983c54897dcff7e1c02689fb055c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: HT
+ms.openlocfilehash: d930b1db48e3a5c4bda96f0b7d80a9c9f24d53d9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592652"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400648"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Zelfstudie: Gegevens overdragen met Azure Data Box Gateway (preview-versie)
+# <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Zelfstudie: Gegevens overdragen met Azure Data Box-Gateway
 
 
 ## <a name="introduction"></a>Inleiding
 
-In dit artikel wordt beschreven hoe u shares toevoegt aan Data Box Gateway en er verbinding mee maakt. Zodra de shares zijn toegevoegd, kan het Data Box Gateway-apparaat gegevens overdragen naar Azure.
+In dit artikel wordt beschreven hoe u toevoegen en maak verbinding met shares op uw Data Box-Gateway. Nadat u de shares hebt toegevoegd, kan de gegevens in het Gateway-apparaat gegevens overdragen naar Azure.
 
-Deze procedure neemt in totaal ongeveer tien minuten in beslag. 
+Deze procedure neemt in totaal ongeveer tien minuten in beslag.
 
 In deze zelfstudie leert u het volgende:
 
@@ -30,80 +30,82 @@ In deze zelfstudie leert u het volgende:
 > * Een share toevoegen
 > * Verbinding maken met een share
 
-> [!IMPORTANT]
-> - Data Box Gateway verkeert in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
- 
+
 ## <a name="prerequisites"></a>Vereisten
 
 Voordat u shares aan Data Box Gateway gaat toevoegen, controleert u het volgende:
 
-* U hebt een virtueel apparaat ingericht en er verbinding mee gemaakt, zoals beschreven in [Provision a Data Box Gateway in Hyper-V](data-box-gateway-deploy-provision-hyperv.md) (Data Box Gateway inrichten in Hyper-V) of [Provision a Data Box Gateway in VMware](data-box-gateway-deploy-provision-vmware.md) (Data Box Gateway inrichten in VMware). 
+- U hebt een virtueel apparaat ingericht en verbonden zoals beschreven in de [inrichten van een Data Box-Gateway in Hyper-V](data-box-gateway-deploy-provision-hyperv.md) of [inrichten van een Data Box-Gateway in VMware](data-box-gateway-deploy-provision-vmware.md).
 
-    Het virtuele apparaat wordt geactiveerd, zoals beschreven in [Connect and activate your Azure Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md) (Verbinding maken met Azure Data Box Gateway en het activeren). U kunt het gebruiken om shares te maken en gegevens over te dragen.
+- U hebt het virtuele apparaat dat wordt beschreven in geactiveerd [verbinding maken en activeren van uw Azure Data Box-Gateway](data-box-gateway-deploy-connect-setup-activate.md).
 
+- Het apparaat is klaar om bestandsshares te maken en gegevens over te dragen.
 
 ## <a name="add-a-share"></a>Een share toevoegen
 
-Voer in de [Azure-portal](https://portal.azure.com/) de volgende stappen uit om een share te maken.
+De volgende procedure voor een share wilt maken:
 
-1. Ga terug naar de Azure-portal. Ga naar **Alle resources** en zoek de Data Box Gateway-resource.
-    
-2. In de gefilterde lijst met resources selecteert u de Data Box Gateway-resource en gaat u vervolgens naar **Overzicht**. Klik op de opdrachtbalk van het apparaat op **+ Share toevoegen**.
+1. In de [Azure-portal](https://portal.azure.com/), selecteer de resource van uw Data Box-Gateway en vervolgens gaat u naar **overzicht**. Uw apparaat moet online zijn. Selecteer **+ bestandsshare toevoegen** op de opdrachtbalk van het apparaat.
    
    ![Een share toevoegen](./media/data-box-gateway-deploy-add-shares/click-add-share.png)
 
-4. Geef in **Share toevoegen** de instellingen voor de share op. Geef een unieke naam voor de share op. 
+4. In **Share toevoegen**, voer de volgende procedure:
 
-   Namen van shares mogen alleen cijfers, kleine letters en afbreekstreepjes bevatten. De naam van de share moet tussen de 3 en 63 tekens bevatten en met een cijfer of letter beginnen. Elk afbreekstreepje moet worden voorafgegaan en gevolgd door een cijfer of letter.
+    1. Geef een unieke naam voor de share op. De namen van bestandsshares mogelijk alleen kleine letters, cijfers en afbreekstreepjes bevatten. Naam van de share moet tussen 3 en 63 tekens lang zijn en beginnen met een letter of cijfer. Elk afbreekstreepje moet worden voorafgegaan en gevolgd door een cijfer of letter.
     
-5. Selecteer een **Type** voor de share. Het type kan SMB of NFS zijn, waarbij SMB het standaardtype is. SMB is het standaardtype voor Windows-clients; NFS wordt gebruikt voor Linux-clients. De opties wijken enigszins af, afhankelijk van welk type u kiest. 
+    2. Selecteer een **Type** voor de share. Het type kan SMB of NFS zijn, waarbij SMB het standaardtype is. SMB is het standaardtype voor Windows-clients; NFS wordt gebruikt voor Linux-clients. De opties wijken enigszins af, afhankelijk van welk type u kiest.
 
-6. U dient een opslagaccount op te geven waaronder de share wordt opgeslagen. In het opslagaccount met de naam van de share wordt een container gemaakt, als deze nog niet bestaat. Als de container al bestaat, wordt de bestaande container gebruikt. 
+    3. Geef een opslagaccount waarin de share zich bevindt. Als er nog geen container bestaat, wordt in het opslagaccount een container gemaakt met de naam van de zojuist gemaakte share. Als er al een container bestaat, wordt de bestaande container gebruikt.
     
-7. Kies de **Opslagservice** vanuit blok-blob, pagina-blob of bestanden. Het type service dat u kiest, is afhankelijk van de indeling waarin u de gegevens in Azure wilt opslaan. In dit geval kiezen we ervoor de gegevens als blok-blobs in Azure op te slaan, dus we selecteren Blok-blob. Als u Pagina-blob kiest, dient u ervoor te zorgen dat uw gegevens op 512 bytes zijn uitgelijnd. VHDX is altijd op 512 bytes uitgelijnd.
+    4. Kies de **Opslagservice** vanuit blok-blob, pagina-blob of bestanden. Het type service dat u kiest, is afhankelijk van de indeling waarin u de gegevens in Azure wilt opslaan. In dit geval kiezen we ervoor de gegevens als blok-blobs in Azure op te slaan, dus we selecteren Blok-blob. Als u Pagina-blob kiest, dient u ervoor te zorgen dat uw gegevens op 512 bytes zijn uitgelijnd. VHDX is bijvoorbeeld altijd op 512 bytes uitgelijnd.
    
-8. Deze stap hangt af van of u een SMB- of een NFS-share gaat maken. 
+    5. Deze stap hangt af van of u een SMB- of een NFS-share gaat maken.
      
-    - **Als u een SMB-share maakt**: maak in het veld voor lokale gebruikers met alle bevoegdheden een keuze uit **Nieuwe maken** of **Bestaande gebruiken**. Als u een nieuwe lokale gebruiker maakt, geeft u de **gebruikersnaam** en het **wachtwoord** op en **bevestigt u het wachtwoord**. Hiermee worden de bevoegdheden aan de lokale gebruiker toegewezen. Als u de bevoegdheden hier hebt toegewezen, kunt u Verkenner gebruiken om de bevoegdheden te wijzigen.
+    - **SMB-share** - onder **alle lokale gebruiker met bevoegdheden**, selecteer **nieuw** of **gebruik bestaande**. Als u een nieuwe lokale gebruiker maakt, voert u een **gebruikersnaam** en **wachtwoord**, en vervolgens **wachtwoord bevestigen**. Deze actie wordt de machtigingen toegewezen aan de lokale gebruiker. Nadat u de machtigingen hier hebt toegewezen, kunt u Windows Verkenner om deze machtigingen te wijzigen.
     
         ![SMB-share toevoegen](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
         
-        Als u het selectievakje **allow only read operations** inschakelt voor deze share-gegevens, kunt u gebruikers opgeven die alleen kunnen lezen.
+        Als u selecteert **toestaan alleen leesbewerkingen** selectievakje voor deze gegevens delen, kunt u alleen-lezen.
         
-    - **Als u een NFS-share maakt**: u dient de IP-adressen op te geven van de clients die toegang hebben tot de share.
+    - **NFS-sharemachtigingen** -Geef het IP-adressen van de toegestane clients die toegang de share tot.
 
         ![NFS-share toevoegen](./media/data-box-gateway-deploy-add-shares/add-share-nfs-1.png)
    
-9. Klik op **Maken** om de share te maken. 
+9. Selecteer **Maken** om de share te maken.
     
-    U ontvangt een melding als wordt begonnen met het maken van de share. Als de share met de opgegeven instellingen is gemaakt, wordt de blade **Shares** bijgewerkt in overeenstemming met de nieuwe share. 
+    U ontvangt een melding als wordt begonnen met het maken van de share. Nadat de share is gemaakt met de opgegeven instellingen, de **Shares** tegel updates in overeenstemming met de nieuwe share.
     
-    ![Bijgewerkte lijst met shares](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
+    ![Bijgewerkte Shares tegel](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
 
 ## <a name="connect-to-the-share"></a>Verbinding maken met de share
 
-Voer deze stappen uit op de Windows Server-client die is verbonden met Data Box Gateway om verbinding te maken met de shares.
+U kunt nu verbinding maken met een of meer shares die u hebt gemaakt in de laatste stap. Afhankelijk van of u een SMB- of een NFS-share hebt, kunnen de stappen variëren.
+
+### <a name="connect-to-an-smb-share"></a>Verbinding maken met een SMB-share
+
+Op uw Windows Server-client is verbonden met uw Data Box-Gateway, verbinding maken met een SMB-share met de opdrachten:
 
 
-1. Open een opdrachtvenster. Typ het volgende na de opdrachtprompt:
+1. Typ in een opdrachtvenster:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-    Voer het wachtwoord voor de share in wanneer hierom wordt gevraagd. De voorbeelduitvoer van deze opdracht wordt hier gepresenteerd.
+    Voer het wachtwoord voor de share in wanneer er om wordt gevraagd. De voorbeelduitvoer van deze opdracht wordt hier gepresenteerd.
 
     ```powershell
     Microsoft Windows [Version 18.8.16299.192) 
-    (c) 2817 microsoft Corporation. All rights reserved . 
+    (c) 2017 microsoft Corporation. All rights reserved . 
     
     C: \Users\GatewayUser>net use \\10.10.10.60\newtestuser /u:Tota11yNewUser 
-    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60' • 
+    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60'  
     The command completed successfully. 
     
     C: \Users\GatewayUser>
     ```   
 
 
-2. Druk op Windows-toets+R. Geef in het venster **Uitvoeren** het `\\<device IP address>` op. Klik op **OK**. Verkenner wordt nu geopend. U moet nu de shares kunnen zien die u als mappen hebt gemaakt. Selecteer een share (map) en dubbelklik erop om de inhoud te bekijken.
+2. Selecteer op het toetsenbord Windows + r 
+3. In de **uitvoeren** venster, geef de `\\<device IP address>` en selecteer vervolgens **OK**. Verkenner wordt geopend. Als het goed is, ziet u nu de shares die u hebt gemaakt, als mappen. Dubbelklik in Verkenner op een share (map) om de inhoud te bekijken.
  
     ![Verbinding maken met een SMB-share](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 
@@ -111,9 +113,9 @@ Voer deze stappen uit op de Windows Server-client die is verbonden met Data Box 
 
 ### <a name="connect-to-an-nfs-share"></a>Verbinding maken met een NFS-share
 
-Voer deze stappen uit op uw Linux-client die in verbinding staat met Data Box Edge.
+Ga als volgt te werk in de Linux-client die is verbonden met het Data Box Edge-apparaat:
 
-1. Controleer of op de client de NFSv4-client is geïnstalleerd. Als u de NFS-client wilt installeren, gebruikt u de volgende opdracht:
+1. Zorg ervoor dat de NFSv4-client is geïnstalleerd op de client. Als u de NFS-client wilt installeren, gebruikt u de volgende opdracht:
 
    `sudo apt-get install nfs-common`
 
@@ -130,8 +132,8 @@ Voer deze stappen uit op uw Linux-client die in verbinding staat met Data Box Ed
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
-> De volgende beperkingen zijn van toepassing op de preview-versie:
-> - Nadat een bestand in de shares is gemaakt, kan de naam van het bestand niet meer worden gewijzigd. 
+> De volgende beperkingen zijn van toepassing zijn op deze release:
+> - Nadat een bestand in de shares is gemaakt, kan de naam van het bestand niet meer worden gewijzigd.
 > - Als een bestand uit een share wordt verwijderd, wordt de vermelding in het opslagaccount niet verwijderd.
 > - Als u `rsync` gebruikt voor het kopiëren van gegevens, wordt de optie `rsync -a` niet ondersteund.
 

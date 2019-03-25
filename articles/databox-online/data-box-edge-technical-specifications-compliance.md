@@ -8,19 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 8ef35709e90c0a58cc0ff8df1afb6e864adc0a23
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994706"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402589"
 ---
-# <a name="azure-data-box-edge-technical-specifications-preview"></a>Technische specificaties voor Azure Data Box Edge (preview)
+# <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge technische specificaties
 
 De hardware-onderdelen van uw Microsoft Azure Data Box Edge-apparaat voldoen aan de technische specificaties en wettelijk verplichte standaarden die worden beschreven in dit artikel. De technische specificaties beschrijven de Power supply units (PSUs), opslagcapaciteit, behuizingen en uitwerking standaarden. 
-
-> [!IMPORTANT]
-> Data Box Edge is in de preview-fase. Bekijk de [Azure-gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
 
 ## <a name="power-supply-unit-specifications"></a>Power supply eenheid specificaties
 
@@ -28,7 +25,7 @@ De gegevens in het Edge-apparaat heeft twee 100-240 V Power supply eenheden (PSU
 
 | Specificatie           | 750 W PSU                  |
 |-------------------------|----------------------------|
-| Maximale Uitgangsstroom    |  750 W                     |
+| Maximale Uitgangsstroom    | 750 W                     |
 | Frequentie               | 50/60 Hz                   |
 | Bereikselectie voltage | Automatisch variëren: 100-240 V AC |
 | Hot pluggable           | Ja                        |

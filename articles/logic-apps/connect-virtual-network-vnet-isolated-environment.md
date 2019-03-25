@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 9cb3abff10482ec7e58b4b049f051e99178cb742
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2f84c48092581a313ff7bead7a862221e0fe4eee
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371976"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400924"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps met behulp van een integratie van service-omgeving (ISE)
 
@@ -49,9 +49,9 @@ Zie voor meer informatie over de integratie van service-omgevingen, [toegang tot
   * Het virtuele netwerk moet vier *leeg* subnetten voor het implementeren en het maken van resources in uw ISE. U kunt deze subnetten vooraf maken of kunt u wachten tot het maken van uw ISE waarin u de subnetten op hetzelfde moment kunt maken. Meer informatie over [subnetvereisten](#create-subnet). 
   
     > [!NOTE]
-    > Als u [ExpressRoute](../expressroute/expressroute-introduction.md), waarmee u een particuliere verbinding met Microsoft cloud-services, moet u [de volgende route toevoegen aan elk subnet](../virtual-network/virtual-network-manage-subnet.md) die worden gebruikt door uw ISE. Als u een routetabel met de subnetten [de volgende route toevoegen aan uw routetabel](../virtual-network/manage-route-table.md):
+    > Als u [ExpressRoute](../expressroute/expressroute-introduction.md), waarmee u een particuliere verbinding met Microsoft cloud-services, moet u [een routetabel maken](../virtual-network/manage-route-table.md) waarvoor het volgende routeren en die tabel koppelen aan elk subnet dat wordt gebruikt door uw ISE:
     > 
-    > **Naam**: D3655BASE-route<br>
+    > **Naam**: <*route-naam*><br>
     > **Adresvoorvoegsel**: 0.0.0.0/0<br>
     > **Volgende hop**: Internet
 
@@ -146,9 +146,9 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
 
      Zie voor meer informatie over het berekenen van adressen, [IPv4 CIDR-blokken](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * Als u [ExpressRoute](../expressroute/expressroute-introduction.md), moet u [de volgende route toevoegen aan elk subnet](../virtual-network/virtual-network-manage-subnet.md) die worden gebruikt door uw ISE. Als u een routetabel met de subnetten [de volgende route toevoegen aan deze routetabel](../virtual-network/manage-route-table.md):
+   * Als u [ExpressRoute](../expressroute/expressroute-introduction.md), moet u [een routetabel maken](../virtual-network/manage-route-table.md) waarvoor het volgende routeren en die tabel koppelen aan elk subnet dat wordt gebruikt door uw ISE:
 
-     **Naam**: D3655BASE-route<br>
+     **Naam**: <*route-naam*><br>
      **Adresvoorvoegsel**: 0.0.0.0/0<br>
      **Volgende hop**: Internet
 

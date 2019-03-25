@@ -10,17 +10,16 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: cd24d4ad026af7d8bce70902376c3a31d659a203
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 784387b119bff6445015419adfd3bc0e52eee43f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427868"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402640"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Een toegangstoken via een aangepast beleid doorgeven aan uw toepassing in Azure Active Directory B2C
 
-> [!NOTE]
-> Deze functie is momenteel in openbare preview.
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Een [aangepast beleid](active-directory-b2c-get-started-custom.md) in Azure Active Directory (Azure AD) B2C biedt gebruikers van uw toepassing de mogelijkheid om te registreren of aanmelden met een id-provider. Als dit gebeurt, Azure AD B2C ontvangt een [toegangstoken](active-directory-b2c-reference-tokens.md) van de id-provider. Azure AD B2C gebruikt dit token voor het ophalen van informatie over de gebruiker. U voegt een claimtype en de uitvoer claim naar het aangepaste beleid om het token door naar de toepassingen die u in Azure AD B2C registreert toe. 
 

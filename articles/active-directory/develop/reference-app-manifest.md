@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb21ddc36141dfee1be6f0e42811e6ccbeb44143
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2750de16c71e7d678810316f281e28ca8c40553d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217493"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403150"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-app-manifest
 
@@ -77,6 +77,14 @@ Het toepassingsmanifest configureren:
 | `signInUrl` | string | Hiermee geeft u de URL naar de startpagina van de app. | `https://MyRegisteredApp` |
 | `signInAudience` | string | Hiermee geeft u op welke Microsoft-accounts worden ondersteund voor de huidige toepassing. Ondersteunde waarden zijn:<ul><li>**AzureADMyOrg** -gebruikers met een Microsoft werk- of schoolaccount in mijn organisatie Azure AD-tenant (dat wil zeggen enkele tenant)</li><li>**AzureADMultipleOrgs** -gebruikers met een Microsoft werk- of schoolaccount in elke organisatie Azure AD-tenant (dat wil zeggen met meerdere tenants)</li> <li>**AzureADandPersonalMicrosoftAccount** -gebruikers met een persoonlijk Microsoft-account of een account voor werk of school in elke organisatie Azure AD-tenant</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | String-matrix | Aangepaste tekenreeksen die kunnen worden gebruikt voor het categoriseren en identificeren van de toepassing. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
+
+
+## <a name="manifest-limits"></a>Limieten voor manifesteindpunt
+Manifest van de toepassing heeft meerdere kenmerken die worden aangeduid als verzamelingen bijvoorbeeld approles, keycredentials, knownClientApplications, identifierUris, rediretUris, requiredResourceAccess, oauth2Permissions enzovoort. In het manifest van de volledige toepassing voor elke toepassing, is het totale aantal vermeldingen in de verzamelingen die zijn gecombineerd 1200 is beperkt. Als u al 100 omleidings-URI opgegeven in het toepassingsmanifest hebt, bent u alleen links met 1100 resterende gecombineerd vermeldingen dat moet worden gebruikt voor alle andere verzamelingen die gezamenlijk het manifest.
+
+> [!NOTE]
+> Als u probeert toe te voegen van meer dan 1200 vermeldingen in het toepassingsmanifest. Een fout kan optreden **'kan niet bijwerken van de toepassing xxxxxx. Foutdetails: De grootte van het manifest heeft de limiet overschreden. Verklein het aantal waarden en probeer de aanvraag opnieuw.** "
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

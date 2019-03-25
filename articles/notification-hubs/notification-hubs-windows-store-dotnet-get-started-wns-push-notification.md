@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/14/2018
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: d91e4d33bdecc23bc79e2cf975789bcaeb7ca69a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 093528dff09c71b999d58f0285044340fa0ec360
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837623"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403201"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Zelfstudie: Meldingen verzenden naar Universeel Windows-platform-apps met behulp van Azure Notification Hubs
 
@@ -52,7 +52,7 @@ Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification 
 
 Als u pushmeldingen naar UWP-apps wilt verzenden, koppelt u uw app aan de Windows Store. Vervolgens configureert u de Notification Hub voor integratie met WNS.
 
-1. Navigeer naar het [Windows-ontwikkelaarscentrum](https://dev.windows.com/overview), meld u aan met uw Microsoft-account en selecteer vervolgens **Een nieuwe app maken**.
+1. Navigeer naar het [Windows-ontwikkelaarscentrum](https://partner.microsoft.com/en-us/dashboard/windows/first-run-experience), meld u aan met uw Microsoft-account en selecteer vervolgens **Een nieuwe app maken**.
 
     ![Knop Nieuwe app](./media/notification-hubs-windows-store-dotnet-get-started/windows-store-new-app-button.png)
 2. Typ een naam voor uw app en selecteer **Productnaam reserveren**. Hiermee maakt u een nieuwe Windows Store-registratie voor uw app.

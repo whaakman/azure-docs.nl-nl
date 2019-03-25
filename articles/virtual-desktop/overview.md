@@ -1,22 +1,22 @@
 ---
-title: Wat is Windows virtueel bureaublad? (preview) - Azure
-description: Een overzicht van virtuele Windows-bureaublad.
+title: Wat is Windows Virtual Desktop Preview?  - Azure
+description: Een overzicht van Windows Virtual Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 679c7d3c84237747fd341f92c5dfcc0588d23be2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 4443d71d5c0b84ac7dbc18129338229c40323d2c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338544"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401043"
 ---
-# <a name="what-is-windows-virtual-desktop"></a>Wat is Windows virtueel bureaublad? 
+# <a name="what-is-windows-virtual-desktop-preview"></a>Wat is Windows Virtual Desktop Preview? 
 
-Nu beschikbaar in openbare preview, virtueel bureaublad van Windows is een desktop- en app-virtualisatie-service die wordt uitgevoerd in de cloud.
+Nu beschikbaar in openbare preview en Windows Virtual Desktop Preview is een desktop- en app-virtualisatie-service die wordt uitgevoerd in de cloud.
 
 Dit is wat u kunt doen wanneer u virtuele Windows-bureaublad op Azure uitvoert:
 
@@ -39,7 +39,7 @@ Met virtuele Windows-bureaublad, kunt u een schaalbare en flexibele omgeving ins
 
 U kunt implementeren en virtuele bureaubladen beheren:
 
-* De Windows virtuele bureaublad PowerShell en REST-interfaces gebruiken om de host-adresgroepen configureren, app-groepen maken, gebruikers toe te wijzen en publiceren van bronnen
+* De Windows virtuele bureaublad PowerShell en REST-interfaces gebruiken om de host-adresgroepen configureren, app-groepen maken, gebruikers toe te wijzen en publiceren van bronnen.
 * Volledige bureaublad of afzonderlijke externe apps uit een groep met één host publiceren, afzonderlijke app-groepen voor verschillende sets van gebruikers maken of zelfs gebruikers toewijzen aan meerdere app-groepen om het aantal installatiekopieën te beperken.
 * Als u uw omgeving beheert, gebruikt u de ingebouwde gedelegeerde toegang rollen toewijzen en verzamelen van diagnostische gegevens voor meer informatie over diverse fouten van configuratie of de gebruiker.
 * De nieuwe diagnostische gegevens service gebruiken voor het oplossen van fouten.
@@ -97,4 +97,4 @@ Ga naar de [Windows virtuele bureaublad Tech Community](https://techcommunity.mi
 Als u wilt beginnen, moet u een tenant maken. Voor meer informatie over het maken van een tenant, gaat u naar de zelfstudie van tenant maken.
 
 > [!div class="nextstepaction"]
-> [Een tenant maken in een virtuele Windows-bureaublad](tenant-setup-azure-active-directory.md)
+> [Een tenant maken in Windows Virtual Desktop Preview](tenant-setup-azure-active-directory.md)

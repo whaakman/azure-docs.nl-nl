@@ -1,22 +1,22 @@
 ---
-title: Instellen van een share van de gebruiker profiel voor een groep met host - Azure
-description: Over het instellen van een container FSLogix profiel voor een groep van de host Windows virtueel bureaublad (preview).
+title: Instellen van een share van de gebruiker profiel voor een pool van de host Windows Virtual Desktop Preview - Azure
+description: Over het instellen van een container FSLogix profiel voor een groep van de host Windows Virtual Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 9dfbda6e17cf954369fd6caa533ba9eef41fd451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336011"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403711"
 ---
-# <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Instellen van een share van de gebruiker profiel voor een groep host
+# <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Een gebruikersprofielshare instellen voor een hostpool
 
-De virtuele Windows-bureaublad-service (preview) biedt FSLogix profiel containers als de gebruiker aanbevolen profiel-oplossing. We raden het gebruik van de gebruiker profiel schijf (UDP)-oplossing en deze in toekomstige versies van virtuele Windows-bureaublad wordt afgeschaft.
+De service Windows Virtual Desktop Preview biedt FSLogix profiel containers als de gebruiker aanbevolen profiel-oplossing. We raden het gebruik van de gebruiker profiel schijf (UDP)-oplossing en deze in toekomstige versies van virtuele Windows-bureaublad wordt afgeschaft.
 
 In deze sectie wordt uitgelegd hoe u voor het instellen van een share FSLogix profiel container voor een groep host.
 

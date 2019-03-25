@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 52d2061262fd04e68ed13aac8932c23b7074f83e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 125ad28f049662ae6d91c61bb5ee79c1c1428af5
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113767"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401758"
 ---
-# <a name="azure-data-box-edge-system-requirements-preview"></a>Systeemvereisten voor Azure Data Box Edge (preview)
+# <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box-Edge-systeemvereisten
 
 Dit artikel beschrijft de belangrijke systeemvereisten voor uw Microsoft Azure Data Box Edge-oplossing en de clients die verbinding maken met Azure Data Box Edge. Het is raadzaam dat u de informatie voordat u uw Data Box-Edge implementeren zorgvuldig te controleren. U kunt raadplegen tot deze gegevens zo nodig tijdens de implementatie en het volgende gebruik.
 
@@ -23,9 +23,6 @@ De systeemvereisten voor de Data Box-rand zijn onder andere:
 
 - **Softwarevereisten voor hosts** -beschrijving van de ondersteunde platforms, browsers voor de lokale configuratie-UI, SMB-clients en eventuele bijkomende vereisten voor de clients die toegang het apparaat tot.
 - **Netwerkvereisten voor het apparaat** -vindt u informatie over eventuele netwerkvereisten voor de werking van het fysieke apparaat.
-
-> [!IMPORTANT]
-> Data Box Edge is in de preview-fase. Lees de [gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert.
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Ondersteund besturingssysteem voor clients die zijn verbonden met het apparaat
 
@@ -63,10 +60,7 @@ Gebruik de volgende tabel voor de configuratie van de poort voor de servers die 
 
 | Poort niet. | In- of uitschalen | Poort-bereik | Vereist | Richtlijnen |
 |----------|-----------|------------|----------|----------|
-| TCP 5671 (AMQP)| Uit       | WAN        | Ja      | Standaard communicatieprotocol voor IoT Edge. Moet zijn geopend als Azure IoT Edge is niet geconfigureerd voor andere ondersteunde protocollen of AMQP het gewenste communicatieprotocol is. <br>5672 voor AMQP wordt niet ondersteund door de IoT Edge. <br>Deze poort blokkeren wanneer Azure IoT Edge maakt gebruik van een andere IoT-Hub ondersteund protocol. |
-| TCP 443 (HTTPS)| Uit       | WAN        | Ja      | Uitgaande open voor IoT Edge wordt ingericht. Als u een transparante gateway met leaf-apparaten die methodeaanvragen kunnen worden verzonden hebt. Poort 443 hoeft in dit geval niet te worden geopend voor externe netwerken te verbinden met IoT Hub uw IoT Hub-services via Azure IoT Edge. De binnenkomende regel kan zo worden beperkt tot alleen openen binnenkomend verkeer van het interne netwerk. |
-| TCP 5671 (AMQP) | In        |            | Nee       | Binnenkomende verbindingen moeten worden geblokkeerd.|
-| TCP 443 (HTTPS) | In        |            | In sommige gevallen opmerkingen bekijken | Binnenkomende verbindingen moeten alleen voor specifieke scenario's worden geopend. Als niet-HTTP-protocollen, zoals AMQP-, MQTT kan niet worden geconfigureerd, kunnen de berichten worden verzonden via WebSockets met behulp van poort 443. |
+| TCP 443 (HTTPS)| Uit       | WAN        | Ja      | Uitgaande open voor IoT Edge wordt ingericht. Deze configuratie is vereist bij het gebruik van handmatige scripts of Azure IoT Device Provisioning Service (DPS).|
 
 Voor meer informatie gaat u naar [Firewall en configuratieregels poort voor de implementatie van IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 

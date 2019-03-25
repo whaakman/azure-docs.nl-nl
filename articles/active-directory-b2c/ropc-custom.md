@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 816d25473bfe5f9dc61d6d6f2e50d6cd82ace50c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 265f1405a8779cdca101f18cf37b64f1933c2ff3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562182"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400749"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>De resource-eigenaar wachtwoord referentiestroom in Azure Active Directory B2C met een aangepast beleid configureren
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 In Azure Active Directory (Azure AD) B2C is de stroom voor referenties (ROPC) de resource-eigenaar wachtwoord een standaard OAuth-verificatiestroom. In deze stroom uitwisselt een toepassing, ook wel bekend als de relying party, geldige referenties voor tokens. De referenties bestaan uit een gebruikers-ID en het wachtwoord. De tokens die zijn geretourneerd, zijn een ID-token, toegangstoken en een vernieuwingstoken.
 
@@ -42,9 +42,9 @@ Voer de stappen in [aan de slag met aangepaste beleidsregels in Azure Active Dir
 ## <a name="register-an-application"></a>Een toepassing registreren
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
-3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
-4. Selecteer **toepassingen**, en selecteer vervolgens **toevoegen**.
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
+4. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
 5. Voer een naam voor de toepassing, zoals *ROPC_Auth_app*.
 6. Selecteer **Nee** voor **Web App of Web-API**, en selecteer vervolgens **Ja** voor **Native client**.
 7. Alle andere waarden laten zoals ze zijn, en selecteer vervolgens **maken**.

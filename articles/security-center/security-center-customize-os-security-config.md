@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 15707e9854e79b3aa05ff9024fc5b3c7a38fa8f2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106882"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402113"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Aanpassen van de beveiligingsconfiguraties OS in Azure Security Center (Preview)
 
@@ -112,7 +112,7 @@ Elke categorie heeft een eigen set kenmerken. U kunt de volgende kenmerken wijzi
 
     - Lijst met toegestane gebruikersgroepen, bijvoorbeeld: *Beheerders*, *back-upoperators*
 
--   **status**: De tekenreeks mag de opties *uitgeschakelde* of *ingeschakeld*. Voor deze private preview-versie is de tekenreeks hoofdlettergevoelig.
+-   **status**: De tekenreeks mag de opties *uitgeschakelde* of *ingeschakeld*. Voor deze release zijn de tekenreeks is hoofdlettergevoelig.
 
 Dit zijn alleen de velden die kunnen worden geconfigureerd. Als u de indeling of de grootte schenden, kunt u zich niet de wijziging op te slaan. U ontvangt een foutmelding weergegeven die u moet een geldig JSON-configuratiebestand uploaden.
 
@@ -281,7 +281,7 @@ Alle mogelijke fouten worden weergegeven in de volgende tabel:
 | BaselineRuleCceIdNotUniqueError          | De CCE-ID *{0}* is niet uniek.                                                                                                                  |
 | BaselineRuleEmptyProperty                | De eigenschap *{0}* is ongeldig of ontbreekt.                                                                                                       |
 | BaselineRuleIdNotInDefault               | De regel is een broneigenschap *Microsoft* , maar het is niet gevonden in de regelset van de standaard Microsoft.                                                   |
-| BaselineRuleIdNotUniqueError             | De regel-Id is niet uniek.                                                                                                                       |
+| BaselineRuleIdNotUniqueError             | De regel-ID is niet uniek.                                                                                                                       |
 | BaselineRuleInvalidGuid                  | De eigenschap *{0}* ongeldig is gevonden. De waarde is geen geldige GUID.                                                                             |
 | BaselineRuleInvalidHive                  | De component moet LocalMachine /.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | Naam van de regel is niet uniek.                                                                                                                 |

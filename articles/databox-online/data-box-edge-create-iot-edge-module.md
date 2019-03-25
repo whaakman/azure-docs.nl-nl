@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 81407a298ccfe1b9884fc5d5b815ac8c18ffee6a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 522dddde4994bb019e6547fcd18465b201f048d8
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094674"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401733"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Ontwikkelen van een C# IoT Edge-module voor het verplaatsen van bestanden op gegevens in Edge (Preview)
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Ontwikkel een C# IoT Edge-module te verplaatsen van bestanden voor gegevens in het edge-apparaten
 
 In dit artikel begeleidt u stapsgewijs hoe u een IoT Edge-module voor implementatie met uw gegevens in het Edge-apparaat maakt. Azure Data Box Edge is een opslagoplossing waarmee u gegevens kunt verwerken en via een netwerk kunt verzenden naar Azure.
 
@@ -27,19 +27,13 @@ In dit artikel leert u het volgende:
 > * Maak een container registry voor het opslaan en beheren van uw modules (Docker-installatiekopieën).
 > * Maak een IoT Edge-module op uw gegevens in het Edge-apparaat te implementeren.
 
-> [!IMPORTANT]
-> Data Box Edge is in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
 
 ## <a name="about-the-iot-edge-module"></a>Over de IoT Edge-module
 
 Uw gegevens in het Edge-apparaat kunt implementeren en uitvoeren van IoT Edge modules. Edge-modules zijn in feite Docker-containers die een bepaalde taak uitvoeren, zoals opnemen een bericht van een apparaat, een bericht te transformeren of een bericht verzenden naar een IoT-Hub. In dit artikel maakt u een module waarmee bestanden worden gekopieerd van een lokale share naar een cloud-share op uw gegevens in het Edge-apparaat.
 
 1. Bestanden worden geschreven naar de lokale share op uw gegevens in het Edge-apparaat.
-2. De gebeurtenis bestand generator maakt een bestandgebeurtenis voor elk bestand geschreven naar de lokale share. De gebeurtenissen bestand worden vervolgens verzonden naar IoT Edge Hub (in IoT Edge-runtime).
-
-   > [!IMPORTANT]
-   > Het bestand gebeurtenissen worden gegenereerd voor de zojuist gemaakte bestanden. Het wijzigen van bestaande bestanden geen bestand gebeurtenissen gegenereerd.
-
+2. De gebeurtenis bestand generator maakt een bestandgebeurtenis voor elk bestand geschreven naar de lokale share. De bestand-gebeurtenissen worden ook gegenereerd wanneer een bestand wordt gewijzigd. De gebeurtenissen bestand worden vervolgens verzonden naar IoT Edge Hub (in IoT Edge-runtime).
 3. De bestandgebeurtenis voor het maken van een bestand event-object dat ook een relatief pad voor het bestand bevat wordt verwerkt door de aangepaste IoT Edge-module. De module een absoluut pad met behulp van het relatieve bestandspad genereert en het bestand vanaf de lokale share gekopieerd naar de cloud-share. De module wordt het bestand vervolgens verwijderd uit de lokale share.
 
 ![De werking van Azure IoT Edge-module voor gegevens in het edge-apparaten](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
@@ -52,8 +46,9 @@ Voordat u begint, controleert u of u over het volgende beschikt:
 
 - Een Data Box Edge-apparaat dat wordt uitgevoerd.
 
-    - Het apparaat heeft ook een gekoppelde IoT-Hub-resource. Ga voor meer informatie naar [maken van een IoT Hub-resource](data-box-edge-deploy-configure-compute.md#create-an-iot-hub-resource) voor uw gegevens in Edge.
-    - Het apparaat heeft Edge compute-rol is geconfigureerd. Ga voor meer informatie naar [berekeningsfunctie instellen](data-box-edge-deploy-configure-compute.md#set-up-compute-role) voor uw gegevens in het edge-apparaten.
+    - Het apparaat heeft ook een gekoppelde IoT-Hub-resource.
+    - Het apparaat heeft Edge compute-rol is geconfigureerd.
+    Ga voor meer informatie naar [berekening configureren](data-box-edge-deploy-configure-compute.md#configure-compute) voor uw gegevens in Edge.
 
 - De volgende resources voor het ontwikkelen:
 
@@ -128,7 +123,7 @@ Maak een C#-oplossingssjabloon die u met uw eigen code kunt aanpassen.
 
 ### <a name="update-the-module-with-custom-code"></a>De module bijwerken met aangepaste code
 
-1. Open in de VS Code explorer **modules > CSharpModule > Program.cs**.
+1. Open in de VS Code explorer **modules > FileCopyModule > Program.cs**.
 2. Aan de bovenkant van de **FileCopyModule naamruimte**, voeg de volgende using-instructies voor typen die later worden gebruikt. **Microsoft.Azure.Devices.Client.Transport.Mqtt** is een protocol voor het verzenden van berichten naar IoT Edge Hub.
 
     ```
@@ -141,12 +136,9 @@ Maak een C#-oplossingssjabloon die u met uw eigen code kunt aanpassen.
     class Program
         {
             static int counter;
-            private const string InputFolderPath = "/home/LocalShare";
-            private const string OutputFolderPath = "/home/CloudShare";
+            private const string InputFolderPath = "/home/input";
+            private const string OutputFolderPath = "/home/output";
     ```
-
-    > [!IMPORTANT]
-    > Noteer de `InputFolderPath` en de `OutputFolderPath`. U moet deze paden opgeven wanneer u deze module implementeert.
 
 4. Voeg de **MessageBody** klasse aan de klasse Program. Deze klassen bepalen het verwachte schema voor de hoofdtekst van inkomende berichten.
 
@@ -189,7 +181,7 @@ Maak een C#-oplossingssjabloon die u met uw eigen code kunt aanpassen.
 6. Voeg de code voor **FileCopy**.
 
     ```
-            /// <summary>
+        /// <summary>
         /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
         /// This method deserializes the file event, extracts the corresponding relative file path, and creates the absolute input file path using the relative file path and the InputFolderPath.
         /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
@@ -241,8 +233,6 @@ Maak een C#-oplossingssjabloon die u met uw eigen code kunt aanpassen.
             Console.WriteLine($"Processed event.");
             return MessageResponse.Completed;
         }
-
-    }
     ```
 
 7. Sla dit bestand op.
@@ -251,7 +241,8 @@ Maak een C#-oplossingssjabloon die u met uw eigen code kunt aanpassen.
 
 In de vorige sectie hebt u een oplossing die het IoT Edge en code toegevoegd aan de FileCopyModule om bestanden te kopiëren van lokale share naar de cloud-share. Nu moet u de oplossing bouwen als een containerinstallatiekopie en deze naar het containerregister pushen.
 
-1. Meld u aan bij Docker door de volgende opdracht in de geïntegreerde Visual Studio Code-terminal in te voeren.
+1. Vscode, gaat u naar de Terminal > nieuwe Terminal een nieuwe Visual Studio Code geïntegreerde terminal te openen.
+2. Meld u aan Docker met de volgende opdracht in de geïntegreerde terminal.
 
     `docker login <ACR login server> -u <ACR username>`
 
@@ -282,4 +273,4 @@ In de vorige sectie hebt u een oplossing die het IoT Edge en code toegevoegd aan
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt implementeren en uitvoeren van deze module voor gegevens in het edge-apparaten, Zie de stappen in [toevoegen van een aangepaste module](data-box-edge-deploy-configure-compute.md#add-a-custom-module).
+Als u wilt implementeren en uitvoeren van deze module voor gegevens in het edge-apparaten, Zie de stappen in [toevoegen van een module](data-box-edge-deploy-configure-compute.md#add-a-module).

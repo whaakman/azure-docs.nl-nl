@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 08f84a3e037301837da984b0891d978027dc2e11
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0a16fbda662ee1d3718dbafc4231de67aab277e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083161"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400675"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Zelfstudie: Detectie van bedreigingen met Azure Sentinel Preview
 
@@ -27,18 +27,21 @@ ms.locfileid: "58083161"
 > Azure Sentinel is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-Deze zelfstudie helpt u bedreigingen in een met Azure Sentinel.
-
 Nadat u [uw gegevensbronnen verbonden](quickstart-onboard.md) Azure Sentinel, u wilt worden gewaarschuwd wanneer er iets verdachte gebeurt. Zodat u kunt dit doen Sentinel van Azure kunt u geavanceerde regels voor waarschuwingen, die aanvragen die u kunt genereren en gebruiken voor het onderzoeken van diep afwijkingen en bedreigingen in uw omgeving. 
 
-
+Deze zelfstudie helpt u bedreigingen in een met Azure Sentinel.
 > [!div class="checklist"]
 > * Detectieregels maken
 > * Op bedreigingen reageren
 
 ## <a name="create-detection-rules"></a>Detectieregels maken
 
-Voor het onderzoeken van aanvragen, moet u eerst detectieregels maken. Detectieregels zijn gebaseerd op de typen dreigingen en afwijkingen die gebruikt in uw omgeving die u weten worden kunnen wilt over meteen verdachte ervoor te zorgen dat ze zijn opgehaald, onderzocht, en hersteld. 
+Voor het onderzoeken van aanvragen, moet u eerst detectieregels maken. 
+
+> [!NOTE]
+> Waarschuwingen die zijn gegenereerd in Azure Sentinel zijn beschikbaar via [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Raadpleeg de [documentatie voor Microsoft Graph-beveiligingswaarschuwingen](https://aka.ms/graphsecurityreferencebetadocs) voor meer informatie en van integratiepartners.
+
+Detectieregels zijn gebaseerd op de typen dreigingen en afwijkingen die gebruikt in uw omgeving die u weten worden kunnen wilt over meteen verdachte ervoor te zorgen dat ze zijn opgehaald, onderzocht, en hersteld. 
 
 1. Selecteer in de Azure-portal onder Azure Sentinel **Analytics**.
 
@@ -87,7 +90,9 @@ Azure Sentinel kunt u twee primaire manieren voor het reageren op bedreigingen m
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u aan de slag voor het detecteren van bedreigingen met behulp van Azure Sentinel. Ga verder met de zelfstudie voor [het reageren op bedreigingen met behulp van geautomatiseerde playbooks](tutorial-respond-threats-playbook.md).
+In deze zelfstudie hebt u geleerd hoe u aan de slag voor het detecteren van bedreigingen met behulp van Azure Sentinel. 
+
+Voor informatie over het automatiseren van uw antwoorden op bedreigingen, [het reageren op bedreigingen met behulp van geautomatiseerde playbooks](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Reageren op bedreigingen](tutorial-respond-threats-playbook.md) voor het automatiseren van uw antwoorden op bedreigingen.
 

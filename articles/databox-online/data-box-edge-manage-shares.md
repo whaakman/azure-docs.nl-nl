@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 79648e30e832a056016b8842fdc39e27e206c9ee
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: ec5fbffdf7df5ef3a952e21b79ab02f355fb8e29
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57897792"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403643"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>De Azure portal gebruiken voor het beheren van bestandsshares voor uw Azure Data Box-edge-apparaten
 
 Dit artikel wordt beschreven hoe u shares voor uw Azure Data Box-edge-apparaten kunt beheren. U kunt beheren van de rand van het Azure Data Box via Azure portal of via de lokale webgebruikersinterface. De Azure portal gebruiken voor het toevoegen, verwijderen, shares of opslagsleutel synchroniseren voor storage-account dat is gekoppeld aan de shares vernieuwen.
-
-> [!IMPORTANT]
-> Data Box Edge is in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
-
 
 ## <a name="about-shares"></a>Info over shares
 
@@ -67,8 +63,10 @@ Voer in de Azure Portal de volgende stappen uit om een share te maken.
 
         ![NFS-share toevoegen](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Klik op **Maken** om de share te maken. U ontvangt een melding als wordt begonnen met het maken van de share. Als de share met de opgegeven instellingen is gemaakt, wordt de blade **Shares** bijgewerkt in overeenstemming met de nieuwe share.
- 
+7. Voor eenvoudig toegang tot de shares via Edge Computing-modules, gebruikt u het lokale koppelpunt. Selecteer **gebruik van de bestandsshare met Edge Computing** zodat de share automatisch wordt gekoppeld nadat deze zijn gemaakt. Wanneer deze optie is geselecteerd, kan het Edge-module de compute ook gebruiken met het lokale koppelpunt.
+
+8. Klik op **Maken** om de share te maken. U ontvangt een melding als wordt begonnen met het maken van de share. Als de share met de opgegeven instellingen is gemaakt, wordt de blade **Shares** bijgewerkt in overeenstemming met de nieuwe share.
+
 ## <a name="add-a-local-share"></a>Een lokale share toevoegen
 
 1. In de Azure-portal, gaat u naar uw gegevens in het Edge-resource en ga vervolgens naar **Gateway > Shares**. Selecteer **+ bestandsshare toevoegen** op de opdrachtbalk.
@@ -93,11 +91,32 @@ Voer in de Azure Portal de volgende stappen uit om een share te maken.
 
     U ziet een melding dat de share gemaakt wordt. Als de share met de opgegeven instellingen is gemaakt, wordt de blade **Shares** bijgewerkt in overeenstemming met de nieuwe share.
 
-    ![Updates Shares blade weergeven](media/data-box-edge-manage-shares/add-local-share-4.png)
+    ![Updates Shares blade weergeven](media/data-box-edge-manage-shares/add-local-share-3.png)
     
     Selecteer de share om de lokale koppelpunt voor het Edge-modules voor compute voor deze share weer te geven.
 
     ![Details van de lokale share weergeven](media/data-box-edge-manage-shares/add-local-share-4.png)
+
+
+## <a name="unmount-a-share"></a>Een bestandsshare te ontkoppelen
+
+Voer de volgende stappen uit in de Azure portal om een bestandsshare te ontkoppelen.
+
+1. In de Azure-portal, gaat u naar uw gegevens in het Edge-resource en ga vervolgens naar **Gateway > Shares**.
+
+    ![Share selecteren](media/data-box-edge-manage-shares/select-share-unmount.png)
+
+2. Selecteer in de lijst van de shares, de share die u wilt ontkoppelen. U wilt om ervoor te zorgen dat de share die u kunt ontkoppelen niet wordt gebruikt door alle modules. Als de share wordt gebruikt door een module, ziet u problemen met de bijbehorende-module. Selecteer **ontkoppelen**.
+
+    ![Selecteer ontkoppelen](media/data-box-edge-manage-shares/select-unmount.png)
+
+3. Wanneer u hierom wordt gevraagd om bevestiging, selecteert u **Ja**. Hiermee wordt de bestandsshare ontkoppelen.
+
+    ![Controleer of ontkoppelen](media/data-box-edge-manage-shares/confirm-unmount.png)
+
+4. Nadat de share ontkoppeld is, gaat u naar de lijst met shares. U ziet dat **gebruikt voor compute** kolom ziet u de status van de share als **uitgeschakelde**.
+
+    ![Share ontkoppeld](media/data-box-edge-manage-shares/share-unmounted.png)
 
 ## <a name="delete-a-share"></a>Een share verwijderen
 

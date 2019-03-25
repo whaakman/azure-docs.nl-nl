@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/4/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1d54ac521fb8b81ed5fa135f68af420bda261661
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a80c4db1b81dd2bc0b223a2781e28ccb1f5ba68e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246947"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402878"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Quickstart: Aan de slag met Azure Sentinel Preview
 
@@ -118,7 +118,22 @@ Het is raadzaam om een query waarin gegevens uit meerdere bronnen te maken. U ku
 
 U kunt verschillende dashboards op basis van de rol van de persoon kijken naar de gegevens en wat ze nodig hebt. U kunt bijvoorbeeld een dashboard maken voor de beheerder van uw netwerk met de gegevens van de firewall. U kunt ook dashboards die zijn gebaseerd op hoe vaak u bekijken, wilt of er dingen die u wilt bekijken dagelijks maken en andere items die u wilt eenmaal per uur controleren, bijvoorbeeld, kunt u uw Azure AD-aanmeldingen kijken met elk uur om te zoeken naar anomali ES. 
 
+## <a name="create-new-detections"></a>Maken van nieuwe detecties
 
+Genereren van detecties op de [gegevensbronnen waarmee u Azure Sentinel verbonden](connect-data-sources.md) voor het onderzoeken van bedreigingen in uw organisatie.
+
+Wanneer u een nieuwe detectie maakt, gebruikmaken van de ingebouwde detecties samengesteld door beveiligingsonderzoekers van Microsoft die zijn toegesneden op de gegevensbronnen die u verbonden.
+
+1. [In de GitHub-community](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) Ga naar de **detecties** map en selecteer de relevante mappen.
+   ![relevante mappen](./media/qs-get-visibility/detection-folders.png)
+ 
+3.  Ga naar de **Analytics** tabblad en selecteer **toevoegen**.
+   ![regel maken in Log Analytics](./media/qs-get-visibility/query-params.png)
+
+3.  Kopieert u alle parameters naar de regel en klikt u op **maken**.
+   ![Waarschuwingsregel maken](./media/qs-get-visibility/create-alert-rule.png)
+
+ 
 ## <a name="next-steps"></a>Volgende stappen
 In deze snelstartgids hebt u geleerd hoe u aan de slag met Azure Sentinel. Ga verder met de zelfstudie voor [het vaststellen van bedreigingen](tutorial-detect-threats.md).
 > [!div class="nextstepaction"]

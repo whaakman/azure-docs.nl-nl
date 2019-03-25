@@ -1,28 +1,25 @@
 ---
-title: De Azure Portal gebruiken om gebruikers te beheren in Azure Data Box Gateway | Microsoft Docs
+title: Bandbreedte-schema's in Azure Data Box Gateway beheren | Microsoft Docs
 description: Beschrijft hoe u de Azure Portal gebruikt om bandbreedteschema's te beheren in uw Azure Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a50091ec8878cbc8c1167c03acddaf269d697f31
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102105"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400425"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>De Azure Portal gebruiken om bandbreedteschema's te beheren in uw Azure Data Box Gateway  
 
 Dit artikel beschrijft hoe u gebruikers beheert in uw Azure Data Box Gateway. Met bandbreedteschema's kunt u het gebruik van netwerkbandbreedte beheren over schema's voor meerdere tijdstippen. Deze schema's kunnen worden toegepast op upload- en downloadbewerkingen van uw apparaat naar de cloud. 
 
 U kunt de bandbreedteschema's voor uw Data Box Gateway toevoegen, wijzigen of verwijderen via de Azure Portal.
-
-> [!IMPORTANT]
-> - Data Box Gateway verkeert in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
 
 In dit artikel leert u het volgende:
 

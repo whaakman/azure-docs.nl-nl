@@ -1,18 +1,18 @@
 ---
-title: Microsoft Azure Data Box Gateway usecases | Microsoft Docs
-description: Beschrijving van de usecases voor Azure Data Box-Gateway, een virtueel apparaat opslagoplossing waarmee u gegevens overdragen naar Azure
+title: Microsoft Azure Data Box Gateway use-cases | Microsoft Docs
+description: Beschrijving van de use cases voor Azure Data Box-Gateway, een virtueel apparaat opslagoplossing waarmee u gegevens overdragen naar Azure
 services: databox
 author: alkohli
 ms.service: databox
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 03/2/2019
 ms.author: alkohli
-ms.openlocfilehash: d1367504182eb8d8335796dc37800c30e0a563b8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 37ec1d05d07f33343b9ff21380a277d00b242b7c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438589"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403796"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Use cases voor Azure Data Box-Gateway
 
@@ -26,8 +26,6 @@ Data Box-Gateway gebruiken voor de volgende scenario's:
 
 Elk van deze scenario's is beschreven in de volgende secties worden uitgelegd.
 
-> [!IMPORTANT]
-> Data Box Gateway is in de previewfase. Lees de [gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert.
 
 ## <a name="continuous-data-ingestion"></a>Continue gegevensopname
 

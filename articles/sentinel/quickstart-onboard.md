@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: 30f6d08594bdf2e5d78bc8c7881a135d6e57f397
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852192"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399685"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Voorbeeld van de trein Azure Sentinel
 
@@ -75,7 +75,6 @@ Bijvoorbeeld, klikt u op **Azure Active Directory**. Als u verbinding maakt met 
 Aan de onderkant aanbevelingen Azure Sentinel voor welke dashboards die u moet installeren voor elke connector zodat u kunt dat u onmiddellijk inzichten krijgen interessante van uw gegevens. <br> Volg de installatie-instructies of [verwijzen naar de relevante verbinding guide](connect-data-sources.md) voor meer informatie. Zie voor meer informatie over gegevensconnectors [verbinding maken met Microsoft-services](connect-data-sources.md).
 
 Nadat uw gegevensbronnen zijn verbonden, worden uw gegevens streamen naar Azure Sentinel begint en gereed is voor u aan de slag. Vindt u de logboeken in de [ingebouwde dashboards](quickstart-get-visibility.md) en beginnen met het samenstellen van query's in Log Analytics [onderzoeken van de gegevens](tutorial-investigate-cases.md).
-
 
 
 

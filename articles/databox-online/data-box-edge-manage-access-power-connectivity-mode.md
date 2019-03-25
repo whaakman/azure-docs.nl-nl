@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: e0aa3468bda9f904d62e9e20545ac5f990cef521
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57902096"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400888"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Beheren van toegang, kracht en verbindingsmodus voor uw Azure Data Box Edge (preview)
 
@@ -31,11 +31,11 @@ In dit artikel leert u het volgende:
 
 ## <a name="manage-device-access"></a>Toegang tot het apparaat beheren
 
-De toegang tot uw gegevens in het Edge-apparaat wordt bepaald door het gebruik van een beheerderswachtwoord voor het apparaat. U kunt het administrator-wachtwoord via de lokale webgebruikersinterface wijzigen. U kunt ook het beheerderswachtwoord voor het apparaat in Azure portal opnieuw.
+De toegang tot uw gegevens in het Edge-apparaat wordt bepaald door het gebruik van het wachtwoord van een apparaat. U kunt het wachtwoord via de lokale webgebruikersinterface wijzigen. U kunt ook het wachtwoord van het apparaat in Azure portal opnieuw.
 
-### <a name="change-device-administrator-password"></a>Beheerderswachtwoord voor het apparaat wijzigen
+### <a name="change-device-password"></a>Wachtwoord voor apparaat wijzigen
 
-Volg deze stappen in de lokale gebruikersinterface te wijzigen van het beheerderswachtwoord voor het apparaat.
+Volg deze stappen in de gebruikersinterface van de lokale wachtwoord van het apparaat te wijzigen.
 
 1. Ga in de lokale webgebruikersinterface naar **onderhoud > wachtwoordwijziging**.
 2. Voer in het huidige wachtwoord en klik vervolgens op het nieuwe wachtwoord. Het opgegeven wachtwoord moet tussen 8 en 16 tekens lang zijn. Het wachtwoord moet bestaan 3 van de volgende tekens bevatten: hoofdletters, kleine letters, cijfers en speciale tekens. Controleer of het nieuwe wachtwoord.
@@ -44,7 +44,7 @@ Volg deze stappen in de lokale gebruikersinterface te wijzigen van het beheerder
 
 3. Selecteer **wachtwoord wijzigen**.
  
-### <a name="reset-device-administrator-password"></a>Beheerderswachtwoord voor het apparaat opnieuw instellen
+### <a name="reset-device-password"></a>Apparaatwachtwoord opnieuw instellen
 
 De werkstroom opnieuw instellen is niet vereist voor de gebruiker aan de hand van het oude wachtwoord en is handig als u het wachtwoord is verloren gegaan. Deze werkstroom wordt uitgevoerd in Azure portal.
 
@@ -63,7 +63,7 @@ Uw apparaat kunt naast de standaard volledig verbonden modus, ook uitvoeren in d
 
 - **Volledig wordt verbonden** -dit is de normale standaardmodus waarin het apparaat werkt. De cloud uploaden en downloaden van gegevens is in deze modus ingeschakeld. U kunt de Azure portal of de lokale webgebruikersinterface voor het beheren van het apparaat.
 
-- **Gedeeltelijk verbroken** : In deze modus wordt het apparaat kan niet uploaden gegevens naar de shares echter kunnen worden beheerd via de Azure-portal.
+- **Gedeeltelijk verbroken** : In deze modus wordt het apparaat kan niet uploaden of downloaden van een share die gegevens echter kunnen worden beheerd via de Azure-portal.
 
     In deze modus wordt doorgaans gebruikt wanneer u op een netwerk met een datalimiet satelliet en het doel is om het gebruik van netwerkbandbreedte te minimaliseren. Minimale netwerkverbruik nog steeds optreden voor het controleren van de bewerkingen van apparaten.
 

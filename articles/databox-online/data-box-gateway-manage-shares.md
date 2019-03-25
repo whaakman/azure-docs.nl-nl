@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: fd58bf9582663e64e1aefd8193d48d92f51dcd0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: 50a505b7f4cc1e8fd840703b1f1aa0111dafdec4
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165658"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400574"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>De Azure Portal gebruiken om shares te beheren in uw Azure Data Box Gateway 
 
 Dit artikel beschrijft hoe u shares beheert in uw Azure Data Box Gateway. U kunt de Azure Data Box Gateway beheren via Azure Portal of via de lokale webinterface. Gebruik de Azure Portal om shares toe te voegen, te verwijderen of te vernieuwen of de opslagsleutel te synchroniseren voor het opslagaccount dat is gekoppeld aan de shares.
-
-> [!IMPORTANT]
-> - Data Box Gateway verkeert in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
-
 
 ## <a name="about-shares"></a>Info over shares
 

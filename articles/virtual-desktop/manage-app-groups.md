@@ -1,22 +1,22 @@
 ---
-title: App-groepen beheren voor Windows virtueel bureaublad (preview) - Azure
-description: Beschrijft hoe u voor het instellen van virtuele Windows-bureaublad tenants in Azure Active Directory.
+title: App-groepen beheren voor Windows Virtual Desktop Preview - Azure
+description: Beschrijft hoe u voor het instellen van Windows Virtual Desktop Preview tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 455e3b4ac4a5020f68b5201bc19f85892ef62cb1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2baabe6837d25cce5e9f5d9e1071af8417fe5f4d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368983"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401859"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Zelfstudie: App-groepen beheren voor virtuele Windows-Desktop (Preview)
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Zelfstudie: App-groepen beheren voor Windows Virtual Desktop Preview
 
-De standaard-app-groep gemaakt voor een nieuwe groep van de host publiceert ook het volledige bureaublad. Bovendien kunt u een of meer RemoteApp (preview) toepassingsgroepen voor de host-groep maken. Volg deze zelfstudie als u wilt een RemoteApp-app-groep maken en publiceren van afzonderlijke apps in het menu Start.
+De standaard-app-groep gemaakt voor een nieuwe groep van de host Windows Virtual Desktop Preview publiceert ook het volledige bureaublad. Bovendien kunt u een of meer RemoteApp-toepassingsgroepen voor de host-groep maken. Volg deze zelfstudie als u wilt een RemoteApp-app-groep maken en publiceren van afzonderlijke apps in het menu Start.
 
 In deze zelfstudie leert u het volgende:
 

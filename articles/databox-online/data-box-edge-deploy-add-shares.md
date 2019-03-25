@@ -6,21 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6810818e48329d883961c840fa83857d84b98fd4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e902f0c9465f65f31f6e1a5cadc7b6b30cda1a27
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112866"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403677"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-edge-preview"></a>Zelfstudie: Gegevens overdragen met Azure Data Box Edge (preview)
+# <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Zelfstudie: Gegevens overdragen met Azure Data Box Edge
 
 In deze zelfstudie wordt beschreven hoe u shares toevoegt aan een Data Box Edge-apparaat en er verbinding mee maakt. Nadat u de shares hebt toegevoegd, kunnen via Data Box Edge gegevens worden overgedragen naar Azure.
 
-Deze procedure neemt in totaal ongeveer tien minuten in beslag. 
+Deze procedure neemt in totaal ongeveer tien minuten in beslag.
 
 In deze zelfstudie leert u het volgende:
 
@@ -28,51 +28,50 @@ In deze zelfstudie leert u het volgende:
 > * Een share toevoegen
 > * Verbinding maken met de share
 
-> [!IMPORTANT]
-> Data Box Edge is in de preview-fase. Bekijk de [Azure-gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
  
 ## <a name="prerequisites"></a>Vereisten
 
 Voordat u shares aan Data Box Edge gaat toevoegen, controleert u het volgende:
-* U hebt uw fysieke apparaat geïnstalleerd zoals beschreven in [Azure Data Box Edge installeren](data-box-edge-deploy-install.md). 
 
-* U hebt het fysieke apparaat geactiveerd zoals beschreven in [Azure Data Box Edge aansluiten, instellen en activeren](data-box-edge-deploy-connect-setup-activate.md). 
+- U hebt uw fysieke apparaat geïnstalleerd zoals beschreven in [Azure Data Box Edge installeren](data-box-edge-deploy-install.md).
 
-* Het apparaat is klaar om bestandsshares te maken en gegevens over te dragen.
+- U hebt het fysieke apparaat geactiveerd zoals beschreven in [Azure Data Box Edge aansluiten, instellen en activeren](data-box-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="add-a-share"></a>Een share toevoegen
 
 Ga als volgt te werk om een share te maken:
 
-1. Ga in de [Azure-portal](https://portal.azure.com/) naar **Alle resources**, en zoek vervolgens naar uw Data Box Edge-resource.
-    
-1. Selecteer uw Data Box Edge-resource in de gefilterde lijst met resources.
+1. In de [Azure-portal](https://portal.azure.com/), selecteert u uw gegevens in het Edge-resource en gaat u naar de **overzicht**. Uw apparaat moet online zijn.
 
-1. Selecteer in het linkerdeelvenster **Overzicht** en selecteer vervolgens **Share toevoegen**.
-   
-   ![Een share toevoegen](./media/data-box-edge-deploy-add-shares/click-add-share.png)
+   ![Apparaat online](./media/data-box-edge-deploy-add-shares/device-online-1.png)
 
-1. Ga als volgt te werk in het deelvenster **Share delen**:
+2. Selecteer **+ bestandsshare toevoegen** op de opdrachtbalk van het apparaat.
+
+   ![Een share toevoegen](./media/data-box-edge-deploy-add-shares/select-add-share-1.png)
+
+3. Ga als volgt te werk in het deelvenster **Share delen**:
 
     a. Geef in het vak **Naam** een unieke naam op voor de share.  
-    De naam van de share mag alleen bestaan uit kleine letters, cijfers en afbreekstreepjes. De naam moet tussen de 3 en 63 tekens lang zijn en beginnen met een letter of cijfer. Afbreekstreepjes moeten worden voorafgegaan door een letter of cijfer.
+    De naam van de share mag alleen bestaan uit kleine letters, cijfers en afbreekstreepjes. Het moet 3 tot 63 tekens bevatten en beginnen met een letter of een cijfer. Afbreekstreepjes moeten worden voorafgegaan door een letter of cijfer.
     
     b. Selecteer een **Type** voor de share.  
     Het type kan **SMB** of **NFS** zijn. SMB is het standaardtype. SMB is het standaardtype voor Windows-clients; NFS wordt gebruikt voor Linux-clients.  
     De andere opties verschillen enigszins, afhankelijk van of u kiest voor SMB- of NFS-shares. 
 
-    c. Bied een opslagaccount waarin de share wordt opgeslagen.  
-    Als er nog geen container bestaat, wordt in het opslagaccount een container gemaakt met de naam van de zojuist gemaakte share. Als er al een container bestaat, wordt de bestaande container gebruikt. 
+    c. Geef een opslagaccount waarin de share zich bevindt. 
+
     
     d. Selecteer in de vervolgkeuzelijst **Storage-service** de optie **Blok-blob**, **Pagina-blob** of **Bestanden**.  
-    Het type service dat u selecteert, is afhankelijk van de gewenste indeling voor de gegevens in Azure. In dit voorbeeld selecteren we **Blok-blob** omdat we de gegevens willen opslaan als blob-blokken. Als u Pagina-blob selecteert, moet u ervoor zorgen dat uw gegevens zijn uitgelijnd op 512 bytes. VHDX is bijvoorbeeld altijd op 512 bytes uitgelijnd.
+    Het type service dat u selecteert, is afhankelijk van de gewenste indeling voor de gegevens in Azure. In dit voorbeeld, omdat we willen de gegevens worden opgeslagen als blok-blobs in Azure, selecteren we **blok-Blob**. Als u selecteert **pagina-Blob**, zorg ervoor dat uw gegevens 512 bytes uitgelijnd. VHDX is bijvoorbeeld altijd op 512 bytes uitgelijnd.
+
+    e. Maak een nieuwe blob-container of gebruik een bestaande resourcegroep in de vervolgkeuzelijst. Als het maken van een blob-container, geeft u de containernaam van een. Als er nog geen container bestaat, wordt in het opslagaccount een container gemaakt met de naam van de zojuist gemaakte share.
    
-    e. Voer een van de volgende stappen uit, afhankelijk van of u een SMB-share of een NFS-share hebt gemaakt: 
+    f. Voer een van de volgende stappen uit, afhankelijk van of u een SMB-share of een NFS-share hebt gemaakt: 
      
     - **SMB-share**: Selecteer onder **Lokale gebruiker met Alle machtigingen** de optie **Nieuwe maken** of **Bestaande gebruiken**. Als u een nieuwe lokale gebruiker maakt, voert u een gebruikersnaam en wachtwoord in. Vervolgens bevestigt u het wachtwoord. Met deze actie worden machtigingen toegewezen aan de lokale gebruiker. Nadat u de machtigingen hier hebt toegewezen, kunt u Verkenner gebruiken om ze aan te passen.
 
-        Als u het selectievakje **Alleen leesbewerkingen toestaan** selecteert voor deze sharegegevens, kunt u gebruikers met het kenmerk Alleen-lezen opgeven.
+        Als u selecteert de **toestaan alleen leesbewerkingen** selectievakje voor deze gegevens delen, kunt u alleen-lezen.
 
         ![SMB-share toevoegen](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
    
@@ -80,15 +79,14 @@ Ga als volgt te werk om een share te maken:
 
         ![NFS-share toevoegen](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
    
-1. Selecteer **Maken** om de share te maken. 
+4. Selecteer **Maken** om de share te maken.
     
-    U ontvangt een melding als wordt begonnen met het maken van de share. Nadat de share is gemaakt met de opgegeven instellingen, wordt de sectie **Share** bijgewerkt met de nieuwe sharegegevens. 
+    U ontvangt een melding als wordt begonnen met het maken van de share. Nadat de share is gemaakt met de opgegeven instellingen, de **Shares** tegel updates in overeenstemming met de nieuwe share.
     
-    ![Bijgewerkte lijst met shares](./media/data-box-edge-deploy-add-shares/updated-list-of-shares.png) 
 
 ## <a name="connect-to-the-share"></a>Verbinding maken met de share
 
-U kunt nu verbinding maken met een of meer shares die u hebt gemaakt in de laatste stap. Afhankelijk van of u een SMB- of een NFS-share hebt, kunnen de stappen variëren. 
+U kunt nu verbinding maken met een of meer shares die u hebt gemaakt in de laatste stap. Afhankelijk van of u een SMB- of een NFS-share hebt, kunnen de stappen variëren.
 
 ### <a name="connect-to-an-smb-share"></a>Verbinding maken met een SMB-share
 
@@ -99,24 +97,24 @@ Maak op de Windows Server-client die is verbonden met uw Data Box Edge-apparaat,
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-1. Voer het wachtwoord voor de share in als u hierom wordt gevraagd.  
+2. Voer het wachtwoord voor de share in als u hierom wordt gevraagd.  
    De voorbeelduitvoer van deze opdracht wordt hier gepresenteerd.
 
     ```powershell
-    Microsoft Windows [Version 10.0.16299.192) 
-    (c) 2017 Microsoft Corporation. All rights reserved. 
+    Microsoft Windows [Version 10.0.16299.192)
+    (c) 2017 Microsoft Corporation. All rights reserved.
     
-    C: \Users\DataBoxEdgeUser>net use \\10.10.10.60\newtestuser /u:Tota11yNewUser 
-    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60': 
-    The command completed successfully. 
+    C: \Users\DataBoxEdgeUser>net use \\10.10.10.60\newtestuser /u:Tota11yNewUser
+    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60':
+    The command completed successfully.
     
     C: \Users\DataBoxEdgeUser>
     ```   
 
 
-1. Selecteer Windows + R op het toetsenbord. 
+3. Selecteer Windows + R op het toetsenbord.
 
-1. Geef in het venster **Uitvoeren** de `\\<device IP address>` op en selecteer vervolgens **OK**.  
+4. Geef in het venster **Uitvoeren** de `\\<device IP address>` op en selecteer vervolgens **OK**.  
    Verkenner wordt geopend. Als het goed is, ziet u nu de shares die u hebt gemaakt, als mappen. Dubbelklik in Verkenner op een share (map) om de inhoud te bekijken.
  
     ![Verbinding maken met een SMB-share](./media/data-box-edge-deploy-add-shares/connect-to-share2.png)
@@ -133,11 +131,12 @@ Ga als volgt te werk in de Linux-client die is verbonden met het Data Box Edge-a
 
     Ga naar [Install NFSv4 client](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client) (NFSv4-client installeren) voor meer informatie.
 
-1. Nadat de NFS-client is geïnstalleerd, koppelt u de NFS-share die u hebt gemaakt, aan het Data Box Edge-apparaat met behulp van de volgende opdracht:
+2. Nadat de NFS-client is geïnstalleerd, koppelt u de NFS-share die u hebt gemaakt, aan het Data Box Edge-apparaat met behulp van de volgende opdracht:
 
    `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     > [!IMPORTANT]
+    > Het gebruik van `sync` optie bij het koppelen van bestandsshares verbetert de standaardtarieven voor gegevensoverdracht van grote bestanden.
     > Voordat u de share koppelt, controleert u of de mappen die zullen fungeren als koppelpunten op de lokale computer, al zijn gemaakt. Deze mappen mogen geen bestanden of submappen bevatten.
 
     Het volgende voorbeeld toont hoe u via NFS verbinding maakt met een share op een Data Box Edge-apparaat. Het IP-adres van het apparaat is `10.10.10.60`. De share `mylinuxshare2` is gekoppeld aan de ubuntuVM. Het koppelpunt van de share is `/home/databoxubuntuhost/edge`.
@@ -145,7 +144,7 @@ Ga als volgt te werk in de Linux-client die is verbonden met het Data Box Edge-a
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
 > [!NOTE] 
-> De volgende beperkingen zijn van toepassing op de preview-versie:
+> De volgende beperkingen zijn van toepassing zijn op deze release:
 > - Nadat een bestand in de share is gemaakt, kan de naam van het bestand niet meer worden gewijzigd. 
 > - Als een bestand uit een share wordt verwijderd, wordt de vermelding in het opslagaccount niet verwijderd.
 

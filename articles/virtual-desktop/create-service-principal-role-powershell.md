@@ -1,22 +1,22 @@
 ---
-title: Service-principals en roltoewijzingen maken met PowerShell (preview) - Azure
-description: Over het maken van service-principals en rollen met PowerShell in Windows virtuele bureaublad toewijzen.
+title: Windows virtuele bureaublad Preview-service-principals en roltoewijzingen maken met PowerShell - Azure
+description: Het service-principals maken en toewijzen van rollen met PowerShell in Windows Virtual Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 86dafa5ccfb28a174a268c23d7dbc847272aaa3f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318146"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400032"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Zelfstudie: Service-principals en roltoewijzingen maken met PowerShell
 
-Service-principals zijn identiteiten die u in Azure Active Directory maken kunt voor het toewijzen van rollen en machtigingen voor een specifiek doel. In Windows virtueel bureaublad (preview), kunt u een service principal te maken:
+Service-principals zijn identiteiten die u in Azure Active Directory maken kunt voor het toewijzen van rollen en machtigingen voor een specifiek doel. In Windows Virtual Desktop Preview, kunt u een service principal te maken:
 
 - Specifieke virtuele Windows-bureaublad-beheertaken automatiseren
 - Gebruiken als de referenties in plaats van gebruikers MFA is vereist bij het uitvoeren van een Windows virtuele bureaublad Azure Resource Manager-sjabloon
@@ -58,7 +58,7 @@ $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayNa
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
 
-## <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Een roltoewijzing maken in een virtuele Windows-bureaublad
+## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Een roltoewijzing maken in Windows Virtual Desktop Preview
 
 Nu dat u een service principal gemaakt hebt, kunt u het aanmelden bij virtuele Windows-bureaublad. Zorg ervoor dat u zich aanmelden met een account met machtigingen voor het maken van de roltoewijzing.
 
@@ -112,4 +112,4 @@ Dit zijn de drie referenties die te noteren en de cmdlets die u moet uitvoeren o
 In deze zelfstudie hebt u geleerd hoe u een service-principal maken en bij het aanmelden bij virtuele Windows-bureaublad. Voor meer informatie over hoe u zich aanmeldt bij Windows virtueel bureaublad, blijven het verbinding maken met Windows virtuele bureaublad uitleg.
 
 - [Verbinding maken met de extern bureaublad-client op Windows 7 en Windows 10](connect-windows-7-and-10.md)
-- [Verbinding maken met de virtuele Windows-bureaublad-webclient](connect-web.md)
+- [Verbinding maken met de webclient Windows Virtual Desktop Preview](connect-web.md)

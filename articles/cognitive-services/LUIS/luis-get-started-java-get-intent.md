@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02e03868f5a48088b78d5d9b0221387212f248cf
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 5e5a186be19c0ecc9730bc79bddff41fb6bbb571
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958708"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401660"
 ---
 # <a name="quickstart-get-intent-using-java"></a>Snelstart: Intentie ophalen met behulp van Java
 
@@ -29,9 +29,8 @@ In deze snelstart leest u hoe u utterances doorgeeft aan een LUIS-eindpunt en in
 ## <a name="prerequisites"></a>Vereisten
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/) of uw favoriete IDE
 * Id van openbare app: df67dcdb-c37d-46af-88e1-8b97951ca1c2
-
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
@@ -43,9 +42,9 @@ In deze snelstart leest u hoe u utterances doorgeeft aan een LUIS-eindpunt en in
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="get-intent-programmatically"></a>De intentie programmatisch ophalen 
+## <a name="get-intent-programmatically"></a>De intentie programmatisch ophalen
 
-U kunt Java gebruiken voor toegang tot de dezelfde resultaten die u in het browservenster in de vorige stap hebt gezien. 
+U kunt Java gebruiken voor toegang tot de dezelfde resultaten die u in het browservenster in de vorige stap hebt gezien. Zorg ervoor dat de Apache-bibliotheken toevoegen aan uw project.
 
 1. Kopieer de volgende code om een klasse te maken in een bestand met de naam `LuisGetRequest.java`:
 
@@ -53,9 +52,9 @@ U kunt Java gebruiken voor toegang tot de dezelfde resultaten die u in het brows
 
 2. Vervang de waarde van de variabele `YOUR-KEY` door de LUIS-sleutel.
 
-3. Compileer het Java-programma met `javac -cp ":lib/*" LuisGetRequest.java`. 
+3. Vervangt door uw bestandspad en de java-programma vanaf de opdrachtregel compileren: `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`.
 
-4. Voer de toepassing uit met `java -cp ":lib/*" LuisGetRequest.java`. De uitvoer bestaat uit de JSON die u eerder hebt gezien in het browservenster.
+4. Vervangen door uw bestandspad en de toepassing wordt uitgevoerd vanaf een opdrachtregel: `java -cp .;<FILE_PATH>\* LuisGetRequest.java`. De uitvoer bestaat uit de JSON die u eerder hebt gezien in het browservenster.
 
     ![In het consolevenster wordt het JSON-resultaat van LUIS weergegeven](./media/luis-get-started-java-get-intent/console-turn-on.png)
     
@@ -65,7 +64,7 @@ U kunt Java gebruiken voor toegang tot de dezelfde resultaten die u in het brows
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Verwijder het Java-bestand. 
+Verwijder de Java-bestand of het aangevraagde project-map.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]

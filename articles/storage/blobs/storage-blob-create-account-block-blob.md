@@ -7,18 +7,18 @@ ms.date: 03/23/2019
 author: twooley
 ms.author: twooley
 ms.subservice: blobs
-ms.openlocfilehash: 16ecade7a8d0049e098bb06bd14828b19934f5f5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: f4d3e3ad923b6a603902bc007107cb41dae8cf6c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373043"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400469"
 ---
 # <a name="create-a-block-blob-storage-account"></a>Een block blob storage-account maken
 
 Het accounttype van block blob storage kunt u het maken van blok-blobs met premium-prestatiekenmerken. Dit type opslagaccount dat is geoptimaliseerd voor workloads met hoge transacties tarieven of waarvoor tijden met zeer snelle toegang. In dit artikel laat zien hoe een block blob storage-account maken met behulp van de Azure-portal, Azure CLI of Azure PowerShell.
 
-Zie voor meer informatie over block blob storage-accounts, Zie [overzicht van Azure storage-account](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Zie voor meer informatie over block blob storage-accounts, [overzicht van Azure storage-account](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
 ## <a name="create-account-in-the-azure-portal"></a>Account maken in Azure portal
 
@@ -54,7 +54,7 @@ Als u wilt een block blob storage-account maken in Azure portal, de volgende sta
 
 1. Selecteer **Maken**.
 
-### <a name="create-account-using-azure-powershell"></a>Met behulp van PowerShell voor Azure-account maken
+## <a name="create-account-using-azure-powershell"></a>Met behulp van PowerShell voor Azure-account maken
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

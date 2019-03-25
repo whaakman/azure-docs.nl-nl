@@ -1,17 +1,9 @@
+                                        ---
+Auteur: alkohli ms.service: databox  
+MS.topic: ms.date opnemen: 21-03/2019 ms.author: alkohli
 ---
-author: alkohli
-ms.service: databox
-ms.topic: include
-ms.date: 02/04/2019
-ms.author: alkohli
-ms.openlocfilehash: db51ea71e48f01800a45059927331c189660cb8a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118700"
----
-Hier volgt een lijst van de ondersteunde besturingssystemen voor clients of hosts die zijn verbonden met uw apparaat.
+
+Hier volgt een lijst van de ondersteunde besturingssystemen voor clients of hosts die zijn verbonden met uw apparaat. Deze versies van besturingssystemen zijn intern getest.
 
 | **Besturingssysteem/platform** | **Versies** |
 | --- | --- |
@@ -21,3 +13,4 @@ Hier volgt een lijst van de ondersteunde besturingssystemen voor clients of host
 | Ubuntu |16.04.3 LTS|
 | CentOS | 7.0 |
 | Mac OS | 10.14.1 |
+                                                                                                                                                                                                                                                                                                                                                                                              

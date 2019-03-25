@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 27db3327e296dafea3af2180eeaadd0ff4680b8d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: da6c9bb6cbd94ab5078641f25e42ad2203ff7a53
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341946"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402351"
 ---
 # <a name="azure-managed-applications-overview"></a>Overzicht van Azure Managed Applications
 
@@ -32,6 +32,8 @@ Met beheerde toepassingen kunt u een langdurige relatie tot stand brengen met uw
 Hoewel klanten deze beheerde toepassingen implementeren in hun abonnementen, hoeven ze deze niet te onderhouden of bij te werken. U kunt ervoor zorgen dat alle klanten goedgekeurde versies gebruiken. Klanten hoeven geen toepassingsspecifieke domeinkennis te ontwikkelen om deze toepassingen te beheren. Klanten verkrijgen automatisch toepassingsupdates en hoeven zich geen zorgen te maken over probleemoplossing en diagnoseproblemen met de toepassingen. 
 
 Met beheerde toepassingen kunnen IT-teams de gebruikers in hun organisatie vooraf goedgekeurde oplossingen aanbieden. U weet dat deze oplossingen voldoen aan de organisatiestandaarden.
+
+Beheerde toepassingen op dit moment geen ondersteuning bieden voor [beheerde identiteiten voor een Azure-resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="types-of-managed-applications"></a>Soorten beheerde toepassingen
 

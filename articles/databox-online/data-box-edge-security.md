@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: e3a24117cfd01c1c0bd0f08e8eca5adddf5ee7b6
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58119782"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403388"
 ---
-# <a name="data-box-edge-security-and-data-protection-preview"></a>Gegevens in Edge beveiliging en bescherming van gegevens (preview)
+# <a name="data-box-edge-security-and-data-protection"></a>Gegevens in het Edge-beveiliging en gegevensbescherming
 
 Beveiliging is van groot belang bij het kiezen van een nieuwe technologie, met name als de technologie wordt gebruikt met vertrouwelijke of geheime gegevens. Microsoft Azure Data Box Edge oplossing helpt ervoor te zorgen dat alleen geautoriseerde entiteiten kunnen weergeven, wijzigen of verwijderen van uw gegevens.
 
@@ -27,9 +27,6 @@ De oplossing Azure Data Box Edge bestaat uit vier hoofdonderdelen die met elkaar
 - **Gegevens in het Edge-apparaat** – de overdrachtsapparaat dat u uw on-premises gegevens importeren in Azure wordt verzonden.
 - **Clients /-hosts die zijn verbonden met het apparaat** – de clients in uw infrastructuur die verbinding maken met de gegevens in het Edge-apparaat en die gegevens bevatten die moet worden beveiligd.
 - **Cloudopslag** – De locatie in de Azure-cloud waar gegevens worden opgeslagen. Deze locatie is meestal het opslagaccount dat is gekoppeld aan de gegevens in het Edge-resource die u hebt gemaakt.
-
-> [!IMPORTANT]
-> Data Box Edge is in de preview-fase. Bekijk de [Azure-gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
 
 
 ## <a name="data-box-edgedata-box-gateway-service-protection"></a>Gegevensbeveiliging in Edge/Data Box-Gateway-service
@@ -44,7 +41,7 @@ De gegevensgateway in Edge/de Data Box-service is een management-service die wor
 De gegevens in het Edge-apparaat is een on-premises-apparaat waarmee de gegevens transformeren met lokale verwerking en vervolgens te verzenden naar Azure. Uw apparaat:
 
 - Moet een activeringscode voor toegang tot de gegevens in Edge/gegevens in het Gateway-service.
-- Wordt beveiligd op altijd door een beheerderswachtwoord voor het apparaat.
+- Wordt beveiligd op altijd door het wachtwoord van een apparaat.
 - Een apparaat vergrendeld is. Het apparaat BMC en BIOS wachtwoord zijn beveiligd met beperkte gebruikerstoegang voor het BIOS.
 - Beveiligd opstarten is ingeschakeld.
 - Wordt uitgevoerd Windows Defender Device Guard. Device Guard kunt u alleen vertrouwde toepassingen die u in uw code-integriteitsbeleid definieert uit te voeren. 
@@ -68,14 +65,14 @@ Wachtwoorden ervoor te zorgen dat uw gegevens toegankelijk voor alleen gemachtig
 U kunt:
 
 - Verbinding maken met de lokale web-UI van het apparaat via een browser en geef vervolgens een wachtwoord aan te melden bij het apparaat.
-- Op afstand verbinding maken met de PowerShell-interface van het apparaat via HTTP. Extern beheer is standaard ingeschakeld. Vervolgens kunt u het beheerderswachtwoord voor aanmelding bij het apparaat opgeven. Ga voor meer informatie naar [verbinding maken met uw gegevens in het Edge-apparaat op afstand](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Op afstand verbinding maken met de PowerShell-interface van het apparaat via HTTP. Extern beheer is standaard ingeschakeld. Vervolgens kunt u het wachtwoord van het apparaat aan te melden bij het apparaat opgeven. Ga voor meer informatie naar [verbinding maken met uw gegevens in het Edge-apparaat op afstand](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 Houd rekening met de volgende aanbevolen procedures:
 
 - De gegevens in het Edge-service kan de bestaande wachtwoorden niet ophalen: het alleen kunt herstellen via Azure portal. Het is raadzaam dat u alle wachtwoorden opslaan op een veilige plaats, zodat u geen hebt een wachtwoord opnieuw instellen als deze is vergeten. Als u een wachtwoord opnieuw instelt, zorg er dan voor dat alle gebruikers waarschuwen voordat u het opnieuw instellen.
 - Gebruik de lokale web-UI te [het wachtwoord wijzigen](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Als u het wachtwoord wijzigt, zorg er dan voor dat alle externe toegang-gebruikers een melding ontvangen zodat ze zich niet een aanmelding mislukt.
 - U kunt de Windows PowerShell-interface van uw apparaat op afstand benaderen via HTTP. Als een aanbevolen beveiligingsprocedure, moet u HTTP alleen in vertrouwde netwerken.
-- Zorg ervoor dat apparaat beheerderswachtwoorden sterke en goed beveiligd. Ga als volgt de [aanbevolen procedures voor wachtwoorden](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
+- Zorg ervoor dat apparaat wachtwoorden sterke en goed beveiligd. Ga als volgt de [aanbevolen procedures voor wachtwoorden](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
 
 ## <a name="protect-the-data"></a>De gegevens te beveiligen
 

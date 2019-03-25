@@ -1,22 +1,22 @@
 ---
-title: Een host-pool maken met een Azure Resource Manager-sjabloon (preview) - Azure
-description: Het maken van een host van toepassingen in virtuele Windows-bureaublad met een Azure Resource Manager-sjabloon.
+title: Een Windows Virtual Desktop Preview host-pool maken met een Azure Resource Manager-sjabloon - Azure
+description: Het maken van een groep host in Windows Virtual Desktop Preview met een Azure Resource Manager-sjabloon.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7f4849c19d56bb385e7ad3ce0aa95e16d5c53c23
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318462"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401418"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template-preview"></a>Een host-pool maken met een Azure Resource Manager-sjabloon (Preview)
+# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Een hostpool maken met een Azure Resource Manager-sjabloon
 
-Host-pools zijn een verzameling van een of meer identieke virtuele machines in virtuele Windows-bureaublad-tenant (preview)-omgevingen. Elke groep host kan een app-groep die gebruikers werken kunnen met net zoals op een fysieke bureaublad bevatten.
+Host-pools zijn een verzameling van een of meer identieke virtuele machines in Windows Virtual Desktop Preview tenant omgevingen. Elke groep host kan een app-groep die gebruikers werken kunnen met net zoals op een fysieke bureaublad bevatten.
 
 Volg de instructies in deze sectie van een groep host voor een virtuele Windows-bureaublad-tenant maken met een Azure Resource Manager-sjabloon die is geleverd door Microsoft. In dit artikel wordt uitgelegd hoe u een host-pool maakt in een virtuele Windows-bureaublad, een resourcegroep maken met virtuele machines in een Azure-abonnement, deze virtuele machines toevoegen aan de AD-domein en het registreren van de virtuele machines met virtuele Windows-bureaublad.
 

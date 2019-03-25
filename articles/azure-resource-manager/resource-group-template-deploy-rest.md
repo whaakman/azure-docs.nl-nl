@@ -1,6 +1,6 @@
 ---
 title: Resources implementeren met REST-API en een sjabloon | Microsoft Docs
-description: Gebruik Azure Resource Manager en Resource Manager REST API om een resources implementeren op Azure. De resources zijn gedefinieerd in een Resource Manager-sjabloon.
+description: Gebruik Azure Resource Manager en Resource Manager REST API voor het implementeren van resources naar Azure. De resources zijn gedefinieerd in een Resource Manager-sjabloon.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,28 +10,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: bd574eb2d3537d3e5c0774f57e37283817cc7879
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3468f5b625911cd637b22e2c1d35a47fb7d7b0e4
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112021"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402827"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Resources implementeren met Resource Manager-sjablonen en Resource Manager REST API
 
 In dit artikel wordt uitgelegd hoe u de Resource Manager REST-API gebruiken met Resource Manager-sjablonen voor het implementeren van uw resources naar Azure.  
 
-> [!TIP]
-> Zie voor hulp bij foutopsporing in een fout opgetreden tijdens de implementatie:
-> 
-> * [Implementatiebewerkingen bekijken](resource-manager-deployment-operations.md) voor meer informatie over het ophalen van gegevens waarmee u uw fout oplossen
-> * [Oplossen van veelvoorkomende fouten bij het implementeren van resources naar Azure met Azure Resource Manager](resource-manager-common-deployment-errors.md) voor meer informatie over het oplossen van veelvoorkomende implementatiefouten
-> 
-> 
-
 U kunt uw sjabloon opnemen in de hoofdtekst van de aanvraag of een koppeling naar een bestand. Wanneer u een bestand, kan een lokaal bestand of een extern bestand dat is beschikbaar via een URI zijn. Als de sjabloon in een storage-account is, kunt u beperken van toegang aan de sjabloon en de token van een shared access signature (SAS) opgeven tijdens de implementatie.
+
+## <a name="deployment-scope"></a>Reikwijdte van de implementatie
+
+U kunt uw implementatie naar een Azure-abonnement of een resourcegroep binnen een abonnement kunt richten. In de meeste gevallen zult u richt de implementatie naar een resourcegroep. Abonnementimplementaties gebruiken voor het toepassen van beleid en de roltoewijzingen voor het abonnement. U kunt ook abonnementimplementaties gebruiken een resourcegroep maken en implementeren van resources toe. Afhankelijk van het bereik van de implementatie, kunt u verschillende opdrachten gebruiken.
+
+Om te implementeren op een **resourcegroep**, gebruikt u [implementaties - maken](/rest/api/resources/deployments/createorupdate).
+
+Om te implementeren op een **abonnement**, gebruikt u [implementaties - Scope maken op abonnement](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+
+De voorbeelden in dit artikel gebruikt brongroepimplementaties. Zie voor meer informatie over de implementatie van abonnement [maken van resourcegroepen en resources op het abonnementsniveau](deploy-to-subscription.md).
 
 ## <a name="deploy-with-the-rest-api"></a>Implementeren met de REST-API
 1. Stel [algemene parameters en headers](/rest/api/azure/), met inbegrip van verificatietokens.

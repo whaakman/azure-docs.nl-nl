@@ -1,24 +1,24 @@
 ---
-title: Verbinding maken met Windows 7 en Windows 10 (preview) - Azure
-description: Klik hier voor meer informatie over het verbinding maken met de Windows virtuele bureaublad HTML5-webclient.
+title: Verbinding maken met virtuele Windows Desktop Preview met Windows 7 en Windows 10 - Azure
+description: Klik hier voor meer informatie over het verbinding maken met de Windows virtuele bureaublad Preview-client met Windows 7 of Windows 10.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 925d762bb065567f6462fdb1614fc308e87b5247
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 644a1d650384f151d9c43b9efa5f47532c58ce14
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318237"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399729"
 ---
-# <a name="connect-with-windows-7-and-windows-10-preview"></a>Verbinding maken met Windows 7 en Windows 10 (Preview)
+# <a name="connect-with-windows-7-and-windows-10"></a>Verbinding maken met Windows 7 en Windows 10
 
 > Van toepassing op Windows 7 en Windows 10.
 
-Een downloadbare client beschikbaar is dat toegang biedt tot resources van de virtuele Windows-Desktop (preview) van apparaten met Windows 7 en Windows 10.
+Een downloadbare client beschikbaar is dat toegang biedt tot Windows Virtual Desktop Preview resources op apparaten met Windows 7 en Windows 10.
 
 ## <a name="install-the-client"></a>De client installeren
 

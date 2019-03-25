@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 997babef5860488232f0b530c90b44aba6608ac5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008235"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401560"
 ---
 # <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>Over het gebruik van JavaScript en pagina contract versies in een gebruikersstroom
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Azure AD B2C biedt een set verpakte inhoud met HTML, CSS en JavaScript voor de gebruikersinterface-elementen in uw gebruikersstromen. Als u van plan bent om in te schakelen [JavaScript](javascript-samples.md) client-side-code in uw stromen, moet u zorgen dat de elementen die u baseert uw JavaScript op onveranderbare zijn. Anders kunnen wijzigingen onverwacht gedrag veroorzaken voor uw gebruiker stroom pagina's. U kunt om te voorkomen dat deze problemen, het gebruik van een pagina-contract voor een beleid afdwingen en de versie van een contract opgeven. Dit zorgt ervoor dat de inhoud definities die u hebt uw JavaScript op basis van onveranderbare zijn. Zelfs als u niet van plan bent JavaScript inschakelen voor een beleid, kunt u de versie van een contract voor uw stroom gebruiker's.
 

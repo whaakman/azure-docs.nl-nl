@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van gegevens in Azure Sentinel Preview Palo Alto | Microsoft Docs
-description: Meer informatie over het verzamelen van gegevens in Azure Sentinel Palo Alto.
+title: Verzamelen van gegevens in Azure Sentinel Preview Palo Alto Networks | Microsoft Docs
+description: Meer informatie over het verzamelen van gegevens in Azure Sentinel Palo Alto Networks.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 149b3b813091033bf5c1685e8b0793f955169808
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6145d77e6485a33ea3a9f9d66a4356587966bc5f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841205"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403558"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Verbinding maken met uw Palo Alto Networks-apparaat
 
@@ -27,14 +27,14 @@ ms.locfileid: "57841205"
 > Azure Sentinel is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-U kunt Azure Sentinel verbinden met een Palo Alto Networks-apparaat door op te slaan van de logboekbestanden als Syslog CEF. De integratie met Azure Sentinel kunt u gemakkelijk uitvoeren op analytics en query's voor gegevens van het logboekbestand van Palo Alto. Zie voor meer informatie over hoe Azure Sentinel gegevens op CEF neemt. [CEF verbinding maken met apparaten](connect-common-event-format.md).
+U kunt Azure Sentinel verbinden met een Palo Alto Networks-apparaat door op te slaan van de logboekbestanden als Syslog CEF. De integratie met Azure Sentinel kunt u gemakkelijk uitvoeren op analytics en query's voor gegevens van het logboekbestand van Palo Alto Networks. Zie voor meer informatie over hoe Azure Sentinel gegevens op CEF neemt. [CEF verbinding maken met apparaten](connect-common-event-format.md).
 
 > [!NOTE]
-> - Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
+> Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
 
-## <a name="step-1-connect-your-palo-alto-appliance-using-an-agent"></a>Stap 1: Verbinding maken met uw Palo Alto-apparaat met behulp van een agent
+## <a name="step-1-connect-your-palo-alto-networks-appliance-using-an-agent"></a>Stap 1: Verbinding maken met uw Palo Alto Networks-apparaat met behulp van een agent
 
-Als u wilt verbinden met uw apparaat Palo Alto Sentinel van Azure, moet u een agent op een specifieke virtuele machine implementeren (virtuele machine of on-premises) om de communicatie tussen het apparaat en de Azure-Sentinel te ondersteunen. U kunt de agent automatisch of handmatig implementeren. Automatische implementatie is alleen beschikbaar als uw toegewezen machine is een nieuwe virtuele machine die u in Azure maken wilt. 
+Als u wilt verbinden met uw Palo Alto Networks-apparaat Azure Sentinel, moet u een agent op een specifieke virtuele machine implementeren (virtuele machine of on-premises) om de communicatie tussen het apparaat en de Azure-Sentinel te ondersteunen. U kunt de agent automatisch of handmatig implementeren. Automatische implementatie is alleen beschikbaar als uw toegewezen machine is een nieuwe virtuele machine die u in Azure maken wilt. 
 
 U kunt ook kunt u de agent handmatig op een bestaande VM in Azure, op een virtuele machine in een andere cloud of op een on-premises machine implementeren.
 
@@ -98,12 +98,12 @@ Als u Azure niet gebruikt, moet u handmatig de agent Azure Sentinel om uit te vo
       1. Start opnieuw op de Syslog-agent met de volgende opdracht: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Bevestig dat er geen fouten in het logboek van de agent zijn door het uitvoeren van deze opdracht: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-palo-alto-logs-to-the-syslog-agent"></a>Stap 2: Palo Alto-logboeken doorsturen naar de Syslog-agent
+## <a name="step-2-forward-palo-alto-networks-logs-to-the-syslog-agent"></a>Stap 2: Palo Alto Networks-logboeken doorsturen naar de Syslog-agent
 
 Palo Alto Networks voor het doorsturen van Syslog-berichten in CEF-indeling naar uw Azure-werkruimte via de Syslog-agent configureren:
-1.  Ga naar [Common Event Format (CEF) Configuratiehandleidingen](https://docs.paloaltonetworks.com/resources/cef) en download het PDF-bestand voor uw apparaattype. Volg de instructies in de handleiding voor het instellen van uw apparaat Palo Alto CEF-gebeurtenissen verzamelen. 
+1.  Ga naar [Common Event Format (CEF) Configuratiehandleidingen](https://docs.paloaltonetworks.com/resources/cef) en download het PDF-bestand voor uw apparaattype. Alle de instructies in de handleiding bij het instellen van uw Palo Alto Networks-apparaat voor het verzamelen van gebeurtenissen voor CEF. 
 
-1.  Ga naar [Syslog configureren-bewaking](https://aka.ms/asi-syslog-paloalto-forwarding) en volg de stappen 2 en 3 om CEF event forwarding van uw Palo Alto-apparaat naar Azure Sentinel te configureren.
+1.  Ga naar [Syslog configureren-bewaking](https://aka.ms/asi-syslog-paloalto-forwarding) en volg de stappen 2 en 3 om CEF event forwarding van uw Palo Alto Networks-apparaat naar Azure Sentinel te configureren.
 
     1. Zorg ervoor dat u stelt de **indeling voor Syslog-server** naar **BSD**.
     1. Zorg ervoor dat u de **faciliteit nummer** op dezelfde waarde die u in de Syslog-agent instelt.
@@ -130,7 +130,7 @@ Het duurt al twintig minuten tot de logboeken in Log Analytics wordt weergegeven
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit document hebt u geleerd hoe u verbinding maken met apparaten van Palo Alto Sentinel van Azure. Zie voor meer informatie over Azure Sentinel, de volgende artikelen:
+In dit document hebt u geleerd hoe u kunt Azure Sentinel van Palo Alto Networks-apparaten verbinden. Zie voor meer informatie over Azure Sentinel, de volgende artikelen:
 - Meer informatie over het [Krijg inzicht in uw gegevens en mogelijke bedreigingen](quickstart-get-visibility.md).
 - Aan de slag [detecteren van bedreigingen met Azure Sentinel](tutorial-detect-threats.md).
 

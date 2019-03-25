@@ -1,22 +1,22 @@
 ---
-title: Een host-pool maken met PowerShell (preview) - Azure
-description: Het maken van een host van toepassingen in virtuele Windows-bureaublad met PowerShell-cmdlets.
+title: Een Windows Virtual Desktop Preview host-pool maken met PowerShell - Azure
+description: Het maken van een groep host in Windows Virtual Desktop Preview met PowerShell-cmdlets.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4b65d7614db94a9cc3fdca3f4b784c2c84ebaef8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318537"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402725"
 ---
-# <a name="create-a-host-pool-with-powershell-preview"></a>Een host-pool maken met PowerShell (Preview)
+# <a name="create-a-host-pool-with-powershell"></a>Een hostpool maken met PowerShell
 
-Host-pools zijn een verzameling van een of meer identieke virtuele machines in virtuele Windows-bureaublad-tenant (preview)-omgevingen. Elke groep host kan een app-groep die gebruikers werken kunnen met net zoals op een fysieke bureaublad bevatten.
+Host-pools zijn een verzameling van een of meer identieke virtuele machines in Windows Virtual Desktop Preview tenant omgevingen. Elke groep host kan een app-groep die gebruikers werken kunnen met net zoals op een fysieke bureaublad bevatten.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>De PowerShell-client gebruiken om te maken van een groep host
 
@@ -70,12 +70,12 @@ U kunt een virtuele machine maken op verschillende manieren:
 - [Een virtuele machine van een beheerde installatiekopie maken](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Een virtuele machine uit een niet-beheerde installatiekopie maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>De virtuele machines voorbereiden voor virtuele Windows-bureaublad agentinstallaties
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>De virtuele machines voor Windows Virtual Desktop Preview agentinstallaties voorbereiden
 
 U moet de volgende dingen doen om uw virtuele machines voorbereiden voordat u kunt de virtuele bureaublad van Windows-agents installeren en registreren van de virtuele machines aan uw servergroep virtueel bureaublad van Windows-host:
 
 - U moet de machine domain-join. Dit kan binnenkomende virtuele Windows-bureaublad gebruikers uit hun Azure Active Directory-account worden toegewezen aan het Active Directory-account en toegang tot de virtuele machine is toegestaan.
-- Als de virtuele machine een Windows Server-besturingssysteem wordt uitgevoerd, moet u de Remote Desktop Session Host (RDSH)-functie (preview) installeren. De RDSH-functie kan de virtuele bureaublad van Windows-agents voor een juiste installatie.
+- Als de virtuele machine een Windows Server-besturingssysteem wordt uitgevoerd, moet u de Remote Desktop Session Host (RDSH)-rol installeren. De RDSH-functie kan de virtuele bureaublad van Windows-agents voor een juiste installatie.
 
 Is domain-join, doe dan het volgende op elke virtuele machine:
 
@@ -85,7 +85,7 @@ Is domain-join, doe dan het volgende op elke virtuele machine:
 4. Selecteer **domein** en voer de Active Directory-domein op het virtuele netwerk.
 5. Verifiëren met een domeinaccount met bevoegdheden voor domeindeelname computers.
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registreren van de virtuele machines aan de groep van de host virtuele Windows-bureaublad
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registreren van de virtuele machines aan de groep van de host Windows Virtual Desktop Preview
 
 Registreren van de virtuele machines naar een groep met virtuele Windows-bureaublad-host is net zo eenvoudig als het installeren van de virtuele bureaublad van Windows-agents.
 
@@ -114,7 +114,7 @@ Doe het volgende op elke virtuele machine voor het registreren van de virtuele b
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u een host-groep hebt gemaakt, is het tijd om deze vullen met RemoteApps (preview). Zie voor meer informatie over het beheren van apps in een virtuele Windows-bureaublad, de zelfstudie voor groepen beheren-Apps.
+Nu dat u een host-groep hebt gemaakt, kunt u deze vullen met RemoteApps. Zie voor meer informatie over het beheren van apps in een virtuele Windows-bureaublad, de zelfstudie voor groepen beheren-Apps.
 
 > [!div class="nextstepaction"]
 > [Zelfstudie voor app-groepen beheren](./manage-app-groups.md)

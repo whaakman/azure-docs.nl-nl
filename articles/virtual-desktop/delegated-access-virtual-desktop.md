@@ -1,22 +1,22 @@
 ---
-title: Gedelegeerde toegang in Windows virtueel bureaublad (preview) - Azure
-description: Klik hier voor meer informatie over het overdragen van beheerdersbevoegdheden op een virtuele Windows-bureaublad-implementatie, inclusief voorbeelden.
+title: Gedelegeerde toegang in Windows Virtual Desktop Preview - Azure
+description: Klik hier voor meer informatie over het overdragen van beheerdersbevoegdheden op de implementatie van een Windows virtuele bureaublad Preview, inclusief voorbeelden.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 49645b697071abb8a2f8c85ebde1e6761a3536ab
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336096"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399986"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Gedelegeerde toegang in Windows virtueel bureaublad (Preview)
+# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Gedelegeerde toegang in Windows Virtual Desktop Preview
 
-Virtuele Windows-Desktop (preview) is een model voor gedelegeerde toegang waarmee u bij het definiëren van de mate van toegang dat een bepaalde gebruiker is toegestaan dat ze een rol toe te wijzen. Een roltoewijzing bestaat uit drie onderdelen: beveiligings-principal, rol en bereik. Het model van de gedelegeerde toegang virtueel bureaublad van Windows is gebaseerd op het Azure RBAC-model. Zie voor meer informatie over specifieke roltoewijzingen en de bijbehorende onderdelen, [het overzicht van Azure, op rollen gebaseerde toegang beheer](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+Windows virtuele bureaublad Preview is een model voor gedelegeerde toegang waarmee u bij het definiëren van de mate van toegang dat een bepaalde gebruiker is toegestaan dat ze een rol toe te wijzen. Een roltoewijzing bestaat uit drie onderdelen: beveiligings-principal, rol en bereik. Het model van de gedelegeerde toegang virtueel bureaublad van Windows is gebaseerd op het Azure RBAC-model. Zie voor meer informatie over specifieke roltoewijzingen en de bijbehorende onderdelen, [het overzicht van Azure, op rollen gebaseerde toegang beheer](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
 
 Virtuele Windows-bureaublad gedelegeerde toegang ondersteunt de volgende waarden voor elk element van de toewijzing van rollen:
 
@@ -66,4 +66,4 @@ U kunt de basic drie cmdlets met de volgende parameters:
 
 Zie voor een volledig overzicht van PowerShell-cmdlets met elke rol gebruiken kunt, de [PowerShell-referentie](/powershell/windows-virtual-desktop/overview).
 
-Zie voor richtlijnen voor het instellen van een omgeving met virtuele Windows-bureaublad [instellen van een virtuele Windows-bureaublad-omgeving](environment-setup.md).
+Zie voor richtlijnen voor het instellen van een omgeving met virtuele Windows-bureaublad [Windows Virtual Desktop Preview-omgeving](environment-setup.md).

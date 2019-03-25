@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f4a04f1598b3ab0efd9ff95a707d3837bb37503
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2fcc400f952cc89f5fb4bf6e8d6f0f331483868e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196022"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401301"
 ---
 # <a name="whats-new-for-authentication"></a>Wat is er nieuw voor verificatie? 
 
@@ -42,6 +42,37 @@ De verificatiesysteem wordt gewijzigd en voegt voortdurend te verbeteren, beveil
 ## <a name="upcoming-changes"></a>Toekomstige wijzigingen
 
 Geen op dit moment is gepland. 
+
+## <a name="march-2019"></a>Maart 2019
+
+### <a name="looping-clients-will-be-interrupted"></a>Clients lussen worden onderbroken
+
+**Ingangsdatum**: 25 maart 2019
+
+**Eindpunten beïnvloed**: V1.0 zowel v2.0
+
+**Protocol beïnvloed**: Alle stromen
+
+Clienttoepassingen worden zijn, kunnen soms vastgelopen, uitgeven van de dezelfde aanmeldingsaanvraag honderden gedurende een korte periode.  Deze aanvragen kunnen of kunnen niet worden voltooid, maar ze alle bijdragen aan de slechte gebruikerservaring en betere werkbelastingen voor de id-provider, verhogen latentie voor alle gebruikers en de beschikbaarheid van de id-provider.  Deze toepassingen worden uitgevoerd buiten de grenzen van het normale gebruik en gedragen zich correct moeten worden bijgewerkt.  
+
+Clients die meerdere keren voor dupliceeraanvragen uitgeven ontvangt een `invalid_grant` fout: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
+
+De meeste clients hoeft niet om gedrag om te voorkomen dat deze fout te wijzigen.  Alleen onjuist geconfigureerde clients (die zonder caching van token of die al vragen lussen vertoont) wordt beïnvloed door deze fout.  Clients worden bijgehouden op basis van per exemplaar (via cookie) lokaal op de volgende factoren:
+
+* Tip van de gebruiker, indien van toepassing
+
+* Scopes of bron die wordt aangevraagd
+
+* Client-id
+
+* Omleidings-URI
+
+* Antwoord van het type en de modus
+
+Apps maken van meerdere aanvragen (15 +) in een korte periode (5 minuten) ontvangt een `invalid_grant` foutbericht waarin wordt uitgelegd dat ze zijn lussen.  De tokens die worden aangevraagd hebt voldoende lange levensduur hebben levensduur (10 minuten minimum, 60 minuten standaard), dus herhaald aanvragen gedurende deze periode zijn niet nodig.  
+
+Alle apps moeten worden verwerkt `invalid_grant` door een interactieve prompt weergegeven in plaats van op de achtergrond aanvragen van een token.  Om te voorkomen dat deze fout, moeten clients Zorg ervoor dat ze zijn correct opslaan in cache de tokens die ze ontvangen.
+
 
 ## <a name="october-2018"></a>Oktober 2018
 

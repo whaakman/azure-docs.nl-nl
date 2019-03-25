@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: b3effdbace2be582bfe85d0402088f8aa0d96fe7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9b0e94deda205497cda4ebf383f302c6c3bb896a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555005"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403592"
 ---
-# <a name="manage-an-azure-data-box-edge-device-via-windows-powershell-preview"></a>Beheren van een Azure Data Box-Edge-apparaat via Windows PowerShell (preview)
+# <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Een Azure Data Box-Edge-apparaat via Windows PowerShell beheren
 
 Azure Data Box-Edge-oplossing kunt u gegevens verwerken en te verzenden via het netwerk naar Azure. Dit artikel worden enkele van de configuratie en beheer taken voor uw gegevens in het Edge-apparaat. U kunt de Azure portal, de lokale web-UI of de Windows PowerShell-interface gebruiken om uw apparaat te beheren.
 
@@ -32,18 +32,9 @@ In dit artikel bevat de volgende procedures:
 - Compute-logboeken ophalen
 - Bewaken en problemen oplossen compute-modules
 
-> [!IMPORTANT]
-> Azure Data Box Edge is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
-> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
-
 ## <a name="connect-to-the-powershell-interface"></a>Verbinding maken met de PowerShell-interface
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
-
-## <a name="start-a-support-session"></a>Een ondersteuningssessie starten
-
-[!INCLUDE [Connect to support runspace](../../includes/data-box-edge-gateway-connect-support.md)]
 
 ## <a name="create-a-support-package"></a>Een ondersteuningspakket maken
 
@@ -73,11 +64,15 @@ Als de compute-rol is geconfigureerd op uw apparaat, kunt u ook de compute-logbo
     ```
     Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
     ```
-    Hier volgt een beschrijving van de parameters voor de cmdlet: 
+    Hier volgt een beschrijving van de parameters voor de cmdlet:
     - `Path`: Geef een netwerkpad naar de bestandsshare waar u de compute-log-pakket maken.
     - `Credential`: Geef de gebruikersnaam en wachtwoord voor de netwerkshare.
     - `RoleInstanceName`: Geef deze tekenreeks `IotRole` voor deze parameter.
     - `FullLogCollection`: Deze parameter zorgt ervoor dat het logboek-pakket alle compute-Logboeken bevat. Het logboek-pakket bevat standaard alleen een subset van Logboeken.
+
+## <a name="monitor-and-troubleshoot-compute-modules"></a>Bewaken en problemen oplossen compute-modules
+
+[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
 
 ## <a name="next-steps"></a>Volgende stappen

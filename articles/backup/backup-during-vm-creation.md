@@ -1,114 +1,80 @@
 ---
-title: Azure-VM back-up inschakelen tijdens het maken van
-description: Klik hier voor meer informatie over het back-up van virtuele Azure-machine inschakelen tijdens het maken.
-services: backup, virtual-machines
+title: Back-up inschakelen wanneer u een Azure-VM met Azure Backup maken
+description: Beschrijft hoe u back-up in te schakelen wanneer u een Azure-VM met Azure Backup maken.
 author: rayne-wiselman
 manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/08/2018
-ms.author: trinadhk
-ms.openlocfilehash: fd2beaa39f03d4f2342c94bf1cd8b8aea7440e62
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/22/2019
+ms.author: raynew
+ms.openlocfilehash: d96b898c8f72abd7e4eb3522ae046e9fc926f387
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780440"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403575"
 ---
-# <a name="enable-backup-when-you-create-an-azure-virtual-machine"></a>Back-up inschakelen bij het maken van een virtuele machine van Azure
+# <a name="enable-backup-when-you-create-an-azure-vm"></a>Back-up inschakelen wanneer u een Azure-VM maakt
 
 De Azure Backup-service gebruiken voor back-up van virtuele Azure-machines (VM's). Virtuele machines back-ups volgens een schema dat is opgegeven in een back-upbeleid en herstelpunten worden gemaakt op basis van de back-ups. Herstelpunten worden opgeslagen in Recovery Services-kluizen.
 
-Dit artikel wordt uitgelegd hoe u back-up niet inschakelen terwijl u een virtuele machine (VM) maakt in Azure portal.  
+Dit artikel wordt uitgelegd hoe u back-up inschakelen wanneer u een virtuele machine (VM) maakt in Azure portal.  
+
+## <a name="before-you-start"></a>Voordat u begint
+
+- [Controleer](backup-support-matrix-iaas.md#supported-backup-actions) welke besturingssystemen worden ondersteund als u back-up inschakelen wanneer u een virtuele machine maakt.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 Als u nog niet hebt aangemeld bij uw account, aanmelden bij de [Azure-portal](https://portal.azure.com).
  
-## <a name="create-a-vm-with-backup-configured"></a>Een virtuele machine maken met back-up geconfigureerd 
+## <a name="create-a-vm-with-backup-configured"></a>Een virtuele machine maken met back-up geconfigureerd
 
-1. Selecteer in de linkerbovenhoek van Azure portal **nieuw**.
+1. Klik in Azure portal op **een resource maken**.
 
-1. Selecteer **Compute**, en selecteer vervolgens een installatiekopie van de virtuele machine.
+2. Klik in de Azure Marketplace, **Compute**, en selecteer vervolgens een VM-installatiekopie.
 
-1. Voer de gegevens voor de virtuele machine. De gebruikersnaam en het wachtwoord dat u opgeeft wordt gebruikt voor aanmelding bij de virtuele machine. Wanneer u klaar bent, selecteert u **OK**. 
+3. Instellen van de virtuele machine in overeenstemming met de [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) of [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) instructies.
 
-1. Selecteer een grootte voor de VM.  
+4. Op de **Management** tabblad, in **back-up inschakelen**, klikt u op **op**.
+5. Azure Backup back-ups naar een Recovery Services-kluis. Klik op **nieuw** als u een bestaande kluis hebt.
+6. Accepteer de voorgestelde kluisnaam of geef uw eigen.
+7. Geef op of maak een resourcegroep waarin de kluis zich bevindt. De resource-group-kluis kan afwijken van de VM-resourcegroep.
 
-1. Onder **instellingen** > **back-up**, selecteer **ingeschakeld** om de back-configuratieinstellingen te openen.
+    ![Back-up voor een virtuele machine inschakelen](./media/backup-during-vm-creation/enable-backup.png) 
 
-   - Selecteer voor het accepteren van de standaardwaarden, **OK** op de **instellingen** pagina. U gaat vervolgens naar de **samenvatting** pagina om te maken van de virtuele machine. Stap 6-8 overslaan.
-   - De back-upconfiguratie om waarden te wijzigen, de volgende stappen te volgen.  
+8. Accepteer het standaardbeleid voor back-up of wijzig de instellingen.
+    - Een back-upbeleid geeft aan hoe vaak momentopnamen back-up van de virtuele machine, en hoe lang de back-ups. 
+    - Het standaardbeleid voor back-ups van de virtuele machine eenmaal per dag.
+    - U kunt uw eigen back-upbeleid voor een Azure-VM voor het maken van back-ups dagelijks of wekelijks.
+    - [Meer informatie](backup-azure-vms-introduction.md#backup-and-restore-considerations) over back-overwegingen voor Azure VM's.
+    - [Meer informatie](backup-instant-restore-capability.md) over de instant functionaliteit te herstellen.
 
-1. Maak of Selecteer een Recovery Services-kluis voor het opslaan van de back-ups van de virtuele machine. Als u een Recovery Services-kluis maakt, kunt u een resourcegroep voor de kluis.  
+      ![Standaard back-upbeleid](./media/backup-during-vm-creation/daily-policy.png) 
 
-    ![Back-configuratie-instellingen in de pagina voor het maken van virtuele machine](./media/backup-during-vm-creation/create-vm-backup-config.png) 
-
-    > [!NOTE] 
-    > De resourcegroep voor de Recovery Services-kluis kan afwijken van de resourcegroep voor de virtuele machine.  
-
-1. Een back-upbeleid is standaard geselecteerd voor u om de VM te beveiligen. Een back-upbeleid geeft aan hoe vaak back-momentopnamen worden gemaakt en hoe lang de back-ups. 
-
-   - Kunt u het standaardbeleid accepteren, of u kunt maken of Selecteer een ander back-upbeleid. 
-   - Als u wilt bewerken in de back-upbeleid, selecteert u **back-upbeleid** en de waarden te wijzigen.  
-
-1. Wanneer u klaar bent met instellen van de waarden van de back-upconfiguratie, selecteert u **OK** op de **instellingen** pagina.  
-
-1. Op de **samenvatting** pagina nadat de validatie is verstreken, selecteer **maken** te maken van een virtuele machine die gebruikmaakt van de geconfigureerde instellingen voor back-up. 
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Een back-up na het maken van de virtuele machine starten 
 
-Zelfs als u een back-upbeleid voor de virtuele machine hebt geconfigureerd, is het raadzaam om te maken van een eerste back-up. 
+De virtuele machine back-up wordt uitgevoerd in overeenstemming met uw back-upbeleid. We raden echter aan een eerste back-up uit te voeren. 
 
-Nadat de VM-sjabloon voor het maken is voltooid, gaat u naar **Operations** in het menu aan de linkerkant en selecteer **back-up** om de details van de back-up voor de virtuele machine weer te geven. U kunt deze pagina om te gebruiken:
+Nadat de virtuele machine is gemaakt, het volgende doen:
 
-- Trigger een on-demand back-up.
-- Een volledige virtuele machine of alle bijbehorende schijven herstellen.
-- Bestanden herstellen vanaf een virtuele machine back-up.
-- Wijzig het back-upbeleid dat is gekoppeld aan de virtuele machine.  
+1. Klik in de VM-eigenschappen op **back-up**. De status van de virtuele machine is eerste back-up in behandeling totdat de eerste back-up wordt uitgevoerd
+2. Klik op **nu Back-up** om uit te voeren van een on-demand back-up.
+
+    ![Een on-demand back-up uitvoeren](./media/backup-during-vm-creation/run-backup.png) 
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Resource Manager-sjabloon gebruiken om te implementeren van een beveiligde virtuele machine
 
 De vorige stappen wordt uitgelegd hoe de Azure portal gebruiken voor een virtuele machine maken en deze in een Recovery Services-kluis beveiligen. Voor het snel een of meer virtuele machines implementeren en ze beschermen in een Recovery Services-kluis, ziet u de sjabloon [een Windows-machine implementeert en back-up inschakelen](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
-## <a name="frequently-asked-questions"></a>Veelgestelde vragen 
 
-### <a name="which-vm-images-support-backup-configuration-during-vm-creation"></a>Welke VM-installatiekopieën ondersteuning voor back-upconfiguratie tijdens het maken van virtuele machine?
-
-De volgende core installatiekopieën die zijn gepubliceerd door Microsoft worden ondersteund voor het back-up inschakelen tijdens het maken van virtuele machine. Voor andere virtuele machines, kunt u back-up inschakelen nadat de virtuele machine is gemaakt. Zie voor meer informatie, [inschakelen back-up nadat de virtuele machine wordt gemaakt](quick-backup-vm-portal.md).
-
-- **Windows** -Windows Server 2016 Datacenter, Core voor Windows Server 2016 Datacenter, Windows Server 2012 Datacenter, Windows Server 2012 R2 Datacenter, Windows Server 2008 R2 SP1 
-- **Ubuntu** -Ubuntu Server 17.10, Ubuntu Server 17.04, Ubuntu Server 16.04 (TNS), Ubuntu Server 14.04 (TNS) 
-- **Red Hat** -RHEL 6.7, 6,8, 6,9, 7.2, 7.3, 7.4 
-- **SUSE** - SUSE Linux Enterprise Server 11 SP4, 12 SP2, 12 SP3 
-- **Debian** -Debian 8, Debian 9 
-- **CentOS** - CentOS 6.9, CentOS 7.3 
-- **Oracle Linux** - Oracle Linux 6.7, 6.8, 6.9, 7.2, 7.3 
- 
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Zijn de back-up kosten opgenomen in de VM-kosten? 
-
-Nee. Back-kosten zijn gescheiden van de kosten van een virtuele machine. Zie voor meer informatie over prijzen voor backup [prijzen voor Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
- 
-### <a name="which-permissions-are-required-to-enable-backup-on-a-vm"></a>Welke machtigingen zijn vereist om in te schakelen van back-up op een virtuele machine? 
-
-Als u een VM-Inzender bent, kunt u back-up op de virtuele machine inschakelen. Als u een aangepaste rol, moet u de volgende machtigingen voor de back-up op de virtuele machine inschakelen: 
-
-- Microsoft.RecoveryServices/Vaults/write 
-- Microsoft.RecoveryServices/Vaults/read 
-- Microsoft.RecoveryServices/locations/* 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
- 
-Als uw Recovery Services-kluis en de virtuele machine hebt verschillende resourcegroepen bevinden, zorg er dan voor dat u hebt schrijfmachtigingen in de resourcegroep voor de Recovery Services-kluis.  
 
 ## <a name="next-steps"></a>Volgende stappen 
 
-Nu u uw virtuele machine hebt beveiligd, Zie de volgende artikelen voor meer informatie over het beheren en virtuele machines herstellen:
+Nu dat u hebt uw virtuele machine hebt beveiligd, informatie over het beheren en deze terugzetten.
 
-- [Uw virtuele machines beheren en controleren](backup-azure-manage-vms.md) 
-- [Virtuele machines herstellen](backup-azure-arm-restore-vms.md) 
+- [Beheren en controleren van virtuele machines](backup-azure-manage-vms.md) 
+- [VM herstellen](backup-azure-arm-restore-vms.md) 
+
+Als u problemen ondervindt, [bekijken](backup-azure-vms-troubleshoot.md) de gids voor probleemoplossing.

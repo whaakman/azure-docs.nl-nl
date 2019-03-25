@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/13/2019
+ms.date: 03/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8128afa7078c396156d2cbffb47effeb7de68a0b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: de8ddd0d2886cd7798160e830094b295c62e17e9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58002077"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400686"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Compute voor uw Azure Data Box-edge-apparaten beheren
 
@@ -132,6 +132,23 @@ De volgende stappen uitvoeren in Azure portal om te synchroniseren van de toegan
      ![Selecteer Ja als u wordt gevraagd](media/data-box-edge-manage-compute/refresh-configuration-2.png)
 
 3. Sluit het dialoogvenster wanneer de synchronisatie is voltooid.
+
+## <a name="enable-a-network-interface-for-compute"></a>Inschakelen van een netwerkinterface voor compute
+
+U moet mogelijk toegang tot een module die wordt uitgevoerd op uw gegevens in het Edge-apparaat. Voor toegang tot de module extern, moet u een IP-adres toewijzen aan een netwerkinterface op uw apparaat. U kunt deze beheren compute-instellingen van de lokale webgebruikersinterface.
+
+De volgende stappen op de lokale web-UI compute-instellingen configureren.
+
+1. Ga in de lokale webgebruikersinterface naar **Configuration > Compute instellingen**.  
+
+2. **Schakel** de netwerkinterface die u gebruiken wilt voor verbinding met de compute-modules op het apparaat. 
+
+    - Als u statische IP-adressen gebruikt, voert u een IP-adres voor de netwerkinterface.
+    - Als u DHCP gebruikt, wordt de IP-adressen automatisch toegewezen.
+
+3. Selecteer **toepassen** instellingen te kunnen toepassen.
+
+    ![Schakel de compute-instellingen](media/data-box-edge-manage-compute/compute-settings-1.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen

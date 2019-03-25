@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 9fde3befb147aeeab9419e08602552a970368cfe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 32714b3e5a5ed859716faef2ca660f8b2c90b089
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844981"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402505"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Zelfstudie: Meldingen verzenden naar specifieke gebruikers met behulp van Azure Notification Hubs
 
@@ -53,13 +53,13 @@ Deze zelfstudie bouwt voort op de Notification Hub die en het Visual Studio-proj
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## <a name="update-the-code-for-the-client-project"></a>De code voor het clientproject bijwerken
+## <a name="update-the-code-for-the-uwp-client"></a>De code bijwerken voor de UWP-client
 
 In deze sectie werkt u de code bij in het project dat u hebt gemaakt voor de [Zelfstudie: Meldingen verzenden naar Universeel Windows-platform-apps met behulp van Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Het project moet al zijn gekoppeld aan de Windows Store. Bovendien moet het project zijn geconfigureerd voor het gebruik van uw Notification Hub. In dit gedeelte voegt u code toe voor het aanroepen van de nieuwe WebAPI-back-end en gebruikt u deze voor het registreren en verzenden van meldingen.
 
 1. Open in Visual Studio de oplossing die u hebt gemaakt voor de [Zelfstudie: Meldingen verzenden naar Universeel Windows-platform-apps met behulp van Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-2. Klik in Solution Explorer met de rechtermuisknop op het project **WindowsApp** en klik vervolgens op **NuGet-pakketten beheren**.
-3. Klik aan de linkerkant op **Online**.
+2. Klik in Solution Explorer met de rechtermuisknop op het project Universal Windows Platform (UWP) en klik vervolgens op **NuGet-pakketten beheren**.
+3. Selecteer aan de linkerkant **Bladeren**.
 4. Typ **Http Client** in **het zoekvak**.
 5. Klik in de lijst met resultaten op **System.Net.Http** en vervolgens op **Installeren**. Voltooi de installatie.
 6. Typ nu **Json.net** in **het zoekvak** van NuGet. Installeer het pakket **Newtonsoft.json** en sluit het venster NuGet Package Manager.

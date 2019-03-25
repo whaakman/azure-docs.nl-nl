@@ -1,22 +1,22 @@
 ---
 title: Voorbereiden en aanpassen van een master VHD-installatiekopie - Azure
-description: Het voorbereiden, aanpassen en een virtuele Windows-Desktop (preview) master-installatiekopie uploaden naar Azure.
+description: Het voorbereiden, aanpassen en een virtuele Windows-bureaublad preview master-installatiekopie uploaden naar Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 53bf33aad6511cc282f53659bbe43873cacfc3ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318417"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400776"
 ---
-# <a name="prepare-and-customize-a-master-vhd-image"></a>Voorbereiden en aanpassen van een master VHD-installatiekopie
+# <a name="prepare-and-customize-a-master-vhd-image"></a>Een VHD-hoofdinstallatiekopie voorbereiden en aanpassen
 
-In dit artikel wordt uitgelegd hoe u een installatiekopie van het model virtuele harde schijf (VHD) voorbereiden voor het uploaden naar Azure, met inbegrip van virtuele machines (VM's) maken en te installeren en configureren van software op deze. Deze instructies zijn voor de configuratie van een virtuele Windows Desktop-specifieke (preview) die kan worden gebruikt met de bestaande processen van uw organisatie.
+In dit artikel wordt uitgelegd hoe u een installatiekopie van het model virtuele harde schijf (VHD) voorbereiden voor het uploaden naar Azure, met inbegrip van virtuele machines (VM's) maken en te installeren en configureren van software op deze. Deze instructies zijn voor een virtuele Windows-bureaublad Preview-specifieke configuratie die kan worden gebruikt met de bestaande processen van uw organisatie.
 
 ## <a name="create-a-vm"></a>Een virtuele machine maken
 
@@ -370,8 +370,8 @@ De volgende instructies wordt uitgelegd hoe u een master-image te uploaden naar 
 
 Nu dat u een installatiekopie hebt, kunt u maken of bijwerken van de host van toepassingen. Zie de volgende artikelen voor meer informatie over het maken en bijwerken van de host van toepassingen:
 
-- [Een host-pool maken met een Azure Resource Manager-sjabloon (Preview)](create-host-pools-arm-template.md)
-- [Zelfstudie: Een host-pool maken met Azure Marketplace (Preview)](create-host-pools-azure-marketplace.md)
-- [Een host-pool maken met PowerShell (Preview)](create-host-pools-powershell.md)
+- [Een host-pool maken met een Azure Resource Manager-sjabloon](create-host-pools-arm-template.md)
+- [Zelfstudie: Een host-pool maken met Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Een host-pool maken met PowerShell](create-host-pools-powershell.md)
 - [Instellen van een share van de gebruiker profiel voor een groep host](create-host-pools-user-profile.md)
 - [Configureren van de taakverdelingsmethode voor een virtuele Windows-bureaublad](configure-host-pool-load-balancing.md)

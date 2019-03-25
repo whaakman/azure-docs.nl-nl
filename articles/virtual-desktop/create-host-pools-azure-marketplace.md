@@ -1,22 +1,22 @@
 ---
-title: Een host-pool maken met Azure Marketplace (preview) - Azure
-description: Hoe u een virtuele Windows-bureaublad host-pool maken met Azure Marketplace.
+title: Een Windows Virtual Desktop Preview host-pool maken met Azure Marketplace - Azure
+description: Het maken van een pool van de host Windows Virtual Desktop Preview met Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: a1d172f219580b390ba4855928d6f6a68c8269b9
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: cc404c84bf855ab6e49d13207f40b9faa32cdbb2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318111"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399872"
 ---
-# <a name="tutorial-create-a-host-pool-with-azure-marketplace-preview"></a>Zelfstudie: Een host-pool maken met Azure Marketplace (Preview)
+# <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Zelfstudie: Een hostpool maken met Azure Marketplace
 
-Host-pools zijn een verzameling van een of meer identieke virtuele machines in virtuele Windows-bureaublad-tenant (preview)-omgevingen. Elke groep host kan een app-groep die gebruikers werken kunnen met net zoals op een fysieke bureaublad bevatten.
+Host-pools zijn een verzameling van een of meer identieke virtuele machines in Windows Virtual Desktop Preview tenant omgevingen. Elke groep host kan een app-groep die gebruikers werken kunnen met net zoals op een fysieke bureaublad bevatten.
 
 In dit artikel wordt beschreven hoe u een host-toepassingen in een virtuele Windows-bureaublad-tenant met behulp van een Microsoft Azure Marketplace-aanbieding te maken. Dit omvat het maken van een groep host in Windows virtuele bureaublad, het maken van een resourcegroep met de virtuele machines in een Azure-abonnement, deze virtuele machines toevoegen aan het Active Directory-domein en het registreren van de virtuele machines met virtuele Windows-bureaublad.
 
@@ -64,7 +64,7 @@ Voor de virtuele machineblade:
 3. Selecteer het virtuele netwerk dat is verbonden met de Active Directory-server, en kies vervolgens een subnet voor het hosten van de virtuele machines.
 4. Selecteer **OK**.
 
-### <a name="windows-virtual-desktop-tenant-information"></a>Informatie over virtuele Windows-bureaublad-tenant
+### <a name="windows-virtual-desktop-preview-tenant-information"></a>Informatie over Windows Virtual Desktop Preview-tenant
 
 Voor de blade van de informatie in de virtuele Windows-bureaublad-tenant:
 

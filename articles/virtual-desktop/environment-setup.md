@@ -1,22 +1,22 @@
 ---
-title: Virtuele Windows-bureaublad-omgeving (preview) - Azure
-description: De basiselementen van een virtuele Windows-bureaublad-omgeving.
+title: Windows virtuele bureaublad Preview-omgeving - Azure
+description: De basiselementen van een Windows Virtual Desktop Preview-omgeving.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c503f665e3e2f99cd59f207c3fc4823b927eaac3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318447"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403507"
 ---
-# <a name="windows-virtual-desktop-environment-preview"></a>Virtuele Windows-bureaublad-omgeving (Preview)
+# <a name="windows-virtual-desktop-preview-environment"></a>Windows virtuele bureaublad Preview-omgeving
 
-Virtuele Windows-Desktop (preview) is een service waarmee gebruikers eenvoudig en veilig toegang tot hun gevirtualiseerde desktops en RemoteApps biedt. In dit onderwerp ziet u iets meer over de algemene structuur van de virtuele Windows-bureaublad-omgeving.
+Windows virtuele bureaublad Preview is een service waarmee gebruikers eenvoudig en veilig toegang tot hun gevirtualiseerde desktops en RemoteApps biedt. In dit onderwerp ziet u iets meer over de algemene structuur van de virtuele Windows-bureaublad-omgeving.
 
 ## <a name="tenants"></a>Tenants
 
@@ -57,11 +57,11 @@ Nadat u gebruikers hebt toegewezen aan de app-groepen, kunnen ze verbinding make
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over gedelegeerde toegang en rollen toewijzen aan gebruikers op [gedelegeerde toegang in Windows virtueel bureaublad](delegated-access-virtual-desktop.md).
+Meer informatie over gedelegeerde toegang en rollen toewijzen aan gebruikers op [gedelegeerde toegang in Windows Virtual Desktop Preview](delegated-access-virtual-desktop.md).
 
-Zie voor meer informatie over het instellen van uw tenant virtuele Windows-bureaublad, [een tenant maken in een virtuele Windows-bureaublad](tenant-setup-azure-active-directory.md).
+Zie voor meer informatie over het instellen van uw tenant virtuele Windows-bureaublad, [een tenant maken in Windows Virtual Desktop Preview](tenant-setup-azure-active-directory.md).
 
 Als u wilt weten hoe u verbinding maken met virtuele Windows-bureaublad, ziet u een van de volgende artikelen:
 
 - [Verbinding maken met de extern bureaublad-client op Windows 7 en Windows 10](connect-windows-7-and-10.md)
-- [Verbinding maken met de virtuele Windows-bureaublad-webclient](connect-web.md)
+- [Verbinding maken met de webclient Windows Virtual Desktop Preview](connect-web.md)

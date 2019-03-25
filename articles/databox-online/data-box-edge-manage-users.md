@@ -8,19 +8,16 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 03/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 5642f0c1bcb7d7d8dcb17885aa6d3e9197889685
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: 1fae648b4dc946227564e588c6cd9b70b910b2f7
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57888416"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403439"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>De Azure-portal gebruiken voor het beheren van gebruikers voor uw Azure Data Box-edge-apparaten
 
 In dit artikel wordt beschreven hoe u gebruikers voor uw Azure Data Box-edge-apparaten beheren. U kunt beheren van de rand van het Azure Data Box via Azure portal of via de lokale webgebruikersinterface. Gebruik Azure Portal om gebruikers toe te voegen, te wijzigen of te verwijderen.
-
-> [!IMPORTANT]
-> Data Box Edge is in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
 
 In dit artikel leert u het volgende:
 

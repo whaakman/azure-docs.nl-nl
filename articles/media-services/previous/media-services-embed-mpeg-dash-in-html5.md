@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ff14afc9e438c2b493219e9fa207b2e8793b3c87
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1390d68a93dd3d80b5977bab6665553ea3f8b398
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189203"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403071"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Een MPEG-DASH adaptieve Streaming video's insluiten in een HTML5-toepassing met DASH.js  
 
@@ -55,7 +55,7 @@ De eerste stap is het maken van een standaard HTML-pagina met de **video** -elem
 ```
 
 ## <a name="adding-the-dashjs-player"></a>Toevoegen van de speler DASH.js
-De dash.js referentie-implementatie toevoegen aan de toepassing, moet u voor het bestand dash.all.js van versie 1.0 van dash.js project. Dit moet worden opgeslagen in de JavaScript-map van uw toepassing. Dit bestand is een gemak-bestand dat alle benodigde dash.js code samen tot één bestand haalt. Hebt u een overzicht over de opslagplaats dash.js, u de afzonderlijke bestanden niet vinden, test code en nog veel meer, maar als u wilt doen is dash.js, gebruik dan het bestand dash.all.js is wat u nodig hebt.
+De dash.js referentie-implementatie toevoegen aan de toepassing, moet u voor het bestand dash.all.js van de meest recente versie van dash.js project. Dit moet worden opgeslagen in de JavaScript-map van uw toepassing. Dit bestand is een gemak-bestand dat alle benodigde dash.js code samen tot één bestand haalt. Hebt u een overzicht over de opslagplaats dash.js, u de afzonderlijke bestanden niet vinden, test code en nog veel meer, maar als u wilt doen is dash.js, gebruik dan het bestand dash.all.js is wat u nodig hebt.
 
 De speler dash.js toevoegen aan uw toepassingen, toevoegen een scriptcode op de head-sectie van basicPlayer.html:
 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/25/2019
+ms.date: 3/20/2019
 ms.author: monhaber
-ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa664952f3eb7d6f9e611fb87a9e484e97f388a2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106556"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403830"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Beveiligen van uw computers en toepassingen in Azure Security Center
-Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen. Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's) en computers, toepassingen, netwerken, SQL, en de identiteit en toegang.
+Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources, niet-Azure-servers en virtuele machines. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen. Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's) en computers, toepassingen, netwerken, SQL, en de identiteit en toegang.
 
 In dit artikel biedt aanbevelingen die betrekking hebben op de machines en toepassingen.
 
@@ -53,7 +53,7 @@ Als u wilt doorgaan, selecteer **Compute en apps** onder **Resource beveiliging 
 Op elk tabblad kunt u meerdere sectie hebben en in elke sectie kunt u een afzonderlijke optie selecteren voor meer informatie over de aanbevolen stappen voor het oplossen van het specifieke probleem.
 
 ### Niet-bewaakte VM's en computers <a name="unmonitored-vms-and-computers"></a>
-Een virtuele machine of computer wordt niet bewaakt door Security Center als de machine wordt niet uitgevoerd voor de Microsoft Monitoring Agent-extensie. Een computer heeft misschien een lokale agent is al geïnstalleerd, bijvoorbeeld de directe OMS-agent of de SCOM-agent. Machines met deze agents worden geïdentificeerd als niet-bewaakt omdat deze agents niet volledig worden ondersteund in Security Center. De Microsoft Monitoring Agent-extensie is vereist om volledig te profiteren van alle mogelijkheden van Security Center.
+Een virtuele machine of computer wordt niet bewaakt door Security Center als de machine wordt niet uitgevoerd voor de Microsoft Monitoring Agent-extensie. Een computer heeft misschien een lokale agent is al geïnstalleerd, bijvoorbeeld de directe OMS-agent of de System Center Operations Manager-agent. Machines met deze agents worden geïdentificeerd als niet-bewaakt omdat deze agents niet volledig worden ondersteund in Security Center. De Microsoft Monitoring Agent-extensie is vereist om volledig te profiteren van alle mogelijkheden van Security Center.
 
 U kunt de extensie installeren op de niet-bewaakte virtuele machine of computer naast de reeds geïnstalleerde lokale agent. Configureer beide agents op dezelfde manier en verbind ze met dezelfde werkruimte. Hierdoor kan Security Center communiceren met de Microsoft Monitoring Agent-extensie en gegevens verzamelen. Zie [Enable the VM extension](../azure-monitor/learn/quick-collect-azurevm.md) (De VM-extensie inschakelen) voor installatie-instructies voor de Microsoft Monitoring Agent-extensie.
 
@@ -103,7 +103,7 @@ Er zijn vier typen pictogrammen weergegeven in deze lijst:
 ![Klassieke Azure-VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Klassieke Azure-VM.
 
 
-![Virtuele machines geïdentificeerd vanuit de werkruimte](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) Virtuele machines die alleen zijn geïdentificeerd vanuit de werkruimte die deel uitmaakt van het weergegeven abonnement. Dit omvat VM's van andere abonnementen die rapporteren aan de werkruimte in dit abonnement, en VM’s die zijn geïnstalleerd met de directe SCOM-agent en geen resource-ID hebben.
+![Virtuele machines geïdentificeerd vanuit de werkruimte](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) Virtuele machines die alleen zijn geïdentificeerd vanuit de werkruimte die deel uitmaakt van het weergegeven abonnement. Dit omvat VM's van andere abonnementen die rapporteren aan de werkruimte in dit abonnement, en deze virtuele machines die samen met directe Operations Manager-agent zijn geïnstalleerd en er is geen resource-id hebben.
 
 U kunt met het pictogram dat wordt weergegeven onder elke aanbeveling snel identificeren van de virtuele machine en de computer die aandacht vereisen en wat het type aanbeveling. U kunt ook de filters gebruiken om te zoeken naar de lijst door **resourcetype** en door **ernst**.
 
@@ -172,7 +172,7 @@ De Microsoft Monitoring Agent installeren:
 
 Als u wilt instellen schaalsets nieuwe automatisch de Microsoft Monitoring Agent wilt installeren:
 1. Ga naar Azure Policy en klikt u op **definities**.
-2. Zoeken naar het beleid **implementeren Log Analytics-agent voor Windows-VM-schaalsets** en klik erop.
+2. Zoeken naar het beleid **implementeren Log Analytics-agent voor Windows-virtuele-machineschaalsets** en klik erop.
 3. Klik op **Toewijzen**.
 4. Stel de **bereik** en **Log Analytics-werkruimte** en klikt u op **toewijzen**.
 

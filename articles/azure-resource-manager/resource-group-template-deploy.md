@@ -1,6 +1,6 @@
 ---
 title: Resources implementeren met PowerShell en een sjabloon | Microsoft Docs
-description: Gebruik Azure Resource Manager en Azure PowerShell om een resources implementeren op Azure. De resources zijn gedefinieerd in een Resource Manager-sjabloon.
+description: Azure Resource Manager en Azure PowerShell gebruiken om resources te implementeren naar Azure. De resources zijn gedefinieerd in een Resource Manager-sjabloon.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,38 +10,51 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: daeff897cf284df6e820afbcdd35ee54bf88db08
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8005b187f300375b62c254516a61f4993675b0b9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405399"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403105"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Resources implementeren met Resource Manager-sjablonen en Azure PowerShell
 
 Meer informatie over het gebruik van Azure PowerShell met Resource Manager-sjablonen voor het implementeren van uw resources naar Azure. Zie voor meer informatie over de concepten van implementeren en beheren van uw Azure-oplossingen, [overzicht van Azure Resource Manager](resource-group-overview.md).
 
-Voor het implementeren van een sjabloon, moet u doorgaans twee stappen:
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Maak een resourcegroep. Resourcegroep fungeert als de container voor de geïmplementeerde resources. De naam van de resourcegroep kan alleen alfanumerieke tekens, punten, onderstrepingstekens, afbreekstreepjes en haakjes bevatten. Het kan maximaal 90 tekens zijn. Deze mag niet eindigen op een punt.
-2. Een sjabloon implementeren. De sjabloon definieert de resources te maken.  De implementatie maakt de resources in de resourcegroep die is opgegeven.
+## <a name="deployment-scope"></a>Reikwijdte van de implementatie
 
-Deze implementatiemethode verificatie in twee stappen wordt in dit artikel gebruikt.  De andere optie is voor het implementeren van een resourcegroep en de resources op hetzelfde moment.  Zie voor meer informatie, [resourcegroep maken en implementeren van resources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+U kunt uw implementatie naar een Azure-abonnement of een resourcegroep binnen een abonnement kunt richten. In de meeste gevallen zult u richt de implementatie naar een resourcegroep. Abonnementimplementaties gebruiken voor het toepassen van beleid en de roltoewijzingen voor het abonnement. U kunt ook abonnementimplementaties gebruiken een resourcegroep maken en implementeren van resources toe. Afhankelijk van het bereik van de implementatie, kunt u verschillende opdrachten gebruiken.
+
+Om te implementeren op een **resourcegroep**, gebruikt u [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+```
+
+Om te implementeren op een **abonnement**, gebruikt u [New-AzDeployment](/powershell/module/az.resources/new-azdeployment):
+
+```azurepowershell
+New-AzDeployment -Location <location> -TemplateFile <path-to-template>
+```
+
+De voorbeelden in dit artikel gebruikt brongroepimplementaties. Zie voor meer informatie over de implementatie van abonnement [maken van resourcegroepen en resources op het abonnementsniveau](deploy-to-subscription.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
+U moet een sjabloon te implementeren. Als u dit niet al hebt, downloaden en slaat u een [voorbeeldsjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) vanuit de opslagplaats voor Azure Quickstart-sjablonen. De lokale bestandsnaam gebruikt in dit artikel is **c:\MyTemplates\azuredeploy.json**.
+
 Tenzij u de [Azure Cloud shell](#deploy-templates-from-azure-cloud-shell) voor het implementeren van sjablonen, moet u Azure PowerShell installeren en verbinding maken met Azure:
+
 - **Azure PowerShell-cmdlets installeren op uw lokale computer.** Zie [Aan de slag met Azure PowerShell](/powershell/azure/get-started-azureps) voor meer informatie.
 - **Verbinding maken met Azure met behulp van [Connect AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Als u meerdere Azure-abonnementen hebt, mogelijk moet u ook om uit te voeren [Set AzContext](/powershell/module/Az.Accounts/Set-AzContext). Zie voor meer informatie, [meerdere Azure-abonnementen gebruiken](/powershell/azure/manage-subscriptions-azureps).
-- * Downloaden en opslaan een [quickstart-sjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) . De lokale bestandsnaam gebruikt in dit artikel is **c:\MyTemplates\azuredeploy.json**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="deploy-local-template"></a>Lokale sjabloon implementeren
 
-## <a name="deploy-templates-stored-locally"></a>Lokaal opgeslagen sjablonen implementeren
-
-Het volgende voorbeeld wordt een resourcegroep en implementeert u een sjabloon van uw lokale computer:
+Het volgende voorbeeld wordt een resourcegroep en implementeert u een sjabloon van uw lokale computer. De naam van de resourcegroep kan alleen alfanumerieke tekens, punten, onderstrepingstekens, afbreekstreepjes en haakjes bevatten. Het kan maximaal 90 tekens zijn. Deze mag niet eindigen op een punt.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -52,11 +65,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateFile c:\MyTemplates\azuredeploy.json
 ```
 
-Houd er rekening mee *c:\MyTemplates\azuredeploy.json* is een quickstart-sjabloon.  Zie [Vereisten](#prerequisites).
-
 De implementatie kan enkele minuten duren.
 
-## <a name="deploy-templates-stored-externally"></a>Implementeren van sjablonen die extern zijn opgeslagen
+## <a name="deploy-remote-template"></a>Externe-sjabloon implementeren
 
 In plaats van Resource Manager-sjablonen op uw lokale computer, wellicht kunt u beter om op te slaan in een externe locatie. U kunt sjablonen opslaan in een opslagplaats voor bronbeheer (zoals GitHub). Of u kunt ze opslaan in Azure storage-account voor gedeelde toegang in uw organisatie.
 
@@ -73,7 +84,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 Het vorige voorbeeld vereist een openbaar toegankelijke URI voor de sjabloon die voor de meeste scenario's, werkt omdat de sjabloon mag niet de gevoelige gegevens bevatten. Als u nodig hebt om op te geven van gevoelige gegevens (zoals een beheerderswachtwoord), moet u die waarde als een beveiligde parameter. Echter, als u niet dat de sjabloon openbaar toegankelijk moeten zijn wilt, kunt u deze beschermen door in een persoonlijke opslagcontainer op te slaan. Zie voor meer informatie over het implementeren van een sjabloon die de token van een shared access signature (SAS) is vereist, [persoonlijke sjablonen implementeren met SAS-token](resource-manager-powershell-sas-token.md). Zie voor een zelfstudie doorloopt, [zelfstudie: Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie](./resource-manager-tutorial-use-key-vault.md) voor meer informatie.
 
-## <a name="deploy-templates-from-azure-cloud-shell"></a>Sjablonen van Azure Cloud shell implementeren
+## <a name="deploy-from-azure-cloud-shell"></a>Implementeren vanuit Azure Cloud shell
 
 U kunt de [Azure Cloud Shell](https://shell.azure.com) om uw sjabloon te implementeren. Voor het implementeren van een externe-sjabloon, geeft u de URI van de sjabloon. Voor het implementeren van een lokale sjabloon, moet u eerst uw sjabloon laden in het opslagaccount voor Cloud Shell. Als u wilt bestanden uploaden naar de shell, selecteer de **uploaden/downloaden van bestanden** menupictogram in de shell-venster.
 
@@ -89,10 +100,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 ```
 
 Als u wilt de code in de shell plakt, de shell met de rechtermuisknop en selecteer vervolgens **plakken**.
-
-## <a name="deploy-to-multiple-resource-groups-or-subscriptions"></a>Implementeren naar meerdere resourcegroepen of abonnementen
-
-Normaal gesproken implementeren u alle resources in uw sjabloon één resourcegroep bestaan. Er zijn echter scenario's waarin u wilt een set met resources samen te implementeren, maar plaats deze in verschillende resourcegroepen of abonnementen. U kunt implementeren met slechts vijf resourcegroepen in een enkele implementatie. Zie voor meer informatie, [implementeren-Azure-resources aan meerdere resourcegroepen en abonnementen](resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="redeploy-when-deployment-fails"></a>Opnieuw implementeren wanneer de implementatie mislukt
 

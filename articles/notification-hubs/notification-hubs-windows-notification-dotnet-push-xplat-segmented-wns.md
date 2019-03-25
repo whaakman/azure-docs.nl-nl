@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 8e583ac1c8ac4b6f32c2fa9f8b7ed07c2e7033e8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9cfe5f490ef4063e02d9407f23130c1a216961ed
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889995"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402453"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Zelfstudie: Pushmeldingen verzenden naar specifieke Windows-apparaten met Universal Windows Platform-toepassingen
 
@@ -222,30 +222,28 @@ In dit gedeelte registreert u zich tijdens het opstarten bij de meldingshub met 
 
 De app is nu klaar en kan een set categorieën opslaan in de lokale opslag van apparaten. Deze categorieën worden gebruikt voor registratie bij de meldingshub wanneer gebruikers de categorieselectie wijzigen. In het volgende gedeelte definieert u een back-end die categoriemeldingen naar deze app kan verzenden.
 
-## <a name="send-tagged-notifications"></a>Getagde meldingen verzenden
-
-[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
-
-## <a name="run-the-app-and-generate-notifications"></a>De app uitvoeren en meldingen genereren
-
+## <a name="run-the-uwp-app"></a>De UWP-app uitvoeren 
 1. Druk in Visual Studio op **F5** om de app te compileren en te starten. De UI van de app biedt een reeks schakelopties waarmee u de categorieën kunt kiezen waarop u zich wilt abonneren.
 
-    ![De app Breaking News][1]
+    ![De app Breaking News](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png)
 
 2. Zet een of meer categorieën op On en klik vervolgens op **Subscribe**.
 
     De app zet de geselecteerde categorieën om in tags en vraagt bij Notification Hubs een nieuwe apparaatregistratie aan voor de geselecteerde tags. De geregistreerde categorieën worden geretourneerd en weergegeven in een dialoogvenster.
 
-    ![Schakelopties voor categorieën en de knop Subscribe][19]
+    ![Schakelopties voor categorieën en de knop Subscribe](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png)
 
-3. Verstuur op een van de volgende manieren een nieuwe melding vanuit de back-end:
+## <a name="create-a-console-app-to-send-tagged-notifications"></a>Maken van een console-app voor het verzenden van meldingen met tags
 
-   * **Console-app**: Start de console-app.
-   * **Java/PHP**: voer uw app of script uit.
+[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-     Meldingen voor de geselecteerde categorieën worden weergegeven als pop-upmeldingen.
+## <a name="run-the-console-app-to-send-tagged-notifications"></a>Uitvoeren van de console-app voor het verzenden van meldingen met tags
 
-     ![Pop-upmeldingen][14]
+1. Voer de app in de vorige sectie hebt gemaakt.
+2. Meldingen voor de geselecteerde categorieën worden weergegeven als pop-upmeldingen. Als u de melding selecteert, ziet u het eerste venster van de UWP-app. 
+
+     ![Pop-upmeldingen](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png)
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -260,11 +258,6 @@ In dit artikel hebt u geleerd hoe u belangrijk nieuws per categorie kunt broadca
 [Send notifications from your back-end]: #send
 [Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
-
-<!-- Images. -->
-[1]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
-[14]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png
-[19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
 [get-started]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

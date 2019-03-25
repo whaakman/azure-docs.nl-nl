@@ -1,6 +1,6 @@
 ---
-title: Verschillen en overwegingen voor Managed Disks in Azure Stack | Microsoft Docs
-description: Meer informatie over de verschillen en overwegingen bij het werken met beheerde schijven in Azure Stack.
+title: Verschillen en overwegingen voor beheerde schijven en installatiekopieën in Azure Stack beheerd | Microsoft Docs
+description: Meer informatie over de verschillen en overwegingen bij het werken met beheerde schijven en beheerde installatiekopieën in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,27 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 28210048cd007fc10dcd4cf5e92577cbd121e2a3
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: c1975c885efc0a2a22b2ab478f8bc9afbcc8bce3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368269"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400365"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack-beheerde schijven: de verschillen en overwegingen met betrekking tot
+# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack beheerde schijven: verschillen en overwegingen
 
-In dit artikel bevat een overzicht van de bekende verschillen tussen [Azure Stack Managed Disks](azure-stack-manage-vm-disks.md) en [Managed Disks voor Azure](../../virtual-machines/windows/managed-disks-overview.md). Zie voor meer informatie over belangrijke verschillen tussen Azure Stack en Azure, de [belangrijke overwegingen met betrekking tot](azure-stack-considerations.md) artikel.
+In dit artikel bevat een overzicht van de bekende verschillen tussen [Azure Stack beheerde schijven](azure-stack-manage-vm-disks.md) en [managed disks voor Azure](../../virtual-machines/windows/managed-disks-overview.md). Zie voor meer informatie over belangrijke verschillen tussen Azure Stack en Azure, de [belangrijke overwegingen met betrekking tot](azure-stack-considerations.md) artikel.
 
 Beheerde schijven vereenvoudigt u Schijfbeheer voor IaaS-VM's door het beheer van de [opslagaccounts](../azure-stack-manage-storage-accounts.md) die zijn gekoppeld aan de VM-schijven.
 
 > [!Note]  
-> Beheerde schijven in Azure Stack is beschikbaar via 1808 update. Dit is standaard ingeschakeld tijdens het maken van virtuele machines met behulp van de Azure Stack-portal van 1811 update.
+> Beheerde schijven in Azure Stack is beschikbaar via de 1808-update. Dit is standaard ingeschakeld tijdens het maken van virtuele machines met behulp van de Azure Stack-portal, beginnen met de 1811-update.
   
-## <a name="cheat-sheet-managed-disk-differences"></a>Overzichtskaart: Beheerde schijf verschillen
+## <a name="cheat-sheet-managed-disk-differences"></a>Overzichtskaart: beheerde schijf verschillen
 
 | Functie | Azure (wereldwijd) | Azure Stack |
 | --- | --- | --- |
@@ -50,7 +50,7 @@ Beheerde schijven vereenvoudigt u Schijfbeheer voor IaaS-VM's door het beheer va
 |Migratie      |Hulpprogramma voor het migreren van bestaande niet-beheerde Azure Resource Manager VM's zonder de noodzaak om de virtuele machine opnieuw te bieden  |Nog niet ondersteund |
 
 > [!NOTE]  
-> Beheerde schijven IOPs en doorvoer in Azure Stack is een maximum aantal in plaats van een ingerichte nummer, dat mogelijk beïnvloed door de hardware- en workloads die worden uitgevoerd in Azure Stack.
+> Beheerde schijven IOPs en doorvoer in Azure Stack is een maximum aantal in plaats van een ingerichte nummer dat wordt mogelijk beïnvloed door de hardware- en workloads die worden uitgevoerd in Azure Stack.
 
 ## <a name="metrics"></a>Metrische gegevens
 
@@ -61,7 +61,7 @@ Er zijn ook verschillen met metrische gegevens over opslag:
 
 ## <a name="api-versions"></a>API-versies
 
-Azure Stack Managed Disks ondersteunt de volgende API-versies:
+Azure Stack beheerde schijven ondersteunt de volgende API-versies:
 
 - 2017-03-30
 - 2017-12-01
@@ -135,26 +135,31 @@ Azure Stack ondersteunt *beheerde installatiekopieën*, waardoor u een beheerde 
 - U hebt een gegeneraliseerde beheerde virtuele machine en wilt maken van meerdere, vergelijkbare beheerde virtuele machines.
 
 ### <a name="step-1-generalize-the-vm"></a>Stap 1: De virtuele machine generaliseren
-Voor Windows, volgt u de sectie 'De Windows-VM generaliseren met behulp van Sysprep' hier: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep Voor Linux, volgt u stap 1 hier: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm 
 
-Opmerking: Vergeet niet om te generaliseren van uw virtuele machine. Het maken van een virtuele machine van een installatiekopie die niet goed is gegeneraliseerd zal leiden tot een fout VMProvisioningTimeout.
+Voor Windows, volgt u de [generaliseren van de Windows-VM met behulp van Sysprep](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) sectie. Voor Linux, volgt u stap 1 [hier](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm).
+
+> [!NOTE]
+> Zorg ervoor dat uw virtuele machine generaliseren. Het maken van een virtuele machine van een installatiekopie die niet goed is gegeneraliseerd zal leiden tot een **VMProvisioningTimeout** fout.
 
 ### <a name="step-2-create-the-managed-image"></a>Stap 2: De beheerde installatiekopie maken
-U kunt de portal, powershell of cli om dit te doen. Ga als volgt hier document van Azure: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
 
-### <a name="step-3-choose-the-use-case"></a>Stap 3: Kies de use-case:
+U kunt de portal, PowerShell of CLI om de beheerde installatiekopie te maken. Volg de stappen in de Azure-artikel [hier](/azure/virtual-machines/windows/capture-image-resource).
+
+### <a name="step-3-choose-the-use-case"></a>Stap 3: Kies de use-case
+
 #### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>Geval 1: Niet-beheerde virtuele machines migreren naar beheerde schijven
-Vergeet niet om te generaliseren van uw virtuele machine goed voordat u deze stap uitvoert. Post mag generalisatie, deze virtuele machine niet meer gebruikt. Het maken van een virtuele machine van een installatiekopie die niet goed is gegeneraliseerd zal leiden tot een fout VMProvisioningTimeout. 
 
-Volg de instructies [hier](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) naar een beheerde installatiekopie maken vanaf een gegeneraliseerde VHD in een storage-account. Deze installatiekopie kan worden gebruikt om beheerde virtuele machines gaan maken.
+Zorg ervoor dat uw virtuele machine correct generaliseren voordat u deze stap uitvoert. Na generalisatie, kunt u deze virtuele machine niet meer gebruiken. Het maken van een virtuele machine van een installatiekopie die niet goed is gegeneraliseerd zal leiden tot een **VMProvisioningTimeout** fout.
+
+Volg de instructies [hier](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) naar een beheerde installatiekopie maken vanaf een gegeneraliseerde VHD in een storage-account. U kunt deze installatiekopie voortaan beheerde virtuele machines maken.
 
 #### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Geval 2: Beheerde virtuele machine maken van beheerde installatiekopie met behulp van Powershell
 
-Na het maken van een installatiekopie van een bestaande beheerde schijf-VM met behulp van het script [hier](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , het volgende voorbeeldscript maakt u een dergelijke Linux-VM van een bestaande installatiekopie-object:
+Na het maken van een installatiekopie van een bestaande beheerde schijf-VM met behulp van het script [hier](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell), het volgende voorbeeldscript maakt u een dergelijke Linux-VM van een bestaande installatiekopie-object:
 
-Azure Stack powershell-module 1.7.0 of hoger: Volg de instructies [hier](../../virtual-machines/windows/create-vm-generalized-managed.md) 
+Azure Stack-PowerShell-module 1.7.0 of hoger: Volg de instructies [hier](../../virtual-machines/windows/create-vm-generalized-managed.md).
 
-Azure Stack powershell-module 1.6.0 of onderstaande:
+Azure Stack-PowerShell-module 1.6.0 of eerder:
 
 ```powershell
 # Variables for common values
@@ -195,6 +200,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 $image = get-azurermimage -ResourceGroupName $imagerg -ImageName $imagename
+
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred | `
@@ -205,11 +211,11 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-U kunt ook de portal een virtuele machine van een beheerde installatiekopie maken. Zie voor meer informatie, de door Azure beheerde installatiekopie artikelen [maken van een beheerde installatiekopie van een gegeneraliseerde VM in Azure](../../virtual-machines/windows/capture-image-resource.md) en [een virtuele machine maken vanaf een beheerde installatiekopie](../../virtual-machines/windows/create-vm-generalized-managed.md).
+U kunt de portal ook gebruiken om te maken van een virtuele machine van een beheerde installatiekopie. Zie voor meer informatie, de door Azure beheerde installatiekopie artikelen [maken van een beheerde installatiekopie van een gegeneraliseerde VM in Azure](../../virtual-machines/windows/capture-image-resource.md) en [een virtuele machine maken vanaf een beheerde installatiekopie](../../virtual-machines/windows/create-vm-generalized-managed.md).
 
 ## <a name="configuration"></a>Configuratie
 
-Na het toepassen van de 1808 bijwerken of hoger, moet u de volgende configuratie voordat u Managed Disks uitvoeren:
+Na het toepassen van de 1808 bijwerken of hoger, moet u de volgende configuratie voordat u met behulp van beheerde schijven uitvoeren:
 
 - Als een abonnement is gemaakt vóór de update 1808, volg de onderstaande stappen voor het bijwerken van het abonnement. Anders wordt kan het implementeren van virtuele machines in dit abonnement mislukken met een foutbericht "Interne fout in Schijfbeheer."
    1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.

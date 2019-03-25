@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: b4f308e7053e000115f22abd291d934d90c11a94
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3880db813072ca0bcecf073a8db24b21c87189f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837589"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402708"
 ---
 # <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Zelfstudie: Gelokaliseerde pushmeldingen verzenden naar Windows-apps met Azure Notification Hubs
 
@@ -116,7 +116,7 @@ Zie [Push Templates](notification-hubs-templates-cross-platform-push-messages.md
     {
         ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
         ApplicationData.Current.LocalSettings.Values["locale"] = locale;
-        return await SubscribeToCategories(categories);
+        return await SubscribeToCategories(locale, categories);
     }
 
     public async Task<Registration> SubscribeToCategories(string locale, IEnumerable<string> categories = null)
@@ -190,7 +190,21 @@ Zie [Push Templates](notification-hubs-templates-cross-platform-push-messages.md
     }
     ```
 
-## <a name="send-localized-notifications-from-your-back-end"></a>Gelokaliseerde meldingen verzenden vanuit de back-end
+
+
+## <a name="run-the-uwp-application"></a>De UWP-toepassing uitvoeren
+
+1. De Universal Windows Platform-toepassing uitvoeren. Wacht tot u het bericht ziet dat de **registratie is gelukt**.
+
+    ![Registratie van mobiele toepassing](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
+2. Selecteer de **categorieën** en **locale** (landinstelling), en klik op **Subscribe**. De app zet de geselecteerde categorieën om in tags en vraagt bij Notification Hubs een nieuwe apparaatregistratie aan voor de geselecteerde tags.
+
+    ![Mobiele toepassing](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
+3. U ziet een **bevestigingsbericht** over de **abonnementen**.
+
+    ![Abonnementsbericht](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
+
+## <a name="update-console-app-to-send-localized-notifications"></a>Console-app bijwerken naar gelokaliseerde meldingen verzenden
 
 Wanneer u sjabloonmeldingen verstuurt, hoeft u alleen een set eigenschappen op te geven. In deze zelfstudie verstuurt de back-endtoepassing de set eigenschappen met de gelokaliseerde versie van het actuele nieuws, bijvoorbeeld:
 
@@ -243,20 +257,10 @@ private static async void SendTemplateNotificationAsync()
 
 Met deze eenvoudige aanroep wordt het gelokaliseerde nieuwsbericht bezorgd op **alle** apparaten, ongeacht het platform. Dit kan doordat uw Notification Hub de juiste payload voor het platform samenstelt en verstuurt naar alle apparaten die zijn geabonneerd op een bepaalde tag.
 
-## <a name="test-the-app"></a>De app testen
+## <a name="run-console-app-to-send-localized-notification"></a>Console-app om gelokaliseerde melding te verzenden uitvoeren
+Voer de **console-app** voor het verzenden van meldingen voor elke categorie en in elke ondersteunde taal. Controleer of u alleen een melding krijgt voor de categorieën waarop u zich hebt geabonneerd en of het bericht overeenkomt met de landinstelling die u hebt geselecteerd.
 
-1. Voer de Universal Windows Store-toepassing uit. Wacht tot u het bericht ziet dat de **registratie is gelukt**.
-
-    ![Registratie van mobiele toepassing](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
-2. Selecteer de **categorieën** en **locale** (landinstelling), en klik op **Subscribe**. De app zet de geselecteerde categorieën om in tags en vraagt bij Notification Hubs een nieuwe apparaatregistratie aan voor de geselecteerde tags.
-
-    ![Mobiele toepassing](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
-3. U ziet een **bevestigingsbericht** over de **abonnementen**.
-
-    ![Abonnementsbericht](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
-4. Als u een bevestiging hebt ontvangen, voert u de **console-app** uit om meldingen te verzenden voor elke categorie en in elke ondersteunde taal. Controleer of u alleen een melding krijgt voor de categorieën waarop u zich hebt geabonneerd en of het bericht overeenkomt met de landinstelling die u hebt geselecteerd.
-
-    ![Meldingen](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
+![Meldingen](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,6 +1,6 @@
 ---
 title: Resources implementeren met Azure CLI en een sjabloon | Microsoft Docs
-description: Gebruik Azure Resource Manager en Azure CLI om een resources implementeren op Azure. De resources zijn gedefinieerd in een Resource Manager-sjabloon.
+description: Azure Resource Manager en Azure CLI gebruiken om resources te implementeren naar Azure. De resources zijn gedefinieerd in een Resource Manager-sjabloon.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,24 +10,40 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0c298ba2074a57bd182b23e5fd9bc6b68ee496ad
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: f64a76fa6063ebc5681b546b53fe9d6ca7bc5037
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300446"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400393"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Resources implementeren met Resource Manager-sjablonen en Azure CLI
 
 In dit artikel wordt uitgelegd hoe u Azure CLI met Resource Manager-sjablonen gebruiken voor het implementeren van uw resources in Azure. Als u niet bekend bent met de concepten van het implementeren en beheren van uw Azure-oplossingen, Zie [overzicht van Azure Resource Manager](resource-group-overview.md).  
 
-De Resource Manager-sjabloon die u implementeert, kunnen een lokaal bestand op uw computer of een extern bestand dat zich bevindt in een opslagplaats, zoals GitHub. De sjabloon die u in dit artikel implementeert is beschikbaar als een [sjabloon van de storage-account in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
-
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 Als u geen Azure CLI is geïnstalleerd, kunt u de [Cloud Shell](#deploy-template-from-cloud-shell).
+
+## <a name="deployment-scope"></a>Reikwijdte van de implementatie
+
+U kunt uw implementatie naar een Azure-abonnement of een resourcegroep binnen een abonnement kunt richten. In de meeste gevallen zult u richt de implementatie naar een resourcegroep. Abonnementimplementaties gebruiken voor het toepassen van beleid en de roltoewijzingen voor het abonnement. U kunt ook abonnementimplementaties gebruiken een resourcegroep maken en implementeren van resources toe. Afhankelijk van het bereik van de implementatie, kunt u verschillende opdrachten gebruiken.
+
+Om te implementeren op een **resourcegroep**, gebruikt u [az group deployment maken](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+
+```azurecli
+az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
+```
+
+Om te implementeren op een **abonnement**, gebruikt u [az-implementatie maken](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+
+```azurecli
+az deployment create --location <location> --template-file <path-to-template>
+```
+
+De voorbeelden in dit artikel gebruikt brongroepimplementaties. Zie voor meer informatie over de implementatie van abonnement [maken van resourcegroepen en resources op het abonnementsniveau](deploy-to-subscription.md).
 
 ## <a name="deploy-local-template"></a>Lokale sjabloon implementeren
 
@@ -56,7 +72,7 @@ De implementatie kan enkele minuten duren. Als deze is voltooid, ziet u een beri
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-external-template"></a>Externe-sjabloon implementeren
+## <a name="deploy-remote-template"></a>Externe-sjabloon implementeren
 
 In plaats van Resource Manager-sjablonen op uw lokale computer, wellicht kunt u beter om op te slaan in een externe locatie. U kunt sjablonen opslaan in een opslagplaats voor bronbeheer (zoals GitHub). Of u kunt ze opslaan in Azure storage-account voor gedeelde toegang in uw organisatie.
 
@@ -83,10 +99,6 @@ az group deployment create --resource-group examplegroup \
   --template-uri <copied URL> \
   --parameters storageAccountType=Standard_GRS
 ```
-
-## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Implementeren naar meer dan één resourcegroep of abonnement
-
-Normaal gesproken implementeren u alle resources in uw sjabloon één resourcegroep bestaan. Er zijn echter scenario's waarin u wilt een set met resources samen te implementeren, maar plaats deze in verschillende resourcegroepen of abonnementen. U kunt implementeren met slechts vijf resourcegroepen in een enkele implementatie. Zie voor meer informatie, [implementeren-Azure-resources aan meer dan één abonnement of resourcegroep](resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="redeploy-when-deployment-fails"></a>Opnieuw implementeren wanneer de implementatie mislukt
 
@@ -196,7 +208,6 @@ az group deployment create \
   --parameters @demotemplate.parameters.json \
   --parameters exampleArray=@arrtest.json
 ```
-
 
 ## <a name="test-a-template-deployment"></a>Een sjabloonimplementatie testen
 

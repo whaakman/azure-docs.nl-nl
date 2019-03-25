@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 7e4a4572a53338dc0c7b5d7d11dca7130c8979be
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 276b2815b36f05aa49183681b6c9e622155938e9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226892"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401138"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen vindt u antwoorden op vragen over Azure Security Center, een service die u bij het voorkomen helpt, detecteren en direct reageren op bedreigingen met verbeterde zichtbaarheid en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -291,11 +291,14 @@ Security Center is een Azure-service waarmee continu gecontroleerd van de klant 
 De volgende Azure-resources worden bewaakt door Azure Security Center:
 
 * Virtuele machines (VM's) (met inbegrip van [Cloudservices](../cloud-services/cloud-services-choose-me.md))
+* Virtuele-machineschaalsets (VMSSs)
 * Virtuele netwerken van Azure
 * Azure SQL-service
 * Azure Storage-account
 * Azure-Web-Apps (in [App Service-omgeving](../app-service/environment/intro.md))
 * Oplossingen van partners die zijn geïntegreerd met uw Azure-abonnement, zoals een firewall voor webtoepassingen op virtuele machines en op App Service-omgeving
+
+Niet-Azure (met inbegrip van on-premises) computers kunnen bovendien ook worden bewaakt door Azure Security Center (beide [Windows-computers](./quick-onboard-windows-computer.md) en [Linux-computers](./quick-onboard-linux-computer.md) worden ondersteund)
 
 ## <a name="virtual-machines"></a>Virtuele machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Welke typen virtuele machines worden ondersteund?

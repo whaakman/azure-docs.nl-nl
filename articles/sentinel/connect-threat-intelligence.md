@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2c5a7dc08886e21ef8e287540d9139ec555b11a2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bc8a644f99d9a84e1f2c177a87e2668ae9a57868
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242289"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400634"
 ---
 # <a name="collect-data-from-threat-intelligence-providers"></a>Gegevens verzamelen van threat intelligence providers 
 
@@ -31,6 +31,8 @@ Nadat u uw gegevens naar Azure Sentinel streamen, kunt u verrijken deze met de b
 Om te controleren cross-waarschuwingen en regels met de waarde true bedreigingsinformatie, bijvoorbeeld als u een waarschuwing ontvangt van een specifiek IP-adres, is uw integratie threat intelligence-provider mogelijk om te laten u weten of dit IP-adres onlangs zijn schadelijke is gevonden , Maakt de integratie van azure Sentinel mogelijk [threat intelligence providers](https://aka.ms/graphsecuritytips). 
 
 U kunt Logboeken van Threat intelligence providers streamen naar Azure Sentinel met één klik. Deze verbinding kunt u indicatoren met verschillende soorten observables zoals IP-adres, domein, URL opnemen en de hash van het bestand om te zoeken en maken van aangepaste regels in Azure Sentinel waarschuwingen.  
+> [!NOTE]
+> Voer aangepaste threat indicatoren in Azure Sentinel voor gebruik in regels voor waarschuwingen, dashboards en jacht scenario's door te integreren met de [Microsoft Graph Security tiIndicator](https://aka.ms/graphsecuritytiindicators) entiteit of met behulp van een [Microsoft Beveiliging van de grafiek geïntegreerd Threat Intelligence-Platform](https://aka.ms/graphsecuritytips).
 
 ## <a name="prerequisites"></a>Vereisten  
 

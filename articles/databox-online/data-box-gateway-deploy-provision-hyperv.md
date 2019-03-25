@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: cf47919ead890f0ad0e89646dde26276ebfb1127
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 38c8e98d92c21e3dc7d37337466dc79c85d0a15f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109738"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401121"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Zelfstudie: Azure Data Box Gateway inrichten in Hyper-V (preview)
+# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Zelfstudie: Richt Azure Data Box-Gateway in Hyper-V
 
 ## <a name="overview"></a>Overzicht
 
@@ -31,9 +31,6 @@ In deze zelfstudie leert u het volgende:
 > * Het virtuele apparaat starten en het IP-adres ophalen
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-
-> [!IMPORTANT]
-> - Data Box Gateway verkeert in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -78,7 +75,7 @@ Voor het maken van een virtueel apparaat hebt u het volgende nodig:
 * Microsoft Hyper-V-beheer op een Microsoft Windows-client moet zijn verbonden met de host.
 * Controleer of de onderliggende hardware (hostsysteem) waarop u het virtuele apparaat maakt, de volgende resources kan reserveren voor uw virtuele apparaat:
 
-    * Minimaal 4 kerngeheugens.
+    * Een minimum van 4 virtuele processors.
     * Ten minste 8 GB RAM-geheugen.
     * Eén netwerkinterface die is verbonden met het netwerk en verkeer naar internet kan routeren. 
     * Een besturingssysteemschijf van 250 GB.
@@ -89,65 +86,65 @@ Voor het maken van een virtueel apparaat hebt u het volgende nodig:
 Voer de volgende stappen uit om een apparaat in de hypervisor in te richten.
 
 1. Kopieer de installatiekopie van het virtuele apparaat op de Windows Server-host naar een lokaal station. U hebt deze VHDX-installatiekopie gedownload via de Azure Portal. Noteer de locatie waar u de installatiekopie naartoe hebt gekopieerd, want u hebt deze installatiekopie verderop in de procedure nodig.
-2. Open **Serverbeheer**. Klik in de rechterbovenhoek op **Hulpprogramma's** en selecteer **Hyper-V-beheer**.
+2. Open **Serverbeheer**. Klik in de rechterbovenhoek op **extra** en selecteer **Hyper-V-beheer**.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
+    ![Selecteer Hyper-V-beheer in Serverbeheer](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
   
 3. In **Hyper-V-beheer** klikt u in het scopedeelvenster met de rechtermuisknop op uw systeemknooppunt om het contextmenu te openen. Klik vervolgens op **Nieuw** > **Virtuele machine**.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
+   ![Maken van nieuwe virtuele machine in Hyper-V-beheer](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. Klik op de pagina **Voordat u begint** van de wizard Nieuwe virtuele machine op **Volgende**.
-5. Geef op de pagina **Naam en locatie opgeven** een **Naam** op voor het virtuele apparaat. Klik op **Volgende**.
+5. Geef op de pagina **Naam en locatie opgeven** een **Naam** op voor het virtuele apparaat. Klik op **volgende**.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
+   ![Pagina naam en locatie opgeven](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. Op de pagina **Generatie opgeven** kiest u **Generatie 2** als het .vhdx-installatiekopietype van het apparaat en klikt u op **Volgende**.    
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image4.png)
+   ![Pagina generatie opgeven](./media/data-box-gateway-deploy-provision-hyperv/image4.png)
 7. Op de pagina **Geheugen toewijzen** geeft u een **Opstartgeheugen** van ten minste **8192 MB** op. Schakel Dynamisch geheugen niet in en klik op **Volgende**.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image5.png) 
+   ![Toewijzen van geheugenpagina](./media/data-box-gateway-deploy-provision-hyperv/image5.png) 
 8. Op de pagina **Netwerk configureren** geeft de virtuele switch op die is verbonden met internet en klikt u op **Volgende**.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image6.png)
+   ![De pagina voor VPN configureren](./media/data-box-gateway-deploy-provision-hyperv/image6.png)
 9. Op de pagina **Virtuele harde schijf aansluiten** kiest u **Een bestaande virtuele harde schijf gebruiken**, geeft u de locatie op van de installatiekopie van het virtuele apparaat en klikt u op **Volgende**.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image7.png)
+   ![Verbinding maken met virtuele harde schijf-pagina](./media/data-box-gateway-deploy-provision-hyperv/image7.png)
 10. Controleer de **Samenvatting** en klik op **Voltooien** om de virtuele machine te maken.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image8.png)
-11. U hebt 4 kerngeheugens nodig om te voldoen aan de minimale vereisten. Selecteer uw hostsysteem in het venster **Hyper-V-beheer** om 4 virtuele processors toe te voegen. Zoek in het rechterdeelvenster onder de lijst met **Virtuele Machines** de virtuele machine die u zojuist hebt gemaakt. Klik met de rechtermuisknop op de naam van de machine en selecteer **Instellingen**.
+    ![De pagina van de wizard nieuwe virtuele Machine voltooien](./media/data-box-gateway-deploy-provision-hyperv/image8.png)
+11. Om te voldoen aan de minimale vereisten voldoet, moet u 4 virtuele processors. Selecteer uw hostsysteem in het venster **Hyper-V-beheer** om 4 virtuele processors toe te voegen. Zoek in het rechterdeelvenster onder de lijst met **Virtuele Machines** de virtuele machine die u zojuist hebt gemaakt. Klik met de rechtermuisknop op de naam van de machine en selecteer **Instellingen**.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image9.png)
+    ![Instellingen voor virtuele machines](./media/data-box-gateway-deploy-provision-hyperv/image9.png)
 12. Klik op de pagina **Instellingen** in het linkerdeelvenster op **Processor**. Stel in het rechterdeelvenster **Aantal virtuele processors** in op 4 (of meer). Klik op **Toepassen**.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
+    ![Aantal virtuele processors op de pagina instellingen](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
 13. Om aan de minimale vereisten te voldoen, moet u ook een virtuele gegevensschijf van 2 TB toevoegen. Op de pagina **Instellingen** doet u het volgende:
 
     1. Selecteer in het linkerdeelvenster de optie **SCSI-controller**.
     2. In het rechterdeelvenster selecteert u de optie **Harde schijf** en klikt u op **Toevoegen**.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image11.png)
+    ![Harde schijf op de pagina instellingen toevoegen](./media/data-box-gateway-deploy-provision-hyperv/image11.png)
 14. Op de pagina **Harde schijf** selecteert u de optie **Virtuele harde schijf** en klikt u op **Nieuw**. De **Wizard Nieuwe virtuele harde schijf** wordt gestart.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
+    ![Wizard Nieuwe virtuele harde schijf](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
 1. Op de pagina **Voordat u begint** van de wizard Nieuwe virtuele harde schijf klikt u op **Volgende**.
-2. Op de pagina **Schijfindeling kiezen** accepteert u de standaardindeling **VHDX**. Klik op **Volgende**.
+2. Op de pagina **Schijfindeling kiezen** accepteert u de standaardindeling **VHDX**. Klik op **volgende**.
    
-17. Op de pagina **Schijftype kiezen** stelt u het type virtuele harde schijf in op **Dynamisch uitbreidbaar** (aanbevolen). Een schijf van het type **Vaste grootte** werkt waarschijnlijk ook, maar dan moet u mogelijk lang wachten. U wordt geadviseerd om niet de optie **Differentiërende** te gebruiken. Klik op **Volgende**. 
+17. Op de pagina **Schijftype kiezen** stelt u het type virtuele harde schijf in op **Dynamisch uitbreidbaar** (aanbevolen). Een schijf van het type **Vaste grootte** werkt waarschijnlijk ook, maar dan moet u mogelijk lang wachten. U wordt geadviseerd om niet de optie **Differentiërende** te gebruiken. Klik op **volgende**. 
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
-18. Op de pagina **Naam en locatie opgeven** geeft u een **Naam** en een **Locatie** voor de gegevensschijf op (u kunt naar een locatie bladeren). Klik op **Volgende**.
+    ![Pagina schijftype kiezen](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
+18. Op de pagina **Naam en locatie opgeven** geeft u een **Naam** en een **Locatie** voor de gegevensschijf op (u kunt naar een locatie bladeren). Klik op **volgende**.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. Op de pagina **Schijf configureren** selecteert u de optie **Nieuwe lege virtuele harde schijf maken** en geeft u een grootte op van **2 TB** (of meer). Hoewel 2 TB de minimumvereiste is, kunt u altijd een grotere schijf inrichten. Houd er rekening mee dat u een ingerichte schijf niet kunt verkleinen.  U kunt de schijf echter wel uitbreiden door een gegevensschijf toe te voegen. Klik op **Volgende**.
+    ![Pagina naam en locatie opgeven](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
+19. Op de pagina **Schijf configureren** selecteert u de optie **Nieuwe lege virtuele harde schijf maken** en geeft u een grootte op van **2 TB** (of meer). Hoewel 2 TB de minimumvereiste is, kunt u altijd een grotere schijf inrichten. Houd er rekening mee dat u een ingerichte schijf niet kunt verkleinen.  U kunt de schijf echter wel uitbreiden door een gegevensschijf toe te voegen. Klik op **volgende**.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
+    ![Pagina van de schijf configureren](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. Op de pagina **Samenvatting** controleert u de details van uw virtuele gegevensschijf en als u tevreden bent, klikt u op **Voltooien** om de schijf te maken. De wizard wordt gesloten en er wordt een virtuele harde schijf aan uw machine toegevoegd.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image16.png)
+    ![Voltooien van de pagina van de Wizard Nieuwe virtuele hardeschijf](./media/data-box-gateway-deploy-provision-hyperv/image16.png)
 21. Ga terug naar de pagina **Instellingen**. Klik op **OK** om de pagina **Instellingen** te sluiten en terug te keren naar het venster Hyper-V-beheer.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
+    ![De pagina Instellingen](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>Het virtuele apparaat starten en het IP-adres ophalen
 Voer de volgende stappen uit om uw virtuele apparaat te starten en verbinding te maken met het apparaat.
@@ -155,12 +152,12 @@ Voer de volgende stappen uit om uw virtuele apparaat te starten en verbinding te
 #### <a name="to-start-the-virtual-device"></a>Het virtuele apparaat starten
 1. Start het virtuele apparaat.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
+   ![Virtueel apparaat starten](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
 2. Wanneer het apparaat is gestart, selecteert u het apparaat, klikt u met de rechtermuisknop en selecteert u **Verbinding maken**.
 
-3. Het kan 10-15 minuten duren voor het apparaat gereed is. Er wordt een statusbericht op de console weergegeven om de voortgang aan te geven. Wanneer het apparaat gereed is, gaat u naar **Actie**. Druk op `Ctrl + Alt + Delete` om u aan te melden bij het virtuele apparaat. De standaardwaarde is *EdgeUser* en het standaardwachtwoord is *Password1*.
+3. Het kan 10-15 minuten duren voor het apparaat gereed is. Er wordt een statusbericht op de console weergegeven om de voortgang aan te geven. Wanneer het apparaat gereed is, gaat u naar **Actie**. Druk op `Ctrl + Alt + Delete` aan te melden met het virtuele apparaat. De standaardwaarde is *EdgeUser* en het standaardwachtwoord is *Password1*.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
+   ![Meld u aan met het virtuele apparaat](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
    
 6. De stappen 5 - 7 gelden alleen als het opstarten in een niet-DHCP-omgeving gebeurt. In een DHCP-omgeving kunt u deze stappen overslaan. Als u uw apparaat hebt opgestart in een niet-DHCP-omgeving wordt er een bericht van die strekking weergegeven.
     
@@ -172,15 +169,15 @@ Voer de volgende stappen uit om uw virtuele apparaat te starten en verbinding te
     
 9. Wanneer de initiële installatie is voltooid en het apparaat is opgestart, ziet u de bannertekst van het apparaat. Noteer het IP-adres en de URL die in de bannertekst worden weergegeven om het apparaat te beheren. U hebt dit IP-adres nodig om verbinding te maken met de webgebruikersinterface van uw virtuele apparaat en voor de lokale configuratie en activering.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
+   ![Virtueel apparaat banner met IP-adres en verbinding URL](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
 Als uw apparaat niet voldoet aan de minimale configuratievereisten, wordt er een fout weergegeven in de bannertekst. Wijzig de apparaatconfiguratie zo dat de virtuele machine voldoende resources heeft om aan de minimale vereisten te voldoen. Daarna kunt u het apparaat opnieuw opstarten en verbinding maken met het apparaat. Raadpleeg de minimale configuratievereisten in [Controleren of het hostsysteem voldoet aan minimale vereisten voor virtuele apparaten](#check-the-host-system).
 
-<!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
+Als u een andere fout tijdens de eerste configuratie met behulp van de lokale webgebruikersinterface worden geconfronteerd, raadpleegt u de volgende werkstromen:
 
-* Run diagnostic tests to [troubleshoot web UI setup](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
-* [Generate log package and view log files](storsimple-ova-web-ui-admin.md#generate-a-log-package).-->
+- [Voer diagnostische tests uit om op te lossen van de installatie van de web-UI](data-box-gateway-troubleshoot.md#run-diagnostics).
+- [Logboek pakket genereren en weergeven van logboekbestanden](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>Volgende stappen
 

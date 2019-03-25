@@ -15,14 +15,18 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d0c39462bc046b13a2756d37c089ba0e68c90452
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 0c5ceda99fe35fafff23f2bcf4ea766d7dd42b75
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456636"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403218"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Uw App Service-app voor het gebruik van Azure Active Directory-aanmelding configureren
+
+> [!NOTE]
+> Op dit moment, AAD V2 (met inbegrip van MSAL) wordt niet ondersteund voor Azure App Services en Azure Functions. Controleer binnenkort voor updates.
+>
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
@@ -30,7 +34,7 @@ In dit artikel leest u hoe het configureren van Azure App Services voor het gebr
 
 ## <a name="express"> </a>Met express-instellingen configureren
 
-1. In de [Azure Portal], gaat u naar uw App Service-app. Selecteer in het linkernavigatievenster **verificatie / autorisatie**.
+1. In de [Azure-portal], gaat u naar uw App Service-app. Selecteer in het linkernavigatievenster **verificatie / autorisatie**.
 2. Als **verificatie / autorisatie** niet is ingeschakeld, selecteert **op**.
 3. Selecteer **Azure Active Directory**, en selecteer vervolgens **Express** onder **beheermodus**.
 4. Selecteer **OK** voor het registreren van de App Service-app in Azure Active Directory. Hiermee maakt u een nieuwe app-registratie. Als u een bestaande app-registratie in plaats daarvan kiezen wilt, klikt u op **selecteert u een bestaande app** en zoek vervolgens de naam van een eerder gemaakte app-registratie binnen uw tenant.
@@ -47,7 +51,7 @@ U kunt ook opgeven de configuratie-instellingen handmatig. Dit is de beste oplos
 
 ### <a name="register"> </a>Uw App Service-app registreren bij Azure Active Directory
 
-1. Aanmelden bij de [Azure Portal], en Ga naar de App Service-app. Uw app kopiëren **URL**. U gebruikt deze om te configureren van de registratie van uw Azure Active Directory-app.
+1. Aanmelden bij de [Azure-portal], en Ga naar de App Service-app. Uw app kopiëren **URL**. U gebruikt deze om te configureren van de registratie van uw Azure Active Directory-app.
 2. Navigeer naar **Active Directory**en selecteer vervolgens de **App-registraties**, klikt u vervolgens op **nieuwe toepassing registreren** boven aan het starten van een nieuwe app-registratie. 
 3. In de **maken** pagina een **naam** voor uw app-registratie, selecteert u de **Web-App / API** Instellingstype, in de **aanmeldings-URL** vak plakken de de URL van de toepassing (uit stap 1). Klik vervolgens op **maken**.
 4. In een paar seconden ziet u de nieuwe app-registratie die u zojuist hebt gemaakt.
@@ -59,7 +63,7 @@ U kunt ook opgeven de configuratie-instellingen handmatig. Dit is de beste oplos
 
 ### <a name="secrets"> </a>Azure Active Directory-informatie toevoegen aan uw App Service-app
 
-1. Klik in de [Azure Portal], gaat u naar uw App Service-app. Klik op **verificatie/autorisatie**. Als de verificatie/autorisatie-functie niet is ingeschakeld, zet u de switch op **op**. Klik op **Azure Active Directory**, onder Authentication-Providers, uw app configureren.
+1. Klik in de [Azure-portal], gaat u naar uw App Service-app. Klik op **verificatie/autorisatie**. Als de verificatie/autorisatie-functie niet is ingeschakeld, zet u de switch op **op**. Klik op **Azure Active Directory**, onder Authentication-Providers, uw app configureren.
 
     (Optioneel) Standaard is App Service-verificatie biedt, maar biedt geautoriseerde toegang tot uw API's en site-inhoud niet beperken. U moet autoriseren van gebruikers in uw app-code. Stel **te ondernemen actie wanneer de aanvraag niet is geverifieerd** naar **aanmelden met Azure Active Directory**. Deze optie vereist dat alle aanvragen worden geverifieerd en alle niet-geverifieerde aanvragen worden omgeleid naar Azure Active Directory voor verificatie.
 2. Klik in de configuratie van Active Directory-verificatie, op **Geavanceerd** onder **beheermodus**. Plak de toepassings-ID in het Client-ID (uit stap 8) en plak de URL-verlener-waarde in de URL (uit stap 9). Klik vervolgens op **OK**.
@@ -70,7 +74,7 @@ U bent nu klaar voor gebruik van Azure Active Directory voor verificatie in uw A
 ## <a name="configure-a-native-client-application"></a>Een systeemeigen clienttoepassing configureren
 U kunt registreren systeemeigen clients waarmee u meer controle over de machtigingen toewijzen. U hebt deze nodig als u wilt uitvoeren van aanmeldingen met behulp van een clientbibliotheek, zoals de **Active Directory Authentication Library**.
 
-1. Navigeer naar **Azure Active Directory** in de [Azure Portal].
+1. Navigeer naar **Azure Active Directory** in de [Azure-portal].
 2. Selecteer in het linkernavigatievenster **App-registraties**. Klik op **nieuwe app-registratie** aan de bovenkant.
 4. In de **maken** pagina een **naam** voor uw app-registratie. Selecteer **systeemeigen** in **toepassingstype**.
 5. In de **omleidings-URI** voert u uw site */.auth/login/done* eindpunt, met behulp van het HTTPS-schema. Deze waarde moet zijn vergelijkbaar met *https://contoso.azurewebsites.net/.auth/login/done*. Als het maken van een Windows-toepassing, in plaats daarvan gebruikt de [pakket-SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) als de URI.
@@ -102,5 +106,5 @@ U hebt nu een systeemeigen clienttoepassing die krijgen uw App Service-app tot t
 
 <!-- URLs. -->
 
-[Azure Portal]: https://portal.azure.com/
+[Azure-portal]: https://portal.azure.com/
 [alternative method]:#advanced

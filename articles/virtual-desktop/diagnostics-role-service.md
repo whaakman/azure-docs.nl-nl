@@ -1,22 +1,22 @@
 ---
-title: Identificeren van problemen met de diagnostics-functie (preview) - Azure
-description: Beschrijft de functie van de diagnostische gegevens over virtuele Windows-bureaublad en het gebruik ervan.
+title: Identificeren van problemen met de functie voor diagnostische gegevens over Windows Virtual Desktop Preview - Azure
+description: Beschrijft de functie voor Windows Virtual Desktop Preview diagnostische gegevens en het gebruik ervan.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f44f4d632fa1fc607f3933be8e15eb939e20a8ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318612"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402844"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature-preview"></a>Identificeren van problemen met de functie voor diagnostische gegevens (Preview)
+# <a name="identify-issues-with-the-diagnostics-feature"></a>Problemen met de diagnostische functie identificeren
 
-Virtuele Windows-Desktop (preview) biedt een functie voor diagnostische gegevens (preview) waarmee de beheerder om te identificeren van problemen melden via één interface. De rollen van virtuele Windows-bureaublad Meld een diagnostische activiteit wanneer een gebruiker interactie met het systeem heeft. Elk logboek bevat relevante informatie zoals de virtuele Windows-bureaublad rollen die betrokken zijn bij de transactie, foutberichten, tenantgegevens en gebruikersgegevens. Diagnostische activiteiten zijn gemaakt door zowel eindgebruikers als administratieve taken en kunnen worden onderverdeeld in drie belangrijkste buckets:
+Windows virtuele bureaublad Preview biedt een diagnostische functie waarmee de beheerder om te identificeren van problemen melden via één interface. De rollen van virtuele Windows-bureaublad Meld een diagnostische activiteit wanneer een gebruiker interactie met het systeem heeft. Elk logboek bevat relevante informatie zoals de virtuele Windows-bureaublad rollen die betrokken zijn bij de transactie, foutberichten, tenantgegevens en gebruikersgegevens. Diagnostische activiteiten zijn gemaakt door zowel eindgebruikers als administratieve taken en kunnen worden onderverdeeld in drie belangrijkste buckets:
 
 * Feed abonnement activiteiten: de eindgebruiker deze activiteiten wordt geactiveerd wanneer ze proberen verbinding maken met hun feed via Microsoft Extern bureaublad-toepassingen.
 * Activiteiten van de verbinding: de eindgebruiker deze activiteiten wordt geactiveerd wanneer ze proberen verbinding maken met een desktop of RemoteApp via Microsoft Extern bureaublad-toepassingen.
@@ -145,7 +145,7 @@ De volgende tabel geeft een lijst met veelvoorkomende fouten in die uw beheerder
 |8000|InvalidAuthorizationRoleScope|De naam van de rol die u hebt ingevoerd komt niet overeen met de rolnamen van alle bestaande. Controleer de naam van de rol voor typfouten en probeer het opnieuw. |
 |8001|UserNotFound |De naam van de gebruiker die u hebt ingevoerd komt niet overeen met de gebruikersnamen van een bestaande. Controleer de naam voor typfouten en probeer het opnieuw.|
 |8005|UserNotFoundInAAD |De naam van de gebruiker die u hebt ingevoerd komt niet overeen met de gebruikersnamen van een bestaande. Controleer de naam voor typfouten en probeer het opnieuw.|
-|8008|TenantConsentRequired|Volg de instructies [hier](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service) voor toestemming van uw tenant.|
+|8008|TenantConsentRequired|Volg de instructies [hier](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) voor toestemming van uw tenant.|
 
 ### <a name="external-connection-error-codes"></a>Foutcodes voor externe verbinding
 
@@ -164,6 +164,6 @@ De volgende tabel geeft een lijst met veelvoorkomende fouten in die uw beheerder
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over rollen binnen virtuele Windows-bureaublad, [virtueel bureaublad van Windows-omgeving](environment-setup.md).
+Zie voor meer informatie over rollen binnen virtuele Windows-bureaublad, [Windows Virtual Desktop Preview-omgeving](environment-setup.md).
 
 Zie voor een lijst met beschikbare PowerShell-cmdlets voor virtuele Windows-bureaublad de [PowerShell-referentie](/powershell/windows-virtual-desktop/overview).

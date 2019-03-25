@@ -2,20 +2,20 @@
 title: Gegevens analyseren met Azure Machine Learning | Microsoft Docs
 description: Gebruik Azure Machine Learning om een voorspellend Machine Learning-model te maken dat is gebaseerd op gegevens die zijn opgeslagen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 04/17/2018
-ms.author: kavithaj
+ms.date: 03/22/2019
+ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 8a33d733f4737bf19e7baad6d80d8fa72999268f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7f9500adc6871c4c9f81c32bf456bc36cf91db4b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477655"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402555"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Gegevens analyseren met Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -42,9 +42,9 @@ Voor deze zelfstudie hebt u het volgende nodig:
 De gegevens bevinden zich in de weergave dbo.vTargetMail in de AdventureWorksDW-database. Deze gegevens lezen:
 
 1. Meld u aan bij [Azure Machine Learning Studio][Azure Machine Learning studio] en klik op My experiments (Mijn experimenten).
-2. Klik op **+NEW** (Nieuw) en selecteer **Blank Experiment** (Leeg experiment).
+2. Klik op **+ nieuw** in de linkerbenedenhoek van het scherm en selecteer **leeg Experiment**.
 3. Voer een naam in voor uw experiment: Doelgerichte Marketing.
-4. Sleep de module **Reader** van het deelvenster met modules naar het canvas.
+4. Sleep de **gegevens importeren** module onder **gegevensinvoer en uitvoer** vanuit het deelvenster met modules naar het canvas.
 5. Geef de details van uw SQL Data Warehouse-database op in het deelvenster Properties.
 6. Geef de database**query** op om de gewenste gegevens te lezen.
 
@@ -77,7 +77,7 @@ Wanneer het experiment is uitgevoerd, klikt u op de uitvoerpoort onder in de mod
 ## <a name="2-clean-the-data"></a>2. De gegevens opschonen
 Als u de gegevens wilt opschonen, verwijdert u enkele kolommen die niet relevant zijn voor het model. Om dit te doen:
 
-1. Sleep de module **Project Columns** (Projectkolommen) naar het canvas.
+1. Sleep de **Select Columns in Dataset** module onder **gegevenstransformatie < manipulatie** naar het canvas. Verbinding maken met deze module aan de **importgegevens** module.
 2. Klik in het deelvenster Properties (Eigenschappen) op **Launch column selector** (Kolomselectie starten) om de kolommen op te geven die u wilt verwijderen.
    ![Projectkolommen][4]
 3. Sluit twee kolommen: CustomerAlternateKey en GeographyKey.
@@ -87,21 +87,19 @@ Als u de gegevens wilt opschonen, verwijdert u enkele kolommen die niet relevant
 We zullen de gegevens 80-20 splitsen: 80% naar een machine learning-model te trainen en 20% voor het testen van het model. Voor dit binair klassificatieprobleem gaat u de algoritme Two-Class gebruiken.
 
 1. Sleep de module **Split** (Splitsen) naar het canvas.
-2. Typ 0,8 in Fraction of rows in the first output dataset (Fractie van rijen in de eerste gegevensset) in het deelvenster Properties (Eigenschappen).
+2. Voer in het eigenschappendeelvenster met 0,8 voor fractie van rijen in de eerste uitvoergegevensset.
    ![Gegevens splitsen in trainings- en testset][6]
 3. Sleep de module **Two-Class Boosted Decision Tree** (Beslissingsstructuur op basis van twee klassen) naar het canvas.
-4. Sleep de module **Train Model** (Model trainen) naar het canvas en geef de invoer op. Klik vervolgens in het deelvenster Properties (Eigenschappen) op **Launch column selector** (Kolomselectie starten).
-   * Eerste invoer: ML-algoritme.
-   * Tweede invoer: De gegevens het algoritme wilt trainen op.
+4. Sleep de **Train Model** module naar het canvas en invoer opgeven door deze te verbinden met de **Two-Class Boosted beslissingsstructuur** (ML-algoritme) en **splitsen** (gegevens met het trainen van de de algoritme op)-modules. 
      ![Verbinding maken met de module Train Model (Model trainen)][7]
-5. Selecteer de kolom **BikeBuyer** als de kolom die u wilt voorspellen.
+5. Klik vervolgens in het deelvenster Properties (Eigenschappen) op **Launch column selector** (Kolomselectie starten). Selecteer de kolom **BikeBuyer** als de kolom die u wilt voorspellen.
    ![Te voorspellen kolom selecteren][8]
 
 ## <a name="4-score-the-model"></a>4. Het model scoren
 Nu gaat u testen hoe het model functioneert met testgegevens. U gaat het gekozen algoritme vergelijken met een ander algoritme om te zien welk algoritme de beste prestaties levert.
 
-1. Sleep de module **Score Model** (Model beoordelen) naar het canvas.
-    Eerste invoer: Getraind model tweede invoer: Testgegevens ![het model beoordelen][9]
+1. Sleep **Score Model** module naar het canvas en verbindt deze met **Train Model** en **Split Data** modules.
+   ![Het model beoordelen][9]
 2. Sleep de **Two-Class Bayes Point Machine** naar het experimentencanvas. U gaat dit algoritme vergelijken met de Two-Class Boosted Decision Tree (Beslissingsstructuur met twee klassen).
 3. Kopieer en plak de modules Train Model en Score Model naar het canvas.
 4. Sleep het model **Evaluate Model** (Model evalueren) naar het canvas om de twee algoritmen te vergelijken.
@@ -124,18 +122,18 @@ Door de kolom BikeBuyer (werkelijk) te vergelijken met de kolom Scored Labels (v
 Raadpleeg [Inleiding tot Machine Learning in Azure][Introduction to Machine Learning on Azure] voor meer informatie over het bouwen van voorspellende Machine Learning-modellen.
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
-[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
-[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
-[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
-[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
-[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
-[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
-[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
-[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
-[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
-[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
-[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2-visualize-new.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3-readerdata-new.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4-projectcolumns-new.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5-columnselector-new.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6-split-new.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7-train-new.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8-traincolumnselector-new.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9-score-new.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10-evaluate-new.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11-evalresults-new.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12-scoreresults-new.png
 
 
 <!--Article references-->

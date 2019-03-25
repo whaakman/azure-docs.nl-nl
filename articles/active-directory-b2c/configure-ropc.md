@@ -10,19 +10,18 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ca3fd76cfeb09fe4e18a04bff38e166928ef38b2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089332"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401783"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>De resource-eigenaar wachtwoord referentiestroom configureren in Azure AD B2C
 
 De resource-eigenaar wachtwoord referenties (ROPC) stroom wordt een stroom voor OAuth-standaard verificatie waar de toepassing, ook wel bekend als de relying party, geldige referenties, zoals gebruikers-id en wachtwoord voor een ID-token, toegangstoken en een vernieuwingstoken uitwisselt. 
 
-> [!NOTE]
-> Deze functie is beschikbaar als preview-versie.
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 In Azure Active Directory (Azure AD) B2C, worden de volgende opties ondersteund:
 

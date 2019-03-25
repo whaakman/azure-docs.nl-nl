@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 04/17/2018
+ms.date: 03/22/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 605598d1470cbb535d626c15a5e8e4e08aa4d571
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883811"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403762"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Azure Stream Analytics gebruiken met SQL datawarehouse
 Azure Stream Analytics is een volledig beheerde service met lage latentie, maximaal beschikbare, schaalbare complexe verwerking van gebeurtenissen die via het streamen van gegevens in de cloud. U leert de beginselen door te lezen [Inleiding tot Azure Stream Analytics][Introduction to Azure Stream Analytics]. U kunt vervolgens informatie over het maken van een end-to-end-oplossing met Stream Analytics door de volgende de [aan de slag met Azure Stream Analytics] [ Get started using Azure Stream Analytics] zelfstudie.
@@ -34,12 +34,10 @@ Vervolgens maakt u een Azure SQL Data Warehouse-database
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Geef de uitvoer: Azure SQL Data Warehouse database
 ### <a name="step-1"></a>Stap 1
-Klik in de Stream Analytics-taak op **uitvoer** vanaf de bovenkant van de pagina en klik vervolgens op **uitvoer toevoegen**.
+Klik in de Stream Analytics-taak op **uitvoer** vanaf de bovenkant van de pagina en klik vervolgens op **toevoegen**.
 
 ### <a name="step-2"></a>Stap 2
-Selecteer SQL-Database en klik op volgende.
-
-![][add-output]
+Selecteer de SQL-Database.
 
 ### <a name="step-3"></a>Stap 3
 Voer de volgende waarden op de volgende pagina:
@@ -62,9 +60,7 @@ Voer de volgende waarden op de volgende pagina:
 ### <a name="step-4"></a>Stap 4
 Klik op de knop controleren om toe te voegen van de taakuitvoer van deze en te controleren dat Stream Analytics verbinding met de database maken kan.
 
-![][test-connection]
-
-Wanneer de verbinding met de database is gelukt, ziet u een melding aan de onderkant van de portal. U kunt klikken op verbinding testen onderaan om de verbinding met de database te testen.
+Wanneer de verbinding met de database is gelukt, ziet u een melding in de portal. U kunt klikken op testen om te testen van de verbinding met de database.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een overzicht van de integratie van [overzicht van SQL Data Warehouse-integratie][SQL Data Warehouse integration overview].

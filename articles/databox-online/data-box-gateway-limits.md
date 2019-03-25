@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 34aac9a589516ace080906095ef3c14b34469bbd
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311185"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401569"
 ---
-# <a name="azure-data-box-gateway-limits-preview"></a>Azure Data Box-Gateway-limieten (Preview)
-
+# <a name="azure-data-box-gateway-limits"></a>Azure Data Box-Gateway-limieten
 
 Houd rekening met deze limieten bij het implementeren en uw Microsoft Azure Data Box-Gateway-oplossing werken. 
-
-> [!IMPORTANT] 
-> Data Box Gateway is in de previewfase. Lees de [gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
 
 
 ## <a name="data-box-gateway-service-limits"></a>Gegevens in het Gateway-service-limieten

@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d46d74544181a6b9cbfd049b2f5461b20b928483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873016"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401435"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Beheren van toegang, kracht en verbindingsmodus voor uw Azure Data Box-Gateway (preview)
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Beheren van toegang, kracht en verbindingsmodus voor uw Azure Data Box-Gateway
 
 In dit artikel wordt beschreven hoe u de modus voor toegang, kracht en connectiviteit voor uw Azure Data Box-Gateway te beheren. Deze bewerkingen worden uitgevoerd via de lokale web-UI of de Azure-portal.
 
@@ -26,16 +26,13 @@ In dit artikel leert u het volgende:
 > * Verbindingsmodus beheren
 > * Energiebeheer
 
-> [!IMPORTANT]
-> Data Box Gateway verkeert in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
-
 ## <a name="manage-device-access"></a>Toegang tot het apparaat beheren
 
-De toegang tot uw gegevens in het Gateway-apparaat wordt bepaald door het gebruik van een beheerderswachtwoord voor het apparaat. U kunt het administrator-wachtwoord via de lokale webgebruikersinterface wijzigen. U kunt ook het beheerderswachtwoord voor het apparaat in Azure portal opnieuw.
+De toegang tot uw gegevens in het Gateway-apparaat wordt bepaald door het gebruik van het wachtwoord van een apparaat. U kunt het wachtwoord via de lokale webgebruikersinterface wijzigen. U kunt ook het wachtwoord van het apparaat in Azure portal opnieuw.
 
-### <a name="change-device-administrator-password"></a>Beheerderswachtwoord voor het apparaat wijzigen
+### <a name="change-device-password"></a>Wachtwoord voor apparaat wijzigen
 
-Volg deze stappen in de lokale gebruikersinterface te wijzigen van het beheerderswachtwoord voor het apparaat.
+Volg deze stappen in de gebruikersinterface van de lokale wachtwoord van het apparaat te wijzigen.
 
 1. Ga in de lokale webgebruikersinterface naar **onderhoud > wachtwoordwijziging**.
 2. Voer in het huidige wachtwoord en klik vervolgens op het nieuwe wachtwoord. Het opgegeven wachtwoord moet tussen 8 en 16 tekens lang zijn. Het wachtwoord moet bestaan 3 van de volgende tekens bevatten: hoofdletters, kleine letters, cijfers en speciale tekens. Controleer of het nieuwe wachtwoord.
@@ -44,7 +41,7 @@ Volg deze stappen in de lokale gebruikersinterface te wijzigen van het beheerder
 
 3. Klik op **wachtwoord wijzigen**.
  
-### <a name="reset-device-administrator-password"></a>Beheerderswachtwoord voor het apparaat opnieuw instellen
+### <a name="reset-device-password"></a>Apparaatwachtwoord opnieuw instellen
 
 De werkstroom opnieuw instellen is niet vereist voor de gebruiker aan de hand van het oude wachtwoord en is handig als u het wachtwoord is verloren gegaan. Deze werkstroom wordt uitgevoerd in Azure portal.
 

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 3e11c4dc8aa082723223fb998e599aa514febd3b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: d2ecebf47c77baa81193939b64c27348541f7686
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369955"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403405"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Operations Manager verbinden met Azure Monitor
 
@@ -43,9 +43,10 @@ Als uw IT-beveiligingsbeleid niet computers in uw netwerk verbinding maken met I
 ## <a name="prerequisites"></a>Vereisten 
 Voordat u begint, raadpleegt u de volgende vereisten.
 
-* Azure Monitor biedt alleen ondersteuning voor System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 of hoger en Operations Manager 2012 R2 UR2 of hoger. Proxyondersteuning is toegevoegd aan Operations Manager 2012 SP1 UR7 en Operations Manager 2012 R2 UR3.
+* Azure Monitor biedt alleen ondersteuning voor System Center Operations Manager 2016 of hoger, Operations Manager 2012 SP1 UR6 of hoger en Operations Manager 2012 R2 UR2 of hoger. Proxyondersteuning is toegevoegd aan Operations Manager 2012 SP1 UR7 en Operations Manager 2012 R2 UR3.
+* Integratie van System Center Operations Manager 2016 met US Government-cloud is een bijgewerkte Advisor-managementpack opgenomen met updatepakket 2 of hoger vereist. System Center Operations Manager 2012 R2 is een bijgewerkte Advisor-managementpack opgenomen met Update Rollup 3 of hoger vereist.
 * Alle Operations Manager-agents moeten voldoen aan de minimale vereisten voor ondersteuning. Zorg ervoor dat agents zijn aan de minimale update, anders Windows-agentcommunicatie kan mislukken en genereren van fouten in het gebeurtenislogboek van Operations Manager.
-* Een Log Analytics-werkruimte. Raadpleeg voor meer informatie, [Log Analytics-werkruimte overzicht](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).
+* Een Log Analytics-werkruimte. Raadpleeg voor meer informatie, [Log Analytics-werkruimte overzicht](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
 * U verificatie op Azure met een account dat lid is van de [rol van inzender van Log Analytics](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]

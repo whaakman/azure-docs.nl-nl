@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: dbfb559516177d496f5b16dc31f0ef8d0603cf68
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b37f198052ee927ea986d2a6046bfd93b6ee5d5e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904011"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399979"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Reserveringen voor Azure-resources beheren
 
@@ -28,7 +28,7 @@ Als u Azure Reserved Virtual Machine Instances hebt gekocht, kunt u de instellin
 
 ## <a name="change-the-scope-for-a-reservation"></a>Het bereik voor een reservering wijzigen
 
- De reserveringskorting is van toepassing op virtuele machines, SQL databases, Azure Cosmos DB of andere bronnen die overeenkomen met uw reservering en binnen het reserveringsbereik worden uitgevoerd. Het bereik van een reservering kan worden voor één abonnement of voor alle abonnementen in de context van de facturering. Als u het bereik aan één abonnement hebt ingesteld, wordt de reservering wordt vergeleken met het uitvoeren van resources in het geselecteerde abonnement. Als u het bereik op gedeelde, Azure komt overeen met de reservering naar resources die worden uitgevoerd in alle abonnementen binnen de context van de facturering instellen. De context van de facturering is afhankelijk van het abonnement dat u gebruikt de reservering kopen.
+ De reserveringskorting is van toepassing op virtuele machines, SQL databases, Azure Cosmos DB of andere bronnen die overeenkomen met uw reservering en uitvoeren in het reserveringsbereik. De context van de facturering is afhankelijk van het abonnement dat u gebruikt de reservering kopen.
 
 Het bereik van een reservering bijwerken:
 
@@ -115,6 +115,10 @@ De instelling optimaliseren voor de reservering bijwerken:
 4. Selecteer **Instellingen** > **Configuratie**.
 5. Wijzig de **optimaliseren voor** instelling.
 
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
+
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
@@ -130,7 +134,3 @@ Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
 - [Kosten van de Windows-software is niet opgenomen in de reserveringen](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
-
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

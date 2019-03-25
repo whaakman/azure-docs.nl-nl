@@ -8,22 +8,26 @@ ms.topic: include
 ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 19352df7abff23ed44521a11e7907c84c8c0327f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
-ms.translationtype: HT
+ms.openlocfilehash: ce8496596f25b85719b8a6dff849ebf0fc3e5dc3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33835836"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58405598"
 ---
 In deze sectie verzendt u het laatste nieuws als gelabelde sjabloonmeldingen vanuit een .NET-console-app. 
 
-1. Maak in Visual Studio een nieuwe Visual C#-consoletoepassing:
+1. Maak in Visual Studio, een nieuwe Visual C# consoletoepassing: een. Selecteer in het menu **bestand** > **nieuw** > **Project**.
+    b. Vouw **Visual C#** , en selecteer **Windows Desktop**. 
+    c. Selecteer **Console-App (.NET Framework)** in de lijst met sjablonen. 
+    d. Voer een **naam** voor de app. 
+    e. Selecteer een **map** voor de app.
+    f. Selecteer **OK** om het project te maken. 
+2. Selecteer in het hoofdmenu van Visual Studio **extra** > **NuGet Package Manager** > **Package Manager Console** en klik vervolgens in het consolevenster Voer de volgende tekenreeks:
    
-      ![De koppeling naar een consoletoepassing][13]
-
-2. Selecteer in het hoofdmenu van Visual Studio de optie **Tools** > **Library Package Manager** > **Package Manager Console**. Voer in het consolevenster vervolgens de volgende tekenreeks in:
-   
-        Install-Package Microsoft.Azure.NotificationHubs
+    ```
+    Install-Package Microsoft.Azure.NotificationHubs
+    ```
    
 3. Selecteer **Enter**.  
     Met deze actie wordt een verwijzing toegevoegd aan de Azure Notification Hubs-SDK met het [Microsoft.Azure.Notification Hubs NuGet-pakket].

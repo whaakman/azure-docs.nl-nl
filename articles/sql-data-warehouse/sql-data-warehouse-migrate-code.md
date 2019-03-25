@@ -10,17 +10,19 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 14b3d62235cfcc8bbc8a929757a16cf99b860753
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fae3ae16ee0100ad446c0b6c7851553a3376bb4f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815758"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400982"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Uw SQL-code migreren naar SQL Data Warehouse
+
 In dit artikel wordt uitgelegd codewijzigingen u waarschijnlijk moet bij het migreren van uw code van een andere database met SQL Data Warehouse. Sommige functies van SQL Data Warehouse kunnen de prestaties aanzienlijk verbeteren als ze zijn ontworpen om te werken in een gedistribueerde manier. Echter, als u wilt behouden prestaties en schaalbaarheid, sommige functies zijn ook niet beschikbaar.
 
 ## <a name="common-t-sql-limitations"></a>Algemene beperkingen voor T-SQL
+
 De volgende lijst bevat een overzicht van de meest voorkomende functies die geen ondersteuning biedt voor SQL Data Warehouse. De koppelingen verwijzen naar tijdelijke oplossingen voor de niet-ondersteunde functies:
 
 * [ANSI-join op updates][ANSI joins on updates]
@@ -45,12 +47,12 @@ De volgende lijst bevat een overzicht van de meest voorkomende functies die geen
 * [groeperen op component met updatepakket / kubus / sets opties voor groeperen][group by clause with rollup / cube / grouping sets options]
 * [geneste niveaus dan 8][nesting levels beyond 8]
 * [bijwerken via weergaven][updating through views]
-* [gebruik van selecteren voor toewijzing van variabele][use of select for variable assignment]
 * [Er is geen MAX-gegevenstype voor de dynamische SQL-tekenreeksen][no MAX data type for dynamic SQL strings]
 
 De meeste van deze beperkingen kunt gelukkig rond worden gewerkt. Uitleg over vindt u in de ontwikkeling van relevante artikelen waarnaar hierboven wordt verwezen.
 
 ## <a name="supported-cte-features"></a>Ondersteunde CTE-functies
+
 Algemene tabelexpressies (CTE's) worden gedeeltelijk ondersteund in SQL Data Warehouse.  De volgende CTE-functies worden momenteel ondersteund:
 
 * Een CTE kan worden opgegeven in een instructie SELECT.
@@ -63,6 +65,7 @@ Algemene tabelexpressies (CTE's) worden gedeeltelijk ondersteund in SQL Data War
 * Definities van de query meerdere CTE kunnen worden gedefinieerd in een CTE.
 
 ## <a name="cte-limitations"></a>CTE-beperkingen
+
 Algemene tabelexpressies hebben enkele beperkingen in SQL Data Warehouse, waaronder:
 
 * Een CTE moet worden gevolgd door één SELECT-instructie. INSERT, UPDATE, DELETE, en de instructies voor samenvoegen worden niet ondersteund.
@@ -73,9 +76,11 @@ Algemene tabelexpressies hebben enkele beperkingen in SQL Data Warehouse, waaron
 * Wanneer gebruikt in instructies voorbereid door sp_prepare, gedragen CTE's dezelfde manier als andere SELECT-instructies in PDW. Echter als CTE's worden gebruikt als onderdeel van CETAS voorbereid door sp_prepare, kan het gedrag uitstellen van SQL Server en andere instructies PDW vanwege de manier waarop de binding voor sp_prepare is geïmplementeerd. Als de optie verwijzingen die CTE met behulp van een verkeerde kolom die niet in CTE bestaat, de sp_prepare zonder het detecteren van de fout wordt doorgegeven, maar de fout gegenereerd tijdens sp_execute in plaats daarvan.
 
 ## <a name="recursive-ctes"></a>Recursieve CTE 's
+
 Recursieve CTE's worden niet ondersteund in SQL Data Warehouse.  De migratie van recursieve CTE kan redelijk complex en de aanbevolen procedure is opsplitsen in meerdere stappen. Doorgaans kunt u een lus gebruiken en vullen van een tijdelijke tabel als u de tijdelijke recursieve query's herhalen. Zodra de tijdelijke tabel wordt ingevuld kunt u de gegevens vervolgens als een set één resultaat retourneren. Een soortgelijke benadering is gebruikt om op te lossen `GROUP BY WITH CUBE` in de [groeperen op component met updatepakket / kubus / sets opties voor groeperen] [ group by clause with rollup / cube / grouping sets options] artikel.
 
 ## <a name="unsupported-system-functions"></a>Niet-ondersteunde opgeslagen functies
+
 Er zijn ook enkele systeemfuncties die worden niet ondersteund. Enkele van de belangrijkste adressen die u doorgaans kunt vinden in de gegevensopslag gebruikt, zijn:
 
 * NEWSEQUENTIALID()
@@ -88,11 +93,12 @@ Er zijn ook enkele systeemfuncties die worden niet ondersteund. Enkele van de be
 Sommige van deze problemen kunnen worden uitgevoerd om.
 
 ## <a name="rowcount-workaround"></a>@@ROWCOUNT tijdelijke oplossing
+
 Geen ondersteuning voor @ omzeilen@ROWCOUNT, maak een opgeslagen procedure waarmee wordt het laatste aantal rijen opgehaald uit sys.dm_pdw_request_steps en voer vervolgens `EXEC LastRowCount` na een DML-instructie.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
-WITH LastRequest as 
+WITH LastRequest as
 (   SELECT TOP 1    request_id
     FROM            sys.dm_pdw_exec_requests
     WHERE           session_id = SESSION_ID()
@@ -111,6 +117,7 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Zie voor een volledige lijst van alle ondersteunde T-SQL-instructies, [Transact-SQL-onderwerpen][Transact-SQL topics].
 
 <!--Image references-->

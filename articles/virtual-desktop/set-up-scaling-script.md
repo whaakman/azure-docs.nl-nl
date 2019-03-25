@@ -1,22 +1,22 @@
 ---
-title: Automatisch schalen sessie hosts - Azure
-description: Beschrijft hoe u het script voor automatische schaling instellen voor sessie-hosts voor virtuele Windows-Desktop (preview).
+title: Automatisch schalen Windows Virtual Desktop Preview sessie hosts - Azure
+description: Beschrijft hoe u het script voor automatische schaling instellen voor Windows Virtual Desktop Preview sessie hosts.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: d800b45310ae476ec0c54460d9719c17e35dfe5a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318357"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402487"
 ---
-# <a name="automatically-scale-session-hosts"></a>Automatisch schalen sessie hosts
+# <a name="automatically-scale-session-hosts"></a>Sessiehosts automatisch schalen
 
-Voor veel virtuele Windows-bureaublad-implementaties in Azure vertegenwoordigen de kosten voor de virtuele machine groot deel van de totale kosten voor virtuele Windows-bureaublad-implementatie. Als u wilt verlagen, is het raadzaam te sluit en toewijzing ongedaan maken sessie hosten van virtuele machines (VM's) tijdens het van de minder drukke gebruiksuren af en start deze opnieuw tijdens piekuren.
+Voor veel implementaties van Windows Virtual Desktop Preview in Azure vertegenwoordigen de kosten voor de virtuele machine groot deel van de totale kosten voor virtuele Windows-bureaublad-implementatie. Als u wilt verlagen, is het raadzaam te sluit en toewijzing ongedaan maken sessie hosten van virtuele machines (VM's) tijdens het van de minder drukke gebruiksuren af en start deze opnieuw tijdens piekuren.
 
 In dit artikel wordt een eenvoudig script vergroten/verkleinen sessie hosten van virtuele machines automatisch schalen in uw virtuele Windows-bureaublad-omgeving. Zie voor meer informatie over de werking van het script vergroten/verkleinen, de [de werking van het script vergroten/verkleinen](#how-the-scaling-script-works) sectie.
 

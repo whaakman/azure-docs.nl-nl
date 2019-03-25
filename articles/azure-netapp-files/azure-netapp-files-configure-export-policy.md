@@ -1,6 +1,6 @@
 ---
-title: Exportbeleid voor een Azure NetApp Files-volume configureren | Microsoft Docs
-description: Beschrijft hoe u exportbeleid configureert om de toegang tot een Azure NetApp Files-volume te beheren.
+title: Exporteren-beleid voor een NFS-volume met behulp van Azure NetApp bestanden configureren | Microsoft Docs
+description: Hierin wordt beschreven hoe het configureren van beleid voor het beheren van toegang tot een NFS-volume met behulp van Azure NetApp bestanden exporteren
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 03/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 1098c5c2f42b242b3ba2f68ec7480de90dd7c22e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766645"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401487"
 ---
-# <a name="configure-export-policy-for-a-volume"></a>Exportbeleid voor een volume configureren
+# <a name="configure-export-policy-for-an-nfs-volume"></a>Exporteren-beleid voor een NFS-volume configureren
 
-U kunt desgewenst exportbeleid configureren om de toegang tot een Azure NetApp Files-volume te beheren. 
+U kunt desgewenst exportbeleid configureren om de toegang tot een Azure NetApp Files-volume te beheren. Exporteren-beleid is ondersteuning voor NFS-volumes. 
 
 ## <a name="steps"></a>Stappen 
 
@@ -47,7 +47,7 @@ U kunt desgewenst exportbeleid configureren om de toegang tot een Azure NetApp F
 
     * **Protocollen**   
         Geef het protocol op dat voor het exportbeleid moet worden gebruikt.   
-        Azure NetApp Files ondersteunt momenteel alleen NFSv3.
+        Beleid voor het exporteren van Azure NetApp bestanden ondersteunt momenteel alleen NFSv3.
 
     ![Exportbeleid](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

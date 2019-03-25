@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ca570235ac2a87b62c5d0fcebbd24dc5186e37d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 67caaa2c6c9bd615d0b88bdd5de3442b46aa32cb
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555011"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403490"
 ---
 # <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Een Azure Data Box-Gateway-apparaat via Windows PowerShell beheren
 
@@ -30,18 +30,9 @@ In dit artikel bevat de volgende procedures:
 - Opstarten in niet-DHCP-omgeving
 - Gegevens van een apparaat weergeven
 
-> [!IMPORTANT]
-> Azure Data Box-Gateway is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
-> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
-
 ## <a name="connect-to-the-powershell-interface"></a>Verbinding maken met de PowerShell-interface
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
-
-## <a name="start-a-support-session"></a>Een ondersteuningssessie starten
-
-[!INCLUDE [Connect to support runspace](../../includes/data-box-edge-gateway-connect-support.md)]
 
 ## <a name="create-a-support-package"></a>Een ondersteuningspakket maken
 

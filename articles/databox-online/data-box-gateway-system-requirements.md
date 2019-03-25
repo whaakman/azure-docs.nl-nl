@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: be51e6c829c5f12d17c6302bb951039711f12075
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 73f97128dc7b71179c0b0ab41340af6c0f371da1
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113223"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402963"
 ---
-# <a name="azure-data-box-gateway-system-requirements-preview"></a>Systeemvereisten voor Azure Data Box-Gateway (Preview)
+# <a name="azure-data-box-gateway-system-requirements"></a>Azure Data Box-Gateway-systeemvereisten
 
 Dit artikel beschrijft de belangrijke systeemvereisten voor uw Microsoft Azure Data Box-Gateway-oplossing en de clients die verbinding maken met Azure Data Box-Gateway. Het is raadzaam dat u de informatie voordat u uw Data Box-Gateway implementeert, en vervolgens terug naar deze zo nodig tijdens de implementatie en het volgende gebruik verwijzen zorgvuldig te controleren.
 
@@ -24,8 +24,6 @@ De systeemvereisten voor het virtuele apparaat Data Box-Gateway zijn onder ander
 - **Softwarevereisten voor hosts** -beschrijving van de ondersteunde platforms, browsers voor de lokale configuratie-UI, SMB-clients en eventuele bijkomende vereisten voor de hosts die verbinding met het apparaat maken.
 - **Netwerkvereisten voor het apparaat** -vindt u informatie over eventuele netwerkvereisten voor de bewerking van het virtuele apparaat.
 
-> [!IMPORTANT]
-> Data Box Gateway is in de previewfase. Lees de [gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
 
 ## <a name="specifications-for-the-virtual-device"></a>De specificaties voor het virtuele apparaat
 

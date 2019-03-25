@@ -1,37 +1,60 @@
 ---
-title: Veelgestelde vragen over Azure VM Backup
-description: Antwoorden op veelgestelde vragen over de werking van Azure VM Backup, over de beperkingen en over wat er gebeurt wanneer het beleid wordt gewijzigd
+title: Veelgestelde vragen over back-ups van virtuele Azure-machines met Azure Backup
+description: Antwoorden op veelgestelde vragen over back-ups van virtuele Azure-machines met Azure Backup.
 services: backup
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/16/2018
+ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: 10b49c5ebcd73010a52da1fada32ba55198b287a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961530"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402062"
 ---
-# <a name="frequently-asked-questions-azure-backup"></a>Veelgestelde vragen over Azure Backup
+# <a name="frequently-asked-questions-back-up-azure-vms"></a>Veelgestelde vragen-Back-up van virtuele Azure-machines
 
-In dit artikel antwoorden op veelgestelde vragen over de [Azure Backup](backup-introduction-to-azure-backup.md) service.
-
-## <a name="general-questions"></a>Algemene vragen
-
-### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Welke Azure-VM's kunt u back-up maken met Azure Backup?
-[Beoordeling](backup-azure-arm-vms-prepare.md#before-you-start) ondersteunde besturingssystemen en beperkingen.
+In dit artikel vindt u antwoorden op veelgestelde vragen over back-ups van virtuele Azure-machines met de [Azure Backup](backup-introduction-to-azure-backup.md) service.
 
 
 ## <a name="backup"></a>Backup
 
+### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Welke VM-installatiekopieën kunnen worden ingeschakeld voor back-up wanneer ik ze maken?
+Wanneer u een virtuele machine maakt, kunt u back-up inschakelen voor virtuele machines met [ondersteunde besturingssystemen](backup-support-matrix-iaas.md#supported-backup-actions)
+ 
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Zijn de back-up kosten opgenomen in de VM-kosten? 
+
+Nee. Back-kosten zijn gescheiden van de kosten van een virtuele machine. Meer informatie over [prijzen van Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+ 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Welke machtigingen zijn vereist voor het inschakelen van back-up voor een virtuele machine? 
+
+Als u een VM-Inzender bent, kunt u back-up op de virtuele machine inschakelen. Als u een aangepaste rol, moet u de volgende machtigingen voor de back-up op de virtuele machine inschakelen: 
+
+- Microsoft.RecoveryServices/Vaults/write 
+- Microsoft.RecoveryServices/Vaults/read 
+- Microsoft.RecoveryServices/locations/* 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
+ 
+Als uw Recovery Services-kluis en de virtuele machine hebt verschillende resourcegroepen bevinden, zorg er dan voor dat u hebt schrijfmachtigingen in de resourcegroep voor de Recovery Services-kluis.  
+
+
+### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Welke Azure-VM's kunt u back-up maken met Azure Backup?
+
+Controleer de [ondersteuningsmatrix](backup-support-matrix-iaas.md) voor details van bestandsondersteuning en beperkingen.
+
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Maakt een on-demand back-uptaak het hetzelfde bewaarschema als geplande back-ups gebruik?
-Nee. U moet de bewaartermijn voor een back-uptaak op aanvraag. Standaard wel 30 dagen worden bewaard wanneer ze worden geactiveerd via de portal.
+Nee. Geef de bewaartermijn voor een back-uptaak op aanvraag. Standaard wel 30 dagen worden bewaard wanneer ze worden geactiveerd via de portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Ik heb onlangs Azure Disk Encryption ingeschakeld op een aantal virtuele machines. Worden mijn back-ups gewoon uitgevoerd?
-U moet opgeven van machtigingen voor Azure Backup toegang tot Key Vault. De machtigingen opgeven in PowerShell, zoals beschreven in de **back-up inschakelen** sectie de [Azure Backup PowerShell](backup-azure-vms-automation.md) documentatie.
+Machtigingen voor Azure Backup toegang tot Key Vault opgeven. De machtigingen opgeven in PowerShell, zoals beschreven in de **back-up inschakelen** sectie de [Azure Backup PowerShell](backup-azure-vms-automation.md) documentatie.
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Ik VM-schijven gemigreerd naar managed disks. Worden mijn back-ups gewoon uitgevoerd?
 Ja, back-ups werken naadloos. Er is niet nodig om alles opnieuw te configureren.
@@ -57,7 +80,7 @@ Nee. De datum en tijd op uw lokale computer is lokaal met huidige zomertijd toeg
 Azure Backup kunt back-up van virtuele machines met maximaal 16 schijven. Ondersteuning voor 16 schijven wordt aangeboden in de [direct herstellen](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Wordt Azure back-upondersteuning SSD beheerde standaardschijven?
-Azure Backup ondersteunt [standard-SSD-beheerde schijven](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD beheerde schijven bieden een nieuw type duurzame opslag voor virtuele Azure-machines. Ondersteuning voor SSD beheerde schijven wordt aangeboden in de [direct herstellen](backup-instant-restore-capability.md).
+Azure Backup ondersteunt [standard-SSD-beheerde schijven](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD-beheerde schijven bieden een nieuw type duurzame opslag voor virtuele Azure-machines. Ondersteuning voor SSD beheerde schijven wordt aangeboden in de [direct herstellen](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kunnen we back-up van een virtuele machine met een schijf Write Accelerator WA ingeschakeld?
 Momentopnamen kunnen niet worden uitgevoerd op de schijf WA ingeschakeld. De Azure Backup-service kunt echter de WA ingeschakeld schijf uitsluiten van back-up. Uitsluiting van de schijf voor virtuele machines met schijven WA-functionaliteit wordt alleen ondersteund voor abonnementen die zijn bijgewerkt naar direct herstellen.
@@ -65,7 +88,7 @@ Momentopnamen kunnen niet worden uitgevoerd op de schijf WA ingeschakeld. De Azu
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Een virtuele machine met Write Accelerator (WA) schijven, en SAP HANA zijn geïnstalleerd. Hoe maak ik een back-up?
 Azure Backup kan geen back-up van de schijf WA is ingeschakeld, maar kunt uitsluiten van back-up. De back-up wordt niet evenwel consistentie van de database omdat de informatie op de schijf WA-functionaliteit is niet een back-up. U kunt back-up van schijven met deze configuratie als u wilt dat de besturingssysteemschijf back-ups en back-ups van schijven die niet WA ingeschakeld.
 
-We hebben een beperkte preview voor een back-up van SAP HANA met een RPO van 15 minuten. Het gebouwd op een soortgelijke manier SQL DB back-up maken en de backInt-interface wordt gebruikt voor oplossingen van derden gecertificeerd door SAP HANA. Als u geïnteresseerd in de beperkte Preview-versie bent, een e-mail verzenden naar ` AskAzureBackupTeam@microsoft.com ` met het onderwerp **zich aanmelden voor een beperkte preview voor back-up van SAP HANA in virtuele Azure-machines**.
+We uitvoert beperkte preview voor back-up van een SAP HANA met een RPO van 15 minuten. Het gebouwd op een soortgelijke manier SQL DB back-up maken en de backInt-interface wordt gebruikt voor oplossingen van derden gecertificeerd door SAP HANA. Als u geïnteresseerd bent, een e-mail verzenden naar ` AskAzureBackupTeam@microsoft.com ` met het onderwerp **zich aanmelden voor een beperkte preview voor back-up van SAP HANA in virtuele Azure-machines**.
 
 
 ## <a name="restore"></a>Herstellen
@@ -74,8 +97,8 @@ We hebben een beperkte preview voor een back-up van SAP HANA met een RPO van 15 
 Zien van een virtuele machine als geheel als de optie voor een snelle versie maken voor een Azure-VM. Deze optie wijzigt de namen van de schijf, containers die worden gebruikt door de schijven, het openbare IP-adressen en de netwerkinterfacenamen. De wijziging houdt unieke bronnen wanneer een virtuele machine wordt gemaakt. De virtuele machine is niet toegevoegd aan een beschikbaarheidsset.
 
 Als u wilt, kunt u de optie voor terugzetten schijf gebruiken:
-  * Aanpassen van de virtuele machine die wordt gemaakt. Bijvoorbeeld de grootte wijzigen.
-  * Configuratie-instellingen die niet er op het moment van back-up waren toevoegen
+  * Aanpassen van de virtuele machine die wordt gemaakt. Bijvoorbeeld, de grootte wijzigen.
+  * Configuratieinstellingen die niet er op het moment van back-up waren toevoegen.
   * Beheer de naamgevingsconventie voor resources die zijn gemaakt.
   * De virtuele machine toevoegen aan een beschikbaarheidsset.
   * Alle andere instellingen die moet worden geconfigureerd met behulp van PowerShell of een sjabloon toevoegen.
@@ -114,6 +137,6 @@ De VM een back-up met behulp van het schema en de retentie-instellingen in het g
 
 1. Tijdelijk de back-up stoppen en back-upgegevens behouden.
 2. Verplaats de virtuele machine naar de doelresourcegroep.
-3. Ingeschakeld back-up in de dezelfde of een nieuwe kluis.
+3. Opnieuw worden ingeschakeld back-up in de dezelfde of een nieuwe kluis.
 
 U kunt de virtuele machine herstellen met beschikbare herstelpunten die zijn gemaakt voordat de bewerking voor verplaatsen.

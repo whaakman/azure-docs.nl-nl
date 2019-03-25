@@ -10,14 +10,16 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5bc9e44cc1f1759231d405e64fab097d73d48486
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 51342a7544295b465d1f2dfc3e1b27d8285b3588
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160523"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403813"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Gebruikersgedrag in Azure Active Directory B2C met Application Insights bijhouden
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Wanneer u Azure Active Directory (Azure AD) B2C, samen met Azure Application Insights gebruikt, u kunt gedetailleerde en gebeurtenislogboeken die is afgestemd op uw gebruiker reizen. In dit artikel leert u het volgende:
 
@@ -25,9 +27,6 @@ Wanneer u Azure Active Directory (Azure AD) B2C, samen met Azure Application Ins
 * Problemen met uw eigen beleid bij de ontwikkeling of productie.
 * Meten van prestaties.
 * Maak meldingen van Application Insights.
-
-> [!NOTE]
-> Deze functie is beschikbaar als preview-versie.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 

@@ -2,23 +2,18 @@
 title: Wat zijn Azure-reserveringen? | Microsoft Docs
 description: Meer informatie over Azure-reserveringen en prijzen op te slaan op uw virtuele machines, SQL-databases, Azure Cosmos DB en andere resourcekosten.
 services: billing
-documentationcenter: ''
 author: yashesvi
 manager: yashar
-editor: ''
 ms.service: billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/06/2019
+ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: a4ad3574849d3c80f671abc93e463b06454289e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3081ab352152d6d736f20da94ed0b513121e231b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904164"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401796"
 ---
 # <a name="what-are-azure-reservations"></a>Wat zijn Azure-reserveringen?
 
@@ -44,17 +39,11 @@ Voor virtuele machines van Windows en SQL Database, kunt u de licentiekosten met
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Wie komt in aanmerking voor een reservering kopen?
 
-Azure-klanten met de volgende abonnementstypen kunnen een reservering kopen:
+Als u wilt een abonnement kopen, moet u een abonnement de eigenaar van de rol in een onderneming (MS-AZR - 0017P of MS-AZR - 0148P) of een abonnement voor betalen per gebruik (MS-AZR - 003P of MS-AZR - 0023P) hebben. Cloud solution providers Azure portal kunnen gebruiken of [Partner Center](/partner-center/azure-reservations) Azure reserveringen kopen.
 
-- Enterprise agreement-abonnement aanbiedingstype (MS-AZR - 0017P of MS-AZR - 0148P).
-- Betalen per gebruik-abonnementstype aanbieding (MS-AZR - 003P of MS-AZR - 0023P).
-- Cloud Solution Provider (CSP) partners de Azure-portal kunnen gebruiken of [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) Azure reserveringen kopen.
+EA-klanten aankopen kunnen beheerders van de EA kunnen beperken door het uitschakelen van de **gereserveerde instanties toevoegen** optie in de Portal. EA-beheerders moet de eigenaar van een abonnement voor ten minste één EA-abonnement naar een reservering koopt. De optie is handig voor ondernemingen die u wilt dat een centraal team kopen van reserveringen voor andere kostenplaatsen. Na de aankoop, kunnen gecentraliseerd teams kosten center eigenaren toevoegen aan de reserveringen. Eigenaren kunnen vervolgens het bereik van de reservering naar hun abonnementen. Het centrale team hoeft niet te abonnement eigenaar toegang hebben wanneer de reservering wordt aangeschaft.
 
 Een reserveringskorting is alleen van toepassing op resources die zijn gekoppeld aan Enterprise, betalen per gebruik of CSP-abonnementstypen.
-
- Een abonnement aanschaffen:
-
-- U moet zich in een rol van eigenaar voor ten minste één Enterprise of abonnement op gebruiksbasis.
 
 ## <a name="how-is-a-reservation-billed"></a>Hoe wordt een reservering gefactureerd?
 

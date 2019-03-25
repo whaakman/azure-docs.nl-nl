@@ -1,22 +1,22 @@
 ---
-title: Een tenant maken in Windows virtueel bureaublad (preview) - Azure
-description: Beschrijft hoe u voor het instellen van virtuele Windows-bureaublad tenants in Azure Active Directory.
+title: Een tenant maken in Windows Virtual Desktop Preview - Azure
+description: Beschrijft hoe u voor het instellen van Windows Virtual Desktop Preview tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 26bcae12ee5e053289dd18c9f378eff43a0b0e04
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b8b5c2cef1db5018ce0d61e1950f49a3bd215ac2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368167"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402895"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Zelfstudie: Een tenant maken in Windows virtueel bureaublad (Preview)
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Zelfstudie: Een tenant maken in Windows Virtual Desktop Preview
 
-Het maken van een tenant in Windows virtueel bureaublad (preview) is de eerste stap voor het bouwen van uw bureaublad-virtualisatie-oplossing. Een tenant is een groep van een of meer groepen van de host. Elke host-pool bestaat uit meerdere sessie hosts, die wordt uitgevoerd als virtuele machines in Azure en geregistreerd bij de virtuele Windows-bureaublad-service. Elke host-pool bestaat ook uit een of meer app-groepen die worden gebruikt voor extern bureaublad en externe toepassingsresources publiceren voor gebruikers. Met een tenant, kunt u host-pools bouwen, app-groepen maken, gebruikers toe te wijzen en verbindingen via de service maken.
+Het maken van een tenant in Windows Virtual Desktop Preview is de eerste stap voor het bouwen van uw bureaublad-virtualisatie-oplossing. Een tenant is een groep van een of meer groepen van de host. Elke host-pool bestaat uit meerdere sessie hosts, die wordt uitgevoerd als virtuele machines in Azure en geregistreerd bij de virtuele Windows-bureaublad-service. Elke host-pool bestaat ook uit een of meer app-groepen die worden gebruikt voor extern bureaublad en externe toepassingsresources publiceren voor gebruikers. Met een tenant, kunt u host-pools bouwen, app-groepen maken, gebruikers toe te wijzen en verbindingen via de service maken.
 
 In deze zelfstudie leert u het volgende:
 
@@ -32,7 +32,7 @@ Dit is wat u nodig hebt voor het instellen van uw virtuele Windows-bureaublad-te
    * Dit geldt ook voor Cloud Solution Provider (CSP) organisaties is het maken van een tenant virtueel bureaublad van Windows voor hun klanten. Als u een CSP-organisatie, moet u aanmelden als globale beheerder van de klant Azure Active Directory zijn.
 * Een Azure-abonnement-ID
 
-## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service"></a>Verlenen Azure Active Directory-machtigingen voor de virtuele Windows-bureaublad-service
+## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Machtigingen verlenen Azure Active Directory naar de service Windows Virtual Desktop Preview
 
 Als u al machtigingen hebt verleend aan virtuele Windows-bureaublad voor deze Azure Active Directory, moet u deze sectie overslaan.
 
@@ -66,7 +66,7 @@ De toepassingsrol TenantCreator met uw globale beheerdersaccount toewijzen:
    - Dit kan het account globale beheerder zijn voor het gemak.
 6. Selecteer het gebruikersaccount, klik op de **Selecteer** knop en selecteer vervolgens **toewijzen**.
 
-## <a name="create-a-windows-virtual-desktop-tenant"></a>Een virtuele Windows-bureaublad-tenant maken
+## <a name="create-a-windows-virtual-desktop-preview-tenant"></a>Een Windows Virtual Desktop Preview-tenant maken
 
 Nu dat u hebt de machtigingen van de virtuele Windows-bureaublad-service om op te vragen van de Azure Active Directory verleend en de TenantCreator-rol is toegewezen aan een gebruikersaccount, kunt u een virtuele Windows-bureaublad-tenant maken.
 
