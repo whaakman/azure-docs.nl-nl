@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8bd754533758d2c736e3951e5c7a10f63bb72bd8
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 77d2d0b5b9f994668abdd02640a9c6d5f463e137
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410173"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360755"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Apache Hive-query's uitvoeren met behulp van PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -25,6 +25,8 @@ Dit document bevat een voorbeeld van het gebruik van Azure PowerShell in de modu
 > Dit document biedt geen een gedetailleerde beschrijving van wat de HiveQL-instructies die worden gebruikt in de voorbeelden doen. Zie voor informatie over de HiveQL die wordt gebruikt in dit voorbeeld, [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Een Linux-gebaseerde Apache Hadoop op HDInsight-clusterversie 3.4 of hoger.
 
@@ -41,13 +43,13 @@ Azure PowerShell biedt *cmdlets* waarmee u op afstand uitvoeren van Hive-query's
 
 De volgende cmdlets worden gebruikt bij het uitvoeren van Hive-query's in een extern HDInsight-cluster:
 
-* `Connect-AzureRmAccount`: Azure PowerShell geverifieerd bij uw Azure-abonnement.
-* `New-AzureRmHDInsightHiveJobDefinition`: Hiermee maakt u een *taak definitie* met behulp van de opgegeven HiveQL-instructies.
-* `Start-AzureRmHDInsightJob`: De taakdefinitie verzendt naar HDInsight en wordt de taak wordt gestart. Een *taak* object wordt geretourneerd.
-* `Wait-AzureRmHDInsightJob`: Maakt gebruik van het taakobject om de status van de taak te controleren. Wacht totdat de taak is voltooid of de wachttijd is overschreden.
-* `Get-AzureRmHDInsightJobOutput`: Gebruikt voor het ophalen van de uitvoer van de taak.
-* `Invoke-AzureRmHDInsightHiveJob`: Gebruikt voor het uitvoeren van HiveQL-instructies. Deze cmdlet-blokken de query is voltooid en vervolgens worden de resultaten geretourneerd.
-* `Use-AzureRmHDInsightCluster`: Hiermee stelt u het huidige cluster moet worden gebruikt voor de `Invoke-AzureRmHDInsightHiveJob` opdracht.
+* `Connect-AzAccount`: Azure PowerShell geverifieerd bij uw Azure-abonnement.
+* `New-AzHDInsightHiveJobDefinition`: Hiermee maakt u een *taak definitie* met behulp van de opgegeven HiveQL-instructies.
+* `Start-AzHDInsightJob`: De taakdefinitie verzendt naar HDInsight en wordt de taak wordt gestart. Een *taak* object wordt geretourneerd.
+* `Wait-AzHDInsightJob`: Maakt gebruik van het taakobject om de status van de taak te controleren. Wacht totdat de taak is voltooid of de wachttijd is overschreden.
+* `Get-AzHDInsightJobOutput`: Gebruikt voor het ophalen van de uitvoer van de taak.
+* `Invoke-AzHDInsightHiveJob`: Gebruikt voor het uitvoeren van HiveQL-instructies. Deze cmdlet-blokken de query is voltooid en vervolgens worden de resultaten geretourneerd.
+* `Use-AzHDInsightCluster`: Hiermee stelt u het huidige cluster moet worden gebruikt voor de `Invoke-AzHDInsightHiveJob` opdracht.
 
 De volgende stappen laten zien hoe u deze cmdlets gebruiken om een taak uitvoeren in uw HDInsight-cluster:
 
@@ -81,7 +83,7 @@ De volgende stappen laten zien hoe u deze cmdlets gebruiken om een taak uitvoere
    > [!NOTE]  
    > Voor meer HiveQL-query's, kunt u de Azure PowerShell **hier tekenreeksen** cmdlet of HiveQL scriptbestanden. Het volgende fragment ziet u hoe u de `Invoke-Hive` cmdlet een bestand HiveQL-script uit te voeren. Het bestand HiveQL-script moet worden geüpload naar wasb: / /.
    >
-   > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+   > `Invoke-AzHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
    > Voor meer informatie over **hier tekenreeksen**, Zie <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">met behulp van Windows PowerShell hier-tekenreeksen</a>.
 
@@ -91,7 +93,7 @@ Als er geen gegevens worden geretourneerd als de taak is voltooid, moet u de fou
 
 ```powershell
 # Print the output of the Hive job.
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $job.JobId `
         -HttpCredential $creds `

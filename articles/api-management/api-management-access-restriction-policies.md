@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 814becd2092c3603f20cd65152e8183446954ce8
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 41f9ce38124cdee2166b5a573c4ab91a26c5fb8a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216353"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402419"
 ---
 # <a name="api-management-access-restriction-policies"></a>Beleid voor toegangsbeperking API Management
 
@@ -382,7 +382,8 @@ De `validate-jwt` beleid zorgt ervoor dat bestaan, en de geldigheid van een JWT 
     require-expiration-time="true|false"
     require-scheme="scheme"
     require-signed-tokens="true|false"
-    clock-skew="allowed clock skew in seconds">
+    clock-skew="allowed clock skew in seconds"
+    output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
   <issuer-signing-keys>
     <key>base64 encoded signing key</key>
     <!-- if there are multiple keys, then add additional key elements -->
@@ -464,43 +465,32 @@ De `validate-jwt` beleid zorgt ervoor dat bestaan, en de geldigheid van een JWT 
 
 #### <a name="authorize-access-to-operations-based-on-token-claims"></a>Toegang verlenen aan bewerkingen op basis van claims token
 
-In dit voorbeeld ziet u hoe u de [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid voor vooraf machtigen toegang tot bewerkingen op basis van claims token. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: Meer functies van API Management met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 13:50. Vooruitspoelen naar 15:00 om te zien van de beleidsregels die zijn geconfigureerd in de beleidseditor en vervolgens naar 18:50 voor een demonstratie van een bewerking aanroepen vanuit de portal voor ontwikkelaars met en zonder de vereiste verificatietoken.
+In dit voorbeeld ziet u hoe u de [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid toegang verlenen aan bewerkingen op basis van claims token waarde.
 
 ```xml
-<!-- Copy the following snippet into the inbound section at the api (or higher) level to pre-authorize access to operations based on token claims -->
-<set-variable name="signingKey" value="insert signing key here" />
+<validate-jwt header-name="Authorization" require-scheme="Bearer" output-token-variable-name="jwt">
+    <issuer-signing-keys>
+        <key>{{jwt-signing-key}}</key> <!-- signing key is stored in a named value -->
+    </issuer-signing-keys>
+    <audiences>
+        <audience>@(context.Request.OriginalUrl.Host)</audience>
+    </audiences>
+    <issuers>
+        <issuer>contoso.com</issuer>
+    </issuers>
+    <required-claims>
+        <claim name="group" match="any">
+            <value>finance</value>
+            <value>logistics</value>
+        </claim>
+    </required-claims>
+</validate-jwt>
 <choose>
-  <when condition="@(context.Request.Method.Equals("patch",StringComparison.OrdinalIgnoreCase))">
-    <validate-jwt header-name="Authorization">
-      <issuer-signing-keys>
-        <key>@((string)context.Variables["signingKey"])</key>
-      </issuer-signing-keys>
-      <required-claims>
-        <claim name="edit">
-          <value>true</value>
-        </claim>
-      </required-claims>
-    </validate-jwt>
-  </when>
-  <when condition="@(new [] {"post", "put"}.Contains(context.Request.Method,StringComparer.OrdinalIgnoreCase))">
-    <validate-jwt header-name="Authorization">
-      <issuer-signing-keys>
-        <key>@((string)context.Variables["signingKey"])</key>
-      </issuer-signing-keys>
-      <required-claims>
-        <claim name="create">
-          <value>true</value>
-        </claim>
-      </required-claims>
-    </validate-jwt>
-  </when>
-  <otherwise>
-    <validate-jwt header-name="Authorization">
-      <issuer-signing-keys>
-        <key>@((string)context.Variables["signingKey"])</key>
-      </issuer-signing-keys>
-    </validate-jwt>
-  </otherwise>
+    <when condition="@(context.Request.Method == "POST" && !((Jwt)context.Variables["jwt"]).Claims["group"].Contains("finance"))">
+        <return-response>
+            <set-status code="403" reason="Forbidden" />
+        </return-response>
+    </when>
 </choose>
 ```
 
@@ -550,6 +540,7 @@ In dit voorbeeld ziet u hoe u de [JWT valideren](api-management-access-restricti
 | vereisen dat-ondertekend-tokens           | Booleaanse waarde. Hiermee geeft u op of een token is vereist om te worden ondertekend.                                                                                                                                                                                                                                                                                                                                                                                           | Nee                                                                               | true                                                                              |
 | separator                       | tekenreeks. Hiermee geeft u een scheidingsteken (bijvoorbeeld ",") moet worden gebruikt om een set waarden uit een claim meerdere waarden.                                                                                                                                                                                                                                                                                                                                          | Nee                                                                               | N/A                                                                               |
 | url                             | Open ID configuratie-eindpunt-URL van waar de metagegevens van de Open-ID-configuratie kan worden verkregen. Het antwoord moet overeenkomen met de technische specificaties zoals gedefinieerd op de URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. Gebruik de volgende URL voor Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` bijvoorbeeld de naam van uw directory-tenant, waarbij `contoso.onmicrosoft.com`. | Ja                                                                              | N/A                                                                               |
+uitvoer-token-variabele-naam|tekenreeks. Naam van de contextvariabele die Tokenwaarde als een object van het type ontvangen [ `Jwt` ](api-management-policy-expressions.md) na geslaagde token validatie|Nee|N/A
 
 ### <a name="usage"></a>Gebruik
 

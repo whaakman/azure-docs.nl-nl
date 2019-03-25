@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 604f135cc3dffdb9ac6533826eff6926ad5467df
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 61fc72fe295fc292f944d6fea0f67fce0d537c32
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117745"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402319"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Zelfstudie: Azure Data Box Gateway inrichten in VMware (preview)
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Zelfstudie: Richt Azure Data Box-Gateway in VMware
 
 ## <a name="overview"></a>Overzicht
 
@@ -32,8 +32,6 @@ In deze zelfstudie leert u het volgende:
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-> [!IMPORTANT]
-> - Data Box Gateway verkeert in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -75,7 +73,7 @@ Voor het maken van een virtueel apparaat hebt u het volgende nodig:
 
 * Toegang tot een hostsysteem met VMware ESXi Server 6.0, 6.5 of 6.7. Het hostsysteem kan de volgende resources volledig toewijzen aan uw virtuele apparaat:
  
-  * Minimaal 4 kerngeheugens.
+  * Een minimum van 4 virtuele processors.
   * Ten minste 8 GB RAM-geheugen. 
   * Eén netwerkinterface die is verbonden met het netwerk en verkeer naar internet kan routeren.
   * Een besturingssysteemschijf van 250 GB
@@ -91,7 +89,7 @@ Voer de volgende stappen uit voor het inrichten van een virtueel apparaat in de 
 
 2. Meld u aan bij de ESXi-server via een browser op de volgende URL: `https://<IP address of the ESXi server>`. U moet beheerdersbevoegdheden hebben om een virtuele machine te kunnen maken.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
+   ![Aanmeldingspagina](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
 3. Upload de VMDK naar de ESXi-server. Selecteer in het navigatievenster **Opslag**.
 
@@ -104,67 +102,67 @@ Voer de volgende stappen uit voor het inrichten van een virtueel apparaat in de 
    
 5. Klik met de rechtermuisknop op **Browsen in de gegevensopslag** en selecteer deze.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image3.png)
+   ![Browsen in de gegevensopslag](./media/data-box-gateway-deploy-provision-vmware/image3.png)
 
 6. Een venster met de **gegevensopslagbrowser** wordt weergegeven.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image4.png)
+   ![Datastore-browser](./media/data-box-gateway-deploy-provision-vmware/image4.png)
 
 7. Klik in de werkbalk op het pictogram **Map maken** om een nieuwe map te maken. Geef de mapnaam op en noteer deze. U gebruikt deze mapnaam later bij het maken van een virtuele machine (aanbevolen best practices). Klik op **Map maken**.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image5.png)
+   ![Map maken](./media/data-box-gateway-deploy-provision-vmware/image5.png)
 
 8. De nieuwe map wordt weergegeven in het linkerdeelvenster van de **gegevensopslagbrowser**. Klik op het pictogram **Uploaden** en selecteer **Bestand uploaden**.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image6.png)
+    ![Bestand uploaden](./media/data-box-gateway-deploy-provision-vmware/image6.png)
 
 9. Blader en wijs naar de VMDK-bestanden die u hebt gedownload. Er zijn twee bestanden. Selecteer een bestand dat u wilt uploaden.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image7.png)
+    ![Selecteer bestand uploaden](./media/data-box-gateway-deploy-provision-vmware/image7.png)
 
 10. Klik op **Openen**. Het uploaden van het VMDK-bestand met de opgegeven gegevensopslag wordt gestart. Het duurt enkele minuten om het bestand te uploaden.
 11. Nadat het uploaden is voltooid, ziet u het bestand in de gegevensopslag in de map die u hebt gemaakt. Upload nu het tweede VMDK-bestand naar dezelfde gegevensopslag. Als beide bestanden zijn geüpload, worden de twee bestanden samengevoegd tot één bestand. U ziet nu één bestand in de map.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image8.png)
+    ![Twee VMDK-bestanden worden samengevoegd tot één bestand](./media/data-box-gateway-deploy-provision-vmware/image8.png)
 
 12. Ga terug naar het venster van de vSphere-client. Selecteer in het navigatievenster **Virtuele machines**. Klik in het rechter deelvenster op **Virtuele machine maken/registreren**.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image9.png)
+    ![Maken of virtuele machine registreren](./media/data-box-gateway-deploy-provision-vmware/image9.png)
 
 13. Er wordt een **nieuwe virtuele machine** weergegeven. Selecteer bij Aanmaaktype selecteren, **Een nieuwe virtuele machine maken** en klik op **Volgende**.
-    ![](./media/data-box-gateway-deploy-provision-vmware/image10.png)
+    ![Maken van het type pagina selecteren](./media/data-box-gateway-deploy-provision-vmware/image10.png)
 
-14. Op de pagina **Een naam en de naam van het besturingssysteem en locatie selecteren** geeft u de **naam** van uw virtuele machine op. Deze naam moet overeenkomen met de mapnaam (aanbevolen best practice) die u eerder in stap 7 hebt opgegeven. Kies als **gastbesturingssysteemserie** Windows en als **gastbesturingssysteemversie** Microsoft Windows Server 2016 (64-bits). Klik op **Volgende**.
+14. Op de pagina **Een naam en de naam van het besturingssysteem en locatie selecteren** geeft u de **naam** van uw virtuele machine op. Deze naam moet overeenkomen met de mapnaam (aanbevolen best practice) die u eerder in stap 7 hebt opgegeven. Kies als **gastbesturingssysteemserie** Windows en als **gastbesturingssysteemversie** Microsoft Windows Server 2016 (64-bits). Klik op **volgende**.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image11.png)
+    ![Selecteer een naam en de naam van besturingssysteem en de locatie-pagina](./media/data-box-gateway-deploy-provision-vmware/image11.png)
 
-15. Selecteer op de pagina **Opslag selecteren** een gegevensopslag die u wilt gebruiken voor het inrichten van uw virtuele machine. Klik op **Volgende**.
+15. Selecteer op de pagina **Opslag selecteren** een gegevensopslag die u wilt gebruiken voor het inrichten van uw virtuele machine. Klik op **volgende**.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. Op de pagina **Instellingen aanpassen** stelt u de **CPU** in op 4, het **geheugen** op 8192 MB (of meer) en de **harde schijf 1** op 2 TB (of meer). Kies **SCSI harde schijf** om toe te voegen. In dit geval was dat LSI Logic SAS. **De statische IDE-schijven worden niet ondersteund.** De **harde schijf 1** is de virtuele gegevensschijf. Houd er rekening mee dat u de schijf eenmaal ingericht niet kunt verkleinen.
+    ![Storage-pagina selecteren](./media/data-box-gateway-deploy-provision-vmware/image12.png)
+16. Op de pagina **Instellingen aanpassen** stelt u de **CPU** in op 4, het **geheugen** op 8192 MB (of meer) en de **harde schijf 1** op 2 TB (of meer). Kies **SCSI harde schijf** om toe te voegen. In dit geval was dat LSI Logic SAS. **De statische IDE-schijven worden niet ondersteund.** De **harde schijf 1** is de virtuele gegevensschijf. Houd er rekening mee dat u een ingerichte schijf niet kunt verkleinen.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
+    ![Instellingenpagina aanpassen](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
     Op dezelfde pagina klikt u op **Harde schijf toevoegen** en selecteert u vervolgens **Bestaande harde schijf**. Selecteer het VMDK-bestand in de gegevensopslag. Hiermee wordt een besturingssysteemschijf toegevoegd. 
 
-     ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ! Instellingenpagina aanpassen[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Schuif omlaag totdat u de **nieuwe vaste schijf** ziet en vouw deze uit om de instellingen te kunnen zien. Stel het **knooppunt van het virtuele apparaat** in op **IDE-controller 0**.
 
-     ![](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Instellingenpagina aanpassen](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
-17. (Optioneel) *Voer deze stap alleen uit als u VMware ESXi-Server 6.7 gebruikt*. Op de pagina **Instellingen aanpassen** klikt u op **VM-opties**. Ga naar **Opstartopties > Firmware** en wijzig deze in **BIOS**. De waarde is standaard ingesteld op EFI. Klik op **Volgende**.
+17. (Optioneel) *Voer deze stap alleen uit als u VMware ESXi-Server 6.7 gebruikt*. Op de pagina **Instellingen aanpassen** klikt u op **VM-opties**. Ga naar **Opstartopties > Firmware** en wijzig deze in **BIOS**. De waarde is standaard ingesteld op EFI. Klik op **volgende**.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
+    ![Instellingenpagina aanpassen als VMware ESXi-Server 6.7 uitgevoerd](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
 
 18. Op de pagina **Gereed om te voltooien** controleert u alle instellingen voor de nieuwe virtuele machine. Controleer of CPU 4 is, het geheugen 8192 MB is, de netwerkinterface 1 is en harde schijf 2 IDE-controller 0 is. Klik op **Voltooien**.
    
-    ![](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![Gereed voor de volledige pagina](./media/data-box-gateway-deploy-provision-vmware/image16.png)
+    ![gereed op de pagina is voltooid](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 Uw virtuele machine is nu ingericht. U ziet als resultaat nu een melding dat de nieuwe virtuele machine is toegevoegd aan de lijst met virtuele machines.
 
-![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+![Nieuwe virtuele machine toegevoegd aan de lijst met virtuele machines](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 De volgende stap is om deze virtuele machine in te schakelen en om het IP-adres op te halen.
 
@@ -178,23 +176,23 @@ Voer de volgende stappen uit om uw virtuele apparaat te starten en verbinding te
 #### <a name="to-start-the-virtual-device"></a>Het virtuele apparaat starten
 1. Start het virtuele apparaat. In het rechterdeelvenster selecteert u uw apparaat in de lijst met virtuele machines en klikt u met de rechtermuisknop erop om het contextmenu weer te geven. Selecteer **Aanzetten** en selecteer vervolgens **Inschakelen**. Nu zou uw virtuele machine moeten zijn ingeschakeld. U kunt de status bekijken in het onderste deelvenster van de webclient.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image19.png)
+    ![Inschakelen van het virtuele apparaat](./media/data-box-gateway-deploy-provision-vmware/image19.png)
 
 2. Selecteer nogmaals uw virtuele machine. Klik met de rechtermuisknop op **Console** en selecteer deze. Selecteer vervolgens **In een nieuw venster openen**.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image20.png)
+    ![Open de console van het virtuele apparaat](./media/data-box-gateway-deploy-provision-vmware/image20.png)
 
 3. De console van de virtuele machine wordt in een nieuw venster geopend. 
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image21.png)
+    ![Console van het virtuele apparaat](./media/data-box-gateway-deploy-provision-vmware/image21.png)
 
 4. Zodra het apparaat wordt uitgevoerd, wijst u met de cursor het tabblad midden boven in het consolevenster aan en klikt u erop. Selecteer **Gastbesturingssysteem > Sleutels verzenden > Ctrl+Alt+Delete**. Hiermee ontgrendelt u de virtuele machine.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image22.png)
+   ![Het virtuele apparaat ontgrendelen](./media/data-box-gateway-deploy-provision-vmware/image22.png)
 
-5. Geef het wachtwoord op om u aan te melden bij de virtuele machine. Het standaardapparaatwachtwoord is Wachtwoord1.
+5. Geef het wachtwoord op om u aan te melden bij de virtuele machine. Is het standaardwachtwoord *Wachtwoord1*.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image23.png)
+   ![Voor het virtuele apparaat invoeren](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
 6. De stappen 5 - 7 gelden alleen als het opstarten in een niet-DHCP-omgeving gebeurt. Als u zich in een DHCP-omgeving bevindt, kunt u deze stappen overslaan en gaat u naar stap 8. Als u uw apparaat hebt opgestart in een niet-DHCP-omgeving wordt er een bericht van deze strekking weergegeven: **Gebruik de cmdlet Set-HcsIPAddress om het netwerk te configureren**. 
    
@@ -206,14 +204,14 @@ Voer de volgende stappen uit om uw virtuele apparaat te starten en verbinding te
 
 9. Nadat de initiële installatie voltooid is en het apparaat is opgestart, ziet u de bannertekst van het apparaat. Noteer het IP-adres en de URL die wordt weergegeven in de bannertekst om het apparaat te beheren. U gaat dit IP-adres gebruiken om verbinding te maken met de webgebruikersinterface van uw virtuele apparaat en om de lokale instellingen en activering te voltooien.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
+   ![Banner tekst en verbinding-URL voor het virtuele apparaat](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
 Als uw apparaat niet voldoet aan de minimale configuratievereisten, wordt er een fout weergegeven in de bannertekst (zie hieronder). U moet de apparaatconfiguratie wijzigen zodat er voldoende resources zijn om aan de minimale vereisten te voldoen. Daarna kunt u het apparaat opnieuw opstarten en verbinding maken met het apparaat. Raadpleeg de minimale configuratievereisten in [Controleren of het hostsysteem voldoet aan minimale vereisten voor virtuele apparaten](#check-the-host-system).
 
-<!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
+Als u een andere fout tijdens de eerste configuratie met behulp van de lokale webgebruikersinterface worden geconfronteerd, raadpleegt u de volgende werkstromen:
 
-* Run diagnostic tests to [troubleshoot web UI setup](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
-* [Generate log package and view log files](storsimple-ova-web-ui-admin.md#generate-a-log-package).-->
+- [Voer diagnostische tests uit om op te lossen van de installatie van de web-UI](data-box-gateway-troubleshoot.md#run-diagnostics).
+- [Logboek pakket genereren en weergeven van logboekbestanden](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>Volgende stappen
 

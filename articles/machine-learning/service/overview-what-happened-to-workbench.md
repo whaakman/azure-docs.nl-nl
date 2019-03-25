@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ff065816e287e0d4e37cdea9a7770c9ff806520
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 22615d07e69d707c90e3ff9bda83bfa6f0852996
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890743"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360281"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Wat is er gebeurd met Azure Machine Learning Workbench?
 
@@ -40,7 +40,7 @@ De meest recente versie van Azure Machine Learning Service bevat de volgende fun
 + Een nieuwe, uitgebreidere Python-<a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.
 + De nieuwe, uitgebreide [Azure CLI-extensie](reference-azure-machine-learning-cli.md) voor machine learning.
 
-De [architectuur](concept-azure-machine-learning-architecture.md) is vernieuwd voor meer gebruiksgemak. In plaats van meerdere Azure-resources en -accounts hebt u alleen een [werkruimte voor Azure Machine Learning service](concept-azure-machine-learning-architecture.md#workspace) nodig. U kunt snel werkruimten maken in de [Azure-portal](quickstart-get-started.md). Met een werkruimte kunnen meerdere gebruikers rekendoelen voor training en implementatie, modelexperimenten, Docker-installatiekopieën, geïmplementeerde modellen, enzovoort, opslaan.
+De [architectuur](concept-azure-machine-learning-architecture.md) is vernieuwd voor meer gebruiksgemak. In plaats van meerdere Azure-resources en -accounts hebt u alleen een [werkruimte voor Azure Machine Learning service](concept-azure-machine-learning-architecture.md#workspace) nodig. U kunt werkruimten snel maken in de [Azure portal]((setup-create-workspace.md#portal). Met een werkruimte kunnen meerdere gebruikers rekendoelen voor training en implementatie, modelexperimenten, Docker-installatiekopieën, geïmplementeerde modellen, enzovoort, opslaan.
 
 De huidige versie bevat nieuwe en verbeterde CLI- en SDK-clients, maar de Workbench-bureaubladtoepassing zelf is afgeschaft. Experimenten kunnen worden beheerd in het [Werkruimte-dashboard in de Azure-portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Gebruik het dashboard om uw experimentgeschiedenis op te halen, de compute-doelen die zijn gekoppeld aan uw werkruimte te beheren, uw modellen en Docker-installatiekopieën te beheren en zelfs om webservices te implementeren.
 
@@ -50,7 +50,7 @@ De huidige versie bevat nieuwe en verbeterde CLI- en SDK-clients, maar de Workbe
 
 Met ingang van 9 januari 2019 is de ondersteuning voor Machine Learning Workbench, accounts van Azure Machine Learning voor experimenten en modelbeheer en de bijbehorende SDK en CLI beëindigd. 
 
-Alle nieuwste mogelijkheden zijn beschikbaar via deze nieuwe <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, de [CLI](reference-azure-machine-learning-cli.md) en de [portal](quickstart-get-started.md).
+Alle nieuwste mogelijkheden zijn beschikbaar via deze nieuwe <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, de [CLI](reference-azure-machine-learning-cli.md) en de [portal](setup-create-workspace.md#portal).
 
 ## <a name="what-about-run-histories"></a>Hoe zit het met uitvoeringsgeschiedenissen?
 
@@ -81,7 +81,7 @@ Veel van de projectinhoud staat al op uw lokale computer. U hoeft alleen een con
 run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 ```
 
-Ontdek hoe u aan de slag kunt gaan [in Python met de belangrijkste SDK](quickstart-create-workspace-with-python.md) of via [Azure Portal](quickstart-get-started.md).
+[Een werkruimte maken](setup-create-workspace.md#portal) aan de slag.
 
 ## <a name="what-about-my-registered-models-and-images"></a>Hoe zit het met mijn geregistreerde modellen en installatiekopieën?
 
@@ -121,6 +121,6 @@ Meer informatie over de [meest recente architectuur voor Azure Machine Learning 
 
 Zie [Wat is Azure Machine Learning Service?](overview-what-is-azure-ml.md) voor een overzicht van de service.
 
-Ga naar [Azure Portal gebruiken om aan de slag te gaan met Azure Machine Learning](quickstart-get-started.md) voor een snelstartgids met instructies voor het maken van een werkruimte en een project, het uitvoeren van een script en het bekijken van de uitvoeringsgeschiedenis van het script met de nieuwste versie van Azure Machine Learning Service.
+Voor een snelstart u voor het uitvoeren van een script en de uitvoeringsgeschiedenis van het script met de meest recente versie van Azure Machine Learning-service te verkennen, kunt u proberen [aan de slag met Azure Machine Learning-service](quickstart-run-cloud-notebook.md).
 
 Voor een uitgebreid overzicht van deze werkstroom volgt u de [volledige zelfstudie](tutorial-train-models-with-aml.md), met gedetailleerde stappen voor het trainen en implementeren van modellen met Azure Machine Learning service. 

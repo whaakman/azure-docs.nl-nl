@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 96a334b4bd39513bfad128a8f1b59f319fef013e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 37e8b0a5cc89eded1890eebbeb93cc82d54c9f05
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317405"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360891"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Installeren en Apache Giraph gebruikt op Windows gebaseerde HDInsight-clusters
 
@@ -25,6 +25,8 @@ Meer informatie over het aanpassen van Windows op basis van HDInsight-cluster me
 
 
 U Giraph kunt installeren op elk type cluster (Hadoop, Storm, HBase, Spark) op Azure HDInsight met behulp van *scriptactie*. Een voorbeeld van een script Giraph installeren op een HDInsight-cluster is beschikbaar via een alleen-lezen Azure storage-blob op [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Het voorbeeldscript werkt alleen met HDInsight-clusterversie 3.1. Zie voor meer informatie over HDInsight-clusterversies [HDInsight-clusterversies](hdinsight-component-versioning.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **Gerelateerde artikelen**
 
@@ -121,12 +123,12 @@ We gebruiken het SimpleShortestPathsComputation-voorbeeld ter illustratie van de
     Select-AzureSubscription $subscriptionName
 
     # Create the Storage account context object
-    $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-    $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+    $storageAccountKey = Get-AzStorageKey $storageAccountName | %{ $_.Primary }
+    $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
     # Download the job output to the workstation
-    Get-AzureStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00001 -Context $storageContext -Force
-    Get-AzureStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00002 -Context $storageContext -Force
+    Get-AzStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00001 -Context $storageContext -Force
+    Get-AzStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00002 -Context $storageContext -Force
     ```
 
     Hiermee maakt u de **uitvoer-voorbeeld/shortestpaths** mapstructuur, in de huidige map op uw werkstation en de uitvoerbestanden downloaden van de twee naar die locatie.

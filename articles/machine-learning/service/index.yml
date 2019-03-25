@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b7765fc5506129cdf594ef3fd0424f8771de5ef4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: a97c11b49574d0014ea7fa97f42420b22f9568d7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651665"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371153"
 documentType: LandingData
 title: Documentatie over Azure Machine Learning-service
 metadata:
@@ -36,12 +36,12 @@ sections:
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: 'Als u deze service wilt gebruiken, hebt u een werkruimte en bijbehorende resources nodig.  Ga aan de slag met:'
+    text: 'Na het   <a href="setup-create-workspace">maken van een werkruimte</a> voor Azure Machine Learning Service kunt u aan de slag met deze quickstarts:'
   - type: list
     style: unordered
     items:
-    - html: '<a href="quickstart-get-started">Quickstart voor de Azure-portal</a>: profiteer van een eigen werkruimte en voer experimenten uit zonder iets te installeren.'
-    - html: '<a href="quickstart-create-workspace-with-python">Python-quickstart</a>: installeer de centrale SDK, maak een werkruimte en voer experimenten uit op een lokale notebook-server.'
+    - html: <a href="quickstart-run-cloud-notebook">Een experiment uitvoeren in de cloud</a> (geen installatie vereist).
+    - html: <a href="quickstart-run-local-notebook">Een experiment met behulp van een lokale notebookserver uitvoeren</a> (lokale SDK installeren).
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph

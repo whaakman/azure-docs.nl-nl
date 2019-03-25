@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 02f93b86bc53b482127bdd6df963f75680242bcd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1e4c08c1e1f9c32c7c397cf187ad2ef91a25c59d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007135"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350450"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Zelfstudie: TensorFlow-model uitvoeren in Python
 
@@ -24,16 +24,14 @@ Nadat u [uw TensorFlow-model](https://docs.microsoft.com/azure/cognitive-service
 > [!NOTE]
 > In deze zelfstudie geldt alleen voor modellen die zijn geëxporteerd uit afbeelding classificatie projecten.
 
-## <a name="install-required-components"></a>Vereiste onderdelen installeren
-
-### <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Als u de zelfstudie wilt gebruiken, moet u het volgende doen:
 
 - Python 2.7 of hoger of Python 3.5 of hoger installeren.
 - Pip installeren.
 
-U moet ook de volgende pakketten installeren:
+Vervolgens moet u de volgende pakketten installeren:
 
 ```
 pip install tensorflow
@@ -114,7 +112,6 @@ max_square_image = crop_center(image, min_dim, min_dim)
 augmented_image = resize_to_256_square(max_square_image)
 ```
 
-
 ### <a name="crop-the-center-for-the-specific-input-size-for-the-model"></a>Snijd het midden bij afhankelijk van de specifieke invoergrootte voor het model
 
 ```Python
@@ -185,6 +182,7 @@ input_node = 'Placeholder:0'
 with tf.Session() as sess:
     try:
         prob_tensor = sess.graph.get_tensor_by_name(output_layer)
+        predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })
     except KeyError:
         print ("Couldn't find classification output layer: " + output_layer + ".")
         print ("Verify this a model exported from an Object Detection project.")
@@ -208,10 +206,10 @@ De resultaten van het verwerken van de afbeeldingstensor door het model moet ver
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```
+
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt het model ook verpakken in een mobiele toepassing:
+Vervolgens meer informatie over het inpakken van uw model in een mobiele toepassing:
 * [Geëxporteerd Tensorflow-model gebruiken in een Android-toepassing](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Geëxporteerd CoreML-model gebruiken in een Swift iOS-toepassing](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Geëxporteerd CoreML-model gebruiken in een iOS-toepassing met Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
-
