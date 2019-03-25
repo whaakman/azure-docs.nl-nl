@@ -106,7 +106,6 @@ Selecteer **OK**.
 
 ### <a name="fabric-specific-settings"></a>Fabric-specifieke instellingen
 
-In **configuratie van de Infrastructuurresources**, u Configureer netwerkgrootte en de prestaties en geef de invoer voor de beschikbaarheid van het netwerk. Getal, zoals besteller en peer-knooppunten, persistentie-engine wordt gebruikt door elk knooppunt en de VM-grootte.
 In **Fabric-configuratie** configureert u de netwerkgrootte en -prestaties en geeft u invoer op voor de beschikbaarheid van het netwerk. Zoals nummersorteerders en peer nodes, opslagmethode die door elk knooppunt wordt gebruikt, en de VM-grootte.
 
 ![Fabric-instellingen](./media/hyperledger-fabric-consortium-blockchain/fabric-specific-settings.png)
