@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
+ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339683"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351912"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage bewaken, problemen opsporen en oplossen
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -246,7 +246,7 @@ De Opslagclientbibliotheek genereert automatisch een unieke client-aanvraag-ID v
 >
 
 ### <a name="server-request-id"></a>Server aanvraag-ID
-Server aanvraag-id's wordt automatisch gegenereerd door de storage-service.
+Serveraanvraag id's wordt automatisch gegenereerd door de storage-service.
 
 * In het logboek serverzijde logboekregistratie van opslag, de aanvraag-ID wordt weergegeven de **aanvraag-ID-header** kolom.
 * In een netwerktracering zoals een vastgelegd door Fiddler, de aanvraag-ID wordt weergegeven in antwoordberichten als de **x-ms-request-id** HTTP-header-waarde.
@@ -814,9 +814,9 @@ Zie de volgende bronnen voor meer informatie over analytics in Azure Storage:
 * [Een opslagaccount in Azure portal controleren](storage-monitor-storage-account.md)
 * [Storage analytics](storage-analytics.md)
 * [Metrische gegevens in Storage analytics](storage-analytics-metrics.md)
-* [Storage analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Storage analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [Analyselogboeken voor Storage](storage-analytics-logging.md)
-* [Opslaganalyse-indeling van logboekbestand](/rest/api/storageservices/storage-analytics-log-format.md)
+* [Opslaganalyse-indeling van logboekbestand](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Inleiding]: #introduction

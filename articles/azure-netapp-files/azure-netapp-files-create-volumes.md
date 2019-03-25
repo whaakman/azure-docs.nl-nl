@@ -11,19 +11,19 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 12/17/2018
+ms.topic: how-to-article
+ms.date: 3/17/2019
 ms.author: b-juche
-ms.openlocfilehash: 0d4629651e17c917720196c1e5f6152c50c2a33a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b45879adca58f60e5c16829a7fd2fffab33eee46
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770263"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400853"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Een volume maken voor Azure NetApp Files
 
-Capaciteitsgebruik van een volume wordt in mindering gebracht op de ingerichte capaciteit van de pool.  U kunt meerdere volumes maken in een capaciteitspool, maar het totale capaciteitsverbruik van deze volumes mag niet groter zijn dan de grootte van de pool. 
+Elke capaciteit van toepassingen kan maximaal 500 volumes hebben. Capaciteitsgebruik van een volume wordt in mindering gebracht op de ingerichte capaciteit van de pool. Azure NetApp Files ondersteunt SMBv3- en NFS-volumes. 
 
 ## <a name="before-you-begin"></a>Voordat u begint 
 U dient al een capaciteitspool te hebben ingesteld.   
@@ -31,22 +31,23 @@ U dient al een capaciteitspool te hebben ingesteld.
 Er moet een subnet zijn gedelegeerd aan Azure NetApp Files.  
 [Een subnet delegeren aan Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
+## <a name="create-an-nfs-volume"></a>Maken van een NFS-volume
 
-## <a name="steps"></a>Stappen 
-1.  Klik in de blade Capaciteitspools beheren op de blade **Volumes**. 
+1.  Klik op de **Volumes** blade op de blade van de capaciteit van toepassingen. 
+
+    ![Navigeer naar de Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
+
 2.  Klik op **+ Volume toevoegen** om een volume te maken.  
-    Het venster Nieuw volume wordt nu weergegeven.
+    De maken die een venster van het Volume wordt weergegeven.
 
-3.  Klik in het venster Nieuw volume op **Maken** en vul de volgende velden in:   
-    * **Naam**      
+3.  Klik in het maken van een venster van het Volume, **maken** en geef informatie op voor de volgende velden:   
+    * **Volumenaam**      
         Geef de naam op voor het volume dat u wilt maken.   
 
-        De naam moet uniek zijn binnen de resourcegroep. De naam moet minstens drie tekens bevatten.  U kunt hiervoor alle alfanumerieke tekens gebruiken.
+        De naam moet uniek zijn binnen de resourcegroep. De naam moet minstens drie tekens bevatten.  U kunt geen alfanumerieke tekens gebruiken.
 
-    * **Bestandspad**  
-        Geef het bestandspad op dat wordt gebruikt om het exportpad voor het nieuwe volume te maken. Het exportpad wordt gebruikt om het volume te koppelen en benaderen.   
-     
-        Het bestandspad mag alleen letters, cijfers en afbreekstreepjes ('-') bevatten. Het bestandspad moet tussen de 16 en 40 tekens lang zijn.  
+    * **Capaciteit van toepassingen**  
+        Geef de capaciteit van toepassingen waar u het volume moet worden gemaakt.
 
     * **Quotum**  
         Geef de hoeveelheid logische opslag op die u wilt toewijzen aan het volume.  
@@ -62,18 +63,122 @@ Er moet een subnet zijn gedelegeerd aan Azure NetApp Files.
         Geef het subnet op dat u wilt gebruiken voor het volume.  
         Het opgegeven subnet moet zijn gedelegeerd aan Azure NetApp Files. 
         
-        Als u geen subnet hebt gedelegeerd, kunt u klikken op **Nieuwe maken** op de pagina Een volume maken. Geef vervolgens op de pagina Subnet maken de subnetgegevens op, en selecteer **Microsoft.NetApp/volumes** om het subnet te delegeren aan Azure NetApp Files. In elk VNet kan er slechts één subnet aan Azure NetApp Files worden gedelegeerd.   
+        Als u geen subnet hebt gedelegeerd, kunt u klikken op **Nieuwe maken** op de pagina Een volume maken. Geef vervolgens op de pagina Subnet maken de subnetgegevens op, en selecteer **Microsoft.NetApp/volumes** om het subnet te delegeren aan Azure NetApp Files. In elk Vnet kan slechts één subnet worden overgedragen naar Azure NetApp bestanden.   
  
-        ![Nieuw volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![ Een volume maken](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Subnet maken](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
+4. Klik op **Protocol**en selecteer vervolgens **NFS** als het protocoltype voor het volume.   
+    * Geef de **bestandspad** die wordt gebruikt voor het maken van het pad voor exporteren voor het nieuwe volume. Het exportpad wordt gebruikt om het volume te koppelen en benaderen.
 
-4.  Klik op **OK**. 
+        Het bestandspad mag alleen letters, cijfers en afbreekstreepjes ('-') bevatten. Het bestandspad moet tussen de 16 en 40 tekens lang zijn.  
+
+    * U kunt desgewenst [export-beleid voor het NFS-volume configureren](azure-netapp-files-configure-export-policy.md)
+
+    ![NFS-protocol opgeven](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
+
+5. Klik op **beoordelen en maken** om te controleren van de details van het volume.  Klik vervolgens op **maken** het NFS-volume te maken.
+
+    Het volume dat u hebt gemaakt, wordt weergegeven op de pagina Volumes. 
  
-Een volume neemt het abonnement, de resourcegroep en de locatiekenmerken over van de bijbehorende capaciteitspool. U kunt de implementatiestatus van het volume controleren vanuit het tabblad Meldingen.
+    Een volume neemt het abonnement, de resourcegroep en de locatiekenmerken over van de bijbehorende capaciteitspool. U kunt de implementatiestatus van het volume controleren vanuit het tabblad Meldingen.
+
+## <a name="create-an-smb-volume"></a>Een SMB-volume maken
+
+Azure NetApp-bestanden ondersteunt SMBv3-volumes. U moet Active Directory-verbindingen maken voordat u een SMB-volume toevoegt. 
+
+### <a name="create-an-active-directory-connection"></a>Maak een Active Directory-verbinding
+
+1. Uw account NetApp, klik op **Active Directory-verbindingen**, klikt u vervolgens op **Join**.  
+
+    ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
+
+2. Geef in het Active Directory Join-venster de volgende informatie:
+
+    * **Primaire DNS**   
+        Dit is de domain controller IP-adres voor de gewenste Active Directory Domain Services voor gebruik met Azure NetApp-bestanden. 
+    * **Secundaire DNS**  
+        Dit is het domain controller-IP-adres voor de secundaire Active Directory Domain Services voor gebruik met Azure NetApp-bestanden. 
+    * **Domein**  
+        Dit is de domeinnaam van uw Active Directory Domain Services die u wilt deelnemen.
+    * **Het voorvoegsel voor SMB-server (computeraccount)**  
+        Dit is het naamvoorvoegsel voor het computeraccount in Active Directory die Azure NetApp bestanden voor het maken van nieuwe accounts wilt gebruiken.
+
+        Bijvoorbeeld, als de naamgevingsnorm die uw organisatie worden gebruikt voor bestandsservers NAS-01,..., NAS-02 voert NAS-045, dan hebt u 'NAS' voor het voorvoegsel. 
+
+        De service maakt extra computeraccounts in Active Directory zo nodig.
+
+    * **Pad van de organisatie-eenheid**  
+        Dit is de LDAP-pad voor de organisatie-eenheid (OE) waar de computeraccounts van SMB-server worden gemaakt. Dat wil zeggen, OU = tweede niveau, OU = eerste niveau. 
+    * Referenties, inclusief uw **gebruikersnaam** en **wachtwoord**
+
+    ![Active Directory toevoegen](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+
+3. Klik op **Deelnemen**.  
+
+    De Active Directory-verbinding die u hebt gemaakt weergegeven.
+
+    ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+
+### <a name="add-an-smb-volume"></a>Een SMB-volume toevoegen
+
+1. Klik op de **Volumes** blade op de blade van de capaciteit van toepassingen. 
+
+    ![Navigeer naar de Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
+
+2. Klik op **+ Volume toevoegen** om een volume te maken.  
+    De maken die een venster van het Volume wordt weergegeven.
+
+3. Klik in het maken van een venster van het Volume, **maken** en geef informatie op voor de volgende velden:   
+    * **Volumenaam**      
+        Geef de naam op voor het volume dat u wilt maken.   
+
+        De naam moet uniek zijn binnen de resourcegroep. De naam moet minstens drie tekens bevatten.  U kunt geen alfanumerieke tekens gebruiken.
+
+    * **Bestandspad**  
+        Geef het bestandspad op dat wordt gebruikt om het exportpad voor het nieuwe volume te maken. Het exportpad wordt gebruikt om het volume te koppelen en benaderen.   
+     
+        Het bestandspad mag alleen letters, cijfers en afbreekstreepjes ('-') bevatten. Het bestandspad moet tussen de 16 en 40 tekens lang zijn.  
+
+    * **Capaciteit van toepassingen**  
+        Geef de capaciteit van toepassingen waar u het volume moet worden gemaakt.
+
+    * **Quotum**  
+        Geef de hoeveelheid logische opslag op die u wilt toewijzen aan het volume.  
+
+        Het veld **Beschikbare quotum** toont hoeveel ongebruikte ruimte er is in de gekozen capaciteitspool, die u kunt gebruiken om een nieuw volume te maken. De grootte van het nieuwe volume mag niet groter zijn dan het beschikbare quotum.  
+
+    * **Virtueel netwerk**  
+        Geef het virtuele Azure-netwerk (Vnet) op dat u wilt gebruiken om het volume te benaderen.  
+
+        Het opgegeven VNet moet een subnet bevatten dat is gedelegeerd aan Azure NetApp Files. De Azure NetApp Files-service is alleen toegankelijk vanuit hetzelfde VNet, of vanuit een VNet in dezelfde regio als het volume via VNet-peering. Het volume is ook toegankelijk vanuit uw on-premises netwerk via ExpressRoute.   
+
+    * **Subnet**  
+        Geef het subnet op dat u wilt gebruiken voor het volume.  
+        Het opgegeven subnet moet zijn gedelegeerd aan Azure NetApp Files. 
+        
+        Als u geen subnet hebt gedelegeerd, kunt u klikken op **Nieuwe maken** op de pagina Een volume maken. Geef vervolgens op de pagina Subnet maken de subnetgegevens op, en selecteer **Microsoft.NetApp/volumes** om het subnet te delegeren aan Azure NetApp Files. In elk Vnet kan slechts één subnet worden overgedragen naar Azure NetApp bestanden.   
+ 
+        ![ Een volume maken](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+    
+        ![Subnet maken](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+4. Klik op **Protocol** en voltooi de volgende informatie:  
+    * Selecteer **SMB** als het protocoltype voor het volume. 
+    * Selecteer uw **Active Directory** verbinding van de vervolgkeuzelijst.
+    * Geef de naam van het gedeelde volume in **sharenaam**.
+
+    ![SMB-protocol opgeven](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
+
+5. Klik op **beoordelen en maken** om te controleren van de details van het volume.  Klik vervolgens op **maken** om de SMB-volume te maken.
+
+    Het volume dat u hebt gemaakt, wordt weergegeven op de pagina Volumes. 
+ 
+    Een volume neemt het abonnement, de resourcegroep en de locatiekenmerken over van de bijbehorende capaciteitspool. U kunt de implementatiestatus van het volume controleren vanuit het tabblad Meldingen.
 
 ## <a name="next-steps"></a>Volgende stappen  
-* [Exportbeleid voor een volume configureren (optioneel)](azure-netapp-files-configure-export-policy.md)
-* Meer informatie over [Integratie van virtuele netwerken voor Azure-services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
 
+* [Koppelen of ontkoppelen van een volume voor Windows of Linux-machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Exporteren-beleid voor een NFS-volume configureren](azure-netapp-files-configure-export-policy.md)
+* Meer informatie over [Integratie van virtuele netwerken voor Azure-services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
