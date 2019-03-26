@@ -3,7 +3,7 @@ title: Oplossen aanmelden met behulp van Azure Active Directory-rapporten | Micr
 description: Informatie over het oplossen van aanmelding bij fouten met behulp van Azure Active Directory-rapporten in Azure portal
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22126114f2d4fcb865485d9cebc69f0e35f70201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 26a3594b00f19c2790e9dfd5f09fbdc7d73d478f
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198470"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434888"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedure: Aanmelden-fouten oplossen met behulp van Azure Active Directory-rapporten
 
@@ -37,7 +37,7 @@ Bovendien kunt het aanmeldingenrapport u ook problemen oplossen met mislukte aan
 U hebt de volgende zaken nodig:
 
 * Een Azure AD-tenant met een licentie premium (P1/P2). Zie [Aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) om uw versie van Azure Active Directory te upgraden.
-* Een gebruiker die de rol **Globale beheerder**, **Beveiligingsbeheerder**, **Beveiligingslezer** of **Rapportlezer** voor de tenant heeft. Bovendien kan elke gebruiker toegang krijgen tot eigen aanmeldingen. 
+* Een gebruiker, die in de **hoofdbeheerder**, **beveiligingsbeheerder**, **beveiligingslezer**, of **rapporteren lezer** rol voor de tenant. Bovendien kan elke gebruiker toegang krijgen tot eigen aanmeldingen. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Aanmelden-fouten oplossen met behulp van de rapport-aanmeldingen
 
@@ -47,7 +47,7 @@ U hebt de volgende zaken nodig:
 
     ![Resultaten filteren](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. Identificeer de mislukte aanmelding die u wilt onderzoeken en te selecteren. Hiermee opent u het venster Extra details met meer informatie over de aanmelding is mislukt. Noteer de **aanmelden foutcode** en **reden van fout**. 
+4. Identificeer de mislukte aanmelding die u wilt onderzoeken. Selecteer deze om het venster Extra details met meer informatie over de mislukte aanmelding te openen. Noteer de **aanmelden foutcode** en **reden van fout**. 
 
     ![Record selecteren](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
@@ -55,7 +55,7 @@ U hebt de volgende zaken nodig:
 
     ![Problemen oplossen en ondersteuning](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. De reden van fout beschrijving van de fout. Bijvoorbeeld, in dit scenario, reden van de fout is **ongeldige gebruikersnaam of wachtwoord of ongeldige on-premises-gebruikersnaam of wachtwoord**. Dit betekent dat de gebruiker hebt ingevoerd een onjuiste gebruikersnaam of het wachtwoord om aan te melden bij Azure portal. De oplossing wordt gewoon aanmelden opnieuw met de juiste gebruikersnaam en wachtwoord.
+6. De reden van fout beschrijving van de fout. Bijvoorbeeld, in dit scenario, reden van de fout is **ongeldige gebruikersnaam of wachtwoord of ongeldige on-premises-gebruikersnaam of wachtwoord**. De oplossing wordt gewoon aanmelden opnieuw met de juiste gebruikersnaam en wachtwoord.
 
 7. Krijgt u meer informatie, waaronder ideeën voor herstel, door te zoeken naar de foutcode **50126** in dit voorbeeld in de [naslaginformatie over foutcodes in het aanmeldingen](reference-sign-ins-error-codes.md). 
 

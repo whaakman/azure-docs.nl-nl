@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: cf3dc71e96dac96a6406c97a433398b31a370869
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: ac5b6e0d44376332e005d30b4a8fcc97021c4eda
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571164"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407518"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissen tussen consistentie, beschikbaarheid en prestaties 
 
@@ -20,13 +20,13 @@ Gedistribueerde databases die afhankelijk van de replicatie voor hoge beschikbaa
 
 Azure Cosmos DB nadert de consistentie van gegevens als een breed scala aan mogelijkheden. Deze benadering omvat meer opties dan de twee extreme van sterke en uiteindelijke consistentie. U kunt kiezen uit vijf goed gedefinieerde modellen op het spectrum consistentie. Van sterk naar zwak, de modellen zijn:
 
-- Sterk
-- Gebonden veroudering
-- Sessie
-- Consistent voorvoegsel
-- Mogelijk
+- *Sterke*
+- *Gebonden veroudering*
+- *Sessie*
+- *Consistent voorvoegsel*
+- *Uiteindelijke*
 
-Elk model optimalisatie van de beschikbaarheid en prestaties biedt en wordt ondersteund door een uitgebreide SLA.
+Elk model optimalisatie van de beschikbaarheid en prestaties biedt en wordt ondersteund door een uitgebreide Sla's.
 
 ## <a name="consistency-levels-and-latency"></a>Consistentieniveaus en latentie
 
@@ -34,9 +34,9 @@ De leeslatentie voor alle consistentieniveaus is altijd gegarandeerd minder dan 
 
 De latentie schrijven voor alle consistentieniveaus is altijd gegarandeerd minder dan 10 milliseconden in het 99e percentiel. Deze schrijflatentie wordt ondersteund door de SLA. De gemiddelde schrijflatentie, in het 50e percentiel, is doorgaans 5 milliseconden of minder.
 
-Voor Azure Cosmos-accounts die zijn geconfigureerd met sterke consistentie met meer dan één regio, is de schrijflatentie gegarandeerd minder dan twee keer retourtijd (RTT) tussen de twee verst regio's, plus 10 milliseconden in het 99e percentiel. Deze optie is momenteel in preview.
+Voor Azure Cosmos-accounts die zijn geconfigureerd met sterke consistentie met meer dan één regio, is de schrijflatentie gegarandeerd minder dan twee keer retourtijd (RTT) tussen de twee verst regio's, plus 10 milliseconden in het 99e percentiel.
 
-De exacte RTT latentie is een functie van de snelheid van licht afstand en de Azure-netwerktopologie. Azure-netwerken biedt geen eventuele latentie Sla's voor de RTT tussen elke twee Azure-regio's. Voor uw Azure Cosmos-account, worden replicatielatentie weergegeven in de Azure-portal. U kunt de Azure-portal gebruiken voor het bewaken van de replicatielatentie tussen verschillende regio's die gekoppeld aan uw account zijn.
+De exacte RTT latentie is een functie van de snelheid van licht afstand en de Azure-netwerktopologie. Azure-netwerken biedt geen eventuele latentie Sla's voor de RTT tussen elke twee Azure-regio's. Voor uw Azure Cosmos-account, worden replicatielatentie weergegeven in de Azure-portal. U kunt de Azure portal (Ga naar de blade met metrische gegevens) gebruiken voor het bewaken van de replicatielatentie tussen verschillende regio's die gekoppeld aan uw Azure Cosmos-account zijn.
 
 ## <a name="consistency-levels-and-throughput"></a>Consistentieniveaus en doorvoer
 
@@ -46,21 +46,22 @@ De exacte RTT latentie is een functie van de snelheid van licht afstand en de Az
 
 ## <a id="rto"></a>Consistentie niveaus en gegevens duurzaamheid
 
-Binnen de databaseomgeving van een wereldwijd gedistribueerde moet u er een directe relatie is tussen de consistentie van niveau en gegevens duurzaamheid met een regiobrede uitval. Tijdens het ontwikkelen van uw plan voor bedrijfscontinuïteit, moet u inzicht in de maximaal acceptabele tijd voordat de toepassing volledig is hersteld na een storing. De tijd die nodig is voor een toepassing om volledig te herstellen, staat bekend als de beoogde hersteltijd (RTO). U moet ook weten wat de maximale periode van recente Gegevensupdates de toepassing kan tolereren verliezen tijdens het herstellen na een storing. De periode van updates die u in het ergste geval kan kwijtraken staat bekend als het beoogde herstelpunt (RPO).
+Binnen de databaseomgeving van een wereldwijd gedistribueerde moet u er een directe relatie is tussen de consistentie van niveau en gegevens duurzaamheid met een regiobrede uitval. Tijdens het ontwikkelen van uw plan voor bedrijfscontinuïteit, moet u inzicht in de maximaal acceptabele tijd voordat de toepassing volledig is hersteld na een storing. De tijd die nodig is voor een toepassing om volledig te herstellen wordt ook wel **beoogde hersteltijd** (**RTO**). U moet ook weten wat de maximale periode van recente Gegevensupdates de toepassing kan tolereren verliezen tijdens het herstellen na een storing. De periode van updates die u in het ergste geval kan kwijtraken staat bekend als **beoogd herstelpunt** (**RPO**).
 
-De tabel definieert u de relatie tussen consistentie-model en gegevens duurzaamheid bij grote storing regio. Het is belangrijk te weten dat in een gedistribueerd systeem, zelfs met sterke consistentie is het onmogelijk om een gedistribueerde database met een RPO en de RTO gelijk is aan nul vanwege het CAP-Theorema hebt. Zie voor meer informatie over waarom, [consistentieniveaus in Azure Cosmos DB](consistency-levels.md).
+De onderstaande tabel definieert u de relatie tussen consistentie-model en gegevens duurzaamheid bij grote storing regio. Het is belangrijk te weten dat in een gedistribueerd systeem, zelfs met sterke consistentie is het onmogelijk om een gedistribueerde database met een RPO en de RTO gelijk is aan nul vanwege het CAP-Theorema hebt. Zie voor meer informatie over de reden waarom, [consistentieniveaus in Azure Cosmos DB](consistency-levels.md).
 
 |**Regio('s)**|**Replicatiemodus**|**Consistentieniveau**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Enkele of meerdere masters|Een Consistentieniveau|< 240 minuten|<1 Week|
 |>1|Single Master|Sessie, Consistent voorvoegsel, uiteindelijke|< 15 minuten|< 15 minuten|
-|>1|Single Master|Gebonden veroudering|K & T|< 15 minuten|
+|>1|Single Master|Gebonden veroudering|*K* & *T*|< 15 minuten|
 |>1|Meerdere masters|Sessie, Consistent voorvoegsel, uiteindelijke|< 15 minuten|0|
-|>1|Meerdere masters|Gebonden veroudering|K & T|0|
+|>1|Meerdere masters|Gebonden veroudering|*K* & *T*|0|
 |>1|Enkele of meerdere masters|Sterk|0|< 15 minuten|
 
-K = het nummer van 'K' versies (updates) van een item.
-T = "T" tijd tijdsinterval sinds de laatste update.
+*K* = het aantal *'K'* versies (dat wil zeggen, updates) van een item.
+
+*T* = het tijdsinterval *"T"* sinds de laatste update.
 
 ## <a name="next-steps"></a>Volgende stappen
 

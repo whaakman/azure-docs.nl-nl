@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: b4553a392795bb8578f24848ccacc870b654bce9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116229"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439240"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Quickstart: Een kennisdatabase met behulp van de portal QnA Maker API maken
 
@@ -69,6 +69,8 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 Wanneer u klaar bent met de knowledge base, kunt u deze in de QnA Maker portal verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
+
+Voor kosten besparen metingen, kunt u [delen](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) sommige, maar niet alle Azure-resources die zijn gemaakt voor QnA Maker.
 
 > [!div class="nextstepaction"]
 > [Chit chat persoonlijke toevoegen](./chit-chat-knowledge-base.md)

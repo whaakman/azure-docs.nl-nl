@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ccea3ebae4bcc19410cfb5537a7140f69b04c4e7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400776"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438781"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Een VHD-hoofdinstallatiekopie voorbereiden en aanpassen
 
@@ -162,8 +162,8 @@ U kunt Automatische Updates handmatig uitschakelen.
 
 Automatische Updates uitschakelen:
 
-1. Office 365 installeren door de instructies in [Office installatiekopie voorbereiding](set-up-customize-master-image.md#office-image-preparation).
-2. Eventuele extra toepassingen installeren door de instructies in [gebruikersprofielinstellingen (FSLogix)](set-up-customize-master-image.md#user-profile-setup-fslogix), [Windows Defender](set-up-customize-master-image.md#windows-defender), en [registerconfiguratieenanderetoepassingen](set-up-customize-master-image.md#other-applications-and-registry-configuration).
+1. Office 365 installeren door de instructies in [Software voorbereidings- en installatie](set-up-customize-master-image.md#software-preparation-and-installation).
+2. Eventuele extra toepassingen installeren door de instructies in [gebruiker profiel container (FSLogix) instellen](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [configureren van Windows Defender](set-up-customize-master-image.md#configure-windows-defender), en [andere toepassingen en het register configuratie](set-up-customize-master-image.md#other-applications-and-registry-configuration).
 3. Windows Automatische Update-Service op de lokale virtuele machine uitschakelen.
 4. Open **Editor voor lokaal groepsbeleid\\Beheersjablonen\\Windows-onderdelen\\Windows Update**.
 5. Met de rechtermuisknop op **automatische updates configureren** en stel deze in op **uitgeschakelde**.
@@ -171,7 +171,7 @@ Automatische Updates uitschakelen:
 U kunt ook de volgende opdracht uitvoeren op de opdrachtregel om Automatische Updates uitschakelen.
 
 ```batch
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
 Voer deze opdracht uit om op te geven van een indeling Start voor Windows 10-pc's.
@@ -232,9 +232,7 @@ Virtuele Windows-bureaublad officieel ondersteunt geen Skype voor bedrijven en T
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Instellen van de gebruiker profiel container (FSLogix)
 
-Als u wilt de container FSLogix opnemen als onderdeel van de installatiekopie, volg de instructies in [instellen van een share van de gebruiker profiel voor een groep host](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).
-
-Bij het configureren van de registersleutel van bestand delen, gebruikt u de bestandsshare die u hebt gemaakt in [machtigingen configureren voor de bestandsserver](set-up-customize-master-image.md#configure-permissions-for-the-file-server) waar u van plan bent voor het opslaan van de profiel-containers. U kunt ook de functionaliteit van de FSLogix-container met behulp van deze testen [snelstartgids](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+Als u wilt de container FSLogix opnemen als onderdeel van de installatiekopie, volg de instructies in [instellen van een share van de gebruiker profiel voor een groep host](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). U kunt de functionaliteit van de container FSLogix met testen [in deze Quick Start](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
 
 ### <a name="configure-windows-defender"></a>Windows Defender configureren
 

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c2c22d2d3d68080b1d4e05410121ea1d1be283d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862712"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439172"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Zelfstudie: De Video Indexer-API gebruiken
 
@@ -73,19 +73,6 @@ Om het eenvoudiger te maken, kunt u **Authorization-API** > **GetAccounts** gebr
 Toegangstokens verlopen na één uur. Zorg ervoor dat uw token geldig is voordat u de Operations-API gebruikt. Als uw toegangstoken is verlopen, gebruikt u de Authorization-API om een nieuwe op te halen.
  
 U bent nu klaar om te integreren met de API. Zoek [de gedetailleerde beschrijving van elke Video Indexer-REST API](https://api-portal.videoindexer.ai/).
-
-## <a name="location"></a>Locatie
-
-Alle API's voor bewerking vereisen een locatieparameter, waarmee de regio wordt aangegeven waar de aanroep naar moet worden gestuurd en waarin het account is gemaakt.
-
-De waarden die worden beschreven in de volgende tabel zijn van toepassing. De **Parameterwaarde** is de waarde die u doorgeeft met behulp van de API.
-
-|**Naam**|**Parameterwaarde**|**Beschrijving**|
-|---|---|---|
-|Proefversie|audittrail|Wordt gebruikt voor proefaccounts.|
-|US - west|westus2|Wordt gebruikt voor de Azure-regio US - west 2.|
-|Europa - noord |northeurope|Wordt gebruikt voor de Azure-regio Europa - noord.|
-|Azië - oost|eastasia|Wordt gebruikt voor de Azure-regio Azië - oost.|
 
 ## <a name="account-id"></a>Account-id 
 
@@ -224,6 +211,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Details van de JSON-uitvoer bekijken](video-indexer-output-json-v2.md)
-
-[Overzicht van Video Indexer](video-indexer-overview.md)
+- [Details van de JSON-uitvoer bekijken](video-indexer-output-json-v2.md)
+- [Overzicht van Video Indexer](video-indexer-overview.md)
+- [Regio's](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 941455e39a32405097563b043046866aeb5c7964
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 0c6189dfd02a4bdd3662f4fa50dbb812fe995884
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351929"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438479"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IoT DevKit AZ3166 verbinden met Azure IoT Hub
 
@@ -24,7 +24,9 @@ U kunt de [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-ki
 
 ## <a name="what-you-do"></a>Wat u allemaal doen
 
-De DevKit verbinden met een Azure IoT-hub die u maakt. Vervolgens de temperatuur en vochtigheid gegevens verzamelen van sensoren en de gegevens verzenden naar de IoT-hub.
+In dit artikel gebruikt u [Visual Studio Code](https://code.visualstudio.com/), een bron platformoverschrijdende code-editor, samen met de [hulpprogramma's voor Azure IoT](https://aka.ms/azure-iot-tools) -uitbreidingspakket.
+
+U wordt de DevKit verbinden met een Azure IoT-hub die u maakt. Vervolgens de temperatuur en vochtigheid gegevens verzamelen van sensoren en de gegevens verzenden naar de IoT-hub.
 
 Heb je nog een DevKit? Probeer de [DevKit simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) of [aanschaffen van een DevKit](https://aka.ms/iot-devkit-purchase).
 
@@ -119,7 +121,9 @@ Druk op de knop B voor het testen van de sensoren. Indrukken en loslaten van de 
 
 ### <a name="install-azure-iot-tools"></a>Azure IoT-hulpprogramma's installeren
 
-Het is raadzaam [hulpprogramma's voor Azure IoT](https://aka.ms/azure-iot-tools) -uitbreidingspakket voor Visual Studio Code ontwikkelen op de DevKit. De Azure IoT-hulpprogramma's bevat [Azure IoT-apparaat Workbench](https://aka.ms/iot-workbench) ontwikkelen en fouten opsporen op verschillende apparaten voor IoT devkit en [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit) kunnen beheren en gebruiken met Azure IoT Hub.
+In deze sectie, installeert u de [Arduino IDE](https://www.arduino.cc/en/Main/Software) samen met [Visual Studio Code](https://code.visualstudio.com/), een platformoverschrijdende broncode-editor.
+
+Installeert u ook de [hulpprogramma's voor Azure IoT](https://aka.ms/azure-iot-tools) -uitbreidingspakket voor Visual Studio Code. Wordt u aangeraden [hulpprogramma's voor Azure IoT](https://aka.ms/azure-iot-tools) -uitbreidingspakket voor Visual Studio-Code voor het ontwikkelen van toepassingen op de DevKit. De hulpprogramma's voor Azure IoT-extensie-pack bevat de [Azure IoT-apparaat Workbench](https://aka.ms/iot-workbench) die wordt gebruikt om te ontwikkelen en fouten opsporen op verschillende IoT devkit-apparaten. De [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit), ook worden opgenomen met het hulpprogramma's voor Azure IoT-extensie-pack, wordt gebruikt voor het beheren van en interactie met Azure IoT Hubs.
 
 U kunt controleren of deze [Channel 9](https://channel9.msdn.com/) video's naar het overzicht over wat ze doen hebt:
 * [Inleiding tot de nieuwe IoT-Workbench-extensie voor VS Code](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code)

@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Een cluster van Azure Data Explorer en -database maken met behulp van Python'
-description: Informatie over het maken van een cluster van Azure Data Explorer en -database met behulp van de Python
+description: Informatie over het maken van een cluster van Azure Data Explorer en -database met behulp van Python
 services: data-explorer
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: 4f87c5996ea323c26c32c1680ba6f627bf8f95c2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: db6064feb379bf7da4f2c2e6417583c3d8b8b0d3
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287515"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417884"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Een cluster van Azure Data Explorer en -database maken met behulp van Python
 
@@ -25,11 +25,11 @@ ms.locfileid: "58287515"
 > * [Python](create-cluster-database-python.md)
 >  
 
-In deze Quick Start wordt beschreven hoe u een cluster van Azure Data Explorer en -database maken met behulp van Python.
+Azure Data Explorer is een snelle, volledig beheerde service voor gegevensanalyses waarmee grote hoeveelheden gegevens van toepassingen, websites, IoT-apparaten en dergelijke in real-time kunnen worden geanalyseerd. Als u Azure Data Explorer wilt gebruiken, maakt u eerst een cluster. Daarna maakt u een of meer databases in het cluster. De volgende stap is het opnemen (laden) van gegevens in een database, zodat u er query's op kunt uitvoeren. In deze snelstartgids maakt u een cluster en een database met behulp van Python.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een Azure-abonnement nodig om deze snelstart te voltooien. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 
 ## <a name="install-python-package"></a>Python-pakket installeren
 
@@ -53,9 +53,9 @@ pip install azure-mgmt-kusto
 
     Er zijn aanvullende optionele parameters die u kunt gebruiken, zoals de capaciteit van het cluster.
     
-    'Referenties' aan uw referenties instellen (Zie voor meer informatie https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python )
+1. Stel [ *uw referenties*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 
-2. Voer de volgende opdracht uit om te controleren of het cluster is gemaakt:
+1. Voer de volgende opdracht uit om te controleren of het cluster is gemaakt:
 
     ```Python
     cluster_operations.get(resource_group_name = resource_group_name, cluster_name= clusterName, custom_headers=None, raw=False)
@@ -91,7 +91,7 @@ Als het resultaat `provisioningState` met waarde `Succeeded` bevat, is het maken
    | soft_delete_period | *3650 dagen, 0:00:00 uur* | Hoe lang gegevens worden opgeslagen om query's erop te kunnen uitvoeren. |
    | hot_cache_period | *3650 dagen, 0:00:00 uur* | Hoe lang gegevens worden opgeslagen in de cache. |
 
-2. Voer de volgende opdracht uit om de database te bekijken die u hebt gemaakt:
+1. Voer de volgende opdracht uit om de database te bekijken die u hebt gemaakt:
 
     ```Python
     database_operations.get(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName)

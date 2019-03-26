@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 4fa681e800197ea241ba1c6cf2180ba04b6e565b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 6bd1d24cdece91265a7355678ea2bc0b0f9e3910
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092577"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439155"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Dynamische siteversnelling via Azure CDN
 
@@ -27,7 +27,7 @@ Met de explosie van sociale media, e-commerce en de hyper-gepersonaliseerde web,
 
 Standard content delivery network (CDN) mogelijkheid biedt de mogelijkheid te cachebestanden dichter bij te stellen aan eindgebruikers om de levering van statische bestanden te versnellen. Echter met dynamische webtoepassingen die inhoud in edge-locaties opslaan in cache is niet mogelijk omdat de server de inhoud in reactie op gebruikersgedrag genereert. Versnellen van de levering van deze inhoud is complexer dan traditionele edge opslaan in cache en vereist een end-to-end-oplossing die geoptimaliseerd op elk element in het hele gegevenspad van begin tot levering. Met Azure CDN dynamic site acceleration (DSA) optimalisatie, is de prestaties van webpagina's met dynamische inhoud merkbaar verbeterd.
 
-**Azure CDN van Akamai** en **Azure CDN van Verizon** bieden allebei DSA optimalisatie via de **geoptimaliseerd voor** menu tijdens het maken van het eindpunt.
+**Azure CDN van Akamai** en **Azure CDN van Verizon** bieden allebei DSA optimalisatie via de **geoptimaliseerd voor** menu tijdens het maken van het eindpunt. Dynamische siteversnelling van Microsoft wordt aangeboden [Azure voordeur Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 > [!Important]
 > Voor **Azure CDN van Akamai** profielen, u mag de optimalisatie van een CDN-eindpunt wijzigen nadat deze is gemaakt.
@@ -109,9 +109,9 @@ TCP *start langzaam* is een algoritme van de TCP-protocol waarmee wordt voorkome
 
 1. Status en de bewaking van de bandbreedte wordt gebruikt voor het meten van de bandbreedte van verbindingen tussen edge PoP-servers.
     
-2. Metrische gegevens worden gedeeld tussen PoP randservers, zodat elke server op de hoogte van de netwerkomstandigheden en de status van de andere POP's om ze is.  
+2. Metrische gegevens worden gedeeld tussen PoP randservers, zodat elke server op de hoogte van de netwerkomstandigheden en de status van de andere POP's om ze is.  
     
-3. Veronderstellingen over sommige overdracht-parameters, zoals de optimale venstergrootte moet bij het communiceren met andere CDN edge-servers in de nabijheid van het CDN edge-servers. Deze stap betekent dat de grootte van het eerste opstoppingen in het venster kan worden verhoogd als de status van de verbinding tussen het CDN edge-servers geschikt voor hogere pakket voor de overdracht van gegevens is.  
+3. Veronderstellingen over sommige overdracht-parameters, zoals de optimale venstergrootte moet bij het communiceren met andere CDN edge-servers in de nabijheid van het CDN edge-servers. Deze stap betekent dat de grootte van het eerste opstoppingen in het venster kan worden verhoogd als de status van de verbinding tussen het CDN edge-servers geschikt voor hogere pakket voor de overdracht van gegevens is.  
 
 #### <a name="leveraging-persistent-connections"></a>Gebruik te maken van permanente verbindingen
 
@@ -145,7 +145,7 @@ Deze functie automatisch kwaliteit netwerk gecontroleerd en JPEG-compressie stan
 
 Adaptieve afbeeldingscompressie | Bestandsextensies  
 --- | ---  
-JPEG-compressie | JPG, JPEG, .jpe, .jig, .jgig, .jgi
+JPEG-compressie | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
 
 ## <a name="caching"></a>Caching
 
@@ -157,7 +157,7 @@ Voor **Azure CDN Standard van Verizon** en **Azure CDN Standard van Akamai** pro
 
 Voor toegang tot de regels voor opslaan in cache:
 
-1. Uit de **CDN-profiel** pagina, onder instellingen, selecteer **regels voor Caching**.  
+1. Uit de **CDN-profiel** pagina, onder instellingen, selecteer **regels voor Caching**.  
     
     ![Knop Regels voor CDN-caching](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -169,7 +169,7 @@ Voor **Azure CDN Premium van Verizon** profielen alleen inschakelen in cache ops
 
 Voor toegang tot de regelengine:
     
-1. Uit de **CDN-profiel** weergeeft, schakelt **beheren**.  
+1. Uit de **CDN-profiel** weergeeft, schakelt **beheren**.  
     
     ![Knop voor CDN-profiel beheren](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
@@ -183,7 +183,7 @@ Voor toegang tot de regelengine:
 
 U kunt ook twee CDN-eindpunten gebruiken: één eindpunt geoptimaliseerd met DSA leveren dynamische activa en een ander eindpunt geoptimaliseerd met een statische optimalisatietype, zoals algemene webweergave levering gecachet kan worden activa. Wijzig de URL van uw webpagina directe koppeling naar de activa op het CDN-eindpunt dat u van plan bent te gebruiken. 
 
-Bijvoorbeeld: `mydynamic.azureedge.net/index.html` is een dynamische pagina en wordt geladen vanuit de DSA-eindpunt.  De html-pagina verwijst naar meerdere statische assets zoals JavaScript-bibliotheken of installatiekopieën die worden geladen vanuit de statische CDN-eindpunt, zoals `mystatic.azureedge.net/banner.jpg` en `mystatic.azureedge.net/scripts.js`. 
+Bijvoorbeeld: `mydynamic.azureedge.net/index.html` is een dynamische pagina en wordt geladen vanuit de DSA-eindpunt.  De html-pagina verwijst naar meerdere statische assets zoals JavaScript-bibliotheken of installatiekopieën die worden geladen vanuit de statische CDN-eindpunt, zoals `mystatic.azureedge.net/banner.jpg` en `mystatic.azureedge.net/scripts.js`. 
 
 
 

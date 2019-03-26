@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 03/26/2019
 ms.author: raynew
-ms.openlocfilehash: 2fe2e972d16bdb27c5d2fbd2d552dac825235b6d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 0070edf007399fff1f12f483b9ca552a755b53fb
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286462"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436588"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -63,7 +63,7 @@ Site Recovery biedt ondersteuning voor replicatie van alle werkbelasting die wor
 **Onderdeel** | **Details**
 --- | ---
 Instellingen van de computer | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#azure-vm-requirements).
-Machine-werkbelasting | Site Recovery biedt ondersteuning voor replicatie van elke workload (bijvoorbeeld Active Directory, SQL server, enzovoort) die worden uitgevoerd op een ondersteunde machine. Voor meer informatie, klikt u op [hier](https://aka.ms/asr_workload)
+Machine-werkbelasting | Site Recovery biedt ondersteuning voor replicatie van elke workload (bijvoorbeeld Active Directory, SQL server, enzovoort) die worden uitgevoerd op een ondersteunde machine. [Meer informatie](https://aka.ms/asr_workload).
 Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. </br></br>  [Windows Server 2008 met op minste SP2 - 32-bits en 64-bits](migrate-tutorial-windows-server-2008.md) (alleen voor de migratie). </br></br> Windows 2016 Nano Server wordt niet ondersteund.
 Architectuur van de Linux-besturingssysteem | Alleen 64-bits systeem wordt ondersteund. 32-bits systeem wordt niet ondersteund.
 Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2-5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0-7,6 <br/><br/>CentOS: 5.2-5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0-7,6 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versies ondersteund)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6,8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/></br>-Upgrade uitvoeren voor gerepliceerde machines van SUSE Linux Enterprise Server 11 SP3 naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.</br></br> - [Meer informatie](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) over ondersteuning voor Linux en open source-technologie in Azure. Site Recovery deelt failover voor Linux-servers uitvoeren in Azure. Linux-leveranciers kunnen echter ondersteuning om alleen distributie-versies die nog niet hebt bereikt einde van de levenscyclus te beperken.<br/><br/> -In Linux-distributies, worden alleen de voorraad kernels die deel van de release-distributiepunt secundaire versie/update uitmaken ondersteund.<br/><br/> -Upgrade uitvoeren voor beveiligde machines over belangrijke Linux distributie versies wordt niet ondersteund. Als u wilt bijwerken, schakelt u replicatie uit, werk het besturingssysteem en schakelt u de replicatie opnieuw.<br/><br/> -Servers met Red Hat Enterprise Linux 5.2-5,11 of CentOS 5.2-5,11 moeten beschikken over de [onderdelen van Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) geïnstalleerd voor de machines om op te starten in Azure.
@@ -154,7 +154,7 @@ Multi-NIC | Ja
 Gereserveerde IP-adressen | Ja
 IPv4 | Ja
 Bron-IP-adres behouden | Ja
-Azure Virtual Network-service-eindpunten<br/> (zonder Azure Storage-firewalls) | Ja
+Azure Virtual Network-service-eindpunten<br/> | Ja
 Versneld netwerken | Nee
 
 ## <a name="storage"></a>Opslag
@@ -203,7 +203,7 @@ Blok-blobs | Nee
 Versleuteling-at-rest (Storage Service Encryption)| Ja
 Premium Storage | Ja
 Import/export-service | Nee
-Azure Storage-firewalls voor virtuele netwerken die zijn geconfigureerd voor opslag/cache-opslagaccount voor het doel (gebruikt voor het opslaan van replicatiegegevens) | Nee
+Azure Storage-firewalls voor virtuele netwerken die zijn geconfigureerd voor opslag/cache-opslagaccount voor het doel (gebruikt voor het opslaan van replicatiegegevens) | Ja
 Opslagaccounts voor algemeen gebruik v2 (zowel warme als koude lagen) | Nee
 
 ## <a name="azure-compute"></a>Azure-rekenen
@@ -266,11 +266,11 @@ Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen<br/><br/> Binnen 
 
 **Naam** | **Beschrijving** | **Meest recente versie downloadinstructies**
 --- | --- | --- 
-Configuratieserver | Coördineert de communicatie tussen on-premises VMware-servers en Azure <br/><br/> Geïnstalleerd op de on-premises VMware-servers | Nieuwe installatie, klikt u op [hier](vmware-azure-deploy-configuration-server.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-Processerver|standaard geïnstalleerd op de configuratieserver. Deze ontvangt replicatiegegevens; Met caching, compressie en versleuteling, optimaliseert en verzendt dit naar Azure Storage. Naarmate uw implementatie groeit, kunt u extra, afzonderlijk processervers voor het afhandelen van grotere hoeveelheden replicatieverkeer kunt toevoegen.| Nieuwe installatie, klikt u op [hier](vmware-azure-set-up-process-server-scale.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-Mobility-Service | Coördineert de replicatie tussen on-premises VMware-servers/fysieke servers en Azure/secundaire site<br/><br/> Geïnstalleerd op de VM met VMware of fysieke servers die u wilt repliceren | Nieuwe installatie, klikt u op [hier](vmware-azure-install-mobility-service.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-physical-mobility-service-overview.md##update-mobility-service-from-azure-portal).
+Configuratieserver | Coördineert de communicatie tussen on-premises VMware-servers en Azure <br/><br/> Geïnstalleerd op de on-premises VMware-servers | Voor meer informatie gaat u naar onze richtlijnen op [nieuwe installatie](vmware-azure-deploy-configuration-server.md) en [upgrade van het bestaande onderdeel om de meest recente versie](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Processerver|standaard geïnstalleerd op de configuratieserver. Deze ontvangt replicatiegegevens; Met caching, compressie en versleuteling, optimaliseert en verzendt dit naar Azure Storage. Naarmate uw implementatie groeit, kunt u extra, afzonderlijk processervers voor het afhandelen van grotere hoeveelheden replicatieverkeer kunt toevoegen.| Voor meer informatie gaat u naar onze richtlijnen op [nieuwe installatie](vmware-azure-set-up-process-server-scale.md) en [upgrade van het bestaande onderdeel om de meest recente versie](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+Mobility-Service | Coördineert de replicatie tussen on-premises VMware-servers/fysieke servers en Azure/secundaire site<br/><br/> Geïnstalleerd op de VM met VMware of fysieke servers die u wilt repliceren | Voor meer informatie gaat u naar onze richtlijnen op [nieuwe installatie](vmware-azure-install-mobility-service.md) en [upgrade van het bestaande onderdeel om de meest recente versie](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal).
 
-Voor meer informatie over de nieuwste functies en verbeteringen, klikt u op [hier](https://aka.ms/ASR_latest_release_notes).
+Voor meer informatie over de nieuwste functies, gaat u naar [nieuwste opmerkingen bij de release](https://aka.ms/ASR_latest_release_notes).
 
 
 ## <a name="next-steps"></a>Volgende stappen

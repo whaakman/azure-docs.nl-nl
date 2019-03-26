@@ -9,14 +9,14 @@ keywords: Azure functions, functies, gebeurtenisverwerking, webhooks, dynamisch 
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 030/25/2019
 ms.author: cshoe
-ms.openlocfilehash: d3da5cc9e0eff27fde6bcd503c033db12f49371e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767699"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439325"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategieën voor het testen van uw code in Azure Functions
 
@@ -44,7 +44,7 @@ Als u uw omgeving instelt, een functie maken en testen van de app. De volgende s
 2. [Een HTTP-functie maken vanuit de sjabloon](./functions-create-first-azure-function.md) en noem het *HttpTrigger*.
 3. [Een timerfunctie maken vanuit de sjabloon](./functions-create-scheduled-function.md) en noem het *TimerTrigger*.
 4. [Maken van een Test-app met xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) in Visual Studio door te klikken op **bestand > Nieuw > Project > Visual C# > .NET Core > xUnit testproject** en noem het *Functions.Test*. 
-5. Nuget gebruiken om toe te voegen een verwijzingen van de app test [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) en [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+5. Nuget gebruiken om toe te voegen een verwijzingen van de app test [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Naslaginformatie over de *functies* app](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) van *Functions.Test* app.
 
 ### <a name="create-test-classes"></a>Test klassen maken
@@ -55,11 +55,28 @@ Elke functie heeft een exemplaar van [ILogger](https://docs.microsoft.com/dotnet
 
 De `ListLogger` klasse is bedoeld voor het implementeren van de `ILogger` interface en houdt in de interne lijst met berichten voor de evaluatie tijdens een test.
 
-**Met de rechtermuisknop op** op de *Functions.Test* toepassing en selecteer **toevoegen > klasse**, geef deze de naam **ListLogger.cs** en voer de volgende code:
+**Met de rechtermuisknop op** op de *Functions.Test* toepassing en selecteer **toevoegen > klasse**, geef deze de naam **NullScope.cs** en voer de volgende code:
+
+```csharp
+using System;
+
+namespace Functions.Tests
+{
+    public class NullScope : IDisposable
+    {
+        public static NullScope Instance { get; } = new NullScope();
+
+        private NullScope() { }
+
+        public void Dispose() { }
+    }
+}
+```
+
+Volgende **met de rechtermuisknop op** op de *Functions.Test* toepassing en selecteer **toevoegen > klasse**, geef deze de naam **ListLogger.cs** en voer de de volgende code:
 
 ```csharp
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions.Internal;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -94,7 +111,7 @@ namespace Functions.Tests
 
 De `ListLogger` de volgende leden van de klasse wordt geïmplementeerd als aangegaan door de `ILogger` interface:
 
-- **BeginScope**: Scopes toevoegen context aan uw registratie. In dit geval de test alleen wijst naar het statische exemplaar op de [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) klasse waarmee de test om te functie.
+- **BeginScope**: Scopes toevoegen context aan uw registratie. In dit geval de test alleen wijst naar het statische exemplaar op de `NullScope` klasse waarmee de test om te functie.
 
 - **IsEnabled**: Een standaardwaarde van `false` wordt geleverd.
 

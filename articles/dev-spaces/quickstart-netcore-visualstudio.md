@@ -1,116 +1,131 @@
 ---
-title: Maak een Kubernetes-dev-ruimte in de cloud
+title: Ontwikkelen met .NET Core in AKS met Azure Dev-ruimten en Visual Studio 2017
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.custom: vs-azure
-ms.workload: azure-vs
+ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: 07/09/2018
+ms.date: 03/22/2019
 ms.topic: quickstart
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: 972a3f86e08d60db5a16ea505cb3fe446516c87e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
+manager: jeconnoc
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.openlocfilehash: 0ae2b264e689270743bc8e4aa5024a4b99eb6626
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770115"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418836"
 ---
-# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Quickstart: Kubernetes-ontwikkelomgeving maken met Azure Dev Spaces (.NET Core en Visual Studio)
+# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Quickstart: Ontwikkelen met .NET Core in Kubernetes met Azure Dev spaties (Visual Studio 2017)
 
 In deze handleiding leert u het volgende:
 
 - Azure Dev Spaces instellen met een beheerd Kubernetes-cluster in Azure.
-- Iteratief code ontwikkelen in containers met Visual Studio.
-- Fouten opsporen in code die in uw cluster wordt uitgevoerd.
-
-> [!Note]
-> **Als u op enig moment niet verder kunt**, kunt u de [probleemoplossingssectie](troubleshooting.md) raadplegen of een opmerking op deze pagina plaatsen. U kunt ook de meer gedetailleerde [zelfstudie](get-started-netcore-visualstudio.md) proberen.
+- Ontwikkel iteratief code in containers met behulp van Visual Studio 2017.
+- Fouten opsporen in code die wordt uitgevoerd in uw cluster met behulp van Visual Studio 2017.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een Kubernetes-cluster met Kubernetes 1.9.6 of hoger in de regio VS-Oost, VS-Oost2, VS-Centraal, VS-West2, Europa-West, Azië-Centraal, Canada-Centraal of Canada-Oost.
+- Een Azure-abonnement. Als u nog geen account hebt, kunt u [een gratis account aanmaken](https://azure.microsoft.com/free).
+- Visual Studio 2017 op Windows met de ontwikkeling van Web-werkbelasting geïnstalleerd. Als u deze niet hebt geïnstalleerd, downloadt u deze [hier](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- [Visual Studio-hulpprogramma's voor Kubernetes](https://aka.ms/get-vsk8stools) geïnstalleerd.
 
-- Visual Studio 2017 waarbij de workload Webontwikkeling is geïnstalleerd. Als u deze niet hebt geïnstalleerd, downloadt u deze [hier](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Een Azure Kubernetes Service-cluster maken
 
-## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces instellen
+Moet u een AKS-cluster in een [ondersteunde regio](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Een cluster maken:
 
-Installeer [Visual Studio Tools voor Kubernetes](https://aka.ms/get-vsk8stools).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com)
+1. Selecteer *+ een resource maken > Kubernetes-Service*. 
+1. Voer de _abonnement_, _resourcegroep_, _Kubernetes-clusternaam_, _regio_, _Kubernetes-versie_, en _DNS-naamvoorvoegsel_.
 
-## <a name="connect-to-a-cluster"></a>Verbinding maken met een cluster
+    ![Maken van AKS in de Azure-portal](media/get-started-netcore-visualstudio/create-aks-portal.png)
 
-Vervolgens maakt en configureert u een project voor Azure Dev Spaces.
+1. Klik op *Controleren + maken*.
+1. Klik op *Create*.
 
-### <a name="create-an-aspnet-web-app"></a>Een ASP.NET-web-app maken
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Azure Dev spaties inschakelen in uw AKS-cluster
 
-Maak een nieuw project in Visual Studio 2017. Op dit moment moet het project een **ASP.NET Core-webtoepassing** zijn. Geef het project de naam **webfrontend**.
+Navigeer naar uw AKS-cluster in Azure portal en klikt u op *Dev spaties*. Wijziging *inschakelen Dev spaties* naar *Ja* en klikt u op *opslaan*.
 
-Selecteer de sjabloon **Web Application (Model-View-Controller)** en zorg dat **.NET Core** en **ASP.NET Core 2.0** zijn geselecteerd.
+![Ontwikkel spaties inschakelen in Azure portal](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
 
-### <a name="enable-dev-spaces-for-an-aks-cluster"></a>Dev Spaces inschakelen voor een AKS-cluster
+## <a name="create-a-new-aspnet-web-app"></a>Een nieuwe ASP.NET-web-app maken
 
-Met het project dat u zojuist hebt gemaakt, selecteert u **Azure Dev Spaces** in de vervolgkeuzelijst met opstartinstellingen, zoals hieronder wordt weergegeven.
+1. Open Visual Studio 2017.
+1. Een nieuw project maken.
+1. Kies *ASP.NET Core-webtoepassing* en geef uw project de naam *webfrontend*.
+1. Klik op *OK*.
+1. Wanneer u hierom wordt gevraagd, kiest u *webtoepassing (Model-View-Controller)* voor de sjabloon.
+1. Selecteer *.NET Core* en *ASP.NET Core 2.0* aan de bovenkant.
+1. Klik op *OK*.
+
+## <a name="connect-your-project-to-your-dev-space"></a>Verbinding maken met uw project naar uw dev-ruimte
+
+Selecteer in het project, **Azure Dev spaties** in de vervolgkeuzelijst van de instellingen starten zoals hieronder wordt weergegeven.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
-Controleer in het dialoogvenster dat vervolgens wordt weergegeven of u bent aangemeld bij het juiste account en selecteer vervolgens een bestaand cluster.
+Selecteer in het dialoogvenster Azure Dev spaties uw *abonnement* en *Azure Kubernetes-Cluster*. Laat *ruimte* ingesteld op *standaard* en schakel de *openbaar toegankelijke* selectievakje. Klik op *OK*.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
-Laat de waarde in de vervolgkeuzelijst **Space** voorlopig op `default` staan. Schakel het selectievakje **Publicly Accessible** in zodat de web-app toegankelijk is via een openbaar eindpunt.
-
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
-
-Klik op **OK** om het cluster te selecteren of een cluster te maken.
-
-Als u een cluster kiest dat niet is geconfigureerd om te werken met Azure Dev Spaces, ziet u een bericht waarin wordt gevraagd of u dit wilt configureren.
+Dit proces wordt geïmplementeerd voor uw service aan de *standaard* dev ruimte met een openbaar toegankelijke URL. Als u een cluster kiest dat niet is geconfigureerd om te werken met Azure Dev Spaces, ziet u een bericht waarin wordt gevraagd of u dit wilt configureren. Klik op *OK*.
 
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
-Kies **OK**. 
+De openbare URL voor de service wordt uitgevoerd de *standaard* dev ruimte wordt weergegeven in de *uitvoer* venster:
 
-### <a name="look-at-the-files-added-to-project"></a>Bestanden bekijken die zijn toegevoegd aan het project
-Terwijl u wacht totdat de ontwikkelomgeving is gemaakt, kunt u bekijken welke bestanden aan het project zijn toegevoegd toen u ervoor koos om een Azure Dev Spaces te gebruiken.
+```cmd
+Starting warmup for project 'webfrontend'.
+Waiting for namespace to be provisioned.
+Using dev space 'default' with target 'MyAKS'
+...
+Successfully built 1234567890ab
+Successfully tagged webfrontend:devspaces-11122233344455566
+Built container image in 39s
+Waiting for container...
+36s
 
-- Een map met de naam `charts` is toegevoegd, en in deze map is een [Helm-grafiek](https://docs.helm.sh) voor de toepassing klaargezet. Deze bestanden worden gebruikt om de toepassing in de ontwikkelomgeving te implementeren.
-- `Dockerfile` bevat gegevens die nodig zijn om van de toepassing een pakket te maken met de standaard-Docker-indeling.
-- `azds.yaml` bevat configuratie over de ontwikkeltijd die de ontwikkelomgeving nodig heeft.
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 80 (http) is available at http://localhost:62266
+Completed warmup for project 'webfrontend' in 125 seconds.
+```
 
-![](media/get-started-netcore-visualstudio/ProjectFiles.png)
+In het bovenstaande voorbeeld wordt de openbare URL is http://webfrontend.1234567890abcdef1234.eus.azds.io/. Navigeer naar de openbare URL van uw service en communiceren met de service wordt uitgevoerd in de adresruimte van uw dev.
 
-## <a name="debug-a-container-in-kubernetes"></a>Fouten opsporen in een Kubernetes-container
-Zodra de ontwikkelomgeving is gemaakt, kunt u fouten oplossen voor de toepassing. Stel een onderbrekingspunt in de code in, bijvoorbeeld op regel 20 in het bestand `HomeController.cs`, waarbij de variabele `Message` wordt ingesteld. Druk op **F5** om de foutopsporing te starten. 
+## <a name="update-code"></a>Code bijwerken
 
-Visual Studio communiceert met de ontwikkelomgeving om de toepassing te compileren en te implementeren. Vervolgens wordt een browser geopend met de web-app. Het lijkt misschien alsof de container lokaal wordt uitgevoerd, maar dat is niet zo. De container wordt uitgevoerd in de ontwikkelomgeving in Azure. De reden voor het localhost-adres is dat Azure Dev Spaces een tijdelijke SSH-tunnel maakt naar de container die wordt uitgevoerd in AKS.
+Als Visual Studio 2017 nog steeds met uw dev-ruimte verbonden is, klikt u op de knop stoppen. Wijzig regel 20 in `Controllers/HomeController.cs` aan:
+    
+```csharp
+ViewData["Message"] = "Your application description page in Azure.";
+```
 
-Klik boven aan de pagina op de koppeling **About** om het onderbrekingspunt te activeren. U hebt volledige toegang tot foutopsporingsgegevens (net als wanneer de code lokaal wordt uitgevoerd), zoals als de aanroep-stack, lokale variabelen, informatie over uitzonderingen, enzovoort.
+Sla uw wijzigingen op en start uw service met **Azure Dev spaties** in de vervolgkeuzelijst start-instellingen. De openbare URL van uw service in een browser en klik op openen *over*. Bekijk of uw bijgewerkte bericht wordt weergegeven.
 
+In plaats van opnieuw te bouwen en opnieuw implementeren van een nieuwe containerinstallatiekopie telkens wanneer de code wijzigingen zijn aangebracht, Azure Dev spaties incrementeel gecompileerd code binnen de bestaande container voor een snellere bewerken/debug-lus.
 
-## <a name="iteratively-develop-code"></a>Code iteratief ontwikkelen
+## <a name="setting-and-using-breakpoints-for-debugging"></a>Instellen en het gebruik van onderbrekingspunten voor foutopsporing
 
-Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
+Als Visual Studio 2017 nog steeds met uw dev-ruimte verbonden is, klikt u op de knop stoppen. Open `Controllers/HomeController.cs` en klik ergens op regel 20 en plaats de cursor bevat. Om in te stellen van een onderbrekingspunt bereikt *F9* of klik op *Debug* vervolgens *onderbrekingspunt*. Voor het starten van uw service in de foutopsporingsmodus in de adresruimte van uw dev, bereikt *F5* of klik op *Debug* vervolgens *Start Debugging*.
 
-### <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
-1. Zoek het bestand `./Views/Home/Index.cshtml` en bewerk de HTML-code. Wijzig bijvoorbeeld regel 70 waar `<h2>Application uses</h2>` staat in iets als: `<h2>Hello k8s in Azure!</h2>`
-1. Sla het bestand op.
-1. Ga naar de browser en vernieuw de pagina. De bijgewerkte HTML-code wordt op de webpagina weergegeven.
+Open uw service in een browser en er geen bericht wordt weergegeven. Ga terug naar Visual Studio 2017 en bekijk regel 20 is gemarkeerd. Het onderbrekingspunt die u instelt, heeft de service op regel 20 onderbroken. Hervat de service, bereikt *F5* of klik op *Debug* vervolgens *doorgaan*. Ga terug naar uw browser en u ziet dat het bericht wordt nu weergegeven.
 
-Wat is er gebeurd? Voor bewerkingen van inhoudsbestanden, zoals HTML en CSS, hoeft een .NET Core-web-app niet opnieuw te worden gecompileerd. Tijdens een actieve F5-sessie worden alle gewijzigde inhoudsbestanden dus automatisch gesynchroniseerd in de actieve container in AKS, zodat u de bewerkingen van de inhoud direct kunt zien.
+Tijdens het uitvoeren van uw service in Kubernetes met een foutopsporingsprogramma die is gekoppeld, hebt u volledige toegang tot informatie zoals de aanroepstack, lokale variabelen en informatie over de uitzondering voor foutopsporing.
 
-### <a name="update-a-code-file"></a>Een codebestand bijwerken
-Het bijwerken van codebestanden vereist iets meer werk, omdat een .NET Core-app bijgewerkte binaire toepassingsbestanden moet bouwen en produceren.
+Het onderbrekingspunt verwijderen door de cursor op regel 20 in `Controllers/HomeController.cs` en op *F9*.
 
-1. Stop de foutopsporing in Visual Studio.
-1. Open het codebestand met de naam `Controllers/HomeController.cs` en bewerk het bericht dat op de pagina Info wordt weergegeven: `ViewData["Message"] = "Your application description page.";`
-1. Sla het bestand op.
-1. Druk op **F5** als u de foutopsporing weer wilt starten. 
+## <a name="clean-up-your-azure-resources"></a>Opschonen van uw Azure-resources
 
-In plaats van telkens als codewijzigingen zijn aangebracht een nieuwe containerinstallatiekopie opnieuw te bouwen en opnieuw te implementeren, wat vaak behoorlijk wat tijd kost, hercompileert Azure Dev Spaces incrementeel code binnen de bestaande container voor een snellere bewerkings-/foutopsporingslus.
+Navigeer naar de resourcegroep in Azure portal en klikt u op *resourcegroep verwijderen*. U kunt ook kunt u de [az aks verwijderen](/cli/azure/aks#az-aks-delete) opdracht:
 
-Vernieuw de web-app in de browser en ga naar de pagina Info. U ziet dat uw aangepaste bericht wordt weergegeven in de gebruikersinterface.
-
+```cmd
+az group delete --name MyResourceGroup --yes --no-wait
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

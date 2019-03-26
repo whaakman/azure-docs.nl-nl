@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: f685521adbbd8b9be9128ff77ab38b42860518b6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351045"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439293"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Traceringsberichten Azure IoT-apparaat-naar-cloud met gedistribueerde tracering (preview)
 
@@ -174,7 +174,7 @@ Deze instructies zijn voor het bouwen van het voorbeeld op Windows. Zie voor and
 
 Er **niet trivial** om een voorbeeld van de functie voor gedistribueerde tracering zonder gebruik van de C-SDK. Deze methode wordt daarom niet aanbevolen.
 
-Eerst moet u alle primitieven van de IoT Hub-protocol in uw berichten implementeren door de dev-handleiding [maken en lezen IoT Hub-berichten](iot-hub-devguide-messages-construct.md). Wijzig de eigenschappen voor protocol in de de berichten MQTT/AMQP om toe te voegen `tracestate` als **systeemeigenschap**. Met name:
+Eerst moet u alle primitieven van de IoT Hub-protocol in uw berichten implementeren door de dev-handleiding [maken en lezen IoT Hub-berichten](iot-hub-devguide-messages-construct.md). Wijzig de eigenschappen voor protocol in de berichten MQTT/AMQP om toe te voegen `tracestate` als **systeemeigenschap**. Met name:
 
 * Voeg voor MQTT, `%24.tracestate=timestamp%3d1539243209` naar het onderwerp bericht waar `1539243209` moet worden vervangen door de aanmaaktijd van het bericht in de notatie van de unix-tijdstempel. Als u bijvoorbeeld verwijzen naar de implementatie [in de C-SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
 * Voeg voor AMQP, `key("tracestate")` en `value("timestamp=1539243209")` als aantekening bericht. Zie voor een implementatie ter referentie [hier](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).

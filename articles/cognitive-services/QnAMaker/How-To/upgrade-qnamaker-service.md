@@ -1,24 +1,38 @@
 ---
 title: Upgrade uw QnA Maker-service - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: U kunt kiezen om bij te werken van afzonderlijke onderdelen van de QnA Maker-stack nadat de initiële is gemaakt.
+description: Delen of upgrade van uw services QnA Maker om de resources beter beheren.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/25/2019
 ms.author: tulasim
-ms.openlocfilehash: e37a903112f30917ff5051305bb2144981de1c9d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cb38fdcfa8cbbfa0b90141c2de2280ff1ef08c3b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883267"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437984"
 ---
-# <a name="upgrade-your-qna-maker-service"></a>Een upgrade uw QnA Maker-service uitvoeren
+# <a name="share-or-upgrade-your-qna-maker-service"></a>Delen of upgrade uw QnA Maker-service
+Delen of upgrade van uw services QnA Maker om de resources beter beheren. 
+
 U kunt kiezen om bij te werken van afzonderlijke onderdelen van de QnA Maker-stack nadat de initiële is gemaakt. Bekijk de details van de afhankelijke onderdelen en de SKU-selectie [hier](https://aka.ms/qnamaker-docs-capacity).
+
+## <a name="share-existing-services-with-qna-maker"></a>Bestaande services delen met QnA Maker
+
+QnA Maker maakt verschillende Azure-resources. Als u wilt beperken management en profiteren van de kosten delen, gebruik de volgende tabel om te begrijpen wat u wel en niet delen:
+
+|Service|Delen|
+|--|--|
+|Cognitive Services|X|
+|App Service-abonnement|✔|
+|App Service|X|
+|Application Insights|✔|
+|Zoekservice|✔|
 
 ## <a name="upgrade-qna-maker-management-sku"></a>QnA Maker Management SKU upgraden
 

@@ -1,5 +1,5 @@
 ---
-title: Eenvoudige query-voorbeelden - Azure Search
+title: Met de syntaxis 'eenvoudige' search - Azure Search-queryvoorbeelden
 description: Voorbeelden van eenvoudige query voor zoeken in volledige tekst, filter, zoeken, geo zoeken, facetzoekopdrachten en andere queryreeksen gebruikt om te vragen van een Azure Search-index.
 author: HeidiSteen
 manager: cgronlun
@@ -7,17 +7,17 @@ tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9b7147971bd320a11606a93ab4d988e924cf93b2
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136475"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439109"
 ---
-# <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Voorbeelden van eenvoudige syntaxis voor het bouwen van query's in Azure Search
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Met behulp van de zoeksyntaxis 'eenvoudige' in Azure Search-queryvoorbeelden
 
 [Vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) roept de queryparser standaard voor het uitvoeren van volledige-tekstquery's op basis van een Azure Search-index. De eenvoudige query analyzer is snel en veelvoorkomende scenario's in Azure Search, met inbegrip van zoeken in volledige tekst, gefilterd en meervoudige zoeken en geografische locaties zoeken verwerkt. In dit artikel wordt stapsgewijs door voorbeelden demonstreren querybewerkingen beschikbaar wanneer u de eenvoudige syntaxis.
 
@@ -55,7 +55,9 @@ Samenstelling van de URL heeft de volgende elementen:
 
 ## <a name="send-your-first-query"></a>Uw eerste query verzenden
 
-Als verificatiestap, plak de volgende aanvraag ophalen en klikt u op **verzenden**. Resultaten worden geretourneerd als uitgebreide JSON-documenten. U kunt kopiëren en plakken deze URL in het eerste voorbeeld hieronder.
+Als verificatiestap, plak de volgende aanvraag ophalen en klikt u op **verzenden**. Resultaten worden geretourneerd als uitgebreide JSON-documenten. Volledige-documenten worden geretourneerd, kunt u alle velden en alle waarden bekijken.
+
+Plak deze URL in een REST-client als validatiestap en weer te geven van de documentstructuur.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
@@ -74,6 +76,20 @@ Voor interactieve query's, u hebt geen op te geven: eenvoudige is de standaardin
 Het eerste voorbeeld is niet-parser-specifieke, maar we ermee leiden om te introduceren de eerste query fundamentele concept: containment. In dit voorbeeld scopes uitvoeren van query's en de reactie op een paar specifieke velden. Weten hoe u een leesbare JSON-antwoord is belangrijk bij het hulpprogramma Postman of Search explorer is. 
 
 Beknopt alternatief, gericht op de query alleen de *business_title* veld en geeft u alleen zakelijke titels worden geretourneerd. De syntaxis is **searchFields** om te beperken van de uitvoering van de query alleen het veld business_title en **Selecteer** om op te geven welke velden zijn opgenomen in het antwoord.
+
+### <a name="partial-query-string"></a>Gedeeltelijke queryreeks
+
+```http
+searchFields=business_title&$select=business_title&search=*
+```
+
+Dit is dezelfde query met meerdere velden in een door komma's gescheiden lijst.
+
+```http
+search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
+```
+
+### <a name="full-url"></a>Volledige URL
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
