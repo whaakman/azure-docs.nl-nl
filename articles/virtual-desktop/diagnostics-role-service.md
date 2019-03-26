@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402844"
+ms.locfileid: "58418632"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Problemen met de diagnostische functie identificeren
 
@@ -32,20 +32,20 @@ Windows virtuele bureaublad diagnostische gegevens slechts één PowerShell-cmdl
 
 ### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>Diagnostische activiteiten in uw tenant ophalen
 
-U kunt diagnostische activiteiten ophalen door in te voeren de **Get-RdsDiagnosticsActivities** cmdlet. Het volgende voorbeeld-cmdlet retourneert een lijst met diagnostische activiteiten, gesorteerd van meest naar minst recente.
+U kunt diagnostische activiteiten ophalen door in te voeren de **Get-RdsDiagnosticActivities** cmdlet. Het volgende voorbeeld-cmdlet retourneert een lijst met diagnostische activiteiten, gesorteerd van meest naar minst recente.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName>
+Get-RdsDiagnosticActivities -TenantName <tenantName>
 ```
 
 Net als andere Windows virtuele bureaublad PowerShell-cmdlets, moet u de **- Tenantnaam** parameter opgeven voor de naam van de tenant die u wilt gebruiken voor uw query. Naam van de tenant is van toepassing voor bijna alle diagnostische activiteit query's.
 
 ### <a name="retrieve-detailed-diagnostic-activities"></a>Gedetailleerde diagnostische activiteiten ophalen
 
-De **-gedetailleerde** parameter bevat aanvullende informatie voor elke diagnostische activiteit die wordt geretourneerd. De indeling voor elke activiteit is afhankelijk van het activiteitstype. De **-gedetailleerde** parameter kan worden toegevoegd aan een **Get-RdsDiagnosticsActivities** opvragen, zoals weergegeven in het volgende voorbeeld.
+De **-gedetailleerde** parameter bevat aanvullende informatie voor elke diagnostische activiteit die wordt geretourneerd. De indeling voor elke activiteit is afhankelijk van het activiteitstype. De **-gedetailleerde** parameter kan worden toegevoegd aan een **Get-RdsDiagnosticActivities** opvragen, zoals weergegeven in het volgende voorbeeld.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
 ```
 
 ### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>Een specifieke diagnostische activiteit door activiteit-ID ophalen

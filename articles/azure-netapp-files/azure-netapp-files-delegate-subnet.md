@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: 6c1a6bf4e7042c28239f57af6b39c0822b63b5e8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768073"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434769"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Een subnet delegeren aan Azure NetApp Files 
 
 U dient een subnet te delegeren aan Azure NetApp Files.   Als u een volume maakt, dient u het gedelegeerde subnet op te geven.
 
-## <a name="about-this-task"></a>Over deze taak
+## <a name="considerations"></a>Overwegingen
 * De wizard voor het maken van een nieuw subnet gaat standaard over in een /24-netwerkmasker, dat 251 beschikbare IP-adressen onderhoudt. Een /28-netwerkmasker, dat 16 bruikbare IP-adressen onderhoudt, is voldoende voor de service.
-* U kunt geen netwerkbeveiligingsgroep of service-eindpunt in het gedelegeerde subnet toewijzen. Als u dit doet, mislukt het delegeren van het subnet.
 * In elk Azure-VNet (virtueel netwerk) kan slechts één subnet worden gedelegeerd aan Azure NetApp Files.
-* Toegang tot een volume vanaf een virtueel netwerk waarvoor een peer is ingesteld, wordt niet ondersteund.
+* U kunt geen netwerkbeveiligingsgroep of service-eindpunt in het gedelegeerde subnet toewijzen. Als u dit doet, mislukt het delegeren van het subnet.
+* Toegang tot een volume van een wereldwijd gekoppelde virtuele netwerk wordt momenteel niet ondersteund.
+* Het maken van [gebruiker gedefinieerde aangepaste routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) op VM-subnetten met adres voorvoegsel (doel) aan een subnet gedelegeerd naar Azure NetApp bestanden wordt niet ondersteund en heeft gevolgen voor VM-connectiviteit.
 
 ## <a name="steps"></a>Stappen 
 1.  Ga in de Azure-portal naar de blade **Virtuele netwerken** en selecteer het virtuele netwerk dat u voor Azure NetApp Files wilt gebruiken.    

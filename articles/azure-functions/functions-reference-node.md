@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: ed91425ca56278eccf21c10db6360b4f770b0660
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d9de47ad83f37fa976c3816a0cb2e3e3beaa5472
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226535"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437574"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -48,7 +48,6 @@ FunctionsProject
  | - host.json
  | - package.json
  | - extensions.csproj
- | - bin
 ```
 
 In de hoofdmap van het project, er is een gedeelde [host.json](functions-host-json.md) -bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een map met een eigen codebestand (.js) en de binding-configuratiebestand (function.json). De naam van `function.json`van bovenliggende map is altijd de naam van uw functie.
@@ -616,6 +615,10 @@ Wanneer u een functie-app die gebruikmaakt van de App Service-plan maakt, wordt 
 ### <a name="cold-start"></a>Koude Start
 
 Bij het ontwikkelen van Azure Functions in de serverloze hostingmodel, koude start worden realiteit. *Koude start* verwijst naar het feit dat wanneer uw functie-app wordt gestart voor het eerst na een periode van inactiviteit, duurt het langer om opnieuw te starten. Voor JavaScript-functies met grote afhankelijkheidsstructuren in het bijzonder kan koude start aanzienlijk zijn. Het proces koude start sneller [uw functies worden uitgevoerd als een pakketbestand](run-functions-from-deployment-package.md) indien mogelijk. Veel implementatiemethoden gebruiken de uitvoering van pakket model standaard, maar als u grote koude starts ondervindt en niet op deze manier worden uitgevoerd, een aanzienlijke verbetering vormt door deze wijziging kan bieden.
+
+### <a name="connection-limits"></a>Verbindingslimieten
+
+Wanneer u een client servicespecifieke in een Azure Functions-toepassing gebruikt, niet een nieuwe client maken met elke functie-aanroep. In plaats daarvan een enkele, statische-client maken in het globale bereik. Zie voor meer informatie, [beheren van verbindingen op Azure Functions](manage-connections.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

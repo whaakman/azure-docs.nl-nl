@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 875f2d9dbbece4e9587462c6e8bdb2b2d8536c86
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c61e606bde4b50fa10c194c76c79a3d8a27a4b8e
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979884"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407688"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Extern bureaublad-Services of de administrator-wachtwoord in een Windows-VM opnieuw instellen
 Als u geen verbinding maken met een Windows virtuele machine (VM), kunt u uw lokale administrator-wachtwoord opnieuw instellen of opnieuw instellen van de extern bureaublad-Services-configuratie (niet ondersteund op Windows-domeincontrollers). Voor het opnieuw instellen van het wachtwoord gebruikt u de Azure-portal of de VM-toegangsextensie in Azure PowerShell. Wanneer u zich bij de VM hebt aangemeld, stelt u het wachtwoord van die lokale beheerder opnieuw in.  
@@ -39,18 +39,19 @@ Eerst aanmelden bij de [Azure-portal](https://portal.azure.com) en selecteer ver
 
 1. Selecteer uw Windows-VM en selecteer vervolgens **wachtwoord opnieuw instellen** onder **ondersteuning + probleemoplossing**. De **wachtwoord opnieuw instellen** venster wordt weergegeven.
 
-1. Selecteer **wachtwoord opnieuw instellen**, voer een gebruikersnaam en wachtwoord en selecteer vervolgens **Update**. 
+2. Selecteer **wachtwoord opnieuw instellen**, voer een gebruikersnaam en wachtwoord en selecteer vervolgens **Update**. 
 
-1. Probeer opnieuw verbinding te maken met uw virtuele machine.
+3. Probeer opnieuw verbinding te maken met uw virtuele machine.
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**De configuratie van extern bureaublad-Services opnieuw instellen**
 
+Dit proces wordt inschakelen van extern bureaublad-service in de virtuele machine en een firewallregel maken voor de standaard-RDP-poort 3389.
+
 1. Selecteer uw Windows-VM en selecteer vervolgens **wachtwoord opnieuw instellen** onder **ondersteuning + probleemoplossing**. De **wachtwoord opnieuw instellen** venster wordt weergegeven. 
 
-1. Selecteer **alleen configuratie opnieuw instellen van** en selecteer vervolgens **Update**. 
+2. Selecteer **alleen configuratie opnieuw instellen van** en selecteer vervolgens **Update**. 
 
-1. Probeer opnieuw verbinding te maken met uw virtuele machine.
-
+3. Probeer opnieuw verbinding te maken met uw virtuele machine.
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>Opnieuw instellen met behulp van de VMAccess-extensie en PowerShell
 

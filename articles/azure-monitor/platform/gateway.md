@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 47b589d32accc4a699e7260b9e4b2de4cca58f2b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 81005c2c95c9cccb32796d1afca4208f5ff8b919
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369612"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437336"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Verbinding maken met computers zonder toegang tot het internet met behulp van de Log Analytics-gateway in Azure Monitor
 
@@ -173,7 +173,7 @@ Zie voor informatie over het ontwerpen en implementeren van een Windows Server 2
 Zie voor informatie over het ontwerpen en implementeren van een Azure Load Balancer, [wat is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Voor het implementeren van een basic load balancer, volg de stappen in deze [snelstartgids](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) met uitzondering van de stappen die worden beschreven in de sectie **maken van back-endservers**.   
 
 > [!NOTE]
-> Configureren van de de Azure Load Balancer met behulp van de **basis-SKU**, vereist dat virtuele Azure-machines deel uitmaken van een Beschikbaarheidsset. Zie voor meer informatie over beschikbaarheidssets, [de beschikbaarheid van Windows virtuele machines in Azure beheren](../../virtual-machines/windows/manage-availability.md). Bestaande virtuele machines toevoegen aan een beschikbaarheidsset, verwijzen naar [ingesteld Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> Configureren van de Azure Load Balancer met behulp van de **basis-SKU**, vereist dat virtuele Azure-machines deel uitmaken van een Beschikbaarheidsset. Zie voor meer informatie over beschikbaarheidssets, [de beschikbaarheid van Windows virtuele machines in Azure beheren](../../virtual-machines/windows/manage-availability.md). Bestaande virtuele machines toevoegen aan een beschikbaarheidsset, verwijzen naar [ingesteld Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
 Nadat de load balancer is gemaakt, moet een back-endgroep worden gemaakt, die wordt gedistribueerd naar een of meer gatewayservers. Volg de stappen in de sectie quickstart-artikel [resources maken voor de load balancer](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  

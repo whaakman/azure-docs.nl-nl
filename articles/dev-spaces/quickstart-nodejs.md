@@ -1,191 +1,213 @@
 ---
-title: Maak een Kubernetes-dev-ruimte in de cloud
+title: Ontwikkelen met Node.js op Kubernetes met Azure Dev spaties
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
+ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: 09/26/2018
+ms.date: 03/22/2019
 ms.topic: quickstart
-description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: 8da401b450438e1640901f26be88620ae8506860
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+description: Snelle ontwikkeling van Kubernetes met containers, microservices en Node.js op Azure
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
+manager: jeconnoc
+ms.openlocfilehash: b95090cf59f0ee84e3a81bf87631df54826c050e
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903280"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418564"
 ---
-# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Quickstart: Kubernetes-dev-ruimte maken met Azure Dev Spaces (Node.js)
+# <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Quickstart: Ontwikkelen met Node.js op Kubernetes met Azure Dev spaties
 
 In deze handleiding leert u het volgende:
 
 - Azure Dev Spaces instellen met een beheerd Kubernetes-cluster in Azure.
-- Iteratief code ontwikkelt in containers met behulp van VS Code en de opdrachtregel.
-- Fouten opsporen in code die in uw cluster wordt uitgevoerd.
-
-> [!Note]
-> **Als u op enig moment niet verder kunt**, kunt u de [probleemoplossingssectie](troubleshooting.md) raadplegen of een opmerking op deze pagina plaatsen. U kunt ook de meer gedetailleerde [zelfstudie](get-started-nodejs.md) proberen.
+- Ontwikkel iteratief code in containers met behulp van Visual Studio Code en de opdrachtregel.
+- Fouten opsporen in de code in de adresruimte van uw dev vanuit Visual Studio Code.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Een Azure-abonnement. Als u geen Azure-abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free) maken.
-- [Visual Studio Code](https://code.visualstudio.com/download).
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) versie 2.0.43 of hoger.
-- Een Kubernetes-cluster met Kubernetes 1.9.6 of hoger in de regio EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral, of CanadaEast.
+- [Visual Studio Code geïnstalleerd](https://code.visualstudio.com/download).
+- De [Azure Dev spaties](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) -extensie voor Visual Studio Code is geïnstalleerd.
+- [Azure CLI geïnstalleerd](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-    ```cmd
-    az group create --name MyResourceGroup --location <region>
-    az aks create -g MyResourceGroup -n myAKS --location <region> --generate-ssh-keys
-    ```
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Een Azure Kubernetes Service-cluster maken
 
-## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces instellen
+U moet maken van een AKS-cluster in een [ondersteunde regio](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). De onderstaande opdrachten maakt u een resourcegroep met de naam *MyResourceGroup* en een AKS-cluster met de naam *MyAKS*.
 
-De Azure CLI en de Azure Dev Spaces-extensie kunnen op Windows- en Linux-computers en op de Mac worden uitgevoerd. Voor Linux worden de volgende distributies ondersteund: Ubuntu (18.04, 16.04 en 14.04), Debian 8 en 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 en SLES 12.
+```cmd
+az group create --name MyResourceGroup --location eastus
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+```
 
-Volg deze stappen om Azure Dev Spaces in te stellen:
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Azure Dev spaties inschakelen in uw AKS-cluster
 
-1. Dev Spaces instellen op uw AKS-cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Download de extensie [Azure Dev Spaces ](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) voor VS Code. Klik eenmaal op Installeren op de Microsoft Azure Marketplace-pagina van de extensie en nog eens in VS Code.
+Gebruik de `use-dev-spaces` opdracht uit om te ontwikkelen spaties inschakelen in uw AKS-cluster en volg de aanwijzingen. De onderstaande opdracht schakelt u Dev opslagruimten op de *MyAKS* -cluster in de *MyResourceGroup* groeperen en maakt u een *standaard* dev-ruimte.
+
+```cmd
+$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+
+'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
+
+Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
+
+Select a dev space or Kubernetes namespace to use as a dev space.
+ [1] default
+Type a number or a new name: 1
+
+Kubernetes namespace 'default' will be configured as a dev space. This will enable Azure Dev Spaces instrumentation for new workloads in the namespace. Continue? (Y/n): Y
+
+Configuring and selecting dev space 'default'...3s
+
+Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
+```
+
+## <a name="get-sample-application-code"></a>Voorbeeldcode voor toepassing
+
+In dit artikel gebruikt u de [Azure Dev spaties voorbeeldtoepassing](https://github.com/Azure/dev-spaces) te laten zien hoe u Azure Dev spaties.
+
+De toepassing uit GitHub te klonen en navigeer naar de *dev-ruimten/samples/nodejs/ophalen-gestart/webfrontend* directory:
+
+```cmd
+git clone https://github.com/Azure/dev-spaces
+cd dev-spaces/samples/nodejs/getting-started/webfrontend
+```
+
+## <a name="prepare-the-application"></a>De toepassing voorbereiden
+
+De Docker en Helm-grafiek activa genereren voor het uitvoeren van de toepassing in Kubernetes met behulp van de `azds prep` opdracht:
+
+```cmd
+azds prep --public
+```
+
+U moet uitvoeren de `prep` opdracht uit vanaf de *dev-ruimten/samples/nodejs/ophalen-gestart/webfrontend* directory voor het genereren van de activa van de grafiek Docker en Helm correct.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Code schrijven en uitvoeren in Kubernetes
 
-1. Voorbeeldcode van GitHub downloaden: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
-1. De map in de map webfrontend wijzigen: `cd dev-spaces/samples/nodejs/getting-started/webfrontend`
-1. Activa voor Docker- en Helm-grafieken genereren: `azds prep --public`
-1. Compileer de code in AKS en voer deze uit. Voer in het terminalvenster de volgende opdracht uit vanuit de **map webfrontend**: `azds up`
-1. Scan de console-uitvoer voor informatie over de URL die door de opdracht `up` is gemaakt. Het zal in deze vorm te zien zijn: 
+Ontwikkelen en uitvoeren van uw code in AKS met behulp van de `azds up` opdracht:
 
-   ```output
-   (pending registration) Service 'webfrontend' port 'http' will be available at <url>
-   Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
-   ```
+```cmd
+$ azds up
+Using dev space 'default' with target 'MyAKS'
+Synchronizing files...2s
+Installing Helm chart...2s
+Waiting for container image build...2m 25s
+Building container image...
+Step 1/8 : FROM node
+Step 2/8 : ENV PORT 80
+Step 3/8 : EXPOSE 80
+Step 4/8 : WORKDIR /app
+Step 5/8 : COPY package.json .
+Step 6/8 : RUN npm install
+Step 7/8 : COPY . .
+Step 8/8 : CMD ["npm", "start"]
+Built container image in 6m 17s
+Waiting for container...13s
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 80 (http) is available at http://localhost:54256
+...
+```
 
-   Open deze URL in een browservenster. Dan ziet u dat de web-app wordt geladen. Terwijl de container wordt uitgevoerd, wordt `stdout`- en `stderr`-uitvoer naar het terminalvenster gestreamd.
-   
-   > [!Note]
-   > Bij de eerste uitvoering kan het enkele minuten duren voordat de openbare DNS gereed is. Als de openbare URL niet is opgelost, kunt u de alternatieve `http://localhost:<portnumber>` URL die wordt weergegeven in de console-uitvoer. Als u de localhost-URL gebruikt, lijkt het misschien alsof de container lokaal wordt uitgevoerd, maar wordt deze feitelijk uitgevoerd in AKS. Voor uw gemak en om interactie met de service mogelijk te maken vanaf de lokale computer, wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure. U kunt later terugkomen en de openbare URL proberen wanneer de DNS-record gereed is.
+U kunt zien dat de service wordt uitgevoerd door het openen van de openbare URL, die wordt weergegeven in de uitvoer van de `azds up` opdracht. In dit voorbeeld wordt de openbare URL is *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
 
-### <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
-Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
+Als u stopt de `azds up` met behulp van de opdracht *Ctrl + c*, de service wordt nog uitgevoerd in AKS en de openbare URL blijven beschikbaar.
 
-1. Zoek het bestand `./public/index.html` en bewerk de HTML-code. Wijzig bijvoorbeeld de achtergrondkleur van de pagina in een blauwtint:
+## <a name="update-code"></a>Code bijwerken
 
-    ```html
-    <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
-    ```
+Voor het implementeren van een bijgewerkte versie van uw service, kunt u elk bestand in uw project bijwerken en opnieuw de `azds up` opdracht. Bijvoorbeeld:
 
-1. Sla het bestand op. Enkele ogenblikken later ziet u in het terminalvenster een bericht met de melding dat een bestand in de actieve container is bijgewerkt.
-1. Ga naar de browser en vernieuw de pagina. U ziet nu de bijgewerkte kleur.
-
-Wat is er gebeurd? Voor bewerkingen van inhoudsbestanden, zoals HTML en CSS, is niet vereist dat het Node.js-proces opnieuw wordt opgestart. Door een actieve `azds up`-opdracht worden gewijzigde inhoudsbestanden rechtstreeks automatisch gesynchroniseerd in de actieve container in Azure. Zo kunt u de bewerkingen van uw inhoud snel zien.
-
-### <a name="test-from-a-mobile-device"></a>Testen via een mobiel apparaat
-Open de web-app op een mobiel apparaat die de openbare URL als webfrontend gebruikt. Mogelijk wilt u de URL kopiëren en vanaf het bureaublad naar uw apparaat verzenden zodat u het lange adres niet hoeft in te voeren. Wanneer de web-app op een mobiel apparaat wordt geladen, ziet u dat de gebruikersinterface niet correct wordt weergegeven op een klein apparaat.
-
-Om dit te verhelpen voegt u een `viewport`-metatag toe:
-1. Open het bestand `./public/index.html`
-1. Voeg een `viewport`-metatag toe aan het bestaande `head`-element:
-
-    ```html
-    <head>
-        <!-- Add this line -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    ```
-
-1. Sla het bestand op.
-1. Vernieuw de browser op het apparaat. U ziet nu dat de web-app correct wordt weergegeven. 
-
-Dit is een voorbeeld van hoe bepaalde problemen pas worden gevonden als u test op de apparaten waarop de app moet worden gebruikt. Met Azure Dev Spaces kunt u code snel opnieuw uitvoeren en eventuele wijzigingen op doelapparaten valideren.
-
-### <a name="update-a-code-file"></a>Een codebestand bijwerken
-Het bijwerken van codebestanden aan de serverzijde vereist iets meer werk, omdat een Node.js-app opnieuw moet worden opgestart.
-
-1. Druk in het terminalvenster op `Ctrl+C` (om `azds up` te stoppen).
-1. Open het codebestand met de naam `server.js` en bewerk het hallo-bericht van de service: 
-
+1. Als `azds up` is nog steeds uitgevoerd, drukt u op *Ctrl + c*.
+1. Update [regel 10 in `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L10) aan:
+    
     ```javascript
-    res.send('Hello from webfrontend running in Azure!');
+        res.send('Hello from webfrontend in Azure');
     ```
 
-3. Sla het bestand op.
-1. Voer `azds up` uit in het terminalvenster. 
+1. Sla uw wijzigingen op.
+1. Voer de `azds up` opdracht:
 
-Hiermee wordt de installatiekopie van de container opnieuw gebouwd en het Helm-diagram opnieuw geïmplementeerd. Laad de browserpagina om de codewijzigingen door te voeren.
+    ```cmd
+    $ azds up
+    Using dev space 'default' with target 'MyAKS'
+    Synchronizing files...1s
+    Installing Helm chart...3s
+    Waiting for container image build...
+    ...    
+    ```
 
-Er bestaat echter een nog *snellere methode* voor het ontwikkelen van code. Deze methode gaat u in de volgende sectie verkennen. 
+1. Navigeer naar uw actieve service en houd rekening met uw wijzigingen.
+1. Druk op *Ctrl + c* stoppen de `azds up` opdracht.
 
-## <a name="debug-a-container-in-kubernetes"></a>Fouten opsporen in een Kubernetes-container
+## <a name="initialize-code-for-debugging-in-kubernetes-with-visual-studio-code"></a>Initialisatie van code voor foutopsporing in Kubernetes met Visual Studio Code
 
-In deze sectie gaat u VS Code gebruiken om direct fouten op te sporen in de container die in Azure wordt uitgevoerd. U leert ook hoe u een cyclus voor bewerken-uitvoeren-testen sneller kunt uitvoeren.
+Open Visual Studio Code, klik op *bestand* vervolgens *openen...* , gaat u naar de *dev-ruimten/samples/nodejs/ophalen-gestart/webfrontend* directory en op *Open*.
 
-![](./media/common/edit-refresh-see.png)
+U hebt nu de *webfrontend* project openen in Visual Studio Code, die u hebt uitgevoerd met behulp van dezelfde service is de `azds up` opdracht. Fouten opsporen in deze service in met behulp van Visual Studio Code, in plaats van met behulp van AKS `azds up` rechtstreeks, moet u dit project voor Visual Studio Code gebruiken om te communiceren met de adresruimte van uw dev voorbereiden.
 
-### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Foutopsporingsassets initialiseren met de VS Code-extensie
-U moet eerst uw codeproject configureren, zodat de VS Code met onze dev-ruimte in Azure gaat communiceren. De VS Code-extensie voor Azure Dev Spaces bevat een helpopdracht om de foutopsporingsconfiguratie in te stellen. 
-
-Open het **Opdrachtenpalet** (via het menu **Beeld | Opdrachtenpalet**), en gebruik automatisch aanvullen om te typen en deze opdracht te selecteren: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
-
-Hiermee wordt de foutopsporingsconfiguratie voor Azure Dev Spaces toegevoegd onder de map `.vscode`. Deze opdracht moet niet worden verward met de opdracht `azds prep`, waarmee u het project configureert voor implementatie.
+Open het Opdrachtenpalet in Visual Studio Code, te klikken op *weergave* vervolgens *Command Palette*. Begin met typen `Azure Dev Spaces` en klikt u op `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
 ![](./media/common/command-palette.png)
 
-### <a name="select-the-azds-debug-configuration"></a>Selecteer de AZDS-foutopsporingsconfiguratie
-1. Om de foutopsporingsweergave te openen, klikt u op het pictogram Foutopsporing in de **activiteitenbalk** van VS Code.
-1. Selecteer **Programma starten (AZDS)** als de actieve foutopsporingsconfiguratie.
+Met deze opdracht zorgt ervoor dat uw project om uit te voeren in Azure Dev spaties rechtstreeks vanuit Visual Studio Code. Genereert ook een *.vscode* map bij foutopsporing in configuratie in de hoofdmap van uw project.
 
-![](media/get-started-node/debug-configuration-nodejs2.png)
+## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Ontwikkelen en uitvoeren van code in Kubernetes uit Visual Studio Code
+
+Klik op de *Debug* aan de linkerkant en klik op het pictogram *start Server (AZDS)* aan de bovenkant.
+
+![](media/get-started-node/debug-configuration-nodejs.png)
+
+Met deze opdracht bouwt en de service wordt uitgevoerd in Azure Dev spaties in de modus voor foutopsporing. De *Terminal* venster onderaan ziet u de uitvoer van build en URL's voor uw service met Azure Dev spaties. De *Foutopsporingsconsole* ziet u de logboekuitvoer van het.
 
 > [!Note]
-> Als u geen Azure Dev Spaces-opdrachten ziet in het Opdrachtenpalet, controleert u of u de VS Code-extensie hebt geïnstalleerd voor Azure Dev Spaces.
+> Als er geen Azure Dev spaties opdrachten in de *Command Palette*, zorg ervoor dat u hebt geïnstalleerd het [Visual Studio Code-extensie voor Azure Dev spaties](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Controleer ook of u hebt geopend de *dev-ruimten/samples/nodejs/ophalen-gestart/webfrontend* map in Visual Studio Code.
 
-### <a name="debug-the-container-in-kubernetes"></a>Fouten opsporen in de container in Kubernetes
-Druk op **F5** om fouten in uw code in Kubernetes op te sporen.
+Klik op *Debug* vervolgens *Stop Debugging* naar het foutopsporingsprogramma stopt.
 
-Net als bij de opdracht `up` wordt de code gesynchroniseerd met de dev-ruimte wanneer u foutopsporing start, en wordt een container gemaakt en geïmplementeerd in Kubernetes. Op dit moment is het foutopsporingsprogramma gekoppeld aan de externe container.
+## <a name="setting-and-using-breakpoints-for-debugging"></a>Instellen en het gebruik van onderbrekingspunten voor foutopsporing
 
-> [!Tip]
-> Op de VS Code-statusbalk wordt een klikbare URL weergegeven.
+Start uw service met *start Server (AZDS)*.
 
-Stel een onderbrekingspunt in een codebestand aan de serverzijde in, bijvoorbeeld binnen de `app.get('/api'...` in `server.js`. Vernieuw de browserpagina of druk op de knop Say It Again. U komt dan op het onderbrekingspunt terecht en kunt de code doorlopen.
+Ga terug naar de *Explorer* weergeven door te klikken op *weergave* vervolgens *Explorer*. Open `server.js` en klik ergens op regel 10 om te zetten de cursor. Om in te stellen van een onderbrekingspunt bereikt *F9* of klik op *Debug* vervolgens *onderbrekingspunt*.
 
-U hebt volledige toegang tot foutopsporingsgegevens, net alsof de code lokaal wordt uitgevoerd. Denk hierbij aan de aanroep-stack, lokale variabelen en informatie over uitzonderingen, enzovoort.
+Open uw service in een browser en er geen bericht wordt weergegeven. Ga terug naar Visual Studio Code en bekijk regel 10 is gemarkeerd. Het onderbrekingspunt die u instelt, heeft de service op de regel 10 onderbroken. Hervat de service, bereikt *F5* of klik op *Debug* vervolgens *doorgaan*. Ga terug naar uw browser en u ziet dat het bericht wordt nu weergegeven.
 
-### <a name="edit-code-and-refresh-the-debug-session"></a>Code bewerken en de foutopsporingssessie vernieuwen
-Breng met het actieve foutopsporingsprogramma een codewijziging aan. Wijzig bijvoorbeeld het hallo-bericht opnieuw:
+Tijdens het uitvoeren van uw service in Kubernetes met een foutopsporingsprogramma die is gekoppeld, hebt u volledige toegang tot informatie zoals de aanroepstack, lokale variabelen en informatie over de uitzondering voor foutopsporing.
 
+Het onderbrekingspunt verwijderen door de cursor op regel 10 in `server.js` en op *F9*.
+
+Klik op *Debug* vervolgens *Stop Debugging* naar het foutopsporingsprogramma stopt.
+
+## <a name="update-code-from-visual-studio-code"></a>Code van de update van Visual Studio Code
+
+Wijzigen van de foutopsporingsmodus *koppelen aan een Server (AZDS)* en start de service:
+
+![](media/get-started-node/attach-nodejs.png)
+
+Met deze opdracht bouwt en de service wordt uitgevoerd in Azure Dev spaties. Deze ook wordt gestart een [nodemon](https://nodemon.io) verwerken in de container en aangesloten VS Code op deze van uw service. De *nodemon* de keuze biedt voor automatisch opnieuw starten wanneer codewijzigingen bron worden gedaan, zodat sneller binnenste lus ontwikkeling die vergelijkbaar is met het ontwikkelen van op uw lokale computer.
+
+Nadat de service wordt gestart, gaat u naar het met uw browser en ermee.
+
+Terwijl de service wordt uitgevoerd, gaat u terug naar VS Code en werk regel 10 in `server.js`. Bijvoorbeeld:
 ```javascript
-app.get('/api', function (req, res) {
-    res.send('**** Hello from webfrontend running in Azure! ****');
-});
+    res.send('Hello from webfrontend in Azure while debugging!');
 ```
 
-Sla het bestand op en klik in het deelvenster **Debug actions** op de knop **Refresh**. 
+Sla het bestand op en gaat u terug naar uw service in een browser. Communiceren met de service en u ziet dat uw bijgewerkte bericht wordt weergegeven.
 
-![](media/get-started-node/debug-action-refresh-nodejs.png)
+Tijdens de uitvoering *nodemon*, het proces van het knooppunt automatisch opnieuw opgestart als u de codewijzigingen worden gedetecteerd. Dit proces automatisch opnieuw opstarten is vergelijkbaar met de ervaring van bewerken en de service op uw lokale computer, biedt een ontwikkelervaring van de binnenste lus opnieuw te starten.
 
-In plaats van telkens wanneer codewijzigingen zijn aangebracht een nieuwe containerinstallatiekopie te bouwen en opnieuw te implementeren, wat meestal veel tijd kost, wordt het Node.js-proces tussen foutopsporingssessies opnieuw opgestart in Azure Dev Spaces voor een snellere bewerkings-/foutopsporingslus.
+## <a name="clean-up-your-azure-resources"></a>Opschonen van uw Azure-resources
 
-Vernieuw de web-app in de browser of druk op de knop *Say It Again*. U ziet dat uw aangepaste bericht wordt weergegeven in de gebruikersinterface.
-
-### <a name="use-nodemon-to-develop-even-faster"></a>NodeMon gebruiken om nog sneller te ontwikkelen
-
-Het voorbeeldproject `webfrontend` is geconfigureerd voor gebruik van [nodemon](https://nodemon.io/), een populair hulpprogramma om sneller te kunnen ontwikkelen met Node.js. Dit hulpprogramma is volledig compatibel met Azure Dev Spaces.
-
-Voer de volgende stappen uit:
-1. Stop het VS Code-foutopsporingsprogramma.
-1. Klik op het pictogram Foutopsporing in de **activiteitenbalk** van VS Code. 
-1. Selecteer **Attach (AZDS)** als de actieve foutopsporingsconfiguratie.
-1. Druk op F5.
-
-In deze configuratie is de container geconfigureerd voor het starten van *nodemon*. Wanneer servercodewijzigingen worden doorgevoerd, wordt met *nodemon* het Node-proces automatisch opnieuw opgestart, net zoals wanneer u het lokaal ontwikkelt. 
-1. Bewerk het hallo-bericht opnieuw in `server.js` en sla het bestand op.
-1. Vernieuw de browser of klik op de knop *Say It Again* om de wijzigingen door te voeren.
-
-**U beschikt nu over een methode om code snel te ontwikkelen en foutopsporing rechtstreeks uit te voeren in Kubernetes.**
+```cmd
+az group delete --name MyResourceGroup --yes --no-wait
+```
 
 ## <a name="next-steps"></a>Volgende stappen
+
+Meer informatie over hoe u Azure Dev spaties kunt complexere toepassingen ontwikkelen in meerdere containers, en hoe kunt u gezamenlijke ontwikkeling vereenvoudigen door te werken met verschillende versies of vertakkingen van uw code in verschillende spaties.
 
 > [!div class="nextstepaction"]
 > [Werken met meerdere containers en teamontwikkeling](multi-service-nodejs.md)

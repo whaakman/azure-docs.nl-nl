@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 287a4104104c12e33fa2c50c398f422f9e6ea8c5
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107590"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418700"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Problemen met configuratie-server
 
@@ -48,11 +48,10 @@ De bronmachine wordt geregistreerd bij de configuratieserver bij de installatie 
     3. Zorg ervoor dat de mappen die worden vermeld in [uitsluitingen van Site Recovery van antivirusprogramma's](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) zijn uitgesloten van de antivirussoftware.  
     4. Als u de problemen hebt opgelost, de registratie opnieuw door de volgende richtlijnen in [registreren van de bron-VM met de configuratieserver](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. Op Linux, als de waarde van het platform in < INSTALLATION_DIR\>/etc/drscout.conf is beschadigd, mislukt de registratie. Open het bestand /var/log/ua_install.log voor het identificeren van dit probleem. De zoekreeks **configuratie wordt afgebroken omdat VM_PLATFORM waarde null of is is niet VmWare/Azure**. Het platform moet worden ingesteld op **VmWare** of **Azure**. Als het bestand drscout.conf is beschadigd, raden we u [verwijderen van de mobility-agent](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) en installeer de mobility-agent. Als het verwijderen is mislukt, kunt u de volgende stappen:
-    1. Open het bestand Installation_Directory/uninstall.sh en een opmerking bij het aanroepen van de **StopServices** functie.
-    2. Open het bestand Installation_Directory/Vx/bin/uninstall.sh en een opmerking bij het aanroepen van de **stop_services** functie.
-    3. Open het bestand Installation_Directory/Fx/uninstall.sh en een opmerking bij de volledige sectie waartoe de Fx-service te stoppen.
-    4. [Verwijder](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) de mobility-agent. Het systeem opnieuw opstarten na geslaagde verwijdering en probeer het vervolgens opnieuw installeren van de mobility-agent.
+7. Op Linux, als de waarde van het platform in < INSTALLATION_DIR\>/etc/drscout.conf is beschadigd, mislukt de registratie. Open het bestand /var/log/ua_install.log voor het identificeren van dit probleem. De zoekreeks **configuratie wordt afgebroken omdat VM_PLATFORM waarde null of is is niet VmWare/Azure**. Het platform moet worden ingesteld op **VmWare** of **Azure**. Als het bestand drscout.conf is beschadigd, raden we u [verwijderen van de mobility-agent](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) en installeer de mobility-agent. Als het verwijderen is mislukt, de volgende stappen uitvoeren: een. Open het bestand Installation_Directory/uninstall.sh en een opmerking bij het aanroepen van de **StopServices** functie.
+    b. Open het bestand Installation_Directory/Vx/bin/uninstall.sh en een opmerking bij het aanroepen van de **stop_services** functie.
+    c. Open het bestand Installation_Directory/Fx/uninstall.sh en een opmerking bij de volledige sectie waartoe de Fx-service te stoppen.
+    d. [Verwijder](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) de mobility-agent. Het systeem opnieuw opstarten na geslaagde verwijdering en probeer het vervolgens opnieuw installeren van de mobility-agent.
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>Installatiefout: Kan de accounts niet laden
 
@@ -80,9 +79,9 @@ Zorg ervoor dat de tijd op de systeemklok niet verschillen van de lokale tijd op
 
 Een certificaat dat is vereist voor het verifiëren van Site Recovery kan niet worden gemaakt. Voer setup opnieuw uit nadat u ervoor zorgen dat u setup als een lokale beheerder uitvoert.
 
-## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Windows-licentie van Standard evaluatie van de Server naar Server Standard activeren is mislukt
+## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>Windows-licentie van Standard evaluatie van de Server naar Server Standard te activeren is mislukt
 
-1. Als onderdeel van de implementatie van configuratieserver via OVF, wordt een evaluatielicentie gebruikt die 180 dagen geldig is. U moet deze licentie activeren voordat deze verloopt. Anders kan dit leiden tot frequente afsluiten van de configuratieserver en waardoor hinderance replicatie activiteiten.
+1. Als onderdeel van de implementatie van configuratieserver via OVF, wordt een evaluatielicentie gebruikt die 180 dagen geldig is. U moet deze licentie activeren voordat deze verloopt. Anders kan dit leiden tot frequente afsluiten van de configuratieserver, waardoor op weg aan activiteiten voor replicatie.
 2. Als u geen licentie voor Windows activeren, contact op met [Windows ondersteuningsteam](https://aka.ms/Windows_Support) om het probleem te verhelpen.
 
 ## <a name="register-source-machine-with-configuration-server"></a>Broncomputer met de configuratieserver registreren
@@ -146,7 +145,7 @@ Als u wilt verwijderen van verouderde beveiligde machine op de configuratieserve
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    Wanneer er een vermelding van de bron-server van "On-premises-VM01" met een IP-adres van 10.0.0.4 vervolgens gebruiken de volgende opdracht uit in plaats daarvan.
+    Als u een vermelding van "On-premises-VM01" server met het ip-adres 10.0.0.4 hebt vervolgens gebruiken de volgende opdracht uit in plaats daarvan.
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  

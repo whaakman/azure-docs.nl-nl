@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 2daaa1275d9a97bec43f277e726518ead6eca9ff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 92294700ac9a491bfdbfa3b3d3f781eb18d5339e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876361"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437098"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -338,6 +338,39 @@ Hoewel IoT Edge verbeterde configuratie biedt voor het beveiligen van Azure IoT 
 |AMQP|5671|GEBLOKKEERDE (standaard)|OPEN (standaard)|<ul> <li>Standaard communicatieprotocol voor IoT Edge. <li> Moet worden geconfigureerd om te worden geopend als Azure IoT Edge is niet geconfigureerd voor andere ondersteunde protocollen of AMQP het gewenste communicatieprotocol is.<li>5672 voor AMQP wordt niet ondersteund door de IoT Edge.<li>Deze poort blokkeren wanneer Azure IoT Edge maakt gebruik van een andere IoT-Hub ondersteund protocol.<li>Binnenkomende verbindingen voor (inkomend) moeten worden geblokkeerd.</ul></ul>|
 |HTTPS|443|GEBLOKKEERDE (standaard)|OPEN (standaard)|<ul> <li>Configureer uitgaande (uitgaand) te openen op 443 voor IoT Edge wordt ingericht. Deze configuratie is vereist bij het gebruik van handmatige scripts of Azure IoT Device Provisioning Service (DPS). <li>Inkomende (inkomend) verbinding moet Open zijn alleen voor specifieke scenario's: <ul> <li>  Als u een transparante gateway met leaf-apparaten die methodeaanvragen kunnen worden verzonden hebt. Poort 443 hoeft in dit geval niet te worden geopend voor externe netwerken verbinding maken met IoTHub of IoTHub-services leveren via Azure IoT Edge. De binnenkomende regel kan zo worden beperkt tot alleen binnenkomende (binnenkomend) openen van het interne netwerk. <li> Voor de Client naar apparaat (C2D)-scenario's.</ul><li>80 voor HTTP wordt niet ondersteund door de IoT Edge.<li>Als niet-HTTP-protocollen (bijvoorbeeld AMQP of MQTT) kunnen niet worden geconfigureerd in de onderneming; de berichten kunnen worden verzonden via WebSockets. In dat geval wordt poort 443 gebruikt voor communicatie van de WebSocket.</ul>|
 
+## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Edge Agent-module voortdurend rapporten leeg config 'file' en er zijn geen modules worden gestart op het apparaat
+
+Het apparaat heeft problemen bij het starten van modules die zijn gedefinieerd in de implementatie. Alleen de edgeAgent is uitgevoerd maar voortdurend reporting '... leeg configuratiebestand'.
+
+### <a name="potential-root-cause"></a>Mogelijke hoofdoorzaak te achterhalen
+IoT Edge wordt standaard gestart van modules in hun eigen geïsoleerde container-netwerk. Het apparaat heeft mogelijk problemen met DNS-naamomzetting binnen dit particuliere netwerk.
+
+### <a name="resolution"></a>Oplossing
+Geef de DNS-server voor uw omgeving in de instellingen van de container-engine. Maak een bestand met de naam `daemon.json` op te geven van de DNS-server te gebruiken. Bijvoorbeeld:
+
+```
+{
+    "dns": ["1.1.1.1"]
+}
+```
+
+Het bovenstaande voorbeeld Hiermee stelt u de DNS-server met een openbaar toegankelijke DNS-service. Als het edge-apparaat geen toegang deze IP van de omgeving tot, vervangen door het adres van de DNS-server die toegankelijk is.
+
+Plaats `daemon.json` in de juiste locatie voor uw platform: 
+
+| Platform | Locatie |
+| --------- | -------- |
+| Linux | `/etc/docker` |
+| Windows-host met Windows-containers | `C:\ProgramData\iotedge-moby-data\config` |
+
+Als de locatie al bevat `daemon.json` bestand, voeg de **dns** sleutel toe en sla het bestand.
+
+*De container-engine voor de updates van kracht opnieuw opstarten*
+
+| Platform | Opdracht |
+| --------- | -------- |
+| Linux | `sudo systemctl restart docker` |
+| Windows (Admin Powershell) | `Restart-Service iotedge-moby -Force` |
 
 ## <a name="next-steps"></a>Volgende stappen
 Denkt u dat u een fout op het IoT Edge-platform hebt gevonden? [Verzend een probleem](https://github.com/Azure/iotedge/issues) zodat we verder kunnen blijven verbeteren. 

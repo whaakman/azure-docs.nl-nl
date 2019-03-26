@@ -3,7 +3,7 @@ title: Analyseren van activiteitenlogboeken van Azure Active Directory met behul
 description: Informatie over het analyseren van activiteitenlogboeken van Azure Active Directory met behulp van Azure Monitor-Logboeken (preview)
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aca7f0dbe0906ea0e1572f4580d8937ebf3eee64
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6e195dd0e52b4938e829ea0aec1f4cc3ef7107c0
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823248"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436801"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Analyseren van Azure AD-activiteitenlogboeken met Azure Monitor-Logboeken (preview)
 
@@ -102,7 +102,7 @@ U kunt ook de weergaven van de vooraf gemaakte log analytics voor Azure AD-activ
 * **Aanmeldingen gebeurtenissen**: Deze weergave toont de meest relevante rapporten met betrekking tot het controleren van de aanmelding, activiteit, zoals aanmeldingen per toepassing, gebruiker, apparaat, evenals een samenvatting weergegeven voor het bijhouden van het aantal aanmeldingen na verloop van tijd.
 * **Gebruikers uitvoeren van toestemming**: Deze weergave toont rapporten met betrekking tot toestemming van de gebruiker, zoals de toestemming verleent door de gebruiker, -aanmeldingen door gebruikers die toestemming verleend, evenals aanmeldingen per toepassing voor alle toepassingen op basis van toestemming. 
 
-Meer informatie over het [installeren en gebruiken van log analytics-weergaven voor Azure AD-activiteit logboeken](howto-install-use-log-analytics-views.md). 
+Ontdek hoe u [Log Analytics-weergaven voor activiteitenlogboeken van Azure AD installeert en gebruikt](howto-install-use-log-analytics-views.md). 
 
 
 ## <a name="next-steps"></a>Volgende stappen

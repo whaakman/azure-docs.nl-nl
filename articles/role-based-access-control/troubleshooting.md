@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: d85c49cc8533b88382de81f8f12fde7116afb69a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342470"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407586"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>RBAC voor Azure-resources oplossen
 
@@ -28,23 +28,31 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over op rollen gebaseer
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problemen met RBAC-roltoewijzingen
 
-- Als u nog geen een roltoewijzing niet toevoegen omdat de **roltoewijzing toevoegen** optie is uitgeschakeld of omdat u een machtigingsfout optreedt krijgt, controleer dan of u een rol heeft die de `Microsoft.Authorization/roleAssignments/*` machtiging op het bereik dat u wilt Wijs de rol toe. Neem contact op met de abonnementsbeheerder als u niet over deze machtiging beschikt.
-- Als u een machtigingsfout optreedt wanneer u probeert te maken van een resource, controleert u dat u gebruikmaakt van een rol die is gemachtigd om resources te maken op de geselecteerde scope. Bijvoorbeeld, als u wilt bijdragen leveren. Als u geen machtiging hebt, neem contact op met de beheerder van uw abonnement.
-- Als u een machtigingsfout optreedt wanneer u probeert te maken of bijwerken van een ondersteuningsticket, controleert u dat u gebruikmaakt van een rol heeft die de `Microsoft.Support/*` machtiging, zoals [ondersteuning aanvragen Inzender](built-in-roles.md#support-request-contributor).
-- Als u, wanneer u een rol wilt toewijzen, een foutbericht krijgt dat het aantal roltoewijzingen is overschreden, vermindert u het aantal roltoewijzingen door in plaats hiervan rollen toe te wijzen aan groepen. Azure biedt ondersteuning voor maximaal **2000** roltoewijzingen per abonnement.
+- Als u zich niet op toe te voegen een roltoewijzing in de Azure-portal **toegangsbeheer (IAM)** omdat de **toevoegen** > **roltoewijzing toevoegen** optie is uitgeschakeld of omdat u krijgt de Machtigingsfout 'de client met object-id is niet gemachtigd om uit te voeren actie', controleert u of u momenteel bent aangemeld bij een gebruiker die een rol heeft die is toegewezen de `Microsoft.Authorization/roleAssignments/write` machtiging zoals [eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator) bij het bereik dat u wilt de rol toe te wijzen.
+- Als u het foutbericht ' kunnen geen roltoewijzingen meer worden gemaakt (code: RoleAssignmentLimitExceeded) ' wanneer u probeert een rol toewijzen, probeert te verminderen van het aantal roltoewijzingen door rollen toewijzen aan groepen in plaats daarvan. Azure biedt ondersteuning voor maximaal **2000** roltoewijzingen per abonnement.
 
 ## <a name="problems-with-custom-roles"></a>Problemen met aangepaste rollen
 
-- Als u zich niet aan het bijwerken van een bestaande aangepaste rol, controleert u of u hebt de `Microsoft.Authorization/roleDefinition/write` machtiging.
-- Als u niet wilt bijwerken van een bestaande aangepaste rol, controleert u of een of meer toewijsbare bereiken in de tenant is verwijderd. De `AssignableScopes` -eigenschap van een aangepaste rol besturingselementen [die kunt maken, verwijderen, bijwerken of weergeven van de aangepaste rol](custom-roles.md#who-can-create-delete-update-or-view-a-custom-role).
-- Als er een fout optreedt die de limiet voor roldefinities is overschreden of wanneer u probeert te maken van een nieuwe rol maken, verwijderen van eventuele aangepaste rollen die niet worden gebruikt. U kunt ook proberen te consolideren of een bestaande aangepaste rollen opnieuw gebruiken. Azure biedt ondersteuning voor maximaal **2000** aangepaste rollen in een tenant.
-- Als u niet een aangepaste beveiligingsrol te verwijderen, moet u controleren of een of meer roltoewijzingen nog altijd van de aangepaste rol gebruikmaken.
+- Als u stappen voor het maken van een aangepaste rol nodig hebt, raadpleegt u de aangepaste rol zelfstudies met behulp van [Azure PowerShell](tutorial-custom-role-powershell.md) of [Azure CLI](tutorial-custom-role-cli.md).
+- Als u zich niet aan een bestaande aangepaste rol bijwerken, controleert u of u momenteel bent aangemeld bij een gebruiker die een rol heeft die is toegewezen de `Microsoft.Authorization/roleDefinition/write` machtiging zoals [eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator).
+- Als u niet wilt verwijderen van een aangepaste rol en het foutbericht "Er zijn bestaande roltoewijzingen die verwijzen naar de rol (code: RoleDefinitionHasAssignments) ', worden er nog steeds met behulp van de aangepaste rol roltoewijzingen. Deze roltoewijzingen verwijderen en probeer het verwijderen van de aangepaste rol die het opnieuw.
+- Als u het foutbericht 'limiet voor roldefinities is overschreden. Geen roldefinities meer kunnen worden gemaakt (code: RoleDefinitionLimitExceeded) ' wanneer u probeert te maken van een nieuwe aangepaste rol, verwijdert u eventuele aangepaste rollen die niet worden gebruikt. Azure biedt ondersteuning voor maximaal **2000** aangepaste rollen in een tenant.
+- Als u een fout optreedt die vergelijkbaar is met het "de client is gemachtigd om uit te voeren actie 'Microsoft.Authorization/roleDefinitions/write' over scope '/ subscriptions / {subscriptionid}', maar het gekoppelde abonnement is niet gevonden" wanneer u probeert een aangepaste rol bijwerken, controleren of een of meer [toewijsbare bereiken](role-definitions.md#assignablescopes) in de tenant is verwijderd. Als het bereik is verwijderd, maakt u een ondersteuningsticket als er geen oplossing selfservice beschikbaar is op dit moment is.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>RBAC herstellen als abonnementen tussen tenants zijn verplaatst
 
-- Raadpleeg [Eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md) om de stappen te zien voor het overdragen van een abonnement naar een andere tenant.
-- Wanneer u een abonnement aan een andere tenant overdragen, worden alle roltoewijzingen worden permanent verwijderd uit de bron-tenant en worden niet gemigreerd naar de doel-tenant. U moet de roltoewijzingen in de doel-tenant opnieuw maken.
-- Als u een algemeen beheer en u hebt geen toegang meer tot een abonnement, gebruikt u de **Access management voor Azure-resources** in-/ uitschakelen tijdelijk [uw toegangsrechten](elevate-access-global-admin.md) toegang te krijgen tot de het abonnement.
+- Als u de stappen voor het overdragen van een abonnement moet naar een andere Azure AD-tenant, Zie [eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md).
+- Als u een abonnement overdraagt naar een andere Azure AD-tenant, worden alle roltoewijzingen permanent worden verwijderd uit de bron Azure AD-tenant en worden niet gemigreerd naar de doel-Azure AD-tenant. U moet de roltoewijzingen in de doel-tenant opnieuw maken.
+- Als u een Azure AD-hoofdbeheerder en u geen toegang hebt tot een abonnement nadat deze is verplaatst tussen tenants, gebruikt u de **Access management voor Azure-resources** in-/ uitschakelen tijdelijk [toegangsrechten](elevate-access-global-admin.md) toegang te krijgen tot het abonnement.
+
+## <a name="issues-with-service-admins-or-co-admins"></a>Problemen met servicebeheerders of co-beheerders
+
+- Als u problemen met de servicebeheerder of CO-beheerders ondervindt, Zie [toevoegen of wijzigen Azure-abonnementbeheerders](../billing/billing-add-change-azure-subscription-administrator.md) en [klassiek abonnement beheerder functies, Azure RBAC-rollen en Azure AD beheerdersrollen](rbac-and-directory-admin-roles.md).
+
+## <a name="access-denied-or-permission-errors"></a>Toegang geweigerd of machtiging fouten
+
+- Als u de machtigingen voor de foutmelding ' de client met object-id is niet gemachtigd om uit te voeren actie bereik (code: AuthorizationFailed) ' wanneer u probeert om een resource te maken, moet u controleren of u momenteel bent aangemeld bij een gebruiker die een rol schrijfrechten heeft op de resource op de geselecteerde scope heeft die is toegewezen. Bijvoorbeeld, voor het beheren van virtuele machines in een resourcegroep, moet u hebt de [Inzender voor virtuele machines](built-in-roles.md#virtual-machine-contributor) -rol op de resourcegroep (of een overkoepelend bereik). Zie voor een lijst van de machtigingen voor elke ingebouwde rol, [ingebouwde rollen voor Azure-resources](built-in-roles.md).
+- Als u de Machtigingsfout 'U bent niet gemachtigd om te maken van een ondersteuningsaanvraag' wanneer u probeert te maken of bijwerken van een ondersteuningsticket, controleert u of u momenteel bent aangemeld bij een gebruiker die een rol heeft die is toegewezen de `Microsoft.Support/supportTickets/write` machtiging, zoals [Ondersteunen bijdrager voor ondersteuningsaanvragen](built-in-roles.md#support-request-contributor).
 
 ## <a name="rbac-changes-are-not-being-detected"></a>RBAC wijzigingen worden niet wordt gedetecteerd.
 
@@ -119,6 +127,6 @@ Sommige functies van [Azure Functions](../azure-functions/functions-overview.md)
 Een lezer kunt klikken op de **platformfuncties** tabblad en klik vervolgens op **alle instellingen** om bepaalde instellingen weer te geven met betrekking tot een functie-app (vergelijkbaar met een web-app), maar ze kunnen een van deze instellingen niet wijzigen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Toegang tot Azure-resources met behulp van RBAC en de Azure-portal beheren](role-assignments-portal.md)
+* [Toegang tot Azure-resources beheren met op rollen gebaseerd toegangsbeheer en de Azure-portal](role-assignments-portal.md)
 * [Activiteitenlogboeken bekijken voor RBAC-wijzigingen in de Azure-resources](change-history-report.md)
 

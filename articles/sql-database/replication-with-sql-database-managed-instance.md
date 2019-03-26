@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 164448f2e96b796d21419e90a3965390f22d7d38
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b20a119a69ac796bc9ea85083d335f0a7d2fdf2d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762973"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417952"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Replicatie in een Azure SQL Database beheerde Exemplaardatabase configureren
 
@@ -45,13 +45,13 @@ Het configureren van een beheerd exemplaar als een publisher of een distributor 
 Ondersteunt:
 
 - De combinatie van de transactionele en momentopname replicatie van on-premises SQL Server en beheerde exemplaren in Azure SQL Database.
-- Abonnees kunnen zich in de on-premises SQL Server-database, individuele databases in Azure SQL Database of gepoolde databases in Azure SQL Database elastische pools.
+- Abonnees kunnen zich in de on-premises SQL Server-databases, enkele databases/beheerde instanties in Azure SQL Database, of gepoolde databases in Azure SQL Database elastische pools.
 - Eenzijdige of replicatie in twee richtingen.
 
 De volgende functies worden niet ondersteund in een beheerd exemplaar in Azure SQL Database:
 
 - Bij te werken abonnementen.
-- Actieve geo-replicatie.
+- [Actieve geo-replicatie](sql-database-active-geo-replication.md) en [automatische failovergroepen](sql-database-auto-failover-group.md) mag niet worden gebruikt als de transactionele replicatie is geconfigureerd.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Voorbeeld van de publicatie en distributie configureren
 

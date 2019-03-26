@@ -7,23 +7,24 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8ec6a6a24629f72199d5f5afa86200acf53aba01
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c7c120b9bac33f71df72650d8a9d9a72e819d227
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136543"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439182"
 ---
-# <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Voorbeelden van Lucene-querysyntaxis voor het bouwen van geavanceerde query's in Azure Search
-Bij het maken van query's voor Azure Search, kunt u de standaard vervangen [de eenvoudige queryparser](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) met de uitgebreider [Lucene-Queryparser in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) naar gespecialiseerde en geavanceerde query formuleren definities. 
+# <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Queryvoorbeelden met behulp van de syntaxis 'volledig' Lucene search (geavanceerde query's in Azure Search)
 
-De Lucene-Queryparser biedt ondersteuning voor complexe query-constructs, zoals veldgerelateerde query's, zoeken bij benadering en zoeken met jokertekens voorvoegsel, zoeken op nabijheid, termenverbetering en zoeken op reguliere expressies. De extra capaciteit wordt geleverd met extra verwerkingsvereisten, zodat u kunt iets meer tijd kan worden uitgevoerd verwachten. In dit artikel kunt u stap voor stap door voorbeelden demonstreren querybewerkingen beschikbaar wanneer u de volledige syntaxis.
+Bij het maken van query's voor Azure Search, kunt u de standaard vervangen [de eenvoudige queryparser](query-simple-syntax.md) met de uitgebreider [Lucene-Queryparser in Azure Search](query-lucene-syntax.md) naar gespecialiseerde en geavanceerde query formuleren definities. 
+
+De parser Lucene biedt ondersteuning voor complexe query-constructs, zoals veldgerelateerde query's, zoeken bij benadering en zoeken met jokertekens voorvoegsel, zoeken op nabijheid, termenverbetering en zoeken op reguliere expressies. De extra capaciteit wordt geleverd met extra verwerkingsvereisten, zodat u kunt iets meer tijd kan worden uitgevoerd verwachten. In dit artikel kunt u stap voor stap door voorbeelden demonstreren querybewerkingen beschikbaar wanneer u de volledige syntaxis.
 
 > [!Note]
-> Veel van de speciale query-constructies ingeschakeld via de volledige Lucene-querysyntaxis zijn niet [tekst geanalyseerd](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), wat verrassende als u verwacht als gevolg of lemmatisering dat kan zijn. Lexicale analyse wordt alleen uitgevoerd op de volledige (een term query of woordgroep query). Typen query's met onvolledige voorwaarden (voorvoegsel query, jokertekens query, regex-query, fuzzy query) worden toegevoegd rechtstreeks naar de querystructuur van de voor het overslaan van de analyse-fase. De enige transformatie uitgevoerd op onvolledig querytermen is locatieargument. 
+> Veel van de speciale query-constructies ingeschakeld via de volledige Lucene-querysyntaxis zijn niet [tekst geanalyseerd](search-lucene-query-architecture.md#stage-2-lexical-analysis), wat verrassende als u verwacht als gevolg of lemmatisering dat kan zijn. Lexicale analyse wordt alleen uitgevoerd op de volledige (een term query of woordgroep query). Typen query's met onvolledige voorwaarden (voorvoegsel query, jokertekens query, regex-query, fuzzy query) worden toegevoegd rechtstreeks naar de querystructuur van de voor het overslaan van de analyse-fase. De enige transformatie uitgevoerd op onvolledig querytermen is locatieargument. 
 >
 
 ## <a name="formulate-requests-in-postman"></a>Aanvragen in Postman formuleren
@@ -58,13 +59,15 @@ Samenstelling van de URL heeft de volgende elementen:
 
 ## <a name="send-your-first-query"></a>Uw eerste query verzenden
 
-Als verificatiestap, plak de volgende aanvraag ophalen en klikt u op **verzenden**. Resultaten worden geretourneerd als uitgebreide JSON-documenten. U kunt kopiëren en plakken deze URL in het eerste voorbeeld hieronder.
+Als verificatiestap, plak de volgende aanvraag ophalen en klikt u op **verzenden**. Resultaten worden geretourneerd als uitgebreide JSON-documenten. Volledige-documenten worden geretourneerd, kunt u alle velden en alle waarden bekijken.
+
+Plak deze URL in een REST-client als validatiestap en weer te geven van de documentstructuur.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
   ```
 
-De queryreeks **`search=*`**, is een niet-opgegeven zoekopdracht gelijk is aan null of leeg zijn zoeken. Het is niet met name nuttig, maar is de eenvoudigste zoeken die u kunt doen.
+De queryreeks **`search=*`**, is een niet-opgegeven zoekopdracht gelijk is aan null of leeg zijn zoeken. Het is de eenvoudigste zoeken die u kunt doen.
 
 U kunt desgewenst toevoegen **`$count=true`** naar de URL om een telling van de documenten die voldoen aan de zoekcriteria te retourneren. Op een lege zoekopdracht tekenreeks is is dat alle documenten in de index (ongeveer 2800 in het geval van NYC-Jobs).
 
@@ -80,12 +83,26 @@ Alle voorbeelden in dit artikel geeft de **queryType = full** parameter, die aan
 
 ## <a name="example-1-field-scoped-query"></a>Voorbeeld 1: Veldgerelateerde query
 
-Het eerste voorbeeld is niet-parser-specifieke, maar we ermee leiden om te introduceren de eerste query fundamentele concept: containment. In dit voorbeeld scopes uitvoeren van query's en de reactie op een paar specifieke velden. Weten hoe u een leesbare JSON-antwoord is belangrijk bij het hulpprogramma Postman of Search explorer is. 
+Het eerste voorbeeld is geen Lucene-specifieke, maar we ermee leiden om te introduceren de eerste query fundamentele concept: containment. In dit voorbeeld scopes uitvoeren van query's en de reactie op een paar specifieke velden. Weten hoe u een leesbare JSON-antwoord is belangrijk bij het hulpprogramma Postman of Search explorer is. 
 
 Beknopt alternatief, gericht op de query alleen de *business_title* veld en geeft u alleen zakelijke titels worden geretourneerd. De syntaxis is **searchFields** om te beperken van de uitvoering van de query alleen het veld business_title en **Selecteer** om op te geven welke velden zijn opgenomen in het antwoord.
 
+### <a name="partial-query-string"></a>Gedeeltelijke queryreeks
+
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
+&search=*&searchFields=business_title&$select=business_title
+```
+
+Dit is dezelfde query met meerdere velden in een door komma's gescheiden lijst.
+
+```http
+search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
+```
+
+### <a name="full-url"></a>Volledige URL
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&search=*&searchFields=business_title&$select=business_title
 ```
 
 Antwoord voor deze query moet eruitzien als op de volgende schermafbeelding.
@@ -96,10 +113,24 @@ U hebt mogelijk de zoekscore in het antwoord opgemerkt. Uniform scores van 1 opt
 
 ## <a name="example-2-intra-field-filtering"></a>Voorbeeld 2: Intra veld filteren
 
-Volledige Lucene-syntaxis ondersteunt expressies in een veld. Deze query zoekt naar titels met het senior term in deze, maar niet jonge bedrijven:
+Volledige Lucene-syntaxis ondersteunt expressies in een veld. In dit voorbeeld wordt gezocht naar titels met het senior term in deze, maar niet jonge bedrijven.
+
+### <a name="partial-query-string"></a>Gedeeltelijke queryreeks
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+```
+
+Dit is dezelfde query met meerdere velden.
+
+```http
+searchFields=business_title, posting_type&$select=business_title, posting_type&search=business_title:senior+NOT+junior AND posting_type:external
+```
+
+### <a name="full-url"></a>Volledige URL
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:senior+NOT+junior
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
 ```
 
   ![Het voorbeeldantwoord postman](media/search-query-lucene-examples/intrafieldfilter.png)
@@ -117,49 +148,73 @@ Het veld dat is opgegeven **fieldname:searchterm** moet een doorzoekbaar veld. Z
 
 Fuzzy zoeken, die overeenkomt met van voorwaarden die u een dergelijke constructie hebt biedt ook ondersteuning voor volledige Lucene-syntaxis. Om te doen bij een fuzzy zoekopdracht, toevoegen de tilde `~` symbool aan het einde van één woord met een optionele parameter, een waarde tussen 0 en 2, die de afstand bewerken geeft. Bijvoorbeeld, `blue~` of `blue~1` retourneerde blauw, blauwe en lijm.
 
+### <a name="partial-query-string"></a>Gedeeltelijke queryreeks
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:asosiate~
+```
+
+Zinnen rechtstreeks worden niet ondersteund, maar u kunt een algoritmecode opgeven op onderdelen van een zin.
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:asosiate~ AND comm~ 
+```
+
+
+### <a name="full-url"></a>Volledige URL
+
 Deze query zoekt voor taken met de term 'koppelen' (opzettelijk onjuist gespeld):
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:asosiate~
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:asosiate~
 ```
   ![Fuzzy zoekopdrachten antwoord](media/search-query-lucene-examples/fuzzysearch.png)
 
-Per [Lucene documentatie](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy zoekopdrachten zijn gebaseerd op [Damerau Levenshtein afstand](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
 > [!Note]
-> Fuzzy query's zijn niet [geanalyseerd](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). Typen query's met onvolledige voorwaarden (voorvoegsel query, jokertekens query, regex-query, fuzzy query) worden toegevoegd rechtstreeks naar de querystructuur van de voor het overslaan van de analyse-fase. De enige transformatie uitgevoerd op onvolledig querytermen is locatieargument.
+> Fuzzy query's zijn niet [geanalyseerd](search-lucene-query-architecture.md#stage-2-lexical-analysis). Typen query's met onvolledige voorwaarden (voorvoegsel query, jokertekens query, regex-query, fuzzy query) worden toegevoegd rechtstreeks naar de querystructuur van de voor het overslaan van de analyse-fase. De enige transformatie uitgevoerd op onvolledig querytermen is locatieargument.
 >
 
 ## <a name="example-4-proximity-search"></a>Voorbeeld 4: zoeken op nabijheid
 Nabijheid zoekopdrachten worden gebruikt om te vinden van voorwaarden die zich dicht bij elkaar in een document. Invoegen van een tilde ' ~ ' symbool aan het einde van een zin gevolgd door het aantal woorden die de grens nabijheid maken. Bijvoorbeeld, "hotel luchthaven" ongeveer 5 vindt de voorwaarden hotel en luchthaven binnen 5 woorden van elkaar in een document.
 
+### <a name="partial-query-string"></a>Gedeeltelijke queryreeks
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
+```
+
+### <a name="full-url"></a>Volledige URL
+
 In deze query voor taken met de term 'senior analist"waarin deze worden gescheiden door het niet meer dan één woord:
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~1
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
   ![Nabijheid query](media/search-query-lucene-examples/proximity-before.png)
 
 Probeer het opnieuw verwijderen, de woorden tussen de term 'senior analist'. U ziet dat 8 documenten voor deze query in plaats van 10 voor de vorige query zijn geretourneerd.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~0
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~0
 ```
 
 ## <a name="example-5-term-boosting"></a>Voorbeeld 5: versterking
 Termenverbetering verwijst naar de positie van een document hoger als deze bevat de boosted term, ten opzichte van documenten die de term niet bevatten. Een term te stimuleren, gebruik het caret-teken, "^", symbool met een boost factor (een getal) aan het einde van de term die u zoekt. 
 
+### <a name="full-urls"></a>Volledige URL 's
+
 Zoeken in deze 'voor' query voor taken met de term *computer analist* en u ziet er zijn geen resultaten met beide woorden *computer* en *analist*, nog  *computer* taken worden aan de bovenkant van de resultaten.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
   ![Voordat u versterking](media/search-query-lucene-examples/termboostingbefore.png)
 
 Herhaal de zoekactie, ditmaal versterking van resultaten met de term in de query 'na' *analist* gedurende de termijn *computer* als beide woorden bestaan niet. 
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst%5e2
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst%5e2
 ```
 Er is een nog mensachtigere leesbare versie van de bovenstaande query `search=business_title:computer analyst^2`. Voor een werkbare query `^2` is gecodeerd als `%5E2`, die het moeilijker is om te zien.
 
@@ -176,10 +231,18 @@ Bij het instellen van het niveau van de multi-factor Authentication, hoe hoger d
 
 Een zoekopdracht reguliere expressie zoekt een overeenkomst op basis van de inhoud tussen forward slashes bevatten '/', zoals beschreven in de [klasse RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
-In deze query zoekt voor taken met de term Senior of Junior: ' search business_title:/(Sen| = Juni) ior /''.
+### <a name="partial-query-string"></a>Gedeeltelijke queryreeks
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
+```
+
+### <a name="full-url"></a>Volledige URL
+
+In deze query zoekt voor taken met de term Senior of Junior: `search=business_title:/(Sen|Jun)ior/`.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:/(Sen|Jun)ior/
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
   ![Regex-query](media/search-query-lucene-examples/regex.png)
@@ -191,10 +254,18 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ## <a name="example-7-wildcard-search"></a>Voorbeeld 7: zoeken met jokertekens
 U kunt in het algemeen erkende syntaxis gebruiken voor meerdere (\*) of van afzonderlijke zoeken met jokertekens teken (?). Houd er rekening mee dat de Lucene-queryparser ondersteunt het gebruik van deze symbolen met een termijn van één en niet een zin.
 
+### <a name="partial-query-string"></a>Gedeeltelijke queryreeks
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:prog*
+```
+
+### <a name="full-url"></a>Volledige URL
+
 In deze query zoeken naar taken bevatten met het voorvoegsel 'programma', die zakelijke titels met de voorwaarden programmeren en de programmeur erin zou bevatten. U kunt geen gebruiken een * of? symbool als het eerste teken van een zoekopdracht.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:prog*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
   ![Wildcard-query](media/search-query-lucene-examples/wildcard.png)
 

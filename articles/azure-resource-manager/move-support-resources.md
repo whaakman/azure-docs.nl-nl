@@ -4,14 +4,14 @@ description: Geeft een lijst van de Azure-resource-typen die kunnen worden verpl
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 2/13/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: f82c3adc0049c7386206fb4be10d3e634627a25a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d44b1bf778c7ec9551e2fd30f67083f8dded22d1
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236886"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438465"
 ---
 # <a name="move-operation-support-for-resources"></a>Ondersteuning voor resources verplaatsen
 In dit artikel wordt aangegeven of een Azure-resourcetype de verplaatsing ondersteunt. Hoewel een resourcetype de verplaatsing ondersteunt, kunnen er omstandigheden die verhinderen dat de resource die wordt verplaatst. Zie voor meer informatie over voorwaarden die invloed hebben op verplaatsingsbewerkingen [resources verplaatsen naar een nieuwe resourcegroep of abonnement](resource-group-move-resources.md).
@@ -153,7 +153,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
 | availabilitysets | Ja | Ja |
-| Schijven | Ja | Ja |
+| schijven | Ja | Ja |
 | galerieën | Nee | Nee |
 | galleries/images | Nee | Nee |
 | galerieën/afbeeldingen/versies | Nee | Nee |
@@ -241,7 +241,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
-| Pakketten | Nee | Nee |
+| pakketten | Nee | Nee |
 | Plannen | Nee | Nee |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
@@ -422,7 +422,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
-| labaccounts | Ja | Ja |
+| labaccounts | Nee | Nee |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Resourcetype | Resourcegroep | Abonnement |
@@ -533,7 +533,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | expressroutecrossconnections | Nee | Nee |
 | expressroutegateways | Nee | Nee |
 | expressrouteports | Nee | Nee |
-| frontdoors | Ja | Ja |
+| ingangen | Ja | Ja |
 | frontdoorwebapplicationfirewallpolicies | Ja | Ja |
 | interfaceendpoints | Nee | Nee |
 | loadbalancers | Ja | Ja |

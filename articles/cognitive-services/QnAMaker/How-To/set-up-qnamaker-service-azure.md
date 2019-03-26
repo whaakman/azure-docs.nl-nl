@@ -8,40 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 03/25/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: f90c4cb1e98fe7ac43b21cd8ff01733f1d15cc50
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 94e4d945593c2387b61011b0e7d4056f4af33e01
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862222"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437353"
 ---
 # <a name="create-a-qna-maker-service"></a>Een QnA Maker-service maken
 
 Voordat u een QnA Maker knowledge bases maken kunt, moet u eerst een QnA Maker-service in Azure instellen. Iedereen met autorisatie voor het maken van nieuwe resources in een abonnement kunt een QnA Maker-service instellen.
 
-Deze instellingen implementeert een aantal Azure-resources. Deze resources worden samen de knowledge base-inhoud beheren en bieden mogelijkheden beantwoorden van vraag al een eindpunt.
+## <a name="create-a-new-service"></a>Een nieuwe service maken
+
+Deze procedure implementeert u een paar Azure-resources. Deze resources worden samen de knowledge base-inhoud beheren en bieden mogelijkheden beantwoorden van vraag al een eindpunt.
 
 1. Meld u aan bij [Azure Portal](<https://portal.azure.com>).
 
-2.  Klik op **nieuwe resource toevoegen**, en typ 'qna maker' in het zoekvak en selecteer de QnA Maker-resource
+1. Selecteer **nieuwe resource toevoegen**, en typ 'qna maker' in het zoekvak en selecteer de QnA Maker-resource
 
     ![Maak een nieuwe QnA Maker-service: nieuwe resource toevoegen](../media/qnamaker-how-to-setup-service/create-new-resource.png)
 
-3.  Klik op **maken** na het lezen van de voorwaarden en bepalingen.
+1. Selecteer **maken** na het lezen van de voorwaarden en bepalingen.
 
     ![Een nieuwe QnA Maker-service maken](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
 
-4. In **QnA Maker**, selecteer de juiste lagen en regio's.
+1. In **QnA Maker**, selecteer de juiste lagen en regio's.
 
     ![Een nieuwe QnA Maker-service - prijscategorie en regio's maken](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
     * Vul de **naam** met een unieke naam voor deze QnA Maker-service. Deze naam identificeert ook de QnA Maker-eindpunt waarnaar uw knowledge bases gekoppeld worden.
     * Kies de **abonnement** in die de QnA Maker-resource wordt geïmplementeerd.
     * Selecteer de **Management prijscategorie** voor de QnA Maker management services (portal en beheer-API's). Zie [hier](https://aka.ms/qnamaker-pricing) voor meer informatie over de prijzen van de SKU's.
-    * Maak een nieuwe **resourcegroep** (aanbevolen) of gebruik een bestaande resourcegroep waarin u kunt deze resource QnA Maker implementeren.
+    * Maak een nieuwe **resourcegroep** (aanbevolen) of gebruik een bestaande resourcegroep waarin u kunt deze resource QnA Maker implementeren. QnA Maker maakt verschillende Azure-resources; Wanneer u maakt u gemakkelijk kunt vinden, een resourcegroep voor het opslaan van deze resources, beheren en verwijderen van deze resources door de naam van de resourcegroep.
     * Kies de **zoeken prijscategorie** van de Azure Search-service. Als u de gratis laag-optie grijs weergegeven, betekent dat u hebt al een gratis Azure Search-laag in uw abonnement. In dat geval moet u eerst de laag Basic Azure Search. Zie de details van prijzen van Azure search [hier](https://azure.microsoft.com/pricing/details/search/).
     * Kies de **zoeklocatie** waar u Azure Search-gegevens om te worden geïmplementeerd. Beperkingen in waar de gegevens van de klant moet worden opgeslagen, wordt de locatie die u voor Azure Search kiest informeren.
     * Geef een naam aan uw appservice in **appnaam**.
@@ -53,10 +55,11 @@ Deze instellingen implementeert een aantal Azure-resources. Deze resources worde
 
     * Kies of u om in te schakelen **Application Insights** of niet. Als **Application Insights** is ingeschakeld, QnA Maker telemetrie verzamelt op verkeer, chatlogs en fouten.
     * Kies de **App insights-locatie** waarop Application Insights-resource wordt geïmplementeerd.
+    * Voor kosten besparen metingen, kunt u [delen](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) sommige, maar niet alle Azure-resources die zijn gemaakt voor QnA Maker. 
 
-5. Zodra alle velden zijn gevalideerd, kunt u klikken op **maken** implementatie te starten van deze services in uw abonnement. Het duurt een paar minuten om te voltooien.
+1. Zodra alle velden zijn gevalideerd, kunt u selecteren **maken** implementatie te starten van deze services in uw abonnement. Het duurt een paar minuten om te voltooien.
 
-6.  Wanneer de implementatie is voltooid, ziet u de volgende bronnen in uw abonnement gemaakt.
+1. Wanneer de implementatie is voltooid, ziet u de volgende bronnen in uw abonnement gemaakt.
 
     ![De resource gemaakt in een nieuwe QnA Maker-service](../media/qnamaker-how-to-setup-service/resources-created.png)
 

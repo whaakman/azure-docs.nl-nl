@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 9ba1b5a9b231822fd12d5a349e2518bc77669274
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 77cbc73c6c6aef40c482b0cfe456dcbd4b7e85d0
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351402"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435309"
 ---
 # <a name="dynamic-packaging"></a>Dynamische verpakking
 
@@ -30,32 +30,20 @@ Om te profiteren van **dynamische pakketten**, moet u beschikken over een **Asse
 
 Hierdoor hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. De Media Services-service bouwt en levert de juiste reactie op basis van aanvragen van een client. 
 
-In Media Services dynamische pakketten gebruikt of u live of on-demand streaming. Het volgende diagram toont de streaming on demand met dynamische verpakking werkstroom.
-
-![Dynamische verpakking](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
-
-> [!NOTE]
-> U kunt de Azure-portal op dit moment niet gebruiken om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), of een van de ondersteunde [SDK's](developers-guide.md).
-
-## <a name="delivery-protocols"></a>Levering protocollen
-
-|Protocol|Voorbeeld|
-|---|---|
-|HLS V4-PROCESSORS |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
-|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
-|CSF VOOR MPEG-DASH| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
-|CMAF VOOR MPEG-DASH|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
-|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
+In Media Services dynamische pakketten gebruikt of u live of on-demand streaming. 
 
 ## <a name="common-on-demand-workflow"></a>Algemene werkstroom voor op aanvraag
 
 Hier volgt een algemene Media Services streaming-werkstroom waarbij dynamische pakketten wordt gebruikt.
 
-1. Upload een bestand voor invoer (een tussentijds bestand genoemd). Bijvoorbeeld, H.264 MP4 of WMV (Zie voor de lijst met ondersteunde indelingen [indelingen ondersteund door de Media Encoder Standard](media-encoder-standard-formats.md).
+1. Upload een bestand voor invoer (een tussentijds bestand genoemd). Bijvoorbeeld, MP4, MOV of MXF (Zie voor de lijst met ondersteunde indelingen [indelingen ondersteund door de Media Encoder Standard](media-encoder-standard-formats.md).
 2. Codeer uw tussentijds bestand op afspelen van H.264 MP4 adaptieve bitrate sets.
 3. Publiceer de asset met de adaptive bitrate die MP4-set. U publiceert door het maken van een **Streaming-Locator gemaakt**.
 4. URL's die zijn gericht op verschillende indelingen (HLS, Dash en Smooth Streaming) maken. De **Streaming-eindpunt** zou zorgen voor de juiste manifest en aanvragen voor deze verschillende indelingen.
+
+Het volgende diagram toont de streaming on demand met dynamische verpakking werkstroom.
+
+![Dynamische verpakking](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Coderen naar adaptive bitrate MP4s
 
@@ -87,13 +75,16 @@ Het volgende diagram toont de live streamen met dynamische verpakking werkstroom
 
 ![Pass Through-query](./media/live-streaming/pass-through.svg)
 
-## <a name="dynamic-encryption"></a>Dynamische versleuteling
+## <a name="delivery-protocols"></a>Levering protocollen
 
-**Dynamische versleuteling** kunt u uw inhoud live of on-demand met AES-128 of een van de drie belangrijkste digital rights management (DRM)-systemen dynamisch versleutelen: Microsoft PlayReady, Google Widevine en FairPlay van Apple. Media Services biedt ook een service voor het leveren van AES-sleutels en DRM (PlayReady, Widevine en FairPlay) licenties voor geautoriseerde clients. Zie voor meer informatie, [dynamische versleuteling](content-protection-overview.md).
-
-## <a name="dynamic-manifest"></a>Dynamische Manifest
-
-Dynamische filtering is gebruikt om te bepalen het aantal sporen te wissen, indelingen bitsnelheden en presentatie tijdvensters die worden verzonden naar de spelers. Zie voor meer informatie, [filters en dynamische manifesten](filters-dynamic-manifest-overview.md).
+|Protocol|Voorbeeld|
+|---|---|
+|HLS V4-PROCESSORS |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
+|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
+|CSF VOOR MPEG-DASH| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|CMAF VOOR MPEG-DASH|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
+|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Codecs invoervideo ondersteund door dynamische verpakking
 
@@ -105,6 +96,10 @@ MP4-bestanden, waarin de audio die is gecodeerd met biedt ondersteuning voor dyn
 
 > [!NOTE]
 > Bestanden met biedt geen ondersteuning voor dynamische pakketten [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (dit is een verouderde codec).
+
+## <a name="dynamic-encryption"></a>Dynamische versleuteling
+
+**Dynamische versleuteling** kunt u uw inhoud live of on-demand met AES-128 of een van de drie belangrijkste digital rights management (DRM)-systemen dynamisch versleutelen: Microsoft PlayReady, Google Widevine en FairPlay van Apple. Media Services biedt ook een service voor het leveren van AES-sleutels en DRM (PlayReady, Widevine en FairPlay) licenties voor geautoriseerde clients. Zie voor meer informatie, [dynamische versleuteling](content-protection-overview.md).
 
 ## <a name="manifests"></a>Manifesten 
  
@@ -195,6 +190,14 @@ Hier volgt een voorbeeld van een manifest Smooth Streaming:
    </StreamIndex>
 </SmoothStreamingMedia>
 ```
+
+## <a name="dynamic-manifest"></a>Dynamische Manifest
+
+Dynamische filtering is gebruikt om te bepalen het aantal sporen te wissen, indelingen bitsnelheden en presentatie tijdvensters die worden verzonden naar de spelers. Zie voor meer informatie, [filters en dynamische manifesten](filters-dynamic-manifest-overview.md).
+
+> [!NOTE]
+> U kunt de Azure-portal op dit moment niet gebruiken om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), of een van de ondersteunde [SDK's](developers-guide.md).
+
 ## <a name="next-steps"></a>Volgende stappen
 
 [Uploaden, coderen, stream-video 's](stream-files-tutorial-with-api.md)

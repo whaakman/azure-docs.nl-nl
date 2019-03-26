@@ -4,7 +4,7 @@ description: Referentie voor de eenvoudige query-syntaxis voor volledige-tekstqu
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/25/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 4f06af8044a79a7dc54d6fde55992111d24d22a7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 99729141e5e1478f45ad385cf671c44a8e08f21a
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441557"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437489"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Vereenvoudigde querysyntaxis in Azure Search
 Azure Search worden twee op basis van Lucene querytalen geïmplementeerd: [De eenvoudige Queryparser](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) en de [Lucene-Queryparser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Azure Search sluit de vereenvoudigde querysyntaxis de fuzzy/slop-opties.  
 
 > [!NOTE]  
->  Azure Search biedt een alternatief [Lucene-querysyntaxis](query-lucene-syntax.md) voor complexere query's. Zie voor meer informatie over de architectuur en voordelen van elke syntaxis parseren van de query, [hoe volledige tekst zoeken werkt in Azure Search](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+>  Azure Search biedt een alternatief [Lucene-querysyntaxis](query-lucene-syntax.md) voor complexere query's. Zie voor meer informatie over de architectuur en voordelen van elke syntaxis parseren van de query, [hoe volledige tekst zoeken werkt in Azure Search](search-lucene-query-architecture.md).
 
 ## <a name="how-to-invoke-simple-parsing"></a>Het parseren van eenvoudige aanroepen
 
@@ -44,38 +44,38 @@ Dezelfde wijze als dit klinkt, is er slechts één aspect van queryuitvoering in
 
 Normaal gesproken waarschijnlijk u sneller om te zien van deze problemen in gebruiker interactie patronen voor toepassingen die zoeken in de inhoud, waar gebruikers zich waarschijnlijk om op te nemen van een operator in een query, in plaats van e-commerce sites waarvoor meer ingebouwde navigatiestructuur. Zie voor meer informatie, [operator NOT](#not-operator). 
 
-## <a name="operators-in-simple-search"></a>Operators in eenvoudige zoekopdrachten
+## <a name="boolean-operators-and-or-not"></a>Booleaanse operators (AND, OR, NOT) 
 
 U kunt operators insluiten in een queryreeks aan het bouwen van een grote verscheidenheid aan de criteria op basis waarvan de overeenkomende documenten zijn gevonden. 
 
-## <a name="and-operator-"></a>EN de operator `+`
+### <a name="and-operator-"></a>EN de operator `+`
 
 De operator is een plusteken (+). Bijvoorbeeld, `wifi+luxury` wordt zoeken naar documenten met beide `wifi` en `luxury`.
 
-## <a name="or-operator-"></a>OF een operator `|`
+### <a name="or-operator-"></a>OF een operator `|`
 
 De OR-operator is een verticale balk of een pipe-teken. Bijvoorbeeld, `wifi | luxury` wordt zoeken naar documenten met een `wifi` of `luxury` of beide.
 
 <a name="not-operator"></a>
 
-## <a name="not-operator--"></a>NIET-operator `-`
+### <a name="not-operator--"></a>NIET-operator `-`
 
 De niet-operator is een minteken. Bijvoorbeeld, `wifi –luxury` wordt zoeken naar documenten waarvoor de `wifi` termijn en/of geen `luxury` (en/of wordt bepaald door `searchMode`).
 
 > [!NOTE]  
 >  De `searchMode` besturingselementen de optie of een term met de operator NOT and of samengevoegd met de andere voorwaarden in de query in de afwezigheid van is een `+` of `|` operator. Intrekken die `searchMode` kan worden ingesteld op `any` (standaard) of `all`. Als u `any`, het intrekken van query's wordt verhoogd door te nemen meer resultaten en standaard `-` wordt geïnterpreteerd als 'Of niet'. Bijvoorbeeld, `wifi -luxury` komt overeen met documenten dat beide de term bevatten `wifi` of die niet de term hebben `luxury`. Als u `all`, de precisie van de query's worden verhoogd door te nemen minder resultaten en standaard - wordt geïnterpreteerd als 'En niet'. Bijvoorbeeld, `wifi -luxury` komt overeen met de documenten die de term bevatten `wifi` en geen bevatten die de term 'luxe'. Dit is weliswaar een meer intuïtieve benadering gedrag voor de `-` operator. Daarom moet u overwegen `searchMode=all` in plaats van `searchMode=any` als u wilt optimaliseren zoekt precisie in plaats van zoals eerder vermeld, *en* uw gebruikers gebruiken vaak de `-` operator in zoekopdrachten.
 
-## <a name="suffix-operator-"></a>Achtervoegsel operator `*`
+## <a name="suffix-operator"></a>Achtervoegsel operator
 
-De operator achtervoegsel is een sterretje. Bijvoorbeeld, `lux*` wordt zoeken naar documenten die gelden voor een termijn die met begint `lux`, niet hoofdlettergevoelig.  
+De operator achtervoegsel is een sterretje `*`. Bijvoorbeeld, `lux*` wordt zoeken naar documenten die gelden voor een termijn die met begint `lux`, niet hoofdlettergevoelig.  
 
-## <a name="phrase-search-operator--"></a>De zoekoperator woordgroep `" "`
+## <a name="phrase-search-operator"></a>De zoekoperator woordgroep
 
-Een woordgroep tussen de operator woorden aanhalingstekens. Bijvoorbeeld, `Roach Motel` (zonder aanhalingstekens) wilt zoeken naar documenten met `Roach` en/of `Motel` overal in een willekeurige volgorde `"Roach Motel"` (met aanhalingstekens) wordt er alleen gezocht naar documenten die de hele woordgroep samen en in die bevatten volgorde (analyse van tekst nog steeds van toepassing).
+De operator woordgroep een woordgroep tussen aanhalingstekens `" "`. Bijvoorbeeld, `Roach Motel` (zonder aanhalingstekens) wilt zoeken naar documenten met `Roach` en/of `Motel` overal in een willekeurige volgorde `"Roach Motel"` (met aanhalingstekens) wordt er alleen gezocht naar documenten die de hele woordgroep samen en in die bevatten volgorde (analyse van tekst nog steeds van toepassing).
 
-## <a name="precedence-operator--"></a>Prioriteit-operator `( )`
+## <a name="precedence-operator"></a>Prioriteit-operator
 
-De tekenreeks voor tussen de operator prioriteit haakjes. Bijvoorbeeld, `motel+(wifi | luxury)` wordt zoeken naar documenten met de term motel en een `wifi` of `luxury` (of beide). |  
+De operator prioriteit tekenreeks tussen haakjes `( )`. Bijvoorbeeld, `motel+(wifi | luxury)` wordt zoeken naar documenten met de term motel en een `wifi` of `luxury` (of beide).  
 
 ## <a name="escaping-search-operators"></a>Aanhalingstekens Zoekoperators  
 

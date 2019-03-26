@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bd46e5f7428bab58508521b2c7d4d7cca25d689b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402725"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439070"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Een hostpool maken met PowerShell
 
@@ -54,7 +54,7 @@ Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGr
 
 De **toevoegen RdsAppGroupUser** cmdlet biedt geen ondersteuning voor toevoegen van beveiligingsgroepen en slechts één gebruiker tegelijk aan de app-groep wordt toegevoegd. Als u wilt dat meerdere gebruikers toevoegen aan de app-groep, voert u de cmdlet met de juiste gebruiker SPN-namen opnieuw uit.
 
-Voer de volgende cmdlet voor het exporteren van het registratietoken aan een variabele die u later zult gebruiken in [registreren van de virtuele machines aan de groep met virtuele Windows-bureaublad host](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+Voer de volgende cmdlet voor het exporteren van het registratietoken aan een variabele die u later zult gebruiken in [registreren van de virtuele machines aan de groep met virtuele Windows-bureaublad host](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool).
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token

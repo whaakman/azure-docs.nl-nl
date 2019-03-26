@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 0790b7d5280b3fdf26c34c3903a6257d21bc877c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28aef1c1b5091db75b4a1fb6786ee712b42a1ea2
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835829"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418768"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
 
@@ -33,9 +33,9 @@ Met DPS kunnen:
 In dit artikel beschrijft de volgende vier gebruiksvoorbeelden:
 
 1. [Snel verbinding maken met een enkel apparaat met behulp van SAS](#connect-a-single-device)
-1. Verbinding maken met apparaten op schaal met behulp van SAS
+1. [Verbinding maken met apparaten op schaal met behulp van SAS](#connect-devices-at-scale-using-sas)
 1. [Verbinding maken met apparaten op schaal met behulp van X.509-certificaten](#connect-devices-using-x509-certificates) dit is de aanbevolen aanpak voor productieomgevingen.
-1. Verbinding maken zonder eerst registreren apparaten 
+1. [Verbinding maken zonder eerst registreren apparaten](#connect-without-registering-devices)
 
 ## <a name="connect-a-single-device"></a>Verbinding maken met een enkel apparaat
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: fb29fb5ef2e755ff456ad177b66349792b2fa21c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285782"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418853"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>De naam van uw aangepaste domein met behulp van de Azure Active Directory-portal toevoegen
 Elke nieuwe Azure AD-tenant wordt geleverd met een initiële domeinnaam *domainname*. onmicrosoft.com. U niet wijzigen of verwijderen van de initiële domeinnaam, maar u kunt de namen van uw organisatie toevoegen aan de lijst. Toevoegen van aangepaste domeinnamen, helpt u bij het maken van de gebruikersnamen die bekend bij uw gebruikers, zoals zijn *alain\@contoso.com*.
@@ -84,6 +84,8 @@ Nadat u uw aangepaste domeinnaam hebt geregistreerd, moet u controleren of dat d
 4. Op de **Contoso** weergeeft, schakelt **controleren** om te controleren of uw aangepaste domein juist is geregistreerd en is geldig voor Azure AD.
 
     ![Contoso-pagina met DNS-vermeldingsgegevens en de knop controleren](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
+
+Nadat u uw aangepaste domeinnaam hebt gecontroleerd, kunt u uw verificatie-TXT- of MX-bestand kunt verwijderen.
 
 ## <a name="common-verification-issues"></a>Veelvoorkomende problemen met verificatie
 - Als Azure AD een aangepaste domeinnaam niet verifiëren kan, probeert u de volgende suggesties:

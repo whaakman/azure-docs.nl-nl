@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eefde6173156ea86f210ecc196c848fd97aaa0c8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117656"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435778"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Single sign-on bij niet-galerietoepassingen in Azure Active Directory configureren
 
@@ -124,7 +124,7 @@ Zie voor meer informatie, [beheren van certificaten voor federatieve eenmalige a
 
 ### <a name="set-up-target-application"></a>Doeltoepassing instellen
 
-Ga naar de documentatie van de toepassing voor het configureren van de toepassing voor eenmalige aanmelding. Als u wilt zoeken in de documentatie, blader naar het einde van de configuratie voor SAML gebaseerde aanmelding-pagina en klik vervolgens op **configureren <application name>** . 
+Ga naar de documentatie van de toepassing voor het configureren van de toepassing voor eenmalige aanmelding. Als u wilt zoeken in de documentatie, blader naar het einde van de configuratie voor SAML gebaseerde aanmelding-pagina en klik vervolgens op **configureren \<toepassingsnaam >**. 
 
 De vereiste waarden variëren op basis van de toepassing. Zie voor meer informatie, SAML-documentatie van de toepassing. De aanmeldings- en afmelden service-URL worden beide omgezet naar hetzelfde eindpunt, die het SAML-eindpunt voor afhandeling van aanvragen voor uw exemplaar van Azure AD. De SAML-entiteit-ID is de waarde die wordt weergegeven als de verlener in het SAML-token dat is uitgegeven voor de toepassing.
 

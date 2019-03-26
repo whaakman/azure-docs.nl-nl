@@ -3,31 +3,31 @@ title: Geo-filteren op een domein voor Azure Front Door Service | Microsoft Docs
 description: In dit artikel maakt u kennis met het geo-filterbeleid voor Azure Front Door Service (AFD)
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: KumudD
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/09/2018
-ms.author: sharadag
-ms.openlocfilehash: a2ba0fb34dd34129a134aa2639d06816f3523408
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.date: 03/21/2019
+ms.author: kumud;tyao
+ms.openlocfilehash: a7b4975a81c0966e5cbff0c8b940c9231e66f32b
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865502"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407637"
 ---
-# <a name="geo-filtering-geographic-based-access-control-to-azure-front-door-service-frontends"></a>Geo-filteren: toegangscontrole op basis van geografie naar AFD-frontends
+# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Wat is een geo-filteren op een domein voordeur voor Azure?
 
-Standaard reageert AFD op gebruikersaanvragen, ongeacht de locatie van deze gebruiker. In sommige gevallen kunt u echter de toegang tot uw webtoepassingen per land beperken. Dankzij de toepassingslaagbeveiliging van Azure Front Door kunt u met behulp van aangepaste beschermingsregels beleid definiëren voor een specifiek pad op uw eindpunt, zodat toegang vanuit bepaalde landen wordt toegestaan of geblokkeerd. 
+Standaard reageert AFD op gebruikersaanvragen, ongeacht de locatie van deze gebruiker. In sommige gevallen kunt u echter de toegang tot uw webtoepassingen per land beperken. Web application firewall (WAF)-service aan voordeur kunt u een beleid met behulp van aangepaste toegangsregels voor het specifieke pad op uw eindpunt wilt toestaan of blokkeren van toegang van de opgegeven landen definiëren. 
 
-Beleid voor toepassingsbescherming omvat gewoonlijk een verzameling aangepaste regels. Een regel bestaat uit voorwaarden voor overeenkomsten, een actie en een prioriteit. In de voorwaarde voor overeenkomst definieert u een overeenkomende variabele, een operator en een overeenkomende waarde.  Voor de ge-filterregel is REMOTE_ADDR de overeenkomende variabele, GeoMatch de operator, en de waarde is het landnummer van twee letters. U kunt een GeoMatch-voorwaarde combineren met een REQUEST_URI-tekenreeks-voorwaarde voor overeenkomst om een op een pad gebaseerde geo-filterregel te maken.
+Een WAF-beleid bevat meestal een set met aangepaste regels. Een regel bestaat uit voorwaarden voor overeenkomsten, een actie en een prioriteit. In de voorwaarde voor overeenkomst definieert u een overeenkomende variabele, een operator en een overeenkomende waarde.  Voor de ge-filterregel is REMOTE_ADDR de overeenkomende variabele, GeoMatch de operator, en de waarde is het landnummer van twee letters. U kunt een GeoMatch-voorwaarde combineren met een REQUEST_URI-tekenreeks-voorwaarde voor overeenkomst om een op een pad gebaseerde geo-filterregel te maken.
 
-U kunt beleid voor geo-filteren voor Front Door configureren met behulp van [Azure PowerShell](front-door-tutorial-geo-filtering.md) of de [quick-startsjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+U kunt een beleid voor geo-filtering configureren voor uw voordeur met behulp van een [Azure PowerShell](front-door-tutorial-geo-filtering.md) of met behulp van onze [quickstart-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
-## <a name="country-code-reference"></a>Verwijzing naar landnummer
+## <a name="country-code-reference"></a>Land/regio codeverwijzing
 
 |Landnummer | Naam van land/regio |
 | ----- | ----- |

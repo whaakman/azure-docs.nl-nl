@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 82ae36eaaf4616dbd85760a0962f301a2b1a20f5
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319377"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418785"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -57,12 +57,12 @@ Beheerde schijven worden in rekening gebracht iets anders dan de storage-account
 
 * Standard storage-account Visual Studio. Standard HDD Managed Disk
 
-    - **Schijf van de ingerichte opslag voor ASR**: S10
+    - **Ingerichte opslagschijf door Azure Site Recovery**: S10
     - **Standard-opslagaccount in rekening gebracht op volume verbruikt**: $5 per maand
     - **Standard-beheerde schijven in rekening gebracht op ingerichte volume**: $5.89 per maand
 
 * Premium storage-account Visual Studio. Premium SSD Managed Disk 
-    - **Schijf van de ingerichte opslag voor ASR**: P10
+    - **Ingerichte opslagschijf door Azure Site Recovery**: P10
     - **Premium storage-account in rekening gebracht op ingerichte volume**: $17.92 per maand
     - **Premium beheerde schijven in rekening gebracht op ingerichte volume**: $17.92 per maand
 
@@ -203,7 +203,7 @@ Ja, kunt u nieuwe virtuele machines toevoegen aan een bestaande replicatiegroep 
 U kunt de schijfgrootte wijzigen voor VMware-replicatie naar Azure. Als u wilt toevoegen van nieuwe schijven moet u de schijf toevoegen en weer inschakelen van beveiliging voor de virtuele machine.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Kan ik migreren op lokale machines met een Vcenter-nieuwe zonder enige impact op de doorlopende replicatie?
-Wijziging van de Vcenter- of de migratie is niet het geval is, van invloed op doorlopende replicatie. U moet instellen voor automatisch Systeemherstel met de nieuwe Vcenter en replicatie inschakelen voor machines.
+Wijziging van de Vcenter- of de migratie is niet het geval is, van invloed op doorlopende replicatie. U moet Azure Site Recovery met de nieuwe Vcenter instellen en replicatie inschakelen voor machines.
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Kan ik repliceren naar cache/doel-opslagaccount met een Vnet (met Azure storage-firewalls) geconfigureerd voor?
 Azure Site Recovery biedt Nee, geen ondersteuning voor replicatie naar de opslag op Vnet.
@@ -275,7 +275,7 @@ In de **Recovery Services-kluis**, **beheren** > **infrastructuur voor Site Reco
 Het installatieprogramma's zijn ondergebracht in de **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** map op de configuratieserver.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>Hoe installeer ik de Mobility-service?
-U installeert op elke virtuele machine die u repliceren wilt, met behulp van een [push-installatie](vmware-azure-install-mobility-service.md), of [handmatige installatie](vmware-physical-mobility-service-install-manual.md) vanuit de gebruikersinterface of Powershell. U kunt ook implementeren met behulp van een implementatieprogramma zoals [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
+U installeert op elke virtuele machine die u repliceren wilt, met behulp van een [push-installatie](vmware-physical-mobility-service-overview.md#push-installation), of [handmatige installatie](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) vanuit de gebruikersinterface of Powershell. U kunt ook implementeren met behulp van een implementatieprogramma zoals [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 

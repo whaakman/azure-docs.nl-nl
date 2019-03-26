@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 696f4fee95926009ebda0be3c28672838d89edda
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 31a50d1dab0d5b62ab4dd549127e9092148bd88c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400439"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438084"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Wat is Azure Data Box Edge? 
 
@@ -65,22 +65,6 @@ Data Box Edge biedt de volgende mogelijkheden:
 |Flexibiliteit     | Ingebouwde netwerkflexibiliteit.        |
 
 
-## <a name="features-and-specifications"></a>Functies en specificaties
-
-Het fysieke Data Box Edge-apparaat biedt de volgende functies:
-
-| Functies/specificaties                                          | Description              |
-|---------------------------------------------------------|--------------------------|
-| Dimensies   | Breedte: 17.25" Diepte: 27.25" hoogte: 1.75”<br>(exclusief oren en voedingseenheidshendels)  |            
-| Rackruimte|1U wanneer in het rack geplaatst|
-| Kabels| 2 X voedingskabels<br>2 X 1 Gbps RJ45-kabels<br>2 X 10 Gbps SFP+ koperen kabels|
-| Onderdelen|2 ingebouwde voedingseenheden|
-| CPU|2 Intel Xeon-processors met elk 10 cores  |
-| Geheugen| 64 GB RAM|
-| Disks| 8 NVMe SSD’s, elke schijf is 1,6 TB <br> Het systeem werkt niet als één NVMe SSD niet werkt. |
-| Lokale opslagcapaciteit| Totale capaciteit van 12,8 TB|
-| Netwerkinterfaces| 2 X 1 GbE-interfaces: Eén beheerinterface, niet configureerbaar door gebruikers, gebruikt voor eerste installatie. De andere gegevensinterface kan door gebruikers worden geconfigureerd, kan worden gebruikt voor gegevensoverdracht en is standaard DHCP. <br>2 X 25 GbE-interfaces: Deze kunnen ook als 10 GbE-interfaces werken. Deze gegevensinterfaces kunnen door gebruikers worden geconfigureerd als DHCP (standaard) of statisch. <br> 2 X 25 GbE-interfaces: Deze gegevensinterfaces kunnen door gebruikers worden geconfigureerd als DHCP (standaard) of statisch.|
-
 ## <a name="components"></a>Onderdelen
 
 De Data Box Edge-oplossing bestaat uit een Data Box Edge-resource, een fysiek Data Box Edge-apparaat en een lokale webinterface.
@@ -105,30 +89,16 @@ De Data Box Edge-oplossing bestaat uit een Data Box Edge-resource, een fysiek Da
 Het fysieke Data Box Edge-apparaat, de Azure-resource en het doelopslagaccount waarnaar u gegevens overdraagt hoeven zich niet allemaal in dezelfde regio te bevinden.
 
 - **Beschikbaarheid van resources**: Voor deze release is de Data Box Edge-resource beschikbaar in de volgende regio’s:
-    - **Verenigde Staten** - US - west 2 en US - oost
+    - **Verenigde Staten** -VS-Oost
     - **Europese Unie** - West-Europa
     - **Azië en Stille Oceaan** - Zuidoost-Azië
-
+    
+    Data Box-Gateway kan ook worden geïmplementeerd in de Azure Government-Cloud. Zie voor meer informatie, [wat is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+    
 - **Doelopslagaccounts**: De opslagaccounts waarin de gegevens worden opgeslagen, zijn beschikbaar in alle Azure-regio’s. 
 
     De regio’s waar de opslagaccounts Data Box-gegevens opslaan, moeten zich voor optimale prestaties dicht bij het apparaat bevinden. Een opslagaccount dat zich ver van het apparaat vandaan bevindt, resulteert in lange latenties en tragere prestaties. 
 
-
-## <a name="sign-up"></a>Aanmelden
-
-Data Box Edge is in de preview-fase en u moet zich registreren. Voer de volgende stappen uit om u te registreren voor Data Box Gateway:
-
-1. Meld u aan bij Azure Portal via: [https://aka.ms/databox-edge](https://aka.ms/databox-edge).
-
-2. Kies het abonnement dat u wilt gebruiken voor de preview-versie van Data Box Edge. Selecteer de regio waar u de Data Box Edge-resource wilt implementeren. Klik bij de Data Box Edge-optie op **Registreren**.
-
-    ![De Data Box Edge-registratie 3](media/data-box-edge-overview/data-box-edge-sign-up3.png)
-
-3.  Beantwoord de vragen met betrekking tot in welk land de gegevens zich bevinden, het tijdskader, de Azure-doelservice voor gegevensoverdracht, de netwerkbandbreedte en de frequentie van gegevensoverdracht. Lees de **privacyverklaring en voorwaarden** en schakel het selectievakje in zodat **Microsoft uw e-mailadres kan gebruiken om contact met u op te nemen**.
-
-    ![De Data Box Edge-registratie 4](media/data-box-edge-overview/data-box-edge-sign-up4.png)
-
-4. Nadat u zich hebt geregistreerd en aan de preview mag meedoen, kunt u een Data Box Edge bestellen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

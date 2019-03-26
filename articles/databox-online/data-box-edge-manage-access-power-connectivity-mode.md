@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400888"
+ms.locfileid: "58417799"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Beheren van toegang, kracht en verbindingsmodus voor uw Azure Data Box Edge (preview)
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Beheren van toegang, kracht en verbindingsmodus voor uw Azure Data Box-Edge
 
 In dit artikel wordt beschreven hoe u de modus voor toegang, kracht en connectiviteit voor uw Azure Data Box-Edge beheren. Deze bewerkingen worden uitgevoerd via de lokale web-UI of de Azure-portal.
 
@@ -26,8 +26,6 @@ In dit artikel leert u het volgende:
 > * Verbindingsmodus beheren
 > * Energiebeheer
 
-> [!IMPORTANT]
-> Data Box Edge is in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
 
 ## <a name="manage-device-access"></a>Toegang tot het apparaat beheren
 

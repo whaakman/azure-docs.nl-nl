@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 241b820122fe1c82b9a68829db87635745c051d9
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8e6c4047182901c5282f280f59fa95eca6571ecc
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825155"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417918"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Azure-resources beheren met behulp van Azure PowerShell
 
@@ -25,7 +25,7 @@ Informatie over het gebruik van Azure PowerShell gebruiken met [Azure Resource M
 Andere artikelen over het beheren van resources:
 
 - [Azure-resources beheren met behulp van Azure portal](./manage-resources-portal.md)
-- [Azure-resources beheren met behulp van Azure PowerShell](./manage-resources-powershell.md)
+- [Azure-resources beheren met behulp van Azure CLI](./manage-resources-cli.md)
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>Resources implementeren op een bestaande resourcegroep
 
@@ -97,7 +97,7 @@ $storageAccount = Get-AzResource -ResourceGroupName $srcResourceGroupName -Resou
 Move-AzResource -DestinationResourceGroupName $destResourceGroupName -ResourceId $storageAccount.ResourceId
 ```
 
-Zie voor een zelfstudie doorloopt, [zelfstudie: Azure-resources verplaatsen naar een andere resourcegroep of abonnement](./resource-manager-tutorial-move-resources.md). 
+Zie voor een zelfstudie doorloopt, [zelfstudie: Azure-resources verplaatsen naar een andere resourcegroep of een ander abonnement](./resource-manager-tutorial-move-resources.md). 
 
 Zie voor meer informatie [Resources verplaatsen naar een nieuwe resourcegroep of een nieuw abonnement](resource-group-move-resources.md).
 

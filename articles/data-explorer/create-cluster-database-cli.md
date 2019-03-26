@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: een Azure Data Explorer-cluster en -database maken met de CLI'
+title: 'Quickstart: Een cluster van Azure Data Explorer en -database maken met behulp van Azure CLI'
 description: Ontdek hoe u een Azure Data Explorer-cluster en -database kunt maken met de Azure CLI
 services: data-explorer
 author: radennis
@@ -7,15 +7,15 @@ ms.author: radennis
 ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 2/4/2019
-ms.openlocfilehash: ca4ffce1ae966d2bb8fb187c9b04938330969641
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 3/25/2019
+ms.openlocfilehash: 2a77671ca405a69ec87e335004a84acb2e649c2c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286326"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418649"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-the-cli"></a>Een Azure Data Explorer-cluster en -database maken met de CLI
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Een cluster van Azure Data Explorer en -database maken met behulp van Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
@@ -23,9 +23,9 @@ ms.locfileid: "58286326"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+>
 
-Deze quickstart laat zien hoe u een Azure Data Explorer-cluster en -database maakt met de Azure CLI.
+Azure Data Explorer is een snelle, volledig beheerde service voor gegevensanalyses waarmee grote hoeveelheden gegevens van toepassingen, websites, IoT-apparaten en dergelijke in real-time kunnen worden geanalyseerd. Als u Azure Data Explorer wilt gebruiken, maakt u eerst een cluster. Daarna maakt u een of meer databases in het cluster. De volgende stap is het opnemen (laden) van gegevens in een database, zodat u er query's op kunt uitvoeren. In deze snelstartgids maakt u een cluster en een database met behulp van Azure CLI.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -45,7 +45,7 @@ De volgende stappen zijn niet vereist als u opdrachten in Azure Cloud Shell uitv
     az login
     ```
 
-2. Stel het abonnement in waarin u uw cluster wilt maken. Vervang `MyAzureSub` door de naam van het Azure-abonnement dat u wilt gebruiken:
+1. Stel het abonnement in waarin u uw cluster wilt maken. Vervang `MyAzureSub` door de naam van het Azure-abonnement dat u wilt gebruiken:
 
     ```azurecli-interactive
     az account set --subscription MyAzureSub
@@ -67,7 +67,7 @@ De volgende stappen zijn niet vereist als u opdrachten in Azure Cloud Shell uitv
 
     Er zijn aanvullende optionele parameters die u kunt gebruiken, zoals de capaciteit van het cluster.
 
-2. Voer de volgende opdracht uit om te controleren of het cluster is gemaakt:
+1. Voer de volgende opdracht uit om te controleren of het cluster is gemaakt:
 
     ```azurecli-interactive
     az kusto cluster show --name azureclitest --resource-group testrg
@@ -91,7 +91,7 @@ Als het resultaat `provisioningState` met waarde `Succeeded` bevat, is het maken
    | soft-delete-period | *3650:00:00:00* | Hoe lang gegevens worden opgeslagen om query's erop te kunnen uitvoeren. |
    | hot-cache-period | *3650:00:00:00* | Hoe lang gegevens worden opgeslagen in de cache. |
 
-2. Voer de volgende opdracht uit om de database te bekijken die u hebt gemaakt:
+1. Voer de volgende opdracht uit om de database te bekijken die u hebt gemaakt:
 
     ```azurecli-interactive
     az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest

@@ -11,12 +11,12 @@ ms.date: 10/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52f8b70a4b098cc7266042499300235588e5303f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5b2471b28132b26c41844b620f6dcf49e3802a6e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164308"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436707"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>Wat is de ADConnectivityTool PowerShell-Module?
 
@@ -47,7 +47,7 @@ Bijvoorbeeld weergegeven wanneer we bezig zijn met het toevoegen van een map op 
 
 Wat er werkelijk gebeurt achter de schermen, is dat Azure AD Connect is aanroepen van de `Start-NetworkConnectivityDiagnosisTools` functie.  Deze functie wordt aangeroepen wanneer de validatie van referenties is mislukt vanwege een probleem met de netwerkverbinding.
 
-Ten slotte een gedetailleerd logboekbestand gegenereerd wanneer het hulpprogramma wordt aangeroepen vanuit de wizard. Het logboek bevindt zich in **C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.log**
+Ten slotte een gedetailleerd logboekbestand gegenereerd wanneer het hulpprogramma wordt aangeroepen vanuit de wizard. Het logboek bevindt zich in **C:\ProgramData\AADConnect\ADConnectivityTool-\<datum >-\<tijd > .log**
 
 ## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools na de installatie
 Nadat Azure AD Connect is geïnstalleerd, kan een van de functies in de ADConnectivityTools PowerShell-module kan worden gebruikt.  

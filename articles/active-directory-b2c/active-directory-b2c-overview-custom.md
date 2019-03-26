@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 03/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 92bd57822226e683f17582bb1534b84961f61032
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7921454cc9269278db58fcc50bc63ca49b41b1e0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187161"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417930"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -29,10 +29,10 @@ Aangepaste beleidsregels zijn configuratiebestanden die het gedrag van uw Azure 
 |-|-------------------|-----------------|
 | Doelgebruikers | Alle ontwikkelaars van toepassingen met of zonder kennis van de identiteit. | Identiteitsprofessionals, systeemintegrators, adviseurs en interne identiteit teams. Ze vertrouwd bent met OpenIDConnect stromen en informatie over id-providers en verificatie op basis van claims. |
 | Configuratiemethode | Azure-portal met een gebruiksvriendelijke-gebruikersinterface (UI). | XML-bestanden rechtstreeks te bewerken en vervolgens geüpload naar Azure portal. |
-| UI-aanpassing | Volledige gebruikersinterface aanpassen zoals HTML en CSS.<br><br>Meertalige ondersteuning met aangepaste tekenreeksen. | Dezelfde |
+| UI-aanpassing | Volledige UI-aanpassing met inbegrip van HTML, CSS en JavaScript.<br><br>Meertalige ondersteuning met aangepaste tekenreeksen. | Dezelfde |
 | Aanpassing van kenmerk | Standaardentiteiten en aangepaste kenmerken. | Dezelfde |
 | Token-en-sessie | Aangepaste token en meerdere sessie-opties. | Dezelfde |
-| Id-providers | Vooraf gedefinieerde lokale of sociale-provider. | OIDC-standaarden gebaseerde, OAUTH en SAML. |
+| Id-providers | Vooraf gedefinieerde lokale of sociale provider en de meeste OIDC id-providers, zoals Federatie met Azure Active Directory-tenants. | OIDC-standaarden gebaseerde, OAUTH en SAML.  Verificatie is ook mogelijk met behulp van integratie met REST-API's. |
 | Identity-taken | Meld u aan of aanmelden met lokaal of veel sociale accounts.<br><br>Self-service voor wachtwoord opnieuw instellen.<br><br>Profiel bewerken.<br><br>Multi-Factor Authentication.<br><br>Tokens en sessies aanpassen.<br><br>Toegang tot het token van de stromen. | Voer de dezelfde taken uit als gebruikersstromen met behulp van aangepaste id-providers of gebruik van aangepaste bereiken.<br><br>Een gebruikersaccount inrichten in een ander systeem op het moment van inschrijving.<br><br>Verzendt een welkomstbericht per e-mail via uw eigen e-provider.<br><br>Gebruik een archief van de gebruiker buiten Azure AD B2C.<br><br>Valideren van de gebruiker opgegeven gegevens met een vertrouwde systeem met behulp van een API. |
 
 ## <a name="policy-files"></a>Beleidsbestanden

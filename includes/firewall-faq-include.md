@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 2/4/2019
+ms.date: 3/25/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 8fd8cd93015fdb5cdcf657ecbcbb9a7cc870525a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5029fb29aecda1f1bef14dc95f6301b539c60441
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747744"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419101"
 ---
 ### <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -33,7 +33,7 @@ Azure Firewall is een beheerde, cloudgebaseerde netwerkbeveiligingsservice die u
 
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Wat is het typische implementatiemodel voor de Firewall van Azure?
 
-U kunt de Firewall van Azure implementeren op een virtueel netwerk, maar klanten doorgaans implementeren op een centrale virtueel netwerk en andere virtuele netwerken toe in een hub en spoke-model. Vervolgens stelt u de standaardroute uit de gekoppelde virtuele netwerken om te verwijzen naar dit centrale firewall virtuele netwerk.
+U kunt de Firewall van Azure implementeren op een virtueel netwerk, maar klanten doorgaans implementeren op een centrale virtueel netwerk en andere virtuele netwerken toe in een hub en spoke-model. Vervolgens stelt u de standaardroute uit de gekoppelde virtuele netwerken om te verwijzen naar dit centrale firewall virtuele netwerk. Wereldwijde VNet-peering wordt ondersteund, maar wordt niet aanbevolen vanwege mogelijke prestaties en latentieproblemen met tussen regio's. Voor de beste prestaties, implementeert u een firewall per regio.
 
 Het voordeel van dit model is de mogelijkheid om een centraal beheer van meerdere knooppunt VNETs in verschillende abonnementen. Er zijn ook kosten te besparen als u niet nodig een firewall in elk VNet afzonderlijk implementeren. De kosten te besparen moeten worden gemeten en de koppelen peering kosten op basis van de verkeerspatronen van de klant.
 
@@ -122,7 +122,7 @@ Ja, kunt u Azure-Firewall in een hub-netwerk te routeren en filteren verkeer tus
 
 ### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Kan Azure Firewall doorsturen en filteren van netwerkverkeer tussen subnetten in het hetzelfde virtuele netwerk of de gekoppelde virtuele netwerken?
 
-Ja. Configureren van de UDR van omleiden van verkeer tussen subnetten in hetzelfde vereist VNET echter extra aandacht. Tijdens het gebruik van de VNET-adresbereik als een doel-voorvoegsel voor de UDR voldoende is, stuurt deze ook al het verkeer van één machine naar een andere computer in hetzelfde subnet via de Firewall van Azure-instantie. Om dit te voorkomen, neem er een route voor het subnet in de UDR met een volgend hoptype van **VNET**. Beheren van deze routes, kan omslachtig en foutgevoelige klus zijn. De aanbevolen methode voor de segmentering van het interne netwerk is het gebruik van Netwerkbeveiligingsgroepen, die geen udr's is vereist.
+Ja. Configureren van de udr's als u wilt omleiden van verkeer tussen subnetten in hetzelfde VNET vereist echter extra aandacht. Tijdens het gebruik van de VNET-adresbereik als een doel-voorvoegsel voor de UDR voldoende is, stuurt deze ook al het verkeer van één machine naar een andere computer in hetzelfde subnet via de Firewall van Azure-instantie. Om dit te voorkomen, neem er een route voor het subnet in de UDR met een volgend hoptype van **VNET**. Beheren van deze routes, kan omslachtig en foutgevoelige klus zijn. De aanbevolen methode voor de segmentering van het interne netwerk is het gebruik van Netwerkbeveiligingsgroepen, die geen udr's is vereist.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Zijn er firewall beperkingen van de resource?
 

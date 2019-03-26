@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: raynew
-ms.openlocfilehash: e83698af6bb1caab1568375b726753d34a8c8467
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861346"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439002"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Een Recovery Services-kluis verwijderen
 
@@ -31,7 +31,7 @@ Voordat u begint, is het belangrijk om te begrijpen dat u een Recovery Services-
 - Als u niet wilt behouden van gegevens in de Recovery Services-kluis en de kluis wilt verwijderen, kunt u de kluis geforceerd beëindigd verwijderen.
 - Als u probeert te verwijderen van een kluis, maar niet, is nog steeds de kluis geconfigureerd voor het ontvangen van back-upgegevens.
 
-Voor informatie over het verwijderen van een kluis, Zie de sectie [een kluis verwijderen uit Azure portal](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Als sectie [verwijderen van de kluis geforceerd beëindigd](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Als u niet zeker weet wat er in de kluis en u ervoor zorgen moet dat kunt u de kluis verwijderen, Zie de sectie [verwijderen kluis afhankelijkheden en de kluis verwijderen](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
+Voor informatie over het verwijderen van een kluis, Zie de sectie [een kluis verwijderen uit Azure portal](#delete-a-vault-from-the-azure-portal). Als sectie [verwijderen van de kluis geforceerd beëindigd](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Als u niet zeker weet wat er in de kluis en u ervoor zorgen moet dat kunt u de kluis verwijderen, Zie de sectie [verwijderen kluis afhankelijkheden en de kluis verwijderen](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>Een kluis verwijderen uit de Azure portal
 
@@ -90,7 +90,7 @@ Een Recovery Services-kluis verwijderen:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. Als de kluis niet leeg zijn, ontvangt u de fout 'Kluis kan niet worden verwijderd omdat er bestaande resources binnen deze kluis'. Als u wilt verwijderen een ingesloten in een kluis, het volgende doen:
+9. Als de kluis niet leeg zijn, ontvangt u de fout 'Kluis kan niet worden verwijderd omdat er bestaande resources binnen deze kluis'. Als u wilt verwijderen van een container in een kluis, het volgende doen:
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01

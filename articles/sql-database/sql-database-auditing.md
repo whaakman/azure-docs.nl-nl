@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: ce691ec0622749f1cb7252e237dae25b2657d115
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a98ec18f2ed38b290d04c3fdc36d9a6ff80a675a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010524"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407348"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -170,7 +170,6 @@ Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschill
   - Nadat u hebt meerdere bestanden of een submap met de logboekbestanden gedownload, kunt u deze lokaal zoals beschreven in de controlebestanden SSMS-samenvoegen-instructies die eerder zijn beschreven samenvoegen.
   - Controlefunctie voor blobs weergeven logboeken via een programma:
 
-    - Gebruik de [uitgebreide gebeurtenissen-lezer](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C#-bibliotheek.
     - [Uitgebreide gebeurtenissen querybestanden](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) met behulp van PowerShell.
 
 ## <a id="subheading-5"></a>Procedures voor productie
@@ -258,8 +257,11 @@ Uitgebreide beleid met waar component ondersteuning voor aanvullende filters:
 U kunt beheren met Azure SQL database auditing met behulp van [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) sjablonen, zoals wordt weergegeven in deze voorbeelden:
 
 - [Een Azure SQL-Server implementeren met controle ingeschakeld auditlogboeken schrijven naar Azure Blob storage-account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Implementeren van een Azure SQL-Server met controle ingeschakeld auditlogboeken schrijven naar Azure Monitor-Logboeken](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Een Azure SQL-Server met controle ingeschakeld auditlogboeken schrijven naar Log Analytics implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Een Azure SQL-Server implementeren met controle ingeschakeld auditlogboeken schrijven naar Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
+> [!NOTE]
+> De gekoppelde voorbeelden bevinden zich op een externe openbare opslagplaats en worden geleverd 'as is' zonder garantie, en worden niet ondersteund onder een Microsoft-ondersteuning programma/service.
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/09/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443450"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418965"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag met de gebruiksvoorwaarden.
@@ -190,11 +190,15 @@ Zodra een gebruiksrechtovereenkomst is gemaakt en wordt afgedwongen, zien gebrui
 
 ![Web aanmelden van gebruikers](./media/active-directory-tou/user-tou.png)
 
+Gebruikers kunnen de gebruiksvoorwaarden bekijken en indien nodig, knoppen gebruiken in-en uitzoomen.
+
+![Gebruiksvoorwaarden weergeven met de knoppen voor inzoomen](./media/active-directory-tou/zoom-buttons.png)
+
 Het volgende scherm laat zien hoe Gebruiksrechtovereenkomst eruitziet op mobiele apparaten.
 
 ![Mobiele aanmelden van gebruikers](./media/active-directory-tou/mobile-tou.png)
 
-Gebruikers zijn alleen vereist om de gebruiksvoorwaarden accepteren één keer te zien ze de gebruiksvoorwaarden opnieuw op de volgende aanmeldingen.
+Gebruikers zijn alleen vereist voor de gebruiksvoorwaarden accepteren één keer en zien ze de gebruiksvoorwaarden opnieuw op de volgende aanmeldingen.
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>Hoe gebruikers hun gebruiksvoorwaarden kunnen bekijken
 Gebruikers kunnen de gebruiksvoorwaarden die ze hebben geaccepteerd, controleren en inzien met behulp van de volgende procedure.

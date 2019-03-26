@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 5be1835de2aa1631c4ec2115dd34ea85f0267403
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 954d19fb557540e4fdc6b17f313127e01eba97a7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870887"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435597"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Azure CDN voor het type van de levering van inhoud optimaliseren
 
@@ -38,6 +38,8 @@ Dit artikel bevat een overzicht van verschillende functies voor optimalisatie en
 
 * [Algemene Webweergave](#general-web-delivery). Deze optimalisatie wordt ook gebruikt voor streaming van media en downloaden van grote bestanden.
 
+> [!NOTE]
+> Dynamische siteversnelling van Microsoft wordt aangeboden [Azure voordeur Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** profielen ondersteunen de volgende optimaliseringen:
 
@@ -120,6 +122,9 @@ Zie voor meer informatie over optimalisatie van grote bestanden, [optimalisatie 
 ### <a name="dynamic-site-acceleration"></a>Dynamische siteversnelling
 
  Dynamic site acceleration (DSA) is beschikbaar voor **Azure CDN Standard van Akamai**, **Azure CDN Standard van Verizon**, en **Azure CDN Premium van Verizon** profielen. Deze optimalisatie worden extra kosten moet gebruiken. Zie voor meer informatie, [prijzen van Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
+
+> [!NOTE]
+> Dynamische siteversnelling van Microsoft wordt aangeboden [Azure voordeur Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) dit is een algemene [anycast](https://en.wikipedia.org/wiki/Anycast) service gebruik te maken van persoonlijke wereldwijde netwerk van Microsoft voor het leveren van uw app-werkbelastingen.
 
 DSA bevat verschillende technieken die profiteren van de latentie en de prestaties van dynamische inhoud. Technieken zijn onder andere route en netwerk-optimalisatie en optimalisatie van TCP. 
 

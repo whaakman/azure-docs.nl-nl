@@ -1,7 +1,7 @@
 ---
 title: Publicatie-regio's en -eindpunten
 titleSuffix: Azure Cognitive Services
-description: De regio waarin u uw LUIS-app publiceren overeenkomt met de regio of locatie die u in de Azure-portal opgeeft wanneer u een Azure LUIS-eindpuntsleutel maakt. Wanneer u een app publiceert, genereert LUIS automatisch een eindpunt-URL voor de regio die is gekoppeld aan de sleutel.
+description: 3 authoring regio's en hun portals ondersteuning voor alle veel publishing regio's. De regio waarin u uw LUIS-app publiceren overeenkomt met de regio of locatie die u in de Azure-portal opgeeft wanneer u een Azure LUIS-eindpuntsleutel maakt. Wanneer u een app publiceert, genereert LUIS automatisch een eindpunt-URL voor de regio die is gekoppeld aan de sleutel.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,27 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: bbe46db1972951b466b431c9efc0420e15ff6dee
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 01444cec798763bc4e44bcabe0d7ebb640e537a8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765167"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436333"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Ontwerpen en het publiceren van regio's en de bijbehorende sleutels
 
-De regio waarin u uw LUIS-app publiceren overeenkomt met de regio of locatie die u in de Azure-portal opgeeft wanneer u een Azure LUIS-eindpuntsleutel maakt. Wanneer u [een app publiceren](./luis-how-to-publish-app.md), LUIS genereert automatisch een eindpunt-URL voor de regio die is gekoppeld aan de sleutel. Als u wilt een LUIS-app publiceren in meer dan één regio, moet u ten minste één sleutel per regio. 
+Drie ontwerpen regio's en hun portals ondersteuning voor alle veel publishing regio's. De regio waarin u uw LUIS-app publiceren overeenkomt met de regio of locatie die u in de Azure-portal opgeeft wanneer u een Azure LUIS-eindpuntsleutel maakt. Wanneer u [een app publiceren](./luis-how-to-publish-app.md), LUIS genereert automatisch een eindpunt-URL voor de regio die is gekoppeld aan de sleutel. Als u wilt een LUIS-app publiceren in meer dan één regio, moet u ten minste één sleutel per regio. 
 
-## <a name="luis-website"></a>LUIS-website
+<a name="luis-website"></a>
+
+## <a name="luis-authoring-regions"></a>LUIS ontwerpen regio 's
 Er zijn drie LUIS-websites, op basis van regio. U moet maken en publiceren in dezelfde regio. 
 
-|LUIS|Regio|
-|--|--|
-|[www.Luis.AI][www.luis.ai]|V.S.<br>niet-Europa<br>niet-Australië|
-|[AU.Luis.AI][au.luis.ai]|Australië|
-|[EU.Luis.AI][eu.luis.ai]|Europa|
+|LUIS|Globale regio|Regio's in Azure ontwerpen|
+|--|--|--|
+|[www.Luis.AI][www.luis.ai]|V.S.<br>niet-Europa<br>niet-Australië| `westus`|
+|[AU.Luis.AI][au.luis.ai]|Australië| `australiaeast`|
+|[EU.Luis.AI][eu.luis.ai]|Europa|`westeurope`|
+
+U kunt de regio voor schrijven gebruiken voor interactie met geïmplementeerde LUIS-service in een andere Azure-publicatie regio.  
+
+Ontwerphandleiding regio's hebt [gekoppelde regio's voor failover](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 ## <a name="regions-and-azure-resources"></a>Regio's en Azure-resources
 De app wordt gepubliceerd naar alle regio's die zijn gekoppeld aan de LUIS-resources in de portal LUIS toegevoegd. Bijvoorbeeld, voor een app gemaakt op [www.luis.ai][www.luis.ai], als u een LUIS-resource in **westus** en toe te voegen aan de app als een resource, de app wordt gepubliceerd in die regio. 

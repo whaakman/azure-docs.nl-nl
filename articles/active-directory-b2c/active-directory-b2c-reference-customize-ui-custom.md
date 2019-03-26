@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 88abd3d17218f1168119a66701f1474d27244acf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122923"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438254"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>De gebruikersinterface van een gebruikersbeleving met aangepast beleid aanpassen
 
@@ -150,7 +150,7 @@ De volgende tabel beschrijft het doel van de voorgaande HTML5-pagina's.
 
 U kunt een koppeling naar uw HTML5/CSS-sjablonen toevoegen aan uw gebruikersbeleving door een aangepast beleid rechtstreeks te bewerken.
 
-De aangepaste sjablonen die HTML5/CSS gebruiken in de gebruikersbeleving moeten worden opgegeven in een lijst van inhoudsdefinities die kunnen worden gebruikt in deze gebruiker reizen. Om die reden wordt een optionele *<ContentDefinitions>* XML-element moet worden gedeclareerd onder de *<BuildingBlocks>* sectie van het aangepaste beleid XML-bestand.
+De aangepaste sjablonen die HTML5/CSS gebruiken in de gebruikersbeleving moeten worden opgegeven in een lijst van inhoudsdefinities die kunnen worden gebruikt in deze gebruiker reizen. Om die reden wordt een optionele  *\<ContentDefinitions >* XML-element moet worden gedeclareerd onder de  *\<BuildingBlocks >* sectie van het aangepaste beleid XML-bestand.
 
 De volgende tabel beschrijft de set met inhoud roldefinitie-id's wordt herkend door de identiteit van de Azure AD B2C-engine en het type van pagina's dat is gekoppeld aan deze optreden.
 

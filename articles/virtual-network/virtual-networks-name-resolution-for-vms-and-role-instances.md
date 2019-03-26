@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 3/25/2019
 ms.author: subsarma
-ms.openlocfilehash: 9130fef895d4f9cd31f643b20a735c0e821923b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ea15468722fcf1b9e2649236ef4dd05549d8f460
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193990"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418734"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Naamomzetting voor resources in Azure-netwerken
 
@@ -74,6 +74,7 @@ Punten om te overwegen wanneer u Azure geleverd naamomzetting gebruikt:
 * Hostnamen moet de DNS-compatibel. Namen van rapportitems zijn alleen 0-9, a-z, en '-', en mag niet beginnen of eindigen met een '-'.
 * DNS-query-verkeer is beperkt voor elke virtuele machine. Beperking mag niet van invloed op de meeste toepassingen. Als aanvraagbeperking wordt waargenomen, moet u caching aan clientzijde is ingeschakeld. Zie voor meer informatie, [DNS client-configuratie](#dns-client-configuration).
 * Alleen virtuele machines in de eerste 180 cloudservices zijn geregistreerd voor elk virtueel netwerk in een klassieke implementatiemodel. Deze limiet geldt niet voor virtuele netwerken in Azure Resource Manager.
+* De Azure DNS-IP-adres is 168.63.129.16. Dit is een statisch IP-adres en verandert niet.
 
 ## <a name="dns-client-configuration"></a>Configuratie van DNS-client
 

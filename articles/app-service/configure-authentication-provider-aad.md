@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 0c5ceda99fe35fafff23f2bcf4ea766d7dd42b75
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403218"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438221"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Uw App Service-app voor het gebruik van Azure Active Directory-aanmelding configureren
 
@@ -43,8 +43,6 @@ In dit artikel leest u hoe het configureren van Azure App Services voor het gebr
 5. (Optioneel) Instellen om toegang te beperken naar uw site tot alleen gebruikers die zijn geverifieerd door Azure Active Directory, **te ondernemen actie wanneer de aanvraag niet is geverifieerd** naar **aanmelden met Azure Active Directory**. Dit vereist dat alle aanvragen worden geverifieerd en alle niet-geverifieerde aanvragen worden omgeleid naar Azure Active Directory voor verificatie.
 6. Klik op **Opslaan**.
 
-U bent nu klaar voor gebruik van Azure Active Directory voor verificatie in uw App Service-app.
-
 ## <a name="advanced"> </a>Met de geavanceerde instellingen configureren
 
 U kunt ook opgeven de configuratie-instellingen handmatig. Dit is de beste oplossing als de Azure Active Directory-tenant die u wilt gebruiken, wijkt af van de tenant waarmee u zich bij Azure aanmeldt. De configuratie te voltooien, moet u eerst een registratie maken in Azure Active Directory en vervolgens moet u enkele van de registratiedetails van de naar App Service.
@@ -57,8 +55,12 @@ U kunt ook opgeven de configuratie-instellingen handmatig. Dit is de beste oplos
 4. In een paar seconden ziet u de nieuwe app-registratie die u zojuist hebt gemaakt.
 5. Zodra de app-registratie is toegevoegd, klikt u op de naam van de app-registratie, klikt u op **instellingen** aan de bovenkant en klik vervolgens op **eigenschappen** 
 6. In de **App ID URI** vak, plak de URL van de toepassing (uit stap 1), ook in de **URL van startpagina** plakken in de URL van de toepassing (uit stap 1), en klik vervolgens op **opslaan**
-7. Klik nu op de **antwoord-URL's**, bewerk de **antwoord-URL**, plak de URL van de toepassing (uit stap 1) en vervolgens toegevoegd aan het einde van de URL, */.auth/login/aad/callback* (voor bijvoorbeeld `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Klik op **Opslaan**.   
-8.  Op dit moment, Kopieer de **toepassings-ID** voor de app. Houd het voor later gebruik. U moet het configureren van uw App Service-app.
+7. Klik nu op de **antwoord-URL's**, bewerk de **antwoord-URL**, plak de URL van de toepassing (uit stap 1) en voegt deze toe aan het einde van de URL */.auth/login/aad/callback* (voor bijvoorbeeld `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Klik op **Opslaan**.
+
+   > [!NOTE]
+   > U kunt de dezelfde app-registratie voor meerdere domeinen gebruiken door toe te voegen extra **antwoord-URL's**. Zorg ervoor dat als model voor elke App Service-exemplaar met een eigen registratie, zodat er een eigen machtigingen en toestemming. Ook overwegen om afzonderlijke app-registraties voor afzonderlijke sitesleuven. Dit is om te voorkomen dat machtigingen worden gedeeld tussen omgevingen, zodat een bug in nieuwe code die u wilt testen heeft geen invloed op de productie.
+    
+8. Op dit moment, Kopieer de **toepassings-ID** voor de app. Houd het voor later gebruik. U moet het configureren van uw App Service-app.
 9. Sluit de **geregistreerde app** pagina. Op de **App-registraties** pagina, klikt u op de **eindpunten** knop aan de bovenkant en kopieer de **WS-FEDERATION SIGN-ON ENDPOINT** URL, maar Verwijder de `/wsfed` beëindigen via de URL. Het eindresultaat ziet er als `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`. Naam van het domein kan mogelijk verschillen voor een onafhankelijke Clouds. Dit moet fungeren als de URL-verlener voor later.
 
 ### <a name="secrets"> </a>Azure Active Directory-informatie toevoegen aan uw App Service-app

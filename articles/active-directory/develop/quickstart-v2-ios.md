@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9134f939e771f92453b184aad643d41089623e19
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201463"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439259"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Quickstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een systeemeigen iOS-app
 
@@ -44,7 +44,7 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een systeemeigen iOS-
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Stap 1: Uw toepassing configureren
-> Voor een juiste werking van het codevoorbeeld uit deze snelstart, moet u een antwoord-URL als `msal<AppId>://auth` toevoegen (waarbij msal<AppId> deze toepassings-id is).
+> Voor het codevoorbeeld voor deze Quick Start om te werken, moet u een antwoord-URL als toevoegen `msal<AppId>://auth` (waarbij msal\<AppId > deze toepassings-Id is).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Deze wijziging voor mij maken]()
 >
@@ -168,7 +168,7 @@ applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /*
 
 > |Waar:||
 > |---------|---------|
-> | `forScopes` | Bevat de bereiken die worden aangevraagd (dat wil zeggen [ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`)) |
+> | `forScopes` | Bevat de bereiken die worden aangevraagd (dat wil zeggen `[ "user.read" ]` voor Microsoft Graph of `[ "<Application ID URL>/scope" ]` voor aangepaste web-API's (dat wil zeggen `api://<Application ID>/access_as_user`)) |
 
 #### <a name="getting-an-access-token-silently"></a>Een toegangstoken op de achtergrond verkrijgen
 

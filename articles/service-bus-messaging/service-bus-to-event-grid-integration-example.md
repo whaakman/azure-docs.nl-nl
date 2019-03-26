@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 7c38de9c1dbb5e8a286fa1b72d0461dd74ed6f25
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e1ea3d822c8b032617b7f202f1c176aeb966210
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770524"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436775"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Voorbeelden van de integratie van Azure Service Bus met Event Grid
 
@@ -27,7 +27,7 @@ In dit artikel leert u hoe u een Azure-functie en een logische app instelt die b
  
 * Maak een eenvoudige Azure-testfunctie voor het opsporen van fouten en het weergeven van de eerste stroom gebeurtenissen uit Event Grid. Voer deze stap in elk geval uit, ongeacht of u de andere stappen uitvoert.
 * Maak een Azure-functie waarmee u Service Bus-berichten kunt ontvangen en verwerken op basis van Event Grid-gebeurtenissen.
-* Gebruik de Logic Apps-functie van Azure App Service.
+* Gebruik de functie logische Apps van Azure App Service.
 
 Voor het voorbeeld dat u maakt, wordt ervanuit gegaan dat het Service Bus-onderwerp twee abonnementen kent. Er wordt ook vanuit gegaan dat het Event Grid-abonnement is gemaakt voor het verzenden van gebeurtenissen voor slechts één Service Bus-abonnement. 
 

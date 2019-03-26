@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: d007f688483366f2f714a78b5bf9b56a67c55490
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: b367251e6799031ed96058d21e606446e14636c7
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730096"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407603"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Problemen met domein en SSL-certificaat oplossen in Azure App Service
 
@@ -278,7 +278,7 @@ Wanneer u een domein van de portal voor Azure koopt, wordt de App-servicetoepass
 
 **Kan ik een domein hebt aangeschaft in de Azure-portal gebruiken om te verwijzen naar een Azure-VM in plaats daarvan?**
 
-Ja, kunt u het domein verwijzen naar een virtuele machine, opslag enzovoort. Zie voor meer informatie, [een aangepaste FQDN-naam voor een Windows-VM maken in Azure portal](../virtual-machines/windows/portal-create-fqdn.md).
+Ja, kunt u het domein verwijzen naar een virtuele machine. Zie [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md) (Azure DNS gebruiken om aangepaste domeininstellingen te verstrekken voor een Azure-service) voor meer informatie.
 
 **Wordt mijn domein gehost door GoDaddy of Azure DNS?**
 

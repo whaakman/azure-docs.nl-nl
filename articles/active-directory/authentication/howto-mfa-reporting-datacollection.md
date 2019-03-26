@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0c22d4421aa984a9862f83b9be1095d548e5841
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314474"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436657"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure multi-factor Authentication-gebruiker gegevens verzamelen
 
@@ -138,7 +138,7 @@ Voor MFA-Server versie 8.0 of hoger beheerders het volgende proces alle gegevens
 - Meld u aan bij uw MFA-Server, gaat u naar de **gebruikers** tabblad, selecteert u de gebruiker in kwestie en klikt u op de **bewerken** knop. Schermopnamen (Alt-PrtScn) van elk tabblad voor de gebruiker hun huidige MFA-instellingen.
 - Uitvoeren vanaf de opdrachtregel van de MFA-Server, de volgende opdracht wijzigen van het pad op basis van uw installatie `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` opgemaakt bestand voor het produceren van een JSON.
 - Beheerders kunnen ook gebruik van de Web Service SDK GetUserGdpr bewerking als een optie voor het exporteren van alle MFA cloud service-gegevens die worden verzameld voor een bepaalde gebruiker of opnemen in een grotere rapportageoplossing.
-- Search `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` en een back-ups voor '<username>' (inclusief de aanhalingstekens in de zoekopdracht) om te zoeken naar alle exemplaren van de record van de gebruiker wordt toegevoegd of gewijzigd.
+- Search `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` en een back-ups voor '\<gebruikersnaam > ' (inclusief de aanhalingstekens in de zoekopdracht) om te zoeken naar alle exemplaren van de record van de gebruiker wordt toegevoegd of gewijzigd.
    - Deze records kunnen hiervoor schakelt worden beperkt tot (maar niet opgeheven) **"Meld gebruikerswijzigingen"** in de MFA Server UX, sectie logboekregistratie, het tabblad logboekbestanden.
    - Als u syslog is geconfigureerd, en **"Meld gebruikerswijzigingen"** is ingeschakeld in de MFA Server UX, sectie logboekregistratie, Syslog-tabblad, en vervolgens de logboekvermeldingen worden verzameld bij syslog in plaats daarvan.
 - Andere instanties van de gebruikersnaam in MultiFactorAuthSvc.log en andere MFA-Server-logboekbestanden met betrekking tot verificatie pogingen worden beschouwd als operationele en vormen van vermenigvuldigde tot de informatie die is opgegeven met behulp van MultiFactorAuthGdpr.exe exporteren of webservice-SDK GetUserGdpr.

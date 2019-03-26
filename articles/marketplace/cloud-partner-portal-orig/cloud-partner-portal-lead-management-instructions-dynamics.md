@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8c432146d33db992a0ae612dfc56ace9460ade17
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a1398d172a5c578ec3c0f16627eadd1da3fd1e45
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870856"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437608"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Leadbeheer configureren voor Dynamics CRM online
 
@@ -63,6 +63,7 @@ Gebruik de volgende stappen voor het configureren van Azure Active Directory voo
 1.  Aanmelden bij [Azure-portal](https://portal.azure.com/) en selecteer vervolgens de Azure Active Directory-service.
 
 2.  Selecteer **eigenschappen** en kopieer vervolgens de **map-Id**. Dit is uw tenant-account-id die u nodig hebt in de Cloud Partner-Portal gebruiken.
+
     ![Map-ID ophalen](./media/cloud-partner-portal-lead-management-instructions-dynamics/directoryid.png)
 
 3.  Selecteer **App-registraties**, en selecteer vervolgens **nieuwe toepassing registreren**.
@@ -77,6 +78,7 @@ Gebruik de volgende stappen voor het configureren van Azure Active Directory voo
 11. Selecteer in het menu sleutels **Kopieer de sleutelwaarde.** Sla een kopie van deze waarde, omdat u hebt deze nodig voor de Cloud Partner-Portal.
     
     ![Dynamics ophalen geregistreerde sleutel](./media/cloud-partner-portal-lead-management-instructions-dynamics/registerkeys.png)
+    
 12. Selecteer **vereiste machtigingen** en selecteer vervolgens **toevoegen**. 
 13. Selecteer **Dynamics CRM Online** als de nieuwe API, en controleer de machtiging voor *toegang CRM Online als organisatiegebruikers*.
 
@@ -84,24 +86,27 @@ Gebruik de volgende stappen voor het configureren van Azure Active Directory voo
     
     ![Gebruikers van de toepassing](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuserfirst.PNG)
 
-15. Selecteer **nieuw** om een nieuwe gebruiker te maken. Selecteer de **gebruiker: TOEPASSINGSGEBRUIKER** vervolgkeuzelijst.
+15. Selecteer **nieuw** om een nieuwe gebruiker te maken. Selecteer de **gebruiker: GEBRUIKER van toepassing** vervolgkeuzelijst.
     
     ![Nieuwe toepassingsgebruiker toevoegen](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PNG)
 
 16. In **nieuwe gebruiker**, geeft u de naam en e-dat u wilt gebruiken voor deze verbinding. Plak het **toepassings-Id** voor de app die u hebt gemaakt in Azure portal.
+
      ![Nieuwe gebruiker configureren](./media/cloud-partner-portal-lead-management-instructions-dynamics/leadgencreateuser.PNG)
 
 17. Ga naar 'Instellingen' in dit artikel voor het configureren van de verbinding voor deze gebruiker is voltooid.
 
 ### <a name="office-365"></a>Office 365
 
-Als u niet wilt gebruiken van Azure Active Directory, kunt u een nieuwe gebruiker op de Office 365-beheerportal kunt registreren. U zult zijn vereist voor het bijwerken van uw gebruikersnaam en wachtwoord om de 90 dagen om door te gaan met het ophalen van leads.
+Als u niet wilt gebruiken van Azure Active Directory, kunt u een nieuwe gebruiker registreren op de *Microsoft 365-beheercentrum*. U zult zijn vereist voor het bijwerken van uw gebruikersnaam en wachtwoord om de 90 dagen om door te gaan met het ophalen van leads.
 
 Gebruik de volgende stappen voor het configureren van Office 365 voor Dynamics CRM.
 
-1. Aanmelden bij de [Microsoft Office 365-beheerportal](https://go.microsoft.com/fwlink/?LinkId=225975).
+1. Aanmelden bij de [Microsoft 365-beheercentrum](https://admin.microsoft.com).
 
-2. Selecteer de **Admin** tegel ![beheerder van Office Online](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
+2. Selecteer de **Admin** tegel.
+
+    ![Beheerder van Office Online](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
 
 3. Selecteer **toevoegen van een gebruiker**.
 
@@ -112,6 +117,7 @@ Gebruik de volgende stappen voor het configureren van Office 365 voor Dynamics C
     -   Geef een wachtwoord op en schakel de optie 'Maak deze gebruiker het wachtwoord wijzigen wanneer ze zich eerst aanmelden'.
     -   Selecteer 'Gebruiker (geen beheerderstoegang)' als de rol voor de gebruiker.
     -   Selecteer de productlicentie die wordt weergegeven in de volgende schermopname. In rekening gebracht voor de licentie die u kiest. De oplossing werkt ook met Dynamics CRM Online Basic-licentie.
+    
     ![Gebruikersmachtigingen en licentie configureren](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline5.png)
 
 ## <a name="security-settings"></a>Beveiligingsinstellingen
@@ -124,12 +130,14 @@ De laatste stap is om in te schakelen van de gebruiker die u hebt gemaakt voor h
     ![Beveiligingsinstellingen](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline6.png)
 
 3.  Selecteer de gebruiker die u hebt gemaakt in **gebruikersmachtigingen**, en selecteer vervolgens **gebruikersrollen beheren**. Controleer **Microsoft Marketplace leiden Writer** aan de rol toe te wijzen.
+
     ![Gebruikersrollen toewijzen](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline7.png)\
 
     >[!NOTE]
     >Deze rol is gemaakt door de oplossing geïmporteerd uit te voeren en alleen machtigingen om te schrijven van de leads en om bij te houden van de versie van de oplossing om ervoor te zorgen compatibiliteit heeft.
 
 4.  Selecteer in de beveiliging, **beveiligingsrollen** en zoek de rol van de Microsoft Marketplace leiden Writer.
+    
     ![Beveiliging lead schrijver configureren](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg)\
 
 5. Selecteer de **Kernrecords** tabblad. Schakel maken/lezen/schrijven voor de gebruikersentiteit van gebruikersinterface.
@@ -140,5 +148,5 @@ De laatste stap is om in te schakelen van de gebruiker die u hebt gemaakt voor h
 
 Klaar bent met het configureren van Dynamics CRM voor lead management door toe te voegen van de gegenereerde accountgegevens voor de Cloud Partner-Portal. Bijvoorbeeld:
 
--   **Azure Active Directory** - **toepassings-Id** (voorbeeld: *23456052-aaaa-bbbb-8662-1234df56788f*), **map-Id** (voorbeeld: *12345678-8af1-4asf-1234-12234d01db47*), en **Toepassingssleutel** (voorbeeld: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc =*).
+-   **Azure Active Directory** - **toepassings-Id** (voorbeeld: *23456052-AAAA-bbbb-8662-1234df56788f*), **map-Id** (voorbeeld: *12345678-8af1-4asf-1234-12234d01db47*), en **Toepassingssleutel** (voorbeeld: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
 -   **Office 365** - **Url** (voorbeeld: *https://contoso.crm4.dynamics.com*), **gebruikersnaam** (voorbeeld: *contoso\@ Contoso.onmicrosoft.com*), en **wachtwoord** (voorbeeld: *P\@ssw0rd*).

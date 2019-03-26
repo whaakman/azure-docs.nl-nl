@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 94893a5b5716c9bd207ad2a8bc8ca457974dddd4
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395703"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407772"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -300,7 +300,7 @@ Er is geen nadeel aan het gebruik van TRIM op Azure-schijven in een premium of s
 
 **Wat is de grootste beheerde schijfgrootte voor het besturingssysteem en gegevensschijven worden ondersteund?**
 
-Het partitietype die Azure biedt ondersteuning voor een besturingssysteemschijf wordt de master bootrecord (MBR). De MBR-indeling ondersteunt een schijfgrootte maximaal 2 TiB. De maximale grootte die Azure biedt ondersteuning voor een besturingssysteemschijf is 2 TiB. Azure ondersteunt maximaal 32 TiB voor beheerde gegevensschijven. Beheerde schijf die groter zijn dan 4 TiB zijn beschikbaar als preview. Zie voor meer informatie over deze onze [blogbericht](https://aka.ms/azure-large-disk-32TB-preview-blog).
+Het partitietype die Azure biedt ondersteuning voor een besturingssysteemschijf wordt de master bootrecord (MBR). De MBR-indeling ondersteunt een schijfgrootte maximaal 2 TiB. De maximale grootte die Azure biedt ondersteuning voor een besturingssysteemschijf is 2 TiB. Azure ondersteunt maximaal 32 TiB voor beheerde gegevensschijven in de globale Azure, 4 TiB in Azure soevereine clouds.
 
 **Wat is de maximumgrootte van de niet-beheerde schijf voor het besturingssysteem en gegevensschijven worden ondersteund?**
 
@@ -335,7 +335,7 @@ U kunt een momentopname van de kleine schijven en maak vervolgens een schijf voo
 
 **Kunt u het formaat van bestaande beheerde schijven van grootte minder dan 4 tebibytes (TiB) naar nieuwe geïntroduceerde schijfgrootten tot 32 TiB?**
 
-Nieuwe Managed Disk-groottes TiB 8, 16 TiB en 32 TiB zijn momenteel in Preview. Nog niet wordt ondersteund bestaande schijfgrootten naar de nieuwe schijfgrootten vergroten of verkleinen.
+Ja.
 
 **Wat zijn de grootste schijfgrootten die worden ondersteund door Azure Backup en Azure Site Recovery-service?**
 

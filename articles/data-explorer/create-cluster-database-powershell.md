@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: 650bdc5cdf99645bc2be6c8e85737dacd10a6b27
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: ec012f85c4b4e93e9be475781e9da79f686cbf9e
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287514"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417714"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Een cluster van Azure Data Explorer en -database maken met behulp van PowerShell
 
@@ -25,20 +25,21 @@ ms.locfileid: "58287514"
 > * [Python](create-cluster-database-python.md)
 >  
 
-
-In deze Quick Start wordt beschreven hoe u een cluster van Azure Data Explorer en -database maken met behulp van PowerShell.
-
-U kunt PowerShell-cmdlets en scripts uitvoeren in Windows, Linux, of in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) maken en configureren [Azure Data Explorer](https://docs.microsoft.com/azure/kusto/ ).
-
-De [ **Az.Kusto**](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto ). Met Azure PowerShell en **Az.Kusto**, kunt u de volgende taken uitvoeren:
+Azure Data Explorer is een snelle, volledig beheerde service voor gegevensanalyses waarmee grote hoeveelheden gegevens van toepassingen, websites, IoT-apparaten en dergelijke in real-time kunnen worden geanalyseerd. Als u Azure Data Explorer wilt gebruiken, maakt u eerst een cluster. Daarna maakt u een of meer databases in het cluster. De volgende stap is het opnemen (laden) van gegevens in een database, zodat u er query's op kunt uitvoeren. In deze snelstartgids maakt u een cluster en een database met behulp van Powershell. U kunt PowerShell-cmdlets en scripts uitvoeren in Windows, Linux, of in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) samen met [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) maken en configureren van Azure Data Explorer-clusters en databases.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een Azure-abonnement nodig om deze snelstart te voltooien. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Als u ervoor kiest om de Azure CLI lokaal te installeren en te gebruiken, moet u voor deze quickstart versie 2.0.4 of hoger van Azure CLI uitvoeren. Voer `az --version` uit om uw versie te controleren. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-parameters"></a>Parameters configureren
 
-De volgende stappen zijn niet vereist als u opdrachten in Azure Cloud Shell uitvoert. Als u de CLI lokaal uitvoert, volgt u deze stappen om u aan te melden bij Azure en uw huidige abonnement in te stellen:
+De volgende stappen zijn niet vereist als u opdrachten in Azure Cloud Shell uitvoert. Als u de CLI lokaal uitvoert, voert u de stappen 1 en 2 om aan te melden bij Azure en in te stellen van uw huidige abonnement:
 
 1. Voer de volgende opdracht uit om u aan te melden bij Azure:
 
@@ -46,12 +47,12 @@ De volgende stappen zijn niet vereist als u opdrachten in Azure Cloud Shell uitv
     Connect-AzAccount
     ```
 
-2. Stel het abonnement in waarin u uw cluster wilt maken.
+2. Stel het abonnement waar u uw cluster te maken:
 
     ```azurepowershell-interactive
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-3. Az.Kusto-module installeren op uw apparaat:
+3. Bij het uitvoeren van Azure CLI lokaal of in de Azure Cloud Shell, moet u de module Az.Kusto installeren op uw apparaat:
     
     ```azurepowershell-interactive
      Install-Module -Name Az.Kusto  
@@ -116,7 +117,5 @@ U hebt nu een cluster en een database.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U vindt meer Az.Kusto opdrachten [ **hier**](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto )
-
-> [!div class="nextstepaction"]
-> [Snelstart: Opname van gegevens met behulp van de Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)
+* [Aanvullende Az.Kusto opdrachten](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto)
+* [Snelstart: Opname van gegevens met behulp van de Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)

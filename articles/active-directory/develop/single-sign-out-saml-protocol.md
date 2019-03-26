@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a286b3578cc159b6771df3f91bcd3f2fd35a161
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0d4f9c69d6ddcbef96a88a0df10c3b0974cd5b74
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201670"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437081"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Eenmalige afmelding SAML-Protocol
 
@@ -72,7 +72,7 @@ Azure AD-verzendt een `LogoutResponse` in reactie op een `LogoutRequest` element
 Azure AD-stelt de `ID`, `Version` en `IssueInstant` waarden in de `LogoutResponse` element. Stelt ook het `InResponseTo` element aan de waarde van de `ID` kenmerk van de `LogoutRequest` die opgewekt door het antwoord.
 
 ### <a name="issuer"></a>Verlener
-Azure AD wordt deze waarde ingesteld op `https://login.microsoftonline.com/<TenantIdGUID>/` waar <TenantIdGUID> is de tenant-ID van de Azure AD-tenant.
+Azure AD wordt deze waarde ingesteld op `https://login.microsoftonline.com/<TenantIdGUID>/` waar \<TenantIdGUID > is de tenant-ID van de Azure AD-tenant.
 
 Om te evalueren van de waarde van de `Issuer` -element, gebruikt u de waarde van de **App ID URI** opgegeven tijdens de toepassingsregistratie.
 

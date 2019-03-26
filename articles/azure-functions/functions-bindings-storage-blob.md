@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 16899c833d996902cf7a0a3f7ab57479869fbdd9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e18a63892f000eff0f72656082d5e6e1f0ca159b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737778"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437471"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -282,7 +282,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenme
   {
       ....
   }
-  ```
+   ```
 
   Zie voor een compleet voorbeeld [Trigger - voorbeeld met C#](#trigger---c-example).
 
@@ -318,8 +318,8 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op `blobTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. Uitzonderingen worden vermeld in de [gebruik](#trigger---usage) sectie. |
-|**De naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven. | 
-|**path** | **BlobPath** |De [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) om te controleren.  Kan een [patroon voor de blob](#trigger---blob-name-patterns). | 
+|**De naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven. |
+|**path** | **BlobPath** |De [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) om te controleren.  Kan een [patroon voor de blob](#trigger---blob-name-patterns). |
 |**verbinding** | **Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [Blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -450,7 +450,9 @@ JavaScript en Java-functies in het geheugen, de hele blob laden en C# functies d
 
 ## <a name="trigger---polling"></a>Trigger - polling
 
-Als de blob-container die worden bewaakt meer dan 10.000 blobs bevat, logboekbestanden de Functions-runtime-scans om te bekijken voor nieuwe of gewijzigde blobs. Dit proces kan leiden tot vertragingen. Een functie mogelijk niet ophalen geactiveerd totdat enkele minuten of langer nadat de blob is gemaakt. Bovendien [opslaglogboeken worden gemaakt op een "aanbevolen inspanning"](/rest/api/storageservices/About-Storage-Analytics-Logging) uit te voeren. Er is geen garantie dat alle gebeurtenissen worden vastgelegd. Onder bepaalde omstandigheden, logboeken gemist. Als u sneller of betrouwbaarder blob verwerking nodig hebt, kunt u het maken van een [wachtrijbericht](../storage/queues/storage-dotnet-how-to-use-queues.md) bij het maken van de blob. Gebruik vervolgens een [wachtrijtrigger](functions-bindings-storage-queue.md) in plaats van een blobtrigger voor het verwerken van de blob. Een andere optie is het gebruik van Event Grid; Zie de zelfstudie [automatisch vergroten of verkleinen geüploade afbeeldingen met behulp van Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+Als de blob-container die worden bewaakt bevat meer dan 10.000 blobs (voor alle containers), logboekbestanden de Functions-runtime-scans om te bekijken voor nieuwe of gewijzigde blobs. Dit proces kan leiden tot vertragingen. Een functie mogelijk niet ophalen geactiveerd totdat enkele minuten of langer nadat de blob is gemaakt. Bovendien [opslaglogboeken worden gemaakt op een "aanbevolen inspanning"](/rest/api/storageservices/About-Storage-Analytics-Logging) uit te voeren. Er is geen garantie dat alle gebeurtenissen worden vastgelegd. Onder bepaalde omstandigheden, logboeken gemist.
+
+Als u sneller of betrouwbaarder blob verwerking nodig hebt, kunt u het maken van een [wachtrijbericht](../storage/queues/storage-dotnet-how-to-use-queues.md) bij het maken van de blob. Gebruik vervolgens een [wachtrijtrigger](functions-bindings-storage-queue.md) in plaats van een blobtrigger voor het verwerken van de blob. Een andere optie is het gebruik van Event Grid; Zie de zelfstudie [automatisch vergroten of verkleinen geüploade afbeeldingen met behulp van Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
 ## <a name="input"></a>Invoer
 
@@ -479,7 +481,7 @@ public static void Run(
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
-```        
+```
 
 ### <a name="input---c-script-example"></a>Invoer - voorbeeld van C#-script
 
@@ -802,7 +804,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
     { ImageSize.Small,      (640, 400) },
     { ImageSize.Medium,     (800, 600) }
 };
-```        
+```
 
 ### <a name="output---c-script-example"></a>Uitvoer - voorbeeld van C#-script
 

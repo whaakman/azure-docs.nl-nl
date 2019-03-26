@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372519"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418683"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entiteitstypen en hun ten behoeve van LUIS
 
@@ -216,11 +216,20 @@ Als de vooraf gedefinieerde entiteit is gemarkeerd met meer tekst- of -tokens da
 
 #### <a name="remove-example-utterance-to-fix-tagging"></a>Voorbeeld utterance om op te lossen de tags verwijderen 
 
-Uw eerste keuze is aan de voorbeeld-utterance verwijderen en opnieuw trainen van de app. Alleen het woord weer toevoegen of meer woorden die de entiteit als een voorbeeld-utterance en de entiteit en train markeren. Nu toevoegen weer de vooraf gemaakte entiteiten en de oorspronkelijke voorbeeld utterance. De aangepaste entiteit moet nog steeds in plaats van de vooraf gedefinieerde entiteit worden gemarkeerd. 
+Uw eerste keuze is voor het verwijderen van de voorbeeld-utterance. 
+
+1. De voorbeeld-utterance verwijderen.
+1. Opnieuw trainen de app. 
+1. Alleen het woord weer toevoegen of meer woorden die de entiteit die is gemarkeerd als een vooraf gedefinieerde entiteit, als een volledig voorbeeld utterance. Het woord of zinsdeel heeft nog steeds de vooraf gedefinieerde entiteit gemarkeerd. 
+1. Selecteer de entiteit in de voorbeeld-utterance op de **bedoeling** pagina en wijzigen met uw aangepaste entiteit en opnieuw trainen. Hierdoor moet LUIS deze exact overeenkomende tekst markeren als de vooraf gedefinieerde entiteit in een voorbeeld-uitingen die gebruikmaken van deze tekst. 
+1. De volledige oorspronkelijke voorbeeld utterance terug naar het doel toevoegen De aangepaste entiteit moet nog steeds in plaats van de vooraf gedefinieerde entiteit worden gemarkeerd. Als de aangepaste entiteit niet is gemarkeerd, moet u meer voorbeelden van deze tekst in uitingen toevoegen.
 
 #### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Vooraf gedefinieerde entiteit om op te lossen de tags verwijderen
 
-Als tweede keuze is aan de vooraf gedefinieerde entiteit verwijderen uit de app vervolgens code van de aangepaste entiteit in de voorbeeld-utterance en daarna de vooraf gedefinieerde entiteit toevoegen terug naar de app. Deze oplossing wordt ervan uitgegaan dat de vooraf gedefinieerde entiteit maakt geen deel uit van een samengestelde entiteit. 
+1. De vooraf gedefinieerde entiteit verwijderen uit de app. 
+1. Op de **bedoeling** pagina, de aangepaste entiteit in het voorbeeld utterance markeren.
+1. Train de app.
+1. De vooraf gedefinieerde entiteit terug naar de app toevoegen en de app trainen. Deze oplossing wordt ervan uitgegaan dat de vooraf gedefinieerde entiteit maakt geen deel uit van een samengestelde entiteit.
 
 ## <a name="regular-expression-entity"></a>Een entiteit in de vorm van een reguliere expressie 
 

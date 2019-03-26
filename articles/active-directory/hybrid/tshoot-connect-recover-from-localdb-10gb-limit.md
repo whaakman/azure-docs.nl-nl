@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 194f422c1567103e41f3b39f8510931b1f4762b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105179"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435588"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Probleem met LocalDB met limiet van 10 GB oplossen
 Azure AD Connect vereist een SQL Server-database voor het opslaan van identiteitsgegevens. U kunt de standaard SQL Server 2012 Express LocalDB gebruiken die samen met Azure AD Connect is geïnstalleerd, maar ook uw eigen volledige SQL. Voor SQL Server Express geldt een limiet van 10 GB. Wanneer u LocalDB gebruikt en deze limiet is bereikt, kan de Azure AD Connect-synchronisatieservice niet langer starten of goed synchroniseren. Dit artikel bevat de herstelstappen.
@@ -87,7 +87,7 @@ Standaard behoudt Azure AD Connect omhoog naar zeven dagen aan gegevens van de u
 
 3. Onder **acties**, selecteer **wissen wordt uitgevoerd**...
 
-4. U kunt kiezen **wissen van alle uitvoeringen** of **wissen wordt uitgevoerd voordat er... <date>**  optie. Het is raadzaam dat u start door uitvoeringsgeschiedenisgegevens die ouder dan twee dagen zijn uit te schakelen. Als u DB grootte probleem ondervindt doorgaat, kiest u de **wissen van alle uitvoeringen** optie.
+4. U kunt kiezen **wissen van alle uitvoeringen** of **wissen wordt uitgevoerd voordat er... \<datum >** optie. Het is raadzaam dat u start door uitvoeringsgeschiedenisgegevens die ouder dan twee dagen zijn uit te schakelen. Als u DB grootte probleem ondervindt doorgaat, kiest u de **wissen van alle uitvoeringen** optie.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Verkort de bewaarperiode voor gegevens van uitvoeringsgeschiedenis
 Deze stap is het minder kans op wordt uitgevoerd in de limiet van 10 GB-probleem na meerdere synchronisatiecycli.

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 846f07051ee65a542b56624fa84a9bdc4ca0f4e6
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119289"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418003"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Herschrijf de HTTP-headers met Application Gateway (openbare preview)
 
@@ -96,10 +96,12 @@ Deze mogelijkheid ondersteunt herschrijven headers aan de volgende servervariabe
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | retourneert de lijst met coderingen die worden ondersteund door de client          |
 | ciphers_used               | retourneert de tekenreeks van de coderingen die worden gebruikt voor een SSL-verbinding tot stand gebrachte |
+| client_ip                  | IP-adres van de client. met name handig in scenario's waarbij klanten van plan bent te herschrijven van de X-doorgestuurd-voor-header ingesteld door Application Gateway, zodat de header alleen de IP-adres zonder de informatie over de poort bevat. |
 | client_port                | Clientpoort                                                  |
 | client_tcp_rtt             | informatie over de client TCP-verbinding. beschikbaar op systemen die ondersteuning bieden voor de TCP_INFO socket-optie |
 | client_user                | Wanneer u HTTP-verificatie, de gebruikersnaam moet worden opgegeven voor verificatie |
 | host                       | in deze volgorde van prioriteit: hostnaam van de aanvraagregel, of de hostnaam van het veld met de header 'Host' of de naam van de server die overeenkomt met een aanvraag |
+| cookie_*naam*              | de *naam* cookie |
 | http_method                | de methode die wordt gebruikt voor het maken van de URL-aanvraag. Bijvoorbeeld GET, POST enzovoort. |
 | http_status                | sessiestatus, bijvoorbeeld: 200, 400, 403 enzovoort.                       |
 | http_version               | aanvraagprotocol, meestal "HTTP/1.0", ' HTTP/1.1' of "HTTP/2.0" |
@@ -120,10 +122,6 @@ Deze mogelijkheid ondersteunt herschrijven headers aan de volgende servervariabe
 - De HTTP-ondersteuning voor het herschrijven van koptekst wordt alleen ondersteund op de nieuwe SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). De mogelijkheid wordt niet ondersteund op de oude SKU.
 
 - Voor het herschrijven van de verbinding maken, bijwerken en Host-headers is nog niet ondersteund.
-
-- Twee belangrijke servervariabelen, client_ip (het IP-adres van de client die de aanvraag) en cookie_*naam* (de *naam* cookie), worden nog niet ondersteund. De servervariabele client_ip is bijzonder nuttig in scenario's waarbij klanten van plan bent te herschrijven van de x-doorgestuurd-voor-header ingesteld door Application Gateway, zodat de header alleen de IP-adres van de client en niet de informatie over de poort bevat.
-
-  Deze servervariabelen zal binnenkort worden ondersteund.
 
 - De mogelijkheid voor het herschrijven van de http-headers voorwaardelijk's is binnenkort beschikbaar.
 

@@ -3,7 +3,7 @@ title: Stream logboeken van Azure Active Directory naar Azure Monitor-Logboeken 
 description: Meer informatie over het Azure Active Directory-logboeken integreren met Azure Monitor-Logboeken (preview)
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d8259cdb61d2481805dd2e07c11b539e057215c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 056a529101ffc39170ea057832bcd50b283505be
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817062"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436266"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Azure AD-logboeken integreren met Azure Monitor-Logboeken (preview)
 
@@ -60,7 +60,7 @@ U hebt het volgende nodig om deze functie te gebruiken:
 * Een gebruiker die een *globale beheerder* of *beveiligingsbeheerder* voor de Azure-tenant is.
 * Een Log Analytics-werkruimte in uw Azure-abonnement. Meer informatie over het [een Log Analytics-werkruimte maken](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## <a name="send-logs-to-azure-monitor-logs"></a>Logboeken verzenden naar Azure Monitor-Logboeken
+## <a name="send-logs-to-azure-monitor-logs"></a>Logboeken verzenden naar logboeken van Azure Monitor
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 

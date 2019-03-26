@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119034"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417765"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Serverlogboeken in Azure Database for MySQL
 In Azure Database voor MySQL is het logboek voor langzame query's beschikbaar voor gebruikers. Toegang tot het transactielogboek wordt niet ondersteund. Het logboek voor langzame query's kan worden gebruikt om knelpunten in de prestaties voor het oplossen van problemen. 
@@ -53,31 +53,31 @@ De volgende tabel wordt beschreven wat er in elk logboek. Afhankelijk van de uit
 
 | **Eigenschap** | **Beschrijving** |
 |---|---|
-| TenantId | Uw tenant-ID |
-| SourceSystem | `Azure` |
-| TimeGenerated [UTC] | Tijdstempel wanneer het logboek is vastgelegd in UTC |
-| Type | Het type van het logboek. Altijd `AzureDiagnostics` |
-| SubscriptionId | GUID voor het abonnement waartoe de server behoort |
-| ResourceGroup | Naam van de resourcegroep die de server behoort |
-| ResourceProvider | De naam van de resourceprovider. Altijd `MICROSOFT.DBFORMYSQL` |
-| ResourceType | `Servers` |
-| ResourceId | Resource-URI |
-| Resource | Naam van de server |
-| Categorie | `MySqlSlowLogs` |
-| OperationName | `LogEvent` |
-| Logical_server_name_s | Naam van de server |
-| start_time_t [UTC] | Tijd die de query is begonnen |
-| query_time_s | Totale tijd dat de query duurde om uit te voeren |
-| lock_time_s | Totale tijd dat de query is vergrendeld |
-| user_host_s | Gebruikersnaam |
-| rows_sent_s | Aantal rijen dat is verzonden |
-| rows_examined_s | Aantal rijen onderzocht |
-| last_insert_id_s | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| insert_id_s | Id ingevoegd |
-| sql_text_s | Volledige-query |
-| server_id_s | Id van de server |
-| thread_id_s | Thread-id |
-| \_ResourceId | Resource-URI |
+| `TenantId` | Uw tenant-ID |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | Tijdstempel wanneer het logboek is vastgelegd in UTC |
+| `Type` | Het type van het logboek. Altijd `AzureDiagnostics` |
+| `SubscriptionId` | GUID voor het abonnement waartoe de server behoort |
+| `ResourceGroup` | Naam van de resourcegroep die de server behoort |
+| `ResourceProvider` | De naam van de resourceprovider. Altijd `MICROSOFT.DBFORMYSQL` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | Resource-URI |
+| `Resource` | Naam van de server |
+| `Category` | `MySqlSlowLogs` |
+| `OperationName` | `LogEvent` |
+| `Logical_server_name_s` | Naam van de server |
+| `start_time_t` [UTC] | Tijd die de query is begonnen |
+| `query_time_s` | Totale tijd dat de query duurde om uit te voeren |
+| `lock_time_s` | Totale tijd dat de query is vergrendeld |
+| `user_host_s` | Gebruikersnaam |
+| `rows_sent_s` | Aantal rijen dat is verzonden |
+| `rows_examined_s` | Aantal rijen onderzocht |
+| `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
+| `insert_id_s` | Id ingevoegd |
+| `sql_text_s` | Volledige-query |
+| `server_id_s` | Id van de server |
+| `thread_id_s` | Thread-id |
+| `\_ResourceId` | Resource-URI |
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Over het configureren en serverlogboeken openen vanuit de Azure CLI](howto-configure-server-logs-in-cli.md).

@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79e9e1a274002514561ef3f96c364bf9bc27071
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ae2d18541788e769e4f1b44319aa1be200921b88
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309602"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437540"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD-wachtwoordbeveiliging bewaking en logboekregistratie
 
 Zijn essentiële taken na de implementatie van Azure AD-wachtwoord beveiliging, controle en rapportage. In dit artikel gaat in detail om te begrijpen van verschillende bewaking technieken, inclusief waar elke service registreert informatie en hoe u om te rapporteren over het gebruik van Azure AD-wachtwoord beveiliging.
+
+Controle en rapportage moeten worden uitgevoerd door gebeurtenislogboekberichten of door het uitvoeren van PowerShell-cmdlets. De DC-agent en -proxy services beide logboek gebeurtenislogboekberichten. Alle PowerShell-cmdlets die hieronder worden beschreven, zijn alleen beschikbaar op de proxyserver (Zie de AzureADPasswordProtection PowerShell-module). De DC-agentsoftware een PowerShell-module niet geïnstalleerd.
 
 ## <a name="dc-agent-event-logging"></a>Logboekregistratie van DC-agent
 

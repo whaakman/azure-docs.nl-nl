@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9cb9877015f2cfe61799a56be6490a3f4e2fb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012773"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437880"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocol voor eenmalige SAML-aanmelding
 
@@ -158,7 +158,7 @@ De `Response` element bevat het resultaat van de autorisatieaanvraag. Azure AD-s
 
 ### <a name="issuer"></a>Verlener
 
-Azure AD stelt de `Issuer` element `https://login.microsoftonline.com/<TenantIDGUID>/` waar <TenantIDGUID> is de tenant-ID van de Azure AD-tenant.
+Azure AD stelt de `Issuer` element `https://login.microsoftonline.com/<TenantIDGUID>/` waar \<TenantIDGUID > is de tenant-ID van de Azure AD-tenant.
 
 Bijvoorbeeld, kan een antwoord met de uitgever van element eruitzien als in het volgende voorbeeld:
 
@@ -193,7 +193,7 @@ Naast de `ID`, `IssueInstant` en `Version`, Azure AD Hiermee stelt u de volgende
 
 #### <a name="issuer"></a>Verlener
 
-Deze optie is ingesteld op `https://sts.windows.net/<TenantIDGUID>/`waar <TenantIDGUID> is de Tenant-ID van de Azure AD-tenant.
+Deze optie is ingesteld op `https://sts.windows.net/<TenantIDGUID>/`waar \<TenantIDGUID > is de Tenant-ID van de Azure AD-tenant.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

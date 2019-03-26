@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c22b82dcd3438a8175457aa0963d52e84d582abf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898870"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438496"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel beschrijft de verschillende typen uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. De uitvoergegevens die worden gebruikt, kunt u doen verdere bedrijfsanalyses en datawarehousing van uw gegevens.
@@ -127,6 +127,7 @@ Er zijn een aantal parameters die nodig zijn voor de Event Hub-gegevensstromen c
 | Encoding | Voor CSV en JSON is UTF-8 de enige ondersteunde coderingsindeling op dit moment. |
 | Scheidingsteken | Alleen van toepassing voor de CSV-serialisatie. Stream Analytics ondersteunt een aantal algemene scheidingstekens om gegevens te serialiseren in csv-indeling. Ondersteunde waarden zijn met door komma's, door puntkomma's, spatie, tab en verticale balk. |
 | Indeling | Alleen van toepassing op JSON-serialisatie. Lijn gescheiden geeft aan dat de uitvoer is geformatteerd met elk JSON-object dat is gescheiden door een nieuwe regel. Matrix geeft aan dat de uitvoer wordt opgemaakt als een matrix met JSON-objecten. Deze matrix wordt gesloten wanneer de taak stopt of Stream Analytics is verplaatst op naar de volgende periode. In het algemeen is het beter gebruik van de regel gescheiden JSON, omdat er geen speciale verwerking niet vereist, terwijl het uitvoerbestand is nog steeds worden geschreven naar. |
+| [Optioneel] eigenschappenkolommen | Door komma's gescheiden kolommen die moeten worden gekoppeld als gebruikerseigenschappen van uitgaand e-mailbericht in plaats van de nettolading van de. Meer informatie over deze functie in de sectie "Aangepaste eigenschappen van metagegevens voor uitvoer" |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) kan worden gebruikt als uitvoer voor een Stream Analytics-taak te voorzien in een krachtige visualisatie-ervaring van de resultaten van de analyse. Deze mogelijkheid kan worden gebruikt voor operationele dashboards, rapporten genereren en de metrische gegevens gestuurde reporting.
@@ -230,6 +231,7 @@ De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het 
 | Encoding |Voor CSV en JSON is UTF-8 de enige ondersteunde coderingsindeling op dit moment |
 | Scheidingsteken |Alleen van toepassing voor de CSV-serialisatie. Stream Analytics ondersteunt een aantal algemene scheidingstekens om gegevens te serialiseren in csv-indeling. Ondersteunde waarden zijn met door komma's, door puntkomma's, spatie, tab en verticale balk. |
 | Indeling |Alleen van toepassing voor JSON-type. Lijn gescheiden geeft aan dat de uitvoer is geformatteerd met elk JSON-object dat is gescheiden door een nieuwe regel. Matrix geeft aan dat de uitvoer wordt opgemaakt als een matrix met JSON-objecten. |
+| [Optioneel] eigenschappenkolommen | Door komma's gescheiden kolommen die moeten worden gekoppeld als gebruikerseigenschappen van uitgaand e-mailbericht in plaats van de nettolading van de. Meer informatie over deze functie in de sectie "Aangepaste eigenschappen van metagegevens voor uitvoer" |
 
 Het aantal partities is [op basis van de Service Bus-SKU en grootte](../service-bus-messaging/service-bus-partitioning.md). Partitiesleutel is een unieke integer-waarde voor elke partitie.
 
@@ -248,6 +250,7 @@ De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het 
 | Serialisatie-indeling voor gebeurtenissen |Serialisatie-indeling voor de uitvoergegevens. JSON-, CSV- en Avro worden ondersteund. |
 | Encoding |Als u CSV of JSON-indeling, moet een codering worden opgegeven. UTF-8 is de enige ondersteunde coderingsindeling op dit moment |
 | Scheidingsteken |Alleen van toepassing voor de CSV-serialisatie. Stream Analytics ondersteunt een aantal algemene scheidingstekens om gegevens te serialiseren in csv-indeling. Ondersteunde waarden zijn met door komma's, door puntkomma's, spatie, tab en verticale balk. |
+| [Optioneel] eigenschappenkolommen | [Optioneel] Door komma's gescheiden kolommen die moeten worden gekoppeld als gebruikerseigenschappen van uitgaand e-mailbericht in plaats van de nettolading van de. Meer informatie over deze functie in de sectie "Aangepaste eigenschappen van metagegevens voor uitvoer" |
 
 Het aantal partities is [op basis van de Service Bus-SKU en grootte](../service-bus-messaging/service-bus-partitioning.md). Partitiesleutel is een unieke integer-waarde voor elke partitie.
 
@@ -293,6 +296,25 @@ Wanneer Azure Stream Analytics 413 (HTTP-aanvragen aanvraagentiteit te groot)-ui
 
 Ook in een situatie waarbij er geen gebeurtenis terechtkomen in een bepaalde periode, wordt geen uitvoer gegenereerd. Als gevolg hiervan is computeResult-functie niet aangeroepen. Dit gedrag is consistent met de ingebouwde statistische functies in vensters.
 
+## <a name="custom-metadata-properties-for-output"></a>Eigenschappen van aangepaste metagegevens voor uitvoer 
+
+Deze functie kunt query kolommen als de eigenschappen van de gebruiker te koppelen aan uw uitgaande berichten. Deze kolommen gaan niet in de nettolading. Deze eigenschappen zijn aanwezig in de vorm van een woordenlijst in de uitvoerbericht. Sleutel is de naam van de kolom en waarde is de waarde in de kolom in de woordenlijst met eigenschappen. Alle Stream Analytics-gegevenstypen worden ondersteund, behalve de Record en matrix.  
+
+Ondersteunde uitvoer: 
+* Service Bus-wachtrijen 
+* Service Bus-onderwerpen 
+* Event Hub 
+
+Voorbeeld: We gaan de 2 velden apparaat-id en DeviceStatus toevoegen aan de metagegevens in het volgende voorbeeld. 
+* Query: `select *, DeviceId, DeviceStatus from iotHubInput` .
+* Configuratie van de uitvoer: `DeviceId,DeviceStatus`.
+
+![Eigenschappenkolommen](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
+
+Bericht uitvoereigenschappen gecontroleerd bij het gebruik van EventHub [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+   ![Aangepaste eigenschappen van gebeurtenis](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
 ## <a name="partitioning"></a>Partitionering
 
 De volgende tabel geeft een overzicht van de partitie ondersteuning en het aantal schrijvers van de uitvoer voor elk uitvoertype:
@@ -302,7 +324,7 @@ De volgende tabel geeft een overzicht van de partitie ondersteuning en het aanta
 | Azure Data Lake Store | Ja | Gebruik {date} en {time} tokens in het patroon voor het voorvoegsel van pad. Kies de notatie voor datum, zoals jjjj/MM/DD, jjjj/MM/jjjj, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). |
 | Azure SQL Database | Ja | Op basis van de component PARTITION BY in de query | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). Voor meer informatie over het bereiken van betere prestaties van de netwerkdoorvoer schrijven wanneer u het laden van gegevens in SQL Azure-Database, gaat u naar [Azure Stream Analytics-uitvoer naar Azure SQL Database](stream-analytics-sql-output-perf.md). |
 | Azure Blob Storage | Ja | Gebruik {date} en {time} tokens van de gebeurtenis velden in het pad-patroon. Kies de notatie voor datum, zoals jjjj/MM/DD, jjjj/MM/jjjj, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. BLOB-uitvoer kan worden gepartitioneerd op een kenmerk met één aangepaste gebeurtenis {fieldname} of {datum/tijd:\<aanduiding >}. | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). |
-| Azure Event Hub | Ja | Ja | Is afhankelijk van de uitlijning van de partitie.<br /> Als uitvoer van de uitvoer Event Hub-partitiesleutel is even uitgelijnd met upstream (vorige) querystap is het aantal schrijvers is hetzelfde van het aantal Event Hub-partities. Elke schrijver maakt gebruik van de EventHub [EventHubSender klasse](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) voor het verzenden van gebeurtenissen naar de specifieke partitie. <br /> Wanneer de uitvoer Event Hub-partitiesleutel is niet uitgelijnd met upstream (vorige) querystap is het aantal schrijvers is hetzelfde als het aantal partities in die de vorige stap. EventHubClient maakt gebruik van elke schrijver [SendBatchAsync klasse](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) gebeurtenissen verzenden naar alle partities van de uitvoer. |
+| Azure Event Hub | Ja | Ja | Is afhankelijk van de uitlijning van de partitie.<br /> Als uitvoer van de uitvoer Event Hub-partitiesleutel is even uitgelijnd met upstream (vorige) querystap is het aantal schrijvers is hetzelfde van het aantal Event Hub-partities. Elke schrijver maakt gebruik van de EventHub [EventHubSender klasse](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) voor het verzenden van gebeurtenissen naar de specifieke partitie. <br /> Wanneer de uitvoer Event Hub-partitiesleutel is niet uitgelijnd met upstream (vorige) querystap is het aantal schrijvers is hetzelfde als het aantal partities in die de vorige stap. EventHubClient maakt gebruik van elke schrijver [SendBatchAsync klasse](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) gebeurtenissen verzenden naar alle partities van de uitvoer. |
 | Power BI | Nee | Geen | Niet van toepassing. |
 | Azure Table Storage | Ja | Elke uitvoerkolom.  | De invoer voor het partitioneren van volgt [volledig geparallelliseerd query's](stream-analytics-scale-jobs.md). |
 | Azure Service Bus-onderwerp | Ja | Automatisch gekozen. Het aantal partities is gebaseerd op de [Service Bus-SKU's en grootte](../service-bus-messaging/service-bus-partitioning.md). Partitiesleutel is een unieke integer-waarde voor elke partitie.| Hetzelfde als het aantal partities in het onderwerp van de uitvoer.  |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 9f5ea30c458954a3e87b9575b5632fbfb0df97b8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 283808c0bd3f5297011b25619d6f978c99d4dc32
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318597"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439223"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migreren van Enterprise Agreement naar de klant van Microsoft-overeenkomst API 's
 
@@ -463,7 +463,7 @@ De volgende velden zijn niet beschikbaar in API's van Microsoft klanten overeenk
 | offerId | Niet van toepassing. Komt overeen met productOrderName in MCA. |
 | meterCategory  | Niet van toepassing. Komt overeen met de Service in MCA. |
 | eenheid | Niet van toepassing. Kan worden geparseerd uit unitOfMeasure. |
-| currencyCode | Hetzelfde als het de pricingCurrency in MCA. |
+| currencyCode | Hetzelfde als de pricingCurrency in MCA. |
 | meterLocation | Hetzelfde als de meterRegion in MCA. |
 | partNumber partnumber | Niet van toepassing omdat het onderdeelnummer niet wordt weergegeven in MCA facturen. In plaats van partnumber, gebruikt u de combinatie van meterId en productOrderName voor het aanduiden van prijzen. |
 | totalIncludedQuantity | Niet van toepassing. |

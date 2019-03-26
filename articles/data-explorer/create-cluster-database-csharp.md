@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: d861eba6ce905ccaf0d08a08cdd9998a199889da
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: c2a11422398b3cdb99c9f71accddfcd78237c64c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287510"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417901"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Een cluster van Azure Data Explorer en -database maken met behulp vanC#
 
@@ -25,20 +25,19 @@ ms.locfileid: "58287510"
 > * [Python](create-cluster-database-python.md)
 >  
 
-
-In deze Quick Start wordt beschreven hoe u een cluster van Azure Data Explorer en -database maken met behulp van C#.
+Azure Data Explorer is een snelle, volledig beheerde service voor gegevensanalyses waarmee grote hoeveelheden gegevens van toepassingen, websites, IoT-apparaten en dergelijke in real-time kunnen worden geanalyseerd. Als u Azure Data Explorer wilt gebruiken, maakt u eerst een cluster. Daarna maakt u een of meer databases in het cluster. De volgende stap is het opnemen (laden) van gegevens in een database, zodat u er query's op kunt uitvoeren. In deze quickstart maakt u een cluster en een database maken met behulp van C#.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
+* Als u geen Visual Studio 2017 is geïnstalleerd, kunt u downloaden en gebruiken de **gratis** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 
-- U hebt een Azure-abonnement nodig om deze snelstart te voltooien. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
+* Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 
 ## <a name="install-c-nuget"></a>Installeer C# nuget
 
-- Moet u nuget-pakket voor Azure Data Explorer (Kusto), kunt u het Nuget hier vinden: https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/
-- U moet ook het nuget Microsoft.IdentityModel.Clients.ActiveDirectory voor verificatie https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/
+1. Installeer de [nuget-pakket voor Azure Data Explorer (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
+1. Installeer de [nuget-pakket Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) voor verificatie.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Het Azure Data Explorer-cluster maken
 
@@ -72,10 +71,10 @@ In deze Quick Start wordt beschreven hoe u een cluster van Azure Data Explorer e
    | resourceGroupName | *testrg* | Naam van de resourcegroep waar het cluster wordt gemaakt. |
 
     Er zijn aanvullende optionele parameters die u kunt gebruiken, zoals de capaciteit van het cluster.
-    
-    'Referenties' aan uw referenties instellen (Zie voor meer informatie https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet )
 
-2. Voer de volgende opdracht uit om te controleren of het cluster is gemaakt:
+1. Stel [uw referenties](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+
+1. Voer de volgende opdracht uit om te controleren of het cluster is gemaakt:
 
     ```C#-interactive
     KustoManagementClient.Clusters.Get(resourceGroupName, clusterName);

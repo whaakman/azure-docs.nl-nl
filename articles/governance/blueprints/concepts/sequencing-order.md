@@ -1,24 +1,24 @@
 ---
 title: Inzicht in de volgorde van de implementatie
-description: Meer informatie over de levenscyclus die een blauwdruk doorloopt en details over elke fase.
+description: Meer informatie over de levenscyclus dat een blauwdrukdefinitie wordt verstuurd via en details over elke fase.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/12/2018
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b3adec799da582dc30ecd716a530ca6032f5c2e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8451b858717e1a3e66214f66db624ee41f6da375
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990568"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434803"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Inzicht in de implementatievolgorde van de in Azure blauwdrukken
 
-Azure maakt gebruik van blauwdrukken een **volgorde** om te bepalen van de volgorde van de resources worden gemaakt bij het verwerken van de toewijzing van blauwdruk. In dit artikel worden de volgende concepten:
+Azure maakt gebruik van blauwdrukken een **volgorde** om te bepalen van de volgorde van de resources worden gemaakt bij het verwerken van de toewijzing van de blauwdrukdefinitie van een. In dit artikel worden de volgende concepten:
 
 - De volgorde van de standaard die wordt gebruikt
 - Over het aanpassen van de volgorde
@@ -30,7 +30,7 @@ Er zijn variabelen in de JSON-voorbeelden die u nodig hebt om te vervangen door 
 
 ## <a name="default-sequencing-order"></a>Standaard-volgorde
 
-Als de blauwdruk geen richtlijn voor het bevat implementeren van artefacten of de richtlijn null is, wordt de volgende volgorde gebruikt:
+Als de blauwdrukdefinitie van de geen richtlijn voor het bevat implementeren van artefacten of de richtlijn null is, wordt de volgende volgorde gebruikt:
 
 - Abonnementsniveau **roltoewijzing** artefacten die zijn gesorteerd op naam van het assemblyartefact
 - Abonnementsniveau **beleidstoewijzing** artefacten die zijn gesorteerd op naam van het assemblyartefact
@@ -45,16 +45,14 @@ Binnen elk **resourcegroep** artefact, de volgende volgorde wordt gebruikt voor 
 
 ## <a name="customizing-the-sequencing-order"></a>De volgorde aan te passen
 
-Wanneer u grote blauwdrukken, is het mogelijk nodig zijn voor resources in een bepaalde volgorde worden gemaakt. De meest voorkomende gebruikspatroon van dit scenario is wanneer een blauwdruk verschillende Azure Resource Manager-sjablonen bevat. Dit patroon blauwdrukken verwerkt door de volgorde te worden gedefinieerd.
+Wanneer u grote blauwdrukdefinities, is het mogelijk nodig zijn voor resources in een bepaalde volgorde worden gemaakt. De meest voorkomende gebruikspatroon van dit scenario is wanneer de blauwdrukdefinitie van een verschillende Azure Resource Manager-sjablonen bevat. Dit patroon blauwdrukken verwerkt door de volgorde te worden gedefinieerd.
 
-De volgorde wordt bereikt door het definiëren van een `dependsOn` eigenschap in de JSON. Deze eigenschap wordt ondersteund door alleen de blauwdruk (voor resourcegroepen) en artefact-objecten. `dependsOn` is een string-matrix van artefactnamen die het artefact name worden gemaakt moet voordat deze gemaakt.
+De volgorde wordt bereikt door het definiëren van een `dependsOn` eigenschap in de JSON. De blauwdrukdefinitie van de ondersteuning voor deze eigenschap voor resourcegroepen en artefact-objecten. `dependsOn` is een string-matrix van artefactnamen die het artefact name worden gemaakt moet voordat deze gemaakt.
 
-> [!NOTE]
-> **Resourcegroep** artefacten ondersteunt de `dependsOn` eigenschap, maar mag niet het doel van een `dependsOn` door elk artefacttype.
+### <a name="example---ordered-resource-group"></a>Voorbeeld: besteld resourcegroep
 
-### <a name="example---blueprint-with-ordered-resource-group"></a>Voorbeeld: blauwdruk met geordende resourcegroep
-
-In dit voorbeeld van de blauwdruk heeft een resourcegroep die een aangepaste volgorde is gedefinieerd door op te geven van een waarde voor `dependsOn`, samen met een standaard-resourcegroep. In dit geval het artefact met de naam **assignPolicyTags** worden verwerkt voor de **besteld-rg** resourcegroep. **Standard-rg** per de standaard-volgorde worden verwerkt.
+In dit voorbeeld van de blauwdrukdefinitie is een resourcegroep die een aangepaste volgorde is gedefinieerd door op te geven van een waarde voor `dependsOn`, samen met een standaard-resourcegroep. In dit geval het artefact met de naam **assignPolicyTags** worden verwerkt voor de **besteld-rg** resourcegroep.
+**Standard-rg** per de standaard-volgorde worden verwerkt.
 
 ```json
 {
@@ -101,6 +99,42 @@ In dit voorbeeld is een beleid artefact die afhankelijk zijn van een Azure Resou
     "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/assignPolicyTags",
     "type": "Microsoft.Blueprint/artifacts",
     "name": "assignPolicyTags"
+}
+```
+
+### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Voorbeeld - abonnement niveau sjabloon artefact, afhankelijk van een resourcegroep
+
+In dit voorbeeld is voor een Resource Manager-sjabloon geïmplementeerd op het abonnementsniveau afhankelijk is van een resourcegroep. In volgorde, zouden de artefacten voor het niveau van abonnement worden gemaakt voordat alle resourcegroepen en de onderliggende artefacten in deze resourcegroepen. De resourcegroep is gedefinieerd in de blauwdrukdefinitie van de als volgt:
+
+```json
+"resourceGroups": {
+    "wait-for-me": {
+        "metadata": {
+            "description": "Resource Group that is deployed prior to the subscription level template artifact"
+        }
+    }
+}
+```
+
+Het abonnement niveau sjabloon artefact afhankelijk van de **wait-voor-me** resourcegroep is gedefinieerd als volgt:
+
+```json
+{
+    "properties": {
+        "template": {
+            ...
+        },
+        "parameters": {
+            ...
+        },
+        "dependsOn": ["wait-for-me"],
+        "displayName": "SubLevelTemplate",
+        "description": ""
+    },
+    "kind": "template",
+    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/subtemplateWaitForRG",
+    "type": "Microsoft.Blueprint/blueprints/artifacts",
+    "name": "subtemplateWaitForRG"
 }
 ```
 

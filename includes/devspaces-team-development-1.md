@@ -10,16 +10,16 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 1f6e0a8fd2cc14877b98bc12b0d2c8632edbbbb9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 40c1be20df845b975c023616e38cbb932c985735
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664365"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439526"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Teamontwikkeling met Azure Dev Spaces
 
-In deze zelfstudie leert u hoe een team van ontwikkelaars tegelijkertijd in dezelfde Kubernetes-cluster kan samenwerken met behulp van Dev Spaces.
+In deze zelfstudie leert u hoe een team van ontwikkelaars tegelijkertijd in hetzelfde Kubernetes-cluster kan samenwerken met behulp van Dev Spaces.
 
 ## <a name="learn-about-team-development"></a>Meer informatie over teamontwikkeling
 Tot nu toe hebt u de code van de toepassing uitgevoerd alsof u de enige ontwikkelaar bent die werkt aan de app. In deze sectie leert u hoe teamontwikkeling wordt gestroomlijnd met Azure Dev Spaces:
@@ -54,7 +54,7 @@ _Zonder_ Dev Spaces zou Scott maar over een paar manieren beschikken om de updat
 * Op ontwikkeling gerichte code toevoegen aan de *webfrontend* waarmee de ontwikkelaar aanvragen kan verzenden naar een ander exemplaar van *mywebapi*. Dat maakt de *webfrontend*-service ingewikkelder.
 
 ### <a name="set-up-your-baseline"></a>De basislijn instellen
-Er moet eerst een basislijn van onze services worden geïmplementeerd. Deze implementatie vertegenwoordigt de laatst bekende goed werkende situatie. Daardoor kunt u eenvoudig het gedrag van uw lokale code vergelijken met de ingecheckte versie. Vervolgens maakt u een onderliggende ruimte op basis van deze basislijn zodat we onze wijzigingen van *mywebapi* kunnen testen binnen de context van de grotere toepassing.
+We moeten eerst een basislijn voor onze services implementeren. Deze implementatie vertegenwoordigt de laatst bekende goed werkende situatie. Daardoor kunt u eenvoudig het gedrag van uw lokale code vergelijken met de ingecheckte versie. Vervolgens maakt u een onderliggende ruimte op basis van deze basislijn zodat we onze wijzigingen van *mywebapi* kunnen testen binnen de context van de grotere toepassing.
 
 1. De [Dev Spaces-voorbeeldtoepassing](https://github.com/Azure/dev-spaces) klonen: `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. De externe branch *azds_updates* uitchecken: `git checkout -b azds_updates origin/azds_updates`
@@ -70,9 +70,11 @@ Er moet eerst een basislijn van onze services worden geïmplementeerd. Deze impl
 >
 > ![Voorbeeld van CI/CD-diagram](../articles/dev-spaces/media/common/ci-cd-complex.png)
 
-Op dit punt aangekomen zou uw basislijn moeten worden uitgevoerd. Voer de opdracht `azds list-up` uit en de uitvoer is vergelijkbaar met de volgende uitvoer:
+Op dit punt aangekomen zou uw basislijn moeten worden uitgevoerd. Voer de opdracht `azds list-up --all` uit en de uitvoer is vergelijkbaar met de volgende uitvoer:
 
 ```
+$ azds list-up --all
+
 Name                          DevSpace  Type     Updated  Status
 ----------------------------  --------  -------  -------  -------
 mywebapi                      dev       Service  3m ago   Running

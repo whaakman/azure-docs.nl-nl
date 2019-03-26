@@ -4,7 +4,7 @@ description: Referentie voor de volledige Lucene-syntaxis als gebruikt met Azure
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/25/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a2576a0489ad62aba0a85a45f110acb8ac220847
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1eba2da1404f5b47d137b3c4f7b4cb9ceab43ea
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107182"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438050"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Lucene-querysyntaxis in Azure Search
 U kunt ook query's voor Azure Search op basis van de uitgebreide schrijven [Lucene-Queryparser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntaxis voor het vormen van de speciale query: jokertekens, fuzzy zoeken, zoeken op nabijheid, reguliere expressies zijn een aantal voorbeelden. Veel van de syntaxis van Lucene-Queryparser [intact geïmplementeerd in Azure Search](search-lucene-query-architecture.md), met uitzondering van *bereik zoekopdrachten* die zijn gebouwd in Azure Search via `$filter` expressies. 
@@ -35,7 +35,7 @@ Stel de `queryType` zoeken parameter om op te geven welke parser te gebruiken. G
 
 <a name="bkmk_example"></a> 
 
-## <a name="example-showing-full-syntax"></a>Voorbeeld van de volledige syntaxis van de weergeven
+### <a name="example-showing-full-syntax"></a>Voorbeeld van de volledige syntaxis van de weergeven
 
 Het volgende voorbeeld worden documenten gevonden in de index met behulp van de Lucene-querysyntaxis, duidelijk in de `queryType=full` parameter. Deze query retourneert hotels waar het categorieveld bevat de term 'budget' en alle doorzoekbare velden die de zin 'onlangs renovated'. Documenten die de zin 'onlangs renovated' worden hoger gerangschikt als gevolg van de termijn boost waarde (3).  
 
@@ -60,50 +60,6 @@ Zie voor meer voorbeelden van [Lucene-queryvoorbeelden syntaxis voor het bouwen 
 
 > [!NOTE]  
 >  Azure Search biedt ook ondersteuning voor [eenvoudige querysyntaxis](query-simple-syntax.md), een eenvoudige en krachtige querytaal die kunnen worden gebruikt voor eenvoudige trefwoorden zoeken.  
-
-
-##  <a name="bkmk_fields"></a> Veldgerelateerde query 's  
- Kunt u een `fieldname:searchterm` bouwen voor het definiëren van een querybewerking fielded het veld is één woord, waarbij de zoekterm is ook één woord of een woordgroep, eventueel met Booleaanse operators. Enkele voorbeelden omvatten het volgende:  
-
-- GEEN geschiedenis genre: jazz  
-
-- Artiesten: ("Miles Davis" "John Coltrane")
-
-  Zorg ervoor dat u meerdere tekenreeksen tussen aanhalingstekens plaatsen als u wilt dat beide tekenreeksen die moeten worden geëvalueerd als één entiteit in dit geval zoekt naar twee verschillende artiesten in de `artists` veld.  
-
-  Het veld dat is opgegeven `fieldname:searchterm` moet een `searchable` veld.  Zie [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) voor meer informatie over het gebruik van indexkenmerken in velddefinities.  
-
-##  <a name="bkmk_fuzzy"></a> fuzzy zoeken  
- Bij een fuzzy zoekopdracht overeenkomsten zoekt in termen die een dergelijke constructie hebben. Per [Lucene documentatie](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy zoekopdrachten zijn gebaseerd op [Damerau Levenshtein afstand](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance).  
-
- Bij een fuzzy zoekopdracht, gebruikt u de tilde ' ~ ' symbool aan het einde van één woord met een optionele parameter, een getal tussen 0 en 2 (standaard), dat de afstand bewerken geeft. Bijvoorbeeld: "blauw ~ ' of ' blue ~ 1" retourneert "blue", 'blues' en 'lijmen'.
-
- Fuzzy zoeken kan alleen worden toegepast met voorwaarden, niet zinnen. Fuzzy zoekopdrachten kunnen een term die tot het maximum van 50 termen die voldoen aan de criteria afstand uitbreiden.
-
-##  <a name="bkmk_proximity"></a> zoeken op nabijheid  
- Nabijheid zoekopdrachten worden gebruikt om te vinden van voorwaarden die zich dicht bij elkaar in een document. Invoegen van een tilde ' ~ ' symbool aan het einde van een zin gevolgd door het aantal woorden die de grens nabijheid maken. Bijvoorbeeld, `"hotel airport"~5` vindt de termen "Hotels" en "luchthaven" binnen 5 woorden van elkaar in een document.  
-
-
-##  <a name="bkmk_termboost"></a> versterking  
- Termenverbetering verwijst naar de positie van een document hoger als deze bevat de boosted term, ten opzichte van documenten die de term niet bevatten. Dit wijkt af van het scoreprofielen in die scoreprofielen bepaalde velden, in plaats van specifieke voorwaarden verhogen.  
-
-In het volgende voorbeeld kunt u de verschillen laten zien. Stel dat er is een scoring-profiel die de loyaliteit komt overeen met in een bepaald veld bijvoorbeeld *genre* in de [musicstoreindex voorbeeld](index-add-scoring-profiles.md#bkmk_ex). Termenverbetering kan worden gebruikt om bepaalde zoeken verder hoger dan de andere voorwaarden te verbeteren. Bijvoorbeeld, `rock^2 electronic` documenten met de zoektermen in het veld genre hoger is dan andere doorzoekbare velden in de index wordt verhogen. Verder, documenten die de zoekterm bevatten *rock* hoger dan de andere zoekterm wordt gerangschikt *elektronische* als gevolg van de termijn boost waarde (2).  
-
- Om te verbeteren gebruiken een termijn van het caret-teken, "^", symbool met een boost factor (een getal) aan het einde van de term die u zoekt. U kunt ook zinnen verhogen. Hoe hoger de boost-factor, meer relevante wordt de term is ten opzichte van andere zoektermen. Standaard is de factor boost 1. Hoewel de factor boost moet positief zijn, kan het zijn dat kleiner is dan 1 (bijvoorbeeld 0.20).  
-
-##  <a name="bkmk_regex"></a> zoeken op reguliere expressies  
- Een zoekopdracht reguliere expressie zoekt een overeenkomst op basis van de inhoud tussen forward slashes bevatten '/', zoals beschreven in de [klasse RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).  
-
- Bijvoorbeeld, om te vinden met "motel" of "Hotels" documenten, geef `/[mh]otel/`.  Reguliere expressie zoekopdrachten worden vergeleken met enkele woorden.   
-
-##  <a name="bkmk_wildcard"></a> zoeken met jokertekens  
- U kunt gebruiken in het algemeen erkende syntaxis voor meerdere (*) of één (?) teken zoeken met jokertekens. Houd er rekening mee dat de Lucene-queryparser ondersteunt het gebruik van deze symbolen met een termijn van één en niet een zin.  
-
- Bijvoorbeeld, als u wilt zoeken naar documenten met de woorden met het voorvoegsel "Opmerking", zoals "notebook" of "Kladblok" opgeven "Opmerking *".  
-
-> [!NOTE]  
->  U kunt geen gebruiken een * of? symbool als het eerste teken van een zoekopdracht.  
->  Er is geen tekstanalyse wordt uitgevoerd op query's zoeken met jokertekens. Jokertekens querytermen zijn op het moment dat de query, vergeleken met de geanalyseerde voorwaarden in de search-index en uitgebreid.
 
 ##  <a name="bkmk_syntax"></a> Syntaxisgrondbeginselen  
  De volgende van de syntaxisgrondbeginselen van toepassing op alle query's die gebruikmaken van de syntaxis van Lucene.  
@@ -139,19 +95,19 @@ Veld groepering is vergelijkbaar, maar het bereik van de groepering één veld. 
 ### <a name="searchmode-parameter-considerations"></a>Overwegingen met betrekking tot SearchMode-parameter  
  De impact van `searchMode` op query's, zoals beschreven in [vereenvoudigde querysyntaxis in Azure Search](query-simple-syntax.md), geldt ook voor de Lucene-querysyntaxis. Dat wil zeggen `searchMode` operators kunnen in combinatie met niet resulteren in query-resultaten die ongebruikelijke lijken mogelijk als u niet op de gevolgen van het stelt u de parameter. Als u de standaard, behoudt `searchMode=any`, en gebruik een niet-operator, de bewerking wordt berekend als een actie of zodat "New York" niet "Seattle" retourneert alle plaatsen die geen Seattle.  
 
-##  <a name="bkmk_boolean"></a> Booleaanse operators  
+##  <a name="bkmk_boolean"></a> Booleaanse operators (AND, OR, NOT) 
  Geef tekst Booleaanse operators (AND, OR, NOT) altijd in hoofdletters.  
 
-#### <a name="or-operator-or-or-"></a>OR-operator `OR` of `||`
+### <a name="or-operator-or-or-"></a>OR-operator `OR` of `||`
 
 De OR-operator is een verticale balk of een pipe-teken. Bijvoorbeeld: `wifi || luxury` wordt zoeken naar documenten "Wi-Fi" of 'luxe' of beide. Omdat of is de standaardoperator combinatie kan u dit ook laten zodat `wifi luxury` is het equivalent van `wifi || luxuery`.
 
-#### <a name="and-operator-and--or-"></a>EN de operator `AND`, `&&` of `+`
+### <a name="and-operator-and--or-"></a>EN de operator `AND`, `&&` of `+`
 
 De operator is een en-teken of een plusteken (+). Bijvoorbeeld: `wifi && luxury` wordt zoeken naar documenten met zowel "Wi-Fi" en 'luxe'. Het plus-teken (+) wordt gebruikt voor vereiste voorwaarden. Bijvoorbeeld, `+wifi +luxury` bepaalt dat beide termen ergens moeten worden weergegeven in het veld van een document.
 
 
-#### <a name="not-operator-not--or--"></a>GEEN operator `NOT`, `!` of `-`
+### <a name="not-operator-not--or--"></a>GEEN operator `NOT`, `!` of `-`
 
 De niet-operator is een uitroepteken of het minteken. Bijvoorbeeld: `wifi !luxury` wordt zoeken naar documenten waarvoor de "Wi-Fi" termijn en/of geen 'luxe'. De `searchMode` besturingselementen de optie of een term met de operator NOT and of samengevoegd met de andere voorwaarden in de query in de afwezigheid van is een + of || operator. Intrekken die `searchMode` kan worden ingesteld op `any`(standaard) of `all`.
 
@@ -164,6 +120,50 @@ Met behulp van `searchMode=all` verhoogt de precisie van de query's door minder 
 
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring jokerteken en regex-query 's
  Azure Search wordt gebruikt op basis van een frequentie scoren ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) voor query's van tekst. Echter wordt voor jokertekens en regex query's waarbij bereik van voorwaarden mogelijk breed zijn kan, de frequentie van meerdere factoren om te voorkomen dat de volgorde van voor de overeenkomsten van sommige voorwaarden bijstelling genegeerd. Alle overeenkomsten worden behandeld voor jokertekens en regex zoekopdrachten.
+
+##  <a name="bkmk_fields"></a> Veldgerelateerde query 's  
+ Kunt u een `fieldname:searchterm` bouwen voor het definiëren van een querybewerking fielded het veld is één woord, waarbij de zoekterm is ook één woord of een woordgroep, eventueel met Booleaanse operators. Enkele voorbeelden omvatten het volgende:  
+
+- GEEN geschiedenis genre: jazz  
+
+- Artiesten: ("Miles Davis" "John Coltrane")
+
+  Zorg ervoor dat u meerdere tekenreeksen tussen aanhalingstekens plaatsen als u wilt dat beide tekenreeksen die moeten worden geëvalueerd als één entiteit in dit geval zoekt naar twee verschillende artiesten in de `artists` veld.  
+
+  Het veld dat is opgegeven `fieldname:searchterm` moet een `searchable` veld.  Zie [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) voor meer informatie over het gebruik van indexkenmerken in velddefinities.  
+
+##  <a name="bkmk_fuzzy"></a> fuzzy zoeken  
+ Bij een fuzzy zoekopdracht overeenkomsten zoekt in termen die een dergelijke constructie hebben. Per [Lucene documentatie](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy zoekopdrachten zijn gebaseerd op [Damerau Levenshtein afstand](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Fuzzy zoekopdrachten kunnen een term die tot het maximum van 50 termen die voldoen aan de criteria afstand uitbreiden. 
+
+ Bij een fuzzy zoekopdracht, gebruikt u de tilde ' ~ ' symbool aan het einde van één woord met een optionele parameter, een getal tussen 0 en 2 (standaard), dat de afstand bewerken geeft. Bijvoorbeeld: "blauw ~ ' of ' blue ~ 1" retourneert "blue", 'blues' en 'lijmen'.
+
+ Fuzzy zoeken kan alleen worden toegepast met voorwaarden, niet bestaat, maar u kunt de tilde toevoegen aan elke term afzonderlijk van een meerdelige naam of een woordgroep. Bijvoorbeeld, "Unviersty ~ van ~" Wshington ~ "op"Rijksuniversiteit Groningen"wordt er gezocht.
+ 
+
+##  <a name="bkmk_proximity"></a> zoeken op nabijheid  
+ Nabijheid zoekopdrachten worden gebruikt om te vinden van voorwaarden die zich dicht bij elkaar in een document. Invoegen van een tilde ' ~ ' symbool aan het einde van een zin gevolgd door het aantal woorden die de grens nabijheid maken. Bijvoorbeeld, `"hotel airport"~5` vindt de termen "Hotels" en "luchthaven" binnen 5 woorden van elkaar in een document.  
+
+
+##  <a name="bkmk_termboost"></a> versterking  
+ Termenverbetering verwijst naar de positie van een document hoger als deze bevat de boosted term, ten opzichte van documenten die de term niet bevatten. Dit wijkt af van het scoreprofielen in die scoreprofielen bepaalde velden, in plaats van specifieke voorwaarden verhogen.  
+
+In het volgende voorbeeld kunt u de verschillen laten zien. Stel dat er is een scoring-profiel die de loyaliteit komt overeen met in een bepaald veld bijvoorbeeld *genre* in de [musicstoreindex voorbeeld](index-add-scoring-profiles.md#bkmk_ex). Termenverbetering kan worden gebruikt om bepaalde zoeken verder hoger dan de andere voorwaarden te verbeteren. Bijvoorbeeld, `rock^2 electronic` documenten met de zoektermen in het veld genre hoger is dan andere doorzoekbare velden in de index wordt verhogen. Verder, documenten die de zoekterm bevatten *rock* hoger dan de andere zoekterm wordt gerangschikt *elektronische* als gevolg van de termijn boost waarde (2).  
+
+ Om te verbeteren gebruiken een termijn van het caret-teken, "^", symbool met een boost factor (een getal) aan het einde van de term die u zoekt. U kunt ook zinnen verhogen. Hoe hoger de boost-factor, meer relevante wordt de term is ten opzichte van andere zoektermen. Standaard is de factor boost 1. Hoewel de factor boost moet positief zijn, kan het zijn dat kleiner is dan 1 (bijvoorbeeld 0.20).  
+
+##  <a name="bkmk_regex"></a> zoeken op reguliere expressies  
+ Een zoekopdracht reguliere expressie zoekt een overeenkomst op basis van de inhoud tussen forward slashes bevatten '/', zoals beschreven in de [klasse RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).  
+
+ Bijvoorbeeld, om te vinden met "motel" of "Hotels" documenten, geef `/[mh]otel/`.  Reguliere expressie zoekopdrachten worden vergeleken met enkele woorden.   
+
+##  <a name="bkmk_wildcard"></a> zoeken met jokertekens  
+ U kunt gebruiken in het algemeen erkende syntaxis voor meerdere (*) of één (?) teken zoeken met jokertekens. Houd er rekening mee dat de Lucene-queryparser ondersteunt het gebruik van deze symbolen met een termijn van één en niet een zin.  
+
+ Bijvoorbeeld, als u wilt zoeken naar documenten met de woorden met het voorvoegsel "Opmerking", zoals "notebook" of "Kladblok" opgeven "Opmerking *".  
+
+> [!NOTE]  
+>  U kunt geen gebruiken een * of? symbool als het eerste teken van een zoekopdracht.  
+>  Er is geen tekstanalyse wordt uitgevoerd op query's zoeken met jokertekens. Jokertekens querytermen zijn op het moment dat de query, vergeleken met de geanalyseerde voorwaarden in de search-index en uitgebreid.
 
 ## <a name="see-also"></a>Zie ook  
 

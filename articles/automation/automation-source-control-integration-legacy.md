@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9b82b1e17a62aa9b3d606b0b16295acf04eb85
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901539"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418751"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integratie van broncodebeheer in Azure Automation - verouderd
 
@@ -65,17 +65,17 @@ Als u al hebt een GitHub-account en een opslagplaats die u wilt koppelen aan Azu
      
      | **Parameter** | **Waarde** |
      |:--- |:--- |
-     | Name |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Type |String |
-     | Value |{'Vertakking':\<*de naam van uw vertakking*>, "RunbookFolderPath":\<*pad naar de Runbookmap*>, "ProviderType":\<*heeft een waarde 1 voor GitHub*>, 'Opslagplaats':\<*naam van uw opslagplaats*>, 'Gebruikersnaam':\<*uw GitHub-gebruikersnaam*>} |
+     | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
+     | `Type`  |String |
+     | `Value` |{'Vertakking':\<*de naam van uw vertakking*>, "RunbookFolderPath":\<*pad naar de Runbookmap*>, "ProviderType":\<*heeft een waarde 1 voor GitHub*>, 'Opslagplaats':\<*naam van uw opslagplaats*>, 'Gebruikersnaam':\<*uw GitHub-gebruikersnaam*>} |
 
      * De variabele **Microsoft.Azure.Automation.SourceControl.OAuthToken**, bevat de veilige versleutelde waarde van uw OAuthToken.  
 
      |**Parameter**            |**Waarde** |
      |:---|:---|
-     | Name  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-     | Type | Unknown(Encrypted) |
-     | Value | <*Versleutelde OAuthToken*> |  
+     | `Name`  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | `Type`  | Unknown(Encrypted) |
+     | `Value` | <*Versleutelde OAuthToken*> |  
 
      ![Variabelen](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 

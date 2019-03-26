@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 836d36cc6f220bb544e0c7723506c624c5f9fc39
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294500"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407297"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Consistentieniveaus in Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Lezen van consistentie van toepassing op een enkele leesbewerking binnen het ber
 
 ## <a name="configure-the-default-consistency-level"></a>Het standaardconsistentieniveau configureren
 
-U kunt het standaardconsistentieniveau configureren op uw Azure Cosmos-account op elk gewenst moment. Het standaardconsistentieniveau geconfigureerd in uw account is van toepassing op alle Azure Cosmos DB-databases en containers onder dat account. Alle leesbewerkingen en query's die zijn uitgegeven voor een container of een database wordt de opgegeven consistentieniveau standaard gebruikt. Zie voor meer informatie over het [het standaardconsistentieniveau configureren](how-to-manage-consistency.md#configure-the-default-consistency-level).
+U kunt het standaardconsistentieniveau configureren op uw Azure Cosmos-account op elk gewenst moment. Het standaardconsistentieniveau geconfigureerd in uw account is van toepassing op alle Azure-Cosmos-databases en containers onder dat account. Alle leesbewerkingen en query's die zijn uitgegeven voor een container of een database wordt de opgegeven consistentieniveau standaard gebruikt. Zie voor meer informatie over het [het standaardconsistentieniveau configureren](how-to-manage-consistency.md#configure-the-default-consistency-level).
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garanties die zijn gekoppeld aan consistentieniveaus
 
@@ -41,31 +41,31 @@ De semantiek van de vijf consistentieniveaus worden hier beschreven:
 
 - **Sterke**: Sterke consistentie biedt een [verwerkingen](https://aphyr.com/posts/313-strong-consistency-models) garanderen. De leesbewerkingen gegarandeerd de meest recente doorgevoerde versie van een item geretourneerd. Een client ziet nooit het terugschrijven van een niet-doorgevoerde of gedeeltelijke. Gebruikers zijn altijd gegarandeerd de meest recente toegezegde schrijven.
 
-- **Gebonden veroudering**: De leesbewerkingen gegarandeerd de garantie consistent voorvoegsel in acht neemt. De leesbewerkingen kunnen volgen op schrijfbewerkingen door maximaal 'K'-versies (dat wil zeggen "updates") van een artikel of door te tijdsinterval "t". Als u gebonden veroudering kiest, kan de "veroudering' op twee manieren worden geconfigureerd: 
+- **Gebonden veroudering**: De leesbewerkingen gegarandeerd de garantie consistent voorvoegsel in acht neemt. De leesbewerkingen kunnen volgen op schrijfbewerkingen met maximaal *'K'* versies (dat wil zeggen, "updates") van een item of door *"T"* tijdsinterval. Met andere woorden, als u gebonden veroudering kiest, kan de "veroudering' kan worden geconfigureerd op twee manieren: 
 
-  * Het aantal versies (kB) van het item
-  * Het tijdsinterval (t) waarmee de leesbewerkingen op schrijfbewerkingen volgen kunnen 
+  * Het aantal versies (*K*) van het item
+  * Het tijdsinterval (*T*) op waarop de leesbewerkingen schrijfbewerkingen achterblijven mogelijk 
 
-  Gebonden veroudering aanbiedingen totale globale volgorde, behalve binnen de "veroudering venster." De monotone lezen garanties bestaan binnen een regio, zowel binnen als buiten het venster veroudering. Sterke consistentie is dezelfde semantiek als degene die worden aangeboden door gebonden veroudering. Het venster veroudering is gelijk aan nul. Gebonden veroudering wordt ook wel tijd uitgesteld verwerkingen genoemd. Wanneer een client leesbewerkingen binnen een regio die schrijfbewerkingen accepteert uitvoert, zijn de garanties geboden door consistentie voor gebonden veroudering identiek zijn aan de garanties met de krachtige consistentie.
+  Gebonden veroudering aanbiedingen totale globale volgorde, behalve binnen de "veroudering venster." De monotone lezen garanties bestaan binnen een regio, zowel binnen als buiten het venster veroudering. Sterke consistentie is dezelfde semantiek als het account dat wordt aangeboden door gebonden veroudering. Het venster veroudering is gelijk aan nul. Gebonden veroudering wordt ook wel tijd uitgesteld verwerkingen genoemd. Wanneer een client leesbewerkingen binnen een regio die schrijfbewerkingen accepteert uitvoert, zijn de garanties geboden door consistentie voor gebonden veroudering identiek zijn aan de garanties door de sterke consistentie.
 
 - **Sessie**: De leesbewerkingen gegarandeerd de consistent voorvoegsel (uitgaande van een sessie voor één 'auteur'), monotone leesbewerkingen, monotone schrijfbewerkingen, read-your-writes en write-follows-reads garanties in acht neemt. Sessieconsistentie is afgestemd op een clientsessie.
 
-- **Consistent voorvoegsel**: Updates die worden geretourneerd, een prefix van alle updates, zonder hiaten bevatten. Consistent voorvoegsel wordt gegarandeerd dat leesbewerkingen nooit out volgorde schrijfbewerkingen te zien.
+- **Consistent voorvoegsel**: Updates die worden geretourneerd, een prefix van alle updates, zonder hiaten bevatten. Consistent voorvoegsel consistentieniveau zorgt ervoor dat leesbewerkingen nooit out volgorde schrijfbewerkingen te zien.
 
 - **Uiteindelijke**: Er is geen bestellen garantie voor leesbewerkingen. De replica's worden in de afwezigheid van geen schrijfbewerkingen meer kunnen uiteindelijk geconvergeerd.
 
 ## <a name="consistency-levels-explained-through-baseball"></a>Consistentieniveaus uitgelegd honkbal
 
-We gaan een baseball game scenario als voorbeeld. Stel dat een reeks schrijfbewerkingen die staan voor de score van een game baseball. De regel inning door inning score wordt beschreven in de [gerepliceerd gegevensconsistentie honkbal](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) papier. Dit spel hypothetische baseball is momenteel in het midden van de zevende inning. Het is de zevende--inning stretch. De bezoekers zich achter met een score van 2 tot en met 5.
+We gaan een baseball game scenario als voorbeeld. Stel dat een reeks schrijfbewerkingen die staan voor de score van een game baseball. De regel inning door inning score wordt beschreven in de [gerepliceerd gegevensconsistentie honkbal](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) papier. Dit spel hypothetische baseball is momenteel in het midden van de zevende inning. Het is de zevende--inning stretch. De bezoekers zich achter met een score van 2 tot en met 5, zoals hieronder weergegeven:
 
 | | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Wordt uitgevoerd** |
 | - | - | - | - | - | - | - | - | - | - | - |
 | **Bezoekers** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
 | **startpagina** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5 |
 
-Een Azure Cosmos DB-container bevat de bezoekers en thuis team totalen worden uitgevoerd. Terwijl het spel uitgevoerd wordt, lezen verschillende garanties kunnen leiden tot clients verschillende scores lezen. De volgende tabel bevat de volledige set van scores die door het lezen van de bezoekers en thuis scores met elk van de vijf consistentiegarantie kan worden geretourneerd. De bezoekers score wordt eerst weergegeven. Verschillende mogelijke geretourneerde waarden worden gescheiden door komma's.
+Een Azure Cosmos-container bevat de totalen uitvoeren voor de bezoekers en thuis teams. Terwijl het spel uitgevoerd wordt, lezen verschillende garanties kunnen leiden tot clients verschillende scores lezen. De volgende tabel bevat de volledige set van scores die door het lezen van de bezoekers en thuis scores met elk van de vijf consistentiegarantie kan worden geretourneerd. De bezoekers score wordt eerst weergegeven. Verschillende mogelijke geretourneerde waarden worden gescheiden door komma's.
 
-| **Consistentieniveau** | **Scores** |
+| **Consistentieniveau** | **Beoordeelt (bezoekers, thuis)** |
 | - | - |
 | **Sterke** | 2-5 |
 | **Gebonden veroudering** | Scores die maximaal één inning verouderd: 2-3, 2-4, 2-5 |

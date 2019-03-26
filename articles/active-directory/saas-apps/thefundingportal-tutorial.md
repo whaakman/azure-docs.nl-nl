@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 3654168d5bd733c87c48d808ab4a668c5c03655e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: da06b8772cbf4f9f805952e19cff03791a86e4c7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370139"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437955"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Zelfstudie: Azure Active Directory-integratie met de financiering Portal
 
@@ -194,7 +194,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 2. Selecteer in de lijst met toepassingen, **de financiering Portal**.
 
-    ![De Portal van de financiering-koppeling in de lijst met toepassingen](common/all-applications.png)
+    ![De financiering Portal-koppeling in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
@@ -212,13 +212,13 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 ### <a name="create-the-funding-portal-test-user"></a>De Portal financiering testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in de Portal financiering. Werken met [de financiering Portal ondersteuningsteam](mailto:info@regenteducation.com) om toe te voegen de gebruikers in de Portal van de financiering-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in de Portal financiering. Werken met [de financiering Portal ondersteuningsteam](mailto:info@regenteducation.com) om toe te voegen de gebruikers in de Portal financiering-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel de financiering Portal in het toegangsvenster, moet u worden automatisch aangemeld bij de financiering Portal waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de financiering Portal-tegel in het toegangsvenster, moet u worden automatisch aangemeld bij de financiering Portal waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

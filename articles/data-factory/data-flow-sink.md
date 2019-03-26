@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a39fa0949276b7e86c7fdd0d0861492a9a0b723e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371136"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438629"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Mapping Data Flow Sink Transformation
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Sink-opties](media/data-flow/windows1.png "sink-1")
+![Sink-opties](media/data-flow/sink1.png "sink-1")
 
 Na het voltooien van uw flow-transformatie van gegevens, kunt u de getransformeerde gegevens naar een bestemming gegevensset sink. In de Sink-transformatie, kunt u de definitie van de gegevensset die u wilt gebruiken voor de uitvoergegevens van de bestemming. Mogelijk hebt u zoveel Sink-transformatie als de gegevensstroom is vereist.
 

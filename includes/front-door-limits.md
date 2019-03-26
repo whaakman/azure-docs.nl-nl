@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 9/17/2018
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: e3fa5616518675d8475937ec63afdd8e1742e8c6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a3a43c56a49c243390eac964d31988b7d30fbb56
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553360"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407776"
 ---
 | Resource | Standaardlimiet |
 | --- | --- |
@@ -41,4 +41,4 @@ ms.locfileid: "57553360"
 |  | Met gesegmenteerde overdrachtscodering (CTE) | Zonder HTTP logische groepen te verdelen |
 | ---- | ------- | ------- |
 | **Downloaden** | Er is geen limiet voor de downloadgrootte. | Er is geen limiet voor de downloadgrootte. |
-| **Uploaden** |  Er is geen limiet, zolang elke uploaden CTE minder dan 28.6 MB is. | De grootte mag niet groter zijn dan 28.6. MB. |
+| **Uploaden** |  Er is geen limiet, zolang elke uploaden CTE minder dan 2 GB is. | De grootte mag niet groter zijn dan 2 GB. |

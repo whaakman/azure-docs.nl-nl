@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a72182091721dd6a1104cb8e3495aee1a3b25eb8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867731"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439380"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statische website hosting in Azure Storage
 Azure Storage GPv2-accounts kunt u statische inhoud (HTML, CSS, JavaScript en afbeeldingsbestanden) rechtstreeks vanuit een storage-container met de naam *$web*. U profiteert van hosten in Azure Storage kunt u gebruikmaken van serverloze architecturen, met inbegrip van [Azure Functions](/azure/azure-functions/functions-overview) en andere PaaS-services.
@@ -46,6 +46,9 @@ https://contoso.z4.web.core.windows.net/image.png
 ```
 
 De geselecteerde standaard-bestandsnaam wordt gebruikt in de hoofdmap en alle submappen, wanneer een bestandsnaam is niet opgegeven. Als de server een 404-fout retourneert en u geen een fout bij het documentpad opgeeft, wordt een 404 standaardpagina geretourneerd naar de gebruiker.
+
+> [!NOTE]
+> Het standaardniveau van de openbare toegang voor bestanden is privé. Omdat de bestanden via anonieme aanvragen plaatsvindt, wordt deze instelling wordt genegeerd. Er is openbare toegang tot alle bestanden en RBAC-machtigingen worden genegeerd.
 
 ## <a name="cdn-and-ssl-support"></a>CDN- en SSL-ondersteuning
 

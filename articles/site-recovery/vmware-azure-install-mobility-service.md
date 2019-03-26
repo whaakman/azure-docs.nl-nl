@@ -1,19 +1,19 @@
 ---
-title: Installeren van de Mobility-Service voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure | Microsoft Docs
-description: Informatie over het installeren van de Mobility-Service-agent voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met behulp van de Azure Site Recovery-service.
+title: Voorbereiden van de bronmachines voor het installeren van de Mobility-Service via push-installatie voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure | Microsoft Docs
+description: Informatie over het voorbereiden van uw server voor het installeren van de Mobility-agent via push-installatie voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met behulp van de Azure Site Recovery-service.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 30b177578464653499cdcde8cacf65defa5548ef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846909"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418666"
 ---
-# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>De Mobility-service voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers installeren
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Voorbereiden van de bron-VM voor push-installatie van de mobility-agent
 
 Wanneer u herstel na noodgevallen voor VMware-VM's en fysieke servers met behulp van instellen [Azure Site Recovery](site-recovery-overview.md), u installeert de [Site Recovery Mobility service](vmware-physical-mobility-service-overview.md) op elke on-premises virtuele VMware-machine en de fysieke server.  De Mobility-service worden vastgelegd schrijven van gegevens op de machine, en ze doorstuurt naar de processerver van Site Recovery.
 
@@ -26,7 +26,7 @@ Op elke Windows-machine die u wilt beveiligen, doet u het volgende:
 2. Als u niet een domeinaccount, schakelt u toegangsbeheer voor externe gebruikers op de lokale computer als volgt uit:
     - Voeg een nieuwe DWORD onder HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registersleutel: **LocalAccountTokenFilterPolicy**. Stel de waarde voor **1**.
     -  Om dit te doen bij een opdrachtprompt, voer de volgende opdracht:  
-   ' REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
 3. Selecteer in Windows Firewall op de computer die u wilt beveiligen, **toestaan een app of functie via Firewall**. Schakel **bestands- en printerdeling** en **Windows Management Instrumentation (WMI)**. Voor computers die deel uitmaken van een domein, kunt u de firewall-instellingen configureren met behulp van een groepsbeleidsobject (GPO).
 
    ![Firewallinstellingen](./media/vmware-azure-install-mobility-service/mobility1.png)
@@ -59,6 +59,10 @@ Op elke Linux-machine die u wilt beveiligen, het volgende doen:
 11. Op de **Accounts beheren** tabblad **-Account toevoegen**.
 12. Voeg het account toe dat u hebt gemaakt.
 13. Voer de referenties in die u gebruikt wanneer u replicatie voor een computer inschakelt.
+
+## <a name="anti-virus-on-replicated-machines"></a>Antivirusprogramma's op gerepliceerde machines
+
+Als computers die u wilt repliceren actieve antivirusprogramma's software die wordt uitgevoerd, controleert u of u de installatiemap van de Mobility-service uitsluiten van antivirusprogramma's bewerkingen (*C:\ProgramData\ASR\agent*). Dit zorgt ervoor dat de replicatie werkt zoals verwacht.
 
 ## <a name="next-steps"></a>Volgende stappen
 

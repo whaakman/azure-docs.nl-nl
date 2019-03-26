@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081250"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418887"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -49,7 +49,7 @@ Neem contact op met [ondersteunen](https://portal.azure.com/#blade/Microsoft_Azu
 
 ## <a name="services-that-can-be-moved"></a>Services die kunnen worden verplaatst
 
-De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen worden verplaatst naar een nieuwe resourcegroep en een abonnement. Zie voor meer details, [bewerking ondersteuning voor resources verplaatsen](move-support-resources.md).
+De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen worden verplaatst naar een nieuwe resourcegroep en een abonnement. Zie voor een lijst van welke resource-typen ondersteuning voor verplaatsen, [bewerking ondersteuning voor resources verplaatsen](move-support-resources.md).
 
 * Analysis Services
 * API Management
@@ -143,7 +143,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * Dynamics LCS
 * ExpressRoute
 * Kubernetes Service
-* Lab-Services - verplaatsen naar de nieuwe resourcegroep in hetzelfde abonnement is ingeschakeld, maar de verplaatsing van kruislings abonnement is niet ingeschakeld.
+* Lab-Services - Leslokaallabs kunnen niet worden verplaatst naar een nieuwe resourcegroep of abonnement. DevTest Labs kunnen worden verplaatst naar een nieuwe resourcegroep in hetzelfde abonnement, maar niet tussen meerdere abonnementen.
 * Managed Applications
 * Microsoft Genomics
 * SAP HANA op Azure
