@@ -17,7 +17,7 @@ ms.author: alkohli
 <p>De Azure Data Box-serie biedt producten van verschillende opslagcapaciteiten om terabytes (TB) aan gegeven snel, goedkoop en betrouwbaar naar Azure te sturen. Microsoft versnelt de beveiligde gegevensoverdracht door u bedrijfseigen opslagapparaten te sturen waarmee het mogelijk is om offline of via het netwerk gegevens over te dragen.</p>
 <h2>Offline gegevensoverdracht</h2>
 <p>Voor beperkte tot geen netwerkbandbreedte</p>
-<ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
+<ul class="cardsA panelContent singlePanelContent cols cols3">
     <li>
         <a href="/azure/databox/data-box-disk-overview">
             <div class="cardSize">
@@ -29,7 +29,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Disk</b> voor gegevensgrootten < 40 TB. Microsoft verstuurt u één tot vijf versleutelde SSD's (solid-state drives) waarop u uw gegevens kopieert en die u terugstuurt.</p>
+                            <p><b>Data Box Disk</b> voor gegevensgrootten &lt; 40 TB. Microsoft verstuurt u één tot vijf versleutelde SSD's (solid-state drives) waarop u uw gegevens kopieert en die u terugstuurt.</p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Heavy <SUP>Preview</SUP></b> voor gegevensgrootten van meer dan 500 TB. Microsoft verstuurt u een apparaat van 1 petabyte (PB) via goederentransport waarop u uw gegevens kopieert en die u terugstuurt.</p>
+                            <p><b>Data Box Heavy</b> voor gegevensgrootten &gt; 500 TB. Microsoft verstuurt u een apparaat van 1 petabyte (PB) via goederentransport waarop u uw gegevens kopieert en die u terugstuurt.</p>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Gateway <SUP>Preview</SUP></b> virtueel apparaat met opslag. Gebruik dit apparaat om uw gegevens via het netwerk naar Azure te versturen.</p>
+                            <p>Virtueel <b>Data Box Gateway</b>-apparaat met opslag. Gebruik dit apparaat om uw gegevens via het netwerk naar Azure te versturen.</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Edge <SUP>Preview</SUP></b> fysieke apparaat met opslag en rekencapaciteit. Gebruik dit apparaat wanneer u uw gegevens wilt analyseren, transformeren of filteren terwijl deze onderweg zijn naar Azure.</p>
+                            <p>Fysiek <b>Data Box Edge</b>-apparaat met opslag en rekencapaciteit. Gebruik dit apparaat wanneer u uw gegevens wilt analyseren, transformeren of filteren terwijl deze onderweg zijn naar Azure.</p>
                         </div>
                     </div>
                 </div>

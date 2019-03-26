@@ -91,6 +91,15 @@ items:
       href: personal-data-delete-export.md
     - name: Virtuele machines importeren uit een ander lab
       href: import-virtual-machines-from-another-lab.md
+    - name: Een fabrieksinstallatiekopie maken
+      href: image-factory-create.md
+      items:
+      - name: Een fabrieksinstallatiekopie uitvoeren vanuit AzureDevOps
+        href: image-factory-set-up-devops-lab.md
+      - name: Aangepaste installatiekopieën opslaan en distribueren naar meerdere labs
+        href: image-factory-save-distribute-custom-images.md
+      - name: Een retentiebeleid instellen en opschoningsscripts uitvoeren
+        href: image-factory-set-retention-policy-cleanup.md
     - name: DevTest Labs-infrastructuur instellen in uw onderneming
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
@@ -132,6 +141,8 @@ items:
         href: devtest-lab-redeploy-vm.md
       - name: Een virtuele machine importeren
         href: devtest-lab-import-vm.md
+      - name: Een VM starten of stoppen met PowerShell of CLI
+        href: use-command-line-start-stop-virtual-machines.md
     - name: Omgevingen gebruiken in een lab
       items:
       - name: Een omgeving maken
@@ -252,9 +263,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Veelgestelde vragen
       href: devtest-lab-faq.md
-ms.openlocfilehash: a0b21dfaa64b351e98b6f505568bdbc06c48dd1c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 03ae5399295c0f9fac29fb4cd88cea85130881f7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338374"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435631"

@@ -212,12 +212,10 @@ items:
         href: vmware-azure-set-up-replication.md
       - name: De Mobility-service implementeren
         items:
-        - name: Installatie van de Mobility-service
+        - name: Overzicht en installatie van de Mobility-service
           href: vmware-physical-mobility-service-overview.md
         - name: Voorbereiden voor push-installatie van de Mobility-service
           href: vmware-azure-install-mobility-service.md
-        - name: De Mobility-service handmatig installeren
-          href: vmware-physical-mobility-service-install-manual.md
         - name: De Mobility-service implementeren met behulp van System Center Configuration Manager
           href: vmware-azure-mobility-install-configuration-mgr.md
       - name: Replicatie inschakelen voor VMware-VM's
@@ -244,6 +242,8 @@ items:
         href: vmware-azure-install-linux-master-target.md
     - name: Beheren
       items:
+      - name: Mobility-agent voor VMware beheren
+        href: vmware-physical-manage-mobility-service.md
       - name: De configuratieserver voor VMware beheren
         href: vmware-azure-manage-configuration-server.md
       - name: Processervers beheren
@@ -276,8 +276,6 @@ items:
           href: vmware-physical-mobility-service-overview.md
         - name: Voorbereiden voor push-installatie van de Mobility-service
           href: vmware-azure-install-mobility-service.md
-        - name: De Mobility-service handmatig installeren
-          href: vmware-physical-mobility-service-install-manual.md
         - name: De Mobility-service implementeren met behulp van System Center Configuration Manager
           href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Stapsgewijze handleiding voor instellen van herstel na noodgevallen
@@ -286,6 +284,8 @@ items:
       href: physical-to-azure-failover-failback.md
     - name: Beheren
       items:
+      - name: Mobility-agent voor fysieke server beheren
+        href: vmware-physical-manage-mobility-service.md
       - name: De configuratieserver voor replicatie van fysieke server beheren
         href: physical-manage-configuration-server.md
       - name: Processervers beheren
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service-updates
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 66b14ba7100b8bd8e4bb3a100e8fd10d226f555e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b486afff5bc65e58fc89d4b9f0bee4d9c0ff0b5c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317099"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418993"

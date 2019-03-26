@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 44c7f6d32737fe83e80a2f2df15f0ae078a5849e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 376f2bd792cb1b3190507f5571a8b7a33daf2542
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400288"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439108"
 documentType: LandingData
 title: Documentatie voor Azure Data Box - Online overdracht
 metadata:
@@ -16,10 +16,10 @@ metadata:
   ms.service: databox
   ms.subservice: edge
   ms.topic: landing-page
-  ms.date: 03/22/2019
+  ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: Met Azure Data Box-producten kunt u snel, goedkoop en betrouwbaar honderden terabytes aan gegevens overdragen naar Azure. Gebruik de Data Box-apparaten voor gegevensoverdracht via het netwerk met hoge prestaties.<p>Kies Data Box Gateway <SUP>(preview)</SUP> voor het verzenden van gegevens voor archivering in de cloud, herstel na noodgevallen of voor de verwerking van gegevens met de kracht van de cloud.  Gebruik Data Box Edge <SUP>(preview)</SUP> om uw gegevens te filteren, analyseren en transformeren terwijl deze worden verplaatst naar Azure.</p><p>Gebruik onze zelfstudies voor meer informatie over hoe u Data Box Gateway en Data Box Edge kunt gebruiken voor overdracht via een netwerk.</p>
+  description: Met Azure Data Box-producten kunt u snel, goedkoop en betrouwbaar honderden terabytes aan gegevens overdragen naar Azure. Gebruik de Data Box-apparaten voor gegevensoverdracht via het netwerk met hoge prestaties.<p>Kies Data Box Gateway voor het verzenden van gegevens voor archivering in de cloud, voor herstel na noodgevallen of voor de verwerking van gegevens met de kracht van de cloud.  Gebruik Data Box Edge om uw gegevens te filteren, analyseren en transformeren terwijl deze worden verplaatst naar Azure.</p><p>Gebruik onze zelfstudies voor meer informatie over hoe u Data Box Gateway en Data Box Edge kunt gebruiken voor overdracht via een netwerk.</p>
 sections:
 - title: Zelfstudies
   items:
