@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855452"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482960"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Ondersteunde scenario's voor HANA grote instanties
 Dit document beschrijft de ondersteunde scenario's, samen met de details van de architectuur voor de HANA grote instanties (HLI).
@@ -50,7 +50,7 @@ Het architectuurontwerp van de afgeleide is puur vanuit het perspectief van de i
 Dit document beschrijft de details van de twee onderdelen in elke ondersteunde architectuur:
 
 - Ethernet
-- Storage
+- Opslag
 
 ### <a name="ethernet"></a>Ethernet
 
@@ -62,16 +62,16 @@ Elke server ingericht afkomstig is vooraf geconfigureerd met de sets Ethernet-in
 - **C**: Deze interface wordt gebruikt voor het knooppunt de opslagverbinding.
 - **D**: Deze interface wordt gebruikt voor het knooppunt iSCSI-apparaatverbinding voor de installatie van stonith instellen. Deze interface is alleen geconfigureerd wanneer de installatie HSR wordt aangevraagd.  
 
-| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Use-case|
+| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Toepassing|
 | --- | --- | --- | --- | --- |
 | A | IK TYP | eth0.tenant | eno1.tenant | HLI-client |
 | B | IK TYP | eth2.tenant | eno3.tenant | Knooppunt naar knooppunt |
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | STONITH |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Knooppunt naar knooppunt |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | STONITH |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | HLI-client |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Knooppunt naar knooppunt |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
 U gebruikt de interfaces op basis van de topologie die is geconfigureerd op de HLI-eenheid. De interface "B" wordt bijvoorbeeld instellen voor knooppunt naar communicatie, wat nuttig is wanneer u een scale-out-topologie die is geconfigureerd. In het geval van een configuratie met één knooppunt omhoog, wordt deze interface niet gebruikt. Controleer uw vereiste scenario's (verderop in dit document) voor meer informatie over het gebruik van de interface. 
 
@@ -97,11 +97,11 @@ Een bladeconfiguratie met twee IP-adressen die zijn toegewezen is niet geschikt 
 - Ethernet "D" moet exclusief worden gebruikt voor toegang tot het apparaat stonith instellen voor pacemaker. Deze interface is vereist wanneer u HANA System Replication (HSR) configureren en wilt een automatische failover op het besturingssysteem met behulp van een SBD op basis van apparaat.
 
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 Opslag vooraf is geconfigureerd op basis van de topologie die is aangevraagd. De volumes groter en koppelpunt afhankelijk van het aantal servers, -SKU's en -topologie die zijn geconfigureerd. Controleer uw vereiste scenario's (verderop in dit document) voor meer informatie. Als u meer opslag nodig is, kunt u deze kunt kopen in één TB verhoging.
 
 >[!NOTE]
->Hetkoppelpunt/usr/sap/<SID> is een symbolische koppeling naar het koppelpunt/hana/gedeeld.
+>Hetkoppelpunt/usr/sap/\<SID > is een symbolische koppeling naar het koppelpunt/hana/gedeeld.
 
 
 ## <a name="supported-scenarios"></a>Ondersteunde scenario 's
@@ -136,21 +136,21 @@ Deze topologie biedt ondersteuning voor één knooppunt in een schaalset van con
 ### <a name="ethernet"></a>Ethernet
 De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 
-| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Use-case|
+| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Toepassing|
 | --- | --- | --- | --- | --- |
 | A | IK TYP | eth0.tenant | eno1.tenant | HLI-client |
 | B | IK TYP | eth2.tenant | eno3.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | HLI-client |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Mountpoint | Use-case | 
+| Mountpoint | Toepassing | 
 | --- | --- |
 |/Hana/Shared/SID | HANA installeren | 
 |/hana/data/SID/mnt00001 | Bestanden installeren | 
@@ -171,21 +171,21 @@ Deze topologie biedt ondersteuning voor één knooppunt in een schaalset van con
 ### <a name="ethernet"></a>Ethernet
 De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 
-| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Use-case|
+| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Toepassing|
 | --- | --- | --- | --- | --- |
 | A | IK TYP | eth0.tenant | eno1.tenant | HLI-client |
 | B | IK TYP | eth2.tenant | eno3.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | HLI-client |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Mountpoint | Use-case | 
+| Mountpoint | Toepassing | 
 | --- | --- |
 |/Hana/Shared/SID1 | HANA-installatie voor SID1 | 
 |/hana/data/SID1/mnt00001 | Gegevensbestanden installeren voor SID1 | 
@@ -211,21 +211,21 @@ Deze topologie biedt ondersteuning voor één knooppunt in een schaalset van con
 ### <a name="ethernet"></a>Ethernet
 De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 
-| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Use-case|
+| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Toepassing|
 | --- | --- | --- | --- | --- |
 | A | IK TYP | eth0.tenant | eno1.tenant | HLI-client |
 | B | IK TYP | eth2.tenant | eno3.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | HLI-client |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Mountpoint | Use-case | 
+| Mountpoint | Toepassing | 
 | --- | --- |
 |/Hana/Shared/SID | HANA-installatie voor beveiligings-id | 
 |/hana/data/SID/mnt00001 | Bestanden installeren voor beveiligings-id | 
@@ -252,21 +252,21 @@ Deze topologie biedt ondersteuning voor één knooppunt in een schaalset van con
 ### <a name="ethernet"></a>Ethernet
 De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 
-| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Use-case|
+| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Toepassing|
 | --- | --- | --- | --- | --- |
 | A | IK TYP | eth0.tenant | eno1.tenant | HLI-client |
 | B | IK TYP | eth2.tenant | eno3.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | HLI-client |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Mountpoint | Use-case | 
+| Mountpoint | Toepassing | 
 | --- | --- |
 |**Op de primaire site**|
 |/Hana/Shared/SID | HANA installeren voor de productie-SID | 
@@ -306,21 +306,21 @@ Deze topologie ondersteunen twee knooppunten voor de configuratie van HANA Syste
 ### <a name="ethernet"></a>Ethernet
 De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 
-| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Use-case|
+| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Toepassing|
 | --- | --- | --- | --- | --- |
 | A | IK TYP | eth0.tenant | eno1.tenant | HLI-client |
 | B | IK TYP | eth2.tenant | eno3.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Gebruikt voor stonith instellen |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Gebruikt voor stonith instellen |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | HLI-client |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Gebruikt voor stonith instellen |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Mountpoint | Use-case | 
+| Mountpoint | Toepassing | 
 | --- | --- |
 |**Op het primaire knooppunt**|
 |/Hana/Shared/SID | HANA installeren voor de productie-SID | 
@@ -354,21 +354,21 @@ In het diagram, multipurpose scenario wordt beschreven indien op de DR-site, HLI
 ### <a name="ethernet"></a>Ethernet
 De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 
-| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Use-case|
+| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Toepassing|
 | --- | --- | --- | --- | --- |
 | A | IK TYP | eth0.tenant | eno1.tenant | HLI-client |
 | B | IK TYP | eth2.tenant | eno3.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Gebruikt voor stonith instellen |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Gebruikt voor stonith instellen |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | HLI-client |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Gebruikt voor stonith instellen |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Mountpoint | Use-case | 
+| Mountpoint | Toepassing | 
 | --- | --- |
 |**Op het primaire knooppunt op de primaire site**|
 |/Hana/Shared/SID | HANA installeren voor de productie-SID | 
@@ -413,21 +413,21 @@ Deze topologie biedt ondersteuning voor twee knooppunten in een host automatisch
 ### <a name="ethernet"></a>Ethernet
 De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 
-| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Use-case|
+| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Toepassing|
 | --- | --- | --- | --- | --- |
 | A | IK TYP | eth0.tenant | eno1.tenant | HLI-client |
 | B | IK TYP | eth2.tenant | eno3.tenant | Het knooppunt om communicatie tussen knooppunten te |
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Het knooppunt om communicatie tussen knooppunten te |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | HLI-client |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Het knooppunt om communicatie tussen knooppunten te |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Mountpoint | Use-case | 
+| Mountpoint | Toepassing | 
 | --- | --- |
 |**Op de hoofd- en stand-by-knooppunten**|
 |/ hana/gedeeld | HANA installeren voor de productie-SID | 
@@ -454,21 +454,21 @@ Deze topologie biedt ondersteuning voor meerdere knooppunten in een scale-out-co
 ### <a name="ethernet"></a>Ethernet
 De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 
-| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Use-case|
+| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Toepassing|
 | --- | --- | --- | --- | --- |
 | A | IK TYP | eth0.tenant | eno1.tenant | HLI-client |
 | B | IK TYP | eth2.tenant | eno3.tenant | Het knooppunt om communicatie tussen knooppunten te |
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Het knooppunt om communicatie tussen knooppunten te |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | HLI-client |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Het knooppunt om communicatie tussen knooppunten te |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Mountpoint | Use-case | 
+| Mountpoint | Toepassing | 
 | --- | --- |
 |**Op de master-, werknemer- en stand-by-knooppunten**|
 |/ hana/gedeeld | HANA installeren voor de productie-SID | 
@@ -490,21 +490,21 @@ Deze topologie biedt ondersteuning voor meerdere knooppunten in een scale-out-co
 ### <a name="ethernet"></a>Ethernet
 De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 
-| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Use-case|
+| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Toepassing|
 | --- | --- | --- | --- | --- |
 | A | IK TYP | eth0.tenant | eno1.tenant | HLI-client |
 | B | IK TYP | eth2.tenant | eno3.tenant | Het knooppunt om communicatie tussen knooppunten te |
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Het knooppunt om communicatie tussen knooppunten te |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | HLI-client |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Het knooppunt om communicatie tussen knooppunten te |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Mountpoint | Use-case | 
+| Mountpoint | Toepassing | 
 | --- | --- |
 |**Op de hoofd- en worker-knooppunten**|
 |/ hana/gedeeld | HANA installeren voor de productie-SID | 
@@ -529,21 +529,21 @@ Deze topologie biedt ondersteuning voor meerdere knooppunten in een scale-out me
 ### <a name="ethernet"></a>Ethernet
 De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 
-| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Use-case|
+| LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Toepassing|
 | --- | --- | --- | --- | --- |
 | A | IK TYP | eth0.tenant | eno1.tenant | HLI-client |
 | B | IK TYP | eth2.tenant | eno3.tenant | Het knooppunt om communicatie tussen knooppunten te |
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
-| A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Het knooppunt om communicatie tussen knooppunten te |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | HLI-client |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Het knooppunt om communicatie tussen knooppunten te |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Mountpoint | Use-case | 
+| Mountpoint | Toepassing | 
 | --- | --- |
 |**Op het primaire knooppunt**|
 |/ hana/gedeeld | HANA installeren voor de productie-SID | 

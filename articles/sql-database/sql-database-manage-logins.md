@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.date: 03/26/2019
+ms.openlocfilehash: b1e952d9af474e2318ef91a6bdcc2605a3c30018
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301754"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497921"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Beheren en het verlenen van toegang tot de database met SQL Database en SQL Data Warehouse
 
@@ -203,6 +203,12 @@ Bij het beheren van aanmeldingen en gebruikers in SQL Database, moet u het volge
            WHERE  [name] = N'database_name')
   DROP DATABASE [database_name];
   GO
+  ```
+  
+  Gebruik in plaats daarvan de volgende Transact-SQL-instructie:
+  
+  ```sql
+  DROP DATABASE IF EXISTS [database_name]
   ```
 
 - Bij het uitvoeren van de `CREATE USER`-instructie met de optie `FOR/FROM LOGIN` moet deze de enige instructie in een Transact-SQL-batch zijn.

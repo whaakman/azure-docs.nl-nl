@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 840ea818c7c2e197f1ab65f4bd61067bf5e51283
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ab0e7ce1891dc3553f89f652c7dac70e66a4df0
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57836977"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499910"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Releasegeschiedenis van versie
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -40,6 +40,56 @@ Downloaden | [Azure AD Connect downloaden](https://go.microsoft.com/fwlink/?Link
 
 >[!NOTE]
 >Niet alle versies van Azure AD Connect wordt beschikbaar gesteld voor automatische upgrade. De status van de release wordt aangegeven of een release voor automatische upgrade of voor download beschikbaar is gemaakt. Als u automatisch bijwerken is ingeschakeld op uw Azure AD Connect-server bijwerken die server automatisch naar de nieuwste versie van Azure AD Connect die voor automatische upgrade wordt vrijgegeven. Houd er rekening mee dat niet alle Azure AD Connect-configuraties die in aanmerking komen voor automatische upgrade zijn. Volg deze koppeling voor meer informatie over [Automatische upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+
+## <a name="13900"></a>1.3.90.0 
+
+### <a name="release-status"></a>Releasestatus 
+
+3/25/2019: Nog niet is vrijgegeven 
+ 
+### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen 
+
+
+
+- Voeg ondersteuning toe voor het domein vernieuwen 
+- De functie openbare e-mailmappen Exchange gaat algemeen beschikbaar 
+- Wizard foutafhandeling voor servicefouten verbeteren 
+- Waarschuwing-koppeling voor de oude gebruikersinterface op de eigenschappenpagina van connector toegevoegd. 
+- De geïntegreerde groepen Write-back-functie is nu algemeen beschikbaar 
+- Verbeterde SSPR foutbericht weergegeven wanneer de domeincontroller een LDAP-besturingselement ontbreekt 
+- Toegevoegde diagnostische gegevens voor de DCOM-registerfouten tijdens de installatie  
+- Verbeterde tracering van WHS RPC-fouten 
+- EA-referenties van een onderliggend domein toestaan 
+- Naam van de database moet worden ingevoerd tijdens de installatie (standaardnaam ADSync) toestaan
+- Een upgrade uitvoert naar ADAL 3.19.8 een WS-Trust-oplossing voor Ping ophalen en toevoegen van ondersteuning voor nieuwe Azure-exemplaren 
+- Groep wijzigen-synchronisatieregels samAccountName, DomainNetbios en DomainFQDN naar de cloud - stromen die nodig zijn voor claims 
+- Standaard synchronisatie regel verwerking: meer informatie gewijzigd [hier](how-to-connect-fix-default-rules.md).
+- Een nieuwe agent die wordt uitgevoerd als een windows-service toegevoegd. Deze agent, met de naam 'Admin Agent', kunt meer gedetailleerde externe diagnostische gegevens van de Azure AD Connect-server voor het Microsoft-Engineers oplossen wanneer u een ondersteuningsaanvraag openen. Meer informatie over de Admin Agent [hier](whatis-aadc-admin-agent.md). 
+- De gebruiksrechtovereenkomst (EULA) bijgewerkt 
+- Automatische upgrade ondersteuning toegevoegd voor implementaties die gebruikmaken van AD FS als hun aanmeldingstype.  Dit ook verwijderd de vereiste van het bijwerken van de AD FS Azure AD Relying Party Trust als onderdeel van het upgradeproces. 
+- Een beheertaak voor Azure AD-vertrouwensrelatie met twee opties toegevoegd: vertrouwensrelatie analyseren/bijwerken en opnieuw instellen van vertrouwen. 
+- Het gedrag van de vertrouwensrelatie van Relying Party van AD FS Azure AD wordt gewijzigd zodat deze altijd gebruik van de switch - SupportMultipleDomain (vertrouwen en Azure AD-domein bevat updates). 
+- De installatie van nieuwe AD FS-farm gedrag zodanig gewijzigd dat hiervoor een pfx-certificaat door de optie van het gebruik van een vooraf geïnstalleerde certificaat te verwijderen.
+- De installatie van nieuwe AD FS-farm-werkstroom bijgewerkt zodat er kan alleen 1 AD FS en WAP-server 1 implementeren.  Alle extra servers worden uitgevoerd na de eerste installatie. 
+
+### <a name="fixed-issues"></a>Problemen opgelost 
+
+
+- Herstel de SQL opnieuw verbinding maken met de logica voor ADSync-service 
+- Oplossing voor het toestaan van schone installatie met behulp van een leeg SQL AOA DB 
+- Herstel machtigingen PS-script om te zetten GWB machtigingen 
+- VSS-fouten met LocalDB  
+- Herstellen van misleidend foutbericht als objecttype dat zich niet in bereik 
+- Een probleem waarbij de installatie van Azure AD PowerShell op een server kunnen een conflict assembly met Azure AD Connect veroorzaken zou gecorrigeerd. 
+- Fout verholpen WHS op Faseringsserver wanneer Connector-referenties in de oude gebruikersinterface zijn bijgewerkt. 
+- Sommige geheugenlekken opgelost 
+- Diverse Autoupgrade wordt opgelost 
+- Diverse oplossingen voor de verwerking van niet-bevestigde importeren en exporteren 
+- Een probleem opgelost met het verwerken van een backslash in domein en OE filteren 
+- Een probleem waarbij service ADSync heeft meer dan twee minuten om te stoppen en zorgt ervoor dat een probleem op tijd voor de upgrade is opgelost. 
+
+
+
 
 ## <a name="12700"></a>1.2.70.0
 

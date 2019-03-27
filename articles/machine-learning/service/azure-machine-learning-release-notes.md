@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b9ab48ea971a5e7f5e9c72f9e729d2fcb5ed37f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c6e0408145ea76ad93b6dc3803fd56a01dc6d4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437863"
+ms.locfileid: "58444661"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -29,6 +29,23 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 + **Nieuwe functies**
   + De *azureml.core.Run.create_children* methode kunt maken met lage latentie van meerdere onderliggende wordt uitgevoerd met één aanroep.
+
+### <a name="azure-machine-learning-data-prep-sdk-v110"></a>Azure Machine Learning Data Prep SDK v1.1.0
+
++ **Belangrijke wijzigingen**
+  + Het concept van het gegevenspakket Prep is gedeprecieerd en wordt niet meer ondersteund. In plaats van meerdere gegevensstromen in één pakket permanent worden gemaakt, kunt u gegevensstromen afzonderlijk behouden.
+    + Gebruiksaanwijzing: [Voor het openen en opslaan van gegevensstromen notebook](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
+
++ **Nieuwe functies**
+  + Gegevensvoorbereiding herkent nu kolommen die overeenkomen met een bepaald Type semantische en dienovereenkomstig te splitsen. De momenteel ondersteunde STypes opnemen: e-mailadres, geografische coördinaten (breedtegraad en lengtegraad), IPv4 en IPv6-adressen, Amerikaans telefoonnummer en postcode.
+    + Gebruiksaanwijzing: [Semantische typen notebook](https://aka.ms/aml-data-prep-semantic-types-nb)
+  + Gegevensvoorbereiding biedt nu ondersteuning voor de volgende bewerkingen voor het genereren van een resulterende kolom uit twee numerieke kolommen: aftrekken, vermenigvuldigen en delen, en modulo.
+  + U kunt aanroepen `verify_has_data()` op een gegevensstroom om te controleren of de gegevensstroom geeft als records resultaat als uitgevoerd.
+
++ **Fouten opgelost en verbeteringen**
+  + U kunt nu het aantal opslaglocaties gebruiken in een histogram voor numerieke kolom profielen opgeven.
+  + De `read_pandas_dataframe` transformatie is nu vereist voor het gegevensframe dat tekenreeks - of -byte - kolomnamen hebt getypt.
+  + Een probleem opgelost in de `fill_nulls` transformatie, waarbij waarden zijn niet juist ingevuld als de kolom ontbreekt.
 
 ## <a name="2019-03-11"></a>2019-03-11
 

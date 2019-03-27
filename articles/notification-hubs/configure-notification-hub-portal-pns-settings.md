@@ -10,12 +10,12 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: 8d2b54e65c1409c01a4c38ca8fcdfeca5f031277
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04108c4b5a8ce04b971a0529393ea442cb1cf226
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113330"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480120"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Stel pushmeldingen in een notification hub in Azure portal
 
@@ -29,7 +29,7 @@ Als u al een notification hub hebt gemaakt, moet u een nu maken. Zie voor meer i
 
 Instellen van Apple Push Notification Service (APNS):
 
-1. In de Azure-portal in de **Notification Hub**, selecteer **Apple (APNS)**.
+1. In de Azure-portal op de **Notification Hub** weergeeft, schakelt **Apple (APNS)** in het menu links.
 
 1. Voor **verificatiemodus**, selecteert u **certificaat** of **Token**.
 
@@ -42,7 +42,7 @@ Instellen van Apple Push Notification Service (APNS):
 
    b. Als u selecteert **Token**:
 
-   * Voer de waarden in voor **sleutel-Id**, **bundel-Id**, **Team-Id**, en **Token**.
+   * Voer de waarden in voor **sleutel-ID**, **bundel-ID**, **Team-ID**, en **Token**.
    * Selecteer de modus **Sandbox**. Voor het verzenden van pushmeldingen naar gebruikers die uw app uit de store hebt aangeschaft, selecteert u **productie** modus.
 
      ![Schermafbeelding van een APNS-token configuratie in Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
@@ -53,7 +53,7 @@ Voor meer informatie, Zie [Pushmeldingen naar iOS met behulp van Azure Notificat
 
 Pushmeldingen voor Google Firebase Cloud Messaging (FCM) instellen:
 
-1. In de Azure-portal in de **Notification Hub**, selecteer **Google (GCM/FCM)**. 
+1. In de Azure-portal op de **Notification Hub** weergeeft, schakelt **Google (GCM/FCM)** in het menu links. 
 2. Plak de **API-sleutel** van het FCM-project dat u eerder hebt opgeslagen. 
 3. Selecteer **Opslaan**. 
 
@@ -67,7 +67,7 @@ Zie voor meer informatie, [Pushmeldingen naar Android-apparaten met behulp van N
 
 Instellen van Windows Push Notification Service (WNS):
 
-1. In de Azure-portal in de **Notification Hub**, selecteer **Windows (WNS)**.
+1. In de Azure-portal op de **Notification Hub** weergeeft, schakelt **Windows (WNS)** in het menu links.
 2. Voer waarden in voor **Pakket-SID** en **Beveiligingssleutel**.
 3. Selecteer **Opslaan**.
 
@@ -79,7 +79,7 @@ Zie voor meer informatie, [meldingen verzenden naar UWP-apps met behulp van Azur
 
 Instellen van Microsoft Push Notification Service (MPNS) voor Windows Phone: 
 
-1. In de Azure-portal in de **Notification Hub**, selecteer **Windows Phone (MPNS)**.
+1. In de Azure-portal op de **Notification Hub** weergeeft, schakelt **Windows Phone (MPNS)** in het menu links.
 1. Een niet-geverifieerde of geverifieerde pushmeldingen inschakelen:
 
    a. Als niet-geverifieerde pushmeldingen te verzenden, schakelt **niet-geverifieerde pushmeldingen inschakelen** > **opslaan**.
@@ -99,7 +99,7 @@ Zie voor meer informatie, [Pushmeldingen naar Windows Phone-apps met behulp van 
 
 Pushmeldingen voor Amazon Device Messaging (ADM) instellen:
 
-1. In de Azure-portal in de **Notification Hub**, selecteer **Amazon (ADM)**.
+1. In de Azure-portal op de **Notification Hub** weergeeft, schakelt **Amazon (ADM)** in het menu links.
 2. Voer waarden in voor **Client-ID** en **Clientgeheim**.
 3. Selecteer **Opslaan**.
     
@@ -111,7 +111,7 @@ Zie voor meer informatie, [aan de slag met Notification Hubs voor Kindle-apps](n
 
 Pushmeldingen voor Baidu instellen:
 
-1. In de Azure-portal in de **Notification Hub**, selecteer **Baidu (Android China)**. 
+1. In de Azure-portal op de **Notification Hub** weergeeft, schakelt **Baidu (Android China)** in het menu links. 
 2. Voer de **Api-sleutel** die u hebt verkregen via de Baidu-console in de Baidu cloud push-project. 
 3. Voer de **geheime sleutel** die u hebt verkregen via de Baidu-console in de Baidu cloud push-project. 
 4. Selecteer **Opslaan**. 

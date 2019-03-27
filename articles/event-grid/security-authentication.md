@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 23654dd41714314ab5c9f217d4f805d7b9d62413
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316051"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472803"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
@@ -41,7 +41,7 @@ Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger
 
    Beginnen met 2018-05-01-preview-versie, ondersteunt Event Grid een handshake handmatig worden gevalideerd. Als u een gebeurtenisabonnement maakt met een SDK of een hulpprogramma dat gebruikmaakt van API-versie 2018-05-01-preview of hoger, Event Grid verzendt een `validationUrl` eigenschap in het gegevensgedeelte van het abonnement validatie-gebeurtenis. Voor het voltooien van de handshake vinden die URL in de gebeurtenisgegevens en handmatig een GET-aanvraag te verzenden. U kunt een REST-client of uw webbrowser.
 
-   De opgegeven URL is geldig voor 10 minuten. Gedurende deze periode kan de Inrichtingsstatus van het gebeurtenisabonnement is `AwaitingManualAction`. Als u de handmatige validatie binnen 10 minuten niet voltooit, de Inrichtingsstatus is ingesteld op `Failed`. Hebt u het maken van het gebeurtenisabonnement opnieuw voordat u begint met het handmatig worden gevalideerd.
+   De opgegeven URL is geldig gedurende vijf minuten. Gedurende deze periode kan de Inrichtingsstatus van het gebeurtenisabonnement is `AwaitingManualAction`. Als u de handmatige validatie binnen 10 minuten niet voltooit, de Inrichtingsstatus is ingesteld op `Failed`. Hebt u het maken van het gebeurtenisabonnement opnieuw voordat u begint met het handmatig worden gevalideerd.
 
 ### <a name="validation-details"></a>Validatiedetails
 

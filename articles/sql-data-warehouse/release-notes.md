@@ -9,12 +9,12 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 02/09/2019
-ms.openlocfilehash: 2ac60287c9d92ab6230e1dd6777504036e54492d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e77556ac0d6f64797906c0f3b4181f147b1668e2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244671"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448412"
 ---
 # <a name="azure-sql-data-warehouse-release-notes-and-documentation-updates"></a>Releaseopmerkingen voor Azure SQL Data Warehouse en documentatie-updates
 
@@ -22,9 +22,10 @@ Azure SQL Data Warehouse (SQL DW) is een cloud-gebaseerde zakelijke datawarehous
 
 Klik op de onderstaande koppelingen voor meer informatie over de nieuwe functies en verbeteringen die u in de meest recente versie van Azure SQL Data Warehouse verwachten kunt. U kunt verwachten dat voor het ontvangen van deze service-updates tijdens de geïdentificeerde onderhoudsplanning.
 
-- [SQL Data Warehouse versie 10.0.10106.0 (januari)](./release-notes-10-0-10106-0.md)
-- [December 2018](./release-notes-december-2018.md)
-- [Oktober 2018](./release-notes-october-2018.md)
+- [Maart 2019](./release-notes-10-0-10106-0.md#march-2019)
+- [Januari 2019](./release-notes-10-0-10106-0.md#january-2019)
+- [December 2018](./release-notes-10-0-10106-0.md#december-2018)
+- [Oktober 2018](./release-notes-10-0-10106-0.md#october-2018)
 - [September 2018](./release-notes-september-2018.md)
 - [Augustus 2018](./release-notes-august-2018.md)
 - [Juli 2018](./release-notes-july-2018.md)
@@ -39,9 +40,9 @@ Om te controleren welke versie is aan uw datawarehouse zijn toegepast. Verbindin
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-Voorbeelduitvoer: ![Versie van SQL Data Warehouse](./media/release-notes/dw-version.png)
+Voorbeelduitvoer: ![Versie van SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
 
-Gebruik de versie die is geïdentificeerd als u wilt controleren welke versie is toegepast op uw Azure SQL Data Warehouse. 
+Gebruik de datum die is geïdentificeerd als u wilt controleren welke versie is toegepast op uw Azure SQL Data Warehouse. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

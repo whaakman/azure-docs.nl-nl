@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012327"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445998"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage
 ## <a name="overview"></a>Overzicht
@@ -98,7 +98,7 @@ Op het moment van schrijven zijn de bandbreedte-doelen in de Verenigde Staten vo
 Als de limiet van storage-accounts die u in de combinatie van een bepaald abonnement/de regio kunt hebben bijna is bereikt, uw toepassing en het gebruik van storage-accounts evalueren en te bepalen als een van deze voorwaarden van toepassing.
 
 * Storage-accounts als niet-beheerde schijven gebruiken en deze schijven toe te voegen aan uw virtuele machines. In dit scenario wordt u aangeraden [beheerde schijven](../../virtual-machines/windows/managed-disks-overview.md), zoals deze schijf opslagschaalbaarheid voor u zonder dat u hoeft verwerken te maken en beheren van afzonderlijke storage-accounts.
-* Met behulp van een storage-account op basis van per klant, ten behoeve van gegevensisolatie. In dit scenario raden wij het gebruik van storage-containers voor elke klant in plaats van een hele storage-account. Azure Storage nu kunt u opgeven van op rollen gebaseerd toegangsbeheer op een per [container basis](storage-auth-aad-rbac.md).
+* Met behulp van een storage-account op basis van per klant, ten behoeve van gegevensisolatie. In dit scenario raden wij het gebruik van storage-containers voor elke klant in plaats van een hele storage-account. Azure Storage nu kunt u opgeven van op rollen gebaseerd toegangsbeheer op een per [container basis](storage-auth-aad-rbac-portal.md).
 * Gebruik meerdere opslagaccounts sharden voor grotere schaalbaarheid van Inkomend/uitgaand verkeer/iops/capaciteit. In dit scenario, indien mogelijk, raden wij u profiteren van de [verhoogd limieten](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) van standard storage-accounts te verminderen van het aantal opslagaccounts die zijn vereist voor uw workload.
 
 Als uw toepassing de prestatiedoelen voor een enkel opslagaccount nadert, Overweeg de overstap naar een van de volgende methoden:  

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: f062dcfb22dda015d0dab9727672ca90df5ddb4d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cac68506803cda2c4e537feac84da2a82bc128bd
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000889"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444297"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Zelfstudie: S2S-VPN-verbindingen maken en beheren met PowerShell
 
@@ -82,7 +82,7 @@ Een lokale netwerkgateway vertegenwoordigt uw on-premises netwerk. U kunt de eig
 * On-premises adresruimte
 * (Optioneel) BGP-kenmerken (BGP-peer-IP-adres en AS-nummer)
 
-Maak een lokale netwerkgateway met de opdracht [New-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azlocalnetworkgateway?view=azurermps-6.8.1).
+Maak een lokale netwerkgateway met de opdracht [New-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azlocalnetworkgateway).
 
 ```azurepowershell-interactive
 New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
@@ -91,7 +91,7 @@ New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
 
 ## <a name="create-a-s2s-vpn-connection"></a>Een S2S VPN-verbinding maken
 
-Maak vervolgens een Site-naar-Site VPN-verbinding tussen uw virtuele netwerkgateway en uw VPN-apparaat met [New-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1). U ziet dat het -ConnectionType voor Site-naar-Site VPN *IPsec* is.
+Maak vervolgens een Site-naar-Site VPN-verbinding tussen uw virtuele netwerkgateway en uw VPN-apparaat met [New-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection). U ziet dat het -ConnectionType voor Site-naar-Site VPN *IPsec* is.
 
 ```azurepowershell-interactive
 $vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -108,7 +108,7 @@ Voeg de optionele eigenschap **- EnableBGP $True** toe om BGP in te schakelen vo
 
 ### <a name="view-and-update-your-pre-shared-key"></a>Weergeven en bijwerken van de vooraf gedeelde sleutel
 
-Azure S2S VPN-verbinding gebruikt een vooraf gedeelde sleutel (geheim) om te verifiëren tussen uw on-premises VPN-apparaat en de Azure VPN-gateway. U kunt de vooraf gedeelde sleutel weergeven en bijwerken voor een verbinding met [Get-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) en [Set-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1).
+Azure S2S VPN-verbinding gebruikt een vooraf gedeelde sleutel (geheim) om te verifiëren tussen uw on-premises VPN-apparaat en de Azure VPN-gateway. U kunt de vooraf gedeelde sleutel weergeven en bijwerken voor een verbinding met [Get-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgatewayconnectionsharedkey) en [Set-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnectionsharedkey).
 
 > [!IMPORTANT]
 > De vooraf gedeelde sleutel is een tekenreeks met **afdrukbare ASCII-tekens** van niet langer dan 128.
@@ -136,7 +136,7 @@ Azure VPN-gateway biedt ondersteuning voor een dynamisch BGP-routeringsprotocol.
 * On-premises lokale netwerkgateway ASN
 * On-premises lokale netwerkgateway BGP-peer-IP-adres
 
-Als u de BGP-eigenschappen niet hebt geconfigureerd, voegen de volgende opdrachten deze eigenschappen toe aan uw VPN-gateway en de lokale netwerkgateway: [Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway?view=azurermps-6.8.1) en [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway?view=azurermps-6.8.1).
+Als u de BGP-eigenschappen niet hebt geconfigureerd, voegen de volgende opdrachten deze eigenschappen toe aan uw VPN-gateway en de lokale netwerkgateway: [Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway) en [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway).
 
 Gebruik het volgende voorbeeld om BGP-eigenschappen te configureren:
 
@@ -149,7 +149,7 @@ Set-AzLocalNetworkGateway -LocalNetworkGateway $lng1 `
   -Asn $LNGASN1 -BgpPeeringAddress $BGPPeerIP1
 ```
 
-Schakel BGP in met [Set-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
+Schakel BGP in met [Set-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnection).
 
 ```azurepowershell-interactive
 $connection = Get-AzVirtualNetworkGatewayConnection `
@@ -212,7 +212,7 @@ Er zijn nu twee S2S VPN-verbindingen naar uw Azure VPN-gateway.
 
 ## <a name="delete-a-s2s-vpn-connection"></a>Een S2S VPN-verbinding verwijderen
 
-Verwijder een S2S VPN-verbinding met [Remove-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
+Verwijder een S2S VPN-verbinding met [Remove-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkgatewayconnection).
 
 ```azurepowershell-interactive
 Remove-AzVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1

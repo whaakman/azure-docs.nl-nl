@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: f6e604940c9e2e84f119fdd1859ad4b2cda23aef
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: 1001e6aec7ba2f6ce62eb267d218149296048bb9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588700"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485880"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Geef een resourcegroep voor de virtuele machines in Azure DevTest Labs
 
@@ -47,7 +47,7 @@ Volg deze stappen voor het opgeven van een resourcegroep voor alle virtuele mach
 ## <a name="use-powershell"></a>PowerShell gebruiken 
 Het volgende voorbeeld ziet hoe u een PowerShell-script gebruiken om te maken van alle virtuele machines in een nieuwe resourcegroep.
 
-```PowerShell
+```powershell
 [CmdletBinding()]
 Param(
     $subId,
@@ -71,7 +71,7 @@ az resource update -g $labRg -n $labName --resource-type "Microsoft.DevTestLab/l
 
 Het script worden aangeroepen met behulp van de volgende opdracht uit. ResourceGroup.ps1 is het bestand dat het vorige script bevat:
 
-```PowerShell
+```powershell
 .\ResourceGroup.ps1 -subId <subscriptionID> -labRg <labRGNAme> -labName <LanName> -vmRg <RGName> 
 ```
 

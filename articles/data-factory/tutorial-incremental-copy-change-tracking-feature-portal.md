@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: a5a364c2065a7f4b9607eb4b078456324f261ce8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121873"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449151"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor bijhouden van wijzigingen 
 In deze zelfstudie maakt u een Azure data factory met een pijplijn die gewijzigde gegevens laadt op basis van informatie over **wijzigingen** in de Azure SQL- brondatabase naar een Azure blob storage.  
@@ -152,9 +152,10 @@ Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure Pow
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
 1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
-1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
+1. Selecteer in het menu links **een resource maken** > **gegevens en analyses** > **Data Factory**: 
    
-   ![Nieuw -> DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
+   ![Selectie van Data Factory in het deelvenster Nieuw](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in als **naam**. 
       
      ![De pagina Nieuwe data factory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 718a679418790a6bf1207a96e5c204f7962de239
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: a4d1a54e94b3228c64352bf08cd8cc69820a5e2d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411251"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500046"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Een symbool laag toevoegen aan een kaart
 
@@ -35,6 +35,9 @@ In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behu
 Het derde blok van code maakt een [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) en updates van het punt coördinaten van de muis klikt u op met behulp van de Shapeklasse [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) methode.
 
 Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen weergegeven op basis van een punt-gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als symbolen op de kaart.  De gegevensbron, de gebeurtenislistener klikken en het symbool-laag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat het punt wordt weergegeven nadat de kaart volledig is geladen.
+
+> [!TIP]
+> Standaard voor de prestaties optimaliseren symbool lagen de rendering van symbolen door te verbergen symbolen die elkaar overlappen. Als u de verborgen symbolen in te zoomen zichtbaar worden. Voor deze functie uitschakelen en weer van alle symbolen te allen tijde, stel de `allowOverlap` eigenschap van de `iconOptions` -opties op `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Een aangepast pictogram toevoegen aan een symbool-laag
 

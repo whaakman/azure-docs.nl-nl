@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 829de211e99ff56ca71af6db4f7c69c5bdf2050a
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 9b6d01908265791a83ee311375fa50fcca995f79
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351674"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472720"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Quickstart: Een afbeeldingsclassificatieproject maken met de .NET-SDK van Custom Vision
 
@@ -66,23 +66,55 @@ De afbeeldingen voor dit project zijn bijgevoegd. Er wordt naar verwezen in de m
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
 
-### <a name="train-the-classifier"></a>De classificatie trainen
+### <a name="train-the-classifier-and-publish"></a>De classificatie te trainen en publiceren
 
-Met deze code wordt de eerste iteratie in het project gemaakt. De iteratie wordt gemarkeerd als de standaarditeratie. De standaarditeratie weerspiegelt de versie van het model die reageert op voorspellingsaanvragen. Werk deze telkens bij als u het model opnieuw gaat trainen.
+Deze code wordt de eerste versie in het project wordt gemaakt en vervolgens publiceert dat iteratie naar het eindpunt van de voorspelling. De naam van de gepubliceerde iteratie kan worden gebruikt om voorspelling aanvragen te verzenden. Een iteratie is niet beschikbaar in de voorspelling eindpunt totdat deze is gepubliceerd.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=57-73)]
+```csharp
+// The returned iteration will be in progress, and can be queried periodically to see when it has completed
+while (iteration.Status == "Training")
+{
+        Thread.Sleep(1000);
+
+        // Re-query the iteration to get it's updated status
+        iteration = trainingApi.GetIteration(project.Id, iteration.Id);
+}
+
+// The iteration is now trained. Publish it to the prediction end point.
+var publishedModelName = "treeClassModel";
+var predictionResourceId = "<target prediction resource ID>";
+trainingApi.PublishIteration(project.Id, iteration.Id, publishedModelName, predictionResourceId);
+Console.WriteLine("Done!\n");
+```
 
 ### <a name="set-the-prediction-endpoint"></a>Voorspellingseindpunt instellen
 
 Het voorspellingseindpunt is de verwijzing waarmee u een afbeelding naar het huidige model kunt verzenden en een classificatievoorspelling kunt verkrijgen.
- 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=77-82)]
- 
+
+```csharp
+// Create a prediction endpoint, passing in obtained prediction key
+CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()
+{
+        ApiKey = predictionKey,
+        Endpoint = SouthCentralUsEndpoint
+};
+```
+
 ### <a name="submit-an-image-to-the-default-prediction-endpoint"></a>Een afbeelding naar het standaardvoorspellingseindpunt verzenden
 
 In dit script wordt de testafbeelding geladen met de methode **LoadImagesFromDisk** en wordt de voorspellingsuitvoer in de console weergegeven.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=84-92)]
+```csharp
+// Make a prediction against the new project
+Console.WriteLine("Making a prediction:");
+var result = endpoint.ClassifyImage(project.Id, publishedModelName, testImage);
+
+// Loop over each prediction and write out the results
+foreach (var c in result.Predictions)
+{
+        Console.WriteLine($"\t{c.TagName}: {c.Probability:P1}");
+}
+```
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 

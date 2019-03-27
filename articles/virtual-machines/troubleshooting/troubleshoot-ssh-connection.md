@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 1c28c0bb3fdc2bb94595910ccff9f86769b17da5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 81e00c4a3b9490a05667d58952f7bdf8945bacdb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547126"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446586"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Problemen met SSH-verbindingen met een Azure Linux VM die is mislukt, fouten, of wordt geweigerd oplossen
 Dit artikel helpt u bij het vinden en los de problemen die optreden als gevolg van Secure Shell (SSH)-fouten, fouten bij het verbinden van de SSH, of SSH wordt geweigerd wanneer u probeert verbinding maken met een Linux virtuele machine (VM). U kunt Azure portal, Azure CLI of VM-extensie voor toegang voor Linux gebruiken om problemen op te lossen problemen met de verbinding.
@@ -37,7 +37,7 @@ Probeer opnieuw verbinding maken met de virtuele machine na elke stap.
 3. Controleer of de [netwerkbeveiligingsgroep](../../virtual-network/security-overview.md) SSH-verkeer is toegestaan.
    * Zorg ervoor dat een [Network Security Group regel](#security-rules) bestaat SSH-verkeer toestaan (standaard TCP-poort 22).
    * U kunt geen gebruiken poortomleiding / zonder gebruik van een Azure load balancer toewijzen.
-4. Controleer de [VM resourcestatus](../../resource-health/resource-health-overview.md). 
+4. Controleer de [VM resourcestatus](../../resource-health/resource-health-overview.md).
    * Zorg ervoor dat de virtuele machine als in orde wordt gerapporteerd.
    * Als u hebt [diagnostische gegevens over ingeschakeld opstarten](boot-diagnostics.md), Controleer of de virtuele machine is niet die opstartfouten rapporteren, in de logboeken.
 5. [Start de VM opnieuw](#restart-vm).
@@ -49,6 +49,7 @@ Doorgaan met lezen voor meer gedetailleerde stappen voor probleemoplossing en ui
 U kunt opnieuw instellen van referenties of SSH-configuratie met behulp van een van de volgende methoden:
 
 * [Azure-portal](#use-the-azure-portal) - handig is als u wilt snel opnieuw instellen van de SSH-configuratie of de SSH-sleutel en u de Azure-hulpprogramma's geïnstalleerd hoeft.
+* [Azure VM-seriële Console](https://aka.ms/serialconsolelinux) -de seriële console van de virtuele machine werkt, ongeacht de SSH-configuratie, en beschikt u over een interactieve console met uw virtuele machine. In feite 'kan geen SSH' situaties zijn specifiek wat de seriële console is ontworpen om u te helpen bij het oplossen. Hieronder voor meer informatie.
 * [Azure CLI](#use-the-azure-cli) : als u zich al op de opdrachtregel snel opnieuw instellen van de SSH-configuratie of de referenties. Als u met een klassieke virtuele machine werkt, kunt u de [Azure klassieke CLI](#use-the-azure-classic-cli).
 * [Azure VMAccessForLinux-extensie](#use-the-vmaccess-extension) - maken en json-definitie-bestanden als u de referenties van de SSH-configuratie of de gebruiker opnieuw wilt gebruiken.
 
@@ -76,6 +77,26 @@ Gebruik [IP-stroom controleren](../../network-watcher/network-watcher-check-ip-f
 ### <a name="check-routing"></a>Controleer de routering
 
 Gebruik van Network Watcher van [van volgende hop](../../network-watcher/network-watcher-check-next-hop-portal.md) mogelijkheid om te bevestigen dat een route is niet zo wordt voorkomen verkeer dat worden gerouteerd naar of van een virtuele machine. U kunt ook effectieve routes om te zien van alle effectieve routes voor een netwerkinterface bekijken. Zie voor meer informatie, [effectieve routes gebruiken om op te lossen VM verkeersstroom](../../virtual-network/diagnose-network-routing-problem.md).
+
+## <a name="use-the-azure-vm-serial-console"></a>Gebruik de seriële Console van het Azure-VM
+De [seriële Console van Azure VM](./serial-console-linux.md) biedt toegang tot een op tekst gebaseerde console voor virtuele Linux-machines. U kunt de console gebruiken om op te lossen de SSH-verbinding in een interactieve shell. Zorg ervoor dat u voldoet aan de [vereisten](./serial-console-linux.md#prerequisites) voor het gebruik van de seriële Console en probeer de onderstaande opdrachten voor het verder uw SSH-verbinding oplossen.
+
+### <a name="check-that-ssh-is-running"></a>Controleer of SSH wordt uitgevoerd
+U kunt de volgende opdracht gebruiken om te controleren of SSH op de virtuele machine wordt uitgevoerd:
+```
+$ ps -aux | grep ssh
+```
+Als er geen uitvoer, wordt SSH is actief en werkend.
+
+### <a name="check-which-port-ssh-is-running-on"></a>Controleer welke SSH wordt uitgevoerd op poort
+U kunt de volgende opdracht gebruiken om te controleren welke poort u SSH wordt uitgevoerd op:
+```
+$ sudo grep Port /etc/ssh/sshd_config
+```
+De uitvoer ziet er ongeveer als volgt:
+```
+Port 22
+```
 
 ## <a name="use-the-azure-cli"></a>Azure CLI gebruiken
 Als u niet hebt gedaan, installeert u de meest recente [Azure CLI](/cli/azure/install-az-cli2) en aanmelden bij een Azure-account met [az login](/cli/azure/reference-index).
@@ -209,8 +230,8 @@ U kunt een virtuele machine naar een ander knooppunt binnen Azure, die mogelijk 
 
 > [!NOTE]
 > Nadat deze is voltooid, schijfgegevens van de tijdelijke verloren zijn gegaan en dynamische IP-adressen die gekoppeld aan de virtuele machine zijn worden bijgewerkt.
-> 
-> 
+>
+>
 
 ### <a name="azure-portal"></a>Azure Portal
 Als u wilt implementeren op een virtuele machine met behulp van de Azure portal, selecteer de virtuele machine en schuif omlaag naar de **ondersteuning + probleemoplossing** sectie. Selecteer **opnieuw implementeren** zoals in het volgende voorbeeld:
@@ -236,12 +257,12 @@ Probeer de volgende stappen om op te lossen van de meest voorkomende fouten van 
 
 * Opnieuw instellen van externe toegang via de [Azure-portal](https://portal.azure.com). Selecteer de virtuele machine in Azure portal, en selecteer vervolgens **extern opnieuw instellen...** .
 * Start de VM opnieuw. Op de [Azure-portal](https://portal.azure.com), selecteer de virtuele machine en selecteer **opnieuw**.
-    
+
 * Implementeer de virtuele machine naar een nieuw Azure-knooppunt opnieuw. Zie voor meer informatie over hoe u een virtuele machine opnieuw implementeren [opnieuw implementeren van virtuele machine naar de nieuwe Azure-knooppunt](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-  
+
     Nadat deze is voltooid, kortstondige schijfgegevens gaan verloren en dynamische IP-adressen die gekoppeld aan de virtuele machine zijn wordt bijgewerkt.
 * Volg de instructies in [opnieuw instellen van een wachtwoord of SSH voor virtuele machines op basis van Linux](../linux/classic/reset-access-classic.md) aan:
-  
+
   * Het wachtwoord of SSH-sleutel opnieuw instellen.
   * Maak een *sudo* gebruikersaccount.
   * De SSH-configuratie opnieuw instellen.

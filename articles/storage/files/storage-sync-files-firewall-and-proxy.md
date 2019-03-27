@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 937346bf6927efe11e43b64b7c9a2111f00c0e0a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 35904c3854ddbcf3648c8a226d56f73be890b6ad
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890821"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481499"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Proxy- en firewallinstellingen van Azure File Sync
 Azure File Sync verbindt uw on-premises servers naar Azure Files, synchronisatie van meerdere locaties en cloud-opslaglagen functies inschakelen. Als zodanig moet een on-premises server worden verbonden met internet. IT-beheerder nodig heeft om te bepalen van het beste pad voor de server te bereiken in Azure cloudservices.
@@ -49,7 +49,7 @@ Azure File Sync biedt ondersteuning voor app-specifieke en alle computers proxy-
 **App-specifieke proxy-instellingen** configuratie van een proxy specifiek voor Azure File Sync-verkeer toestaan. App-specifieke proxy-instellingen worden ondersteund op agentversie 4.0.1.0 of nieuwere en kunnen worden geconfigureerd tijdens de installatie van de agent of met behulp van de Set-StorageSyncProxyConfiguration PowerShell-cmdlet.
 
 PowerShell-opdrachten voor het app-specifieke proxy-instellingen configureren:
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```

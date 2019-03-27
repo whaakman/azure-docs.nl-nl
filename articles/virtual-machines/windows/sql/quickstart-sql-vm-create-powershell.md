@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 24dfc9602f7329b4ea56db2257f29f5711510d22
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 43a5f3be9b176cf25e643d6a5231669922300b98
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977793"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485931"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Quickstart: Een virtuele SQL Server-machine voor Windows maken met Azure PowerShell
 
@@ -44,7 +44,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 1. Open PowerShell en zorg dat u toegang hebt tot uw Azure-account door de opdracht **Connect-AzAccount** uit te voeren.
 
-   ```PowerShell
+   ```powershell
    Connect-AzAccount
    ```
 
@@ -54,19 +54,19 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 1. Definieer een variabele met een unieke naam voor de resourcegroep. In de andere opdrachten wordt deze naam gebruikt voor alle overige resourcenamen om de rest van de quickstart te vereenvoudigen.
 
-   ```PowerShell
+   ```powershell
    $ResourceGroupName = "sqlvm1"
    ```
 
 1. Definieer de locatie van een Azure-doelregio voor alle VM-resources.
 
-   ```PowerShell
+   ```powershell
    $Location = "East US"
    ```
 
 1. Maak de resourcegroep.
 
-   ```PowerShell
+   ```powershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $Location
    ```
 
@@ -93,7 +93,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 1. Maak een netwerkbeveiligingsgroep. Configureer regels om Extern bureaublad- (RDP) en SQL Server-verbindingen toe te staan.
 
-   ```PowerShell
+   ```powershell
    # Rule to allow remote desktop (RDP)
    $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
@@ -113,7 +113,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 1. Maak de netwerkinterface.
 
-   ```PowerShell
+   ```powershell
    $InterfaceName = $ResourceGroupName + "int"
    $Interface = New-AzNetworkInterface -Name $InterfaceName `
       -ResourceGroupName $ResourceGroupName -Location $Location `
@@ -134,7 +134,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 1. Maak een configuratieobject voor de virtuele machine en maak vervolgens de VM. Met de volgende opdracht wordt een SQL Server 2017 Developer Edition-VM gemaakt in Windows Server 2016.
 
-   ```PowerShell
+   ```powershell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
    $VMConfig = New-AzVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
@@ -153,7 +153,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Voor integratie met de portal en voor de functies van de SQL-VM, moet u de [extensie voor de SQL Server IaaS-agent](virtual-machines-windows-sql-server-agent-extension.md) installeren. Als u de agent wilt installeren op de nieuwe VM, voert u de volgende opdracht uit nadat de VM is gemaakt.
 
-   ```PowerShell
+   ```powershell
    Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
    ```
 
@@ -161,7 +161,7 @@ Voor integratie met de portal en voor de functies van de SQL-VM, moet u de [exte
 
 1. Gebruik de volgende opdracht om het openbare IP-adres voor de nieuwe VM op te halen.
 
-   ```PowerShell
+   ```powershell
    Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
@@ -185,7 +185,7 @@ U hebt nu lokaal verbinding met SQL Server. Als u extern verbinding wilt maken, 
 
 Als het niet nodig is dat de VM continu wordt uitgevoerd, kunt u onnodige kosten voorkomen door de virtuele machine te stoppen wanneer deze niet in gebruik is. Met de volgende opdracht wordt de VM gestopt, maar blijft deze beschikbaar voor toekomstig gebruik.
 
-```PowerShell
+```powershell
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 

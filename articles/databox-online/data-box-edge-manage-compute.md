@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/24/2019
+ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: de8ddd0d2886cd7798160e830094b295c62e17e9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f2416bd3393ae05a74665fe7e11bd1c8c04c91d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400686"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499027"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Compute voor uw Azure Data Box-edge-apparaten beheren
 
@@ -32,7 +32,7 @@ In dit artikel leert u het volgende:
 
 ## <a name="manage-triggers"></a>Triggers beheren
 
-Gebeurtenissen zijn dingen die plaatsvinden binnen uw cloudomgeving of op uw apparaat die u wilt mogelijk actie ondernemen. Bijvoorbeeld, wanneer een bestand wordt gemaakt in een share, is er een gebeurtenis. Triggers zijn reactie op deze gebeurtenissen. Triggers kunnen helpen bij het uitvoeren van een functie wanneer de gebeurtenis wordt geactiveerd. Triggers kunnen voor uw Data Box-Edge zijn reactie op gebeurtenissen van bestand of een schema.
+Gebeurtenissen zijn dingen die plaatsvinden binnen uw cloudomgeving of op uw apparaat die u wilt mogelijk actie ondernemen. Bijvoorbeeld, wanneer een bestand wordt gemaakt in een share, is er een gebeurtenis. Triggers verhogen de gebeurtenissen. Triggers kunnen voor uw Data Box-Edge zijn reactie op gebeurtenissen van bestand of een schema.
 
 - **Bestand**: Deze triggers zijn in reactie op gebeurtenissen bestand, zoals het maken van een bestand, het wijzigen van een bestand.
 - **Geplande**: Deze triggers zijn in reactie op een schema dat u met een startdatum, begintijd en het herhalingsinterval kunt definiëren.

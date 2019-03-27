@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ec71f8998f7db07cafca7f8141acb9898b016328
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821350"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487665"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbookuitvoer en -berichten in Azure Automation
 De meeste Azure Automation-runbooks hebben een vorm van uitvoer. Deze uitvoer mogelijk een foutbericht aan de gebruiker of een complex object dat u wilt gebruiken met een ander runbook. Windows PowerShell biedt [meerdere streams](/powershell/module/microsoft.powershell.core/about/about_redirection) voor het verzenden van uitvoer van een script of een werkstroom. Azure Automation werkt anders met elk van deze stromen. U moet volgen aanbevolen procedures voor het gebruik bij het maken van een runbook.
@@ -35,7 +35,7 @@ De uitvoerstroom is bedoeld voor de uitvoer van objecten die zijn gemaakt door e
 
 U kunt gegevens schrijven naar de uitvoer stream via [Write-Output](https://technet.microsoft.com/library/hh849921.aspx) of door het plaatsen van het object op een eigen regel in het runbook.
 
-```PowerShell
+```powershell
 #The following lines both write an object to the output stream.
 Write-Output –InputObject $object
 $object
@@ -46,7 +46,7 @@ Bij het schrijven naar de uitvoerstroom in een functie die opgenomen in uw runbo
 
 Bekijk het volgende voorbeeld:
 
-```PowerShell
+```powershell
 Workflow Test-Runbook
 {
   Write-Verbose "Verbose outside of function" -Verbose
@@ -90,7 +90,7 @@ Hier volgt een lijst van voorbeeld van de uitvoertypen:
 
 Het volgende voorbeeldrunbook voert een tekenreeksobject en bevat een declaratie van het uitvoertype. Als uw runbook een matrix van een bepaald type, moet u nog steeds het type in plaats van een matrix van het type opgeven.
 
-```PowerShell
+```powershell
 Workflow Test-Runbook
 {
   [OutputType([string])]
@@ -126,7 +126,7 @@ De waarschuwings- en foutstromen zijn bedoeld om aan te melden van problemen die
 
 Maken van een waarschuwing of een foutbericht met de [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) of [Write-Error](https://technet.microsoft.com/library/hh849962.aspx) cmdlet. Activiteiten mogen ook naar deze stromen schrijven.
 
-```PowerShell
+```powershell
 #The following lines create a warning message and then an error message that will suspend the runbook.
 
 $ErrorActionPreference = "Stop"
@@ -141,7 +141,7 @@ Wanneer [testen van een runbook](automation-testing-runbook.md), uitgebreide ber
 
 Maak een uitgebreid bericht met de [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) cmdlet.
 
-```PowerShell
+```powershell
 #The following line creates a verbose message.
 
 Write-Verbose –Message "This is a verbose message."
@@ -183,7 +183,7 @@ In Windows PowerShell, kunt u uitvoer en berichten ophalen vanuit een runbook me
 
 Het volgende voorbeeld wordt een voorbeeldrunbook gestart en wacht dan tot deze is voltooid. Zodra het is voltooid, wordt de uitvoerstroom verzameld van de taak.
 
-```PowerShell
+```powershell
 $job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 

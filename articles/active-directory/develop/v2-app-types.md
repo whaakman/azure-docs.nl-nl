@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6ea0be84cc36ca6fa6547d01054599e37229d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0aac3e40089c67cd71a2c634280e333964e47902
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162931"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499978"
 ---
 # <a name="application-types-for-v20"></a>Toepassingstypen voor v2.0
 
@@ -124,7 +124,7 @@ In deze stroom ontvangt de app een autorisatiecode van het v2.0-eindpunt wanneer
 
 Apps die langlopende processen hebben of die werken zonder interactie met een gebruiker moeten ook een manier om toegang te krijgen tot beveiligde bronnen, zoals Web-API's. Deze apps kunnen verifiëren en tokens verkrijgen met behulp van de identiteit van de app, in plaats van een gebruiker toegewezen identiteit, met de OAuth 2.0-clientreferentiestroom. U kunt de app identiteit bevestigen met een clientgeheim of een certificaat. Zie voor meer informatie, [zich verifiëren bij Azure AD in daemon-apps met certificaten](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
-In deze stroom, wordt de app communiceert rechtstreeks met de `/token` eindpunt om op te halen van eindpunten:
+In deze stroom, wordt de app communiceert rechtstreeks met de `/token` eindpunt om toegang te krijgen:
 
 ![Verificatiestroom daemon-app](./media/v2-app-types/convergence_scenarios_daemon.png)
 

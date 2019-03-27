@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 092a346d8303bb9e88a53b6fa529bb820635c554
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2a8983ae5306ec2ada7b4b537c2f17425b8717d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099539"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449369"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activiteiten vertakken en koppelen in een Data Factory-pijplijn
 In deze zelfstudie maakt u een Data Factory-pijplijn die enkele van de stroombeheerfuncties demonstreert. Deze pijplijn voert een eenvoudige kopieerbewerking uit van een container in Azure Blob Storage naar een andere container in hetzelfde opslagaccount. Als de kopieerbewerking is geslaagd, worden de details over de geslaagde kopieerbewerking (zoals de hoeveelheid geschreven gegevens) via de pijplijn verzonden in een e-mail met een succesbericht. Als de kopieerbewerking is mislukt, worden de details over de mislukte kopieerbewerking (zoals de foutmelding) via de pijplijn verzonden in een e-mail met de foutmelding. In de zelfstudie ziet u hoe u parameters kunt doorgeven.
@@ -127,9 +127,10 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
 1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
-1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
+1. Selecteer in het menu links **een resource maken** > **gegevens en analyses** > **Data Factory**:
    
-   ![Nieuw -> DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
+   ![Selectie van Data Factory in het deelvenster Nieuw](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in als **naam**. 
       
      ![De pagina Nieuwe data factory](./media/tutorial-control-flow-portal/new-azure-data-factory.png)

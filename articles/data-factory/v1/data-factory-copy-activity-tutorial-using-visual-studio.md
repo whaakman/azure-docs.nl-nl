@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8ac17c00f635c4c14c0e4752847aff941f81804a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0a9ca5f8598e737d82d6a51632e1e89394b24ac0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111613"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487614"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Zelfstudie: Een pijplijn maken met de kopieeractiviteit in Visual Studio
 > [!div class="op_single_selector"]
@@ -335,12 +335,12 @@ Houd rekening met de volgende punten:
   
   * Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren. 
 
-    ```PowerShell    
+    ```powershell    
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
     U kunt de volgende opdracht uitvoeren om te bevestigen dat de Data Factory-provider is geregistreerd. 
     
-    ```PowerShell
+    ```powershell
     Get-AzResourceProvider
     ```
   * Meld u bij de [Azure Portal](https://portal.azure.com) aan met behulp van het Azure-abonnement en navigeer naar een Data Factory-blade of maak een gegevensfactory in de Azure Portal. Door deze actie wordt de provider automatisch voor u geregistreerd.

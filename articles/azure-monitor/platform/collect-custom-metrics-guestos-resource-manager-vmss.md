@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 64fb3acf9b134b7188d316633bc663d7dd9b14b8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 573c205cd2e208a1cb2b526d96fb08ca21331c80
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760219"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481320"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Gast-OS metrische gegevens verzenden naar de Azure Monitor metrische store met behulp van een Azure Resource Manager-sjabloon voor een virtuele-machineschaalset voor Windows
 
@@ -242,12 +242,12 @@ Voor het implementeren van de Resource Manager-sjabloon, kunt u Azure PowerShell
 1. Uw lijst met abonnementen ophalen met behulp van `Get-AzSubscription`.
 1. Het abonnement dat u gaat maken of bijwerken van de virtuele machine instellen: 
 
-   ```PowerShell
+   ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Maak een nieuwe resourcegroep voor de virtuele machine wordt geïmplementeerd. Voer de volgende opdracht uit: 
 
-   ```PowerShell
+   ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
@@ -259,7 +259,7 @@ Voor het implementeren van de Resource Manager-sjabloon, kunt u Azure PowerShell
    > [!NOTE]  
    > Als u bijwerken van een bestaande schaalset wilt, voegt u toe **-modus incrementele** aan het einde van de opdracht. 
  
-   ```PowerShell
+   ```powershell
    New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 

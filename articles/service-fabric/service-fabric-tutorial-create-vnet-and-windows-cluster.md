@@ -3,7 +3,7 @@ title: Een Service Fabric-cluster waarop Windows wordt uitgevoerd in Azure maken
 description: In deze zelfstudie leert u hoe u een Windows Service Fabric-cluster implementeren in een virtueel Azure-netwerk en een netwerkbeveiligingsgroep met behulp van PowerShell.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/13/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: aa44355ea86b42f8865d7791fec04ffad2b6f3ad
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 28f115e356c8852174b923f4891f93ad435ce7d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313818"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498159"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Zelfstudie: Een Service Fabric-cluster waarop Windows wordt uitgevoerd in een Azure-netwerk implementeren
 
@@ -58,6 +58,7 @@ Voor u met deze zelfstudie begint:
 * Installeer de [Service Fabric SDK en PowerShell-module](service-fabric-get-started.md).
 * Installeer de [Azure Powershell, moduleversie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 * Bekijk de belangrijkste concepten van [Azure clusters](service-fabric-azure-clusters-overview.md).
+* [Plan en bereid](service-fabric-cluster-azure-deployment-preparation.md) voor de implementatie van een productie-cluster.
 
 Met de volgende procedures wordt er een Service Fabric-cluster met zeven knooppunten gemaakt. Gebruik de [Azure-Prijscalculator](https://azure.microsoft.com/pricing/calculator/) voor het berekenen van de kosten die worden gemaakt door het uitvoeren van een Service Fabric-cluster in Azure.
 
@@ -181,7 +182,7 @@ Maak twee Azure Active Directory-toepassingen voor het beheren van toegang tot h
 
 Voer `SetupApplications.ps1` uit, en geef de tenant-ID, de naam van het cluster en de antwoord-URL van de webtoepassing op als parameters. Geef de gebruikersnamen en wachtwoorden voor de gebruikers. Bijvoorbeeld:
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin

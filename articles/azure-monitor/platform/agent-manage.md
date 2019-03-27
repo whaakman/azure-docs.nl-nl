@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 963fd1bfd67a20033f0712d3b447091abda40d11
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: de27d5c4fd65515e25319f9e7ac3eafc4110b137
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369894"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481560"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Beheer en onderhoud van de Log Analytics-agent voor Windows en Linux
 
@@ -39,7 +39,7 @@ Na de initiële implementatie van de Log Analytics Windows of Linux-agent in Azu
 
 #### <a name="remove-a-workspace-using-powershell"></a>Verwijderen van een werkruimte met behulp van PowerShell
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 $mma.RemoveCloudWorkspace($workspaceId)
@@ -48,7 +48,7 @@ $mma.ReloadConfiguration()
 
 #### <a name="add-a-workspace-in-azure-commercial-using-powershell"></a>Een werkruimte toevoegen in Azure commerciële met behulp van PowerShell
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $workspaceKey = "<Your workspace Key>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -58,7 +58,7 @@ $mma.ReloadConfiguration()
 
 #### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>Een werkruimte toevoegen in Azure voor de Amerikaanse overheid met behulp van PowerShell
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $workspaceKey = "<Your workspace Key>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -117,7 +117,7 @@ Het configureren van de agent kan communiceren met de service via een proxyserve
 
 Kopieer de volgende PowerShell-voorbeeldcode, bijwerken met informatie die specifiek zijn voor uw omgeving en opslaan met een PS1-bestandsnaamextensie. Voer het script uit op elke computer die rechtstreeks verbinding met de Log Analytics-werkruimte in Azure Monitor maakt.
 
-```PowerShell
+```powershell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))
 
 # First we get the Health Service configuration object. We need to determine if we

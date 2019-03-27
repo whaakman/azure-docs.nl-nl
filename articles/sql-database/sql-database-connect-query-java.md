@@ -10,13 +10,13 @@ author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 02/12/2019
-ms.openlocfilehash: d172abd05dae63e7da47f6477df2893793933e2b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.date: 03/25/2019
+ms.openlocfilehash: 2d9ce34d52d08b4dd38caaadfab48b7a69870e9a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235475"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447939"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Quickstart: Java gebruiken om een query uit te voeren voor een Azure SQL-database
 
@@ -32,11 +32,11 @@ Zorg dat u aan de volgende vereisten voldoet als u dit voorbeeld wilt uitvoeren:
   |:--- |:--- |:---|
   | Maken| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Connectiviteit vanaf een VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connectiviteit vanaf locatie](sql-database-managed-instance-configure-p2s.md)
   |Gegevens laden|Adventure Works geladen volgens de quickstart|[Wide World Importers herstellen](sql-database-managed-instance-get-started-restore.md)
-  |||Adventure Works herstellen of importeren vanuit een [BACPAC](sql-database-import.md)-bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Herstellen of importeren van Adventure Works van [BACPAC](sql-database-import.md) -bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -52,13 +52,13 @@ Zorg dat u aan de volgende vereisten voldoet als u dit voorbeeld wilt uitvoeren:
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server-verbindingsgegevens ophalen
 
-Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam of hostnaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
+Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam of hostnaam, databasenaam en aanmeldingsgegevens nodig voor de volgende procedures.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 2. Navigeer naar de pagina **SQL-database** of **Met SQL beheerde exemplaren**.
 
-3. Bekijk op de pagina **Overzicht** de volledig gekwalificeerde servernaam naast **Servernaam** voor één database of de volledig gekwalificeerde servernaam naast **Host** voor een beheerd exemplaar. Als u de servernaam of hostnaam wilt kopiëren, plaatst u de muisaanwijzer erop en selecteert u het pictogram **Kopiëren**. 
+3. Bekijk op de pagina **Overzicht** de volledig gekwalificeerde servernaam naast **Servernaam** voor een individuele database, of de volledig gekwalificeerde servernaam naast **Host** voor een beheerd exemplaar. Als u de servernaam of hostnaam wilt kopiëren, plaatst u de muisaanwijzer erop en selecteert u het pictogram **Kopiëren**. 
 
 ## <a name="create-the-project"></a>Het project maken
 

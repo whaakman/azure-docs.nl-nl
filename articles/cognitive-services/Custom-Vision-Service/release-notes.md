@@ -9,14 +9,28 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 1850959946531abbaf531484696951dee59dadbb
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: ce48a240c67c6077027210ffb0ca85db93610782
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351759"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472953"
 ---
 # <a name="custom-vision-service-release-notes"></a>Opmerkingen bij de Release van de Custom Vision Service
+
+## <a name="march-26-2019"></a>26 maart 2019
+- Custom Vision Service heeft ingevoerd van algemene beschikbaarheid op Azure! 
+- Extra Training geavanceerde-functie met een nieuwe machine learning-back-end voor betere prestaties, met name op uitdaging zijn om gegevenssets en verfijnde classificatie. Met geavanceerde training, kunt u dat een compute-tijd budget voor training en aangepaste Vision experimenteel identificeert de aanbevolen instellingen voor training en uitbreiden van tokens. Voor snelle iteraties, kunt u echter ook doorgaan met de bestaande snelle training. 
+- 3.0 geïntroduceerd API's. Komende afschaffing van pre-3.0-API's op 1 oktober 2019 aangekondigd. Zie de documentatie snelstartgidsen voor [.Net](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/python-tutorial), [knooppunt](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/java-tutorial), of [gaat](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/go-tutorial) voor voorbeelden hoe u aan de slag. 
+- Vervangen "Iteraties standaard" voorzien van publiceren/publicatie ongedaan maken in de 3.0 API's. 
+- Nieuw model exporteren doelen zijn toegevoegd. Docker-bestand exporteren is, ter ondersteuning van ARM voor Raspberry Pi 3 bijgewerkt. Ondersteuning voor het exporteren is toegevoegd aan de [Vision AI Dev Kit.](https://visionaidevkit.com/) 
+- Verbeterde aantal Tags per project op 500 voor S0-laag. Verbeterde limiet van afbeeldingen per project 100.000 voor S0-laag.
+- Volwassenen domein verwijderd. Algemene domein wordt aangeraden in plaats daarvan.
+- Aangekondigd [prijzen](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-vision-service/) voor algemene beschikbaarheid.  
+
+
+## <a name="february-25-2019"></a>25 februari 2019
+- Het einde van een beperkte proefversie projecten (die niet zijn gekoppeld aan een Azure-resource), aangekondigd als aangepaste Vision bijna te kiezen voor Azure preview-versie is voltooid. 25 maart 2019 vanaf ondersteunt de site CustomVision.ai alleen weergeven-projecten die zijn gekoppeld aan een Azure-resource, zoals de gratis Custom Vision-resource. Tot en met 1 oktober 2019 zult u nog steeds toegang tot uw bestaande beperkte proefversie projecten via de aangepaste Vision-API's. Hierdoor krijgt u veel tijd aan API-sleutels voor alle apps die u hebt die zijn geschreven met aangepaste Vision update. Na 1 oktober 2019, worden een beperkte proefversie projecten u dit nog niet hebt verplaatst naar Azure verwijderd.
 
 ## <a name="january-22-2019"></a>22 januari 2019
 - Er is ondersteuning toegevoegd voor nieuwe Azure-regio's: VS-West 2, VS-Oost, VS-Oost 2, West-Europa, Noord-Europa, Zuidoost-Azië, Australië-Oost, centraal-India, UK-Zuid, Japan-Oost en Noord-centraal VS. Ondersteuning voor blijft voor Zuid-centraal VS. 

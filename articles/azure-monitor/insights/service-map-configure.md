@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 26da504188a9060dbbb35330dbd8604bf5fe5e1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d3de1d0b242017f7026873ccaeba547f85981fc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995129"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482088"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -166,7 +166,7 @@ Er is een uitbreiding beschikbaar voor zowel Windows (DependencyAgentWindows)- a
 
 Voor het implementeren van de Azure VM-extensie met PowerShell, kunt u het volgende voorbeeld:
 
-```PowerShell
+```powershell
 #
 # Deploy the Dependency agent to every VM in a Resource Group
 #
@@ -278,7 +278,7 @@ Bestanden voor de agent voor afhankelijkheden worden geplaatst in de volgende ma
 Voor het implementeren van eenvoudig in één keer de agent voor afhankelijkheden op meerdere servers, krijgt u het volgende scriptvoorbeeld downloaden en installeren van de agent voor afhankelijkheden op Windows of Linux.
 
 ### <a name="powershell-script-for-windows"></a>PowerShell-script voor Windows
-```PowerShell
+```powershell
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
 .\InstallDependencyAgent-Windows.exe /S

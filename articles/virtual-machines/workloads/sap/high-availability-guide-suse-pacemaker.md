@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: b0842bfc4c9d60420f6409afc4bc42692346050b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a2e03a548b403262dca7e7a76b84cc99661242c6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999654"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487361"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Pacemaker op SUSE Linux Enterprise Server in Azure instellen
 
@@ -563,6 +563,36 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    params pcmk_delay_max="15" \
    op monitor interval="15" timeout="15"
 </code></pre>
+
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Pacemaker configuratie voor Azure geplande gebeurtenissen
+
+Azure biedt [geplande gebeurtenissen](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events). Geplande gebeurtenissen worden geleverd via meta-data-service en om voldoende tijd voor de toepassing om voor te bereiden voor gebeurtenissen, zoals VM-uitschakelproces, nieuwe VM-implementatie, enzovoort. Resource-agent **[azure-gebeurtenissen](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors voor geplande Azure-evenementen. Als er gebeurtenissen zijn gedetecteerd, probeert de agent stoppen van alle resources op de betrokken virtuele machine en ze te verplaatsen naar een ander knooppunt in het cluster. Voor het bereiken van aanvullende Pacemaker resources moeten worden geconfigureerd. 
+
+1. **[A]**  Installeren de **azure-gebeurtenissen** agent. 
+
+<pre><code>sudo zypper install resource-agents
+</code></pre>
+
+2. **[1]**  De resources in Pacemaker configureren. 
+
+<pre><code>
+#Place the cluster in maintenance mode
+sudo crm configure property maintenance-mode=true
+
+#Create Pacemaker resources for the Azure agent
+sudo crm configure primitive rsc_azure-events ocf:heartbeat:azure-events op monitor interval=10s
+sudo crm configure clone cln_azure-events rsc_azure-events
+
+#Take the cluster out of maintenance mode
+sudo crm configure property maintenance-mode=false
+</code></pre>
+
+   > [!NOTE]
+   > Nadat u de resources Pacemaker voor agent voor azure-evenementen, geconfigureerd wanneer u het cluster in of uit de onderhoudsmodus plaatst, krijgt u mogelijk waarschuwingen, zoals:  
+     Waarschuwing: cib-bootstrap-opties: onbekend kenmerk ' hostName_  <strong>hostnaam</strong>'  
+     Waarschuwing: cib-bootstrap-opties: onbekend kenmerk 'azure-events_globalPullState'  
+     Waarschuwing: cib-bootstrap-opties: onbekend kenmerk ' hostName_ <strong>hostnaam</strong>'  
+   > Deze waarschuwingen kunnen worden genegeerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: a79565661ae11e70364d64503b3b11bdeabeabdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e5c4eca772cf17f04ea10f4d5ae166ea41eaa830
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899754"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496918"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte met een Azure Resource Manager-sjabloon maken
 In deze snelstartgids maakt u een Azure Resource Manager-sjabloon die wordt gemaakt van een Service Bus-naamruimte van het type **Messaging** met een **Standard** SKU. Het artikel definieert ook de parameters die zijn opgegeven voor het uitvoeren van de implementatie. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen. Zie [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates] voor meer informatie over het maken van sjablonen. Zie voor de volledige sjabloon, de [Service Bus-naamruimte sjabloon] [ Service Bus namespace template] op GitHub.
@@ -44,7 +44,7 @@ Voor het maken en de sjabloon handmatig implementeren, gaat u de volgende sectie
 ## <a name="prerequisites"></a>Vereisten
 U hebt een Azure-abonnement nodig om deze snelstart te voltooien. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-Als u wilt gebruiken **Azure PowerShell** om de Resource Manager-sjabloon te implementeren [Azure PowerShell installeren](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
+Als u wilt gebruiken **Azure PowerShell** om de Resource Manager-sjabloon te implementeren [Azure PowerShell installeren](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 Als u wilt gebruiken **Azure CLI** om de Resource Manager-sjabloon te implementeren [Azure CLI installeren]( /cli/azure/install-azure-cli).
 
@@ -205,6 +205,6 @@ In dit artikel hebt u een Service Bus-naamruimte gemaakt. Zie de andere Quick st
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Service Bus pricing and billing]: service-bus-pricing-billing.md
+[Service Bus pricing and billing]: https://azure.microsoft.com/pricing/details/service-bus/
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

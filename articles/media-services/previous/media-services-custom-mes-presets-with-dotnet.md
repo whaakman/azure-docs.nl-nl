@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: c64a3455e1189b83558707a96dc80b88dc242b48
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eaea0719aa8ca981da68841dae365decdd3c860e
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181653"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499859"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Voorinstellingen van aanpassen Media Encoder Standard  
 
@@ -28,6 +28,9 @@ ms.locfileid: "58181653"
 Dit artikel leest hoe geavanceerde codering met Media Encoder Standard (MES) met behulp van een aangepaste voorinstelling. Het artikel gebruikmaakt van .NET om een coderingstaak en een taak die wordt uitgevoerd met deze taak te maken.  
 
 Dit artikel leest u hoe u een vooraf ingestelde aanpassen door de [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) vooraf ingesteld en het aantal lagen te verminderen. De [voorinstellingen van Media Encoder Standard aanpassen](media-services-advanced-encoding-with-mes.md) dit artikel ziet u aangepaste voorinstellingen die kunnen worden gebruikt voor het uitvoeren van geavanceerde coderingstaken.
+
+> [!NOTE]
+> De aangepaste voorinstellingen die worden beschreven in dit artikel kunnen niet worden gebruikt [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) transformaties of de CLI-opdrachten. Zie de [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md) voor meer informatie.
 
 ## <a id="customizing_presets"></a> Een MES-definitie aanpassen
 
@@ -260,6 +263,11 @@ namespace CustomizeMESPresests
     }
 }
 ```
+
+## <a name="see-also"></a>Zie ook
+
+- [Coderen met een aangepaste transformeren met behulp van CLI](../latest/custom-preset-cli-howto.md)
+- [Coderen met Media Services v3](../latest/encoding-concept.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -14,54 +14,54 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/15/2019
 ms.author: aljo
-ms.openlocfilehash: 15561969e27512c4882eccc10f75aa932bcf23df
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 74fbdbd86bc0b4f1cce06f4c4cb0c08d1f216d0c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338985"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487835"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Azure Active Directory instellen voor clientverificatie
 
-Voor clusters die worden uitgevoerd op Azure, Azure Active Directory (Azure AD) aanbevolen voor beveiligde toegang tot eindpunten voor beheer.  Dit artikel wordt beschreven hoe tot het instellen van Azure AD om clients voor een Service Fabric-cluster te verifiëren, die moet worden uitgevoerd voordat [het maken van het cluster](service-fabric-cluster-creation-via-arm.md).  Azure AD kan organisaties (bekend als tenants) voor het beheren van toegang tot toepassingen. Toepassingen worden onderverdeeld in die een webgebaseerde UI voor aanmelden en die met een systeemeigen client-ervaring. 
+Voor clusters die worden uitgevoerd op Azure, Azure Active Directory (Azure AD) aanbevolen voor beveiligde toegang tot eindpunten voor beheer.  Dit artikel wordt beschreven hoe tot het instellen van Azure AD om clients voor een Service Fabric-cluster te verifiëren, die moet worden uitgevoerd voordat [het maken van het cluster](service-fabric-cluster-creation-via-arm.md).  Azure Active Directory maakt het beheren van toegang tot toepassingen door organisaties (bekend als tenants) mogelijk. Toepassingen worden onderverdeeld in die een webgebaseerde UI voor aanmelden en die met een systeemeigen client-ervaring. 
 
-Een Service Fabric-cluster biedt verschillende toegangspunten bij de management-functionaliteit, met inbegrip van de webconsole [Service Fabric Explorer] [ service-fabric-visualizing-your-cluster] en [Visual Studio] [ service-fabric-manage-application-in-visual-studio]. Als gevolg hiervan, het maken van twee Azure AD-toepassingen voor het beheren van toegang tot het cluster: een webtoepassing en een systeemeigen toepassing.  Nadat de toepassingen die zijn gemaakt, u gebruikers toewijzen aan de alleen-lezen en beheerdersrollen.
+Een Service Fabric-cluster biedt verschillende toegangspunten bij de management-functionaliteit, met inbegrip van de webconsole [Service Fabric Explorer] [ service-fabric-visualizing-your-cluster] en [Visual Studio] [ service-fabric-manage-application-in-visual-studio]. Als gevolg hiervan, maakt u twee Azure Active Directory-toepassingen voor het beheren van toegang tot het cluster: een webtoepassing en een systeemeigen toepassing.  Nadat de toepassingen zijn gemaakt, wijst u gebruikers toe aan de rollen alleen-lezen en beheerder.
 
 > [!NOTE]
-> U moet de volgende stappen uitvoeren voordat u het cluster maakt. Omdat de scripts verwacht clusternamen en eindpunten, worden de waarden moeten worden gepland en niet de waarden die u al hebt gemaakt.
+> U moet de volgende stappen uitvoeren voordat u het cluster maakt. Omdat de scripts clusternamen en eindpunten verwachten, moeten de waarden worden gepland en geen waarden zijn die u al hebt gemaakt.
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel nemen we aan dat u al een tenant hebt gemaakt. Als u niet hebt gedaan, starten door te lezen [hoe u een Azure Active Directory-tenant verkrijgen][active-directory-howto-tenant].
 
-Ter vereenvoudiging van enkele van de stappen voor het configureren van Azure AD met een Service Fabric-cluster, hebben we een set Windows PowerShell-scripts gemaakt.
+Ter vereenvoudiging van enkele van de stappen voor het configureren van Azure Active Directory met een Service Fabric-cluster, hebben we een set Windows PowerShell-scripts gemaakt.
 
-1. [De scripts downloaden](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) op uw computer.
+1. [Download de scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) op uw computer.
 2. Met de rechtermuisknop op het zip-bestand, selecteer **eigenschappen**, selecteer de **opheffen van blokkeringen** selectievakje en klik vervolgens op **toepassen**.
 3. Pak het gecomprimeerde bestand uit.
 
 ## <a name="create-azure-ad-applications-and-asssign-users-to-roles"></a>Azure AD-toepassingen en asssign gebruikers aan rollen maken
-Maak twee Azure AD-toepassingen voor het beheren van toegang tot het cluster: een webtoepassing en een systeemeigen toepassing. Nadat u de toepassingen voor uw cluster hebt gemaakt, uw gebruikers toewijzen aan de [rollen die worden ondersteund door Service Fabric](service-fabric-cluster-security-roles.md): alleen-lezen en -beheerder.
+Maak twee Azure Active Directory-toepassingen voor het beheren van toegang tot het cluster: een webtoepassing en een systeemeigen toepassing. Nadat u de toepassingen voor uw cluster hebt gemaakt, wijst u uw gebruikers toe aan de [rollen die worden ondersteund door Service Fabric](service-fabric-cluster-security-roles.md): alleen-lezen en beheerder.
 
-Voer `SetupApplications.ps1`, en de tenant-ID, de naam van cluster en web application antwoord-URL opgeven als parameters.  Ook gebruikersnamen en wachtwoorden voor de gebruikers opgeven.  Bijvoorbeeld:
+Voer `SetupApplications.ps1` uit, en geef de tenant-ID, de naam van het cluster en de antwoord-URL van de webtoepassing op als parameters.  Geef ook gebruikersnamen en wachtwoorden voor de gebruikers op.  Bijvoorbeeld:
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
 ```
 
 > [!NOTE]
-> Voor nationale clouds (bijvoorbeeld Azure Government, China, Azure, Azure Duitsland), moet u ook opgeven de `-Location` parameter.
+> Voor nationale clouds (bijvoorbeeld Azure Government, Azure China, Azure Duitsland), moet u ook de parameter `-Location` opgeven.
 
 U vindt uw *TenantId* door het uitvoeren van de PowerShell-opdracht `Get-AzureSubscription`. Deze opdracht wordt uitgevoerd, wordt de tenant-id voor elk abonnement weergegeven.
 
-*Clusternaam* wordt gebruikt voor het toevoegen van de Azure AD-toepassingen die zijn gemaakt door het script. Het hoeft niet precies overeenkomen met de naam van het daadwerkelijke cluster. Het is uitsluitend bedoeld om het Azure AD-artefacten worden toegewezen aan de Service Fabric-cluster dat ze worden gebruikt met eenvoudiger.
+De *Clusternaam* wordt gebruikt voor als prefix aan de Azure Active Directory-toepassingen die zijn gemaakt door het script. Deze hoeft niet precies overeen te komen met de naam van het daadwerkelijke cluster. De naam is uitsluitend bedoeld om het eenvoudiger te maken dat Azure Active Directory-artefacten worden toegewezen aan het Service Fabric-cluster waarmee ze worden gebruikt.
 
-*WebApplicationReplyUrl* wordt het standaardeindpunt die Azure AD geretourneerd naar uw gebruikers nadat ze aanmelden. Dit eindpunt als de Service Fabric Explorer-eindpunt voor uw cluster, dit is standaard ingesteld:
+*WebApplicationReplyUrl* wordt het standaardeindpunt dat Azure Active Directory retourneert naar uw gebruikers nadat ze klaar zijn aanmelden. Stel dit eindpunt in als het Service Fabric Explorer-eindpunt voor uw cluster, dit is standaard:
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
-U wordt gevraagd of u zich aanmeldt bij een account dat beheerdersrechten voor de Azure AD-tenant heeft. Nadat u zich hebt aangemeld, wordt het script maakt de web- en systeemeigen toepassingen voor uw Service Fabric-cluster. Als u kijkt naar de toepassingen van de tenant in de [Azure-portal][azure-portal], ziet u twee nieuwe vermeldingen:
+U wordt gevraagd of u zich aanmeldt bij een account dat beheerdersrechten voor de Azure Active Directory-tenant heeft. Nadat u zich hebt aangemeld, maakt het script de web- en systeemeigen toepassingen voor uw Service Fabric-cluster. Als u kijkt naar de toepassingen van de tenant in de [Azure-portal][azure-portal], ziet u twee nieuwe vermeldingen:
 
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
@@ -115,7 +115,7 @@ Selecteer 'App-registraties' in AAD-pagina, selecteert u uw toepassing voor het 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Verbinding maken met het cluster met behulp van Azure AD-verificatie via PowerShell
 Als u wilt verbinding maken met de Service Fabric-cluster, gebruikt u het volgende voorbeeld van de PowerShell-opdracht:
 
-```PowerShell
+```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 

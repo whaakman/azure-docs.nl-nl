@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bc4896f634bb98b4663dfc3fbc6bad7ba9bace3e
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319649"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444729"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Gebruik de Azure-portal voor het openen van blob of een wachtrij
 
@@ -43,7 +43,7 @@ Voor toegang tot blob of een wachtrij gegevens vanuit de Azure-portal met behulp
 - U bent de Azure Resource Manager toegewezen [lezer](../../role-based-access-control/built-in-roles.md#reader) rol, ten minste binnen het bereik op het niveau van het storage-account of hoger. De **lezer** rol, de meest beperkte machtigingen hebben, maar ook een andere Azure Resource Manager-rol die toegang tot beheer van de resources van opslagaccount verleent acceptabel is.
 - U bent toegewezen ofwel een ingebouwde of aangepaste rol die toegang tot de blobs of wachtrijgegevens biedt.
 
-De **lezer** roltoewijzing of een andere Azure Resource Manager-roltoewijzing is nodig zodat de gebruiker kan weergeven en storage-account management-resources in de Azure-portal te navigeren. De RBAC-rollen die toegang tot gegevens voor blob of een wachtrij verlenen Verleen geen toegang tot opslag account management-resources. Voor toegang tot blob of een wachtrij gegevens in de portal, moet de gebruiker machtigingen om te navigeren van resources voor storage-account. Zie voor meer informatie over deze vereiste [toewijzen van de rol van lezer voor portaltoegang](../common/storage-auth-aad-rbac.md#assign-the-reader-role-for-portal-access).
+De **lezer** roltoewijzing of een andere Azure Resource Manager-roltoewijzing is nodig zodat de gebruiker kan weergeven en storage-account management-resources in de Azure-portal te navigeren. De RBAC-rollen die toegang tot gegevens voor blob of een wachtrij verlenen Verleen geen toegang tot opslag account management-resources. Voor toegang tot blob of een wachtrij gegevens in de portal, moet de gebruiker machtigingen om te navigeren van resources voor storage-account. Zie voor meer informatie over deze vereiste [toewijzen van de rol van lezer voor portaltoegang](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 De ingebouwde rollen die ondersteuning bieden voor toegang tot uw gegevens blob of een wachtrij zijn onder andere:
 
@@ -96,5 +96,7 @@ U ziet dat geen blobs in de lijst worden weergegeven als u geen toegang tot de s
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory (Preview)](storage-auth-aad.md)
-- [Toegang verlenen tot Azure-containers en wachtrijen met RBAC in Azure portal (preview)](storage-auth-aad-rbac.md)
+- [Verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory](storage-auth-aad.md)
+- [Toegang verlenen tot Azure-containers en wachtrijen met RBAC in Azure portal](storage-auth-aad-rbac-portal.md)
+- [Toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC met behulp van Azure CLI](storage-auth-aad-rbac-cli.md)
+- [Toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC met behulp van PowerShell](storage-auth-aad-rbac-powershell.md)

@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090930"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484692"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure Resource Manager-resourcegroepen beheren met behulp van Azure portal
 
@@ -122,7 +122,7 @@ Er zijn twee manieren om een sjabloon te exporteren:
 
 Deze methode exporteert u de sjablonen voor bepaalde implementaties. Als u de resources zijn gewijzigd vanuit de portal of de resource toegevoegd of verwijderd in meerdere implementaties, Zie [sjablonen exporteren uit resourcegroepen](#export-templates-from-resource-groups).
 
-1. Open de resourcegroep die u wilt verwijderen.  Zie [resourcegroepen openen](#open-resource-groups).
+1. Open de resourcegroep die u wilt exporteren.  Zie [resourcegroepen openen](#open-resource-groups).
 2. Selecteer in het linkerdeelvenster **implementaties**, of Selecteer de koppeling onder **implementaties**.  Op de volgende schermafbeelding ziet **4 geslaagd** omdat er vier gescheiden implementaties met vier verschillende namen. U ziet mogelijk **1 geslaagd**.
 
     ![Azure resource group exporteren sjablonen](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
@@ -148,8 +148,8 @@ Deze methode exporteert u de sjablonen voor bepaalde implementaties. Als u de re
 
 Als u uw resources vanuit de portal hebt gewijzigd of toegevoegd of verwijderen van resources in meerdere implementaties, weergegeven bij het ophalen van een sjabloon uit de implementatiegeschiedenis niet in de huidige status van de resourcegroep. In deze sectie ziet u hoe u een sjabloon kunt exporteren die de huidige status van de resourcegroep voorstelt. Het is bedoeld als een momentopname van de resourcegroep die u gebruiken kunt om opnieuw aan dezelfde resourcegroep te implementeren. Als u wilt de geëxporteerde sjabloon gebruiken voor andere oplossingen, moet u deze aanzienlijk wijzigen.
 
-1. Open de resourcegroep die u wilt verwijderen.  Zie [resourcegroepen openen](#open-resource-groups).
-2. Selecteer in het linkerdeelvenster **automatiseringsscript**. Resource Manager haalt de volgende zes bestanden voor u op:
+1. Open de resourcegroep die u wilt exporteren.  Zie [resourcegroepen openen](#open-resource-groups).
+2. Selecteer in het linkerdeelvenster **sjabloon exporteren**. Resource Manager haalt de volgende zes bestanden voor u op:
 
    - **Sjabloon**: de sjabloon die de infrastructuur voor uw oplossing definieert. Toen u het opslagaccount via de portal maakte, heeft Resource Manager een sjabloon gebruikt om het te implementeren. De sjabloon is opgeslagen voor toekomstig gebruik.
    - **Parameters**: een parameterbestand dat u kunt gebruiken om tijdens de implementatie waarden door te geven. Het bevat de waarden die u tijdens de eerste implementatie hebt opgegeven. U kunt deze waarden wijzigen wanneer u de sjabloon opnieuw gaat implementeren.

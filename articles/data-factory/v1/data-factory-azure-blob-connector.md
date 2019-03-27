@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ea4cf03b368cebbfc7d1229be28014b54f2c11d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9bb9954e8463617694efe2997d886a2ba4390ccb
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004319"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500284"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Blob Storage met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,6 +33,8 @@ In dit artikel wordt uitgelegd hoe u de Kopieeractiviteit in Azure Data Factory 
 
 ## <a name="overview"></a>Overzicht
 U kunt gegevens kopiëren van een ondersteund brongegevensarchief naar Azure Blob Storage of Azure Blob Storage naar een ondersteunde sink-gegevensopslag. De volgende tabel geeft een lijst van gegevensarchieven die worden ondersteund als bron of PUT voor de kopieeractiviteit. U kunt bijvoorbeeld gegevens verplaatsen **van** een SQL Server-database of een Azure SQL database **naar** een Azure blob-opslag. En u kunt gegevens kopiëren **van** Azure blob-opslag **naar** een Azure SQL Data Warehouse of een Azure Cosmos DB-verzameling.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="supported-scenarios"></a>Ondersteunde scenario's
 U kunt gegevens kopiëren **uit Azure Blob Storage** opgeslagen in de volgende gegevens:
@@ -84,7 +86,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 | --- | --- | --- |
 | folderPath |Pad naar de container en map in de blob-opslag. Voorbeeld: myblobcontainer\myblobfolder\ |Ja |
 | fileName |Naam van de blob. Bestandsnaam is optioneel en is hoofdlettergevoelig.<br/><br/>Als u een filename opgeeft, wordt de activiteit (inclusief kopie) werkt op de specifieke Blob.<br/><br/>Als geen bestandsnaam is opgegeven, bevat kopiëren alle Blobs in de folderPath voor invoergegevensset.<br/><br/>Wanneer **fileName** is niet opgegeven voor een uitvoergegevensset en **preserveHierarchy** niet is opgegeven in de activiteit-sink, de naam van het gegenereerde bestand zou worden in de volgende notatie: De gegevens. <Guid>.txt (voorbeeld:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nee |
-| partitionedBy |partitionedBy is een optionele eigenschap. U kunt deze gebruiken om op te geven van een dynamische folderPath en de bestandsnaam voor time series-gegevens. Bijvoorbeeld, folderPath kan worden als parameters gebruikt voor elk uur gegevens. Zie de [partitionedBy eigenschap sectie](#using-partitionedBy-property) voor meer informatie en voorbeelden. |Nee |
+| partitionedBy |partitionedBy is een optionele eigenschap. U kunt deze gebruiken om op te geven van een dynamische folderPath en de bestandsnaam voor time series-gegevens. Bijvoorbeeld, folderPath kan worden als parameters gebruikt voor elk uur gegevens. Zie de [partitionedBy eigenschap sectie](#using-partitionedby-property) voor meer informatie en voorbeelden. |Nee |
 | Indeling | De volgende bestandsindelingen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie, [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [Json-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [Parquet-indeling](data-factory-supported-file-and-compression-formats.md#parquet-format) secties. <br><br> Als u wilt **bestanden als kopiëren-is** overslaan tussen op basis van bestanden (binaire kopie), het gedeelte indeling in beide definities van de gegevensset voor invoer en uitvoer. |Nee |
 | Compressie | Geef het type en het niveau van compressie voor de gegevens. Ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**. Ondersteunde niveaus zijn: **Optimale** en **snelste**. Zie voor meer informatie, [bestands- en compressie indelingen in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
 

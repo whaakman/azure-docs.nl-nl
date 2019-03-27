@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4372045590938df701dd00e58a111215f6e8e56d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 76bf36f63051f02d6c37261799342f424609f9b2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369646"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442304"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources"></a>Verifiëren van toegang tot blobs en wachtrijen met beheerde identiteiten voor Azure-Resources
 
@@ -22,8 +22,6 @@ Azure Blob en Queue storage ondersteuning voor verificatie met Azure Active Dire
 Om machtigingen te verlenen aan een beheerde identiteit aan een blob-container of een wachtrij, kunt u de rol van een op basis van de rol beheer (RBAC) toewijzen aan de beheerde identiteit die machtigingen voor de resource op het juiste bereik omvat. Zie voor meer informatie over RBAC-rollen in de opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md). 
 
 In dit artikel laat zien hoe om te verifiëren naar Azure Blob of Queue storage met een beheerde identiteit van een Azure-VM.  
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Beheerde identiteiten op een virtuele machine inschakelen
 
@@ -42,6 +40,8 @@ Als u wilt een beheerde identiteit van uw Azure Storage-toepassing verifiëren, 
 ## <a name="get-a-managed-identity-access-token"></a>Een beheerde identiteit toegangstoken ophalen
 
 Als u wilt verifiëren met een beheerde identiteit, moet uw toepassing of script een beheerde identiteit-toegangstoken verkrijgen. Zie voor meer informatie over hoe u een toegangstoken verkrijgen, [over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM aan een toegangstoken verkrijgen](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+
+U moet HTTPS gebruiken voor het autoriseren van blob- en wachtrijservices bewerkingen met een OAuth-token.
 
 ## <a name="net-code-example-create-a-block-blob"></a>Voorbeeld van .NET-code: Een blok-blob maken
 

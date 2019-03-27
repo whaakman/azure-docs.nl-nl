@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 6ef020ff1054416e2b9af5af824b9aa27f0b1e64
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247236"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486781"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architectuur van de verbinding voor een beheerd exemplaar in Azure SQL Database 
 
@@ -67,7 +67,7 @@ We gaan meer informatie over in de connectiviteitsarchitectuur van de voor behee
 
 ![Connectiviteitsarchitectuur van de virtuele-cluster](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Clients verbinding maken met een beheerd exemplaar met behulp van de naam van een host met het formulier `<mi_name>.<dns_zone>.database.windows.net`. Deze hostnaam wordt omgezet in een privé IP-adres, maar het geregistreerd in een openbare domein Name System (DNS)-zone en openbaar omgezette. De `zone-id` wordt automatisch gegenereerd bij het maken van het cluster. Als een nieuw cluster als host fungeert voor een secundaire beheerd exemplaar, wordt deze de zone-ID deelt met de primaire cluster. Zie voor meer informatie, [autofailover groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+Clients verbinding maken met een beheerd exemplaar met behulp van de naam van een host met het formulier `<mi_name>.<dns_zone>.database.windows.net`. Deze hostnaam wordt omgezet in een privé IP-adres, maar het geregistreerd in een openbare domein Name System (DNS)-zone en openbaar omgezette. De `zone-id` wordt automatisch gegenereerd bij het maken van het cluster. Als een nieuw cluster als host fungeert voor een secundaire beheerd exemplaar, wordt deze de zone-ID deelt met de primaire cluster. Zie voor meer informatie, [automatische failover-groepen gebruiken om transparante en gecoördineerd failover van meerdere databases mogelijk te](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 Dit privé IP-adres behoort tot het beheerde exemplaar van interne load balancer. De load balancer zorgt ervoor dat verkeer naar de gateway van het beheerde exemplaar. Omdat meerdere beheerde exemplaren kunnen worden uitgevoerd in hetzelfde cluster, de gateway maakt gebruik van de hostnaam van het beheerde exemplaar verkeer omleiden naar de juiste SQL-engine-service.
 
@@ -109,6 +109,8 @@ Implementeer een beheerd exemplaar in een speciaal subnet binnen het virtuele ne
 |------------|--------------|--------|-----------------|-----------|------|
 |beheer  |80, 443, 12000|TCP     |Alle              |Internet   |Toestaan |
 |mi_subnet   |Alle           |Alle     |Alle              |MI-SUBNET *  |Toestaan |
+
+> Zorg ervoor dat er slechts één binnenkomende regel voor poorten 9000, 9003, 1438, 1440, 1452 en een uitgaande regel voor de poorten 80, 443, 12000. Beheerde exemplaar inrichting met ARM-implementaties kan mislukken als regels voor binnenkomende en uitvoer afzonderlijk voor elke poorten zijn geconfigureerd. 
 
 \* MI-SUBNET verwijst naar het IP-adresbereik voor het subnet in het formulier 10.x.x.x/y. U kunt deze informatie vinden in de Azure-portal in de subneteigenschappen van het.
 
@@ -167,6 +169,6 @@ Als het virtuele netwerk een aangepaste DNS-server bevat, moet u een vermelding 
 - [De grootte van het subnet berekenen](sql-database-managed-instance-determine-size-vnet-subnet.md) waar u de beheerde exemplaren implementeren.
 - Informatie over het maken van een beheerd exemplaar:
   - Uit de [Azure-portal](sql-database-managed-instance-get-started.md).
-  - Met behulp van [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+  - Met behulp van [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Met behulp van [een Azure Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
   - Met behulp van [een Azure Resource Manager-sjabloon (met JumpBox, met SSMS opgenomen)](https://portal.azure.com/).

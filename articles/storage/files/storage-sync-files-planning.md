@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: c032961bf89ba470a38ebccfd846659b080f9fab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 034beeaaebb86786106f7884fc147ff15167538e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013221"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480716"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -75,7 +75,7 @@ Voordat u Azure File Sync implementeert, moet u evalueren of het compatibel is m
 #### <a name="download-instructions"></a>Instructies downloaden
 1. Zorg ervoor dat u de nieuwste versie van PackageManagement hebt en PowerShellGet geïnstalleerd (dit kunt u preview-modules installeren)
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name PackageManagement -Repository PSGallery -Force
         Install-Module -Name PowerShellGet -Repository PSGallery -Force
     ```
@@ -83,29 +83,29 @@ Voordat u Azure File Sync implementeert, moet u evalueren of het compatibel is m
 2. PowerShell starten
 3. De modules installeren
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
 #### <a name="usage"></a>Gebruik  
 U kunt het hulpprogramma voor het evalueren aanroepen in een aantal verschillende manieren: u kunt de systeemcontroles en/of de gegevensset controles uitvoeren. Als u wilt uitvoeren van het systeem en de gegevensset wordt gecontroleerd: 
 
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 Om te testen alleen uw gegevensset:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 Om te testen alleen systeemvereisten:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 De resultaten weergeven in CSV:
-```PowerShell
+```powershell
     $errors = Invoke-AzStorageSyncCompatibilityCheck […]
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```

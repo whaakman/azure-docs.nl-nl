@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: b02f5011b9482481ca3fbe439061c160b3c73a1e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 80e8a5e5de1da2098d895e09b36fb209050743a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016610"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481396"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Bandbreedte/doorvoer testen (NTTTCP)
 
@@ -77,12 +77,12 @@ ntttcp - r – m [2\*\#num\_kernen],\*, 300 a.b.c.r -t
 
 Als de virtuele machine vier kernen en het IP-adres 10.0.0.4 heeft, zou deze er als volgt:
 
-ntttcp - r – m 8,\*, 10.0.0.4 -t 300
+ntttcp -r –m 8,\*,10.0.0.4 -t 300
 
 
 NTTTCP starten op de afzender (**uitvoeren vanaf CMD**, niet vanuit PowerShell):
 
-ntttcp -s – m 8,\*, 10.0.0.4 -t 300 
+ntttcp -s –m 8,\*,10.0.0.4 -t 300 
 
 Wacht tot de resultaten.
 
@@ -132,13 +132,13 @@ Op deze scenario's moet we het nosync-modus inschakelen, zodat de test kunt uitv
 
 #### <a name="from-linux-to-windows"></a>Van Linux en Windows:
 
-Ontvanger <Windows>:
+Ontvanger \<Windows >:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
 ```
 
-Afzender <Linux> :
+Afzender \<Linux >:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
@@ -146,13 +146,13 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 #### <a name="from-windows-to-linux"></a>Van Windows tot Linux:
 
-Ontvanger <Linux>:
+Ontvanger \<Linux >:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
-Afzender <Windows>:
+Afzender \<Windows >:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300

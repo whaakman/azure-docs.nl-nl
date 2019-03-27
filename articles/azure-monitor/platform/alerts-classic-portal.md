@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 65064707374ba76701566e061b77bfd6cdf520ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1259d8f15ac719db833bef5ae37a7c2e665b2fb
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833382"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480631"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van klassieke metrische waarschuwingen met behulp van Azure Monitor
 
@@ -93,37 +93,37 @@ Deze secties ziet u hoe u PowerShell-opdrachten maken, weergeven en beheren van 
 
 2. Eerst, meld u aan bij uw Azure-abonnement.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 
 3. Hier ziet u een aanmeldingsscherm. Nadat u uw Account, TenantID, zich aanmelden en standaard abonnements-ID worden weergegeven. Alle Azure-cmdlets werken in de context van uw standaardabonnement. U hebt toegang tot de volgende opdracht gebruiken om de lijst met abonnementen weer te geven:
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 
 4. Als u wilt uw context werken naar een ander abonnement wijzigen, gebruik de volgende opdracht:
 
-    ```PowerShell
+    ```powershell
     Set-AzContext -SubscriptionId <subscriptionid>
     ```
 
 5. U kunt alle klassieke waarschuwingsregels voor metrische gegevens op een resourcegroep ophalen:
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -ResourceGroup montest
     ```
 
 6. U kunt details van een klassieke waarschuwingsregel voor metrische gegevens weergeven
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
     ```
 
 7. U kunt alle regels voor waarschuwingen instellen voor een doelresource ophalen. Bijvoorbeeld, instellen alle waarschuwingsregels op een virtuele machine.
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 

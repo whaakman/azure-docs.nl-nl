@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beschrijving van de processen die power Azure Dev spaties en hoe ze zijn geconfigureerd in het configuratiebestand azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: b6f178628961001c4022ffc86bc13ee0e529e3c4
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438968"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500556"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hoe Azure Dev spaties werkt en is geconfigureerd
 
@@ -96,7 +96,7 @@ Wanneer Azure Dev opslagruimten is ingeschakeld op uw AKS-cluster, installeert h
 * Hiermee verwijdert u een Kubernetes-naamruimte met de naam *azds*, indien deze bestaat, en maakt u een nieuwe.
 * Implementeert een Kubernetes-initialisatiefunctie-object.
 
-! [Azure Dev spaties voorbereiden cluster]] (media/how-dev-spaces-works/prepare-cluster.svg)
+![Azure Dev spaties voorbereiden cluster](media/how-dev-spaces-works/prepare-cluster.svg)
 
 Als u wilt gebruiken Azure Dev spaties, moet er ten minste één dev-ruimte. Azure Dev opslagruimten maakt gebruik van Kubernetes-naamruimten in uw AKS-cluster voor dev spaties. Als een domeincontroller wordt geïnstalleerd, wordt u gevraagd om te maken van een nieuwe naamruimte met Kubernetes of kies een bestaande naamruimte te gebruiken als uw eerste dev-ruimte. Wanneer een naamruimte is aangewezen als een dev-ruimte, de controller voegt de *azds.io/space=true* label in op die naamruimte om het te identificeren als een dev-ruimte. Nadat u uw cluster hebt voorbereid, is de initiële dev-ruimte u maakt of aanwijzen standaard geselecteerd. Wanneer een spatie is geselecteerd, wordt deze gebruikt door Azure Dev opslagruimten voor het maken van nieuwe werkbelastingen.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f407d87249c44ad3a4773b2cd8fc85ee09506ceb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010990"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445659"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Seriële console van de virtuele machine voor Linux
 
@@ -41,9 +41,9 @@ Zie voor de seriële console-documentatie voor Windows-VM's, [seriële console v
 
 - Een account dat gebruikmaakt van een seriële console moet de [rol van inzender voor virtuele machines](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) voor de virtuele machine en de [diagnostische gegevens over opstarten](boot-diagnostics.md) storage-account:
 
-    - De virtuele machine waar u toegang wilt een seriële console tot krijgen moet een account op basis van wachtwoorden hebben. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functie van de VM-extensie voor toegang. Selecteer **wachtwoord opnieuw instellen** uit de **ondersteuning en probleemoplossing** sectie.
+- De virtuele machine waar u toegang wilt een seriële console tot krijgen moet een account op basis van wachtwoorden hebben. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functie van de VM-extensie voor toegang. Selecteer **wachtwoord opnieuw instellen** uit de **ondersteuning en probleemoplossing** sectie.
 
-    - Zie voor specifieke instellingen voor Linux-distributies, [seriële console van beschikbaarheid van de Linux-distributie](#serial-console-linux-distribution-availability).
+- Zie voor specifieke instellingen voor Linux-distributies, [seriële console van beschikbaarheid van de Linux-distributie](#serial-console-linux-distribution-availability).
 
 
 
@@ -85,12 +85,11 @@ Aangepaste Linux-installatiekopieën     | Als u de seriële console voor uw aan
 
 Scenario          | Acties in de seriële console
 :------------------|:-----------------------------------------
-Verbroken *FSTAB* bestand | Druk op de **Enter** om te gaan en gebruik een teksteditor om op te lossen de *FSTAB* bestand. U moet mogelijk worden in de modus voor één gebruiker om dit te doen. Zie voor meer informatie, [voor het oplossen van problemen met fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) en [seriële console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md).
-Onjuiste firewall-regels | Toegang tot de seriële console en op te lossen iptables.
-Bestandssysteem beschadigd/selectievakje | Toegang tot de seriële console en het bestandssysteem herstellen.
-Problemen met SSH/RDP-configuratie | Toegang tot de seriële console en de instellingen wijzigen.
-Systeem voor het vergrendelen van netwerk| Toegang tot de seriële console van de Azure-portal voor het beheren van het systeem.
-Interactie met de bootloader | Start opnieuw op uw virtuele machine uit binnen de seriële console-blade voor toegang tot WORMGATEN op uw Linux-VM. Zie voor meer informatie, [seriële console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md).
+Verbroken *FSTAB* bestand | Druk op de **Enter** om te gaan en gebruik een teksteditor om op te lossen de *FSTAB* bestand. U moet mogelijk worden in de modus voor één gebruiker om dit te doen. Zie voor meer informatie de sectie van de seriële console van [voor het oplossen van problemen met fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) en [seriële console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md).
+Onjuiste firewall-regels |  Als u iptables voor het blokkeren van SSH-verbinding hebt geconfigureerd, kunt u de seriële console gebruiken om te communiceren met uw virtuele machine zonder SSH. Meer informatie kunnen u vinden op de [iptables man pagina](https://linux.die.net/man/8/iptables). Op dezelfde manier als u firewalld SSH-toegang blokkeert, kunt u toegang tot de virtuele machine via de seriële console en firewalld configureren. Meer informatie vindt u de [firewalld documentatie](https://firewalld.org/documentation/).
+Bestandssysteem beschadigd/selectievakje | Zie de sectie van de seriële console van [virtuele Azure Linux-machine kan niet worden gestart vanwege fouten in het bestandssysteem](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) voor meer informatie over het oplossen van problemen met behulp van de seriële console van bestandssystemen beschadigd.
+Problemen met SSH-configuratie | Toegang tot de seriële console en de instellingen wijzigen. Seriële console kan worden gebruikt, ongeacht de SSH-configuratie van een virtuele machine, zoals vereist niet de virtuele machine verbinding met het netwerk om te werken. Een gids voor probleemoplossing vindt u op [oplossen SSH-verbindingen met een Azure Linux VM die is mislukt, fouten, of wordt geweigerd](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection). Meer details zijn beschikbaar op [gedetailleerde SSH probleemoplossing voor problemen die verbinding maken met een Linux-VM in Azure](./detailed-troubleshoot-ssh-connection.md)
+Interactie met de bootloader | Start opnieuw op uw virtuele machine uit binnen de seriële console-blade voor toegang tot WORMGATEN op uw Linux-VM. Zie voor meer informatie over en distributie-specifieke informatie [seriële console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Uitschakelen van de seriële console
 Standaard hebben alle abonnementen seriële console-toegang ingeschakeld voor alle virtuele machines. U kunt de seriële console op het abonnementsniveau of op het niveau van de virtuele machine uitschakelen.

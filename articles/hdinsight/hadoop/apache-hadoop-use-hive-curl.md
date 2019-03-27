@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 00fd697b42c7d93cb04392e91deea23133cf398a
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 3e7ee293c2c33f169b3a5e4a7bded3190a9dc209
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407236"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443235"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Apache Hive-query's uitvoeren met Apache Hadoop in HDInsight met behulp van REST
 
@@ -184,10 +184,6 @@ Voor informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 * [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
 * [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
-Als u met Hive Tez gebruikt, ziet u de volgende documenten voor foutopsporing van informatie:
-
-* [De weergave van de Apache Ambari Tez op Linux gebaseerde HDInsight gebruiken](../hdinsight-debug-ambari-tez-view.md)
-
 Zie voor meer informatie over de REST-API die wordt gebruikt in dit document, de [WebHCat verwijzing](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) document.
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
@@ -201,7 +197,7 @@ Zie voor meer informatie over de REST-API die wordt gebruikt in dit document, de
 [import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 
 
 

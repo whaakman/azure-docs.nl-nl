@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 5b5f323e20bbaf91c151641f8dc78fbc8cde8c24
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 6d667df3062112e0c805e3ba26bc6240022cab8b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351632"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446340"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Wat is Apache Hive en HiveQL op Azure HDInsight?
 
@@ -204,8 +204,6 @@ Deze instructies uit uitvoeren de volgende acties:
 
 De [Apache Hive op Tez-Ontwerpdocumenten](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) bevat details over de implementatie-opties en afstemmen configuraties.
 
-Om u te helpen bij het opsporen van fouten in taken die worden uitgevoerd met behulp van Tez wordt HDInsight biedt de volgende web-UI waarmee u details wilt weergeven van de Tez-taken: [Gebruik de weergave van de Apache Ambari Tez op Linux gebaseerde HDInsight](../hdinsight-debug-ambari-tez-view.md).
-
 ### <a name="low-latency-analytical-processing-llap"></a>Low Latency Analytical Processing (LLAP)
 
 [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (ook bekend als Live Long and Process) is een nieuwe functie in Hive 2.0 waarmee de caching van query's in het geheugen. LLAP maakt Hive-query's sneller en maximaal [26 x sneller dan Hive 1.x in sommige gevallen](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
@@ -256,7 +254,7 @@ Nu dat u hebt geleerd wat Hive is en hoe u deze wilt gebruiken met Hadoop in HDI
 [ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
 

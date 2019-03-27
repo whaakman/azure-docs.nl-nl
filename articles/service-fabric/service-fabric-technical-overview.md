@@ -3,7 +3,7 @@ title: Terminologie voor Azure Service Fabric | Microsoft Docs
 description: Een overzicht van de terminologie van Service Fabric. Belangrijke terminologie concepten en termen die worden gebruikt in de rest van de documentatie besproken.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: masnider
 manager: timlt
 editor: chackdan;subramar
 ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
-ms.author: ryanwi
-ms.openlocfilehash: fda6af0f253457aaf3aef1e8444850592255b318
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: masnider
+ms.openlocfilehash: d9012ff37693b406d4e91560c880d6bed66c051b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113670"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498295"
 ---
 # <a name="service-fabric-terminology-overview"></a>Overzicht van service Fabric-terminologie
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  U kunt [host Service Fabric-clusters overal](service-fabric-deploy-anywhere.md): Azure, in een on-premises datacenter of op elke andere cloudprovider.  Service Fabric is de orchestrator dat wordt gebruikt door [Azure Service Fabric NET](/azure/service-fabric-mesh). U kunt elk gewenst framework schrijven van uw services en kiezen waar u wilt uitvoeren van de toepassing uit meerdere mogelijkheden van de omgeving. Dit artikel worden de termen die door Service Fabric om te begrijpen van de termen die worden gebruikt in de documentatie.

@@ -3,7 +3,7 @@ title: Gebruik van een Windows VM door het systeem toegewezen beheerde identitei
 description: Een zelfstudie waarin wordt uitgelegd hoe u een Windows-virtuele machine door het systeem toegewezen identiteit voor toegang tot Azure Storage, met behulp van een SAS-referenties in plaats van een toegangssleutel voor opslagaccount beheerd.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d4d3c6ad513d67af57423de9f7b0b2c31f73460
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 23ec4d2a67beb9b5f903aa0b7f03196b47db3f78
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209214"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443521"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Zelfstudie: Gebruik van een Windows VM door het systeem toegewezen beheerde identiteit voor toegang tot Azure Storage via SAS-referenties
 

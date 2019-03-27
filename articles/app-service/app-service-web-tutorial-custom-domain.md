@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5d6a7d77b442383817179fadc5878f02dfe86628
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7139906ac22f8d0dbf6cd6e2d69289c4b910b2b0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089519"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486084"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Zelfstudie: Een bestaande aangepaste DNS-naam toewijzen aan Azure App Service
 
@@ -351,7 +351,7 @@ Zie voor meer informatie [Een aangepast domein toewijzen aan een web-app](script
 
 De volgende opdracht voegt een geconfigureerde aangepaste DNS-naam toe aan een App Service-app. 
 
-```PowerShell  
+```powershell  
 Set-AzWebApp `
     -Name <app_name> `
     -ResourceGroupName <resource_group_name> ` 

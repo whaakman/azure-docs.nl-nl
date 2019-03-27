@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: be285b6a51ae5a0f4239b841ce64100f1875d785
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6990bed4065183ecabb502ea90b5ddf26db563b4
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294345"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500182"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Logboekgegevens en toegang tot werkruimten in Azure Monitor beheren
 Azure Monitor-winkels vastleggen gegevens in een Log Analytics-werkruimte is in wezen een container die gegevens en configuratie-informatie bevat. Voor het beheren van toegang tot gegevens vastleggen, kunt u verschillende beheertaken met betrekking tot werkruimten uitvoeren. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
@@ -114,7 +114,7 @@ De volgende tabel geeft een overzicht van de toegangsmodi in:
 |:---|:---|:---|
 | Voor wie is elk model bedoeld? | Centrale beheersite. Beheerders moeten configureren voor het verzamelen van gegevens en gebruikers die toegang nodig tot een groot aantal bronnen. Ook nodig op dat moment voor gebruikers die hebben voor toegang tot logboeken voor resources buiten Azure. | Toepassing teams. Beheerders van Azure-resources die worden bewaakt. |
 | Wat is een gebruiker nodig om logboeken weer te geven? | Machtigingen voor de werkruimte. Zie **werkruimtemachtigingen** in [accounts en gebruikers beheren](#manage-accounts-and-users). | Leestoegang tot de resource. Zie **machtigingen voor resources** in [accounts en gebruikers beheren](#manage-accounts-and-users). Machtigingen kunnen worden overgenomen (zoals de betreffende resourcegroep) of rechtstreeks toegewezen aan de resource. Machtiging voor de logboeken voor de resource wordt automatisch toegewezen. |
-| Wat is het bereik van machtigingen? | Werkruimte. Gebruikers met toegang tot de werkruimte kunnen alle logboeken in deze werkruimte uit tabellen die ze gemachtigd zijn om te zoeken. Zie [tabel toegangsbeheer](#table-access-control) | Azure resource. Gebruikers logboeken kan opvragen voor bronnen ze hebben toegang tot vanuit elke werkruimte, maar kan geen query uitvoeren voor logbestanden voor andere bronnen. |
+| Wat is het bereik van machtigingen? | Werkruimte. Gebruikers met toegang tot de werkruimte kunnen alle logboeken in deze werkruimte uit tabellen die ze gemachtigd zijn om te zoeken. Zie [tabel toegangsbeheer](#table-level-rbac) | Azure resource. Gebruikers logboeken kan opvragen voor bronnen ze hebben toegang tot vanuit elke werkruimte, maar kan geen query uitvoeren voor logbestanden voor andere bronnen. |
 | Hoe kan een gebruiker toegang tot logboeken? | Start **logboeken** van **Azure Monitor** menu of **Log Analytics-werkruimten**. | Start **logboeken** in het menu voor de Azure-resource. |
 
 
@@ -150,13 +150,13 @@ U kunt deze instelling wijzigen op de **eigenschappen** pagina voor de werkruimt
 
 Gebruik de volgende opdracht om te controleren van het besturingselement toegangsmodus voor alle werkruimten in het abonnement:
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
 ```
 
 Het volgende script gebruiken om in te stellen de controle-toegangsmodus voor een specifieke werkruimte:
 
-```PowerShell
+```powershell
 $WSName = "my-workspace"
 $Workspace = Get-AzResource -Name $WSName -ExpandProperties
 if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
@@ -168,7 +168,7 @@ Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properti
 
 Het volgende script gebruiken om in te stellen van de modus voor het beheer van toegang voor alle werkruimten in het abonnement
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
 if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
     { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
@@ -273,13 +273,13 @@ Als gebruikers query zich vanaf een werkruimte met behulp van resource-georiënt
 
 Deze machtiging wordt meestal van een rol met verleend  _\*/lezen of_ _\*_ machtigingen, zoals de ingebouwde [lezer](../../role-based-access-control/built-in-roles.md#reader) en [ Inzender](../../role-based-access-control/built-in-roles.md#contributor) rollen. Houd er rekening mee dat aangepaste rollen met specifieke acties of toegewezen ingebouwde rollen niet advies bij deze machtiging inwinnen.
 
-Zie [definiëren per tabel toegangsbeheer](#defining-per-table-access-control) hieronder als u wilt maken van verschillende toegangsbeheer voor verschillende tabellen.
+Zie [definiëren per tabel toegangsbeheer](#table-level-rbac) hieronder als u wilt maken van verschillende toegangsbeheer voor verschillende tabellen.
 
 
 ## <a name="table-level-rbac"></a>Tabelniveau RBAC
 **Het niveau van RBAC tabel** kunt u meer gedetailleerde controle met gegevens in een Log Analytics-werkruimte naast de andere machtigingen bieden. Dit besturingselement kunt u specifieke gegevenstypen die alleen toegankelijk voor een specifieke set gebruikers zijn definiëren.
 
-Implementeren van toegangsbeheer tabel met [Azure aangepaste rollen](../../role-based-access-control/custom-roles.md) verlenen of weigeren van toegang tot specifieke [tabellen](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) in de werkruimte. Deze rollen worden toegepast op werkruimten met werkruimte gericht of resource-georiënteerde [toegang tot de control-modi](#access-control-modes) ongeacht van de gebruiker [toegangsmodus](#access-mode).
+Implementeren van toegangsbeheer tabel met [Azure aangepaste rollen](../../role-based-access-control/custom-roles.md) verlenen of weigeren van toegang tot specifieke [tabellen](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) in de werkruimte. Deze rollen worden toegepast op werkruimten met werkruimte gericht of resource-georiënteerde [toegang tot de control-modi](#access-control-mode) ongeacht van de gebruiker [toegangsmodus](#access-modes).
 
 Maak een [aangepaste rol](../../role-based-access-control/custom-roles.md) met de volgende acties te definiëren de toegang tot tabel toegangsbeheer.
 

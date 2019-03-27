@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ca111623f6d3d7c61b1bfc4e1af328f9599c2440
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6753b3a76ff5d3e0266f238d8e354943dec694a8
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884503"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480455"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Voorbeeldtoepassing voor gebruik met DMZ 's
 [Ga terug naar de grens Best Practices pagina][HOME]
@@ -30,7 +30,7 @@ Deze toepassing biedt een eenvoudige testomgeving voor veel van de voorbeelden D
 ## <a name="firewall-rule-to-allow-icmp"></a>Firewallregel voor het toestaan van ICMP
 Deze eenvoudige PowerShell-instructie kan worden uitgevoerd op elke Windows-VM ICMP (Ping)-verkeer toe te staan. Deze update firewall kunt eenvoudiger kunt testen en problemen oplossen door toe te staan de ping-protocol om door te geven via de windows-firewall (voor de meeste Linux-distributies die ICMP standaard ingeschakeld is).
 
-```PowerShell
+```powershell
 # Turn On ICMPv4
 New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
@@ -49,7 +49,7 @@ Met dit script wordt:
 
 Dit PowerShell-script moet lokaal worden uitgevoerd terwijl er op RDP in IIS01 was.
 
-```PowerShell
+```powershell
 # IIS Server Post Build Config Script
 # Get Admin Account and Password
     Write-Host "Please enter the admin account information used to create this VM:" -ForegroundColor Cyan
@@ -161,7 +161,7 @@ Met dit script stelt u de back-end voor deze eenvoudige toepassing. Met dit scri
 
 Dit PowerShell-script moet lokaal worden uitgevoerd terwijl er op RDP in AppVM01 was. PowerShell is vereist om te worden uitgevoerd als beheerder om te controleren of de uitvoering is geslaagd.
 
-```PowerShell
+```powershell
 # AppVM01 Server Post Build Config Script
 # PowerShell must be run as Administrator for Net Share commands to work
 

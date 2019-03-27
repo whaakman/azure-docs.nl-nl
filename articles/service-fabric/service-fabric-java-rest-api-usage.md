@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 116defb43126932c1a9ce0e7a9d588e731abff78
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a6cb5ffe6c21c6eda9eb8b7f610952e92707a6bd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182027"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483468"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java-Client-API 's
 
@@ -126,11 +126,11 @@ Volg de stappen die hieronder worden vermeld voor het genereren van clientcode v
 Voor elke API vindt u vier overloads van de implementatie. Als er optionele parameters zijn zou u vier meer variaties, met inbegrip van de volgende optionele parameters vinden. Zo kunt u de API ``removeReplica``.
  1. **Public void removeReplica (tekenreeks knooppuntnaam, UUID partitionId, replicaId tekenreeks, Boole forceRemove, lange time-out)**
     * Dit is de synchrone variant van de removeReplica API-aanroep
- 2. **openbare ServiceFuture<Void> removeReplicaAsync (String, knooppuntnaam, UUID partitionId, replicaId tekenreeks, Boole forceRemove, lange time-out, laatste ServiceCallback<Void> serviceCallback)**
+ 2. **openbare ServiceFuture\<Void > removeReplicaAsync (String, knooppuntnaam, UUID partitionId, replicaId tekenreeks, Boole forceRemove, lange time-out, laatste ServiceCallback\<Void > serviceCallback)**
     * Deze variant van de API-aanroep kan worden gebruikt als u wilt gebruiken van toekomstige op basis van asynchrone programmering en retouraanroepen
- 3. **openbaar zichtbaar zijn<Void> removeReplicaAsync (tekenreeks knooppuntnaam, UUID partitionId, tekenreeks replicaId)**
+ 3. **openbaar zichtbaar zijn\<Void > removeReplicaAsync (tekenreeks knooppuntnaam, UUID partitionId, tekenreeks replicaId)**
     * Deze variant van de API-aanroep kan worden gebruikt als u wilt gebruiken, reactieve asynchrone programmering
- 4. **openbaar zichtbaar zijn < ServiceResponse<Void>> removeReplicaWithServiceResponseAsync (tekenreeks knooppuntnaam, UUID partitionId, tekenreeks replicaId)**
+ 4. **openbaar zichtbaar zijn\<ServiceResponse\<Void >> removeReplicaWithServiceResponseAsync (tekenreeks knooppuntnaam, UUID partitionId, tekenreeks replicaId)**
     * Deze variant van de API-aanroep kan worden gebruikt als u wilt gebruiken, reactieve asynchrone programmering en omgaan met ONBEWERKTE rest-antwoord
 
 ## <a name="next-steps"></a>Volgende stappen

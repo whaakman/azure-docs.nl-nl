@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 3b302c60aefec1c4cd37a7dde82a2f11a9eeed33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20c58647b8a6283de4ca2b90c830fe54db927095
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862859"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484183"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Beveiligde toegang tot een key vault
 
@@ -150,14 +150,14 @@ De PowerShell-fragmenten in deze sectie zijn gebouwd met de volgende veronderste
 
 De beheerder van abonnement wijst de `key vault Contributor` en `User Access Administrator` rollen aan het beveiligingsteam. Deze rollen kunnen het beveiligingsteam voor het beheren van toegang tot andere resources en sleutelkluizen, beide in de **ContosoAppRG** resourcegroep.
 
-```PowerShell
+```powershell
 New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 Het beveiligingsteam een key vault maakt en logboekregistratie en toegangsmachtigingen ingesteld. Zie voor meer informatie over Key Vault-beleid toegangsmachtigingen [over Azure Key Vault sleutels, geheimen en certificaten](about-keys-secrets-and-certificates.md).
 
-```PowerShell
+```powershell
 # Create a key vault and enable logging
 $sa = Get-AzStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
 $kv = New-AzKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment

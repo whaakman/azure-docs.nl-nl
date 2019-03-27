@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 03/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79d013e5836555547cbf254bb25c06add0a717e1
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 0de6cf9be01fc93a26a782189a2062d19eaf73e8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295382"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499264"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Geautomatiseerde machine learning-experimenten configureren
 
@@ -39,21 +39,24 @@ Voordat u uw experiment, moet u het type van machine learning probleem, u het op
 
 Geautomatiseerde machine learning-mogelijkheden zijn algemeen beschikbaar, **prognoses is nog steeds in openbare preview.**
 
-Geautomatiseerde machine learning ondersteunt de volgende algoritmen tijdens de automatisering en het afstemmen van proces. Als een gebruiker is er niet nodig voor u het algoritme opgeven.
+Geautomatiseerde machine learning ondersteunt de volgende algoritmen tijdens de automatisering en het afstemmen van proces. Als een gebruiker is er niet nodig voor u het algoritme opgeven. DNN algoritmen zijn beschikbaar tijdens de training, stel geautomatiseerde ML DNN modellen niet samen.
 
 Classificatie | Regressie | Prognose
 |-- |-- |--
 [Logistic Regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Elastische Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Elastische Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[De toolkit leren met stochastische Gradiëntdaling (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[Licht GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Licht GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[Versterking van kleurovergang](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Versterking van kleurovergang](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[C-Support Vector classificatie (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Beslissingsstructuur](https://scikit-learn.org/stable/modules/tree.html#regression)|[Beslissingsstructuur](https://scikit-learn.org/stable/modules/tree.html#regression)
-[Lineaire SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[K dichtstbijzijnde Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K dichtstbijzijnde Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[K dichtstbijzijnde Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[Beslissingsstructuur](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[De toolkit leren met stochastische Gradiëntdaling (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[De toolkit leren met stochastische Gradiëntdaling (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[Licht GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Licht GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Licht GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[Versterking van kleurovergang](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[Versterking van kleurovergang](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Versterking van kleurovergang](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[Beslissingsstructuur](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Beslissingsstructuur](https://scikit-learn.org/stable/modules/tree.html#regression)|[Beslissingsstructuur](https://scikit-learn.org/stable/modules/tree.html#regression)
+[K dichtstbijzijnde Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K dichtstbijzijnde Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K dichtstbijzijnde Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[Lineaire SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[C-Support Vector classificatie (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[De toolkit leren met stochastische Gradiëntdaling (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[De toolkit leren met stochastische Gradiëntdaling (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
 [Willekeurige Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Willekeurige Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Willekeurige Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Zeer willekeurige structuren](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Zeer willekeurige structuren](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Zeer willekeurige structuren](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
-[Versterking van kleurovergang](https://scikit-learn.org/stable/modules/ensemble.html#classification)|
-[Licht GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|
+[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
+[DNN Classifer](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN regressor zijn](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN regressor zijn](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
+[DNN lineaire classificatie](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Lineaire regressor zijn](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Lineaire regressor zijn](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
+[De toolkit leren met stochastische Gradiëntdaling (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
 
 ## <a name="data-source-and-format"></a>Gegevensbron en indeling
@@ -156,15 +159,15 @@ Kunt u afzonderlijke train en validatie ingesteld via get_data() of rechtstreeks
 
 ### <a name="k-folds-cross-validation"></a>K-vouwen Kruisvalidatie
 
-Gebruik `n_cross_validations` instelling om op te geven van het aantal cross-bevestigingen. De set trainingsgegevens wordt willekeurig worden gesplitst in `n_cross_validations` vouwen van gelijke grootte. Tijdens elke cross validatie ronde, een van de vouwen dat wordt gebruikt voor de validatie van het model is getraind op de resterende vouwen. Dit proces wordt herhaald voor `n_cross_validations` totdat elke vouwen één keer wordt gebruikt als validatie afgerond. De gemiddelde scores voor alle `n_cross_validations` Rondt worden gerapporteerd, en de bijbehorende model zal opnieuw worden getraind op de gehele training gegevensset.
+Gebruik `n_cross_validations` instelling om op te geven van het aantal cross-bevestigingen. De set trainingsgegevens wordt willekeurig worden gesplitst in `n_cross_validations` vouwen van gelijke grootte. Tijdens elke cross validatie ronde, een van de vouwen dat wordt gebruikt voor de validatie van het model is getraind op de resterende vouwen. Dit proces wordt herhaald voor `n_cross_validations` totdat elke vouwen één keer wordt gebruikt als validatie afgerond. De gemiddelde scores voor alle `n_cross_validations` Rondt worden gerapporteerd, en de bijbehorende model zal opnieuw worden getraind op de gehele training gegevensset. 
 
 ### <a name="monte-carlo-cross-validation-aka-repeated-random-sub-sampling"></a>Monte Carlo Kruisvalidatie (ook wel) Onderliggende steekproeven herhaald)
 
-Gebruik `validation_size` om op te geven van het percentage van de training-gegevensset die moet worden gebruikt voor validatie en gebruik `n_cross_validations` om op te geven van het aantal cross-bevestigingen. Tijdens elke cross-validatie afgerond, een subset van de grootte van `validation_size` willekeurig worden geselecteerd voor de validatie van het model is getraind op de resterende gegevens. Ten slotte het gemiddelde voor alle beoordeelt `n_cross_validations` Rondt worden gerapporteerd, en de bijbehorende model zal opnieuw worden getraind op de gehele training gegevensset.
+Gebruik `validation_size` om op te geven van het percentage van de training-gegevensset die moet worden gebruikt voor validatie en gebruik `n_cross_validations` om op te geven van het aantal cross-bevestigingen. Tijdens elke cross-validatie afgerond, een subset van de grootte van `validation_size` willekeurig worden geselecteerd voor de validatie van het model is getraind op de resterende gegevens. Ten slotte het gemiddelde voor alle beoordeelt `n_cross_validations` Rondt worden gerapporteerd, en de bijbehorende model zal opnieuw worden getraind op de gehele training gegevensset. Monte Carlo wordt niet ondersteund voor time series-prognoses.
 
 ### <a name="custom-validation-dataset"></a>Aangepaste validatie-gegevensset
 
-Gebruik aangepaste validatie-gegevensset als willekeurige splitsen niet geaccepteerd wordt (meestal time series-gegevens of imbalanced gegevens). U kunt uw eigen gegevensset validatie opgeven. Het model wordt geëvalueerd op basis van de gegevensset validatie is opgegeven in plaats van willekeurige gegevensset.
+Aangepaste validatie-gegevensset als willekeurige splitsen niet geaccepteerd wordt, meestal time series-gegevens of imbalanced gegevens gebruiken. U kunt uw eigen gegevensset validatie opgeven. Het model wordt geëvalueerd op basis van de gegevensset validatie is opgegeven in plaats van willekeurige gegevensset.
 
 ## <a name="compute-to-run-experiment"></a>COMPUTE experiment uitvoeren
 
@@ -178,7 +181,7 @@ Zie de [GitHub-site](https://github.com/Azure/MachineLearningNotebooks/tree/mast
 
 ## <a name="configure-your-experiment-settings"></a>Uw experiment-instellingen configureren
 
-Er zijn diverse opties, kunt u uw geautomatiseerde machine learning-experiment configureren. Deze parameters zijn ingesteld door het instantiëren van een `AutoMLConfig` object.
+Er zijn diverse opties, kunt u uw geautomatiseerde machine learning-experiment configureren. Deze parameters zijn ingesteld door het instantiëren van een `AutoMLConfig` object. Zie de [AutoMLConfig klasse](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) voor een volledige lijst met parameters.  
 
 Voorbeelden zijn:
 
@@ -223,6 +226,7 @@ Er zijn drie verschillende `task` parameterwaarden die bepalen van de lijst met 
     * GradientBoosting
     * TensorFlowDNN
     * TensorFlowLinearClassifier
+    * XGBoostClassifier
 * Regressie
     * ElasticNet
     * GradientBoosting
@@ -235,6 +239,7 @@ Er zijn drie verschillende `task` parameterwaarden die bepalen van de lijst met 
     * LightGBM
     * TensorFlowLinearRegressor
     * TensorFlowDNN
+    * XGBoostRegressor
 * Prognose
     * ElasticNet
     * GradientBoosting
@@ -247,8 +252,7 @@ Er zijn drie verschillende `task` parameterwaarden die bepalen van de lijst met 
     * LightGBM
     * TensorFlowLinearRegressor
     * TensorFlowDNN
-
-Zie de [AutoMLConfig klasse](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) voor een volledige lijst met parameters.  
+    * XGBoostRegressor
 
 ## <a name="data-pre-processing-and-featurization"></a>Gegevens vooraf verwerken en parametrisatie
 
@@ -265,6 +269,44 @@ Als u `preprocess=True`, de volgende gegevens voorverwerkingsstappen automatisch
     * Numerieke functies met heel weinig unieke waarden die worden omgezet in categorische functies.
     * Afhankelijk van de kardinaliteit van categorische functies uitvoeren label coderings- of -(hashing) een hot-codering.
 
+## <a name="time-series-forecasting"></a>Time Series-prognoses
+Voor time series prognoses taaktype hebt u aanvullende parameters te definiëren.
+1. time_horizon_name - dit is een vereiste parameter waarin de naam van de kolom zijn gedefinieerd in uw trainingen met datum/tijd gegevensreeks. 
+1. max_horizon - Hiermee definieert u de hoeveelheid tijd die u wilt om te voorspellen op basis van de periodiciteit van de trainingsgegevens. Zo hebt u trainingsgegevens met dagelijkse tijd korrels, definieert u hoe ver uit in de dagen die u wilt dat het model te trainen voor.
+1. grain_column_names - Hiermee definieert u de naam van de kolommen die afzonderlijke time series-gegevens in uw trainingsgegevens bevatten. Als u bent verkoopprognoses van een bepaalde merk door store, zou u kolommen store en merk definiëren als uw kolommen tijdsinterval.
+
+Zie het voorbeeld van deze instellingen hieronder wordt gebruikt, laptop-voorbeeld is beschikbaar [hier](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
+
+```python
+# Setting Store and Brand as grains for training.
+grain_column_names = ['Store', 'Brand']
+nseries = data.groupby(grain_column_names).ngroups
+
+# View the number of time series data with defined grains
+print('Data contains {0} individual time-series.'.format(nseries))
+```
+
+```python
+time_series_settings = {
+    'time_column_name': time_column_name,
+    'grain_column_names': grain_column_names,
+    'drop_column_names': ['logQuantity'],
+    'max_horizon': n_test_periods
+}
+
+automl_config = AutoMLConfig(task='forecasting',
+                             debug_log='automl_oj_sales_errors.log',
+                             primary_metric='normalized_root_mean_squared_error',
+                             iterations=10,
+                             X=X_train,
+                             y=y_train,
+                             n_cross_validations=5,
+                             enable_ensembling=False,
+                             path=project_folder,
+                             verbosity=logging.INFO,
+                             **time_series_settings)
+```
+
 ## <a name="run-experiment"></a>Experiment uit te voeren
 
 Het experiment uitvoeren en het genereren van een model verzenden. Geeft de `AutoMLConfig` naar de `submit` methode voor het genereren van het model.
@@ -277,6 +319,13 @@ run = experiment.submit(automl_config, show_output=True)
 >Afhankelijkheden zijn geïnstalleerd op een nieuwe virtuele machine.  Het kan maximaal 10 minuten duren voordat uitvoer wordt weergegeven.
 >Instellen van `show_output` naar `True` resulteert in de uitvoer wordt weergegeven op de console.
 
+## <a name="exit-criteria"></a>Afsluitcriteria 
+Er enkele opties kunt u definiëren voor het voltooien van uw experiment.
+1. Er zijn geen Criteria - als u niet dat een definieert afsluiten parameters die het experiment wordt voortgezet totdat er geen verdere voortgang is gemaakt op uw primaire metrische gegevens. 
+1. Nummer van iteraties - definieert u het aantal iteraties voor het experiment om uit te voeren. U kunt optioneel iteration_timeout_minutes voor het definiëren van een tijdslimiet in minuten per elke herhaling toevoegen.
+1. Afgesloten na een tijdsduur - experiment_timeout_minutes gebruiken in de instellingen die u kunt opgeven hoe lang in minuten moet een experiment blijven uitvoeren.
+1. Sluit af nadat een score is bereikt - met behulp van experiment_exit_score die kunt u de experiement voltooid zodra een score op basis van uw primaire meetwaarde is bereikt.
+
 
 ## <a name="explore-model-metrics"></a>Model metrische gegevens verkennen
 U kunt uw resultaten weergeven in een widget of een inline als u zich in een notitieblok. Zie [bijhouden en evalueren van modellen](how-to-track-experiments.md#view-run-details) voor meer informatie.
@@ -285,7 +334,7 @@ U kunt uw resultaten weergeven in een widget of een inline als u zich in een not
 ### <a name="classification-metrics"></a>Classificatie metrische gegevens
 De volgende metrische gegevens worden opgeslagen in elke iteratie van een classificatietaak.
 
-|Primaire metrische gegevens|Description|Berekening|Extra Parameters
+|Gegevens|Description|Berekening|Extra Parameters
 --|--|--|--|
 AUC_Macro| AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Macro is het rekenkundige gemiddelde van de AUC voor elke categorie.  | [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | gemiddelde = "macro"|
 AUC_Micro| AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Micro wordt wereldwijd berekend door het echt positieven en fout-positieven van elke klasse te combineren| [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | gemiddelde = "micro"|
@@ -311,7 +360,7 @@ weighted_accuracy|Gewogen nauwkeurigheid is nauwkeurigheid waarin het gewicht ge
 ### <a name="regression-and-forecasting-metrics"></a>Regressie worden gevolgd en voorspeld metrische gegevens
 De volgende metrische gegevens worden opgeslagen in elke iteratie een regressie of prognoses taak.
 
-|Primaire metrische gegevens|Description|Berekening|Extra Parameters
+|Gegevens|Description|Berekening|Extra Parameters
 --|--|--|--|
 explained_variance|Uitgelegd afwijking is de verhouding die een wiskundige model gebruikersaccounts voor de variant van een bepaalde verzameling. Het is dat het percentage variantie van de oorspronkelijke gegevens om de afwijking van de fouten te verlagen. Wanneer het gemiddelde van de fouten 0 is, is het gelijk aan de afwijking van uitgelegd.|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Geen|
 r2_score|R2 is de coëfficiënt bepalen of de procent vermindering in gekwadrateerde fouten ten opzichte van een basislijn-model dat u het gemiddelde weergeeft. Wanneer het gemiddelde van de fouten 0 is, is het gelijk aan de afwijking van uitgelegd.|[Berekening](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Geen|

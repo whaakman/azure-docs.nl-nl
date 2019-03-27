@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 051c9cb0c6c1af121a1bdd1f553ef124f980b49d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d17d7c9d7b57e6ca040e4f81c9665789c8bc26e2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977148"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483247"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Overzicht van Azure Virtual Machine Agent
 De Microsoft Azure Virtual Machine Agent (VM-Agent) is een veilige, lichte proces waarmee tussenkomst van de virtuele machine (VM) met de Azure-Infrastructuurcontroller wordt beheerd. De VM-Agent heeft een primaire rol bij het inschakelen en uitvoeren van de virtuele machine van Azure-extensies. VM-extensies inschakelen na de implementatie-configuratie van virtuele machine, zoals het installeren en configureren van software. VM-extensies worden ook recovery functies zoals het opnieuw instellen van het beheerderswachtwoord van een virtuele machine inschakelen. Zonder de Azure VM-Agent kunnen geen VM-extensies worden uitgevoerd.
@@ -80,7 +80,7 @@ Get-AzVM
 
 Het volgende verkorte voorbeeld uitvoer toont de *ProvisionVMAgent* eigenschap genest in *OSProfile*. Deze eigenschap kan worden gebruikt om te bepalen als de VM-agent is geïmplementeerd op de virtuele machine:
 
-```PowerShell
+```powershell
 OSProfile                  :
   ComputerName             : myVM
   AdminUsername            : myUserName
@@ -91,7 +91,7 @@ OSProfile                  :
 
 Het volgende script kan worden gebruikt om terug te keren een beknopte lijst met namen van de virtuele machine en de status van de VM-Agent:
 
-```PowerShell
+```powershell
 $vms = Get-AzVM
 
 foreach ($vm in $vms) {

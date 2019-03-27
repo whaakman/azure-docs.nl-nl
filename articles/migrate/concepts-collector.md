@@ -4,15 +4,15 @@ description: Bevat informatie over het Collector-apparaat in Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315297"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498414"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -150,6 +150,9 @@ vCenter Server | TCP 443 | De Collector moet in staat om te communiceren met de 
 RDP | TCP 3389 |
 
 ## <a name="collected-metadata"></a>Verzamelde metagegevens
+
+> [!NOTE]
+> Metagegevens die zijn gedetecteerd door de Azure Migrate collector-apparaat wordt gebruikt om u te helpen de juiste grootte uw toepassingen bij het migreren naar Azure, Azure-geschiktheid analyse, afhankelijkheidsanalyse van de toepassing en kosten planning uitvoeren. Microsoft gebruikt deze gegevens ten opzichte van een licentie nalevingscontroles niet.
 
 Het collector-apparaat wordt de volgende metagegevens van de configuratie voor elke virtuele machine gedetecteerd. De configuratiegegevens voor de virtuele machines zijn beschikbaar een uur nadat u de detectie begint.
 

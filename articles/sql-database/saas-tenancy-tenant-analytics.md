@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 9f88314bbf507dc3b4e282532acfa079c2a63cce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0be39aaf5526ea288764fc72d6c498cca2d659b7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890539"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481685"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Cross-tenant-analytics met behulp van data - app met één tenant opgehaald
  
@@ -91,7 +91,7 @@ In de volgende stappen uit, implementeert u de store analytics, met de naam **te
 2. Stel de variabele $DemoScenario in het script moet overeenkomen met uw eigen keuze aan analytics store:
     - Met SQL-database zonder columnstore is, stelt **$DemoScenario** = **2**
     - Voor het gebruik van SQL-database met kolommen store, stel **$DemoScenario** = **3**  
-3. Druk op **F5** de demoscript uit te voeren (die roept de *implementeren TenantAnalytics<XX>.ps1* script) waarmee wordt gemaakt van de tenant analytics-store. 
+3. Druk op **F5** de demoscript uit te voeren (die roept de *implementeren TenantAnalytics\<XX > .ps1* script) waarmee wordt gemaakt van de tenant analytics-store. 
 
 Nu dat u hebt de toepassing is geïmplementeerd en ingevuld interessante gegevens van de tenant, [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) om verbinding te **tenants1-dpt -&lt;gebruiker&gt;**  en **catalogus-dpt -&lt;gebruiker&gt;**  servers met behulp van aanmelding = *developer*, wachtwoord = *P\@ssword1*. Zie de [inleidende zelfstudie](saas-dbpertenant-wingtip-app-overview.md) voor meer informatie.
 
@@ -120,7 +120,7 @@ Voordat u doorgaat, zorg ervoor dat u de taak-account en de jobaccount-database 
 
 1. In SSMS verbinding maken met de **jobaccount** database in de catalogus-dpt -&lt;gebruiker&gt;.
 2. Open in SSMS, *...\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
-3. Wijzig de @User variabele aan de bovenkant van het script vervangen <User> met de gebruikerswaarde tijdens de implementatie van de Wingtip SaaS-app gebruikt.
+3. Wijzig de @User variabele aan de bovenkant van het script vervangen `<User>` met de gebruikerswaarde tijdens de implementatie van de Wingtip SaaS-app gebruikt.
 4. Druk op **F5** om uit te voeren van het script dat wordt gemaakt van de twee doelgroepen.
 
 ### <a name="extract-raw-data-from-all-tenants"></a>Onbewerkte gegevens ophalen uit alle tenants
@@ -134,7 +134,7 @@ Elke taak de gegevens worden uitgepakt en wordt het in het archief van analytics
 
 1. In SSMS verbinding maken met de **jobaccount** database in de catalogus-dpt -&lt;gebruiker&gt; server.
 2. Open in SSMS, *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
-3. Wijzigen @User aan de bovenkant van het script en vervang <User> met de naam van de gebruiker die wordt gebruikt tijdens de implementatie van de Wingtip SaaS-app 
+3. Wijzigen @User aan de bovenkant van het script en vervang `<User>` met de naam van de gebruiker die wordt gebruikt tijdens de implementatie van de Wingtip SaaS-app 
 4. Druk op F5 om uit te voeren van het script dat wordt gemaakt en voert de taak die tickets en klanten gegevens uit elke tenantdatabase ophaalt. De taak slaat de gegevens in het archief van analytics.
 5. Query uitvoeren op de tabel TicketsRawData in de database tenantanalytics, om ervoor te zorgen dat de tabel worden ingevuld met gegevens van de tickets van alle tenants.
 

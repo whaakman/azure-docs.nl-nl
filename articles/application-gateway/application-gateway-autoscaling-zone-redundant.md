@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 9929b09280cea56a5fadcd4d0d9aba5b851f326e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7d1c5bc54d909d1a948123839d95e1ee1158a5c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544033"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444824"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisch schalen en zoneredundante toepassingsgateway (openbare Preview)
 
@@ -29,6 +29,29 @@ Application Gateway en Web Application Firewall (WAF) zijn nu beschikbaar in ope
 > De SKU met automatisch schalen en zone-redundantie voor toepassingsgateways is momenteel in openbare preview. Deze preview wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. De reden hiervoor is dat bepaalde functies mogelijk niet worden ondersteund of beperkte mogelijkheden hebben. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+
+## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Vergelijking van functies tussen SKU v1 en v2-SKU
+
+De volgende tabel vergelijkt de functies die beschikbaar zijn met elke SKU.
+
+|                                                   | V1-SKU   | v2-SKU   |
+| ------------------------------------------------- | -------- | -------- |
+| Automatisch schalen                                       |          | &#x2713; |
+| Zoneredundantie                                   |          | &#x2713; |
+| &nbsp;Statische VIP&nbsp;&nbsp;                      |          | &#x2713; |
+| URL-gebaseerde routering                                 | &#x2713; | &#x2713; |
+| Hosting van meerdere sites                             | &#x2713; | &#x2713; |
+| Omleiden van verkeer                               | &#x2713; | &#x2713; |
+| Web Application Firewall (WAF)                    | &#x2713; | &#x2713; |
+| SSL-beëindiging (Secure Sockets Layer)            | &#x2713; | &#x2713; |
+| End-to-end SSL-versleuteling                         | &#x2713; | &#x2713; |
+| Sessieaffiniteit                                  | &#x2713; | &#x2713; |
+| Aangepaste foutpagina's                                | &#x2713; | &#x2713; |
+| Herschrijf de headers van HTTP (S)                           |          | &#x2713; |
+| Ondersteuning voor WebSocket                                 | &#x2713; | &#x2713; |
+| Ondersteuning voor HTTP/2                                    | &#x2713; | &#x2713; |
+| Verwerkingsstop voor verbindingen                               | &#x2713; | &#x2713; |
+| Azure Kubernetes Service (AKS) ingangscontroller |          | &#x2713; |
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
@@ -48,7 +71,7 @@ Er zijn geen kosten tijdens Preview-versie. U wordt gefactureerd voor andere res
 |NSG voor binnenkomende poortbereik| -65200 tot en met 65535 voor Standard_v2 SKU<br>-65503 tot 65534 voor standaard-SKU.<br>Zie voor meer informatie de [Veelgestelde vragen over](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Prestatielogboeken in Azure diagnostics|Wordt niet ondersteund.<br>Metrische gegevens van Azure moet worden gebruikt.|
 |Billing|Er is momenteel geen facturering.|
-|FIPS-modus, WebSocket|Deze worden momenteel niet ondersteund.|
+|FIPS-modus|Deze worden momenteel niet ondersteund.|
 |Alleen ILB-modus|Dit wordt momenteel niet ondersteund. Openbare en samen ILB-modus wordt ondersteund.|
 |Integratie van het netwerk controleren|Niet ondersteund in de openbare Preview.|
 

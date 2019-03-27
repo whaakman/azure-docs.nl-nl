@@ -3,7 +3,7 @@ title: Een Linux Service Fabric-cluster maken in Azure | Microsoft Docs
 description: Informatie over hoe u een Linux Service Fabric-cluster implementeert in een bestaand virtueel Azure-netwerk met behulp van Azure CLI.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 780f87924bcd25f0485bfed1b9640915b7d8e1d3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 890f7c207b373781c55e4261a58505d849298d82
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309466"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499145"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Een Linux Service Fabric-cluster implementeren in een virtueel Azure-netwerk
 
@@ -34,6 +34,7 @@ Voordat u begint:
 * Installeer de [Service Fabric CLI](service-fabric-cli.md)
 * Installeer de [Azure CLI](/cli/azure/install-azure-cli)
 * Lees voor meer van de belangrijkste concepten van clusters [overzicht van Azure-clusters](service-fabric-azure-clusters-overview.md)
+* [Plan en bereid](service-fabric-cluster-azure-deployment-preparation.md) voor de implementatie van een productie-cluster.
 
 Met de volgende procedures wordt er een Service Fabric-cluster met zeven knooppunten gemaakt. Gebruik de [Azure-prijscalculator](https://azure.microsoft.com/pricing/calculator/) om de kosten te berekenen voor het uitvoeren van een Service Fabric-cluster in Azure.
 
@@ -98,7 +99,7 @@ In het parameterbestand [AzureDeploy.Parameters][parameters] worden veel waarden
 
 Stel vervolgens de netwerktopologie in en implementeer het Service Fabric-cluster. De Resource Manager-sjabloon [AzureDeploy.json][template] maakt een virtueel netwerk (VNET) en een subnet voor Service Fabric. De sjabloon implementeert ook een cluster met certificaatbeveiliging ingeschakeld.  Gebruik voor productieclusters een certificaat van een certificeringsinstantie (CA) als clustercertificaat. Een zelfondertekend certificaat kan worden gebruikt om testclusters te beveiligen.
 
-De sjabloon in dit artikel implementeert een cluster dat gebruik maakt van de certificaatvingerafdruk van het voor het identificeren van het clustercertificaat.  Er zijn geen twee certificaten kunnen dezelfde vingerafdruk, waardoor Certificaatbeheer moeilijker hebben. Schakelen tussen een geïmplementeerd cluster vanuit vingerafdrukken voor certificaten naar het gebruik van gewone namen voor certificaten maakt het beheer van certificaten veel eenvoudiger.  Lees [Cluster wijzigen naar certificaatbeheer met gewone namen](service-fabric-cluster-change-cert-thumbprint-to-cn.md) voor informatie over het bijwerken van het cluster voor het gebruik van gewone namen voor certificaten voor het beheren van certificaten.
+De sjabloon in dit artikel implementeert een cluster dat gebruik maakt van de certificaatvingerafdruk van het voor het identificeren van het clustercertificaat.  Geen twee certificaten kunnen dezelfde vingerafdruk hebben, waardoor certificaatbeheer moeilijker wordt. Schakelen tussen een geïmplementeerd cluster vanuit vingerafdrukken voor certificaten naar het gebruik van gewone namen voor certificaten maakt het beheer van certificaten veel eenvoudiger.  Lees [Cluster wijzigen naar certificaatbeheer met gewone namen](service-fabric-cluster-change-cert-thumbprint-to-cn.md) voor informatie over het bijwerken van het cluster voor het gebruik van gewone namen voor certificaten voor het beheren van certificaten.
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Een cluster maken met behulp van een bestaand certificaat
 
@@ -165,7 +166,7 @@ Als u niet meteen verdergaat met het volgende artikel, is het wellicht een goed 
 
 Meer informatie over het [een Cluster schalen](service-fabric-tutorial-scale-cluster.md).
 
-De sjabloon in dit artikel implementeert een cluster dat gebruik maakt van de certificaatvingerafdruk van het voor het identificeren van het clustercertificaat.  Er zijn geen twee certificaten kunnen dezelfde vingerafdruk, waardoor Certificaatbeheer moeilijker hebben. Schakelen tussen een geïmplementeerd cluster vanuit vingerafdrukken voor certificaten naar het gebruik van gewone namen voor certificaten maakt het beheer van certificaten veel eenvoudiger.  Lees [Cluster wijzigen naar certificaatbeheer met gewone namen](service-fabric-cluster-change-cert-thumbprint-to-cn.md) voor informatie over het bijwerken van het cluster voor het gebruik van gewone namen voor certificaten voor het beheren van certificaten.
+De sjabloon in dit artikel implementeert een cluster dat gebruik maakt van de certificaatvingerafdruk van het voor het identificeren van het clustercertificaat.  Geen twee certificaten kunnen dezelfde vingerafdruk hebben, waardoor certificaatbeheer moeilijker wordt. Schakelen tussen een geïmplementeerd cluster vanuit vingerafdrukken voor certificaten naar het gebruik van gewone namen voor certificaten maakt het beheer van certificaten veel eenvoudiger.  Lees [Cluster wijzigen naar certificaatbeheer met gewone namen](service-fabric-cluster-change-cert-thumbprint-to-cn.md) voor informatie over het bijwerken van het cluster voor het gebruik van gewone namen voor certificaten voor het beheren van certificaten.
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json

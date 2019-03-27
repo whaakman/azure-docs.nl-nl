@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8502ab3257bc1d121e0440ba765dfd19a6722cec
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3be702d1f75b0a96e22ea03602c924be580b0968
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311965"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499247"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Wachtwoordbeveiliging in Azure AD implementeren
 
@@ -36,7 +36,7 @@ Nadat de functie voor een redelijke termijn in de controlemodus gestart is, kunt
 
 ## <a name="deployment-requirements"></a>Vereisten voor de implementatie
 
-* Alle domeincontrollers die aan de DC-Agent service voor Windows Server 2012 moet worden uitgevoerd in Azure AD wachtwoord protection is geïnstalleerd of hoger.
+* Alle domeincontrollers die aan de DC-Agent service voor Windows Server 2012 moet worden uitgevoerd in Azure AD wachtwoord protection is geïnstalleerd of hoger. Deze vereiste betekent niet dat het Active Directory-domein of forest ook op Windows Server 2012-domein of forest functionele niveau zijn moet. Zoals vermeld in [ontwerpprincipes](concept-password-ban-bad-on-premises.md#design-principles), is er geen minimale DFL of FFL vereist voor een van beide de DC-agent of proxy software om uit te voeren.
 * Alle machines die aan de proxy service voor Windows Server 2012 R2 moet worden uitgevoerd in Azure AD wachtwoord protection is geïnstalleerd of hoger.
 * Alle computers waarop de Azure AD-wachtwoord beveiliging Proxy-service wordt geïnstalleerd, moeten .NET 4.7 geïnstalleerd hebben.
   .NET 4.7 moet al zijn geïnstalleerd op een volledig bijgewerkte Windows-Server. Als dit niet het geval is, downloaden en uitvoeren van het installatieprogramma gevonden op [het .NET Framework 4.7 offline-installatieprogramma voor Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
@@ -85,7 +85,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
 1. Open een PowerShell-venster als beheerder.
    * De proxy-wachtwoord virussoftware bevat een nieuwe PowerShell-module *AzureADPasswordProtection*. De volgende stappen uit verschillende cmdlets uitvoeren vanuit deze PowerShell-module. Als volgt te werk om de nieuwe module te importeren:
 
-      ```PowerShell
+      ```powershell
       Import-Module AzureADPasswordProtection
       ```
 
@@ -106,7 +106,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
 
      * Modus voor interactieve verificatie:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
         > [!NOTE]
@@ -114,7 +114,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
 
      * Apparaat-code-verificatiemodus:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
@@ -123,7 +123,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
 
      * Op de achtergrond (op basis van wachtwoorden)-verificatiemodus:
 
-        ```PowerShell
+        ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionProxy -AzureCredential $globalAdminCredentials
         ```
@@ -146,7 +146,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
 
      * Modus voor interactieve verificatie:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
         > [!NOTE]
@@ -154,7 +154,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
 
      * Apparaat-code-verificatiemodus:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
@@ -162,7 +162,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
         U kunt vervolgens authenticatie voltooien door de weergegeven instructies te volgen op een ander apparaat.
 
      * Op de achtergrond (op basis van wachtwoorden)-verificatiemodus:
-        ```PowerShell
+        ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
         ```
@@ -221,7 +221,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
 1. Optioneel: Configureer de proxy-service voor wachtwoordbeveiliging om op een specifieke poort te luisteren.
    * De DC-agentsoftware hiervoor op de domeincontrollers maakt gebruik van RPC via TCP om te communiceren met de proxy-service. Standaard luistert de proxy-service op alle beschikbare dynamische RPC-eindpunt. Maar u kunt de service om te luisteren naar een specifieke TCP-poort, configureren, indien dit noodzakelijk is vanwege de netwerktopologie of firewall-vereisten in uw omgeving.
       * <a id="static" /></a>Gebruik voor het configureren van de service moet worden uitgevoerd in een statische poort de `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
 
@@ -229,7 +229,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
          > U moet stoppen en opnieuw starten van de service voor deze wijzigingen worden doorgevoerd.
 
       * Gebruik dezelfde procedure voor het configureren van de service moet worden uitgevoerd in een dynamische poort, maar ingesteld *StaticPort* op nul:
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
 
@@ -241,7 +241,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
 
    * Om te vragen voor de huidige configuratie van de service, gebruikt u de `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet:
 
-      ```PowerShell
+      ```powershell
       Get-AzureADPasswordProtectionProxyConfiguration | fl
 
       ServiceName : AzureADPasswordProtectionProxy

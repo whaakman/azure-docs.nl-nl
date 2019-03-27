@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: e1dd3953925d4907617295fbc14a1a4e042213e1
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: b975b34c638db812d3809bf50d1eccbb651028b5
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309604"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448919"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Gegevens kopiëren van Azure Data Lake Storage Gen1 naar Gen2 met Azure Data Factory
 
@@ -38,9 +38,10 @@ In dit artikel leest u hoe u het hulpprogramma Copy Data van Data Factory gegeve
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
-1. Selecteer in het menu links **nieuw** > **gegevens en analyses** > **Data Factory**:
+1. Selecteer in het menu links **een resource maken** > **gegevens en analyses** > **Data Factory**:
    
-   ![Een nieuwe gegevensfactory maken](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory-menu.png)
+   ![Selectie van Data Factory in het deelvenster Nieuw](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. In de **nieuwe data factory** pagina, geef waarden op voor de velden die worden weergegeven in de volgende afbeelding: 
       
    ![De pagina Nieuwe data factory](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
@@ -48,7 +49,7 @@ In dit artikel leest u hoe u het hulpprogramma Copy Data van Data Factory gegeve
     * **Naam**: Voer een unieke naam op voor uw Azure-gegevensfactory. Als u de foutmelding ' naam Data factory \"LoadADLSDemo\" is niet beschikbaar, "Voer een andere naam voor de data factory. Bijvoorbeeld, kunt u de naam van de  _**uwnaam**_**ADFTutorialDataFactory**. Probeer het opnieuw maken van de data factory. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
     * **Abonnement**: Selecteer uw Azure-abonnement waarin u wilt maken van de data factory. 
     * **Resourcegroep**: Selecteer een bestaande resourcegroep in de vervolgkeuzelijst of Selecteer de **nieuw** optie en voer de naam van een resourcegroep. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-    * **Versie**: Selecteer **V2**.
+    * **Version**: Selecteer **V2**.
     * **Locatie**: Selecteer de locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven die worden gebruikt door data factory, kunnen zich in andere locaties of regio's. 
 
 3. Selecteer **Maken**.

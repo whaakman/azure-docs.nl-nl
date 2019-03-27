@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: afe71953e9917ccf274742124d59cb790f15521b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 790a8b74f437fe8fd7b8660c2ac9d208328b487f
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414130"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445225"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Zelfstudie: Een VPN-gateway maken en beheren met behulp van PowerShell
 
@@ -118,7 +118,7 @@ Nadat het maken van de gateway is voltooid, kunt u een verbinding maken tussen u
 
 ## <a name="view-the-gateway-public-ip-address"></a>Het openbare IP-adres van de gateway weergeven
 
-Als u de naam van het openbare IP-adres weet, gebruikt u [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azurermps-6.8.1) om het openbare IP-adres weer te geven dat is toegewezen aan de gateway.
+Als u de naam van het openbare IP-adres weet, gebruikt u [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) om het openbare IP-adres weer te geven dat is toegewezen aan de gateway.
 
 Als er een time-out optreedt voor uw sessie, kopieert u de netwerkparameters uit het begin van deze zelfstudie naar de nieuwe sessie en gaat u verder.
 

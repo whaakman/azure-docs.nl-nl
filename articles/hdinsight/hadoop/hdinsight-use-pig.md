@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 3f4f99a37718fac3ae4baa14553290d63c7bce63
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 2b0f3a4394267a808b6e6e0a73abfaf1e698ff1c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653965"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445027"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Apache Pig gebruiken met Apache Hadoop op HDInsight
 
@@ -94,7 +94,7 @@ HDInsight uitvoeren Pig Latin-taken met behulp van een aantal methoden. Gebruik 
 | **Gebruik deze** als u wilt dat... | ...an **interactieve** shell | ...**batch** verwerken | ...door dit **cluster-besturingssysteem** | ...from dit **client** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X of Windows |
-| [CURL](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux of Windows |Linux, Unix, Mac OS X of Windows |
+| [Curl](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux of Windows |Linux, Unix, Mac OS X of Windows |
 | [.NET-SDK voor Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux of Windows |Windows (voorlopig) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux of Windows |Windows |
 
@@ -107,7 +107,7 @@ U kunt SQL Server Integration Services (SSIS) gebruiken een Pig-taak uit te voer
 
 * [Azure HDInsight Pig-taak][pigtask]
 
-* [Azure-abonnement Connection Manager][connectionmanager]
+* [Azure Subscription Connection Manager][connectionmanager]
 
 Meer informatie over het Azure Feature Pack voor SSIS [hier][ssispack].
 
@@ -117,7 +117,7 @@ Nu hebt u geleerd hoe u Pig gebruiken met HDInsight, gebruiken de volgende koppe
 * [Gegevens uploaden naar HDInsight](../hdinsight-upload-data.md)
 * [Apache Hive gebruiken met HDInsight][hdinsight-use-hive]
 * [Apache Sqoop gebruiken met HDInsight](hdinsight-use-sqoop.md)
-* [Apache Oozie gebruiken met HDInsight](../hdinsight-use-oozie.md)
+* [Apache Oozie gebruiken met HDInsight](../hdinsight-use-oozie-linux-mac.md)
 * [MapReduce-taken gebruiken met HDInsight][hdinsight-use-mapreduce]
 
 [apachepig-home]: https://pig.apache.org/

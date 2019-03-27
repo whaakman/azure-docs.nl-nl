@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: b9e9c0b141987f8af563944c8eee216b8218846c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352883"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447239"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Stapsgewijs gegevens uit een Azure SQL-database laden in Azure Blob Storage
 In deze zelfstudie maakt u een Azure-gegevensfactory met een pijplijn waarmee deltagegevens uit een tabel in een Azure SQL-database worden geladen naar Azure Blob Storage. 
@@ -150,9 +150,10 @@ END
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
 1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
-1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
+1. Selecteer in het menu links **een resource maken** > **gegevens en analyses** > **Data Factory**: 
    
-   ![Nieuw -> DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
+   ![Selectie van Data Factory in het deelvenster Nieuw](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. Voer op de pagina **Nieuwe gegevensfactory** **ADFTutorialBulkCopyDF** in als de **naam**. 
       
      ![De pagina Nieuwe data factory](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
@@ -305,10 +306,10 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
     1. Selecteer **usp_write_watermark** als naam van de **opgeslagen procedure**. 
     2. Als u waarden wilt opgeven voor de opgeslagen-procedureparameters, klikt u op **Importparameter** en voert u de volgende waarden voor de parameters in: 
 
-        | Naam | Type | Waarde | 
+        | Name | Type | Value | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | Tekenreeks | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Opgeslagen-procedureactiviteit - instellingen voor de opgeslagen procedure](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Klik in de werkbalk op **Valideren** om de instellingen voor de pijplijn te valideren. Controleer of er geen validatiefouten zijn. Klik om >> om het venster **Pijplijnvalidatierapport** te sluiten.   

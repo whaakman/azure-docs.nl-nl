@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 53cde81ed5df97c4cb6d8360c9bb639b8bdabe20
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 198fedbbd1e97dcda15c9124109e50664f58f8e7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818133"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487886"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Azure App Service-App klonen met behulp van PowerShell
 
@@ -35,31 +35,31 @@ Scenario: Een bestaande app in de regio Zuid-centraal VS, en u wilt klonen van d
 
 Naam van de resourcegroep met de bron-app weet, kunt u de volgende PowerShell-opdracht kunt gebruiken om op te halen van de bronapp-gegevens (in dit geval met de naam `source-webapp`):
 
-```PowerShell
+```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
 Voor het maken van een nieuwe App Service-Plan, kunt u `New-AzAppServicePlan` opdracht zoals in het volgende voorbeeld
 
-```PowerShell
+```powershell
 New-AzAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
 ```
 
 Met behulp van de `New-AzWebApp` opdracht, kunt u de nieuwe app maken in de regio Noord-centraal VS, en deze koppelen aan een bestaande premium-laag van App Service-Plan. U kunt bovendien gebruik dezelfde resourcegroep bevinden als de bron-app of een nieuwe resourcegroep definiëren, zoals wordt weergegeven in de volgende opdracht uit:
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
 Als u wilt een bestaande app, met inbegrip van alle bijbehorende implementatiesites klonen, moet u gebruiken de `IncludeSourceWebAppSlots` parameter. De volgende PowerShell-opdracht ziet u het gebruik van deze parameter met de `New-AzWebApp` opdracht:
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
 ```
 
 Als u wilt klonen van een bestaande app binnen dezelfde regio, moet u een nieuwe resourcegroep maken en een nieuwe appservice plannen in dezelfde regio en vervolgens de volgende PowerShell-opdracht gebruiken om het te klonen:
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
 ```
 
@@ -68,13 +68,13 @@ Scenario: Een bestaande app in de regio Zuid-centraal VS, en u wilt klonen van d
 
 Naam van de resourcegroep met de bron-app weet, kunt u de volgende PowerShell-opdracht kunt gebruiken om op te halen van de bronapp-gegevens (in dit geval met de naam `source-webapp`):
 
-```PowerShell
+```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
 De naam van de as-omgeving en de naam van de resourcegroep die deel uitmaakt van de as-omgeving te weten, kunt u de nieuwe app in de bestaande as-omgeving, zoals wordt weergegeven in de volgende opdracht uit:
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
 ```
 
@@ -85,13 +85,13 @@ Scenario: Wilt u een bestaande implementatiesleuf van een app in een nieuwe app 
 
 Naam van de resourcegroep met de bron-app weet, kunt u de volgende PowerShell-opdracht kunt gebruiken voor de bron-app-site-informatie (in dit geval met de naam `source-appslot`) gekoppeld aan `source-app`:
 
-```PowerShell
+```powershell
 $srcappslot = Get-AzWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-app -Slot source-appslot
 ```
 
 De volgende opdracht ziet u een kloon van de bron-app in een nieuwe app maken:
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-app -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcappslot
 ```
 
@@ -101,20 +101,20 @@ Het maken van apps voor meerdere regio's en het configureren van Azure Traffic M
 ### <a name="creating-a-new-traffic-manager-profile-while-cloning-an-app"></a>Het maken van een nieuw Traffic Manager-profiel terwijl het klonen van een app
 Scenario: Wilt u een app naar een andere regio klonen tijdens het configureren van een Azure Resource Manager traffic manager-profiel dat beide apps bevat. De volgende opdracht ziet u het maken van een kloon van de bron-app in een nieuwe app tijdens het configureren van een nieuw Traffic Manager-profiel:
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 ```
 
 ### <a name="adding-new-cloned-app-to-an-existing-traffic-manager-profile"></a>App aan een bestaand Traffic Manager-profiel toe te voegen nieuwe gekloond
 Scenario: U al een Azure Resource Manager traffic manager-profiel hebt en wilt toevoegen van zowel apps als eindpunten. Om dit te doen, moet u eerst voor het samenstellen van de bestaande traffic manager-profiel-id. U moet de abonnements-ID, naam van de resourcegroep en de bestaande profielnaam voor traffic manager.
 
-```PowerShell
+```powershell
 $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
 ```
 
 Nadat er de traffic Manager-ID, de volgende opdracht wordt uitgelegd hoe u een kloon van de bron-app in een nieuwe app terwijl u ze toevoegt aan een bestaand Traffic Manager-profiel:
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 ```
 

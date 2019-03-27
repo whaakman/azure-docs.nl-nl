@@ -14,15 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5af778ff23c9b3f9188ac2e7b38767e4693f64a1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f09e5dc2b4e15d0364b3091af82c9db2eb6833c7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107613"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500148"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regels voor aangepaste waarschuwingen in Azure Security Center (Preview)
 In dit document leest u hoe u regels voor aangepaste waarschuwingen maakt in Azure Security Center.
+
+## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Buiten gebruik stellen van waarschuwing aangepaste regels in Azure Security Center
+
+> [!NOTE]
+> En met 30 juni 2019, wordt de ervaring voor aangepaste waarschuwingen beëindigd vanwege buiten gebruik stellen van de service van Azure Monitor klassieke waarschuwingen. In de periode totdat afschaffing gebruikers kunnen bestaande regels voor aangepaste waarschuwingen bewerken, maar is niet mogelijk om toe te voegen nieuwe labels.
+> Gebruikers wordt aangeraden om in te schakelen [Azure Sentinel](https://azure.microsoft.com/en-us/services/azure-sentinel/) waarschuwingen voor activiteitenlogboeken met één muisklik onboarding om automatisch te migreren van hun bestaande waarschuwingen en nieuwe te maken, of hun waarschuwingen met Azure Monitor ook opnieuw maken.
+>                                      
+> Als u wilt behouden van uw bestaande waarschuwingen en migreren naar Azure Sentinel, kunt u [start Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Selecteer de werkruimte waar uw aangepaste waarschuwingen worden opgeslagen als eerste stap en selecteer vervolgens het menu-item 'Analytics' voor het migreren van uw waarschuwingen automatisch.
+>
+> ** Opmerking of aangepaste waarschuwingen migratie naar Azure Sentinel eenmalig worden gemigreerd van uw aangepaste waarschuwingen in de geselecteerde werkruimte is. Nadat de migratie is voltooid, zijn de aangepaste waarschuwingen voor de geselecteerde werkruimte niet meer toegankelijk zijn via Azure Security Center.
+> Aangepaste waarschuwingen via [zoeken](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/search-queries) of [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) instructies query's worden niet ondersteund in Azure Sentinel en worden niet gemigreerd. Bewerk deze waarschuwingen voordat u de migratie uitvoert.
+>
+> Voor het opnieuw maken van uw waarschuwingen met behulp van Azure Monitor-logboekwaarschuwingen, Zie: [Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) voor instructies over het maken van waarschuwingen. Voor een algemeen overzicht van waarschuwingen in Azure Monitor, klikt u op [hier](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-unified-log).
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>Wat zijn regels voor aangepaste waarschuwingen in Security Center?
 

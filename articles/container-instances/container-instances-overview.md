@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/30/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8362ae5e9647c023ff950a363f9ba7bfde37fdb6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863318"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499553"
 ---
 # <a name="what-is-azure-container-instances"></a>Wat is Azure Container Instances?
 
@@ -52,10 +52,11 @@ Sommige functies zijn momenteel beperkt tot Linux-containers:
 
 * Meerdere containers per containergroep
 * Volume koppelen ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [geheim](container-instances-volume-secret.md))
+* [Resource-metrische gegevens over gebruik](container-instances-monitor.md) met Azure Monitor
 * [Virtueel netwerkimplementatie](container-instances-vnet.md) (preview)
 * [GPU-resources](container-instances-gpu.md) (preview)
 
-Azure Container Instances biedt ondersteuning voor Windows Server 2016-installatiekopieën op basis van Long-Term Servicing-kanaal (LTSC)-versies. SAC-releases (Semi-Annual-kanaal) van Windows, zoals 1709 en 1803 worden niet ondersteund.
+Azure Container Instances ondersteunt momenteel installatiekopieën van Windows Server 2016 op basis van Long-Term Servicing-kanaal (LTSC)-versies. SAC-releases (Semi-Annual-kanaal) van Windows, zoals 1709 en 1803 worden niet ondersteund.
 
 ## <a name="co-scheduled-groups"></a>Samen geplande groepen
 

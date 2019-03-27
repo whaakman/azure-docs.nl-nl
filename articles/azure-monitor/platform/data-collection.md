@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: b65613de8f11aa36c398d15176541ac43a3dba69
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e6d953841e5c22c21640f874ecad942f8db76ad1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770217"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448885"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Door gegevens te controleren die worden verzameld door Azure Monitor
 [Azure Monitor](../overview.md) is een service waarmee u uw toepassingen en de resources die ze erop dat vertrouwen bewaken. Centrale op deze functie is opslag van Telemetrie en andere gegevens van bewaakte resources. Dit artikel bevat een volledige beschrijving van hoe deze gegevens worden opgeslagen en gebruikt door Azure Monitor.
@@ -102,7 +102,7 @@ Taken die u met metrische gegevens uitvoeren kunt omvatten het volgende:
 - Metrische gegevens voor een route naar Logboeken om metrische gegevens, samen met logboekgegevens te analyseren en voor het opslaan van de metrische waarden voor langer dan 93 dagen. 
 - Metrische gegevens naar Stream een [Event Hub](stream-monitoring-data-event-hubs.md) te routeren [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) of met externe systemen.
 - [Archief](../../azure-monitor/learn/tutorial-archive-data.md) de geschiedenis van prestaties of de status van uw resource voor naleving, controle- of offline rapportagedoeleinden.
-- Toegang tot metrische waarden van een opdrachtregel of met behulp van aangepaste toepassing [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) of [REST-API](rest-api-walkthrough.md).
+- Toegang tot metrische waarden van een opdrachtregel of met behulp van aangepaste toepassing [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights/) of [REST-API](rest-api-walkthrough.md).
 
 
 
@@ -146,7 +146,7 @@ Taken die u met Logboeken uitvoeren kunt omvatten het volgende:
 - Configureren van een [waarschuwingsregel](alerts-log.md) die duurt of verzendt een melding [automatische actie](action-groups.md) wanneer de resultaten van de query overeenkomt met een bepaalde resultaat.
 - Een werkstroom op basis van het logboek gegevens met bouwen [Logic Apps](~/articles/logic-apps/index.yml).
 - De resultaten van een query voor het exporteren [Power BI](powerbi.md) verschillende visualisaties gebruiken en delen met gebruikers buiten Azure.
-- Toegang tot metrische waarden van een opdrachtregel of met behulp van aangepaste toepassing [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) of [REST-API](https://dev.loganalytics.io/).
+- Toegang tot metrische waarden van een opdrachtregel of met behulp van aangepaste toepassing [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) of [REST-API](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Logboekgegevens weergeven
 Alle gegevens in Azure Monitor is opgehaald met een [logboekquery](../log-query/log-query-overview.md) die zijn geschreven met de [Kusto-querytaal](../log-query/get-started-queries.md), waarmee u snel ophalen, samenvoegen en analyseren van verzamelde gegevens. Gebruik [Log Analytics](../log-query/portals.md) te schrijven en testen van query's in Azure portal. U kunt interactief werken met resultaten of vastmaken aan een dashboard om deze met andere visualisaties weer te geven. U kunt ook Logboeken kunt ophalen met behulp van de [Azure REST-API bewaken](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).

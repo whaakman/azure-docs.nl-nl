@@ -3,7 +3,7 @@ title: Stoppen met het gebruik van de beheerde identiteit VM-extensie en start m
 description: Voor stap door stapsgewijze instructies voor het gebruik van de VM-extensie stoppen en starten met behulp van Azure Instance Metadata Service (IMDS) voor verificatie.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: priyamo
-ms.openlocfilehash: c29eb22f2606fc44cfd7d948f2c363cb51c811dd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.author: markvi
+ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227615"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498329"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Stoppen met het gebruik van de virtuele machine beheerde identiteiten-extensie en start met behulp van Azure Instance Metadata Service
 
@@ -196,7 +196,7 @@ Er zijn enkele belangrijke beperkingen voor het gebruik van de extensie van de v
 
 ## <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-De [Azure Instance Metadata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/instance-metadata-service) is een REST-eindpunt waarmee u informatie over het uitvoeren van de virtuele machine-instanties die kunnen worden gebruikt om te beheren en configureren uw virtuele machines. Het eindpunt is beschikbaar op een bekende niet-routeerbare IP-adres (`169.254.169.254`) die kunnen worden gebruikt alleen de virtuele machine.
+De [Azure Instance Metadata Service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) is een REST-eindpunt waarmee u informatie over het uitvoeren van de virtuele machine-instanties die kunnen worden gebruikt om te beheren en configureren uw virtuele machines. Het eindpunt is beschikbaar op een bekende niet-routeerbare IP-adres (`169.254.169.254`) die kunnen worden gebruikt alleen de virtuele machine.
 
 Er zijn diverse voordelen voor het gebruik van Azure IMDS naar aanvragen van tokens. 
 

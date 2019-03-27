@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: 33984b084023a3a2c31b6f6a0a7fc8a95c2d7689
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ca5dd4a7c12a68a549f081ad62db1736c9c68837
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242850"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483162"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Azure Monitor-logboeken voor een cluster instellen
 
@@ -97,9 +97,9 @@ Azure Resource Manager detecteert dat met deze opdracht een update voor een best
 
 ## <a name="deploy-azure-monitor-logs-with-azure-powershell"></a>Implementeren van Azure Monitor-logboeken met Azure PowerShell
 
-U kunt uw log analytics-resource via PowerShell ook implementeren met behulp van de `New-AzureRmOperationalInsightsWorkspace` opdracht. Als u wilt deze methode gebruikt, zorg ervoor dat u hebt geïnstalleerd [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.1.1). Gebruik dit script voor een nieuwe Log Analytics-werkruimte maken en de Service Fabric-oplossing aan toevoegen: 
+U kunt uw log analytics-resource via PowerShell ook implementeren met behulp van de `New-AzureRmOperationalInsightsWorkspace` opdracht. Als u wilt deze methode gebruikt, zorg ervoor dat u hebt geïnstalleerd [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Gebruik dit script voor een nieuwe Log Analytics-werkruimte maken en de Service Fabric-oplossing aan toevoegen: 
 
-```PowerShell
+```powershell
 
 $SubID = "<subscription ID>"
 $ResourceGroup = "<Resource group name>"

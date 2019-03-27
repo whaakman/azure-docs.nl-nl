@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 143d14df3019aa0c5c5dd798f656f95c8ebde372
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731097"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485149"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Met behulp van de oplossing Serviceoverzicht in Azure
-Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met Service Map, kunt u uw servers weergeven in de manier waarop u kunt ze beschouwen: als onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen, binnenkomend en uitgaand verbinding latentie en poorten in alle via TCP verbonden architectuur, waarvoor geen configuratie vereist dan de installatie van een agent.
+Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met Servicetoewijzing kun u uw servers weergeven op de manier waarop ze hun waarde voor u hebben: als onderling verbonden systemen die essentiële services leveren. Servicetoewijzing toont verbindingen tussen servers, processen, latentie van binnenkomende en uitgaande verbindingen en poorten voor elke via TCP verbonden architectuur. Na installatie van een agent is er geen verdere configuratie vereist.
 
 Dit artikel beschrijft de details van onboarding- en het gebruik van Service-toewijzing. Zie voor meer informatie over het configureren van Serviceoverzicht en onboarding agents [oplossing Serviceoverzicht configureren in Azure]( service-map-configure.md).
 
@@ -374,50 +374,50 @@ Records met een type *ServiceMapComputer_CL* inventarisgegevens voor servers met
 
 | Eigenschap | Description |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | De unieke id voor een computer in de werkruimte |
-| ResourceName_s | De unieke id voor een computer in de werkruimte |
-| ComputerName_s | De FQDN-naam van de computer |
-| Ipv4Addresses_s | Een lijst van de server IPv4-adressen |
-| Ipv6Addresses_s | Een lijst van de server IPv6-adressen |
-| DnsNames_s | Een matrix van DNS-namen |
-| OperatingSystemFamily_s | Windows- of Linux |
-| OperatingSystemFullName_s | De volledige naam van het besturingssysteem  |
-| Bitness_s | De bitness van de machine (32-bits of 64-bits)  |
-| PhysicalMemory_d | Het fysieke geheugen in MB |
-| Cpus_d | Het aantal CPU 's |
-| CpuSpeed_d | De CPU-snelheid in MHz|
-| VirtualizationState_s | *unknown*, *physical*, *virtual*, *hypervisor* |
-| VirtualMachineType_s | *Hyper-v*, *vmware*, enzovoort |
-| VirtualMachineNativeMachineId_g | De ID van de VM zoals die door de hypervisor toegewezen |
-| VirtualMachineName_s | De naam van de virtuele machine |
-| BootTime_t | De opstarttijd |
+| `Type` | *ServiceMapComputer_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | De unieke id voor een computer in de werkruimte |
+| `ResourceName_s` | De unieke id voor een computer in de werkruimte |
+| `ComputerName_s` | De FQDN-naam van de computer |
+| `Ipv4Addresses_s` | Een lijst van de server IPv4-adressen |
+| `Ipv6Addresses_s` | Een lijst van de server IPv6-adressen |
+| `DnsNames_s` | Een matrix van DNS-namen |
+| `OperatingSystemFamily_s` | Windows- of Linux |
+| `OperatingSystemFullName_s` | De volledige naam van het besturingssysteem  |
+| `Bitness_s` | De bitness van de machine (32-bits of 64-bits)  |
+| `PhysicalMemory_d` | Het fysieke geheugen in MB |
+| `Cpus_d` | Het aantal CPU 's |
+| `CpuSpeed_d` | De CPU-snelheid in MHz|
+| `VirtualizationState_s` | *unknown*, *physical*, *virtual*, *hypervisor* |
+| `VirtualMachineType_s` | *Hyper-v*, *vmware*, enzovoort |
+| `VirtualMachineNativeMachineId_g` | De ID van de VM zoals die door de hypervisor toegewezen |
+| `VirtualMachineName_s` | De naam van de virtuele machine |
+| `BootTime_t` | De opstarttijd |
 
 ### <a name="servicemapprocesscl-type-records"></a>Type ServiceMapProcess_CL records
 Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens voor TCP verbonden processen op servers met Service Map-agents. Deze records hebben de eigenschappen in de volgende tabel:
 
 | Eigenschap | Description |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | De unieke id voor een proces in de werkruimte |
-| ResourceName_s | De unieke id voor een proces binnen de computer waarop deze wordt uitgevoerd|
-| MachineResourceName_s | De naam van de resource van de machine |
-| ExecutableName_s | De naam van het uitvoerbare bestand van proces |
-| StartTime_t | De begintijd van de proces-groep |
-| FirstPid_d | De eerste PID in de procesgroep |
-| Description_s | De beschrijving van proces |
-| CompanyName_s | De naam van het bedrijf |
-| InternalName_s | De interne naam |
-| ProductName_s | De naam van het product |
-| ProductVersion_s | De versie van het product |
-| FileVersion_s | Versie van het bestand |
-| CommandLine_s | Vanaf de opdrachtregel |
-| ExecutablePath _s | Het pad naar het uitvoerbare bestand |
-| WorkingDirectory_s | De werkmap |
-| Gebruikersnaam | Het account waaronder het proces wordt uitgevoerd |
-| UserDomain | Het domein waarin het proces wordt uitgevoerd |
+| `Type | *ServiceMapProcess_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | De unieke id voor een proces in de werkruimte |
+| `ResourceName_s` | De unieke id voor een proces binnen de computer waarop deze wordt uitgevoerd|
+| `MachineResourceName_s` | De naam van de resource van de machine |
+| `ExecutableName_s` | De naam van het uitvoerbare bestand van proces |
+| `StartTime_t` | De begintijd van de proces-groep |
+| `FirstPid_d` | De eerste PID in de procesgroep |
+| `Description_s` | De beschrijving van proces |
+| `CompanyName_s` | De naam van het bedrijf |
+| `InternalName_s` | De interne naam |
+| `ProductName_s` | De naam van het product |
+| `ProductVersion_s` | De versie van het product |
+| `FileVersion_s` | Versie van het bestand |
+| `CommandLine_s` | Vanaf de opdrachtregel |
+| `ExecutablePath _s` | Het pad naar het uitvoerbare bestand |
+| `WorkingDirectory_s` | De werkmap |
+| `UserName` | Het account waaronder het proces wordt uitgevoerd |
+| `UserDomain` | Het domein waarin het proces wordt uitgevoerd |
 
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 

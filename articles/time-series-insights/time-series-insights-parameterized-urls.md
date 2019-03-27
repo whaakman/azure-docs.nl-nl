@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 305d81d6614d1f0654e0d96b10f1759498683003
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558461"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487869"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Een aangepaste weergave delen via een geparameteriseerde URL
 
@@ -81,13 +81,13 @@ De parameter multiChartStack=<true/false> maakt stapeling in het diagram mogelij
 - multiChartStack=false&multiChartSameScale=true 
   - Stapelen moet zijn ingeschakeld om dezelfde schaling van de Y-as te gebruiken voor verschillende onderdelen.  Standaard is false ingesteld, dus als u true doorgeeft, wordt deze functionaliteit ingeschakeld.  
   
-Met timeBucketUnit =<Unit>& timeBucketSize =<integer> kunt u de interval van de schuifregelaar aanpassen voor een gedetailleerdere of een soepelere, meer geaggregeerde weergave van het diagram.  
-- timeBucketUnit=<Unit>&timeBucketSize=<integer>
+De `timeBucketUnit=<Unit>&timeBucketSize=<integer>` kunt u aan te passen de interval van de schuifregelaar voor een gedetailleerdere of een soepelere, meer geaggregeerde weergave van de grafiek.  
+- `timeBucketUnit=<Unit>&timeBucketSize=<integer>`
   - Eenheden = dagen, uren, minuten, seconden en milliseconden.  Gebruik altijd een hoofdletter voor de eenheid.
   - Definieer het aantal eenheden door het gewenste gehele getal voor timeBucketSize op te geven.  Rond af naar 7 dagen.  
   
-Met de parameter timezoneoffset is =<integer> kunt u instellen dat de tijdzone in het diagram kan worden weergegeven als een UTC-verschuiving.  
-  - timezoneOffset=-<integer>
+De `timezoneOffset=<integer>` parameter kunt u instellen dat de tijdzone voor de grafiek om te worden weergegeven als een UTC-verschuiving.  
+  - `timezoneOffset=-<integer>`
     - Het gehele getal is altijd in milliseconden.  
     - Deze functionaliteit verschilt enigszins van wat wordt ingeschakeld in de TSI-verkenner, waarin u lokaal (browsertijd) of UTC kunt kiezen.  
  

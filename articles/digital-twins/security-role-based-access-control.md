@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: lyrana
-ms.openlocfilehash: 94217deace731f6650db8003d2e1e3c6c63dcb66
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 2d437f3fd96c38bebac52d6bb9dacf2c01b20a3c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121019"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443678"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Op rollen gebaseerd toegangsbeheer in Azure, digitale dubbels
 
@@ -67,7 +67,7 @@ De roldefinitie van een is een verzameling van machtigingen en andere kenmerken 
 De volgende artikelen voor referentie-documentatie wordt beschreven:
 
 - Hoe u [Query of de object-ID voor een gebruiker](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
-- Hoe u [verkrijgen van de object-ID voor een service-principal](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1).
+- Hoe u [verkrijgen van de object-ID voor een service-principal](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
 - Hoe u [de object-ID ophalen voor een Azure AD-tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## <a name="role-assignments"></a>Roltoewijzingen

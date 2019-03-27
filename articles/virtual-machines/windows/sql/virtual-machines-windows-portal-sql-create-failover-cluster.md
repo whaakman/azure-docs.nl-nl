@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 19910782142bf78c10dda155f40a5c41bdd64958
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842750"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486315"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configureren van SQL Server-failovercluster-exemplaar op Azure Virtual Machines
 
@@ -178,7 +178,7 @@ Met deze voorwaarden is voldaan, kunt u doorgaan met het ontwikkelen van uw fail
    | Doel | TCP-poort | Opmerkingen
    | ------ | ------ | ------
    | SQL Server | 1433 | Normale poort voor het standaardexemplaren van SQL Server. Als u een installatiekopie uit de galerie gebruikt, worden deze poort wordt automatisch geopend.
-   | Test | 59999 | Alle open TCP-poort. Configureer de load balancer in een latere stap [statustest](#probe) en het cluster moet deze poort gebruiken.  
+   | Statustest | 59999 | Alle open TCP-poort. Configureer de load balancer in een latere stap [statustest](#probe) en het cluster moet deze poort gebruiken.  
 
 1. Opslag toevoegen aan de virtuele machine. Zie voor gedetailleerde informatie [opslag toevoegen](../disks-types.md).
 
@@ -222,7 +222,7 @@ De volgende stap is het configureren van het failover-cluster met S2D. In deze s
 
    Als u wilt de functie Failover Clustering installeren met PowerShell, voer het volgende script uit een PowerShell-sessie op een van de virtuele machines.
 
-   ```PowerShell
+   ```powershell
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
@@ -253,7 +253,7 @@ De **Wizard een configuratie valideren** de validatietests wordt uitgevoerd.
 
 Voor het valideren van het cluster met PowerShell, voer het volgende script uit een PowerShell-sessie op een van de virtuele machines.
 
-   ```PowerShell
+   ```powershell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
@@ -270,7 +270,7 @@ Als u wilt het failovercluster maakt, hebt u het volgende nodig:
 
 De volgende PowerShell maakt u een failover-cluster. Het script met de namen van de knooppunten (de namen van de virtuele machine) en een beschikbaar IP-adres van de Azure-VNET-update:
 
-```PowerShell
+```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
@@ -294,7 +294,7 @@ De schijven voor S2D moeten worden leeggemaakt en alle partities of andere gegev
 
    Met behulp van de volgende PowerShell kunt opslagruimten direct.  
 
-   ```PowerShell
+   ```powershell
    Enable-ClusterS2D
    ```
 
@@ -304,7 +304,7 @@ De schijven voor S2D moeten worden leeggemaakt en alle partities of andere gegev
 
    Een van de functies van S2D is dat deze automatisch wordt een opslaggroep gemaakt wanneer u deze inschakelt. U bent nu klaar om te maken van een volume. De PowerShell-commandlet `New-Volume` automatiseert het aanmaakproces volume, met inbegrip van opmaak, toe te voegen aan het cluster en het maken van een gedeeld clustervolume (CSV). Het volgende voorbeeld wordt een 800 GB (Gigabyte) CSV.
 
-   ```PowerShell
+   ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
    ```   
 
@@ -431,7 +431,7 @@ Stel de parameter van cluster test poort in PowerShell.
 
 Update variabelen in het volgende script met waarden van uw omgeving om in te stellen de parameter cluster test poort. Verwijder de punthaken `<>` van het script. 
 
-   ```PowerShell
+   ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
    $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
    $ILBIP = "<n.n.n.n>" 
@@ -457,7 +457,7 @@ In het vorige script, stel de waarden voor uw omgeving. De volgende lijst beschr
 
 Na het instellen van de cluster-test ziet u alle van de clusterparameters in PowerShell. Voer het volgende script uit:
 
-   ```PowerShell
+   ```powershell
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 

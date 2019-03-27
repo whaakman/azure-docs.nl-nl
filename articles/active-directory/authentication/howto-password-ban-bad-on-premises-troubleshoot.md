@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f214688aa1e33bd58e8460baab75228d7c5d1a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 12cbd9bebf001eb902147175c89b5d7ce49e8449
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317235"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487223"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD-wachtwoordbeveiliging oplossen
 
@@ -105,7 +105,7 @@ Als de software voor de beveiliging van Azure AD wachtwoord en opschonen alle ge
 2. Verwijder de DC-agentsoftware van alle domeincontrollers. Deze stap **vereist** opnieuw worden opgestart.
 3. Verwijder handmatig alle service connection points van Proxy in elke naamgevingscontext voor domein. De locatie van deze objecten kan worden gedetecteerd met de volgende Active Directory PowerShell-opdracht:
 
-   ```PowerShell
+   ```powershell
    $scp = "serviceConnectionPoint"
    $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
@@ -117,7 +117,7 @@ Als de software voor de beveiliging van Azure AD wachtwoord en opschonen alle ge
 
 4. Verwijder handmatig alle connection points van de DC-agent in elke naamgevingscontext voor domein. Er kan ook een deze objecten per domeincontroller in het forest, afhankelijk van hoe ver de software is geïmplementeerd. De locatie van het object kan worden gedetecteerd met de volgende Active Directory PowerShell-opdracht:
 
-   ```PowerShell
+   ```powershell
    $scp = "serviceConnectionPoint"
    $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
@@ -129,7 +129,7 @@ Als de software voor de beveiliging van Azure AD wachtwoord en opschonen alle ge
 
 5. Verwijder handmatig de status van de configuratie van de op forestniveau. De status van het forest-configuratie wordt bijgehouden in een container in de configuratienaamgevingscontext van Active Directory. Het kan worden gedetecteerd en verwijderd als volgt:
 
-   ```PowerShell
+   ```powershell
    $passwordProtectionConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
    Remove-ADObject -Recursive $passwordProtectionConfigContainer
    ```

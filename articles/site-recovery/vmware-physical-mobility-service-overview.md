@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 6b06ee7710dedbf2283fc4e365b767aa57547e7c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 0e5e4e207542a74ef3fc5ff7fc78431b7956e54c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417816"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449256"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Over de Mobility-service voor VMware-VM's en fysieke servers
 
@@ -43,7 +43,8 @@ Tijdens de push-installatie van de mobility-agent, de volgende stappen worden ui
 2. Nadat de agent is gekopieerd naar zijn de controles op vereisten uitgevoerd op de server. Installatie mislukt als een of meer van de [vereisten](vmware-physical-azure-support-matrix.md) niet wordt voldaan. Als aan alle vereisten wordt voldaan, wordt de installatie wordt geactiveerd.
 3. Azure Site Recovery VSS-provider is op de server als onderdeel van de installatie van de Mobility-agent geïnstalleerd. Deze provider wordt gebruikt voor het genereren van de toepassing consistente punten. Als de installatie van de VSS-provider is mislukt, wordt deze stap overgeslagen en agentinstallatie wordt voortgezet.
 4. Als installatie van de agent is gelukt, maar de installatie van de VSS-provider is mislukt, wordt de status van taak gemarkeerd als 'Waarschuwing'. Dit heeft geen invloed op crash-consistentie punten generatie.
-    a. Raadpleeg voor het genereren van de toepassing consistente punten [onze richtlijnen voor het](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) voor het handmatig voltooien van de installatie van Site Recovery VSS-provider.
+
+    a. Raadpleeg voor het genereren van de toepassing consistente punten [onze richtlijnen voor het](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) voor het handmatig voltooien van de installatie van Site Recovery VSS-provider. </br>
     b.  Als u niet dat consistent punten van de toepassing wenst moet worden gegenereerd, [het replicatiebeleid wijzigen](vmware-azure-set-up-replication.md#create-a-policy) toepassing consistente punten uitschakelen.
 
 ### <a name="before-922-versions"></a>Voordat u 9.22 versies

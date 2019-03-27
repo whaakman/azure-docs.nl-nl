@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 371347149b3c3f14784ba62365cfd6224ded99d1
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 2553dccaa57e5340bf36bbccdf7826d242716300
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407331"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472630"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Over het instellen van een filterfunctie voor geografische WAF-beleid voor de voordeur
 In deze zelfstudie leert u hoe u Azure PowerShell gebruikt om een voorbeeldbeleid voor geofilters te maken en het beleid koppelt aan uw bestaande front-endhost van uw Front Door. In dit voorbeeldbeleid voor geofilters worden aanvragen uit alle andere landen, met uitzondering van de Verenigde Staten, geblokkeerd.
@@ -30,7 +30,7 @@ Voordat u begint met het instellen van een beleid voor geo-filter, instellen van
 ### <a name="set-up-your-powershell-environment"></a>Uw PowerShell-omgeving instellen
 Azure PowerShell voorziet in een set van cmdlets die gebruikmaken van het [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)-model om uw Azure-resources te beheren. 
 
-U kunt [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) op uw lokale computer installeren en in elke PowerShell-sessie gebruiken. Volg de instructies op de pagina, meld u aan met uw Azure-referenties, en installeer Az PowerShell-module.
+U kunt [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) op uw lokale computer installeren en in elke PowerShell-sessie gebruiken. Volg de instructies op de pagina, meld u aan met uw Azure-referenties, en installeer de Az-PowerShell-module.
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Verbinding maken met Azure met een interactieve dialoogvenster voor aanmelding bij
 ```
@@ -42,6 +42,11 @@ Zorg ervoor dat u de huidige versie van PowerShellGet geïnstalleerd hebben. Voe
 ```
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
+#### <a name="install-azfrontdoor-module"></a>Az.FrontDoor-module installeren 
+
+```
+Install-Module -Name Az.FrontDoor -AllowPrerelease
+```
 
 ### <a name="create-a-front-door-profile"></a>Maak een profiel van de voordeur
 Een profiel voordeur maken door de instructies die worden beschreven in [Quick Start: Maak een profiel voordeur](quickstart-create-front-door.md).

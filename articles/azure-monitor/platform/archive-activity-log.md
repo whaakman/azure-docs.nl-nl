@@ -8,20 +8,15 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 5328173090bce3e3adf51a1503e18c8da5532b0e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b6009471048232b52020e4bef6272ed8cb1bd35b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310896"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497751"
 ---
 # <a name="archive-the-azure-activity-log"></a>De Azure-activiteitenlogboek archiveren
 In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets of platformoverschrijdende CLI gebruiken kunt om te archiveren uw [ **Azure Activity Log** ](../../azure-monitor/platform/activity-logs-overview.md) in een storage-account. Deze optie is handig als u wilt behouden het activiteitenlogboek is langer dan 90 dagen (met volledige controle over het bewaarbeleid) voor de controle-, statische analysis- of back-up opgenomen. Als u hoeft alleen de gebeurtenissen worden bewaard gedurende 90 dagen of minder u niet hoeft om in te stellen archiveren naar een opslagaccount, omdat gebeurtenissen in activiteitenlogboeken worden bewaard in de Azure-platform voor 90 dagen zonder in te schakelen archivering.
-
-> [!WARNING]
-> De indeling van de logboekgegevens in het opslagaccount wordt op 1 november 2018 gewijzigd in JSON Lines. [Raadpleeg dit artikel voor een beschrijving van de gevolgen en hoe u uw tooling kunt bijwerken om de nieuwe indeling te verwerken. ](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u begint, moet u [een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md) waarop kunt u uw activiteitenlogboek archiveren. Het is raadzaam dat u gebruik niet een bestaand opslagaccount met andere, niet-bewaking gegevens opgeslagen in het zodat u toegang tot bewakingsgegevens beter kunt beheren. Echter, als u ook diagnostische logboeken en metrische gegevens naar een opslagaccount archiveren weet, het wellicht verstandig dat opslagaccount voor uw activiteitenlogboek ook gebruiken om te houden van alle gegevens op een centrale locatie. Het storage-account heeft geen zich in hetzelfde abonnement bevinden als het abonnement dat Logboeken verzendt, zolang de gebruiker die de instelling configureert de juiste RBAC-toegang voor beide abonnementen heeft.
@@ -65,7 +60,7 @@ Als u wilt archiveren het activiteitenlogboek via een van de onderstaande method
 | --- | --- | --- |
 | StorageAccountId |Ja |Resource-ID van het Opslagaccount waarin u de activiteitenlogboeken worden opgeslagen. |
 | Locaties |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen in activiteitenlogboeken. U vindt een lijst van alle regio's voor uw abonnement met `(Get-AzLocation).Location`. |
-| RetentionInDays |Nee |Het aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
+| RetentionInDays |Nee |Het aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 365. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
 | Categorieën |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en actie.  Als niet is opgegeven, klikt u vervolgens alle mogelijke waarden wordt aangenomen dat |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Archiveren van het activiteitenlogboek via CLI
@@ -79,7 +74,7 @@ Als u wilt archiveren het activiteitenlogboek via een van de onderstaande method
 | naam |Ja |Naam van uw logboekprofiel. |
 | storage-account-id |Ja |Resource-ID van het Opslagaccount waarin u de activiteitenlogboeken worden opgeslagen. |
 | locaties |Ja |Spaties gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen in activiteitenlogboeken. U vindt een lijst van alle regio's voor uw abonnement met `az account list-locations --query [].name`. |
-| dagen |Ja |Het aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. De waarde nul worden de logboeken voor onbepaalde tijd opgeslagen (permanent).  Als nul is, klikt u vervolgens de ingeschakelde parameter moet worden ingesteld op true. |
+| dagen |Ja |Het aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 365. De waarde nul worden de logboeken voor onbepaalde tijd opgeslagen (permanent).  Als nul is, klikt u vervolgens de ingeschakelde parameter moet worden ingesteld op true. |
 |ingeschakeld | Ja |Waar of ONWAAR.  Gebruikt voor het in- of uitschakelen van het bewaarbeleid.  Indien waar, moet de parameter dagen een waarde die groter is dan 0 zijn.
 | categorieën |Ja |Spaties gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en actie. |
 

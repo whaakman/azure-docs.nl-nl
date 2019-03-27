@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: fd5ae375dff80c8b1179d2fd73566d07c5861e4a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a9de0f0021d92c59c44e85f0487cc9a08b6a3099
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000339"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497359"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Server voor MATLAB gedistribueerde Computing-clusters maken in Azure-VM 's
 Microsoft Azure virtual machines gebruiken om een of meer MATLAB gedistribueerde Computing Server-clusters voor het uitvoeren van uw rekenintensieve parallelle MATLAB-workloads te maken. Uw Server voor MATLAB gedistribueerde Computing-software installeren op een virtuele machine wilt gebruiken als basisinstallatiekopie en een Azure-quickstart-sjabloon of Azure PowerShell-script (beschikbaar op [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) te implementeren en beheren van het cluster. Verbinding maken met het cluster aan uw workloads worden uitgevoerd na de implementatie.
@@ -34,7 +34,7 @@ Met behulp van virtuele machines van Azure, kunt u MATLAB gedistribueerde Comput
 * **Azure PowerShell** -Zie [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) ze deze willen installeren op uw clientcomputer.
 * **Azure-abonnement** -als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/) binnen een paar minuten. Voor grotere clusters, kunt u een abonnement op gebruiksbasis of andere Aankoopopties.
 * **Vcpu-quotum** -moet u mogelijk het vCPU-quotum voor het implementeren van een groot cluster of meer dan één Server voor MATLAB gedistribueerde Computing cluster verhogen. Om een quotum te verhogen [opent u een ondersteuningsaanvraag online klant](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratis.
-* **MATLAB, parallelle Computing-werkset en MATLAB gedistribueerde Computing Server-licenties** -scripts wordt ervan uitgegaan dat de [MathWorks gehost License Manager](https://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) wordt gebruikt voor alle licenties.  
+* **MATLAB, parallelle Computing-werkset en MATLAB gedistribueerde Computing Server-licenties** -scripts wordt ervan uitgegaan dat de [MathWorks gehost License Manager](https://www.mathworks.com/help/install/license-management.html) wordt gebruikt voor alle licenties.  
 * **MATLAB gedistribueerde Computing-serversoftware** -wordt geïnstalleerd op een virtuele machine die wordt gebruikt als de basis VM-installatiekopie voor de cluster-VM's.
 
 ## <a name="high-level-steps"></a>Hoog niveau stappen

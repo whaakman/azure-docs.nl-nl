@@ -4,14 +4,14 @@ description: Biedt een overzicht van bekende problemen in de Azure Migrate-servi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 2b542cc8202b75c0007686e3f0e0d9fbd1ac28c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119170"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482909"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -61,11 +61,11 @@ Als u zich niet aan het evaluatierapport exporteren vanuit de portal, kunt u met
 
    a.    Voer de volgende opdracht in een beheerder Windows PowerShell-venster: ```armclient login```
 
-   Hiermee opent u de Azure-aanmelding pop-upvenster waarin u wilt aanmelden bij Azure.
+        This opens the Azure login pop-up where you need to sign in to Azure.
 
    b.    Voer in het dezelfde PowerShell-venster de volgende opdracht uit om op te halen van de download-URL voor het evaluatierapport (Vervang de URI-parameters met de juiste waarden, voorbeeld-API-hieronder aanvragen)
 
-      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
       Voorbeeld van een aanvraag en de uitvoer:
 
@@ -102,6 +102,9 @@ Gaat u naar de **Essentials** sectie de **overzicht** pagina van het project voo
    - Klik op bestand > implementeren van OVF-sjabloon > Ga naar het ova-bestand en de implementatie te voltooien
 4. Als de implementatie nog steeds mislukt, moet u contact op met ondersteuning voor Azure Migrate.
 
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>Selecteer het Azure kan niet in de cloud in het toestel
+
+Dit is een bekend probleem en een oplossing is beschikbaar voor het probleem. Download de [nieuwste upgrade bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) voor het apparaat en de update het toestel om toe te passen van de oplossing.
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Er is geen collector geen verbinding maken met internet
 

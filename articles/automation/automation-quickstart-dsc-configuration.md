@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 8bb035a02b8ab684bc1efb7accd785518cb151c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a30f9c1a61044c0911a5afc27ad95fc758b4c83e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107607"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449101"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Een virtuele Linux-machine met Desired State Configuration configureren
 
@@ -143,6 +143,6 @@ In deze quickstart hebt u een onboarding uitgevoerd voor een virtuele Linux-mach
 > [Continuous deployment to a VM using DSC and Chocolatey](./automation-dsc-cd-chocolatey.md) (Continue implementatie naar een virtuele machine met behulp van DSC en Chocolatey)
 
 * Zie voor meer informatie over PowerShell Desired State Configuration, [PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/dsc/overview) (Overzicht van PowerShell Desired Configuration).
-* Zie [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0) voor meer informatie over het beheren van Automation DSC vanuit PowerShell.
+* Zie [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/) voor meer informatie over het beheren van Automation DSC vanuit PowerShell.
 * Zie [Forwarding DSC Reporting to Azure Monitor logs](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) (DSC-rapporten doorsturen naar Azure Monitor-logboeken) voor informatie over het doorsturen van DSC-rapporten naar Azure Monitor-logboeken voor rapportage- en waarschuwingsdoeleinden. 
 

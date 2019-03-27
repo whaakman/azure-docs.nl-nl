@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 16455719f05688793e2aee6f10fa00a707d553c0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4fce8eae25942d098bb3f3277938bfaa3dafa00b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469531"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499184"
 ---
 # <a name="interact-with-the-map---mouse-events"></a>In de kaart - muisgebeurtenissen werken
 
@@ -51,7 +51,7 @@ Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 Zie de volgende artikelen voor volledige codevoorbeelden:
 
 > [!div class="nextstepaction"]
-> [Zoekresultaten tonen](./map-search-location.md)
+> [Met behulp van de module Azure Maps Services](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [Voorbeeld-codetabel](https://aka.ms/AzureMapsSamples)

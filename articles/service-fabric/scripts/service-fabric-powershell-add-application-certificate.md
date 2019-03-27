@@ -3,7 +3,7 @@ title: 'Azure PowerShell-voorbeeldscript: toepassingscertificaat toevoegen aan e
 description: 'Azure PowerShell-voorbeeldscript: een toepassingscertificaat toevoegen aan een Service Fabric-cluster.'
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,20 +13,22 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/18/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: be097f88f774df9e4a6429af444c6c742737f4c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: d5e1540a347bb14e7479bc445afa98e220b5475a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598707"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497056"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Een toepassingscertificaat toevoegen aan een Service Fabric-cluster
 
 In dit voorbeeldscript wordt een zelfondertekend certificaat gemaakt in de opgegeven Azure-sleutelkluis en geïnstalleerd op alle knooppunten van het Service Fabric-cluster. Het certificaat kan ook worden gedownload naar een lokale map. De naam van het gedownloade certificaat is dezelfde als de naam van het certificaat in de sleutelkluis. Pas de parameters zo nodig aan.
 
-Installeer zo nodig de Azure PowerShell volgens de instructies in de [Azure PowerShell handleiding](/powershell/azure/overview) en voer vervolgens `Connect-AzureRmAccount` uit om verbinding maken met Azure. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Installeer zo nodig de Azure PowerShell volgens de instructies in de [Azure PowerShell handleiding](/powershell/azure/overview) en voer vervolgens `Connect-AzAccount` uit om verbinding maken met Azure. 
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
@@ -38,7 +40,7 @@ In dit script worden de volgende opdrachten gebruikt: Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) | Voeg een nieuw toepassingscertificaat toe aan de virtuele-machineschaalset waaruit het cluster bestaat.  |
+| [Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) | Voeg een nieuw toepassingscertificaat toe aan de virtuele-machineschaalset waaruit het cluster bestaat.  |
 
 ## <a name="next-steps"></a>Volgende stappen
 

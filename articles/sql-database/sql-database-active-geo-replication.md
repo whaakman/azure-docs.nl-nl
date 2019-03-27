@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 03/26/2019
+ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295246"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498482"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Het maken en gebruiken van actieve geo-replicatie
 
@@ -75,8 +75,11 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
   Een toepassing hebben toegang tot een secundaire database voor alleen-lezen bewerkingen met behulp van de dezelfde of verschillende beveiligings-principals die is gebruikt voor toegang tot de primaire database. De secundaire databases worden uitgevoerd in de modus voor snapshot-isolatie om te controleren of replicatie van de updates van de primaire (log opnieuw afspelen) niet is vertraagd door query's uitgevoerd op de secundaire.
 
-  > [!NOTE]
-  > Het logboek opnieuw afspelen is vertraagd op de secundaire database als er schema-updates op de primaire. De laatste moet een schemavergrendeling op de secundaire database.
+> [!NOTE]
+> Het logboek opnieuw afspelen is vertraagd op de secundaire database als er schema-updates op de primaire. De laatste moet een schemavergrendeling op de secundaire database.
+> [!IMPORTANT]
+> U kunt geo-replicatie gebruiken om te maken van een secundaire database in dezelfde regio als de primaire. U kunt deze secundaire server voor de taakverdeling op een alleen-lezen van workloads in dezelfde regio. Echter een secundaire database in dezelfde regio biedt geen aanvullende fouttolerantie en daarom is geen geschikte failoverdoel voor herstel na noodgevallen. Het biedt ook geen garantie voor avaialability zone isolatie. Gebruik bedrijfskritiek of Premium-servicelaag met [zone-redundante configuratie](sql-database-high-availability.md#zone-redundant-configuration) groeperen avaialability zone isolatie.   
+>
 
 - **Geplande failover**
 

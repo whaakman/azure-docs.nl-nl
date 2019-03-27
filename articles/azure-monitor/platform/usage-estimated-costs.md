@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 1ae35c30e0379ed7a0f1fac16c279651e3bcd8fd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315874"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480536"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Gebruik en geschatte kosten bewaken
 
@@ -138,7 +138,7 @@ isGrandFatherableSubscription optedInDate
 
 Dit abonnement migreren naar het nieuwe prijsmodel uitvoeren:
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -149,7 +149,7 @@ Invoke-AzResourceAction `
 
 Om te bevestigen dat de wijziging voltooid opnieuw uitvoeren is:
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -170,7 +170,7 @@ De optInDate bevat nu een timestamp van wanneer dit abonnement heeft gekozen voo
 
 Als u terugkeren naar het oude prijsmodel wilt, moet u uitvoeren:
 
-```PowerShell
+```powershell
  $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -183,7 +183,7 @@ Als u vervolgens opnieuw uitvoeren van het vorige script waarvoor ``-Action list
 
 Als u meerdere abonnementen, die u wilt migreren die worden gehost in dezelfde tenant hebt, kunt u uw eigen variant met behulp van de onderdelen van de volgende scripts kunt maken:
 
-```PowerShell
+```powershell
 #Query tenant and create an array comprised of all of your tenants subscription ids
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
@@ -192,7 +192,7 @@ $Subscriptions = $Tenant.Id
 
 Als u wilt controleren om te zien of alle abonnementen in uw tenant in aanmerking komen voor het nieuwe prijsmodel, kunt u het volgende uitvoeren:
 
-```PowerShell
+```powershell
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
@@ -206,7 +206,7 @@ Invoke-AzResourceAction `
 
 Het script kan worden verfijnd verder met het maken van een script dat drie matrices worden gegenereerd. Een matrix wordt bestaan uit alle abonnement-id's waarvoor ```isGrandFatherableSubscription``` ingesteld op True en optedInDate heeft momenteel geen waarde. Een tweede reeks abonnementen die momenteel op het nieuwe prijsmodel. En een derde matrix ingevuld met de abonnement-id's in uw tenant die niet in aanmerking komen voor het nieuwe prijsmodel zijn:
 
-```PowerShell
+```powershell
 [System.Collections.ArrayList]$Eligible= @{}
 [System.Collections.ArrayList]$NewPricingEnabled = @{}
 [System.Collections.ArrayList]$NotEligible = @{}
@@ -242,7 +242,7 @@ $Result= Invoke-AzResourceAction `
 
 Nu dat u uw abonnementen onderverdeeld in drie matrices hebt moet u de resultaten zorgvuldig controleren. U wilt maken van een back-up van de inhoud van de matrices, zodat u gemakkelijk kunt terugvallen uw wijzigingen Als u wilt in de toekomst. Als u had besloten, die u wilt converteren van alle in aanmerking komende abonnementen die zijn momenteel op het oude prijsmodel naar het nieuwe prijsmodel die deze taak kan nu worden bewerkstelligd met:
 
-```PowerShell
+```powershell
 Foreach ($id in $Eligible)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"

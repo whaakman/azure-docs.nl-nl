@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: ef97d4e2fd0951e30a725e8f2f9603a73c61f1ca
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 2008ba697665baa0e8cf73564ec31d6267425404
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416112"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446973"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Een Azure Resource Manager-sjabloon implementeren in een Azure Automation-PowerShell-runbook
 
@@ -32,7 +32,7 @@ Voor deze zelfstudie, moet u de volgende items:
 * Azure-abonnement. Als u een nog geen hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [zich registreren voor een gratis account](https://azure.microsoft.com/free/).
 * [Automation-account](automation-sec-configure-azure-runas-account.md) om het runbook te bevatten en te verifiëren voor Azure-resources.  Dit account moet machtigingen hebben om de virtuele machine te starten en stoppen.
 * [Azure Storage-account](../storage/common/storage-create-storage-account.md) waarin u voor het opslaan van de Resource Manager-sjabloon
-* Azure Powershell is geïnstalleerd op een lokale computer. Zie [installeren en configureren van Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.1.0) voor informatie over het ophalen van Azure PowerShell.
+* Azure Powershell is geïnstalleerd op een lokale computer. Zie [installeren en configureren van Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) voor informatie over het ophalen van Azure PowerShell.
 
 ## <a name="create-the-resource-manager-template"></a>Het Resource Manager-sjabloon maken
 
@@ -203,7 +203,7 @@ Publish-AzureRmAutomationRunbook @publishParams
 
 ## <a name="start-the-runbook"></a>Het runbook starten
 
-Nu we het runbook door het aanroepen van starten de [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-4.1.0) cmdlet.
+Nu we het runbook door het aanroepen van starten de [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet.
 
 Zie voor meer informatie over het starten van een runbook in Azure portal [een runbook starten in Azure Automation](automation-starting-a-runbook.md).
 

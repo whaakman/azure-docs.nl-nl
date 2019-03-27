@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a478a9f73edae463a5dace1b1a28180e5d09bdc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6a7e0a27d3cda4193a04467d541f851a9e57fa46
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437731"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446712"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens laden in Azure SQL Data Warehouse met behulp van Azure Data Factory
 
@@ -45,10 +45,11 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
-1. Selecteer in het menu links **nieuw** > **gegevens en analyses** > **Data Factory**: 
+1. Selecteer in het menu links **een resource maken** > **gegevens en analyses** > **Data Factory**: 
    
-   ![Een nieuwe gegevensfactory maken](./media/load-azure-sql-data-warehouse/new-azure-data-factory-menu.png)
-1. In de **nieuwe data factory** pagina, geef waarden op voor de velden die worden weergegeven in de volgende afbeelding:
+   ![Selectie van Data Factory in het deelvenster Nieuw](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
+2. In de **nieuwe data factory** pagina, geef waarden op voor de velden die worden weergegeven in de volgende afbeelding:
       
    ![De pagina Nieuwe data factory](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
@@ -58,8 +59,8 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
     * **Version**: Selecteer **V2**.
     * **Locatie**: Selecteer de locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven die worden gebruikt door data factory, kunnen zich in andere locaties of regio's. Deze gegevensarchieven bevatten Azure Data Lake Store, Azure Storage en Azure SQL Database.
 
-1. Selecteer **Maken**.
-1. Na het aanmaken is voltooid, gaat u naar uw data factory. U ziet de **Data Factory** startpagina zoals wordt weergegeven in de volgende afbeelding:
+3. Selecteer **Maken**.
+4. Na het aanmaken is voltooid, gaat u naar uw data factory. U ziet de **Data Factory** startpagina zoals wordt weergegeven in de volgende afbeelding:
    
    ![Startpagina van de gegevensfactory](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
 

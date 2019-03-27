@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cc5b40b6a800ff185c6c52652435b558fabe091f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e3311aab74f58e3936039393eab76dee12b83ea
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57873883"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496935"
 ---
 # <a name="object-detection"></a>Objectdetectie
 
@@ -97,7 +97,7 @@ Het is belangrijk te weten de beperkingen van objectdetectie zodat u kunt voorko
 
 ## <a name="use-the-api"></a>De API gebruiken
 
-De mogelijkheid voor het detecteren van object maakt deel uit van de [analyseren installatiekopie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. U kunt deze API via een systeemeigen SDK of REST-aanroepen aanroepen. Wanneer u het volledige JSON-antwoord ontvangt, parseren van de tekenreeks voor de inhoud van de `"objects"` sectie.
+De mogelijkheid voor het detecteren van object maakt deel uit van de [analyseren installatiekopie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. U kunt deze API via een systeemeigen SDK of REST-aanroepen aanroepen. Opnemen `Objects` in de **visualFeatures** queryparameter. Vervolgens, wanneer u het volledige JSON-antwoord ontvangt, gewoon parseren van de tekenreeks voor de inhoud van de `"objects"` sectie.
 
 * [Snelstart: Analyseer een afbeelding (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [Snelstart: Analyseer een afbeelding (REST-API)](./quickstarts/csharp-analyze.md)

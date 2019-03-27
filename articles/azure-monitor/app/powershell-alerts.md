@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 1da3b71cbb809c92ba3228676f8a47235829b499
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309533"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481788"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell gebruiken om waarschuwingen in te stellen in Application Insights
 
@@ -41,7 +41,7 @@ Installeer de Azure Powershell-module op de computer waar u de scripts uit te vo
 ## <a name="connect-to-azure"></a>Verbinding maken met Azure
 Open Azure PowerShell en [verbinding maken met uw abonnement](/powershell/azure/overview):
 
-```PowerShell
+```powershell
 
     Add-AzAccount
 ```

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 8faeb06987577d7e0098e3b5047cdde91b1254ae
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 55874d261ac453d559975f25b2272319cdc6a7db
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315228"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448012"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Back-up en herstel in Azure SQL Data Warehouse
 
@@ -44,7 +44,7 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>Door de gebruiker gedefinieerde herstelpunten
 
-Deze functie kunt u handmatig trigger momentopnamen om herstelpunten te maken van uw datawarehouse voor en na grote wijzigingen. Deze functionaliteit zorgt ervoor dat herstelpunten logisch consistent is, waarmee u aanvullende gegevensbeveiliging in het geval van eventuele onderbrekingen van de werkbelasting of gebruikersfouten voor snel hersteltijd. Herstelpunten die door de gebruiker gedefinieerde zijn beschikbaar voor de zeven dagen en worden automatisch verwijderd uit uw naam. U kunt de bewaarperiode van de gebruiker gedefinieerde herstelpunten niet wijzigen. **herstelpunten van de gebruiker gedefinieerde 42** op elk gewenst moment in de tijd worden gegarandeerd, zodat ze moet [verwijderd](https://go.microsoft.com/fwlink/?linkid=875299) voordat het maken van een ander herstelpunt. U kunt momentopnamen voor het maken van herstelpunten door gebruiker gedefinieerde activeren [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) of de Azure-portal.
+Deze functie kunt u handmatig trigger momentopnamen om herstelpunten te maken van uw datawarehouse voor en na grote wijzigingen. Deze functionaliteit zorgt ervoor dat herstelpunten logisch consistent is, waarmee u aanvullende gegevensbeveiliging in het geval van eventuele onderbrekingen van de werkbelasting of gebruikersfouten voor snel hersteltijd. Herstelpunten die door de gebruiker gedefinieerde zijn beschikbaar voor de zeven dagen en worden automatisch verwijderd uit uw naam. U kunt de bewaarperiode van de gebruiker gedefinieerde herstelpunten niet wijzigen. **herstelpunten van de gebruiker gedefinieerde 42** op elk gewenst moment in de tijd worden gegarandeerd, zodat ze moet [verwijderd](https://go.microsoft.com/fwlink/?linkid=875299) voordat het maken van een ander herstelpunt. U kunt momentopnamen voor het maken van herstelpunten door gebruiker gedefinieerde activeren [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint#examples) of de Azure-portal.
 
 > [!NOTE]
 > Als u meer dan zeven dagen herstelpunten nodig hebt, kunt stemmen voor deze mogelijkheid [hier](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). U kunt ook een door de gebruiker gedefinieerde herstelpunt maken en uit het zojuist gemaakte herstelpunt te herstellen naar een nieuwe datawarehouse. Nadat u hebt hersteld, moet u het datawarehouse online zijn en voor onbepaalde tijd om op te slaan van de kosten voor rekenuren kunt onderbreken. De onderbroken database leidt tot opslagkosten voor tegen het tarief van Azure Premium Storage. Als u een actieve kopie van de teruggezette datawarehouse nodig hebt, kunt u hervatten die slechts een paar minuten duurt.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12b8fc2fb8df7fd730e220a3c1b60097ed7748a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 89ad91316da027e399891a7e1b348e66c1d3a4f5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433719"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499893"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen 
 Deze pagina vindt u antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
@@ -113,7 +113,8 @@ Momenteel niet. Deze functie is op ons schema groter. Controleren van uw domein 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Hoe kan ik mijn Azure AD B2C-tenant verwijderen?
 Volg deze stappen voor het verwijderen van uw Azure AD B2C-tenant:
 
-1. Verwijder alle beleidsregels in uw Azure AD B2C-tenant.
+1. Verwijder alle de gebruikersstromen (beleidsregels) in uw Azure AD B2C-tenant.
+1. Verwijder alle toepassingen die u in uw Azure AD B2C-tenant hebt geregistreerd.
 1. Nu aanmelden bij de [Azure-portal](https://portal.azure.com/) als beheerder van het abonnement. (Gebruik de dezelfde werk- of schoolaccount of hetzelfde Microsoft-account die u hebt gebruikt om u te registreren voor Azure.)
 1. Switch voor de Azure AD B2C-tenant die u wilt verwijderen.
 2. Navigeer naar de Active Directory-menu aan de linkerkant.

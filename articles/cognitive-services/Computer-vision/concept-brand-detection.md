@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 7bfda764c418258a7bc555697530214240a5f0d3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: abeca204296bcb3933013f2b7434b8c558f62e50
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734316"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496584"
 ---
 # <a name="brand-detection"></a>Merk-detectie
 
@@ -91,7 +91,8 @@ In sommige gevallen kan haalt het merk detector zowel de installatiekopie van he
 ```
 
 ## <a name="use-the-api"></a>De API gebruiken
-De mogelijkheid voor het detecteren van merk maakt deel uit van de [analyseren installatiekopie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. U kunt deze API via een systeemeigen SDK of REST-aanroepen aanroepen. Wanneer u het volledige JSON-antwoord ontvangt, gewoon parseren van de tekenreeks voor de inhoud van de `"brands"` sectie.
+
+De mogelijkheid voor het detecteren van merk maakt deel uit van de [analyseren installatiekopie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. U kunt deze API via een systeemeigen SDK of REST-aanroepen aanroepen. Opnemen `Brands` in de **visualFeatures** queryparameter. Vervolgens, wanneer u het volledige JSON-antwoord ontvangt, gewoon parseren van de tekenreeks voor de inhoud van de `"brands"` sectie.
 
 * [Snelstart: Analyseer een afbeelding (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [Snelstart: Analyseer een afbeelding (REST-API)](./quickstarts/csharp-analyze.md)

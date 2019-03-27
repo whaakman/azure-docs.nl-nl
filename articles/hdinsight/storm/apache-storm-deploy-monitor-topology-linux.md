@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 5f6708a9c22939395f992c2ac58a7e510b35f763
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 32ad4434db8c2816fe7792b1b851e020021d543a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317269"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447096"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Apache Storm-topologieën op Azure HDInsight implementeren en beheren 
 
@@ -23,7 +23,6 @@ In dit document leert de basisbeginselen van het beheren en controleren van [Apa
 > [!IMPORTANT]  
 > De stappen in dit artikel is een op Linux gebaseerde Storm op HDInsight-cluster vereist. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. 
 >
-> Zie voor meer informatie over de implementatie en controle-topologieën op HDInsight op basis van Windows [implementeren en beheren van Apache Storm-topologieën op HDInsight op basis van Windows](apache-storm-deploy-monitor-topology.md).
 
 
 ## <a name="prerequisites"></a>Vereisten

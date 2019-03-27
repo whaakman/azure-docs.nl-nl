@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 4b3225dd25fee2859a36f98add51fcf612a45c83
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c54b78a24068758fabb0918cfeb7d6516fd1bce5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108888"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487232"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault-firewalls en virtuele netwerken configureren
 
@@ -84,33 +84,33 @@ Dit is het configureren van Key Vault-firewalls en virtuele netwerken met behulp
 1. Installeer de meest recente [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps), en [aanmelden](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 2. Lijst met beschikbare virtual network-regels. Als u niet alle regels voor deze key vault hebt ingesteld, is de lijst niet leeg zijn.
-   ```PowerShell
+   ```powershell
    (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
    ```
 
 3. Service-eindpunt voor Key Vault inschakelen op een bestaand virtueel netwerk en subnet.
-   ```PowerShell
+   ```powershell
    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
    ```
 
 4. Voeg een regel voor een virtueel netwerk en subnet toe.
-   ```PowerShell
+   ```powershell
    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
    ```
 
 5. Toevoegen van een IP-adresbereik van waaruit u verkeer toe te staan.
-   ```PowerShell
+   ```powershell
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
 6. Als deze sleutelkluis moet toegankelijk zijn via een vertrouwde services, stelt u `bypass` naar `AzureServices`.
-   ```PowerShell
+   ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```
 
 7. De netwerkregels inschakelen door het instellen van de standaardactie op `Deny`.
-   ```PowerShell
+   ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 

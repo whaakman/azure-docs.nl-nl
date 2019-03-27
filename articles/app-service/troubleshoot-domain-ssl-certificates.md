@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: b367251e6799031ed96058d21e606446e14636c7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407603"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449131"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Problemen met domein en SSL-certificaat oplossen in Azure App Service
 
@@ -314,7 +314,7 @@ Ja. Wanneer u de blade voor aangepaste domeinen en SSL in Azure portal opent, zi
 
 **Kan ik een domein in één abonnement overbrengen naar een ander abonnement?**
 
-U kunt een domein verplaatsen naar een ander abonnement/resource-groep met de [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) PowerShell-cmdlet.
+U kunt een domein verplaatsen naar een ander abonnement/resource-groep met de [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) PowerShell-cmdlet.
 
 **Hoe kan ik mijn aangepaste domein beheren als ik een Azure App Service-app op dit moment geen?**
 

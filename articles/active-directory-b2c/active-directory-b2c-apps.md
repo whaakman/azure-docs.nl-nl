@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 5324f1ed92ae4513dcd877853cb6fa2f4c7dd8f3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446372"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497955"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typen toepassingen die kunnen worden gebruikt in Active Directory B2C
 
@@ -108,7 +108,7 @@ Voor meer informatie over het beveiligen van een web-API met behulp van Azure AD
 
 Toepassingen die zijn geïnstalleerd op apparaten, zoals toepassingen voor mobiele en desktop, is vaak nodig voor toegang tot back-endservices of web-API's namens gebruikers. U kunt aangepaste ervaringen voor identiteitsbeheer aan uw eigen toepassingen toevoegen en veilig back-endservices aanroepen met behulp van Azure AD B2C en de [OAuth 2.0-autorisatiecodestroom](active-directory-b2c-reference-oauth-code.md).  
 
-In deze stroom voert de toepassing wordt uitgevoerd [beleid](active-directory-b2c-reference-policies.md) en ontvangt een `authorization_code` van Azure AD wanneer de gebruiker het beleid is voltooid. De `authorization_code` vertegenwoordigt van de toepassing toestemming om aan te roepen back-end-services namens de gebruiker die momenteel is aangemeld. De toepassing vervolgens kan uitwisselen de `authorization_code` op de achtergrond voor een `id_token` en een `refresh_token`.  De toepassingen kunnen gebruikmaken van de `id_token` om een back-end-web-API in HTTP-aanvragen te verifiëren. Het `refresh_token` kan ook worden gebruikt om nieuwe `id_token` te verkrijgen wanneer de oudere zijn verlopen.
+In deze stroom voert de toepassing wordt uitgevoerd [beleid](active-directory-b2c-reference-policies.md) en ontvangt een `authorization_code` van Azure AD wanneer de gebruiker het beleid is voltooid. De `authorization_code` vertegenwoordigt van de toepassing toestemming om aan te roepen back-end-services namens de gebruiker die momenteel is aangemeld. De toepassing vervolgens kan uitwisselen de `authorization_code` op de achtergrond voor een `access_token` en een `refresh_token`.  De toepassingen kunnen gebruikmaken van de `access_token` om een back-end-web-API in HTTP-aanvragen te verifiëren. Het `refresh_token` kan ook worden gebruikt om nieuwe `access_token` te verkrijgen wanneer de oudere zijn verlopen.
 
 ## <a name="current-limitations"></a>Huidige beperkingen
 

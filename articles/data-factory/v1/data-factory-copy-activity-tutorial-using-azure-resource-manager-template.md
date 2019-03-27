@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8e104d67d5a16dde3229380a78a06f9c4a87f19c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 95a29a458fc9333515ef29aaaed9a47e93cf3a8d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075012"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483757"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Zelfstudie: een Azure Resource Manager-sjabloon gebruiken voor het maken van een Data Factory-pijplijn om gegevens te kopiëren 
 > [!div class="op_single_selector"]
@@ -321,19 +321,19 @@ Maak een JSON-bestand met de naam **ADFCopyTutorialARM-Parameters.json** dat par
 1. Open **Azure PowerShell** en voer de volgende opdracht uit:
    * Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal.
    
-     ```PowerShell
-     Connect-AzAccount       
-     ```  
+    ```PowerShell
+    Connect-AzAccount       
+    ```  
    * Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
    
-     ```PowerShell
-     Get-AzSubscription
-     ```   
+    ```PowerShell
+    Get-AzSubscription
+    ```   
    * Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken.
     
-     ```PowerShell
-     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-     ```    
+    ```PowerShell
+    Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+    ```    
 2. Voer de volgende opdracht uit om Data Factory-entiteiten te implementeren met behulp van het Resource Manager-sjabloon dat u in stap 1 hebt gemaakt.
 
     ```PowerShell   

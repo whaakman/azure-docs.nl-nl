@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: bb33427712533e669ecf41f48474c02313e2a411
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d636d5f31e78828a518882091af29b25f7219304
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568878"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443992"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Wijzigingen van de apparaatnaam Linux-VM oplossen
 
@@ -36,15 +36,17 @@ U kunt de volgende problemen kan optreden bij het uitvoeren van Linux-VM's in Mi
 
 Apparaatpaden in Linux niet worden gegarandeerd consistent via opnieuw wordt opgestart. Apparaatnamen bestaan uit cijfers (letters) van de primaire en secundaire cijfers. Wanneer een nieuw apparaat wordt gedetecteerd door het stuurprogramma voor Linux-opslag, het stuurprogramma wijst primaire en secundaire cijfers van het beschikbare bereik toe aan het apparaat. Wanneer een apparaat wordt verwijderd, wordt de apparaat-getallen worden vrijgemaakt voor hergebruik.
 
-Het probleem treedt op omdat het apparaat scannen in Linux is gepland door de SCSI-subsysteem worden asynchroon uitgevoerd. Als gevolg hiervan kan de padnaam van een apparaat variëren tussen opnieuw wordt opgestart. 
+Het probleem treedt op omdat het apparaat scannen in Linux is gepland door de SCSI-subsysteem worden asynchroon uitgevoerd. Als gevolg hiervan kan de padnaam van een apparaat variëren tussen opnieuw wordt opgestart.
 
 ## <a name="solution"></a>Oplossing
 
-U lost dit probleem, gebruikt u permanente naming. Er zijn vier manieren waarop u met de naamgeving van permanente: door het bestandssysteem label, door UUID, -ID of -pad. Het is raadzaam om met behulp van het bestandssysteem label of de UUID voor Azure Linux VM's. 
+U lost dit probleem, gebruikt u permanente naming. Er zijn vier manieren waarop u met de naamgeving van permanente: door het bestandssysteem label, door UUID, -ID of -pad. Het is raadzaam om met behulp van het bestandssysteem label of de UUID voor Azure Linux VM's.
 
-De meeste distributies bieden de `fstab` **nofail** of **nobootwait** parameters. Deze parameters kunt u een systeem om op te starten als de schijf koppelen bij het opstarten is mislukt. Raadpleeg de documentatie bij uw distributie voor meer informatie over deze parameters. Zie voor meer informatie over het configureren van een Linux-VM voor het gebruik van een UUID wanneer u een gegevensschijf toevoegen [verbinding maken met de Linux-VM om te koppelen van de nieuwe schijf](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk). 
+De meeste distributies bieden de `fstab` **nofail** of **nobootwait** parameters. Deze parameters kunt u een systeem om op te starten als de schijf koppelen bij het opstarten is mislukt. Raadpleeg de documentatie bij uw distributie voor meer informatie over deze parameters. Zie voor meer informatie over het configureren van een Linux-VM voor het gebruik van een UUID wanneer u een gegevensschijf toevoegen [verbinding maken met de Linux-VM om te koppelen van de nieuwe schijf](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 Wanneer de Azure Linux-agent is geïnstalleerd op een virtuele machine, de agent Udev-regels gebruikt om een set symbolische koppelingen onder het pad /dev/disk/azure samen te stellen. Toepassingen en scripts kunt u de Udev-regels gebruiken om schijven die zijn gekoppeld aan de virtuele machine, samen met het schijftype en schijf LUN's te identificeren.
+
+Als u al uw fstab zodanig dat uw virtuele machine niet opgestart wordt en u met uw virtuele machine zich niet SSH hebt bewerkt, kunt u de [seriële Console van virtuele machine](./serial-console-linux.md) in te voeren [modus voor één gebruiker](./serial-console-grub-single-user-mode.md) en uw fstab wijzigen.
 
 ### <a name="identify-disk-luns"></a>Schijf LUN's identificeren
 
@@ -83,29 +85,29 @@ De Gast LUN-informatie wordt gebruikt met metagegevens van de Azure-abonnement t
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
     [
-      {
-        "caching": "None",
-          "createOption": "empty",
-        "diskSizeGb": 1023,
-          "image": null,
-        "lun": 0,
-        "managedDisk": null,
-        "name": "testVM-20170619-114353",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
-        }
-      },
-      {
-        "caching": "None",
-        "createOption": "empty",
-        "diskSizeGb": 512,
-        "image": null,
-        "lun": 1,
-        "managedDisk": null,
-        "name": "testVM-20170619-121516",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
-        }
+    {
+    "caching": "None",
+      "createOption": "empty",
+    "diskSizeGb": 1023,
+      "image": null,
+    "lun": 0,
+    "managedDisk": null,
+    "name": "testVM-20170619-114353",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
+    }
+    },
+    {
+    "caching": "None",
+    "createOption": "empty",
+    "diskSizeGb": 512,
+    "image": null,
+    "lun": 1,
+    "managedDisk": null,
+    "name": "testVM-20170619-121516",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
+      }
       }
     ]
 
@@ -138,7 +140,7 @@ Alle aanvullende partities uit de `blkid` lijst zich bevinden op een gegevenssch
 
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
-    
+
 ### <a name="get-the-latest-azure-storage-rules"></a>De meest recente Azure Storage-regels ophalen
 
 Als u de meest recente Azure Storage-regels, voer de volgende opdrachten:

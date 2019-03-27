@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: ad6fd4a75ca139c4943ca0d079a2d041ccb46d09
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2c04c13eb6399bebf908337d8f71bd03adf4d06a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101088"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447219"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Gegevens laden in Azure Data Lake Storage Gen2 met Azure Data Factory
 
@@ -39,9 +39,10 @@ Dit artikel ziet u hoe u het hulpprogramma Data Factory Copy Data gebruiken om t
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
-1. Selecteer in het menu links **nieuw** > **gegevens en analyses** > **Data Factory**:
+1. Selecteer in het menu links **een resource maken** > **gegevens en analyses** > **Data Factory**:
    
-   ![Een nieuwe gegevensfactory maken](./media/load-azure-data-lake-storage-gen2/new-azure-data-factory-menu.png)
+   ![Selectie van Data Factory in het deelvenster Nieuw](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. In de **nieuwe data factory** pagina, geef waarden op voor de velden die worden weergegeven in de volgende afbeelding: 
       
    ![De pagina Nieuwe data factory](./media/load-azure-data-lake-storage-gen2//new-azure-data-factory.png)

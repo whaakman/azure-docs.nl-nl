@@ -8,18 +8,18 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/25/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 9a45cc3f8aaae3fb000858f8903ed4aff248513c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: f740974d17ad5f95bca6530a61619ee0283f819a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885224"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479977"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Quickstart: Een afbeeldingsclassificatieproject maken met de Custom Vision Go-SDK
 
-Dit artikel biedt informatie en voorbeeldcode om u op weg te helpen met de Custom Vision-SDK met Go een afbeeldingsclassificatiemodel te maken. Wanneer u het project hebt gemaakt, kunt u tags toevoegen, afbeeldingen uploaden, het project trainen, de standaardeindpunt-URL voor voorspellingen ophalen en het eindpunt gebruiken om afbeeldingen programmatisch te testen. Gebruik dit voorbeeld als een sjabloon om uw eigen Go-toepassing te maken. Zie de [handleiding voor browsers](getting-started-build-a-classifier.md) als u het ontwikkelproces wilt doorlopen en een classificatiemodel wilt gebruiken _zonder_ code.
+Dit artikel biedt informatie en voorbeeldcode om u op weg te helpen met de Custom Vision-SDK met Go een afbeeldingsclassificatiemodel te maken. Nadat deze gemaakt, kunt u labels toevoegen, afbeeldingen uploaden, trainen van het project, verkrijgen van het project gepubliceerde voorspelling eindpunt-URL en het eindpunt voor het testen van een installatiekopie van een via een programma gebruiken. Gebruik dit voorbeeld als een sjabloon om uw eigen Go-toepassing te maken. Zie de [handleiding voor browsers](getting-started-build-a-classifier.md) als u het ontwikkelproces wilt doorlopen en een classificatiemodel wilt gebruiken _zonder_ code.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -59,15 +59,17 @@ import(
     "path"
     "log"
     "time"
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.2/customvision/training"
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v3.0/customvision/training"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v3.0/customvision/prediction"
 )
 
 var (
     training_key string = "<your training key>"
     prediction_key string = "<your prediction key>"
+    prediction_resource_id = "<your prediction resource id>"
     endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
     project_name string = "Go Sample Project"
+    iteration_publish_name = "classifyModel"
     sampleDataDirectory = "<path to sample images>"
 )
 
@@ -89,7 +91,7 @@ func main() {
 Voeg de volgende code toe aan het eind van *sample.go* om classificatielabels voor uw project te maken:
 
 ```go
-    # Make two tags in the new project
+    // Make two tags in the new project
     hemlockTag, _ := trainer.CreateTag(ctx, *project.ID, "Hemlock", "Hemlock tree tag", string(training.Regular))
     cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese cherry tree tag", string(training.Regular))
 ```
@@ -127,9 +129,9 @@ Als u de voorbeeldafbeeldingen aan het project wilt toevoegen, voegt u de volgen
     }
 ```
 
-### <a name="train-the-classifier"></a>De classificatie trainen
+### <a name="train-the-classifier-and-publish"></a>De classificatie te trainen en publiceren
 
-Met deze code wordt de eerste iteratie in het project gemaakt. De iteratie wordt gemarkeerd als de standaarditeratie. De standaarditeratie weerspiegelt de versie van het model die reageert op voorspellingsaanvragen. Werk deze telkens bij als u het model opnieuw gaat trainen.
+Deze code wordt de eerste versie in het project wordt gemaakt en vervolgens publiceert dat iteratie naar het eindpunt van de voorspelling. De naam van de gepubliceerde iteratie kan worden gebruikt om voorspelling aanvragen te verzenden. Een iteratie is niet beschikbaar in de voorspelling eindpunt totdat deze is gepubliceerd.
 
 ```go
     fmt.Println("Training...")
@@ -144,11 +146,10 @@ Met deze code wordt de eerste iteratie in het project gemaakt. De iteratie wordt
     }
     fmt.Println("Training status: " + *iteration.Status)
 
-    *iteration.IsDefault = true
-    trainer.UpdateIteration(ctx, *project.ID, *iteration.ID, iteration)
+    trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>Het standaardeindpunt voor voorspellingen ophalen en gebruiken
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Halen en gebruik de gepubliceerde iteratie op het eindpunt voor de voorspelling
 
 Als u een afbeelding naar het voorspellingseindpunt wilt verzenden en de voorspelling wilt ophalen, voegt u de volgende code toe aan het einde van het bestand:
 
@@ -157,7 +158,7 @@ Als u een afbeelding naar het voorspellingseindpunt wilt verzenden en de voorspe
     predictor := prediction.New(prediction_key, endpoint)
 
     testImageData, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Test", "test_image.jpg"))
-    results, _ := predictor.PredictImage(ctx, *project.ID, ioutil.NopCloser(bytes.NewReader(testImageData)), iteration.ID, "")
+    results, _ := predictor.ClassifyImage(ctx, *project.ID, iteration_publish_name, ioutil.NopCloser(bytes.NewReader(testImageData)), "")
 
     for _, prediction := range *results.Predictions {
         fmt.Printf("\t%s: %.2f%%", *prediction.TagName, *prediction.Probability * 100)
@@ -170,7 +171,7 @@ Als u een afbeelding naar het voorspellingseindpunt wilt verzenden en de voorspe
 
 *sample.go* uitvoeren.
 
-```PowerShell
+```powershell
 go run sample.go
 ```
 

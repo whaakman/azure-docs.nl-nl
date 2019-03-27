@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database-gegevensdetectie en classificatie | Microsoft Docs
-description: Azure SQL Database-gegevensdetectie en classificatie
+title: Azure SQL-Database en SQL Data Warehouse gegevensdetectie en classificatie | Microsoft Docs
+description: Azure SQL-Database en gegevensdetectie en -classificatie
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/22/2019
+ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202976"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58495983"
 ---
-# <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database-gegevensdetectie en classificatie
+# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL-Database en SQL Data Warehouse gegevensdetectie en classificatie
 
 Gegevensdetectie en -classificatie (momenteel in preview) biedt geavanceerde mogelijkheden van ingebouwd in Azure SQL Database voor **detecteren**, **classificeren**, **labels**  &  **beveiligen** de gevoelige gegevens in uw databases.
 Detecteren en classificeren van uw meest gevoelige gegevens (business, financiële, gezondheidszorg, persoonlijke gegevens (PII) en enz.) kunnen een cruciale rol spelen in uw organisatie informatie protection-status. Deze kan dienen als infrastructuur voor:
@@ -31,7 +31,7 @@ Detecteren en classificeren van uw meest gevoelige gegevens (business, financië
 Gegevensdetectie en classificatie maakt deel uit van de [geavanceerde gegevensbeveiliging](sql-database-advanced-data-security.md) (AD) aanbieding waarmee een uniforme-voor geavanceerde mogelijkheden voor de beveiliging van SQL pakket. gegevensdetectie en classificatie kunnen worden geopend en worden beheerd via de centrale SQL AD-portal.
 
 > [!NOTE]
-> Dit document heeft alleen betrekking op Azure SQL Database. Zie voor SQL Server (on-premises), [SQL-gegevensdetectie en classificatie](https://go.microsoft.com/fwlink/?linkid=866999).
+> Dit document is gekoppeld aan Azure SQL Database en Azure SQL Data Warehouse. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse. Zie voor SQL Server (on-premises), [SQL-gegevensdetectie en classificatie](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Wat is er gegevensdetectie en classificatie
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6a69d8d60b2e588ded9ccca20521195ae11ff136
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293903"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449422"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-uitschalen
 
@@ -45,9 +45,9 @@ Wanneer u de volgende scale-out-bewerking uitvoert, bijvoorbeeld zijn het aantal
 
 * Synchronisatie is toegestaan, zelfs wanneer er zich geen replica's in de query-groep. Als u horizontaal van nul tot een of meer replica's met nieuwe gegevens uit een verwerking op de primaire server schalen worden, eerst de synchronisatie wordt uitgevoerd met geen replica's in de query-groep, en vervolgens scale-out. Synchroniseren voordat horizontaal schalen, voorkomt u redundante hydration van de zojuist toegevoegde replica's.
 
-* Bij het verwijderen van een modeldatabase van de primaire server, deze wordt niet automatisch worden verwijderd uit replica's in de query-groep. U moet een synchronisatiebewerking die Hiermee verwijdert u het bestand/s voor die database van de gedeelde blob-opslaglocatie van de replica en verwijdert vervolgens de modeldatabase op de replica's in de groep query uitvoeren.
+* Bij het verwijderen van een modeldatabase van de primaire server, deze wordt niet automatisch worden verwijderd uit replica's in de query-groep. U moet een synchronisatiebewerking uitvoeren met behulp van de [synchronisatie AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell-opdracht die Hiermee verwijdert u het bestand/s voor die database van de gedeelde blob-opslaglocatie van de replica en het model wordt verwijderd de database op de replica's in de query-groep.
 
-* Wanneer de naam van een database op de primaire server, is er een extra stap die nodig zijn om te controleren of dat de database correct wordt gesynchroniseerd met alle replica's. Voer een synchronisatie op te geven na het wijzigen van de naam, de `-Database` parameter met de naam van de oude database. Deze synchronisatie Hiermee verwijdert u de database en de bestanden met de oude naam van een replica's. Voer een andere synchronisatie op te geven de `-Database` parameter met de naam van de nieuwe database. De tweede synchronisatie de nieuwe naam database worden gekopieerd naar de tweede set van bestanden en hydrates alle replica's. Deze synchronisatie kunnen niet worden uitgevoerd met behulp van de opdracht Synchronize-model in de portal.
+* Wanneer de naam van een database op de primaire server, is er een extra stap die nodig zijn om te controleren of dat de database correct wordt gesynchroniseerd met alle replica's. Na het wijzigen van de naam, kunt u een synchronisatie uitvoeren met behulp van de [synchronisatie AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) opdracht op te geven de `-Database` parameter met de naam van de oude database. Deze synchronisatie Hiermee verwijdert u de database en de bestanden met de oude naam van een replica's. Voer een andere synchronisatie op te geven de `-Database` parameter met de naam van de nieuwe database. De tweede synchronisatie de nieuwe naam database worden gekopieerd naar de tweede set van bestanden en hydrates alle replica's. Deze synchronisatie kunnen niet worden uitgevoerd met behulp van de opdracht Synchronize-model in de portal.
 
 ### <a name="separate-processing-from-query-pool"></a>Afzonderlijk te verwerken van de querypool
 
@@ -103,6 +103,20 @@ Gebruik de **synchronisatie** bewerking.
 
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
+Status van retourcodes:
+
+
+|Code  |Description  |
+|---------|---------|
+|-1     |  Ongeldig       |
+|0     | Repliceren...        |
+|1     |  Reactiveren       |
+|2     |   Voltooid       |
+|3     |   Mislukt      |
+|4     |    Voltooien     |
+|||
+
+
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -112,6 +126,8 @@ Voordat u met behulp van PowerShell, [installeren of bijwerken van de meest rece
 Gebruiken om uit te voeren synchronisatie, [synchronisatie AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
 Als u wilt dat het aantal query's, gebruikt u [Set AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Geef de optionele `-ReadonlyReplicaCount` parameter.
+
+Gebruiken om te scheiden van de verwerkingsserver van de querypool, [Set AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Geef de optionele `-DefaultConnectionMode` parameter gebruiken `Readonly`.
 
 ## <a name="connections"></a>Verbindingen
 

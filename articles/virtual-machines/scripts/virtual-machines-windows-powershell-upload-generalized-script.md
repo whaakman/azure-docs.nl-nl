@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7245fd60af91833dab26772e2aac08f675b14e6c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 95826cb3928f9a3220505040ef3162fe5016d08b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982451"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447627"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Voorbeeld van een script voor het uploaden van een VHD naar Azure om een nieuwe VM te maken
 
@@ -149,7 +149,7 @@ In dit script worden de volgende opdrachten gebruikt om de implementatie te make
 | [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage)                           | Hiermee geeft u een installatiekopie voor een virtuele machine op.                                                                                                                                            |
 | [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk)                                     | Hiermee stelt u de schijfeigenschappen van het besturingssysteem in voor een virtuele machine.                                                                                                                      |
 | [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem)                   | Hiermee stelt u de schijfeigenschappen van het besturingssysteem in voor een virtuele machine.                                                                                                                      |
-| [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface?view=azurermps-6.8.1)                 | Hiermee voegt u een netwerkinterface aan een virtuele machine toe.                                                                                                                                       |
+| [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface)                 | Hiermee voegt u een netwerkinterface aan een virtuele machine toe.                                                                                                                                       |
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)                                                 | Hiermee maakt u een virtuele machine.                                                                                                                                                            |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup)                     | Hiermee verwijdert u een resourcegroep en alle daarin opgenomen resources.                                                                                                                         |
 

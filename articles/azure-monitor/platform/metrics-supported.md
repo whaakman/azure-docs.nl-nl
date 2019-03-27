@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e9b562cb04bb8916245d9df7b9b6d526bd443a24
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 89f5294d6ac01a6fa377e8d0763e77f8034ab44a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352133"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449551"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure Monitor
 
@@ -1287,8 +1287,8 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |MessageCount|Aantal berichten|Count|Totaal|De totale hoeveelheid berichten.|Er zijn geen dimensies|
 |InboundTraffic|Binnenkomend verkeer|Bytes|Totaal|Het inkomende verkeer van de service|Er zijn geen dimensies|
 |OutboundTraffic|Uitgaand verkeer|Bytes|Totaal|Het uitgaande verkeer van de service|Er zijn geen dimensies|
-|UserErrors|Gebruikersfouten|Procent|Maximum|Het percentage van de gebruikersfouten|Er zijn geen dimensies|
-|SystemErrors|Systeemfouten|Procent|Maximum|Het percentage van fouten in het bestandssysteem|Er zijn geen dimensies|
+|UserErrors|Gebruikersfouten|Procent|Gemiddeld|Het percentage van de gebruikersfouten|Er zijn geen dimensies|
+|SystemErrors|Systeemfouten|Procent|Gemiddeld|Het percentage van fouten in het bestandssysteem|Er zijn geen dimensies|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 

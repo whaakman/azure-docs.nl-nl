@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: f7c189c59b5098ef22491a914a618afda2b5f51e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b8585b62b0728d1ba6e010e42b44840903c46833
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554672"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500862"
 ---
 ### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service
 De **gekoppelde Azure Storage-service** kunt u een Azure storage-account koppelen aan een Azure data factory met behulp van de **accountsleutel**, waarmee u de data factory met wereldwijde toegang tot de Azure Storage. De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zijn voor de gekoppelde Azure Storage-service.
@@ -42,8 +42,8 @@ Een shared access signature (SAS) biedt gedelegeerde toegang tot resources in uw
 > Azure Data Factory nu alleen ondersteunt **Service-SAS** , maar geen Account-SAS. Zie [typen van handtekeningen voor gedeelde toegang](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) voor meer informatie over deze twee typen en hoe u een van. Houd er rekening mee de SAS-URL generable vanuit Azure portal of Storage Explorer is een Account-SAS, wat niet wordt ondersteund.
 
 > [!TIP]
-> U kunt de onderstaande PowerShell-opdrachten voor het genereren van een SAS-Service voor uw opslagaccount (Vervang de plaatsaanduidingen en de benodigde machtiging verlenen) uitvoeren: `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
+> U kunt de onderstaande PowerShell-opdrachten voor het genereren van een SAS-Service voor uw opslagaccount (Vervang de plaatsaanduidingen en de benodigde machtiging verlenen) uitvoeren: `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 De SAS van Azure Storage gekoppelde service kunt u een Azure Storage-Account koppelen aan een Azure data factory met behulp van een Shared Access Signature (SAS). Het biedt de data factory met beperkte/tijdelijke toegang tot alle of naar een specifiek resources (blob/container) in de opslag. De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zijn voor Azure Storage SAS gekoppelde service. 
 

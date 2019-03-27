@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa6a44a3fb92647ba74f865b2a1a46bdd79eb433
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e7b0242a8e3745a0014e5c2a1289ca2bc8c85c75
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174081"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484540"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Configureerbare levensduur van tokens in Azure Active Directory (Preview)
 
@@ -209,13 +209,13 @@ Om te beginnen, voer de volgende stappen uit:
 1. Download de meest recente [Azure AD PowerShell-Module openbare Preview-versie](https://www.powershellgallery.com/packages/AzureADPreview).
 2. Voer de `Connect` opdracht uit om aan te melden bij uw Azure AD-beheerdersaccount. Deze opdracht uitvoeren telkens wanneer starten u een nieuwe sessie.
 
-    ```PowerShell
+    ```powershell
     Connect-AzureAD -Confirm
     ```
 
 3. Als u wilt zien van alle beleidsregels die zijn gemaakt in uw organisatie, moet u de volgende opdracht uitvoeren. Voer deze opdracht na de meeste bewerkingen in de volgende scenario's. Met de opdracht ook krijgt u de ** ** van uw beleid.
 
-    ```PowerShell
+    ```powershell
     Get-AzureADPolicy
     ```
 
@@ -226,7 +226,7 @@ In dit voorbeeld maakt u een beleid waarmee uw gebruikers zich aanmelden minder 
 
     1.  Stel de één-Factor Vernieuwingstoken "tot-ingetrokken." Het token verloopt niet totdat de toegang is ingetrokken. De volgende beleidsdefinitie maken:
 
-        ```PowerShell
+        ```powershell
         @('{
             "TokenLifetimePolicy":
             {
@@ -238,13 +238,13 @@ In dit voorbeeld maakt u een beleid waarmee uw gebruikers zich aanmelden minder 
 
     2.  Voer de volgende opdracht voor het maken van het beleid:
 
-        ```PowerShell
+        ```powershell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
     3.  Om te zien van het nieuwe beleid en om op te halen van het beleid **ObjectId**, voer de volgende opdracht uit:
 
-        ```PowerShell
+        ```powershell
         Get-AzureADPolicy
         ```
 
@@ -252,7 +252,7 @@ In dit voorbeeld maakt u een beleid waarmee uw gebruikers zich aanmelden minder 
 
     Kunt u besluiten het eerste beleid die u in dit voorbeeld instelt is niet zo streng zijn als uw service nodig heeft. Om in te stellen uw één van meerdere factoren Refresh Token verloopt in twee dagen, moet u de volgende opdracht uitvoeren:
 
-    ```PowerShell
+    ```powershell
     Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
@@ -266,13 +266,13 @@ In dit voorbeeld maakt u een beleid waarbij gebruikers om te verifiëren regelma
 
     1.  Voor het maken van het beleid, moet u deze opdracht uitvoeren:
 
-        ```PowerShell
+        ```powershell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
     2.  Het nieuwe beleid, en het beleid **ObjectId**, voer de volgende opdracht uit:
 
-        ```PowerShell
+        ```powershell
         Get-AzureADPolicy
         ```
 
@@ -282,7 +282,7 @@ In dit voorbeeld maakt u een beleid waarbij gebruikers om te verifiëren regelma
 
     2.  Wanneer u hebt de **ObjectId** van uw service-principal, voer de volgende opdracht uit:
 
-        ```PowerShell
+        ```powershell
         Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
         ```
 
@@ -294,13 +294,13 @@ In dit voorbeeld maakt u een beleid dat vereist dat gebruikers minder vaak worde
 
     1.  Voer de volgende opdracht voor het maken van een strikt beleid voor een web-API:
 
-        ```PowerShell
+        ```powershell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
     2.  Het nieuwe beleid, en het beleid **ObjectId**, voer de volgende opdracht uit:
 
-        ```PowerShell
+        ```powershell
         Get-AzureADPolicy
         ```
 
@@ -308,7 +308,7 @@ In dit voorbeeld maakt u een beleid dat vereist dat gebruikers minder vaak worde
 
    Wanneer u hebt de **ObjectId** van uw app, voer de volgende opdracht uit:
 
-        ```PowerShell
+        ```powershell
         Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
         ```
 
@@ -320,13 +320,13 @@ In dit voorbeeld maakt u enkele beleidsregels, als u wilt weten hoe het systeem 
 
     1.  Voer de volgende opdracht voor het maken van een organisatie-standaardbeleid dat Hiermee stelt u de levensduur van tokens voor vernieuwen van één van meerdere factoren tot 30 dagen:
 
-        ```PowerShell
+        ```powershell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
     2.  Om te zien van het nieuwe beleid en om op te halen van het beleid **ObjectId**, voer de volgende opdracht uit:
 
-        ```PowerShell
+        ```powershell
         Get-AzureADPolicy
         ```
 
@@ -338,19 +338,19 @@ In dit voorbeeld maakt u enkele beleidsregels, als u wilt weten hoe het systeem 
 
     2.  Wanneer u hebt de **ObjectId** van uw service-principal, voer de volgende opdracht uit:
 
-            ```PowerShell
+            ```powershell
             Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
             ```
         
 3. Stel de `IsOrganizationDefault` vlag op false:
 
-    ```PowerShell
+    ```powershell
     Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Maak een nieuwe organisatie-standaardbeleid:
 
-    ```PowerShell
+    ```powershell
     New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
     ```
 
@@ -366,7 +366,7 @@ U kunt de volgende cmdlets gebruiken voor het beheren van beleid.
 
 Hiermee maakt u een nieuw beleid.
 
-```PowerShell
+```powershell
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
@@ -383,7 +383,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 #### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
 Hiermee haalt u alle beleidsregels voor de Azure AD of een opgegeven beleid.
 
-```PowerShell
+```powershell
 Get-AzureADPolicy
 ```
 
@@ -396,7 +396,7 @@ Get-AzureADPolicy
 #### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
 Hiermee haalt u alle apps en service-principals die zijn gekoppeld aan een beleid.
 
-```PowerShell
+```powershell
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
@@ -409,7 +409,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 #### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
 Een bestaand beleid wordt bijgewerkt.
 
-```PowerShell
+```powershell
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
@@ -427,7 +427,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 #### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
 Hiermee verwijdert u het opgegeven beleid.
 
-```PowerShell
+```powershell
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
@@ -443,7 +443,7 @@ U kunt de volgende cmdlets gebruiken voor het toepassingsbeleid.</br></br>
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Het opgegeven beleid is gekoppeld aan een toepassing.
 
-```PowerShell
+```powershell
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
@@ -457,7 +457,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 #### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
 Hiermee haalt u het beleid dat is toegewezen aan een toepassing.
 
-```PowerShell
+```powershell
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
@@ -470,7 +470,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 #### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
 Hiermee verwijdert u een beleid van een toepassing.
 
-```PowerShell
+```powershell
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
@@ -487,7 +487,7 @@ U kunt de volgende cmdlets gebruiken voor service-principal-beleidsregels.
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
 Het opgegeven beleid is gekoppeld aan een service-principal.
 
-```PowerShell
+```powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
@@ -501,7 +501,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 #### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
 Hiermee haalt u een beleid dat is gekoppeld aan de opgegeven service-principal.
 
-```PowerShell
+```powershell
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
@@ -514,7 +514,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 #### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
 Hiermee verwijdert u het beleid uit de opgegeven service-principal.
 
-```PowerShell
+```powershell
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 

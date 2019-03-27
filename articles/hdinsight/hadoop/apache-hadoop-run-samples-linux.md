@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: f9bafec093a3ad6e26eb12cfdb321945353b4d08
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7ff91a4fdc4bf0118c231a1ac18ebb521530a980
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434134"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447014"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>De opgenomen in HDInsight MapReduce-voorbeelden uitvoeren
 
@@ -215,8 +215,4 @@ In dit artikel hebt u geleerd hoe u kunt de voorbeelden met de HDInsight op basi
 
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:apache-hadoop-introduction.md
-
-
-
-[hdinsight-samples]: hdinsight-run-samples.md
 

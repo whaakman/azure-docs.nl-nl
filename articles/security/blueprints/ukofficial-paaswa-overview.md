@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b30ef7d0b373f0d9a440b6649f819e429e28328c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314923"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482981"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-beveiliging en naleving blauwdruk: PaaS-webtoepassing die als host fungeert voor de officiële Workloads groot-Brittannië
 
@@ -95,7 +95,7 @@ Gegevens zijn van doorvoer van buiten en tussen Azure-onderdelen worden bescherm
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) is een persoonlijke cloudconsultant die u helpt volgen aanbevolen procedures voor het optimaliseren van uw Azure-implementaties. Het analyseert uw resourceconfiguratie en gebruikstelemetrie, en raadt vervolgens oplossingen aan die u kunnen helpen de kosteneffectiviteit, prestaties, hoge beschikbaarheid en beveiliging van uw Azure-resources te verbeteren.
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) is een realtime-beveiliging-functie waarmee u kunt herkennen en verwijderen van virussen, spyware en andere schadelijke software. Dit wordt standaard op de onderliggende infrastructuur van de PaaS-virtuele machine is geïnstalleerd en wordt beheerd door de Azure-infrastructuur transparant voor de klant, ervoor te zorgen dat
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) is een realtime-beveiliging-functie waarmee u kunt herkennen en verwijderen van virussen, spyware en andere schadelijke software. Dit wordt standaard op de onderliggende infrastructuur van de PaaS-virtuele machine is geïnstalleerd en wordt beheerd door de Azure-infrastructuur transparant voor de klant.
 
 ### <a name="paas-services-in-this-blueprint"></a>PaaS-services in deze blauwdruk
 

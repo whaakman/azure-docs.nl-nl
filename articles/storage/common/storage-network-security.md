@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c34af90f946542608eaf20f4f21d4986f3c80e6b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c475fc4d958044413ae7566c027c0e796f1d699a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369391"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486390"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-firewalls en virtuele netwerken configureren
 
@@ -71,19 +71,19 @@ U kunt de standaardregels voor netwerktoegang voor storage-accounts via Azure po
 
 1. De status van de standaardregel voor de storage-account weergeven.
 
-    ```PowerShell
+    ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
     ```
 
 1. De standaardregel voor het weigeren van toegang tot het netwerk standaard instellen.
 
-    ```PowerShell
+    ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
     ```
 
 1. De standaardregel waarmee toegang tot het netwerk standaard instellen.
 
-    ```PowerShell
+    ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
 
@@ -159,26 +159,26 @@ U kunt virtuele-netwerkregels voor storage-accounts via Azure portal, PowerShell
 
 1. Lijst met regels voor virtueel netwerk.
 
-    ```PowerShell
+    ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
     ```
 
 1. Service-eindpunt voor Azure Storage inschakelen op een bestaand virtueel netwerk en subnet.
 
-    ```PowerShell
+    ```powershell
     Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
     ```
 
 1. Voeg een regel voor een virtueel netwerk en subnet toe.
 
-    ```PowerShell
+    ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
 
 1. Verwijderen van een regel voor een virtueel netwerk en subnet.
 
-    ```PowerShell
+    ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
@@ -267,31 +267,31 @@ U kunt IP-netwerkregels voor storage-accounts via Azure portal, PowerShell of CL
 
 1. Lijst met regels voor IP-netwerk.
 
-    ```PowerShell
+    ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
     ```
 
 1. Voeg een regel voor een afzonderlijk IP-adres toe.
 
-    ```PowerShell
+    ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. Voeg een regel voor een IP-adresbereik toe.
 
-    ```PowerShell
+    ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
 1. Verwijderen van een regel voor een afzonderlijk IP-adres.
 
-    ```PowerShell
+    ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. Een regel voor een IP-adresbereik verwijderen.
 
-    ```PowerShell
+    ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
@@ -385,19 +385,19 @@ U kunt uitzonderingen op netwerk via Azure portal, PowerShell of Azure CLI beher
 
 1. De uitzonderingen voor de storage-account-netwerkregels worden weergegeven.
 
-    ```PowerShell
+    ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
     ```
 
 1. De uitzonderingen aan de storage-account network-regels configureren.
 
-    ```PowerShell
+    ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
     ```
 
 1. Verwijder de uitzonderingen voor de netwerkregels voor storage-account.
 
-    ```PowerShell
+    ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
     ```
 

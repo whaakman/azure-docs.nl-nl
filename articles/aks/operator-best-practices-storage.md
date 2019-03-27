@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: iainfou
-ms.openlocfilehash: 691decb88188a428edfeab1ea9e99c48876b6d9f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109842"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496171"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor opslag en back-ups in Azure Kubernetes Service (AKS)
 
@@ -91,9 +91,9 @@ Zie voor meer informatie over opslagopties klasse [opslag vrijmaken beleid][recl
 
 ## <a name="secure-and-back-up-your-data"></a>Beveilig en back-up van uw gegevens
 
-**Aanbevolen procedurerichtlijn** : Maak een Back-up van uw gegevens met behulp van een geschikt hulpprogramma voor het opslagtype, zoals Heptio Ark of Azure Site Recovery. Controleer of de integriteit en beveiliging van deze back-ups.
+**Aanbevolen procedurerichtlijn** : Maak een Back-up van uw gegevens met behulp van een geschikt hulpprogramma voor het opslagtype, zoals Velero of Azure Site Recovery. Controleer of de integriteit en beveiliging van deze back-ups.
 
-Als uw toepassingen opslaan en gebruiken gegevens persistent gemaakt op schijven of in bestanden, moet u regelmatig back-ups of momentopnamen van die gegevens. Azure-schijven kunnen momentopname van de ingebouwde technologieën gebruiken. U moet mogelijk een haakje voor uw toepassingen leegmaken worden geschreven naar de schijf voordat u de momentopnamebewerking niet uitvoeren. [Heptio Ark] [ heptio-ark] back-up van permanente volumes en aanvullende clusterresources en configuraties. Als u niet [status verwijderen uit uw toepassingen][remove-state], back-up van de gegevens van permanente volumes en regelmatig testen om te controleren of de integriteit van gegevens en de processen die nodig zijn de bewerkingen voor het herstellen.
+Als uw toepassingen opslaan en gebruiken gegevens persistent gemaakt op schijven of in bestanden, moet u regelmatig back-ups of momentopnamen van die gegevens. Azure-schijven kunnen momentopname van de ingebouwde technologieën gebruiken. U moet mogelijk een haakje voor uw toepassingen leegmaken worden geschreven naar de schijf voordat u de momentopnamebewerking niet uitvoeren. [Velero] [ velero] back-up van permanente volumes en aanvullende clusterresources en configuraties. Als u niet [status verwijderen uit uw toepassingen][remove-state], back-up van de gegevens van permanente volumes en regelmatig testen om te controleren of de integriteit van gegevens en de processen die nodig zijn de bewerkingen voor het herstellen.
 
 Informatie over de beperkingen van de verschillende methoden voor gegevensback-ups en als u stilleggen uw gegevens voorafgaand aan de momentopname wilt. Gegevensback-ups kunnen niet per se u uw toepassingsomgeving van de implementatie van het cluster te herstellen. Zie voor meer informatie over deze scenario's, [aanbevolen procedures voor zakelijke continuïteit en herstel na noodgevallen in AKS][best-practices-multi-region].
 
@@ -102,7 +102,7 @@ Informatie over de beperkingen van de verschillende methoden voor gegevensback-u
 In dit artikel is gericht op de opslag aanbevolen procedures in AKS. Zie voor meer informatie over de basisprincipes van opslag in Kubernetes [concepten van opslag voor toepassingen in AKS][aks-concepts-storage].
 
 <!-- LINKS - External -->
-[heptio-ark]: https://github.com/heptio/ark
+[velero]: https://github.com/heptio/velero
 [dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 

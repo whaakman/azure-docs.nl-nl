@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 7713b449d5e5291ce1dd6c9b814ebefd07bc53a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 68101be211335d51eb4bf99361ea36b73fa19218
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737668"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485396"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Verzamelen van prestatiemeteritems voor uw Azure-Cloudservice
 
@@ -29,7 +29,7 @@ Prestatiemeteritems bieden een manier om bij te houden hoe goed uw toepassing en
 
 Een prestatiemeteritem bestaat uit twee onderdelen: een naam (ook wel bekend als een categorie) en een of meer items. U kunt PowerShell gebruiken voor een lijst van beschikbare prestatiemeteritems:
 
-```PowerShell
+```powershell
 Get-Counter -ListSet * | Select-Object CounterSetName, Paths | Sort-Object CounterSetName
 
 CounterSetName                                  Paths
@@ -56,7 +56,7 @@ De `CounterSetName` eigenschap vertegenwoordigt een set (of een categorie) en is
 
 Als u alle items voor een set, gebruikt de `CounterSetName` waarde en vouw de `Paths` verzameling. Elk item van het pad is een item dat u kunt een query. Bijvoorbeeld, om op te halen van de beschikbare items die betrekking hebben op de `Processor` instellen uit, vouw de `Paths` verzameling:
 
-```PowerShell
+```powershell
 Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -ExpandProperty Paths
 
 \Processor(*)\% Processor Time

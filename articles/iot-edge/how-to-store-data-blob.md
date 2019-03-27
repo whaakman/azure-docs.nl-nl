@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0fc34c913453abd174009213233a54e30b9346d3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3a0df408e70ed61355ffba319f6261f90d8e4348
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881381"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499155"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Gegevens aan de rand met Azure Blob Storage Store op IoT Edge (preview)
 
@@ -345,7 +345,7 @@ Hier volgt een voorbeeld van de gewenste eigenschappen voor deze module: ![gewen
     }
 
    ```
-  ## <a name="logs"></a>Logboeken
+## <a name="logs"></a>Logboeken
 
 Volg de instructies om [configureren van uw docker-logboeken voor IoT Edge-modules](production-checklist.md#set-up-logs-and-diagnostics)
 
@@ -383,9 +383,10 @@ De volgende quickstarts talen die ook worden ondersteund door de IoT Edge, zodat
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
 ### <a name="azure-storage-explorer"></a>Azure Opslagverkenner
-U kunt ook proberen [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) verbinding maken met uw lokale storage-account. We hebben geprobeerd met [vorige versie 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0) van Azure Explorer.
+U kunt ook de 'Azure Storage Explorer' verbinding maken met uw lokale storage-account. Het werkt met [Azure Storage Explorer versie 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0).
+
 > [!NOTE]
-> U kunt er fouten optreden tijdens het uitvoeren van onderstaande stappen te volgen, negeren en vernieuwen. 
+> Er kan fouten optreden tijdens het uitvoeren van de volgende stappen uit, zoals een verbinding toevoegen aan een account met lokale opslag of het maken van containers in lokale storage-account. Negeren en vernieuwen. 
 
 1. Download en installeer Azure Storage Explorer
 2. Verbinding maken met Azure Storage met behulp van een verbindingsreeks

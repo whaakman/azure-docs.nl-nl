@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 3/25/2019
+ms.date: 3/26/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 5029fb29aecda1f1bef14dc95f6301b539c60441
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: c632989ea85033c6cbdd4188351d34345e919c49
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419101"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500658"
 ---
 ### <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -45,10 +45,11 @@ U kunt Azure Firewall instellen met behulp van de Azure portal, PowerShell, REST
 
 Firewall van Azure biedt ondersteuning voor regels en regelverzamelingen. Verzameling van een regel is een reeks regels die de dezelfde volgorde en prioriteit delen. Regelverzamelingen worden uitgevoerd in de volgorde van hun prioriteit. Netwerk regelverzamelingen hogere prioriteit dan de regelverzamelingen van toepassing zijn, en alle regels worden beëindigd.
 
-Er zijn twee soorten regelverzamelingen:
+Er zijn drie typen regelverzamelingen:
 
-* *Regels voor Application*: Hiermee kunt u de volledig gekwalificeerde domeinnamen (FQDN's) die kunnen worden benaderd vanaf een subnet configureren.
-* *Regels voor*: Hiermee kunt u regels configureren die bronadressen, protocollen, doelpoorten en doeladressen bevatten.
+* *Regels voor Application*: Volledig gekwalificeerde domeinnamen (FQDN's) die kunnen worden benaderd vanaf een subnet configureren.
+* *Regels voor*: Configureer regels die bronadressen, protocollen, doelpoorten en doeladressen bevatten.
+* *NAT-regels*: DNAT regels voor binnenkomende verbindingen configureren.
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Biedt Azure Firewall ondersteuning voor binnenkomend verkeer filteren?
 
@@ -94,19 +95,19 @@ Bijvoorbeeld:
 ```azurepowershell
 # Stop an exisitng firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 ```azurepowershell
 #Start a firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-$publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
 $azfw.Allocate($vnet,$publicip)
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 > [!NOTE]
@@ -124,6 +125,14 @@ Ja, kunt u Azure-Firewall in een hub-netwerk te routeren en filteren verkeer tus
 
 Ja. Configureren van de udr's als u wilt omleiden van verkeer tussen subnetten in hetzelfde VNET vereist echter extra aandacht. Tijdens het gebruik van de VNET-adresbereik als een doel-voorvoegsel voor de UDR voldoende is, stuurt deze ook al het verkeer van één machine naar een andere computer in hetzelfde subnet via de Firewall van Azure-instantie. Om dit te voorkomen, neem er een route voor het subnet in de UDR met een volgend hoptype van **VNET**. Beheren van deze routes, kan omslachtig en foutgevoelige klus zijn. De aanbevolen methode voor de segmentering van het interne netwerk is het gebruik van Netwerkbeveiligingsgroepen, die geen udr's is vereist.
 
+### <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Geforceerde tunneling/koppelen aan een virtueel netwerkapparaat ondersteund?
+
+Ja.
+
+Firewall van Azure moet directe verbinding met Internet hebben. AzureFirewallSubnet heeft standaard een route 0.0.0.0/0 met de waarde NextHopType is ingesteld op **Internet**.
+
+Als u geforceerde tunneling naar inschakelt on-premises via ExpressRoute of VPN-Gateway, moet u expliciet een 0.0.0.0/0 door de gebruiker gedefinieerde route (UDR) configureren met het instellen van de waarde NextHopType als Internet en koppel deze aan uw AzureFirewallSubnet. Dit heeft voorrang op een mogelijke standaard-gateway BGP-aankondiging terug naar uw on-premises netwerk. Als uw organisatie geforceerde tunnels zijn voor de Firewall van Azure om te leiden van standaard gateway-verkeer via uw on-premises netwerk vereist, moet u contact op met ondersteuning. Kunnen we goedgekeurde uw abonnement om te controleren of de vereiste firewall verbinding met Internet wordt onderhouden.
+
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Zijn er firewall beperkingen van de resource?
 
 Ja. De firewall, subnet, VNet en het openbare IP-adres moeten zich in dezelfde resourcegroep bevinden.
@@ -131,3 +140,7 @@ Ja. De firewall, subnet, VNet en het openbare IP-adres moeten zich in dezelfde r
 ### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Bij het configureren van DNAT voor binnenkomend netwerkverkeer, heb ik ook nodig om te configureren van een regel voor de bijbehorende als u wilt toestaan dat dit verkeer?
 
 Nee. NAT-regels toevoegen impliciet een overeenkomende regel om de vertaalde verkeer te staan. U kunt dit gedrag overschrijven door expliciet een verzameling netwerkregels toe te voegen met regels voor weigeren die overeenkomen met het omgezette verkeer. Zie [Verwerkingslogica voor Azure Firewall-regels](../articles/firewall/rule-processing.md) voor meer informatie over de verwerkingslogica voor Azure Firewall-regels.
+
+### <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>Hoe op jokertekens werken in het doel in een toepassing-regel FQDN?
+
+Als u configureert ***. contoso.com**, hierdoor *anyvalue*. contoso.com, maar niet contoso.com (het toppunt van de domein). Als u toestaan dat het toppunt van het domein wilt, moet u deze expliciet configureren als een doel-FQDN.

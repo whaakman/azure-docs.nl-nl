@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: b9dbd644aff3a41bcf38b982ebd46396ad30edca
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 370fb17e9f00d64db847e49c48c6f03cb329612d
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361962"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472936"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -330,7 +330,7 @@ print(aks_target.provisioning_errors)
 
 #### <a name="use-an-existing-cluster"></a>Gebruik een bestaand cluster
 
-Als u al AKS-cluster in uw Azure-abonnement en het is versie 1.11. ## en ten minste 12 virtuele CPU's heeft, kunt u het implementeren van uw installatiekopie. De volgende code laat zien hoe u een bestaand AKS 1.11 koppelen. ## cluster aan uw werkruimte:
+Als u al AKS-cluster in uw Azure-abonnement en het is versie 1.12. ## en ten minste 12 virtuele CPU's heeft, kunt u het implementeren van uw installatiekopie. De volgende code laat zien hoe u een bestaand AKS 1.12 koppelen. ## cluster aan uw werkruimte:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

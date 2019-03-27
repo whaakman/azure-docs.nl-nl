@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 338c4a97bced7d9e524f96fcd82f19e5230ff143
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b4a35cb853326aa3e54c7b261eaa72f15929a84c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317337"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483961"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>De configuratieserver voor herstel na noodgevallen van fysieke beheren
 
@@ -158,7 +158,7 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
 6. Open een opdrachtvenster Admin PowerShell.
 7. Voer de volgende opdracht uit:
 
-   ```PowerShell
+   ```powershell
    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
    net stop obengine
@@ -178,7 +178,7 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
 6. Open een opdrachtvenster Admin PowerShell.
 7. De volgende opdracht uitvoeren
 
-    ```PowerShell
+    ```powershell
     $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
     net stop obengine
@@ -265,7 +265,7 @@ De server als volgt bijwerken:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Verwijderen of de registratie van een configuratieserver (PowerShell)
 
-1. [Installeer](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell-module
+1. [Installeer](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) Azure PowerShell-module
 2. Meld u aan bij uw Azure-account met de opdracht
     
     `Connect-AzureRmAccount`
@@ -274,7 +274,7 @@ De server als volgt bijwerken:
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Nu de context van uw kluis instellen
     
-    ```PowerShell
+    ```powershell
     $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
     ```

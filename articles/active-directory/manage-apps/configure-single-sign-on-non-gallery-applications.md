@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eefde6173156ea86f210ecc196c848fd97aaa0c8
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4f003ec847ab3777a2174a1078a2d07eb012bb34
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435778"
+ms.locfileid: "58484092"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Single sign-on bij niet-galerietoepassingen in Azure Active Directory configureren
 
@@ -79,7 +79,7 @@ Als u Azure AD instelt, voer de basisconfiguratie van SAML. U kunt handmatig de 
 
     U kunt de volgende PowerShell-script gebruiken voor het configureren van meerdere afgestemd.
 
-    ```PowerShell
+    ```powershell
     $sp = Get-AzureADServicePrincipal -SearchString "<Exact App  name>"
     $app = Get-AzureADApplication -SearchString "<Exact app name>"
     Set-AzureADApplication -ObjectId $app.ObjectId -ReplyUrls "<ReplyURLs>"

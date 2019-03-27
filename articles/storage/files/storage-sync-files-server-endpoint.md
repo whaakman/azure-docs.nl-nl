@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 68f21ef70b402fe45613fdcbda3074bac1d4eb5a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aa5f8aaef21967a23505c785eb8ef811cf5767cc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464956"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486442"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Een Azure File Sync-servereindpunt toevoegen/verwijderen
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door het transformeren van uw Windows-Servers in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
@@ -51,7 +51,7 @@ Als u wenst op te zetten met behulp van Azure File Sync voor het eindpunt van ee
 
 Om ervoor te zorgen dat alle gelaagde bestanden zijn ingetrokken voordat u het servereindpunt verwijdert, cloud-opslaglagen op het servereindpunt uitschakelen en vervolgens de volgende PowerShell-cmdlet om in te trekken van alle gelaagde bestanden in de naamruimte van uw server-eindpunt wordt uitgevoerd:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```

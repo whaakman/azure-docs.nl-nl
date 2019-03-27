@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5267467b2874c1cc36c8a9f5f27cc1c348eba7ac
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a2adb0dbbacbec28f241ae89d1b9f763e0f00b90
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369765"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447604"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -238,7 +238,7 @@ Update-implementaties kunnen ook programmatisch worden gemaakt. Zie voor meer in
 
 ### <a name="multi-tenant"></a>Cross-tenant-Update-implementaties
 
-Als u computers in een andere Azure-tenant rapporteren aan beheer van updates die u nodig hebt voor het vullen van hebt, moet u de volgende oplossing gebruiken om op te halen ze gepland. U kunt de [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) cmdlet met de switch `-ForUpdate` een planning maken en gebruiken de [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+Als u computers in een andere Azure-tenant rapporteren aan beheer van updates die u nodig hebt voor het vullen van hebt, moet u de volgende oplossing gebruiken om op te halen ze gepland. U kunt de [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet met de switch `-ForUpdate` een planning maken en gebruiken de [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) cmdlet en door te geven de machines in de andere tenant om de `-NonAzureComputer` parameter. Het volgende voorbeeld toont een voorbeeld van hoe u dit doet:
 
 ```azurepowershell-interactive

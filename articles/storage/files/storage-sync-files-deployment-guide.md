@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: f871174982e965a32d5f2dca5e2e53c5dc436055
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: eeb9765cfd6242ecdc14dd59dd9b5337cc56c597
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405484"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481212"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Files SYNC implementeren
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -28,7 +28,7 @@ Wordt aangeraden dat u leest [Planning voor de implementatie van Azure Files](st
 * Ten minste één exemplaar van Windows Server of Windows Server-cluster om te synchroniseren met Azure File Sync ondersteund. Zie voor meer informatie over ondersteunde versies van Windows Server [compatibiliteit met Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * Zorg ervoor dat PowerShell 5.1 is geïnstalleerd op uw Windows-Server. Als u van Windows Server 2012 R2 gebruikmaakt, zorgt u ervoor dat u ten minste uitvoert PowerShell 5.1. \*. Deze controle op Windows Server 2016 kunt u veilig overslaan omdat PowerShell 5.1 de standaard versie out-of-box is. Op Windows Server 2012 R2, kunt u controleren of u PowerShell 5.1 worden uitgevoerd. \* door te kijken naar de waarde van de **PSVersion** eigenschap van de **$PSVersionTable** object:
 
-    ```PowerShell
+    ```powershell
     $PSVersionTable.PSVersion
     ```
 
@@ -40,7 +40,7 @@ Wordt aangeraden dat u leest [Planning voor de implementatie van Azure Files](st
     - De Az-module kan worden geïnstalleerd door de instructies hier: [Azure PowerShell installeren en configureren](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
     - De AzureRM PowerShell-module kan worden geïnstalleerd door het uitvoeren van de volgende PowerShell-cmdlet:
     
-        ```PowerShell
+        ```powershell
         Install-Module AzureRM
         ```
 
@@ -59,7 +59,7 @@ Voor elke server die u gebruiken met Azure File Sync wilt, met inbegrip van elk 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Als u wilt de verbeterde beveiliging van Internet Explorer uitschakelen, voer het volgende uit vanuit een PowerShell-sessie met verhoogde bevoegdheden:
 
-```PowerShell
+```powershell
 # Disable Internet Explorer Enhanced Security Configuration 
 # for Administrators
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
@@ -100,7 +100,7 @@ Voordat u interactie met de cmdlets voor het beheer van Azure File Sync, moet u 
 > [!Note]  
 > Het pakket StorageSync.Management.PowerShell.Cmdlets.dll, waarin de cmdlets voor het beheer van Azure File Sync (opzettelijk) bevat een cmdlet uit met een niet-goedgekeurde bewerking (`Login`). De naam van de `Login-AzureStorageSync` is gekozen op basis van de `Login-AzAccount` cmdlet alias in de Azure PowerShell-module. Dit foutbericht (en cmdlets) wordt verwijderd wanneer de Azure File Sync-agent wordt toegevoegd aan de Azure PowerShell-module.
 
-```PowerShell
+```powershell
 $acctInfo = Login-AzAccount
 
 # The location of the Azure File Sync Agent. If you have installed the Azure File Sync 
@@ -160,7 +160,7 @@ Login-AzureRmStorageSync `
 
 Nadat u hebt gemaakt met de Azure File Sync-context het `Login-AzureR,StorageSync` cmdlet, kunt u de Opslagsynchronisatieservice. Vervang `<my-storage-sync-service>` door de gewenste naam van de Opslagsynchronisatieservice.
 
-```PowerShell
+```powershell
 $storageSyncName = "<my-storage-sync-service>"
 New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 ```
@@ -188,7 +188,7 @@ Voer de volgende PowerShell-code voor het downloaden van de juiste versie van de
 > [!Important]  
 > Als u van plan bent te gebruiken van Azure File Sync met een failovercluster, moet de Azure File Sync-agent worden geïnstalleerd op elk knooppunt in het cluster. Elk knooppunt in het cluster moet worden geregistreerd voor het werken met Azure File Sync.
 
-```PowerShell
+```powershell
 # Gather the OS version
 $osver = [System.Environment]::OSVersion.Version
 
@@ -242,7 +242,7 @@ Nadat u zich hebt aangemeld, wordt u gevraagd om de volgende informatie:
 Nadat u de juiste gegevens hebt geselecteerd, selecteert u **registreren** om de serverregistratie te voltooien. Als deel van het registratieproces wordt u gevraagd u nogmaals aan te melden.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
 ```
 
@@ -271,14 +271,14 @@ Voer in het deelvenster dat verschijnt de volgende gegevens in om een synchronis
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Voer de volgende PowerShell voor het maken van de groep voor synchronisatie. Vervang `<my-sync-group>` door de gewenste naam van de groep voor synchronisatie.
 
-```PowerShell
+```powershell
 $syncGroupName = "<my-sync-group>"
 New-AzureRmStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
 ```
 
 Wanneer de synchronisatiegroep is gemaakt, kunt u uw cloudeindpunt maken. Vervang `<my-storage-account>` en `<my-file-share>` met de verwachte waarden.
 
-```PowerShell
+```powershell
 # Get or create a storage account with desired name
 $storageAccountName = "<my-storage-account>"
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object {
@@ -335,7 +335,7 @@ Als u wilt het servereindpunt toevoegen, selecteert u **maken**. Uw bestanden wo
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Voer de volgende PowerShell-opdrachten om te maken van het servereindpunt en vervang `<your-server-endpoint-path>` en `<your-volume-free-space>` met de gewenste waarden.
 
-```PowerShell
+```powershell
 $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>

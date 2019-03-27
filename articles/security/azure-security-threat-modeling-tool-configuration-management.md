@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bd1d3c71660ae584b0aa57c7cc765fdc519f4b1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863590"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498380"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Beveiliging-Frame: Configuratiebeheer | Oplossingen 
 | Product/Service | Artikel |
@@ -85,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [ASP.NET-foutopsporing overzicht](https://msdn2.microsoft.com/library/ms227556.aspx), [ASP.NET tracering overzicht](https://msdn2.microsoft.com/library/bb386420.aspx), [het: Tracering inschakelen voor een ASP.NET-toepassing](https://msdn2.microsoft.com/library/0x5wc973.aspx), [het: Foutopsporing voor ASP.NET-toepassingen inschakelen](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **Verwijzingen**              | [ASP.NET-foutopsporing overzicht](https://msdn.microsoft.com/library/ms227556.aspx), [ASP.NET tracering overzicht](https://msdn.microsoft.com/library/bb386420.aspx), [het: Tracering inschakelen voor een ASP.NET-toepassing](https://msdn.microsoft.com/library/0x5wc973.aspx), [het: Foutopsporing voor ASP.NET-toepassingen inschakelen](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Stappen** | Als tracering is ingeschakeld voor de pagina, elke browser aanvragen dat wordt ook de traceringsinformatie die gegevens over de interne status en werkstroom bevat hebt verkregen. Deze informatie wordt mogelijk invloed op de beveiliging. Wanneer foutopsporing is ingeschakeld voor de pagina, leiden tot fouten gebeurt op de server een volledige stack-traceringsgegevens weergegeven in de browser. Vertrouwelijke informatie over de werkstroom van de server kan een beveiligingsrisico voor die gegevens. |
 
 ## <a id="js-trusted"></a>Toegang van derden javascripts van alleen vertrouwde bronnen

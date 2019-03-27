@@ -3,7 +3,7 @@ title: Over het gebruik van beheerde identiteiten voor Azure-resources op een Az
 description: Codevoorbeelden voor het gebruik van Azure-SDK's met een Azure-VM die is identiteiten voor een Azure-resources worden beheerd.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35498d51f9f6cd75058100189c223c0dd0f83a0c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 00c86562e0fdb4e6d62d44088b7aba08e45e22a4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188681"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443641"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM met Azure-SDK 's 
 

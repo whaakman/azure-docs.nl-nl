@@ -3,7 +3,7 @@ title: Azure PowerShell-voorbeeldscript - Het RDP-poortbereik wijzigen | Microso
 description: Azure PowerShell-voorbeeldscript - Wijzigt het RDP-poortbereik van een geïmplementeerd cluster.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,20 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 83fb6cc03f605a60b06f31fa6ddd82cd4e3e899e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: ee2ac3a2051ba7dd63aac5928e1713541f23b81f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30180184"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500097"
 ---
 # <a name="update-the-rdp-port-range-values"></a>De waarden voor het RDP-poortbereik bijwerken
 
 Met dit voorbeeldscript worden de waarden voor het RDP-poortbereik op de clusterknooppunt-VM's gewijzigd nadat het cluster is geïmplementeerd.  Azure PowerShell wordt gebruikt, zodat de onderliggende VM's niet uit en aan hoeven te worden gezet.  Het script haalt de `Microsoft.Network/loadBalancers`-resource in de resourcegroep van het cluster op en werkt de waarden `inboundNatPools.frontendPortRangeStart` en `inboundNatPools.frontendPortRangeEnd` bij. Pas de parameters zo nodig aan.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Installeer zo nodig Azure PowerShell met behulp van de instructies in de [Azure PowerShell-handleiding](/powershell/azure/overview). 
 
@@ -38,8 +40,8 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Haalt de `Microsoft.Network/loadBalancers`-resource op. |
-|[Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource)|Werkt de `Microsoft.Network/loadBalancers`-resource bij.|
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Haalt de `Microsoft.Network/loadBalancers`-resource op. |
+|[Set-AzResource](/powershell/module/az.resources/set-azresource)|Werkt de `Microsoft.Network/loadBalancers`-resource bij.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 715b0f9c5a5a68bb1fc42ed4206ca81ad85b844f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4ebd53db9622c5a40f67cba04aa35cbfbaa78c8d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450682"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446110"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Maken van een Service Fabric-cluster met behulp van Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ De sjabloon die wordt gebruikt, is beschikbaar op de [voorbeeldsjablonen van Azu
 De volgende opdracht kunt maken beide Windows of Linux-clusters, moet u het besturingssysteem dienovereenkomstig opgeven. De PowerShell/CLI-opdrachten wordt ook het certificaat in de opgegeven *CertificateOutputFolder*, maar zorg ervoor dat certificatenmap al hebt gemaakt. De opdracht wordt ook andere parameters, zoals VM-SKU.
 
 > [!NOTE]
-> De volgende PowerShell-opdracht werkt alleen met Azure Resource Manager PowerShell versie 6.1 >. Om te controleren of de huidige versie van Azure Resource Manager PowerShell-versie, voer de volgende PowerShell-opdracht 'Get-Module AzureRM'. Ga als volgt [deze koppeling](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.3.0) uw Azure Resource Manager PowerShell-versie bijwerken. 
+> De volgende PowerShell-opdracht werkt alleen met Azure Resource Manager PowerShell versie 6.1 >. Om te controleren of de huidige versie van Azure Resource Manager PowerShell-versie, voer de volgende PowerShell-opdracht 'Get-Module AzureRM'. Ga als volgt [deze koppeling](/powershell/azure/azurerm/install-azurerm-ps) uw Azure Resource Manager PowerShell-versie bijwerken. 
 >
 >
 

@@ -3,7 +3,7 @@ title: Maken van een Azure Service Fabric-cluster met behulp van de algemene cer
 description: Informatie over het maken van een Service Fabric-cluster met behulp van de algemene certificaatnaam van een sjabloon.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: ryanwi
-ms.openlocfilehash: f6f4858740288facb1e206eed3a8cd4ee1854daa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aljo
+ms.openlocfilehash: 5f2ba517e68dcd37de44bd26f476442e80817086
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111443"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498023"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementeren van een Service Fabric-cluster dat gebruik maakt van de algemene certificaatnaam in plaats van vingerafdruk
 Er zijn geen twee certificaten kunnen hebben dezelfde vingerafdruk, waardoor certificaatrollover cluster of de beheer-moeilijk. Meerdere certificaten kunnen echter hebben de dezelfde algemene naam of het onderwerp.  Een cluster met behulp van algemene naam van het certificaat maakt het veel eenvoudiger Certificaatbeheer. In dit artikel wordt beschreven hoe u een Service Fabric-cluster voor het gebruik van de algemene naam van het certificaat in plaats van de vingerafdruk van het certificaat te implementeren.

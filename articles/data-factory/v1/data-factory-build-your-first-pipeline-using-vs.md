@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ceaabdd9aa15e5979d8ab163a9b64986a03c8332
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023077"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483062"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Zelfstudie: Een gegevensfactory maken met behulp van Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -60,6 +60,9 @@ Hier volgen de stappen die u uitvoert als onderdeel van deze walkthrough:
 5. Na het publiceren kunt u de pijplijn bewaken met de blades in Azure Portal en met de app Bewaking en beheer. 
   
 ### <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de **vereiste** stappen uit. U kunt ook bovenaan de optie **Overzicht en vereisten** in de vervolgkeuzelijst selecteren om naar het artikel te gaan. Wanneer u aan de vereisten hebt voldaan, kunt u naar dit artikel terugkeren door in de vervolgkeuzelijst de optie **Visual Studio** te selecteren.
 2. Als u Data Factory-exemplaren wilt maken, moet u lid zijn van de rol [Inzender Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) op abonnements-/resourcegroepsniveau.  
 3. De volgende zaken moeten op uw computer zijn geïnstalleerd:
@@ -119,7 +122,7 @@ Met de gekoppelde service HDInsight op aanvraag wordt het HDInsight-cluster auto
 
     De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het codefragment worden gebruikt:
 
-    Eigenschap | Beschrijving
+    Eigenschap | Description
     -------- | ----------- 
     ClusterSize | De grootte van het HDInsight Hadoop-cluster.
     TimeToLive | Geeft aan hoelang het HDInsight-cluster inactief moet zijn voordat het wordt verwijderd.
@@ -128,7 +131,7 @@ Met de gekoppelde service HDInsight op aanvraag wordt het HDInsight-cluster auto
     > [!IMPORTANT]
     > Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (linkedServiceName). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met de gekoppelde service HDInsight op aanvraag wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment wordt verwerkt, tenzij er een bestaand livecluster is (timeToLive). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
     > 
-    > Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers volgen een patroon: `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
+    > Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers volgen een patroon: `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](https://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
 
     Zie de [Compute linked services](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Gekoppelde Compute Services) voor meer informatie over JSON-eigenschappen. 
 4. Sla het bestand **HDInsightOnDemandLinkedService1.json** op.
@@ -168,7 +171,7 @@ In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-ve
 
     De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het codefragment worden gebruikt:
 
-    Eigenschap | Beschrijving |
+    Eigenschap | Description |
     -------- | ----------- |
     type |De eigenschap Type wordt ingesteld op **AzureBlob**, omdat de gegevens zich in Azure Blob Storage bevinden.
     linkedServiceName | De AzureStorageLinkedService1 die u eerder hebt gemaakt.
@@ -311,8 +314,8 @@ In deze stap publiceert u de Data Factory-entiteiten (gekoppelde services, gegev
    5. Selecteer de **regio** voor de gegevensfactory.
    6. Klik op **Next** om over te schakelen naar de pagina **Publish Items**. (Druk op **TAB** als u het veld Naam wilt verlaten, maar de knop **Next** is uitgeschakeld.)
 
-    > [!IMPORTANT]
-    > Als u tijdens het publiceren de foutmelding **Data factory name “DataFactoryUsingVS” is not available** ziet, wijzigt u de naam (bijvoorbeeld in yournameDataFactoryUsingVS). Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.   
+      > [!IMPORTANT]
+      > Als u tijdens het publiceren de foutmelding **Data factory name “DataFactoryUsingVS” is not available** ziet, wijzigt u de naam (bijvoorbeeld in yournameDataFactoryUsingVS). Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.   
 1. Op de pagina **Publish Items** controleert u of alle Data Factory-entiteiten zijn geselecteerd en klikt u op **Next** om over te schakelen naar de pagina **Summary**.
 
     ![Pagina Items publiceren](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
@@ -325,13 +328,13 @@ Belangrijke punten om op te letten:
 
 - Als de volgende foutmelding wordt weergegeven: **Dit abonnement is niet geregistreerd voor gebruik van de naamruimte Microsoft.DataFactory**, voert u een van de volgende stappen uit en probeert u opnieuw te publiceren:
     - Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren.
-        ```PowerShell   
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+        ```powershell   
+        Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         U kunt de volgende opdracht uitvoeren om te bevestigen dat de Data Factory-provider is geregistreerd.
 
-        ```PowerShell
-        Get-AzureRmResourceProvider
+        ```powershell
+        Get-AzResourceProvider
         ```
     - Meld u bij de [Azure Portal](https://portal.azure.com) aan met behulp van het Azure-abonnement en navigeer naar een Data Factory-blade of maak een gegevensfactory in de Azure Portal. Door deze actie wordt de provider automatisch voor u geregistreerd.
 - De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.
@@ -412,7 +415,7 @@ U kunt de toepassing Bewaking en beheer ook gebruiken om uw pijplijnen te bewake
 -  Data Factory maakt voor u een HDInsight-cluster **op basis van Linux** met de eerder vermelde JSON. Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie.
 - Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (linkedServiceName). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met de gekoppelde service HDInsight op aanvraag wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment wordt verwerkt, tenzij er een bestaand livecluster is (timeToLive). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
     
-    Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers volgen een patroon: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
+    Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers volgen een patroon: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](https://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
 - Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan. 
 - In deze zelfstudie wordt niet getoond hoe u gegevens met Azure Data Factory kopieert. Meer informatie over het kopiëren van gegevens met behulp van Azure Data Factory vindt u in [Tutorial: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Zelfstudie: gegevens kopiëren vanuit blobopslag naar SQL Database).
 
@@ -478,7 +481,7 @@ Voeg een configuratiebestand voor elke omgeving toe door de volgende stappen uit
     }
     ```
 
-    In dit voorbeeld configureert u de eigenschap connectionString van een gekoppelde Azure Storage-service en een gekoppelde Azure SQL-service. De syntaxis voor het opgeven van de naam is [JsonPath](http://goessner.net/articles/JsonPath/).   
+    In dit voorbeeld configureert u de eigenschap connectionString van een gekoppelde Azure Storage-service en een gekoppelde Azure SQL-service. De syntaxis voor het opgeven van de naam is [JsonPath](https://goessner.net/articles/JsonPath/).   
 
     Als JSON een eigenschap heeft met een matrix van waarden zoals in de volgende code wordt weergegeven:  
 
@@ -562,7 +565,8 @@ U kunt twee activiteiten koppelen (de ene activiteit na de andere laten uitvoere
 
 
 ## <a name="see-also"></a>Zie ook
-| Onderwerp | Beschrijving |
+
+| Onderwerp | Description |
 |:--- |:--- |
 | [Pijplijnen](data-factory-create-pipelines.md) |Met behulp van dit artikel krijgt u inzicht in de pijplijnen en activiteiten in Azure Data Factory en in de wijze waarop u deze kunt gebruiken om end-to-end gegevensgestuurde werkstromen te maken voor uw scenario of bedrijf. |
 | [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory. |

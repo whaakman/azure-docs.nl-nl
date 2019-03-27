@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d25963d44960ec3ab15fdee2c264c3bf18e26c2a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8183ac9241ab57150717eebd85267a33912f1660
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540565"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445434"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 en de OAuth 2.0-clientreferentiestroom
 
@@ -76,10 +76,10 @@ Voor het gebruik van machtigingen van de toepassing in uw app, volgt u de stappe
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>De machtigingen in de portal voor app-registratie van aanvragen
 
-1. Registreren en maken van een app via de [Toepassingsregistratie portal](quickstart-v2-register-an-app.md) of de nieuwe [(Preview) van de App-registraties ervaring](quickstart-register-app.md).
-1. Ga naar uw toepassing in de portal die u hebt gebruikt om te registreren of maken van uw app. U moet ten minste één toepassingsgeheim gebruiken bij het maken van uw app.
-1. Zoek de **API-machtigingen** sectie en voeg vervolgens de **Toepassingsmachtigingen** die uw app nodig heeft.
-1. **Sla** de app-registratie.
+1. Registreren en maken van een app door middel van de nieuwe [(Preview) van de App-registraties ervaring](quickstart-register-app.md).
+2. Ga naar uw toepassing in de App-registraties (Preview)-ervaring. Navigeer naar de **certificaten en geheimen** sectie en voeg een **nieuwe clientgeheim**, omdat u moet ten minste één clientgeheim gebruiken om aan te vragen van een token.
+3. Zoek de **API-machtigingen** sectie en voeg vervolgens de **Toepassingsmachtigingen** die uw app nodig heeft.
+4. **Sla** de app-registratie.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Aanbevolen: De gebruiker zich aanmeldt bij uw app
 
@@ -172,7 +172,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `tenant` | Vereist | De directory-tenant de toepassing wil werken tegen in GUID of domeinnaam indeling. |
 | `client_id` | Vereist | De toepassings-ID die toegewezen aan uw app. U kunt deze informatie vinden in de portal waar u uw app hebt geregistreerd. |
 | `scope` | Vereist | De waarde die wordt doorgegeven voor de `scope` parameter in deze aanvraag moet de resource-id (toepassings-ID-URI) van de resource die u wilt, aangebracht met de `.default` achtervoegsel. De waarde voor de Microsoft Graph-bijvoorbeeld heeft `https://graph.microsoft.com/.default`. </br>Deze waarde geeft het v2.0-eindpunt dat van alle rechtstreekse Toepassingsmachtigingen die u hebt geconfigureerd voor uw app, het eindpunt moet uitgeven van een token voor de regels die zijn gekoppeld aan de resource die u wilt gebruiken. Voor meer informatie over de `/.default` scope, raadpleegt u de [toestemming geven documentatie](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Vereist | Het toepassingsgeheim die u voor uw app in de portal van de registratie van de app hebt gegenereerd. Het clientgeheim moet URL gecodeerd voordat het wordt verzonden. |
+| `client_secret` | Vereist | Het clientgeheim die u voor uw app in de portal van de registratie van de app hebt gegenereerd. Het clientgeheim moet URL gecodeerd voordat het wordt verzonden. |
 | `grant_type` | Vereist | Moet worden ingesteld op `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: Aanvraag voor een toegangstoken met een certificaat

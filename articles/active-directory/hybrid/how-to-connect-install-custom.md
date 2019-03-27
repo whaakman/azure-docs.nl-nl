@@ -9,19 +9,17 @@ manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbfc325d1a33db45afecf30bfa21244e3336961d
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 706a826d1b256e95e459d2a44cdb13ee56c70599
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295484"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499128"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](how-to-connect-install-express.md) niet aan uw implementatie of topologie voldoet.
@@ -37,11 +35,11 @@ Klik op deze pagina op **Aanpassen** om met een installatie met aangepaste inste
 ### <a name="install-required-components"></a>Vereiste onderdelen installeren
 Wanneer u de synchronisatieservices installeert, kunt de optie voor optionele configuratie uitschakelen: Azure AD Connect stelt alles dan automatisch in. Het programma stelt een exemplaar van SQL Server 2012 Express LocalDB in, maakt de juiste groepen aan en wijst machtigingen toe. Als u de standaardinstellingen wilt wijzigen, kunt u in de volgende tabel zien welke opties voor optionele configuratie beschikbaar zijn.
 
-![Vereiste onderdelen](./media/how-to-connect-install-custom/requiredcomponents.png)
+![Vereiste onderdelen](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
 | Optionele configuratie | Description |
 | --- | --- |
-| Een bestaande SQL Server gebruiken |Hiermee kunt u de naam van de SQL Server en de exemplaarnaam opgeven. Kies deze optie als u al een databaseserver heeft die u wilt gebruiken. Voer de exemplaarnaam, gevolgd door een komma en poortnummer, in bij **Exemplaarnaam** als bladeren niet is ingeschakeld voor uw SQL Server. |
+| Een bestaande SQL Server gebruiken |Hiermee kunt u de naam van de SQL Server en de exemplaarnaam opgeven. Kies deze optie als u al een databaseserver heeft die u wilt gebruiken. Voer de exemplaarnaam, gevolgd door een komma en poortnummer, in bij **Exemplaarnaam** als bladeren niet is ingeschakeld voor uw SQL Server.  Vervolgens geeft u de naam van de Azure AD Connect-database.  Uw SQL-bevoegdheden te bepalen of een nieuwe database wordt gemaakt of uw SQL-beheerder moet de database vooraf maken.  Als u beschikt over SQL-SA-machtigingen Zie [installeren met behulp van een bestaande database](how-to-connect-install-existing-database.md).  Als u gedelegeerde machtigingen (DBO) zijn [Installeer Azure AD Connect met SQL-gedelegeerde beheerdersmachtigingen](how-to-connect-install-sql-delegation.md). |
 | Een bestaand serviceaccount gebruiken |Azure AD Connect maakt standaard gebruik van een virtueel serviceaccount voor de synchronisatieservices. Als u een externe SQL-server gebruikt of een proxyserver waarvoor verificatie is vereist, hebt u een **beheerd serviceaccount** of een serviceaccount in het domein nodig en moet u het wachtwoord kennen. Voer in dat geval het te gebruiken account in. Zorg dat de gebruiker die de installatie uitvoert een SA in SQL is, zodat een aanmelding voor het serviceaccount kan worden aangemaakt.  Zie [Azure AD Connect: accounts and permissions](reference-connect-accounts-permissions.md#adsync-service-account) (Azure AD Connect: accounts en machtigingen). </br></br>In de laatste versie kan de inrichting van de database out-of-band worden uitgevoerd door de SQL-beheerder en vervolgens worden geïnstalleerd door de Azure AD Connect-beheerder met eigendomsrechten voor de database.  Raadpleeg [Install Azure AD Connect using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md) (Azure AD Connect installeren met SQL-gedelegeerde beheerdersmachtigingen) voor meer informatie.|
 | Aangepaste synchronisatiegroepen opgeven |Azure AD Connect maakt standaard vier groepen lokaal op de server aan wanneer de synchronisatieservices worden geïnstalleerd. Deze groepen zijn: Beheerders, Operators, Bladeren en Wachtwoord opnieuw instellen. U kunt hier uw eigen groepen opgeven. De groepen moeten lokaal op de server zijn en mogen zich niet in het domein bevinden. |
 

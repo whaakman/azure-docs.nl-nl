@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 6afc9325cb2aababb286f653323531c9ebb04b4a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: cfc9b44963f6880e97859bc7ab77bff12d258471
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438798"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500165"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Opstellen van een query in Azure Search
 
@@ -76,7 +76,7 @@ Indexkenmerken op een veld de toegestane bewerkingen - instellen of een veld is 
 De bovenstaande schermafbeelding is een gedeeltelijke lijst van de indexkenmerken in voor het voorbeeld onroerend goed. U kunt het schema voor de gehele index weergeven in de portal. Zie voor meer informatie over indexkenmerken [Index REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Sommige functies van de query is ingeschakeld index hele in plaats van op basis van per veld. Deze mogelijkheden zijn onder andere: [synoniem toegewezen](search-synonyms.md), [analysevoorzieningen](index-add-custom-analyzers.md), [suggestie constructies (voor automatisch aanvullen en Automatische suggestie)](index-add-suggesters.md), [scoring-logica voor resultaten trefwoordenrangschikking](index-add-scoring-profiles.md).
+> Sommige functies van de query is ingeschakeld index hele in plaats van op basis van per veld. Deze mogelijkheden zijn onder andere: [synoniem toegewezen](search-synonyms.md), [analysevoorzieningen](index-add-custom-analyzers.md), [suggestie construeert (voor automatisch aanvullen en voorgestelde query's)](index-add-suggesters.md), [scoring-logica voor de rangschikking van resultaten](index-add-scoring-profiles.md).
 
 ## <a name="elements-of-a-query-request"></a>Elementen van een queryaanvraag
 

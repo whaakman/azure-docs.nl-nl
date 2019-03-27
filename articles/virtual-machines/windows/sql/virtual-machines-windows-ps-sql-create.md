@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3feb691f1f708452b6560dbe92b77ed0417ffb82
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 68fa8510b45d5bd00128b57ffcccd19b1c55359b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329401"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481815"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Over het inrichten van SQL Server-machines met Azure PowerShell
 
@@ -33,9 +33,9 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="configure-your-subscription"></a>Uw abonnement configureren
 
-1. Open PowerShell en zorg dat de toegang tot uw Azure-account door het uitvoeren van de **Connect AzAccount** opdracht.
+1. Open PowerShell en zorg dat u toegang hebt tot uw Azure-account door de opdracht **Connect-AzAccount** uit te voeren.
 
-   ```PowerShell
+   ```powershell
    Connect-AzAccount
    ```
 
@@ -49,7 +49,7 @@ Definieer het gegevensgebied en de resourcegroep waarin u de andere VM-resources
 
 Als u wilt en voer vervolgens deze cmdlets voor het initialiseren van deze variabelen wijzigen.
 
-```PowerShell
+```powershell
 $Location = "SouthCentralUS"
 $ResourceGroupName = "sqlvm2"
 ```
@@ -59,7 +59,7 @@ Definieer de storage-account en het type opslag moet worden gebruikt door de vir
 
 Als u wilt en voer de volgende cmdlet voor het initialiseren van deze variabelen wijzigen. Wordt u aangeraden [premium SSD's](../disks-types.md#premium-ssd) voor productieworkloads.
 
-```PowerShell
+```powershell
 $StorageName = $ResourceGroupName + "storage"
 $StorageSku = "Premium_LRS"
 ```
@@ -77,7 +77,7 @@ Definieert de eigenschappen kunnen worden gebruikt door het netwerk in de virtue
 
 Als u wilt en voer deze cmdlet voor het initialiseren van deze variabelen wijzigen.
 
-```PowerShell
+```powershell
 $InterfaceName = $ResourceGroupName + "ServerInterface"
 $NsgName = $ResourceGroupName + "nsg"
 $TCPIPAllocationMethod = "Dynamic"
@@ -93,7 +93,7 @@ De naam van de virtuele machine, de computernaam, de grootte van de virtuele mac
 
 Als u wilt en voer deze cmdlet voor het initialiseren van deze variabelen wijzigen.
 
-```PowerShell
+```powershell
 $VMName = $ResourceGroupName + "VM"
 $ComputerName = $ResourceGroupName + "Server"
 $VMSize = "Standard_DS13"
@@ -106,13 +106,13 @@ De volgende variabelen gebruiken voor het definiëren van de SQL Server-installa
 
 1. Eerst een lijst met alle van de SQL Server-installatiekopie-aanbiedingen met de `Get-AzVMImageOffer` opdracht. Met deze opdracht worden de huidige installatiekopieën die beschikbaar zijn in de Azure-Portal en ook oudere installatiekopieën die kunnen alleen worden geïnstalleerd met PowerShell:
 
-   ```PowerShell
+   ```powershell
    Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
    ```
 
 1. Voor deze zelfstudie, moet u de volgende variabelen gebruiken om op te geven van SQL Server 2017 op Windows Server 2016.
 
-   ```PowerShell
+   ```powershell
    $OfferName = "SQL2017-WS2016"
    $PublisherName = "MicrosoftSQLServer"
    $Version = "latest"
@@ -120,13 +120,13 @@ De volgende variabelen gebruiken voor het definiëren van de SQL Server-installa
 
 1. De beschikbare versies voor uw aanbod vervolgens een lijst.
 
-   ```PowerShell
+   ```powershell
    Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
    ```
 
 1. Voor deze zelfstudie gebruikt u de SQL Server 2017 Developer edition (**SQLDEV**). De Developer edition wordt naar eigen inzicht in licentie gegeven voor het testen en ontwikkeling en u betaalt alleen voor de kosten van het uitvoeren van de virtuele machine.
 
-   ```PowerShell
+   ```powershell
    $Sku = "SQLDEV"
    ```
 
@@ -135,7 +135,7 @@ Met het Resource Manager-implementatiemodel is het eerste object dat u maakt de 
 
 Voer deze cmdlet om uw nieuwe resourcegroep te maken.
 
-```PowerShell
+```powershell
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
@@ -144,7 +144,7 @@ De virtuele machine vereist een storage-resources voor de besturingssysteemschij
 
 Voer deze cmdlet om uw nieuwe opslagaccount te maken.
 
-```PowerShell
+```powershell
 $StorageAccount = New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
    -Name $StorageName -SkuName $StorageSku `
    -Kind "Storage" -Location $Location
@@ -168,7 +168,7 @@ Beginnen met het maken van een subnetconfiguratie voor het virtuele netwerk. Voo
 
 Deze cmdlet voor het maken van uw virtuele subnet-configuratie uitvoeren.
 
-```PowerShell
+```powershell
 $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
 ```
 
@@ -177,7 +177,7 @@ Maak vervolgens uw virtuele netwerk in uw nieuwe resource groep met de [New-AzVi
 
 Deze cmdlet voor het maken van het virtuele netwerk uitvoeren.
 
-```PowerShell
+```powershell
 $VNet = New-AzVirtualNetwork -Name $VNetName `
    -ResourceGroupName $ResourceGroupName -Location $Location `
    -AddressPrefix $VNetAddressPrefix -Subnet $SubnetConfig
@@ -191,7 +191,7 @@ Nu dat uw virtuele netwerk is gedefinieerd, moet u een IP-adres voor de verbindi
 
 Voer deze cmdlet voor het maken van uw openbare IP-adres.
 
-```PowerShell
+```powershell
 $PublicIp = New-AzPublicIpAddress -Name $InterfaceName `
    -ResourceGroupName $ResourceGroupName -Location $Location `
    -AllocationMethod $TCPIPAllocationMethod -DomainNameLabel $DomainName
@@ -202,14 +202,14 @@ De virtuele machine en SQL Server om verkeer te beveiligen, moet u een netwerkbe
 
 1. Maak eerst een regel voor de netwerkbeveiligingsgroep voor de RDP-verbinding toestaan van verbindingen met extern bureaublad.
 
-   ```PowerShell
+   ```powershell
    $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
    ```
 1. Configureer een netwerkbeveiligingsgroepregel waarmee verkeer op TCP-poort 1433. In dat geval kunt verbindingen met SQL Server via internet.
 
-   ```PowerShell
+   ```powershell
    $NsgRuleSQL = New-AzNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
       -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 1433 -Access Allow
@@ -217,7 +217,7 @@ De virtuele machine en SQL Server om verkeer te beveiligen, moet u een netwerkbe
 
 1. De netwerkbeveiligingsgroep maken.
 
-   ```PowerShell
+   ```powershell
    $Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
       -Location $Location -Name $NsgName `
       -SecurityRules $NsgRuleRDP,$NsgRuleSQL
@@ -228,7 +228,7 @@ U bent nu klaar om te maken van de netwerkinterface voor uw virtuele machine. Ge
 
 Voer deze cmdlet voor het maken van de netwerkinterface.
 
-```PowerShell
+```powershell
 $Interface = New-AzNetworkInterface -Name $InterfaceName `
    -ResourceGroupName $ResourceGroupName -Location $Location `
    -SubnetId $VNet.Subnets[0].Id -PublicIpAddressId $PublicIp.Id `
@@ -248,7 +248,7 @@ Gestart door de grootte van de virtuele machine op te geven. Geef een DS13 voor 
 
 Deze cmdlet voor het maken van het virtuele-machineobject uitvoeren.
 
-```PowerShell
+```powershell
 $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 ```
 
@@ -257,7 +257,7 @@ Voordat u de eigenschappen van het besturingssysteem voor de virtuele machine in
 
 De volgende cmdlet uitvoeren en typ in het venster van de aanvraag in de PowerShell-referentie, de naam en het wachtwoord moet worden gebruikt voor het lokale administrator-account in de virtuele machine.
 
-```PowerShell
+```powershell
 $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 ```
 
@@ -271,7 +271,7 @@ Nu bent u klaar om in te stellen van de eigenschappen van het besturingssysteem 
 
 Deze cmdlet om in te stellen van de eigenschappen van het besturingssysteem voor uw virtuele machine uitvoeren.
 
-```PowerShell
+```powershell
 $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine `
    -Windows -ComputerName $ComputerName -Credential $Credential `
    -ProvisionVMAgent -EnableAutoUpdate
@@ -282,7 +282,7 @@ Gebruik vervolgens de [toevoegen AzVMNetworkInterface](https://docs.microsoft.co
 
 Deze cmdlet om in te stellen van de netwerkinterface voor uw virtuele machine uitvoeren.
 
-```PowerShell
+```powershell
 $VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $Interface.Id
 ```
 
@@ -291,7 +291,7 @@ Vervolgens stelt u de opslaglocatie voor de blob voor de VM schijf met behulp va
 
 Deze cmdlet om in te stellen van de locatie van de blob-opslag uitvoeren.
 
-```PowerShell
+```powershell
 $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName + ".vhd"
 ```
 
@@ -304,7 +304,7 @@ Het besturingssysteem vervolgens stelt de eigenschappen van de schijf voor de vi
 
 Deze cmdlet om in te stellen van het besturingssysteem schijfeigenschappen voor uw virtuele machine uitvoeren.
 
-```PowerShell
+```powershell
 $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name `
    $OSDiskName -VhdUri $OSDiskUri -Caching ReadOnly -CreateOption FromImage
 ```
@@ -314,7 +314,7 @@ De laatste configuratiestap is om op te geven van de platform-installatiekopie v
 
 Deze cmdlet om op te geven van de platform-installatiekopie voor uw virtuele machine uitvoeren.
 
-```PowerShell
+```powershell
 $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine `
    -PublisherName $PublisherName -Offer $OfferName `
    -Skus $Sku -Version $Version
@@ -328,7 +328,7 @@ Nu dat u de configuratiestappen hebt voltooid, bent u klaar om te maken van de v
 
 Deze cmdlet voor het maken van uw virtuele machine uitvoeren.
 
-```PowerShell
+```powershell
 New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
 ```
 
@@ -341,7 +341,7 @@ De virtuele machine wordt gemaakt.
 Virtuele machines met SQL Server ondersteuning voor geautomatiseerde functies met de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md). Voor het installeren van de agent op de nieuwe virtuele machine, moet u de volgende opdracht uitvoeren nadat deze gemaakt.
 
 
-   ```PowerShell
+   ```powershell
    Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
    ```
 
@@ -349,16 +349,16 @@ Virtuele machines met SQL Server ondersteuning voor geautomatiseerde functies me
 
 Als het niet nodig is dat de VM continu wordt uitgevoerd, kunt u onnodige kosten voorkomen door de virtuele machine te stoppen wanneer deze niet in gebruik is. Met de volgende opdracht wordt de VM gestopt, maar blijft deze beschikbaar voor toekomstig gebruik.
 
-```PowerShell
+```powershell
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-U kunt ook definitief verwijderen alle resources die zijn gekoppeld aan de virtuele machine met de **Remove-AzResourceGroup** opdracht. Wees voorzichtig met het gebruik van deze opdracht, want hiermee verwijdert u ook de virtuele machine zelf definitief.
+U kunt ook alle resources die aan de virtuele machine zijn gekoppeld, definitief verwijderen met de opdracht **Remove-AzResourceGroup**. Wees voorzichtig met het gebruik van deze opdracht, want hiermee verwijdert u ook de virtuele machine zelf definitief.
 
 ## <a name="example-script"></a>Voorbeeldscript
 Het volgende script bevat het volledige PowerShell-script voor deze zelfstudie. Hierbij wordt ervan uitgegaan dat u hebt al ingesteld het Azure-abonnement voor gebruik met de **Connect AzAccount** en **Selecteer AzSubscription** opdrachten.
 
-```PowerShell
+```powershell
 # Variables
 
 ## Global

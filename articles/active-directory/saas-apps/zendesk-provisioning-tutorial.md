@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 71e9a3f614048185d9444011da3c47b88931d0c5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097988"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499944"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Zelfstudie: Zendesk voor het automatisch inrichten van gebruikers configureren
 
@@ -39,7 +39,7 @@ Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende verei
 *   Een gebruikersaccount in Zendesk met beheerdersmachtigingen 
 
 > [!NOTE]
-> De integratie wordt ingericht op Azure AD is afhankelijk van de [Zendesk Rest-API](https://developer.zendesk.com/rest_api/docs/core/introduction), die beschikbaar zijn voor Zendesk-teams van het Enterprise-plan of hoger is.
+> De integratie wordt ingericht op Azure AD is afhankelijk van de [Zendesk Rest-API](https://developer.zendesk.com/rest_api/docs/zendesk-apis/resources), die beschikbaar zijn voor Zendesk-teams van het Enterprise-plan of hoger is.
 
 ## <a name="adding-zendesk-from-the-gallery"></a>Zendesk toevoegen vanuit de galerie
 Voordat u Zendesk configureert voor automatisch gebruikers inrichten met Azure AD, moet u Zendesk uit de galerie met Azure AD toevoegen aan uw lijst met beheerde SaaS-toepassingen.

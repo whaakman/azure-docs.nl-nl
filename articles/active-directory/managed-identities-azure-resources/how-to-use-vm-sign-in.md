@@ -3,7 +3,7 @@ title: Over het gebruik van beheerde identiteiten voor Azure-resources op een Az
 description: Stap voor stap beheerd instructies en voorbeelden voor het gebruik van een Azure-VM identiteiten voor service-principal voor Azure-resources voor het script client aanmelden en toegang tot bronnen.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 645fb4e939e308eecdd2b6933197493919c2dd1d
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 43aa0859fa67cc6b2f5c5974f072e7b6d4b29527
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338578"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442133"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM voor aanmelden 
 

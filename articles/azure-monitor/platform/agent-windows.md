@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: f9df65d143fbb0eaf6276a0f38971e19c0741786
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c7031e54c354392379fee83dbf2a777ba726c5e7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370955"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480050"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Windows-computers verbinden met Azure Monitor
 
@@ -138,7 +138,7 @@ Als u wilt de productcode rechtstreeks vanaf het agent-installatiepakket ophalen
 2.  Variabele assets voor Azure Automation maken *OPSINSIGHTS_WS_ID* en *OPSINSIGHTS_WS_KEY*. Stel *OPSINSIGHTS_WS_ID* naar uw Log Analytics-werkruimte-ID en stel *OPSINSIGHTS_WS_KEY* op de primaire sleutel van uw werkruimte.
 3.  Kopieer het script en sla deze op als MMAgent.ps1.
 
-    ```PowerShell
+    ```powershell
     Configuration MMAgent
     {
         $OIPackageLocalPath = "C:\Deploy\MMASetup-AMD64.exe"

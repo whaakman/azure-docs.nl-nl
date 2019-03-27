@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8898280e887392591873f1fc832bfd0c105689fe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0dad74f75fd7b73e7dab0b2dddbdfda193d5b2ec
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097283"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445783"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Doorsturen van Azure Automation State Configuration waarvoor gegevens zijn gerapporteerd aan Azure Monitor-Logboeken
 
@@ -44,7 +44,7 @@ Als u wilt beginnen met het verzenden van uw configuratie van de status van Auto
 
 Als u wilt importeren van gegevens uit Azure Automation DSC in Logboeken van Azure Monitor, voert u de volgende stappen uit:
 
-1. Meld u aan bij uw Azure-account in PowerShell. Zie [aanmelden met Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. Meld u aan bij uw Azure-account in PowerShell. Zie [aanmelden met Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)
 1. Krijgen de _ResourceId_ van uw automation-account door het uitvoeren van de volgende PowerShell-opdracht: (als u meer dan één automation-account hebt, kiest u de _ResourceID_ voor het account dat u wilt configureren).
 
    ```powershell

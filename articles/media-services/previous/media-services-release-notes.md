@@ -13,19 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8e602cc28026b4b6660c90eaeb529e549dbba5f5
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: f09d18759478c6c07aa0aea82f8bd1707595aa63
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295426"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499077"
 ---
 # <a name="azure-media-services-release-notes"></a>Opmerkingen bij de release Azure Media Services
 
 Deze opmerkingen bij de release voor Azure Media Services wijzigingen ten opzichte van vorige versies en bekende problemen samenvatten.
 
 > [!NOTE]
-> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. 
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Bekijk de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
 
 We horen graag van onze klanten, zodat we ons richten kunnen op het oplossen van problemen die invloed hebben op u. Als u een probleem melden of vragen stellen, verzendt een bericht in de [Azure Media Services MSDN Forum]. 
 

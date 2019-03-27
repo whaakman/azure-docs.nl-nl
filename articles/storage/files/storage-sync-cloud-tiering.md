@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.subservice: files
-ms.openlocfilehash: fe363bd6d16d7beea1c8f1e6ec17710975a80924
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 871eb1663d6cba550f1403215b1d3ce5fe8278d3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652557"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486101"
 ---
 # <a name="cloud-tiering-overview"></a>Warmtemeting overzicht van cloud
 Cloud tiering is een optionele functie van Azure File Sync waarin vaak gebruikte bestanden in de cache lokaal op de server opgeslagen terwijl alle andere bestanden naar Azure Files op basis van beleidsinstellingen worden geschakeld. Wanneer een bestand is gelaagd, vervangen het bestandssysteemfilter van Azure File Sync (StorageSync.sys) het bestand lokaal door een wijzer, of een reparsepunt. Het reparsepunt vertegenwoordigt een URL naar het bestand in Azure Files. Een gelaagd bestand is zowel het kenmerk 'offline' als het FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS-kenmerk in NTFS zo instellen dat toepassingen van derden kunnen gelaagde bestanden veilig kan identificeren.
@@ -85,7 +85,7 @@ Er zijn verschillende manieren om te controleren of een bestand naar uw Azure-be
    * **Gebruik `fsutil` om te controleren op reparse-punten op een bestand.**
        Zoals beschreven in de vorige optie, heeft een gelaagd bestand altijd een reparsepunt instellen. Een reparsepunt aanwijzer is een speciale aanwijzer voor de Azure File Sync-bestandssysteemfilter (StorageSync.sys). Als u wilt controleren of een bestand in een verhoogde opdrachtprompt of PowerShell-venster een reparsepunt bevat, voer de `fsutil` hulpprogramma:
     
-        ```PowerShell
+        ```powershell
         fsutil reparsepoint query <your-file-name>
         ```
 
@@ -101,7 +101,7 @@ De eenvoudigste manier om een bestand naar de schijf intrekken is het bestand te
 
 U kunt ook PowerShell gebruiken om af te dwingen een bestand dat moet worden ingetrokken. Deze optie kan nuttig als u wilt dat aan de hand van meerdere bestanden tegelijk, zoals alle bestanden in een map zijn. Open een PowerShell-sessie met de server-knooppunt waarop de Azure File Sync is geïnstalleerd en voer de volgende PowerShell-opdrachten:
     
-    ```PowerShell
+    ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
     ```
@@ -114,7 +114,7 @@ Windows Verkenner beschrijft de twee eigenschappen voor de grootte van een besta
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Hoe Dwing ik een bestand of map in tiers worden verdeeld?
 Wanneer de functie cloudlagen is ingeschakeld, wordt in cloud-opslaglagen automatisch lagen bestanden op basis van laatste toegang en wijzigen van de tijd om de percentage vrije ruimte op volume dat is opgegeven op het cloudeindpunt. Soms echter raadzaam om af te dwingen handmatig een bestand naar tier. Dit kan zijn handig als u een groot bestand dat u niet opnieuw gebruiken gedurende een lange periode wilt opslaan, en u wilt dat de vrije ruimte op het volume nu gebruiken voor andere bestanden en mappen. U kunt afdwingen dat meerdere lagen met behulp van de volgende PowerShell-opdrachten:
 
-    ```PowerShell
+    ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```

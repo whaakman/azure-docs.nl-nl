@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: fce3c2975e4b82583aa09a3862f704f05a363828
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a10b4d7fac29a6b016b5660b0430d042f2443fbd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210591"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498074"
 ---
 # <a name="service-bus-faq"></a>Veelgestelde vragen over Service Bus
 
@@ -55,7 +55,7 @@ De volgende eigenschappen van een wachtrij en onderwerp zijn onveranderd. Rekeni
 ## <a name="pricing"></a>Prijzen
 In deze sectie vindt u antwoorden op enkele veelgestelde vragen over Service Bus prijsstructuur.
 
-De [Service Bus prijzen en facturering](service-bus-pricing-billing.md) artikel wordt uitgelegd voor de factureringsmeters in Service Bus. Zie voor meer informatie over Service Bus prijsopties [Service Bus prijsinformatie](https://azure.microsoft.com/pricing/details/service-bus/).
+De [Service Bus prijzen en facturering](https://azure.microsoft.com/pricing/details/service-bus/) artikel wordt uitgelegd voor de factureringsmeters in Service Bus. Zie voor meer informatie over Service Bus prijsopties [Service Bus prijsinformatie](https://azure.microsoft.com/pricing/details/service-bus/).
 
 U kunt ook de [Veelgestelde vragen over Azure-ondersteuning](https://azure.microsoft.com/support/faq/) voor algemene Azure informatie over prijzen. 
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3172354752e2c6a1a7368b297e3cc6e763cd2fcb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 466ed4c2bd353e4a5ec3bec5535b70a90446ee0b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900570"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483893"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een profiel van de technische definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -65,8 +65,8 @@ De **voorwaarde** element bevat het volgende kenmerk:
 
 | Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
-| Type | Ja | Het type selectievakje of de query uit te voeren voor de voorwaarde. Een van beide `ClaimsExist` om ervoor te zorgen dat de acties moeten worden uitgevoerd als de opgegeven claims aanwezig is in de huidige een claimset van de gebruiker is opgegeven of `ClaimEquals` is opgegeven dat de acties die moeten worden uitgevoerd als de opgegeven claim bestaat en de waarde gelijk is aan de opgegeven waarde. |
-| ExecuteActionsIf | Ja | Geeft aan of de acties in de eerste voorwaarde moeten worden uitgevoerd als de test true of false is. |
+| `Type` | Ja | Het type selectievakje of de query uit te voeren voor de voorwaarde. Een van beide `ClaimsExist` om ervoor te zorgen dat de acties moeten worden uitgevoerd als de opgegeven claims aanwezig is in de huidige een claimset van de gebruiker is opgegeven of `ClaimEquals` is opgegeven dat de acties die moeten worden uitgevoerd als de opgegeven claim bestaat en de waarde gelijk is aan de opgegeven waarde. |
+| `ExecuteActionsIf` | Ja | Geeft aan of de acties in de eerste voorwaarde moeten worden uitgevoerd als de test true of false is. |
 
 De **voorwaarde** element bevat de volgende elementen:
 

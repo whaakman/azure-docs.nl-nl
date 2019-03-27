@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871533"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486044"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Disaster recovery en storage-account failover (preview) in Azure Storage
 
@@ -121,14 +121,14 @@ De Preview-versie is bedoeld voor gebruik in alleen niet-productieomgevingen. Pr
 
 Als u wilt registreren voor de Preview-versie, moet u de volgende opdrachten uitvoeren in PowerShell. Zorg ervoor dat de tijdelijke aanduiding tussen vierkante haken vervangen door uw eigen abonnement-ID:
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount -SubscriptionId <subscription-id>
 Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 1-2 dagen voor het ontvangen van goedkeuring voor de Preview-versie kan duren. Om te controleren dat de registratie is goedgekeurd, voert u de volgende opdracht uit:
 
-```PowerShell
+```powershell
 Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
@@ -164,6 +164,7 @@ De volgende functies of services worden niet ondersteund voor failover-account v
 - Opslagaccounts met behulp van Azure Data Lake Storage Gen2 hiërarchische naamruimte kunnen geen failover mogelijk is.
 - Een opslagaccount met gearchiveerde blobs kan geen failover mogelijk is. Gearchiveerde blobs in een afzonderlijk opslagaccount die u niet van plan bent failover onderhouden.
 - Een met blok-blobs voor premium storage-account kan geen failover mogelijk is. Storage-accounts die ondersteuning bieden voor blok-blobs voor premium bieden momenteel geen ondersteuning voor geo-redundantie.
+- Nadat de failover voltooid is de volgende functies worden niet meer werken als oorspronkelijk is ingeschakeld: [Gebeurtenisabonnementen](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [Lifecycle-beleid](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [Storage Analytics logboekregistratie](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Kopiëren van gegevens als alternatief voor failover
 

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: b45b59775abd2db7cea9d0fa9b0cc23f7ce31277
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d6c46d6ebfa8ae44c9bfac4929d3478f6701758a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848832"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497836"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessies bericht: eerste, eerst out (FIFO) 
 
 Microsoft Azure Service Bus-sessies kunt gezamenlijke en geordende verwerking van niet-gebonden reeksen verwante berichten. Als u wilt profiteren van een garantie FIFO in Service Bus-sessies te gebruiken. Service Bus is niet duidelijk over de aard van de relatie tussen de berichten, en definieert ook niet een bepaald model om te bepalen wanneer een bericht-reeks begint of eindigt.
 
 > [!NOTE]
-> De basic-laag van Service Bus biedt geen ondersteuning voor sessies. De lagen standard en premium ondersteunen sessies. Zie voor meer informatie, [prijzen van Service Bus](service-bus-pricing-billing.md).
+> De basic-laag van Service Bus biedt geen ondersteuning voor sessies. De lagen standard en premium ondersteunen sessies. Zie voor meer informatie, [prijzen van Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Een afzender kunt maken een sessie wanneer de verzenden wordt berichten in een onderwerp of een wachtrij door in te stellen de [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) eigenschap aan enkele toepassingsspecifieke-id die uniek is voor de sessie. Op het niveau van AMQP 1.0-protocol, wordt deze waarde toegewezen aan de *groep-id* eigenschap.
 

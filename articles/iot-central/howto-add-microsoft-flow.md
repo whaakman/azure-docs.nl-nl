@@ -1,25 +1,32 @@
 ---
 title: Werkstromen bouwen met de Azure IoT Central-connector in Microsoft Flow | Microsoft Docs
-description: Gebruik van de IoT Central-connector in Microsoft Flow-trigger werkstromen en maken, bijwerken en verwijderen van apparaten in werkstromen.
+description: Gebruik van de IoT Central-connector in Microsoft Flow-trigger werkstromen en maken, ophalen, bijwerken, verwijderen van apparaten en opdrachten uitvoeren in werkstromen.
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
-manager: peterpr
-ms.openlocfilehash: 555fe54174c9e13319af676cab3a5d3dcfaf2fe5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+manager: hegate
+ms.openlocfilehash: 2c4ee6a2feb737bcafc64b1c8503c03757a53364
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770246"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497734"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Werkstromen bouwen met de IoT Central-connector in Microsoft Flow
 
 *In dit onderwerp is van toepassing op builders en beheerders.*
 
-Microsoft Flow gebruiken voor het automatiseren van werkstromen in de vele toepassingen en services die afhankelijk zijn van zakelijke gebruikers. Met behulp van de IoT Central-connector in Microsoft Flow, kunt u werkstromen activeren wanneer een regel wordt geactiveerd in IoT Central. In een werkstroom geactiveerd door IoT Central of een andere toepassing, kunt u de acties in de IoT Central-connector te maken van een apparaat, het bijwerken van de eigenschappen en instellingen van een apparaat of het verwijderen van een apparaat. Bekijk [deze Microsoft Flow-sjablonen](https://aka.ms/iotcentralflowtemplates) die IoT Central verbinden met andere services, zoals mobiele meldingen en Microsoft Teams.
+Microsoft Flow gebruiken voor het automatiseren van werkstromen in de vele toepassingen en services die afhankelijk zijn van zakelijke gebruikers. Met behulp van de IoT Central-connector in Microsoft Flow, kunt u werkstromen activeren wanneer een regel wordt geactiveerd in IoT Central. In een werkstroom geactiveerd door IoT Central of een andere toepassing, kunt u de acties in de IoT Central-connector:
+- Een apparaat maken
+- Apparaatgegevens ophalen
+- De eigenschappen en instellingen van een apparaat bijwerken
+- Een opdracht uitvoeren op een apparaat
+- Een apparaat verwijderen
+
+Bekijk [deze Microsoft Flow-sjablonen](https://aka.ms/iotcentralflowtemplates) die IoT Central verbinden met andere services, zoals mobiele meldingen en Microsoft Teams.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -28,19 +35,19 @@ Microsoft Flow gebruiken voor het automatiseren van werkstromen in de vele toepa
 
 ## <a name="trigger-a-workflow"></a>Een werkstroom wordt geactiveerd
 
-Deze sectie leest u hoe u voor het activeren van een mobiele melding ontvangen in de mobiele Flow-app wanneer een regel wordt geactiveerd in IoT Central.
+Deze sectie leest u hoe u voor het activeren van een mobiele melding ontvangen in de mobiele Flow-app wanneer een regel wordt geactiveerd in IoT Central. U kunt deze volledige werkstroom bouwen in uw IoT Central-app met behulp van de ontwerpfunctie van Microsoft Flow.
 
-1. Begin met [maken van een regel in IoT Central](howto-create-telemetry-rules.md). Nadat u de voorwaarden van de regel hebt opgeslagen, selecteert u de **Microsoft Flow-actie** als een nieuwe actie. Een nieuw tabblad of venster te openen in uw browser, die u in Microsoft Flow.
+1. Begin met [maken van een regel in IoT Central](howto-create-telemetry-rules.md). Nadat u de voorwaarden van de regel hebt opgeslagen, selecteert u de **Microsoft Flow-actie** als een nieuwe actie. Een dialoogvenster geopend voor u het configureren van uw werkstroom. Het IoT Central-gebruikersaccount dat u bent aangemeld bij wordt gebruikt voor aanmelding bij Microsoft Flow.
 
     ![Maak een nieuwe Microsoft Flow-actie](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. Meld u aan bij Microsoft Flow. Dit hoeft niet te worden van hetzelfde account zijn als het account waarmee u IoT-centraal-India. U komt op een overzichtspagina weergegeven van een verbinding te maken met een aangepaste actie IoT Central-connector.
+1. Hier ziet u een lijst met werkstromen tha u toegang hebt tot en zijn gekoppeld aan deze regel IoT Central. Klik op **sjablonen verkennen** of **New > maken op basis van sjabloon** en u kunt kiezen uit een van de beschikbare sjablonen. 
 
-1. Meld u aan bij de IoT Central-connector en selecteer **doorgaan**. U gaat naar de Microsoft Flow-ontwerpfunctie te maken van uw werkstroom. De werkstroom heeft een IoT Central activeringsopdracht met uw toepassing en de regel al ingevuld.
+    ![Beschikbare sjablonen voor Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates.png)
 
-1. Kies **+ nieuwe stap** en **een actie toevoegen**. U kunt op dit moment geen actie die u uw werkstroom wilt toevoegen. Als voorbeeld gaan we sturen een mobiele melding ontvangen. Zoeken naar **melding**, en kies **meldingen - ik wil een mobiele melding ontvangen**.
+1. U wordt gevraagd om aan te melden bij de connectors in de sjabloon die u hebt gekozen. Nadat de connectors zijn aangemeld, komt u terecht in de ontwerper om aan te maken van uw werkstroom. De werkstroom heeft een IoT Central activeringsopdracht met uw toepassing en de regel al ingevuld.
 
-1. Vul in de actie in het tekstveld met wat u uw aanmelding wilt te zeggen hadden. U kunt opnemen *dynamische inhoud* van uw IoT Central-regel, geven belangrijke informatie zoals de naam van apparaat- en tijdstempel op de melding.
+1. U kunt de werkstroom aanpassen door aan te passen de gegevens doorgegeven aan de actie en de nieuwe acties toe te voegen. In dit voorbeeld wordt de actie is **meldingen - ik wil een mobiele melding ontvangen**. U kunt opnemen *dynamische inhoud* van uw IoT Central-regel, geven belangrijke informatie zoals de naam van apparaat- en tijdstempel op de melding.
 
     > [!NOTE]
     > Selecteer de **meer** tekst in het venster met dynamische inhoud om op te halen van de meting en eigenschap waarden die de regel geactiveerd.
@@ -54,7 +61,7 @@ Deze sectie leest u hoe u voor het activeren van een mobiele melding ontvangen i
 
 1. Als u terug naar uw IoT Central-app gaat, ziet u dat deze regel bevat een Microsoft Flow-actie in het gebied van acties.
 
-U kunt altijd beginnen het bouwen van een werkstroom met behulp van de IoT Central-connector in Microsoft Flow. U kunt vervolgens kiezen welke IoT Central-app en welke regel verbinding maken met.
+U kunt ook met behulp van de connector IoT Central rechtstreeks vanuit Microsoft Flow-werkstromen bouwen. Vervolgens kunt u kiezen welke IoT Central-app verbinding kan maken.
 
 ## <a name="create-a-device-in-a-workflow"></a>Een apparaat in een werkstroom maken
 
@@ -107,6 +114,18 @@ Deze sectie leest u hoe u instellingen voor apparaten en de eigenschappen in IoT
 1. Sla ten slotte uw werkstroom.
 
 1. Probeer uw werkstroom in de mobiele Microsoft Flow-app. Ga naar de **knoppen** tabblad in de app. Hier ziet u de Update een werkstroom voor apparaten -> knop. Voer de invoer en zien van het apparaat in IoT Central bijgewerkt!
+
+## <a name="get-device-information-in-a-workflow"></a>Apparaatgegevens in een werkstroom ophalen
+
+Krijgt u informatie over apparaten door de apparaat-ID gebruikt de **Azure IoT Central - een apparaat laten** actie. U krijgt informatie zoals de naam van apparaat, sjabloon de naam van apparaat, eigenschapswaarden en waarden voor de instellingen moeten worden doorgegeven aan latere acties in uw werkstroom. Hier volgt een voorbeeldwerkstroom die de waarde van de naam van de klant-eigenschap van een apparaat doorgeeft aan Microsoft Teams.
+
+   ![Werkstroom voor flow get-apparaten](./media/howto-add-microsoft-flow/flowgetdevice.png)
+
+
+## <a name="run-a-command-on-a-device-in-a-workflow"></a>Een opdracht uitvoeren op een apparaat in een werkstroom
+U kunt een opdracht uitvoeren op een apparaat dat is opgegeven door de apparaat-ID gebruikt de **Azure IoT Central - voert u een opdracht** actie. U kunt de opdracht uit te voeren en de parameters van de opdracht doorgeven door deze actie kunt kiezen. Hier volgt een voorbeeldwerkstroom die de opdracht van een apparaat opnieuw opstarten op een knop in de mobiele Microsoft Flow-app wordt uitgevoerd.
+
+   ![Werkstroom voor flow get-apparaten](./media/howto-add-microsoft-flow/flowrunacommand.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Een apparaat in een werkstroom verwijderen
 

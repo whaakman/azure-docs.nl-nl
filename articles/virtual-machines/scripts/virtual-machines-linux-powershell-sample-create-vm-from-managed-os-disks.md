@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 8bee1c3b5863cfe8b4b2e50a927b0eb15576f02f
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f0a1184daa41a30bb0c47764a3a47af68a6a9251
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249488"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442804"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>Een virtuele machine maken met behulp van een bestaande beheerde besturingssysteemschijf met PowerShell
 
@@ -60,7 +60,7 @@ Dit script gebruikt de volgende opdrachten voor het opvragen van de eigenschappe
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Hiermee maakt u een virtuele machine. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Hiermee verwijdert u een resourcegroep en alle daarin opgenomen resources. |
 
-Gebruik voor marketplace-installatiekopieën [Set AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan?view=azurermps-6.7.0) om de plangegevens in te stellen.
+Gebruik voor marketplace-installatiekopieën [Set AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) om de plangegevens in te stellen.
 
 ```powershell
 Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame

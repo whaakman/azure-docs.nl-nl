@@ -3,7 +3,7 @@ title: Een Azure Service Fabric-cluster voor het gebruik van de algemene certifi
 description: Meer informatie over het overschakelen op een Service Fabric-cluster van het gebruik van vingerafdrukken van het certificaat voor het gebruik van de algemene certificaatnaam.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: aljo
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
-ms.author: ryanwi
-ms.openlocfilehash: e1a52aff0890e32ae739285c0380258939f29597
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.author: aljo
+ms.openlocfilehash: 7280424c57e2dfab0a64794855cb522bcf69e135
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312868"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500497"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Cluster niet wijzigen van de vingerafdruk van certificaat in de algemene naam
-Er zijn geen twee certificaten kunnen hebben dezelfde vingerafdruk, waardoor certificaatrollover cluster of de beheer-moeilijk. Meerdere certificaten kunnen echter hebben de dezelfde algemene naam of het onderwerp.  Schakelen tussen een geïmplementeerd cluster vanuit vingerafdrukken van het certificaat voor het gebruik van de algemene naam van het certificaat met maakt het beheren van certificaten het veel eenvoudiger. In dit artikel wordt beschreven hoe u een actief Service Fabric-cluster voor het gebruik van de algemene naam van het certificaat in plaats van de vingerafdruk van het certificaat bijwerken.
+Er zijn geen twee certificaten kunnen hebben dezelfde vingerafdruk, waardoor certificaatrollover cluster of de beheer-moeilijk. Meerdere certificaten kunnen echter hebben de dezelfde algemene naam of het onderwerp.  Schakelen tussen een geïmplementeerd cluster vanuit vingerafdrukken voor certificaten naar het gebruik van gewone namen voor certificaten maakt het beheer van certificaten veel eenvoudiger. In dit artikel wordt beschreven hoe u een actief Service Fabric-cluster voor het gebruik van de algemene naam van het certificaat in plaats van de vingerafdruk van het certificaat bijwerken.
 
 >[!NOTE]
 > Als u twee vingerafdruk gedeclareerd in de sjabloon hebt, moet u twee implementaties uitvoeren.  De eerste implementatie wordt uitgevoerd voordat u de stappen in dit artikel te volgen.  Hiermee stelt u de eerste implementatie uw **vingerafdruk** eigenschap in de sjabloon voor het certificaat dat wordt gebruikt en verwijdert de **thumbprintSecondary** eigenschap.  Volg de stappen in dit artikel voor de tweede implementatie.

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 89683b0fe5d401a92dc8575fd1ddc81d74d594b6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 01052e218d2c7017ca6f29126f7232aeee16705a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351147"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479543"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Quickstart: Een afbeeldingsclassificatieproject maken met de Custom Vision-SDK voor Java
 
@@ -44,7 +44,7 @@ Met dit Java-project wordt een nieuwe afbeeldingsclassificatieproject van Custom
 
 Het programma is zodanig geconfigureerd dat uw belangrijkste gegevens als omgevingsvariabelen worden opgeslagen. Stel deze variabelen in via de map **Vision/CustomVision** in PowerShell. Voer daarna de volgende opdrachten in:
 
-```PowerShell
+```powershell
 $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
 $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 ```
@@ -73,9 +73,9 @@ Het vorige codefragment maakt gebruik van twee hulpfuncties die de afbeeldingen 
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 
-### <a name="train-the-classifier"></a>De classificatie trainen
+### <a name="train-the-classifier-and-publish"></a>De classificatie te trainen en publiceren
 
-Met deze code wordt de eerste iteratie in het project gemaakt. De iteratie wordt gemarkeerd als de standaarditeratie. De standaarditeratie weerspiegelt de versie van het model die reageert op voorspellingsaanvragen. Update deze elke keer als u het model opnieuw gaat trainen.
+Deze code wordt de eerste versie in het project wordt gemaakt en vervolgens publiceert dat iteratie naar het eindpunt van de voorspelling. De naam van de gepubliceerde iteratie kan worden gebruikt om voorspelling aanvragen te verzenden. Een iteratie is niet beschikbaar in de voorspelling eindpunt totdat deze is gepubliceerd.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=89-99)]
 
@@ -89,7 +89,7 @@ Het voorspellingseindpunt, dat door het `predictor`-object hier wordt weergegeve
 
 Als u de oplossing met Maven wilt compileren en uitvoeren, voert u de volgende opdracht uit in de projectmap in PowerShell:
 
-```PowerShell
+```powershell
 mvn compile exec:java
 ```
 

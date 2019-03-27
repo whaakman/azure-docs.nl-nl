@@ -3,7 +3,7 @@ title: Een Service Fabric-cluster schalen in Azure | Microsoft Docs
 description: In deze zelfstudie leert u hoe u kunt een Service Fabric-cluster schalen in Azure.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 315e3c05e23d68edb701e705fd1ed02a840a8936
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 8b5051787855413e16de984cb5d26a24e305b00c
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226807"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498397"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Zelfstudie: Een Service Fabric-cluster schalen in Azure
 

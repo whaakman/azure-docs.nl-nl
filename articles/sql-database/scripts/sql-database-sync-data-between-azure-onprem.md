@@ -9,15 +9,15 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: allenwux
 ms.author: xiwu
-ms.reviewer: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 5b18d6d8a7a60ad8b5de961a407da40a17ddfd96
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 031a23016abb5b0d8c4c6ebd7213bb24cf3c53cb
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895546"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487648"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>PowerShell gebruiken om te synchroniseren tussen een SQL-database en een on-premises SQL Server-database
 

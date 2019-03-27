@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 1341a8fce95dff0499a698fcddf8d048f3628dba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108228"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487478"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -113,12 +113,12 @@ De methode retourneert een woordenlijst die kan worden gebruikt om aangepaste ac
 
 3. Voer de volgende opdracht uit om te importeren in de Package Manager Console **Microsoft.Azure.Management.DataFactories**.
 
-    ```PowerShell
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
 4. Importeren van de **Azure Storage** NuGet-pakket in het project.
 
-    ```PowerShell
+    ```powershell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
@@ -709,7 +709,7 @@ Het oplossen van bestaat uit enkele basistechnieken:
 
     Als u de 4.3.0 kunt versie van Azure Storage-package, verwijder de bestaande verwijzing naar Azure Storage-package van versie > 4.3.0. Voer de volgende opdracht uit vanuit NuGet Package Manager-Console.
 
-    ```PowerShell
+    ```powershell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 

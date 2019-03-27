@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 56ca87f318aa5f1843a3b28480be834df1669c71
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811006"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480801"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Binnenkomende en uitgaande IP-adressen in Azure App Service
 
@@ -45,11 +45,11 @@ Ongeacht het aantal exemplaren van de scale-out heeft elke app een bepaald aanta
 
 De set met uitgaande IP-adressen voor uw app verandert wanneer u uw app tussen de lagere lagen (**Basic**, **Standard**, en **Premium**) en de  **Premium V2** laag.
 
-U vindt de set met alle mogelijke uitgaande IP-adressen uw app gebruiken kunt, ongeacht de Prijscategorieën, door te zoeken naar de `possibleOutboundIPAddresses` eigenschap. Zie [uitgaande IP-adressen vinden](#find-outbound-ips).
+U vindt de set met alle mogelijke uitgaande IP-adressen uw app gebruiken kunt, ongeacht de Prijscategorieën, door te zoeken naar de `possibleOutboundIPAddresses` eigenschap of in de **aanvullende uitgaand IP-adressen** veld in de **eigenschappen**  blade in Azure portal. Zie [uitgaande IP-adressen vinden](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Uitgaande IP-adressen zoeken
 
-Als u wilt zoeken in de uitgaande IP-adressen momenteel gebruikt door uw app in Azure portal, klikt u op **eigenschappen** in de linkernavigatiebalk van uw app. 
+Als u wilt zoeken in de uitgaande IP-adressen momenteel gebruikt door uw app in Azure portal, klikt u op **eigenschappen** in de linkernavigatiebalk van uw app. Ze worden weergegeven in de **uitgaande IP-adressen** veld.
 
 U kunt dezelfde informatie vinden door te voeren van de volgende opdracht uit in de [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -61,7 +61,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-Vinden alle mogelijke uitgaande IP-adressen voor uw app, ongeacht de Prijscategorieën, voer de volgende opdracht de [Cloud Shell](../cloud-shell/quickstart.md).
+Om te zoeken _alle_ mogelijk uitgaande IP-adressen voor uw app, ongeacht de Prijscategorieën, klikt u op **eigenschappen** in de linkernavigatiebalk van uw app. Ze worden weergegeven in de **aanvullende uitgaand IP-adressen** veld.
+
+U kunt dezelfde informatie vinden door te voeren van de volgende opdracht uit in de [Cloud Shell](../cloud-shell/quickstart.md).
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv

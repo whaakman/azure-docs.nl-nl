@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: afec42551f124890dd2cc7b03cce48c359fc88c4
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 25ebd72c512eb92c5d9a464a4b4d74f9e41ae389
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194092"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484104"
 ---
 # <a name="azure-key-vault-logging"></a>Logboekregistratie voor Azure Key Vault
 
@@ -55,7 +55,7 @@ De eerste stap bij het instellen van sleutels logboekregistratie is punt Azure P
 
 Start een Azure PowerShell-sessie en aanmelden bij uw Azure-account met behulp van de volgende opdracht uit:  
 
-```PowerShell
+```powershell
 Connect-AzAccount
 ```
 
@@ -63,13 +63,13 @@ Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw 
 
 Het is mogelijk om op te geven van het abonnement dat u gebruikt voor het maken van uw key vault. Voer de volgende opdracht om te zien van de abonnementen voor uw account:
 
-```PowerShell
+```powershell
 Get-AzSubscription
 ```
 
 Voer vervolgens de volgende opdracht om op te geven van het abonnement dat is gekoppeld aan de sleutelkluis die u zult worden logboekregistratie:
 
-```PowerShell
+```powershell
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
@@ -81,7 +81,7 @@ Hoewel u een bestaand opslagaccount voor uw Logboeken gebruiken kunt, maken we e
 
 Nog gemakkelijker te maken van beheer, we dezelfde resourcegroep ook gebruikt als het account dat die de sleutelkluis bevat. Uit de [aan de slag-zelfstudie](key-vault-get-started.md), deze resourcegroep de naam **ContosoResourceGroup**, en we blijven gebruiken van de locatie Oost-Azië. Vervang deze waarden door uw eigen, zoals van toepassing:
 
-```PowerShell
+```powershell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 ```
 
@@ -94,7 +94,7 @@ Nog gemakkelijker te maken van beheer, we dezelfde resourcegroep ook gebruikt al
 
 In de [aan de slag-zelfstudie](key-vault-get-started.md), de naam van de sleutelkluis is **ContosoKeyVault**. We blijven gebruiken die naam en opslaan van de gegevens in een variabele met de naam **kv**:
 
-```PowerShell
+```powershell
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
@@ -102,7 +102,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 Als u wilt logboekregistratie inschakelen voor Key Vault, gebruiken we de **Set AzDiagnosticSetting** cmdlet, samen met de variabelen die we hebben gemaakt voor het nieuwe opslagaccount en de key vault. Stellen we ook de **-ingeschakeld** markering **$true** en de categorie instellen op **AuditEvent** (de enige categorie voor logboekregistratie van Key Vault):
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
@@ -122,7 +122,7 @@ Deze uitvoer bevestigt dat logboekregistratie nu is ingeschakeld voor uw key vau
 
 U kunt eventueel een bewaarbeleid instellen voor uw Logboeken, zodat oudere logboeken automatisch worden verwijderd. Bijvoorbeeld bewaarbeleid instellen door in te stellen de **- RetentionEnabled** markering **$true**, en stel de **- RetentionInDays** parameter **90**zodat logboeken die ouder zijn dan 90 dagen automatisch worden verwijderd.
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
@@ -141,13 +141,13 @@ Key Vault-logboeken worden opgeslagen in de **insights-logs-auditevent** contain
 
 Maak eerst een variabele voor de containernaam. U gebruikt deze variabele in de rest van de procedure.
 
-```PowerShell
+```powershell
 $container = 'insights-logs-auditevent'
 ```
 
 Als u alle blobs in deze container, typ:
 
-```PowerShell
+```powershell
 Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
@@ -174,19 +174,19 @@ Omdat u hetzelfde opslagaccount gebruiken kunt voor het verzamelen van Logboeken
 
 Maak een map om de blobs te downloaden. Bijvoorbeeld:
 
-```PowerShell 
+```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 ```
 
 Haal vervolgens een lijst met alle blobs op:  
 
-```PowerShell
+```powershell
 $blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 Sluis deze lijst via **Get-AzStorageBlobContent** voor het downloaden van de blobs naar de doelmap:
 
-```PowerShell
+```powershell
 $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
@@ -196,19 +196,19 @@ Als u alleen specifieke blobs wilt downloaden, moet u jokertekens gebruiken. Bij
 
 * Als u meerdere sleutelkluizen hebt en het logboek voor slechts één sleutelkluis wilt downloaden met de naam CONTOSOKEYVAULT3:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
 * Als u meerdere resourcegroepen hebt en logboeken voor slechts één resourcegroep wilt downloaden, gebruikt u `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
 * Als u alle logboeken downloaden die u voor de maand januari 2019 wilt, gebruikt u `-Blob '*/year=2019/m=01/*'`:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
@@ -221,7 +221,7 @@ We gaan zo kijken wat er precies in de logboeken staat. Maar voordat we verderga
 
 Afzonderlijke blobs worden opgeslagen als tekst, die is opgemaakt als een JSON-blob. We bekijken een voorbeeld van invoer voor logboekbestanden. Voer deze opdracht uit:
 
-```PowerShell
+```powershell
 Get-AzKeyVault -VaultName 'contosokeyvault'`
 ```
 

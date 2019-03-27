@@ -3,7 +3,7 @@ title: Azure Service Fabric container application manifest voorbeelden | Microso
 description: Meer informatie over het configureren van de toepassing en service-manifest instellingen voor een Service Fabric-toepassing.
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: peterpogorski
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
-ms.author: ryanwi
-ms.openlocfilehash: 8336f0a63f74aa0db176adbb3baf462c903ba2ec
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: pepogors
+ms.openlocfilehash: 552ff326ed38175f711924873daab4fcc48f0d09
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095576"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500386"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric-toepassing en service manifest van de voorbeelden
 In deze sectie bevat voorbeelden van toepassing en service-manifesten. Deze voorbeelden zijn niet bedoeld om belangrijke scenario's weer te geven, maar de verschillende instellingen die beschikbaar zijn en het gebruik ervan weer te geven. 
@@ -43,9 +43,9 @@ Hier volgt een overzicht van de functies die worden weergegeven en wanneer ze ee
 |[Verificatie containerregister configureren](service-fabric-get-started-containers.md#configure-container-registry-authentication)|[Container-toepassingsmanifest](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[De isolatiemodus instellen](service-fabric-get-started-containers.md#configure-isolation-mode)|[Container-toepassingsmanifest](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Build-specifieke containerinstallatiekopieën van het besturingssysteem opgeven](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)|[Container-toepassingsmanifest](service-fabric-manifest-example-container-app.md#application-manifest)|
-|[Omgevingsvariabelen instellen](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[Container FrontEndService servicemanifest](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest), [Container BackEndService servicemanifest](service-fabric-manifest-example-container-app.md#backendservice-service-manifest)|
-|[Een eindpunt configureren](service-fabric-get-started-containers.md#configure-communication)|[Container FrontEndService servicemanifest](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest), [Container BackEndService servicemanifest](service-fabric-manifest-example-container-app.md#backendservice-service-manifest), [VotingData-servicemanifest](service-fabric-manifest-example-reliable-services-app.md#votingdata-service-manifest)|
-|opdrachten doorgeven aan de container|[Container FrontEndService servicemanifest](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest)|
-|[Een certificaat importeren in een container](service-fabric-securing-containers.md)|[Container FrontEndService servicemanifest](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest)|
+|[Omgevingsvariabelen instellen](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[Container FrontEndService service manifest](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest), [Container BackEndService service manifest](service-fabric-manifest-example-container-app.md#backendservice-service-manifest)|
+|[Een eindpunt configureren](service-fabric-get-started-containers.md#configure-communication)|[Container FrontEndService service manifest](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest), [Container BackEndService service manifest](service-fabric-manifest-example-container-app.md#backendservice-service-manifest), [VotingData service manifest](service-fabric-manifest-example-reliable-services-app.md#votingdata-service-manifest)|
+|opdrachten doorgeven aan de container|[Container FrontEndService service manifest](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest)|
+|[Een certificaat importeren in een container](service-fabric-securing-containers.md)|[Container FrontEndService service manifest](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest)|
 |[Volume stuurprogramma configureren](service-fabric-containers-volume-logging-drivers.md)|[Container BackEndService servicemanifest](service-fabric-manifest-example-container-app.md#backendservice-service-manifest)|
 

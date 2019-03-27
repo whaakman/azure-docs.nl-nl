@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 5fd51e2d847b540d2eb8c17c2bc31f4e162a21ee
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68a5bdef17077d1815b6d85e121d9bb26c2280bf
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904623"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484251"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Aan de slag met taken voor Elastic Database
 
@@ -52,7 +52,7 @@ Hier wordt meestal maken we een shard-toewijzing als doel, met behulp van de **N
 
 ## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Hiermee maakt u een aangepaste verzameling en alle databases op de server toevoegen aan het doel van de aangepaste verzameling met uitzondering van master
 
-   ```PowerShell
+   ```powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -316,7 +316,7 @@ Als een geannuleerde taken voor een bovenliggende taak is aangevraagd, wordt de 
 
 Om in te dienen een aanvraag voor annulering, gebruikt u de **Stop-AzureSqlJobExecution** cmdlet en stel de **JobExecutionId** parameter.
 
-   ```PowerShell
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```

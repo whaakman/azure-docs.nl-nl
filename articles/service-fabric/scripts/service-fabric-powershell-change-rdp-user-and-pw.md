@@ -3,7 +3,7 @@ title: Azure PowerShell-voorbeeldscript - RDP-gebruikersnaam en -wachtwoord bijw
 description: Azure PowerShell-voorbeeldscript - RDP-gebruikersnaam en -wachtwoord bijwerken voor alle Service Fabric-clusterknooppunten van een bepaald knooppunttype.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,20 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ff9cfabc4ac7b759a916ddaaeb3f4c95ceecd452
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: a5c1e7786f02b7ebc42f96e4ed12b2fb5729bb41
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30177828"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498006"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Gebruikersnaam en wachtwoord van de beheerder van de VM's in een cluster bijwerken
 
 Elk [knooppunttype](../service-fabric-cluster-nodetypes.md) in een Service Fabric-cluster is een virtuele-machineschaalset. Met dit voorbeeldscript worden de gebruikersnaam en het wachtwoord van de beheerder voor de virtuele clustermachines in een specifiek knooppunttype bijgewerkt.  Voeg de extensie VMAccessAgent aan de schaalset toe, want het beheerderswachtwoord is geen bewerkbare schaalseteigenschap.  De wijziging van de gebruikersnaam en het wachtwoord is van toepassing op alle knooppunten in de schaalset. Pas de parameters zo nodig aan.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Installeer zo nodig Azure PowerShell met behulp van de instructies in de [Azure PowerShell-handleiding](/powershell/azure/overview). 
 
@@ -38,9 +40,9 @@ In dit script worden de volgende opdrachten gebruikt: Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) | Hiermee worden de eigenschappen van een clusterknooppunttype (een virtuele-machineschaalset) opgehaald.   |
-| [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension)| Hiermee wordt een extensie toegevoegd aan de virtuele-machineschaalset.|
-| [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)|Hiermee wordt de status van een virtuele-machineschaalset ingesteld op de status van een lokaal VMSS-object.|
+| [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Hiermee worden de eigenschappen van een clusterknooppunttype (een virtuele-machineschaalset) opgehaald.   |
+| [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)| Hiermee wordt een extensie toegevoegd aan de virtuele-machineschaalset.|
+| [Update-AzVmss](/powershell/module/az.compute/update-azvmss)|Hiermee wordt de status van een virtuele-machineschaalset ingesteld op de status van een lokaal VMSS-object.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

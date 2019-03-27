@@ -3,7 +3,7 @@ title: Azure PowerShell-voorbeeldscript - Een Service Fabric-cluster maken | Mic
 description: Azure PowerShell-voorbeeldscript - Een Service Fabric-cluster maken.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,20 +13,22 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ad3c51f0f43d63fd784156eca680218850897e8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: de807a52e0e97c7cc0886cee5d5586afdf5077a5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596548"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496068"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Een Service Fabric-cluster maken
 
 Met dit voorbeeldscript wordt een Service Fabric-cluster met vijf knooppunten gemaakt dat wordt beveiligd met een X.509-certificaat.  Met de opdracht wordt een zelfondertekend certificaat gemaakt en geüpload naar een nieuwe sleutelkluis. Het certificaat wordt ook gekopieerd naar een lokale map.  Stel de *-OS* parameter in om de versie van Windows of Linux die op de clusterknooppunten wordt uitgevoerd te kiezen.  Pas de parameters zo nodig aan.
 
-Installeer zo nodig de Azure PowerShell volgens de instructies in de [Azure PowerShell handleiding](/powershell/azure/overview) en voer vervolgens `Connect-AzureRmAccount` uit om verbinding maken met Azure. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Installeer zo nodig de Azure PowerShell volgens de instructies in de [Azure PowerShell handleiding](/powershell/azure/overview) en voer vervolgens `Connect-AzAccount` uit om verbinding maken met Azure. 
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
@@ -38,7 +40,7 @@ Nadat het voorbeeldscript is uitgevoerd, kan de volgende opdracht worden gebruik
 
 ```powershell
 $groupname="mysfclustergroup"
-Remove-AzureRmResourceGroup -Name $groupname -Force
+Remove-AzResourceGroup -Name $groupname -Force
 ```
 
 ## <a name="script-explanation"></a>Uitleg van het script
@@ -47,7 +49,7 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Hiermee wordt een nieuw Service Fabric-cluster gemaakt. |
+| [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) | Hiermee wordt een nieuw Service Fabric-cluster gemaakt. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

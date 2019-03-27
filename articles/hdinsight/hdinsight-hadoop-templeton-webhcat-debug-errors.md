@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: f1515af1ef61bc40ae91e3e5b43154f92bc89ae4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f158e08f0f882801dc488721013e9705ea4ff738
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725369"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448314"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Begrijpen en oplossen van fouten die zijn ontvangen van WebHCat op HDInsight
 
@@ -29,7 +29,7 @@ Meer informatie over fouten die zijn ontvangen als u de WebHCat voor HDInsight, 
 > [!IMPORTANT]  
 > Aantal van de fouten die worden vermeld in dit document optreden met een geconfigureerde maximum is overschreden. Wanneer de resolutie-stap wordt vermeld dat u kunt een waarde wijzigen, moet u een van de volgende gebruiken om uit te voeren van de wijziging:
 
-* Voor **Windows** clusters: Een scriptactie gebruiken om te configureren van de waarde tijdens het maken van clusters. Zie voor meer informatie, [scriptacties ontwikkelen](hdinsight-hadoop-script-actions.md).
+* Voor **Windows** clusters: Een scriptactie gebruiken om te configureren van de waarde tijdens het maken van clusters. Zie voor meer informatie, [scriptacties ontwikkelen](hdinsight-hadoop-script-actions-linux.md).
 
 * Voor **Linux** clusters: Gebruik Apache Ambari (web- of REST-API) om de waarde te wijzigen. Zie voor meer informatie, [beheren HDInsight met Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
@@ -42,7 +42,7 @@ Als de volgende standaardwaarden zijn overschreden, kan WebHCat prestaties versl
 
 | Instelling | Wat het doet | Standaardwaarde |
 | --- | --- | --- |
-| [yarn.scheduler.Capacity.maximum-toepassingen][maximum-applications] |Het maximale aantal taken dat gelijktijdig actief kan zijn (in behandeling of wordt uitgevoerd) |10.000 |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Het maximale aantal taken dat gelijktijdig actief kan zijn (in behandeling of wordt uitgevoerd) |10.000 |
 | [templeton.exec.max-procs][max-procs] |Het maximale aantal aanvragen die gelijktijdig kunnen worden weergegeven |20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] |Het aantal dagen dat u de taakgeschiedenis worden bewaard |7 dagen |
 
@@ -70,7 +70,7 @@ Als de volgende standaardwaarden zijn overschreden, kan WebHCat prestaties versl
 | --- | --- |
 | Taakdetails zijn opgeschoond door de taakgeschiedenis Opruimprogramma |De bewaartermijn van Taakgeschiedenis is 7 dagen. De gebruikelijke bewaarperiode kan worden gewijzigd door het wijzigen van `mapreduce.jobhistory.max-age-ms`. Zie voor meer informatie, [configuratie wijzigen](#modifying-configuration) |
 | Taak is afgebroken vanwege een failover |Probeer het opnieuw verzenden van taken voor maximaal twee minuten |
-| Er is een ongeldige taak-id gebruikt |Controleer of de taak-id juist is |
+| Er is een ongeldige taak-ID gebruikt |Controleer of de taak-ID juist is |
 
 ## <a name="bad-gateway"></a>Ongeldige gateway
 
@@ -80,7 +80,7 @@ Als de volgende standaardwaarden zijn overschreden, kan WebHCat prestaties versl
 | --- | --- |
 | Interne garbagecollection plaatsvindt in het proces van WebHCat |Wachten op garbagecollection voltooid of de WebHCat-service opnieuw starten |
 | Time-out voor wachten op een reactie van de ResourceManager-service. Deze fout kan optreden wanneer het aantal actieve toepassingen het geconfigureerde maximum (standaard 10.000 wordt) |Wachten op de momenteel actieve taken om te voltooien of de taaklimiet voor gelijktijdige verhogen door het wijzigen van `yarn.scheduler.capacity.maximum-applications`. Zie voor meer informatie de [wijzigen configuratie](#modifying-configuration) sectie. |
-| Het ophalen van alle taken via de [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) aanroep bij `Fields` is ingesteld op `*` |Kan niet worden opgehaald *alle* taakgegevens. Gebruik in plaats daarvan `jobid` details voor taken die alleen groter is dan een bepaalde taak-id opgehaald. Of gebruik geen `Fields` |
+| Het ophalen van alle taken via de [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) aanroep bij `Fields` is ingesteld op `*` |Kan niet worden opgehaald *alle* taakgegevens. Gebruik in plaats daarvan `jobid` ophalen van gegevens voor taken die alleen groter is dan een bepaalde taak-ID. Of gebruik geen `Fields` |
 | De WebHCat-service is niet beschikbaar tijdens de failover van hoofdknooppunt |Wacht twee minuten en probeer het opnieuw |
 | Er zijn meer dan 500 in behandeling zijnde taken die worden verzonden via WebHCat |Wacht totdat het momenteel in behandeling zijnde taken zijn voltooid voordat u meer taken verzendt |
 

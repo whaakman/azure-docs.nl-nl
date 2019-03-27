@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: c38b21d860e25c0f31122e75d822257e14ca01db
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 7c5e979f399a487d29138b57d1fc4ee2c77622ff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351963"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445492"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -105,11 +105,14 @@ API | Standaardindeling voor gegevens | Andere indelingen
 /scheduledevents | json | geen
 / blijkt | json | geen
 
-Geef de vereiste indeling als een queryreeksparameter in de aanvraag voor toegang tot een niet-standaard antwoordindeling. Bijvoorbeeld:
+Geef de vereiste indeling als een queryreeks-parameter in de aanvraag voor toegang tot een niet-standaard antwoordindeling. Bijvoorbeeld:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
+
+> [!NOTE]
+> Voor bladknooppunten de `format=json` werkt niet. Voor deze query's `format=text` moet expliciet worden opgegeven als de standaardindeling json is.
 
 ### <a name="security"></a>Beveiliging
 
@@ -123,8 +126,8 @@ Als er een gegevenselement niet gevonden of een onjuist gevormde aanvraag, retou
 HTTP-statuscode | Reden
 ----------------|-------
 200 OK |
-400-Ongeldige aanvraag | Ontbrekende `Metadata: true` koptekst
-404 – Niet gevonden | Het gevraagde element bestaat niet 
+400-Ongeldige aanvraag | Ontbrekende `Metadata: true` kop- of de indeling ontbreekt bij het opvragen van een leaf-knooppunt
+404 – Niet gevonden | Het gevraagde element bestaat niet
 405 methode is niet toegestaan | Alleen `GET` en `POST` aanvragen worden ondersteund
 429 te veel aanvragen | De API ondersteunt momenteel een maximum van 5 query's per seconde
 500 servicefout     | Voer na enige tijd opnieuw uit

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2bf323b34c5a5301094bdecdc9fa705fe9077320
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076340"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482127"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Een Azure-bestandsshare gebruiken met Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen probleemloos worden gebruikt in Windows en Windows Server. In dit artikel worden de overwegingen besproken voor het gebruik van een Azure-bestandsshare met Windows en Windows Server.
@@ -49,7 +49,7 @@ U kunt Azure-bestandsshares gebruiken in een Windows-installatie die wordt uitge
 
     Bij de volgende PowerShell-code wordt ervan uitgegaan dat u de AzureRM PowerShell-module heeft geïnstalleerd. Raadpleeg [Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-az-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resource-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
 
-    ```PowerShell
+    ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
@@ -87,7 +87,7 @@ Een algemeen patroon om Line-Of-Business-toepassingen die een SMB-bestandsshare 
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>Permanente referenties voor een Azure-bestandsshare in Windows  
 Met het hulpprogramma [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) kunt u de referenties van uw opslagaccount bewaren in Windows. Dit betekent dat wanneer u toegang wilt krijgen tot een Azure-bestandsshare via het UNC-pad of als u de share wilt koppelen, u uw referenties niet hoeft op te geven. Als u de referenties van uw opslagaccount wilt bewaren, voert u de volgende PowerShell-opdrachten uit, waarbij u `<your-storage-account-name>` en `<your-resource-group-name>` vervangt waar dat nodig is.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 
@@ -107,7 +107,7 @@ Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Con
 
 U kunt controleren of het hulpprogramma cmdkey uw referenties voor het opslagaccount heeft opgeslagen met de lijstparameter:
 
-```PowerShell
+```powershell
 cmdkey /list
 ```
 
@@ -128,7 +128,7 @@ Er kunnen nog twee cmdkey-scenario's worden overwogen: referenties voor een ande
 
 De referenties voor een andere gebruiker op de machine opslaan is erg eenvoudig: wanneer u zich bij uw account aanmeldt, voert u de volgende PowerShell-opdracht uit:
 
-```PowerShell
+```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
 Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
@@ -141,7 +141,7 @@ De referenties op een externe machine opslaan via externe toegang via Powershell
 ### <a name="mount-the-azure-file-share-with-powershell"></a>De Azure-bestandsshare koppelen met PowerShell
 Voer de volgende opdrachten uit via een standaard PowerShell-sessie (dus zonder verhoogde bevoegdheden) om de Azure-bestandsshare te koppelen. Vergeet niet om `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` en `<desired-drive-letter>` te vervangen door de juiste informatie.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 $fileShareName = "<your-file-share-name>"
@@ -172,7 +172,7 @@ New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($file
 
 Indien gewenst, kunt u de Azure-bestandsshare ontkoppelen met de volgende PowerShell-cmdlet.
 
-```PowerShell
+```powershell
 Remove-PSDrive -Name <desired-drive-letter>
 ```
 
@@ -252,7 +252,7 @@ Voordat u SMB 1 uit uw omgeving verwijdert, wilt u mogelijk het gebruik van SMB 
 
 Als u controle wilt inschakelen, voert u de volgende cmdlet uit in een PowerShell-sessie met verhoogde bevoegdheden:
 
-```PowerShell
+```powershell
 Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
@@ -261,7 +261,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 
 Als u SMB 1 van een Windows Server-exemplaar wilt verwijderen, voert u de volgende cmdlet uit in een PowerShell-sessie met verhoogde bevoegdheden:
 
-```PowerShell
+```powershell
 Remove-WindowsFeature -Name FS-SMB1
 ```
 
@@ -275,7 +275,7 @@ Start uw server opnieuw op om het verwijderingsproces te voltooien.
 
 Als u SMB 1 wilt verwijderen van uw Windows-client, voert u de volgende cmdlet uit in een PowerShell-sessie met verhoogde bevoegdheden:
 
-```PowerShell
+```powershell
 Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 ```
 
@@ -288,7 +288,7 @@ SMB 1 kan niet volledig worden verwijderd van ouders versies van Windows/Windows
 
 Dit kunt u ook eenvoudig doen met de volgende PowerShell-cmdlet:
 
-```PowerShell
+```powershell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
 ```
 

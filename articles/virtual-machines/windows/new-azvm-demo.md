@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 32862d06cfa6a9a8dd9b99459362ec53fd88cec2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 02f2bd78ca5656534b106c6f7f18c05165b4b9ff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978940"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444503"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azvm-cmdlet-in-cloud-shell"></a>Een Windows-machine maken met de vereenvoudigde cmdlet New-AzVM in Cloud Shell 
 
-De [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azurermps-6.8.1) cmdlet een vereenvoudigde set parameters voor het maken van een nieuwe virtuele machine met behulp van PowerShell is toegevoegd. Dit onderwerp ziet u hoe u PowerShell in Azure Cloud Shell met de meest recente versie van de cmdlet New-AzureVM is vooraf geïnstalleerd, voor het maken van een nieuwe virtuele machine. We gebruiken een vereenvoudigde parameterset die automatisch alle benodigde bronnen met slimme standaardinstellingen worden gemaakt. 
+De [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet een vereenvoudigde set parameters voor het maken van een nieuwe virtuele machine met behulp van PowerShell is toegevoegd. Dit onderwerp ziet u hoe u PowerShell in Azure Cloud Shell met de meest recente versie van de cmdlet New-AzureVM is vooraf geïnstalleerd, voor het maken van een nieuwe virtuele machine. We gebruiken een vereenvoudigde parameterset die automatisch alle benodigde bronnen met slimme standaardinstellingen worden gemaakt. 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -36,7 +36,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="create-the-vm"></a>De virtuele machine maken
 
-U kunt de cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azurermps-6.8.1) gebruiken om een virtuele machine te maken met slimme standaardwaarden die gebruikmaken van de installatiekopie van het Windows Server 2016-datacenter vanuit de Azure Marketplace. U kunt New-AzVM met alleen de **-naam** parameter en wordt die waarde gebruiken voor alle resourcenamen van de. In dit voorbeeld wordt de parameter **-Name** ingesteld op *myVM*. 
+U kunt de cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) gebruiken om een virtuele machine te maken met slimme standaardwaarden die gebruikmaken van de installatiekopie van het Windows Server 2016-datacenter vanuit de Azure Marketplace. U kunt New-AzVM met alleen de **-naam** parameter en wordt die waarde gebruiken voor alle resourcenamen van de. In dit voorbeeld wordt de parameter **-Name** ingesteld op *myVM*. 
 
 Controleer of **PowerShell** in Cloud Shell is geselecteerd en typ:
 
@@ -87,7 +87,7 @@ New-AzVm `
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u niet meer nodig hebt, kunt u de [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) opdracht voor het verwijderen van de resourcegroep, VM, en alle gerelateerde resources.
+U kunt de opdracht [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myVM

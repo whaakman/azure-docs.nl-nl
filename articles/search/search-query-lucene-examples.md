@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c7c120b9bac33f71df72650d8a9d9a72e819d227
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 6f7fce7eab697f6517b351d00595cb02110d3641
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439182"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499570"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Queryvoorbeelden met behulp van de syntaxis 'volledig' Lucene search (geavanceerde query's in Azure Search)
 
@@ -139,6 +139,7 @@ Door op te geven een **fieldname:searchterm** bouw, kunt u een querybewerking fi
 
 * business_title:(senior NOT junior)
 * status: (' New York ' en "Nieuwe Jersey")
+* business_title:(senior NOT junior) en posting_type:external
 
 Zorg ervoor dat meerdere tekenreeksen tussen aanhalingstekens plaatsen als u wilt dat beide tekenreeksen die moeten worden geëvalueerd als één entiteit, zoals in dit geval zoekt naar twee verschillende steden in het locatieveld. Zorg er ook voor de operator is een hoofdletter als u niet ziet en en.
 

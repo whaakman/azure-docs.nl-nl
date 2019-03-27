@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/26/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eeb3b2098cf477004ba7ad85a903f1a8e2267392
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 374ffc3a9d181d0596b5a4af1cd8082023e227fe
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117826"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498516"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Ondersteunde gegevensbronnen in Azure Analysis Services
 
@@ -64,6 +64,7 @@ Verbinding maken met on-premises gegevensbronnen van en Azure-AS-server moet een
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |Analytics Platform System     |  
+|CSV-bestand  |
 |Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Excel-werkmap     |  
 |Exchange<sup>[1](#tab1400b)</sup>     |  
@@ -82,6 +83,7 @@ Verbinding maken met on-premises gegevensbronnen van en Azure-AS-server moet een
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
 |SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Sybase-database     |  
+|TXT-bestand  |
 |XML-tabel<sup>[1](#tab1400b)</sup>    |  
 ||
  

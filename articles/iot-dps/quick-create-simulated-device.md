@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2ed42e10071e3100f285c55c7b965dfa836d6c0e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 0ec778cc349ba7c21e693437b6a20c40f2e9c173
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437455"
+ms.locfileid: "58485309"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Snelstartgids: Een gesimuleerd TPM-apparaat inrichten met de Azure IoT C SDK
 
@@ -48,7 +48,7 @@ In deze sectie bereidt u een ontwikkelomgeving voor die wordt gebruikt om de [Az
 
     Het volgende voorbeeld Windows PowerShell gebruikt om te controleren of de cryptografische hash voor 3.13.4-versie van de x64 MSI-distributiepunt:
 
-    ```PowerShell
+    ```powershell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
@@ -144,7 +144,7 @@ In deze sectie bouwt u een voorbeeld dat de goedkeuringssleutel en registratie-I
 
 3. Voer bij **Registratie toevoegen** de volgende gegevens in en klik op de knop **Opslaan**.
 
-    - **Mechanisme:** Selecteer TPM als *mechanisme* voor identiteitscontrole.
+    - **Mechanisme:** Selecteer **TPM** als *mechanisme* voor identiteitscontrole.
     - **Goedkeuringssleutel:** Voer de *goedkeuringssleutel* in die u hebt gegenereerd voor uw TPM-apparaat door het project *tpm_device_provision* uit te voeren.
     - **Registratie-id:** Voer de *registratie-id* in die u hebt gegenereerd voor uw TPM-apparaat door het project *tpm_device_provision* uit te voeren.
     - **IoT Edge-apparaat:** Selecteer **Uitschakelen**.

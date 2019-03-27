@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: 12c0ee08435ca4b3077bc3a8c28b217ebaf70e08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f47e9fd8842f9884ced290385e5f647fac57bc13
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993323"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484979"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST-API-overzicht
 
@@ -31,7 +31,7 @@ De eerste stap is om te verifiëren van de aanvraag.
 
 Alle taken die worden uitgevoerd voor de API van Azure Monitor gebruiken de Azure Resource Manager-verificatiemodel. Daarom moeten alle aanvragen worden geverifieerd bij Azure Active Directory (Azure AD). Eén mogelijke benadering voor het verifiëren van de clienttoepassing is op een Azure AD-service-principal maken en op te halen van het verificatietoken (JWT). Het script in het volgende voorbeeld ziet u een Azure AD-service-principal via PowerShell maken. Voor meer gedetailleerde stapsgewijze instructies, Raadpleeg de documentatie op [met Azure PowerShell om te maken van een service-principal toegang krijgen tot bronnen](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Het is ook mogelijk om te [maken van een service-principal via de Azure-portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-```PowerShell
+```powershell
 $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
 
@@ -60,7 +60,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 Om te vragen de API van Azure Monitor, moet de clienttoepassing de eerder gemaakte service-principal gebruiken om te verifiëren. Het volgende voorbeeld PowerShell-script toont een benadering, met behulp van de [Active Directory Authentication Library](../../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) om op te halen van de JWT-token voor verificatie. De JWT-token wordt doorgegeven als onderdeel van een HTTP-autorisatie-parameter in aanvragen aan de Azure Monitor REST API.
 
-```PowerShell
+```powershell
 $azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
 
 $subscription = Get-AzSubscription -SubscriptionId $subscriptionId
@@ -102,7 +102,7 @@ Gebruik de [definities voor metrische gegevens van Azure Monitor REST-API](https
 
 Bijvoorbeeld, als u wilt ophalen van de metrische definities voor een Azure Storage-account, zou de aanvraag er als volgt uitzien:
 
-```PowerShell
+```powershell
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01"
 
 Invoke-RestMethod -Uri $request `
@@ -246,7 +246,7 @@ Gebruik van de metrische gegevens de naam 'value' (niet de ' localizedValue') vo
 
 Bijvoorbeeld, om op te halen van de lijst met dimensiewaarden die voor de 'naam van de API-dimensie' voor de metriek "Transacties" zijn verzonden, waarbij de dimensie GeoType = 'Primaire' tijdens de opgegeven periode, de aanvraag zou als volgt:
 
-```PowerShell
+```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&`$filter=${filter}&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
@@ -319,7 +319,7 @@ Gebruik van de metrische gegevens de naam 'value' (niet de ' localizedValue') vo
 
 Bijvoorbeeld, om op te halen van de top-3-API's, in aflopende waarde, door het aantal 'Transacties' tijdens een bereik van 5 minuten, waar de GeotType 'Primaire', is de aanvraag zou als volgt:
 
-```PowerShell
+```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T02:00:00Z/2018-03-01T02:05:00Z&`$filter=${filter}&interval=PT1M&aggregation=Total&top=3&orderby=Total desc&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
@@ -398,7 +398,7 @@ Gebruik de [definities voor metrische gegevens van Azure Monitor REST-API](https
 
 Bijvoorbeeld, als u wilt ophalen van de metrische definities voor een logische App van Azure, zou de aanvraag er als volgt uitzien:
 
-```PowerShell
+```powershell
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01"
 
 Invoke-RestMethod -Uri $request `
@@ -471,7 +471,7 @@ Zodra de beschikbare metrische definities bekend zijn, is het vervolgens mogelij
 
 Bijvoorbeeld, als u wilt ophalen van de punten van de metrische gegevens RunsSucceeded voor het opgegeven tijdsbereik en een tijdgranulariteit op van 1 uur, zou de aanvraag zijn als volgt:
 
-```PowerShell
+```powershell
 $filter = "(name.value eq 'RunsSucceeded') and aggregationType eq 'Total' and startTime eq 2017-08-18T19:00:00 and endTime eq 2017-08-18T23:00:00 and timeGrain eq duration'PT1H'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=2016-09-01"
 Invoke-RestMethod -Uri $request `
@@ -519,7 +519,7 @@ De hoofdtekst van het resulterende JSON-antwoord is vergelijkbaar met het volgen
 
 Om op te halen van meerdere punten van gegevens of aggregatie, voegen metrische definitie van namen en aggregatietypen aan het filter, zoals te zien is in het volgende voorbeeld:
 
-```PowerShell
+```powershell
 $filter = "(name.value eq 'ActionsCompleted' or name.value eq 'RunsSucceeded') and (aggregationType eq 'Total' or aggregationType eq 'Average') and startTime eq 2017-08-18T21:00:00 and endTime eq 2017-08-18T21:30:00 and timeGrain eq duration'PT1M'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=2016-09-01"
 Invoke-RestMethod -Uri $request `
@@ -631,7 +631,7 @@ De resource-ID kan ook worden verkregen vanuit de Azure-portal. Om dit te doen, 
 
 De resource-ID kan worden opgehaald met behulp van Azure PowerShell-cmdlets. Bijvoorbeeld, als u de resource-ID voor een logische App van Azure, voert u de cmdlet Get-AzureLogicApp, zoals in het volgende voorbeeld:
 
-```PowerShell
+```powershell
 Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 ```
 
@@ -710,7 +710,7 @@ Het resultaat moeten vergelijkbaar met het volgende voorbeeld:
 
 Naast de metrische definities en bijbehorende waarden is het ook mogelijk met gebruik van de Azure Monitor REST API om op te halen van andere interessante inzichten met betrekking tot Azure-resources. Bijvoorbeeld: het is mogelijk om query [activiteitenlogboek](https://msdn.microsoft.com/library/azure/dn931934.aspx) gegevens. Het volgende voorbeeld ziet u de Azure Monitor REST API om gegevens van een activiteitenlogboek query binnen een bepaald datumbereik te gebruiken voor een Azure-abonnement:
 
-```PowerShell
+```powershell
 $apiVersion = "2015-04-01"
 $filter = "eventTimestamp ge '2017-08-18' and eventTimestamp le '2017-08-19'and eventChannels eq 'Admin, Operation'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"

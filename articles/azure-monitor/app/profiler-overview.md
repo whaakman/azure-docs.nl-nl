@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850272"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498125"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profiel productie-apps in Azure met Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Application Insights Profiler inschakelen voor uw toepassing
@@ -75,7 +75,7 @@ Als **clr! ThePreStub** duurt lang voordat een aanvraag, de aanvraag is het eers
 
 ### <a id="ngencold"></a>Het laden van code ([KOUD])
 
-Als de methodenaam van de bevat **[koude]**, zoals **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, het uitvoeren van .NET Framework runtime is code voor de eerste keer is dat niet is geoptimaliseerd door [profiel begeleide optimalisatie](https://msdn.microsoft.com/library/e7k32f4k.aspx). Voor elke methode moet die worden weergegeven maximaal één keer tijdens het proces.
+Als de methodenaam van de bevat **[koude]**, zoals **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, het uitvoeren van .NET Framework runtime is code voor de eerste keer is dat niet is geoptimaliseerd door [profiel begeleide optimalisatie](/cpp/build/profile-guided-optimizations). Voor elke methode moet die worden weergegeven maximaal één keer tijdens het proces.
 
 Als het laden van de code een aanzienlijke hoeveelheid tijd voor een aanvraag duurt, is de aanvraag voor het eerste item voor het uitvoeren van de niet-geoptimaliseerde gedeelte van de methode. Overweeg het gebruik van een opwarmtijd-proces dat gedeelte van de code wordt uitgevoerd voordat uw gebruikers toegang krijgen deze tot.
 

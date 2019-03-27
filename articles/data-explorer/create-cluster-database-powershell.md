@@ -8,12 +8,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: ec012f85c4b4e93e9be475781e9da79f686cbf9e
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 86fbf5801e9ff1c8bd9dead8be14aeeea1b58a29
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417714"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472477"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Een cluster van Azure Data Explorer en -database maken met behulp van PowerShell
 
@@ -25,7 +25,7 @@ ms.locfileid: "58417714"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Data Explorer is een snelle, volledig beheerde service voor gegevensanalyses waarmee grote hoeveelheden gegevens van toepassingen, websites, IoT-apparaten en dergelijke in real-time kunnen worden geanalyseerd. Als u Azure Data Explorer wilt gebruiken, maakt u eerst een cluster. Daarna maakt u een of meer databases in het cluster. De volgende stap is het opnemen (laden) van gegevens in een database, zodat u er query's op kunt uitvoeren. In deze snelstartgids maakt u een cluster en een database met behulp van Powershell. U kunt PowerShell-cmdlets en scripts uitvoeren in Windows, Linux, of in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) samen met [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) maken en configureren van Azure Data Explorer-clusters en databases.
+Azure Data Explorer is een snelle, volledig beheerde service voor gegevensanalyses waarmee grote hoeveelheden gegevens van toepassingen, websites, IoT-apparaten en dergelijke in real-time kunnen worden geanalyseerd. Als u Azure Data Explorer wilt gebruiken, maakt u eerst een cluster. Daarna maakt u een of meer databases in het cluster. De volgende stap is het opnemen (laden) van gegevens in een database, zodat u er query's op kunt uitvoeren. In deze snelstartgids maakt u een cluster en een database met behulp van Powershell. U kunt PowerShell-cmdlets en scripts uitvoeren in Windows, Linux, of in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) met [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) maken en configureren van Azure Data Explorer-clusters en databases.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -47,12 +47,12 @@ De volgende stappen zijn niet vereist als u opdrachten in Azure Cloud Shell uitv
     Connect-AzAccount
     ```
 
-2. Stel het abonnement waar u uw cluster te maken:
+1. Stel het abonnement waar u uw cluster te maken:
 
     ```azurepowershell-interactive
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-3. Bij het uitvoeren van Azure CLI lokaal of in de Azure Cloud Shell, moet u de module Az.Kusto installeren op uw apparaat:
+1. Bij het uitvoeren van Azure CLI lokaal of in de Azure Cloud Shell, moet u de module Az.Kusto installeren op uw apparaat:
     
     ```azurepowershell-interactive
      Install-Module -Name Az.Kusto  
@@ -74,7 +74,7 @@ De volgende stappen zijn niet vereist als u opdrachten in Azure Cloud Shell uitv
 
     Er zijn aanvullende optionele parameters die u kunt gebruiken, zoals de capaciteit van het cluster.
 
-2. Voer de volgende opdracht uit om te controleren of het cluster is gemaakt:
+1. Voer de volgende opdracht uit om te controleren of het cluster is gemaakt:
 
     ```azurepowershell-interactive
     Get-AzKustoCluster -Name mykustocluster --ResourceGroupName testrg
@@ -98,7 +98,7 @@ Als het resultaat `provisioningState` met waarde `Succeeded` bevat, is het maken
    | SoftDeletePeriod | *3650:00:00:00* | Hoe lang gegevens worden opgeslagen om query's erop te kunnen uitvoeren. |
    | HotCachePeriod | *3650:00:00:00* | Hoe lang gegevens worden opgeslagen in de cache. |
 
-2. Voer de volgende opdracht uit om de database te bekijken die u hebt gemaakt:
+1. Voer de volgende opdracht uit om de database te bekijken die u hebt gemaakt:
 
     ```azurepowershell-interactive
     Get-AzKustoDatabase -ClusterName mykustocluster --ResourceGroupName testrg -Name mykustodatabase

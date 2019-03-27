@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: ac1c1c4ae21ebd184b833fe4d23084f7cf324d2c
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294906"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500471"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Logboeken beheren voor een HDInsight-cluster
 
@@ -98,7 +98,7 @@ De volgende stap met het controleren van de logboekbestanden van de taak kan wor
 
 ### <a name="access-the-hadoop-log-files"></a>Toegang tot de Hadoop-Logboeken
 
-HDInsight worden de logboekbestanden opgeslagen in het bestandssysteem van het cluster én in Azure storage. U kunt logboekbestanden in het cluster controleren door het openen van een [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) verbinding met het cluster en het bestandssysteem te bladeren, of met behulp van de Status van Hadoop YARN-portal op de server extern hoofdknooppunt. U kunt de logboekbestanden in Azure storage met behulp van een van de hulpprogramma's waarmee u kunnen openen en downloaden van gegevens uit Azure storage controleren. Voorbeelden zijn [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer), en de Visual Studio Server Explorer. U kunt ook PowerShell en de Azure Storage-clientbibliotheken of de Azure .NET SDK's, gebruiken voor toegang tot gegevens in Azure blob-opslag.
+HDInsight worden de logboekbestanden opgeslagen in het bestandssysteem van het cluster én in Azure storage. U kunt logboekbestanden in het cluster controleren door het openen van een [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) verbinding met het cluster en het bestandssysteem te bladeren, of met behulp van de Status van Hadoop YARN-portal op de server extern hoofdknooppunt. U kunt de logboekbestanden in Azure storage met behulp van een van de hulpprogramma's waarmee u kunnen openen en downloaden van gegevens uit Azure storage controleren. Voorbeelden zijn [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer), en de Visual Studio Server Explorer. U kunt ook PowerShell en de Azure Storage-clientbibliotheken of de Azure .NET SDK's, gebruiken voor toegang tot gegevens in Azure blob-opslag.
 
 Hadoop wordt uitgevoerd voor het werk van de taken als *taak pogingen* op verschillende knooppunten in het cluster. HDInsight kan initiëren speculatieve taak pogingen, een andere taak pogingen dat ze niet worden voltooid eerst wordt beëindigd. Hiermee wordt gegenereerd voor belangrijke activiteit die wordt vastgelegd op de domeincontroller, stderr en syslog-logboek bestanden op het begeven. Bovendien meerdere pogingen van de taak tegelijkertijd worden uitgevoerd, maar een logboekbestand kan resultaten alleen lineair worden weergeven.
 

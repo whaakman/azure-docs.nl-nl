@@ -3,7 +3,7 @@ title: Selecteer Windows-VM-installatiekopieën in Azure | Microsoft Docs
 description: Azure PowerShell gebruiken om te bepalen van de uitgever, aanbieding, SKU en versie voor Marketplace-VM-installatiekopieën.
 services: virtual-machines-windows
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
-ms.author: danlep
-ms.openlocfilehash: ebf4b413ecfbdf850f0d9e6ebc50f166e27bee0a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: cynthn
+ms.openlocfilehash: 20fd8a0bfccea579ddef5a605d65f5643d4849bd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081845"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500012"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Windows-VM-installatiekopieën zoeken in de Azure Marketplace met Azure PowerShell
 
@@ -72,21 +72,21 @@ Voer vervolgens voor een geselecteerde SKU [Get-AzVMImage](https://docs.microsof
 
     ```powershell
     $pubName="<publisher>"
-    Get-AzVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+    Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
     ```
 
 3. Vul de naam van de gewenste aanbieding in en lijst van de SKU's:
 
     ```powershell
     $offerName="<offer>"
-    Get-AzVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+    Get-AzVMImageSku -Location $locName -PublisherName $pubName -Offer $offerName | Select Skus
     ```
 
 4. Vul de naam van uw gekozen SKU en versie van de installatiekopie ophalen:
 
     ```powershell
     $skuName="<SKU>"
-    Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
+    Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
     ```
     
 Uit de uitvoer van de `Get-AzVMImage` opdracht, kunt u een versie-installatiekopie naar een nieuwe virtuele machine implementeren.
@@ -126,7 +126,7 @@ Voor de *MicrosoftWindowsServer* uitgever:
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
-Get-AzVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
 ```
 
 Uitvoer:
@@ -143,7 +143,7 @@ Voor de *WindowsServer* bieden:
 
 ```powershell
 $offerName="WindowsServer"
-Get-AzVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+Get-AzVMImageSku -Location $locName -PublisherName $pubName -Offer $offerName | Select Skus
 ```
 
 Gedeeltelijke uitvoer:
@@ -174,7 +174,7 @@ Vervolgens voor de *2019 Datacenter* SKU:
 
 ```powershell
 $skuName="2019-Datacenter"
-Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
+Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
 Nu u de geselecteerde uitgever, aanbieding, SKU en versie in een URN combineren kunt (waarden worden gescheiden door:). Doorgeven van deze URN met de `--image` parameter bij het maken van een virtuele machine met de [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. U kunt eventueel het versienummer in de URN vervangen door 'nieuwste', om op te halen van de meest recente versie van de installatiekopie.
@@ -191,7 +191,7 @@ Bijvoorbeeld, de *Windows Server 2016 Datacenter* installatiekopie bevat geen aa
 
 ```powershell
 $version = "2016.127.20170406"
-Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Skus $skuName -Version $version
+Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Skus $skuName -Version $version
 ```
 
 Uitvoer:
@@ -216,7 +216,7 @@ DataDiskImages   : []
 Het volgende voorbeeld ziet u een vergelijkbare opdracht voor het *Data Science Virtual Machine - Windows 2016* installatiekopie, die de volgende `PurchasePlan` eigenschappen: `name`, `product`, en `publisher`. Sommige installatiekopieën zijn ook een `promotion code` eigenschap. Zie de volgende secties om de voorwaarden te accepteren en programmatische implementatie moet worden ingeschakeld voor het implementeren van deze installatiekopie.
 
 ```powershell
-Get-AzVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
+Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
 ```
 
 Uitvoer:

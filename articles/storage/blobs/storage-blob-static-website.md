@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a72182091721dd6a1104cb8e3495aee1a3b25eb8
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439380"
+ms.locfileid: "58472766"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statische website hosting in Azure Storage
 Azure Storage GPv2-accounts kunt u statische inhoud (HTML, CSS, JavaScript en afbeeldingsbestanden) rechtstreeks vanuit een storage-container met de naam *$web*. U profiteert van hosten in Azure Storage kunt u gebruikmaken van serverloze architecturen, met inbegrip van [Azure Functions](/azure/azure-functions/functions-overview) en andere PaaS-services.
@@ -112,7 +112,7 @@ az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_N
 Methoden voor het implementeren van inhoud naar een storage-container omvatten het volgende:
 
 - [AzCopy](../common/storage-use-azcopy.md)
-- [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+- [Azure-opslagverkenner](https://azure.microsoft.com/features/storage-explorer/)
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 - [Visual Studio Code-extensie](https://code.visualstudio.com/tutorials/static-website/getting-started)
 

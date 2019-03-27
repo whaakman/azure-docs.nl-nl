@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 16741461df2431cbf4433899dd375741e944ce0f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4ba94187cb014256d63e80cb23defc5099aac52d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112565"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445546"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Meerdere tabellen bulksgewijs kopiëren met behulp van Azure Data Factory
 Deze zelfstudie demonstreert het **kopiëren van een aantal tabellen uit Azure SQL Database naar Azure SQL Data Warehouse**. U kunt hetzelfde patroon toepassen in andere kopieerscenario's. Bijvoorbeeld het kopiëren van tabellen van SQL Server/Oracle naar Azure SQL Database/Data Warehouse/Azure Blob, verschillende paden kopiëren van Blob naar Azure SQL Database-tabellen.
@@ -74,9 +74,10 @@ Geef Azure-services toegang tot SQL-server voor zowel SQL Database als SQL Data 
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
-1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
+1. Selecteer in het menu links **een resource maken** > **gegevens en analyses** > **Data Factory**: 
    
-   ![Nieuw -> DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
+   ![Selectie van Data Factory in het deelvenster Nieuw](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 1. Voer op de pagina **New data factory** **ADFTutorialBulkCopyDF** in bij **name**. 
       
      ![De pagina Nieuwe data factory](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)

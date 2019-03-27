@@ -1,6 +1,6 @@
 ---
 title: Oracle Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP | Microsoft Docs
-description: Oracle Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP
+description: DBMS-implementatie voor SAP-werkbelasting in virtuele Azure-machines voor Oracle
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ef8498ae1aa9be0322f508b3723778311e2cdd5
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6abfd26e63cc8001f501371fffce0a4c10f4ff85
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327779"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483509"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP
 
@@ -158,7 +158,7 @@ ms.locfileid: "56327779"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56327779"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -314,7 +314,7 @@ In dit document bevat informatie over de verschillende onderdelen om te overwege
 U vindt informatie over de Oracle-versies en bijbehorende OS-versies die worden ondersteund voor het uitvoeren van SAP op Oracle op Azure in SAP-notitie [2039619].
 
 Algemene informatie over het uitvoeren van SAP Business Suite op Oracle kan worden gevonden op [SAP op Oracle](https://www.sap.com/community/topic/oracle.html).
-Oracle-software wordt ondersteund door Oracle worden uitgevoerd op Microsoft Azure. Raadpleeg voor meer informatie over de algemene ondersteuning voor Windows Hyper-V en Azure de [Oracle en veelgestelde vragen over Microsoft Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle-software wordt ondersteund door Oracle worden uitgevoerd op Microsoft Azure. Raadpleeg voor meer informatie over de algemene ondersteuning voor Windows Hyper-V en Azure de [Oracle en veelgestelde vragen over Microsoft Azure](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 ## <a name="sap-notes-relevant-for-oracle-sap-and-azure"></a>SAP-opmerkingen die relevant zijn voor Oracle, SAP en Azure 
 
@@ -426,7 +426,7 @@ Voor Oracle-implementaties op Windows, wordt aangeraden versneld netwerken zoals
 [Overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_general.md) bevat andere belangrijke concepten met betrekking tot implementaties van virtuele machines met Oracle-Database, met inbegrip van beschikbaarheidssets van Azure en SAP bewaking.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Details voor de Oracle-Database op Oracle Linux
-Oracle-software wordt ondersteund door Oracle uit te voeren op Microsoft Azure met Oracle Linux als het gastbesturingssysteem te installeren. Zie voor meer informatie over de algemene ondersteuning voor Windows Hyper-V en Azure de [Azure en veelgestelde vragen over Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle-software wordt ondersteund door Oracle uit te voeren op Microsoft Azure met Oracle Linux als het gastbesturingssysteem te installeren. Zie voor meer informatie over de algemene ondersteuning voor Windows Hyper-V en Azure de [Azure en veelgestelde vragen over Oracle](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 Het specifieke scenario aan SAP-toepassingen gebruik te maken van Oracle-Databases wordt ook ondersteund. Meer informatie worden in het volgende gedeelte van het document besproken.
 
@@ -463,12 +463,13 @@ Als u schijven die zijn gebaseerd op de pagina in Azure blob storage- of Managed
 Voor het identificeren van de ondersteunde typen Azure VM's, Zie SAP-notitie [1928533].
 
 Minimale configuratie:
+
 | Onderdeel | Schijf | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /Oracle/<SID>/origlogaA & mirrlogB | Premium | Geen | Niet nodig |
-| /Oracle/<SID>/origlogaB & mirrlogA | Premium | Geen | Niet nodig |
-| /Oracle/<SID>/sapdata1...n | Premium | Alleen-lezen | Kan worden gebruikt |
-| /Oracle/<SID>/oraarch | Standard | Geen | Niet nodig |
+| /Oracle/\<SID > / origlogaA & mirrlogB | Premium | Geen | Niet nodig |
+| /Oracle/\<SID > / origlogaB & mirrlogA | Premium | Geen | Niet nodig |
+| /oracle/\<SID>/sapdata1...n | Premium | Alleen-lezen | Kan worden gebruikt |
+| /Oracle/\<SID > / oraarch | Standard | Geen | Niet nodig |
 | Oracle thuis, saptrace... | Besturingssysteemschijf | | Niet nodig |
 
 * Verwijdering: LVM stripe of MDADM met behulp van RAID 0
@@ -476,15 +477,16 @@ Minimale configuratie:
 De schijfselectie voor het hosten van Logboeken voor de Oracle-online opnieuw moet worden aangestuurd door IOPS-vereisten. Het is mogelijk voor het opslaan van alle sapdata1... n (tabelruimten) op één gekoppelde schijf als het volume, IOPS en doorvoer voldoet aan de vereisten. 
 
 Prestaties configureren:
+
 | Onderdeel | Schijf | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA | Premium | Geen | Kan worden gebruikt  |
-| /oracle/<SID>/origlogaB | Premium | Geen | Kan worden gebruikt |
-| /Oracle/<SID>/mirrlogAB | Premium | Geen | Kan worden gebruikt |
-| /Oracle/<SID>/mirrlogBA | Premium | Geen | Kan worden gebruikt |
-| /Oracle/<SID>/sapdata1...n | Premium | Alleen-lezen | Aanbevolen  |
-| /oracle/SID/sapdata(n+1)* | Premium | Geen | Kan worden gebruikt |
-| /Oracle/<SID>/oraarch* | Premium | Geen | Niet nodig |
+| /oracle/\<SID>/origlogaA | Premium | Geen | Kan worden gebruikt  |
+| /oracle/\<SID>/origlogaB | Premium | Geen | Kan worden gebruikt |
+| /Oracle/\<SID > / mirrlogAB | Premium | Geen | Kan worden gebruikt |
+| /Oracle/\<SID > / mirrlogBA | Premium | Geen | Kan worden gebruikt |
+| /oracle/\<SID>/sapdata1...n | Premium | Alleen-lezen | Aanbevolen  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | Geen | Kan worden gebruikt |
+| /Oracle/\<SID > / oraarch * | Premium | Geen | Niet nodig |
 | Oracle thuis, saptrace... | Besturingssysteemschijf | Niet nodig |
 
 * Verwijdering: LVM stripe of MDADM met behulp van RAID 0

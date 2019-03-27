@@ -5,21 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.openlocfilehash: db62c1ec03ae9005f33a09010486b04ac6976742
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/26/2019
+ms.openlocfilehash: c904b6e6cd7a4dc0f9d5a442e20738e43595b369
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005910"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485914"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Prestaties bijhouden met de Query Store
 
 **Van toepassing op:** Azure Database for PostgreSQL 9.6 en 10
-
-> [!IMPORTANT]
-> De functie voor Query Store is in openbare Preview.
-
 
 De functie voor Query Store in Azure Database for PostgreSQL biedt een manier voor het bijhouden van prestaties van query's na verloop van tijd. Query Store vereenvoudigt het door u te helpen snel problemen met prestaties vinden het langst lopende en meest resource-intensieve query's. Query Store automatisch een geschiedenis van query's en runtime-statistieken worden vastgelegd en behoudt hij ze controleren. Deze scheidt gegevens door tijdvensters zodat u databasegebruikspatronen kunt zien. Gegevens voor alle gebruikers, databases en query's worden opgeslagen in een database met de naam **azure_sys** in de Azure Database for PostgreSQL-exemplaar.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: f9d21cb1b047fcc1043ca2d92f718bb5821879a3
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: a721cc2252619923496ee5a3a8ae590a5cda3b04
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226059"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487546"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Een ASP.NET Core-app maken met Azure-app-configuratie
 
@@ -75,7 +75,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 
 1. Voeg een verwijzing naar de `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-pakket met de volgende opdracht:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
 
 2. Voer de volgende opdracht om te herstellen van pakketten voor uw project:
 
@@ -96,12 +96,19 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 4. Open Program.cs en werk de `CreateWebHostBuilder` methode voor het gebruik van App-configuratie door het aanroepen van de `config.AddAzureAppConfiguration()` methode.
 
     ```csharp
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+
+    ...
+
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+                config.AddAzureAppConfiguration(options => {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                           .SetOfflineCache(new OfflineFileCache());
+                });
             })
             .UseStartup<Startup>();
     ```
@@ -179,7 +186,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt gemaakt van een nieuwe app-configuratiearchief en deze gebruikt met een ASP.NET Core web-app. Doorgaan naar de volgende zelfstudie waarin wordt gedemonstreerd verificatie voor meer informatie over het gebruik van App-configuratie.
+In deze Quick Start, u een nieuwe app-configuratie-archief hebt gemaakt en deze gebruikt met een ASP.NET Core web-app via de [App configuratieprovider](https://go.microsoft.com/fwlink/?linkid=2074664). Doorgaan naar de volgende zelfstudie waarin wordt gedemonstreerd verificatie voor meer informatie over het gebruik van App-configuratie.
 
 > [!div class="nextstepaction"]
 > [Beheerde identiteiten voor de integratie van Azure-resources](./integrate-azure-managed-service-identity.md)

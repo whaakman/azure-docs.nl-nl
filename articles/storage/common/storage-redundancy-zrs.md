@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 8928e59b97143038e0850132196f1ce9a1da131d
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ab3984b29b3bdfac7599c68c14bd6cc5b671cdf4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337881"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447249"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zone-redundante opslag (ZRS): Maximaal beschikbare toepassingen voor Azure Storage
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -50,7 +50,7 @@ Migreren naar of van LRS, GRS en RA-GRS is vrij eenvoudig. De Azure-portal of de
 
 Migreren van gegevens naar of van ZRS vereist een andere strategie. ZRS-migratie moet de fysieke verplaatsing van gegevens van een enkele opslagstempel naar meerdere stempels binnen een regio.
 
-Er zijn twee primaire opties voor migratie naar of van ZRS: 
+Er zijn twee primaire opties voor migratie naar ZRS: 
 
 - Handmatig kopiëren of verplaatsen van gegevens naar een nieuw ZRS-account van een bestaand account.
 - Vragen om een live migratie.
@@ -73,6 +73,7 @@ Houd rekening met de volgende beperkingen voor livemigratie:
 - Uw account moet gegevens bevatten.
 - U kunt alleen gegevens binnen dezelfde regio migreren. Als u migreren van uw gegevens in een ZRS-account zich in een regio die anders is dan de bronaccount wilt, moet u een handmatige migratie uitvoeren.
 - Alleen standard storage-accounttypen ondersteunen livemigratie. Premium storage-accounts moeten handmatig worden gemigreerd.
+- Livemigratie van ZRS LRS, GRS of RA-GRS wordt niet ondersteund. U moet handmatig de gegevens te verplaatsen naar een nieuwe of een bestaand opslagaccount.
 
 U kunt aanvragen livemigratie via de [ondersteuning van Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Selecteer het opslagaccount dat u wilt converteren naar ZRS vanuit de portal.
 1. Selecteer **nieuwe ondersteuningsaanvraag**
@@ -120,7 +121,7 @@ Als u migreren van uw gegevens in een ZRS-account zich in een regio verschilt va
 > [!NOTE]
 > Microsoft afschaffen en ZRS Classic-accounts op 31 maart 2021 migreren. Meer informatie zal worden geleverd aan ZRS Classic klanten voordat de afschaffing. 
 >
-> Zodra ZRS wordt [algemeen beschikbaar](#support-coverage-and-regional-availability) in een regio en klanten niet mogelijk ZRS Classic-accounts maken vanuit de portal in die regio. ZRS Classic-accounts maken met behulp van Microsoft PowerShell en Azure CLI kan worden gebruikt totdat ZRS Classic is afgeschaft.
+> Zodra ZRS wordt [algemeen beschikbaar](#support-coverage-and-regional-availability) in een regio en klanten niet mogelijk ZRS Classic-accounts maken vanuit de Portal in die regio. ZRS Classic-accounts maken met behulp van Microsoft PowerShell en Azure CLI kan worden gebruikt totdat ZRS Classic is afgeschaft.
 
 ZRS Classic worden gegevens asynchroon gerepliceerd tussen datacenters binnen één tot twee regio's. Gerepliceerde gegevens zijn mogelijk niet beschikbaar tenzij Microsoft failover naar de secundaire initieert. Een klassiek ZRS-account kan niet worden geconverteerd naar of van LRS, GRS of RA-GRS. ZRS Classic-accounts ook ondersteuning geen voor metrische gegevens of logboekregistratie.
 
@@ -128,7 +129,19 @@ ZRS Classic is alleen beschikbaar voor **blok-blobs** in algemeen gebruik V1 (GP
 
 Handmatig ZRS-account om gegevens te migreren naar of van een LRS, ZRS Classic, GRS of RA-GRS-account, moet u een van de volgende hulpprogramma's gebruiken: AzCopy, Azure Storage Explorer, Azure PowerShell of Azure CLI. U kunt ook uw eigen migratieoplossing met een van de Azure Storage-clientbibliotheken bouwen.
 
-U kunt ook uw ZRS Classic (s) bijwerken naar ZRS in de Portal of met behulp van Azure PowerShell of Azure CLI.
+U kunt ook uw ZRS Classic (s) bijwerken naar ZRS in de Portal of met behulp van Azure PowerShell of Azure CLI in de regio's waar ZRS beschikbaar is.
+
+Upgrade uitvoeren naar ZRS in de Portal gaat u naar het gedeelte over configuratie van het account en kies upgraden:![ZRS Classic upgraden naar ZRS in de Portal](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.jpg)
+
+Om te upgraden naar ZRS met behulp van PowerShell roept u de volgende opdracht uit:
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource_group> -AccountName <storage_account> -UpgradeToStorageV2
+```
+
+Om te upgraden naar ZRS met behulp van CLI roept u de volgende opdracht uit:
+```cli
+az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
+```
 
 ## <a name="see-also"></a>Zie ook
 - [Azure Storage-replicatie](storage-redundancy.md)

@@ -1,20 +1,20 @@
 ---
 title: Een Cognitive Services-account maken in Azure portal
 titlesuffix: Azure Cognitive Services
-description: Het maken van een account met Microsoft Cognitive Services API's in Azure portal.
+description: Het maken van een account voor Azure Cognitive Services API's in Azure portal.
 services: cognitive-services
 author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/22/2019
 ms.author: garye
-ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7df429aa848c6f9fb9abe09fbf4357db20fcde6a
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534800"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472851"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Quickstart: Een Cognitive Services-account maken in Azure portal
 
@@ -29,7 +29,7 @@ In deze snelstartgids leert u hoe u zich aanmelden voor Azure Cognitive Services
 Voordat u begint, is het belangrijk te weten dat er twee soorten Azure Cognitive Services-abonnementen zijn. De eerste is een abonnement op een enkele service, zoals Computer Vision- of de spraakservices. Een enkele service-abonnement is beperkt tot die resource. De tweede is een abonnement op meerdere services voor Azure Cognitive Services. Dit abonnement kunt u één abonnement gebruiken voor het merendeel van de Azure Cognitive Services. Deze optie ook samengevoegd facturering. Zie [prijzen voor Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) voor meer informatie.
 
 >[!WARNING]
-> Op dit moment is deze services **niet** ondersteuning voor meerdere services sleutels: QnA Maker, Speech Services en Custom Vision.
+> Op dit moment is deze services **niet** ondersteuning voor meerdere services sleutels: QnA Maker, Speech Services, Custom Vision en detectie van afwijkingen.
 
 De volgende secties helpen u bij het maken van een abonnement één of meerdere services.
 

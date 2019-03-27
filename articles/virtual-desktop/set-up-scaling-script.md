@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402487"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497894"
 ---
 # <a name="automatically-scale-session-hosts"></a>Sessiehosts automatisch schalen
 
@@ -81,7 +81,7 @@ Geef de relevante waarden in de volgende velden in de script-instellingen in con
 | currentAzureSubscriptionId    | De ID van het Azure-abonnement waarin de VM's voor het hosten van de sessie uitvoeren                        |
 | tenantName                    | De naam van de tenant virtuele Windows-bureaublad                                                    |
 | hostPoolName                  | Virtuele Windows-bureaublad-hostnaam voor groep van toepassingen                                                 |
-| RDBroker                      | URL naar de service WVD standaardwaarde <https://rdbroker.wvd.microsoft.com>             |
+| RDBroker                      | URL naar de service WVD standaard waarde https:\//rdbroker.wvd.microsoft.com             |
 | Gebruikersnaam                      | De service principal toepassings-ID (dit is mogelijk dezelfde serviceprincipal als in AADApplicationId) of een normale gebruiker zonder multi-factor authentication |
 | isServicePrincipal            | Geaccepteerde waarden zijn **waar** of **false**. Geeft aan of de tweede set referenties die wordt gebruikt een service-principal of een standard-account. |
 | BeginPeakTime                 | Wanneer gebruik piektijd begint                                                            |

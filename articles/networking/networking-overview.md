@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 02db9f2b8cb2ec71d23ad077b90eeacb905d2a16
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880922"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445644"
 ---
 # <a name="azure-networking"></a>Azure-netwerken
 
@@ -34,7 +34,7 @@ Azure biedt een aantal netwerkmogelijkheden die kunnen worden gebruikt samen of 
 - [Beheerbaarheid](#manageability): Controleren en beheren van uw Azure-netwerkbronnen.
 - [Hulpprogramma's voor implementatie en configuratie](#tools): Een webportal of platformonafhankelijke opdrachtregelprogramma's gebruiken om te implementeren en configureren van netwerkbronnen.
 
-## <a name="Connectivity"></a>Connectiviteit tussen Azure-resources
+## <a name="connectivity"></a>Connectiviteit tussen Azure-resources
 
 Azure-resources zoals virtuele Machines, Cloud Services, Schaalsets van virtuele Machines en Azure App Service-omgevingen kunnen privé met elkaar communiceren via een Azure Virtual Network (VNet). Een VNet is een logische isolatie van de Azure-cloud toegewezen aan uw [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json). U kunt meerdere VNets binnen elk Azure-abonnement en Azure implementeren [regio](https://azure.microsoft.com/regions). Elk VNet is geïsoleerd van andere vnet's. Voor elke VNet kunt u het volgende doen:
 
@@ -150,7 +150,7 @@ Azure biedt de volgende hulpprogramma's om te controleren en beheren van netwerk
 U kunt implementeren en configureren van Azure-netwerkbronnen met een van de volgende hulpprogramma's:
 
 - **Azure-portal:** Een grafische gebruikersinterface die wordt uitgevoerd in een browser. Open de [Azure Portal](https://portal.azure.com).
-- **Azure PowerShell:** Opdrachtregelprogramma's voor het beheren van Azure van Windows-computers. Meer informatie over Azure PowerShell door het lezen van de [overzicht van Azure PowerShell](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
+- **Azure PowerShell:** Opdrachtregelprogramma's voor het beheren van Azure van Windows-computers. Meer informatie over Azure PowerShell door het lezen van de [overzicht van Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **Azure-opdrachtregelinterface (CLI):** Opdrachtregelprogramma's voor het beheren van Azure van Linux, macOS of Windows-computers. Meer informatie over de Azure CLI door te lezen die de [overzicht van Azure CLI](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **Azure Resource Manager-sjablonen:** Een bestand (in JSON-indeling) die de infrastructuur en configuratie van een Azure-oplossing definieert. Door het gebruik van een sjabloon kunt u gedurende de levenscyclus de oplossing herhaaldelijk implementeren en erop vertrouwen dat uw resources consistent worden geïmplementeerd. Lees voor meer informatie over het ontwerpen van sjablonen, de [aanbevolen procedures voor het maken van sjablonen](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel. Sjablonen kunnen worden geïmplementeerd met de Azure portal, CLI of PowerShell. U kunt meteen aan de slag met sjablonen, implementeert u een van de vele vooraf geconfigureerde sjablonen in de [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/?term=network) bibliotheek. 
 

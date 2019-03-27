@@ -11,21 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/14/2019
+ms.date: 3/26/2019
 ms.author: raiye
-ms.openlocfilehash: ec50cff2a2d3323b988632fd7ee96b73f60117b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887286"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500607"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
-
->[!NOTE]
->Het Gastbesturingssysteem van maart is op dit moment wordt geïmplementeerd voor Cloud Service-VM's die zijn geconfigureerd voor automatische updates. Wanneer de implementatie voltooid is, wordt deze versie beschikbaar voor het handmatig bijwerken via de Azure portal en -configuratiebestanden worden gemaakt. De volgende patches worden opgenomen in het besturingssysteem van maart. Deze lijst is onderhevig aan wijzigingen.
-
 
 ## <a name="march-2019-guest-os"></a>Maart 2019 Guest OS
 

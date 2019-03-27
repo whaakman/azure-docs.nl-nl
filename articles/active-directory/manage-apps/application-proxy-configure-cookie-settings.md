@@ -12,12 +12,12 @@ ms.date: 01/16/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60fc8cb8be39b2ffc217641464a991d8d2f3b997
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 06fd83ee815e9e207c1fa5a1c6767280122c4d0c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674290"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482688"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Cookie-instellingen voor toegang tot on-premises toepassingen in Azure Active Directory
 
@@ -47,7 +47,7 @@ Om in te stellen de cookie-instellingen met behulp van de Azure-portal:
 
 Als de huidige cookie-instellingen voor de toepassing weergeven, gebruikt u deze PowerShell-opdracht:  
 
-```PowerShell
+```powershell
 Get-AzureADApplicationProxyApplication -ObjectId <ObjectId> | fl * 
 ```
 
@@ -57,21 +57,21 @@ In de volgende PowerShell-opdrachten, ```<ObjectId>``` de object-id van de toepa
 
 **Alleen HTTP-Cookie** 
 
-```PowerShell
+```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $false 
 ```
 
 **Secure Cookie**
 
-```PowerShell
+```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabled $false 
 ```
 
 **Permanente Cookies**
 
-```PowerShell
+```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $false 
 ```

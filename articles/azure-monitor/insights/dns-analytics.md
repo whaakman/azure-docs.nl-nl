@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: fdc3c42da7f3d2290806a8cd00d7c90d16f3b87d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5eac6110cc021a749b787cd97c3a8872d8476668
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103924"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499791"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Verzamel inzichten over uw DNS-infrastructuur met de oplossing DNS Analytics Preview
 
@@ -106,7 +106,7 @@ Dashboard van de oplossing ziet u de volgende blades:
 
 ![De blade DNS-beveiliging](./media/dns-analytics/dns-security-blade.png)
 
-Wanneer u een client-IP-adres in de lijst klikt, wordt zoeken in Logboeken wordt geopend en worden de details van het opzoeken van de respectieve query. In het volgende voorbeeld DNS Analytics gedetecteerd dat de communicatie is uitgevoerd met een [IRCbot](https://www.microsoft.com/wdsi/threats/threat-search?query=Win32/IRCbot):
+Wanneer u een client-IP-adres in de lijst klikt, wordt zoeken in Logboeken wordt geopend en worden de details van het opzoeken van de respectieve query. In het volgende voorbeeld DNS Analytics gedetecteerd dat de communicatie is uitgevoerd met een [IRCbot](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot):
 
 ![Resultaten van de logboekzoekopdracht ircbot weergeven](./media/dns-analytics/ircbot.png)
 

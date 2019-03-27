@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 76944d98d6a5fe7c3f83ce12bb2fdf1a34d5e234
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c904d8306c145bad57ca7d77b139a2ad6d216b0b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839097"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500250"
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden van Azure-beveiliging
 
@@ -274,7 +274,7 @@ U kunt meer informatie over Azure VPN-optie lezen van het artikel [Planning en o
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) gebruikt beleidsregels voor versleuteling, identiteit en verificatie om uw bestanden en e-mailbericht te beveiligen. Azure RMS werkt op meerdere apparaten, telefoons, tablets en pc's door te beschermen, zowel binnen als buiten uw organisatie. Deze mogelijkheid is mogelijk omdat Azure RMS voegt een niveau van beveiliging die met de gegevens gekoppeld blijft zelfs wanneer deze grenzen van uw organisatie.
 
-Wanneer u Azure RMS gebruiken om uw bestanden te beveiligen, gebruikt u industriestandaard cryptografie met volledige ondersteuning van [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html). Wanneer u Azure RMS voor de beveiliging van gegevens gebruiken, hebt u de zekerheid dat de beveiliging blijft van toepassing op het bestand, zelfs als deze wordt gekopieerd naar de opslag die niet onder het beheer van IT, zoals een cloudopslagservice. Hetzelfde doet zich voor bestanden die worden gedeeld via e-mail, het bestand is beveiligd als bijlage aan een e-mailbericht met instructies voor hoe u de beveiligde bijlage te openen.
+Wanneer u Azure RMS gebruiken om uw bestanden te beveiligen, gebruikt u industriestandaard cryptografie met volledige ondersteuning van [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). Wanneer u Azure RMS voor de beveiliging van gegevens gebruiken, hebt u de zekerheid dat de beveiliging blijft van toepassing op het bestand, zelfs als deze wordt gekopieerd naar de opslag die niet onder het beheer van IT, zoals een cloudopslagservice. Hetzelfde doet zich voor bestanden die worden gedeeld via e-mail, het bestand is beveiligd als bijlage aan een e-mailbericht met instructies voor hoe u de beveiligde bijlage te openen.
 Bij het plannen van Azure RMS acceptatie raden we het volgende:
 
 - Installeer de [RMS sharing-app](https://technet.microsoft.com/library/dn339006.aspx). Deze app kan worden geïntegreerd in Office-toepassingen door installatie van een Office-invoegtoepassing, zodat gebruikers kunnen bestanden eenvoudig rechtstreeks beveiligen.
@@ -456,7 +456,7 @@ Controle van de netwerkbeveiliging van uw is het essentieel is voor het netwerk 
 
 [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) is een regionale service waarmee u kunt bewaken en diagnosticeren op het niveau van een netwerk in, naar en van Azure. Diagnose en visualisatie hulpprogramma's die beschikbaar zijn met Network Watcher kunnen u begrijpen, diagnosticeren en inzicht verkrijgen in uw netwerk in Azure. Deze service omvat pakket vastleggen, volgende hop, IP-stroom controleren, weergave van de beveiligingsgroep, NSG-stroomlogboeken. Scenario niveau bewaking biedt een end-to-weergave van netwerkbronnen in tegenstelling tot afzonderlijke resource netwerkbewaking.
 
-### <a name="storage-analytics"></a>Opslaganalyses
+### <a name="storage-analytics"></a>Opslaganalyse
 
 [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) kunt metrische gegevens opslaan die samengevoegde transactiestatistieken en capaciteitsgegevens gegevens over aanvragen voor een opslagservice. Transacties worden gerapporteerd op zowel de API bewerking-niveau, evenals op het niveau van de service opslag en capaciteit wordt gerapporteerd op het niveau van de storage-service. Metrische gegevens kan worden gebruikt storage service-gebruik analyseren, problemen diagnosticeren met aanvragen voor de storage-service en voor het verbeteren van de prestaties van toepassingen die gebruikmaken van een service.
 

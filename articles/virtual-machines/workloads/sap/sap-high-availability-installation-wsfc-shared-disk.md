@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c87aca6c480d9ebc4add7943a341fe94d640a4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1229b7f9e2a430a663a3e78bb457c03cf4a4a590
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001292"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480580"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installatie van SAP NetWeaver hoge beschikbaarheid op een Windows-failovercluster en de gedeelde schijven voor een SAP ASCS/SCS-exemplaar in Azure
 
@@ -251,7 +251,7 @@ Een testpoort toevoegen:
 
 1. Controleer de huidige **ProbePort** waarde door het uitvoeren van de volgende PowerShell-opdracht:
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -270,7 +270,7 @@ Een testpoort toevoegen:
 
    Een nieuwe ProbePort waarde instellen voor de SAP \<SID\> cluster-IP-bron, voer het volgende PowerShell-script voor het bijwerken van de PowerShell-variabelen voor uw omgeving:
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"      # SAP <SID>
    $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
@@ -328,7 +328,7 @@ Een testpoort toevoegen:
 
    Nadat u de SAP brengt \<SID\> cluster online rol, Controleer **ProbePort** is ingesteld op de nieuwe waarde.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -345,7 +345,7 @@ Een testpoort toevoegen:
 
 Open een Windows firewall-testpoort op beide knooppunten van het cluster. Gebruik het volgende script om een Windows firewall-testpoort te openen. De PowerShell-variabelen voor uw omgeving bijwerken.
 
-  ```PowerShell
+  ```powershell
   $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
@@ -405,7 +405,7 @@ _**Afbeelding 7:** Repliceren in SIOS DataKeeper, het lokale volume van clusterk
    - Failover-clusterbeheer  
    - Failover-Cluster PowerShell
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPClusterGroup = "SAP $SAPSID"

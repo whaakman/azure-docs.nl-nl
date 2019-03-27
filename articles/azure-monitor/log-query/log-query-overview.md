@@ -7,12 +7,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: b25bbc0c4beac12c0b0f693dd4e01ddb2896fa16
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6ed3a98282221d5ac148e88b6646bfaa4da768be
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857875"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446431"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analyseren van logboekgegevens in Azure Monitor
 
@@ -41,7 +41,7 @@ De verschillende manieren die u query's in Azure Monitor gebruikt omvatten het v
 - **Weergaven.**  Kunt u visualisaties van gegevens moeten worden opgenomen in de Gebruikersdashboards met [Weergaveontwerper](../platform/view-designer.md).  Logboeken-query's leveren de gegevens die worden gebruikt door [tegels](../platform/view-designer-tiles.md) en [visualisatie delen](../platform/view-designer-parts.md) in elke weergave.  
 
 - **Exporteren.**  Wanneer u logboekgegevens van Azure Monitor in Excel importeert of [Power BI](../platform/powerbi.md), maakt u een logboekquery voor het definiëren van de gegevens te exporteren.
-- **PowerShell.** U kunt een PowerShell-script uitvoeren vanaf een opdrachtregel of een Azure Automation-runbook die gebruikmaakt van [Get-AzOperationalInsightsSearchResults](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) om op te halen van logboekgegevens van Azure Monitor.  Deze cmdlet is vereist voor een query om te bepalen van de gegevens moeten worden opgehaald.
+- **PowerShell.** U kunt een PowerShell-script uitvoeren vanaf een opdrachtregel of een Azure Automation-runbook die gebruikmaakt van [Get-AzOperationalInsightsSearchResults](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults) om op te halen van logboekgegevens van Azure Monitor.  Deze cmdlet is vereist voor een query om te bepalen van de gegevens moeten worden opgehaald.
 - **API voor Azure Monitor-Logboeken.**  De [logboeken-API van Azure Monitor](../platform/alerts-overview.md) kan een client REST-API om op te halen van logboekgegevens uit de werkruimte.  De API-aanvraag bevat een query die wordt uitgevoerd op Azure Monitor om te bepalen van de gegevens moeten worden opgehaald.
 
 ![Zoekopdrachten in Logboeken](media/log-query-overview/queries-overview.png)

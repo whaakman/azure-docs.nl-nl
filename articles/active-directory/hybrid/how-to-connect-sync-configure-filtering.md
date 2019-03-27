@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2017
+ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53c14ce92a422c2254a1e9b7fc4989b49790a88a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774435"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487312"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synchronisatie: Filtering configureren
 Met behulp van filteren, kunt u bepalen welke objecten worden weergegeven in Azure Active Directory (Azure AD) vanuit uw on-premises directory. De standaardconfiguratie wordt van alle objecten in alle domeinen in de geconfigureerde forests. Dit is in het algemeen is de aanbevolen configuratie. Gebruikers met behulp van Office 365-werkbelastingen, zoals Exchange Online en Skype voor bedrijven, profiteren van een volledige lijst met algemene adres zodat ze kunnen e-mailbericht verzenden en iedereen. Met de standaardconfiguratie, zouden ze hebben dezelfde ervaring die ze met een on-premises implementatie van Exchange- of Lync hebben zouden.
@@ -99,6 +99,12 @@ Filters gebruiken om configuratie op basis van een domein bestaat uit de volgend
 3. [Toepassen en wijzigingen controleren](#apply-and-verify-changes).
 
 ### <a name="select-the-domains-to-be-synchronized"></a>Selecteer de domeinen moeten worden gesynchroniseerd
+Er zijn twee manieren om te selecteren van de domeinen moeten worden gesynchroniseerd:
+    - Met behulp van de synchronisatieservice
+    - Met behulp van de Azure AD Connect-wizard.
+
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>Selecteer de domeinen moeten worden gesynchroniseerd met de synchronisatieservice
 Als u wilt de domein-filter kunt instellen, moet u de volgende stappen uitvoeren:
 
 1. Aanmelden bij de server waarop Azure AD Connect-synchronisatie is uitgevoerd met behulp van een account dat lid is van de **ADSyncAdmins** beveiligingsgroep.
@@ -112,6 +118,17 @@ Als u wilt de domein-filter kunt instellen, moet u de volgende stappen uitvoeren
    ![Er moet worden vernieuwd](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. Wanneer u klaar bent, sluit u de **eigenschappen** dialoogvenster door te klikken op **OK**. Als u domeinen van het forest verwijderd, wordt een pop-bericht zegt dat een domein is verwijderd en dat de configuratie worden opgeschoond.
 7. Blijven de uitvoerprofielen aanpassen.
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Selecteer de domeinen moeten worden gesynchroniseerd met de Azure AD Connect-wizard
+Als u wilt de domein-filter kunt instellen, moet u de volgende stappen uitvoeren:
+
+1.  Start de wizard Azure AD Connect
+2.  Klik op **Configureren**
+3.  Selecteer **Synchronisatieopties aanpassen** en klikt u op **volgende**.
+4.  Voer uw Azure AD-referenties in
+5.  Op de **verbonden mappen** scherm op **volgende**.
+6.  Op de **domein en OE filteren pagina** klikt u op **vernieuwen**.  Nieuwe domeinen ziek worden weergegeven en verwijderde domeinen verdwijnt.
+   ![Partities](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>De uitvoerprofielen bijwerken
 Als u uw filter domein hebt bijgewerkt, moet u ook de uitvoerprofielen bijwerken.
