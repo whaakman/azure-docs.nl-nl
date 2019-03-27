@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 8cda538cade4750e03ecb91dfb2c478df730e556
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 20ca4b9d347b9dc01e3b890fcf3758fb2fb135b9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961292"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486135"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -63,8 +63,8 @@ De **OrchestrationStep** element bevat de volgende kenmerken:
 
 | Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
-| Bestellen | Ja | De volgorde van de orchestration-stappen. | 
-| Type | Ja | Het type van de orchestration-stap. Mogelijke waarden: <ul><li>**ClaimsProviderSelection** -geeft aan dat de indelingsstap verschillende claimproviders vormt voor de gebruiker er een selecteren.</li><li>**CombinedSignInAndSignUp** -geeft aan dat de indelingsstap een gecombineerde sociale provider pagina voor het registreren van aanmelding en lokale account biedt.</li><li>**ClaimsExchange** -geeft aan dat de indelingsstap claims met een claimprovider uitwisselt.</li><li>**SendClaims** -geeft aan dat de indelingsstap de claims voor de relying party met een token dat is uitgegeven door een verlener van claims verzendt.</li></ul> | 
+| `Order` | Ja | De volgorde van de orchestration-stappen. | 
+| `Type` | Ja | Het type van de orchestration-stap. Mogelijke waarden: <ul><li>**ClaimsProviderSelection** -geeft aan dat de indelingsstap verschillende claimproviders vormt voor de gebruiker er een selecteren.</li><li>**CombinedSignInAndSignUp** -geeft aan dat de indelingsstap een gecombineerde sociale provider pagina voor het registreren van aanmelding en lokale account biedt.</li><li>**ClaimsExchange** -geeft aan dat de indelingsstap claims met een claimprovider uitwisselt.</li><li>**SendClaims** -geeft aan dat de indelingsstap de claims voor de relying party met een token dat is uitgegeven door een verlener van claims verzendt.</li></ul> | 
 | ContentDefinitionReferenceId | Nee | De id van de [inhoud definitie](contentdefinitions.md) die zijn gekoppeld aan deze orchestration-stap. De inhoudsdefinitie verwijzing-ID wordt gewoonlijk gedefinieerd in de zelf-gecontroleerde technisch profiel. Er zijn maar soms bij Azure AD B2C moet iets zonder een technisch profiel wordt weergegeven. Er zijn twee voorbeelden, als het type van de orchestration-stap een van de volgende is: `ClaimsProviderSelection` of `CombinedSignInAndSignUp`. Er moet een Azure AD B2C om de selectie van de provider identiteit zonder een technisch profiel weer te geven. | 
 | CpimIssuerTechnicalProfileReferenceId | Nee | Het type van de orchestration-stap is `SendClaims`. Deze eigenschap bepaalt het technische profiel-id van de claimprovider die het token heeft uitgegeven voor de relying party.  Als niet is opgegeven, is geen relying party-token wordt gemaakt. |
 
@@ -92,8 +92,8 @@ De **voorwaarde** element bevat het volgende kenmerk:
 
 | Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
-| Type | Ja | Het type selectievakje of de query uit te voeren voor deze voorwaarde. De waarde kan zijn **ClaimsExist**, dat aangeeft dat de acties die moeten worden uitgevoerd als de opgegeven claims aanwezig is in de huidige claimset van de gebruiker, of **ClaimEquals**, dat aangeeft dat de acties moet worden uitgevoerd als de opgegeven claim bestaat en de waarde gelijk aan de opgegeven waarde is. |
-| ExecuteActionsIf | Ja | Gebruik een test waar of ONWAAR om te bepalen als de acties in de eerste voorwaarde moeten worden uitgevoerd. | 
+| `Type` | Ja | Het type selectievakje of de query uit te voeren voor deze voorwaarde. De waarde kan zijn **ClaimsExist**, dat aangeeft dat de acties die moeten worden uitgevoerd als de opgegeven claims aanwezig is in de huidige claimset van de gebruiker, of **ClaimEquals**, dat aangeeft dat de acties moet worden uitgevoerd als de opgegeven claim bestaat en de waarde gelijk aan de opgegeven waarde is. |
+| `ExecuteActionsIf` | Ja | Gebruik een test waar of ONWAAR om te bepalen als de acties in de eerste voorwaarde moeten worden uitgevoerd. | 
 
 De **voorwaarde** elementen bevat de volgende elementen:
 

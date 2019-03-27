@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 22d270d9bc337b9d7ad776baf5dd35f877c05eae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b5ace2e741f900dd4ab7ba6518d0956284af35f6
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856424"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498228"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Een aangepaste wake-woord maken met behulp van de Speech-service
 
@@ -47,25 +47,21 @@ Houd rekening met de volgende richtlijnen wanneer u een woord wake kiest:
 
 ## <a name="create-your-wake-word"></a>Maken van de wake-woord
 
-Voordat u een aangepaste wake word met uw apparaat gebruiken kunt, moet u het woord wake maken met behulp van de aangepaste Wake Word generatie Microsoft-service. Nadat u een woord wake, de service produceert een bestandsnaam die opgeven implementeert u uw development kit om in te schakelen uw word wake op uw apparaat.
+Voordat u een aangepaste wake word met uw apparaat gebruiken kunt, moet u het woord wake maken met behulp van de aangepaste Wake Word generatie Microsoft-service. Nadat u een woord wake, de service produceert een bestandsnaam die opgeven implementeert u uw development kit om in te schakelen van het woord wake op uw apparaat.
 
 1. Ga naar de [Custom Speech serviceportal](https://cris.ai/).
 
-1. Een nieuw account maken met het e-mailadres waarmee u de uitnodiging voor Azure Active Directory ontvangen.
+    ![De Custom Speech serviceportal](media/speech-devices-sdk/wake-word-4.png)
 
-    ![Een nieuw account maken](media/speech-devices-sdk/wake-word-1.png)
+1. Meld u aan met het e-mailadres dat de uitnodiging voor Azure Active Directory hebt ontvangen.
 
-1. De **aangepaste Wake Word** pagina is niet beschikbaar voor het publiek, dus er is geen directe koppeling waarmee u er gaat. De functie voor aangepaste spraak vereist een Azure-abonnementen, maar de functie aangepaste Wake Word niet. Als u de **geen abonnementen gevonden.** foutpagina, alleen vervangen de **"abonnementen? errorMessage = geen % 20Subscriptions % 20found"** met '**customkws**' in de URL en op ENTER. De URL moet een van de volgende: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws of https://northeurope.cris.ai/customkws, afhankelijk van waar uw regio is.
-
-    ![De pagina aangepaste Wake Word is verborgen](media/speech-devices-sdk/wake-word-4.png)
+1. De **aangepaste Wake Word** pagina is niet beschikbaar voor het publiek, dus er is geen directe koppeling waarmee u er gaat. De functie voor aangepaste spraak vereist een Azure-abonnement, maar de functie aangepaste Wake Word niet. Als u de **geen abonnementen gevonden.** foutpagina, alleen vervangen de **"abonnementen? errorMessage = geen % 20Subscriptions % 20found"** met '**customkws**' in de URL en op ENTER. De URL moet een van de volgende: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws of https://northeurope.cris.ai/customkws, afhankelijk van waar uw regio is.
 
 1. Typ in het woord wake van uw keuze, en selecteer vervolgens **verzenden van het woord**.
 
     ![Voer uw wake-woord](media/speech-devices-sdk/wake-word-5.png)
 
 1. Het duurt een paar minuten de bestanden die worden gegenereerd. Hier ziet u een draaiende cirkel in het browservenster. Kort daarna een informatiebalk wordt weergegeven waarin u een zipbestand te downloaden.
-
-    ![Ontvangen van het ZIP-bestand](media/speech-devices-sdk/wake-word-6.png)
 
 1. Sla het ZIP-bestand op uw computer. U moet dit bestand op het woord aangepaste wake development kit implementeren. Volg de instructies in voor het implementeren van het woord aangepaste wake [aan de slag met de SDK van de apparaten spraak](speech-devices-sdk-qsg.md).
 

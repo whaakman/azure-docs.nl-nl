@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 0fd96f9bd3027568e81e9c56ddb095297c699683
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 77519c57c9a603ae0eff46d248ff15432d0404fa
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089771"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485387"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analyseren van de beveiliging van uw virtuele machines met de weergave van de beveiligingsgroep met behulp van REST-API
 
@@ -42,7 +42,7 @@ Het scenario in dit artikel besproken haalt de effectief en toegepaste beveiligi
 
 ## <a name="log-in-with-armclient"></a>Meld u aan met ARMClient
 
-```PowerShell
+```powershell
 armclient login
 ```
 
@@ -109,7 +109,7 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/securityGroupView?api-version=2016-12-01" $requestBody -verbose
 ```
 
-## <a name="view-the-response"></a>Het antwoord bekijken
+## <a name="view-the-response"></a>Bekijk het antwoord
 
 Het volgende voorbeeld is het antwoord geretourneerd door de voorgaande opdracht. De resultaten staat dat alle de effectief en toegepaste beveiligingsregels op de virtuele machine onderverdeeld in groepen van **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, en  **EffectiveSecurityRules**.
 

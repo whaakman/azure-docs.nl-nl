@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402589"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449190"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge technische specificaties
 
@@ -57,9 +57,17 @@ De volgende tabel bevat de afmetingen van de behuizing in millimeters en inch.
 
 |     Systeembehuizing     |     Millimeters     |     Inches     |
 |-------------------|---------------------|----------------|
-|    Hoogte         |    304.8            |    12          |
-|    Breedte          |    660.4            |    26          |
-|    Diepte          |    1041.4           |    41          |
+|    Hoogte         |    44.45            |    1.75"          |
+|    Breedte          |    434.1           |    17.09"          |
+|    Lengte          |    740.4           |    29.15"          |
+
+De volgende tabel bevat de afmetingen van het pakket voor verzending in millimeters en inch.
+
+|     Pakket     |     Millimeters     |     Inches     |
+|-------------------|---------------------|----------------|
+|    Hoogte         |    311.2            |    12.25"          |
+|    Breedte          |    642.8          |    25.31"          |
+|    Lengte          |   1,051.1          |    41.38"          |
 
 ### <a name="enclosure-weight"></a>Behuizing-gewicht
 
@@ -67,8 +75,8 @@ Het pakket apparaat weegt 66 lbs. en twee personen verwerkt; het is vereist. Het
 
 |     Systeembehuizing                                 |     Gewicht          |
 |-----------------------------------------------|---------------------|
-|    Totaal gewicht, met inbegrip van het inpakken       |    66 lbs.          |
-|    Gewicht van het apparaat                       |    48,3 lbs.        |
+|    Totaal gewicht, met inbegrip van het inpakken       |    61 lbs.          |
+|    Gewicht van het apparaat                       |    35 lbs.          |
 
 ## <a name="enclosure-environment-specifications"></a>Behuizing omgeving specificaties
 

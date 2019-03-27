@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 011caaad2f9cb3b0b891df172002dcb6b6aa8206
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1f94544a2e7a26ab00432a3564bb752c71254844
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607048"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484877"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Uw app implementeren in Azure App Service met een ZIP- of WAR-bestand
 
@@ -32,7 +32,7 @@ Deze implementatie ZIP-bestand gebruikt de dezelfde Kudu-service die bevoegdhede
 - [Implementatieaanpassing](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), waaronder uitvoeren van implementatiescripts.  
 - Logboeken van de implementatie. 
 
-Zie voor meer informatie, [Kudu documentatie](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+Zie onze [Kudu-documentatie](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) voor meer informatie.
 
 De implementatie van WAR-bestand implementeert uw [WAR](https://wikipedia.org/wiki/WAR_(file_format)) bestand in App Service om uit te voeren van uw Java-web-app. Zie [implementeren WAR-bestand](#deploy-war-file).
 
@@ -78,7 +78,7 @@ Het volgende voorbeeld implementeert u het ZIP-bestand dat u hebt geüpload. Wan
 az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src clouddrive/<filename>.zip
 ```
 
-Met deze opdracht worden de bestanden en mappen uit het ZIP-bestand geïmplementeerd in de standaardmap voor de App Service-toepassing (`\home\site\wwwroot`) en wordt de app opnieuw opgestart. Als er een aanvullend aangepast opbouwproces is geconfigureerd, wordt dit ook uitgevoerd. Zie voor meer informatie, [Kudu documentatie](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+Met deze opdracht worden de bestanden en mappen uit het ZIP-bestand geïmplementeerd in de standaardmap voor de App Service-toepassing (`\home\site\wwwroot`) en wordt de app opnieuw opgestart. Als er een aanvullend aangepast opbouwproces is geconfigureerd, wordt dit ook uitgevoerd. Zie onze [Kudu-documentatie](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) voor meer informatie.
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
 
@@ -100,7 +100,7 @@ curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.s
 
 Het volgende voorbeeld wordt [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) een aanvraag met het .war-bestand te verzenden. Vervang de tijdelijke aanduidingen `<deployment_user>`, `<deployment_password>`, `<zip_file_path>`, en `<app_name>`.
 
-```PowerShell
+```powershell
 $username = "<deployment_user>"
 $password = "<deployment_password>"
 $filePath = "<war_file_path>"

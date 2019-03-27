@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f9628be1d1f1d146ed0dbc5ebd9579f0512aeac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0192b88525d326840283f79ecea7027516ce8c7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997357"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483435"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Hoge beschikbaarheid van SAP NetWeaver op een Windows failover cluster en bestandsshare voor SAP ASCS/SCS-exemplaren op Azure installeren
 
@@ -253,7 +253,7 @@ Verwijderen van de bestandsshare SAPMNT op *beide* ASCS/SCS-clusterknooppunten.
 
 Voer het volgende PowerShell-script:
 
-```PowerShell
+```powershell
 Remove-SmbShare sapmnt -ScopeName * -Force
  ```
 
@@ -261,7 +261,7 @@ Als de SAPLOC-share niet bestaat, maakt u een op *beide* ASCS/SCS-clusterknooppu
 
 Voer het volgende PowerShell-script:
 
-```PowerShell
+```powershell
 #Create SAPLOC share and set security
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -289,12 +289,12 @@ De volgende volume en bestandsshare maken op de scale-out bestandsservercluster:
 Voor het maken van een CSV-volume met de mirrortolerantie, voert u de volgende PowerShell-cmdlet uit op een van de scale-out bestandsserverclusterknooppunten:
 
 
-```PowerShell
+```powershell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR1 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 SAPMNT maken en de beveiliging en -share instellen, voert u de volgende PowerShell-script uit op een van de scale-out bestandsserverclusterknooppunten:
 
-```PowerShell
+```powershell
 # Create SAPMNT on file share
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -354,7 +354,7 @@ Voer de volgende stappen uit:
 
 Het volgende PowerShell-script uitvoeren op een van de knooppunten van het SAP ASCS/SCS:
 
-```PowerShell
+```powershell
 # Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to the cluster
 
 $SAPSID = "PR1"
@@ -419,7 +419,7 @@ Voor het gebruik van de nieuwe virtuele SAP ASCS/SCS-hostnaam en SAP globale hos
 
 Kopie [ **SAPScripts.psm1** ] [ sap-powershell-scrips] met het lokale station C:\tmp en voer de volgende PowerShell-cmdlet:
 
-```PowerShell
+```powershell
 Import-Module C:\tmp\SAPScripts.psm1
 
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
@@ -463,7 +463,7 @@ Zie voor meer informatie, [1596496 van SAP-notitie - het bijwerken van SAP-resou
 
 Het maken van een SAP \<SID > clustergroep, de naam van een ASCS/SCS-netwerk en een bijbehorende IP-adres, de volgende PowerShell-cmdlet uitvoeren:
 
-```PowerShell
+```powershell
 # Create SAP Cluster Group
 $SAPSID = "PR1"
 $SAPClusterGroupName = "SAP $SAPSID"
@@ -533,7 +533,7 @@ Voor het voltooien van het maken van resources van de SAP-SAP\<SID > cluster-gro
 
 Voer de volgende PowerShell-cmdlet:
 
-```PowerShell
+```powershell
 $SAPSID = "PR1"
 $SAPInstanceNumber = "00"
 $SAPNetworkNameClusterResourceName = "pr1-ascs"

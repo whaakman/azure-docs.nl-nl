@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f6a9d688169f0f8fdd6f0be7b664dbe9ebd71941
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: adcfb308bbbc8e3de456c4e7a71c543f988db02a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295229"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497989"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Gebruik Python-gebruiker gedefinieerde functies (UDF's) met Apache Hive en Apache Pig in HDInsight
 
@@ -35,7 +35,7 @@ HDInsight bevat ook Jython, een Python-implementatie die zijn geschreven in Java
 * Optioneel.  Als u van plan het gebruik van PowerShell, moet u de [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) geïnstalleerd.
 
 > [!NOTE]  
-> Het opslagaccount die wordt gebruikt in dit artikel is Azure Storage met [veilige overdracht](/../storage/common/storage-require-secure-transfer.md) ingeschakeld en dus `wasbs` wordt gebruikt in het artikel.
+> Het opslagaccount die wordt gebruikt in dit artikel is Azure Storage met [veilige overdracht](../../storage/common/storage-require-secure-transfer.md) ingeschakeld en dus `wasbs` wordt gebruikt in het artikel.
 
 ## <a name="storage-configuration"></a>Opslagconfiguratie
 Er is geen actie is vereist als het opslagaccount dat wordt gebruikt van het type `Storage (general purpose v1)` of `StorageV2 (general purpose v2)`.  Het proces in dit artikel wordt uitvoer naar ten minste produceren `/tezstaging`.  Een standaard hadoop-configuratie bevat `/tezstaging` in de `fs.azure.page.blob.dir` configuratievariabele van de in `core-site.xml` voor service `HDFS`.  Deze configuratie zorgt ervoor dat de uitvoer naar de map op de pagina-blobs worden niet ondersteund voor het type opslagaccount worden `BlobStorage`.  Gebruik `BlobStorage` voor dit artikel, verwijdert u `/tezstaging` uit de `fs.azure.page.blob.dir` configuratievariabele.  De configuratie is toegankelijk vanuit de [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  Anders ontvangt u het foutbericht weergegeven: `Page blob is not supported for this account type.`

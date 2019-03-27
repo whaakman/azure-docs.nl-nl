@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 61c4212233dd7ed9c34de779176c3402890e673f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8188e36278bad9c93f709a5d7d9f831d1c19e6b4
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160901"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486844"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Set Omleidings-URL's op b2clogin.com voor Azure Active Directory B2C
 
@@ -25,6 +25,13 @@ Met b2clogin.com biedt extra voordelen, zoals:
 
 - Ruimte in de kop van de cookie wordt gebruikt door Microsoft-services wordt verminderd.
 - De URL's zijn niet langer een verwijzing naar Microsoft. Bijvoorbeeld `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
+
+>[!NOTE]
+> U kunt zowel de naam van de tenant en de GUID van de tenant als volgt gebruiken:
+> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (die nog steeds verwijst naar `onmicrosoft.com`)
+> * `https://your-tenant-name.b2clogin.com/your-tenant-guid` (in dat geval er is geen verwijzing naar Microsoft in alle)
+>
+> U kunt geen echter gebruiken een _aangepast domein_ voor uw Azure Active Directory B2C-tenant, bijvoorbeeld `https://your-tenant-name.b2clogin.com/your-custom-domain-name` zou _niet_ werken.
 
 Houd rekening met deze instellingen die nodig hebt mogelijk bij het gebruik van b2clogin.com wijzigen:
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091304"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446595"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Apache Ambari Hive-weergave gebruiken met Apache Hadoop in HDInsight
 
@@ -108,8 +108,6 @@ Als de Tez UI voor de query weergeven, selecteert u de **Tez** tabblad onder het
 
 > [!IMPORTANT]  
 > Tez wordt niet gebruikt voor het oplossen van alle query's. U kunt veel query's oplossen zonder gebruik van Tez. 
-
-Als Tez is gebruikt voor het omzetten van de query, wordt de omgeleid Acyclic Graph (DAG) weergegeven. Als u wilt weergeven van de DAG voor query's die u in het verleden hebt uitgevoerd, of als u wilt het proces Tez foutopsporing, gebruikt u de [Tez weergave](../hdinsight-debug-ambari-tez-view.md) in plaats daarvan.
 
 ## <a name="view-job-history"></a>Taakgeschiedenis weergeven
 

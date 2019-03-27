@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
-ms.openlocfilehash: 5f49de453f9cd694598918500a8ac0221937bdb1
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 680e39b291cbaa1012cd972e188ab4e5f7aef694
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201684"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449003"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Een upgrade uitvoert naar Standard van Security Center-prijscategorie voor verbeterde beveiliging
 Azure Security Center biedt geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor werkbelastingen die worden uitgevoerd in Azure, on-premises en in andere clouds. Het biedt zichtbaarheid en controle over hybride cloudworkloads, actieve beveiliging die de blootstelling aan bedreigingen en Slimme detectie om te laten groeien met zich snel ontwikkelende cyberaanvallen verminderen.
@@ -49,7 +49,7 @@ Ophalen van de Standard-laag:
 ![Prijzen van Security Center](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> Als u wilt alle Security Center-functies inschakelen, moet u de prijscategorie voor het abonnement of resourcegroep die de desbetreffende virtuele machines bevat standaard toepassen. Configureren van de prijzen voor een werkruimte is niet ingeschakeld just-in-time-VM-toegang, besturingselementen voor adaptieve toepassingen en detecties met een netwerk voor Azure-resources.
+> Als u wilt alle Security Center-functies inschakelen, moet u de prijscategorie voor het abonnement de toepasselijke virtuele machines met Standard toepassen. Configureren van de prijzen voor een werkruimte is niet ingeschakeld just-in-time-VM-toegang, besturingselementen voor adaptieve toepassingen en detecties met een netwerk voor Azure-resources.
 >
 >
 

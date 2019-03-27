@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a25dd3a2228f0b1b3ab33db0c9c689d7b2899d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310554"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479526"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Afdwingen van de beveiliging van Azure AD-wachtwoord voor Windows Server Active Directory
 
@@ -32,8 +32,15 @@ Azure AD-wachtwoordbeveiliging wordt gekenmerkt door deze principes in gedachten
 * Er is geen minimale Active Directory-domein of forest functionele niveau (DFL/FFL) is vereist.
 * De software niet maken of vereisen dat accounts in Active Directory-domeinen die ermee worden beveiligd.
 * Wachtwoorden van gebruikers niet-versleutelde tekst laat niet u de domeincontroller tijdens wachtwoord validatie bewerkingen of op enig ander moment.
-* Stapsgewijze implementatie wordt ondersteund. Maar het wachtwoordbeleid is alleen afgedwongen waarop de Agent in Domain Controller (DC-Agent) is geïnstalleerd.
-* Het is raadzaam dat u de DC-Agent installeren op alle domeincontrollers om ervoor te zorgen universal wachtwoord beveiliging afdwingen.
+* Stapsgewijze implementatie wordt ondersteund, maar het wachtwoordbeleid alleen waarop de Agent in Domain Controller (DC-Agent afgedwongen wordt) is geïnstalleerd. Zie de volgende onderwerp voor meer informatie.
+
+## <a name="incremental-deployment"></a>Stapsgewijze implementatie
+
+Wachtwoordbeveiliging voor Azure AD biedt ondersteuning voor incrementele implementatie op domeincontrollers in een Active Directory-domein, maar het is belangrijk om te begrijpen wat dit betekent en welke afwegingen worden.
+
+De Azure AD wachtwoord-DC-beveiligingsagentsoftware kan alleen wachtwoorden valideren wanneer deze is geïnstalleerd op een domeincontroller, maar alleen voor wachtwoordwijzigingen die worden verzonden naar deze domeincontroller. Het is niet mogelijk om te bepalen welke domeincontrollers worden gekozen door de Windows-clientcomputers voor het verwerken van wijzigingen van gebruiker-wachtwoord. Om ervoor te zorgen consistent gedrag en universele wachtwoord beveiliging afdwingen, moet de DC-agentsoftware worden geïnstalleerd op alle domeincontrollers in een domein.
+
+Veel organisaties willen zorgvuldig testen van Azure AD-wachtwoordbeveiliging in een subset van hun domeincontrollers vóór het uitvoeren van een volledige implementatie. Azure AD-wachtwoordbeveiliging biedt ondersteuning voor gedeeltelijke implementatie, ie de DC-agentsoftware op een bepaalde domeincontroller actief valideert wachtwoorden, zelfs wanneer andere domeincontrollers in het domein geen de DC-agentsoftware die is geïnstalleerd. Gedeeltelijke implementaties van dit type niet zijn beveiligd en worden dan niet aanbevolen voor testdoeleinden.
 
 ## <a name="architectural-diagram"></a>Architectuurdiagram
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e594ace368799f85eea2e7291ead6febea0ea4b7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dc6e218fe048e1781f53c53935308eb193fcd094
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543879"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487155"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Een aangepaste installatiekopie maken van een VHD-bestand met behulp van PowerShell
 
@@ -37,20 +37,20 @@ De volgende stappen helpen u bij het maken van een aangepaste installatiekopie v
 
 1. Bij een PowerShell-prompt, meld u aan bij uw Azure-account met de volgende aanroep naar de **Connect AzAccount** cmdlet.  
     
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 
 1.  Selecteer de gewenste Azure-abonnement door het aanroepen van de **Selecteer AzSubscription** cmdlet. Vervang de volgende tijdelijke aanduiding voor de **$subscriptionId** variabele met een geldig Azure-abonnement-ID. 
 
-    ```PowerShell
+    ```powershell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzSubscription -SubscriptionId $subscriptionId
     ```
 
 1.  Het lab-object ophalen door het aanroepen van de **Get-AzResource** cmdlet. Vervang de volgende tijdelijke aanduidingen voor de **$labRg** en **$labName** variabelen met de juiste waarden voor uw omgeving. 
 
-    ```PowerShell
+    ```powershell
     $labRg = '<Specify your lab resource group name here>'
     $labName = '<Specify your lab name here>'
     $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
@@ -58,20 +58,20 @@ De volgende stappen helpen u bij het maken van een aangepaste installatiekopie v
  
 1.  In het lab storage-account en lab opslag accountsleutel in het lab-object ophalen. 
 
-    ```PowerShell
+    ```powershell
     $labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount 
     $labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
     ```
 
 1.  Vervang de volgende tijdelijke aanduiding voor de **$vhdUri** variabele met de URI moet het geüploade VHD-bestand. U kunt het VHD-bestand-URI ophalen uit blade met blob storage-account in Azure portal.
 
-    ```PowerShell
+    ```powershell
     $vhdUri = '<Specify the VHD URI here>'
     ```
 
 1.  Maak de aangepaste installatiekopie met de **New-AzResourceGroupDeployment** cmdlet. Vervang de volgende tijdelijke aanduidingen voor de **$customImageName** en **$customImageDescription** variabelen betekenisvolle namen voor uw omgeving.
 
-    ```PowerShell
+    ```powershell
     $customImageName = '<Specify the custom image name>'
     $customImageDescription = '<Specify the custom image description>'
 
@@ -84,7 +84,7 @@ De volgende stappen helpen u bij het maken van een aangepaste installatiekopie v
 
 De volgende PowerShell-script kan worden gebruikt om een aangepaste installatiekopie maken van een VHD-bestand. Vervang de tijdelijke aanduidingen (beginnen en eindigend met punthaken) door de juiste waarden voor uw behoeften. 
 
-```PowerShell
+```powershell
 # Log in to your Azure account.  
 Connect-AzAccount
 

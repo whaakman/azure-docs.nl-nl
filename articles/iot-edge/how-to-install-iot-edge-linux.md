@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 398b984f4d97005fdc4d749f3fe072423cc5bbd7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1d1e0f100a90c28bd7469991dee559abcd88f9a2
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309295"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499462"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>De Azure IoT Edge-runtime installeren in Linux (x64)
 
@@ -23,7 +23,7 @@ De Azure IoT Edge-runtime is wat een apparaat verandert in een IoT Edge-apparaat
 
 Zie voor meer informatie, [inzicht in de Azure IoT Edge-runtime en de bijbehorende architectuur](iot-edge-runtime.md).
 
-In dit artikel vindt u de stappen voor het installeren van de Azure IoT Edge-runtime op uw Linux x64 (Intel/AMD) IoT Edge-apparaat. Raadpleeg [ondersteuning voor Azure IoT Edge](support.md#operating-systems) voor een lijst van ondersteunde AMD64-besturingssystemen.
+In dit artikel vindt u de stappen voor het installeren van de Azure IoT Edge-runtime op uw Ubuntu Linux x64 (Intel/AMD) IoT Edge-apparaat. Raadpleeg [ondersteuning voor Azure IoT Edge](support.md#operating-systems) voor een lijst van ondersteunde AMD64-besturingssystemen.
 
 > [!NOTE]
 > Pakketten in de opslagplaatsen met Linux-software zijn afhankelijk van de licentievoorwaarden die zich in elk pakket (/ usr/delen/Docs/*pakketnaam*). Lees de licentievoorwaarden voordat u het pakket. De installatie en het gebruik van het pakket wordt verstaan onder uw acceptatie van deze voorwaarden. Als u niet akkoord met de licentievoorwaarden gaat, moet u het pakket niet gebruiken.
@@ -33,11 +33,22 @@ In dit artikel vindt u de stappen voor het installeren van de Azure IoT Edge-run
 Uw apparaat voorbereiden voor de IoT-Edge runtime-installatie.
 
 
-Installeer de configuratie van de opslagplaats. Vervang **\<release\>** met **16.04** of **18.04** die geschikt zijn voor uw versie van Ubuntu.
+Installeer de configuratie van de opslagplaats. Kies de **16.04** of **18.04** codefragment als geschikt is voor uw versie van Ubuntu.
 
+> [!IMPORTANT]
+> Zorg ervoor dat u het codefragment kiezen uit het juiste code voor uw versie van Ubuntu.
+
+* Voor **Ubuntu 16.04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
    ```
+
+* Voor **Ubuntu 18.04**:
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+   ```
+   
+Installeer de configuratie van de opslagplaats. Kies de **16.04** of **18.04** codefragment als geschikt is voor uw versie van Ubuntu.
 
 Kopieer de gegenereerde lijst.
 

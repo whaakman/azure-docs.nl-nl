@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0de87f1038a7e91e5d66bb579ac7087e75a8db5f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7f0a0f64b0b48a76c72970b7b1b2e248df920ec7
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308071"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447069"
 documentType: LandingData
-title: Azure SQL Database Managed Instance
+title: Beheerd exemplaar voor Azure SQL-Database
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Azure SQL Database Managed Instance documentatie - zelfstudies, API-verwijzing
-  meta.description: Learn how to use Azure SQL Database Managed Instance.
+  title: Beheerd exemplaar documentatie - zelfstudies, API-verwijzing
+  meta.description: Learn how to use a managed instance in Azure SQL Database.
   services: sql-database
   author: jovanpop-msft
   manager: craigg
@@ -23,14 +23,14 @@ metadata:
   ms.date: 01/03/2019
   ms.author: jovanpop
 abstract:
-  description: Azure SQL Database Managed Instance is een volledig beheerde SQL Server Database Engine-instantie die wordt gehost in Azure-cloud. Dit is de beste PaaS-optie voor het migreren van SQL Server-database naar de cloud. Informatie over het maken en gebruiken van Managed Instance met onze snelstartgidsen, zelfstudies en voorbeelden.
+  description: Een beheerd exemplaar in Azure SQL Database is een volledig beheerde SQL Server Database Engine-instantie die wordt gehost in Azure-cloud. Dit is de beste PaaS-optie voor het migreren van SQL Server-database naar de cloud. Informatie over het maken en gebruiken van Managed Instance met onze snelstartgidsen, zelfstudies en voorbeelden.
   aside:
     image:
       alt: 
       height: 110
       src: media/sql-database-managed-instance-index/intro.png
       width: 250
-    title: Maak kennis met Azure SQL Database Managed Instance (5:38)
+    title: Maak kennis met beheerd exemplaar in Azure SQL Database (5:38)
     href: https://www.youtube.com/watch?v=W8feSZXm2Ec
     width: 250
 sections:
@@ -42,7 +42,7 @@ sections:
     items:
     - title: Overzicht
       href: /azure/sql-database/sql-database-managed-instance
-      html: <p>Ontdek meer informatie over de service Azure SQL Database Managed Instance.</p>
+      html: <p>Ontdek meer informatie over beheerd exemplaar in Azure SQL Database.</p>
     - title: RTF-surface area
       href: /azure/sql-database/sql-database-managed-instance#sql-features-supported
       html: <p>In de buurt van 100% SQL-functiecompatibiliteit met de meest recente versie van SQL Server Database Engine.</p>
@@ -70,7 +70,7 @@ sections:
 - title: Nieuwe en preview-functies
   items:
   - type: paragraph
-    text: 'Managed Instance wordt continu verbeterd met nieuwe functies:'
+    text: 'We zijn voortdurend verbeteren van de managed instance met nieuwe functies:'
   - type: list
     style: unordered
     items:
@@ -81,11 +81,12 @@ sections:
     - html: (Preview) Gebruik <a href="https://aka.ms/managed-instance-failover-groups">geografisch gedistribueerde failovergroepen</a> Bewaar een kopie van het exemplaar in een andere regio en ervoor zorgen dat uw gegevens beschikbaar zijn, zelfs in het scenario regionale na noodgevallen zijn.
     - html: (Preview) <a href="https://aka.ms/managed-instance-tde-byok">Doen om uw eigen versleutelingssleutels</a> tijdens het migreren van on-premises databases die al transparante gegevensversleuteling (TDE) hebt ingeschakeld.
     - html: Beheerde exemplaren zijn beveiligd met <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">ingebouwde firewall</a>.
-    - html: (Preview) <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/">Opnieuw maken verwijderde databases</a>.
+    - html: (Preview) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Opnieuw te maken verwijderde databases met behulp van PowerShell</a>
+    - html: Functionaliteit voor geo-restore kunt u <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">de database herstellen naar een ander datacenter met behulp van PowerShell</a>.
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: 'Managed Instance kunt u eenvoudig algemene beheertaken met behulp van de Azure portal, Azure CLI en Azure PowerShell uitvoeren. Leer aan de hand van de volgende beknopte voorbeelden hoe u algemene beheertaken uitvoert:'
+    text: 'Beheerd exemplaar kunt u eenvoudig algemene beheertaken met behulp van de Azure portal, Azure CLI en Azure PowerShell uitvoeren. Leer aan de hand van de volgende beknopte voorbeelden hoe u algemene beheertaken uitvoert:'
   - type: table
     style: dataMatrix
     columns:
@@ -105,14 +106,14 @@ sections:
     - title: Maak een nieuw exemplaar
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+      - href: sql-database-managed-instance-get-started
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: Het exemplaar wijzigen
       values:
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../change-size-azure-sql-managed-instance-using-powershell/
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+      - href: /powershell/module/az.sql/set-azsqlinstance#examples
       - href: 
     - title: Azure-netwerkomgeving configureren
       values:
@@ -123,8 +124,8 @@ sections:
     - title: Herstel naar een bepaald tijdstip
       values:
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+      - href: /powershell/module/az.sql/restore-azsqlinstancedatabase#examples
       - href: 
     - title: Verwijderde database herstellen
       values:
@@ -135,17 +136,17 @@ sections:
 - title: Zelfstudies met stapsgewijze instructies en learning materiaal
   items:
   - type: paragraph
-    text: Informatie over het maken, beheren en gebruiken van Managed Instance.
+    text: Informatie over het maken, beheren en gebruiken van beheerde exemplaren.
   - type: list
     style: ordered
     items:
-    - html: Leer hoe u snel <a href="sql-database-managed-instance-quickstart-guide.md">aan de slag met Managed Instance</a> met behulp van onze snelstartgidsen.
-    - html: Meer informatie over <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">hardware-eigenschappen en beperkingen</a>, <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">verschillen tussen de Transact-SQL-taal</a>, en <a href="/azure/sql-database/sql-database-managed-instance-create-manage">Transact-SQL, PowerShell, Azure CLI-API voor het configureren van Managed Instance<a/>.
+    - html: Leer hoe u snel <a href="sql-database-managed-instance-quickstart-guide.md">aan de slag met beheerd exemplaar</a> met behulp van onze snelstartgidsen.
+    - html: Meer informatie over <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">hardware-eigenschappen en beperkingen</a>, <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">verschillen tussen de Transact-SQL-taal</a>, en <a href="/azure/sql-database/sql-database-managed-instance-create-manage">Transact-SQL, PowerShell, Azure CLI-API voor het configureren van beheerd exemplaar<a/>.
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configureer</a> Azure VNet waarin het beheerde exemplaar worden geïmplementeerd.
-    - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Valideren</a> dat uw bestaande Azure-VNet kan worden gebruikt om beheerde instanties implementeren.
+    - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Valideren</a> dat uw bestaande Azure-VNet kunnen worden gebruikt voor het implementeren van beheerde exemplaren.
     - html: Verbinding maken met uw exemplaar met <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">virtuele Azure-Machine</a> of <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">punt-naar-site-verbinding</a>, of <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">toepassingen</a>.
     - html: Controleer of de database kan worden gemigreerd met behulp van <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> of <a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">Database experimenten-assistent</a>.
-    - html: Breng uw databases voor het gebruik van Managed Instance <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">systeemeigen terugzetten</a> of <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
+    - html: Breng uw databases naar beheerd exemplaar met behulp van <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">systeemeigen terugzetten</a> of <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
     - html: Verplaats uw SSIS-pakketten naar <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, tabellaire modellen van SSAS te <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Services</a>, en SQL Server Reporting Services rapporten <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.
     - html: Meer informatie over de storage-laag in <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">categorie Algemeen gebruik</a> en toe te passen <a href="https://blogs.msdn.microsoft.com/sqlcat/20../../storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">storage aanbevolen procedures voor prestaties en overwegingen voor algemeen gebruik-servicelaag</a>.
     - html: Zoek de best practices en aanbevelingen voor <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">beveiligen van uw exemplaar</a>.

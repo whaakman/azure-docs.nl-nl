@@ -16,18 +16,18 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb9b90ca239ff03f44b76a7ee5754eb7872caa31
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415898"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448561"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestatierichtlijnen voor SQL Server in Azure Virtual Machines
 
 ## <a name="overview"></a>Overzicht
 
-Dit artikel bevat richtlijnen voor het optimaliseren van prestaties van SQL Server in Microsoft Azure Virtual machines. Tijdens het uitvoeren van SQL Server in Azure Virtual Machines, is het raadzaam dat u doorgaan met behulp van dezelfde databaseprestaties afstemmen van de opties die van toepassing op SQL Server in on-premises server-omgeving. De prestaties van een relationele database in een openbare cloud is echter afhankelijk van veel factoren zoals de grootte van een virtuele machine en de configuratie van de gegevensschijven.
+Dit artikel bevat richtlijnen voor het optimaliseren van prestaties van SQL Server in Microsoft Azure Virtual machines. Tijdens het uitvoeren van SQL Server in Azure Virtual Machines, is het raadzaam dat u doorgaan met behulp van dezelfde databaseprestaties afstemmen van de opties die van toepassing op SQL Server in on-premises server-omgeving. De prestaties van een relationele database in een openbare cloud zijn echter afhankelijk van vele factoren, zoals de grootte van een virtuele machine en de configuratie van de gegevensschijven.
 
 [SQL Server-installatiekopieën die zijn ingericht in Azure portal](quickstart-sql-vm-create-portal.md) Volg de aanbevolen procedures voor algemene opslag-configuratie (Zie voor meer informatie over hoe opslag wordt geconfigureerd, [opslagconfiguratie voor SQL Server-VM's](virtual-machines-windows-sql-server-storage-configuration.md)). Na het inrichten, toe te passen van andere optimalisaties die in dit artikel worden besproken. Uw keuzes baseren op uw werkbelasting en controleer of door middel van testen.
 
@@ -135,7 +135,7 @@ Er is een uitzondering op deze aanbeveling: _als uw verbruik TempDB schrijven-in
 
   * De bovenstaande aanbevelingen zijn van toepassing op premium SSD's. Als u geen premium SSD's, Schakel geen eventuele opslaan in cache op eventuele gegevensschijven.
 
-  * Zie de volgende artikelen voor instructies over het configureren van de opslaan in schijfcache. Zie voor de klassiek (ASM) implementatiemodel: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) en [Set AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Voor de Azure Resource Manager deployment model zien: [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-4.4.1) en [Set AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk?view=azurermps-4.4.1).
+  * Zie de volgende artikelen voor instructies over het configureren van de opslaan in schijfcache. Zie voor de klassiek (ASM) implementatiemodel: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) en [Set AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Voor de Azure Resource Manager deployment model zien: [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) en [Set AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk).
 
      > [!WARNING]
      > Stop de SQL Server-service bij het wijzigen van de cache-instelling van Azure VM-schijven om te voorkomen dat de kans op een beschadiging van de database.

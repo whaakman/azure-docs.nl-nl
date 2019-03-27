@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7031e003ad05d647ccfaebf9239f26ef0af00a7d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13f67bfe0902a528d16b6a967f9d4ac189100406
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110712"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482400"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Zelfstudie: Een Data Factory-pijplijn maken die gegevens verplaatst met Azure PowerShell
 > [!div class="op_single_selector"]
@@ -82,31 +82,31 @@ Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één 
 
     Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal:
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```   
    
     Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven:
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 
     Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **&lt;NameOfAzureSubscription**&gt; door de naam van uw Azure-abonnement:
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 1. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren:
 
-    ```PowerShell
+    ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
     
     Voor sommige van de stappen in deze zelfstudie wordt ervan uitgegaan dat u de resourcegroep met de naam **ADFTutorialResourceGroup** gebruikt. Als u een andere resourcegroep gebruikt, moet u voor deze zelfstudie die groep gebruiken in plaats van ADFTutorialResourceGroup.
 1. Voer de **New-AzDataFactory** cmdlet voor het maken van een data factory met de naam **ADFTutorialDataFactoryPSH**:  
 
-    ```PowerShell
+    ```powershell
     $df=New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
     ```
     Deze naam is mogelijk al in gebruik. Zorg daarom dat de naam van de gegevensfactory uniek is door een voor- of achtervoegsel toe te voegen (bijvoorbeeld: ADFTutorialDataFactoryPSH05152017) en voer de opdracht opnieuw uit.  
@@ -124,13 +124,13 @@ Houd rekening met de volgende punten:
 
   * Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren:
 
-    ```PowerShell
+    ```powershell
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
     Voer de volgende opdracht uit om te bevestigen dat de Data Factory-provider is geregistreerd:
 
-    ```PowerShell
+    ```powershell
     Get-AzResourceProvider
     ```
   * Meld u met het Azure-abonnement aan bij [Azure Portal](https://portal.azure.com). Ga naar een Data Factory-blade of maak een data factory in Azure Portal. Door deze actie wordt de provider automatisch voor u geregistreerd.
@@ -166,7 +166,7 @@ In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory.
 1. Schakel in **Azure PowerShell** over naar de map **ADFGetStartedPSH**.
 1. Voer de **New-AzDataFactoryLinkedService** cmdlet voor het maken van de gekoppelde service: **AzureStorageLinkedService**. Voor deze cmdlet en andere Data Factory-cmdlets die u in deze zelfstudie gebruikt, moet u waarden doorgeven voor de parameters **ResourceGroupName** en **DataFactoryName**. U kunt ook het DataFactory-object geretourneerd door de cmdlet New-AzDataFactory zonder te hoeven typen ResourceGroupName en DataFactoryName telkens wanneer die u een cmdlet uitvoert doorgeven. 
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json
     ```
     Hier volgt een voorbeeld van uitvoer:
@@ -181,7 +181,7 @@ In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory.
 
     Een andere manier voor het maken van deze gekoppelde service is de naam van de resourcegroep en de naam van de gegevensfactory op te geven in plaats van het DataFactory-object.  
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName <Name of your data factory> -File .\AzureStorageLinkedService.json
     ```
 
@@ -206,7 +206,7 @@ In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory.
     ```
 1. Voer de volgende opdracht uit om een gekoppelde service te maken:
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
     ```
     
@@ -290,7 +290,7 @@ In deze stap maakt u een gegevensset met de naam InputDataset die verwijst naar 
     Zie het [artikel over Azure Blob-connectoren](data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over deze JSON-eigenschappen.
 1. Voer de volgende opdracht uit om de Data Factory-gegevensset te maken.
 
-    ```PowerShell  
+    ```powershell  
     New-AzDataFactoryDataset $df -File .\InputDataset.json
     ```
     Hier volgt een voorbeeld van uitvoer:
@@ -353,7 +353,7 @@ In dit deel van de stap maakt u een uitvoergegevensset met de naam **OutputDatas
     Zie het [artikel over Azure SQL-connectoren](data-factory-azure-sql-connector.md#dataset-properties) voor meer informatie over deze JSON-eigenschappen.
 1. Voer de volgende opdracht uit om de data factory-gegevensset te maken.
 
-    ```PowerShell   
+    ```powershell   
     New-AzDataFactoryDataset $df -File .\OutputDataset.json
     ```
 
@@ -438,7 +438,7 @@ Momenteel is de uitvoergegevensset dat wat de planning aanstuurt. In deze zelfst
      Zie het artikel [Pijplijnen maken](data-factory-create-pipelines.md) voor beschrijvingen van JSON-eigenschappen in de definitie van een pijplijn. Zie [Gegevensverplaatsingsactiviteiten](data-factory-data-movement-activities.md) voor beschrijvingen van JSON-eigenschappen in de definitie van een kopieeractiviteit. Zie het [artikel over Azure Blob-connectoren](data-factory-azure-blob-connector.md) voor beschrijvingen van JSON-eigenschappen die worden ondersteund door BlobSource. Zie het [artikel over Azure SQL Database-connectoren](data-factory-azure-sql-connector.md) voor beschrijvingen van JSON-eigenschappen die worden ondersteund door SqlSink.
 1. Voer de volgende opdracht uit om de data factory-tabel te maken.
 
-    ```PowerShell   
+    ```powershell   
     New-AzDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
     ```
 
@@ -459,12 +459,12 @@ In deze stap gebruikt u Azure PowerShell om te bewaken wat er gebeurt in een Azu
 
 1. Vervang &lt;DataFactoryName&gt; met de naam van uw gegevensfactory en voer **Get-AzDataFactory**, en wijs de uitvoer toe aan een variabele $df.
 
-    ```PowerShell  
+    ```powershell  
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
     ```
 
     Bijvoorbeeld:
-    ```PowerShell
+    ```powershell
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
     ```
     
@@ -483,7 +483,7 @@ In deze stap gebruikt u Azure PowerShell om te bewaken wat er gebeurt in een Azu
     ```
 1. Voer **Get-AzDataFactorySlice** voor meer informatie over alle segmenten van de **OutputDataset**, dit is de uitvoergegevensset van de pijplijn.  
 
-    ```PowerShell   
+    ```powershell   
     Get-AzDataFactorySlice $df -DatasetName OutputDataset -StartDateTime 2017-05-11T00:00:00Z
     ```
 
@@ -527,7 +527,7 @@ In deze stap gebruikt u Azure PowerShell om te bewaken wat er gebeurt in een Azu
     ```
 1. Voer **Get-AzDataFactoryRun** om op te halen van de details van activiteit actief is gedurende een **specifieke** segment. Kopieer de datum-/ tijdwaarde uit de uitvoer van de vorige opdracht om de waarde voor de parameter StartDateTime op te geven. 
 
-    ```PowerShell  
+    ```powershell  
     Get-AzDataFactoryRun $df -DatasetName OutputDataset -StartDateTime "5/11/2017 09:00:00 PM"
     ```
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 777b3a8d414f0b785d908c37da98e987445ed96d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c54d2aef2d8e748e31bffcecef323c4806d15f60
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317456"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482048"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -96,6 +96,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Alle exemplaar metagegevensquery's zijn hoofdlettergevoelig.
 
 ### <a name="data-output"></a>De gegevensuitvoer
+
 Standaard de Instance Metadata Service gegevens geretourneerd in JSON-indeling (`Content-Type: application/json`). Verschillende API's retourneren echter gegevens in verschillende indelingen als aangevraagd.
 De volgende tabel bevat een verwijzing van de opmaak van andere gegevens die API 's kunnen ondersteunen.
 
@@ -111,6 +112,9 @@ Geef de vereiste indeling als een queryreeks-parameter in de aanvraag voor toega
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
+> [!NOTE]
+> Voor bladknooppunten de `format=json` werkt niet. Voor deze query's `format=text` moet expliciet worden opgegeven als de standaardindeling json is.
+
 ### <a name="security"></a>Beveiliging
 
 Het Instance Metadata Service-eindpunt is alleen toegankelijk vanuit het actieve exemplaar van de virtuele machine op een niet-routeerbare IP-adres. Bovendien een aanvraag met een `X-Forwarded-For` header is geweigerd door de service.
@@ -123,8 +127,8 @@ Als er een gegevenselement niet gevonden of een onjuist gevormde aanvraag, retou
 HTTP-statuscode | Reden
 ----------------|-------
 200 OK |
-400-Ongeldige aanvraag | Ontbrekende `Metadata: true` koptekst
-404 – Niet gevonden | Het gevraagde element bestaat niet 
+400-Ongeldige aanvraag | Ontbrekende `Metadata: true` kop- of de indeling ontbreekt bij het opvragen van een leaf-knooppunt
+404 – Niet gevonden | Het gevraagde element bestaat niet
 405 methode is niet toegestaan | Alleen `GET` en `POST` aanvragen worden ondersteund
 429 te veel aanvragen | De API ondersteunt momenteel een maximum van 5 query's per seconde
 500 servicefout     | Voer na enige tijd opnieuw uit
@@ -503,12 +507,12 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure heeft verschillende onafhankelijke clouds, zoals [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Soms moet u de Azure-omgeving om sommige runtime beslissingen te nemen. Het volgende voorbeeld laat zien hoe u dit gedrag kunt bereiken.
 
 **Aanvraag**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Antwoord**
-```
+```bash
 AZUREPUBLICCLOUD
 ```
 

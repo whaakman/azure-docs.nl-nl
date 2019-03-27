@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: ba56804431048005914a79c4cd957a8365de067a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970889"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486365"
 ---
 # <a name="api-templates-in-azure-api-management"></a>API-sjablonen in Azure API Management
 
@@ -30,7 +30,7 @@ De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarspor
 -   [API-lijst](#APIList)  
 -   [Bewerking](#Product)  
 -   [Codevoorbeelden](#CodeSamples)  
-    -   [CURL](#Curl)  
+    -   [Curl](#Curl)  
     -   [C#](#CSharp)  
     -   [Java](#Stub)  
     -   [JavaScript](#JavaScript)  
@@ -82,15 +82,15 @@ De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarspor
 ### <a name="controls"></a>Besturingselementen  
  De `API list` sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
   
--   [besturingselement voor paginering](api-management-page-controls.md#paging-control)  
+-   [paging-control](api-management-page-controls.md#paging-control)  
   
--   [besturingselement voor zoeken](api-management-page-controls.md#search-control)  
+-   [search-control](api-management-page-controls.md#search-control)  
   
 ### <a name="data-model"></a>Gegevensmodel  
   
-|Eigenschap|Type|Beschrijving|  
+|Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
-|API 's|Verzameling van [API-overzicht](api-management-template-data-model-reference.md#APISummary) entiteiten.|De API's zichtbaar voor de huidige gebruiker.|  
+|`apis`|Verzameling van [API-overzicht](api-management-template-data-model-reference.md#APISummary) entiteiten.|De API's zichtbaar voor de huidige gebruiker.|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
@@ -343,17 +343,17 @@ De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarspor
   
 ### <a name="data-model"></a>Gegevensmodel  
   
-|Eigenschap|Type|Beschrijving|  
+|Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
-|apiId|tekenreeks|De id van de huidige API.|  
-|ApiName|tekenreeks|De naam van de API.|  
-|apiDescription|tekenreeks|Een beschrijving van de API.|  
-|api|[API-overzicht](api-management-template-data-model-reference.md#APISummary) entiteit.|De huidige API.|  
-|bewerking|[Bewerking](api-management-template-data-model-reference.md#Operation)|De bewerking die momenteel wordt weergegeven.|  
-|sampleUrl|tekenreeks|De URL voor de huidige bewerking.|  
-|operationMenu|[Bewerking menu](api-management-template-data-model-reference.md#Menu)|Een menu met bewerkingen voor deze API.|  
-|consoleUrl|URI|De URI voor de **uitproberen** knop.|  
-|voorbeelden|Verzameling van [codevoorbeeld](api-management-template-data-model-reference.md#Sample) entiteiten.|De codevoorbeelden voor de huidige bewerking...|  
+|`apiId`|string|De id van de huidige API.|  
+|`apiName`|string|De naam van de API.|  
+|`apiDescription`|string|Een beschrijving van de API.|  
+|`api`|[API-overzicht](api-management-template-data-model-reference.md#APISummary) entiteit.|De huidige API.|  
+|`operation`|[Bewerking](api-management-template-data-model-reference.md#Operation)|De bewerking die momenteel wordt weergegeven.|  
+|`sampleUrl`|string|De URL voor de huidige bewerking.|  
+|`operationMenu`|[Bewerking menu](api-management-template-data-model-reference.md#Menu)|Een menu met bewerkingen voor deze API.|  
+|`consoleUrl`|URI|De URI voor de **uitproberen** knop.|  
+|`samples`|Verzameling van [codevoorbeeld](api-management-template-data-model-reference.md#Sample) entiteiten.|De codevoorbeelden voor de huidige bewerking...|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
@@ -647,7 +647,7 @@ De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarspor
   
  ![Developer Portal sjablonen codevoorbeelden](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "codevoorbeelden APIM Developer Portal-sjablonen")  
   
--   [CURL](#Curl)  
+-   [Curl](#Curl)  
   
 -   [C#](#CSharp)  
   
@@ -663,7 +663,7 @@ De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarspor
   
 -   [Ruby](#Ruby)  
   
-###  <a name="Curl"></a> CURL  
+###  <a name="Curl"></a> Curl  
  De **DocumentationSamplesCurl** sjabloon kunt u dit codevoorbeeld in de sectie met voorbeeldcode voorbeelden van de pagina bewerking aanpassen.  
   
 #### <a name="default-template"></a>Standaardsjabloon  

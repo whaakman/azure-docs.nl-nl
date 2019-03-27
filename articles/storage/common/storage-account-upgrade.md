@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: df9bc1680f20fe6264da0109cd52db1072fd9fc5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311132"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444530"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Een upgrade uitvoert naar een opslagaccount voor algemeen gebruik v2
 
@@ -21,7 +21,7 @@ Opslagaccounts voor algemeen gebruik v2 ondersteuning voor de nieuwste opslagfun
 Een upgrade naar een opslagaccount voor algemeen gebruik v2 in uw voor algemeen gebruik v1- of Blob storage-accounts is eenvoudig. U kunt upgraden met behulp van de Azure portal, PowerShell of Azure CLI.
 
 > [!IMPORTANT]
-> Upgraden van een v1-opslagaccount voor algemeen gebruik v2 is permanent en kan niet ongedaan worden gemaakt.
+> Upgraden van een voor algemeen gebruik v1- of Blob storage-opslagaccount voor algemeen gebruik v2 is permanent en kan niet ongedaan worden gemaakt.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Upgraden met Azure portal
 
@@ -31,6 +31,8 @@ Een upgrade naar een opslagaccount voor algemeen gebruik v2 in uw voor algemeen 
 4. Klik onder **Soort account** op **Upgrade**.
 5. Typ bij **Upgrade bevestigen** de naam van uw account.
 6. Klik op **Upgrade** aan de onderkant van de blade.
+
+    ![Soort Account upgraden](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
 ## <a name="upgrade-with-powershell"></a>Een upgrade uitvoeren met PowerShell
 
@@ -116,7 +118,7 @@ Als dit is ingeschakeld, worden de capaciteitsgegevens van een Blob Storage-serv
 Voor het controleren van gegevenstoegangspatronen voor Blob Storage, moet u de metrische gegevens die per uur worden verzameld voor de transactie inschakelen vanaf de API. Als deze methode is ingeschakeld, worden er elk uur per-API-transacties verzameld en geregistreerd als een tabelvermelding die is naar de *$MetricsHourPrimaryTransactionsBlob*-tabel binnen hetzelfde opslagaccount wordt geschreven. De *$MetricsHourSecondaryTransactionsBlob*-tabel registreert de transacties naar het secundaire eindpunt bij gebruik van RA-GRS-opslagaccounts.
 
 > [!NOTE]
-> Als u een algemeen opslagaccount hebt waarin u pagina-blobs en virtuele-machineschijven of wachtrijen, bestanden of tabellen, hebt opgeslagen naast blok- en toevoegblobgegevens, is dit schattingsproces niet van toepassing. De capaciteitsgegevens maken geen onderscheid tussen blok-blobs en andere typen en geven geen capaciteitsgegevens voor andere gegevenstypen. Als u deze typen gebruikt, is een alternatieve methode om te kijken naar de hoeveelheden op uw meest recente factuur.
+> Hebt u een algemeen opslagaccount waarin u pagina-blobs en virtuele-machineschijven of wachtrijen, bestanden of tabellen, naast blok hebt opgeslagen en toevoegblobgegevens, is dit schattingsproces niet van toepassing. De capaciteitsgegevens maken geen onderscheid tussen blok-blobs en andere typen en geven geen capaciteitsgegevens voor andere gegevenstypen. Als u deze typen gebruikt, is een alternatieve methode om te kijken naar de hoeveelheden op uw meest recente factuur.
 
 Als u een goede schatting wilt maken van uw gegevensverbruik en toegangspatroon, raden we u aan voor de metrische gegevens een retentieperiode te kiezen die een goede afspiegeling is van uw normale gebruik en dat als uitgangspunt te nemen. Een optie is de metrische gegevens zeven dagen te bewaren en de gegevens elke week te verzamelen en aan het einde van de maand te analyseren. Een andere optie is de metrische gegevens van de afgelopen 30 dagen te bewaren en deze gegevens aan het einde van deze periode van 30 dagen te verzamelen en te analyseren.
 

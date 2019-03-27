@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/22/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 44533bc6ed0656be387fa76c0e975046ad7f79ab
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 72d9ec52732a78e39f6481e2cb2d40f17f86f028
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741556"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58494793"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator inschakelt
 
@@ -96,7 +96,7 @@ Geef $true of $false om te bepalen ondersteuning van Azure Write Accelerator met
 
 Voorbeelden van opdrachten kunnen er als volgt uitzien:
 
-```PowerShell
+```powershell
 New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
 Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
@@ -114,7 +114,7 @@ Met dit script kunt u een nieuwe schijf toevoegen aan uw virtuele machine. De sc
 
 Vervang `myVM`, `myWAVMs`, `log001`, grootte van de schijf en LunID van de schijf met de waarden die geschikt is voor uw specifieke implementatie.
 
-```PowerShell
+```powershell
 # Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -137,7 +137,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 U kunt dit script gebruiken om in te schakelen Write Accelerator op een bestaande schijf. Vervang `myVM`, `myWAVMs`, en `test-log001` met waarden die geschikt is voor uw specifieke implementatie. Het script voegt Write Accelerator toe aan een bestaande schijf waar de waarde voor **$newstatus** is ingesteld op '$true'. Met behulp van de waarde '$false', wordt de Write Accelerator uitgeschakeld op een bepaalde schijf.
 
-```PowerShell
+```powershell
 #Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group

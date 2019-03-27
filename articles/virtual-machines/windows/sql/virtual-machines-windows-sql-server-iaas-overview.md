@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e845724d02d668444a770deb5f02b50560a14653
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 99c4f0f99af61196cf1a12f2f68a7d10d8b2e6c7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771380"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481277"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Wat is SQL Server op Azure Virtual Machines? (Windows)
 
@@ -85,7 +85,7 @@ Als u uw eigen licentie wilt meenemen, converteert u een SQL-VM waarbij per gebr
 
 Het is mogelijk een oudere installatiekopie van SQL Server die niet beschikbaar is in de Azure-portal te implementeren met behulp van PowerShell. Gebruik de volgende opdracht om alle beschikbare installatiekopieën te bekijken met behulp van Powershell:
 
-  ```PowerShell
+  ```powershell
   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
   ```
 

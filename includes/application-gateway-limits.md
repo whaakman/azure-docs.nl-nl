@@ -2,14 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 3/26/2019
 ms.author: victorh
-ms.openlocfilehash: 77a391cc661ed33f5888d2b18cb9c5db16498cd6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5ad1339c04444bcb4cc550be26e239e65227d2ce
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553750"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58494920"
 ---
 | Resource | Standaardlimiet | Opmerking |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ ms.locfileid: "57553750"
 | URL-toewijzingen per listener |1 | |
 | Maximale op pad gebaseerde regels per URL-kaart|100||
 | Omleidings-configuraties |100<sup>1</sup>| |
-| Gelijktijdige WebSocket-verbindingen |5.000| |
+| Gelijktijdige WebSocket-verbindingen |Gemiddeld gateways 20k<br> Grote gateways 50k| |
 | Maximale URL-lengte|8,000||
 | Maximale bestandsgrootte voor uploaden, Standard |2 GB | |
 | Maximale upload grootte WAF |Gemiddeld WAF-gateways, 100 MB<br>Grote WAF-gateways, 500 MB| |

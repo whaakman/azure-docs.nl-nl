@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Power BI Embedded - zelfstudies, API-verwijzing | Microsoft Docs
-description: Meer informatie over het insluiten van Power BI-gegevensvisualisaties en interactieve rapporten in apps. Zelfstudies, API-verwijzingen en andere documentatie.
+title: 'Documentatie voor Azure Power BI Embedded - zelfstudies, API-verwijzing | Microsoft Docs'
+description: 'Meer informatie over het insluiten van Power BI-gegevensvisualisaties en interactieve rapporten in apps. Zelfstudies, API-verwijzingen en andere documentatie.'
 services: power-bi-embedded
 author: markingmyname
 ms.author: maghan
@@ -9,13 +9,8 @@ layout: LandingPage
 ms.service: power-bi-embedded
 ms.topic: landing-page
 ms.date: 07/31/2018
-ms.openlocfilehash: 051b7d725a121b3160e8a572c5fab91e8289f44b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678233"
 ---
+
 # <a name="power-bi-embedded-documentation"></a>Documentatie over Power BI Embedded
 
 Meer informatie over hoe u met Power BI Embedded gegevensvisualisaties en interactieve rapporten toevoegt aan toepassingen. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u Power BI-rapporten en -dashboards naadloos insluit in apps.
@@ -105,7 +100,7 @@ Meer informatie over hoe u met Power BI Embedded gegevensvisualisaties en intera
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.powerbiembedded/?view=azurermps-6.5.0#power_bi_embedded_capacity">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.powerbiembedded/#power_bi_embedded_capacity">PowerShell</a></p>
                     </div>
                 </div>
             </div>

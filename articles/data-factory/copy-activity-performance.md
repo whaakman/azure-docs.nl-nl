@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301268"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445828"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiëren en afstemmingshandleiding van activiteit
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -134,7 +134,7 @@ Data Factory bepaalt voor elke kopie-activiteit die wordt uitgevoerd, het aantal
 | Gegevens kopiëren van een brongegevensarchief naar Azure Table storage |4 |
 | Alle andere kopieerscenario 's |1 |
 
-[!TIP]
+> [!TIP]
 > Bij het kopiëren van gegevens tussen winkels op basis van bestanden, het standaardgedrag (automatisch bepaald) doorgaans geeft u de beste doorvoer. 
 
 Voor het beheren van de belasting van de machines waarop uw gegevens opslaat, of als u wilt kopiëren-prestaties afstemmen, kunt u besluiten de standaardwaarde overschrijven en geef een waarde op voor de **parallelCopies** eigenschap. De waarde moet een geheel getal groter dan of gelijk aan 1 zijn. Tijdens de uitvoering voor de beste prestaties Copy-activiteit maakt gebruik van een waarde die kleiner is dan of gelijk zijn aan de waarde die u hebt ingesteld.

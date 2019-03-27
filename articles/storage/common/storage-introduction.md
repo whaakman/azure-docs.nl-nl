@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d558f0fa5abc421785ff6f9fcc2a6318819e3ebc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae2384d0ac6773ccd362778d2913cdcaa9cb4d6c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012727"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446710"
 ---
 # <a name="introduction-to-azure-storage"></a>Kennismaking met Azure Storage
 
@@ -93,23 +93,15 @@ Azure Storage omvat ook mogelijkheden voor beheerde en onbeheerde schijven die w
 
 Zie [Overzicht van Azure-opslagaccounts](storage-account-overview.md) voor meer informatie over de typen opslagaccounts. 
 
-## <a name="accessing-your-blobs-files-and-queues"></a>Toegang tot blobs, bestanden en wachtrijen
+## <a name="securing-access-to-storage-accounts"></a>Toegang tot opslagaccounts beveiligen
 
-Elk opslagaccount heeft twee verificatiesleutels, die allebei voor elke bewerking kunnen worden gebruikt. Er zijn twee sleutels, zodat u de sleutels af en toe kunt afwisselen om de beveiliging te verbeteren. Het is essentieel dat deze sleutels geheim blijven aangezien iemand met kennis van deze sleutels, plus de accountnaam, onbeperkte toegang heeft tot alle gegevens in het opslagaccount.
+Elke aanvraag naar Azure Storage moet worden toegestaan. Azure Storage ondersteunt de volgende autorisatiemethoden:
 
-In deze sectie kijken we naar twee manieren om het opslagaccount en de bijbehorende gegevens te beveiligen. Raadpleeg de Engelstalige [Azure Storage-beveiligingshandleiding](storage-security-guide.md) voor gedetailleerde informatie over het beveiligen van uw opslagaccount en uw gegevens.
-
-### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Toegang tot opslagaccounts beveiligen met Azure AD
-
-Eén manier om de toegang tot uw opgeslagen gegevens te beveiligen, is door de toegang tot de sleutels voor het opslagaccount te beheren. Met op rollen gebaseerd toegangsbeheer (RBAC) van Resource Manager kunt u rollen toewijzen aan gebruikers, groepen of toepassingen. Deze rollen zijn gekoppeld aan een specifieke set acties die al dan niet worden toegestaan. Als u RBAC gebruikt om toegang te verlenen tot een opslagaccount, worden alleen de beheerbewerkingen voor dat opslagaccount afgehandeld, zoals het wijzigen van de toegangslaag. U kunt RBAC niet gebruiken om toegang te verlenen tot gegevensobjecten zoals een bepaalde container of bestandsshare. U kunt RBAC echter wel gebruiken om toegang te verlenen tot de sleutels voor het opslagaccount, die vervolgens kunnen worden gebruikt om de gegevensobjecten te lezen.
-
-### <a name="securing-access-using-shared-access-signatures"></a>Toegang beveiligen met handtekeningen voor gedeelde toegang
-
-U kunt handtekeningen voor gedeelde toegang en opgeslagen toegangsbeleid gebruiken om uw gegevensobjecten te beveiligen. Een handtekening voor gedeelde toegang (SAS) is een tekenreeks met een beveiligingstoken dat kan worden toegevoegd aan de URI voor een asset, zodat u toegang tot specifieke opslagobjecten kunt delegeren en beperkingen kunt opgeven zoals machtigingen en het datum- en tijdbereik van toegang. Deze functie heeft uitgebreide mogelijkheden. Zie [Using shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Handtekeningen voor gedeelde toegang (SAS) gebruiken) voor meer informatie.
-
-### <a name="public-access-to-blobs"></a>Openbare toegang tot blobs
-
-Via de Blob Service kunt u openbare toegang bieden tot een container en de bijbehorende blobs, of een specifieke blob. Wanneer u opgeeft dat een container of blob openbaar is, kan iedereen deze anoniem lezen. Er is dan geen verificatie vereist. Dit is bijvoorbeeld handig wanneer u een website hebt waarop afbeeldingen, video of documenten uit Blob Storage worden gebruikt. Zie [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Anonieme leestoegang tot containers en blobs beheren) voor meer informatie.
+- **Integratie van Azure Active Directory (Azure AD) voor blobopslag-en wachtrij.** Azure Storage biedt ondersteuning voor verificatie en autorisatie met Azure AD-referenties voor de Blob en Queue-services via op rollen gebaseerd toegangsbeheer (RBAC). Goedkeuren van aanvragen met Azure AD wordt aanbevolen voor uitstekende beveiliging en gebruiksgemak. Zie voor meer informatie, [verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory](storage-auth-aad.md).
+- **Azure AD autorisatie via SMB voor Azure Files (preview).** Azure Files biedt ondersteuning voor verificatie op basis van identiteit via SMB (Server Message Block) via Azure Active Directory Domain Services. Uw domein Windows virtuele machines (VM's) hebben toegang tot Azure-bestandsshares met behulp van Azure AD-referenties. Zie voor meer informatie, [overzicht van Azure Active Directory-autorisatie via SMB voor Azure Files (preview)](../files/storage-files-active-directory-overview.md).
+- **Verificatie met gedeelde sleutel.** De services van Azure Storage-Blob, wachtrijen en tabellen en Azure Files ondersteuning voor verificatie met gedeelde Key.A-client met behulp van gedeelde sleutel autorisatie geeft een koptekst met elke aanvraag die is ondertekend met behulp van de toegangssleutel voor opslagaccount. Zie voor meer informatie, [autoriseren met gedeelde sleutel](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
+- **Met behulp van autorisatie shared access signatures (SAS).** Een shared access signature (SAS) is een tekenreeks met een beveiligingstoken dat kan worden toegevoegd aan de URI voor een opslagresource. Het beveiligingstoken ingekapseld beperkingen, zoals machtigingen en het interval van toegang. Raadpleeg voor meer informatie, [met behulp van Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+- **Anonieme toegang tot containers en blobs.** Het is mogelijk dat een container en de blobs openbaar beschikbaar. Wanneer u opgeeft dat een container of blob openbaar is, kan iedereen deze anoniem lezen; Er is geen verificatie vereist. Zie [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Anonieme leestoegang tot containers en blobs beheren) voor meer informatie.
 
 ## <a name="encryption"></a>Versleuteling
 

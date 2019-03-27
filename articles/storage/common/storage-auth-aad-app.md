@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a313061f89d33ee2bf5379dbd37495db06b64440
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8fdc4445e28a420b6b4f7935443d7d991d9e8a4d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369510"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446065"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Verifiëren met Azure Active Directory vanaf een aanvraag voor toegang tot blobs en wachtrijen
 
@@ -21,11 +21,11 @@ Een groot voordeel van het gebruik van Azure Active Directory (Azure AD) met Azu
 
 In dit artikel laat zien hoe uw toepassing configureren voor verificatie met Azure AD. De code voorbeeld onderdelen .NET, maar andere talen gebruiken een soortgelijke benadering.
 
-Voordat u een beveiligings-principal van uw Azure Storage-toepassing verifiëren kunt, op rollen gebaseerd beheer (RBAC) toegangsinstellingen configureren voor deze beveiligings-principal. Azure Storage definieert RBAC-rollen die machtigingen voor containers en wachtrijen omvatten. Wanneer de RBAC-rol is toegewezen aan een beveiligings-principal, krijgt deze beveiligings-principal toegang tot die resource. Zie voor meer informatie, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md).
+Voordat u een beveiligings-principal van uw Azure Storage-toepassing verifiëren, op rollen gebaseerd beheer (RBAC) toegangsinstellingen configureren voor deze beveiligings-principal. Azure Storage definieert RBAC-rollen die machtigingen voor containers en wachtrijen omvatten. Wanneer de RBAC-rol is toegewezen aan een beveiligings-principal, krijgt deze beveiligings-principal toegang tot die resource. Zie voor meer informatie, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md).
 
 Zie voor een overzicht van de OAuth 2.0-stroom voor het verlenen van code, [autoriseren de toegang tot Azure Active Directory web-apps met behulp van de OAuth 2.0-code verlenen stroom](../../active-directory/develop/v1-protocols-oauth-code.md).
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+U moet HTTPS gebruiken voor het autoriseren van blob- en wachtrijservices bewerkingen met een OAuth-token.
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Een RBAC-rol toewijzen aan een beveiligings-principal voor Azure AD
 
@@ -157,7 +157,7 @@ static string GetUserOAuthToken()
 
 ### <a name="create-the-block-blob"></a>De blok-blob maken
 
-Ten slotte het toegangstoken gebruiken om te maken van nieuwe storage-referenties, en deze referenties gebruiken om de blob te maken:
+Ten slotte het toegangstoken gebruiken om te maken van nieuwe storage-referenties, en deze referenties gebruiken om de blob te maken. Houd er rekening mee dat voor het autoriseren van blob- en wachtrijservices bewerkingen met een OAuth-token, moet u HTTPS.:
 
 ```dotnet
 // Get the access token.

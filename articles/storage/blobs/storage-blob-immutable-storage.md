@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/02/2019
+ms.date: 03/26/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 86e28c3561968b1411a3baa9ec0daecfab6ac73f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202874"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445687"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store kritieke zakelijke gegevens in Azure Blob-opslag
 
@@ -46,6 +46,8 @@ Onveranderbare storage ondersteunt het volgende:
 ## <a name="how-it-works"></a>Hoe werkt het?
 
 Onveranderbare opslag voor Azure Blob storage ondersteunt twee typen onveranderbare beleidsregels of WORM: tijd gebaseerd bewaren en juridische bewaring. Wanneer een op tijd gebaseerd bewaarbeleid of een juridische bewaring wordt toegepast op een container, wordt de status van alle bestaande blobs verplaatsen naar een onveranderbare WORM-status in minder dan 30 seconden. Alle nieuwe blobs die zijn geüpload naar deze container wordt ook verplaatsen naar de status van de onveranderbare. Bewerkingen voor bestaande en nieuwe objecten in de onveranderbare container mogen niet als alle blobs zijn verplaatst naar de onveranderbare staat, wordt de onveranderbare beleid bevestigd en alle overschrijven of verwijderen.
+
+Container en accountverwijdering zijn ook niet toegestaan als er blobs die zijn beveiligd door een onveranderbare beleid. De bewerking verwijderen Container mislukken als er ten minste één blob bestaat met een vergrendelde op tijd gebaseerd bewaarbeleid of een juridische bewaring. De verwijdering van het opslagaccount mislukt als er minimaal één WORM-container is die een juridische bewaring of een blob met een actieve retentieperiode bevat. 
 
 ### <a name="time-based-retention"></a>Tijd gebaseerd bewaren
 
@@ -85,12 +87,10 @@ De volgende tabel bevat de typen van blob-bewerkingen die zijn uitgeschakeld voo
 Er is geen extra kosten voor het gebruik van deze functie. De prijs is onveranderbaar gegevens op dezelfde manier als normale, veranderlijke gegevens. Informatie over prijzen voor Azure Blob Storage, Zie de [Azure Storage-pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="getting-started"></a>Aan de slag
+Onveranderbare opslag is alleen beschikbaar voor algemeen gebruik v2 en Blob Storage-Accounts. Deze account moet worden beheerd via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Zie voor meer informatie over het bijwerken van een bestaand opslagaccount voor algemeen gebruik v1 [een storage-account upgraden](../common/storage-account-upgrade.md).
 
 De meest recente versies van de [Azure-portal](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), en [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) onveranderbare storage ondersteuning voor Azure Blob-opslag. [Bibliotheek clientondersteuning](#client-libraries) is ook beschikbaar.
 
-> [!NOTE]
->
-> Onveranderbare opslag is alleen beschikbaar voor algemeen gebruik v2 en Blob Storage-Accounts. Deze account moet worden beheerd via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Zie voor meer informatie over het bijwerken van een bestaand opslagaccount voor algemeen gebruik v1 [een storage-account upgraden](../common/storage-account-upgrade.md).
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -114,17 +114,19 @@ De meest recente versies van de [Azure-portal](https://portal.azure.com), [Azure
 
     !['Vergrendelen beleid' in het menu](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
-    Selecteer **beleid vergrendelen**. Het beleid nu is vergrendeld en kan niet worden verwijderd, kunt u alleen de extensies van de retentie-interval dat is toegestaan.
+6. Selecteer **beleid vergrendelen** en controleer of de vergrendeling. Het beleid nu is vergrendeld en kan niet worden verwijderd, kunt u alleen de extensies van de retentie-interval dat is toegestaan. Hiermee verwijdert u BLOB en onderdrukkingen zijn niet toegestaan. 
 
-6. Als u juridische bewaring, schakelt **+ beleid toevoegen**. Selecteer **juridische bewaring** uit de vervolgkeuzelijst.
+    !['Beleid vergrendelen' die in het menu bevestigen](media/storage-blob-immutable-storage/portal-image-5-lock-policy.png)
+
+7. Als u juridische bewaring, schakelt **+ beleid toevoegen**. Selecteer **juridische bewaring** uit de vervolgkeuzelijst.
 
     !["Juridisch" in het menu onder "Beleidstype"](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.png)
 
-7. Maak een juridische bewaring met een of meer labels.
+8. Maak een juridische bewaring met een of meer labels.
 
     !['Naam van de tag' vak onder het beleidstype](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-8. Schakel een juridische bewaring, hoeft u de toegepaste juridische bewaring id-tag te verwijderen.
+9. Schakel een juridische bewaring, hoeft u de toegepaste juridische bewaring id-tag te verwijderen.
 
 ### <a name="azure-cli"></a>Azure-CLI
 
@@ -170,9 +172,9 @@ Ja. Naleving van het document, Microsoft een toonaangevende onafhankelijke beoor
 
 Onveranderbare opslag kan worden gebruikt met elk blobtype, maar het beste voornamelijk voor blok-blobs te gebruiken. In tegenstelling tot blok-blobs, pagina-blobs en toevoeg-blobs moeten worden gemaakt buiten de container van een WORM, en vervolgens gekopieerd. Nadat u deze blobs naar een container WORM niet verder kopiëren *voegt* aan een toevoeg-blob of wijzigingen aan een pagina-blob zijn toegestaan.
 
-**Moet ik altijd een nieuw opslagaccount maken om deze functie te gebruiken?**
+**Heb ik nodig om te maken van een nieuw opslagaccount voor het gebruik van deze functie?**
 
-U kunt onveranderbare storage gebruiken met een bestaande of nieuwe algemeen gebruik v2- of Blob Storage-accounts. Deze functie is bedoeld voor gebruik met blok-blobs in Blob-opslag- en GPv2-accounts.
+Nee, kunt u onveranderbare opslag aan een bestaande of nieuwe algemeen gebruik v2- of Blob storage-accounts. Deze functie is bedoeld voor gebruik met blok-blobs in Blob-opslag- en GPv2-accounts. Opslagaccounts voor algemeen gebruik v1 worden niet ondersteund, maar kunnen gemakkelijk worden bijgewerkt naar algemeen gebruik v2. Zie voor meer informatie over het bijwerken van een bestaand opslagaccount voor algemeen gebruik v1 [een storage-account upgraden](../common/storage-account-upgrade.md).
 
 **Kan ik een juridische bewaring en de tijd gebaseerd bewaarbeleid toepassen?**
 
@@ -188,7 +190,7 @@ De bewerking verwijderen Container mislukken als er ten minste één blob bestaa
 
 **Wat gebeurt er als ik een opslagaccount probeer te verwijderen met een WORM-container die een *vergrendeld* retentiebeleid op basis van tijd of een juridische bewaring heeft?**
 
-De verwijdering van het opslagaccount mislukt als er minimaal één WORM-container is die een juridische bewaring of een blob met een actieve retentieperiode bevat.  Voordat u de storage-account kunt verwijderen, moet u alle WORM containers verwijderen. Zie voor informatie over het verwijderen van de beveiligingscontainer, de voorgaande vraag.
+De verwijdering van het opslagaccount mislukt als er minimaal één WORM-container is die een juridische bewaring of een blob met een actieve retentieperiode bevat. Voordat u de storage-account kunt verwijderen, moet u alle WORM containers verwijderen. Zie voor informatie over het verwijderen van de beveiligingscontainer, de voorgaande vraag.
 
 **Kan ik de gegevens verplaatsen tussen verschillende blob-lagen (dynamische toegang, statische toegang, archieftoegang) als de blob de status onveranderbaar heeft?**
 

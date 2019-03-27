@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 954cbe66bfc4a0cebf7692a90aeee637ffcb6ca3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165328"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485052"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Geregistreerde servers met Azure File Sync beheren
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door het transformeren van uw Windows-Servers in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
@@ -101,7 +101,7 @@ Voordat u een server kan worden gebruikt als een *servereindpunt* in een Azure F
 #### <a name="register-the-server-with-powershell"></a>De server registreren met PowerShell
 U kunt ook serverregistratie via PowerShell uitvoeren. Dit is de enige ondersteunde manier van serverregistratie voor abonnementen van de Cloud Solution Provider (CSP):
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
 Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
@@ -116,7 +116,7 @@ Er zijn verschillende stappen die nodig zijn voor de registratie van een server 
 #### <a name="optional-recall-all-tiered-data"></a>(Optioneel) Alle gelaagde gegevens intrekken
 Als u bestanden die momenteel zijn beschikbaar na het verwijderen van Azure File Sync (dat wil zeggen dit is een productie, niet een test, omgeving) worden geschakeld, intrekken dat alle bestanden op elk volume met servereindpunten. Uitschakelen van cloud-opslaglagen voor alle servereindpunten en voer vervolgens de volgende PowerShell-cmdlet:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
@@ -134,7 +134,7 @@ Voordat u de server op de Opslagsynchronisatieservice verwijderen van de registr
 
 Dit kan ook worden bereikt met een eenvoudige PowerShell-script:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 $accountInfo = Connect-AzAccount
@@ -172,20 +172,20 @@ U kunt het netwerkgebruik van Azure File Sync beperken met behulp van de `Storag
 
 U kunt bijvoorbeeld een nieuwe vertragingslimiet om ervoor te zorgen dat Azure File Sync niet meer dan 10 Mbps tussen 9:00 tot 17: 00 uur (17:00 uur) tijdens de werkweek gebruikt maken: 
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 New-StorageSyncNetworkLimit -Day Monday, Tuesday, Wednesday, Thursday, Friday -StartHour 9 -EndHour 17 -LimitKbps 10000
 ```
 
 U kunt uw limiet zien met behulp van de volgende cmdlet:
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 
 Als u wilt verwijderen van netwerk-limieten, gebruikt u `Remove-StorageSyncNetworkLimit`. De volgende opdracht verwijdert bijvoorbeeld alle limieten van netwerk:
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -Id $_.Id } # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 

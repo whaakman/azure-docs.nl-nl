@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: 21119816477d460aa48560b8ca231f23144a901b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888488"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444866"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Programmatische wijze Azure-Dashboards maken
 
@@ -28,7 +28,7 @@ Dit document begeleidt bij het proces van via een programma maken en publiceren 
 
 ## <a name="overview"></a>Overzicht
 
-Gedeelde dashboards in Azure worden [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) net als bij virtuele machines en opslagaccounts.  Daarom, ze kunnen worden beheerd via een programma via de [Azure Resource Manager REST API's](/rest/api/), wordt de [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell-opdrachten](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0), en veel [ Azure-portal](https://portal.azure.com) functies bouwen boven op deze API's om gemakkelijker resourcebeheer.  
+Gedeelde dashboards in Azure worden [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) net als bij virtuele machines en opslagaccounts.  Daarom, ze kunnen worden beheerd via een programma via de [Azure Resource Manager REST API's](/rest/api/), wordt de [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell-opdrachten](https://docs.microsoft.com/powershell/azure/get-started-azureps), en veel [ Azure-portal](https://portal.azure.com) functies bouwen boven op deze API's om gemakkelijker resourcebeheer.  
 
 Elk van deze API's en hulpprogramma's biedt manieren om u te maken, weergeven, ophalen, wijzigen en verwijderen van resources.  Omdat dashboards resources zijn, kunt u Kies uw favoriete API / hulpprogramma voor het gebruik.
 

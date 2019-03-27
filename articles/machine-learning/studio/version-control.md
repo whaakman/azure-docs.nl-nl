@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
-ms.openlocfilehash: 102d06f6d4a51f7edc1fc269180f8fb3e5b0626c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ff7aa1ab8972b6cbb891a67b1065044b48f1cfa3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121465"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446221"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Application Lifecycle Management in Azure Machine Learning Studio
 Azure Machine Learning Studio is een hulpprogramma voor het ontwikkelen van machine learning-experimenten die zijn geoperationaliseerd in het Azure-cloud-platform. Het is, zoals de Visual Studio IDE en schaalbare cloudservice samengevoegd in één platform. U kunt op verschillende activa implementatie en uitvoering van geautomatiseerde standaardprocedures Application Lifecycle Management (ALM) van versiebeheer opnemen in Azure Machine Learning Studio. In dit artikel komen enkele van de opties en benaderingen.
@@ -73,7 +73,7 @@ Na verloop van tijd mogelijk veel gemaakt in dezelfde webservice-eindpunten. Elk
 U kunt ook veel identieke web service-eindpunten te maken en vervolgens vullen van de verschillende versies van het iLearner-bestand naar het eindpunt om vergelijkbare effect te bereiken. [In dit artikel](create-models-and-endpoints-with-powershell.md) wordt in meer detail wordt uitgelegd hoe u Agent installeert.
 
 ### <a name="new-web-service"></a>Nieuwe webservice
-Als u een nieuwe Azure Resource Manager gebaseerde webservice maakt, is om voor te bereiden eindpunt niet meer beschikbaar. In plaats daarvan kunt u web service definition (WSD)-bestanden, in JSON-indeling, genereren van uw Voorspellend experiment met behulp van de [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell-commandlet of met behulp van de [ *Export-AzureRmMlWebservice* ](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice?view=azurermps-6.6.0) PowerShell-commandlet uit een geïmplementeerde Resource Manager gebaseerde webservice.
+Als u een nieuwe Azure Resource Manager gebaseerde webservice maakt, is om voor te bereiden eindpunt niet meer beschikbaar. In plaats daarvan kunt u web service definition (WSD)-bestanden, in JSON-indeling, genereren van uw Voorspellend experiment met behulp van de [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell-commandlet of met behulp van de [ *Export-AzureRmMlWebservice* ](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) PowerShell-commandlet uit een geïmplementeerde Resource Manager gebaseerde webservice.
 
 Nadat u het geëxporteerde WSD-bestand en besturing van het versie hebt, kunt u ook de WSD als een nieuwe webservice implementeren in een andere webservice-abonnement in een andere Azure-regio. Zorg ervoor dat u opgeeft de configuratie van het juiste storage-account, evenals de nieuwe web service-plan-ID. Om aan te vullen in verschillende iLearner-bestanden, kunt u het WSD-bestand te wijzigen en bijwerken van de referentie van de locatie van het getrainde model en als een nieuwe webservice implementeren.
 

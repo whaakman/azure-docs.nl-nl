@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d62fd909d10515c9217a4dd0aa760afa376b8d7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9b3ba8d216f3e82c9aff7f2b49b9c24115b32f2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838898"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487903"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Systeemstatusrapporten gebruiken om fouten op te lossen
 Azure Service Fabric-onderdelen bieden systeemstatusrapporten op alle entiteiten in het cluster kant. De [health store](service-fabric-health-introduction.md#health-store) maken en verwijderen van de entiteiten die zijn gebaseerd op systeemrapporten van het. Ook worden ze in een hiërarchie die entiteit interacties worden vastgelegd.
@@ -84,7 +84,7 @@ System.FM rapporten als OK wanneer het knooppunt lid wordt van de ring (dit is a
 
 Het volgende voorbeeld wordt de gebeurtenis System.FM met een status van OK voor knooppunt weergegeven:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricNodeHealth  _Node_0
 
 NodeName              : _Node_0
@@ -137,7 +137,7 @@ System.CM rapporteert als OK wanneer de toepassing heeft gemaakt of bijgewerkt. 
 
 Het volgende voorbeeld ziet u de gebeurtenis status van de **fabric: / WordCount** toepassing:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
 
 ApplicationName                 : fabric:/WordCount
@@ -169,7 +169,7 @@ System.FM rapporteert als OK wanneer de service is gemaakt. Wordt de entiteit in
 
 Het volgende voorbeeld ziet u de gebeurtenis status van de service **fabric: / WordCount/WordCountWebService**:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
 
 
@@ -224,7 +224,7 @@ De volgende voorbeelden worden enkele van deze rapporten beschreven.
 
 Het volgende voorbeeld ziet u een partitie in orde:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountWebService | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics -ReplicasFilter None
 
 PartitionId           : 8bbcd03a-3a53-47ec-a5f1-9b77f73c53b2
@@ -246,7 +246,7 @@ HealthEvents          :
 
 Het volgende voorbeeld ziet de status van een partitie die lager is dan het aantal doel-replica's. De volgende stap is om op te halen van de Partitiebeschrijving, die laat zien hoe deze geconfigureerd: **MinReplicaSetSize** is drie en **TargetReplicaSetSize** zeven. Afgeleverde het aantal knooppunten in het cluster, die in dit geval vijf is. Worden dus in dit geval twee replica's kunnen niet geplaatst, omdat het beoogd aantal replica's hoger is dan het aantal knooppunten dat beschikbaar is.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
 
 
@@ -324,7 +324,7 @@ PS C:\> @(Get-ServiceFabricNode).Count
 
 Het volgende voorbeeld ziet de status van een partitie die vastgelopen in herconfiguratie vanwege de gebruiker niet naleven van de annulering token in de **RunAsync** methode. Het statusrapport van alle replica's gemarkeerd als primair (P) onderzoeken kan helpen om in te zoomen op het probleem verder.
 
-```PowerShell
+```powershell
 PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
 
 
@@ -388,7 +388,7 @@ System.RA rapporten OK wanneer de replica is gemaakt.
 
 Het volgende voorbeeld ziet u een goede replica:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
 PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
@@ -419,7 +419,7 @@ Deze waarschuwingen worden gegenereerd na het opnieuw proberen van de actie loka
 
 Het volgende voorbeeld ziet de status van een replica die wordt ArgumentOutOfRangeException `TargetInvocationException` uit de open-methode. De beschrijving bevat de storingspunt **IStatefulServiceReplica.Open**, het uitzonderingstype **TargetInvocationException**, en de stack-trace.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
 
 
@@ -470,7 +470,7 @@ Exception has been thrown by the target of an invocation.
 
 Het volgende voorbeeld ziet u een replica die voortdurend gecrasht tijdens sluiten:
 
-```PowerShell
+```powershell
 C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
 
 
@@ -515,7 +515,7 @@ In zeldzame gevallen kan de nieuwe configuratie zijn vastgelopen vanwege communi
 
 Het volgende voorbeeld ziet een statusrapport waar een herconfiguratie is vastgelopen op de lokale replica's. In dit voorbeeld wordt wordt het vanwege een service niet naleven van de token van de annulering.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 9a0cedee-464c-4603-abbc-1cf57c4454f3 -ReplicaOrInstanceId 131483600074836703
 
 
@@ -601,7 +601,7 @@ De nieuwe configuratie deblokkeren:
 
 Het volgende voorbeeld ziet de statusgebeurtenis van System.RAP voor een betrouwbare service die niet van de annulering naleven wordt token in **RunAsync**:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 5f6060fb-096f-45e4-8c3d-c26444d8dd10 -ReplicaOrInstanceId 131483966141404693
 
 
@@ -679,7 +679,7 @@ Wanneer een Naming-bewerking langer duurt dan verwacht, wordt de bewerking is ge
 
 Het volgende voorbeeld ziet u een bewerking van de service maken. De bewerking duurde langer dan de geconfigureerde duur. 'Door de AO' nieuwe pogingen en werk verzendt naar "Nee" 'Nee' voltooid de laatste bewerking met time-out. In dit geval is dezelfde replica primaire voor zowel de 'door de AO' en 'Nee' rollen.
 
-```PowerShell
+```powershell
 PartitionId           : 00000000-0000-0000-0000-000000001000
 ReplicaId             : 131064359253133577
 AggregatedHealthState : Warning
@@ -736,7 +736,7 @@ System.Hosting rapporten als OK wanneer een toepassing is geactiveerd op het kno
 
 Het volgende voorbeeld ziet u een geslaagde activering:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ExcludeHealthStatistics
 
 ApplicationName                    : fabric:/WordCount
@@ -793,7 +793,7 @@ System.Hosting rapporteert als OK als het servicetype is geregistreerd. Een fout
 
 Het volgende voorbeeld ziet u een pakket in orde geïmplementeerde service:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 
