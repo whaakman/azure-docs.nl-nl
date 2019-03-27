@@ -1,31 +1,38 @@
 items:
-- name: Documentatie over het aanpassen van de Azure-portal
+- name: Documentatie voor Azure Portal
   href: index.yml
-- name: Azure-dashboards
+- name: Overzicht
+  items:
+  - name: Over de Azure-portal
+    href: azure-portal-overview.md
+  - name: Ondersteunde browsers en apparaten
+    href: azure-portal-supported-browsers-devices.md
+- name: Concepten
   items:
   - name: Azure-dashboards maken en delen
     href: azure-portal-dashboards.md
-  - name: Een aangepaste markdown-tegel gebruiken
-    href: azure-portal-markdown-tile.md
   - name: Dashboards met op rollen gebaseerd toegangsbeheer delen
     href: azure-portal-dashboard-share-access.md
-  - name: Structuur van Azure-dashboards
-    href: azure-portal-dashboards-structure.md
   - name: Op programmatische wijze Azure-dashboards maken
     href: azure-portal-dashboards-create-programmatically.md
-- name: Instellingen
+- name: Handleidingen
+  items:
+  - name: Hoog contrast inschakelen of het thema wijzigen
+    href: azure-portal-change-theme-high-contrast.md
+  - name: Een aangepaste markdown-tegel gebruiken
+    href: azure-portal-markdown-tile.md
+  - name: Gebruikersinstellingen exporteren of verwijderen
+    href: azure-portal-export-delete-settings.md
+- name: Naslaginformatie
   items:
   - name: Sneltoetsen
     href: azure-portal-keyboard-shortcuts.md
-  - name: Ondersteunde browsers en apparaten
-    href: ../azure-preview-portal-supported-browsers-devices.md
-  - name: Hoog contrast inschakelen of het thema wijzigen
-    href: azure-portal-change-theme-high-contrast.md
-  - name: Gebruikersinstellingen exporteren of verwijderen
-    href: azure-portal-export-delete-settings.md
-  expanded: true
+  - name: Structuur van Azure-dashboards
+    href: azure-portal-dashboards-structure.md
 - name: Resources
   items:
+  - name: Videoserie met instructies voor de Azure-portal
+    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
   - name: Azure-roadmap
     href: https://azure.microsoft.com/updates/
   - name: Uw vaardigheden ontwikkelen met Microsoft Learn
@@ -36,11 +43,11 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
-  - name: Video's
+  - name: Azure-video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
-ms.openlocfilehash: 7fee5a433470309384931e6ea43817288aecf7a8
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 43a009582b565f10261c0cc6cc24507c3ef6e44e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902768"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443878"

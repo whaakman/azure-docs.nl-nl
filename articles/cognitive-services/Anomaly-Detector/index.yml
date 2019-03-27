@@ -1,0 +1,65 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 7b7305a84ac8600629ce27551c0243c427082e5e
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58473369"
+documentType: LandingData
+title: Documentatie voor de Anomaly Detector-API
+metadata:
+  title: Documentatie voor de Anomaly Detector-API - Zelfstudies, quickstarts, API-verwijzing - Azure Cognitive Services | Microsoft Docs
+  description: Gebruik de Anomaly Detector-API om gegevens een bepaalde periode te bewaken en om afwijkingen te detecteren met machine learning. Krijg inzicht in uw gegevens, ongeacht het volume, de sector of het scenario.
+  services: cognitive-services
+  author: aahill
+  manager: cgronlun
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/26/2019
+  ms.author: aahi
+abstract:
+  description: Met de Anomaly Detector-API kunt u eenvoudig mogelijkheden voor anomaliedetectie insluiten in uw apps zodat uw gebruikers problemen snel kunnen identificeren om gegevensverlies en gevolgen voor klanten te minimaliseren. Een achtergrond in machine learning is niet vereist. Met één API-aanroep activeert u dit vooraf getrainde AI-model dat tijdreeksgegevens van alle soorten en volumes opneemt, het best passende anomaliedetectiemodel voor hoge nauwkeurigheid van uw gegevens selecteert en automatisch problemen ontdekt zodra die voorkomen. U kunt de service aanpassen om afwijkingen van alle soorten en maten te detecteren.  Gebruik Anomaly Detector om bedrijfsincidenten te detecteren, IoT-apparaatverkeer te bewaken, fraude te voorkomen en te reageren op veranderende markten en meer.
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/anomaly-detector/overview
+      html: <p>Meer informatie over de Anomaly Detector-API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Wat is de Anomaly Detector-API?
+    - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
+      html: <p>Optimaliseer uw anomaliedetectieresultaten aan de hand van de best practices met de API</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Best practices bij het gebruik van de Anomaly Detector-API
+    - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
+      html: <p>Pas de anomaliedetectiegevoeligheid aan, gebruik verschillende detectiemodi en meer.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: De Anomaly Detector-API gebruiken
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Detecteer afwijkingen in uw tijdreeksgegevens met:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/logo_Csharp.svg
+      href: quickstarts/detect-data-anomalies-csharp
+      text: C#
+    - image:
+        src: media/logo_Java.svg
+      href: quickstarts/detect-data-anomalies-java
+      text: Java
+    - image:
+        src: media/logo_python.svg
+      href: quickstarts/detect-data-anomalies-python
+      text: Python

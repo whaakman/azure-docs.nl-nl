@@ -1,0 +1,47 @@
+items:
+- name: Documentatie voor Anomaly Detector
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Wat is de Anomaly Detector-API?
+    href: overview.md
+  expanded: true
+- name: Snelstartgidsen
+  items:
+  - name: Afwijkingen in uw gegevens detecteren
+    items:
+    - name: C# gebruiken
+      href: quickstarts/detect-data-anomalies-csharp.md
+    - name: Java gebruiken
+      href: quickstarts/detect-data-anomalies-java.md
+    - name: Python gebruiken
+      href: quickstarts/detect-data-anomalies-python.md
+  expanded: true
+- name: Handleidingen
+  items:
+  - name: Afwijkingen in uw gegevens identificeren
+    href: how-to/identify-anomalies.md
+- name: Concepten
+  items:
+  - name: Best practices voor de Anomaly Detector-API
+    href: concepts/anomaly-detection-best-practices.md
+- name: Naslaginformatie
+  items:
+  - name: Naslaginformatie over REST-API
+    href: https://aka.ms/anomaly-detector-rest-api-ref
+  - name: SDK's
+    items:
+    - name: .NET
+      href: https://aka.ms/anomaly-detector-dotnet-ref
+- name: Resources
+  items:
+  - name: Prijzen
+    href: https://aka.ms/anomaly-detector-pricing
+  - name: Regionale beschikbaarheid
+    href: https://aka.ms/anomaly-detector-region
+ms.openlocfilehash: c752383026434ca2f8f1d3f047bb1dbc3740c7ea
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58473376"

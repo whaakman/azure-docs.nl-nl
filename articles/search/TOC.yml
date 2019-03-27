@@ -102,7 +102,7 @@ items:
         href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade uitvoeren voor de REST-API
       href: search-api-migration.md
-  - name: Indexen ontwerpen
+  - name: Indexen maken
     items:
     - name: Een basisindex maken
       href: search-what-is-an-index.md
@@ -120,9 +120,7 @@ items:
       items:
       - name: Een suggester maken
         href: index-add-suggesters.md
-      - name: Voorbeeld van een automatische suggestie
-        href: search-autosuggest-example.md
-      - name: Voorbeeld van automatisch aanvullen
+      - name: Voorbeelden (suggesties, automatisch aanvullen)
         href: search-autocomplete-tutorial.md
     - name: Synoniemen
       items:
@@ -172,7 +170,7 @@ items:
         href: search-indexer-field-mappings.md
       - name: Algemene problemen oplossen
         href: search-indexer-troubleshooting.md
-  - name: Met AI verrijkte indexering (cognitief zoeken)
+  - name: AI-indexering (cognitief zoeken)
     items:
     - name: Een Cognitive Services-resource toevoegen
       href: cognitive-search-attach-cognitive-services.md
@@ -202,9 +200,9 @@ items:
       href: query-simple-syntax.md
     - name: Volledige Lucene-querysyntaxis
       href: query-lucene-syntax.md
-    - name: Queryvoorbeelden (eenvoudige syntaxis)
+    - name: Voorbeelden (eenvoudige syntaxis)
       href: search-query-simple-examples.md
-    - name: Queryvoorbeelden van (volledige Lucene)
+    - name: Voorbeelden (volledige Lucene)
       href: search-query-lucene-examples.md
   - name: Resultaten verwerken
     items:
@@ -309,9 +307,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Video's
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: a126d909d90e70324a0f6038ddd89e4a619d0721
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 74d4c29b7a4c70116531ef242929571eee3e4d90
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437744"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500489"
