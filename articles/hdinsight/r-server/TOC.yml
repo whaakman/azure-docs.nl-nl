@@ -102,21 +102,6 @@ items:
       - name: HDInsight-apps publiceren in Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: Gepubliceerde app installeren - Cask Data Application Platform (CDAP)
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: Gepubliceerde app installeren - Dataiku
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: Gepubliceerde app installeren - Datameer
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: Gepubliceerde app installeren - H2O
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: Gepubliceerde app installeren - Streamsets
-        href: ../hdinsight-apps-install-streamsets.md
-        maintainContext: true
   - name: Beveiligen
     items:
     - name: SSH gebruiken met HDInsight
@@ -208,9 +193,6 @@ items:
     - name: Apache Oozie gebruiken voor werkstromen
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
-    - name: Op tijd gebaseerde Apache Oozie-coördinatoren gebruiken
-      href: ../hdinsight-use-oozie-coordinator-time.md
-      maintainContext: true
     - name: Cluster en servicepoorten en URI's
       href: ../hdinsight-hadoop-port-settings-for-services.md
       maintainContext: true
@@ -260,9 +242,6 @@ items:
         maintainContext: true
       - name: Apache Hive-instellingen om fouten van het type 'onvoldoende geheugen' op te lossen
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
-        maintainContext: true
-      - name: Apache Ambari-weergaven gebruiken om fouten in Apache TEZ-taken op te sporen
-        href: ../hdinsight-debug-ambari-tez-view.md
         maintainContext: true
       - name: Apache Hive-query's optimaliseren
         href: ../hdinsight-hadoop-optimize-hive-query.md
@@ -339,9 +318,9 @@ items:
   - name: Windows-hulpprogramma's voor HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 5fb36b3fa7170db727199346749be5fd855c981d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: c6978307f4c1843921c2fe4974c27d29de2ad073
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361656"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447924"
