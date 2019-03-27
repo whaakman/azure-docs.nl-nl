@@ -5,23 +5,18 @@ author: stephbaron
 layout: LandingPage
 ms.service: service-health
 ms.topic: landing-page
-ms.date: 03/27/2018
+ms.date: 03/4/2019
 ms.author: stbaron
-ms.openlocfilehash: d8d922dd16cb00b5e3a682dc491af6b59f8476f2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881924"
 ---
 # <a name="azure-service-health-documentation"></a>Documentatie over Azure Service Health
 
-Azure Service Health is een suite met functies die persoonlijke begeleiding en ondersteuning bieden bij problemen met Azure-services. Zo kunt u meldingen ontvangen, meer informatie krijgen over de impact van problemen en tijdens het oplossen van problemen op de hoogte worden gehouden. Ook wordt u geholpen bij het voorbereiden van gepland onderhoud en wijzigingen die de beschikbaarheid van uw resources mogelijk kunnen beïnvloeden.
+Azure biedt een suite ervaringen waarmee u op de hoogte blijft van de status van uw cloudresources, waaronder huidige en aanstaande problemen zoals gebeurtenissen die van invloed zijn op de service, gepland onderhoud en andere wijzigingen die van invloed zijn op uw beschikbaarheid.
 
-Azure Service Health bestaat uit:
- 1. **Azure Status**: een overkoepelende weergave van de status van uw Azure-services
- 2. **Service Health**: een gepersonaliseerde weergave van de status van uw Azure-services
- 3. **Resource Health**: een gedetailleerdere weergave van de status van afzonderlijke resources die voor u zijn ingericht door uw Azure-services
+U bent wellicht bekend met de pagina **[Azure-status](https://status.azure.com)**, een globaal overzicht van de status van alle Azure-services in alle Azure-regio's. De statuspagina is een goede referentie voor incidenten met een brede impact, maar we raden huidige Azure-gebruikers sterk aan om gebruik te maken van **Azure Service Health** om op de hoogte te blijven Azure-incidenten en -onderhoud.
+
+**[Azure Service Health](service-health-overview.md)** geeft een gepersonaliseerd overzicht van de status van Azure-services en -regio's waarvan u gebruikmaakt. Dit is de beste plek om te zoeken naar berichten over problemen in de service, zoals onderbrekingen, gepland onderhoud en ander statusadvies, omdat het geverifieerde Azure Service Health weet welke services en resources u momenteel gebruikt. De beste manier om gebruik te maken van Service Health is om Service Health-waarschuwingen in te stellen waarmee u via het communicatiekanaal van uw voorkeur op de hoogte wordt gehouden van serviceproblemen, gepland onderhoud en andere wijzigingen die mogelijk van invloed zijn op de Azure-services en Azure-regio's waarvan u gebruikmaakt.
+
+**[Azure Resource Health](resource-health-overview.md)** geeft informatie over de status van uw afzonderlijke cloudresources, zoals een specifiek exemplaar van een virtuele machine. Met Azure Monitor kunt u ook waarschuwingen configureren om u op de hoogte te stellen van beschikbaarheidswijzigingen in uw cloudresources. Als u Azure Resource Health met Azure Monitor combineert, bent u op elk moment beter op de hoogte van de beschikbaarheid van uw resources en beoordeelt u snel of een probleem aan uw zijde voorkomt of dat het gerelateerd is aan een gebeurtenis in een Azure-platform.
 
 Samen bieden deze functies u een uitgebreid overzicht van de status van Azure met de granulariteit die voor u het meest relevant is.
 
