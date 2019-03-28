@@ -40,9 +40,9 @@ Om Hyperledger Fabric in Azure in te schakelen, zijn er twee primaire implementa
 In beide implementaties zijn de bouwstenen die de kern vormen van Hyperledger Fabric hetzelfde. De verschillen in de implementaties zijn hoe deze componenten worden geschaald.
 
 - **CA-knooppunten**: Een knooppunt met certificeringsinstantie dat wordt gebruikt om certificaten te genereren die worden gebruikt voor identiteiten in het netwerk.
-- **Besteller knooppunten**: Een knooppunt waarop de communicatiedienst wordt uitgevoerd die een leveringsgarantie implementeert, zoals de totale orderuitzending of atomaire transacties.
-- **Peer nodes**: Een knooppunt dat transacties uitvoert en de staat en een kopie van het gedistribueerde grootboek onderhoudt.
-- **CouchDB knooppunten**: Een knooppunt dat de CouchDB-service kan uitvoeren die de state-database kan bevatten en een uitgebreide opzoekmogelijkheden van chaincode-gegevens kan bieden, van eenvoudige sleutel/waarde tot JSON-type opslag.
+- **Bestellerknooppunten**: Een knooppunt waarop de communicatiedienst wordt uitgevoerd die een leveringsgarantie implementeert, zoals een total order broadcast of atomaire transacties.
+- **Peerknooppunten**: Een knooppunt dat transacties uitvoert en de staat en een kopie van het gedistribueerde grootboek onderhoudt.
+- **CouchDB-knooppunten**: Een knooppunt dat de CouchDB-service kan uitvoeren die de statusdatabase kan bevatten en een uitgebreide opzoekmogelijkheden van chaincode-gegevens kan bieden, van eenvoudige sleutel/waarde tot JSON-type opslag.
 
 ### <a name="single-virtual-machine-architecture"></a>Architectuur van één virtuele machine
 
@@ -78,14 +78,14 @@ Geef in **Basics** de waarden op voor standaardparameters voor elke implementati
 
 | Parameternaam | Description | Toegestane waarden |
 |---|---|---|
-**Resource prefix** | Naamprefix voor bronnen die zijn ingericht als onderdeel van de implementatie |6 tekens of minder |
-**Gebruikersnaam** | De gebruikersnaam van de beheerder voor elk van de virtuele machines die voor deze deelnemer zijn geïmplementeerd |1 - 64 tekens |
-**Verificatietype** | De methode om te authenticeren naar de virtuele machine |Wachtwoord of SSH de openbare sleutel|
+**Resource prefix** | Naamvoorvoegsel voor resources die zijn ingericht als onderdeel van de implementatie |6 tekens of minder |
+**Gebruikersnaam** | De gebruikersnaam van de beheerder voor elk van de virtuele machines die voor dit lid zijn geïmplementeerd |1 - 64 tekens |
+**Verificatietype** | De verificatiemethode voor de virtuele machine |Wachtwoord of openbare SSH-sleutel|
 **Wachtwoord (verificatietype = wachtwoord)** |Het wachtwoord voor het beheerdersaccount voor elk van de geïmplementeerde virtuele machines. Het wachtwoord moet drie van de volgende tekens bevatten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken<br /><br />Hoewel alle VM's in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord na de inrichting wijzigen|12 - 72 tekens|
-**SSH-sleutel (verificatietype = openbare SSH-sleutel)** |De beveiligde shell-sleutel die wordt gebruikt voor inloggen op afstand ||
+**SSH-sleutel (verificatietype = openbare SSH-sleutel)** |De beveiligde shell-sleutel die wordt gebruikt voor extern aanmelden ||
 **Abonnement** |Het abonnement waarnaar u wilt implementeren ||
-**Resourcegroep** |De resourcegroep waarnaar het consortiumnetwerk moet worden geïmplementeerd ||
-**Locatie** |De Azure-regio waar het eerste deelnemer in moet worden geïmplementeerd ||
+**Resourcegroep** |De resourcegroep waarin het consortiumnetwerk moet worden geïmplementeerd ||
+**Locatie** |De Azure-regio waarin het eerste lid moet worden geïmplementeerd ||
 
 Selecteer **OK**.
 
@@ -106,7 +106,7 @@ Selecteer **OK**.
 
 ### <a name="fabric-specific-settings"></a>Fabric-specifieke instellingen
 
-In **Fabric-configuratie** configureert u de netwerkgrootte en -prestaties en geeft u invoer op voor de beschikbaarheid van het netwerk. Zoals nummersorteerders en peer nodes, opslagmethode die door elk knooppunt wordt gebruikt, en de VM-grootte.
+In **Fabric-configuratie** configureert u de netwerkgrootte en -prestaties en geeft u invoer op voor de beschikbaarheid van het netwerk. Zoals nummersorteerders en peerknooppunten, de persistentie-engine die door elk knooppunt wordt gebruikt, en de VM-grootte.
 
 ![Fabric-instellingen](./media/hyperledger-fabric-consortium-blockchain/fabric-specific-settings.png)
 
@@ -121,15 +121,15 @@ In **Fabric-configuratie** configureert u de netwerkgrootte en -prestaties en ge
 
 | Parameternaam | Description | Toegestane waarden |
 |---|---|---|
-**Aantal besteller knooppunten** |Het aantal knooppunten dat transacties in een blok ordent (organiseert). <br />Voor meer informatie over de volgorde-service, gaat u naar de Hyperledger [documentatie](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) |1-4 |
-**De grootte van de virtuele machine sorteer-knooppunt** |De grootte van de virtuele machine die wordt gebruikt voor sorteer-knooppunten in het netwerk|Standard Bs<br />Standard Ds<br />Standard FS |
-**Aantal peer-knoooppunten** | Knooppunten die eigendom zijn van consortiumleden die transacties uitvoeren en de staat en een kopie van het grootboek bijhouden.<br />Voor meer informatie over de volgorde-service, gaat u naar de Hyperledger [documentatie](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|1-4 |
-**Opslag knooppunt** |De opslagengine die wordt gebruikt door de peer-knooppunten. U kunt deze engine per knooppunt op hetzelfde niveau configureren. Zie de details hieronder voor meerdere peer-knooppunten.|CouchDB <br />LevelDB |
+**Aantal orderknooppunten** |Het aantal knooppunten dat transacties in een blok ordent (organiseert). <br />Raadpleeg de Hyperledger-[documentatie](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) voor meer informatie over de bestellerservice. |1-4 |
+**De grootte van de virtuele machine voor het orderknooppunt** |De grootte van de virtuele machine die wordt gebruikt voor orderknooppunten in het netwerk|Standard Bs<br />Standard Ds<br />Standard FS |
+**Aantal peerknoooppunten** | Knooppunten die het eigendom zijn van consortiumleden die transacties uitvoeren en de status en een kopie van het grootboek bijhouden.<br />Raadpleeg de Hyperledger-[documentatie](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html) voor meer informatie over de bestellerservice.|1-4 |
+**Persistentie van knooppuntstatus** |De persistentie-engine die wordt gebruikt door de peerknooppunten. U kunt deze engine per peerknooppunt configureren. Bekijk de details hieronder voor meerdere peerknooppunten.|CouchDB <br />LevelDB |
 **De grootte van de virtuele machine knooppunt peer** |De grootte van de virtuele machine die wordt gebruikt voor alle knooppunten in het netwerk|Standard Bs<br />Standard Ds<br />Standard FS |
 
 ### <a name="multiple-peer-node-configuration"></a>Configuratie met meerdere peer-knooppunten
 
-Met deze sjabloon kunt u uw opslagengine per gelijkwaardige node kiezen. Als u bijvoorbeeld drie peer-nodes hebt, kunt u CouchDB op één en LevelDB op de andere twee gebruiken.
+Met deze sjabloon kunt u uw persistentie-engine per peerknooppunt kiezen. Als u bijvoorbeeld drie peerknooppunten hebt, kunt u CouchDB op één knooppunt en LevelDB op de andere twee gebruiken.
 
 ![Configuratie met meerdere peer-knooppunt](./media/hyperledger-fabric-consortium-blockchain/multiple-peer-nodes.png)
 
@@ -137,7 +137,7 @@ Selecteer **OK**.
 
 ### <a name="deploy"></a>Implementeren
 
-Bekijk in de **samenvatting** de ingevoerde waarden en voer de basis pre-deploymentvalidatie uit.
+Bekijk in de **samenvatting** de ingevoerde waarden en voer de basisvalidatie vóór implementatie uit.
 
 ![Samenvatting](./media/hyperledger-fabric-consortium-blockchain/summary.png)
 
