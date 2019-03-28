@@ -1,0 +1,75 @@
+items:
+- name: Documentatie voor ASC voor IoT Preview
+  href: index.yml
+- name: Overzicht
+  href: overview.md
+  items:
+  - name: Architectuur voor de oplossing
+    href: architecture.md
+  - name: Beveiligingsagents
+    href: security-agent-architecture.md
+  - name: Servicevereisten
+    href: service-prerequisites.md
+  - name: Aan de slag met ASC voor IoT
+    href: getting-started.md
+- name: Snelstartgidsen
+  items:
+  - name: ASC voor IoT inschakelen in IoT Hub
+    href: quickstart-onboard-iot-hub.md
+  - name: De oplossing configureren
+    href: quickstart-configure-your-solution.md
+  - name: Een ASC voor IoT-moduledubbel maken
+    href: quickstart-create-security-twin.md
+  - name: Aangepaste beveiligingswaarschuwingen maken
+    href: quickstart-create-custom-alerts.md
+  expanded: true
+- name: Zelfstudies
+  items:
+  - name: Beveiligingsagents implementeren
+    items:
+    - name: Een beveiligingsagent op basis van C# implementeren op een Windows-apparaat
+      href: tutorial-deploy-windows-cs.md
+    - name: Een beveiligingsagent op basis van C# implementeren op een Linux-apparaat
+      href: tutorial-deploy-linux-cs.md
+    - name: Een beveiligingsagent op basis van C implementeren op een Linux-apparaat
+      href: tutorial-deploy-linux-c.md
+  - name: Een apparaat onderzoeken
+    href: tutorial-investigate-device.md
+  - name: Uw eigen beveiligingsberichten verzenden
+    href: tutorial-send-security-messages.md
+- name: Concepten
+  items:
+  - name: Welke agent moet ik implementeren?
+    href: select-deploy-agent.md
+  - name: Beveiligingsagents configureren
+    href: concept-agent-configuration.md
+  - name: Verificatie voor beveiligingsagents
+    href: concept-security-agent-authentication-methods.md
+  - name: Beveiligingsmodule
+    href: concept-security-module.md
+  - name: Beveiligingswaarschuwingen
+    href: concept-security-alerts.md
+  - name: Aanbevelingen voor beveiliging
+    href: concept-recommendations.md
+- name: Handleidingen
+  items:
+  - name: Toegang tot onbewerkte beveiligingsgegevens
+    href: how-to-security-data-access.md
+  - name: Een beveiligingsmoduledubbel aanpassen
+    href: how-to-modify-security-module-twin.md
+- name: Resources
+  items:
+  - name: Veelgestelde vragen
+    href: resources-frequently-asked-questions.md
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Blog over veiligheid, privacy en naleving met betrekking tot Azure
+    href: http://blogs.msdn.com/b/azuresecurity/
+  - name: Regionale beschikbaarheid
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: 6789b87deb5c502df3541a10e9a8e4eece21a351
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541315"

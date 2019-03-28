@@ -18,6 +18,8 @@ ms.author: carolz
 
 Meer informatie over het streamen van video van broadcastkwaliteit met Media Services, een uitbreidbaar cloudplatform. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u veilig on-demand of live video- of audiostromen levert aan miljoenen gebruikers.
 
+**OPMERKING:** Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [Hulp bij migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md).
+
 <ul class="panelContent cardsFTitle">
      <li>
         <a href="/azure/media-services/media-services-overview">
@@ -66,7 +68,7 @@ Meer informatie over het streamen van video van broadcastkwaliteit met Media Ser
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure Media Services met Azure Portal</h3>
+                        <h3>Aan de slag met Azure Media Services met de Azure-portal</h3>
                     </div>
                 </div>
             </div>
@@ -102,7 +104,7 @@ Meer informatie over het streamen van video van broadcastkwaliteit met Media Ser
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met het leveren van inhoud met Azure Portal</h3>
+                        <h3>Aan de slag met het leveren van inhoud met de Azure-portal</h3>
                     </div>
                 </div>
             </div>

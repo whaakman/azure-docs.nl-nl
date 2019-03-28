@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cdb34766617a27848a68ee1b4227153bd6ab63f8
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 418410bfe1cb7c10d6095ee7175a2637501ce40f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359616"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520442"
 documentType: LandingData
 title: Documentatie voor Azure HDInsight
 metadata:
@@ -15,9 +15,9 @@ metadata:
   ms.author: hrasheed
   ms.service: hdinsight
   ms.topic: landing-page
-  ms.date: 10/18/2018
+  ms.date: 03/26/2019
 abstract:
-  description: Leer hoe u Azure HDInsight kunt gebruiken om streaming of historische gegevens te analyseren. Zelfstudies en andere documentatie laten u zien hoe u clusters maakt, big data verwerkt en analyseert, en oplossingen ontwikkelt met populaire open-source frameworks als Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm en Microsoft Machine Learning Server.<p>Azure HDInsight is een volledig beheerde, zeer uitgebreide open-source analyseservice voor bedrijven. HDInsight is een cloudservice die het eenvoudig, snel en kosteneffectief maakt om enorme hoeveelheden gegevens te verwerken. HDInsight biedt bovendien ondersteuning voor een breed scala aan scenario's, zoals uitpakken, transformeren en laden (ETL), gegevensopslag, machine learning en IoT.</p>
+  description: Leer hoe u Azure HDInsight kunt gebruiken om streaming of historische gegevens te analyseren. Zelfstudies en andere documentatie laten u zien hoe u clusters maakt, big data verwerkt en analyseert, en oplossingen ontwikkelt met populaire open-source frameworks als Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm en Microsoft Machine Learning Server.<p>Azure HDInsight is een beheerde, zeer uitgebreide open-source analyseservice voor bedrijven. HDInsight is een cloudservice die het eenvoudig, snel en kosteneffectief maakt om enorme hoeveelheden gegevens te verwerken. HDInsight biedt bovendien ondersteuning voor een breed scala aan scenario's, zoals uitpakken, transformeren en laden (ETL), gegevensopslag, machine learning en IoT.</p>
   aside:
     image:
       alt: 

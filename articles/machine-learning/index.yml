@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4581173f142170248a48d99683804bdb67f1703e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2f8e833088ffdf819e387fd28ae88508d5fe6d00
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250673"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519919"
 abstract:
   description: Meer informatie over hoe u intelligente algoritmes in apps en websites bouwt met deze Azure Machine Learning-producten.  Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.
 documentType: LandingData
@@ -38,8 +38,8 @@ sections:
   - text: <b>Quickstarts:</b>
     type: paragraph
   - items:
-    - html: <a href="service/quickstart-create-workspace-with-python">Python gebruiken om aan de slag te gaan</a>
-    - html: <a href="service/quickstart-get-started">Azure Portal gebruiken om aan de slag te gaan</a>
+    - html: <a href="service/quickstart-run-cloud-notebook">Een experiment uitvoeren in de cloud</a> (geen installatie vereist)
+    - html: <a href="service/quickstart-run-local-notebook">Een experiment met behulp van een lokale notebookserver uitvoeren</a> (lokale SDK-installatie)
     style: unordered
     type: list
   - text: <b>Zelfstudie voor afbeeldingsclassificatie met MNIST-gegevens:</b>
